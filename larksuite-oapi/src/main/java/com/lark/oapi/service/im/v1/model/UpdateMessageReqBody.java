@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class UpdateMessageReqBody {
-     /**
-      * 消息的类型，仅支持文本(text)和富文本(post)类型
-      * <p> 示例值：text
-      */
+    /**
+     * 消息的类型，仅支持文本(text)和富文本(post)类型
+     * <p> 示例值：text
+     */
     @SerializedName("msg_type")
     private String msgType;
-     /**
-      * 消息内容，JSON 格式
-      * <p> 示例值：{"text":"test content"}
-      */
+    /**
+     * 消息内容，JSON 格式
+     * <p> 示例值：{"text":"test content"}
+     */
     @SerializedName("content")
     private String content;
+
+    // builder 开始
+    public UpdateMessageReqBody() {
+    }
+
+    public UpdateMessageReqBody(Builder builder) {
+        /**
+         * 消息的类型，仅支持文本(text)和富文本(post)类型
+         * <p> 示例值：text
+         */
+        this.msgType = builder.msgType;
+        /**
+         * 消息内容，JSON 格式
+         * <p> 示例值：{"text":"test content"}
+         */
+        this.content = builder.content;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getMsgType() {
         return this.msgType;
     }
@@ -53,67 +79,46 @@ public class UpdateMessageReqBody {
         this.content = content;
     }
 
-
-// builder 开始
-  public UpdateMessageReqBody(){}
-
-  public UpdateMessageReqBody(Builder builder){
-         /**
-          * 消息的类型，仅支持文本(text)和富文本(post)类型
-          * <p> 示例值：text
-          */
-      this.msgType = builder.msgType;
-         /**
-          * 消息内容，JSON 格式
-          * <p> 示例值：{"text":"test content"}
-          */
-      this.content = builder.content;
-  }
-
     public static class Builder {
-     /**
-      * 消息的类型，仅支持文本(text)和富文本(post)类型
-      * <p> 示例值：text
-      */
+        /**
+         * 消息的类型，仅支持文本(text)和富文本(post)类型
+         * <p> 示例值：text
+         */
         private String msgType;
-     /**
-      * 消息内容，JSON 格式
-      * <p> 示例值：{"text":"test content"}
-      */
+        /**
+         * 消息内容，JSON 格式
+         * <p> 示例值：{"text":"test content"}
+         */
         private String content;
 
         /**
          * 消息的类型，仅支持文本(text)和富文本(post)类型
          * <p> 示例值：text
+         *
          * @param msgType
          * @return
          */
         public Builder msgType(String msgType) {
-             this.msgType = msgType;
-             return this;
+            this.msgType = msgType;
+            return this;
         }
 
-    
 
         /**
          * 消息内容，JSON 格式
          * <p> 示例值：{"text":"test content"}
+         *
          * @param content
          * @return
          */
         public Builder content(String content) {
-             this.content = content;
-             return this;
+            this.content = content;
+            return this;
         }
 
-    
-    
-    public UpdateMessageReqBody build(){
-        return new UpdateMessageReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public UpdateMessageReqBody build() {
+            return new UpdateMessageReqBody(this);
+        }
     }
 }

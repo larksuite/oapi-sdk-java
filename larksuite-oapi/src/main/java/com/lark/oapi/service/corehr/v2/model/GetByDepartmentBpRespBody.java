@@ -12,24 +12,29 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class GetByDepartmentBpRespBody {
-     /**
-      * 部门 HRBP 信息，依次为部门及各层级上级部门
-      * <p> 示例值：
-      */
+    /**
+     * 部门 HRBP 信息，依次为部门及各层级上级部门
+     * <p> 示例值：
+     */
     @SerializedName("items")
     private DepartmentHrbp[] items;
+
     public DepartmentHrbp[] getItems() {
         return this.items;
     }

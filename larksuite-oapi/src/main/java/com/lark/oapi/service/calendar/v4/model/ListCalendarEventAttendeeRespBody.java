@@ -12,36 +12,41 @@
  */
 
 package com.lark.oapi.service.calendar.v4.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ListCalendarEventAttendeeRespBody {
-     /**
-      * 日程的参与者列表
-      * <p> 示例值：
-      */
+    /**
+     * 日程的参与者列表
+     * <p> 示例值：
+     */
     @SerializedName("items")
     private CalendarEventAttendee[] items;
-     /**
-      * 是否有下一页数据
-      * <p> 示例值：true
-      */
+    /**
+     * 是否有下一页数据
+     * <p> 示例值：true
+     */
     @SerializedName("has_more")
     private Boolean hasMore;
-     /**
-      * 下次请求需要带上的分页标记，90 天有效期
-      * <p> 示例值：38RTjheyXXXX
-      */
+    /**
+     * 下次请求需要带上的分页标记，90 天有效期
+     * <p> 示例值：38RTjheyXXXX
+     */
     @SerializedName("page_token")
     private String pageToken;
+
     public CalendarEventAttendee[] getItems() {
         return this.items;
     }

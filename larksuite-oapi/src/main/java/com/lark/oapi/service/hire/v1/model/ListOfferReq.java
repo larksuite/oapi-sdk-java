@@ -12,52 +12,93 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ListOfferReq {
-     /**
-      * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
-      * <p> 示例值：1231231987
-      */
+    /**
+     * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
+     * <p> 示例值：1231231987
+     */
     @Query
     @SerializedName("page_token")
     private String pageToken;
-     /**
-      * 每页获取记录数量，最大100
-      * <p> 示例值：100
-      */
+    /**
+     * 每页获取记录数量，最大100
+     * <p> 示例值：100
+     */
     @Query
     @SerializedName("page_size")
     private Integer pageSize;
-     /**
-      * 人才 ID
-      * <p> 示例值：7096320678581242123
-      */
+    /**
+     * 人才 ID
+     * <p> 示例值：7096320678581242123
+     */
     @Query
     @SerializedName("talent_id")
     private String talentId;
-     /**
-      * 此次调用中使用的用户ID的类型
-      * <p> 示例值：
-      */
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
-     /**
-      * 此次调用中使用的「人员类型 ID」的类型
-      * <p> 示例值：
-      */
+    /**
+     * 此次调用中使用的「人员类型 ID」的类型
+     * <p> 示例值：
+     */
     @Query
     @SerializedName("employee_type_id_type")
     private String employeeTypeIdType;
+
+    // builder 开始
+    public ListOfferReq() {
+    }
+
+    public ListOfferReq(Builder builder) {
+        /**
+         * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
+         * <p> 示例值：1231231987
+         */
+        this.pageToken = builder.pageToken;
+        /**
+         * 每页获取记录数量，最大100
+         * <p> 示例值：100
+         */
+        this.pageSize = builder.pageSize;
+        /**
+         * 人才 ID
+         * <p> 示例值：7096320678581242123
+         */
+        this.talentId = builder.talentId;
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         */
+        this.userIdType = builder.userIdType;
+        /**
+         * 此次调用中使用的「人员类型 ID」的类型
+         * <p> 示例值：
+         */
+        this.employeeTypeIdType = builder.employeeTypeIdType;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getPageToken() {
         return this.pageToken;
     }
@@ -98,111 +139,80 @@ public class ListOfferReq {
         this.employeeTypeIdType = employeeTypeIdType;
     }
 
-
-// builder 开始
-  public ListOfferReq(){}
-
-  public ListOfferReq(Builder builder){
-         /**
-          * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
-          * <p> 示例值：1231231987
-          */
-       this.pageToken = builder.pageToken;
-         /**
-          * 每页获取记录数量，最大100
-          * <p> 示例值：100
-          */
-       this.pageSize = builder.pageSize;
-         /**
-          * 人才 ID
-          * <p> 示例值：7096320678581242123
-          */
-       this.talentId = builder.talentId;
-         /**
-          * 此次调用中使用的用户ID的类型
-          * <p> 示例值：
-          */
-       this.userIdType = builder.userIdType;
-         /**
-          * 此次调用中使用的「人员类型 ID」的类型
-          * <p> 示例值：
-          */
-       this.employeeTypeIdType = builder.employeeTypeIdType;
-  }
-
     public static class Builder {
         private String pageToken; // 页码标识，获取第一页传空，每次查询会返回下一页的page_token
         private Integer pageSize; // 每页获取记录数量，最大100
         private String talentId; // 人才 ID
         private String userIdType; // 此次调用中使用的用户ID的类型
         private String employeeTypeIdType; // 此次调用中使用的「人员类型 ID」的类型
-    
+
         /**
          * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
          * <p> 示例值：1231231987
+         *
          * @param pageToken
          * @return
          */
-           public Builder pageToken(String pageToken) {
-                this.pageToken = pageToken;
-                return this;
-           }
+        public Builder pageToken(String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+        }
 
-    
+
         /**
          * 每页获取记录数量，最大100
          * <p> 示例值：100
+         *
          * @param pageSize
          * @return
          */
-           public Builder pageSize(Integer pageSize) {
-                this.pageSize = pageSize;
-                return this;
-           }
+        public Builder pageSize(Integer pageSize) {
+            this.pageSize = pageSize;
+            return this;
+        }
 
-    
+
         /**
          * 人才 ID
          * <p> 示例值：7096320678581242123
+         *
          * @param talentId
          * @return
          */
-           public Builder talentId(String talentId) {
-                this.talentId = talentId;
-                return this;
-           }
+        public Builder talentId(String talentId) {
+            this.talentId = talentId;
+            return this;
+        }
 
-    
+
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
+         *
          * @param userIdType
          * @return
          */
-           public Builder userIdType(String userIdType) {
-                this.userIdType = userIdType;
-                return this;
-           }
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
 
-    
+
         /**
          * 此次调用中使用的「人员类型 ID」的类型
          * <p> 示例值：
+         *
          * @param employeeTypeIdType
          * @return
          */
-           public Builder employeeTypeIdType(String employeeTypeIdType) {
-                this.employeeTypeIdType = employeeTypeIdType;
-                return this;
-           }
+        public Builder employeeTypeIdType(String employeeTypeIdType) {
+            this.employeeTypeIdType = employeeTypeIdType;
+            return this;
+        }
 
-    
-    public ListOfferReq build(){
-        return new ListOfferReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ListOfferReq build() {
+            return new ListOfferReq(this);
+        }
     }
 }

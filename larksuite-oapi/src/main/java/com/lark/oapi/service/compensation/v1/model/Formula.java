@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.compensation.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.compensation.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Formula {
-     /**
-      * 公式表达式
-      * <p> 示例值：${0} +${1}
-      */
+    /**
+     * 公式表达式
+     * <p> 示例值：${0} +${1}
+     */
     @SerializedName("expr")
     private String expr;
-     /**
-      * 公式参数列表
-      * <p> 示例值：
-      */
+    /**
+     * 公式参数列表
+     * <p> 示例值：
+     */
     @SerializedName("formula_params")
     private FormulaParam[] formulaParams;
+
+    // builder 开始
+    public Formula() {
+    }
+
+    public Formula(Builder builder) {
+        /**
+         * 公式表达式
+         * <p> 示例值：${0} +${1}
+         */
+        this.expr = builder.expr;
+        /**
+         * 公式参数列表
+         * <p> 示例值：
+         */
+        this.formulaParams = builder.formulaParams;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getExpr() {
         return this.expr;
     }
@@ -53,67 +79,46 @@ public class Formula {
         this.formulaParams = formulaParams;
     }
 
-
-// builder 开始
-  public Formula(){}
-
-  public Formula(Builder builder){
-         /**
-          * 公式表达式
-          * <p> 示例值：${0} +${1}
-          */
-      this.expr = builder.expr;
-         /**
-          * 公式参数列表
-          * <p> 示例值：
-          */
-      this.formulaParams = builder.formulaParams;
-  }
-
     public static class Builder {
-     /**
-      * 公式表达式
-      * <p> 示例值：${0} +${1}
-      */
+        /**
+         * 公式表达式
+         * <p> 示例值：${0} +${1}
+         */
         private String expr;
-     /**
-      * 公式参数列表
-      * <p> 示例值：
-      */
+        /**
+         * 公式参数列表
+         * <p> 示例值：
+         */
         private FormulaParam[] formulaParams;
 
         /**
          * 公式表达式
          * <p> 示例值：${0} +${1}
+         *
          * @param expr
          * @return
          */
         public Builder expr(String expr) {
-             this.expr = expr;
-             return this;
+            this.expr = expr;
+            return this;
         }
 
-    
 
         /**
          * 公式参数列表
          * <p> 示例值：
+         *
          * @param formulaParams
          * @return
          */
         public Builder formulaParams(FormulaParam[] formulaParams) {
-             this.formulaParams = formulaParams;
-             return this;
+            this.formulaParams = formulaParams;
+            return this;
         }
 
-    
-    
-    public Formula build(){
-        return new Formula(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Formula build() {
+            return new Formula(this);
+        }
     }
 }

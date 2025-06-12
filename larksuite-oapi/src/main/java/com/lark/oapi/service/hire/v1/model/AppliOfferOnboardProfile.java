@@ -12,84 +12,155 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class AppliOfferOnboardProfile {
-     /**
-      * offer ID
-      * <p> 示例值：6942778198054125570
-      */
+    /**
+     * offer ID
+     * <p> 示例值：6942778198054125570
+     */
     @SerializedName("offer_id")
     private String offerId;
-     /**
-      * 部门
-      * <p> 示例值：
-      */
+    /**
+     * 部门
+     * <p> 示例值：
+     */
     @SerializedName("department")
     private Department department;
-     /**
-      * 招聘类型
-      * <p> 示例值：
-      */
+    /**
+     * 招聘类型
+     * <p> 示例值：
+     */
     @SerializedName("recruitment_type")
     private RecruitmentType recruitmentType;
-     /**
-      * 序列
-      * <p> 示例值：
-      */
+    /**
+     * 序列
+     * <p> 示例值：
+     */
     @SerializedName("sequence")
     private Sequence sequence;
-     /**
-      * 职级
-      * <p> 示例值：
-      */
+    /**
+     * 职级
+     * <p> 示例值：
+     */
     @SerializedName("level")
     private Level level;
-     /**
-      * onboard地址
-      * <p> 示例值：
-      */
+    /**
+     * onboard地址
+     * <p> 示例值：
+     */
     @SerializedName("onboard_address")
     private AppliOfferOnboardProfileAdd onboardAddress;
-     /**
-      * 工作地址
-      * <p> 示例值：
-      */
+    /**
+     * 工作地址
+     * <p> 示例值：
+     */
     @SerializedName("work_address")
     private AppliOfferOnboardProfileAdd workAddress;
-     /**
-      * 领导
-      * <p> 示例值：
-      */
+    /**
+     * 领导
+     * <p> 示例值：
+     */
     @SerializedName("leader")
     private AppliOfferBasicInfoUser leader;
-     /**
-      * 工作地址是否与onboard地址相同
-      * <p> 示例值：
-      */
+    /**
+     * 工作地址是否与onboard地址相同
+     * <p> 示例值：
+     */
     @SerializedName("is_work_address_same_to_onboard")
     private Boolean isWorkAddressSameToOnboard;
-     /**
-      * 试用期
-      * <p> 示例值：90
-      */
+    /**
+     * 试用期
+     * <p> 示例值：90
+     */
     @SerializedName("probation_month")
     private Long probationMonth;
-     /**
-      * 合同年限
-      * <p> 示例值：10
-      */
+    /**
+     * 合同年限
+     * <p> 示例值：10
+     */
     @SerializedName("contract_year")
     private Long contractYear;
+
+    // builder 开始
+    public AppliOfferOnboardProfile() {
+    }
+
+    public AppliOfferOnboardProfile(Builder builder) {
+        /**
+         * offer ID
+         * <p> 示例值：6942778198054125570
+         */
+        this.offerId = builder.offerId;
+        /**
+         * 部门
+         * <p> 示例值：
+         */
+        this.department = builder.department;
+        /**
+         * 招聘类型
+         * <p> 示例值：
+         */
+        this.recruitmentType = builder.recruitmentType;
+        /**
+         * 序列
+         * <p> 示例值：
+         */
+        this.sequence = builder.sequence;
+        /**
+         * 职级
+         * <p> 示例值：
+         */
+        this.level = builder.level;
+        /**
+         * onboard地址
+         * <p> 示例值：
+         */
+        this.onboardAddress = builder.onboardAddress;
+        /**
+         * 工作地址
+         * <p> 示例值：
+         */
+        this.workAddress = builder.workAddress;
+        /**
+         * 领导
+         * <p> 示例值：
+         */
+        this.leader = builder.leader;
+        /**
+         * 工作地址是否与onboard地址相同
+         * <p> 示例值：
+         */
+        this.isWorkAddressSameToOnboard = builder.isWorkAddressSameToOnboard;
+        /**
+         * 试用期
+         * <p> 示例值：90
+         */
+        this.probationMonth = builder.probationMonth;
+        /**
+         * 合同年限
+         * <p> 示例值：10
+         */
+        this.contractYear = builder.contractYear;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getOfferId() {
         return this.offerId;
     }
@@ -178,274 +249,208 @@ public class AppliOfferOnboardProfile {
         this.contractYear = contractYear;
     }
 
-
-// builder 开始
-  public AppliOfferOnboardProfile(){}
-
-  public AppliOfferOnboardProfile(Builder builder){
-         /**
-          * offer ID
-          * <p> 示例值：6942778198054125570
-          */
-      this.offerId = builder.offerId;
-         /**
-          * 部门
-          * <p> 示例值：
-          */
-      this.department = builder.department;
-         /**
-          * 招聘类型
-          * <p> 示例值：
-          */
-      this.recruitmentType = builder.recruitmentType;
-         /**
-          * 序列
-          * <p> 示例值：
-          */
-      this.sequence = builder.sequence;
-         /**
-          * 职级
-          * <p> 示例值：
-          */
-      this.level = builder.level;
-         /**
-          * onboard地址
-          * <p> 示例值：
-          */
-      this.onboardAddress = builder.onboardAddress;
-         /**
-          * 工作地址
-          * <p> 示例值：
-          */
-      this.workAddress = builder.workAddress;
-         /**
-          * 领导
-          * <p> 示例值：
-          */
-      this.leader = builder.leader;
-         /**
-          * 工作地址是否与onboard地址相同
-          * <p> 示例值：
-          */
-      this.isWorkAddressSameToOnboard = builder.isWorkAddressSameToOnboard;
-         /**
-          * 试用期
-          * <p> 示例值：90
-          */
-      this.probationMonth = builder.probationMonth;
-         /**
-          * 合同年限
-          * <p> 示例值：10
-          */
-      this.contractYear = builder.contractYear;
-  }
-
     public static class Builder {
-     /**
-      * offer ID
-      * <p> 示例值：6942778198054125570
-      */
+        /**
+         * offer ID
+         * <p> 示例值：6942778198054125570
+         */
         private String offerId;
-     /**
-      * 部门
-      * <p> 示例值：
-      */
+        /**
+         * 部门
+         * <p> 示例值：
+         */
         private Department department;
-     /**
-      * 招聘类型
-      * <p> 示例值：
-      */
+        /**
+         * 招聘类型
+         * <p> 示例值：
+         */
         private RecruitmentType recruitmentType;
-     /**
-      * 序列
-      * <p> 示例值：
-      */
+        /**
+         * 序列
+         * <p> 示例值：
+         */
         private Sequence sequence;
-     /**
-      * 职级
-      * <p> 示例值：
-      */
+        /**
+         * 职级
+         * <p> 示例值：
+         */
         private Level level;
-     /**
-      * onboard地址
-      * <p> 示例值：
-      */
+        /**
+         * onboard地址
+         * <p> 示例值：
+         */
         private AppliOfferOnboardProfileAdd onboardAddress;
-     /**
-      * 工作地址
-      * <p> 示例值：
-      */
+        /**
+         * 工作地址
+         * <p> 示例值：
+         */
         private AppliOfferOnboardProfileAdd workAddress;
-     /**
-      * 领导
-      * <p> 示例值：
-      */
+        /**
+         * 领导
+         * <p> 示例值：
+         */
         private AppliOfferBasicInfoUser leader;
-     /**
-      * 工作地址是否与onboard地址相同
-      * <p> 示例值：
-      */
+        /**
+         * 工作地址是否与onboard地址相同
+         * <p> 示例值：
+         */
         private Boolean isWorkAddressSameToOnboard;
-     /**
-      * 试用期
-      * <p> 示例值：90
-      */
+        /**
+         * 试用期
+         * <p> 示例值：90
+         */
         private Long probationMonth;
-     /**
-      * 合同年限
-      * <p> 示例值：10
-      */
+        /**
+         * 合同年限
+         * <p> 示例值：10
+         */
         private Long contractYear;
 
         /**
          * offer ID
          * <p> 示例值：6942778198054125570
+         *
          * @param offerId
          * @return
          */
         public Builder offerId(String offerId) {
-             this.offerId = offerId;
-             return this;
+            this.offerId = offerId;
+            return this;
         }
 
-    
 
         /**
          * 部门
          * <p> 示例值：
+         *
          * @param department
          * @return
          */
         public Builder department(Department department) {
-             this.department = department;
-             return this;
+            this.department = department;
+            return this;
         }
 
-    
 
         /**
          * 招聘类型
          * <p> 示例值：
+         *
          * @param recruitmentType
          * @return
          */
         public Builder recruitmentType(RecruitmentType recruitmentType) {
-             this.recruitmentType = recruitmentType;
-             return this;
+            this.recruitmentType = recruitmentType;
+            return this;
         }
 
-    
 
         /**
          * 序列
          * <p> 示例值：
+         *
          * @param sequence
          * @return
          */
         public Builder sequence(Sequence sequence) {
-             this.sequence = sequence;
-             return this;
+            this.sequence = sequence;
+            return this;
         }
 
-    
 
         /**
          * 职级
          * <p> 示例值：
+         *
          * @param level
          * @return
          */
         public Builder level(Level level) {
-             this.level = level;
-             return this;
+            this.level = level;
+            return this;
         }
 
-    
 
         /**
          * onboard地址
          * <p> 示例值：
+         *
          * @param onboardAddress
          * @return
          */
         public Builder onboardAddress(AppliOfferOnboardProfileAdd onboardAddress) {
-             this.onboardAddress = onboardAddress;
-             return this;
+            this.onboardAddress = onboardAddress;
+            return this;
         }
 
-    
 
         /**
          * 工作地址
          * <p> 示例值：
+         *
          * @param workAddress
          * @return
          */
         public Builder workAddress(AppliOfferOnboardProfileAdd workAddress) {
-             this.workAddress = workAddress;
-             return this;
+            this.workAddress = workAddress;
+            return this;
         }
 
-    
 
         /**
          * 领导
          * <p> 示例值：
+         *
          * @param leader
          * @return
          */
         public Builder leader(AppliOfferBasicInfoUser leader) {
-             this.leader = leader;
-             return this;
+            this.leader = leader;
+            return this;
         }
 
-    
 
         /**
          * 工作地址是否与onboard地址相同
          * <p> 示例值：
+         *
          * @param isWorkAddressSameToOnboard
          * @return
          */
         public Builder isWorkAddressSameToOnboard(Boolean isWorkAddressSameToOnboard) {
-             this.isWorkAddressSameToOnboard = isWorkAddressSameToOnboard;
-             return this;
+            this.isWorkAddressSameToOnboard = isWorkAddressSameToOnboard;
+            return this;
         }
 
-    
 
         /**
          * 试用期
          * <p> 示例值：90
+         *
          * @param probationMonth
          * @return
          */
         public Builder probationMonth(Long probationMonth) {
-             this.probationMonth = probationMonth;
-             return this;
+            this.probationMonth = probationMonth;
+            return this;
         }
 
-    
 
         /**
          * 合同年限
          * <p> 示例值：10
+         *
          * @param contractYear
          * @return
          */
         public Builder contractYear(Long contractYear) {
-             this.contractYear = contractYear;
-             return this;
+            this.contractYear = contractYear;
+            return this;
         }
 
-    
-    
-    public AppliOfferOnboardProfile build(){
-        return new AppliOfferOnboardProfile(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public AppliOfferOnboardProfile build() {
+            return new AppliOfferOnboardProfile(this);
+        }
     }
 }

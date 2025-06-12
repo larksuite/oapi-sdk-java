@@ -12,36 +12,41 @@
  */
 
 package com.lark.oapi.service.calendar.v4.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ListCalendarEventAttendeeChatMemberRespBody {
-     /**
-      * 群中的群成员，当type为chat时有效；群成员不支持编辑
-      * <p> 示例值：
-      */
+    /**
+     * 群中的群成员，当type为chat时有效；群成员不支持编辑
+     * <p> 示例值：
+     */
     @SerializedName("items")
     private CalendarEventAttendeeChatMember[] items;
-     /**
-      * 是否有下一页数据
-      * <p> 示例值：false
-      */
+    /**
+     * 是否有下一页数据
+     * <p> 示例值：false
+     */
     @SerializedName("has_more")
     private Boolean hasMore;
-     /**
-      * 下次请求需要带上的分页标记
-      * <p> 示例值：73TyueXXXXX
-      */
+    /**
+     * 下次请求需要带上的分页标记
+     * <p> 示例值：73TyueXXXXX
+     */
     @SerializedName("page_token")
     private String pageToken;
+
     public CalendarEventAttendeeChatMember[] getItems() {
         return this.items;
     }

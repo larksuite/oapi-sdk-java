@@ -12,36 +12,41 @@
  */
 
 package com.lark.oapi.service.task.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ListAttachmentRespBody {
-     /**
-      * 附件列表
-      * <p> 示例值：
-      */
+    /**
+     * 附件列表
+     * <p> 示例值：
+     */
     @SerializedName("items")
     private Attachment[] items;
-     /**
-      * 获取下一页的分页标记，无更多数据时返回空
-      * <p> 示例值：aWQ9NzEwMjMzMjMxMDE=
-      */
+    /**
+     * 获取下一页的分页标记，无更多数据时返回空
+     * <p> 示例值：aWQ9NzEwMjMzMjMxMDE=
+     */
     @SerializedName("page_token")
     private String pageToken;
-     /**
-      * 是否有更多数据
-      * <p> 示例值：true
-      */
+    /**
+     * 是否有更多数据
+     * <p> 示例值：true
+     */
     @SerializedName("has_more")
     private Boolean hasMore;
+
     public Attachment[] getItems() {
         return this.items;
     }

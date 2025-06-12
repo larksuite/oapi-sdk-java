@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.performance.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.performance.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,36 +20,71 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class OpenResult {
-     /**
-      * 被评估人 ID
-      * <p> 示例值：
-      */
+    /**
+     * 被评估人 ID
+     * <p> 示例值：
+     */
     @SerializedName("user_id")
     private UserId userId;
-     /**
-      * 绩效评估周期 ID
-      * <p> 示例值：7343576973861453844
-      */
+    /**
+     * 绩效评估周期 ID
+     * <p> 示例值：7343576973861453844
+     */
     @SerializedName("semester_id")
     private String semesterId;
-     /**
-      * 绩效评估项目 ID
-      * <p> 示例值：7343577163150393363
-      */
+    /**
+     * 绩效评估项目 ID
+     * <p> 示例值：7343577163150393363
+     */
     @SerializedName("activity_id")
     private String activityId;
-     /**
-      * 结果开通时间，毫秒时间戳
-      * <p> 示例值：1704038400000
-      */
+    /**
+     * 结果开通时间，毫秒时间戳
+     * <p> 示例值：1704038400000
+     */
     @SerializedName("open_time")
     private String openTime;
+
+    // builder 开始
+    public OpenResult() {
+    }
+
+    public OpenResult(Builder builder) {
+        /**
+         * 被评估人 ID
+         * <p> 示例值：
+         */
+        this.userId = builder.userId;
+        /**
+         * 绩效评估周期 ID
+         * <p> 示例值：7343576973861453844
+         */
+        this.semesterId = builder.semesterId;
+        /**
+         * 绩效评估项目 ID
+         * <p> 示例值：7343577163150393363
+         */
+        this.activityId = builder.activityId;
+        /**
+         * 结果开通时间，毫秒时间戳
+         * <p> 示例值：1704038400000
+         */
+        this.openTime = builder.openTime;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public UserId getUserId() {
         return this.userId;
     }
@@ -81,113 +117,82 @@ public class OpenResult {
         this.openTime = openTime;
     }
 
-
-// builder 开始
-  public OpenResult(){}
-
-  public OpenResult(Builder builder){
-         /**
-          * 被评估人 ID
-          * <p> 示例值：
-          */
-      this.userId = builder.userId;
-         /**
-          * 绩效评估周期 ID
-          * <p> 示例值：7343576973861453844
-          */
-      this.semesterId = builder.semesterId;
-         /**
-          * 绩效评估项目 ID
-          * <p> 示例值：7343577163150393363
-          */
-      this.activityId = builder.activityId;
-         /**
-          * 结果开通时间，毫秒时间戳
-          * <p> 示例值：1704038400000
-          */
-      this.openTime = builder.openTime;
-  }
-
     public static class Builder {
-     /**
-      * 被评估人 ID
-      * <p> 示例值：
-      */
+        /**
+         * 被评估人 ID
+         * <p> 示例值：
+         */
         private UserId userId;
-     /**
-      * 绩效评估周期 ID
-      * <p> 示例值：7343576973861453844
-      */
+        /**
+         * 绩效评估周期 ID
+         * <p> 示例值：7343576973861453844
+         */
         private String semesterId;
-     /**
-      * 绩效评估项目 ID
-      * <p> 示例值：7343577163150393363
-      */
+        /**
+         * 绩效评估项目 ID
+         * <p> 示例值：7343577163150393363
+         */
         private String activityId;
-     /**
-      * 结果开通时间，毫秒时间戳
-      * <p> 示例值：1704038400000
-      */
+        /**
+         * 结果开通时间，毫秒时间戳
+         * <p> 示例值：1704038400000
+         */
         private String openTime;
 
         /**
          * 被评估人 ID
          * <p> 示例值：
+         *
          * @param userId
          * @return
          */
         public Builder userId(UserId userId) {
-             this.userId = userId;
-             return this;
+            this.userId = userId;
+            return this;
         }
 
-    
 
         /**
          * 绩效评估周期 ID
          * <p> 示例值：7343576973861453844
+         *
          * @param semesterId
          * @return
          */
         public Builder semesterId(String semesterId) {
-             this.semesterId = semesterId;
-             return this;
+            this.semesterId = semesterId;
+            return this;
         }
 
-    
 
         /**
          * 绩效评估项目 ID
          * <p> 示例值：7343577163150393363
+         *
          * @param activityId
          * @return
          */
         public Builder activityId(String activityId) {
-             this.activityId = activityId;
-             return this;
+            this.activityId = activityId;
+            return this;
         }
 
-    
 
         /**
          * 结果开通时间，毫秒时间戳
          * <p> 示例值：1704038400000
+         *
          * @param openTime
          * @return
          */
         public Builder openTime(String openTime) {
-             this.openTime = openTime;
-             return this;
+            this.openTime = openTime;
+            return this;
         }
 
-    
-    
-    public OpenResult build(){
-        return new OpenResult(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public OpenResult build() {
+            return new OpenResult(this);
+        }
     }
 }

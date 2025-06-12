@@ -12,36 +12,41 @@
  */
 
 package com.lark.oapi.service.mail.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ListMailgroupManagerRespBody {
-     /**
-      * 邮件组管理员列表
-      * <p> 示例值：
-      */
+    /**
+     * 邮件组管理员列表
+     * <p> 示例值：
+     */
     @SerializedName("items")
     private MailgroupManager[] items;
-     /**
-      * 分页标识
-      * <p> 示例值：xxxxxx
-      */
+    /**
+     * 分页标识
+     * <p> 示例值：xxxxxx
+     */
     @SerializedName("page_token")
     private String pageToken;
-     /**
-      * 是否有更多数据
-      * <p> 示例值：false
-      */
+    /**
+     * 是否有更多数据
+     * <p> 示例值：false
+     */
     @SerializedName("has_more")
     private Boolean hasMore;
+
     public MailgroupManager[] getItems() {
         return this.items;
     }

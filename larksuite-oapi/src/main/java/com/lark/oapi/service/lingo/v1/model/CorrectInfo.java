@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.lingo.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.lingo.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,48 +20,93 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CorrectInfo {
-     /**
-      * 用户英文纠错数总数
-      * <p> 示例值：
-      */
+    /**
+     * 用户英文纠错数总数
+     * <p> 示例值：
+     */
     @SerializedName("correct_total")
     private Integer correctTotal;
-     /**
-      * 时间区间内每一天纠错数
-      * <p> 示例值：
-      */
+    /**
+     * 时间区间内每一天纠错数
+     * <p> 示例值：
+     */
     @SerializedName("eachday_correct")
     private Integer[] eachdayCorrect;
-     /**
-      * 语法错误相关统计信息
-      * <p> 示例值：
-      */
+    /**
+     * 语法错误相关统计信息
+     * <p> 示例值：
+     */
     @SerializedName("grammar_error")
     private CorrectError grammarError;
-     /**
-      * 拼写错误相关统计信息
-      * <p> 示例值：
-      */
+    /**
+     * 拼写错误相关统计信息
+     * <p> 示例值：
+     */
     @SerializedName("spell_error")
     private CorrectError spellError;
-     /**
-      * 单复数错误相关统计信息
-      * <p> 示例值：
-      */
+    /**
+     * 单复数错误相关统计信息
+     * <p> 示例值：
+     */
     @SerializedName("noun_error")
     private CorrectError nounError;
-     /**
-      * 时态错误相关统计信息
-      * <p> 示例值：
-      */
+    /**
+     * 时态错误相关统计信息
+     * <p> 示例值：
+     */
     @SerializedName("verb_tense_error")
     private CorrectError verbTenseError;
+
+    // builder 开始
+    public CorrectInfo() {
+    }
+
+    public CorrectInfo(Builder builder) {
+        /**
+         * 用户英文纠错数总数
+         * <p> 示例值：
+         */
+        this.correctTotal = builder.correctTotal;
+        /**
+         * 时间区间内每一天纠错数
+         * <p> 示例值：
+         */
+        this.eachdayCorrect = builder.eachdayCorrect;
+        /**
+         * 语法错误相关统计信息
+         * <p> 示例值：
+         */
+        this.grammarError = builder.grammarError;
+        /**
+         * 拼写错误相关统计信息
+         * <p> 示例值：
+         */
+        this.spellError = builder.spellError;
+        /**
+         * 单复数错误相关统计信息
+         * <p> 示例值：
+         */
+        this.nounError = builder.nounError;
+        /**
+         * 时态错误相关统计信息
+         * <p> 示例值：
+         */
+        this.verbTenseError = builder.verbTenseError;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Integer getCorrectTotal() {
         return this.correctTotal;
     }
@@ -109,159 +155,118 @@ public class CorrectInfo {
         this.verbTenseError = verbTenseError;
     }
 
-
-// builder 开始
-  public CorrectInfo(){}
-
-  public CorrectInfo(Builder builder){
-         /**
-          * 用户英文纠错数总数
-          * <p> 示例值：
-          */
-      this.correctTotal = builder.correctTotal;
-         /**
-          * 时间区间内每一天纠错数
-          * <p> 示例值：
-          */
-      this.eachdayCorrect = builder.eachdayCorrect;
-         /**
-          * 语法错误相关统计信息
-          * <p> 示例值：
-          */
-      this.grammarError = builder.grammarError;
-         /**
-          * 拼写错误相关统计信息
-          * <p> 示例值：
-          */
-      this.spellError = builder.spellError;
-         /**
-          * 单复数错误相关统计信息
-          * <p> 示例值：
-          */
-      this.nounError = builder.nounError;
-         /**
-          * 时态错误相关统计信息
-          * <p> 示例值：
-          */
-      this.verbTenseError = builder.verbTenseError;
-  }
-
     public static class Builder {
-     /**
-      * 用户英文纠错数总数
-      * <p> 示例值：
-      */
+        /**
+         * 用户英文纠错数总数
+         * <p> 示例值：
+         */
         private Integer correctTotal;
-     /**
-      * 时间区间内每一天纠错数
-      * <p> 示例值：
-      */
+        /**
+         * 时间区间内每一天纠错数
+         * <p> 示例值：
+         */
         private Integer[] eachdayCorrect;
-     /**
-      * 语法错误相关统计信息
-      * <p> 示例值：
-      */
+        /**
+         * 语法错误相关统计信息
+         * <p> 示例值：
+         */
         private CorrectError grammarError;
-     /**
-      * 拼写错误相关统计信息
-      * <p> 示例值：
-      */
+        /**
+         * 拼写错误相关统计信息
+         * <p> 示例值：
+         */
         private CorrectError spellError;
-     /**
-      * 单复数错误相关统计信息
-      * <p> 示例值：
-      */
+        /**
+         * 单复数错误相关统计信息
+         * <p> 示例值：
+         */
         private CorrectError nounError;
-     /**
-      * 时态错误相关统计信息
-      * <p> 示例值：
-      */
+        /**
+         * 时态错误相关统计信息
+         * <p> 示例值：
+         */
         private CorrectError verbTenseError;
 
         /**
          * 用户英文纠错数总数
          * <p> 示例值：
+         *
          * @param correctTotal
          * @return
          */
         public Builder correctTotal(Integer correctTotal) {
-             this.correctTotal = correctTotal;
-             return this;
+            this.correctTotal = correctTotal;
+            return this;
         }
 
-    
 
         /**
          * 时间区间内每一天纠错数
          * <p> 示例值：
+         *
          * @param eachdayCorrect
          * @return
          */
         public Builder eachdayCorrect(Integer[] eachdayCorrect) {
-             this.eachdayCorrect = eachdayCorrect;
-             return this;
+            this.eachdayCorrect = eachdayCorrect;
+            return this;
         }
 
-    
 
         /**
          * 语法错误相关统计信息
          * <p> 示例值：
+         *
          * @param grammarError
          * @return
          */
         public Builder grammarError(CorrectError grammarError) {
-             this.grammarError = grammarError;
-             return this;
+            this.grammarError = grammarError;
+            return this;
         }
 
-    
 
         /**
          * 拼写错误相关统计信息
          * <p> 示例值：
+         *
          * @param spellError
          * @return
          */
         public Builder spellError(CorrectError spellError) {
-             this.spellError = spellError;
-             return this;
+            this.spellError = spellError;
+            return this;
         }
 
-    
 
         /**
          * 单复数错误相关统计信息
          * <p> 示例值：
+         *
          * @param nounError
          * @return
          */
         public Builder nounError(CorrectError nounError) {
-             this.nounError = nounError;
-             return this;
+            this.nounError = nounError;
+            return this;
         }
 
-    
 
         /**
          * 时态错误相关统计信息
          * <p> 示例值：
+         *
          * @param verbTenseError
          * @return
          */
         public Builder verbTenseError(CorrectError verbTenseError) {
-             this.verbTenseError = verbTenseError;
-             return this;
+            this.verbTenseError = verbTenseError;
+            return this;
         }
 
-    
-    
-    public CorrectInfo build(){
-        return new CorrectInfo(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public CorrectInfo build() {
+            return new CorrectInfo(this);
+        }
     }
 }

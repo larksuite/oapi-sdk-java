@@ -17,17 +17,19 @@ import com.lark.oapi.core.Config;
 import com.lark.oapi.service.drive.v2.resource.*;
 
 public class V2 {
-	private final FileLike fileLike; // file.like
-	private final PermissionPublic permissionPublic; // permission.public
+    private final FileLike fileLike; // file.like
+    private final PermissionPublic permissionPublic; // permission.public
 
-	public V2(Config config) {
-		this.fileLike = new FileLike(config);
-		this.permissionPublic = new PermissionPublic(config);
-	}
-	public FileLike fileLike() {
-		return fileLike;
-	}
-	public PermissionPublic permissionPublic() {
-		return permissionPublic;
-	}
+    public V2(Config config) {
+        this.fileLike = new FileLike(config);
+        this.permissionPublic = new PermissionPublic(config);
+    }
+
+    public FileLike fileLike() {
+        return fileLike;
+    }
+
+    public PermissionPublic permissionPublic() {
+        return permissionPublic;
+    }
 }

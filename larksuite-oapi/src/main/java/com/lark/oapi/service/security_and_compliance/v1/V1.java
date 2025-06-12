@@ -17,12 +17,13 @@ import com.lark.oapi.core.Config;
 import com.lark.oapi.service.security_and_compliance.v1.resource.*;
 
 public class V1 {
-	private final OpenapiLog openapiLog; // openapi_log
+    private final OpenapiLog openapiLog; // openapi_log
 
-	public V1(Config config) {
-		this.openapiLog = new OpenapiLog(config);
-	}
-	public OpenapiLog openapiLog() {
-		return openapiLog;
-	}
+    public V1(Config config) {
+        this.openapiLog = new OpenapiLog(config);
+    }
+
+    public OpenapiLog openapiLog() {
+        return openapiLog;
+    }
 }

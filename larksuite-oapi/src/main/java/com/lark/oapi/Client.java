@@ -13,59 +13,59 @@
 
 package com.lark.oapi;
 
-import com.lark.oapi.service.translation.TranslationService;
-import com.lark.oapi.service.acs.AcsService;
-import com.lark.oapi.service.approval.ApprovalService;
-import com.lark.oapi.service.auth.AuthService;
-import com.lark.oapi.service.calendar.CalendarService;
-import com.lark.oapi.service.compensation.CompensationService;
-import com.lark.oapi.service.docs.DocsService;
-import com.lark.oapi.service.human_authentication.HumanAuthenticationService;
-import com.lark.oapi.service.mail.MailService;
-import com.lark.oapi.service.contact.ContactService;
-import com.lark.oapi.service.okr.OkrService;
-import com.lark.oapi.service.search.SearchService;
-import com.lark.oapi.service.sheets.SheetsService;
-import com.lark.oapi.service.application.ApplicationService;
-import com.lark.oapi.service.lingo.LingoService;
-import com.lark.oapi.service.apaas.ApaasService;
-import com.lark.oapi.service.hire.HireService;
-import com.lark.oapi.service.task.TaskService;
-import com.lark.oapi.service.authen.AuthenService;
-import com.lark.oapi.service.bitable.BitableService;
-import com.lark.oapi.service.report.ReportService;
-import com.lark.oapi.service.block.BlockService;
-import com.lark.oapi.service.wiki.WikiService;
-import com.lark.oapi.service.admin.AdminService;
-import com.lark.oapi.service.event.EventService;
-import com.lark.oapi.service.helpdesk.HelpdeskService;
-import com.lark.oapi.service.im.ImService;
-import com.lark.oapi.service.passport.PassportService;
-import com.lark.oapi.service.payroll.PayrollService;
-import com.lark.oapi.service.workplace.WorkplaceService;
-import com.lark.oapi.service.attendance.AttendanceService;
-import com.lark.oapi.service.baike.BaikeService;
-import com.lark.oapi.service.base.BaseService;
-import com.lark.oapi.service.cardkit.CardkitService;
-import com.lark.oapi.service.corehr.CorehrService;
-import com.lark.oapi.service.docx.DocxService;
 import com.lark.oapi.service.optical_char_recognition.OpticalCharRecognitionService;
+import com.lark.oapi.service.authen.AuthenService;
 import com.lark.oapi.service.document_ai.DocumentAiService;
 import com.lark.oapi.service.meeting_room.MeetingRoomService;
-import com.lark.oapi.service.performance.PerformanceService;
-import com.lark.oapi.service.tenant.TenantService;
-import com.lark.oapi.service.board.BoardService;
+import com.lark.oapi.service.okr.OkrService;
+import com.lark.oapi.service.block.BlockService;
+import com.lark.oapi.service.compensation.CompensationService;
+import com.lark.oapi.service.docs.DocsService;
 import com.lark.oapi.service.speech_to_text.SpeechToTextService;
+import com.lark.oapi.service.bitable.BitableService;
+import com.lark.oapi.service.cardkit.CardkitService;
+import com.lark.oapi.service.acs.AcsService;
+import com.lark.oapi.service.contact.ContactService;
+import com.lark.oapi.service.lingo.LingoService;
 import com.lark.oapi.service.drive.DriveService;
+import com.lark.oapi.service.performance.PerformanceService;
+import com.lark.oapi.service.sheets.SheetsService;
+import com.lark.oapi.service.corehr.CorehrService;
+import com.lark.oapi.service.passport.PassportService;
+import com.lark.oapi.service.baike.BaikeService;
+import com.lark.oapi.service.board.BoardService;
+import com.lark.oapi.service.im.ImService;
+import com.lark.oapi.service.search.SearchService;
+import com.lark.oapi.service.verification.VerificationService;
+import com.lark.oapi.service.translation.TranslationService;
+import com.lark.oapi.service.attendance.AttendanceService;
+import com.lark.oapi.service.hire.HireService;
+import com.lark.oapi.service.payroll.PayrollService;
+import com.lark.oapi.service.security_and_compliance.SecurityAndComplianceService;
+import com.lark.oapi.service.task.TaskService;
 import com.lark.oapi.service.minutes.MinutesService;
 import com.lark.oapi.service.moments.MomentsService;
-import com.lark.oapi.service.security_and_compliance.SecurityAndComplianceService;
+import com.lark.oapi.service.vc.VcService;
+import com.lark.oapi.service.human_authentication.HumanAuthenticationService;
+import com.lark.oapi.service.calendar.CalendarService;
+import com.lark.oapi.service.admin.AdminService;
+import com.lark.oapi.service.application.ApplicationService;
+import com.lark.oapi.service.approval.ApprovalService;
+import com.lark.oapi.service.base.BaseService;
 import com.lark.oapi.service.ehr.EhrService;
+import com.lark.oapi.service.helpdesk.HelpdeskService;
+import com.lark.oapi.service.wiki.WikiService;
+import com.lark.oapi.service.aily.AilyService;
+import com.lark.oapi.service.apaas.ApaasService;
+import com.lark.oapi.service.event.EventService;
+import com.lark.oapi.service.report.ReportService;
+import com.lark.oapi.service.workplace.WorkplaceService;
+import com.lark.oapi.service.tenant.TenantService;
+import com.lark.oapi.service.mail.MailService;
 import com.lark.oapi.service.mdm.MdmService;
 import com.lark.oapi.service.personal_settings.PersonalSettingsService;
-import com.lark.oapi.service.vc.VcService;
-import com.lark.oapi.service.aily.AilyService;
-import com.lark.oapi.service.verification.VerificationService;
+import com.lark.oapi.service.auth.AuthService;
+import com.lark.oapi.service.docx.DocxService;
 
 import com.lark.oapi.service.ext.ExtService;
 import com.lark.oapi.core.httpclient.IHttpTransport;
@@ -84,10 +84,14 @@ import com.lark.oapi.core.token.AppTicketManager;
 import com.lark.oapi.core.token.TokenManager;
 import com.lark.oapi.core.token.GlobalAppTicketManager;
 import com.lark.oapi.core.token.GlobalTokenManager;
+
 import java.util.concurrent.TimeUnit;
+
 import com.lark.oapi.core.utils.OKHttps;
 import com.lark.oapi.core.utils.Strings;
+
 import java.nio.charset.StandardCharsets;
+
 import com.lark.oapi.core.enums.BaseUrlEnum;
 import com.lark.oapi.core.request.MarketplaceAppAccessTokenReq;
 import com.lark.oapi.core.request.MarketplaceTenantAccessTokenReq;
@@ -100,464 +104,515 @@ import com.lark.oapi.core.utils.UnmarshalRespUtil;
 import com.lark.oapi.core.Constants;
 
 
-public class Client  {
-	private Config config;
-   private TranslationService translation;
-   private AcsService acs;
-   private ApprovalService approval;
-   private AuthService auth;
-   private CalendarService calendar;
-   private CompensationService compensation;
-   private DocsService docs;
-   private HumanAuthenticationService humanAuthentication;
-   private MailService mail;
-   private ContactService contact;
-   private OkrService okr;
-   private SearchService search;
-   private SheetsService sheets;
-   private ApplicationService application;
-   private LingoService lingo;
-   private ApaasService apaas;
-   private HireService hire;
-   private TaskService task;
-   private AuthenService authen;
-   private BitableService bitable;
-   private ReportService report;
-   private BlockService block;
-   private WikiService wiki;
-   private AdminService admin;
-   private EventService event;
-   private HelpdeskService helpdesk;
-   private ImService im;
-   private PassportService passport;
-   private PayrollService payroll;
-   private WorkplaceService workplace;
-   private AttendanceService attendance;
-   private BaikeService baike;
-   private BaseService base;
-   private CardkitService cardkit;
-   private CorehrService corehr;
-   private DocxService docx;
-   private OpticalCharRecognitionService opticalCharRecognition;
-   private DocumentAiService documentAi;
-   private MeetingRoomService meetingRoom;
-   private PerformanceService performance;
-   private TenantService tenant;
-   private BoardService board;
-   private SpeechToTextService speechToText;
-   private DriveService drive;
-   private MinutesService minutes;
-   private MomentsService moments;
-   private SecurityAndComplianceService securityAndCompliance;
-   private EhrService ehr;
-   private MdmService mdm;
-   private PersonalSettingsService personalSettings;
-   private VcService vc;
-   private AilyService aily;
-   private VerificationService verification;
-   
-	private ExtService extService;
+public class Client {
+    private Config config;
+    private OpticalCharRecognitionService opticalCharRecognition;
+    private AuthenService authen;
+    private DocumentAiService documentAi;
+    private MeetingRoomService meetingRoom;
+    private OkrService okr;
+    private BlockService block;
+    private CompensationService compensation;
+    private DocsService docs;
+    private SpeechToTextService speechToText;
+    private BitableService bitable;
+    private CardkitService cardkit;
+    private AcsService acs;
+    private ContactService contact;
+    private LingoService lingo;
+    private DriveService drive;
+    private PerformanceService performance;
+    private SheetsService sheets;
+    private CorehrService corehr;
+    private PassportService passport;
+    private BaikeService baike;
+    private BoardService board;
+    private ImService im;
+    private SearchService search;
+    private VerificationService verification;
+    private TranslationService translation;
+    private AttendanceService attendance;
+    private HireService hire;
+    private PayrollService payroll;
+    private SecurityAndComplianceService securityAndCompliance;
+    private TaskService task;
+    private MinutesService minutes;
+    private MomentsService moments;
+    private VcService vc;
+    private HumanAuthenticationService humanAuthentication;
+    private CalendarService calendar;
+    private AdminService admin;
+    private ApplicationService application;
+    private ApprovalService approval;
+    private BaseService base;
+    private EhrService ehr;
+    private HelpdeskService helpdesk;
+    private WikiService wiki;
+    private AilyService aily;
+    private ApaasService apaas;
+    private EventService event;
+    private ReportService report;
+    private WorkplaceService workplace;
+    private TenantService tenant;
+    private MailService mail;
+    private MdmService mdm;
+    private PersonalSettingsService personalSettings;
+    private AuthService auth;
+    private DocxService docx;
 
-	public ExtService ext() {
-	  return extService;
-	}
+    private ExtService extService;
 
-	public void setConfig(Config config) {
-		this.config = config;
-	}
+    public static Builder newBuilder(String appId, String appSecret) {
+        return new Builder(appId, appSecret);
+    }
 
-   public TranslationService translation(){
-	   return translation;
-	}
-   public AcsService acs(){
-	   return acs;
-	}
-   public ApprovalService approval(){
-	   return approval;
-	}
-   public AuthService auth(){
-	   return auth;
-	}
-   public CalendarService calendar(){
-	   return calendar;
-	}
-   public CompensationService compensation(){
-	   return compensation;
-	}
-   public DocsService docs(){
-	   return docs;
-	}
-   public HumanAuthenticationService humanAuthentication(){
-	   return humanAuthentication;
-	}
-   public MailService mail(){
-	   return mail;
-	}
-   public ContactService contact(){
-	   return contact;
-	}
-   public OkrService okr(){
-	   return okr;
-	}
-   public SearchService search(){
-	   return search;
-	}
-   public SheetsService sheets(){
-	   return sheets;
-	}
-   public ApplicationService application(){
-	   return application;
-	}
-   public LingoService lingo(){
-	   return lingo;
-	}
-   public ApaasService apaas(){
-	   return apaas;
-	}
-   public HireService hire(){
-	   return hire;
-	}
-   public TaskService task(){
-	   return task;
-	}
-   public AuthenService authen(){
-	   return authen;
-	}
-   public BitableService bitable(){
-	   return bitable;
-	}
-   public ReportService report(){
-	   return report;
-	}
-   public BlockService block(){
-	   return block;
-	}
-   public WikiService wiki(){
-	   return wiki;
-	}
-   public AdminService admin(){
-	   return admin;
-	}
-   public EventService event(){
-	   return event;
-	}
-   public HelpdeskService helpdesk(){
-	   return helpdesk;
-	}
-   public ImService im(){
-	   return im;
-	}
-   public PassportService passport(){
-	   return passport;
-	}
-   public PayrollService payroll(){
-	   return payroll;
-	}
-   public WorkplaceService workplace(){
-	   return workplace;
-	}
-   public AttendanceService attendance(){
-	   return attendance;
-	}
-   public BaikeService baike(){
-	   return baike;
-	}
-   public BaseService base(){
-	   return base;
-	}
-   public CardkitService cardkit(){
-	   return cardkit;
-	}
-   public CorehrService corehr(){
-	   return corehr;
-	}
-   public DocxService docx(){
-	   return docx;
-	}
-   public OpticalCharRecognitionService opticalCharRecognition(){
-	   return opticalCharRecognition;
-	}
-   public DocumentAiService documentAi(){
-	   return documentAi;
-	}
-   public MeetingRoomService meetingRoom(){
-	   return meetingRoom;
-	}
-   public PerformanceService performance(){
-	   return performance;
-	}
-   public TenantService tenant(){
-	   return tenant;
-	}
-   public BoardService board(){
-	   return board;
-	}
-   public SpeechToTextService speechToText(){
-	   return speechToText;
-	}
-   public DriveService drive(){
-	   return drive;
-	}
-   public MinutesService minutes(){
-	   return minutes;
-	}
-   public MomentsService moments(){
-	   return moments;
-	}
-   public SecurityAndComplianceService securityAndCompliance(){
-	   return securityAndCompliance;
-	}
-   public EhrService ehr(){
-	   return ehr;
-	}
-   public MdmService mdm(){
-	   return mdm;
-	}
-   public PersonalSettingsService personalSettings(){
-	   return personalSettings;
-	}
-   public VcService vc(){
-	   return vc;
-	}
-   public AilyService aily(){
-	   return aily;
-	}
-   public VerificationService verification(){
-	   return verification;
-	}
-   
+    public ExtService ext() {
+        return extService;
+    }
 
-	public RawResponse post(String httpPath
-			, Object body
-			, AccessTokenType accessTokenType
-			, RequestOptions requestOptions) throws Exception {
-		return Transport.send(config, requestOptions, "POST", httpPath, Sets.newHashSet(accessTokenType), body);
-	}
+    public void setConfig(Config config) {
+        this.config = config;
+    }
 
-	public RawResponse post(String httpPath
-			, Object body
-			, AccessTokenType accessTokenType
-	) throws Exception {
-		return Transport.send(config, null, "POST", httpPath, Sets.newHashSet(accessTokenType), body);
-	}
+    public OpticalCharRecognitionService opticalCharRecognition() {
+        return opticalCharRecognition;
+    }
 
-	public RawResponse get(String httpPath
-			, Object body
-			, AccessTokenType accessTokenType
-			, RequestOptions requestOptions) throws Exception {
-		return Transport.send(config, requestOptions, "GET", httpPath, Sets.newHashSet(accessTokenType), body);
-	}
+    public AuthenService authen() {
+        return authen;
+    }
 
-	public RawResponse get(String httpPath
-			, Object body
-			, AccessTokenType accessTokenType) throws Exception {
-		return Transport.send(config, null, "GET", httpPath, Sets.newHashSet(accessTokenType), body);
-	}
+    public DocumentAiService documentAi() {
+        return documentAi;
+    }
 
-	public RawResponse delete(String httpPath
-			, Object body
-			, AccessTokenType accessTokenType
-			, RequestOptions requestOptions) throws Exception {
-		return Transport.send(config, requestOptions, "DELETE", httpPath, Sets.newHashSet(accessTokenType), body);
-	}
+    public MeetingRoomService meetingRoom() {
+        return meetingRoom;
+    }
 
-	public RawResponse delete(String httpPath
-			, Object body
-			, AccessTokenType accessTokenType) throws Exception {
-		return Transport.send(config, null, "DELETE", httpPath, Sets.newHashSet(accessTokenType), body);
-	}
+    public OkrService okr() {
+        return okr;
+    }
 
-	public RawResponse put(String httpPath
-			, Object body
-			, AccessTokenType accessTokenType
-			, RequestOptions requestOptions) throws Exception {
-		return Transport.send(config, requestOptions, "PUT", httpPath, Sets.newHashSet(accessTokenType), body);
-	}
+    public BlockService block() {
+        return block;
+    }
 
-	public RawResponse put(String httpPath
-			, Object body
-			, AccessTokenType accessTokenType) throws Exception {
-		return Transport.send(config, null, "PUT", httpPath, Sets.newHashSet(accessTokenType), body);
-	}
+    public CompensationService compensation() {
+        return compensation;
+    }
 
-	public RawResponse patch(String httpPath
-			, Object body
-			, AccessTokenType accessTokenType
-			, RequestOptions requestOptions) throws Exception {
-		return Transport.send(config, requestOptions, "PATCH", httpPath, Sets.newHashSet(accessTokenType), body);
-	}
+    public DocsService docs() {
+        return docs;
+    }
 
-	public RawResponse patch(String httpPath
-			, Object body
-			, AccessTokenType accessTokenType) throws Exception {
-		return Transport.send(config, null, "PATCH", httpPath, Sets.newHashSet(accessTokenType), body);
-	}
+    public SpeechToTextService speechToText() {
+        return speechToText;
+    }
 
-	public RawResponse options(String httpPath
-			, Object body
-			, AccessTokenType accessTokenType
-			, RequestOptions requestOptions) throws Exception {
-		return Transport.send(config, requestOptions, "OPTIONS", httpPath, Sets.newHashSet(accessTokenType), body);
-	}
+    public BitableService bitable() {
+        return bitable;
+    }
 
-	public RawResponse options(String httpPath
-			, Object body, AccessTokenType accessTokenType) throws Exception {
-		return Transport.send(config, null, "OPTIONS", httpPath, Sets.newHashSet(accessTokenType), body);
-	}
+    public CardkitService cardkit() {
+        return cardkit;
+    }
 
-	public static final class Builder {
-	   private Config config = new Config();
+    public AcsService acs() {
+        return acs;
+    }
 
-		public Builder helpDeskCredential(String helpDeskId, String helpDeskToken) {
-			config.setHelpDeskToken(helpDeskToken);
-			config.setHelpDeskID(helpDeskId);
-			if (Strings.isNotEmpty(helpDeskId) && Strings.isNotEmpty(helpDeskToken)) {
-				config.setHelpDeskAuthToken(java.util.Base64.getEncoder().encodeToString(String.format("%s:%s", helpDeskId, helpDeskToken).getBytes(StandardCharsets.UTF_8)));
-			}
-			return this;
-		}
+    public ContactService contact() {
+        return contact;
+    }
 
-		public Builder appType(AppType appType) {
-			config.setAppType(appType);
-			return this;
-		}
+    public LingoService lingo() {
+        return lingo;
+    }
 
-		public Builder marketplaceApp() {
-		  config.setAppType(AppType.MARKETPLACE);
-		  return this;
-		}
+    public DriveService drive() {
+        return drive;
+    }
 
-		public Builder disableTokenCache() {
-			config.setDisableTokenCache(true);
-			return this;
-		}
+    public PerformanceService performance() {
+        return performance;
+    }
 
-		public Builder logReqAtDebug(boolean logReqRespInfoAtDebugLevel) {
-			config.setLogReqAtDebug(logReqRespInfoAtDebugLevel);
-			return this;
-		}
+    public SheetsService sheets() {
+        return sheets;
+    }
 
-		public Builder openBaseUrl(String baseUrl) {
-			config.setBaseUrl(baseUrl);
-			return this;
-		}
+    public CorehrService corehr() {
+        return corehr;
+    }
 
-		public Builder openBaseUrl(BaseUrlEnum baseUrl) {
-			config.setBaseUrl(baseUrl.getUrl());
-			return this;
-		}
+    public PassportService passport() {
+        return passport;
+    }
 
-		public Builder tokenCache(ICache cache) {
-			config.setCache(cache);
-			return this;
-		}
+    public BaikeService baike() {
+        return baike;
+    }
 
-		public Builder requestTimeout(long timeout, TimeUnit timeUnit) {
-			config.setRequestTimeOut(timeout);
-			config.setTimeOutTimeUnit(timeUnit);
-			return this;
-		}
+    public BoardService board() {
+        return board;
+    }
 
-		public Builder(String appId,String appSecret) {
-			config.setAppId(appId);
-			config.setAppSecret(appSecret);
-			config.setBaseUrl(BaseUrlEnum.FeiShu.getUrl());
-			config.setAppType(AppType.SELF_BUILT);
-			config.setDisableTokenCache(false);
-		}
+    public ImService im() {
+        return im;
+    }
 
-		public Builder httpTransport(IHttpTransport httpTransport) {
-			config.setHttpTransport(httpTransport);
-			return this;
-		}
+    public SearchService search() {
+        return search;
+    }
 
-		private void initCache(Config config) {
-			if (config.getCache() != null) {
-				GlobalAppTicketManager.setAppTicketManager(new AppTicketManager(config.getCache()));
-				GlobalTokenManager.setTokenManager(new TokenManager(config.getCache()));
-			} else {
-				ICache cache = LocalCache.getInstance();
-				GlobalAppTicketManager.setAppTicketManager(new AppTicketManager(cache));
-				GlobalTokenManager.setTokenManager(new TokenManager(cache));
-			}
-		}
+    public VerificationService verification() {
+        return verification;
+    }
 
-		private void initHttpTransport(Config config) {
-			if (config.getHttpTransport() == null) {
-				if (config.getRequestTimeOut() > 0) {
-					config.setHttpTransport(new OkHttpTransport(OKHttps.create(config.getRequestTimeOut(), config.getTimeOutTimeUnit())));
-				} else {
-					config.setHttpTransport(new OkHttpTransport(OKHttps.defaultClient));
-				}
-			}
-		}
+    public TranslationService translation() {
+        return translation;
+    }
 
-		public Client build() {
-			Client client = new Client();
-			client.setConfig(config);
-			initCache(config);
-			initHttpTransport(config);
-			client.extService = new ExtService(config);
-			client.translation = new TranslationService(config);
-			client.acs = new AcsService(config);
-			client.approval = new ApprovalService(config);
-			client.auth = new AuthService(config);
-			client.calendar = new CalendarService(config);
-			client.compensation = new CompensationService(config);
-			client.docs = new DocsService(config);
-			client.humanAuthentication = new HumanAuthenticationService(config);
-			client.mail = new MailService(config);
-			client.contact = new ContactService(config);
-			client.okr = new OkrService(config);
-			client.search = new SearchService(config);
-			client.sheets = new SheetsService(config);
-			client.application = new ApplicationService(config);
-			client.lingo = new LingoService(config);
-			client.apaas = new ApaasService(config);
-			client.hire = new HireService(config);
-			client.task = new TaskService(config);
-			client.authen = new AuthenService(config);
-			client.bitable = new BitableService(config);
-			client.report = new ReportService(config);
-			client.block = new BlockService(config);
-			client.wiki = new WikiService(config);
-			client.admin = new AdminService(config);
-			client.event = new EventService(config);
-			client.helpdesk = new HelpdeskService(config);
-			client.im = new ImService(config);
-			client.passport = new PassportService(config);
-			client.payroll = new PayrollService(config);
-			client.workplace = new WorkplaceService(config);
-			client.attendance = new AttendanceService(config);
-			client.baike = new BaikeService(config);
-			client.base = new BaseService(config);
-			client.cardkit = new CardkitService(config);
-			client.corehr = new CorehrService(config);
-			client.docx = new DocxService(config);
-			client.opticalCharRecognition = new OpticalCharRecognitionService(config);
-			client.documentAi = new DocumentAiService(config);
-			client.meetingRoom = new MeetingRoomService(config);
-			client.performance = new PerformanceService(config);
-			client.tenant = new TenantService(config);
-			client.board = new BoardService(config);
-			client.speechToText = new SpeechToTextService(config);
-			client.drive = new DriveService(config);
-			client.minutes = new MinutesService(config);
-			client.moments = new MomentsService(config);
-			client.securityAndCompliance = new SecurityAndComplianceService(config);
-			client.ehr = new EhrService(config);
-			client.mdm = new MdmService(config);
-			client.personalSettings = new PersonalSettingsService(config);
-			client.vc = new VcService(config);
-			client.aily = new AilyService(config);
-			client.verification = new VerificationService(config);
-			
-			return client;
-		}
-	}
+    public AttendanceService attendance() {
+        return attendance;
+    }
 
-	public static Builder newBuilder(String appId, String appSecret) {
-		return new Builder(appId, appSecret);
-	}
+    public HireService hire() {
+        return hire;
+    }
+
+    public PayrollService payroll() {
+        return payroll;
+    }
+
+    public SecurityAndComplianceService securityAndCompliance() {
+        return securityAndCompliance;
+    }
+
+    public TaskService task() {
+        return task;
+    }
+
+    public MinutesService minutes() {
+        return minutes;
+    }
+
+    public MomentsService moments() {
+        return moments;
+    }
+
+    public VcService vc() {
+        return vc;
+    }
+
+    public HumanAuthenticationService humanAuthentication() {
+        return humanAuthentication;
+    }
+
+    public CalendarService calendar() {
+        return calendar;
+    }
+
+    public AdminService admin() {
+        return admin;
+    }
+
+    public ApplicationService application() {
+        return application;
+    }
+
+    public ApprovalService approval() {
+        return approval;
+    }
+
+    public BaseService base() {
+        return base;
+    }
+
+    public EhrService ehr() {
+        return ehr;
+    }
+
+    public HelpdeskService helpdesk() {
+        return helpdesk;
+    }
+
+    public WikiService wiki() {
+        return wiki;
+    }
+
+    public AilyService aily() {
+        return aily;
+    }
+
+    public ApaasService apaas() {
+        return apaas;
+    }
+
+    public EventService event() {
+        return event;
+    }
+
+    public ReportService report() {
+        return report;
+    }
+
+    public WorkplaceService workplace() {
+        return workplace;
+    }
+
+    public TenantService tenant() {
+        return tenant;
+    }
+
+    public MailService mail() {
+        return mail;
+    }
+
+    public MdmService mdm() {
+        return mdm;
+    }
+
+    public PersonalSettingsService personalSettings() {
+        return personalSettings;
+    }
+
+    public AuthService auth() {
+        return auth;
+    }
+
+    public DocxService docx() {
+        return docx;
+    }
+
+    public RawResponse post(String httpPath
+            , Object body
+            , AccessTokenType accessTokenType
+            , RequestOptions requestOptions) throws Exception {
+        return Transport.send(config, requestOptions, "POST", httpPath, Sets.newHashSet(accessTokenType), body);
+    }
+
+    public RawResponse post(String httpPath
+            , Object body
+            , AccessTokenType accessTokenType
+    ) throws Exception {
+        return Transport.send(config, null, "POST", httpPath, Sets.newHashSet(accessTokenType), body);
+    }
+
+    public RawResponse get(String httpPath
+            , Object body
+            , AccessTokenType accessTokenType
+            , RequestOptions requestOptions) throws Exception {
+        return Transport.send(config, requestOptions, "GET", httpPath, Sets.newHashSet(accessTokenType), body);
+    }
+
+    public RawResponse get(String httpPath
+            , Object body
+            , AccessTokenType accessTokenType) throws Exception {
+        return Transport.send(config, null, "GET", httpPath, Sets.newHashSet(accessTokenType), body);
+    }
+
+    public RawResponse delete(String httpPath
+            , Object body
+            , AccessTokenType accessTokenType
+            , RequestOptions requestOptions) throws Exception {
+        return Transport.send(config, requestOptions, "DELETE", httpPath, Sets.newHashSet(accessTokenType), body);
+    }
+
+    public RawResponse delete(String httpPath
+            , Object body
+            , AccessTokenType accessTokenType) throws Exception {
+        return Transport.send(config, null, "DELETE", httpPath, Sets.newHashSet(accessTokenType), body);
+    }
+
+    public RawResponse put(String httpPath
+            , Object body
+            , AccessTokenType accessTokenType
+            , RequestOptions requestOptions) throws Exception {
+        return Transport.send(config, requestOptions, "PUT", httpPath, Sets.newHashSet(accessTokenType), body);
+    }
+
+    public RawResponse put(String httpPath
+            , Object body
+            , AccessTokenType accessTokenType) throws Exception {
+        return Transport.send(config, null, "PUT", httpPath, Sets.newHashSet(accessTokenType), body);
+    }
+
+    public RawResponse patch(String httpPath
+            , Object body
+            , AccessTokenType accessTokenType
+            , RequestOptions requestOptions) throws Exception {
+        return Transport.send(config, requestOptions, "PATCH", httpPath, Sets.newHashSet(accessTokenType), body);
+    }
+
+    public RawResponse patch(String httpPath
+            , Object body
+            , AccessTokenType accessTokenType) throws Exception {
+        return Transport.send(config, null, "PATCH", httpPath, Sets.newHashSet(accessTokenType), body);
+    }
+
+    public RawResponse options(String httpPath
+            , Object body
+            , AccessTokenType accessTokenType
+            , RequestOptions requestOptions) throws Exception {
+        return Transport.send(config, requestOptions, "OPTIONS", httpPath, Sets.newHashSet(accessTokenType), body);
+    }
+
+    public RawResponse options(String httpPath
+            , Object body, AccessTokenType accessTokenType) throws Exception {
+        return Transport.send(config, null, "OPTIONS", httpPath, Sets.newHashSet(accessTokenType), body);
+    }
+
+    public static final class Builder {
+        private Config config = new Config();
+
+        public Builder(String appId, String appSecret) {
+            config.setAppId(appId);
+            config.setAppSecret(appSecret);
+            config.setBaseUrl(BaseUrlEnum.FeiShu.getUrl());
+            config.setAppType(AppType.SELF_BUILT);
+            config.setDisableTokenCache(false);
+        }
+
+        public Builder helpDeskCredential(String helpDeskId, String helpDeskToken) {
+            config.setHelpDeskToken(helpDeskToken);
+            config.setHelpDeskID(helpDeskId);
+            if (Strings.isNotEmpty(helpDeskId) && Strings.isNotEmpty(helpDeskToken)) {
+                config.setHelpDeskAuthToken(java.util.Base64.getEncoder().encodeToString(String.format("%s:%s", helpDeskId, helpDeskToken).getBytes(StandardCharsets.UTF_8)));
+            }
+            return this;
+        }
+
+        public Builder appType(AppType appType) {
+            config.setAppType(appType);
+            return this;
+        }
+
+        public Builder marketplaceApp() {
+            config.setAppType(AppType.MARKETPLACE);
+            return this;
+        }
+
+        public Builder disableTokenCache() {
+            config.setDisableTokenCache(true);
+            return this;
+        }
+
+        public Builder logReqAtDebug(boolean logReqRespInfoAtDebugLevel) {
+            config.setLogReqAtDebug(logReqRespInfoAtDebugLevel);
+            return this;
+        }
+
+        public Builder openBaseUrl(String baseUrl) {
+            config.setBaseUrl(baseUrl);
+            return this;
+        }
+
+        public Builder openBaseUrl(BaseUrlEnum baseUrl) {
+            config.setBaseUrl(baseUrl.getUrl());
+            return this;
+        }
+
+        public Builder tokenCache(ICache cache) {
+            config.setCache(cache);
+            return this;
+        }
+
+        public Builder requestTimeout(long timeout, TimeUnit timeUnit) {
+            config.setRequestTimeOut(timeout);
+            config.setTimeOutTimeUnit(timeUnit);
+            return this;
+        }
+
+        public Builder httpTransport(IHttpTransport httpTransport) {
+            config.setHttpTransport(httpTransport);
+            return this;
+        }
+
+        private void initCache(Config config) {
+            if (config.getCache() != null) {
+                GlobalAppTicketManager.setAppTicketManager(new AppTicketManager(config.getCache()));
+                GlobalTokenManager.setTokenManager(new TokenManager(config.getCache()));
+            } else {
+                ICache cache = LocalCache.getInstance();
+                GlobalAppTicketManager.setAppTicketManager(new AppTicketManager(cache));
+                GlobalTokenManager.setTokenManager(new TokenManager(cache));
+            }
+        }
+
+        private void initHttpTransport(Config config) {
+            if (config.getHttpTransport() == null) {
+                if (config.getRequestTimeOut() > 0) {
+                    config.setHttpTransport(new OkHttpTransport(OKHttps.create(config.getRequestTimeOut(), config.getTimeOutTimeUnit())));
+                } else {
+                    config.setHttpTransport(new OkHttpTransport(OKHttps.defaultClient));
+                }
+            }
+        }
+
+        public Client build() {
+            Client client = new Client();
+            client.setConfig(config);
+            initCache(config);
+            initHttpTransport(config);
+            client.extService = new ExtService(config);
+            client.opticalCharRecognition = new OpticalCharRecognitionService(config);
+            client.authen = new AuthenService(config);
+            client.documentAi = new DocumentAiService(config);
+            client.meetingRoom = new MeetingRoomService(config);
+            client.okr = new OkrService(config);
+            client.block = new BlockService(config);
+            client.compensation = new CompensationService(config);
+            client.docs = new DocsService(config);
+            client.speechToText = new SpeechToTextService(config);
+            client.bitable = new BitableService(config);
+            client.cardkit = new CardkitService(config);
+            client.acs = new AcsService(config);
+            client.contact = new ContactService(config);
+            client.lingo = new LingoService(config);
+            client.drive = new DriveService(config);
+            client.performance = new PerformanceService(config);
+            client.sheets = new SheetsService(config);
+            client.corehr = new CorehrService(config);
+            client.passport = new PassportService(config);
+            client.baike = new BaikeService(config);
+            client.board = new BoardService(config);
+            client.im = new ImService(config);
+            client.search = new SearchService(config);
+            client.verification = new VerificationService(config);
+            client.translation = new TranslationService(config);
+            client.attendance = new AttendanceService(config);
+            client.hire = new HireService(config);
+            client.payroll = new PayrollService(config);
+            client.securityAndCompliance = new SecurityAndComplianceService(config);
+            client.task = new TaskService(config);
+            client.minutes = new MinutesService(config);
+            client.moments = new MomentsService(config);
+            client.vc = new VcService(config);
+            client.humanAuthentication = new HumanAuthenticationService(config);
+            client.calendar = new CalendarService(config);
+            client.admin = new AdminService(config);
+            client.application = new ApplicationService(config);
+            client.approval = new ApprovalService(config);
+            client.base = new BaseService(config);
+            client.ehr = new EhrService(config);
+            client.helpdesk = new HelpdeskService(config);
+            client.wiki = new WikiService(config);
+            client.aily = new AilyService(config);
+            client.apaas = new ApaasService(config);
+            client.event = new EventService(config);
+            client.report = new ReportService(config);
+            client.workplace = new WorkplaceService(config);
+            client.tenant = new TenantService(config);
+            client.mail = new MailService(config);
+            client.mdm = new MdmService(config);
+            client.personalSettings = new PersonalSettingsService(config);
+            client.auth = new AuthService(config);
+            client.docx = new DocxService(config);
+
+            return client;
+        }
+    }
 }
 

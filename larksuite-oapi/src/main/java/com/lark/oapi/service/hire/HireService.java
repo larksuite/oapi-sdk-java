@@ -180,397 +180,489 @@ public class HireService {
     private final V2 v2;
 
     public HireService(Config config) {
-    this.v1 = new V1(config);
-    this.advertisement = new Advertisement(config);
-    this.agency = new Agency(config);
-    this.application = new Application(config);
-    this.applicationInterview = new ApplicationInterview(config);
-    this.attachment = new Attachment(config);
-    this.backgroundCheckOrder = new BackgroundCheckOrder(config);
-    this.diversityInclusion = new DiversityInclusion(config);
-    this.ecoAccount = new EcoAccount(config);
-    this.ecoAccountCustomField = new EcoAccountCustomField(config);
-    this.ecoBackgroundCheck = new EcoBackgroundCheck(config);
-    this.ecoBackgroundCheckCustomField = new EcoBackgroundCheckCustomField(config);
-    this.ecoBackgroundCheckPackage = new EcoBackgroundCheckPackage(config);
-    this.ecoExam = new EcoExam(config);
-    this.ecoExamPaper = new EcoExamPaper(config);
-    this.ehrImportTask = new EhrImportTask(config);
-    this.ehrImportTaskForInternshipOffer = new EhrImportTaskForInternshipOffer(config);
-    this.employee = new Employee(config);
-    this.evaluation = new Evaluation(config);
-    this.evaluationTask = new EvaluationTask(config);
-    this.exam = new Exam(config);
-    this.examMarkingTask = new ExamMarkingTask(config);
-    this.externalApplication = new ExternalApplication(config);
-    this.externalBackgroundCheck = new ExternalBackgroundCheck(config);
-    this.externalInterview = new ExternalInterview(config);
-    this.externalInterviewAssessment = new ExternalInterviewAssessment(config);
-    this.externalOffer = new ExternalOffer(config);
-    this.externalReferralReward = new ExternalReferralReward(config);
-    this.interview = new Interview(config);
-    this.interviewFeedbackForm = new InterviewFeedbackForm(config);
-    this.interviewRecord = new InterviewRecord(config);
-    this.interviewRecordAttachment = new InterviewRecordAttachment(config);
-    this.interviewRegistrationSchema = new InterviewRegistrationSchema(config);
-    this.interviewRoundType = new InterviewRoundType(config);
-    this.interviewTask = new InterviewTask(config);
-    this.interviewer = new Interviewer(config);
-    this.job = new Job(config);
-    this.jobManager = new JobManager(config);
-    this.jobFunction = new JobFunction(config);
-    this.jobProcess = new JobProcess(config);
-    this.jobPublishRecord = new JobPublishRecord(config);
-    this.jobRequirement = new JobRequirement(config);
-    this.jobRequirementSchema = new JobRequirementSchema(config);
-    this.jobSchema = new JobSchema(config);
-    this.jobType = new JobType(config);
-    this.location = new Location(config);
-    this.minutes = new Minutes(config);
-    this.note = new Note(config);
-    this.offer = new Offer(config);
-    this.offerApplicationForm = new OfferApplicationForm(config);
-    this.offerCustomField = new OfferCustomField(config);
-    this.offerSchema = new OfferSchema(config);
-    this.questionnaire = new Questionnaire(config);
-    this.referral = new Referral(config);
-    this.referralAccount = new ReferralAccount(config);
-    this.referralWebsiteJobPost = new ReferralWebsiteJobPost(config);
-    this.registrationSchema = new RegistrationSchema(config);
-    this.resumeSource = new ResumeSource(config);
-    this.role = new Role(config);
-    this.subject = new Subject(config);
-    this.talent = new Talent(config);
-    this.talentExternalInfo = new TalentExternalInfo(config);
-    this.talentBlocklist = new TalentBlocklist(config);
-    this.talentFolder = new TalentFolder(config);
-    this.talentObject = new TalentObject(config);
-    this.talentOperationLog = new TalentOperationLog(config);
-    this.talentPool = new TalentPool(config);
-    this.talentTag = new TalentTag(config);
-    this.terminationReason = new TerminationReason(config);
-    this.test = new Test(config);
-    this.todo = new Todo(config);
-    this.tripartiteAgreement = new TripartiteAgreement(config);
-    this.userRole = new UserRole(config);
-    this.website = new Website(config);
-    this.websiteChannel = new WebsiteChannel(config);
-    this.websiteDelivery = new WebsiteDelivery(config);
-    this.websiteDeliveryTask = new WebsiteDeliveryTask(config);
-    this.websiteJobPost = new WebsiteJobPost(config);
-    this.websiteSiteUser = new WebsiteSiteUser(config);
-    this.v2 = new V2(config);
+        this.v1 = new V1(config);
+        this.advertisement = new Advertisement(config);
+        this.agency = new Agency(config);
+        this.application = new Application(config);
+        this.applicationInterview = new ApplicationInterview(config);
+        this.attachment = new Attachment(config);
+        this.backgroundCheckOrder = new BackgroundCheckOrder(config);
+        this.diversityInclusion = new DiversityInclusion(config);
+        this.ecoAccount = new EcoAccount(config);
+        this.ecoAccountCustomField = new EcoAccountCustomField(config);
+        this.ecoBackgroundCheck = new EcoBackgroundCheck(config);
+        this.ecoBackgroundCheckCustomField = new EcoBackgroundCheckCustomField(config);
+        this.ecoBackgroundCheckPackage = new EcoBackgroundCheckPackage(config);
+        this.ecoExam = new EcoExam(config);
+        this.ecoExamPaper = new EcoExamPaper(config);
+        this.ehrImportTask = new EhrImportTask(config);
+        this.ehrImportTaskForInternshipOffer = new EhrImportTaskForInternshipOffer(config);
+        this.employee = new Employee(config);
+        this.evaluation = new Evaluation(config);
+        this.evaluationTask = new EvaluationTask(config);
+        this.exam = new Exam(config);
+        this.examMarkingTask = new ExamMarkingTask(config);
+        this.externalApplication = new ExternalApplication(config);
+        this.externalBackgroundCheck = new ExternalBackgroundCheck(config);
+        this.externalInterview = new ExternalInterview(config);
+        this.externalInterviewAssessment = new ExternalInterviewAssessment(config);
+        this.externalOffer = new ExternalOffer(config);
+        this.externalReferralReward = new ExternalReferralReward(config);
+        this.interview = new Interview(config);
+        this.interviewFeedbackForm = new InterviewFeedbackForm(config);
+        this.interviewRecord = new InterviewRecord(config);
+        this.interviewRecordAttachment = new InterviewRecordAttachment(config);
+        this.interviewRegistrationSchema = new InterviewRegistrationSchema(config);
+        this.interviewRoundType = new InterviewRoundType(config);
+        this.interviewTask = new InterviewTask(config);
+        this.interviewer = new Interviewer(config);
+        this.job = new Job(config);
+        this.jobManager = new JobManager(config);
+        this.jobFunction = new JobFunction(config);
+        this.jobProcess = new JobProcess(config);
+        this.jobPublishRecord = new JobPublishRecord(config);
+        this.jobRequirement = new JobRequirement(config);
+        this.jobRequirementSchema = new JobRequirementSchema(config);
+        this.jobSchema = new JobSchema(config);
+        this.jobType = new JobType(config);
+        this.location = new Location(config);
+        this.minutes = new Minutes(config);
+        this.note = new Note(config);
+        this.offer = new Offer(config);
+        this.offerApplicationForm = new OfferApplicationForm(config);
+        this.offerCustomField = new OfferCustomField(config);
+        this.offerSchema = new OfferSchema(config);
+        this.questionnaire = new Questionnaire(config);
+        this.referral = new Referral(config);
+        this.referralAccount = new ReferralAccount(config);
+        this.referralWebsiteJobPost = new ReferralWebsiteJobPost(config);
+        this.registrationSchema = new RegistrationSchema(config);
+        this.resumeSource = new ResumeSource(config);
+        this.role = new Role(config);
+        this.subject = new Subject(config);
+        this.talent = new Talent(config);
+        this.talentExternalInfo = new TalentExternalInfo(config);
+        this.talentBlocklist = new TalentBlocklist(config);
+        this.talentFolder = new TalentFolder(config);
+        this.talentObject = new TalentObject(config);
+        this.talentOperationLog = new TalentOperationLog(config);
+        this.talentPool = new TalentPool(config);
+        this.talentTag = new TalentTag(config);
+        this.terminationReason = new TerminationReason(config);
+        this.test = new Test(config);
+        this.todo = new Todo(config);
+        this.tripartiteAgreement = new TripartiteAgreement(config);
+        this.userRole = new UserRole(config);
+        this.website = new Website(config);
+        this.websiteChannel = new WebsiteChannel(config);
+        this.websiteDelivery = new WebsiteDelivery(config);
+        this.websiteDeliveryTask = new WebsiteDeliveryTask(config);
+        this.websiteJobPost = new WebsiteJobPost(config);
+        this.websiteSiteUser = new WebsiteSiteUser(config);
+        this.v2 = new V2(config);
     }
+
     public V1 v1() {
         return v1;
     }
+
     public Advertisement advertisement() {
         return advertisement;
     }
+
     public Agency agency() {
         return agency;
     }
+
     public Application application() {
         return application;
     }
+
     public ApplicationInterview applicationInterview() {
         return applicationInterview;
     }
+
     public Attachment attachment() {
         return attachment;
     }
+
     public BackgroundCheckOrder backgroundCheckOrder() {
         return backgroundCheckOrder;
     }
+
     public DiversityInclusion diversityInclusion() {
         return diversityInclusion;
     }
+
     public EcoAccount ecoAccount() {
         return ecoAccount;
     }
+
     public EcoAccountCustomField ecoAccountCustomField() {
         return ecoAccountCustomField;
     }
+
     public EcoBackgroundCheck ecoBackgroundCheck() {
         return ecoBackgroundCheck;
     }
+
     public EcoBackgroundCheckCustomField ecoBackgroundCheckCustomField() {
         return ecoBackgroundCheckCustomField;
     }
+
     public EcoBackgroundCheckPackage ecoBackgroundCheckPackage() {
         return ecoBackgroundCheckPackage;
     }
+
     public EcoExam ecoExam() {
         return ecoExam;
     }
+
     public EcoExamPaper ecoExamPaper() {
         return ecoExamPaper;
     }
+
     public EhrImportTask ehrImportTask() {
         return ehrImportTask;
     }
+
     public EhrImportTaskForInternshipOffer ehrImportTaskForInternshipOffer() {
         return ehrImportTaskForInternshipOffer;
     }
+
     public Employee employee() {
         return employee;
     }
+
     public Evaluation evaluation() {
         return evaluation;
     }
+
     public EvaluationTask evaluationTask() {
         return evaluationTask;
     }
+
     public Exam exam() {
         return exam;
     }
+
     public ExamMarkingTask examMarkingTask() {
         return examMarkingTask;
     }
+
     public ExternalApplication externalApplication() {
         return externalApplication;
     }
+
     public ExternalBackgroundCheck externalBackgroundCheck() {
         return externalBackgroundCheck;
     }
+
     public ExternalInterview externalInterview() {
         return externalInterview;
     }
+
     public ExternalInterviewAssessment externalInterviewAssessment() {
         return externalInterviewAssessment;
     }
+
     public ExternalOffer externalOffer() {
         return externalOffer;
     }
+
     public ExternalReferralReward externalReferralReward() {
         return externalReferralReward;
     }
+
     public Interview interview() {
         return interview;
     }
+
     public InterviewFeedbackForm interviewFeedbackForm() {
         return interviewFeedbackForm;
     }
+
     public InterviewRecord interviewRecord() {
         return interviewRecord;
     }
+
     public InterviewRecordAttachment interviewRecordAttachment() {
         return interviewRecordAttachment;
     }
+
     public InterviewRegistrationSchema interviewRegistrationSchema() {
         return interviewRegistrationSchema;
     }
+
     public InterviewRoundType interviewRoundType() {
         return interviewRoundType;
     }
+
     public InterviewTask interviewTask() {
         return interviewTask;
     }
+
     public Interviewer interviewer() {
         return interviewer;
     }
+
     public Job job() {
         return job;
     }
+
     public JobManager jobManager() {
         return jobManager;
     }
+
     public JobFunction jobFunction() {
         return jobFunction;
     }
+
     public JobProcess jobProcess() {
         return jobProcess;
     }
+
     public JobPublishRecord jobPublishRecord() {
         return jobPublishRecord;
     }
+
     public JobRequirement jobRequirement() {
         return jobRequirement;
     }
+
     public JobRequirementSchema jobRequirementSchema() {
         return jobRequirementSchema;
     }
+
     public JobSchema jobSchema() {
         return jobSchema;
     }
+
     public JobType jobType() {
         return jobType;
     }
+
     public Location location() {
         return location;
     }
+
     public Minutes minutes() {
         return minutes;
     }
+
     public Note note() {
         return note;
     }
+
     public Offer offer() {
         return offer;
     }
+
     public OfferApplicationForm offerApplicationForm() {
         return offerApplicationForm;
     }
+
     public OfferCustomField offerCustomField() {
         return offerCustomField;
     }
+
     public OfferSchema offerSchema() {
         return offerSchema;
     }
+
     public Questionnaire questionnaire() {
         return questionnaire;
     }
+
     public Referral referral() {
         return referral;
     }
+
     public ReferralAccount referralAccount() {
         return referralAccount;
     }
+
     public ReferralWebsiteJobPost referralWebsiteJobPost() {
         return referralWebsiteJobPost;
     }
+
     public RegistrationSchema registrationSchema() {
         return registrationSchema;
     }
+
     public ResumeSource resumeSource() {
         return resumeSource;
     }
+
     public Role role() {
         return role;
     }
+
     public Subject subject() {
         return subject;
     }
+
     public Talent talent() {
         return talent;
     }
+
     public TalentExternalInfo talentExternalInfo() {
         return talentExternalInfo;
     }
+
     public TalentBlocklist talentBlocklist() {
         return talentBlocklist;
     }
+
     public TalentFolder talentFolder() {
         return talentFolder;
     }
+
     public TalentObject talentObject() {
         return talentObject;
     }
+
     public TalentOperationLog talentOperationLog() {
         return talentOperationLog;
     }
+
     public TalentPool talentPool() {
         return talentPool;
     }
+
     public TalentTag talentTag() {
         return talentTag;
     }
+
     public TerminationReason terminationReason() {
         return terminationReason;
     }
+
     public Test test() {
         return test;
     }
+
     public Todo todo() {
         return todo;
     }
+
     public TripartiteAgreement tripartiteAgreement() {
         return tripartiteAgreement;
     }
+
     public UserRole userRole() {
         return userRole;
     }
+
     public Website website() {
         return website;
     }
+
     public WebsiteChannel websiteChannel() {
         return websiteChannel;
     }
+
     public WebsiteDelivery websiteDelivery() {
         return websiteDelivery;
     }
+
     public WebsiteDeliveryTask websiteDeliveryTask() {
         return websiteDeliveryTask;
     }
+
     public WebsiteJobPost websiteJobPost() {
         return websiteJobPost;
     }
+
     public WebsiteSiteUser websiteSiteUser() {
         return websiteSiteUser;
     }
+
+    public V2 v2() {
+        return v2;
+    }
+
     public abstract static class P2ApplicationDeletedV1Handler implements IEventHandler<P2ApplicationDeletedV1> {
         @Override
         public P2ApplicationDeletedV1 getEvent() {
             return new P2ApplicationDeletedV1();
         }
     }
+
     public abstract static class P2ApplicationStageChangedV1Handler implements IEventHandler<P2ApplicationStageChangedV1> {
         @Override
         public P2ApplicationStageChangedV1 getEvent() {
             return new P2ApplicationStageChangedV1();
         }
     }
+
     public abstract static class P2EcoAccountCreatedV1Handler implements IEventHandler<P2EcoAccountCreatedV1> {
         @Override
         public P2EcoAccountCreatedV1 getEvent() {
             return new P2EcoAccountCreatedV1();
         }
     }
+
     public abstract static class P2EcoBackgroundCheckCanceledV1Handler implements IEventHandler<P2EcoBackgroundCheckCanceledV1> {
         @Override
         public P2EcoBackgroundCheckCanceledV1 getEvent() {
             return new P2EcoBackgroundCheckCanceledV1();
         }
     }
+
     public abstract static class P2EcoBackgroundCheckCreatedV1Handler implements IEventHandler<P2EcoBackgroundCheckCreatedV1> {
         @Override
         public P2EcoBackgroundCheckCreatedV1 getEvent() {
             return new P2EcoBackgroundCheckCreatedV1();
         }
     }
+
     public abstract static class P2EcoExamCreatedV1Handler implements IEventHandler<P2EcoExamCreatedV1> {
         @Override
         public P2EcoExamCreatedV1 getEvent() {
             return new P2EcoExamCreatedV1();
         }
     }
+
     public abstract static class P2EhrImportTaskImportedV1Handler implements IEventHandler<P2EhrImportTaskImportedV1> {
         @Override
         public P2EhrImportTaskImportedV1 getEvent() {
             return new P2EhrImportTaskImportedV1();
         }
     }
+
     public abstract static class P2EhrImportTaskForInternshipOfferImportedV1Handler implements IEventHandler<P2EhrImportTaskForInternshipOfferImportedV1> {
         @Override
         public P2EhrImportTaskForInternshipOfferImportedV1 getEvent() {
             return new P2EhrImportTaskForInternshipOfferImportedV1();
         }
     }
+
     public abstract static class P2OfferStatusChangedV1Handler implements IEventHandler<P2OfferStatusChangedV1> {
         @Override
         public P2OfferStatusChangedV1 getEvent() {
             return new P2OfferStatusChangedV1();
         }
     }
+
     public abstract static class P2ReferralAccountAssetsUpdateV1Handler implements IEventHandler<P2ReferralAccountAssetsUpdateV1> {
         @Override
         public P2ReferralAccountAssetsUpdateV1 getEvent() {
             return new P2ReferralAccountAssetsUpdateV1();
         }
     }
+
     public abstract static class P2TalentDeletedV1Handler implements IEventHandler<P2TalentDeletedV1> {
         @Override
         public P2TalentDeletedV1 getEvent() {
             return new P2TalentDeletedV1();
         }
     }
+
     public abstract static class P2TalentTagSubscriptionV1Handler implements IEventHandler<P2TalentTagSubscriptionV1> {
         @Override
         public P2TalentTagSubscriptionV1 getEvent() {
             return new P2TalentTagSubscriptionV1();
         }
-    }
-    public V2 v2() {
-        return v2;
     }
 }

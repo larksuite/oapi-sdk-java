@@ -12,54 +12,59 @@
  */
 
 package com.lark.oapi.service.authen.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CreateOidcAccessTokenRespBody {
-     /**
-      * user_access_token，用于获取用户资源和访问某些open api
-      * <p> 示例值：u-5Dak9ZAxJ9tFUn8MaTD_BFM51FNdg5xzO0y010000HWb
-      */
+    /**
+     * user_access_token，用于获取用户资源和访问某些open api
+     * <p> 示例值：u-5Dak9ZAxJ9tFUn8MaTD_BFM51FNdg5xzO0y010000HWb
+     */
     @SerializedName("access_token")
     private String accessToken;
-     /**
-      * 刷新用户 `access_token` 时使用的 token
-      * <p> 示例值：ur-6EyFQZyplb9URrOx5NtT_HM53zrJg59HXwy040400G.e
-      */
+    /**
+     * 刷新用户 `access_token` 时使用的 token
+     * <p> 示例值：ur-6EyFQZyplb9URrOx5NtT_HM53zrJg59HXwy040400G.e
+     */
     @SerializedName("refresh_token")
     private String refreshToken;
-     /**
-      * token 类型，固定值
-      * <p> 示例值：Bearer
-      */
+    /**
+     * token 类型，固定值
+     * <p> 示例值：Bearer
+     */
     @SerializedName("token_type")
     private String tokenType;
-     /**
-      * `access_token`的有效期，单位: 秒，一般是两个小时左右，需要以返回结果为准
-      * <p> 示例值：7199
-      */
+    /**
+     * `access_token`的有效期，单位: 秒，一般是两个小时左右，需要以返回结果为准
+     * <p> 示例值：7199
+     */
     @SerializedName("expires_in")
     private Integer expiresIn;
-     /**
-      * `refresh_token` 的有效期，单位: 秒，一般是30天左右，需要以返回结果为准
-      * <p> 示例值：2591999
-      */
+    /**
+     * `refresh_token` 的有效期，单位: 秒，一般是30天左右，需要以返回结果为准
+     * <p> 示例值：2591999
+     */
     @SerializedName("refresh_expires_in")
     private Integer refreshExpiresIn;
-     /**
-      * 用户授予app的权限全集
-      * <p> 示例值：auth:user.id:read bitable:app
-      */
+    /**
+     * 用户授予app的权限全集
+     * <p> 示例值：auth:user.id:read bitable:app
+     */
     @SerializedName("scope")
     private String scope;
+
     public String getAccessToken() {
         return this.accessToken;
     }

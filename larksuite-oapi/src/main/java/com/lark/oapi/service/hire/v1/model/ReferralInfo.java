@@ -12,42 +12,78 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ReferralInfo {
-     /**
-      * 内推的 ID
-      * <p> 示例值：6930815272790114322
-      */
+    /**
+     * 内推的 ID
+     * <p> 示例值：6930815272790114322
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 投递 ID 列表,包含：原始内推的投递 ID、转移到其他职位后的投递 ID、不包含被HR复捞(加入职位）的投递 ID，第一个投递就是原始投递ID
-      * <p> 示例值：
-      */
+    /**
+     * 投递 ID 列表,包含：原始内推的投递 ID、转移到其他职位后的投递 ID、不包含被HR复捞(加入职位）的投递 ID，第一个投递就是原始投递ID
+     * <p> 示例值：
+     */
     @SerializedName("application_ids")
     private String[] applicationIds;
-     /**
-      * 创建时间（ms）
-      * <p> 示例值：1618899376474
-      */
+    /**
+     * 创建时间（ms）
+     * <p> 示例值：1618899376474
+     */
     @SerializedName("create_time")
     private String createTime;
-     /**
-      * 内推人信息
-      * <p> 示例值：
-      */
+    /**
+     * 内推人信息
+     * <p> 示例值：
+     */
     @SerializedName("referral_user")
     private IdNameObject referralUser;
+
+    // builder 开始
+    public ReferralInfo() {
+    }
+
+    public ReferralInfo(Builder builder) {
+        /**
+         * 内推的 ID
+         * <p> 示例值：6930815272790114322
+         */
+        this.id = builder.id;
+        /**
+         * 投递 ID 列表,包含：原始内推的投递 ID、转移到其他职位后的投递 ID、不包含被HR复捞(加入职位）的投递 ID，第一个投递就是原始投递ID
+         * <p> 示例值：
+         */
+        this.applicationIds = builder.applicationIds;
+        /**
+         * 创建时间（ms）
+         * <p> 示例值：1618899376474
+         */
+        this.createTime = builder.createTime;
+        /**
+         * 内推人信息
+         * <p> 示例值：
+         */
+        this.referralUser = builder.referralUser;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -80,113 +116,82 @@ public class ReferralInfo {
         this.referralUser = referralUser;
     }
 
-
-// builder 开始
-  public ReferralInfo(){}
-
-  public ReferralInfo(Builder builder){
-         /**
-          * 内推的 ID
-          * <p> 示例值：6930815272790114322
-          */
-      this.id = builder.id;
-         /**
-          * 投递 ID 列表,包含：原始内推的投递 ID、转移到其他职位后的投递 ID、不包含被HR复捞(加入职位）的投递 ID，第一个投递就是原始投递ID
-          * <p> 示例值：
-          */
-      this.applicationIds = builder.applicationIds;
-         /**
-          * 创建时间（ms）
-          * <p> 示例值：1618899376474
-          */
-      this.createTime = builder.createTime;
-         /**
-          * 内推人信息
-          * <p> 示例值：
-          */
-      this.referralUser = builder.referralUser;
-  }
-
     public static class Builder {
-     /**
-      * 内推的 ID
-      * <p> 示例值：6930815272790114322
-      */
+        /**
+         * 内推的 ID
+         * <p> 示例值：6930815272790114322
+         */
         private String id;
-     /**
-      * 投递 ID 列表,包含：原始内推的投递 ID、转移到其他职位后的投递 ID、不包含被HR复捞(加入职位）的投递 ID，第一个投递就是原始投递ID
-      * <p> 示例值：
-      */
+        /**
+         * 投递 ID 列表,包含：原始内推的投递 ID、转移到其他职位后的投递 ID、不包含被HR复捞(加入职位）的投递 ID，第一个投递就是原始投递ID
+         * <p> 示例值：
+         */
         private String[] applicationIds;
-     /**
-      * 创建时间（ms）
-      * <p> 示例值：1618899376474
-      */
+        /**
+         * 创建时间（ms）
+         * <p> 示例值：1618899376474
+         */
         private String createTime;
-     /**
-      * 内推人信息
-      * <p> 示例值：
-      */
+        /**
+         * 内推人信息
+         * <p> 示例值：
+         */
         private IdNameObject referralUser;
 
         /**
          * 内推的 ID
          * <p> 示例值：6930815272790114322
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 投递 ID 列表,包含：原始内推的投递 ID、转移到其他职位后的投递 ID、不包含被HR复捞(加入职位）的投递 ID，第一个投递就是原始投递ID
          * <p> 示例值：
+         *
          * @param applicationIds
          * @return
          */
         public Builder applicationIds(String[] applicationIds) {
-             this.applicationIds = applicationIds;
-             return this;
+            this.applicationIds = applicationIds;
+            return this;
         }
 
-    
 
         /**
          * 创建时间（ms）
          * <p> 示例值：1618899376474
+         *
          * @param createTime
          * @return
          */
         public Builder createTime(String createTime) {
-             this.createTime = createTime;
-             return this;
+            this.createTime = createTime;
+            return this;
         }
 
-    
 
         /**
          * 内推人信息
          * <p> 示例值：
+         *
          * @param referralUser
          * @return
          */
         public Builder referralUser(IdNameObject referralUser) {
-             this.referralUser = referralUser;
-             return this;
+            this.referralUser = referralUser;
+            return this;
         }
 
-    
-    
-    public ReferralInfo build(){
-        return new ReferralInfo(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ReferralInfo build() {
+            return new ReferralInfo(this);
+        }
     }
 }

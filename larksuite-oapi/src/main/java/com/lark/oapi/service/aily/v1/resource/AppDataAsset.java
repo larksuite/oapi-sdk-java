@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.aily.v1.resource;
+
 import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.Transport;
 import com.lark.oapi.core.response.RawResponse;
@@ -20,12 +21,16 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import java.nio.charset.StandardCharsets;
 
 import com.lark.oapi.core.Config;
 import com.lark.oapi.core.request.RequestOptions;
+
 import java.io.ByteArrayOutputStream;
+
 import com.lark.oapi.service.aily.v1.model.*;
+
 import java.io.*;
 import java.util.Map;
 import java.util.HashMap;
@@ -41,7 +46,7 @@ public class AppDataAsset {
         this.config = config;
     }
 
-    
+
     /**
      * ，创建数据知识
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=aily&resource=app.data_asset&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=aily&resource=app.data_asset&version=v1</a> ;
@@ -58,7 +63,7 @@ public class AppDataAsset {
                 , "/open-apis/aily/v1/apps/:app_id/data_assets"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-        
+
         // 反序列化
         CreateAppDataAssetResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateAppDataAssetResp.class);
         if (resp == null) {
@@ -66,14 +71,14 @@ public class AppDataAsset {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/aily/v1/apps/:app_id/data_assets"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
-       resp.setRawResponse(httpResponse);
-       resp.setRequest(req);
-       
-       return resp;
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
     }
 
     /**
@@ -90,7 +95,7 @@ public class AppDataAsset {
                 , "/open-apis/aily/v1/apps/:app_id/data_assets"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-        
+
         // 反序列化
         CreateAppDataAssetResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateAppDataAssetResp.class);
         if (resp == null) {
@@ -98,15 +103,16 @@ public class AppDataAsset {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/aily/v1/apps/:app_id/data_assets"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-        
+
         return resp;
     }
+
     /**
      * ，删除数据知识
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=delete&project=aily&resource=app.data_asset&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=delete&project=aily&resource=app.data_asset&version=v1</a> ;
@@ -123,7 +129,7 @@ public class AppDataAsset {
                 , "/open-apis/aily/v1/apps/:app_id/data_assets/:data_asset_id"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-        
+
         // 反序列化
         DeleteAppDataAssetResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteAppDataAssetResp.class);
         if (resp == null) {
@@ -131,14 +137,14 @@ public class AppDataAsset {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/aily/v1/apps/:app_id/data_assets/:data_asset_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
-       resp.setRawResponse(httpResponse);
-       resp.setRequest(req);
-       
-       return resp;
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
     }
 
     /**
@@ -155,7 +161,7 @@ public class AppDataAsset {
                 , "/open-apis/aily/v1/apps/:app_id/data_assets/:data_asset_id"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-        
+
         // 反序列化
         DeleteAppDataAssetResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteAppDataAssetResp.class);
         if (resp == null) {
@@ -163,15 +169,16 @@ public class AppDataAsset {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/aily/v1/apps/:app_id/data_assets/:data_asset_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-        
+
         return resp;
     }
+
     /**
      * ，获取数据知识
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=aily&resource=app.data_asset&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=aily&resource=app.data_asset&version=v1</a> ;
@@ -188,7 +195,7 @@ public class AppDataAsset {
                 , "/open-apis/aily/v1/apps/:app_id/data_assets/:data_asset_id"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-        
+
         // 反序列化
         GetAppDataAssetResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetAppDataAssetResp.class);
         if (resp == null) {
@@ -196,14 +203,14 @@ public class AppDataAsset {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/aily/v1/apps/:app_id/data_assets/:data_asset_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
-       resp.setRawResponse(httpResponse);
-       resp.setRequest(req);
-       
-       return resp;
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
     }
 
     /**
@@ -220,7 +227,7 @@ public class AppDataAsset {
                 , "/open-apis/aily/v1/apps/:app_id/data_assets/:data_asset_id"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-        
+
         // 反序列化
         GetAppDataAssetResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetAppDataAssetResp.class);
         if (resp == null) {
@@ -228,15 +235,16 @@ public class AppDataAsset {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/aily/v1/apps/:app_id/data_assets/:data_asset_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-        
+
         return resp;
     }
+
     /**
      * ，获取数据与知识列表
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=aily&resource=app.data_asset&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=aily&resource=app.data_asset&version=v1</a> ;
@@ -253,7 +261,7 @@ public class AppDataAsset {
                 , "/open-apis/aily/v1/apps/:app_id/data_assets"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-        
+
         // 反序列化
         ListAppDataAssetResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListAppDataAssetResp.class);
         if (resp == null) {
@@ -261,14 +269,14 @@ public class AppDataAsset {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/aily/v1/apps/:app_id/data_assets"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
-       resp.setRawResponse(httpResponse);
-       resp.setRequest(req);
-       
-       return resp;
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
     }
 
     /**
@@ -285,7 +293,7 @@ public class AppDataAsset {
                 , "/open-apis/aily/v1/apps/:app_id/data_assets"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-        
+
         // 反序列化
         ListAppDataAssetResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListAppDataAssetResp.class);
         if (resp == null) {
@@ -293,15 +301,16 @@ public class AppDataAsset {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/aily/v1/apps/:app_id/data_assets"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-        
+
         return resp;
     }
+
     /**
      * ，上传数据知识文件
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=upload_file&project=aily&resource=app.data_asset&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=upload_file&project=aily&resource=app.data_asset&version=v1</a> ;
@@ -319,7 +328,7 @@ public class AppDataAsset {
                 , "/open-apis/aily/v1/apps/:app_id/data_assets/upload_file"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-        
+
         // 反序列化
         UploadFileAppDataAssetResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UploadFileAppDataAssetResp.class);
         if (resp == null) {
@@ -327,14 +336,14 @@ public class AppDataAsset {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/aily/v1/apps/:app_id/data_assets/upload_file"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
-       resp.setRawResponse(httpResponse);
-       resp.setRequest(req);
-       
-       return resp;
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
     }
 
     /**
@@ -352,7 +361,7 @@ public class AppDataAsset {
                 , "/open-apis/aily/v1/apps/:app_id/data_assets/upload_file"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-        
+
         // 反序列化
         UploadFileAppDataAssetResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UploadFileAppDataAssetResp.class);
         if (resp == null) {
@@ -360,13 +369,13 @@ public class AppDataAsset {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/aily/v1/apps/:app_id/data_assets/upload_file"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-        
+
         return resp;
     }
 }

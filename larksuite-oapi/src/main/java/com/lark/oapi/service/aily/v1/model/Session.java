@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.aily.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.aily.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,66 +20,126 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Session {
-     /**
-      * session 的唯一标识
-      * <p> 示例值：7316801852719906836
-      */
+    /**
+     * session 的唯一标识
+     * <p> 示例值：7316801852719906836
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * session 的创建时间，毫秒时间戳
-      * <p> 示例值：1703486238000
-      */
+    /**
+     * session 的创建时间，毫秒时间戳
+     * <p> 示例值：1703486238000
+     */
     @SerializedName("created_at")
     private String createdAt;
-     /**
-      * session 的过期时间，毫秒时间戳
-      * <p> 示例值：1703486238000
-      */
+    /**
+     * session 的过期时间，毫秒时间戳
+     * <p> 示例值：1703486238000
+     */
     @SerializedName("effected_at")
     private String effectedAt;
-     /**
-      * session 类型
-      * <p> 示例值：LONG-TERM
-      */
+    /**
+     * session 类型
+     * <p> 示例值：LONG-TERM
+     */
     @SerializedName("type")
     private String type;
-     /**
-      * session 状态
-      * <p> 示例值：VALID
-      */
+    /**
+     * session 状态
+     * <p> 示例值：VALID
+     */
     @SerializedName("status")
     private String status;
-     /**
-      * 当前运行中的意图 id
-      * <p> 示例值：7312657247586009109
-      */
+    /**
+     * 当前运行中的意图 id
+     * <p> 示例值：7312657247586009109
+     */
     @SerializedName("active_intent_id")
     private String activeIntentId;
-     /**
-      * 渠道类型
-      * <p> 示例值：LARK_OPEN_API
-      */
+    /**
+     * 渠道类型
+     * <p> 示例值：LARK_OPEN_API
+     */
     @SerializedName("channel_type")
     private String channelType;
-     /**
-      * 是否开启调试模式
-      * <p> 示例值：false
-      */
+    /**
+     * 是否开启调试模式
+     * <p> 示例值：false
+     */
     @SerializedName("enable_debug")
     private Boolean enableDebug;
-     /**
-      * 会话中的自定义 kv 对，包括创建时传入的渠道上下文
-      * <p> 示例值：{}
-      */
+    /**
+     * 会话中的自定义 kv 对，包括创建时传入的渠道上下文
+     * <p> 示例值：{}
+     */
     @SerializedName("kvs")
     private String kvs;
+
+    // builder 开始
+    public Session() {
+    }
+
+    public Session(Builder builder) {
+        /**
+         * session 的唯一标识
+         * <p> 示例值：7316801852719906836
+         */
+        this.id = builder.id;
+        /**
+         * session 的创建时间，毫秒时间戳
+         * <p> 示例值：1703486238000
+         */
+        this.createdAt = builder.createdAt;
+        /**
+         * session 的过期时间，毫秒时间戳
+         * <p> 示例值：1703486238000
+         */
+        this.effectedAt = builder.effectedAt;
+        /**
+         * session 类型
+         * <p> 示例值：LONG-TERM
+         */
+        this.type = builder.type;
+        /**
+         * session 状态
+         * <p> 示例值：VALID
+         */
+        this.status = builder.status;
+        /**
+         * 当前运行中的意图 id
+         * <p> 示例值：7312657247586009109
+         */
+        this.activeIntentId = builder.activeIntentId;
+        /**
+         * 渠道类型
+         * <p> 示例值：LARK_OPEN_API
+         */
+        this.channelType = builder.channelType;
+        /**
+         * 是否开启调试模式
+         * <p> 示例值：false
+         */
+        this.enableDebug = builder.enableDebug;
+        /**
+         * 会话中的自定义 kv 对，包括创建时传入的渠道上下文
+         * <p> 示例值：{}
+         */
+        this.kvs = builder.kvs;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -151,258 +212,208 @@ public class Session {
         this.kvs = kvs;
     }
 
-
-// builder 开始
-  public Session(){}
-
-  public Session(Builder builder){
-         /**
-          * session 的唯一标识
-          * <p> 示例值：7316801852719906836
-          */
-      this.id = builder.id;
-         /**
-          * session 的创建时间，毫秒时间戳
-          * <p> 示例值：1703486238000
-          */
-      this.createdAt = builder.createdAt;
-         /**
-          * session 的过期时间，毫秒时间戳
-          * <p> 示例值：1703486238000
-          */
-      this.effectedAt = builder.effectedAt;
-         /**
-          * session 类型
-          * <p> 示例值：LONG-TERM
-          */
-      this.type = builder.type;
-         /**
-          * session 状态
-          * <p> 示例值：VALID
-          */
-      this.status = builder.status;
-         /**
-          * 当前运行中的意图 id
-          * <p> 示例值：7312657247586009109
-          */
-      this.activeIntentId = builder.activeIntentId;
-         /**
-          * 渠道类型
-          * <p> 示例值：LARK_OPEN_API
-          */
-      this.channelType = builder.channelType;
-         /**
-          * 是否开启调试模式
-          * <p> 示例值：false
-          */
-      this.enableDebug = builder.enableDebug;
-         /**
-          * 会话中的自定义 kv 对，包括创建时传入的渠道上下文
-          * <p> 示例值：{}
-          */
-      this.kvs = builder.kvs;
-  }
-
     public static class Builder {
-     /**
-      * session 的唯一标识
-      * <p> 示例值：7316801852719906836
-      */
+        /**
+         * session 的唯一标识
+         * <p> 示例值：7316801852719906836
+         */
         private String id;
-     /**
-      * session 的创建时间，毫秒时间戳
-      * <p> 示例值：1703486238000
-      */
+        /**
+         * session 的创建时间，毫秒时间戳
+         * <p> 示例值：1703486238000
+         */
         private String createdAt;
-     /**
-      * session 的过期时间，毫秒时间戳
-      * <p> 示例值：1703486238000
-      */
+        /**
+         * session 的过期时间，毫秒时间戳
+         * <p> 示例值：1703486238000
+         */
         private String effectedAt;
-     /**
-      * session 类型
-      * <p> 示例值：LONG-TERM
-      */
+        /**
+         * session 类型
+         * <p> 示例值：LONG-TERM
+         */
         private String type;
-     /**
-      * session 状态
-      * <p> 示例值：VALID
-      */
+        /**
+         * session 状态
+         * <p> 示例值：VALID
+         */
         private String status;
-     /**
-      * 当前运行中的意图 id
-      * <p> 示例值：7312657247586009109
-      */
+        /**
+         * 当前运行中的意图 id
+         * <p> 示例值：7312657247586009109
+         */
         private String activeIntentId;
-     /**
-      * 渠道类型
-      * <p> 示例值：LARK_OPEN_API
-      */
+        /**
+         * 渠道类型
+         * <p> 示例值：LARK_OPEN_API
+         */
         private String channelType;
-     /**
-      * 是否开启调试模式
-      * <p> 示例值：false
-      */
+        /**
+         * 是否开启调试模式
+         * <p> 示例值：false
+         */
         private Boolean enableDebug;
-     /**
-      * 会话中的自定义 kv 对，包括创建时传入的渠道上下文
-      * <p> 示例值：{}
-      */
+        /**
+         * 会话中的自定义 kv 对，包括创建时传入的渠道上下文
+         * <p> 示例值：{}
+         */
         private String kvs;
 
         /**
          * session 的唯一标识
          * <p> 示例值：7316801852719906836
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * session 的创建时间，毫秒时间戳
          * <p> 示例值：1703486238000
+         *
          * @param createdAt
          * @return
          */
         public Builder createdAt(String createdAt) {
-             this.createdAt = createdAt;
-             return this;
+            this.createdAt = createdAt;
+            return this;
         }
 
-    
 
         /**
          * session 的过期时间，毫秒时间戳
          * <p> 示例值：1703486238000
+         *
          * @param effectedAt
          * @return
          */
         public Builder effectedAt(String effectedAt) {
-             this.effectedAt = effectedAt;
-             return this;
+            this.effectedAt = effectedAt;
+            return this;
         }
 
-    
 
         /**
          * session 类型
          * <p> 示例值：LONG-TERM
+         *
          * @param type
          * @return
          */
         public Builder type(String type) {
-             this.type = type;
-             return this;
+            this.type = type;
+            return this;
         }
+
         /**
          * session 类型
          * <p> 示例值：LONG-TERM
+         *
          * @param type {@link com.lark.oapi.service.aily.v1.enums.SessionSessionTypeEnum}
          * @return
          */
         public Builder type(com.lark.oapi.service.aily.v1.enums.SessionSessionTypeEnum type) {
-             this.type = type.getValue();
-             return this;
+            this.type = type.getValue();
+            return this;
         }
 
-    
 
         /**
          * session 状态
          * <p> 示例值：VALID
+         *
          * @param status
          * @return
          */
         public Builder status(String status) {
-             this.status = status;
-             return this;
+            this.status = status;
+            return this;
         }
+
         /**
          * session 状态
          * <p> 示例值：VALID
+         *
          * @param status {@link com.lark.oapi.service.aily.v1.enums.SessionSessionStatusEnum}
          * @return
          */
         public Builder status(com.lark.oapi.service.aily.v1.enums.SessionSessionStatusEnum status) {
-             this.status = status.getValue();
-             return this;
+            this.status = status.getValue();
+            return this;
         }
 
-    
 
         /**
          * 当前运行中的意图 id
          * <p> 示例值：7312657247586009109
+         *
          * @param activeIntentId
          * @return
          */
         public Builder activeIntentId(String activeIntentId) {
-             this.activeIntentId = activeIntentId;
-             return this;
+            this.activeIntentId = activeIntentId;
+            return this;
         }
 
-    
 
         /**
          * 渠道类型
          * <p> 示例值：LARK_OPEN_API
+         *
          * @param channelType
          * @return
          */
         public Builder channelType(String channelType) {
-             this.channelType = channelType;
-             return this;
+            this.channelType = channelType;
+            return this;
         }
+
         /**
          * 渠道类型
          * <p> 示例值：LARK_OPEN_API
+         *
          * @param channelType {@link com.lark.oapi.service.aily.v1.enums.SessionChannelTypeEnum}
          * @return
          */
         public Builder channelType(com.lark.oapi.service.aily.v1.enums.SessionChannelTypeEnum channelType) {
-             this.channelType = channelType.getValue();
-             return this;
+            this.channelType = channelType.getValue();
+            return this;
         }
 
-    
 
         /**
          * 是否开启调试模式
          * <p> 示例值：false
+         *
          * @param enableDebug
          * @return
          */
         public Builder enableDebug(Boolean enableDebug) {
-             this.enableDebug = enableDebug;
-             return this;
+            this.enableDebug = enableDebug;
+            return this;
         }
 
-    
 
         /**
          * 会话中的自定义 kv 对，包括创建时传入的渠道上下文
          * <p> 示例值：{}
+         *
          * @param kvs
          * @return
          */
         public Builder kvs(String kvs) {
-             this.kvs = kvs;
-             return this;
+            this.kvs = kvs;
+            return this;
         }
 
-    
-    
-    public Session build(){
-        return new Session(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Session build() {
+            return new Session(this);
+        }
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.task.v1.resource;
+
 import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.Transport;
 import com.lark.oapi.core.response.RawResponse;
@@ -20,12 +21,16 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import java.nio.charset.StandardCharsets;
 
 import com.lark.oapi.core.Config;
 import com.lark.oapi.core.request.RequestOptions;
+
 import java.io.ByteArrayOutputStream;
+
 import com.lark.oapi.service.task.v1.model.*;
+
 import java.io.*;
 import java.util.Map;
 import java.util.HashMap;
@@ -41,7 +46,7 @@ public class TaskFollower {
         this.config = config;
     }
 
-    
+
     /**
      * 新增关注人，该接口用于创建任务关注人。可以一次性添加多位关注人。关注人ID要使用表示用户的ID。
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-follower/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-follower/create</a> ;
@@ -58,7 +63,7 @@ public class TaskFollower {
                 , "/open-apis/task/v1/tasks/:task_id/followers"
                 , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                 , req);
-        
+
         // 反序列化
         CreateTaskFollowerResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateTaskFollowerResp.class);
         if (resp == null) {
@@ -66,14 +71,14 @@ public class TaskFollower {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v1/tasks/:task_id/followers"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
-       resp.setRawResponse(httpResponse);
-       resp.setRequest(req);
-       
-       return resp;
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
     }
 
     /**
@@ -90,7 +95,7 @@ public class TaskFollower {
                 , "/open-apis/task/v1/tasks/:task_id/followers"
                 , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                 , req);
-        
+
         // 反序列化
         CreateTaskFollowerResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateTaskFollowerResp.class);
         if (resp == null) {
@@ -98,15 +103,16 @@ public class TaskFollower {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v1/tasks/:task_id/followers"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-        
+
         return resp;
     }
+
     /**
      * 删除关注人，该接口用于删除任务关注人
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-follower/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-follower/delete</a> ;
@@ -123,7 +129,7 @@ public class TaskFollower {
                 , "/open-apis/task/v1/tasks/:task_id/followers/:follower_id"
                 , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                 , req);
-        
+
         // 反序列化
         DeleteTaskFollowerResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteTaskFollowerResp.class);
         if (resp == null) {
@@ -131,14 +137,14 @@ public class TaskFollower {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v1/tasks/:task_id/followers/:follower_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
-       resp.setRawResponse(httpResponse);
-       resp.setRequest(req);
-       
-       return resp;
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
     }
 
     /**
@@ -155,7 +161,7 @@ public class TaskFollower {
                 , "/open-apis/task/v1/tasks/:task_id/followers/:follower_id"
                 , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                 , req);
-        
+
         // 反序列化
         DeleteTaskFollowerResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteTaskFollowerResp.class);
         if (resp == null) {
@@ -163,15 +169,16 @@ public class TaskFollower {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v1/tasks/:task_id/followers/:follower_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-        
+
         return resp;
     }
+
     /**
      * 获取任务关注人列表，该接口用于查询任务关注人列表，支持分页，最大值为50
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-follower/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-follower/list</a> ;
@@ -188,7 +195,7 @@ public class TaskFollower {
                 , "/open-apis/task/v1/tasks/:task_id/followers"
                 , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                 , req);
-        
+
         // 反序列化
         ListTaskFollowerResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListTaskFollowerResp.class);
         if (resp == null) {
@@ -196,14 +203,14 @@ public class TaskFollower {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v1/tasks/:task_id/followers"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
-       resp.setRawResponse(httpResponse);
-       resp.setRequest(req);
-       
-       return resp;
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
     }
 
     /**
@@ -220,7 +227,7 @@ public class TaskFollower {
                 , "/open-apis/task/v1/tasks/:task_id/followers"
                 , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                 , req);
-        
+
         // 反序列化
         ListTaskFollowerResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListTaskFollowerResp.class);
         if (resp == null) {
@@ -228,13 +235,13 @@ public class TaskFollower {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v1/tasks/:task_id/followers"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-        
+
         return resp;
     }
 }

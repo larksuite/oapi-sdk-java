@@ -17,15 +17,16 @@ package com.lark.oapi.service.mdm.v1.enums;
  * 是否系统字段
  */
 public enum ConfigSysEnum {
-     SYS(0), // 是系统字段
-     NOT_SYS(1), // 不是系统字段
-  ;
-   private Integer value;
+    SYS(0), // 是系统字段
+    NOT_SYS(1), // 不是系统字段
+    ;
+    private Integer value;
+
     ConfigSysEnum(Integer value) {
-      this.value = value;
+        this.value = value;
     }
 
     public Integer getValue() {
-      return this.value;
+        return this.value;
     }
 }

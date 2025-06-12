@@ -12,66 +12,122 @@
  */
 
 package com.lark.oapi.service.verification.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class VerificationDetail {
-     /**
-      * 认证类型
-      * <p> 示例值：
-      */
+    /**
+     * 认证类型
+     * <p> 示例值：
+     */
     @SerializedName("verification_type")
     private Integer verificationType;
-     /**
-      * 认证方式
-      * <p> 示例值：
-      */
+    /**
+     * 认证方式
+     * <p> 示例值：
+     */
     @SerializedName("verification_source")
     private Integer verificationSource;
-     /**
-      * 工商名称
-      * <p> 示例值：未来有限公司
-      */
+    /**
+     * 工商名称
+     * <p> 示例值：未来有限公司
+     */
     @SerializedName("org_name")
     private String orgName;
-     /**
-      * 统一工商信用代码
-      * <p> 示例值：xxxx
-      */
+    /**
+     * 统一工商信用代码
+     * <p> 示例值：xxxx
+     */
     @SerializedName("usci")
     private String usci;
-     /**
-      * 企业类型
-      * <p> 示例值：
-      */
+    /**
+     * 企业类型
+     * <p> 示例值：
+     */
     @SerializedName("org_type")
     private Integer orgType;
-     /**
-      * 法人姓名
-      * <p> 示例值：张三
-      */
+    /**
+     * 法人姓名
+     * <p> 示例值：张三
+     */
     @SerializedName("legal_person_name")
     private String legalPersonName;
-     /**
-      * 企业经营许可证
-      * <p> 示例值：https://xxx
-      */
+    /**
+     * 企业经营许可证
+     * <p> 示例值：https://xxx
+     */
     @SerializedName("enterprise_license")
     private String enterpriseLicense;
-     /**
-      * 认证公函
-      * <p> 示例值：https://xxx
-      */
+    /**
+     * 认证公函
+     * <p> 示例值：https://xxx
+     */
     @SerializedName("verification_letter")
     private String verificationLetter;
+
+    // builder 开始
+    public VerificationDetail() {
+    }
+
+    public VerificationDetail(Builder builder) {
+        /**
+         * 认证类型
+         * <p> 示例值：
+         */
+        this.verificationType = builder.verificationType;
+        /**
+         * 认证方式
+         * <p> 示例值：
+         */
+        this.verificationSource = builder.verificationSource;
+        /**
+         * 工商名称
+         * <p> 示例值：未来有限公司
+         */
+        this.orgName = builder.orgName;
+        /**
+         * 统一工商信用代码
+         * <p> 示例值：xxxx
+         */
+        this.usci = builder.usci;
+        /**
+         * 企业类型
+         * <p> 示例值：
+         */
+        this.orgType = builder.orgType;
+        /**
+         * 法人姓名
+         * <p> 示例值：张三
+         */
+        this.legalPersonName = builder.legalPersonName;
+        /**
+         * 企业经营许可证
+         * <p> 示例值：https://xxx
+         */
+        this.enterpriseLicense = builder.enterpriseLicense;
+        /**
+         * 认证公函
+         * <p> 示例值：https://xxx
+         */
+        this.verificationLetter = builder.verificationLetter;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Integer getVerificationType() {
         return this.verificationType;
     }
@@ -136,205 +192,154 @@ public class VerificationDetail {
         this.verificationLetter = verificationLetter;
     }
 
-
-// builder 开始
-  public VerificationDetail(){}
-
-  public VerificationDetail(Builder builder){
-         /**
-          * 认证类型
-          * <p> 示例值：
-          */
-      this.verificationType = builder.verificationType;
-         /**
-          * 认证方式
-          * <p> 示例值：
-          */
-      this.verificationSource = builder.verificationSource;
-         /**
-          * 工商名称
-          * <p> 示例值：未来有限公司
-          */
-      this.orgName = builder.orgName;
-         /**
-          * 统一工商信用代码
-          * <p> 示例值：xxxx
-          */
-      this.usci = builder.usci;
-         /**
-          * 企业类型
-          * <p> 示例值：
-          */
-      this.orgType = builder.orgType;
-         /**
-          * 法人姓名
-          * <p> 示例值：张三
-          */
-      this.legalPersonName = builder.legalPersonName;
-         /**
-          * 企业经营许可证
-          * <p> 示例值：https://xxx
-          */
-      this.enterpriseLicense = builder.enterpriseLicense;
-         /**
-          * 认证公函
-          * <p> 示例值：https://xxx
-          */
-      this.verificationLetter = builder.verificationLetter;
-  }
-
     public static class Builder {
-     /**
-      * 认证类型
-      * <p> 示例值：
-      */
+        /**
+         * 认证类型
+         * <p> 示例值：
+         */
         private Integer verificationType;
-     /**
-      * 认证方式
-      * <p> 示例值：
-      */
+        /**
+         * 认证方式
+         * <p> 示例值：
+         */
         private Integer verificationSource;
-     /**
-      * 工商名称
-      * <p> 示例值：未来有限公司
-      */
+        /**
+         * 工商名称
+         * <p> 示例值：未来有限公司
+         */
         private String orgName;
-     /**
-      * 统一工商信用代码
-      * <p> 示例值：xxxx
-      */
+        /**
+         * 统一工商信用代码
+         * <p> 示例值：xxxx
+         */
         private String usci;
-     /**
-      * 企业类型
-      * <p> 示例值：
-      */
+        /**
+         * 企业类型
+         * <p> 示例值：
+         */
         private Integer orgType;
-     /**
-      * 法人姓名
-      * <p> 示例值：张三
-      */
+        /**
+         * 法人姓名
+         * <p> 示例值：张三
+         */
         private String legalPersonName;
-     /**
-      * 企业经营许可证
-      * <p> 示例值：https://xxx
-      */
+        /**
+         * 企业经营许可证
+         * <p> 示例值：https://xxx
+         */
         private String enterpriseLicense;
-     /**
-      * 认证公函
-      * <p> 示例值：https://xxx
-      */
+        /**
+         * 认证公函
+         * <p> 示例值：https://xxx
+         */
         private String verificationLetter;
 
         /**
          * 认证类型
          * <p> 示例值：
+         *
          * @param verificationType
          * @return
          */
         public Builder verificationType(Integer verificationType) {
-             this.verificationType = verificationType;
-             return this;
+            this.verificationType = verificationType;
+            return this;
         }
 
-    
 
         /**
          * 认证方式
          * <p> 示例值：
+         *
          * @param verificationSource
          * @return
          */
         public Builder verificationSource(Integer verificationSource) {
-             this.verificationSource = verificationSource;
-             return this;
+            this.verificationSource = verificationSource;
+            return this;
         }
 
-    
 
         /**
          * 工商名称
          * <p> 示例值：未来有限公司
+         *
          * @param orgName
          * @return
          */
         public Builder orgName(String orgName) {
-             this.orgName = orgName;
-             return this;
+            this.orgName = orgName;
+            return this;
         }
 
-    
 
         /**
          * 统一工商信用代码
          * <p> 示例值：xxxx
+         *
          * @param usci
          * @return
          */
         public Builder usci(String usci) {
-             this.usci = usci;
-             return this;
+            this.usci = usci;
+            return this;
         }
 
-    
 
         /**
          * 企业类型
          * <p> 示例值：
+         *
          * @param orgType
          * @return
          */
         public Builder orgType(Integer orgType) {
-             this.orgType = orgType;
-             return this;
+            this.orgType = orgType;
+            return this;
         }
 
-    
 
         /**
          * 法人姓名
          * <p> 示例值：张三
+         *
          * @param legalPersonName
          * @return
          */
         public Builder legalPersonName(String legalPersonName) {
-             this.legalPersonName = legalPersonName;
-             return this;
+            this.legalPersonName = legalPersonName;
+            return this;
         }
 
-    
 
         /**
          * 企业经营许可证
          * <p> 示例值：https://xxx
+         *
          * @param enterpriseLicense
          * @return
          */
         public Builder enterpriseLicense(String enterpriseLicense) {
-             this.enterpriseLicense = enterpriseLicense;
-             return this;
+            this.enterpriseLicense = enterpriseLicense;
+            return this;
         }
 
-    
 
         /**
          * 认证公函
          * <p> 示例值：https://xxx
+         *
          * @param verificationLetter
          * @return
          */
         public Builder verificationLetter(String verificationLetter) {
-             this.verificationLetter = verificationLetter;
-             return this;
+            this.verificationLetter = verificationLetter;
+            return this;
         }
 
-    
-    
-    public VerificationDetail build(){
-        return new VerificationDetail(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public VerificationDetail build() {
+            return new VerificationDetail(this);
+        }
     }
 }

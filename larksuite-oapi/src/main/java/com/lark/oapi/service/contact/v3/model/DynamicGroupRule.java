@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.contact.v3.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,36 +20,71 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class DynamicGroupRule {
-     /**
-      * 动态用户组匹配部门层级
-      * <p> 示例值：recursive
-      */
+    /**
+     * 动态用户组匹配部门层级
+     * <p> 示例值：recursive
+     */
     @SerializedName("department_level")
     private String departmentLevel;
-     /**
-      * 动态用户组规则表达式
-      * <p> 示例值：
-      */
+    /**
+     * 动态用户组规则表达式
+     * <p> 示例值：
+     */
     @SerializedName("expressions")
     private DynamicGroupExpression[] expressions;
-     /**
-      * 动态用户组表达式组合关系
-      * <p> 示例值：1 and (2 or 3)
-      */
+    /**
+     * 动态用户组表达式组合关系
+     * <p> 示例值：1 and (2 or 3)
+     */
     @SerializedName("joiner_rule")
     private String joinerRule;
-     /**
-      * 动态用户组计算状态，只读，创建、更新用户组时不需要填写
-      * <p> 示例值：1
-      */
+    /**
+     * 动态用户组计算状态，只读，创建、更新用户组时不需要填写
+     * <p> 示例值：1
+     */
     @SerializedName("group_status")
     private String groupStatus;
+
+    // builder 开始
+    public DynamicGroupRule() {
+    }
+
+    public DynamicGroupRule(Builder builder) {
+        /**
+         * 动态用户组匹配部门层级
+         * <p> 示例值：recursive
+         */
+        this.departmentLevel = builder.departmentLevel;
+        /**
+         * 动态用户组规则表达式
+         * <p> 示例值：
+         */
+        this.expressions = builder.expressions;
+        /**
+         * 动态用户组表达式组合关系
+         * <p> 示例值：1 and (2 or 3)
+         */
+        this.joinerRule = builder.joinerRule;
+        /**
+         * 动态用户组计算状态，只读，创建、更新用户组时不需要填写
+         * <p> 示例值：1
+         */
+        this.groupStatus = builder.groupStatus;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getDepartmentLevel() {
         return this.departmentLevel;
     }
@@ -81,133 +117,106 @@ public class DynamicGroupRule {
         this.groupStatus = groupStatus;
     }
 
-
-// builder 开始
-  public DynamicGroupRule(){}
-
-  public DynamicGroupRule(Builder builder){
-         /**
-          * 动态用户组匹配部门层级
-          * <p> 示例值：recursive
-          */
-      this.departmentLevel = builder.departmentLevel;
-         /**
-          * 动态用户组规则表达式
-          * <p> 示例值：
-          */
-      this.expressions = builder.expressions;
-         /**
-          * 动态用户组表达式组合关系
-          * <p> 示例值：1 and (2 or 3)
-          */
-      this.joinerRule = builder.joinerRule;
-         /**
-          * 动态用户组计算状态，只读，创建、更新用户组时不需要填写
-          * <p> 示例值：1
-          */
-      this.groupStatus = builder.groupStatus;
-  }
-
     public static class Builder {
-     /**
-      * 动态用户组匹配部门层级
-      * <p> 示例值：recursive
-      */
+        /**
+         * 动态用户组匹配部门层级
+         * <p> 示例值：recursive
+         */
         private String departmentLevel;
-     /**
-      * 动态用户组规则表达式
-      * <p> 示例值：
-      */
+        /**
+         * 动态用户组规则表达式
+         * <p> 示例值：
+         */
         private DynamicGroupExpression[] expressions;
-     /**
-      * 动态用户组表达式组合关系
-      * <p> 示例值：1 and (2 or 3)
-      */
+        /**
+         * 动态用户组表达式组合关系
+         * <p> 示例值：1 and (2 or 3)
+         */
         private String joinerRule;
-     /**
-      * 动态用户组计算状态，只读，创建、更新用户组时不需要填写
-      * <p> 示例值：1
-      */
+        /**
+         * 动态用户组计算状态，只读，创建、更新用户组时不需要填写
+         * <p> 示例值：1
+         */
         private String groupStatus;
 
         /**
          * 动态用户组匹配部门层级
          * <p> 示例值：recursive
+         *
          * @param departmentLevel
          * @return
          */
         public Builder departmentLevel(String departmentLevel) {
-             this.departmentLevel = departmentLevel;
-             return this;
+            this.departmentLevel = departmentLevel;
+            return this;
         }
+
         /**
          * 动态用户组匹配部门层级
          * <p> 示例值：recursive
+         *
          * @param departmentLevel {@link com.lark.oapi.service.contact.v3.enums.DynamicGroupRuleDepartmentLevelEnum}
          * @return
          */
         public Builder departmentLevel(com.lark.oapi.service.contact.v3.enums.DynamicGroupRuleDepartmentLevelEnum departmentLevel) {
-             this.departmentLevel = departmentLevel.getValue();
-             return this;
+            this.departmentLevel = departmentLevel.getValue();
+            return this;
         }
 
-    
 
         /**
          * 动态用户组规则表达式
          * <p> 示例值：
+         *
          * @param expressions
          * @return
          */
         public Builder expressions(DynamicGroupExpression[] expressions) {
-             this.expressions = expressions;
-             return this;
+            this.expressions = expressions;
+            return this;
         }
 
-    
 
         /**
          * 动态用户组表达式组合关系
          * <p> 示例值：1 and (2 or 3)
+         *
          * @param joinerRule
          * @return
          */
         public Builder joinerRule(String joinerRule) {
-             this.joinerRule = joinerRule;
-             return this;
+            this.joinerRule = joinerRule;
+            return this;
         }
 
-    
 
         /**
          * 动态用户组计算状态，只读，创建、更新用户组时不需要填写
          * <p> 示例值：1
+         *
          * @param groupStatus
          * @return
          */
         public Builder groupStatus(String groupStatus) {
-             this.groupStatus = groupStatus;
-             return this;
+            this.groupStatus = groupStatus;
+            return this;
         }
+
         /**
          * 动态用户组计算状态，只读，创建、更新用户组时不需要填写
          * <p> 示例值：1
+         *
          * @param groupStatus {@link com.lark.oapi.service.contact.v3.enums.DynamicGroupRuleGroupStatusEnum}
          * @return
          */
         public Builder groupStatus(com.lark.oapi.service.contact.v3.enums.DynamicGroupRuleGroupStatusEnum groupStatus) {
-             this.groupStatus = groupStatus.getValue();
-             return this;
+            this.groupStatus = groupStatus.getValue();
+            return this;
         }
 
-    
-    
-    public DynamicGroupRule build(){
-        return new DynamicGroupRule(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public DynamicGroupRule build() {
+            return new DynamicGroupRule(this);
+        }
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.calendar.v4.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.calendar.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class MeetingChat {
-     /**
-      * 会议群ID
-      * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
-      */
+    /**
+     * 会议群ID
+     * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
+     */
     @SerializedName("meeting_chat_id")
     private String meetingChatId;
-     /**
-      * 群分享链接
-      * <p> 示例值：https://applink.feishu.cn/client/chat/open?openChatId=oc_a0553eda9014c201e6969b478895c230
-      */
+    /**
+     * 群分享链接
+     * <p> 示例值：https://applink.feishu.cn/client/chat/open?openChatId=oc_a0553eda9014c201e6969b478895c230
+     */
     @SerializedName("applink")
     private String applink;
+
+    // builder 开始
+    public MeetingChat() {
+    }
+
+    public MeetingChat(Builder builder) {
+        /**
+         * 会议群ID
+         * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
+         */
+        this.meetingChatId = builder.meetingChatId;
+        /**
+         * 群分享链接
+         * <p> 示例值：https://applink.feishu.cn/client/chat/open?openChatId=oc_a0553eda9014c201e6969b478895c230
+         */
+        this.applink = builder.applink;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getMeetingChatId() {
         return this.meetingChatId;
     }
@@ -53,67 +79,46 @@ public class MeetingChat {
         this.applink = applink;
     }
 
-
-// builder 开始
-  public MeetingChat(){}
-
-  public MeetingChat(Builder builder){
-         /**
-          * 会议群ID
-          * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
-          */
-      this.meetingChatId = builder.meetingChatId;
-         /**
-          * 群分享链接
-          * <p> 示例值：https://applink.feishu.cn/client/chat/open?openChatId=oc_a0553eda9014c201e6969b478895c230
-          */
-      this.applink = builder.applink;
-  }
-
     public static class Builder {
-     /**
-      * 会议群ID
-      * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
-      */
+        /**
+         * 会议群ID
+         * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
+         */
         private String meetingChatId;
-     /**
-      * 群分享链接
-      * <p> 示例值：https://applink.feishu.cn/client/chat/open?openChatId=oc_a0553eda9014c201e6969b478895c230
-      */
+        /**
+         * 群分享链接
+         * <p> 示例值：https://applink.feishu.cn/client/chat/open?openChatId=oc_a0553eda9014c201e6969b478895c230
+         */
         private String applink;
 
         /**
          * 会议群ID
          * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
+         *
          * @param meetingChatId
          * @return
          */
         public Builder meetingChatId(String meetingChatId) {
-             this.meetingChatId = meetingChatId;
-             return this;
+            this.meetingChatId = meetingChatId;
+            return this;
         }
 
-    
 
         /**
          * 群分享链接
          * <p> 示例值：https://applink.feishu.cn/client/chat/open?openChatId=oc_a0553eda9014c201e6969b478895c230
+         *
          * @param applink
          * @return
          */
         public Builder applink(String applink) {
-             this.applink = applink;
-             return this;
+            this.applink = applink;
+            return this;
         }
 
-    
-    
-    public MeetingChat build(){
-        return new MeetingChat(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public MeetingChat build() {
+            return new MeetingChat(this);
+        }
     }
 }

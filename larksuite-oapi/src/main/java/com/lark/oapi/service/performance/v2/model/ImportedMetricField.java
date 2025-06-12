@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.performance.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.performance.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ImportedMetricField {
-     /**
-      * 指标字段 ID
-      * <p> 示例值：7283776005142675476
-      */
+    /**
+     * 指标字段 ID
+     * <p> 示例值：7283776005142675476
+     */
     @SerializedName("field_id")
     private String fieldId;
-     /**
-      * 字段值
-      * <p> 示例值：100
-      */
+    /**
+     * 字段值
+     * <p> 示例值：100
+     */
     @SerializedName("field_value")
     private String fieldValue;
-     /**
-      * 字段值，当字段为人员信息时必填
-      * <p> 示例值：ou_3245842393d09e9428ad4655da6e30b3
-      */
+    /**
+     * 字段值，当字段为人员信息时必填
+     * <p> 示例值：ou_3245842393d09e9428ad4655da6e30b3
+     */
     @SerializedName("field_value_person")
     private String fieldValuePerson;
+
+    // builder 开始
+    public ImportedMetricField() {
+    }
+
+    public ImportedMetricField(Builder builder) {
+        /**
+         * 指标字段 ID
+         * <p> 示例值：7283776005142675476
+         */
+        this.fieldId = builder.fieldId;
+        /**
+         * 字段值
+         * <p> 示例值：100
+         */
+        this.fieldValue = builder.fieldValue;
+        /**
+         * 字段值，当字段为人员信息时必填
+         * <p> 示例值：ou_3245842393d09e9428ad4655da6e30b3
+         */
+        this.fieldValuePerson = builder.fieldValuePerson;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getFieldId() {
         return this.fieldId;
     }
@@ -67,90 +98,64 @@ public class ImportedMetricField {
         this.fieldValuePerson = fieldValuePerson;
     }
 
-
-// builder 开始
-  public ImportedMetricField(){}
-
-  public ImportedMetricField(Builder builder){
-         /**
-          * 指标字段 ID
-          * <p> 示例值：7283776005142675476
-          */
-      this.fieldId = builder.fieldId;
-         /**
-          * 字段值
-          * <p> 示例值：100
-          */
-      this.fieldValue = builder.fieldValue;
-         /**
-          * 字段值，当字段为人员信息时必填
-          * <p> 示例值：ou_3245842393d09e9428ad4655da6e30b3
-          */
-      this.fieldValuePerson = builder.fieldValuePerson;
-  }
-
     public static class Builder {
-     /**
-      * 指标字段 ID
-      * <p> 示例值：7283776005142675476
-      */
+        /**
+         * 指标字段 ID
+         * <p> 示例值：7283776005142675476
+         */
         private String fieldId;
-     /**
-      * 字段值
-      * <p> 示例值：100
-      */
+        /**
+         * 字段值
+         * <p> 示例值：100
+         */
         private String fieldValue;
-     /**
-      * 字段值，当字段为人员信息时必填
-      * <p> 示例值：ou_3245842393d09e9428ad4655da6e30b3
-      */
+        /**
+         * 字段值，当字段为人员信息时必填
+         * <p> 示例值：ou_3245842393d09e9428ad4655da6e30b3
+         */
         private String fieldValuePerson;
 
         /**
          * 指标字段 ID
          * <p> 示例值：7283776005142675476
+         *
          * @param fieldId
          * @return
          */
         public Builder fieldId(String fieldId) {
-             this.fieldId = fieldId;
-             return this;
+            this.fieldId = fieldId;
+            return this;
         }
 
-    
 
         /**
          * 字段值
          * <p> 示例值：100
+         *
          * @param fieldValue
          * @return
          */
         public Builder fieldValue(String fieldValue) {
-             this.fieldValue = fieldValue;
-             return this;
+            this.fieldValue = fieldValue;
+            return this;
         }
 
-    
 
         /**
          * 字段值，当字段为人员信息时必填
          * <p> 示例值：ou_3245842393d09e9428ad4655da6e30b3
+         *
          * @param fieldValuePerson
          * @return
          */
         public Builder fieldValuePerson(String fieldValuePerson) {
-             this.fieldValuePerson = fieldValuePerson;
-             return this;
+            this.fieldValuePerson = fieldValuePerson;
+            return this;
         }
 
-    
-    
-    public ImportedMetricField build(){
-        return new ImportedMetricField(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ImportedMetricField build() {
+            return new ImportedMetricField(this);
+        }
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.task.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.task.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class RemoveCustomFieldReqBody {
-     /**
-      * 要从某个资源移除自定义字段的资源类型，目前只支持清单"tasklist"。
-      * <p> 示例值：tasklist
-      */
+    /**
+     * 要从某个资源移除自定义字段的资源类型，目前只支持清单"tasklist"。
+     * <p> 示例值：tasklist
+     */
     @SerializedName("resource_type")
     private String resourceType;
-     /**
-      * 要从某个资源移除自定义字段的资源id，`resource_type`为"tasklist"时，需填写清单的GUID
-      * <p> 示例值：0110a4bd-f24b-4a93-8c1a-1732b94f9593
-      */
+    /**
+     * 要从某个资源移除自定义字段的资源id，`resource_type`为"tasklist"时，需填写清单的GUID
+     * <p> 示例值：0110a4bd-f24b-4a93-8c1a-1732b94f9593
+     */
     @SerializedName("resource_id")
     private String resourceId;
+
+    // builder 开始
+    public RemoveCustomFieldReqBody() {
+    }
+
+    public RemoveCustomFieldReqBody(Builder builder) {
+        /**
+         * 要从某个资源移除自定义字段的资源类型，目前只支持清单"tasklist"。
+         * <p> 示例值：tasklist
+         */
+        this.resourceType = builder.resourceType;
+        /**
+         * 要从某个资源移除自定义字段的资源id，`resource_type`为"tasklist"时，需填写清单的GUID
+         * <p> 示例值：0110a4bd-f24b-4a93-8c1a-1732b94f9593
+         */
+        this.resourceId = builder.resourceId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getResourceType() {
         return this.resourceType;
     }
@@ -53,67 +79,46 @@ public class RemoveCustomFieldReqBody {
         this.resourceId = resourceId;
     }
 
-
-// builder 开始
-  public RemoveCustomFieldReqBody(){}
-
-  public RemoveCustomFieldReqBody(Builder builder){
-         /**
-          * 要从某个资源移除自定义字段的资源类型，目前只支持清单"tasklist"。
-          * <p> 示例值：tasklist
-          */
-      this.resourceType = builder.resourceType;
-         /**
-          * 要从某个资源移除自定义字段的资源id，`resource_type`为"tasklist"时，需填写清单的GUID
-          * <p> 示例值：0110a4bd-f24b-4a93-8c1a-1732b94f9593
-          */
-      this.resourceId = builder.resourceId;
-  }
-
     public static class Builder {
-     /**
-      * 要从某个资源移除自定义字段的资源类型，目前只支持清单"tasklist"。
-      * <p> 示例值：tasklist
-      */
+        /**
+         * 要从某个资源移除自定义字段的资源类型，目前只支持清单"tasklist"。
+         * <p> 示例值：tasklist
+         */
         private String resourceType;
-     /**
-      * 要从某个资源移除自定义字段的资源id，`resource_type`为"tasklist"时，需填写清单的GUID
-      * <p> 示例值：0110a4bd-f24b-4a93-8c1a-1732b94f9593
-      */
+        /**
+         * 要从某个资源移除自定义字段的资源id，`resource_type`为"tasklist"时，需填写清单的GUID
+         * <p> 示例值：0110a4bd-f24b-4a93-8c1a-1732b94f9593
+         */
         private String resourceId;
 
         /**
          * 要从某个资源移除自定义字段的资源类型，目前只支持清单"tasklist"。
          * <p> 示例值：tasklist
+         *
          * @param resourceType
          * @return
          */
         public Builder resourceType(String resourceType) {
-             this.resourceType = resourceType;
-             return this;
+            this.resourceType = resourceType;
+            return this;
         }
 
-    
 
         /**
          * 要从某个资源移除自定义字段的资源id，`resource_type`为"tasklist"时，需填写清单的GUID
          * <p> 示例值：0110a4bd-f24b-4a93-8c1a-1732b94f9593
+         *
          * @param resourceId
          * @return
          */
         public Builder resourceId(String resourceId) {
-             this.resourceId = resourceId;
-             return this;
+            this.resourceId = resourceId;
+            return this;
         }
 
-    
-    
-    public RemoveCustomFieldReqBody build(){
-        return new RemoveCustomFieldReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public RemoveCustomFieldReqBody build() {
+            return new RemoveCustomFieldReqBody(this);
+        }
     }
 }

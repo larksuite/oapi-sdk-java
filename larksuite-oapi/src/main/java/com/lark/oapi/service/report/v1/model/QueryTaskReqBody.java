@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.report.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.report.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,48 +20,93 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class QueryTaskReqBody {
-     /**
-      * 提交开始时间时间戳
-      * <p> 示例值：1622427266
-      */
+    /**
+     * 提交开始时间时间戳
+     * <p> 示例值：1622427266
+     */
     @SerializedName("commit_start_time")
     private Integer commitStartTime;
-     /**
-      * 提交结束时间时间戳
-      * <p> 示例值：1622427266
-      */
+    /**
+     * 提交结束时间时间戳
+     * <p> 示例值：1622427266
+     */
     @SerializedName("commit_end_time")
     private Integer commitEndTime;
-     /**
-      * 汇报规则ID
-      * <p> 示例值：6894419345318182932
-      */
+    /**
+     * 汇报规则ID
+     * <p> 示例值：6894419345318182932
+     */
     @SerializedName("rule_id")
     private String ruleId;
-     /**
-      * 用户ID
-      * <p> 示例值：ou_133f0b6d0f097cf7d7ba00b38fffb110
-      */
+    /**
+     * 用户ID
+     * <p> 示例值：ou_133f0b6d0f097cf7d7ba00b38fffb110
+     */
     @SerializedName("user_id")
     private String userId;
-     /**
-      * 分页标识符
-      * <p> 示例值：6895699275733778451
-      */
+    /**
+     * 分页标识符
+     * <p> 示例值：6895699275733778451
+     */
     @SerializedName("page_token")
     private String pageToken;
-     /**
-      * 单次分页返回的条数
-      * <p> 示例值：10
-      */
+    /**
+     * 单次分页返回的条数
+     * <p> 示例值：10
+     */
     @SerializedName("page_size")
     private Integer pageSize;
+
+    // builder 开始
+    public QueryTaskReqBody() {
+    }
+
+    public QueryTaskReqBody(Builder builder) {
+        /**
+         * 提交开始时间时间戳
+         * <p> 示例值：1622427266
+         */
+        this.commitStartTime = builder.commitStartTime;
+        /**
+         * 提交结束时间时间戳
+         * <p> 示例值：1622427266
+         */
+        this.commitEndTime = builder.commitEndTime;
+        /**
+         * 汇报规则ID
+         * <p> 示例值：6894419345318182932
+         */
+        this.ruleId = builder.ruleId;
+        /**
+         * 用户ID
+         * <p> 示例值：ou_133f0b6d0f097cf7d7ba00b38fffb110
+         */
+        this.userId = builder.userId;
+        /**
+         * 分页标识符
+         * <p> 示例值：6895699275733778451
+         */
+        this.pageToken = builder.pageToken;
+        /**
+         * 单次分页返回的条数
+         * <p> 示例值：10
+         */
+        this.pageSize = builder.pageSize;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Integer getCommitStartTime() {
         return this.commitStartTime;
     }
@@ -109,159 +155,118 @@ public class QueryTaskReqBody {
         this.pageSize = pageSize;
     }
 
-
-// builder 开始
-  public QueryTaskReqBody(){}
-
-  public QueryTaskReqBody(Builder builder){
-         /**
-          * 提交开始时间时间戳
-          * <p> 示例值：1622427266
-          */
-      this.commitStartTime = builder.commitStartTime;
-         /**
-          * 提交结束时间时间戳
-          * <p> 示例值：1622427266
-          */
-      this.commitEndTime = builder.commitEndTime;
-         /**
-          * 汇报规则ID
-          * <p> 示例值：6894419345318182932
-          */
-      this.ruleId = builder.ruleId;
-         /**
-          * 用户ID
-          * <p> 示例值：ou_133f0b6d0f097cf7d7ba00b38fffb110
-          */
-      this.userId = builder.userId;
-         /**
-          * 分页标识符
-          * <p> 示例值：6895699275733778451
-          */
-      this.pageToken = builder.pageToken;
-         /**
-          * 单次分页返回的条数
-          * <p> 示例值：10
-          */
-      this.pageSize = builder.pageSize;
-  }
-
     public static class Builder {
-     /**
-      * 提交开始时间时间戳
-      * <p> 示例值：1622427266
-      */
+        /**
+         * 提交开始时间时间戳
+         * <p> 示例值：1622427266
+         */
         private Integer commitStartTime;
-     /**
-      * 提交结束时间时间戳
-      * <p> 示例值：1622427266
-      */
+        /**
+         * 提交结束时间时间戳
+         * <p> 示例值：1622427266
+         */
         private Integer commitEndTime;
-     /**
-      * 汇报规则ID
-      * <p> 示例值：6894419345318182932
-      */
+        /**
+         * 汇报规则ID
+         * <p> 示例值：6894419345318182932
+         */
         private String ruleId;
-     /**
-      * 用户ID
-      * <p> 示例值：ou_133f0b6d0f097cf7d7ba00b38fffb110
-      */
+        /**
+         * 用户ID
+         * <p> 示例值：ou_133f0b6d0f097cf7d7ba00b38fffb110
+         */
         private String userId;
-     /**
-      * 分页标识符
-      * <p> 示例值：6895699275733778451
-      */
+        /**
+         * 分页标识符
+         * <p> 示例值：6895699275733778451
+         */
         private String pageToken;
-     /**
-      * 单次分页返回的条数
-      * <p> 示例值：10
-      */
+        /**
+         * 单次分页返回的条数
+         * <p> 示例值：10
+         */
         private Integer pageSize;
 
         /**
          * 提交开始时间时间戳
          * <p> 示例值：1622427266
+         *
          * @param commitStartTime
          * @return
          */
         public Builder commitStartTime(Integer commitStartTime) {
-             this.commitStartTime = commitStartTime;
-             return this;
+            this.commitStartTime = commitStartTime;
+            return this;
         }
 
-    
 
         /**
          * 提交结束时间时间戳
          * <p> 示例值：1622427266
+         *
          * @param commitEndTime
          * @return
          */
         public Builder commitEndTime(Integer commitEndTime) {
-             this.commitEndTime = commitEndTime;
-             return this;
+            this.commitEndTime = commitEndTime;
+            return this;
         }
 
-    
 
         /**
          * 汇报规则ID
          * <p> 示例值：6894419345318182932
+         *
          * @param ruleId
          * @return
          */
         public Builder ruleId(String ruleId) {
-             this.ruleId = ruleId;
-             return this;
+            this.ruleId = ruleId;
+            return this;
         }
 
-    
 
         /**
          * 用户ID
          * <p> 示例值：ou_133f0b6d0f097cf7d7ba00b38fffb110
+         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-             this.userId = userId;
-             return this;
+            this.userId = userId;
+            return this;
         }
 
-    
 
         /**
          * 分页标识符
          * <p> 示例值：6895699275733778451
+         *
          * @param pageToken
          * @return
          */
         public Builder pageToken(String pageToken) {
-             this.pageToken = pageToken;
-             return this;
+            this.pageToken = pageToken;
+            return this;
         }
 
-    
 
         /**
          * 单次分页返回的条数
          * <p> 示例值：10
+         *
          * @param pageSize
          * @return
          */
         public Builder pageSize(Integer pageSize) {
-             this.pageSize = pageSize;
-             return this;
+            this.pageSize = pageSize;
+            return this;
         }
 
-    
-    
-    public QueryTaskReqBody build(){
-        return new QueryTaskReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public QueryTaskReqBody build() {
+            return new QueryTaskReqBody(this);
+        }
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.mdm.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.mdm.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class I18nStruct {
-     /**
-      * 语言编码
-      * <p> 示例值：en-US
-      */
+    /**
+     * 语言编码
+     * <p> 示例值：en-US
+     */
     @SerializedName("lang_locale")
     private String langLocale;
-     /**
-      * 描述
-      * <p> 示例值：abc
-      */
+    /**
+     * 描述
+     * <p> 示例值：abc
+     */
     @SerializedName("value")
     private String value;
-     /**
-      * 有效期至，格式：yyyy-MM-dd
-      * <p> 示例值：9999-12-31
-      */
+    /**
+     * 有效期至，格式：yyyy-MM-dd
+     * <p> 示例值：9999-12-31
+     */
     @SerializedName("valid_to")
     private String validTo;
+
+    // builder 开始
+    public I18nStruct() {
+    }
+
+    public I18nStruct(Builder builder) {
+        /**
+         * 语言编码
+         * <p> 示例值：en-US
+         */
+        this.langLocale = builder.langLocale;
+        /**
+         * 描述
+         * <p> 示例值：abc
+         */
+        this.value = builder.value;
+        /**
+         * 有效期至，格式：yyyy-MM-dd
+         * <p> 示例值：9999-12-31
+         */
+        this.validTo = builder.validTo;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getLangLocale() {
         return this.langLocale;
     }
@@ -67,100 +98,76 @@ public class I18nStruct {
         this.validTo = validTo;
     }
 
-
-// builder 开始
-  public I18nStruct(){}
-
-  public I18nStruct(Builder builder){
-         /**
-          * 语言编码
-          * <p> 示例值：en-US
-          */
-      this.langLocale = builder.langLocale;
-         /**
-          * 描述
-          * <p> 示例值：abc
-          */
-      this.value = builder.value;
-         /**
-          * 有效期至，格式：yyyy-MM-dd
-          * <p> 示例值：9999-12-31
-          */
-      this.validTo = builder.validTo;
-  }
-
     public static class Builder {
-     /**
-      * 语言编码
-      * <p> 示例值：en-US
-      */
+        /**
+         * 语言编码
+         * <p> 示例值：en-US
+         */
         private String langLocale;
-     /**
-      * 描述
-      * <p> 示例值：abc
-      */
+        /**
+         * 描述
+         * <p> 示例值：abc
+         */
         private String value;
-     /**
-      * 有效期至，格式：yyyy-MM-dd
-      * <p> 示例值：9999-12-31
-      */
+        /**
+         * 有效期至，格式：yyyy-MM-dd
+         * <p> 示例值：9999-12-31
+         */
         private String validTo;
 
         /**
          * 语言编码
          * <p> 示例值：en-US
+         *
          * @param langLocale
          * @return
          */
         public Builder langLocale(String langLocale) {
-             this.langLocale = langLocale;
-             return this;
+            this.langLocale = langLocale;
+            return this;
         }
+
         /**
          * 语言编码
          * <p> 示例值：en-US
+         *
          * @param langLocale {@link com.lark.oapi.service.mdm.v1.enums.I18nStructLangLocaleEnum}
          * @return
          */
         public Builder langLocale(com.lark.oapi.service.mdm.v1.enums.I18nStructLangLocaleEnum langLocale) {
-             this.langLocale = langLocale.getValue();
-             return this;
+            this.langLocale = langLocale.getValue();
+            return this;
         }
 
-    
 
         /**
          * 描述
          * <p> 示例值：abc
+         *
          * @param value
          * @return
          */
         public Builder value(String value) {
-             this.value = value;
-             return this;
+            this.value = value;
+            return this;
         }
 
-    
 
         /**
          * 有效期至，格式：yyyy-MM-dd
          * <p> 示例值：9999-12-31
+         *
          * @param validTo
          * @return
          */
         public Builder validTo(String validTo) {
-             this.validTo = validTo;
-             return this;
+            this.validTo = validTo;
+            return this;
         }
 
-    
-    
-    public I18nStruct build(){
-        return new I18nStruct(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public I18nStruct build() {
+            return new I18nStruct(this);
+        }
     }
 }

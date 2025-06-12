@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.performance.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.performance.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class WriteUserGroupScopeFailUserData {
-     /**
-      * 员工user_id
-      * <p> 示例值：
-      */
+    /**
+     * 员工user_id
+     * <p> 示例值：
+     */
     @SerializedName("user_id")
     private String userId;
-     /**
-      * 失败原因枚举
-      * <p> 示例值：1
-      */
+    /**
+     * 失败原因枚举
+     * <p> 示例值：1
+     */
     @SerializedName("fail_code")
     private Integer failCode;
+
+    // builder 开始
+    public WriteUserGroupScopeFailUserData() {
+    }
+
+    public WriteUserGroupScopeFailUserData(Builder builder) {
+        /**
+         * 员工user_id
+         * <p> 示例值：
+         */
+        this.userId = builder.userId;
+        /**
+         * 失败原因枚举
+         * <p> 示例值：1
+         */
+        this.failCode = builder.failCode;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getUserId() {
         return this.userId;
     }
@@ -53,77 +79,58 @@ public class WriteUserGroupScopeFailUserData {
         this.failCode = failCode;
     }
 
-
-// builder 开始
-  public WriteUserGroupScopeFailUserData(){}
-
-  public WriteUserGroupScopeFailUserData(Builder builder){
-         /**
-          * 员工user_id
-          * <p> 示例值：
-          */
-      this.userId = builder.userId;
-         /**
-          * 失败原因枚举
-          * <p> 示例值：1
-          */
-      this.failCode = builder.failCode;
-  }
-
     public static class Builder {
-     /**
-      * 员工user_id
-      * <p> 示例值：
-      */
+        /**
+         * 员工user_id
+         * <p> 示例值：
+         */
         private String userId;
-     /**
-      * 失败原因枚举
-      * <p> 示例值：1
-      */
+        /**
+         * 失败原因枚举
+         * <p> 示例值：1
+         */
         private Integer failCode;
 
         /**
          * 员工user_id
          * <p> 示例值：
+         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-             this.userId = userId;
-             return this;
+            this.userId = userId;
+            return this;
         }
 
-    
 
         /**
          * 失败原因枚举
          * <p> 示例值：1
+         *
          * @param failCode
          * @return
          */
         public Builder failCode(Integer failCode) {
-             this.failCode = failCode;
-             return this;
+            this.failCode = failCode;
+            return this;
         }
+
         /**
          * 失败原因枚举
          * <p> 示例值：1
+         *
          * @param failCode {@link com.lark.oapi.service.performance.v2.enums.WriteUserGroupScopeFailUserDataFailCodeEnum}
          * @return
          */
         public Builder failCode(com.lark.oapi.service.performance.v2.enums.WriteUserGroupScopeFailUserDataFailCodeEnum failCode) {
-             this.failCode = failCode.getValue();
-             return this;
+            this.failCode = failCode.getValue();
+            return this;
         }
 
-    
-    
-    public WriteUserGroupScopeFailUserData build(){
-        return new WriteUserGroupScopeFailUserData(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public WriteUserGroupScopeFailUserData build() {
+            return new WriteUserGroupScopeFailUserData(this);
+        }
     }
 }

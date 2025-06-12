@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.docx.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.docx.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class BlockIdToImageUrl {
-     /**
-      * 块 ID
-      * <p> 示例值：93b37f5b-8b45-4c03-9379-af988c178b19
-      */
+    /**
+     * 块 ID
+     * <p> 示例值：93b37f5b-8b45-4c03-9379-af988c178b19
+     */
     @SerializedName("block_id")
     private String blockId;
-     /**
-      * 图片 URL
-      * <p> 示例值：https://sf3-scmcdn-cn.feishucdn.com/obj/feishu-static/lark/open/website/share-logo.png
-      */
+    /**
+     * 图片 URL
+     * <p> 示例值：https://sf3-scmcdn-cn.feishucdn.com/obj/feishu-static/lark/open/website/share-logo.png
+     */
     @SerializedName("image_url")
     private String imageUrl;
+
+    // builder 开始
+    public BlockIdToImageUrl() {
+    }
+
+    public BlockIdToImageUrl(Builder builder) {
+        /**
+         * 块 ID
+         * <p> 示例值：93b37f5b-8b45-4c03-9379-af988c178b19
+         */
+        this.blockId = builder.blockId;
+        /**
+         * 图片 URL
+         * <p> 示例值：https://sf3-scmcdn-cn.feishucdn.com/obj/feishu-static/lark/open/website/share-logo.png
+         */
+        this.imageUrl = builder.imageUrl;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getBlockId() {
         return this.blockId;
     }
@@ -53,67 +79,46 @@ public class BlockIdToImageUrl {
         this.imageUrl = imageUrl;
     }
 
-
-// builder 开始
-  public BlockIdToImageUrl(){}
-
-  public BlockIdToImageUrl(Builder builder){
-         /**
-          * 块 ID
-          * <p> 示例值：93b37f5b-8b45-4c03-9379-af988c178b19
-          */
-      this.blockId = builder.blockId;
-         /**
-          * 图片 URL
-          * <p> 示例值：https://sf3-scmcdn-cn.feishucdn.com/obj/feishu-static/lark/open/website/share-logo.png
-          */
-      this.imageUrl = builder.imageUrl;
-  }
-
     public static class Builder {
-     /**
-      * 块 ID
-      * <p> 示例值：93b37f5b-8b45-4c03-9379-af988c178b19
-      */
+        /**
+         * 块 ID
+         * <p> 示例值：93b37f5b-8b45-4c03-9379-af988c178b19
+         */
         private String blockId;
-     /**
-      * 图片 URL
-      * <p> 示例值：https://sf3-scmcdn-cn.feishucdn.com/obj/feishu-static/lark/open/website/share-logo.png
-      */
+        /**
+         * 图片 URL
+         * <p> 示例值：https://sf3-scmcdn-cn.feishucdn.com/obj/feishu-static/lark/open/website/share-logo.png
+         */
         private String imageUrl;
 
         /**
          * 块 ID
          * <p> 示例值：93b37f5b-8b45-4c03-9379-af988c178b19
+         *
          * @param blockId
          * @return
          */
         public Builder blockId(String blockId) {
-             this.blockId = blockId;
-             return this;
+            this.blockId = blockId;
+            return this;
         }
 
-    
 
         /**
          * 图片 URL
          * <p> 示例值：https://sf3-scmcdn-cn.feishucdn.com/obj/feishu-static/lark/open/website/share-logo.png
+         *
          * @param imageUrl
          * @return
          */
         public Builder imageUrl(String imageUrl) {
-             this.imageUrl = imageUrl;
-             return this;
+            this.imageUrl = imageUrl;
+            return this;
         }
 
-    
-    
-    public BlockIdToImageUrl build(){
-        return new BlockIdToImageUrl(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public BlockIdToImageUrl build() {
+            return new BlockIdToImageUrl(this);
+        }
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,48 +20,93 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class EmployeePathway {
-     /**
-      * 通道 ID
-      * <p> 示例值：4692446793125560154
-      */
+    /**
+     * 通道 ID
+     * <p> 示例值：4692446793125560154
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 编码
-      * <p> 示例值：VQzo/BSonp8l6PmcZ+VlDhkd2595LMkhyBAGX6HAlCY=
-      */
+    /**
+     * 编码
+     * <p> 示例值：VQzo/BSonp8l6PmcZ+VlDhkd2595LMkhyBAGX6HAlCY=
+     */
     @SerializedName("code")
     private String code;
-     /**
-      * 名称
-      * <p> 示例值：
-      */
+    /**
+     * 名称
+     * <p> 示例值：
+     */
     @SerializedName("name")
     private I18n[] name;
-     /**
-      * 描述
-      * <p> 示例值：
-      */
+    /**
+     * 描述
+     * <p> 示例值：
+     */
     @SerializedName("description")
     private I18n[] description;
-     /**
-      * 启用
-      * <p> 示例值：true
-      */
+    /**
+     * 启用
+     * <p> 示例值：true
+     */
     @SerializedName("active")
     private Boolean active;
-     /**
-      * 自定义字段
-      * <p> 示例值：
-      */
+    /**
+     * 自定义字段
+     * <p> 示例值：
+     */
     @SerializedName("custom_fields")
     private CustomFieldData[] customFields;
+
+    // builder 开始
+    public EmployeePathway() {
+    }
+
+    public EmployeePathway(Builder builder) {
+        /**
+         * 通道 ID
+         * <p> 示例值：4692446793125560154
+         */
+        this.id = builder.id;
+        /**
+         * 编码
+         * <p> 示例值：VQzo/BSonp8l6PmcZ+VlDhkd2595LMkhyBAGX6HAlCY=
+         */
+        this.code = builder.code;
+        /**
+         * 名称
+         * <p> 示例值：
+         */
+        this.name = builder.name;
+        /**
+         * 描述
+         * <p> 示例值：
+         */
+        this.description = builder.description;
+        /**
+         * 启用
+         * <p> 示例值：true
+         */
+        this.active = builder.active;
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
+        this.customFields = builder.customFields;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -109,159 +155,118 @@ public class EmployeePathway {
         this.customFields = customFields;
     }
 
-
-// builder 开始
-  public EmployeePathway(){}
-
-  public EmployeePathway(Builder builder){
-         /**
-          * 通道 ID
-          * <p> 示例值：4692446793125560154
-          */
-      this.id = builder.id;
-         /**
-          * 编码
-          * <p> 示例值：VQzo/BSonp8l6PmcZ+VlDhkd2595LMkhyBAGX6HAlCY=
-          */
-      this.code = builder.code;
-         /**
-          * 名称
-          * <p> 示例值：
-          */
-      this.name = builder.name;
-         /**
-          * 描述
-          * <p> 示例值：
-          */
-      this.description = builder.description;
-         /**
-          * 启用
-          * <p> 示例值：true
-          */
-      this.active = builder.active;
-         /**
-          * 自定义字段
-          * <p> 示例值：
-          */
-      this.customFields = builder.customFields;
-  }
-
     public static class Builder {
-     /**
-      * 通道 ID
-      * <p> 示例值：4692446793125560154
-      */
+        /**
+         * 通道 ID
+         * <p> 示例值：4692446793125560154
+         */
         private String id;
-     /**
-      * 编码
-      * <p> 示例值：VQzo/BSonp8l6PmcZ+VlDhkd2595LMkhyBAGX6HAlCY=
-      */
+        /**
+         * 编码
+         * <p> 示例值：VQzo/BSonp8l6PmcZ+VlDhkd2595LMkhyBAGX6HAlCY=
+         */
         private String code;
-     /**
-      * 名称
-      * <p> 示例值：
-      */
+        /**
+         * 名称
+         * <p> 示例值：
+         */
         private I18n[] name;
-     /**
-      * 描述
-      * <p> 示例值：
-      */
+        /**
+         * 描述
+         * <p> 示例值：
+         */
         private I18n[] description;
-     /**
-      * 启用
-      * <p> 示例值：true
-      */
+        /**
+         * 启用
+         * <p> 示例值：true
+         */
         private Boolean active;
-     /**
-      * 自定义字段
-      * <p> 示例值：
-      */
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
         private CustomFieldData[] customFields;
 
         /**
          * 通道 ID
          * <p> 示例值：4692446793125560154
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 编码
          * <p> 示例值：VQzo/BSonp8l6PmcZ+VlDhkd2595LMkhyBAGX6HAlCY=
+         *
          * @param code
          * @return
          */
         public Builder code(String code) {
-             this.code = code;
-             return this;
+            this.code = code;
+            return this;
         }
 
-    
 
         /**
          * 名称
          * <p> 示例值：
+         *
          * @param name
          * @return
          */
         public Builder name(I18n[] name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 描述
          * <p> 示例值：
+         *
          * @param description
          * @return
          */
         public Builder description(I18n[] description) {
-             this.description = description;
-             return this;
+            this.description = description;
+            return this;
         }
 
-    
 
         /**
          * 启用
          * <p> 示例值：true
+         *
          * @param active
          * @return
          */
         public Builder active(Boolean active) {
-             this.active = active;
-             return this;
+            this.active = active;
+            return this;
         }
 
-    
 
         /**
          * 自定义字段
          * <p> 示例值：
+         *
          * @param customFields
          * @return
          */
         public Builder customFields(CustomFieldData[] customFields) {
-             this.customFields = customFields;
-             return this;
+            this.customFields = customFields;
+            return this;
         }
 
-    
-    
-    public EmployeePathway build(){
-        return new EmployeePathway(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public EmployeePathway build() {
+            return new EmployeePathway(this);
+        }
     }
 }

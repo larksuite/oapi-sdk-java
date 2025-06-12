@@ -12,46 +12,82 @@
  */
 
 package com.lark.oapi.service.docs.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.docs.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class GetContentReq {
-     /**
-      * 文档唯一标识
-      * <p> 示例值：B4EPdAYx8oi8HRxgPQQbM15UcBf
-      */
+    /**
+     * 文档唯一标识
+     * <p> 示例值：B4EPdAYx8oi8HRxgPQQbM15UcBf
+     */
     @Query
     @SerializedName("doc_token")
     private String docToken;
-     /**
-      * 文档类型
-      * <p> 示例值：docx
-      */
+    /**
+     * 文档类型
+     * <p> 示例值：docx
+     */
     @Query
     @SerializedName("doc_type")
     private String docType;
-     /**
-      * 内容类型
-      * <p> 示例值：markdown
-      */
+    /**
+     * 内容类型
+     * <p> 示例值：markdown
+     */
     @Query
     @SerializedName("content_type")
     private String contentType;
-     /**
-      * 语言
-      * <p> 示例值：zh
-      */
+    /**
+     * 语言
+     * <p> 示例值：zh
+     */
     @Query
     @SerializedName("lang")
     private String lang;
+
+    // builder 开始
+    public GetContentReq() {
+    }
+
+    public GetContentReq(Builder builder) {
+        /**
+         * 文档唯一标识
+         * <p> 示例值：B4EPdAYx8oi8HRxgPQQbM15UcBf
+         */
+        this.docToken = builder.docToken;
+        /**
+         * 文档类型
+         * <p> 示例值：docx
+         */
+        this.docType = builder.docType;
+        /**
+         * 内容类型
+         * <p> 示例值：markdown
+         */
+        this.contentType = builder.contentType;
+        /**
+         * 语言
+         * <p> 示例值：zh
+         */
+        this.lang = builder.lang;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getDocToken() {
         return this.docToken;
     }
@@ -84,126 +120,102 @@ public class GetContentReq {
         this.lang = lang;
     }
 
-
-// builder 开始
-  public GetContentReq(){}
-
-  public GetContentReq(Builder builder){
-         /**
-          * 文档唯一标识
-          * <p> 示例值：B4EPdAYx8oi8HRxgPQQbM15UcBf
-          */
-       this.docToken = builder.docToken;
-         /**
-          * 文档类型
-          * <p> 示例值：docx
-          */
-       this.docType = builder.docType;
-         /**
-          * 内容类型
-          * <p> 示例值：markdown
-          */
-       this.contentType = builder.contentType;
-         /**
-          * 语言
-          * <p> 示例值：zh
-          */
-       this.lang = builder.lang;
-  }
-
     public static class Builder {
         private String docToken; // 文档唯一标识
         private String docType; // 文档类型
         private String contentType; // 内容类型
         private String lang; // 语言
-    
+
         /**
          * 文档唯一标识
          * <p> 示例值：B4EPdAYx8oi8HRxgPQQbM15UcBf
+         *
          * @param docToken
          * @return
          */
-           public Builder docToken(String docToken) {
-                this.docToken = docToken;
-                return this;
-           }
+        public Builder docToken(String docToken) {
+            this.docToken = docToken;
+            return this;
+        }
 
-    
+
         /**
          * 文档类型
          * <p> 示例值：docx
+         *
          * @param docType
          * @return
          */
-           public Builder docType(String docType) {
-                this.docType = docType;
-                return this;
-           }
+        public Builder docType(String docType) {
+            this.docType = docType;
+            return this;
+        }
 
         /**
          * 文档类型
          * <p> 示例值：docx
+         *
          * @param docType {@link com.lark.oapi.service.docs.v1.enums.GetContentDocTypeEnum}
          * @return
          */
-          public Builder docType(com.lark.oapi.service.docs.v1.enums.GetContentDocTypeEnum docType) {
-               this.docType = docType.getValue();
-               return this;
-          }
+        public Builder docType(com.lark.oapi.service.docs.v1.enums.GetContentDocTypeEnum docType) {
+            this.docType = docType.getValue();
+            return this;
+        }
 
-    
+
         /**
          * 内容类型
          * <p> 示例值：markdown
+         *
          * @param contentType
          * @return
          */
-           public Builder contentType(String contentType) {
-                this.contentType = contentType;
-                return this;
-           }
+        public Builder contentType(String contentType) {
+            this.contentType = contentType;
+            return this;
+        }
 
         /**
          * 内容类型
          * <p> 示例值：markdown
+         *
          * @param contentType {@link com.lark.oapi.service.docs.v1.enums.GetContentContentTypeEnum}
          * @return
          */
-          public Builder contentType(com.lark.oapi.service.docs.v1.enums.GetContentContentTypeEnum contentType) {
-               this.contentType = contentType.getValue();
-               return this;
-          }
+        public Builder contentType(com.lark.oapi.service.docs.v1.enums.GetContentContentTypeEnum contentType) {
+            this.contentType = contentType.getValue();
+            return this;
+        }
 
-    
+
         /**
          * 语言
          * <p> 示例值：zh
+         *
          * @param lang
          * @return
          */
-           public Builder lang(String lang) {
-                this.lang = lang;
-                return this;
-           }
+        public Builder lang(String lang) {
+            this.lang = lang;
+            return this;
+        }
 
         /**
          * 语言
          * <p> 示例值：zh
+         *
          * @param lang {@link com.lark.oapi.service.docs.v1.enums.GetContentLangEnum}
          * @return
          */
-          public Builder lang(com.lark.oapi.service.docs.v1.enums.GetContentLangEnum lang) {
-               this.lang = lang.getValue();
-               return this;
-          }
+        public Builder lang(com.lark.oapi.service.docs.v1.enums.GetContentLangEnum lang) {
+            this.lang = lang.getValue();
+            return this;
+        }
 
-    
-    public GetContentReq build(){
-        return new GetContentReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public GetContentReq build() {
+            return new GetContentReq(this);
+        }
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ReplyList {
-     /**
-      * 回复列表
-      * <p> 示例值：
-      */
+    /**
+     * 回复列表
+     * <p> 示例值：
+     */
     @SerializedName("replies")
     private FileCommentReply[] replies;
+
+    // builder 开始
+    public ReplyList() {
+    }
+
+    public ReplyList(Builder builder) {
+        /**
+         * 回复列表
+         * <p> 示例值：
+         */
+        this.replies = builder.replies;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public FileCommentReply[] getReplies() {
         return this.replies;
     }
@@ -39,44 +60,28 @@ public class ReplyList {
         this.replies = replies;
     }
 
-
-// builder 开始
-  public ReplyList(){}
-
-  public ReplyList(Builder builder){
-         /**
-          * 回复列表
-          * <p> 示例值：
-          */
-      this.replies = builder.replies;
-  }
-
     public static class Builder {
-     /**
-      * 回复列表
-      * <p> 示例值：
-      */
+        /**
+         * 回复列表
+         * <p> 示例值：
+         */
         private FileCommentReply[] replies;
 
         /**
          * 回复列表
          * <p> 示例值：
+         *
          * @param replies
          * @return
          */
         public Builder replies(FileCommentReply[] replies) {
-             this.replies = replies;
-             return this;
+            this.replies = replies;
+            return this;
         }
 
-    
-    
-    public ReplyList build(){
-        return new ReplyList(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ReplyList build() {
+            return new ReplyList(this);
+        }
     }
 }

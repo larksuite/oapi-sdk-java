@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class DatasetSource {
-     /**
-      * 类型：目前只支持 dataflow
-      * <p> 示例值：dataflow
-      */
+    /**
+     * 类型：目前只支持 dataflow
+     * <p> 示例值：dataflow
+     */
     @SerializedName("type")
     private String type;
-     /**
-      * 数据来源信息
-      * <p> 示例值：
-      */
+    /**
+     * 数据来源信息
+     * <p> 示例值：
+     */
     @SerializedName("settings")
     private DatasetSourceSetting settings;
+
+    // builder 开始
+    public DatasetSource() {
+    }
+
+    public DatasetSource(Builder builder) {
+        /**
+         * 类型：目前只支持 dataflow
+         * <p> 示例值：dataflow
+         */
+        this.type = builder.type;
+        /**
+         * 数据来源信息
+         * <p> 示例值：
+         */
+        this.settings = builder.settings;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getType() {
         return this.type;
     }
@@ -53,67 +79,46 @@ public class DatasetSource {
         this.settings = settings;
     }
 
-
-// builder 开始
-  public DatasetSource(){}
-
-  public DatasetSource(Builder builder){
-         /**
-          * 类型：目前只支持 dataflow
-          * <p> 示例值：dataflow
-          */
-      this.type = builder.type;
-         /**
-          * 数据来源信息
-          * <p> 示例值：
-          */
-      this.settings = builder.settings;
-  }
-
     public static class Builder {
-     /**
-      * 类型：目前只支持 dataflow
-      * <p> 示例值：dataflow
-      */
+        /**
+         * 类型：目前只支持 dataflow
+         * <p> 示例值：dataflow
+         */
         private String type;
-     /**
-      * 数据来源信息
-      * <p> 示例值：
-      */
+        /**
+         * 数据来源信息
+         * <p> 示例值：
+         */
         private DatasetSourceSetting settings;
 
         /**
          * 类型：目前只支持 dataflow
          * <p> 示例值：dataflow
+         *
          * @param type
          * @return
          */
         public Builder type(String type) {
-             this.type = type;
-             return this;
+            this.type = type;
+            return this;
         }
 
-    
 
         /**
          * 数据来源信息
          * <p> 示例值：
+         *
          * @param settings
          * @return
          */
         public Builder settings(DatasetSourceSetting settings) {
-             this.settings = settings;
-             return this;
+            this.settings = settings;
+            return this;
         }
 
-    
-    
-    public DatasetSource build(){
-        return new DatasetSource(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public DatasetSource build() {
+            return new DatasetSource(this);
+        }
     }
 }

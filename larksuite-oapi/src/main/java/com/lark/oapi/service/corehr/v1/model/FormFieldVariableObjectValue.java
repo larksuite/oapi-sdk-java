@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class FormFieldVariableObjectValue {
-     /**
-      * 对象ID
-      * <p> 示例值：203948191
-      */
+    /**
+     * 对象ID
+     * <p> 示例值：203948191
+     */
     @SerializedName("value")
     private String value;
-     /**
-      * 主数据apiName
-      * <p> 示例值：object1
-      */
+    /**
+     * 主数据apiName
+     * <p> 示例值：object1
+     */
     @SerializedName("wk_api_name")
     private String wkApiName;
+
+    // builder 开始
+    public FormFieldVariableObjectValue() {
+    }
+
+    public FormFieldVariableObjectValue(Builder builder) {
+        /**
+         * 对象ID
+         * <p> 示例值：203948191
+         */
+        this.value = builder.value;
+        /**
+         * 主数据apiName
+         * <p> 示例值：object1
+         */
+        this.wkApiName = builder.wkApiName;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getValue() {
         return this.value;
     }
@@ -53,67 +79,46 @@ public class FormFieldVariableObjectValue {
         this.wkApiName = wkApiName;
     }
 
-
-// builder 开始
-  public FormFieldVariableObjectValue(){}
-
-  public FormFieldVariableObjectValue(Builder builder){
-         /**
-          * 对象ID
-          * <p> 示例值：203948191
-          */
-      this.value = builder.value;
-         /**
-          * 主数据apiName
-          * <p> 示例值：object1
-          */
-      this.wkApiName = builder.wkApiName;
-  }
-
     public static class Builder {
-     /**
-      * 对象ID
-      * <p> 示例值：203948191
-      */
+        /**
+         * 对象ID
+         * <p> 示例值：203948191
+         */
         private String value;
-     /**
-      * 主数据apiName
-      * <p> 示例值：object1
-      */
+        /**
+         * 主数据apiName
+         * <p> 示例值：object1
+         */
         private String wkApiName;
 
         /**
          * 对象ID
          * <p> 示例值：203948191
+         *
          * @param value
          * @return
          */
         public Builder value(String value) {
-             this.value = value;
-             return this;
+            this.value = value;
+            return this;
         }
 
-    
 
         /**
          * 主数据apiName
          * <p> 示例值：object1
+         *
          * @param wkApiName
          * @return
          */
         public Builder wkApiName(String wkApiName) {
-             this.wkApiName = wkApiName;
-             return this;
+            this.wkApiName = wkApiName;
+            return this;
         }
 
-    
-    
-    public FormFieldVariableObjectValue build(){
-        return new FormFieldVariableObjectValue(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public FormFieldVariableObjectValue build() {
+            return new FormFieldVariableObjectValue(this);
+        }
     }
 }

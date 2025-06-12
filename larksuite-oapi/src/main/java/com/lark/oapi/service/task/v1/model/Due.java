@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.task.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.task.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Due {
-     /**
-      * 表示截止时间的Unix时间戳（单位为秒）。
-      * <p> 示例值：1623124318
-      */
+    /**
+     * 表示截止时间的Unix时间戳（单位为秒）。
+     * <p> 示例值：1623124318
+     */
     @SerializedName("time")
     private String time;
-     /**
-      * 截止时间对应的时区。;传入值需要符合IANA Time Zone Database标准，规范见[Time Zone Database](https://www.iana.org/time-zones)。
-      * <p> 示例值：Asia/Shanghai
-      */
+    /**
+     * 截止时间对应的时区。;传入值需要符合IANA Time Zone Database标准，规范见[Time Zone Database](https://www.iana.org/time-zones)。
+     * <p> 示例值：Asia/Shanghai
+     */
     @SerializedName("timezone")
     private String timezone;
-     /**
-      * 标记任务是否为全天任务。;包括如下取值：;- true：表示是全天任务，全天任务的截止时间为当天 UTC 时间的 0 点。;- false：表示不是全天任务。
-      * <p> 示例值：false
-      */
+    /**
+     * 标记任务是否为全天任务。;包括如下取值：;- true：表示是全天任务，全天任务的截止时间为当天 UTC 时间的 0 点。;- false：表示不是全天任务。
+     * <p> 示例值：false
+     */
     @SerializedName("is_all_day")
     private Boolean isAllDay;
+
+    // builder 开始
+    public Due() {
+    }
+
+    public Due(Builder builder) {
+        /**
+         * 表示截止时间的Unix时间戳（单位为秒）。
+         * <p> 示例值：1623124318
+         */
+        this.time = builder.time;
+        /**
+         * 截止时间对应的时区。;传入值需要符合IANA Time Zone Database标准，规范见[Time Zone Database](https://www.iana.org/time-zones)。
+         * <p> 示例值：Asia/Shanghai
+         */
+        this.timezone = builder.timezone;
+        /**
+         * 标记任务是否为全天任务。;包括如下取值：;- true：表示是全天任务，全天任务的截止时间为当天 UTC 时间的 0 点。;- false：表示不是全天任务。
+         * <p> 示例值：false
+         */
+        this.isAllDay = builder.isAllDay;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getTime() {
         return this.time;
     }
@@ -67,90 +98,64 @@ public class Due {
         this.isAllDay = isAllDay;
     }
 
-
-// builder 开始
-  public Due(){}
-
-  public Due(Builder builder){
-         /**
-          * 表示截止时间的Unix时间戳（单位为秒）。
-          * <p> 示例值：1623124318
-          */
-      this.time = builder.time;
-         /**
-          * 截止时间对应的时区。;传入值需要符合IANA Time Zone Database标准，规范见[Time Zone Database](https://www.iana.org/time-zones)。
-          * <p> 示例值：Asia/Shanghai
-          */
-      this.timezone = builder.timezone;
-         /**
-          * 标记任务是否为全天任务。;包括如下取值：;- true：表示是全天任务，全天任务的截止时间为当天 UTC 时间的 0 点。;- false：表示不是全天任务。
-          * <p> 示例值：false
-          */
-      this.isAllDay = builder.isAllDay;
-  }
-
     public static class Builder {
-     /**
-      * 表示截止时间的Unix时间戳（单位为秒）。
-      * <p> 示例值：1623124318
-      */
+        /**
+         * 表示截止时间的Unix时间戳（单位为秒）。
+         * <p> 示例值：1623124318
+         */
         private String time;
-     /**
-      * 截止时间对应的时区。;传入值需要符合IANA Time Zone Database标准，规范见[Time Zone Database](https://www.iana.org/time-zones)。
-      * <p> 示例值：Asia/Shanghai
-      */
+        /**
+         * 截止时间对应的时区。;传入值需要符合IANA Time Zone Database标准，规范见[Time Zone Database](https://www.iana.org/time-zones)。
+         * <p> 示例值：Asia/Shanghai
+         */
         private String timezone;
-     /**
-      * 标记任务是否为全天任务。;包括如下取值：;- true：表示是全天任务，全天任务的截止时间为当天 UTC 时间的 0 点。;- false：表示不是全天任务。
-      * <p> 示例值：false
-      */
+        /**
+         * 标记任务是否为全天任务。;包括如下取值：;- true：表示是全天任务，全天任务的截止时间为当天 UTC 时间的 0 点。;- false：表示不是全天任务。
+         * <p> 示例值：false
+         */
         private Boolean isAllDay;
 
         /**
          * 表示截止时间的Unix时间戳（单位为秒）。
          * <p> 示例值：1623124318
+         *
          * @param time
          * @return
          */
         public Builder time(String time) {
-             this.time = time;
-             return this;
+            this.time = time;
+            return this;
         }
 
-    
 
         /**
          * 截止时间对应的时区。;传入值需要符合IANA Time Zone Database标准，规范见[Time Zone Database](https://www.iana.org/time-zones)。
          * <p> 示例值：Asia/Shanghai
+         *
          * @param timezone
          * @return
          */
         public Builder timezone(String timezone) {
-             this.timezone = timezone;
-             return this;
+            this.timezone = timezone;
+            return this;
         }
 
-    
 
         /**
          * 标记任务是否为全天任务。;包括如下取值：;- true：表示是全天任务，全天任务的截止时间为当天 UTC 时间的 0 点。;- false：表示不是全天任务。
          * <p> 示例值：false
+         *
          * @param isAllDay
          * @return
          */
         public Builder isAllDay(Boolean isAllDay) {
-             this.isAllDay = isAllDay;
-             return this;
+            this.isAllDay = isAllDay;
+            return this;
         }
 
-    
-    
-    public Due build(){
-        return new Due(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Due build() {
+            return new Due(this);
+        }
     }
 }

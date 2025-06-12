@@ -17,16 +17,17 @@ package com.lark.oapi.service.search.v2.enums;
  * 返回结果的数据类型
  */
 public enum DialogSearchRequestResponseTypeEnum {
-     UNKNOWN(0), // 默认值
-     CARD(1), // 消息卡片的形式
-     RICHTEXT(2), // 原始数据的形式
-  ;
-   private Integer value;
+    UNKNOWN(0), // 默认值
+    CARD(1), // 消息卡片的形式
+    RICHTEXT(2), // 原始数据的形式
+    ;
+    private Integer value;
+
     DialogSearchRequestResponseTypeEnum(Integer value) {
-      this.value = value;
+        this.value = value;
     }
 
     public Integer getValue() {
-      return this.value;
+        return this.value;
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.contact.v3.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class BatchCreateFunctionalRoleMemberReqBody {
-     /**
-      * 角色添加的角色成员列表（一批用户的UserID列表)
-      * <p> 示例值：
-      */
+    /**
+     * 角色添加的角色成员列表（一批用户的UserID列表)
+     * <p> 示例值：
+     */
     @SerializedName("members")
     private String[] members;
+
+    // builder 开始
+    public BatchCreateFunctionalRoleMemberReqBody() {
+    }
+
+    public BatchCreateFunctionalRoleMemberReqBody(Builder builder) {
+        /**
+         * 角色添加的角色成员列表（一批用户的UserID列表)
+         * <p> 示例值：
+         */
+        this.members = builder.members;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String[] getMembers() {
         return this.members;
     }
@@ -39,44 +60,28 @@ public class BatchCreateFunctionalRoleMemberReqBody {
         this.members = members;
     }
 
-
-// builder 开始
-  public BatchCreateFunctionalRoleMemberReqBody(){}
-
-  public BatchCreateFunctionalRoleMemberReqBody(Builder builder){
-         /**
-          * 角色添加的角色成员列表（一批用户的UserID列表)
-          * <p> 示例值：
-          */
-      this.members = builder.members;
-  }
-
     public static class Builder {
-     /**
-      * 角色添加的角色成员列表（一批用户的UserID列表)
-      * <p> 示例值：
-      */
+        /**
+         * 角色添加的角色成员列表（一批用户的UserID列表)
+         * <p> 示例值：
+         */
         private String[] members;
 
         /**
          * 角色添加的角色成员列表（一批用户的UserID列表)
          * <p> 示例值：
+         *
          * @param members
          * @return
          */
         public Builder members(String[] members) {
-             this.members = members;
-             return this;
+            this.members = members;
+            return this;
         }
 
-    
-    
-    public BatchCreateFunctionalRoleMemberReqBody build(){
-        return new BatchCreateFunctionalRoleMemberReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public BatchCreateFunctionalRoleMemberReqBody build() {
+            return new BatchCreateFunctionalRoleMemberReqBody(this);
+        }
     }
 }

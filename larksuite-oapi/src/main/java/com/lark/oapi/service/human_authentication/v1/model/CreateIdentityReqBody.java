@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.human_authentication.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.human_authentication.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CreateIdentityReqBody {
-     /**
-      * 姓名
-      * <p> 示例值：张三
-      */
+    /**
+     * 姓名
+     * <p> 示例值：张三
+     */
     @SerializedName("identity_name")
     private String identityName;
-     /**
-      * 身份证号
-      * <p> 示例值：4xxxxxxxx
-      */
+    /**
+     * 身份证号
+     * <p> 示例值：4xxxxxxxx
+     */
     @SerializedName("identity_code")
     private String identityCode;
-     /**
-      * 手机号
-      * <p> 示例值：13xxxxxxx
-      */
+    /**
+     * 手机号
+     * <p> 示例值：13xxxxxxx
+     */
     @SerializedName("mobile")
     private String mobile;
+
+    // builder 开始
+    public CreateIdentityReqBody() {
+    }
+
+    public CreateIdentityReqBody(Builder builder) {
+        /**
+         * 姓名
+         * <p> 示例值：张三
+         */
+        this.identityName = builder.identityName;
+        /**
+         * 身份证号
+         * <p> 示例值：4xxxxxxxx
+         */
+        this.identityCode = builder.identityCode;
+        /**
+         * 手机号
+         * <p> 示例值：13xxxxxxx
+         */
+        this.mobile = builder.mobile;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getIdentityName() {
         return this.identityName;
     }
@@ -67,90 +98,64 @@ public class CreateIdentityReqBody {
         this.mobile = mobile;
     }
 
-
-// builder 开始
-  public CreateIdentityReqBody(){}
-
-  public CreateIdentityReqBody(Builder builder){
-         /**
-          * 姓名
-          * <p> 示例值：张三
-          */
-      this.identityName = builder.identityName;
-         /**
-          * 身份证号
-          * <p> 示例值：4xxxxxxxx
-          */
-      this.identityCode = builder.identityCode;
-         /**
-          * 手机号
-          * <p> 示例值：13xxxxxxx
-          */
-      this.mobile = builder.mobile;
-  }
-
     public static class Builder {
-     /**
-      * 姓名
-      * <p> 示例值：张三
-      */
+        /**
+         * 姓名
+         * <p> 示例值：张三
+         */
         private String identityName;
-     /**
-      * 身份证号
-      * <p> 示例值：4xxxxxxxx
-      */
+        /**
+         * 身份证号
+         * <p> 示例值：4xxxxxxxx
+         */
         private String identityCode;
-     /**
-      * 手机号
-      * <p> 示例值：13xxxxxxx
-      */
+        /**
+         * 手机号
+         * <p> 示例值：13xxxxxxx
+         */
         private String mobile;
 
         /**
          * 姓名
          * <p> 示例值：张三
+         *
          * @param identityName
          * @return
          */
         public Builder identityName(String identityName) {
-             this.identityName = identityName;
-             return this;
+            this.identityName = identityName;
+            return this;
         }
 
-    
 
         /**
          * 身份证号
          * <p> 示例值：4xxxxxxxx
+         *
          * @param identityCode
          * @return
          */
         public Builder identityCode(String identityCode) {
-             this.identityCode = identityCode;
-             return this;
+            this.identityCode = identityCode;
+            return this;
         }
 
-    
 
         /**
          * 手机号
          * <p> 示例值：13xxxxxxx
+         *
          * @param mobile
          * @return
          */
         public Builder mobile(String mobile) {
-             this.mobile = mobile;
-             return this;
+            this.mobile = mobile;
+            return this;
         }
 
-    
-    
-    public CreateIdentityReqBody build(){
-        return new CreateIdentityReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public CreateIdentityReqBody build() {
+            return new CreateIdentityReqBody(this);
+        }
     }
 }

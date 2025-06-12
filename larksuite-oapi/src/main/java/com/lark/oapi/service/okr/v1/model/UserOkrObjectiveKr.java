@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.okr.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.okr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,42 +20,82 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class UserOkrObjectiveKr {
-     /**
-      * Key Result ID
-      * <p> 示例值：
-      */
+    /**
+     * Key Result ID
+     * <p> 示例值：
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * KeyResult 内容
-      * <p> 示例值：
-      */
+    /**
+     * KeyResult 内容
+     * <p> 示例值：
+     */
     @SerializedName("content")
     private String content;
-     /**
-      * KeyResult打分（0 - 100）
-      * <p> 示例值：
-      */
+    /**
+     * KeyResult打分（0 - 100）
+     * <p> 示例值：
+     */
     @SerializedName("score")
     private Integer score;
-     /**
-      * KeyResult权重（0 - 100）
-      * <p> 示例值：
-      */
+    /**
+     * KeyResult权重（0 - 100）
+     * <p> 示例值：
+     */
     @SerializedName("weight")
     private Integer weight;
-     /**
-      * Objective进度
-      * <p> 示例值：
-      */
+    /**
+     * Objective进度
+     * <p> 示例值：
+     */
     @SerializedName("progress_rate")
     private UserOkrObjectiveProgressRate progressRate;
+
+    // builder 开始
+    public UserOkrObjectiveKr() {
+    }
+
+    public UserOkrObjectiveKr(Builder builder) {
+        /**
+         * Key Result ID
+         * <p> 示例值：
+         */
+        this.id = builder.id;
+        /**
+         * KeyResult 内容
+         * <p> 示例值：
+         */
+        this.content = builder.content;
+        /**
+         * KeyResult打分（0 - 100）
+         * <p> 示例值：
+         */
+        this.score = builder.score;
+        /**
+         * KeyResult权重（0 - 100）
+         * <p> 示例值：
+         */
+        this.weight = builder.weight;
+        /**
+         * Objective进度
+         * <p> 示例值：
+         */
+        this.progressRate = builder.progressRate;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -95,136 +136,100 @@ public class UserOkrObjectiveKr {
         this.progressRate = progressRate;
     }
 
-
-// builder 开始
-  public UserOkrObjectiveKr(){}
-
-  public UserOkrObjectiveKr(Builder builder){
-         /**
-          * Key Result ID
-          * <p> 示例值：
-          */
-      this.id = builder.id;
-         /**
-          * KeyResult 内容
-          * <p> 示例值：
-          */
-      this.content = builder.content;
-         /**
-          * KeyResult打分（0 - 100）
-          * <p> 示例值：
-          */
-      this.score = builder.score;
-         /**
-          * KeyResult权重（0 - 100）
-          * <p> 示例值：
-          */
-      this.weight = builder.weight;
-         /**
-          * Objective进度
-          * <p> 示例值：
-          */
-      this.progressRate = builder.progressRate;
-  }
-
     public static class Builder {
-     /**
-      * Key Result ID
-      * <p> 示例值：
-      */
+        /**
+         * Key Result ID
+         * <p> 示例值：
+         */
         private String id;
-     /**
-      * KeyResult 内容
-      * <p> 示例值：
-      */
+        /**
+         * KeyResult 内容
+         * <p> 示例值：
+         */
         private String content;
-     /**
-      * KeyResult打分（0 - 100）
-      * <p> 示例值：
-      */
+        /**
+         * KeyResult打分（0 - 100）
+         * <p> 示例值：
+         */
         private Integer score;
-     /**
-      * KeyResult权重（0 - 100）
-      * <p> 示例值：
-      */
+        /**
+         * KeyResult权重（0 - 100）
+         * <p> 示例值：
+         */
         private Integer weight;
-     /**
-      * Objective进度
-      * <p> 示例值：
-      */
+        /**
+         * Objective进度
+         * <p> 示例值：
+         */
         private UserOkrObjectiveProgressRate progressRate;
 
         /**
          * Key Result ID
          * <p> 示例值：
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * KeyResult 内容
          * <p> 示例值：
+         *
          * @param content
          * @return
          */
         public Builder content(String content) {
-             this.content = content;
-             return this;
+            this.content = content;
+            return this;
         }
 
-    
 
         /**
          * KeyResult打分（0 - 100）
          * <p> 示例值：
+         *
          * @param score
          * @return
          */
         public Builder score(Integer score) {
-             this.score = score;
-             return this;
+            this.score = score;
+            return this;
         }
 
-    
 
         /**
          * KeyResult权重（0 - 100）
          * <p> 示例值：
+         *
          * @param weight
          * @return
          */
         public Builder weight(Integer weight) {
-             this.weight = weight;
-             return this;
+            this.weight = weight;
+            return this;
         }
 
-    
 
         /**
          * Objective进度
          * <p> 示例值：
+         *
          * @param progressRate
          * @return
          */
         public Builder progressRate(UserOkrObjectiveProgressRate progressRate) {
-             this.progressRate = progressRate;
-             return this;
+            this.progressRate = progressRate;
+            return this;
         }
 
-    
-    
-    public UserOkrObjectiveKr build(){
-        return new UserOkrObjectiveKr(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public UserOkrObjectiveKr build() {
+            return new UserOkrObjectiveKr(this);
+        }
     }
 }

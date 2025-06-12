@@ -12,30 +12,56 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class WithdrawReferralAccountReqBody {
-     /**
-      * 请求提现的奖励类型
-      * <p> 示例值：
-      */
+    /**
+     * 请求提现的奖励类型
+     * <p> 示例值：
+     */
     @SerializedName("withdraw_bonus_type")
     private Integer[] withdrawBonusType;
-     /**
-      * 提现单ID，请求时由请求方提供，后续关于本次提现操作的交互都以此提现单ID为标识进行，需要保证唯一,用于保证提现的幂等性，传入重复ID会返回对应提现单提取的金额明细
-      * <p> 示例值：6942778198054125570
-      */
+    /**
+     * 提现单ID，请求时由请求方提供，后续关于本次提现操作的交互都以此提现单ID为标识进行，需要保证唯一,用于保证提现的幂等性，传入重复ID会返回对应提现单提取的金额明细
+     * <p> 示例值：6942778198054125570
+     */
     @SerializedName("external_order_id")
     private String externalOrderId;
+
+    // builder 开始
+    public WithdrawReferralAccountReqBody() {
+    }
+
+    public WithdrawReferralAccountReqBody(Builder builder) {
+        /**
+         * 请求提现的奖励类型
+         * <p> 示例值：
+         */
+        this.withdrawBonusType = builder.withdrawBonusType;
+        /**
+         * 提现单ID，请求时由请求方提供，后续关于本次提现操作的交互都以此提现单ID为标识进行，需要保证唯一,用于保证提现的幂等性，传入重复ID会返回对应提现单提取的金额明细
+         * <p> 示例值：6942778198054125570
+         */
+        this.externalOrderId = builder.externalOrderId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Integer[] getWithdrawBonusType() {
         return this.withdrawBonusType;
     }
@@ -52,67 +78,46 @@ public class WithdrawReferralAccountReqBody {
         this.externalOrderId = externalOrderId;
     }
 
-
-// builder 开始
-  public WithdrawReferralAccountReqBody(){}
-
-  public WithdrawReferralAccountReqBody(Builder builder){
-         /**
-          * 请求提现的奖励类型
-          * <p> 示例值：
-          */
-      this.withdrawBonusType = builder.withdrawBonusType;
-         /**
-          * 提现单ID，请求时由请求方提供，后续关于本次提现操作的交互都以此提现单ID为标识进行，需要保证唯一,用于保证提现的幂等性，传入重复ID会返回对应提现单提取的金额明细
-          * <p> 示例值：6942778198054125570
-          */
-      this.externalOrderId = builder.externalOrderId;
-  }
-
     public static class Builder {
-     /**
-      * 请求提现的奖励类型
-      * <p> 示例值：
-      */
+        /**
+         * 请求提现的奖励类型
+         * <p> 示例值：
+         */
         private Integer[] withdrawBonusType;
-     /**
-      * 提现单ID，请求时由请求方提供，后续关于本次提现操作的交互都以此提现单ID为标识进行，需要保证唯一,用于保证提现的幂等性，传入重复ID会返回对应提现单提取的金额明细
-      * <p> 示例值：6942778198054125570
-      */
+        /**
+         * 提现单ID，请求时由请求方提供，后续关于本次提现操作的交互都以此提现单ID为标识进行，需要保证唯一,用于保证提现的幂等性，传入重复ID会返回对应提现单提取的金额明细
+         * <p> 示例值：6942778198054125570
+         */
         private String externalOrderId;
 
         /**
          * 请求提现的奖励类型
          * <p> 示例值：
+         *
          * @param withdrawBonusType
          * @return
          */
         public Builder withdrawBonusType(Integer[] withdrawBonusType) {
-             this.withdrawBonusType = withdrawBonusType;
-             return this;
+            this.withdrawBonusType = withdrawBonusType;
+            return this;
         }
 
-    
 
         /**
          * 提现单ID，请求时由请求方提供，后续关于本次提现操作的交互都以此提现单ID为标识进行，需要保证唯一,用于保证提现的幂等性，传入重复ID会返回对应提现单提取的金额明细
          * <p> 示例值：6942778198054125570
+         *
          * @param externalOrderId
          * @return
          */
         public Builder externalOrderId(String externalOrderId) {
-             this.externalOrderId = externalOrderId;
-             return this;
+            this.externalOrderId = externalOrderId;
+            return this;
         }
 
-    
-    
-    public WithdrawReferralAccountReqBody build(){
-        return new WithdrawReferralAccountReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public WithdrawReferralAccountReqBody build() {
+            return new WithdrawReferralAccountReqBody(this);
+        }
     }
 }

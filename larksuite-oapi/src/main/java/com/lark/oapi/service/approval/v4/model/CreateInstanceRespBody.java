@@ -12,24 +12,29 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CreateInstanceRespBody {
-     /**
-      * 审批实例 Code
-      * <p> 示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
-      */
+    /**
+     * 审批实例 Code
+     * <p> 示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
+     */
     @SerializedName("instance_code")
     private String instanceCode;
+
     public String getInstanceCode() {
         return this.instanceCode;
     }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.docx.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.docx.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class JiraIssue {
-     /**
-      * Jira issue ID
-      * <p> 示例值：12345
-      */
+    /**
+     * Jira issue ID
+     * <p> 示例值：12345
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * Jira issue key
-      * <p> 示例值：Project-123
-      */
+    /**
+     * Jira issue key
+     * <p> 示例值：Project-123
+     */
     @SerializedName("key")
     private String key;
+
+    // builder 开始
+    public JiraIssue() {
+    }
+
+    public JiraIssue(Builder builder) {
+        /**
+         * Jira issue ID
+         * <p> 示例值：12345
+         */
+        this.id = builder.id;
+        /**
+         * Jira issue key
+         * <p> 示例值：Project-123
+         */
+        this.key = builder.key;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -53,67 +79,46 @@ public class JiraIssue {
         this.key = key;
     }
 
-
-// builder 开始
-  public JiraIssue(){}
-
-  public JiraIssue(Builder builder){
-         /**
-          * Jira issue ID
-          * <p> 示例值：12345
-          */
-      this.id = builder.id;
-         /**
-          * Jira issue key
-          * <p> 示例值：Project-123
-          */
-      this.key = builder.key;
-  }
-
     public static class Builder {
-     /**
-      * Jira issue ID
-      * <p> 示例值：12345
-      */
+        /**
+         * Jira issue ID
+         * <p> 示例值：12345
+         */
         private String id;
-     /**
-      * Jira issue key
-      * <p> 示例值：Project-123
-      */
+        /**
+         * Jira issue key
+         * <p> 示例值：Project-123
+         */
         private String key;
 
         /**
          * Jira issue ID
          * <p> 示例值：12345
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * Jira issue key
          * <p> 示例值：Project-123
+         *
          * @param key
          * @return
          */
         public Builder key(String key) {
-             this.key = key;
-             return this;
+            this.key = key;
+            return this;
         }
 
-    
-    
-    public JiraIssue build(){
-        return new JiraIssue(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public JiraIssue build() {
+            return new JiraIssue(this);
+        }
     }
 }

@@ -12,24 +12,48 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CreateByAttachmentWebsiteDeliveryReq {
-     /**
-      * 官网 ID
-      * <p> 示例值：7047318856652261676
-      */
+    /**
+     * 官网 ID
+     * <p> 示例值：7047318856652261676
+     */
     @Path
     @SerializedName("website_id")
     private String websiteId;
+    @Body
+    private WebsiteDeliveryAttachment body;
+
+    // builder 开始
+    public CreateByAttachmentWebsiteDeliveryReq() {
+    }
+
+    public CreateByAttachmentWebsiteDeliveryReq(Builder builder) {
+        /**
+         * 官网 ID
+         * <p> 示例值：7047318856652261676
+         */
+        this.websiteId = builder.websiteId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getWebsiteId() {
         return this.websiteId;
     }
@@ -37,9 +61,6 @@ public class CreateByAttachmentWebsiteDeliveryReq {
     public void setWebsiteId(String websiteId) {
         this.websiteId = websiteId;
     }
-
-    @Body
-    private WebsiteDeliveryAttachment body;
 
     public WebsiteDeliveryAttachment getWebsiteDeliveryAttachment() {
         return this.body;
@@ -49,54 +70,40 @@ public class CreateByAttachmentWebsiteDeliveryReq {
         this.body = body;
     }
 
-// builder 开始
-  public CreateByAttachmentWebsiteDeliveryReq(){}
-
-  public CreateByAttachmentWebsiteDeliveryReq(Builder builder){
-     /**
-      * 官网 ID
-      * <p> 示例值：7047318856652261676
-      */
-       this.websiteId = builder.websiteId;
-        this.body = builder.body;
-  }
-
     public static class Builder {
-    
+
         private String websiteId; // 官网 ID
+        private WebsiteDeliveryAttachment body;
+
         /**
          * 官网 ID
          * <p> 示例值：7047318856652261676
+         *
          * @param websiteId
          * @return
          */
-          public Builder websiteId(String websiteId) {
-               this.websiteId = websiteId;
-               return this;
-          }
+        public Builder websiteId(String websiteId) {
+            this.websiteId = websiteId;
+            return this;
+        }
 
-    
-        private WebsiteDeliveryAttachment body;
-    
         public WebsiteDeliveryAttachment getWebsiteDeliveryAttachment() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder websiteDeliveryAttachment(WebsiteDeliveryAttachment body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public CreateByAttachmentWebsiteDeliveryReq build(){
-        return new CreateByAttachmentWebsiteDeliveryReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public CreateByAttachmentWebsiteDeliveryReq build() {
+            return new CreateByAttachmentWebsiteDeliveryReq(this);
+        }
     }
 }

@@ -12,25 +12,46 @@
  */
 
 package com.lark.oapi.service.board.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.board.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ListWhiteboardNodeReq {
-     /**
-      * 画板唯一标识
-      * <p> 示例值：Ru8nwrWFOhEmaFbEU2VbPRsHcxb
-      */
+    /**
+     * 画板唯一标识
+     * <p> 示例值：Ru8nwrWFOhEmaFbEU2VbPRsHcxb
+     */
     @Path
     @SerializedName("whiteboard_id")
     private String whiteboardId;
+
+    // builder 开始
+    public ListWhiteboardNodeReq() {
+    }
+
+    public ListWhiteboardNodeReq(Builder builder) {
+        /**
+         * 画板唯一标识
+         * <p> 示例值：Ru8nwrWFOhEmaFbEU2VbPRsHcxb
+         */
+        this.whiteboardId = builder.whiteboardId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getWhiteboardId() {
         return this.whiteboardId;
     }
@@ -39,39 +60,25 @@ public class ListWhiteboardNodeReq {
         this.whiteboardId = whiteboardId;
     }
 
-
-// builder 开始
-  public ListWhiteboardNodeReq(){}
-
-  public ListWhiteboardNodeReq(Builder builder){
-     /**
-      * 画板唯一标识
-      * <p> 示例值：Ru8nwrWFOhEmaFbEU2VbPRsHcxb
-      */
-       this.whiteboardId = builder.whiteboardId;
-  }
-
     public static class Builder {
-    
+
         private String whiteboardId; // 画板唯一标识
+
         /**
          * 画板唯一标识
          * <p> 示例值：Ru8nwrWFOhEmaFbEU2VbPRsHcxb
+         *
          * @param whiteboardId
          * @return
          */
-          public Builder whiteboardId(String whiteboardId) {
-               this.whiteboardId = whiteboardId;
-               return this;
-          }
+        public Builder whiteboardId(String whiteboardId) {
+            this.whiteboardId = whiteboardId;
+            return this;
+        }
 
-    
-    public ListWhiteboardNodeReq build(){
-        return new ListWhiteboardNodeReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ListWhiteboardNodeReq build() {
+            return new ListWhiteboardNodeReq(this);
+        }
     }
 }

@@ -17,15 +17,16 @@ package com.lark.oapi.service.corehr.v2.enums;
  * 操作符
  */
 public enum MatchRuleOperatorEnum {
-     CONTAINS("contains"), // 包含
-     NOTCONTAINS("notContains"), // 不包含
-  ;
-   private String value;
+    CONTAINS("contains"), // 包含
+    NOTCONTAINS("notContains"), // 不包含
+    ;
+    private String value;
+
     MatchRuleOperatorEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

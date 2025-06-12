@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ProcessAbstractItem {
-     /**
-      * 摘要标题
-      * <p> 示例值：
-      */
+    /**
+     * 摘要标题
+     * <p> 示例值：
+     */
     @SerializedName("name")
     private DataengineI18n name;
-     /**
-      * 摘要值
-      * <p> 示例值：
-      */
+    /**
+     * 摘要值
+     * <p> 示例值：
+     */
     @SerializedName("value")
     private DataengineI18n value;
+
+    // builder 开始
+    public ProcessAbstractItem() {
+    }
+
+    public ProcessAbstractItem(Builder builder) {
+        /**
+         * 摘要标题
+         * <p> 示例值：
+         */
+        this.name = builder.name;
+        /**
+         * 摘要值
+         * <p> 示例值：
+         */
+        this.value = builder.value;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public DataengineI18n getName() {
         return this.name;
     }
@@ -53,67 +79,46 @@ public class ProcessAbstractItem {
         this.value = value;
     }
 
-
-// builder 开始
-  public ProcessAbstractItem(){}
-
-  public ProcessAbstractItem(Builder builder){
-         /**
-          * 摘要标题
-          * <p> 示例值：
-          */
-      this.name = builder.name;
-         /**
-          * 摘要值
-          * <p> 示例值：
-          */
-      this.value = builder.value;
-  }
-
     public static class Builder {
-     /**
-      * 摘要标题
-      * <p> 示例值：
-      */
+        /**
+         * 摘要标题
+         * <p> 示例值：
+         */
         private DataengineI18n name;
-     /**
-      * 摘要值
-      * <p> 示例值：
-      */
+        /**
+         * 摘要值
+         * <p> 示例值：
+         */
         private DataengineI18n value;
 
         /**
          * 摘要标题
          * <p> 示例值：
+         *
          * @param name
          * @return
          */
         public Builder name(DataengineI18n name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 摘要值
          * <p> 示例值：
+         *
          * @param value
          * @return
          */
         public Builder value(DataengineI18n value) {
-             this.value = value;
-             return this;
+            this.value = value;
+            return this;
         }
 
-    
-    
-    public ProcessAbstractItem build(){
-        return new ProcessAbstractItem(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ProcessAbstractItem build() {
+            return new ProcessAbstractItem(this);
+        }
     }
 }

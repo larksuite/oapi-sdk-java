@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.baike.v1.resource;
+
 import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.Transport;
 import com.lark.oapi.core.response.RawResponse;
@@ -20,12 +21,16 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import java.nio.charset.StandardCharsets;
 
 import com.lark.oapi.core.Config;
 import com.lark.oapi.core.request.RequestOptions;
+
 import java.io.ByteArrayOutputStream;
+
 import com.lark.oapi.service.baike.v1.model.*;
+
 import java.io.*;
 import java.util.Map;
 import java.util.HashMap;
@@ -41,7 +46,7 @@ public class File {
         this.config = config;
     }
 
-    
+
     /**
      * 图片下载，通过 file_token 下载原图片
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/baike-v1/file/download">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/baike-v1/file/download</a> ;
@@ -59,7 +64,7 @@ public class File {
                 , "/open-apis/baike/v1/files/:file_token/download"
                 , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                 , req);
-        
+
         if (httpResponse.getStatusCode() == 200) {
             DownloadFileResp resp = new DownloadFileResp();
             resp.setRawResponse(httpResponse);
@@ -67,7 +72,7 @@ public class File {
             outputStream.write(httpResponse.getBody());
             resp.setData(outputStream);
             resp.setFileName(httpResponse.getFileName());
-            return  resp;
+            return resp;
         }
         // 反序列化
         DownloadFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DownloadFileResp.class);
@@ -76,14 +81,14 @@ public class File {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/baike/v1/files/:file_token/download"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
-       resp.setRawResponse(httpResponse);
-       resp.setRequest(req);
-       
-       return resp;
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
     }
 
     /**
@@ -101,7 +106,7 @@ public class File {
                 , "/open-apis/baike/v1/files/:file_token/download"
                 , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                 , req);
-        
+
         // 下载请求，返回流
         if (httpResponse.getStatusCode() == 200) {
             DownloadFileResp resp = new DownloadFileResp();
@@ -110,7 +115,7 @@ public class File {
             outputStream.write(httpResponse.getBody());
             resp.setData(outputStream);
             resp.setFileName(httpResponse.getFileName());
-            return  resp;
+            return resp;
         }
         // 反序列化
         DownloadFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DownloadFileResp.class);
@@ -119,15 +124,16 @@ public class File {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/baike/v1/files/:file_token/download"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-        
+
         return resp;
     }
+
     /**
      * 图片上传，百科词条图片资源上传。
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/baike-v1/file/upload">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/baike-v1/file/upload</a> ;
@@ -145,7 +151,7 @@ public class File {
                 , "/open-apis/baike/v1/files/upload"
                 , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                 , req);
-        
+
         // 反序列化
         UploadFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UploadFileResp.class);
         if (resp == null) {
@@ -153,14 +159,14 @@ public class File {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/baike/v1/files/upload"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
-       resp.setRawResponse(httpResponse);
-       resp.setRequest(req);
-       
-       return resp;
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
     }
 
     /**
@@ -178,7 +184,7 @@ public class File {
                 , "/open-apis/baike/v1/files/upload"
                 , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                 , req);
-        
+
         // 反序列化
         UploadFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UploadFileResp.class);
         if (resp == null) {
@@ -186,13 +192,13 @@ public class File {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/baike/v1/files/upload"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-        
+
         return resp;
     }
 }

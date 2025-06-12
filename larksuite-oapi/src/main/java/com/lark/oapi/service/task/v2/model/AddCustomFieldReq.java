@@ -12,25 +12,49 @@
  */
 
 package com.lark.oapi.service.task.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.task.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class AddCustomFieldReq {
-     /**
-      * 自定义字段GUID
-      * <p> 示例值：0110a4bd-f24b-4a93-8c1a-1732b94f9593
-      */
+    /**
+     * 自定义字段GUID
+     * <p> 示例值：0110a4bd-f24b-4a93-8c1a-1732b94f9593
+     */
     @Path
     @SerializedName("custom_field_guid")
     private String customFieldGuid;
+    @Body
+    private AddCustomFieldReqBody body;
+
+    // builder 开始
+    public AddCustomFieldReq() {
+    }
+
+    public AddCustomFieldReq(Builder builder) {
+        /**
+         * 自定义字段GUID
+         * <p> 示例值：0110a4bd-f24b-4a93-8c1a-1732b94f9593
+         */
+        this.customFieldGuid = builder.customFieldGuid;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getCustomFieldGuid() {
         return this.customFieldGuid;
     }
@@ -38,9 +62,6 @@ public class AddCustomFieldReq {
     public void setCustomFieldGuid(String customFieldGuid) {
         this.customFieldGuid = customFieldGuid;
     }
-
-    @Body
-    private AddCustomFieldReqBody body;
 
     public AddCustomFieldReqBody getAddCustomFieldReqBody() {
         return this.body;
@@ -50,54 +71,40 @@ public class AddCustomFieldReq {
         this.body = body;
     }
 
-// builder 开始
-  public AddCustomFieldReq(){}
-
-  public AddCustomFieldReq(Builder builder){
-     /**
-      * 自定义字段GUID
-      * <p> 示例值：0110a4bd-f24b-4a93-8c1a-1732b94f9593
-      */
-       this.customFieldGuid = builder.customFieldGuid;
-        this.body = builder.body;
-  }
-
     public static class Builder {
-    
+
         private String customFieldGuid; // 自定义字段GUID
+        private AddCustomFieldReqBody body;
+
         /**
          * 自定义字段GUID
          * <p> 示例值：0110a4bd-f24b-4a93-8c1a-1732b94f9593
+         *
          * @param customFieldGuid
          * @return
          */
-          public Builder customFieldGuid(String customFieldGuid) {
-               this.customFieldGuid = customFieldGuid;
-               return this;
-          }
+        public Builder customFieldGuid(String customFieldGuid) {
+            this.customFieldGuid = customFieldGuid;
+            return this;
+        }
 
-    
-        private AddCustomFieldReqBody body;
-    
         public AddCustomFieldReqBody getAddCustomFieldReqBody() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder addCustomFieldReqBody(AddCustomFieldReqBody body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public AddCustomFieldReq build(){
-        return new AddCustomFieldReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public AddCustomFieldReq build() {
+            return new AddCustomFieldReq(this);
+        }
     }
 }

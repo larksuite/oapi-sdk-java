@@ -17,15 +17,16 @@ package com.lark.oapi.service.aily.v1.enums;
  * 连接类型
  */
 public enum CreateAppDataAssetConnectTypeEnum {
-     IMPORT("import"), // 导入模式
-     DIRECT("direct"), // 直连模式
-  ;
-   private String value;
+    IMPORT("import"), // 导入模式
+    DIRECT("direct"), // 直连模式
+    ;
+    private String value;
+
     CreateAppDataAssetConnectTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

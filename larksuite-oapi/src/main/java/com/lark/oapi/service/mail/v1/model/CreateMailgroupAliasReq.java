@@ -12,25 +12,49 @@
  */
 
 package com.lark.oapi.service.mail.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CreateMailgroupAliasReq {
-     /**
-      * 邮件组id或邮件组邮箱地址
-      * <p> 示例值：xxxxxx 或者 xxx@xx.xxx
-      */
+    /**
+     * 邮件组id或邮件组邮箱地址
+     * <p> 示例值：xxxxxx 或者 xxx@xx.xxx
+     */
     @Path
     @SerializedName("mailgroup_id")
     private String mailgroupId;
+    @Body
+    private EmailAlias body;
+
+    // builder 开始
+    public CreateMailgroupAliasReq() {
+    }
+
+    public CreateMailgroupAliasReq(Builder builder) {
+        /**
+         * 邮件组id或邮件组邮箱地址
+         * <p> 示例值：xxxxxx 或者 xxx@xx.xxx
+         */
+        this.mailgroupId = builder.mailgroupId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getMailgroupId() {
         return this.mailgroupId;
     }
@@ -38,9 +62,6 @@ public class CreateMailgroupAliasReq {
     public void setMailgroupId(String mailgroupId) {
         this.mailgroupId = mailgroupId;
     }
-
-    @Body
-    private EmailAlias body;
 
     public EmailAlias getEmailAlias() {
         return this.body;
@@ -50,54 +71,40 @@ public class CreateMailgroupAliasReq {
         this.body = body;
     }
 
-// builder 开始
-  public CreateMailgroupAliasReq(){}
-
-  public CreateMailgroupAliasReq(Builder builder){
-     /**
-      * 邮件组id或邮件组邮箱地址
-      * <p> 示例值：xxxxxx 或者 xxx@xx.xxx
-      */
-       this.mailgroupId = builder.mailgroupId;
-        this.body = builder.body;
-  }
-
     public static class Builder {
-    
+
         private String mailgroupId; // 邮件组id或邮件组邮箱地址
+        private EmailAlias body;
+
         /**
          * 邮件组id或邮件组邮箱地址
          * <p> 示例值：xxxxxx 或者 xxx@xx.xxx
+         *
          * @param mailgroupId
          * @return
          */
-          public Builder mailgroupId(String mailgroupId) {
-               this.mailgroupId = mailgroupId;
-               return this;
-          }
+        public Builder mailgroupId(String mailgroupId) {
+            this.mailgroupId = mailgroupId;
+            return this;
+        }
 
-    
-        private EmailAlias body;
-    
         public EmailAlias getEmailAlias() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder emailAlias(EmailAlias body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public CreateMailgroupAliasReq build(){
-        return new CreateMailgroupAliasReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public CreateMailgroupAliasReq build() {
+            return new CreateMailgroupAliasReq(this);
+        }
     }
 }

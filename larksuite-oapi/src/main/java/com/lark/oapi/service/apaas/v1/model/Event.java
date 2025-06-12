@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,60 +20,115 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Event {
-     /**
-      * 事件ID
-      * <p> 示例值：invoke_workflow_event-12345678
-      */
+    /**
+     * 事件ID
+     * <p> 示例值：invoke_workflow_event-12345678
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 事件类型
-      * <p> 示例值：invoke_function_event
-      */
+    /**
+     * 事件类型
+     * <p> 示例值：invoke_function_event
+     */
     @SerializedName("type")
     private String type;
-     /**
-      * 事件开始时间
-      * <p> 示例值：1741249747824
-      */
+    /**
+     * 事件开始时间
+     * <p> 示例值：1741249747824
+     */
     @SerializedName("start_timestamp")
     private Integer startTimestamp;
-     /**
-      * 可选，事件的结束时间
-      * <p> 示例值：1741249747824
-      */
+    /**
+     * 可选，事件的结束时间
+     * <p> 示例值：1741249747824
+     */
     @SerializedName("end_timestamp")
     private Integer endTimestamp;
-     /**
-      * 事件是否已结束
-      * <p> 示例值：true
-      */
+    /**
+     * 事件是否已结束
+     * <p> 示例值：true
+     */
     @SerializedName("is_finished")
     private Boolean isFinished;
-     /**
-      * trace id
-      * <p> 示例值：edf45bdf-9f3f-4aad-b260-9287ab09e0de
-      */
+    /**
+     * trace id
+     * <p> 示例值：edf45bdf-9f3f-4aad-b260-9287ab09e0de
+     */
     @SerializedName("trace_id")
     private String traceId;
-     /**
-      * 事件详情，json 格式
-      * <p> 示例值：{"foo":"bar"}
-      */
+    /**
+     * 事件详情，json 格式
+     * <p> 示例值：{"foo":"bar"}
+     */
     @SerializedName("detail")
     private String detail;
-     /**
-      * 附加属性，json 格式，包括应用相关属性（如 tenant_id, namespace）等
-      * <p> 示例值：{"tenant_id": "123"}
-      */
+    /**
+     * 附加属性，json 格式，包括应用相关属性（如 tenant_id, namespace）等
+     * <p> 示例值：{"tenant_id": "123"}
+     */
     @SerializedName("attributes")
     private String attributes;
+
+    // builder 开始
+    public Event() {
+    }
+
+    public Event(Builder builder) {
+        /**
+         * 事件ID
+         * <p> 示例值：invoke_workflow_event-12345678
+         */
+        this.id = builder.id;
+        /**
+         * 事件类型
+         * <p> 示例值：invoke_function_event
+         */
+        this.type = builder.type;
+        /**
+         * 事件开始时间
+         * <p> 示例值：1741249747824
+         */
+        this.startTimestamp = builder.startTimestamp;
+        /**
+         * 可选，事件的结束时间
+         * <p> 示例值：1741249747824
+         */
+        this.endTimestamp = builder.endTimestamp;
+        /**
+         * 事件是否已结束
+         * <p> 示例值：true
+         */
+        this.isFinished = builder.isFinished;
+        /**
+         * trace id
+         * <p> 示例值：edf45bdf-9f3f-4aad-b260-9287ab09e0de
+         */
+        this.traceId = builder.traceId;
+        /**
+         * 事件详情，json 格式
+         * <p> 示例值：{"foo":"bar"}
+         */
+        this.detail = builder.detail;
+        /**
+         * 附加属性，json 格式，包括应用相关属性（如 tenant_id, namespace）等
+         * <p> 示例值：{"tenant_id": "123"}
+         */
+        this.attributes = builder.attributes;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -137,205 +193,154 @@ public class Event {
         this.attributes = attributes;
     }
 
-
-// builder 开始
-  public Event(){}
-
-  public Event(Builder builder){
-         /**
-          * 事件ID
-          * <p> 示例值：invoke_workflow_event-12345678
-          */
-      this.id = builder.id;
-         /**
-          * 事件类型
-          * <p> 示例值：invoke_function_event
-          */
-      this.type = builder.type;
-         /**
-          * 事件开始时间
-          * <p> 示例值：1741249747824
-          */
-      this.startTimestamp = builder.startTimestamp;
-         /**
-          * 可选，事件的结束时间
-          * <p> 示例值：1741249747824
-          */
-      this.endTimestamp = builder.endTimestamp;
-         /**
-          * 事件是否已结束
-          * <p> 示例值：true
-          */
-      this.isFinished = builder.isFinished;
-         /**
-          * trace id
-          * <p> 示例值：edf45bdf-9f3f-4aad-b260-9287ab09e0de
-          */
-      this.traceId = builder.traceId;
-         /**
-          * 事件详情，json 格式
-          * <p> 示例值：{"foo":"bar"}
-          */
-      this.detail = builder.detail;
-         /**
-          * 附加属性，json 格式，包括应用相关属性（如 tenant_id, namespace）等
-          * <p> 示例值：{"tenant_id": "123"}
-          */
-      this.attributes = builder.attributes;
-  }
-
     public static class Builder {
-     /**
-      * 事件ID
-      * <p> 示例值：invoke_workflow_event-12345678
-      */
+        /**
+         * 事件ID
+         * <p> 示例值：invoke_workflow_event-12345678
+         */
         private String id;
-     /**
-      * 事件类型
-      * <p> 示例值：invoke_function_event
-      */
+        /**
+         * 事件类型
+         * <p> 示例值：invoke_function_event
+         */
         private String type;
-     /**
-      * 事件开始时间
-      * <p> 示例值：1741249747824
-      */
+        /**
+         * 事件开始时间
+         * <p> 示例值：1741249747824
+         */
         private Integer startTimestamp;
-     /**
-      * 可选，事件的结束时间
-      * <p> 示例值：1741249747824
-      */
+        /**
+         * 可选，事件的结束时间
+         * <p> 示例值：1741249747824
+         */
         private Integer endTimestamp;
-     /**
-      * 事件是否已结束
-      * <p> 示例值：true
-      */
+        /**
+         * 事件是否已结束
+         * <p> 示例值：true
+         */
         private Boolean isFinished;
-     /**
-      * trace id
-      * <p> 示例值：edf45bdf-9f3f-4aad-b260-9287ab09e0de
-      */
+        /**
+         * trace id
+         * <p> 示例值：edf45bdf-9f3f-4aad-b260-9287ab09e0de
+         */
         private String traceId;
-     /**
-      * 事件详情，json 格式
-      * <p> 示例值：{"foo":"bar"}
-      */
+        /**
+         * 事件详情，json 格式
+         * <p> 示例值：{"foo":"bar"}
+         */
         private String detail;
-     /**
-      * 附加属性，json 格式，包括应用相关属性（如 tenant_id, namespace）等
-      * <p> 示例值：{"tenant_id": "123"}
-      */
+        /**
+         * 附加属性，json 格式，包括应用相关属性（如 tenant_id, namespace）等
+         * <p> 示例值：{"tenant_id": "123"}
+         */
         private String attributes;
 
         /**
          * 事件ID
          * <p> 示例值：invoke_workflow_event-12345678
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 事件类型
          * <p> 示例值：invoke_function_event
+         *
          * @param type
          * @return
          */
         public Builder type(String type) {
-             this.type = type;
-             return this;
+            this.type = type;
+            return this;
         }
 
-    
 
         /**
          * 事件开始时间
          * <p> 示例值：1741249747824
+         *
          * @param startTimestamp
          * @return
          */
         public Builder startTimestamp(Integer startTimestamp) {
-             this.startTimestamp = startTimestamp;
-             return this;
+            this.startTimestamp = startTimestamp;
+            return this;
         }
 
-    
 
         /**
          * 可选，事件的结束时间
          * <p> 示例值：1741249747824
+         *
          * @param endTimestamp
          * @return
          */
         public Builder endTimestamp(Integer endTimestamp) {
-             this.endTimestamp = endTimestamp;
-             return this;
+            this.endTimestamp = endTimestamp;
+            return this;
         }
 
-    
 
         /**
          * 事件是否已结束
          * <p> 示例值：true
+         *
          * @param isFinished
          * @return
          */
         public Builder isFinished(Boolean isFinished) {
-             this.isFinished = isFinished;
-             return this;
+            this.isFinished = isFinished;
+            return this;
         }
 
-    
 
         /**
          * trace id
          * <p> 示例值：edf45bdf-9f3f-4aad-b260-9287ab09e0de
+         *
          * @param traceId
          * @return
          */
         public Builder traceId(String traceId) {
-             this.traceId = traceId;
-             return this;
+            this.traceId = traceId;
+            return this;
         }
 
-    
 
         /**
          * 事件详情，json 格式
          * <p> 示例值：{"foo":"bar"}
+         *
          * @param detail
          * @return
          */
         public Builder detail(String detail) {
-             this.detail = detail;
-             return this;
+            this.detail = detail;
+            return this;
         }
 
-    
 
         /**
          * 附加属性，json 格式，包括应用相关属性（如 tenant_id, namespace）等
          * <p> 示例值：{"tenant_id": "123"}
+         *
          * @param attributes
          * @return
          */
         public Builder attributes(String attributes) {
-             this.attributes = attributes;
-             return this;
+            this.attributes = attributes;
+            return this;
         }
 
-    
-    
-    public Event build(){
-        return new Event(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Event build() {
+            return new Event(this);
+        }
     }
 }

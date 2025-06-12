@@ -12,24 +12,29 @@
  */
 
 package com.lark.oapi.service.docs.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class GetContentRespBody {
-     /**
-      * 内容
-      * <p> 示例值："文本\\*\\*导出\\*\\*测试，***~~文本导出测~~****试文***本导**[*出测*](https%3A%2F%2Fwww.baidu.com)试文本导出**测试***~~文本~~*导出测试        @李浩[Markdown       导出测试](https://bytedance.feishu-boe.net/docx/H3pSdjlAQoqIUux8toCbRkApcGb)$E = mc^2\n$        \\*文本\\*\\*       \\# 文本 ～～～文本～～～ \\[百度\\]\\(https://www\\.baidu\\.com\\)\\[Markdown        导出测试\\.docx\\]\n\n\\[Markdown       导出测试\\.docx\\]\n\n# 一级标题\n\n## 二级标题\n\n### 三级标题\n\n####        四级标题\n\n#####       五级标题\n\n###### 六级标题\n\n###### 七级标题\n\n###### 八级标题\n\n###### 九级标题"
-      */
+    /**
+     * 内容
+     * <p> 示例值："文本\\*\\*导出\\*\\*测试，***~~文本导出测~~****试文***本导**[*出测*](https%3A%2F%2Fwww.baidu.com)试文本导出**测试***~~文本~~*导出测试        @李浩[Markdown       导出测试](https://bytedance.feishu-boe.net/docx/H3pSdjlAQoqIUux8toCbRkApcGb)$E = mc^2\n$        \\*文本\\*\\*       \\# 文本 ～～～文本～～～ \\[百度\\]\\(https://www\\.baidu\\.com\\)\\[Markdown        导出测试\\.docx\\]\n\n\\[Markdown       导出测试\\.docx\\]\n\n# 一级标题\n\n## 二级标题\n\n### 三级标题\n\n####        四级标题\n\n#####       五级标题\n\n###### 六级标题\n\n###### 七级标题\n\n###### 八级标题\n\n###### 九级标题"
+     */
     @SerializedName("content")
     private String content;
+
     public String getContent() {
         return this.content;
     }

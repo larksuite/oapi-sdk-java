@@ -17,16 +17,17 @@ package com.lark.oapi.service.okr.v1.enums;
  * 周期显示状态
  */
 public enum PatchPeriodStatusEnum {
-     NORMAL_STATUS(1), // 正常状态
-     MARK_INVALID(2), // 标记失效
-     HIDDEN_PERIOD(3), // 隐藏周期
-  ;
-   private Integer value;
+    NORMAL_STATUS(1), // 正常状态
+    MARK_INVALID(2), // 标记失效
+    HIDDEN_PERIOD(3), // 隐藏周期
+    ;
+    private Integer value;
+
     PatchPeriodStatusEnum(Integer value) {
-      this.value = value;
+        this.value = value;
     }
 
     public Integer getValue() {
-      return this.value;
+        return this.value;
     }
 }

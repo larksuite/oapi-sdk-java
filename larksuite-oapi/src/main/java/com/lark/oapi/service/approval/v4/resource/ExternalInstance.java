@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.approval.v4.resource;
+
 import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.Transport;
 import com.lark.oapi.core.response.RawResponse;
@@ -20,12 +21,16 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import java.nio.charset.StandardCharsets;
 
 import com.lark.oapi.core.Config;
 import com.lark.oapi.core.request.RequestOptions;
+
 import java.io.ByteArrayOutputStream;
+
 import com.lark.oapi.service.approval.v4.model.*;
+
 import java.io.*;
 import java.util.Map;
 import java.util.HashMap;
@@ -41,7 +46,7 @@ public class ExternalInstance {
         this.config = config;
     }
 
-    
+
     /**
      * 三方审批实例校验，校验三方审批实例数据，用于判断服务端数据是否为最新的。用户提交实例最新更新时间，如果服务端不存在该实例，或者服务端实例更新时间不是最新的，则返回对应实例 id。;;例如，用户可以每隔5分钟，将最近5分钟产生的实例使用该接口进行对比。
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_instance/check">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_instance/check</a> ;
@@ -58,7 +63,7 @@ public class ExternalInstance {
                 , "/open-apis/approval/v4/external_instances/check"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-        
+
         // 反序列化
         CheckExternalInstanceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CheckExternalInstanceResp.class);
         if (resp == null) {
@@ -66,14 +71,14 @@ public class ExternalInstance {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/approval/v4/external_instances/check"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
-       resp.setRawResponse(httpResponse);
-       resp.setRequest(req);
-       
-       return resp;
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
     }
 
     /**
@@ -90,7 +95,7 @@ public class ExternalInstance {
                 , "/open-apis/approval/v4/external_instances/check"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-        
+
         // 反序列化
         CheckExternalInstanceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CheckExternalInstanceResp.class);
         if (resp == null) {
@@ -98,15 +103,16 @@ public class ExternalInstance {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/approval/v4/external_instances/check"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-        
+
         return resp;
     }
+
     /**
      * 三方审批实例同步，审批中心不负责审批的流转，审批的流转在三方系统，三方系统在审批流转后生成的审批实例、审批任务、审批抄送数据同步到审批中心。;;用户可以在审批中心中浏览三方系统同步过来的实例、任务、抄送信息，并且可以跳转回三方系统进行更详细的查看和操作，其中实例信息在【已发起】列表，任务信息在【待审批】和【已审批】列表，抄送信息在【抄送我】列表;;:::html;<img src="//sf3-cn.feishucdn.com/obj/open-platform-opendoc/9dff4434afbeb0ef69de7f36b9a6e995_z5iwmTzEgg.png" alt="" style="zoom:17%;" />;;;<img src="//sf3-cn.feishucdn.com/obj/open-platform-opendoc/ca6e0e984a7a6d64e1b16a0bac4bf868_tfqjCiaJQM.png" alt="" style="zoom:17%;" />;;;<img src="//sf3-cn.feishucdn.com/obj/open-platform-opendoc/529377e238df78d391bbd22e962ad195_T7eefLI1GA.png" alt="" style="zoom:17%;" />;:::;;对于审批任务，三方系统也可以配置审批任务的回调接口，这样审批人可以在审批中心中直接进行审批操作，审批中心会回调三方系统，三方系统收到回调后更新任务信息，并将新的任务信息同步回审批中心，形成闭环。;;:::html;<img src="//sf3-cn.feishucdn.com/obj/open-platform-opendoc/721c35428bc1187db3318c572f9979ad_je75QpElcg.png" alt=""  style="zoom:25%;" />;:::;<br>
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_instance/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_instance/create</a> ;
@@ -123,7 +129,7 @@ public class ExternalInstance {
                 , "/open-apis/approval/v4/external_instances"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-        
+
         // 反序列化
         CreateExternalInstanceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateExternalInstanceResp.class);
         if (resp == null) {
@@ -131,14 +137,14 @@ public class ExternalInstance {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/approval/v4/external_instances"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
-       resp.setRawResponse(httpResponse);
-       resp.setRequest(req);
-       
-       return resp;
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
     }
 
     /**
@@ -155,7 +161,7 @@ public class ExternalInstance {
                 , "/open-apis/approval/v4/external_instances"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-        
+
         // 反序列化
         CreateExternalInstanceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateExternalInstanceResp.class);
         if (resp == null) {
@@ -163,13 +169,13 @@ public class ExternalInstance {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/approval/v4/external_instances"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-        
+
         return resp;
     }
 }

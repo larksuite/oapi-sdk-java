@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class SignatureTemplateCombinationSubFieldInfo {
-     /**
-      * 字段类型枚举
-      * <p> 示例值：
-      */
+    /**
+     * 字段类型枚举
+     * <p> 示例值：
+     */
     @SerializedName("field_type")
     private Enum fieldType;
-     /**
-      * 公共字段信息
-      * <p> 示例值：
-      */
+    /**
+     * 公共字段信息
+     * <p> 示例值：
+     */
     @SerializedName("info")
     private SignatureTemplateCommonFieldInfo info;
-     /**
-      * 双语描述
-      * <p> 示例值：
-      */
+    /**
+     * 双语描述
+     * <p> 示例值：
+     */
     @SerializedName("label")
     private I18n[] label;
+
+    // builder 开始
+    public SignatureTemplateCombinationSubFieldInfo() {
+    }
+
+    public SignatureTemplateCombinationSubFieldInfo(Builder builder) {
+        /**
+         * 字段类型枚举
+         * <p> 示例值：
+         */
+        this.fieldType = builder.fieldType;
+        /**
+         * 公共字段信息
+         * <p> 示例值：
+         */
+        this.info = builder.info;
+        /**
+         * 双语描述
+         * <p> 示例值：
+         */
+        this.label = builder.label;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Enum getFieldType() {
         return this.fieldType;
     }
@@ -67,90 +98,64 @@ public class SignatureTemplateCombinationSubFieldInfo {
         this.label = label;
     }
 
-
-// builder 开始
-  public SignatureTemplateCombinationSubFieldInfo(){}
-
-  public SignatureTemplateCombinationSubFieldInfo(Builder builder){
-         /**
-          * 字段类型枚举
-          * <p> 示例值：
-          */
-      this.fieldType = builder.fieldType;
-         /**
-          * 公共字段信息
-          * <p> 示例值：
-          */
-      this.info = builder.info;
-         /**
-          * 双语描述
-          * <p> 示例值：
-          */
-      this.label = builder.label;
-  }
-
     public static class Builder {
-     /**
-      * 字段类型枚举
-      * <p> 示例值：
-      */
+        /**
+         * 字段类型枚举
+         * <p> 示例值：
+         */
         private Enum fieldType;
-     /**
-      * 公共字段信息
-      * <p> 示例值：
-      */
+        /**
+         * 公共字段信息
+         * <p> 示例值：
+         */
         private SignatureTemplateCommonFieldInfo info;
-     /**
-      * 双语描述
-      * <p> 示例值：
-      */
+        /**
+         * 双语描述
+         * <p> 示例值：
+         */
         private I18n[] label;
 
         /**
          * 字段类型枚举
          * <p> 示例值：
+         *
          * @param fieldType
          * @return
          */
         public Builder fieldType(Enum fieldType) {
-             this.fieldType = fieldType;
-             return this;
+            this.fieldType = fieldType;
+            return this;
         }
 
-    
 
         /**
          * 公共字段信息
          * <p> 示例值：
+         *
          * @param info
          * @return
          */
         public Builder info(SignatureTemplateCommonFieldInfo info) {
-             this.info = info;
-             return this;
+            this.info = info;
+            return this;
         }
 
-    
 
         /**
          * 双语描述
          * <p> 示例值：
+         *
          * @param label
          * @return
          */
         public Builder label(I18n[] label) {
-             this.label = label;
-             return this;
+            this.label = label;
+            return this;
         }
 
-    
-    
-    public SignatureTemplateCombinationSubFieldInfo build(){
-        return new SignatureTemplateCombinationSubFieldInfo(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public SignatureTemplateCombinationSubFieldInfo build() {
+            return new SignatureTemplateCombinationSubFieldInfo(this);
+        }
     }
 }

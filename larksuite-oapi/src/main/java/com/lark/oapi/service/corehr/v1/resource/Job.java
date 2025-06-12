@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v1.resource;
+
 import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.Transport;
 import com.lark.oapi.core.response.RawResponse;
@@ -20,12 +21,16 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import java.nio.charset.StandardCharsets;
 
 import com.lark.oapi.core.Config;
 import com.lark.oapi.core.request.RequestOptions;
+
 import java.io.ByteArrayOutputStream;
+
 import com.lark.oapi.service.corehr.v1.model.*;
+
 import java.io.*;
 import java.util.Map;
 import java.util.HashMap;
@@ -41,7 +46,7 @@ public class Job {
         this.config = config;
     }
 
-    
+
     /**
      * 创建职务，创建职务
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job/create</a> ;
@@ -58,7 +63,7 @@ public class Job {
                 , "/open-apis/corehr/v1/jobs"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-        
+
         // 反序列化
         CreateJobResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateJobResp.class);
         if (resp == null) {
@@ -66,14 +71,14 @@ public class Job {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v1/jobs"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
-       resp.setRawResponse(httpResponse);
-       resp.setRequest(req);
-       
-       return resp;
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
     }
 
     /**
@@ -90,7 +95,7 @@ public class Job {
                 , "/open-apis/corehr/v1/jobs"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-        
+
         // 反序列化
         CreateJobResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateJobResp.class);
         if (resp == null) {
@@ -98,15 +103,16 @@ public class Job {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v1/jobs"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-        
+
         return resp;
     }
+
     /**
      * 删除职务，删除职务
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job/delete</a> ;
@@ -123,7 +129,7 @@ public class Job {
                 , "/open-apis/corehr/v1/jobs/:job_id"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-        
+
         // 反序列化
         DeleteJobResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteJobResp.class);
         if (resp == null) {
@@ -131,14 +137,14 @@ public class Job {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v1/jobs/:job_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
-       resp.setRawResponse(httpResponse);
-       resp.setRequest(req);
-       
-       return resp;
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
     }
 
     /**
@@ -155,7 +161,7 @@ public class Job {
                 , "/open-apis/corehr/v1/jobs/:job_id"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-        
+
         // 反序列化
         DeleteJobResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteJobResp.class);
         if (resp == null) {
@@ -163,15 +169,16 @@ public class Job {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v1/jobs/:job_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-        
+
         return resp;
     }
+
     /**
      * 查询单个职务，根据 ID 查询单个职务
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job/get</a> ;
@@ -188,7 +195,7 @@ public class Job {
                 , "/open-apis/corehr/v1/jobs/:job_id"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-        
+
         // 反序列化
         GetJobResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetJobResp.class);
         if (resp == null) {
@@ -196,14 +203,14 @@ public class Job {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v1/jobs/:job_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
-       resp.setRawResponse(httpResponse);
-       resp.setRequest(req);
-       
-       return resp;
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
     }
 
     /**
@@ -220,7 +227,7 @@ public class Job {
                 , "/open-apis/corehr/v1/jobs/:job_id"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-        
+
         // 反序列化
         GetJobResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetJobResp.class);
         if (resp == null) {
@@ -228,15 +235,16 @@ public class Job {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v1/jobs/:job_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-        
+
         return resp;
     }
+
     /**
      * 批量查询职务，批量查询职务
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job/list</a> ;
@@ -253,7 +261,7 @@ public class Job {
                 , "/open-apis/corehr/v1/jobs"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-        
+
         // 反序列化
         ListJobResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListJobResp.class);
         if (resp == null) {
@@ -261,14 +269,14 @@ public class Job {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v1/jobs"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
-       resp.setRawResponse(httpResponse);
-       resp.setRequest(req);
-       
-       return resp;
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
     }
 
     /**
@@ -285,7 +293,7 @@ public class Job {
                 , "/open-apis/corehr/v1/jobs"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-        
+
         // 反序列化
         ListJobResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListJobResp.class);
         if (resp == null) {
@@ -293,15 +301,16 @@ public class Job {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v1/jobs"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-        
+
         return resp;
     }
+
     /**
      * 更新职务，更新职务
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job/patch</a> ;
@@ -318,7 +327,7 @@ public class Job {
                 , "/open-apis/corehr/v1/jobs/:job_id"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-        
+
         // 反序列化
         PatchJobResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchJobResp.class);
         if (resp == null) {
@@ -326,14 +335,14 @@ public class Job {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v1/jobs/:job_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
-       resp.setRawResponse(httpResponse);
-       resp.setRequest(req);
-       
-       return resp;
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
     }
 
     /**
@@ -350,7 +359,7 @@ public class Job {
                 , "/open-apis/corehr/v1/jobs/:job_id"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-        
+
         // 反序列化
         PatchJobResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchJobResp.class);
         if (resp == null) {
@@ -358,13 +367,13 @@ public class Job {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v1/jobs/:job_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-        
+
         return resp;
     }
 }

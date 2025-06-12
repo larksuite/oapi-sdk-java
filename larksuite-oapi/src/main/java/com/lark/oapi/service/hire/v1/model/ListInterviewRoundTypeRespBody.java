@@ -12,30 +12,35 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ListInterviewRoundTypeRespBody {
-     /**
-      * 是否启用面试轮次类型
-      * <p> 示例值：1
-      */
+    /**
+     * 是否启用面试轮次类型
+     * <p> 示例值：1
+     */
     @SerializedName("active_status")
     private Integer activeStatus;
-     /**
-      * 列表
-      * <p> 示例值：
-      */
+    /**
+     * 列表
+     * <p> 示例值：
+     */
     @SerializedName("items")
     private InterviewRoundType[] items;
+
     public Integer getActiveStatus() {
         return this.activeStatus;
     }

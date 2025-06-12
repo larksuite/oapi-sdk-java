@@ -17,15 +17,16 @@ package com.lark.oapi.service.corehr.v2.enums;
  * 试用期考核结果
  */
 public enum PatchProbationAssessmentAssessmentResultEnum {
-     APPROVED("approved"), // 通过
-     REJECTED("rejected"), // 不通过
-  ;
-   private String value;
+    APPROVED("approved"), // 通过
+    REJECTED("rejected"), // 不通过
+    ;
+    private String value;
+
     PatchProbationAssessmentAssessmentResultEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

@@ -12,48 +12,89 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CommonFilter {
-     /**
-      * 筛选项 key
-      * <p> 示例值：degree
-      */
+    /**
+     * 筛选项 key
+     * <p> 示例值：degree
+     */
     @SerializedName("key")
     private String key;
-     /**
-      * 筛选项值类型
-      * <p> 示例值：1
-      */
+    /**
+     * 筛选项值类型
+     * <p> 示例值：1
+     */
     @SerializedName("value_type")
     private Integer valueType;
-     /**
-      * 筛选项值列表
-      * <p> 示例值：
-      */
+    /**
+     * 筛选项值列表
+     * <p> 示例值：
+     */
     @SerializedName("value_list")
     private String[] valueList;
-     /**
-      * 范围筛选
-      * <p> 示例值：
-      */
+    /**
+     * 范围筛选
+     * <p> 示例值：
+     */
     @SerializedName("range_filter")
     private RangeFilter rangeFilter;
-     /**
-      * 筛选项值列表
-      * <p> 示例值：
-      */
+    /**
+     * 筛选项值列表
+     * <p> 示例值：
+     */
     @SerializedName("user_id_list")
     private String[] userIdList;
+
+    // builder 开始
+    public CommonFilter() {
+    }
+
+    public CommonFilter(Builder builder) {
+        /**
+         * 筛选项 key
+         * <p> 示例值：degree
+         */
+        this.key = builder.key;
+        /**
+         * 筛选项值类型
+         * <p> 示例值：1
+         */
+        this.valueType = builder.valueType;
+        /**
+         * 筛选项值列表
+         * <p> 示例值：
+         */
+        this.valueList = builder.valueList;
+        /**
+         * 范围筛选
+         * <p> 示例值：
+         */
+        this.rangeFilter = builder.rangeFilter;
+        /**
+         * 筛选项值列表
+         * <p> 示例值：
+         */
+        this.userIdList = builder.userIdList;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getKey() {
         return this.key;
     }
@@ -94,136 +135,100 @@ public class CommonFilter {
         this.userIdList = userIdList;
     }
 
-
-// builder 开始
-  public CommonFilter(){}
-
-  public CommonFilter(Builder builder){
-         /**
-          * 筛选项 key
-          * <p> 示例值：degree
-          */
-      this.key = builder.key;
-         /**
-          * 筛选项值类型
-          * <p> 示例值：1
-          */
-      this.valueType = builder.valueType;
-         /**
-          * 筛选项值列表
-          * <p> 示例值：
-          */
-      this.valueList = builder.valueList;
-         /**
-          * 范围筛选
-          * <p> 示例值：
-          */
-      this.rangeFilter = builder.rangeFilter;
-         /**
-          * 筛选项值列表
-          * <p> 示例值：
-          */
-      this.userIdList = builder.userIdList;
-  }
-
     public static class Builder {
-     /**
-      * 筛选项 key
-      * <p> 示例值：degree
-      */
+        /**
+         * 筛选项 key
+         * <p> 示例值：degree
+         */
         private String key;
-     /**
-      * 筛选项值类型
-      * <p> 示例值：1
-      */
+        /**
+         * 筛选项值类型
+         * <p> 示例值：1
+         */
         private Integer valueType;
-     /**
-      * 筛选项值列表
-      * <p> 示例值：
-      */
+        /**
+         * 筛选项值列表
+         * <p> 示例值：
+         */
         private String[] valueList;
-     /**
-      * 范围筛选
-      * <p> 示例值：
-      */
+        /**
+         * 范围筛选
+         * <p> 示例值：
+         */
         private RangeFilter rangeFilter;
-     /**
-      * 筛选项值列表
-      * <p> 示例值：
-      */
+        /**
+         * 筛选项值列表
+         * <p> 示例值：
+         */
         private String[] userIdList;
 
         /**
          * 筛选项 key
          * <p> 示例值：degree
+         *
          * @param key
          * @return
          */
         public Builder key(String key) {
-             this.key = key;
-             return this;
+            this.key = key;
+            return this;
         }
 
-    
 
         /**
          * 筛选项值类型
          * <p> 示例值：1
+         *
          * @param valueType
          * @return
          */
         public Builder valueType(Integer valueType) {
-             this.valueType = valueType;
-             return this;
+            this.valueType = valueType;
+            return this;
         }
 
-    
 
         /**
          * 筛选项值列表
          * <p> 示例值：
+         *
          * @param valueList
          * @return
          */
         public Builder valueList(String[] valueList) {
-             this.valueList = valueList;
-             return this;
+            this.valueList = valueList;
+            return this;
         }
 
-    
 
         /**
          * 范围筛选
          * <p> 示例值：
+         *
          * @param rangeFilter
          * @return
          */
         public Builder rangeFilter(RangeFilter rangeFilter) {
-             this.rangeFilter = rangeFilter;
-             return this;
+            this.rangeFilter = rangeFilter;
+            return this;
         }
 
-    
 
         /**
          * 筛选项值列表
          * <p> 示例值：
+         *
          * @param userIdList
          * @return
          */
         public Builder userIdList(String[] userIdList) {
-             this.userIdList = userIdList;
-             return this;
+            this.userIdList = userIdList;
+            return this;
         }
 
-    
-    
-    public CommonFilter build(){
-        return new CommonFilter(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public CommonFilter build() {
+            return new CommonFilter(this);
+        }
     }
 }

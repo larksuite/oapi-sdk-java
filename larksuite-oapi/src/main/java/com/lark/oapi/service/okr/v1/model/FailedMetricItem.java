@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.okr.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.okr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class FailedMetricItem {
-     /**
-      * 指标项ID
-      * <p> 示例值：7139040982003302420
-      */
+    /**
+     * 指标项ID
+     * <p> 示例值：7139040982003302420
+     */
     @SerializedName("metric_item_id")
     private String metricItemId;
-     /**
-      * 失败原因
-      * <p> 示例值：start value equals target value
-      */
+    /**
+     * 失败原因
+     * <p> 示例值：start value equals target value
+     */
     @SerializedName("reason")
     private String reason;
+
+    // builder 开始
+    public FailedMetricItem() {
+    }
+
+    public FailedMetricItem(Builder builder) {
+        /**
+         * 指标项ID
+         * <p> 示例值：7139040982003302420
+         */
+        this.metricItemId = builder.metricItemId;
+        /**
+         * 失败原因
+         * <p> 示例值：start value equals target value
+         */
+        this.reason = builder.reason;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getMetricItemId() {
         return this.metricItemId;
     }
@@ -53,67 +79,46 @@ public class FailedMetricItem {
         this.reason = reason;
     }
 
-
-// builder 开始
-  public FailedMetricItem(){}
-
-  public FailedMetricItem(Builder builder){
-         /**
-          * 指标项ID
-          * <p> 示例值：7139040982003302420
-          */
-      this.metricItemId = builder.metricItemId;
-         /**
-          * 失败原因
-          * <p> 示例值：start value equals target value
-          */
-      this.reason = builder.reason;
-  }
-
     public static class Builder {
-     /**
-      * 指标项ID
-      * <p> 示例值：7139040982003302420
-      */
+        /**
+         * 指标项ID
+         * <p> 示例值：7139040982003302420
+         */
         private String metricItemId;
-     /**
-      * 失败原因
-      * <p> 示例值：start value equals target value
-      */
+        /**
+         * 失败原因
+         * <p> 示例值：start value equals target value
+         */
         private String reason;
 
         /**
          * 指标项ID
          * <p> 示例值：7139040982003302420
+         *
          * @param metricItemId
          * @return
          */
         public Builder metricItemId(String metricItemId) {
-             this.metricItemId = metricItemId;
-             return this;
+            this.metricItemId = metricItemId;
+            return this;
         }
 
-    
 
         /**
          * 失败原因
          * <p> 示例值：start value equals target value
+         *
          * @param reason
          * @return
          */
         public Builder reason(String reason) {
-             this.reason = reason;
-             return this;
+            this.reason = reason;
+            return this;
         }
 
-    
-    
-    public FailedMetricItem build(){
-        return new FailedMetricItem(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public FailedMetricItem build() {
+            return new FailedMetricItem(this);
+        }
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,48 +20,93 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class SignatureFileSystemField {
-     /**
-      * 生效日期
-      * <p> 示例值：2018-01-02
-      */
+    /**
+     * 生效日期
+     * <p> 示例值：2018-01-02
+     */
     @SerializedName("effective_date")
     private String effectiveDate;
-     /**
-      * 过期时间
-      * <p> 示例值：2018-01-02 11:11:11
-      */
+    /**
+     * 过期时间
+     * <p> 示例值：2018-01-02 11:11:11
+     */
     @SerializedName("deadline")
     private String deadline;
-     /**
-      * 签署节点顺序，可以不传，不传会按照默认顺序发起。 如果传了的话 要求值一定和模板的签署方(TemplateInfo.TemplateBriefInfo.SignatoryLabelList表示的是模板的签署方)里的apiname保持一致
-      * <p> 示例值：
-      */
+    /**
+     * 签署节点顺序，可以不传，不传会按照默认顺序发起。 如果传了的话 要求值一定和模板的签署方(TemplateInfo.TemplateBriefInfo.SignatoryLabelList表示的是模板的签署方)里的apiname保持一致
+     * <p> 示例值：
+     */
     @SerializedName("ordered_node_keys")
     private String[] orderedNodeKeys;
-     /**
-      * DDL时间戳,精确到秒 10位
-      * <p> 示例值：1,001,231,231
-      */
+    /**
+     * DDL时间戳,精确到秒 10位
+     * <p> 示例值：1,001,231,231
+     */
     @SerializedName("deadline_timestamp")
     private String deadlineTimestamp;
-     /**
-      * 自动盖章时间 精确到秒 10位 如1650339376
-      * <p> 示例值：1,023,123,213
-      */
+    /**
+     * 自动盖章时间 精确到秒 10位 如1650339376
+     * <p> 示例值：1,023,123,213
+     */
     @SerializedName("auto_stamp_timestamp")
     private String autoStampTimestamp;
-     /**
-      * 审批角色--HR管理员审批
-      * <p> 示例值：signature_admin_approval
-      */
+    /**
+     * 审批角色--HR管理员审批
+     * <p> 示例值：signature_admin_approval
+     */
     @SerializedName("approval_role")
     private String approvalRole;
+
+    // builder 开始
+    public SignatureFileSystemField() {
+    }
+
+    public SignatureFileSystemField(Builder builder) {
+        /**
+         * 生效日期
+         * <p> 示例值：2018-01-02
+         */
+        this.effectiveDate = builder.effectiveDate;
+        /**
+         * 过期时间
+         * <p> 示例值：2018-01-02 11:11:11
+         */
+        this.deadline = builder.deadline;
+        /**
+         * 签署节点顺序，可以不传，不传会按照默认顺序发起。 如果传了的话 要求值一定和模板的签署方(TemplateInfo.TemplateBriefInfo.SignatoryLabelList表示的是模板的签署方)里的apiname保持一致
+         * <p> 示例值：
+         */
+        this.orderedNodeKeys = builder.orderedNodeKeys;
+        /**
+         * DDL时间戳,精确到秒 10位
+         * <p> 示例值：1,001,231,231
+         */
+        this.deadlineTimestamp = builder.deadlineTimestamp;
+        /**
+         * 自动盖章时间 精确到秒 10位 如1650339376
+         * <p> 示例值：1,023,123,213
+         */
+        this.autoStampTimestamp = builder.autoStampTimestamp;
+        /**
+         * 审批角色--HR管理员审批
+         * <p> 示例值：signature_admin_approval
+         */
+        this.approvalRole = builder.approvalRole;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getEffectiveDate() {
         return this.effectiveDate;
     }
@@ -109,159 +155,118 @@ public class SignatureFileSystemField {
         this.approvalRole = approvalRole;
     }
 
-
-// builder 开始
-  public SignatureFileSystemField(){}
-
-  public SignatureFileSystemField(Builder builder){
-         /**
-          * 生效日期
-          * <p> 示例值：2018-01-02
-          */
-      this.effectiveDate = builder.effectiveDate;
-         /**
-          * 过期时间
-          * <p> 示例值：2018-01-02 11:11:11
-          */
-      this.deadline = builder.deadline;
-         /**
-          * 签署节点顺序，可以不传，不传会按照默认顺序发起。 如果传了的话 要求值一定和模板的签署方(TemplateInfo.TemplateBriefInfo.SignatoryLabelList表示的是模板的签署方)里的apiname保持一致
-          * <p> 示例值：
-          */
-      this.orderedNodeKeys = builder.orderedNodeKeys;
-         /**
-          * DDL时间戳,精确到秒 10位
-          * <p> 示例值：1,001,231,231
-          */
-      this.deadlineTimestamp = builder.deadlineTimestamp;
-         /**
-          * 自动盖章时间 精确到秒 10位 如1650339376
-          * <p> 示例值：1,023,123,213
-          */
-      this.autoStampTimestamp = builder.autoStampTimestamp;
-         /**
-          * 审批角色--HR管理员审批
-          * <p> 示例值：signature_admin_approval
-          */
-      this.approvalRole = builder.approvalRole;
-  }
-
     public static class Builder {
-     /**
-      * 生效日期
-      * <p> 示例值：2018-01-02
-      */
+        /**
+         * 生效日期
+         * <p> 示例值：2018-01-02
+         */
         private String effectiveDate;
-     /**
-      * 过期时间
-      * <p> 示例值：2018-01-02 11:11:11
-      */
+        /**
+         * 过期时间
+         * <p> 示例值：2018-01-02 11:11:11
+         */
         private String deadline;
-     /**
-      * 签署节点顺序，可以不传，不传会按照默认顺序发起。 如果传了的话 要求值一定和模板的签署方(TemplateInfo.TemplateBriefInfo.SignatoryLabelList表示的是模板的签署方)里的apiname保持一致
-      * <p> 示例值：
-      */
+        /**
+         * 签署节点顺序，可以不传，不传会按照默认顺序发起。 如果传了的话 要求值一定和模板的签署方(TemplateInfo.TemplateBriefInfo.SignatoryLabelList表示的是模板的签署方)里的apiname保持一致
+         * <p> 示例值：
+         */
         private String[] orderedNodeKeys;
-     /**
-      * DDL时间戳,精确到秒 10位
-      * <p> 示例值：1,001,231,231
-      */
+        /**
+         * DDL时间戳,精确到秒 10位
+         * <p> 示例值：1,001,231,231
+         */
         private String deadlineTimestamp;
-     /**
-      * 自动盖章时间 精确到秒 10位 如1650339376
-      * <p> 示例值：1,023,123,213
-      */
+        /**
+         * 自动盖章时间 精确到秒 10位 如1650339376
+         * <p> 示例值：1,023,123,213
+         */
         private String autoStampTimestamp;
-     /**
-      * 审批角色--HR管理员审批
-      * <p> 示例值：signature_admin_approval
-      */
+        /**
+         * 审批角色--HR管理员审批
+         * <p> 示例值：signature_admin_approval
+         */
         private String approvalRole;
 
         /**
          * 生效日期
          * <p> 示例值：2018-01-02
+         *
          * @param effectiveDate
          * @return
          */
         public Builder effectiveDate(String effectiveDate) {
-             this.effectiveDate = effectiveDate;
-             return this;
+            this.effectiveDate = effectiveDate;
+            return this;
         }
 
-    
 
         /**
          * 过期时间
          * <p> 示例值：2018-01-02 11:11:11
+         *
          * @param deadline
          * @return
          */
         public Builder deadline(String deadline) {
-             this.deadline = deadline;
-             return this;
+            this.deadline = deadline;
+            return this;
         }
 
-    
 
         /**
          * 签署节点顺序，可以不传，不传会按照默认顺序发起。 如果传了的话 要求值一定和模板的签署方(TemplateInfo.TemplateBriefInfo.SignatoryLabelList表示的是模板的签署方)里的apiname保持一致
          * <p> 示例值：
+         *
          * @param orderedNodeKeys
          * @return
          */
         public Builder orderedNodeKeys(String[] orderedNodeKeys) {
-             this.orderedNodeKeys = orderedNodeKeys;
-             return this;
+            this.orderedNodeKeys = orderedNodeKeys;
+            return this;
         }
 
-    
 
         /**
          * DDL时间戳,精确到秒 10位
          * <p> 示例值：1,001,231,231
+         *
          * @param deadlineTimestamp
          * @return
          */
         public Builder deadlineTimestamp(String deadlineTimestamp) {
-             this.deadlineTimestamp = deadlineTimestamp;
-             return this;
+            this.deadlineTimestamp = deadlineTimestamp;
+            return this;
         }
 
-    
 
         /**
          * 自动盖章时间 精确到秒 10位 如1650339376
          * <p> 示例值：1,023,123,213
+         *
          * @param autoStampTimestamp
          * @return
          */
         public Builder autoStampTimestamp(String autoStampTimestamp) {
-             this.autoStampTimestamp = autoStampTimestamp;
-             return this;
+            this.autoStampTimestamp = autoStampTimestamp;
+            return this;
         }
 
-    
 
         /**
          * 审批角色--HR管理员审批
          * <p> 示例值：signature_admin_approval
+         *
          * @param approvalRole
          * @return
          */
         public Builder approvalRole(String approvalRole) {
-             this.approvalRole = approvalRole;
-             return this;
+            this.approvalRole = approvalRole;
+            return this;
         }
 
-    
-    
-    public SignatureFileSystemField build(){
-        return new SignatureFileSystemField(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public SignatureFileSystemField build() {
+            return new SignatureFileSystemField(this);
+        }
     }
 }

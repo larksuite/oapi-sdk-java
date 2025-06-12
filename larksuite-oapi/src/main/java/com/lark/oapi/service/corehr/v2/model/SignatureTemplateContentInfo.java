@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,42 +20,82 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class SignatureTemplateContentInfo {
-     /**
-      * 模版内容list
-      * <p> 示例值：
-      */
+    /**
+     * 模版内容list
+     * <p> 示例值：
+     */
     @SerializedName("contents")
     private SignatureTemplateContentItem[] contents;
-     /**
-      * 自定义字段列表
-      * <p> 示例值：
-      */
+    /**
+     * 自定义字段列表
+     * <p> 示例值：
+     */
     @SerializedName("custom_fields")
     private SignatureTemplateCustomField[] customFields;
-     /**
-      * 筛选条件列表
-      * <p> 示例值：
-      */
+    /**
+     * 筛选条件列表
+     * <p> 示例值：
+     */
     @SerializedName("filter_fields")
     private SignatureTemplateFilter[] filterFields;
-     /**
-      * 模板公共字段信息列表
-      * <p> 示例值：
-      */
+    /**
+     * 模板公共字段信息列表
+     * <p> 示例值：
+     */
     @SerializedName("using_fields")
     private SignatureTemplateCommonFieldInfo[] usingFields;
-     /**
-      * 系统设置字段列表
-      * <p> 示例值：
-      */
+    /**
+     * 系统设置字段列表
+     * <p> 示例值：
+     */
     @SerializedName("system_setting_fields")
     private SignatureTemplateField[] systemSettingFields;
+
+    // builder 开始
+    public SignatureTemplateContentInfo() {
+    }
+
+    public SignatureTemplateContentInfo(Builder builder) {
+        /**
+         * 模版内容list
+         * <p> 示例值：
+         */
+        this.contents = builder.contents;
+        /**
+         * 自定义字段列表
+         * <p> 示例值：
+         */
+        this.customFields = builder.customFields;
+        /**
+         * 筛选条件列表
+         * <p> 示例值：
+         */
+        this.filterFields = builder.filterFields;
+        /**
+         * 模板公共字段信息列表
+         * <p> 示例值：
+         */
+        this.usingFields = builder.usingFields;
+        /**
+         * 系统设置字段列表
+         * <p> 示例值：
+         */
+        this.systemSettingFields = builder.systemSettingFields;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public SignatureTemplateContentItem[] getContents() {
         return this.contents;
     }
@@ -95,136 +136,100 @@ public class SignatureTemplateContentInfo {
         this.systemSettingFields = systemSettingFields;
     }
 
-
-// builder 开始
-  public SignatureTemplateContentInfo(){}
-
-  public SignatureTemplateContentInfo(Builder builder){
-         /**
-          * 模版内容list
-          * <p> 示例值：
-          */
-      this.contents = builder.contents;
-         /**
-          * 自定义字段列表
-          * <p> 示例值：
-          */
-      this.customFields = builder.customFields;
-         /**
-          * 筛选条件列表
-          * <p> 示例值：
-          */
-      this.filterFields = builder.filterFields;
-         /**
-          * 模板公共字段信息列表
-          * <p> 示例值：
-          */
-      this.usingFields = builder.usingFields;
-         /**
-          * 系统设置字段列表
-          * <p> 示例值：
-          */
-      this.systemSettingFields = builder.systemSettingFields;
-  }
-
     public static class Builder {
-     /**
-      * 模版内容list
-      * <p> 示例值：
-      */
+        /**
+         * 模版内容list
+         * <p> 示例值：
+         */
         private SignatureTemplateContentItem[] contents;
-     /**
-      * 自定义字段列表
-      * <p> 示例值：
-      */
+        /**
+         * 自定义字段列表
+         * <p> 示例值：
+         */
         private SignatureTemplateCustomField[] customFields;
-     /**
-      * 筛选条件列表
-      * <p> 示例值：
-      */
+        /**
+         * 筛选条件列表
+         * <p> 示例值：
+         */
         private SignatureTemplateFilter[] filterFields;
-     /**
-      * 模板公共字段信息列表
-      * <p> 示例值：
-      */
+        /**
+         * 模板公共字段信息列表
+         * <p> 示例值：
+         */
         private SignatureTemplateCommonFieldInfo[] usingFields;
-     /**
-      * 系统设置字段列表
-      * <p> 示例值：
-      */
+        /**
+         * 系统设置字段列表
+         * <p> 示例值：
+         */
         private SignatureTemplateField[] systemSettingFields;
 
         /**
          * 模版内容list
          * <p> 示例值：
+         *
          * @param contents
          * @return
          */
         public Builder contents(SignatureTemplateContentItem[] contents) {
-             this.contents = contents;
-             return this;
+            this.contents = contents;
+            return this;
         }
 
-    
 
         /**
          * 自定义字段列表
          * <p> 示例值：
+         *
          * @param customFields
          * @return
          */
         public Builder customFields(SignatureTemplateCustomField[] customFields) {
-             this.customFields = customFields;
-             return this;
+            this.customFields = customFields;
+            return this;
         }
 
-    
 
         /**
          * 筛选条件列表
          * <p> 示例值：
+         *
          * @param filterFields
          * @return
          */
         public Builder filterFields(SignatureTemplateFilter[] filterFields) {
-             this.filterFields = filterFields;
-             return this;
+            this.filterFields = filterFields;
+            return this;
         }
 
-    
 
         /**
          * 模板公共字段信息列表
          * <p> 示例值：
+         *
          * @param usingFields
          * @return
          */
         public Builder usingFields(SignatureTemplateCommonFieldInfo[] usingFields) {
-             this.usingFields = usingFields;
-             return this;
+            this.usingFields = usingFields;
+            return this;
         }
 
-    
 
         /**
          * 系统设置字段列表
          * <p> 示例值：
+         *
          * @param systemSettingFields
          * @return
          */
         public Builder systemSettingFields(SignatureTemplateField[] systemSettingFields) {
-             this.systemSettingFields = systemSettingFields;
-             return this;
+            this.systemSettingFields = systemSettingFields;
+            return this;
         }
 
-    
-    
-    public SignatureTemplateContentInfo build(){
-        return new SignatureTemplateContentInfo(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public SignatureTemplateContentInfo build() {
+            return new SignatureTemplateContentInfo(this);
+        }
     }
 }

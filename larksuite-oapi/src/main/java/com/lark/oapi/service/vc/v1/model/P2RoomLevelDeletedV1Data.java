@@ -12,30 +12,35 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class P2RoomLevelDeletedV1Data {
-     /**
-      * 层级ID
-      * <p> 示例值：omb_8d020b12fe49e82847c2af3c193d5754
-      */
+    /**
+     * 层级ID
+     * <p> 示例值：omb_8d020b12fe49e82847c2af3c193d5754
+     */
     @SerializedName("room_level_id")
     private String roomLevelId;
-     /**
-      * 是否删除所有子层级
-      * <p> 示例值：false
-      */
+    /**
+     * 是否删除所有子层级
+     * <p> 示例值：false
+     */
     @SerializedName("delete_child")
     private Boolean deleteChild;
+
     public String getRoomLevelId() {
         return this.roomLevelId;
     }

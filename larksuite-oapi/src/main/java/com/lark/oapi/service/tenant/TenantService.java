@@ -25,16 +25,19 @@ public class TenantService {
     private final TenantProductAssignInfo tenantProductAssignInfo; // tenant.product_assign_info
 
     public TenantService(Config config) {
-    this.v2 = new V2(config);
-    this.tenant = new Tenant(config);
-    this.tenantProductAssignInfo = new TenantProductAssignInfo(config);
+        this.v2 = new V2(config);
+        this.tenant = new Tenant(config);
+        this.tenantProductAssignInfo = new TenantProductAssignInfo(config);
     }
+
     public V2 v2() {
         return v2;
     }
+
     public Tenant tenant() {
         return tenant;
     }
+
     public TenantProductAssignInfo tenantProductAssignInfo() {
         return tenantProductAssignInfo;
     }

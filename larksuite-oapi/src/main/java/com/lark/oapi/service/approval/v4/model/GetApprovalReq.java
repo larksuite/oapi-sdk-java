@@ -12,39 +12,82 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class GetApprovalReq {
-     /**
-      * 语言可选值
-      * <p> 示例值：zh-CN
-      */
+    /**
+     * 语言可选值
+     * <p> 示例值：zh-CN
+     */
     @Query
     @SerializedName("locale")
     private String locale;
-     /**
-      * 可选是否返回有数据权限审批流程管理员ID列表
-      * <p> 示例值：false
-      */
+    /**
+     * 可选是否返回有数据权限审批流程管理员ID列表
+     * <p> 示例值：false
+     */
     @Query
     @SerializedName("with_admin_id")
     private Boolean withAdminId;
-     /**
-      * 此次调用中使用的用户ID的类型
-      * <p> 示例值：
-      */
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
+    /**
+     * 审批定义 Code
+     * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+     */
+    @Path
+    @SerializedName("approval_code")
+    private String approvalCode;
+
+    // builder 开始
+    public GetApprovalReq() {
+    }
+
+    public GetApprovalReq(Builder builder) {
+        /**
+         * 语言可选值
+         * <p> 示例值：zh-CN
+         */
+        this.locale = builder.locale;
+        /**
+         * 可选是否返回有数据权限审批流程管理员ID列表
+         * <p> 示例值：false
+         */
+        this.withAdminId = builder.withAdminId;
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         */
+        this.userIdType = builder.userIdType;
+        /**
+         * 审批定义 Code
+         * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+         */
+        this.approvalCode = builder.approvalCode;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getLocale() {
         return this.locale;
     }
@@ -69,13 +112,6 @@ public class GetApprovalReq {
         this.userIdType = userIdType;
     }
 
-     /**
-      * 审批定义 Code
-      * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
-      */
-    @Path
-    @SerializedName("approval_code")
-    private String approvalCode;
     public String getApprovalCode() {
         return this.approvalCode;
     }
@@ -84,115 +120,87 @@ public class GetApprovalReq {
         this.approvalCode = approvalCode;
     }
 
-
-// builder 开始
-  public GetApprovalReq(){}
-
-  public GetApprovalReq(Builder builder){
-         /**
-          * 语言可选值
-          * <p> 示例值：zh-CN
-          */
-       this.locale = builder.locale;
-         /**
-          * 可选是否返回有数据权限审批流程管理员ID列表
-          * <p> 示例值：false
-          */
-       this.withAdminId = builder.withAdminId;
-         /**
-          * 此次调用中使用的用户ID的类型
-          * <p> 示例值：
-          */
-       this.userIdType = builder.userIdType;
-     /**
-      * 审批定义 Code
-      * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
-      */
-       this.approvalCode = builder.approvalCode;
-  }
-
     public static class Builder {
         private String locale; // 语言可选值
         private Boolean withAdminId; // 可选是否返回有数据权限审批流程管理员ID列表
         private String userIdType; // 此次调用中使用的用户ID的类型
-    
+        private String approvalCode; // 审批定义 Code
+
         /**
          * 语言可选值
          * <p> 示例值：zh-CN
+         *
          * @param locale
          * @return
          */
-           public Builder locale(String locale) {
-                this.locale = locale;
-                return this;
-           }
+        public Builder locale(String locale) {
+            this.locale = locale;
+            return this;
+        }
 
         /**
          * 语言可选值
          * <p> 示例值：zh-CN
+         *
          * @param locale {@link com.lark.oapi.service.approval.v4.enums.GetApprovalLocaleEnum}
          * @return
          */
-          public Builder locale(com.lark.oapi.service.approval.v4.enums.GetApprovalLocaleEnum locale) {
-               this.locale = locale.getValue();
-               return this;
-          }
+        public Builder locale(com.lark.oapi.service.approval.v4.enums.GetApprovalLocaleEnum locale) {
+            this.locale = locale.getValue();
+            return this;
+        }
 
-    
         /**
          * 可选是否返回有数据权限审批流程管理员ID列表
          * <p> 示例值：false
+         *
          * @param withAdminId
          * @return
          */
-           public Builder withAdminId(Boolean withAdminId) {
-                this.withAdminId = withAdminId;
-                return this;
-           }
+        public Builder withAdminId(Boolean withAdminId) {
+            this.withAdminId = withAdminId;
+            return this;
+        }
 
-    
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
+         *
          * @param userIdType
          * @return
          */
-           public Builder userIdType(String userIdType) {
-                this.userIdType = userIdType;
-                return this;
-           }
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
 
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
+         *
          * @param userIdType {@link com.lark.oapi.service.approval.v4.enums.GetApprovalUserIdTypeEnum}
          * @return
          */
-          public Builder userIdType(com.lark.oapi.service.approval.v4.enums.GetApprovalUserIdTypeEnum userIdType) {
-               this.userIdType = userIdType.getValue();
-               return this;
-          }
+        public Builder userIdType(com.lark.oapi.service.approval.v4.enums.GetApprovalUserIdTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
+            return this;
+        }
 
-    
-        private String approvalCode; // 审批定义 Code
         /**
          * 审批定义 Code
          * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+         *
          * @param approvalCode
          * @return
          */
-          public Builder approvalCode(String approvalCode) {
-               this.approvalCode = approvalCode;
-               return this;
-          }
+        public Builder approvalCode(String approvalCode) {
+            this.approvalCode = approvalCode;
+            return this;
+        }
 
-    
-    public GetApprovalReq build(){
-        return new GetApprovalReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public GetApprovalReq build() {
+            return new GetApprovalReq(this);
+        }
     }
 }

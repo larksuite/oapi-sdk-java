@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,48 +20,93 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ProfileSettingEmpBasicInfoForUpdate {
-     /**
-      * 员工工号
-      * <p> 示例值：1000000
-      */
+    /**
+     * 员工工号
+     * <p> 示例值：1000000
+     */
     @SerializedName("employee_number")
     private String employeeNumber;
-     /**
-      * 转正式员工日期
-      * <p> 示例值：2021-02-01
-      */
+    /**
+     * 转正式员工日期
+     * <p> 示例值：2021-02-01
+     */
     @SerializedName("regular_employee_start_date")
     private String regularEmployeeStartDate;
-     /**
-      * 资历起算日期
-      * <p> 示例值：2021-02-01
-      */
+    /**
+     * 资历起算日期
+     * <p> 示例值：2021-02-01
+     */
     @SerializedName("seniority_date")
     private String seniorityDate;
-     /**
-      * 工作邮箱
-      * <p> 示例值：12456@test.com
-      */
+    /**
+     * 工作邮箱
+     * <p> 示例值：12456@test.com
+     */
     @SerializedName("work_email")
     private String workEmail;
-     /**
-      * 工作电话
-      * <p> 示例值：
-      */
+    /**
+     * 工作电话
+     * <p> 示例值：
+     */
     @SerializedName("phone")
     private ProfileSettingPhone phone;
-     /**
-      * 自定义字段
-      * <p> 示例值：
-      */
+    /**
+     * 自定义字段
+     * <p> 示例值：
+     */
     @SerializedName("custom_fields")
     private ProfileSettingCustomField[] customFields;
+
+    // builder 开始
+    public ProfileSettingEmpBasicInfoForUpdate() {
+    }
+
+    public ProfileSettingEmpBasicInfoForUpdate(Builder builder) {
+        /**
+         * 员工工号
+         * <p> 示例值：1000000
+         */
+        this.employeeNumber = builder.employeeNumber;
+        /**
+         * 转正式员工日期
+         * <p> 示例值：2021-02-01
+         */
+        this.regularEmployeeStartDate = builder.regularEmployeeStartDate;
+        /**
+         * 资历起算日期
+         * <p> 示例值：2021-02-01
+         */
+        this.seniorityDate = builder.seniorityDate;
+        /**
+         * 工作邮箱
+         * <p> 示例值：12456@test.com
+         */
+        this.workEmail = builder.workEmail;
+        /**
+         * 工作电话
+         * <p> 示例值：
+         */
+        this.phone = builder.phone;
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
+        this.customFields = builder.customFields;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getEmployeeNumber() {
         return this.employeeNumber;
     }
@@ -109,159 +155,118 @@ public class ProfileSettingEmpBasicInfoForUpdate {
         this.customFields = customFields;
     }
 
-
-// builder 开始
-  public ProfileSettingEmpBasicInfoForUpdate(){}
-
-  public ProfileSettingEmpBasicInfoForUpdate(Builder builder){
-         /**
-          * 员工工号
-          * <p> 示例值：1000000
-          */
-      this.employeeNumber = builder.employeeNumber;
-         /**
-          * 转正式员工日期
-          * <p> 示例值：2021-02-01
-          */
-      this.regularEmployeeStartDate = builder.regularEmployeeStartDate;
-         /**
-          * 资历起算日期
-          * <p> 示例值：2021-02-01
-          */
-      this.seniorityDate = builder.seniorityDate;
-         /**
-          * 工作邮箱
-          * <p> 示例值：12456@test.com
-          */
-      this.workEmail = builder.workEmail;
-         /**
-          * 工作电话
-          * <p> 示例值：
-          */
-      this.phone = builder.phone;
-         /**
-          * 自定义字段
-          * <p> 示例值：
-          */
-      this.customFields = builder.customFields;
-  }
-
     public static class Builder {
-     /**
-      * 员工工号
-      * <p> 示例值：1000000
-      */
+        /**
+         * 员工工号
+         * <p> 示例值：1000000
+         */
         private String employeeNumber;
-     /**
-      * 转正式员工日期
-      * <p> 示例值：2021-02-01
-      */
+        /**
+         * 转正式员工日期
+         * <p> 示例值：2021-02-01
+         */
         private String regularEmployeeStartDate;
-     /**
-      * 资历起算日期
-      * <p> 示例值：2021-02-01
-      */
+        /**
+         * 资历起算日期
+         * <p> 示例值：2021-02-01
+         */
         private String seniorityDate;
-     /**
-      * 工作邮箱
-      * <p> 示例值：12456@test.com
-      */
+        /**
+         * 工作邮箱
+         * <p> 示例值：12456@test.com
+         */
         private String workEmail;
-     /**
-      * 工作电话
-      * <p> 示例值：
-      */
+        /**
+         * 工作电话
+         * <p> 示例值：
+         */
         private ProfileSettingPhone phone;
-     /**
-      * 自定义字段
-      * <p> 示例值：
-      */
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
         private ProfileSettingCustomField[] customFields;
 
         /**
          * 员工工号
          * <p> 示例值：1000000
+         *
          * @param employeeNumber
          * @return
          */
         public Builder employeeNumber(String employeeNumber) {
-             this.employeeNumber = employeeNumber;
-             return this;
+            this.employeeNumber = employeeNumber;
+            return this;
         }
 
-    
 
         /**
          * 转正式员工日期
          * <p> 示例值：2021-02-01
+         *
          * @param regularEmployeeStartDate
          * @return
          */
         public Builder regularEmployeeStartDate(String regularEmployeeStartDate) {
-             this.regularEmployeeStartDate = regularEmployeeStartDate;
-             return this;
+            this.regularEmployeeStartDate = regularEmployeeStartDate;
+            return this;
         }
 
-    
 
         /**
          * 资历起算日期
          * <p> 示例值：2021-02-01
+         *
          * @param seniorityDate
          * @return
          */
         public Builder seniorityDate(String seniorityDate) {
-             this.seniorityDate = seniorityDate;
-             return this;
+            this.seniorityDate = seniorityDate;
+            return this;
         }
 
-    
 
         /**
          * 工作邮箱
          * <p> 示例值：12456@test.com
+         *
          * @param workEmail
          * @return
          */
         public Builder workEmail(String workEmail) {
-             this.workEmail = workEmail;
-             return this;
+            this.workEmail = workEmail;
+            return this;
         }
 
-    
 
         /**
          * 工作电话
          * <p> 示例值：
+         *
          * @param phone
          * @return
          */
         public Builder phone(ProfileSettingPhone phone) {
-             this.phone = phone;
-             return this;
+            this.phone = phone;
+            return this;
         }
 
-    
 
         /**
          * 自定义字段
          * <p> 示例值：
+         *
          * @param customFields
          * @return
          */
         public Builder customFields(ProfileSettingCustomField[] customFields) {
-             this.customFields = customFields;
-             return this;
+            this.customFields = customFields;
+            return this;
         }
 
-    
-    
-    public ProfileSettingEmpBasicInfoForUpdate build(){
-        return new ProfileSettingEmpBasicInfoForUpdate(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ProfileSettingEmpBasicInfoForUpdate build() {
+            return new ProfileSettingEmpBasicInfoForUpdate(this);
+        }
     }
 }

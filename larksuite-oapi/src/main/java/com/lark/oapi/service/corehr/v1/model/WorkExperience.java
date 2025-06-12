@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,54 +20,104 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class WorkExperience {
-     /**
-      * 公司 / 组织
-      * <p> 示例值：
-      */
+    /**
+     * 公司 / 组织
+     * <p> 示例值：
+     */
     @SerializedName("company_organization")
     private I18n[] companyOrganization;
-     /**
-      * 部门
-      * <p> 示例值：
-      */
+    /**
+     * 部门
+     * <p> 示例值：
+     */
     @SerializedName("department")
     private I18n[] department;
-     /**
-      * 岗位
-      * <p> 示例值：
-      */
+    /**
+     * 岗位
+     * <p> 示例值：
+     */
     @SerializedName("job")
     private I18n[] job;
-     /**
-      * 工作描述
-      * <p> 示例值：
-      */
+    /**
+     * 工作描述
+     * <p> 示例值：
+     */
     @SerializedName("description")
     private I18n[] description;
-     /**
-      * 开始日期
-      * <p> 示例值：2020-01-01
-      */
+    /**
+     * 开始日期
+     * <p> 示例值：2020-01-01
+     */
     @SerializedName("start_date")
     private String startDate;
-     /**
-      * 结束日期
-      * <p> 示例值：2020-01-01
-      */
+    /**
+     * 结束日期
+     * <p> 示例值：2020-01-01
+     */
     @SerializedName("end_date")
     private String endDate;
-     /**
-      * 自定义字段
-      * <p> 示例值：
-      */
+    /**
+     * 自定义字段
+     * <p> 示例值：
+     */
     @SerializedName("custom_fields")
     private ObjectFieldData[] customFields;
+
+    // builder 开始
+    public WorkExperience() {
+    }
+
+    public WorkExperience(Builder builder) {
+        /**
+         * 公司 / 组织
+         * <p> 示例值：
+         */
+        this.companyOrganization = builder.companyOrganization;
+        /**
+         * 部门
+         * <p> 示例值：
+         */
+        this.department = builder.department;
+        /**
+         * 岗位
+         * <p> 示例值：
+         */
+        this.job = builder.job;
+        /**
+         * 工作描述
+         * <p> 示例值：
+         */
+        this.description = builder.description;
+        /**
+         * 开始日期
+         * <p> 示例值：2020-01-01
+         */
+        this.startDate = builder.startDate;
+        /**
+         * 结束日期
+         * <p> 示例值：2020-01-01
+         */
+        this.endDate = builder.endDate;
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
+        this.customFields = builder.customFields;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public I18n[] getCompanyOrganization() {
         return this.companyOrganization;
     }
@@ -123,182 +174,136 @@ public class WorkExperience {
         this.customFields = customFields;
     }
 
-
-// builder 开始
-  public WorkExperience(){}
-
-  public WorkExperience(Builder builder){
-         /**
-          * 公司 / 组织
-          * <p> 示例值：
-          */
-      this.companyOrganization = builder.companyOrganization;
-         /**
-          * 部门
-          * <p> 示例值：
-          */
-      this.department = builder.department;
-         /**
-          * 岗位
-          * <p> 示例值：
-          */
-      this.job = builder.job;
-         /**
-          * 工作描述
-          * <p> 示例值：
-          */
-      this.description = builder.description;
-         /**
-          * 开始日期
-          * <p> 示例值：2020-01-01
-          */
-      this.startDate = builder.startDate;
-         /**
-          * 结束日期
-          * <p> 示例值：2020-01-01
-          */
-      this.endDate = builder.endDate;
-         /**
-          * 自定义字段
-          * <p> 示例值：
-          */
-      this.customFields = builder.customFields;
-  }
-
     public static class Builder {
-     /**
-      * 公司 / 组织
-      * <p> 示例值：
-      */
+        /**
+         * 公司 / 组织
+         * <p> 示例值：
+         */
         private I18n[] companyOrganization;
-     /**
-      * 部门
-      * <p> 示例值：
-      */
+        /**
+         * 部门
+         * <p> 示例值：
+         */
         private I18n[] department;
-     /**
-      * 岗位
-      * <p> 示例值：
-      */
+        /**
+         * 岗位
+         * <p> 示例值：
+         */
         private I18n[] job;
-     /**
-      * 工作描述
-      * <p> 示例值：
-      */
+        /**
+         * 工作描述
+         * <p> 示例值：
+         */
         private I18n[] description;
-     /**
-      * 开始日期
-      * <p> 示例值：2020-01-01
-      */
+        /**
+         * 开始日期
+         * <p> 示例值：2020-01-01
+         */
         private String startDate;
-     /**
-      * 结束日期
-      * <p> 示例值：2020-01-01
-      */
+        /**
+         * 结束日期
+         * <p> 示例值：2020-01-01
+         */
         private String endDate;
-     /**
-      * 自定义字段
-      * <p> 示例值：
-      */
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
         private ObjectFieldData[] customFields;
 
         /**
          * 公司 / 组织
          * <p> 示例值：
+         *
          * @param companyOrganization
          * @return
          */
         public Builder companyOrganization(I18n[] companyOrganization) {
-             this.companyOrganization = companyOrganization;
-             return this;
+            this.companyOrganization = companyOrganization;
+            return this;
         }
 
-    
 
         /**
          * 部门
          * <p> 示例值：
+         *
          * @param department
          * @return
          */
         public Builder department(I18n[] department) {
-             this.department = department;
-             return this;
+            this.department = department;
+            return this;
         }
 
-    
 
         /**
          * 岗位
          * <p> 示例值：
+         *
          * @param job
          * @return
          */
         public Builder job(I18n[] job) {
-             this.job = job;
-             return this;
+            this.job = job;
+            return this;
         }
 
-    
 
         /**
          * 工作描述
          * <p> 示例值：
+         *
          * @param description
          * @return
          */
         public Builder description(I18n[] description) {
-             this.description = description;
-             return this;
+            this.description = description;
+            return this;
         }
 
-    
 
         /**
          * 开始日期
          * <p> 示例值：2020-01-01
+         *
          * @param startDate
          * @return
          */
         public Builder startDate(String startDate) {
-             this.startDate = startDate;
-             return this;
+            this.startDate = startDate;
+            return this;
         }
 
-    
 
         /**
          * 结束日期
          * <p> 示例值：2020-01-01
+         *
          * @param endDate
          * @return
          */
         public Builder endDate(String endDate) {
-             this.endDate = endDate;
-             return this;
+            this.endDate = endDate;
+            return this;
         }
 
-    
 
         /**
          * 自定义字段
          * <p> 示例值：
+         *
          * @param customFields
          * @return
          */
         public Builder customFields(ObjectFieldData[] customFields) {
-             this.customFields = customFields;
-             return this;
+            this.customFields = customFields;
+            return this;
         }
 
-    
-    
-    public WorkExperience build(){
-        return new WorkExperience(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public WorkExperience build() {
+            return new WorkExperience(this);
+        }
     }
 }

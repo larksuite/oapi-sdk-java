@@ -12,39 +12,70 @@
  */
 
 package com.lark.oapi.service.calendar.v4.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.calendar.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ListCalendarReq {
-     /**
-      * 一次请求要求返回最大数量，默认500，取值范围为[50. 1000]
-      * <p> 示例值：50
-      */
+    /**
+     * 一次请求要求返回最大数量，默认500，取值范围为[50. 1000]
+     * <p> 示例值：50
+     */
     @Query
     @SerializedName("page_size")
     private Integer pageSize;
-     /**
-      * 上次请求Response返回的分页标记，首次请求时为空
-      * <p> 示例值：ListCalendarsPageToken_xxx
-      */
+    /**
+     * 上次请求Response返回的分页标记，首次请求时为空
+     * <p> 示例值：ListCalendarsPageToken_xxx
+     */
     @Query
     @SerializedName("page_token")
     private String pageToken;
-     /**
-      * 上次请求Response返回的增量同步标记，分页请求未结束时为空
-      * <p> 示例值：ListCalendarsSyncToken_xxx
-      */
+    /**
+     * 上次请求Response返回的增量同步标记，分页请求未结束时为空
+     * <p> 示例值：ListCalendarsSyncToken_xxx
+     */
     @Query
     @SerializedName("sync_token")
     private String syncToken;
+
+    // builder 开始
+    public ListCalendarReq() {
+    }
+
+    public ListCalendarReq(Builder builder) {
+        /**
+         * 一次请求要求返回最大数量，默认500，取值范围为[50. 1000]
+         * <p> 示例值：50
+         */
+        this.pageSize = builder.pageSize;
+        /**
+         * 上次请求Response返回的分页标记，首次请求时为空
+         * <p> 示例值：ListCalendarsPageToken_xxx
+         */
+        this.pageToken = builder.pageToken;
+        /**
+         * 上次请求Response返回的增量同步标记，分页请求未结束时为空
+         * <p> 示例值：ListCalendarsSyncToken_xxx
+         */
+        this.syncToken = builder.syncToken;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Integer getPageSize() {
         return this.pageSize;
     }
@@ -69,75 +100,52 @@ public class ListCalendarReq {
         this.syncToken = syncToken;
     }
 
-
-// builder 开始
-  public ListCalendarReq(){}
-
-  public ListCalendarReq(Builder builder){
-         /**
-          * 一次请求要求返回最大数量，默认500，取值范围为[50. 1000]
-          * <p> 示例值：50
-          */
-       this.pageSize = builder.pageSize;
-         /**
-          * 上次请求Response返回的分页标记，首次请求时为空
-          * <p> 示例值：ListCalendarsPageToken_xxx
-          */
-       this.pageToken = builder.pageToken;
-         /**
-          * 上次请求Response返回的增量同步标记，分页请求未结束时为空
-          * <p> 示例值：ListCalendarsSyncToken_xxx
-          */
-       this.syncToken = builder.syncToken;
-  }
-
     public static class Builder {
         private Integer pageSize; // 一次请求要求返回最大数量，默认500，取值范围为[50. 1000]
         private String pageToken; // 上次请求Response返回的分页标记，首次请求时为空
         private String syncToken; // 上次请求Response返回的增量同步标记，分页请求未结束时为空
-    
+
         /**
          * 一次请求要求返回最大数量，默认500，取值范围为[50. 1000]
          * <p> 示例值：50
+         *
          * @param pageSize
          * @return
          */
-           public Builder pageSize(Integer pageSize) {
-                this.pageSize = pageSize;
-                return this;
-           }
+        public Builder pageSize(Integer pageSize) {
+            this.pageSize = pageSize;
+            return this;
+        }
 
-    
+
         /**
          * 上次请求Response返回的分页标记，首次请求时为空
          * <p> 示例值：ListCalendarsPageToken_xxx
+         *
          * @param pageToken
          * @return
          */
-           public Builder pageToken(String pageToken) {
-                this.pageToken = pageToken;
-                return this;
-           }
+        public Builder pageToken(String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+        }
 
-    
+
         /**
          * 上次请求Response返回的增量同步标记，分页请求未结束时为空
          * <p> 示例值：ListCalendarsSyncToken_xxx
+         *
          * @param syncToken
          * @return
          */
-           public Builder syncToken(String syncToken) {
-                this.syncToken = syncToken;
-                return this;
-           }
+        public Builder syncToken(String syncToken) {
+            this.syncToken = syncToken;
+            return this;
+        }
 
-    
-    public ListCalendarReq build(){
-        return new ListCalendarReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ListCalendarReq build() {
+            return new ListCalendarReq(this);
+        }
     }
 }

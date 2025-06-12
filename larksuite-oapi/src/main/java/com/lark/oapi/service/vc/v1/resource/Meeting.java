@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.vc.v1.resource;
+
 import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.Transport;
 import com.lark.oapi.core.response.RawResponse;
@@ -20,12 +21,16 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import java.nio.charset.StandardCharsets;
 
 import com.lark.oapi.core.Config;
 import com.lark.oapi.core.request.RequestOptions;
+
 import java.io.ByteArrayOutputStream;
+
 import com.lark.oapi.service.vc.v1.model.*;
+
 import java.io.*;
 import java.util.Map;
 import java.util.HashMap;
@@ -41,7 +46,7 @@ public class Meeting {
         this.config = config;
     }
 
-    
+
     /**
      * 结束会议，结束一个进行中的会议
      * <p> 会议正在进行中，且操作者须具有相应的权限（如果操作者为用户，必须是会中当前主持人） ;
@@ -59,7 +64,7 @@ public class Meeting {
                 , "/open-apis/vc/v1/meetings/:meeting_id/end"
                 , Sets.newHashSet(AccessTokenType.User)
                 , req);
-        
+
         // 反序列化
         EndMeetingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, EndMeetingResp.class);
         if (resp == null) {
@@ -67,14 +72,14 @@ public class Meeting {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/vc/v1/meetings/:meeting_id/end"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
-       resp.setRawResponse(httpResponse);
-       resp.setRequest(req);
-       
-       return resp;
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
     }
 
     /**
@@ -92,7 +97,7 @@ public class Meeting {
                 , "/open-apis/vc/v1/meetings/:meeting_id/end"
                 , Sets.newHashSet(AccessTokenType.User)
                 , req);
-        
+
         // 反序列化
         EndMeetingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, EndMeetingResp.class);
         if (resp == null) {
@@ -100,15 +105,16 @@ public class Meeting {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/vc/v1/meetings/:meeting_id/end"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-        
+
         return resp;
     }
+
     /**
      * 获取会议详情，获取一个会议的详细数据
      * <p> 只能获取归属于自己的会议，支持查询最近90天内的会议 ;
@@ -126,7 +132,7 @@ public class Meeting {
                 , "/open-apis/vc/v1/meetings/:meeting_id"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-        
+
         // 反序列化
         GetMeetingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetMeetingResp.class);
         if (resp == null) {
@@ -134,14 +140,14 @@ public class Meeting {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/vc/v1/meetings/:meeting_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
-       resp.setRawResponse(httpResponse);
-       resp.setRequest(req);
-       
-       return resp;
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
     }
 
     /**
@@ -159,7 +165,7 @@ public class Meeting {
                 , "/open-apis/vc/v1/meetings/:meeting_id"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-        
+
         // 反序列化
         GetMeetingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetMeetingResp.class);
         if (resp == null) {
@@ -167,15 +173,16 @@ public class Meeting {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/vc/v1/meetings/:meeting_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-        
+
         return resp;
     }
+
     /**
      * 邀请参会人，邀请参会人进入会议
      * <p> 发起邀请的操作者必须具有相应的权限（如果操作者为用户，则必须在会中），如果会议被锁定、或参会人数如果达到上限，则会邀请失败 ;
@@ -193,7 +200,7 @@ public class Meeting {
                 , "/open-apis/vc/v1/meetings/:meeting_id/invite"
                 , Sets.newHashSet(AccessTokenType.User)
                 , req);
-        
+
         // 反序列化
         InviteMeetingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, InviteMeetingResp.class);
         if (resp == null) {
@@ -201,14 +208,14 @@ public class Meeting {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/vc/v1/meetings/:meeting_id/invite"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
-       resp.setRawResponse(httpResponse);
-       resp.setRequest(req);
-       
-       return resp;
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
     }
 
     /**
@@ -226,7 +233,7 @@ public class Meeting {
                 , "/open-apis/vc/v1/meetings/:meeting_id/invite"
                 , Sets.newHashSet(AccessTokenType.User)
                 , req);
-        
+
         // 反序列化
         InviteMeetingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, InviteMeetingResp.class);
         if (resp == null) {
@@ -234,15 +241,16 @@ public class Meeting {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/vc/v1/meetings/:meeting_id/invite"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-        
+
         return resp;
     }
+
     /**
      * 移除参会人，将参会人从会议中移除
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/kickout">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/kickout</a> ;
@@ -259,7 +267,7 @@ public class Meeting {
                 , "/open-apis/vc/v1/meetings/:meeting_id/kickout"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-        
+
         // 反序列化
         KickoutMeetingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, KickoutMeetingResp.class);
         if (resp == null) {
@@ -267,14 +275,14 @@ public class Meeting {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/vc/v1/meetings/:meeting_id/kickout"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
-       resp.setRawResponse(httpResponse);
-       resp.setRequest(req);
-       
-       return resp;
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
     }
 
     /**
@@ -291,7 +299,7 @@ public class Meeting {
                 , "/open-apis/vc/v1/meetings/:meeting_id/kickout"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-        
+
         // 反序列化
         KickoutMeetingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, KickoutMeetingResp.class);
         if (resp == null) {
@@ -299,15 +307,16 @@ public class Meeting {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/vc/v1/meetings/:meeting_id/kickout"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-        
+
         return resp;
     }
+
     /**
      * 获取与会议号相关联的会议列表，获取指定时间范围（90天内)会议号关联的会议简要信息列表
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/list_by_no">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/list_by_no</a> ;
@@ -324,7 +333,7 @@ public class Meeting {
                 , "/open-apis/vc/v1/meetings/list_by_no"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-        
+
         // 反序列化
         ListByNoMeetingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListByNoMeetingResp.class);
         if (resp == null) {
@@ -332,14 +341,14 @@ public class Meeting {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/vc/v1/meetings/list_by_no"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
-       resp.setRawResponse(httpResponse);
-       resp.setRequest(req);
-       
-       return resp;
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
     }
 
     /**
@@ -356,7 +365,7 @@ public class Meeting {
                 , "/open-apis/vc/v1/meetings/list_by_no"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-        
+
         // 反序列化
         ListByNoMeetingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListByNoMeetingResp.class);
         if (resp == null) {
@@ -364,15 +373,16 @@ public class Meeting {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/vc/v1/meetings/list_by_no"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-        
+
         return resp;
     }
+
     /**
      * 设置主持人，设置会议的主持人
      * <p> 发起设置主持人的操作者必须具有相应的权限（如果操作者为用户，必须是会中当前主持人）；该操作使用CAS并发安全机制，需传入会中当前主持人，如果操作失败可使用返回的最新数据重试 ;
@@ -390,7 +400,7 @@ public class Meeting {
                 , "/open-apis/vc/v1/meetings/:meeting_id/set_host"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-        
+
         // 反序列化
         SetHostMeetingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, SetHostMeetingResp.class);
         if (resp == null) {
@@ -398,14 +408,14 @@ public class Meeting {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/vc/v1/meetings/:meeting_id/set_host"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
-       resp.setRawResponse(httpResponse);
-       resp.setRequest(req);
-       
-       return resp;
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
     }
 
     /**
@@ -423,7 +433,7 @@ public class Meeting {
                 , "/open-apis/vc/v1/meetings/:meeting_id/set_host"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-        
+
         // 反序列化
         SetHostMeetingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, SetHostMeetingResp.class);
         if (resp == null) {
@@ -431,13 +441,13 @@ public class Meeting {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/vc/v1/meetings/:meeting_id/set_host"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-        
+
         return resp;
     }
 }

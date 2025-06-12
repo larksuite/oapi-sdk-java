@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.admin.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.admin.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class I18n {
-     /**
-      * 中文文案
-      * <p> 示例值：激励勋章
-      */
+    /**
+     * 中文文案
+     * <p> 示例值：激励勋章
+     */
     @SerializedName("zh_cn")
     private String zhCn;
-     /**
-      * 英文文案
-      * <p> 示例值：Incentive Medal
-      */
+    /**
+     * 英文文案
+     * <p> 示例值：Incentive Medal
+     */
     @SerializedName("en_us")
     private String enUs;
-     /**
-      * 日文文案
-      * <p> 示例值：奨励メダル
-      */
+    /**
+     * 日文文案
+     * <p> 示例值：奨励メダル
+     */
     @SerializedName("ja_jp")
     private String jaJp;
+
+    // builder 开始
+    public I18n() {
+    }
+
+    public I18n(Builder builder) {
+        /**
+         * 中文文案
+         * <p> 示例值：激励勋章
+         */
+        this.zhCn = builder.zhCn;
+        /**
+         * 英文文案
+         * <p> 示例值：Incentive Medal
+         */
+        this.enUs = builder.enUs;
+        /**
+         * 日文文案
+         * <p> 示例值：奨励メダル
+         */
+        this.jaJp = builder.jaJp;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getZhCn() {
         return this.zhCn;
     }
@@ -67,90 +98,64 @@ public class I18n {
         this.jaJp = jaJp;
     }
 
-
-// builder 开始
-  public I18n(){}
-
-  public I18n(Builder builder){
-         /**
-          * 中文文案
-          * <p> 示例值：激励勋章
-          */
-      this.zhCn = builder.zhCn;
-         /**
-          * 英文文案
-          * <p> 示例值：Incentive Medal
-          */
-      this.enUs = builder.enUs;
-         /**
-          * 日文文案
-          * <p> 示例值：奨励メダル
-          */
-      this.jaJp = builder.jaJp;
-  }
-
     public static class Builder {
-     /**
-      * 中文文案
-      * <p> 示例值：激励勋章
-      */
+        /**
+         * 中文文案
+         * <p> 示例值：激励勋章
+         */
         private String zhCn;
-     /**
-      * 英文文案
-      * <p> 示例值：Incentive Medal
-      */
+        /**
+         * 英文文案
+         * <p> 示例值：Incentive Medal
+         */
         private String enUs;
-     /**
-      * 日文文案
-      * <p> 示例值：奨励メダル
-      */
+        /**
+         * 日文文案
+         * <p> 示例值：奨励メダル
+         */
         private String jaJp;
 
         /**
          * 中文文案
          * <p> 示例值：激励勋章
+         *
          * @param zhCn
          * @return
          */
         public Builder zhCn(String zhCn) {
-             this.zhCn = zhCn;
-             return this;
+            this.zhCn = zhCn;
+            return this;
         }
 
-    
 
         /**
          * 英文文案
          * <p> 示例值：Incentive Medal
+         *
          * @param enUs
          * @return
          */
         public Builder enUs(String enUs) {
-             this.enUs = enUs;
-             return this;
+            this.enUs = enUs;
+            return this;
         }
 
-    
 
         /**
          * 日文文案
          * <p> 示例值：奨励メダル
+         *
          * @param jaJp
          * @return
          */
         public Builder jaJp(String jaJp) {
-             this.jaJp = jaJp;
-             return this;
+            this.jaJp = jaJp;
+            return this;
         }
 
-    
-    
-    public I18n build(){
-        return new I18n(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public I18n build() {
+            return new I18n(this);
+        }
     }
 }

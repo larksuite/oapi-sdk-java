@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.lingo.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.lingo.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Draft {
-     /**
-      * 草稿 Id
-      * <p> 示例值：42322
-      */
+    /**
+     * 草稿 Id
+     * <p> 示例值：42322
+     */
     @SerializedName("draft_id")
     private String draftId;
-     /**
-      * 实体词
-      * <p> 示例值：
-      */
+    /**
+     * 实体词
+     * <p> 示例值：
+     */
     @SerializedName("entity")
     private Entity entity;
+
+    // builder 开始
+    public Draft() {
+    }
+
+    public Draft(Builder builder) {
+        /**
+         * 草稿 Id
+         * <p> 示例值：42322
+         */
+        this.draftId = builder.draftId;
+        /**
+         * 实体词
+         * <p> 示例值：
+         */
+        this.entity = builder.entity;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getDraftId() {
         return this.draftId;
     }
@@ -53,67 +79,46 @@ public class Draft {
         this.entity = entity;
     }
 
-
-// builder 开始
-  public Draft(){}
-
-  public Draft(Builder builder){
-         /**
-          * 草稿 Id
-          * <p> 示例值：42322
-          */
-      this.draftId = builder.draftId;
-         /**
-          * 实体词
-          * <p> 示例值：
-          */
-      this.entity = builder.entity;
-  }
-
     public static class Builder {
-     /**
-      * 草稿 Id
-      * <p> 示例值：42322
-      */
+        /**
+         * 草稿 Id
+         * <p> 示例值：42322
+         */
         private String draftId;
-     /**
-      * 实体词
-      * <p> 示例值：
-      */
+        /**
+         * 实体词
+         * <p> 示例值：
+         */
         private Entity entity;
 
         /**
          * 草稿 Id
          * <p> 示例值：42322
+         *
          * @param draftId
          * @return
          */
         public Builder draftId(String draftId) {
-             this.draftId = draftId;
-             return this;
+            this.draftId = draftId;
+            return this;
         }
 
-    
 
         /**
          * 实体词
          * <p> 示例值：
+         *
          * @param entity
          * @return
          */
         public Builder entity(Entity entity) {
-             this.entity = entity;
-             return this;
+            this.entity = entity;
+            return this;
         }
 
-    
-    
-    public Draft build(){
-        return new Draft(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Draft build() {
+            return new Draft(this);
+        }
     }
 }

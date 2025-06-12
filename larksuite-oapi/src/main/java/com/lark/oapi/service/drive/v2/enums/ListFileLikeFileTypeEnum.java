@@ -17,16 +17,17 @@ package com.lark.oapi.service.drive.v2.enums;
  * 文件类型，如果该值为空或者与文件实际类型不匹配，接口会返回失败。
  */
 public enum ListFileLikeFileTypeEnum {
-     DOC("doc"), // 旧版文档
-     DOCX("docx"), // 新版文档
-     FILE("file"), // 文件
-  ;
-   private String value;
+    DOC("doc"), // 旧版文档
+    DOCX("docx"), // 新版文档
+    FILE("file"), // 文件
+    ;
+    private String value;
+
     ListFileLikeFileTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

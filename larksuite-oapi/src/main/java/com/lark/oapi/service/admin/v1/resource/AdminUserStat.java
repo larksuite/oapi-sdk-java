@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.admin.v1.resource;
+
 import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.Transport;
 import com.lark.oapi.core.response.RawResponse;
@@ -20,12 +21,16 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import java.nio.charset.StandardCharsets;
 
 import com.lark.oapi.core.Config;
 import com.lark.oapi.core.request.RequestOptions;
+
 import java.io.ByteArrayOutputStream;
+
 import com.lark.oapi.service.admin.v1.model.*;
+
 import java.io.*;
 import java.util.Map;
 import java.util.HashMap;
@@ -41,7 +46,7 @@ public class AdminUserStat {
         this.config = config;
     }
 
-    
+
     /**
      * 获取用户维度的用户活跃和功能使用数据，用于获取用户维度的用户活跃和功能使用数据，即IM（即时通讯）、日历、云文档、音视频会议功能的使用数据。
      * <p> - 只有企业自建应用才有权限调用此接口;;- 当天的数据会在第二天的早上九点半产出（UTC+8） ;
@@ -59,7 +64,7 @@ public class AdminUserStat {
                 , "/open-apis/admin/v1/admin_user_stats"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-        
+
         // 反序列化
         ListAdminUserStatResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListAdminUserStatResp.class);
         if (resp == null) {
@@ -67,14 +72,14 @@ public class AdminUserStat {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/admin/v1/admin_user_stats"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
-       resp.setRawResponse(httpResponse);
-       resp.setRequest(req);
-       
-       return resp;
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
     }
 
     /**
@@ -92,7 +97,7 @@ public class AdminUserStat {
                 , "/open-apis/admin/v1/admin_user_stats"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-        
+
         // 反序列化
         ListAdminUserStatResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListAdminUserStatResp.class);
         if (resp == null) {
@@ -100,13 +105,13 @@ public class AdminUserStat {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/admin/v1/admin_user_stats"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-        
+
         return resp;
     }
 }

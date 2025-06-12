@@ -12,32 +12,58 @@
  */
 
 package com.lark.oapi.service.mail.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class DeletePublicMailboxMemberReq {
-     /**
-      * 公共邮箱唯一标识或公共邮箱地址
-      * <p> 示例值：xxxxxxxxxxxxxxx 或 test_public_mailbox@xxx.xx
-      */
+    /**
+     * 公共邮箱唯一标识或公共邮箱地址
+     * <p> 示例值：xxxxxxxxxxxxxxx 或 test_public_mailbox@xxx.xx
+     */
     @Path
     @SerializedName("public_mailbox_id")
     private String publicMailboxId;
-     /**
-      * 公共邮箱内成员唯一标识
-      * <p> 示例值：xxxxxxxxxxxxxxx
-      */
+    /**
+     * 公共邮箱内成员唯一标识
+     * <p> 示例值：xxxxxxxxxxxxxxx
+     */
     @Path
     @SerializedName("member_id")
     private String memberId;
+
+    // builder 开始
+    public DeletePublicMailboxMemberReq() {
+    }
+
+    public DeletePublicMailboxMemberReq(Builder builder) {
+        /**
+         * 公共邮箱唯一标识或公共邮箱地址
+         * <p> 示例值：xxxxxxxxxxxxxxx 或 test_public_mailbox@xxx.xx
+         */
+        this.publicMailboxId = builder.publicMailboxId;
+        /**
+         * 公共邮箱内成员唯一标识
+         * <p> 示例值：xxxxxxxxxxxxxxx
+         */
+        this.memberId = builder.memberId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getPublicMailboxId() {
         return this.publicMailboxId;
     }
@@ -54,57 +80,39 @@ public class DeletePublicMailboxMemberReq {
         this.memberId = memberId;
     }
 
-
-// builder 开始
-  public DeletePublicMailboxMemberReq(){}
-
-  public DeletePublicMailboxMemberReq(Builder builder){
-     /**
-      * 公共邮箱唯一标识或公共邮箱地址
-      * <p> 示例值：xxxxxxxxxxxxxxx 或 test_public_mailbox@xxx.xx
-      */
-       this.publicMailboxId = builder.publicMailboxId;
-     /**
-      * 公共邮箱内成员唯一标识
-      * <p> 示例值：xxxxxxxxxxxxxxx
-      */
-       this.memberId = builder.memberId;
-  }
-
     public static class Builder {
-    
+
         private String publicMailboxId; // 公共邮箱唯一标识或公共邮箱地址
         private String memberId; // 公共邮箱内成员唯一标识
+
         /**
          * 公共邮箱唯一标识或公共邮箱地址
          * <p> 示例值：xxxxxxxxxxxxxxx 或 test_public_mailbox@xxx.xx
+         *
          * @param publicMailboxId
          * @return
          */
-          public Builder publicMailboxId(String publicMailboxId) {
-               this.publicMailboxId = publicMailboxId;
-               return this;
-          }
+        public Builder publicMailboxId(String publicMailboxId) {
+            this.publicMailboxId = publicMailboxId;
+            return this;
+        }
 
-    
+
         /**
          * 公共邮箱内成员唯一标识
          * <p> 示例值：xxxxxxxxxxxxxxx
+         *
          * @param memberId
          * @return
          */
-          public Builder memberId(String memberId) {
-               this.memberId = memberId;
-               return this;
-          }
+        public Builder memberId(String memberId) {
+            this.memberId = memberId;
+            return this;
+        }
 
-    
-    public DeletePublicMailboxMemberReq build(){
-        return new DeletePublicMailboxMemberReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public DeletePublicMailboxMemberReq build() {
+            return new DeletePublicMailboxMemberReq(this);
+        }
     }
 }

@@ -12,30 +12,56 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class OfferApplyFormFormulaExtraMapInfo {
-     /**
-      * object ID
-      * <p> 示例值：object_id_1
-      */
+    /**
+     * object ID
+     * <p> 示例值：object_id_1
+     */
     @SerializedName("key")
     private String key;
-     /**
-      * object 名称
-      * <p> 示例值：
-      */
+    /**
+     * object 名称
+     * <p> 示例值：
+     */
     @SerializedName("value")
     private I18n value;
+
+    // builder 开始
+    public OfferApplyFormFormulaExtraMapInfo() {
+    }
+
+    public OfferApplyFormFormulaExtraMapInfo(Builder builder) {
+        /**
+         * object ID
+         * <p> 示例值：object_id_1
+         */
+        this.key = builder.key;
+        /**
+         * object 名称
+         * <p> 示例值：
+         */
+        this.value = builder.value;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getKey() {
         return this.key;
     }
@@ -52,67 +78,46 @@ public class OfferApplyFormFormulaExtraMapInfo {
         this.value = value;
     }
 
-
-// builder 开始
-  public OfferApplyFormFormulaExtraMapInfo(){}
-
-  public OfferApplyFormFormulaExtraMapInfo(Builder builder){
-         /**
-          * object ID
-          * <p> 示例值：object_id_1
-          */
-      this.key = builder.key;
-         /**
-          * object 名称
-          * <p> 示例值：
-          */
-      this.value = builder.value;
-  }
-
     public static class Builder {
-     /**
-      * object ID
-      * <p> 示例值：object_id_1
-      */
+        /**
+         * object ID
+         * <p> 示例值：object_id_1
+         */
         private String key;
-     /**
-      * object 名称
-      * <p> 示例值：
-      */
+        /**
+         * object 名称
+         * <p> 示例值：
+         */
         private I18n value;
 
         /**
          * object ID
          * <p> 示例值：object_id_1
+         *
          * @param key
          * @return
          */
         public Builder key(String key) {
-             this.key = key;
-             return this;
+            this.key = key;
+            return this;
         }
 
-    
 
         /**
          * object 名称
          * <p> 示例值：
+         *
          * @param value
          * @return
          */
         public Builder value(I18n value) {
-             this.value = value;
-             return this;
+            this.value = value;
+            return this;
         }
 
-    
-    
-    public OfferApplyFormFormulaExtraMapInfo build(){
-        return new OfferApplyFormFormulaExtraMapInfo(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public OfferApplyFormFormulaExtraMapInfo build() {
+            return new OfferApplyFormFormulaExtraMapInfo(this);
+        }
     }
 }

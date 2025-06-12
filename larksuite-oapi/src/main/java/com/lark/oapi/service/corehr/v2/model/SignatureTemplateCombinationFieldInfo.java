@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,42 +20,82 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class SignatureTemplateCombinationFieldInfo {
-     /**
-      * total_apiname
-      * <p> 示例值：status
-      */
+    /**
+     * total_apiname
+     * <p> 示例值：status
+     */
     @SerializedName("total_apiname")
     private String totalApiname;
-     /**
-      * apiname
-      * <p> 示例值：status
-      */
+    /**
+     * apiname
+     * <p> 示例值：status
+     */
     @SerializedName("apiname")
     private String apiname;
-     /**
-      * 中英文描述
-      * <p> 示例值：
-      */
+    /**
+     * 中英文描述
+     * <p> 示例值：
+     */
     @SerializedName("title")
     private I18n[] title;
-     /**
-      * 适用区域名称
-      * <p> 示例值：
-      */
+    /**
+     * 适用区域名称
+     * <p> 示例值：
+     */
     @SerializedName("contents")
     private SignatureTemplateCombinationSubFieldInfo[][] contents;
-     /**
-      * 电子签模板字段源类型
-      * <p> 示例值：
-      */
+    /**
+     * 电子签模板字段源类型
+     * <p> 示例值：
+     */
     @SerializedName("source")
     private Enum source;
+
+    // builder 开始
+    public SignatureTemplateCombinationFieldInfo() {
+    }
+
+    public SignatureTemplateCombinationFieldInfo(Builder builder) {
+        /**
+         * total_apiname
+         * <p> 示例值：status
+         */
+        this.totalApiname = builder.totalApiname;
+        /**
+         * apiname
+         * <p> 示例值：status
+         */
+        this.apiname = builder.apiname;
+        /**
+         * 中英文描述
+         * <p> 示例值：
+         */
+        this.title = builder.title;
+        /**
+         * 适用区域名称
+         * <p> 示例值：
+         */
+        this.contents = builder.contents;
+        /**
+         * 电子签模板字段源类型
+         * <p> 示例值：
+         */
+        this.source = builder.source;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getTotalApiname() {
         return this.totalApiname;
     }
@@ -95,136 +136,100 @@ public class SignatureTemplateCombinationFieldInfo {
         this.source = source;
     }
 
-
-// builder 开始
-  public SignatureTemplateCombinationFieldInfo(){}
-
-  public SignatureTemplateCombinationFieldInfo(Builder builder){
-         /**
-          * total_apiname
-          * <p> 示例值：status
-          */
-      this.totalApiname = builder.totalApiname;
-         /**
-          * apiname
-          * <p> 示例值：status
-          */
-      this.apiname = builder.apiname;
-         /**
-          * 中英文描述
-          * <p> 示例值：
-          */
-      this.title = builder.title;
-         /**
-          * 适用区域名称
-          * <p> 示例值：
-          */
-      this.contents = builder.contents;
-         /**
-          * 电子签模板字段源类型
-          * <p> 示例值：
-          */
-      this.source = builder.source;
-  }
-
     public static class Builder {
-     /**
-      * total_apiname
-      * <p> 示例值：status
-      */
+        /**
+         * total_apiname
+         * <p> 示例值：status
+         */
         private String totalApiname;
-     /**
-      * apiname
-      * <p> 示例值：status
-      */
+        /**
+         * apiname
+         * <p> 示例值：status
+         */
         private String apiname;
-     /**
-      * 中英文描述
-      * <p> 示例值：
-      */
+        /**
+         * 中英文描述
+         * <p> 示例值：
+         */
         private I18n[] title;
-     /**
-      * 适用区域名称
-      * <p> 示例值：
-      */
+        /**
+         * 适用区域名称
+         * <p> 示例值：
+         */
         private SignatureTemplateCombinationSubFieldInfo[][] contents;
-     /**
-      * 电子签模板字段源类型
-      * <p> 示例值：
-      */
+        /**
+         * 电子签模板字段源类型
+         * <p> 示例值：
+         */
         private Enum source;
 
         /**
          * total_apiname
          * <p> 示例值：status
+         *
          * @param totalApiname
          * @return
          */
         public Builder totalApiname(String totalApiname) {
-             this.totalApiname = totalApiname;
-             return this;
+            this.totalApiname = totalApiname;
+            return this;
         }
 
-    
 
         /**
          * apiname
          * <p> 示例值：status
+         *
          * @param apiname
          * @return
          */
         public Builder apiname(String apiname) {
-             this.apiname = apiname;
-             return this;
+            this.apiname = apiname;
+            return this;
         }
 
-    
 
         /**
          * 中英文描述
          * <p> 示例值：
+         *
          * @param title
          * @return
          */
         public Builder title(I18n[] title) {
-             this.title = title;
-             return this;
+            this.title = title;
+            return this;
         }
 
-    
 
         /**
          * 适用区域名称
          * <p> 示例值：
+         *
          * @param contents
          * @return
          */
         public Builder contents(SignatureTemplateCombinationSubFieldInfo[][] contents) {
-             this.contents = contents;
-             return this;
+            this.contents = contents;
+            return this;
         }
 
-    
 
         /**
          * 电子签模板字段源类型
          * <p> 示例值：
+         *
          * @param source
          * @return
          */
         public Builder source(Enum source) {
-             this.source = source;
-             return this;
+            this.source = source;
+            return this;
         }
 
-    
-    
-    public SignatureTemplateCombinationFieldInfo build(){
-        return new SignatureTemplateCombinationFieldInfo(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public SignatureTemplateCombinationFieldInfo build() {
+            return new SignatureTemplateCombinationFieldInfo(this);
+        }
     }
 }

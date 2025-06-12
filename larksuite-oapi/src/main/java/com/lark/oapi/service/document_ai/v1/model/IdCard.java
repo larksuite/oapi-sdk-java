@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.document_ai.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.document_ai.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,36 +20,71 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class IdCard {
-     /**
-      * 识别的实体列表
-      * <p> 示例值：
-      */
+    /**
+     * 识别的实体列表
+     * <p> 示例值：
+     */
     @SerializedName("entities")
     private IdEntity[] entities;
-     /**
-      * 正反面，1为身份证-姓名页，0为身份证-国徽页
-      * <p> 示例值：0
-      */
+    /**
+     * 正反面，1为身份证-姓名页，0为身份证-国徽页
+     * <p> 示例值：0
+     */
     @SerializedName("side")
     private Integer side;
-     /**
-      * 四角坐标[x0,y0,x1,y1,x2,y2,x3,y3]
-      * <p> 示例值：
-      */
+    /**
+     * 四角坐标[x0,y0,x1,y1,x2,y2,x3,y3]
+     * <p> 示例值：
+     */
     @SerializedName("conners")
     private Integer[] conners;
-     /**
-      * 人像四角坐标[x0,y0,x1,y1,x2,y2,x3,y3]
-      * <p> 示例值：
-      */
+    /**
+     * 人像四角坐标[x0,y0,x1,y1,x2,y2,x3,y3]
+     * <p> 示例值：
+     */
     @SerializedName("face_conners")
     private Integer[] faceConners;
+
+    // builder 开始
+    public IdCard() {
+    }
+
+    public IdCard(Builder builder) {
+        /**
+         * 识别的实体列表
+         * <p> 示例值：
+         */
+        this.entities = builder.entities;
+        /**
+         * 正反面，1为身份证-姓名页，0为身份证-国徽页
+         * <p> 示例值：0
+         */
+        this.side = builder.side;
+        /**
+         * 四角坐标[x0,y0,x1,y1,x2,y2,x3,y3]
+         * <p> 示例值：
+         */
+        this.conners = builder.conners;
+        /**
+         * 人像四角坐标[x0,y0,x1,y1,x2,y2,x3,y3]
+         * <p> 示例值：
+         */
+        this.faceConners = builder.faceConners;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public IdEntity[] getEntities() {
         return this.entities;
     }
@@ -81,113 +117,82 @@ public class IdCard {
         this.faceConners = faceConners;
     }
 
-
-// builder 开始
-  public IdCard(){}
-
-  public IdCard(Builder builder){
-         /**
-          * 识别的实体列表
-          * <p> 示例值：
-          */
-      this.entities = builder.entities;
-         /**
-          * 正反面，1为身份证-姓名页，0为身份证-国徽页
-          * <p> 示例值：0
-          */
-      this.side = builder.side;
-         /**
-          * 四角坐标[x0,y0,x1,y1,x2,y2,x3,y3]
-          * <p> 示例值：
-          */
-      this.conners = builder.conners;
-         /**
-          * 人像四角坐标[x0,y0,x1,y1,x2,y2,x3,y3]
-          * <p> 示例值：
-          */
-      this.faceConners = builder.faceConners;
-  }
-
     public static class Builder {
-     /**
-      * 识别的实体列表
-      * <p> 示例值：
-      */
+        /**
+         * 识别的实体列表
+         * <p> 示例值：
+         */
         private IdEntity[] entities;
-     /**
-      * 正反面，1为身份证-姓名页，0为身份证-国徽页
-      * <p> 示例值：0
-      */
+        /**
+         * 正反面，1为身份证-姓名页，0为身份证-国徽页
+         * <p> 示例值：0
+         */
         private Integer side;
-     /**
-      * 四角坐标[x0,y0,x1,y1,x2,y2,x3,y3]
-      * <p> 示例值：
-      */
+        /**
+         * 四角坐标[x0,y0,x1,y1,x2,y2,x3,y3]
+         * <p> 示例值：
+         */
         private Integer[] conners;
-     /**
-      * 人像四角坐标[x0,y0,x1,y1,x2,y2,x3,y3]
-      * <p> 示例值：
-      */
+        /**
+         * 人像四角坐标[x0,y0,x1,y1,x2,y2,x3,y3]
+         * <p> 示例值：
+         */
         private Integer[] faceConners;
 
         /**
          * 识别的实体列表
          * <p> 示例值：
+         *
          * @param entities
          * @return
          */
         public Builder entities(IdEntity[] entities) {
-             this.entities = entities;
-             return this;
+            this.entities = entities;
+            return this;
         }
 
-    
 
         /**
          * 正反面，1为身份证-姓名页，0为身份证-国徽页
          * <p> 示例值：0
+         *
          * @param side
          * @return
          */
         public Builder side(Integer side) {
-             this.side = side;
-             return this;
+            this.side = side;
+            return this;
         }
 
-    
 
         /**
          * 四角坐标[x0,y0,x1,y1,x2,y2,x3,y3]
          * <p> 示例值：
+         *
          * @param conners
          * @return
          */
         public Builder conners(Integer[] conners) {
-             this.conners = conners;
-             return this;
+            this.conners = conners;
+            return this;
         }
 
-    
 
         /**
          * 人像四角坐标[x0,y0,x1,y1,x2,y2,x3,y3]
          * <p> 示例值：
+         *
          * @param faceConners
          * @return
          */
         public Builder faceConners(Integer[] faceConners) {
-             this.faceConners = faceConners;
-             return this;
+            this.faceConners = faceConners;
+            return this;
         }
 
-    
-    
-    public IdCard build(){
-        return new IdCard(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public IdCard build() {
+            return new IdCard(this);
+        }
     }
 }

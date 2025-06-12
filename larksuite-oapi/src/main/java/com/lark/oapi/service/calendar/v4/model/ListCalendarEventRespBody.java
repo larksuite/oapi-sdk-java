@@ -12,42 +12,47 @@
  */
 
 package com.lark.oapi.service.calendar.v4.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ListCalendarEventRespBody {
-     /**
-      * 是否还有更多数据
-      * <p> 示例值：false
-      */
+    /**
+     * 是否还有更多数据
+     * <p> 示例值：false
+     */
     @SerializedName("has_more")
     private Boolean hasMore;
-     /**
-      * 下次请求需要带上的分页标记
-      * <p> 示例值：ListCalendarsPageToken_1632452910_1632539310
-      */
+    /**
+     * 下次请求需要带上的分页标记
+     * <p> 示例值：ListCalendarsPageToken_1632452910_1632539310
+     */
     @SerializedName("page_token")
     private String pageToken;
-     /**
-      * 下次请求需要带上的增量同步标记
-      * <p> 示例值：ListCalendarsSyncToken_1632452910
-      */
+    /**
+     * 下次请求需要带上的增量同步标记
+     * <p> 示例值：ListCalendarsSyncToken_1632452910
+     */
     @SerializedName("sync_token")
     private String syncToken;
-     /**
-      * 日程列表
-      * <p> 示例值：
-      */
+    /**
+     * 日程列表
+     * <p> 示例值：
+     */
     @SerializedName("items")
     private CalendarEvent[] items;
+
     public Boolean getHasMore() {
         return this.hasMore;
     }

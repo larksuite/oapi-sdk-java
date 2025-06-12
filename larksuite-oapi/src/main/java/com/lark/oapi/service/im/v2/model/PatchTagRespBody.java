@@ -12,30 +12,35 @@
  */
 
 package com.lark.oapi.service.im.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class PatchTagRespBody {
-     /**
-      * 编辑后的taginfo
-      * <p> 示例值：
-      */
+    /**
+     * 编辑后的taginfo
+     * <p> 示例值：
+     */
     @SerializedName("tag_info")
     private TagInfo tagInfo;
-     /**
-      * 修改失败原因
-      * <p> 示例值：
-      */
+    /**
+     * 修改失败原因
+     * <p> 示例值：
+     */
     @SerializedName("patch_tag_fail_reason")
     private PatchTagFailReason patchTagFailReason;
+
     public TagInfo getTagInfo() {
         return this.tagInfo;
     }

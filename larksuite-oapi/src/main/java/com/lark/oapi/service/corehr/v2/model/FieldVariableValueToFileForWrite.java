@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class FieldVariableValueToFileForWrite {
-     /**
-      * 主数据的文件id
-      * <p> 示例值：66867ed00740ddd4a0bad4a5_c99b5322dc744fe4b99b76426ffe5d53
-      */
+    /**
+     * 主数据的文件id
+     * <p> 示例值：66867ed00740ddd4a0bad4a5_c99b5322dc744fe4b99b76426ffe5d53
+     */
     @SerializedName("open_file_id")
     private String openFileId;
-     /**
-      * 文件名称
-      * <p> 示例值：file_name
-      */
+    /**
+     * 文件名称
+     * <p> 示例值：file_name
+     */
     @SerializedName("file_name")
     private String fileName;
-     /**
-      * 文件大小，单位：Byte
-      * <p> 示例值：65535
-      */
+    /**
+     * 文件大小，单位：Byte
+     * <p> 示例值：65535
+     */
     @SerializedName("length")
     private Integer length;
+
+    // builder 开始
+    public FieldVariableValueToFileForWrite() {
+    }
+
+    public FieldVariableValueToFileForWrite(Builder builder) {
+        /**
+         * 主数据的文件id
+         * <p> 示例值：66867ed00740ddd4a0bad4a5_c99b5322dc744fe4b99b76426ffe5d53
+         */
+        this.openFileId = builder.openFileId;
+        /**
+         * 文件名称
+         * <p> 示例值：file_name
+         */
+        this.fileName = builder.fileName;
+        /**
+         * 文件大小，单位：Byte
+         * <p> 示例值：65535
+         */
+        this.length = builder.length;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getOpenFileId() {
         return this.openFileId;
     }
@@ -67,90 +98,64 @@ public class FieldVariableValueToFileForWrite {
         this.length = length;
     }
 
-
-// builder 开始
-  public FieldVariableValueToFileForWrite(){}
-
-  public FieldVariableValueToFileForWrite(Builder builder){
-         /**
-          * 主数据的文件id
-          * <p> 示例值：66867ed00740ddd4a0bad4a5_c99b5322dc744fe4b99b76426ffe5d53
-          */
-      this.openFileId = builder.openFileId;
-         /**
-          * 文件名称
-          * <p> 示例值：file_name
-          */
-      this.fileName = builder.fileName;
-         /**
-          * 文件大小，单位：Byte
-          * <p> 示例值：65535
-          */
-      this.length = builder.length;
-  }
-
     public static class Builder {
-     /**
-      * 主数据的文件id
-      * <p> 示例值：66867ed00740ddd4a0bad4a5_c99b5322dc744fe4b99b76426ffe5d53
-      */
+        /**
+         * 主数据的文件id
+         * <p> 示例值：66867ed00740ddd4a0bad4a5_c99b5322dc744fe4b99b76426ffe5d53
+         */
         private String openFileId;
-     /**
-      * 文件名称
-      * <p> 示例值：file_name
-      */
+        /**
+         * 文件名称
+         * <p> 示例值：file_name
+         */
         private String fileName;
-     /**
-      * 文件大小，单位：Byte
-      * <p> 示例值：65535
-      */
+        /**
+         * 文件大小，单位：Byte
+         * <p> 示例值：65535
+         */
         private Integer length;
 
         /**
          * 主数据的文件id
          * <p> 示例值：66867ed00740ddd4a0bad4a5_c99b5322dc744fe4b99b76426ffe5d53
+         *
          * @param openFileId
          * @return
          */
         public Builder openFileId(String openFileId) {
-             this.openFileId = openFileId;
-             return this;
+            this.openFileId = openFileId;
+            return this;
         }
 
-    
 
         /**
          * 文件名称
          * <p> 示例值：file_name
+         *
          * @param fileName
          * @return
          */
         public Builder fileName(String fileName) {
-             this.fileName = fileName;
-             return this;
+            this.fileName = fileName;
+            return this;
         }
 
-    
 
         /**
          * 文件大小，单位：Byte
          * <p> 示例值：65535
+         *
          * @param length
          * @return
          */
         public Builder length(Integer length) {
-             this.length = length;
-             return this;
+            this.length = length;
+            return this;
         }
 
-    
-    
-    public FieldVariableValueToFileForWrite build(){
-        return new FieldVariableValueToFileForWrite(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public FieldVariableValueToFileForWrite build() {
+            return new FieldVariableValueToFileForWrite(this);
+        }
     }
 }

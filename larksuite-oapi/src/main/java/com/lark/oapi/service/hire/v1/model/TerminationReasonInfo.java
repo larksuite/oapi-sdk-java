@@ -12,36 +12,67 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class TerminationReasonInfo {
-     /**
-      * 终止原因 id
-      * <p> 示例值：6891258038901016846
-      */
+    /**
+     * 终止原因 id
+     * <p> 示例值：6891258038901016846
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 终止原因名称
-      * <p> 示例值：
-      */
+    /**
+     * 终止原因名称
+     * <p> 示例值：
+     */
     @SerializedName("name")
     private I18n name;
-     /**
-      * 子级终止原因
-      * <p> 示例值：
-      */
+    /**
+     * 子级终止原因
+     * <p> 示例值：
+     */
     @SerializedName("children")
     private TerminationReasonChildInfo[] children;
+
+    // builder 开始
+    public TerminationReasonInfo() {
+    }
+
+    public TerminationReasonInfo(Builder builder) {
+        /**
+         * 终止原因 id
+         * <p> 示例值：6891258038901016846
+         */
+        this.id = builder.id;
+        /**
+         * 终止原因名称
+         * <p> 示例值：
+         */
+        this.name = builder.name;
+        /**
+         * 子级终止原因
+         * <p> 示例值：
+         */
+        this.children = builder.children;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -66,90 +97,64 @@ public class TerminationReasonInfo {
         this.children = children;
     }
 
-
-// builder 开始
-  public TerminationReasonInfo(){}
-
-  public TerminationReasonInfo(Builder builder){
-         /**
-          * 终止原因 id
-          * <p> 示例值：6891258038901016846
-          */
-      this.id = builder.id;
-         /**
-          * 终止原因名称
-          * <p> 示例值：
-          */
-      this.name = builder.name;
-         /**
-          * 子级终止原因
-          * <p> 示例值：
-          */
-      this.children = builder.children;
-  }
-
     public static class Builder {
-     /**
-      * 终止原因 id
-      * <p> 示例值：6891258038901016846
-      */
+        /**
+         * 终止原因 id
+         * <p> 示例值：6891258038901016846
+         */
         private String id;
-     /**
-      * 终止原因名称
-      * <p> 示例值：
-      */
+        /**
+         * 终止原因名称
+         * <p> 示例值：
+         */
         private I18n name;
-     /**
-      * 子级终止原因
-      * <p> 示例值：
-      */
+        /**
+         * 子级终止原因
+         * <p> 示例值：
+         */
         private TerminationReasonChildInfo[] children;
 
         /**
          * 终止原因 id
          * <p> 示例值：6891258038901016846
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 终止原因名称
          * <p> 示例值：
+         *
          * @param name
          * @return
          */
         public Builder name(I18n name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 子级终止原因
          * <p> 示例值：
+         *
          * @param children
          * @return
          */
         public Builder children(TerminationReasonChildInfo[] children) {
-             this.children = children;
-             return this;
+            this.children = children;
+            return this;
         }
 
-    
-    
-    public TerminationReasonInfo build(){
-        return new TerminationReasonInfo(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public TerminationReasonInfo build() {
+            return new TerminationReasonInfo(this);
+        }
     }
 }

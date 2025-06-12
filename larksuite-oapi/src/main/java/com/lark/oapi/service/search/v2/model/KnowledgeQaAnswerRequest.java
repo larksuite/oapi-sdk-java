@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.search.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.search.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,48 +20,93 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class KnowledgeQaAnswerRequest {
-     /**
-      * 用户问题
-      * <p> 示例值：如何申请显示器
-      */
+    /**
+     * 用户问题
+     * <p> 示例值：如何申请显示器
+     */
     @SerializedName("query")
     private String query;
-     /**
-      * 启用图片理解与展示
-      * <p> 示例值：false
-      */
+    /**
+     * 启用图片理解与展示
+     * <p> 示例值：false
+     */
     @SerializedName("enable_image")
     private Boolean enableImage;
-     /**
-      * 指定答案生成的知识范围
-      * <p> 示例值：enterprise
-      */
+    /**
+     * 指定答案生成的知识范围
+     * <p> 示例值：enterprise
+     */
     @SerializedName("knowledge_scope")
     private String knowledgeScope;
-     /**
-      * 企业内知识的检索范围，选择企业内知识时必填
-      * <p> 示例值：
-      */
+    /**
+     * 企业内知识的检索范围，选择企业内知识时必填
+     * <p> 示例值：
+     */
     @SerializedName("enterprise_knowledge_source")
     private EnterpriseKnowledgeSourceParam enterpriseKnowledgeSource;
-     /**
-      * 额外信息
-      * <p> 示例值：
-      */
+    /**
+     * 额外信息
+     * <p> 示例值：
+     */
     @SerializedName("extra")
     private KnowledgeSourceRequestExtra extra;
-     /**
-      * 大模型种类
-      * <p> 示例值：doubao
-      */
+    /**
+     * 大模型种类
+     * <p> 示例值：doubao
+     */
     @SerializedName("model_type")
     private String modelType;
+
+    // builder 开始
+    public KnowledgeQaAnswerRequest() {
+    }
+
+    public KnowledgeQaAnswerRequest(Builder builder) {
+        /**
+         * 用户问题
+         * <p> 示例值：如何申请显示器
+         */
+        this.query = builder.query;
+        /**
+         * 启用图片理解与展示
+         * <p> 示例值：false
+         */
+        this.enableImage = builder.enableImage;
+        /**
+         * 指定答案生成的知识范围
+         * <p> 示例值：enterprise
+         */
+        this.knowledgeScope = builder.knowledgeScope;
+        /**
+         * 企业内知识的检索范围，选择企业内知识时必填
+         * <p> 示例值：
+         */
+        this.enterpriseKnowledgeSource = builder.enterpriseKnowledgeSource;
+        /**
+         * 额外信息
+         * <p> 示例值：
+         */
+        this.extra = builder.extra;
+        /**
+         * 大模型种类
+         * <p> 示例值：doubao
+         */
+        this.modelType = builder.modelType;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getQuery() {
         return this.query;
     }
@@ -109,179 +155,142 @@ public class KnowledgeQaAnswerRequest {
         this.modelType = modelType;
     }
 
-
-// builder 开始
-  public KnowledgeQaAnswerRequest(){}
-
-  public KnowledgeQaAnswerRequest(Builder builder){
-         /**
-          * 用户问题
-          * <p> 示例值：如何申请显示器
-          */
-      this.query = builder.query;
-         /**
-          * 启用图片理解与展示
-          * <p> 示例值：false
-          */
-      this.enableImage = builder.enableImage;
-         /**
-          * 指定答案生成的知识范围
-          * <p> 示例值：enterprise
-          */
-      this.knowledgeScope = builder.knowledgeScope;
-         /**
-          * 企业内知识的检索范围，选择企业内知识时必填
-          * <p> 示例值：
-          */
-      this.enterpriseKnowledgeSource = builder.enterpriseKnowledgeSource;
-         /**
-          * 额外信息
-          * <p> 示例值：
-          */
-      this.extra = builder.extra;
-         /**
-          * 大模型种类
-          * <p> 示例值：doubao
-          */
-      this.modelType = builder.modelType;
-  }
-
     public static class Builder {
-     /**
-      * 用户问题
-      * <p> 示例值：如何申请显示器
-      */
+        /**
+         * 用户问题
+         * <p> 示例值：如何申请显示器
+         */
         private String query;
-     /**
-      * 启用图片理解与展示
-      * <p> 示例值：false
-      */
+        /**
+         * 启用图片理解与展示
+         * <p> 示例值：false
+         */
         private Boolean enableImage;
-     /**
-      * 指定答案生成的知识范围
-      * <p> 示例值：enterprise
-      */
+        /**
+         * 指定答案生成的知识范围
+         * <p> 示例值：enterprise
+         */
         private String knowledgeScope;
-     /**
-      * 企业内知识的检索范围，选择企业内知识时必填
-      * <p> 示例值：
-      */
+        /**
+         * 企业内知识的检索范围，选择企业内知识时必填
+         * <p> 示例值：
+         */
         private EnterpriseKnowledgeSourceParam enterpriseKnowledgeSource;
-     /**
-      * 额外信息
-      * <p> 示例值：
-      */
+        /**
+         * 额外信息
+         * <p> 示例值：
+         */
         private KnowledgeSourceRequestExtra extra;
-     /**
-      * 大模型种类
-      * <p> 示例值：doubao
-      */
+        /**
+         * 大模型种类
+         * <p> 示例值：doubao
+         */
         private String modelType;
 
         /**
          * 用户问题
          * <p> 示例值：如何申请显示器
+         *
          * @param query
          * @return
          */
         public Builder query(String query) {
-             this.query = query;
-             return this;
+            this.query = query;
+            return this;
         }
 
-    
 
         /**
          * 启用图片理解与展示
          * <p> 示例值：false
+         *
          * @param enableImage
          * @return
          */
         public Builder enableImage(Boolean enableImage) {
-             this.enableImage = enableImage;
-             return this;
+            this.enableImage = enableImage;
+            return this;
         }
 
-    
 
         /**
          * 指定答案生成的知识范围
          * <p> 示例值：enterprise
+         *
          * @param knowledgeScope
          * @return
          */
         public Builder knowledgeScope(String knowledgeScope) {
-             this.knowledgeScope = knowledgeScope;
-             return this;
+            this.knowledgeScope = knowledgeScope;
+            return this;
         }
+
         /**
          * 指定答案生成的知识范围
          * <p> 示例值：enterprise
+         *
          * @param knowledgeScope {@link com.lark.oapi.service.search.v2.enums.KnowledgeQaAnswerRequestKnowledgeScopeEnum}
          * @return
          */
         public Builder knowledgeScope(com.lark.oapi.service.search.v2.enums.KnowledgeQaAnswerRequestKnowledgeScopeEnum knowledgeScope) {
-             this.knowledgeScope = knowledgeScope.getValue();
-             return this;
+            this.knowledgeScope = knowledgeScope.getValue();
+            return this;
         }
 
-    
 
         /**
          * 企业内知识的检索范围，选择企业内知识时必填
          * <p> 示例值：
+         *
          * @param enterpriseKnowledgeSource
          * @return
          */
         public Builder enterpriseKnowledgeSource(EnterpriseKnowledgeSourceParam enterpriseKnowledgeSource) {
-             this.enterpriseKnowledgeSource = enterpriseKnowledgeSource;
-             return this;
+            this.enterpriseKnowledgeSource = enterpriseKnowledgeSource;
+            return this;
         }
 
-    
 
         /**
          * 额外信息
          * <p> 示例值：
+         *
          * @param extra
          * @return
          */
         public Builder extra(KnowledgeSourceRequestExtra extra) {
-             this.extra = extra;
-             return this;
+            this.extra = extra;
+            return this;
         }
 
-    
 
         /**
          * 大模型种类
          * <p> 示例值：doubao
+         *
          * @param modelType
          * @return
          */
         public Builder modelType(String modelType) {
-             this.modelType = modelType;
-             return this;
+            this.modelType = modelType;
+            return this;
         }
+
         /**
          * 大模型种类
          * <p> 示例值：doubao
+         *
          * @param modelType {@link com.lark.oapi.service.search.v2.enums.KnowledgeQaAnswerRequestModelTypeEnum}
          * @return
          */
         public Builder modelType(com.lark.oapi.service.search.v2.enums.KnowledgeQaAnswerRequestModelTypeEnum modelType) {
-             this.modelType = modelType.getValue();
-             return this;
+            this.modelType = modelType.getValue();
+            return this;
         }
 
-    
-    
-    public KnowledgeQaAnswerRequest build(){
-        return new KnowledgeQaAnswerRequest(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public KnowledgeQaAnswerRequest build() {
+            return new KnowledgeQaAnswerRequest(this);
+        }
     }
 }

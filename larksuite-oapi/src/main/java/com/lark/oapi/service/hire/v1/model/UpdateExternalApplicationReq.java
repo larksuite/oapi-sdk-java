@@ -12,24 +12,48 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class UpdateExternalApplicationReq {
-     /**
-      * 外部投递 id
-      * <p> 示例值：6960663240925956660
-      */
+    /**
+     * 外部投递 id
+     * <p> 示例值：6960663240925956660
+     */
     @Path
     @SerializedName("external_application_id")
     private String externalApplicationId;
+    @Body
+    private ExternalApplication body;
+
+    // builder 开始
+    public UpdateExternalApplicationReq() {
+    }
+
+    public UpdateExternalApplicationReq(Builder builder) {
+        /**
+         * 外部投递 id
+         * <p> 示例值：6960663240925956660
+         */
+        this.externalApplicationId = builder.externalApplicationId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getExternalApplicationId() {
         return this.externalApplicationId;
     }
@@ -37,9 +61,6 @@ public class UpdateExternalApplicationReq {
     public void setExternalApplicationId(String externalApplicationId) {
         this.externalApplicationId = externalApplicationId;
     }
-
-    @Body
-    private ExternalApplication body;
 
     public ExternalApplication getExternalApplication() {
         return this.body;
@@ -49,54 +70,40 @@ public class UpdateExternalApplicationReq {
         this.body = body;
     }
 
-// builder 开始
-  public UpdateExternalApplicationReq(){}
-
-  public UpdateExternalApplicationReq(Builder builder){
-     /**
-      * 外部投递 id
-      * <p> 示例值：6960663240925956660
-      */
-       this.externalApplicationId = builder.externalApplicationId;
-        this.body = builder.body;
-  }
-
     public static class Builder {
-    
+
         private String externalApplicationId; // 外部投递 id
+        private ExternalApplication body;
+
         /**
          * 外部投递 id
          * <p> 示例值：6960663240925956660
+         *
          * @param externalApplicationId
          * @return
          */
-          public Builder externalApplicationId(String externalApplicationId) {
-               this.externalApplicationId = externalApplicationId;
-               return this;
-          }
+        public Builder externalApplicationId(String externalApplicationId) {
+            this.externalApplicationId = externalApplicationId;
+            return this;
+        }
 
-    
-        private ExternalApplication body;
-    
         public ExternalApplication getExternalApplication() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder externalApplication(ExternalApplication body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public UpdateExternalApplicationReq build(){
-        return new UpdateExternalApplicationReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public UpdateExternalApplicationReq build() {
+            return new UpdateExternalApplicationReq(this);
+        }
     }
 }

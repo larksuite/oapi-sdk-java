@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ProfileSettingPersonalRecord {
-     /**
-      * 资料类型，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "personal_profile" custom_api_name = "profile_type"
-      * <p> 示例值：profile_type_1
-      */
+    /**
+     * 资料类型，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "personal_profile" custom_api_name = "profile_type"
+     * <p> 示例值：profile_type_1
+     */
     @SerializedName("profile_type")
     private String profileType;
-     /**
-      * 文件列表
-      * <p> 示例值：
-      */
+    /**
+     * 文件列表
+     * <p> 示例值：
+     */
     @SerializedName("files")
     private ProfileSettingFile[] files;
+
+    // builder 开始
+    public ProfileSettingPersonalRecord() {
+    }
+
+    public ProfileSettingPersonalRecord(Builder builder) {
+        /**
+         * 资料类型，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "personal_profile" custom_api_name = "profile_type"
+         * <p> 示例值：profile_type_1
+         */
+        this.profileType = builder.profileType;
+        /**
+         * 文件列表
+         * <p> 示例值：
+         */
+        this.files = builder.files;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getProfileType() {
         return this.profileType;
     }
@@ -53,67 +79,46 @@ public class ProfileSettingPersonalRecord {
         this.files = files;
     }
 
-
-// builder 开始
-  public ProfileSettingPersonalRecord(){}
-
-  public ProfileSettingPersonalRecord(Builder builder){
-         /**
-          * 资料类型，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "personal_profile" custom_api_name = "profile_type"
-          * <p> 示例值：profile_type_1
-          */
-      this.profileType = builder.profileType;
-         /**
-          * 文件列表
-          * <p> 示例值：
-          */
-      this.files = builder.files;
-  }
-
     public static class Builder {
-     /**
-      * 资料类型，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "personal_profile" custom_api_name = "profile_type"
-      * <p> 示例值：profile_type_1
-      */
+        /**
+         * 资料类型，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "personal_profile" custom_api_name = "profile_type"
+         * <p> 示例值：profile_type_1
+         */
         private String profileType;
-     /**
-      * 文件列表
-      * <p> 示例值：
-      */
+        /**
+         * 文件列表
+         * <p> 示例值：
+         */
         private ProfileSettingFile[] files;
 
         /**
          * 资料类型，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "personal_profile" custom_api_name = "profile_type"
          * <p> 示例值：profile_type_1
+         *
          * @param profileType
          * @return
          */
         public Builder profileType(String profileType) {
-             this.profileType = profileType;
-             return this;
+            this.profileType = profileType;
+            return this;
         }
 
-    
 
         /**
          * 文件列表
          * <p> 示例值：
+         *
          * @param files
          * @return
          */
         public Builder files(ProfileSettingFile[] files) {
-             this.files = files;
-             return this;
+            this.files = files;
+            return this;
         }
 
-    
-    
-    public ProfileSettingPersonalRecord build(){
-        return new ProfileSettingPersonalRecord(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ProfileSettingPersonalRecord build() {
+            return new ProfileSettingPersonalRecord(this);
+        }
     }
 }

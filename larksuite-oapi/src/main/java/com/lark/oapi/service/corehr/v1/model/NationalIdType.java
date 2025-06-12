@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,66 +20,126 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class NationalIdType {
-     /**
-      * 证件类型 ID
-      * <p> 示例值：6888198886960137735
-      */
+    /**
+     * 证件类型 ID
+     * <p> 示例值：6888198886960137735
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 国家 / 地区
-      * <p> 示例值：6862995747139225096
-      */
+    /**
+     * 国家 / 地区
+     * <p> 示例值：6862995747139225096
+     */
     @SerializedName("country_region_id")
     private String countryRegionId;
-     /**
-      * 名称
-      * <p> 示例值：
-      */
+    /**
+     * 名称
+     * <p> 示例值：
+     */
     @SerializedName("name")
     private I18n[] name;
-     /**
-      * 是否启用
-      * <p> 示例值：true
-      */
+    /**
+     * 是否启用
+     * <p> 示例值：true
+     */
     @SerializedName("active")
     private Boolean active;
-     /**
-      * 校验规则
-      * <p> 示例值：^\d{9}$
-      */
+    /**
+     * 校验规则
+     * <p> 示例值：^\d{9}$
+     */
     @SerializedName("validation_rule")
     private String validationRule;
-     /**
-      * 校验规则描述
-      * <p> 示例值：
-      */
+    /**
+     * 校验规则描述
+     * <p> 示例值：
+     */
     @SerializedName("validation_rule_description")
     private I18n[] validationRuleDescription;
-     /**
-      * 编码
-      * <p> 示例值：AUS-TFN
-      */
+    /**
+     * 编码
+     * <p> 示例值：AUS-TFN
+     */
     @SerializedName("code")
     private String code;
-     /**
-      * 证件类型
-      * <p> 示例值：
-      */
+    /**
+     * 证件类型
+     * <p> 示例值：
+     */
     @SerializedName("identification_type")
     private Enum identificationType;
-     /**
-      * 自定义字段
-      * <p> 示例值：
-      */
+    /**
+     * 自定义字段
+     * <p> 示例值：
+     */
     @SerializedName("custom_fields")
     private ObjectFieldData[] customFields;
+
+    // builder 开始
+    public NationalIdType() {
+    }
+
+    public NationalIdType(Builder builder) {
+        /**
+         * 证件类型 ID
+         * <p> 示例值：6888198886960137735
+         */
+        this.id = builder.id;
+        /**
+         * 国家 / 地区
+         * <p> 示例值：6862995747139225096
+         */
+        this.countryRegionId = builder.countryRegionId;
+        /**
+         * 名称
+         * <p> 示例值：
+         */
+        this.name = builder.name;
+        /**
+         * 是否启用
+         * <p> 示例值：true
+         */
+        this.active = builder.active;
+        /**
+         * 校验规则
+         * <p> 示例值：^\d{9}$
+         */
+        this.validationRule = builder.validationRule;
+        /**
+         * 校验规则描述
+         * <p> 示例值：
+         */
+        this.validationRuleDescription = builder.validationRuleDescription;
+        /**
+         * 编码
+         * <p> 示例值：AUS-TFN
+         */
+        this.code = builder.code;
+        /**
+         * 证件类型
+         * <p> 示例值：
+         */
+        this.identificationType = builder.identificationType;
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
+        this.customFields = builder.customFields;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -151,228 +212,172 @@ public class NationalIdType {
         this.customFields = customFields;
     }
 
-
-// builder 开始
-  public NationalIdType(){}
-
-  public NationalIdType(Builder builder){
-         /**
-          * 证件类型 ID
-          * <p> 示例值：6888198886960137735
-          */
-      this.id = builder.id;
-         /**
-          * 国家 / 地区
-          * <p> 示例值：6862995747139225096
-          */
-      this.countryRegionId = builder.countryRegionId;
-         /**
-          * 名称
-          * <p> 示例值：
-          */
-      this.name = builder.name;
-         /**
-          * 是否启用
-          * <p> 示例值：true
-          */
-      this.active = builder.active;
-         /**
-          * 校验规则
-          * <p> 示例值：^\d{9}$
-          */
-      this.validationRule = builder.validationRule;
-         /**
-          * 校验规则描述
-          * <p> 示例值：
-          */
-      this.validationRuleDescription = builder.validationRuleDescription;
-         /**
-          * 编码
-          * <p> 示例值：AUS-TFN
-          */
-      this.code = builder.code;
-         /**
-          * 证件类型
-          * <p> 示例值：
-          */
-      this.identificationType = builder.identificationType;
-         /**
-          * 自定义字段
-          * <p> 示例值：
-          */
-      this.customFields = builder.customFields;
-  }
-
     public static class Builder {
-     /**
-      * 证件类型 ID
-      * <p> 示例值：6888198886960137735
-      */
+        /**
+         * 证件类型 ID
+         * <p> 示例值：6888198886960137735
+         */
         private String id;
-     /**
-      * 国家 / 地区
-      * <p> 示例值：6862995747139225096
-      */
+        /**
+         * 国家 / 地区
+         * <p> 示例值：6862995747139225096
+         */
         private String countryRegionId;
-     /**
-      * 名称
-      * <p> 示例值：
-      */
+        /**
+         * 名称
+         * <p> 示例值：
+         */
         private I18n[] name;
-     /**
-      * 是否启用
-      * <p> 示例值：true
-      */
+        /**
+         * 是否启用
+         * <p> 示例值：true
+         */
         private Boolean active;
-     /**
-      * 校验规则
-      * <p> 示例值：^\d{9}$
-      */
+        /**
+         * 校验规则
+         * <p> 示例值：^\d{9}$
+         */
         private String validationRule;
-     /**
-      * 校验规则描述
-      * <p> 示例值：
-      */
+        /**
+         * 校验规则描述
+         * <p> 示例值：
+         */
         private I18n[] validationRuleDescription;
-     /**
-      * 编码
-      * <p> 示例值：AUS-TFN
-      */
+        /**
+         * 编码
+         * <p> 示例值：AUS-TFN
+         */
         private String code;
-     /**
-      * 证件类型
-      * <p> 示例值：
-      */
+        /**
+         * 证件类型
+         * <p> 示例值：
+         */
         private Enum identificationType;
-     /**
-      * 自定义字段
-      * <p> 示例值：
-      */
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
         private ObjectFieldData[] customFields;
 
         /**
          * 证件类型 ID
          * <p> 示例值：6888198886960137735
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 国家 / 地区
          * <p> 示例值：6862995747139225096
+         *
          * @param countryRegionId
          * @return
          */
         public Builder countryRegionId(String countryRegionId) {
-             this.countryRegionId = countryRegionId;
-             return this;
+            this.countryRegionId = countryRegionId;
+            return this;
         }
 
-    
 
         /**
          * 名称
          * <p> 示例值：
+         *
          * @param name
          * @return
          */
         public Builder name(I18n[] name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 是否启用
          * <p> 示例值：true
+         *
          * @param active
          * @return
          */
         public Builder active(Boolean active) {
-             this.active = active;
-             return this;
+            this.active = active;
+            return this;
         }
 
-    
 
         /**
          * 校验规则
          * <p> 示例值：^\d{9}$
+         *
          * @param validationRule
          * @return
          */
         public Builder validationRule(String validationRule) {
-             this.validationRule = validationRule;
-             return this;
+            this.validationRule = validationRule;
+            return this;
         }
 
-    
 
         /**
          * 校验规则描述
          * <p> 示例值：
+         *
          * @param validationRuleDescription
          * @return
          */
         public Builder validationRuleDescription(I18n[] validationRuleDescription) {
-             this.validationRuleDescription = validationRuleDescription;
-             return this;
+            this.validationRuleDescription = validationRuleDescription;
+            return this;
         }
 
-    
 
         /**
          * 编码
          * <p> 示例值：AUS-TFN
+         *
          * @param code
          * @return
          */
         public Builder code(String code) {
-             this.code = code;
-             return this;
+            this.code = code;
+            return this;
         }
 
-    
 
         /**
          * 证件类型
          * <p> 示例值：
+         *
          * @param identificationType
          * @return
          */
         public Builder identificationType(Enum identificationType) {
-             this.identificationType = identificationType;
-             return this;
+            this.identificationType = identificationType;
+            return this;
         }
 
-    
 
         /**
          * 自定义字段
          * <p> 示例值：
+         *
          * @param customFields
          * @return
          */
         public Builder customFields(ObjectFieldData[] customFields) {
-             this.customFields = customFields;
-             return this;
+            this.customFields = customFields;
+            return this;
         }
 
-    
-    
-    public NationalIdType build(){
-        return new NationalIdType(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public NationalIdType build() {
+            return new NationalIdType(this);
+        }
     }
 }

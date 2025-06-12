@@ -17,25 +17,26 @@ package com.lark.oapi.service.document_ai.v1.enums;
  * 识别的字段种类
  */
 public enum BusinessEntityBusinessEntityTypeEnum {
-     CERTIFICATETYPE("certificate_type"), // 证书类型
-     UNIFIEDSOCIALCREDITCODE("unified_social_credit_code"), // 统一社会信用代码
-     COMPANYNAME("company_name"), // 公司名称
-     COMPANYTYPE("company_type"), // 公司类型
-     DOMICILE("domicile"), // 住所
-     LEGALREPRESENTATIVE("legal_representative"), // 法定代表人
-     REGISTEREDCAPITAL("registered_capital"), // 注册资本
-     ESTABLISHEDTIME("established_time"), // 成立日期
-     ESTABLISHEDDATE("established_date"), // 营业期限
-     BUSINESSSCOPE("business_scope"), // 经营范围
-     WEBSITE("website"), // 企业信用信息公示系统网址
-     APPROVALDATE("approval_date"), // 核准日期
-  ;
-   private String value;
+    CERTIFICATETYPE("certificate_type"), // 证书类型
+    UNIFIEDSOCIALCREDITCODE("unified_social_credit_code"), // 统一社会信用代码
+    COMPANYNAME("company_name"), // 公司名称
+    COMPANYTYPE("company_type"), // 公司类型
+    DOMICILE("domicile"), // 住所
+    LEGALREPRESENTATIVE("legal_representative"), // 法定代表人
+    REGISTEREDCAPITAL("registered_capital"), // 注册资本
+    ESTABLISHEDTIME("established_time"), // 成立日期
+    ESTABLISHEDDATE("established_date"), // 营业期限
+    BUSINESSSCOPE("business_scope"), // 经营范围
+    WEBSITE("website"), // 企业信用信息公示系统网址
+    APPROVALDATE("approval_date"), // 核准日期
+    ;
+    private String value;
+
     BusinessEntityBusinessEntityTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

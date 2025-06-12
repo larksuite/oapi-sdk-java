@@ -17,19 +17,20 @@ package com.lark.oapi.service.sheets.v3.enums;
  * 数据校验类型
  */
 public enum DataValidationRuleDataValidationTypeEnum {
-     SINGLEOPTION("SingleOption"), // 单选
-     MULTIPLEOPTION("MultipleOption"), // 多选
-     CHECKBOX("CheckBox"), // 复选框
-     NUMBERDATAVALIDATION("NumberDataValidation"), // 数值数据校验
-     DATEDATAVALIDATION("DateDataValidation"), // 日期数据校验
-     TEXTDATAVALIDATION("TextDataValidation"), // 文本数据校验
-  ;
-   private String value;
+    SINGLEOPTION("SingleOption"), // 单选
+    MULTIPLEOPTION("MultipleOption"), // 多选
+    CHECKBOX("CheckBox"), // 复选框
+    NUMBERDATAVALIDATION("NumberDataValidation"), // 数值数据校验
+    DATEDATAVALIDATION("DateDataValidation"), // 日期数据校验
+    TEXTDATAVALIDATION("TextDataValidation"), // 文本数据校验
+    ;
+    private String value;
+
     DataValidationRuleDataValidationTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

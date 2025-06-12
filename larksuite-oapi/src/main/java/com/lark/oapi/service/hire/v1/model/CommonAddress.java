@@ -12,54 +12,100 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CommonAddress {
-     /**
-      * ID
-      * <p> 示例值：6583482347283472832
-      */
+    /**
+     * ID
+     * <p> 示例值：6583482347283472832
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 名称
-      * <p> 示例值：
-      */
+    /**
+     * 名称
+     * <p> 示例值：
+     */
     @SerializedName("name")
     private I18n name;
-     /**
-      * 区域信息
-      * <p> 示例值：
-      */
+    /**
+     * 区域信息
+     * <p> 示例值：
+     */
     @SerializedName("district")
     private CodeNameObject district;
-     /**
-      * 城市信息
-      * <p> 示例值：
-      */
+    /**
+     * 城市信息
+     * <p> 示例值：
+     */
     @SerializedName("city")
     private CodeNameObject city;
-     /**
-      * 省信息
-      * <p> 示例值：
-      */
+    /**
+     * 省信息
+     * <p> 示例值：
+     */
     @SerializedName("state")
     private CodeNameObject state;
-     /**
-      * 国家信息
-      * <p> 示例值：
-      */
+    /**
+     * 国家信息
+     * <p> 示例值：
+     */
     @SerializedName("country")
     private CodeNameObject country;
+
+    // builder 开始
+    public CommonAddress() {
+    }
+
+    public CommonAddress(Builder builder) {
+        /**
+         * ID
+         * <p> 示例值：6583482347283472832
+         */
+        this.id = builder.id;
+        /**
+         * 名称
+         * <p> 示例值：
+         */
+        this.name = builder.name;
+        /**
+         * 区域信息
+         * <p> 示例值：
+         */
+        this.district = builder.district;
+        /**
+         * 城市信息
+         * <p> 示例值：
+         */
+        this.city = builder.city;
+        /**
+         * 省信息
+         * <p> 示例值：
+         */
+        this.state = builder.state;
+        /**
+         * 国家信息
+         * <p> 示例值：
+         */
+        this.country = builder.country;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -108,159 +154,118 @@ public class CommonAddress {
         this.country = country;
     }
 
-
-// builder 开始
-  public CommonAddress(){}
-
-  public CommonAddress(Builder builder){
-         /**
-          * ID
-          * <p> 示例值：6583482347283472832
-          */
-      this.id = builder.id;
-         /**
-          * 名称
-          * <p> 示例值：
-          */
-      this.name = builder.name;
-         /**
-          * 区域信息
-          * <p> 示例值：
-          */
-      this.district = builder.district;
-         /**
-          * 城市信息
-          * <p> 示例值：
-          */
-      this.city = builder.city;
-         /**
-          * 省信息
-          * <p> 示例值：
-          */
-      this.state = builder.state;
-         /**
-          * 国家信息
-          * <p> 示例值：
-          */
-      this.country = builder.country;
-  }
-
     public static class Builder {
-     /**
-      * ID
-      * <p> 示例值：6583482347283472832
-      */
+        /**
+         * ID
+         * <p> 示例值：6583482347283472832
+         */
         private String id;
-     /**
-      * 名称
-      * <p> 示例值：
-      */
+        /**
+         * 名称
+         * <p> 示例值：
+         */
         private I18n name;
-     /**
-      * 区域信息
-      * <p> 示例值：
-      */
+        /**
+         * 区域信息
+         * <p> 示例值：
+         */
         private CodeNameObject district;
-     /**
-      * 城市信息
-      * <p> 示例值：
-      */
+        /**
+         * 城市信息
+         * <p> 示例值：
+         */
         private CodeNameObject city;
-     /**
-      * 省信息
-      * <p> 示例值：
-      */
+        /**
+         * 省信息
+         * <p> 示例值：
+         */
         private CodeNameObject state;
-     /**
-      * 国家信息
-      * <p> 示例值：
-      */
+        /**
+         * 国家信息
+         * <p> 示例值：
+         */
         private CodeNameObject country;
 
         /**
          * ID
          * <p> 示例值：6583482347283472832
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 名称
          * <p> 示例值：
+         *
          * @param name
          * @return
          */
         public Builder name(I18n name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 区域信息
          * <p> 示例值：
+         *
          * @param district
          * @return
          */
         public Builder district(CodeNameObject district) {
-             this.district = district;
-             return this;
+            this.district = district;
+            return this;
         }
 
-    
 
         /**
          * 城市信息
          * <p> 示例值：
+         *
          * @param city
          * @return
          */
         public Builder city(CodeNameObject city) {
-             this.city = city;
-             return this;
+            this.city = city;
+            return this;
         }
 
-    
 
         /**
          * 省信息
          * <p> 示例值：
+         *
          * @param state
          * @return
          */
         public Builder state(CodeNameObject state) {
-             this.state = state;
-             return this;
+            this.state = state;
+            return this;
         }
 
-    
 
         /**
          * 国家信息
          * <p> 示例值：
+         *
          * @param country
          * @return
          */
         public Builder country(CodeNameObject country) {
-             this.country = country;
-             return this;
+            this.country = country;
+            return this;
         }
 
-    
-    
-    public CommonAddress build(){
-        return new CommonAddress(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public CommonAddress build() {
+            return new CommonAddress(this);
+        }
     }
 }

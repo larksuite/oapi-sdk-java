@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class UpdateTabsChatTabReqBody {
-     /**
-      * 会话标签页
-      * <p> 示例值：
-      */
+    /**
+     * 会话标签页
+     * <p> 示例值：
+     */
     @SerializedName("chat_tabs")
     private ChatTab[] chatTabs;
+
+    // builder 开始
+    public UpdateTabsChatTabReqBody() {
+    }
+
+    public UpdateTabsChatTabReqBody(Builder builder) {
+        /**
+         * 会话标签页
+         * <p> 示例值：
+         */
+        this.chatTabs = builder.chatTabs;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public ChatTab[] getChatTabs() {
         return this.chatTabs;
     }
@@ -39,44 +60,28 @@ public class UpdateTabsChatTabReqBody {
         this.chatTabs = chatTabs;
     }
 
-
-// builder 开始
-  public UpdateTabsChatTabReqBody(){}
-
-  public UpdateTabsChatTabReqBody(Builder builder){
-         /**
-          * 会话标签页
-          * <p> 示例值：
-          */
-      this.chatTabs = builder.chatTabs;
-  }
-
     public static class Builder {
-     /**
-      * 会话标签页
-      * <p> 示例值：
-      */
+        /**
+         * 会话标签页
+         * <p> 示例值：
+         */
         private ChatTab[] chatTabs;
 
         /**
          * 会话标签页
          * <p> 示例值：
+         *
          * @param chatTabs
          * @return
          */
         public Builder chatTabs(ChatTab[] chatTabs) {
-             this.chatTabs = chatTabs;
-             return this;
+            this.chatTabs = chatTabs;
+            return this;
         }
 
-    
-    
-    public UpdateTabsChatTabReqBody build(){
-        return new UpdateTabsChatTabReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public UpdateTabsChatTabReqBody build() {
+            return new UpdateTabsChatTabReqBody(this);
+        }
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.im.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class MessageLink {
-     /**
-      * 消息链接化Token
-      * <p> 示例值：Alx4rstyAAEHZNIAS0abcdefgh
-      */
+    /**
+     * 消息链接化Token
+     * <p> 示例值：Alx4rstyAAEHZNIAS0abcdefgh
+     */
     @SerializedName("token")
     private String token;
-     /**
-      * 消息链接化URL
-      * <p> 示例值：https://applink.feishu.cn/client/message/link/open?token=Alx4rstyAAEHZNIAS0abcdefgh
-      */
+    /**
+     * 消息链接化URL
+     * <p> 示例值：https://applink.feishu.cn/client/message/link/open?token=Alx4rstyAAEHZNIAS0abcdefgh
+     */
     @SerializedName("token_url")
     private String tokenUrl;
+
+    // builder 开始
+    public MessageLink() {
+    }
+
+    public MessageLink(Builder builder) {
+        /**
+         * 消息链接化Token
+         * <p> 示例值：Alx4rstyAAEHZNIAS0abcdefgh
+         */
+        this.token = builder.token;
+        /**
+         * 消息链接化URL
+         * <p> 示例值：https://applink.feishu.cn/client/message/link/open?token=Alx4rstyAAEHZNIAS0abcdefgh
+         */
+        this.tokenUrl = builder.tokenUrl;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getToken() {
         return this.token;
     }
@@ -53,67 +79,46 @@ public class MessageLink {
         this.tokenUrl = tokenUrl;
     }
 
-
-// builder 开始
-  public MessageLink(){}
-
-  public MessageLink(Builder builder){
-         /**
-          * 消息链接化Token
-          * <p> 示例值：Alx4rstyAAEHZNIAS0abcdefgh
-          */
-      this.token = builder.token;
-         /**
-          * 消息链接化URL
-          * <p> 示例值：https://applink.feishu.cn/client/message/link/open?token=Alx4rstyAAEHZNIAS0abcdefgh
-          */
-      this.tokenUrl = builder.tokenUrl;
-  }
-
     public static class Builder {
-     /**
-      * 消息链接化Token
-      * <p> 示例值：Alx4rstyAAEHZNIAS0abcdefgh
-      */
+        /**
+         * 消息链接化Token
+         * <p> 示例值：Alx4rstyAAEHZNIAS0abcdefgh
+         */
         private String token;
-     /**
-      * 消息链接化URL
-      * <p> 示例值：https://applink.feishu.cn/client/message/link/open?token=Alx4rstyAAEHZNIAS0abcdefgh
-      */
+        /**
+         * 消息链接化URL
+         * <p> 示例值：https://applink.feishu.cn/client/message/link/open?token=Alx4rstyAAEHZNIAS0abcdefgh
+         */
         private String tokenUrl;
 
         /**
          * 消息链接化Token
          * <p> 示例值：Alx4rstyAAEHZNIAS0abcdefgh
+         *
          * @param token
          * @return
          */
         public Builder token(String token) {
-             this.token = token;
-             return this;
+            this.token = token;
+            return this;
         }
 
-    
 
         /**
          * 消息链接化URL
          * <p> 示例值：https://applink.feishu.cn/client/message/link/open?token=Alx4rstyAAEHZNIAS0abcdefgh
+         *
          * @param tokenUrl
          * @return
          */
         public Builder tokenUrl(String tokenUrl) {
-             this.tokenUrl = tokenUrl;
-             return this;
+            this.tokenUrl = tokenUrl;
+            return this;
         }
 
-    
-    
-    public MessageLink build(){
-        return new MessageLink(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public MessageLink build() {
+            return new MessageLink(this);
+        }
     }
 }

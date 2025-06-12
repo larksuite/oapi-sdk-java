@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.search.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.search.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class KnowledgeSourceMessageReject {
-     /**
-      * 消息 ID 列表
-      * <p> 示例值：
-      */
+    /**
+     * 消息 ID 列表
+     * <p> 示例值：
+     */
     @SerializedName("message_ids")
     private String[] messageIds;
-     /**
-      * 会话 ID 列表
-      * <p> 示例值：
-      */
+    /**
+     * 会话 ID 列表
+     * <p> 示例值：
+     */
     @SerializedName("chat_ids")
     private String[] chatIds;
+
+    // builder 开始
+    public KnowledgeSourceMessageReject() {
+    }
+
+    public KnowledgeSourceMessageReject(Builder builder) {
+        /**
+         * 消息 ID 列表
+         * <p> 示例值：
+         */
+        this.messageIds = builder.messageIds;
+        /**
+         * 会话 ID 列表
+         * <p> 示例值：
+         */
+        this.chatIds = builder.chatIds;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String[] getMessageIds() {
         return this.messageIds;
     }
@@ -53,67 +79,46 @@ public class KnowledgeSourceMessageReject {
         this.chatIds = chatIds;
     }
 
-
-// builder 开始
-  public KnowledgeSourceMessageReject(){}
-
-  public KnowledgeSourceMessageReject(Builder builder){
-         /**
-          * 消息 ID 列表
-          * <p> 示例值：
-          */
-      this.messageIds = builder.messageIds;
-         /**
-          * 会话 ID 列表
-          * <p> 示例值：
-          */
-      this.chatIds = builder.chatIds;
-  }
-
     public static class Builder {
-     /**
-      * 消息 ID 列表
-      * <p> 示例值：
-      */
+        /**
+         * 消息 ID 列表
+         * <p> 示例值：
+         */
         private String[] messageIds;
-     /**
-      * 会话 ID 列表
-      * <p> 示例值：
-      */
+        /**
+         * 会话 ID 列表
+         * <p> 示例值：
+         */
         private String[] chatIds;
 
         /**
          * 消息 ID 列表
          * <p> 示例值：
+         *
          * @param messageIds
          * @return
          */
         public Builder messageIds(String[] messageIds) {
-             this.messageIds = messageIds;
-             return this;
+            this.messageIds = messageIds;
+            return this;
         }
 
-    
 
         /**
          * 会话 ID 列表
          * <p> 示例值：
+         *
          * @param chatIds
          * @return
          */
         public Builder chatIds(String[] chatIds) {
-             this.chatIds = chatIds;
-             return this;
+            this.chatIds = chatIds;
+            return this;
         }
 
-    
-    
-    public KnowledgeSourceMessageReject build(){
-        return new KnowledgeSourceMessageReject(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public KnowledgeSourceMessageReject build() {
+            return new KnowledgeSourceMessageReject(this);
+        }
     }
 }

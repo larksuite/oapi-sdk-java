@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Rating {
-     /**
-      * 评分字段的符号展示
-      * <p> 示例值：star
-      */
+    /**
+     * 评分字段的符号展示
+     * <p> 示例值：star
+     */
     @SerializedName("symbol")
     private String symbol;
+
+    // builder 开始
+    public Rating() {
+    }
+
+    public Rating(Builder builder) {
+        /**
+         * 评分字段的符号展示
+         * <p> 示例值：star
+         */
+        this.symbol = builder.symbol;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getSymbol() {
         return this.symbol;
     }
@@ -39,44 +60,28 @@ public class Rating {
         this.symbol = symbol;
     }
 
-
-// builder 开始
-  public Rating(){}
-
-  public Rating(Builder builder){
-         /**
-          * 评分字段的符号展示
-          * <p> 示例值：star
-          */
-      this.symbol = builder.symbol;
-  }
-
     public static class Builder {
-     /**
-      * 评分字段的符号展示
-      * <p> 示例值：star
-      */
+        /**
+         * 评分字段的符号展示
+         * <p> 示例值：star
+         */
         private String symbol;
 
         /**
          * 评分字段的符号展示
          * <p> 示例值：star
+         *
          * @param symbol
          * @return
          */
         public Builder symbol(String symbol) {
-             this.symbol = symbol;
-             return this;
+            this.symbol = symbol;
+            return this;
         }
 
-    
-    
-    public Rating build(){
-        return new Rating(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Rating build() {
+            return new Rating(this);
+        }
     }
 }

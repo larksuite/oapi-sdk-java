@@ -12,67 +12,118 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class QueryAuthorizationReq {
-     /**
-      * 员工ID列表，最大100个（不传则默认查询全部员工）
-      * <p> 示例值：
-      */
+    /**
+     * 员工ID列表，最大100个（不传则默认查询全部员工）
+     * <p> 示例值：
+     */
     @Query
     @SerializedName("employment_id_list")
     private String[] employmentIdList;
-     /**
-      * 角色 ID 列表，最大 100 个
-      * <p> 示例值：
-      */
+    /**
+     * 角色 ID 列表，最大 100 个
+     * <p> 示例值：
+     */
     @Query
     @SerializedName("role_id_list")
     private String[] roleIdList;
-     /**
-      * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
-      * <p> 示例值：6969864184272078374
-      */
+    /**
+     * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
+     * <p> 示例值：6969864184272078374
+     */
     @Query
     @SerializedName("page_token")
     private String pageToken;
-     /**
-      * 每页获取记录数量，最大20
-      * <p> 示例值：20
-      */
+    /**
+     * 每页获取记录数量，最大20
+     * <p> 示例值：20
+     */
     @Query
     @SerializedName("page_size")
     private String pageSize;
-     /**
-      * 用户 ID 类型
-      * <p> 示例值：people_corehr_id
-      */
+    /**
+     * 用户 ID 类型
+     * <p> 示例值：people_corehr_id
+     */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
-     /**
-      * 授权时间大于
-      * <p> 示例值：1729773628
-      */
+    /**
+     * 授权时间大于
+     * <p> 示例值：1729773628
+     */
     @Query
     @SerializedName("updated_at_gte")
     private String updatedAtGte;
-     /**
-      * 授权时间小于
-      * <p> 示例值：1729773628
-      */
+    /**
+     * 授权时间小于
+     * <p> 示例值：1729773628
+     */
     @Query
     @SerializedName("updated_at_lte")
     private String updatedAtLte;
+
+    // builder 开始
+    public QueryAuthorizationReq() {
+    }
+
+    public QueryAuthorizationReq(Builder builder) {
+        /**
+         * 员工ID列表，最大100个（不传则默认查询全部员工）
+         * <p> 示例值：
+         */
+        this.employmentIdList = builder.employmentIdList;
+        /**
+         * 角色 ID 列表，最大 100 个
+         * <p> 示例值：
+         */
+        this.roleIdList = builder.roleIdList;
+        /**
+         * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
+         * <p> 示例值：6969864184272078374
+         */
+        this.pageToken = builder.pageToken;
+        /**
+         * 每页获取记录数量，最大20
+         * <p> 示例值：20
+         */
+        this.pageSize = builder.pageSize;
+        /**
+         * 用户 ID 类型
+         * <p> 示例值：people_corehr_id
+         */
+        this.userIdType = builder.userIdType;
+        /**
+         * 授权时间大于
+         * <p> 示例值：1729773628
+         */
+        this.updatedAtGte = builder.updatedAtGte;
+        /**
+         * 授权时间小于
+         * <p> 示例值：1729773628
+         */
+        this.updatedAtLte = builder.updatedAtLte;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String[] getEmploymentIdList() {
         return this.employmentIdList;
     }
@@ -129,48 +180,6 @@ public class QueryAuthorizationReq {
         this.updatedAtLte = updatedAtLte;
     }
 
-
-// builder 开始
-  public QueryAuthorizationReq(){}
-
-  public QueryAuthorizationReq(Builder builder){
-         /**
-          * 员工ID列表，最大100个（不传则默认查询全部员工）
-          * <p> 示例值：
-          */
-       this.employmentIdList = builder.employmentIdList;
-         /**
-          * 角色 ID 列表，最大 100 个
-          * <p> 示例值：
-          */
-       this.roleIdList = builder.roleIdList;
-         /**
-          * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
-          * <p> 示例值：6969864184272078374
-          */
-       this.pageToken = builder.pageToken;
-         /**
-          * 每页获取记录数量，最大20
-          * <p> 示例值：20
-          */
-       this.pageSize = builder.pageSize;
-         /**
-          * 用户 ID 类型
-          * <p> 示例值：people_corehr_id
-          */
-       this.userIdType = builder.userIdType;
-         /**
-          * 授权时间大于
-          * <p> 示例值：1729773628
-          */
-       this.updatedAtGte = builder.updatedAtGte;
-         /**
-          * 授权时间小于
-          * <p> 示例值：1729773628
-          */
-       this.updatedAtLte = builder.updatedAtLte;
-  }
-
     public static class Builder {
         private String[] employmentIdList; // 员工ID列表，最大100个（不传则默认查询全部员工）
         private String[] roleIdList; // 角色 ID 列表，最大 100 个
@@ -179,108 +188,112 @@ public class QueryAuthorizationReq {
         private String userIdType; // 用户 ID 类型
         private String updatedAtGte; // 授权时间大于
         private String updatedAtLte; // 授权时间小于
-    
+
         /**
          * 员工ID列表，最大100个（不传则默认查询全部员工）
          * <p> 示例值：
+         *
          * @param employmentIdList
          * @return
          */
-           public Builder employmentIdList(String[] employmentIdList) {
-                this.employmentIdList = employmentIdList;
-                return this;
-           }
+        public Builder employmentIdList(String[] employmentIdList) {
+            this.employmentIdList = employmentIdList;
+            return this;
+        }
 
-    
+
         /**
          * 角色 ID 列表，最大 100 个
          * <p> 示例值：
+         *
          * @param roleIdList
          * @return
          */
-           public Builder roleIdList(String[] roleIdList) {
-                this.roleIdList = roleIdList;
-                return this;
-           }
+        public Builder roleIdList(String[] roleIdList) {
+            this.roleIdList = roleIdList;
+            return this;
+        }
 
-    
+
         /**
          * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
          * <p> 示例值：6969864184272078374
+         *
          * @param pageToken
          * @return
          */
-           public Builder pageToken(String pageToken) {
-                this.pageToken = pageToken;
-                return this;
-           }
+        public Builder pageToken(String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+        }
 
-    
+
         /**
          * 每页获取记录数量，最大20
          * <p> 示例值：20
+         *
          * @param pageSize
          * @return
          */
-           public Builder pageSize(String pageSize) {
-                this.pageSize = pageSize;
-                return this;
-           }
+        public Builder pageSize(String pageSize) {
+            this.pageSize = pageSize;
+            return this;
+        }
 
-    
+
         /**
          * 用户 ID 类型
          * <p> 示例值：people_corehr_id
+         *
          * @param userIdType
          * @return
          */
-           public Builder userIdType(String userIdType) {
-                this.userIdType = userIdType;
-                return this;
-           }
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
 
         /**
          * 用户 ID 类型
          * <p> 示例值：people_corehr_id
+         *
          * @param userIdType {@link com.lark.oapi.service.corehr.v1.enums.QueryAuthorizationUserIdTypeEnum}
          * @return
          */
-          public Builder userIdType(com.lark.oapi.service.corehr.v1.enums.QueryAuthorizationUserIdTypeEnum userIdType) {
-               this.userIdType = userIdType.getValue();
-               return this;
-          }
+        public Builder userIdType(com.lark.oapi.service.corehr.v1.enums.QueryAuthorizationUserIdTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
+            return this;
+        }
 
-    
+
         /**
          * 授权时间大于
          * <p> 示例值：1729773628
+         *
          * @param updatedAtGte
          * @return
          */
-           public Builder updatedAtGte(String updatedAtGte) {
-                this.updatedAtGte = updatedAtGte;
-                return this;
-           }
+        public Builder updatedAtGte(String updatedAtGte) {
+            this.updatedAtGte = updatedAtGte;
+            return this;
+        }
 
-    
+
         /**
          * 授权时间小于
          * <p> 示例值：1729773628
+         *
          * @param updatedAtLte
          * @return
          */
-           public Builder updatedAtLte(String updatedAtLte) {
-                this.updatedAtLte = updatedAtLte;
-                return this;
-           }
+        public Builder updatedAtLte(String updatedAtLte) {
+            this.updatedAtLte = updatedAtLte;
+            return this;
+        }
 
-    
-    public QueryAuthorizationReq build(){
-        return new QueryAuthorizationReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public QueryAuthorizationReq build() {
+            return new QueryAuthorizationReq(this);
+        }
     }
 }

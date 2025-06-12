@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class SignatureTemplateFilterItem {
-     /**
-      * 左值
-      * <p> 示例值：aa
-      */
+    /**
+     * 左值
+     * <p> 示例值：aa
+     */
     @SerializedName("left")
     private String left;
-     /**
-      * 右值列表
-      * <p> 示例值：
-      */
+    /**
+     * 右值列表
+     * <p> 示例值：
+     */
     @SerializedName("rights")
     private String[] rights;
-     /**
-      * 操作符
-      * <p> 示例值：
-      */
+    /**
+     * 操作符
+     * <p> 示例值：
+     */
     @SerializedName("op")
     private Enum op;
+
+    // builder 开始
+    public SignatureTemplateFilterItem() {
+    }
+
+    public SignatureTemplateFilterItem(Builder builder) {
+        /**
+         * 左值
+         * <p> 示例值：aa
+         */
+        this.left = builder.left;
+        /**
+         * 右值列表
+         * <p> 示例值：
+         */
+        this.rights = builder.rights;
+        /**
+         * 操作符
+         * <p> 示例值：
+         */
+        this.op = builder.op;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getLeft() {
         return this.left;
     }
@@ -67,90 +98,64 @@ public class SignatureTemplateFilterItem {
         this.op = op;
     }
 
-
-// builder 开始
-  public SignatureTemplateFilterItem(){}
-
-  public SignatureTemplateFilterItem(Builder builder){
-         /**
-          * 左值
-          * <p> 示例值：aa
-          */
-      this.left = builder.left;
-         /**
-          * 右值列表
-          * <p> 示例值：
-          */
-      this.rights = builder.rights;
-         /**
-          * 操作符
-          * <p> 示例值：
-          */
-      this.op = builder.op;
-  }
-
     public static class Builder {
-     /**
-      * 左值
-      * <p> 示例值：aa
-      */
+        /**
+         * 左值
+         * <p> 示例值：aa
+         */
         private String left;
-     /**
-      * 右值列表
-      * <p> 示例值：
-      */
+        /**
+         * 右值列表
+         * <p> 示例值：
+         */
         private String[] rights;
-     /**
-      * 操作符
-      * <p> 示例值：
-      */
+        /**
+         * 操作符
+         * <p> 示例值：
+         */
         private Enum op;
 
         /**
          * 左值
          * <p> 示例值：aa
+         *
          * @param left
          * @return
          */
         public Builder left(String left) {
-             this.left = left;
-             return this;
+            this.left = left;
+            return this;
         }
 
-    
 
         /**
          * 右值列表
          * <p> 示例值：
+         *
          * @param rights
          * @return
          */
         public Builder rights(String[] rights) {
-             this.rights = rights;
-             return this;
+            this.rights = rights;
+            return this;
         }
 
-    
 
         /**
          * 操作符
          * <p> 示例值：
+         *
          * @param op
          * @return
          */
         public Builder op(Enum op) {
-             this.op = op;
-             return this;
+            this.op = op;
+            return this;
         }
 
-    
-    
-    public SignatureTemplateFilterItem build(){
-        return new SignatureTemplateFilterItem(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public SignatureTemplateFilterItem build() {
+            return new SignatureTemplateFilterItem(this);
+        }
     }
 }

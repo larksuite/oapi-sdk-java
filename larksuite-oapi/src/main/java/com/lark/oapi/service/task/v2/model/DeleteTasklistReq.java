@@ -12,25 +12,46 @@
  */
 
 package com.lark.oapi.service.task.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.task.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class DeleteTasklistReq {
-     /**
-      * 要删除的任务GUID
-      * <p> 示例值：d300a75f-c56a-4be9-80d1-e47653028ceb
-      */
+    /**
+     * 要删除的任务GUID
+     * <p> 示例值：d300a75f-c56a-4be9-80d1-e47653028ceb
+     */
     @Path
     @SerializedName("tasklist_guid")
     private String tasklistGuid;
+
+    // builder 开始
+    public DeleteTasklistReq() {
+    }
+
+    public DeleteTasklistReq(Builder builder) {
+        /**
+         * 要删除的任务GUID
+         * <p> 示例值：d300a75f-c56a-4be9-80d1-e47653028ceb
+         */
+        this.tasklistGuid = builder.tasklistGuid;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getTasklistGuid() {
         return this.tasklistGuid;
     }
@@ -39,39 +60,25 @@ public class DeleteTasklistReq {
         this.tasklistGuid = tasklistGuid;
     }
 
-
-// builder 开始
-  public DeleteTasklistReq(){}
-
-  public DeleteTasklistReq(Builder builder){
-     /**
-      * 要删除的任务GUID
-      * <p> 示例值：d300a75f-c56a-4be9-80d1-e47653028ceb
-      */
-       this.tasklistGuid = builder.tasklistGuid;
-  }
-
     public static class Builder {
-    
+
         private String tasklistGuid; // 要删除的任务GUID
+
         /**
          * 要删除的任务GUID
          * <p> 示例值：d300a75f-c56a-4be9-80d1-e47653028ceb
+         *
          * @param tasklistGuid
          * @return
          */
-          public Builder tasklistGuid(String tasklistGuid) {
-               this.tasklistGuid = tasklistGuid;
-               return this;
-          }
+        public Builder tasklistGuid(String tasklistGuid) {
+            this.tasklistGuid = tasklistGuid;
+            return this;
+        }
 
-    
-    public DeleteTasklistReq build(){
-        return new DeleteTasklistReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public DeleteTasklistReq build() {
+            return new DeleteTasklistReq(this);
+        }
     }
 }

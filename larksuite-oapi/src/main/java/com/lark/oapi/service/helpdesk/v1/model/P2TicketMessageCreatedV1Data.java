@@ -12,84 +12,89 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class P2TicketMessageCreatedV1Data {
-     /**
-      * ticket message id
-      * <p> 示例值：
-      */
+    /**
+     * ticket message id
+     * <p> 示例值：
+     */
     @SerializedName("ticket_message_id")
     private String ticketMessageId;
-     /**
-      * open message id
-      * <p> 示例值：
-      */
+    /**
+     * open message id
+     * <p> 示例值：
+     */
     @SerializedName("message_id")
     private String messageId;
-     /**
-      * message type, text is the only supported type
-      * <p> 示例值：
-      */
+    /**
+     * message type, text is the only supported type
+     * <p> 示例值：
+     */
     @SerializedName("msg_type")
     private String msgType;
-     /**
-      * position of the message
-      * <p> 示例值：
-      */
+    /**
+     * position of the message
+     * <p> 示例值：
+     */
     @SerializedName("position")
     private String position;
-     /**
-      * sender's open id, omitted if the sender is the bot
-      * <p> 示例值：
-      */
+    /**
+     * sender's open id, omitted if the sender is the bot
+     * <p> 示例值：
+     */
     @SerializedName("sender_id")
     private UserId senderId;
-     /**
-      * sender type, 1 for bot, 2 for guest, 3 for agent
-      * <p> 示例值：
-      */
+    /**
+     * sender type, 1 for bot, 2 for guest, 3 for agent
+     * <p> 示例值：
+     */
     @SerializedName("sender_type")
     private Integer senderType;
-     /**
-      * message content
-      * <p> 示例值：
-      */
+    /**
+     * message content
+     * <p> 示例值：
+     */
     @SerializedName("text")
     private String text;
-     /**
-      * ticket related information
-      * <p> 示例值：
-      */
+    /**
+     * ticket related information
+     * <p> 示例值：
+     */
     @SerializedName("ticket")
     private Ticket ticket;
-     /**
-      * event id
-      * <p> 示例值：
-      */
+    /**
+     * event id
+     * <p> 示例值：
+     */
     @SerializedName("event_id")
     private String eventId;
-     /**
-      * chat id
-      * <p> 示例值：
-      */
+    /**
+     * chat id
+     * <p> 示例值：
+     */
     @SerializedName("chat_id")
     private String chatId;
-     /**
-      * message content
-      * <p> 示例值：
-      */
+    /**
+     * message content
+     * <p> 示例值：
+     */
     @SerializedName("content")
     private TicketMessageContent content;
+
     public String getTicketMessageId() {
         return this.ticketMessageId;
     }

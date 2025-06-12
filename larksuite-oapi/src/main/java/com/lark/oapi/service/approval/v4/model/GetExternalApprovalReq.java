@@ -12,25 +12,58 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class GetExternalApprovalReq {
-     /**
-      * 此次调用中使用的用户ID的类型
-      * <p> 示例值：
-      */
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
+    /**
+     * 审批定义code
+     * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+     */
+    @Path
+    @SerializedName("approval_code")
+    private String approvalCode;
+
+    // builder 开始
+    public GetExternalApprovalReq() {
+    }
+
+    public GetExternalApprovalReq(Builder builder) {
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         */
+        this.userIdType = builder.userIdType;
+        /**
+         * 审批定义code
+         * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+         */
+        this.approvalCode = builder.approvalCode;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getUserIdType() {
         return this.userIdType;
     }
@@ -39,13 +72,6 @@ public class GetExternalApprovalReq {
         this.userIdType = userIdType;
     }
 
-     /**
-      * 审批定义code
-      * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
-      */
-    @Path
-    @SerializedName("approval_code")
-    private String approvalCode;
     public String getApprovalCode() {
         return this.approvalCode;
     }
@@ -54,68 +80,49 @@ public class GetExternalApprovalReq {
         this.approvalCode = approvalCode;
     }
 
-
-// builder 开始
-  public GetExternalApprovalReq(){}
-
-  public GetExternalApprovalReq(Builder builder){
-         /**
-          * 此次调用中使用的用户ID的类型
-          * <p> 示例值：
-          */
-       this.userIdType = builder.userIdType;
-     /**
-      * 审批定义code
-      * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
-      */
-       this.approvalCode = builder.approvalCode;
-  }
-
     public static class Builder {
         private String userIdType; // 此次调用中使用的用户ID的类型
-    
+        private String approvalCode; // 审批定义code
+
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
+         *
          * @param userIdType
          * @return
          */
-           public Builder userIdType(String userIdType) {
-                this.userIdType = userIdType;
-                return this;
-           }
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
 
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
+         *
          * @param userIdType {@link com.lark.oapi.service.approval.v4.enums.GetExternalApprovalUserIdTypeEnum}
          * @return
          */
-          public Builder userIdType(com.lark.oapi.service.approval.v4.enums.GetExternalApprovalUserIdTypeEnum userIdType) {
-               this.userIdType = userIdType.getValue();
-               return this;
-          }
+        public Builder userIdType(com.lark.oapi.service.approval.v4.enums.GetExternalApprovalUserIdTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
+            return this;
+        }
 
-    
-        private String approvalCode; // 审批定义code
         /**
          * 审批定义code
          * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+         *
          * @param approvalCode
          * @return
          */
-          public Builder approvalCode(String approvalCode) {
-               this.approvalCode = approvalCode;
-               return this;
-          }
+        public Builder approvalCode(String approvalCode) {
+            this.approvalCode = approvalCode;
+            return this;
+        }
 
-    
-    public GetExternalApprovalReq build(){
-        return new GetExternalApprovalReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public GetExternalApprovalReq build() {
+            return new GetExternalApprovalReq(this);
+        }
     }
 }

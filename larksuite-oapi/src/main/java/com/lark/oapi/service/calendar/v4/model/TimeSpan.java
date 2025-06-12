@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.calendar.v4.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.calendar.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class TimeSpan {
-     /**
-      * 空闲时间-开始时间
-      * <p> 示例值：none
-      */
+    /**
+     * 空闲时间-开始时间
+     * <p> 示例值：none
+     */
     @SerializedName("start_time")
     private String startTime;
-     /**
-      * 空闲时间-结束时间
-      * <p> 示例值：none
-      */
+    /**
+     * 空闲时间-结束时间
+     * <p> 示例值：none
+     */
     @SerializedName("end_time")
     private String endTime;
+
+    // builder 开始
+    public TimeSpan() {
+    }
+
+    public TimeSpan(Builder builder) {
+        /**
+         * 空闲时间-开始时间
+         * <p> 示例值：none
+         */
+        this.startTime = builder.startTime;
+        /**
+         * 空闲时间-结束时间
+         * <p> 示例值：none
+         */
+        this.endTime = builder.endTime;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getStartTime() {
         return this.startTime;
     }
@@ -53,67 +79,46 @@ public class TimeSpan {
         this.endTime = endTime;
     }
 
-
-// builder 开始
-  public TimeSpan(){}
-
-  public TimeSpan(Builder builder){
-         /**
-          * 空闲时间-开始时间
-          * <p> 示例值：none
-          */
-      this.startTime = builder.startTime;
-         /**
-          * 空闲时间-结束时间
-          * <p> 示例值：none
-          */
-      this.endTime = builder.endTime;
-  }
-
     public static class Builder {
-     /**
-      * 空闲时间-开始时间
-      * <p> 示例值：none
-      */
+        /**
+         * 空闲时间-开始时间
+         * <p> 示例值：none
+         */
         private String startTime;
-     /**
-      * 空闲时间-结束时间
-      * <p> 示例值：none
-      */
+        /**
+         * 空闲时间-结束时间
+         * <p> 示例值：none
+         */
         private String endTime;
 
         /**
          * 空闲时间-开始时间
          * <p> 示例值：none
+         *
          * @param startTime
          * @return
          */
         public Builder startTime(String startTime) {
-             this.startTime = startTime;
-             return this;
+            this.startTime = startTime;
+            return this;
         }
 
-    
 
         /**
          * 空闲时间-结束时间
          * <p> 示例值：none
+         *
          * @param endTime
          * @return
          */
         public Builder endTime(String endTime) {
-             this.endTime = endTime;
-             return this;
+            this.endTime = endTime;
+            return this;
         }
 
-    
-    
-    public TimeSpan build(){
-        return new TimeSpan(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public TimeSpan build() {
+            return new TimeSpan(this);
+        }
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.payroll.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.payroll.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CostAllocationReportData {
-     /**
-      * 数据维度汇总
-      * <p> 示例值：
-      */
+    /**
+     * 数据维度汇总
+     * <p> 示例值：
+     */
     @SerializedName("data_summary_dimensions")
     private DataSummaryDimension[] dataSummaryDimensions;
-     /**
-      * 成本项数据
-      * <p> 示例值：
-      */
+    /**
+     * 成本项数据
+     * <p> 示例值：
+     */
     @SerializedName("compensation_cost_item")
     private CompensationCostItem compensationCostItem;
-     /**
-      * 员工id
-      * <p> 示例值：72321836123692186
-      */
+    /**
+     * 员工id
+     * <p> 示例值：72321836123692186
+     */
     @SerializedName("employment_id")
     private String employmentId;
+
+    // builder 开始
+    public CostAllocationReportData() {
+    }
+
+    public CostAllocationReportData(Builder builder) {
+        /**
+         * 数据维度汇总
+         * <p> 示例值：
+         */
+        this.dataSummaryDimensions = builder.dataSummaryDimensions;
+        /**
+         * 成本项数据
+         * <p> 示例值：
+         */
+        this.compensationCostItem = builder.compensationCostItem;
+        /**
+         * 员工id
+         * <p> 示例值：72321836123692186
+         */
+        this.employmentId = builder.employmentId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public DataSummaryDimension[] getDataSummaryDimensions() {
         return this.dataSummaryDimensions;
     }
@@ -67,90 +98,64 @@ public class CostAllocationReportData {
         this.employmentId = employmentId;
     }
 
-
-// builder 开始
-  public CostAllocationReportData(){}
-
-  public CostAllocationReportData(Builder builder){
-         /**
-          * 数据维度汇总
-          * <p> 示例值：
-          */
-      this.dataSummaryDimensions = builder.dataSummaryDimensions;
-         /**
-          * 成本项数据
-          * <p> 示例值：
-          */
-      this.compensationCostItem = builder.compensationCostItem;
-         /**
-          * 员工id
-          * <p> 示例值：72321836123692186
-          */
-      this.employmentId = builder.employmentId;
-  }
-
     public static class Builder {
-     /**
-      * 数据维度汇总
-      * <p> 示例值：
-      */
+        /**
+         * 数据维度汇总
+         * <p> 示例值：
+         */
         private DataSummaryDimension[] dataSummaryDimensions;
-     /**
-      * 成本项数据
-      * <p> 示例值：
-      */
+        /**
+         * 成本项数据
+         * <p> 示例值：
+         */
         private CompensationCostItem compensationCostItem;
-     /**
-      * 员工id
-      * <p> 示例值：72321836123692186
-      */
+        /**
+         * 员工id
+         * <p> 示例值：72321836123692186
+         */
         private String employmentId;
 
         /**
          * 数据维度汇总
          * <p> 示例值：
+         *
          * @param dataSummaryDimensions
          * @return
          */
         public Builder dataSummaryDimensions(DataSummaryDimension[] dataSummaryDimensions) {
-             this.dataSummaryDimensions = dataSummaryDimensions;
-             return this;
+            this.dataSummaryDimensions = dataSummaryDimensions;
+            return this;
         }
 
-    
 
         /**
          * 成本项数据
          * <p> 示例值：
+         *
          * @param compensationCostItem
          * @return
          */
         public Builder compensationCostItem(CompensationCostItem compensationCostItem) {
-             this.compensationCostItem = compensationCostItem;
-             return this;
+            this.compensationCostItem = compensationCostItem;
+            return this;
         }
 
-    
 
         /**
          * 员工id
          * <p> 示例值：72321836123692186
+         *
          * @param employmentId
          * @return
          */
         public Builder employmentId(String employmentId) {
-             this.employmentId = employmentId;
-             return this;
+            this.employmentId = employmentId;
+            return this;
         }
 
-    
-    
-    public CostAllocationReportData build(){
-        return new CostAllocationReportData(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public CostAllocationReportData build() {
+            return new CostAllocationReportData(this);
+        }
     }
 }

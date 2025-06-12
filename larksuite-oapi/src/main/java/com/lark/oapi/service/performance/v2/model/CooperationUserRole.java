@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.performance.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.performance.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CooperationUserRole {
-     /**
-      * 角色 ID
-      * <p> 示例值：7213434603057807379
-      */
+    /**
+     * 角色 ID
+     * <p> 示例值：7213434603057807379
+     */
     @SerializedName("role_id")
     private String roleId;
-     /**
-      * 名称
-      * <p> 示例值：
-      */
+    /**
+     * 名称
+     * <p> 示例值：
+     */
     @SerializedName("name")
     private I18n name;
+
+    // builder 开始
+    public CooperationUserRole() {
+    }
+
+    public CooperationUserRole(Builder builder) {
+        /**
+         * 角色 ID
+         * <p> 示例值：7213434603057807379
+         */
+        this.roleId = builder.roleId;
+        /**
+         * 名称
+         * <p> 示例值：
+         */
+        this.name = builder.name;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getRoleId() {
         return this.roleId;
     }
@@ -53,67 +79,46 @@ public class CooperationUserRole {
         this.name = name;
     }
 
-
-// builder 开始
-  public CooperationUserRole(){}
-
-  public CooperationUserRole(Builder builder){
-         /**
-          * 角色 ID
-          * <p> 示例值：7213434603057807379
-          */
-      this.roleId = builder.roleId;
-         /**
-          * 名称
-          * <p> 示例值：
-          */
-      this.name = builder.name;
-  }
-
     public static class Builder {
-     /**
-      * 角色 ID
-      * <p> 示例值：7213434603057807379
-      */
+        /**
+         * 角色 ID
+         * <p> 示例值：7213434603057807379
+         */
         private String roleId;
-     /**
-      * 名称
-      * <p> 示例值：
-      */
+        /**
+         * 名称
+         * <p> 示例值：
+         */
         private I18n name;
 
         /**
          * 角色 ID
          * <p> 示例值：7213434603057807379
+         *
          * @param roleId
          * @return
          */
         public Builder roleId(String roleId) {
-             this.roleId = roleId;
-             return this;
+            this.roleId = roleId;
+            return this;
         }
 
-    
 
         /**
          * 名称
          * <p> 示例值：
+         *
          * @param name
          * @return
          */
         public Builder name(I18n name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
-    
-    public CooperationUserRole build(){
-        return new CooperationUserRole(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public CooperationUserRole build() {
+            return new CooperationUserRole(this);
+        }
     }
 }

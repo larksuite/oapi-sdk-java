@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CreateAgentScheduleReqBody {
-     /**
-      * 新客服日程
-      * <p> 示例值：
-      */
+    /**
+     * 新客服日程
+     * <p> 示例值：
+     */
     @SerializedName("agent_schedules")
     private AgentScheduleUpdateInfo[] agentSchedules;
+
+    // builder 开始
+    public CreateAgentScheduleReqBody() {
+    }
+
+    public CreateAgentScheduleReqBody(Builder builder) {
+        /**
+         * 新客服日程
+         * <p> 示例值：
+         */
+        this.agentSchedules = builder.agentSchedules;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public AgentScheduleUpdateInfo[] getAgentSchedules() {
         return this.agentSchedules;
     }
@@ -39,44 +60,28 @@ public class CreateAgentScheduleReqBody {
         this.agentSchedules = agentSchedules;
     }
 
-
-// builder 开始
-  public CreateAgentScheduleReqBody(){}
-
-  public CreateAgentScheduleReqBody(Builder builder){
-         /**
-          * 新客服日程
-          * <p> 示例值：
-          */
-      this.agentSchedules = builder.agentSchedules;
-  }
-
     public static class Builder {
-     /**
-      * 新客服日程
-      * <p> 示例值：
-      */
+        /**
+         * 新客服日程
+         * <p> 示例值：
+         */
         private AgentScheduleUpdateInfo[] agentSchedules;
 
         /**
          * 新客服日程
          * <p> 示例值：
+         *
          * @param agentSchedules
          * @return
          */
         public Builder agentSchedules(AgentScheduleUpdateInfo[] agentSchedules) {
-             this.agentSchedules = agentSchedules;
-             return this;
+            this.agentSchedules = agentSchedules;
+            return this;
         }
 
-    
-    
-    public CreateAgentScheduleReqBody build(){
-        return new CreateAgentScheduleReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public CreateAgentScheduleReqBody build() {
+            return new CreateAgentScheduleReqBody(this);
+        }
     }
 }

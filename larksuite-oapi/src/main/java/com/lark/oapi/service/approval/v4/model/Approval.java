@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Approval {
-     /**
-      * 审批定义code
-      * <p> 示例值：
-      */
+    /**
+     * 审批定义code
+     * <p> 示例值：
+     */
     @SerializedName("approval_code")
     private String approvalCode;
-     /**
-      * 审批定义名称
-      * <p> 示例值：
-      */
+    /**
+     * 审批定义名称
+     * <p> 示例值：
+     */
     @SerializedName("approval_name")
     private String approvalName;
-     /**
-      * 审批定义状态
-      * <p> 示例值：ACTIVE
-      */
+    /**
+     * 审批定义状态
+     * <p> 示例值：ACTIVE
+     */
     @SerializedName("status")
     private String status;
+
+    // builder 开始
+    public Approval() {
+    }
+
+    public Approval(Builder builder) {
+        /**
+         * 审批定义code
+         * <p> 示例值：
+         */
+        this.approvalCode = builder.approvalCode;
+        /**
+         * 审批定义名称
+         * <p> 示例值：
+         */
+        this.approvalName = builder.approvalName;
+        /**
+         * 审批定义状态
+         * <p> 示例值：ACTIVE
+         */
+        this.status = builder.status;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getApprovalCode() {
         return this.approvalCode;
     }
@@ -67,100 +98,76 @@ public class Approval {
         this.status = status;
     }
 
-
-// builder 开始
-  public Approval(){}
-
-  public Approval(Builder builder){
-         /**
-          * 审批定义code
-          * <p> 示例值：
-          */
-      this.approvalCode = builder.approvalCode;
-         /**
-          * 审批定义名称
-          * <p> 示例值：
-          */
-      this.approvalName = builder.approvalName;
-         /**
-          * 审批定义状态
-          * <p> 示例值：ACTIVE
-          */
-      this.status = builder.status;
-  }
-
     public static class Builder {
-     /**
-      * 审批定义code
-      * <p> 示例值：
-      */
+        /**
+         * 审批定义code
+         * <p> 示例值：
+         */
         private String approvalCode;
-     /**
-      * 审批定义名称
-      * <p> 示例值：
-      */
+        /**
+         * 审批定义名称
+         * <p> 示例值：
+         */
         private String approvalName;
-     /**
-      * 审批定义状态
-      * <p> 示例值：ACTIVE
-      */
+        /**
+         * 审批定义状态
+         * <p> 示例值：ACTIVE
+         */
         private String status;
 
         /**
          * 审批定义code
          * <p> 示例值：
+         *
          * @param approvalCode
          * @return
          */
         public Builder approvalCode(String approvalCode) {
-             this.approvalCode = approvalCode;
-             return this;
+            this.approvalCode = approvalCode;
+            return this;
         }
 
-    
 
         /**
          * 审批定义名称
          * <p> 示例值：
+         *
          * @param approvalName
          * @return
          */
         public Builder approvalName(String approvalName) {
-             this.approvalName = approvalName;
-             return this;
+            this.approvalName = approvalName;
+            return this;
         }
 
-    
 
         /**
          * 审批定义状态
          * <p> 示例值：ACTIVE
+         *
          * @param status
          * @return
          */
         public Builder status(String status) {
-             this.status = status;
-             return this;
+            this.status = status;
+            return this;
         }
+
         /**
          * 审批定义状态
          * <p> 示例值：ACTIVE
+         *
          * @param status {@link com.lark.oapi.service.approval.v4.enums.ApprovalOpenApiApprovalStatusEnum}
          * @return
          */
         public Builder status(com.lark.oapi.service.approval.v4.enums.ApprovalOpenApiApprovalStatusEnum status) {
-             this.status = status.getValue();
-             return this;
+            this.status = status.getValue();
+            return this;
         }
 
-    
-    
-    public Approval build(){
-        return new Approval(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Approval build() {
+            return new Approval(this);
+        }
     }
 }

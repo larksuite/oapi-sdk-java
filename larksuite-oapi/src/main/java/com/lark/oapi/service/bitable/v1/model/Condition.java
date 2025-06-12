@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Condition {
-     /**
-      * 筛选条件的左值，值为字段的名称
-      * <p> 示例值：字段名称
-      */
+    /**
+     * 筛选条件的左值，值为字段的名称
+     * <p> 示例值：字段名称
+     */
     @SerializedName("field_name")
     private String fieldName;
-     /**
-      * 条件运算符
-      * <p> 示例值：is
-      */
+    /**
+     * 条件运算符
+     * <p> 示例值：is
+     */
     @SerializedName("operator")
     private String operator;
-     /**
-      * 目标值
-      * <p> 示例值：
-      */
+    /**
+     * 目标值
+     * <p> 示例值：
+     */
     @SerializedName("value")
     private String[] value;
+
+    // builder 开始
+    public Condition() {
+    }
+
+    public Condition(Builder builder) {
+        /**
+         * 筛选条件的左值，值为字段的名称
+         * <p> 示例值：字段名称
+         */
+        this.fieldName = builder.fieldName;
+        /**
+         * 条件运算符
+         * <p> 示例值：is
+         */
+        this.operator = builder.operator;
+        /**
+         * 目标值
+         * <p> 示例值：
+         */
+        this.value = builder.value;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getFieldName() {
         return this.fieldName;
     }
@@ -67,100 +98,76 @@ public class Condition {
         this.value = value;
     }
 
-
-// builder 开始
-  public Condition(){}
-
-  public Condition(Builder builder){
-         /**
-          * 筛选条件的左值，值为字段的名称
-          * <p> 示例值：字段名称
-          */
-      this.fieldName = builder.fieldName;
-         /**
-          * 条件运算符
-          * <p> 示例值：is
-          */
-      this.operator = builder.operator;
-         /**
-          * 目标值
-          * <p> 示例值：
-          */
-      this.value = builder.value;
-  }
-
     public static class Builder {
-     /**
-      * 筛选条件的左值，值为字段的名称
-      * <p> 示例值：字段名称
-      */
+        /**
+         * 筛选条件的左值，值为字段的名称
+         * <p> 示例值：字段名称
+         */
         private String fieldName;
-     /**
-      * 条件运算符
-      * <p> 示例值：is
-      */
+        /**
+         * 条件运算符
+         * <p> 示例值：is
+         */
         private String operator;
-     /**
-      * 目标值
-      * <p> 示例值：
-      */
+        /**
+         * 目标值
+         * <p> 示例值：
+         */
         private String[] value;
 
         /**
          * 筛选条件的左值，值为字段的名称
          * <p> 示例值：字段名称
+         *
          * @param fieldName
          * @return
          */
         public Builder fieldName(String fieldName) {
-             this.fieldName = fieldName;
-             return this;
+            this.fieldName = fieldName;
+            return this;
         }
 
-    
 
         /**
          * 条件运算符
          * <p> 示例值：is
+         *
          * @param operator
          * @return
          */
         public Builder operator(String operator) {
-             this.operator = operator;
-             return this;
+            this.operator = operator;
+            return this;
         }
+
         /**
          * 条件运算符
          * <p> 示例值：is
+         *
          * @param operator {@link com.lark.oapi.service.bitable.v1.enums.ConditionOperatorEnum}
          * @return
          */
         public Builder operator(com.lark.oapi.service.bitable.v1.enums.ConditionOperatorEnum operator) {
-             this.operator = operator.getValue();
-             return this;
+            this.operator = operator.getValue();
+            return this;
         }
 
-    
 
         /**
          * 目标值
          * <p> 示例值：
+         *
          * @param value
          * @return
          */
         public Builder value(String[] value) {
-             this.value = value;
-             return this;
+            this.value = value;
+            return this;
         }
 
-    
-    
-    public Condition build(){
-        return new Condition(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Condition build() {
+            return new Condition(this);
+        }
     }
 }

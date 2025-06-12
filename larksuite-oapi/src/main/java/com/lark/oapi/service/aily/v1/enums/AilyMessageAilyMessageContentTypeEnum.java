@@ -17,18 +17,19 @@ package com.lark.oapi.service.aily.v1.enums;
  * 消息内容类型
  */
 public enum AilyMessageAilyMessageContentTypeEnum {
-     CONTENTTYPEMDX("MDX"), // MDX
-     CONTENTTYPETEXT("TEXT"), // TEXT
-     CONTENTTYPECLIP("CLIP"), // GUI 卡片
-     CONTENTTYPESMARTCARD("SmartCard"), // SmartCard
-     CONTENTTYPEJSON("JSON"), // JSON
-  ;
-   private String value;
+    CONTENTTYPEMDX("MDX"), // MDX
+    CONTENTTYPETEXT("TEXT"), // TEXT
+    CONTENTTYPECLIP("CLIP"), // GUI 卡片
+    CONTENTTYPESMARTCARD("SmartCard"), // SmartCard
+    CONTENTTYPEJSON("JSON"), // JSON
+    ;
+    private String value;
+
     AilyMessageAilyMessageContentTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

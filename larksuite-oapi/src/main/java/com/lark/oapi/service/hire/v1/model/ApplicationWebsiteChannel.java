@@ -12,30 +12,56 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ApplicationWebsiteChannel {
-     /**
-      * 官网推广渠道 ID
-      * <p> 示例值：777218419274131
-      */
+    /**
+     * 官网推广渠道 ID
+     * <p> 示例值：777218419274131
+     */
     @SerializedName("channel_id")
     private String channelId;
-     /**
-      * 官网推广渠道名称
-      * <p> 示例值：
-      */
+    /**
+     * 官网推广渠道名称
+     * <p> 示例值：
+     */
     @SerializedName("channel_name")
     private I18n channelName;
+
+    // builder 开始
+    public ApplicationWebsiteChannel() {
+    }
+
+    public ApplicationWebsiteChannel(Builder builder) {
+        /**
+         * 官网推广渠道 ID
+         * <p> 示例值：777218419274131
+         */
+        this.channelId = builder.channelId;
+        /**
+         * 官网推广渠道名称
+         * <p> 示例值：
+         */
+        this.channelName = builder.channelName;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getChannelId() {
         return this.channelId;
     }
@@ -52,67 +78,46 @@ public class ApplicationWebsiteChannel {
         this.channelName = channelName;
     }
 
-
-// builder 开始
-  public ApplicationWebsiteChannel(){}
-
-  public ApplicationWebsiteChannel(Builder builder){
-         /**
-          * 官网推广渠道 ID
-          * <p> 示例值：777218419274131
-          */
-      this.channelId = builder.channelId;
-         /**
-          * 官网推广渠道名称
-          * <p> 示例值：
-          */
-      this.channelName = builder.channelName;
-  }
-
     public static class Builder {
-     /**
-      * 官网推广渠道 ID
-      * <p> 示例值：777218419274131
-      */
+        /**
+         * 官网推广渠道 ID
+         * <p> 示例值：777218419274131
+         */
         private String channelId;
-     /**
-      * 官网推广渠道名称
-      * <p> 示例值：
-      */
+        /**
+         * 官网推广渠道名称
+         * <p> 示例值：
+         */
         private I18n channelName;
 
         /**
          * 官网推广渠道 ID
          * <p> 示例值：777218419274131
+         *
          * @param channelId
          * @return
          */
         public Builder channelId(String channelId) {
-             this.channelId = channelId;
-             return this;
+            this.channelId = channelId;
+            return this;
         }
 
-    
 
         /**
          * 官网推广渠道名称
          * <p> 示例值：
+         *
          * @param channelName
          * @return
          */
         public Builder channelName(I18n channelName) {
-             this.channelName = channelName;
-             return this;
+            this.channelName = channelName;
+            return this;
         }
 
-    
-    
-    public ApplicationWebsiteChannel build(){
-        return new ApplicationWebsiteChannel(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ApplicationWebsiteChannel build() {
+            return new ApplicationWebsiteChannel(this);
+        }
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,48 +20,93 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ConnectorInstanceDefinition {
-     /**
-      * 连接器源类型
-      * <p> 示例值：connector
-      */
+    /**
+     * 连接器源类型
+     * <p> 示例值：connector
+     */
     @SerializedName("connector_source_type")
     private String connectorSourceType;
-     /**
-      * 连接器APIName
-      * <p> 示例值：test_connector
-      */
+    /**
+     * 连接器APIName
+     * <p> 示例值：test_connector
+     */
     @SerializedName("connector_api_name")
     private String connectorApiName;
-     /**
-      * 连接器Action APIName
-      * <p> 示例值：test_action
-      */
+    /**
+     * 连接器Action APIName
+     * <p> 示例值：test_action
+     */
     @SerializedName("action_api_name")
     private String actionApiName;
-     /**
-      * 连接APIName
-      * <p> 示例值：test_connection
-      */
+    /**
+     * 连接APIName
+     * <p> 示例值：test_connection
+     */
     @SerializedName("connection_api_name")
     private String connectionApiName;
-     /**
-      * 输入参数
-      * <p> 示例值：\{\}
-      */
+    /**
+     * 输入参数
+     * <p> 示例值：\{\}
+     */
     @SerializedName("input_data")
     private String inputData;
-     /**
-      * 输出数据schema
-      * <p> 示例值：\{\}
-      */
+    /**
+     * 输出数据schema
+     * <p> 示例值：\{\}
+     */
     @SerializedName("output_data_schema")
     private String outputDataSchema;
+
+    // builder 开始
+    public ConnectorInstanceDefinition() {
+    }
+
+    public ConnectorInstanceDefinition(Builder builder) {
+        /**
+         * 连接器源类型
+         * <p> 示例值：connector
+         */
+        this.connectorSourceType = builder.connectorSourceType;
+        /**
+         * 连接器APIName
+         * <p> 示例值：test_connector
+         */
+        this.connectorApiName = builder.connectorApiName;
+        /**
+         * 连接器Action APIName
+         * <p> 示例值：test_action
+         */
+        this.actionApiName = builder.actionApiName;
+        /**
+         * 连接APIName
+         * <p> 示例值：test_connection
+         */
+        this.connectionApiName = builder.connectionApiName;
+        /**
+         * 输入参数
+         * <p> 示例值：\{\}
+         */
+        this.inputData = builder.inputData;
+        /**
+         * 输出数据schema
+         * <p> 示例值：\{\}
+         */
+        this.outputDataSchema = builder.outputDataSchema;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getConnectorSourceType() {
         return this.connectorSourceType;
     }
@@ -109,159 +155,118 @@ public class ConnectorInstanceDefinition {
         this.outputDataSchema = outputDataSchema;
     }
 
-
-// builder 开始
-  public ConnectorInstanceDefinition(){}
-
-  public ConnectorInstanceDefinition(Builder builder){
-         /**
-          * 连接器源类型
-          * <p> 示例值：connector
-          */
-      this.connectorSourceType = builder.connectorSourceType;
-         /**
-          * 连接器APIName
-          * <p> 示例值：test_connector
-          */
-      this.connectorApiName = builder.connectorApiName;
-         /**
-          * 连接器Action APIName
-          * <p> 示例值：test_action
-          */
-      this.actionApiName = builder.actionApiName;
-         /**
-          * 连接APIName
-          * <p> 示例值：test_connection
-          */
-      this.connectionApiName = builder.connectionApiName;
-         /**
-          * 输入参数
-          * <p> 示例值：\{\}
-          */
-      this.inputData = builder.inputData;
-         /**
-          * 输出数据schema
-          * <p> 示例值：\{\}
-          */
-      this.outputDataSchema = builder.outputDataSchema;
-  }
-
     public static class Builder {
-     /**
-      * 连接器源类型
-      * <p> 示例值：connector
-      */
+        /**
+         * 连接器源类型
+         * <p> 示例值：connector
+         */
         private String connectorSourceType;
-     /**
-      * 连接器APIName
-      * <p> 示例值：test_connector
-      */
+        /**
+         * 连接器APIName
+         * <p> 示例值：test_connector
+         */
         private String connectorApiName;
-     /**
-      * 连接器Action APIName
-      * <p> 示例值：test_action
-      */
+        /**
+         * 连接器Action APIName
+         * <p> 示例值：test_action
+         */
         private String actionApiName;
-     /**
-      * 连接APIName
-      * <p> 示例值：test_connection
-      */
+        /**
+         * 连接APIName
+         * <p> 示例值：test_connection
+         */
         private String connectionApiName;
-     /**
-      * 输入参数
-      * <p> 示例值：\{\}
-      */
+        /**
+         * 输入参数
+         * <p> 示例值：\{\}
+         */
         private String inputData;
-     /**
-      * 输出数据schema
-      * <p> 示例值：\{\}
-      */
+        /**
+         * 输出数据schema
+         * <p> 示例值：\{\}
+         */
         private String outputDataSchema;
 
         /**
          * 连接器源类型
          * <p> 示例值：connector
+         *
          * @param connectorSourceType
          * @return
          */
         public Builder connectorSourceType(String connectorSourceType) {
-             this.connectorSourceType = connectorSourceType;
-             return this;
+            this.connectorSourceType = connectorSourceType;
+            return this;
         }
 
-    
 
         /**
          * 连接器APIName
          * <p> 示例值：test_connector
+         *
          * @param connectorApiName
          * @return
          */
         public Builder connectorApiName(String connectorApiName) {
-             this.connectorApiName = connectorApiName;
-             return this;
+            this.connectorApiName = connectorApiName;
+            return this;
         }
 
-    
 
         /**
          * 连接器Action APIName
          * <p> 示例值：test_action
+         *
          * @param actionApiName
          * @return
          */
         public Builder actionApiName(String actionApiName) {
-             this.actionApiName = actionApiName;
-             return this;
+            this.actionApiName = actionApiName;
+            return this;
         }
 
-    
 
         /**
          * 连接APIName
          * <p> 示例值：test_connection
+         *
          * @param connectionApiName
          * @return
          */
         public Builder connectionApiName(String connectionApiName) {
-             this.connectionApiName = connectionApiName;
-             return this;
+            this.connectionApiName = connectionApiName;
+            return this;
         }
 
-    
 
         /**
          * 输入参数
          * <p> 示例值：\{\}
+         *
          * @param inputData
          * @return
          */
         public Builder inputData(String inputData) {
-             this.inputData = inputData;
-             return this;
+            this.inputData = inputData;
+            return this;
         }
 
-    
 
         /**
          * 输出数据schema
          * <p> 示例值：\{\}
+         *
          * @param outputDataSchema
          * @return
          */
         public Builder outputDataSchema(String outputDataSchema) {
-             this.outputDataSchema = outputDataSchema;
-             return this;
+            this.outputDataSchema = outputDataSchema;
+            return this;
         }
 
-    
-    
-    public ConnectorInstanceDefinition build(){
-        return new ConnectorInstanceDefinition(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ConnectorInstanceDefinition build() {
+            return new ConnectorInstanceDefinition(this);
+        }
     }
 }

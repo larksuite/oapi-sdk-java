@@ -17,15 +17,16 @@ package com.lark.oapi.service.application.v6.enums;
  * 部门id 类型
  */
 public enum PatchApplicationContactsRangePatchApplicationContactsRangeDepartmentIDTypeEnum {
-     OPEN_DEPARTMENT_ID("open_department_id"), // 以open_department_id标识部门
-     DEPARTMENT_ID("department_id"), // 以department_id标识部门
-  ;
-   private String value;
+    OPEN_DEPARTMENT_ID("open_department_id"), // 以open_department_id标识部门
+    DEPARTMENT_ID("department_id"), // 以department_id标识部门
+    ;
+    private String value;
+
     PatchApplicationContactsRangePatchApplicationContactsRangeDepartmentIDTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

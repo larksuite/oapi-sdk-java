@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,36 +20,71 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ActiveCustomOrgReqBody {
-     /**
-      * 组织ID
-      * <p> 示例值：6862995757234914823
-      */
+    /**
+     * 组织ID
+     * <p> 示例值：6862995757234914823
+     */
     @SerializedName("org_id")
     private String orgId;
-     /**
-      * 组织类型编码
-      * <p> 示例值：apiname__c
-      */
+    /**
+     * 组织类型编码
+     * <p> 示例值：apiname__c
+     */
     @SerializedName("object_api_name")
     private String objectApiName;
-     /**
-      * 启用停用状态
-      * <p> 示例值：true
-      */
+    /**
+     * 启用停用状态
+     * <p> 示例值：true
+     */
     @SerializedName("active")
     private Boolean active;
-     /**
-      * 生效时间
-      * <p> 示例值：2020-01-01
-      */
+    /**
+     * 生效时间
+     * <p> 示例值：2020-01-01
+     */
     @SerializedName("effective_time")
     private String effectiveTime;
+
+    // builder 开始
+    public ActiveCustomOrgReqBody() {
+    }
+
+    public ActiveCustomOrgReqBody(Builder builder) {
+        /**
+         * 组织ID
+         * <p> 示例值：6862995757234914823
+         */
+        this.orgId = builder.orgId;
+        /**
+         * 组织类型编码
+         * <p> 示例值：apiname__c
+         */
+        this.objectApiName = builder.objectApiName;
+        /**
+         * 启用停用状态
+         * <p> 示例值：true
+         */
+        this.active = builder.active;
+        /**
+         * 生效时间
+         * <p> 示例值：2020-01-01
+         */
+        this.effectiveTime = builder.effectiveTime;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getOrgId() {
         return this.orgId;
     }
@@ -81,113 +117,82 @@ public class ActiveCustomOrgReqBody {
         this.effectiveTime = effectiveTime;
     }
 
-
-// builder 开始
-  public ActiveCustomOrgReqBody(){}
-
-  public ActiveCustomOrgReqBody(Builder builder){
-         /**
-          * 组织ID
-          * <p> 示例值：6862995757234914823
-          */
-      this.orgId = builder.orgId;
-         /**
-          * 组织类型编码
-          * <p> 示例值：apiname__c
-          */
-      this.objectApiName = builder.objectApiName;
-         /**
-          * 启用停用状态
-          * <p> 示例值：true
-          */
-      this.active = builder.active;
-         /**
-          * 生效时间
-          * <p> 示例值：2020-01-01
-          */
-      this.effectiveTime = builder.effectiveTime;
-  }
-
     public static class Builder {
-     /**
-      * 组织ID
-      * <p> 示例值：6862995757234914823
-      */
+        /**
+         * 组织ID
+         * <p> 示例值：6862995757234914823
+         */
         private String orgId;
-     /**
-      * 组织类型编码
-      * <p> 示例值：apiname__c
-      */
+        /**
+         * 组织类型编码
+         * <p> 示例值：apiname__c
+         */
         private String objectApiName;
-     /**
-      * 启用停用状态
-      * <p> 示例值：true
-      */
+        /**
+         * 启用停用状态
+         * <p> 示例值：true
+         */
         private Boolean active;
-     /**
-      * 生效时间
-      * <p> 示例值：2020-01-01
-      */
+        /**
+         * 生效时间
+         * <p> 示例值：2020-01-01
+         */
         private String effectiveTime;
 
         /**
          * 组织ID
          * <p> 示例值：6862995757234914823
+         *
          * @param orgId
          * @return
          */
         public Builder orgId(String orgId) {
-             this.orgId = orgId;
-             return this;
+            this.orgId = orgId;
+            return this;
         }
 
-    
 
         /**
          * 组织类型编码
          * <p> 示例值：apiname__c
+         *
          * @param objectApiName
          * @return
          */
         public Builder objectApiName(String objectApiName) {
-             this.objectApiName = objectApiName;
-             return this;
+            this.objectApiName = objectApiName;
+            return this;
         }
 
-    
 
         /**
          * 启用停用状态
          * <p> 示例值：true
+         *
          * @param active
          * @return
          */
         public Builder active(Boolean active) {
-             this.active = active;
-             return this;
+            this.active = active;
+            return this;
         }
 
-    
 
         /**
          * 生效时间
          * <p> 示例值：2020-01-01
+         *
          * @param effectiveTime
          * @return
          */
         public Builder effectiveTime(String effectiveTime) {
-             this.effectiveTime = effectiveTime;
-             return this;
+            this.effectiveTime = effectiveTime;
+            return this;
         }
 
-    
-    
-    public ActiveCustomOrgReqBody build(){
-        return new ActiveCustomOrgReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ActiveCustomOrgReqBody build() {
+            return new ActiveCustomOrgReqBody(this);
+        }
     }
 }

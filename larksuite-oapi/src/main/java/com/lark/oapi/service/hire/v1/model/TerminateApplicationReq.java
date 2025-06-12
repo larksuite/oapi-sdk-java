@@ -12,24 +12,48 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class TerminateApplicationReq {
-     /**
-      * 投递ID
-      * <p> 示例值：12312312312
-      */
+    /**
+     * 投递ID
+     * <p> 示例值：12312312312
+     */
     @Path
     @SerializedName("application_id")
     private String applicationId;
+    @Body
+    private TerminateApplicationReqBody body;
+
+    // builder 开始
+    public TerminateApplicationReq() {
+    }
+
+    public TerminateApplicationReq(Builder builder) {
+        /**
+         * 投递ID
+         * <p> 示例值：12312312312
+         */
+        this.applicationId = builder.applicationId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getApplicationId() {
         return this.applicationId;
     }
@@ -37,9 +61,6 @@ public class TerminateApplicationReq {
     public void setApplicationId(String applicationId) {
         this.applicationId = applicationId;
     }
-
-    @Body
-    private TerminateApplicationReqBody body;
 
     public TerminateApplicationReqBody getTerminateApplicationReqBody() {
         return this.body;
@@ -49,54 +70,40 @@ public class TerminateApplicationReq {
         this.body = body;
     }
 
-// builder 开始
-  public TerminateApplicationReq(){}
-
-  public TerminateApplicationReq(Builder builder){
-     /**
-      * 投递ID
-      * <p> 示例值：12312312312
-      */
-       this.applicationId = builder.applicationId;
-        this.body = builder.body;
-  }
-
     public static class Builder {
-    
+
         private String applicationId; // 投递ID
+        private TerminateApplicationReqBody body;
+
         /**
          * 投递ID
          * <p> 示例值：12312312312
+         *
          * @param applicationId
          * @return
          */
-          public Builder applicationId(String applicationId) {
-               this.applicationId = applicationId;
-               return this;
-          }
+        public Builder applicationId(String applicationId) {
+            this.applicationId = applicationId;
+            return this;
+        }
 
-    
-        private TerminateApplicationReqBody body;
-    
         public TerminateApplicationReqBody getTerminateApplicationReqBody() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder terminateApplicationReqBody(TerminateApplicationReqBody body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public TerminateApplicationReq build(){
-        return new TerminateApplicationReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public TerminateApplicationReq build() {
+            return new TerminateApplicationReq(this);
+        }
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.document_ai.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.document_ai.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ResumeCertificate {
-     /**
-      * 证书名称
-      * <p> 示例值：XXX证书
-      */
+    /**
+     * 证书名称
+     * <p> 示例值：XXX证书
+     */
     @SerializedName("name")
     private String name;
-     /**
-      * 描述
-      * <p> 示例值：曾获得XXX证书...
-      */
+    /**
+     * 描述
+     * <p> 示例值：曾获得XXX证书...
+     */
     @SerializedName("desc")
     private String desc;
+
+    // builder 开始
+    public ResumeCertificate() {
+    }
+
+    public ResumeCertificate(Builder builder) {
+        /**
+         * 证书名称
+         * <p> 示例值：XXX证书
+         */
+        this.name = builder.name;
+        /**
+         * 描述
+         * <p> 示例值：曾获得XXX证书...
+         */
+        this.desc = builder.desc;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getName() {
         return this.name;
     }
@@ -53,67 +79,46 @@ public class ResumeCertificate {
         this.desc = desc;
     }
 
-
-// builder 开始
-  public ResumeCertificate(){}
-
-  public ResumeCertificate(Builder builder){
-         /**
-          * 证书名称
-          * <p> 示例值：XXX证书
-          */
-      this.name = builder.name;
-         /**
-          * 描述
-          * <p> 示例值：曾获得XXX证书...
-          */
-      this.desc = builder.desc;
-  }
-
     public static class Builder {
-     /**
-      * 证书名称
-      * <p> 示例值：XXX证书
-      */
+        /**
+         * 证书名称
+         * <p> 示例值：XXX证书
+         */
         private String name;
-     /**
-      * 描述
-      * <p> 示例值：曾获得XXX证书...
-      */
+        /**
+         * 描述
+         * <p> 示例值：曾获得XXX证书...
+         */
         private String desc;
 
         /**
          * 证书名称
          * <p> 示例值：XXX证书
+         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 描述
          * <p> 示例值：曾获得XXX证书...
+         *
          * @param desc
          * @return
          */
         public Builder desc(String desc) {
-             this.desc = desc;
-             return this;
+            this.desc = desc;
+            return this;
         }
 
-    
-    
-    public ResumeCertificate build(){
-        return new ResumeCertificate(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ResumeCertificate build() {
+            return new ResumeCertificate(this);
+        }
     }
 }

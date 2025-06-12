@@ -12,39 +12,70 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class DeleteAppTableRecordReq {
-     /**
-      * bitable app token
-      * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
-      */
+    /**
+     * bitable app token
+     * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+     */
     @Path
     @SerializedName("app_token")
     private String appToken;
-     /**
-      * table id
-      * <p> 示例值：tblsRc9GRRXKqhvW
-      */
+    /**
+     * table id
+     * <p> 示例值：tblsRc9GRRXKqhvW
+     */
     @Path
     @SerializedName("table_id")
     private String tableId;
-     /**
-      * 单条记录的Id
-      * <p> 示例值：recpCsf4ME
-      */
+    /**
+     * 单条记录的Id
+     * <p> 示例值：recpCsf4ME
+     */
     @Path
     @SerializedName("record_id")
     private String recordId;
+
+    // builder 开始
+    public DeleteAppTableRecordReq() {
+    }
+
+    public DeleteAppTableRecordReq(Builder builder) {
+        /**
+         * bitable app token
+         * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+         */
+        this.appToken = builder.appToken;
+        /**
+         * table id
+         * <p> 示例值：tblsRc9GRRXKqhvW
+         */
+        this.tableId = builder.tableId;
+        /**
+         * 单条记录的Id
+         * <p> 示例值：recpCsf4ME
+         */
+        this.recordId = builder.recordId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getAppToken() {
         return this.appToken;
     }
@@ -69,75 +100,53 @@ public class DeleteAppTableRecordReq {
         this.recordId = recordId;
     }
 
-
-// builder 开始
-  public DeleteAppTableRecordReq(){}
-
-  public DeleteAppTableRecordReq(Builder builder){
-     /**
-      * bitable app token
-      * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
-      */
-       this.appToken = builder.appToken;
-     /**
-      * table id
-      * <p> 示例值：tblsRc9GRRXKqhvW
-      */
-       this.tableId = builder.tableId;
-     /**
-      * 单条记录的Id
-      * <p> 示例值：recpCsf4ME
-      */
-       this.recordId = builder.recordId;
-  }
-
     public static class Builder {
-    
+
         private String appToken; // bitable app token
         private String tableId; // table id
         private String recordId; // 单条记录的Id
+
         /**
          * bitable app token
          * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+         *
          * @param appToken
          * @return
          */
-          public Builder appToken(String appToken) {
-               this.appToken = appToken;
-               return this;
-          }
+        public Builder appToken(String appToken) {
+            this.appToken = appToken;
+            return this;
+        }
 
-    
+
         /**
          * table id
          * <p> 示例值：tblsRc9GRRXKqhvW
+         *
          * @param tableId
          * @return
          */
-          public Builder tableId(String tableId) {
-               this.tableId = tableId;
-               return this;
-          }
+        public Builder tableId(String tableId) {
+            this.tableId = tableId;
+            return this;
+        }
 
-    
+
         /**
          * 单条记录的Id
          * <p> 示例值：recpCsf4ME
+         *
          * @param recordId
          * @return
          */
-          public Builder recordId(String recordId) {
-               this.recordId = recordId;
-               return this;
-          }
+        public Builder recordId(String recordId) {
+            this.recordId = recordId;
+            return this;
+        }
 
-    
-    public DeleteAppTableRecordReq build(){
-        return new DeleteAppTableRecordReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public DeleteAppTableRecordReq build() {
+            return new DeleteAppTableRecordReq(this);
+        }
     }
 }

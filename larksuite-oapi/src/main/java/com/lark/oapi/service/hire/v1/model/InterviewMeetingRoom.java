@@ -12,48 +12,89 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class InterviewMeetingRoom {
-     /**
-      * 会议室 ID
-      * <p> 示例值：6949805467799537964
-      */
+    /**
+     * 会议室 ID
+     * <p> 示例值：6949805467799537964
+     */
     @SerializedName("room_id")
     private String roomId;
-     /**
-      * 会议室名称
-      * <p> 示例值：OCG111
-      */
+    /**
+     * 会议室名称
+     * <p> 示例值：OCG111
+     */
     @SerializedName("room_name")
     private String roomName;
-     /**
-      * 建筑名称
-      * <p> 示例值：OCG
-      */
+    /**
+     * 建筑名称
+     * <p> 示例值：OCG
+     */
     @SerializedName("building_name")
     private String buildingName;
-     /**
-      * 会议室预定状态
-      * <p> 示例值：1
-      */
+    /**
+     * 会议室预定状态
+     * <p> 示例值：1
+     */
     @SerializedName("reserved_status")
     private Integer reservedStatus;
-     /**
-      * 楼层
-      * <p> 示例值：17
-      */
+    /**
+     * 楼层
+     * <p> 示例值：17
+     */
     @SerializedName("floor_name")
     private String floorName;
+
+    // builder 开始
+    public InterviewMeetingRoom() {
+    }
+
+    public InterviewMeetingRoom(Builder builder) {
+        /**
+         * 会议室 ID
+         * <p> 示例值：6949805467799537964
+         */
+        this.roomId = builder.roomId;
+        /**
+         * 会议室名称
+         * <p> 示例值：OCG111
+         */
+        this.roomName = builder.roomName;
+        /**
+         * 建筑名称
+         * <p> 示例值：OCG
+         */
+        this.buildingName = builder.buildingName;
+        /**
+         * 会议室预定状态
+         * <p> 示例值：1
+         */
+        this.reservedStatus = builder.reservedStatus;
+        /**
+         * 楼层
+         * <p> 示例值：17
+         */
+        this.floorName = builder.floorName;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getRoomId() {
         return this.roomId;
     }
@@ -94,136 +135,100 @@ public class InterviewMeetingRoom {
         this.floorName = floorName;
     }
 
-
-// builder 开始
-  public InterviewMeetingRoom(){}
-
-  public InterviewMeetingRoom(Builder builder){
-         /**
-          * 会议室 ID
-          * <p> 示例值：6949805467799537964
-          */
-      this.roomId = builder.roomId;
-         /**
-          * 会议室名称
-          * <p> 示例值：OCG111
-          */
-      this.roomName = builder.roomName;
-         /**
-          * 建筑名称
-          * <p> 示例值：OCG
-          */
-      this.buildingName = builder.buildingName;
-         /**
-          * 会议室预定状态
-          * <p> 示例值：1
-          */
-      this.reservedStatus = builder.reservedStatus;
-         /**
-          * 楼层
-          * <p> 示例值：17
-          */
-      this.floorName = builder.floorName;
-  }
-
     public static class Builder {
-     /**
-      * 会议室 ID
-      * <p> 示例值：6949805467799537964
-      */
+        /**
+         * 会议室 ID
+         * <p> 示例值：6949805467799537964
+         */
         private String roomId;
-     /**
-      * 会议室名称
-      * <p> 示例值：OCG111
-      */
+        /**
+         * 会议室名称
+         * <p> 示例值：OCG111
+         */
         private String roomName;
-     /**
-      * 建筑名称
-      * <p> 示例值：OCG
-      */
+        /**
+         * 建筑名称
+         * <p> 示例值：OCG
+         */
         private String buildingName;
-     /**
-      * 会议室预定状态
-      * <p> 示例值：1
-      */
+        /**
+         * 会议室预定状态
+         * <p> 示例值：1
+         */
         private Integer reservedStatus;
-     /**
-      * 楼层
-      * <p> 示例值：17
-      */
+        /**
+         * 楼层
+         * <p> 示例值：17
+         */
         private String floorName;
 
         /**
          * 会议室 ID
          * <p> 示例值：6949805467799537964
+         *
          * @param roomId
          * @return
          */
         public Builder roomId(String roomId) {
-             this.roomId = roomId;
-             return this;
+            this.roomId = roomId;
+            return this;
         }
 
-    
 
         /**
          * 会议室名称
          * <p> 示例值：OCG111
+         *
          * @param roomName
          * @return
          */
         public Builder roomName(String roomName) {
-             this.roomName = roomName;
-             return this;
+            this.roomName = roomName;
+            return this;
         }
 
-    
 
         /**
          * 建筑名称
          * <p> 示例值：OCG
+         *
          * @param buildingName
          * @return
          */
         public Builder buildingName(String buildingName) {
-             this.buildingName = buildingName;
-             return this;
+            this.buildingName = buildingName;
+            return this;
         }
 
-    
 
         /**
          * 会议室预定状态
          * <p> 示例值：1
+         *
          * @param reservedStatus
          * @return
          */
         public Builder reservedStatus(Integer reservedStatus) {
-             this.reservedStatus = reservedStatus;
-             return this;
+            this.reservedStatus = reservedStatus;
+            return this;
         }
 
-    
 
         /**
          * 楼层
          * <p> 示例值：17
+         *
          * @param floorName
          * @return
          */
         public Builder floorName(String floorName) {
-             this.floorName = floorName;
-             return this;
+            this.floorName = floorName;
+            return this;
         }
 
-    
-    
-    public InterviewMeetingRoom build(){
-        return new InterviewMeetingRoom(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public InterviewMeetingRoom build() {
+            return new InterviewMeetingRoom(this);
+        }
     }
 }

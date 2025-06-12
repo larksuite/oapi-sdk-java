@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,108 +20,203 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ProfileSettingEmploymentRecord {
-     /**
-      * 人员类型 ID
-      * <p> 示例值：6890452208593372679
-      */
+    /**
+     * 人员类型 ID
+     * <p> 示例值：6890452208593372679
+     */
     @SerializedName("employee_type")
     private String employeeType;
-     /**
-      * 部门 ID
-      * <p> 示例值：6890452208593372679
-      */
+    /**
+     * 部门 ID
+     * <p> 示例值：6890452208593372679
+     */
     @SerializedName("department")
     private String department;
-     /**
-      * 实线主管雇佣ID
-      * <p> 示例值：6893014062142064135
-      */
+    /**
+     * 实线主管雇佣ID
+     * <p> 示例值：6893014062142064135
+     */
     @SerializedName("direct_manager")
     private String directManager;
-     /**
-      * 工时制度 ID
-      * <p> 示例值：6890452208593372600
-      */
+    /**
+     * 工时制度 ID
+     * <p> 示例值：6890452208593372600
+     */
     @SerializedName("working_hours_type")
     private String workingHoursType;
-     /**
-      * 成本中心分摊信息
-      * <p> 示例值：
-      */
+    /**
+     * 成本中心分摊信息
+     * <p> 示例值：
+     */
     @SerializedName("cost_centers")
     private ProfileSettingCostCenter[] costCenters;
-     /**
-      * 实线主管入职日期
-      * <p> 示例值：2020-01-01
-      */
+    /**
+     * 实线主管入职日期
+     * <p> 示例值：2020-01-01
+     */
     @SerializedName("direct_manager_effective_time")
     private String directManagerEffectiveTime;
-     /**
-      * 虚线主管雇佣ID
-      * <p> 示例值：6893014062142064136
-      */
+    /**
+     * 虚线主管雇佣ID
+     * <p> 示例值：6893014062142064136
+     */
     @SerializedName("dotted_line_manager")
     private String dottedLineManager;
-     /**
-      * 虚线主管入职日期
-      * <p> 示例值：2020-01-01
-      */
+    /**
+     * 虚线主管入职日期
+     * <p> 示例值：2020-01-01
+     */
     @SerializedName("dotted_line_manager_effective_time")
     private String dottedLineManagerEffectiveTime;
-     /**
-      * 职务 ID
-      * <p> 示例值：6890452208593372679
-      */
+    /**
+     * 职务 ID
+     * <p> 示例值：6890452208593372679
+     */
     @SerializedName("job")
     private String job;
-     /**
-      * 职务序列 ID
-      * <p> 示例值：6890452208593372680
-      */
+    /**
+     * 职务序列 ID
+     * <p> 示例值：6890452208593372680
+     */
     @SerializedName("job_family")
     private String jobFamily;
-     /**
-      * 职务级别 ID
-      * <p> 示例值：6890452208593372681
-      */
+    /**
+     * 职务级别 ID
+     * <p> 示例值：6890452208593372681
+     */
     @SerializedName("job_level")
     private String jobLevel;
-     /**
-      * 职等 ID
-      * <p> 示例值：6890452208593372682
-      */
+    /**
+     * 职等 ID
+     * <p> 示例值：6890452208593372682
+     */
     @SerializedName("job_grade")
     private String jobGrade;
-     /**
-      * 工作地点 ID
-      * <p> 示例值：6890452208593372683
-      */
+    /**
+     * 工作地点 ID
+     * <p> 示例值：6890452208593372683
+     */
     @SerializedName("work_location")
     private String workLocation;
-     /**
-      * 周工作时长
-      * <p> 示例值：100
-      */
+    /**
+     * 周工作时长
+     * <p> 示例值：100
+     */
     @SerializedName("weekly_working_hours")
     private Integer weeklyWorkingHours;
-     /**
-      * 岗位ID
-      * <p> 示例值：6890452208593372684
-      */
+    /**
+     * 岗位ID
+     * <p> 示例值：6890452208593372684
+     */
     @SerializedName("position")
     private String position;
-     /**
-      * 通道ID
-      * <p> 示例值：6890452208593372684
-      */
+    /**
+     * 通道ID
+     * <p> 示例值：6890452208593372684
+     */
     @SerializedName("pathway")
     private String pathway;
+
+    // builder 开始
+    public ProfileSettingEmploymentRecord() {
+    }
+
+    public ProfileSettingEmploymentRecord(Builder builder) {
+        /**
+         * 人员类型 ID
+         * <p> 示例值：6890452208593372679
+         */
+        this.employeeType = builder.employeeType;
+        /**
+         * 部门 ID
+         * <p> 示例值：6890452208593372679
+         */
+        this.department = builder.department;
+        /**
+         * 实线主管雇佣ID
+         * <p> 示例值：6893014062142064135
+         */
+        this.directManager = builder.directManager;
+        /**
+         * 工时制度 ID
+         * <p> 示例值：6890452208593372600
+         */
+        this.workingHoursType = builder.workingHoursType;
+        /**
+         * 成本中心分摊信息
+         * <p> 示例值：
+         */
+        this.costCenters = builder.costCenters;
+        /**
+         * 实线主管入职日期
+         * <p> 示例值：2020-01-01
+         */
+        this.directManagerEffectiveTime = builder.directManagerEffectiveTime;
+        /**
+         * 虚线主管雇佣ID
+         * <p> 示例值：6893014062142064136
+         */
+        this.dottedLineManager = builder.dottedLineManager;
+        /**
+         * 虚线主管入职日期
+         * <p> 示例值：2020-01-01
+         */
+        this.dottedLineManagerEffectiveTime = builder.dottedLineManagerEffectiveTime;
+        /**
+         * 职务 ID
+         * <p> 示例值：6890452208593372679
+         */
+        this.job = builder.job;
+        /**
+         * 职务序列 ID
+         * <p> 示例值：6890452208593372680
+         */
+        this.jobFamily = builder.jobFamily;
+        /**
+         * 职务级别 ID
+         * <p> 示例值：6890452208593372681
+         */
+        this.jobLevel = builder.jobLevel;
+        /**
+         * 职等 ID
+         * <p> 示例值：6890452208593372682
+         */
+        this.jobGrade = builder.jobGrade;
+        /**
+         * 工作地点 ID
+         * <p> 示例值：6890452208593372683
+         */
+        this.workLocation = builder.workLocation;
+        /**
+         * 周工作时长
+         * <p> 示例值：100
+         */
+        this.weeklyWorkingHours = builder.weeklyWorkingHours;
+        /**
+         * 岗位ID
+         * <p> 示例值：6890452208593372684
+         */
+        this.position = builder.position;
+        /**
+         * 通道ID
+         * <p> 示例值：6890452208593372684
+         */
+        this.pathway = builder.pathway;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getEmployeeType() {
         return this.employeeType;
     }
@@ -249,389 +345,298 @@ public class ProfileSettingEmploymentRecord {
         this.pathway = pathway;
     }
 
-
-// builder 开始
-  public ProfileSettingEmploymentRecord(){}
-
-  public ProfileSettingEmploymentRecord(Builder builder){
-         /**
-          * 人员类型 ID
-          * <p> 示例值：6890452208593372679
-          */
-      this.employeeType = builder.employeeType;
-         /**
-          * 部门 ID
-          * <p> 示例值：6890452208593372679
-          */
-      this.department = builder.department;
-         /**
-          * 实线主管雇佣ID
-          * <p> 示例值：6893014062142064135
-          */
-      this.directManager = builder.directManager;
-         /**
-          * 工时制度 ID
-          * <p> 示例值：6890452208593372600
-          */
-      this.workingHoursType = builder.workingHoursType;
-         /**
-          * 成本中心分摊信息
-          * <p> 示例值：
-          */
-      this.costCenters = builder.costCenters;
-         /**
-          * 实线主管入职日期
-          * <p> 示例值：2020-01-01
-          */
-      this.directManagerEffectiveTime = builder.directManagerEffectiveTime;
-         /**
-          * 虚线主管雇佣ID
-          * <p> 示例值：6893014062142064136
-          */
-      this.dottedLineManager = builder.dottedLineManager;
-         /**
-          * 虚线主管入职日期
-          * <p> 示例值：2020-01-01
-          */
-      this.dottedLineManagerEffectiveTime = builder.dottedLineManagerEffectiveTime;
-         /**
-          * 职务 ID
-          * <p> 示例值：6890452208593372679
-          */
-      this.job = builder.job;
-         /**
-          * 职务序列 ID
-          * <p> 示例值：6890452208593372680
-          */
-      this.jobFamily = builder.jobFamily;
-         /**
-          * 职务级别 ID
-          * <p> 示例值：6890452208593372681
-          */
-      this.jobLevel = builder.jobLevel;
-         /**
-          * 职等 ID
-          * <p> 示例值：6890452208593372682
-          */
-      this.jobGrade = builder.jobGrade;
-         /**
-          * 工作地点 ID
-          * <p> 示例值：6890452208593372683
-          */
-      this.workLocation = builder.workLocation;
-         /**
-          * 周工作时长
-          * <p> 示例值：100
-          */
-      this.weeklyWorkingHours = builder.weeklyWorkingHours;
-         /**
-          * 岗位ID
-          * <p> 示例值：6890452208593372684
-          */
-      this.position = builder.position;
-         /**
-          * 通道ID
-          * <p> 示例值：6890452208593372684
-          */
-      this.pathway = builder.pathway;
-  }
-
     public static class Builder {
-     /**
-      * 人员类型 ID
-      * <p> 示例值：6890452208593372679
-      */
+        /**
+         * 人员类型 ID
+         * <p> 示例值：6890452208593372679
+         */
         private String employeeType;
-     /**
-      * 部门 ID
-      * <p> 示例值：6890452208593372679
-      */
+        /**
+         * 部门 ID
+         * <p> 示例值：6890452208593372679
+         */
         private String department;
-     /**
-      * 实线主管雇佣ID
-      * <p> 示例值：6893014062142064135
-      */
+        /**
+         * 实线主管雇佣ID
+         * <p> 示例值：6893014062142064135
+         */
         private String directManager;
-     /**
-      * 工时制度 ID
-      * <p> 示例值：6890452208593372600
-      */
+        /**
+         * 工时制度 ID
+         * <p> 示例值：6890452208593372600
+         */
         private String workingHoursType;
-     /**
-      * 成本中心分摊信息
-      * <p> 示例值：
-      */
+        /**
+         * 成本中心分摊信息
+         * <p> 示例值：
+         */
         private ProfileSettingCostCenter[] costCenters;
-     /**
-      * 实线主管入职日期
-      * <p> 示例值：2020-01-01
-      */
+        /**
+         * 实线主管入职日期
+         * <p> 示例值：2020-01-01
+         */
         private String directManagerEffectiveTime;
-     /**
-      * 虚线主管雇佣ID
-      * <p> 示例值：6893014062142064136
-      */
+        /**
+         * 虚线主管雇佣ID
+         * <p> 示例值：6893014062142064136
+         */
         private String dottedLineManager;
-     /**
-      * 虚线主管入职日期
-      * <p> 示例值：2020-01-01
-      */
+        /**
+         * 虚线主管入职日期
+         * <p> 示例值：2020-01-01
+         */
         private String dottedLineManagerEffectiveTime;
-     /**
-      * 职务 ID
-      * <p> 示例值：6890452208593372679
-      */
+        /**
+         * 职务 ID
+         * <p> 示例值：6890452208593372679
+         */
         private String job;
-     /**
-      * 职务序列 ID
-      * <p> 示例值：6890452208593372680
-      */
+        /**
+         * 职务序列 ID
+         * <p> 示例值：6890452208593372680
+         */
         private String jobFamily;
-     /**
-      * 职务级别 ID
-      * <p> 示例值：6890452208593372681
-      */
+        /**
+         * 职务级别 ID
+         * <p> 示例值：6890452208593372681
+         */
         private String jobLevel;
-     /**
-      * 职等 ID
-      * <p> 示例值：6890452208593372682
-      */
+        /**
+         * 职等 ID
+         * <p> 示例值：6890452208593372682
+         */
         private String jobGrade;
-     /**
-      * 工作地点 ID
-      * <p> 示例值：6890452208593372683
-      */
+        /**
+         * 工作地点 ID
+         * <p> 示例值：6890452208593372683
+         */
         private String workLocation;
-     /**
-      * 周工作时长
-      * <p> 示例值：100
-      */
+        /**
+         * 周工作时长
+         * <p> 示例值：100
+         */
         private Integer weeklyWorkingHours;
-     /**
-      * 岗位ID
-      * <p> 示例值：6890452208593372684
-      */
+        /**
+         * 岗位ID
+         * <p> 示例值：6890452208593372684
+         */
         private String position;
-     /**
-      * 通道ID
-      * <p> 示例值：6890452208593372684
-      */
+        /**
+         * 通道ID
+         * <p> 示例值：6890452208593372684
+         */
         private String pathway;
 
         /**
          * 人员类型 ID
          * <p> 示例值：6890452208593372679
+         *
          * @param employeeType
          * @return
          */
         public Builder employeeType(String employeeType) {
-             this.employeeType = employeeType;
-             return this;
+            this.employeeType = employeeType;
+            return this;
         }
 
-    
 
         /**
          * 部门 ID
          * <p> 示例值：6890452208593372679
+         *
          * @param department
          * @return
          */
         public Builder department(String department) {
-             this.department = department;
-             return this;
+            this.department = department;
+            return this;
         }
 
-    
 
         /**
          * 实线主管雇佣ID
          * <p> 示例值：6893014062142064135
+         *
          * @param directManager
          * @return
          */
         public Builder directManager(String directManager) {
-             this.directManager = directManager;
-             return this;
+            this.directManager = directManager;
+            return this;
         }
 
-    
 
         /**
          * 工时制度 ID
          * <p> 示例值：6890452208593372600
+         *
          * @param workingHoursType
          * @return
          */
         public Builder workingHoursType(String workingHoursType) {
-             this.workingHoursType = workingHoursType;
-             return this;
+            this.workingHoursType = workingHoursType;
+            return this;
         }
 
-    
 
         /**
          * 成本中心分摊信息
          * <p> 示例值：
+         *
          * @param costCenters
          * @return
          */
         public Builder costCenters(ProfileSettingCostCenter[] costCenters) {
-             this.costCenters = costCenters;
-             return this;
+            this.costCenters = costCenters;
+            return this;
         }
 
-    
 
         /**
          * 实线主管入职日期
          * <p> 示例值：2020-01-01
+         *
          * @param directManagerEffectiveTime
          * @return
          */
         public Builder directManagerEffectiveTime(String directManagerEffectiveTime) {
-             this.directManagerEffectiveTime = directManagerEffectiveTime;
-             return this;
+            this.directManagerEffectiveTime = directManagerEffectiveTime;
+            return this;
         }
 
-    
 
         /**
          * 虚线主管雇佣ID
          * <p> 示例值：6893014062142064136
+         *
          * @param dottedLineManager
          * @return
          */
         public Builder dottedLineManager(String dottedLineManager) {
-             this.dottedLineManager = dottedLineManager;
-             return this;
+            this.dottedLineManager = dottedLineManager;
+            return this;
         }
 
-    
 
         /**
          * 虚线主管入职日期
          * <p> 示例值：2020-01-01
+         *
          * @param dottedLineManagerEffectiveTime
          * @return
          */
         public Builder dottedLineManagerEffectiveTime(String dottedLineManagerEffectiveTime) {
-             this.dottedLineManagerEffectiveTime = dottedLineManagerEffectiveTime;
-             return this;
+            this.dottedLineManagerEffectiveTime = dottedLineManagerEffectiveTime;
+            return this;
         }
 
-    
 
         /**
          * 职务 ID
          * <p> 示例值：6890452208593372679
+         *
          * @param job
          * @return
          */
         public Builder job(String job) {
-             this.job = job;
-             return this;
+            this.job = job;
+            return this;
         }
 
-    
 
         /**
          * 职务序列 ID
          * <p> 示例值：6890452208593372680
+         *
          * @param jobFamily
          * @return
          */
         public Builder jobFamily(String jobFamily) {
-             this.jobFamily = jobFamily;
-             return this;
+            this.jobFamily = jobFamily;
+            return this;
         }
 
-    
 
         /**
          * 职务级别 ID
          * <p> 示例值：6890452208593372681
+         *
          * @param jobLevel
          * @return
          */
         public Builder jobLevel(String jobLevel) {
-             this.jobLevel = jobLevel;
-             return this;
+            this.jobLevel = jobLevel;
+            return this;
         }
 
-    
 
         /**
          * 职等 ID
          * <p> 示例值：6890452208593372682
+         *
          * @param jobGrade
          * @return
          */
         public Builder jobGrade(String jobGrade) {
-             this.jobGrade = jobGrade;
-             return this;
+            this.jobGrade = jobGrade;
+            return this;
         }
 
-    
 
         /**
          * 工作地点 ID
          * <p> 示例值：6890452208593372683
+         *
          * @param workLocation
          * @return
          */
         public Builder workLocation(String workLocation) {
-             this.workLocation = workLocation;
-             return this;
+            this.workLocation = workLocation;
+            return this;
         }
 
-    
 
         /**
          * 周工作时长
          * <p> 示例值：100
+         *
          * @param weeklyWorkingHours
          * @return
          */
         public Builder weeklyWorkingHours(Integer weeklyWorkingHours) {
-             this.weeklyWorkingHours = weeklyWorkingHours;
-             return this;
+            this.weeklyWorkingHours = weeklyWorkingHours;
+            return this;
         }
 
-    
 
         /**
          * 岗位ID
          * <p> 示例值：6890452208593372684
+         *
          * @param position
          * @return
          */
         public Builder position(String position) {
-             this.position = position;
-             return this;
+            this.position = position;
+            return this;
         }
 
-    
 
         /**
          * 通道ID
          * <p> 示例值：6890452208593372684
+         *
          * @param pathway
          * @return
          */
         public Builder pathway(String pathway) {
-             this.pathway = pathway;
-             return this;
+            this.pathway = pathway;
+            return this;
         }
 
-    
-    
-    public ProfileSettingEmploymentRecord build(){
-        return new ProfileSettingEmploymentRecord(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ProfileSettingEmploymentRecord build() {
+            return new ProfileSettingEmploymentRecord(this);
+        }
     }
 }

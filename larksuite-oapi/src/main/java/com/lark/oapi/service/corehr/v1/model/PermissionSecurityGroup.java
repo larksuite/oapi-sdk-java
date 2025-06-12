@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class PermissionSecurityGroup {
-     /**
-      * 管理维度
-      * <p> 示例值：
-      */
+    /**
+     * 管理维度
+     * <p> 示例值：
+     */
     @SerializedName("rule_dimension")
     private RuleDimension ruleDimension;
-     /**
-      * 管理类型
-      * <p> 示例值：1
-      */
+    /**
+     * 管理类型
+     * <p> 示例值：1
+     */
     @SerializedName("rule_type")
     private Integer ruleType;
-     /**
-      * 规则
-      * <p> 示例值：
-      */
+    /**
+     * 规则
+     * <p> 示例值：
+     */
     @SerializedName("expression")
     private FilterExpression expression;
+
+    // builder 开始
+    public PermissionSecurityGroup() {
+    }
+
+    public PermissionSecurityGroup(Builder builder) {
+        /**
+         * 管理维度
+         * <p> 示例值：
+         */
+        this.ruleDimension = builder.ruleDimension;
+        /**
+         * 管理类型
+         * <p> 示例值：1
+         */
+        this.ruleType = builder.ruleType;
+        /**
+         * 规则
+         * <p> 示例值：
+         */
+        this.expression = builder.expression;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public RuleDimension getRuleDimension() {
         return this.ruleDimension;
     }
@@ -67,90 +98,64 @@ public class PermissionSecurityGroup {
         this.expression = expression;
     }
 
-
-// builder 开始
-  public PermissionSecurityGroup(){}
-
-  public PermissionSecurityGroup(Builder builder){
-         /**
-          * 管理维度
-          * <p> 示例值：
-          */
-      this.ruleDimension = builder.ruleDimension;
-         /**
-          * 管理类型
-          * <p> 示例值：1
-          */
-      this.ruleType = builder.ruleType;
-         /**
-          * 规则
-          * <p> 示例值：
-          */
-      this.expression = builder.expression;
-  }
-
     public static class Builder {
-     /**
-      * 管理维度
-      * <p> 示例值：
-      */
+        /**
+         * 管理维度
+         * <p> 示例值：
+         */
         private RuleDimension ruleDimension;
-     /**
-      * 管理类型
-      * <p> 示例值：1
-      */
+        /**
+         * 管理类型
+         * <p> 示例值：1
+         */
         private Integer ruleType;
-     /**
-      * 规则
-      * <p> 示例值：
-      */
+        /**
+         * 规则
+         * <p> 示例值：
+         */
         private FilterExpression expression;
 
         /**
          * 管理维度
          * <p> 示例值：
+         *
          * @param ruleDimension
          * @return
          */
         public Builder ruleDimension(RuleDimension ruleDimension) {
-             this.ruleDimension = ruleDimension;
-             return this;
+            this.ruleDimension = ruleDimension;
+            return this;
         }
 
-    
 
         /**
          * 管理类型
          * <p> 示例值：1
+         *
          * @param ruleType
          * @return
          */
         public Builder ruleType(Integer ruleType) {
-             this.ruleType = ruleType;
-             return this;
+            this.ruleType = ruleType;
+            return this;
         }
 
-    
 
         /**
          * 规则
          * <p> 示例值：
+         *
          * @param expression
          * @return
          */
         public Builder expression(FilterExpression expression) {
-             this.expression = expression;
-             return this;
+            this.expression = expression;
+            return this;
         }
 
-    
-    
-    public PermissionSecurityGroup build(){
-        return new PermissionSecurityGroup(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public PermissionSecurityGroup build() {
+            return new PermissionSecurityGroup(this);
+        }
     }
 }

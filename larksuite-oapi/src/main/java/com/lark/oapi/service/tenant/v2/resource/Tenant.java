@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.tenant.v2.resource;
+
 import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.Transport;
 import com.lark.oapi.core.response.RawResponse;
@@ -20,12 +21,16 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import java.nio.charset.StandardCharsets;
 
 import com.lark.oapi.core.Config;
 import com.lark.oapi.core.request.RequestOptions;
+
 import java.io.ByteArrayOutputStream;
+
 import com.lark.oapi.service.tenant.v2.model.*;
+
 import java.io.*;
 import java.util.Map;
 import java.util.HashMap;
@@ -41,14 +46,14 @@ public class Tenant {
         this.config = config;
     }
 
-    
+
     /**
      * 获取企业信息，获取企业名称、企业编号等企业信息
      * <p> 如果ISV应用是企业创建时默认安装，并且180天内企业未打开或使用过此应用，则无法通过此接口获取到企业信息。 ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/tenant-v2/tenant/query">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/tenant-v2/tenant/query</a> ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/tenantv2/QueryTenantSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/tenantv2/QueryTenantSample.java</a> ;
      */
-    public QueryTenantResp query( RequestOptions reqOptions) throws Exception {
+    public QueryTenantResp query(RequestOptions reqOptions) throws Exception {
         // 请求参数选项
         if (reqOptions == null) {
             reqOptions = new RequestOptions();
@@ -59,21 +64,21 @@ public class Tenant {
                 , "/open-apis/tenant/v2/tenant/query"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , null);
-        
+
         // 反序列化
         QueryTenantResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, QueryTenantResp.class);
         if (resp == null) {
             log.error(String.format(
                     "%s,callError,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/tenant/v2/tenant/query"
-                    ,  Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                    , Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
-            
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+                            StandardCharsets.UTF_8)));
 
-       resp.setRawResponse(httpResponse);
-       return resp;
+            throw new IllegalArgumentException("The result returned by the server is illegal");
+        }
+
+        resp.setRawResponse(httpResponse);
+        return resp;
     }
 
     /**
@@ -91,18 +96,18 @@ public class Tenant {
                 , "/open-apis/tenant/v2/tenant/query"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , null);
-        
+
         // 反序列化
         QueryTenantResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, QueryTenantResp.class);
         if (resp == null) {
             log.error(String.format(
                     "%s,callError,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/tenant/v2/tenant/query"
-                    ,  Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                    , Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
-            
+                            StandardCharsets.UTF_8)));
+
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
         resp.setRawResponse(httpResponse);
         return resp;

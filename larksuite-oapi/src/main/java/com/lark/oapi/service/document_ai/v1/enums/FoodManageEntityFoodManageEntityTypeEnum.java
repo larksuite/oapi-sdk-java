@@ -17,27 +17,28 @@ package com.lark.oapi.service.document_ai.v1.enums;
  * 识别的字段种类
  */
 public enum FoodManageEntityFoodManageEntityTypeEnum {
-     VALIDITYPERIOD("validity_period"), // 有效期
-     ISSUSER("issuer"), // 签发人
-     ISSUINGAUTHORITY("issuing_authority"), // 发证机关
-     COMPLAINTSHOTLINE("complaints_hotline"), // 投诉举报电话
-     LICENSENUMBER("license_number"), // 许可证编号
-     DOMICILE("domicile"), // 住所
-     LEGALREPRESENTATIVE("legal_representative"), // 法定代表人(负责人)
-     CREDITCODE("credit_code"), // 社会信用代码(身份证号)
-     OPERATOR("operator"), // 经营者名称
-     PREMISE("premise"), // 经营场所
-     DALIYSUPERVISOR("daily_supervisor"), // 日常监督管理人员
-     DAILYSUPERVISORYAUTHORITIES("daily_supervisory_authorities"), // 日常监督管理机构
-     MAINBODY("main_body"), // 主体业态
-     OPERATINGITEM("operating_item"), // 经营项目
-  ;
-   private String value;
+    VALIDITYPERIOD("validity_period"), // 有效期
+    ISSUSER("issuer"), // 签发人
+    ISSUINGAUTHORITY("issuing_authority"), // 发证机关
+    COMPLAINTSHOTLINE("complaints_hotline"), // 投诉举报电话
+    LICENSENUMBER("license_number"), // 许可证编号
+    DOMICILE("domicile"), // 住所
+    LEGALREPRESENTATIVE("legal_representative"), // 法定代表人(负责人)
+    CREDITCODE("credit_code"), // 社会信用代码(身份证号)
+    OPERATOR("operator"), // 经营者名称
+    PREMISE("premise"), // 经营场所
+    DALIYSUPERVISOR("daily_supervisor"), // 日常监督管理人员
+    DAILYSUPERVISORYAUTHORITIES("daily_supervisory_authorities"), // 日常监督管理机构
+    MAINBODY("main_body"), // 主体业态
+    OPERATINGITEM("operating_item"), // 经营项目
+    ;
+    private String value;
+
     FoodManageEntityFoodManageEntityTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

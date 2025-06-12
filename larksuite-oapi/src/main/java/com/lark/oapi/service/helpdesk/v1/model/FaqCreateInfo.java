@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,42 +20,82 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class FaqCreateInfo {
-     /**
-      * faq category id
-      * <p> 示例值：6836004780707807251
-      */
+    /**
+     * faq category id
+     * <p> 示例值：6836004780707807251
+     */
     @SerializedName("category_id")
     private String categoryId;
-     /**
-      * faq question
-      * <p> 示例值：问题
-      */
+    /**
+     * faq question
+     * <p> 示例值：问题
+     */
     @SerializedName("question")
     private String question;
-     /**
-      * faq answer
-      * <p> 示例值："答案"
-      */
+    /**
+     * faq answer
+     * <p> 示例值："答案"
+     */
     @SerializedName("answer")
     private String answer;
-     /**
-      * faq answer in richtext
-      * <p> 示例值："[{"content":"答案","type":"text"},{"content":"这只是一个测试，医保问题","type":"text"}]"
-      */
+    /**
+     * faq answer in richtext
+     * <p> 示例值："[{"content":"答案","type":"text"},{"content":"这只是一个测试，医保问题","type":"text"}]"
+     */
     @SerializedName("answer_richtext")
     private String answerRichtext;
-     /**
-      * faq tags
-      * <p> 示例值：
-      */
+    /**
+     * faq tags
+     * <p> 示例值：
+     */
     @SerializedName("tags")
     private String[] tags;
+
+    // builder 开始
+    public FaqCreateInfo() {
+    }
+
+    public FaqCreateInfo(Builder builder) {
+        /**
+         * faq category id
+         * <p> 示例值：6836004780707807251
+         */
+        this.categoryId = builder.categoryId;
+        /**
+         * faq question
+         * <p> 示例值：问题
+         */
+        this.question = builder.question;
+        /**
+         * faq answer
+         * <p> 示例值："答案"
+         */
+        this.answer = builder.answer;
+        /**
+         * faq answer in richtext
+         * <p> 示例值："[{"content":"答案","type":"text"},{"content":"这只是一个测试，医保问题","type":"text"}]"
+         */
+        this.answerRichtext = builder.answerRichtext;
+        /**
+         * faq tags
+         * <p> 示例值：
+         */
+        this.tags = builder.tags;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getCategoryId() {
         return this.categoryId;
     }
@@ -95,136 +136,100 @@ public class FaqCreateInfo {
         this.tags = tags;
     }
 
-
-// builder 开始
-  public FaqCreateInfo(){}
-
-  public FaqCreateInfo(Builder builder){
-         /**
-          * faq category id
-          * <p> 示例值：6836004780707807251
-          */
-      this.categoryId = builder.categoryId;
-         /**
-          * faq question
-          * <p> 示例值：问题
-          */
-      this.question = builder.question;
-         /**
-          * faq answer
-          * <p> 示例值："答案"
-          */
-      this.answer = builder.answer;
-         /**
-          * faq answer in richtext
-          * <p> 示例值："[{"content":"答案","type":"text"},{"content":"这只是一个测试，医保问题","type":"text"}]"
-          */
-      this.answerRichtext = builder.answerRichtext;
-         /**
-          * faq tags
-          * <p> 示例值：
-          */
-      this.tags = builder.tags;
-  }
-
     public static class Builder {
-     /**
-      * faq category id
-      * <p> 示例值：6836004780707807251
-      */
+        /**
+         * faq category id
+         * <p> 示例值：6836004780707807251
+         */
         private String categoryId;
-     /**
-      * faq question
-      * <p> 示例值：问题
-      */
+        /**
+         * faq question
+         * <p> 示例值：问题
+         */
         private String question;
-     /**
-      * faq answer
-      * <p> 示例值："答案"
-      */
+        /**
+         * faq answer
+         * <p> 示例值："答案"
+         */
         private String answer;
-     /**
-      * faq answer in richtext
-      * <p> 示例值："[{"content":"答案","type":"text"},{"content":"这只是一个测试，医保问题","type":"text"}]"
-      */
+        /**
+         * faq answer in richtext
+         * <p> 示例值："[{"content":"答案","type":"text"},{"content":"这只是一个测试，医保问题","type":"text"}]"
+         */
         private String answerRichtext;
-     /**
-      * faq tags
-      * <p> 示例值：
-      */
+        /**
+         * faq tags
+         * <p> 示例值：
+         */
         private String[] tags;
 
         /**
          * faq category id
          * <p> 示例值：6836004780707807251
+         *
          * @param categoryId
          * @return
          */
         public Builder categoryId(String categoryId) {
-             this.categoryId = categoryId;
-             return this;
+            this.categoryId = categoryId;
+            return this;
         }
 
-    
 
         /**
          * faq question
          * <p> 示例值：问题
+         *
          * @param question
          * @return
          */
         public Builder question(String question) {
-             this.question = question;
-             return this;
+            this.question = question;
+            return this;
         }
 
-    
 
         /**
          * faq answer
          * <p> 示例值："答案"
+         *
          * @param answer
          * @return
          */
         public Builder answer(String answer) {
-             this.answer = answer;
-             return this;
+            this.answer = answer;
+            return this;
         }
 
-    
 
         /**
          * faq answer in richtext
          * <p> 示例值："[{"content":"答案","type":"text"},{"content":"这只是一个测试，医保问题","type":"text"}]"
+         *
          * @param answerRichtext
          * @return
          */
         public Builder answerRichtext(String answerRichtext) {
-             this.answerRichtext = answerRichtext;
-             return this;
+            this.answerRichtext = answerRichtext;
+            return this;
         }
 
-    
 
         /**
          * faq tags
          * <p> 示例值：
+         *
          * @param tags
          * @return
          */
         public Builder tags(String[] tags) {
-             this.tags = tags;
-             return this;
+            this.tags = tags;
+            return this;
         }
 
-    
-    
-    public FaqCreateInfo build(){
-        return new FaqCreateInfo(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public FaqCreateInfo build() {
+            return new FaqCreateInfo(this);
+        }
     }
 }

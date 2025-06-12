@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.im.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class PatchTag {
-     /**
-      * tagid
-      * <p> 示例值：716168xxxxx
-      */
+    /**
+     * tagid
+     * <p> 示例值：716168xxxxx
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * tag name
-      * <p> 示例值：tag name
-      */
+    /**
+     * tag name
+     * <p> 示例值：tag name
+     */
     @SerializedName("name")
     private String name;
-     /**
-      * i18n名称集合
-      * <p> 示例值：
-      */
+    /**
+     * i18n名称集合
+     * <p> 示例值：
+     */
     @SerializedName("i18n_names")
     private TagI18nName[] i18nNames;
+
+    // builder 开始
+    public PatchTag() {
+    }
+
+    public PatchTag(Builder builder) {
+        /**
+         * tagid
+         * <p> 示例值：716168xxxxx
+         */
+        this.id = builder.id;
+        /**
+         * tag name
+         * <p> 示例值：tag name
+         */
+        this.name = builder.name;
+        /**
+         * i18n名称集合
+         * <p> 示例值：
+         */
+        this.i18nNames = builder.i18nNames;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -67,90 +98,64 @@ public class PatchTag {
         this.i18nNames = i18nNames;
     }
 
-
-// builder 开始
-  public PatchTag(){}
-
-  public PatchTag(Builder builder){
-         /**
-          * tagid
-          * <p> 示例值：716168xxxxx
-          */
-      this.id = builder.id;
-         /**
-          * tag name
-          * <p> 示例值：tag name
-          */
-      this.name = builder.name;
-         /**
-          * i18n名称集合
-          * <p> 示例值：
-          */
-      this.i18nNames = builder.i18nNames;
-  }
-
     public static class Builder {
-     /**
-      * tagid
-      * <p> 示例值：716168xxxxx
-      */
+        /**
+         * tagid
+         * <p> 示例值：716168xxxxx
+         */
         private String id;
-     /**
-      * tag name
-      * <p> 示例值：tag name
-      */
+        /**
+         * tag name
+         * <p> 示例值：tag name
+         */
         private String name;
-     /**
-      * i18n名称集合
-      * <p> 示例值：
-      */
+        /**
+         * i18n名称集合
+         * <p> 示例值：
+         */
         private TagI18nName[] i18nNames;
 
         /**
          * tagid
          * <p> 示例值：716168xxxxx
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * tag name
          * <p> 示例值：tag name
+         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * i18n名称集合
          * <p> 示例值：
+         *
          * @param i18nNames
          * @return
          */
         public Builder i18nNames(TagI18nName[] i18nNames) {
-             this.i18nNames = i18nNames;
-             return this;
+            this.i18nNames = i18nNames;
+            return this;
         }
 
-    
-    
-    public PatchTag build(){
-        return new PatchTag(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public PatchTag build() {
+            return new PatchTag(this);
+        }
     }
 }

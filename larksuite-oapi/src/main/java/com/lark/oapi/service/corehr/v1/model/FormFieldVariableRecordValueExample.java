@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class FormFieldVariableRecordValueExample {
-     /**
-      * 这个属性名称是map的key的示例，属性值是map的value的示例，值和外层的variable_value是的一样的结构。
-      * <p> 示例值：
-      */
+    /**
+     * 这个属性名称是map的key的示例，属性值是map的value的示例，值和外层的variable_value是的一样的结构。
+     * <p> 示例值：
+     */
     @SerializedName("country_region")
     private FormVariableValueInfoExample countryRegion;
+
+    // builder 开始
+    public FormFieldVariableRecordValueExample() {
+    }
+
+    public FormFieldVariableRecordValueExample(Builder builder) {
+        /**
+         * 这个属性名称是map的key的示例，属性值是map的value的示例，值和外层的variable_value是的一样的结构。
+         * <p> 示例值：
+         */
+        this.countryRegion = builder.countryRegion;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public FormVariableValueInfoExample getCountryRegion() {
         return this.countryRegion;
     }
@@ -39,44 +60,28 @@ public class FormFieldVariableRecordValueExample {
         this.countryRegion = countryRegion;
     }
 
-
-// builder 开始
-  public FormFieldVariableRecordValueExample(){}
-
-  public FormFieldVariableRecordValueExample(Builder builder){
-         /**
-          * 这个属性名称是map的key的示例，属性值是map的value的示例，值和外层的variable_value是的一样的结构。
-          * <p> 示例值：
-          */
-      this.countryRegion = builder.countryRegion;
-  }
-
     public static class Builder {
-     /**
-      * 这个属性名称是map的key的示例，属性值是map的value的示例，值和外层的variable_value是的一样的结构。
-      * <p> 示例值：
-      */
+        /**
+         * 这个属性名称是map的key的示例，属性值是map的value的示例，值和外层的variable_value是的一样的结构。
+         * <p> 示例值：
+         */
         private FormVariableValueInfoExample countryRegion;
 
         /**
          * 这个属性名称是map的key的示例，属性值是map的value的示例，值和外层的variable_value是的一样的结构。
          * <p> 示例值：
+         *
          * @param countryRegion
          * @return
          */
         public Builder countryRegion(FormVariableValueInfoExample countryRegion) {
-             this.countryRegion = countryRegion;
-             return this;
+            this.countryRegion = countryRegion;
+            return this;
         }
 
-    
-    
-    public FormFieldVariableRecordValueExample build(){
-        return new FormFieldVariableRecordValueExample(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public FormFieldVariableRecordValueExample build() {
+            return new FormFieldVariableRecordValueExample(this);
+        }
     }
 }

@@ -12,30 +12,56 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class LanguageInfo {
-     /**
-      * 语言
-      * <p> 示例值：
-      */
+    /**
+     * 语言
+     * <p> 示例值：
+     */
     @SerializedName("language")
     private Integer language;
-     /**
-      * 熟练程度
-      * <p> 示例值：
-      */
+    /**
+     * 熟练程度
+     * <p> 示例值：
+     */
     @SerializedName("proficiency")
     private Integer proficiency;
+
+    // builder 开始
+    public LanguageInfo() {
+    }
+
+    public LanguageInfo(Builder builder) {
+        /**
+         * 语言
+         * <p> 示例值：
+         */
+        this.language = builder.language;
+        /**
+         * 熟练程度
+         * <p> 示例值：
+         */
+        this.proficiency = builder.proficiency;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Integer getLanguage() {
         return this.language;
     }
@@ -52,67 +78,46 @@ public class LanguageInfo {
         this.proficiency = proficiency;
     }
 
-
-// builder 开始
-  public LanguageInfo(){}
-
-  public LanguageInfo(Builder builder){
-         /**
-          * 语言
-          * <p> 示例值：
-          */
-      this.language = builder.language;
-         /**
-          * 熟练程度
-          * <p> 示例值：
-          */
-      this.proficiency = builder.proficiency;
-  }
-
     public static class Builder {
-     /**
-      * 语言
-      * <p> 示例值：
-      */
+        /**
+         * 语言
+         * <p> 示例值：
+         */
         private Integer language;
-     /**
-      * 熟练程度
-      * <p> 示例值：
-      */
+        /**
+         * 熟练程度
+         * <p> 示例值：
+         */
         private Integer proficiency;
 
         /**
          * 语言
          * <p> 示例值：
+         *
          * @param language
          * @return
          */
         public Builder language(Integer language) {
-             this.language = language;
-             return this;
+            this.language = language;
+            return this;
         }
 
-    
 
         /**
          * 熟练程度
          * <p> 示例值：
+         *
          * @param proficiency
          * @return
          */
         public Builder proficiency(Integer proficiency) {
-             this.proficiency = proficiency;
-             return this;
+            this.proficiency = proficiency;
+            return this;
         }
 
-    
-    
-    public LanguageInfo build(){
-        return new LanguageInfo(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public LanguageInfo build() {
+            return new LanguageInfo(this);
+        }
     }
 }

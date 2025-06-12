@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class InvokeApplicationFunctionReqBody {
-     /**
-      * 函数输入参数（JSON 序列化后的字符串）
-      * <p> 示例值：{\"key1\":\"value1\",\"key2\":\"value2\",\"key3\":1718313981794}
-      */
+    /**
+     * 函数输入参数（JSON 序列化后的字符串）
+     * <p> 示例值：{\"key1\":\"value1\",\"key2\":\"value2\",\"key3\":1718313981794}
+     */
     @SerializedName("params")
     private String params;
+
+    // builder 开始
+    public InvokeApplicationFunctionReqBody() {
+    }
+
+    public InvokeApplicationFunctionReqBody(Builder builder) {
+        /**
+         * 函数输入参数（JSON 序列化后的字符串）
+         * <p> 示例值：{\"key1\":\"value1\",\"key2\":\"value2\",\"key3\":1718313981794}
+         */
+        this.params = builder.params;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getParams() {
         return this.params;
     }
@@ -39,44 +60,28 @@ public class InvokeApplicationFunctionReqBody {
         this.params = params;
     }
 
-
-// builder 开始
-  public InvokeApplicationFunctionReqBody(){}
-
-  public InvokeApplicationFunctionReqBody(Builder builder){
-         /**
-          * 函数输入参数（JSON 序列化后的字符串）
-          * <p> 示例值：{\"key1\":\"value1\",\"key2\":\"value2\",\"key3\":1718313981794}
-          */
-      this.params = builder.params;
-  }
-
     public static class Builder {
-     /**
-      * 函数输入参数（JSON 序列化后的字符串）
-      * <p> 示例值：{\"key1\":\"value1\",\"key2\":\"value2\",\"key3\":1718313981794}
-      */
+        /**
+         * 函数输入参数（JSON 序列化后的字符串）
+         * <p> 示例值：{\"key1\":\"value1\",\"key2\":\"value2\",\"key3\":1718313981794}
+         */
         private String params;
 
         /**
          * 函数输入参数（JSON 序列化后的字符串）
          * <p> 示例值：{\"key1\":\"value1\",\"key2\":\"value2\",\"key3\":1718313981794}
+         *
          * @param params
          * @return
          */
         public Builder params(String params) {
-             this.params = params;
-             return this;
+            this.params = params;
+            return this;
         }
 
-    
-    
-    public InvokeApplicationFunctionReqBody build(){
-        return new InvokeApplicationFunctionReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public InvokeApplicationFunctionReqBody build() {
+            return new InvokeApplicationFunctionReqBody(this);
+        }
     }
 }

@@ -12,54 +12,59 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class P2PreHireOnboardingTaskChangedV2Data {
-     /**
-      * 飞书人事租户ID
-      * <p> 示例值：6685321562717324807
-      */
+    /**
+     * 飞书人事租户ID
+     * <p> 示例值：6685321562717324807
+     */
     @SerializedName("tenant_id")
     private String tenantId;
-     /**
-      * 待入职ID
-      * <p> 示例值：7225204420787144236
-      */
+    /**
+     * 待入职ID
+     * <p> 示例值：7225204420787144236
+     */
     @SerializedName("pre_hire_id")
     private String preHireId;
-     /**
-      * 入职任务状态变更
-      * <p> 示例值：
-      */
+    /**
+     * 入职任务状态变更
+     * <p> 示例值：
+     */
     @SerializedName("onboarding_task_changes")
     private OnboardingTaskChange[] onboardingTaskChanges;
-     /**
-      * 入职流程状态变更
-      * <p> 示例值：
-      */
+    /**
+     * 入职流程状态变更
+     * <p> 示例值：
+     */
     @SerializedName("onboarding_flow_change")
     private OnboardingFlowChange onboardingFlowChange;
-     /**
-      * 待入职流程ID
-      * <p> 示例值：65c245b7859c6e77d2290e00
-      */
+    /**
+     * 待入职流程ID
+     * <p> 示例值：65c245b7859c6e77d2290e00
+     */
     @SerializedName("onboarding_flow_id")
     private String onboardingFlowId;
-     /**
-      * 流程信息
-      * <p> 示例值：
-      */
+    /**
+     * 流程信息
+     * <p> 示例值：
+     */
     @SerializedName("flow_info")
     private OnboardingFlow flowInfo;
+
     public String getTenantId() {
         return this.tenantId;
     }

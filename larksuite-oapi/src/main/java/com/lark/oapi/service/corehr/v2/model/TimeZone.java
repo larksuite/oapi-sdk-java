@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,42 +20,82 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class TimeZone {
-     /**
-      * 时区 ID
-      * <p> 示例值：6862995813451171342
-      */
+    /**
+     * 时区 ID
+     * <p> 示例值：6862995813451171342
+     */
     @SerializedName("time_zone_id")
     private String timeZoneId;
-     /**
-      * 时区名称
-      * <p> 示例值：
-      */
+    /**
+     * 时区名称
+     * <p> 示例值：
+     */
     @SerializedName("name")
     private I18n[] name;
-     /**
-      * 编码
-      * <p> 示例值：Pacific/Niue
-      */
+    /**
+     * 编码
+     * <p> 示例值：Pacific/Niue
+     */
     @SerializedName("time_zone_code")
     private String timeZoneCode;
-     /**
-      * UTC 时区偏移量
-      * <p> 示例值：-660
-      */
+    /**
+     * UTC 时区偏移量
+     * <p> 示例值：-660
+     */
     @SerializedName("utc_offset")
     private String utcOffset;
-     /**
-      * 状态
-      * <p> 示例值：1
-      */
+    /**
+     * 状态
+     * <p> 示例值：1
+     */
     @SerializedName("status")
     private Integer status;
+
+    // builder 开始
+    public TimeZone() {
+    }
+
+    public TimeZone(Builder builder) {
+        /**
+         * 时区 ID
+         * <p> 示例值：6862995813451171342
+         */
+        this.timeZoneId = builder.timeZoneId;
+        /**
+         * 时区名称
+         * <p> 示例值：
+         */
+        this.name = builder.name;
+        /**
+         * 编码
+         * <p> 示例值：Pacific/Niue
+         */
+        this.timeZoneCode = builder.timeZoneCode;
+        /**
+         * UTC 时区偏移量
+         * <p> 示例值：-660
+         */
+        this.utcOffset = builder.utcOffset;
+        /**
+         * 状态
+         * <p> 示例值：1
+         */
+        this.status = builder.status;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getTimeZoneId() {
         return this.timeZoneId;
     }
@@ -95,146 +136,112 @@ public class TimeZone {
         this.status = status;
     }
 
-
-// builder 开始
-  public TimeZone(){}
-
-  public TimeZone(Builder builder){
-         /**
-          * 时区 ID
-          * <p> 示例值：6862995813451171342
-          */
-      this.timeZoneId = builder.timeZoneId;
-         /**
-          * 时区名称
-          * <p> 示例值：
-          */
-      this.name = builder.name;
-         /**
-          * 编码
-          * <p> 示例值：Pacific/Niue
-          */
-      this.timeZoneCode = builder.timeZoneCode;
-         /**
-          * UTC 时区偏移量
-          * <p> 示例值：-660
-          */
-      this.utcOffset = builder.utcOffset;
-         /**
-          * 状态
-          * <p> 示例值：1
-          */
-      this.status = builder.status;
-  }
-
     public static class Builder {
-     /**
-      * 时区 ID
-      * <p> 示例值：6862995813451171342
-      */
+        /**
+         * 时区 ID
+         * <p> 示例值：6862995813451171342
+         */
         private String timeZoneId;
-     /**
-      * 时区名称
-      * <p> 示例值：
-      */
+        /**
+         * 时区名称
+         * <p> 示例值：
+         */
         private I18n[] name;
-     /**
-      * 编码
-      * <p> 示例值：Pacific/Niue
-      */
+        /**
+         * 编码
+         * <p> 示例值：Pacific/Niue
+         */
         private String timeZoneCode;
-     /**
-      * UTC 时区偏移量
-      * <p> 示例值：-660
-      */
+        /**
+         * UTC 时区偏移量
+         * <p> 示例值：-660
+         */
         private String utcOffset;
-     /**
-      * 状态
-      * <p> 示例值：1
-      */
+        /**
+         * 状态
+         * <p> 示例值：1
+         */
         private Integer status;
 
         /**
          * 时区 ID
          * <p> 示例值：6862995813451171342
+         *
          * @param timeZoneId
          * @return
          */
         public Builder timeZoneId(String timeZoneId) {
-             this.timeZoneId = timeZoneId;
-             return this;
+            this.timeZoneId = timeZoneId;
+            return this;
         }
 
-    
 
         /**
          * 时区名称
          * <p> 示例值：
+         *
          * @param name
          * @return
          */
         public Builder name(I18n[] name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 编码
          * <p> 示例值：Pacific/Niue
+         *
          * @param timeZoneCode
          * @return
          */
         public Builder timeZoneCode(String timeZoneCode) {
-             this.timeZoneCode = timeZoneCode;
-             return this;
+            this.timeZoneCode = timeZoneCode;
+            return this;
         }
 
-    
 
         /**
          * UTC 时区偏移量
          * <p> 示例值：-660
+         *
          * @param utcOffset
          * @return
          */
         public Builder utcOffset(String utcOffset) {
-             this.utcOffset = utcOffset;
-             return this;
+            this.utcOffset = utcOffset;
+            return this;
         }
 
-    
 
         /**
          * 状态
          * <p> 示例值：1
+         *
          * @param status
          * @return
          */
         public Builder status(Integer status) {
-             this.status = status;
-             return this;
+            this.status = status;
+            return this;
         }
+
         /**
          * 状态
          * <p> 示例值：1
+         *
          * @param status {@link com.lark.oapi.service.corehr.v2.enums.TimeZoneBasicDataObjStatusEnum}
          * @return
          */
         public Builder status(com.lark.oapi.service.corehr.v2.enums.TimeZoneBasicDataObjStatusEnum status) {
-             this.status = status.getValue();
-             return this;
+            this.status = status.getValue();
+            return this;
         }
 
-    
-    
-    public TimeZone build(){
-        return new TimeZone(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public TimeZone build() {
+            return new TimeZone(this);
+        }
     }
 }

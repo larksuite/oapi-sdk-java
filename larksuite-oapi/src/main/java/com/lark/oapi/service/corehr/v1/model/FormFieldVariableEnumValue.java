@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class FormFieldVariableEnumValue {
-     /**
-      * 枚举值
-      * <p> 示例值：enum_value
-      */
+    /**
+     * 枚举值
+     * <p> 示例值：enum_value
+     */
     @SerializedName("value")
     private String value;
-     /**
-      * 枚举的名称
-      * <p> 示例值：
-      */
+    /**
+     * 枚举的名称
+     * <p> 示例值：
+     */
     @SerializedName("name")
     private BpmDataengineI18n name;
-     /**
-      * 枚举的描述
-      * <p> 示例值：
-      */
+    /**
+     * 枚举的描述
+     * <p> 示例值：
+     */
     @SerializedName("desc")
     private BpmDataengineI18n desc;
+
+    // builder 开始
+    public FormFieldVariableEnumValue() {
+    }
+
+    public FormFieldVariableEnumValue(Builder builder) {
+        /**
+         * 枚举值
+         * <p> 示例值：enum_value
+         */
+        this.value = builder.value;
+        /**
+         * 枚举的名称
+         * <p> 示例值：
+         */
+        this.name = builder.name;
+        /**
+         * 枚举的描述
+         * <p> 示例值：
+         */
+        this.desc = builder.desc;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getValue() {
         return this.value;
     }
@@ -67,90 +98,64 @@ public class FormFieldVariableEnumValue {
         this.desc = desc;
     }
 
-
-// builder 开始
-  public FormFieldVariableEnumValue(){}
-
-  public FormFieldVariableEnumValue(Builder builder){
-         /**
-          * 枚举值
-          * <p> 示例值：enum_value
-          */
-      this.value = builder.value;
-         /**
-          * 枚举的名称
-          * <p> 示例值：
-          */
-      this.name = builder.name;
-         /**
-          * 枚举的描述
-          * <p> 示例值：
-          */
-      this.desc = builder.desc;
-  }
-
     public static class Builder {
-     /**
-      * 枚举值
-      * <p> 示例值：enum_value
-      */
+        /**
+         * 枚举值
+         * <p> 示例值：enum_value
+         */
         private String value;
-     /**
-      * 枚举的名称
-      * <p> 示例值：
-      */
+        /**
+         * 枚举的名称
+         * <p> 示例值：
+         */
         private BpmDataengineI18n name;
-     /**
-      * 枚举的描述
-      * <p> 示例值：
-      */
+        /**
+         * 枚举的描述
+         * <p> 示例值：
+         */
         private BpmDataengineI18n desc;
 
         /**
          * 枚举值
          * <p> 示例值：enum_value
+         *
          * @param value
          * @return
          */
         public Builder value(String value) {
-             this.value = value;
-             return this;
+            this.value = value;
+            return this;
         }
 
-    
 
         /**
          * 枚举的名称
          * <p> 示例值：
+         *
          * @param name
          * @return
          */
         public Builder name(BpmDataengineI18n name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 枚举的描述
          * <p> 示例值：
+         *
          * @param desc
          * @return
          */
         public Builder desc(BpmDataengineI18n desc) {
-             this.desc = desc;
-             return this;
+            this.desc = desc;
+            return this;
         }
 
-    
-    
-    public FormFieldVariableEnumValue build(){
-        return new FormFieldVariableEnumValue(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public FormFieldVariableEnumValue build() {
+            return new FormFieldVariableEnumValue(this);
+        }
     }
 }

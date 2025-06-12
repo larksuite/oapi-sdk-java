@@ -17,15 +17,16 @@ package com.lark.oapi.service.bitable.v1.enums;
  * 文档高级权限版本
  */
 public enum DisplayAppAdvanceVersionEnum {
-     V1("v1"), // v1版本
-     V2("v2"), // v2版本
-  ;
-   private String value;
+    V1("v1"), // v1版本
+    V2("v2"), // v2版本
+    ;
+    private String value;
+
     DisplayAppAdvanceVersionEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

@@ -12,36 +12,67 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class OfferSignatureInfo {
-     /**
-      * 电子签信息 id
-      * <p> 示例值：1718959426734
-      */
+    /**
+     * 电子签信息 id
+     * <p> 示例值：1718959426734
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 电子签签署状态
-      * <p> 示例值：1
-      */
+    /**
+     * 电子签签署状态
+     * <p> 示例值：1
+     */
     @SerializedName("signature_status")
     private Integer signatureStatus;
-     /**
-      * 电子签附件列表
-      * <p> 示例值：xxx
-      */
+    /**
+     * 电子签附件列表
+     * <p> 示例值：xxx
+     */
     @SerializedName("attachment_list")
     private SignatureAttachment[] attachmentList;
+
+    // builder 开始
+    public OfferSignatureInfo() {
+    }
+
+    public OfferSignatureInfo(Builder builder) {
+        /**
+         * 电子签信息 id
+         * <p> 示例值：1718959426734
+         */
+        this.id = builder.id;
+        /**
+         * 电子签签署状态
+         * <p> 示例值：1
+         */
+        this.signatureStatus = builder.signatureStatus;
+        /**
+         * 电子签附件列表
+         * <p> 示例值：xxx
+         */
+        this.attachmentList = builder.attachmentList;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -66,90 +97,64 @@ public class OfferSignatureInfo {
         this.attachmentList = attachmentList;
     }
 
-
-// builder 开始
-  public OfferSignatureInfo(){}
-
-  public OfferSignatureInfo(Builder builder){
-         /**
-          * 电子签信息 id
-          * <p> 示例值：1718959426734
-          */
-      this.id = builder.id;
-         /**
-          * 电子签签署状态
-          * <p> 示例值：1
-          */
-      this.signatureStatus = builder.signatureStatus;
-         /**
-          * 电子签附件列表
-          * <p> 示例值：xxx
-          */
-      this.attachmentList = builder.attachmentList;
-  }
-
     public static class Builder {
-     /**
-      * 电子签信息 id
-      * <p> 示例值：1718959426734
-      */
+        /**
+         * 电子签信息 id
+         * <p> 示例值：1718959426734
+         */
         private String id;
-     /**
-      * 电子签签署状态
-      * <p> 示例值：1
-      */
+        /**
+         * 电子签签署状态
+         * <p> 示例值：1
+         */
         private Integer signatureStatus;
-     /**
-      * 电子签附件列表
-      * <p> 示例值：xxx
-      */
+        /**
+         * 电子签附件列表
+         * <p> 示例值：xxx
+         */
         private SignatureAttachment[] attachmentList;
 
         /**
          * 电子签信息 id
          * <p> 示例值：1718959426734
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 电子签签署状态
          * <p> 示例值：1
+         *
          * @param signatureStatus
          * @return
          */
         public Builder signatureStatus(Integer signatureStatus) {
-             this.signatureStatus = signatureStatus;
-             return this;
+            this.signatureStatus = signatureStatus;
+            return this;
         }
 
-    
 
         /**
          * 电子签附件列表
          * <p> 示例值：xxx
+         *
          * @param attachmentList
          * @return
          */
         public Builder attachmentList(SignatureAttachment[] attachmentList) {
-             this.attachmentList = attachmentList;
-             return this;
+            this.attachmentList = attachmentList;
+            return this;
         }
 
-    
-    
-    public OfferSignatureInfo build(){
-        return new OfferSignatureInfo(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public OfferSignatureInfo build() {
+            return new OfferSignatureInfo(this);
+        }
     }
 }

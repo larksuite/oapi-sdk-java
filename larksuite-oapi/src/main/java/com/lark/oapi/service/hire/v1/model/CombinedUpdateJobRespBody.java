@@ -12,60 +12,65 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CombinedUpdateJobRespBody {
-     /**
-      * 职位广告
-      * <p> 示例值：
-      */
+    /**
+     * 职位广告
+     * <p> 示例值：
+     */
     @SerializedName("default_job_post")
     private CombinedJobResultDefaultJobPost defaultJobPost;
-     /**
-      * 职位
-      * <p> 示例值：
-      */
+    /**
+     * 职位
+     * <p> 示例值：
+     */
     @SerializedName("job")
     private Job job;
-     /**
-      * 职位负责人
-      * <p> 示例值：
-      */
+    /**
+     * 职位负责人
+     * <p> 示例值：
+     */
     @SerializedName("job_manager")
     private JobManager jobManager;
-     /**
-      * 面试登记表
-      * <p> 示例值：
-      */
+    /**
+     * 面试登记表
+     * <p> 示例值：
+     */
     @SerializedName("interview_registration_schema_info")
     private RegistrationSchemaInfo interviewRegistrationSchemaInfo;
-     /**
-      * 入职登记表
-      * <p> 示例值：
-      */
+    /**
+     * 入职登记表
+     * <p> 示例值：
+     */
     @SerializedName("onboard_registration_schema_info")
     private RegistrationSchemaInfo onboardRegistrationSchemaInfo;
-     /**
-      * 目标专业
-      * <p> 示例值：
-      */
+    /**
+     * 目标专业
+     * <p> 示例值：
+     */
     @SerializedName("target_major_list")
     private TargetMajorInfo[] targetMajorList;
-     /**
-      * 官网申请表
-      * <p> 示例值：
-      */
+    /**
+     * 官网申请表
+     * <p> 示例值：
+     */
     @SerializedName("portal_website_apply_form_schema_info")
     private RegistrationSchemaInfo portalWebsiteApplyFormSchemaInfo;
+
     public CombinedJobResultDefaultJobPost getDefaultJobPost() {
         return this.defaultJobPost;
     }

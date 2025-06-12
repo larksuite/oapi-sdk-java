@@ -17,18 +17,19 @@ package com.lark.oapi.service.security_and_compliance.v1.enums;
  * 申报状态
  */
 public enum DeviceApplyRecordDeviceApplyStatusEnum {
-     UNKNOWN("Unknown"), // 未知
-     NOAPPLY("NoApply"), // 未提交
-     PROCESSING("Processing"), // 审核中
-     PASS("Pass"), // 审核通过
-     REJECT("Reject"), // 审核驳回
-  ;
-   private String value;
+    UNKNOWN("Unknown"), // 未知
+    NOAPPLY("NoApply"), // 未提交
+    PROCESSING("Processing"), // 审核中
+    PASS("Pass"), // 审核通过
+    REJECT("Reject"), // 审核驳回
+    ;
+    private String value;
+
     DeviceApplyRecordDeviceApplyStatusEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

@@ -17,21 +17,22 @@ package com.lark.oapi.service.payroll.v1.enums;
  * 字段类型
  */
 public enum DmpFieldDMPTypeEnum {
-     TEXT(0), // 文本
-     NUMBER(1), // 数值（暂未使用）
-     FLOAT(2), // 浮点数（暂未使用）
-     ENUM(3), // 枚举
-     DATE(4), // 日期（2000-01-01）
-     DATETIMETEXT(7), // 日期时间（2000-01-01 00:00:00，暂未使用）
-     DATETIME(8), // 毫秒时间戳
-     FILE(9), // 文件
-  ;
-   private Integer value;
+    TEXT(0), // 文本
+    NUMBER(1), // 数值（暂未使用）
+    FLOAT(2), // 浮点数（暂未使用）
+    ENUM(3), // 枚举
+    DATE(4), // 日期（2000-01-01）
+    DATETIMETEXT(7), // 日期时间（2000-01-01 00:00:00，暂未使用）
+    DATETIME(8), // 毫秒时间戳
+    FILE(9), // 文件
+    ;
+    private Integer value;
+
     DmpFieldDMPTypeEnum(Integer value) {
-      this.value = value;
+        this.value = value;
     }
 
     public Integer getValue() {
-      return this.value;
+        return this.value;
     }
 }

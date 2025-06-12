@@ -12,36 +12,41 @@
  */
 
 package com.lark.oapi.service.mail.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class GetByCardUserMailboxMessageRespBody {
-     /**
-      * 邮件Owner信息
-      * <p> 示例值：
-      */
+    /**
+     * 邮件Owner信息
+     * <p> 示例值：
+     */
     @SerializedName("owner_info")
     private UserInfo ownerInfo;
-     /**
-      * 邮件ID列表
-      * <p> 示例值：
-      */
+    /**
+     * 邮件ID列表
+     * <p> 示例值：
+     */
     @SerializedName("message_ids")
     private String[] messageIds;
-     /**
-      * 卡片ID
-      * <p> 示例值：512ca581-6059-4449-8150-5522e6646d32
-      */
+    /**
+     * 卡片ID
+     * <p> 示例值：512ca581-6059-4449-8150-5522e6646d32
+     */
     @SerializedName("card_id")
     private String cardId;
+
     public UserInfo getOwnerInfo() {
         return this.ownerInfo;
     }

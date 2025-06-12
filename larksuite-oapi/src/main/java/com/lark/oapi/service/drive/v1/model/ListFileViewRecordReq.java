@@ -12,46 +12,94 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ListFileViewRecordReq {
-     /**
-      * 分页大小
-      * <p> 示例值：10
-      */
+    /**
+     * 分页大小
+     * <p> 示例值：10
+     */
     @Query
     @SerializedName("page_size")
     private Integer pageSize;
-     /**
-      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-      * <p> 示例值：1674037112--7189934631754563585
-      */
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     * <p> 示例值：1674037112--7189934631754563585
+     */
     @Query
     @SerializedName("page_token")
     private String pageToken;
-     /**
-      * 文档类型
-      * <p> 示例值：docx
-      */
+    /**
+     * 文档类型
+     * <p> 示例值：docx
+     */
     @Query
     @SerializedName("file_type")
     private String fileType;
-     /**
-      * 此次调用中使用的访问者 ID 的类型
-      * <p> 示例值：open_id
-      */
+    /**
+     * 此次调用中使用的访问者 ID 的类型
+     * <p> 示例值：open_id
+     */
     @Query
     @SerializedName("viewer_id_type")
     private String viewerIdType;
+    /**
+     * 文档 token
+     * <p> 示例值：XIHSdYSI7oMEU1xrsnxc8fabcef
+     */
+    @Path
+    @SerializedName("file_token")
+    private String fileToken;
+
+    // builder 开始
+    public ListFileViewRecordReq() {
+    }
+
+    public ListFileViewRecordReq(Builder builder) {
+        /**
+         * 分页大小
+         * <p> 示例值：10
+         */
+        this.pageSize = builder.pageSize;
+        /**
+         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+         * <p> 示例值：1674037112--7189934631754563585
+         */
+        this.pageToken = builder.pageToken;
+        /**
+         * 文档类型
+         * <p> 示例值：docx
+         */
+        this.fileType = builder.fileType;
+        /**
+         * 此次调用中使用的访问者 ID 的类型
+         * <p> 示例值：open_id
+         */
+        this.viewerIdType = builder.viewerIdType;
+        /**
+         * 文档 token
+         * <p> 示例值：XIHSdYSI7oMEU1xrsnxc8fabcef
+         */
+        this.fileToken = builder.fileToken;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Integer getPageSize() {
         return this.pageSize;
     }
@@ -84,13 +132,6 @@ public class ListFileViewRecordReq {
         this.viewerIdType = viewerIdType;
     }
 
-     /**
-      * 文档 token
-      * <p> 示例值：XIHSdYSI7oMEU1xrsnxc8fabcef
-      */
-    @Path
-    @SerializedName("file_token")
-    private String fileToken;
     public String getFileToken() {
         return this.fileToken;
     }
@@ -99,133 +140,100 @@ public class ListFileViewRecordReq {
         this.fileToken = fileToken;
     }
 
-
-// builder 开始
-  public ListFileViewRecordReq(){}
-
-  public ListFileViewRecordReq(Builder builder){
-         /**
-          * 分页大小
-          * <p> 示例值：10
-          */
-       this.pageSize = builder.pageSize;
-         /**
-          * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-          * <p> 示例值：1674037112--7189934631754563585
-          */
-       this.pageToken = builder.pageToken;
-         /**
-          * 文档类型
-          * <p> 示例值：docx
-          */
-       this.fileType = builder.fileType;
-         /**
-          * 此次调用中使用的访问者 ID 的类型
-          * <p> 示例值：open_id
-          */
-       this.viewerIdType = builder.viewerIdType;
-     /**
-      * 文档 token
-      * <p> 示例值：XIHSdYSI7oMEU1xrsnxc8fabcef
-      */
-       this.fileToken = builder.fileToken;
-  }
-
     public static class Builder {
         private Integer pageSize; // 分页大小
         private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
         private String fileType; // 文档类型
         private String viewerIdType; // 此次调用中使用的访问者 ID 的类型
-    
+        private String fileToken; // 文档 token
+
         /**
          * 分页大小
          * <p> 示例值：10
+         *
          * @param pageSize
          * @return
          */
-           public Builder pageSize(Integer pageSize) {
-                this.pageSize = pageSize;
-                return this;
-           }
+        public Builder pageSize(Integer pageSize) {
+            this.pageSize = pageSize;
+            return this;
+        }
 
-    
         /**
          * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
          * <p> 示例值：1674037112--7189934631754563585
+         *
          * @param pageToken
          * @return
          */
-           public Builder pageToken(String pageToken) {
-                this.pageToken = pageToken;
-                return this;
-           }
+        public Builder pageToken(String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+        }
 
-    
         /**
          * 文档类型
          * <p> 示例值：docx
+         *
          * @param fileType
          * @return
          */
-           public Builder fileType(String fileType) {
-                this.fileType = fileType;
-                return this;
-           }
+        public Builder fileType(String fileType) {
+            this.fileType = fileType;
+            return this;
+        }
 
         /**
          * 文档类型
          * <p> 示例值：docx
+         *
          * @param fileType {@link com.lark.oapi.service.drive.v1.enums.ListFileViewRecordFileTypeEnum}
          * @return
          */
-          public Builder fileType(com.lark.oapi.service.drive.v1.enums.ListFileViewRecordFileTypeEnum fileType) {
-               this.fileType = fileType.getValue();
-               return this;
-          }
+        public Builder fileType(com.lark.oapi.service.drive.v1.enums.ListFileViewRecordFileTypeEnum fileType) {
+            this.fileType = fileType.getValue();
+            return this;
+        }
 
-    
         /**
          * 此次调用中使用的访问者 ID 的类型
          * <p> 示例值：open_id
+         *
          * @param viewerIdType
          * @return
          */
-           public Builder viewerIdType(String viewerIdType) {
-                this.viewerIdType = viewerIdType;
-                return this;
-           }
+        public Builder viewerIdType(String viewerIdType) {
+            this.viewerIdType = viewerIdType;
+            return this;
+        }
 
         /**
          * 此次调用中使用的访问者 ID 的类型
          * <p> 示例值：open_id
+         *
          * @param viewerIdType {@link com.lark.oapi.service.drive.v1.enums.ListFileViewRecordViewerIdTypeEnum}
          * @return
          */
-          public Builder viewerIdType(com.lark.oapi.service.drive.v1.enums.ListFileViewRecordViewerIdTypeEnum viewerIdType) {
-               this.viewerIdType = viewerIdType.getValue();
-               return this;
-          }
+        public Builder viewerIdType(com.lark.oapi.service.drive.v1.enums.ListFileViewRecordViewerIdTypeEnum viewerIdType) {
+            this.viewerIdType = viewerIdType.getValue();
+            return this;
+        }
 
-    
-        private String fileToken; // 文档 token
         /**
          * 文档 token
          * <p> 示例值：XIHSdYSI7oMEU1xrsnxc8fabcef
+         *
          * @param fileToken
          * @return
          */
-          public Builder fileToken(String fileToken) {
-               this.fileToken = fileToken;
-               return this;
-          }
+        public Builder fileToken(String fileToken) {
+            this.fileToken = fileToken;
+            return this;
+        }
 
-    
-    public ListFileViewRecordReq build(){
-        return new ListFileViewRecordReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ListFileViewRecordReq build() {
+            return new ListFileViewRecordReq(this);
+        }
     }
 }

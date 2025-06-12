@@ -12,42 +12,78 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class AppliOfferSalaryPlanTemplate {
-     /**
-      * 模版key
-      * <p> 示例值：
-      */
+    /**
+     * 模版key
+     * <p> 示例值：
+     */
     @SerializedName("template_key")
     private String templateKey;
-     /**
-      * 总金额
-      * <p> 示例值：
-      */
+    /**
+     * 总金额
+     * <p> 示例值：
+     */
     @SerializedName("total_amount")
     private String totalAmount;
-     /**
-      * 币种
-      * <p> 示例值：
-      */
+    /**
+     * 币种
+     * <p> 示例值：
+     */
     @SerializedName("currency")
     private String currency;
-     /**
-      * 薪酬内容
-      * <p> 示例值：
-      */
+    /**
+     * 薪酬内容
+     * <p> 示例值：
+     */
     @SerializedName("salary_content")
     private String salaryContent;
+
+    // builder 开始
+    public AppliOfferSalaryPlanTemplate() {
+    }
+
+    public AppliOfferSalaryPlanTemplate(Builder builder) {
+        /**
+         * 模版key
+         * <p> 示例值：
+         */
+        this.templateKey = builder.templateKey;
+        /**
+         * 总金额
+         * <p> 示例值：
+         */
+        this.totalAmount = builder.totalAmount;
+        /**
+         * 币种
+         * <p> 示例值：
+         */
+        this.currency = builder.currency;
+        /**
+         * 薪酬内容
+         * <p> 示例值：
+         */
+        this.salaryContent = builder.salaryContent;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getTemplateKey() {
         return this.templateKey;
     }
@@ -80,113 +116,82 @@ public class AppliOfferSalaryPlanTemplate {
         this.salaryContent = salaryContent;
     }
 
-
-// builder 开始
-  public AppliOfferSalaryPlanTemplate(){}
-
-  public AppliOfferSalaryPlanTemplate(Builder builder){
-         /**
-          * 模版key
-          * <p> 示例值：
-          */
-      this.templateKey = builder.templateKey;
-         /**
-          * 总金额
-          * <p> 示例值：
-          */
-      this.totalAmount = builder.totalAmount;
-         /**
-          * 币种
-          * <p> 示例值：
-          */
-      this.currency = builder.currency;
-         /**
-          * 薪酬内容
-          * <p> 示例值：
-          */
-      this.salaryContent = builder.salaryContent;
-  }
-
     public static class Builder {
-     /**
-      * 模版key
-      * <p> 示例值：
-      */
+        /**
+         * 模版key
+         * <p> 示例值：
+         */
         private String templateKey;
-     /**
-      * 总金额
-      * <p> 示例值：
-      */
+        /**
+         * 总金额
+         * <p> 示例值：
+         */
         private String totalAmount;
-     /**
-      * 币种
-      * <p> 示例值：
-      */
+        /**
+         * 币种
+         * <p> 示例值：
+         */
         private String currency;
-     /**
-      * 薪酬内容
-      * <p> 示例值：
-      */
+        /**
+         * 薪酬内容
+         * <p> 示例值：
+         */
         private String salaryContent;
 
         /**
          * 模版key
          * <p> 示例值：
+         *
          * @param templateKey
          * @return
          */
         public Builder templateKey(String templateKey) {
-             this.templateKey = templateKey;
-             return this;
+            this.templateKey = templateKey;
+            return this;
         }
 
-    
 
         /**
          * 总金额
          * <p> 示例值：
+         *
          * @param totalAmount
          * @return
          */
         public Builder totalAmount(String totalAmount) {
-             this.totalAmount = totalAmount;
-             return this;
+            this.totalAmount = totalAmount;
+            return this;
         }
 
-    
 
         /**
          * 币种
          * <p> 示例值：
+         *
          * @param currency
          * @return
          */
         public Builder currency(String currency) {
-             this.currency = currency;
-             return this;
+            this.currency = currency;
+            return this;
         }
 
-    
 
         /**
          * 薪酬内容
          * <p> 示例值：
+         *
          * @param salaryContent
          * @return
          */
         public Builder salaryContent(String salaryContent) {
-             this.salaryContent = salaryContent;
-             return this;
+            this.salaryContent = salaryContent;
+            return this;
         }
 
-    
-    
-    public AppliOfferSalaryPlanTemplate build(){
-        return new AppliOfferSalaryPlanTemplate(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public AppliOfferSalaryPlanTemplate build() {
+            return new AppliOfferSalaryPlanTemplate(this);
+        }
     }
 }

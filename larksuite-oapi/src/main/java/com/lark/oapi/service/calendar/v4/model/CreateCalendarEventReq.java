@@ -12,32 +12,73 @@
  */
 
 package com.lark.oapi.service.calendar.v4.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.calendar.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CreateCalendarEventReq {
-     /**
-      * 幂等唯一key
-      * <p> 示例值：25fdf41b-8c80-2ce1-e94c-de8b5e7aa7e6
-      */
+    /**
+     * 幂等唯一key
+     * <p> 示例值：25fdf41b-8c80-2ce1-e94c-de8b5e7aa7e6
+     */
     @Query
     @SerializedName("idempotency_key")
     private String idempotencyKey;
-     /**
-      * 此次调用中使用的用户ID的类型
-      * <p> 示例值：
-      */
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
+    /**
+     * 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
+     * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
+     */
+    @Path
+    @SerializedName("calendar_id")
+    private String calendarId;
+    @Body
+    private CalendarEvent body;
+
+    // builder 开始
+    public CreateCalendarEventReq() {
+    }
+
+    public CreateCalendarEventReq(Builder builder) {
+        /**
+         * 幂等唯一key
+         * <p> 示例值：25fdf41b-8c80-2ce1-e94c-de8b5e7aa7e6
+         */
+        this.idempotencyKey = builder.idempotencyKey;
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         */
+        this.userIdType = builder.userIdType;
+        /**
+         * 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
+         * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
+         */
+        this.calendarId = builder.calendarId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getIdempotencyKey() {
         return this.idempotencyKey;
     }
@@ -54,13 +95,6 @@ public class CreateCalendarEventReq {
         this.userIdType = userIdType;
     }
 
-     /**
-      * 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
-      * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
-      */
-    @Path
-    @SerializedName("calendar_id")
-    private String calendarId;
     public String getCalendarId() {
         return this.calendarId;
     }
@@ -68,9 +102,6 @@ public class CreateCalendarEventReq {
     public void setCalendarId(String calendarId) {
         this.calendarId = calendarId;
     }
-
-    @Body
-    private CalendarEvent body;
 
     public CalendarEvent getCalendarEvent() {
         return this.body;
@@ -80,101 +111,77 @@ public class CreateCalendarEventReq {
         this.body = body;
     }
 
-// builder 开始
-  public CreateCalendarEventReq(){}
-
-  public CreateCalendarEventReq(Builder builder){
-         /**
-          * 幂等唯一key
-          * <p> 示例值：25fdf41b-8c80-2ce1-e94c-de8b5e7aa7e6
-          */
-       this.idempotencyKey = builder.idempotencyKey;
-         /**
-          * 此次调用中使用的用户ID的类型
-          * <p> 示例值：
-          */
-       this.userIdType = builder.userIdType;
-     /**
-      * 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
-      * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
-      */
-       this.calendarId = builder.calendarId;
-        this.body = builder.body;
-  }
-
     public static class Builder {
         private String idempotencyKey; // 幂等唯一key
         private String userIdType; // 此次调用中使用的用户ID的类型
-    
+        private String calendarId; // 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
+        private CalendarEvent body;
+
         /**
          * 幂等唯一key
          * <p> 示例值：25fdf41b-8c80-2ce1-e94c-de8b5e7aa7e6
+         *
          * @param idempotencyKey
          * @return
          */
-           public Builder idempotencyKey(String idempotencyKey) {
-                this.idempotencyKey = idempotencyKey;
-                return this;
-           }
+        public Builder idempotencyKey(String idempotencyKey) {
+            this.idempotencyKey = idempotencyKey;
+            return this;
+        }
 
-    
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
+         *
          * @param userIdType
          * @return
          */
-           public Builder userIdType(String userIdType) {
-                this.userIdType = userIdType;
-                return this;
-           }
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
 
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
+         *
          * @param userIdType {@link com.lark.oapi.service.calendar.v4.enums.CreateCalendarEventUserIdTypeEnum}
          * @return
          */
-          public Builder userIdType(com.lark.oapi.service.calendar.v4.enums.CreateCalendarEventUserIdTypeEnum userIdType) {
-               this.userIdType = userIdType.getValue();
-               return this;
-          }
+        public Builder userIdType(com.lark.oapi.service.calendar.v4.enums.CreateCalendarEventUserIdTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
+            return this;
+        }
 
-    
-        private String calendarId; // 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
         /**
          * 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
          * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
+         *
          * @param calendarId
          * @return
          */
-          public Builder calendarId(String calendarId) {
-               this.calendarId = calendarId;
-               return this;
-          }
+        public Builder calendarId(String calendarId) {
+            this.calendarId = calendarId;
+            return this;
+        }
 
-    
-        private CalendarEvent body;
-    
         public CalendarEvent getCalendarEvent() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder calendarEvent(CalendarEvent body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public CreateCalendarEventReq build(){
-        return new CreateCalendarEventReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public CreateCalendarEventReq build() {
+            return new CreateCalendarEventReq(this);
+        }
     }
 }

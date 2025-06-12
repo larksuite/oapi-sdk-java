@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class UpdateRuleCustomOrgReqBody {
-     /**
-      * 组织类型编码
-      * <p> 示例值：apiname__c
-      */
+    /**
+     * 组织类型编码
+     * <p> 示例值：apiname__c
+     */
     @SerializedName("object_api_name")
     private String objectApiName;
-     /**
-      * 组织ID
-      * <p> 示例值：6862995757234914824
-      */
+    /**
+     * 组织ID
+     * <p> 示例值：6862995757234914824
+     */
     @SerializedName("org_id")
     private String orgId;
-     /**
-      * 匹配规则组，组间并集
-      * <p> 示例值：
-      */
+    /**
+     * 匹配规则组，组间并集
+     * <p> 示例值：
+     */
     @SerializedName("match_rule_groups")
     private MatchRules[] matchRuleGroups;
+
+    // builder 开始
+    public UpdateRuleCustomOrgReqBody() {
+    }
+
+    public UpdateRuleCustomOrgReqBody(Builder builder) {
+        /**
+         * 组织类型编码
+         * <p> 示例值：apiname__c
+         */
+        this.objectApiName = builder.objectApiName;
+        /**
+         * 组织ID
+         * <p> 示例值：6862995757234914824
+         */
+        this.orgId = builder.orgId;
+        /**
+         * 匹配规则组，组间并集
+         * <p> 示例值：
+         */
+        this.matchRuleGroups = builder.matchRuleGroups;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getObjectApiName() {
         return this.objectApiName;
     }
@@ -67,90 +98,64 @@ public class UpdateRuleCustomOrgReqBody {
         this.matchRuleGroups = matchRuleGroups;
     }
 
-
-// builder 开始
-  public UpdateRuleCustomOrgReqBody(){}
-
-  public UpdateRuleCustomOrgReqBody(Builder builder){
-         /**
-          * 组织类型编码
-          * <p> 示例值：apiname__c
-          */
-      this.objectApiName = builder.objectApiName;
-         /**
-          * 组织ID
-          * <p> 示例值：6862995757234914824
-          */
-      this.orgId = builder.orgId;
-         /**
-          * 匹配规则组，组间并集
-          * <p> 示例值：
-          */
-      this.matchRuleGroups = builder.matchRuleGroups;
-  }
-
     public static class Builder {
-     /**
-      * 组织类型编码
-      * <p> 示例值：apiname__c
-      */
+        /**
+         * 组织类型编码
+         * <p> 示例值：apiname__c
+         */
         private String objectApiName;
-     /**
-      * 组织ID
-      * <p> 示例值：6862995757234914824
-      */
+        /**
+         * 组织ID
+         * <p> 示例值：6862995757234914824
+         */
         private String orgId;
-     /**
-      * 匹配规则组，组间并集
-      * <p> 示例值：
-      */
+        /**
+         * 匹配规则组，组间并集
+         * <p> 示例值：
+         */
         private MatchRules[] matchRuleGroups;
 
         /**
          * 组织类型编码
          * <p> 示例值：apiname__c
+         *
          * @param objectApiName
          * @return
          */
         public Builder objectApiName(String objectApiName) {
-             this.objectApiName = objectApiName;
-             return this;
+            this.objectApiName = objectApiName;
+            return this;
         }
 
-    
 
         /**
          * 组织ID
          * <p> 示例值：6862995757234914824
+         *
          * @param orgId
          * @return
          */
         public Builder orgId(String orgId) {
-             this.orgId = orgId;
-             return this;
+            this.orgId = orgId;
+            return this;
         }
 
-    
 
         /**
          * 匹配规则组，组间并集
          * <p> 示例值：
+         *
          * @param matchRuleGroups
          * @return
          */
         public Builder matchRuleGroups(MatchRules[] matchRuleGroups) {
-             this.matchRuleGroups = matchRuleGroups;
-             return this;
+            this.matchRuleGroups = matchRuleGroups;
+            return this;
         }
 
-    
-    
-    public UpdateRuleCustomOrgReqBody build(){
-        return new UpdateRuleCustomOrgReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public UpdateRuleCustomOrgReqBody build() {
+            return new UpdateRuleCustomOrgReqBody(this);
+        }
     }
 }

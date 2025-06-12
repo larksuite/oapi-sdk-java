@@ -12,30 +12,35 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class DeleteAppTableFieldRespBody {
-     /**
-      * field id
-      * <p> 示例值：fldPTb0U2y
-      */
+    /**
+     * field id
+     * <p> 示例值：fldPTb0U2y
+     */
     @SerializedName("field_id")
     private String fieldId;
-     /**
-      * 删除标记
-      * <p> 示例值：true
-      */
+    /**
+     * 删除标记
+     * <p> 示例值：true
+     */
     @SerializedName("deleted")
     private Boolean deleted;
+
     public String getFieldId() {
         return this.fieldId;
     }

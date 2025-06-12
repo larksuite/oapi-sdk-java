@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.tenant.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.tenant.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ProductI18nName {
-     /**
-      * 商业化产品的中文名
-      * <p> 示例值：zh_cn_name
-      */
+    /**
+     * 商业化产品的中文名
+     * <p> 示例值：zh_cn_name
+     */
     @SerializedName("zh_cn")
     private String zhCn;
-     /**
-      * 商业化产品的日文名
-      * <p> 示例值：ja_jp_name
-      */
+    /**
+     * 商业化产品的日文名
+     * <p> 示例值：ja_jp_name
+     */
     @SerializedName("ja_jp")
     private String jaJp;
-     /**
-      * 商业化产品的英文名
-      * <p> 示例值：en_name
-      */
+    /**
+     * 商业化产品的英文名
+     * <p> 示例值：en_name
+     */
     @SerializedName("en_us")
     private String enUs;
+
+    // builder 开始
+    public ProductI18nName() {
+    }
+
+    public ProductI18nName(Builder builder) {
+        /**
+         * 商业化产品的中文名
+         * <p> 示例值：zh_cn_name
+         */
+        this.zhCn = builder.zhCn;
+        /**
+         * 商业化产品的日文名
+         * <p> 示例值：ja_jp_name
+         */
+        this.jaJp = builder.jaJp;
+        /**
+         * 商业化产品的英文名
+         * <p> 示例值：en_name
+         */
+        this.enUs = builder.enUs;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getZhCn() {
         return this.zhCn;
     }
@@ -67,90 +98,64 @@ public class ProductI18nName {
         this.enUs = enUs;
     }
 
-
-// builder 开始
-  public ProductI18nName(){}
-
-  public ProductI18nName(Builder builder){
-         /**
-          * 商业化产品的中文名
-          * <p> 示例值：zh_cn_name
-          */
-      this.zhCn = builder.zhCn;
-         /**
-          * 商业化产品的日文名
-          * <p> 示例值：ja_jp_name
-          */
-      this.jaJp = builder.jaJp;
-         /**
-          * 商业化产品的英文名
-          * <p> 示例值：en_name
-          */
-      this.enUs = builder.enUs;
-  }
-
     public static class Builder {
-     /**
-      * 商业化产品的中文名
-      * <p> 示例值：zh_cn_name
-      */
+        /**
+         * 商业化产品的中文名
+         * <p> 示例值：zh_cn_name
+         */
         private String zhCn;
-     /**
-      * 商业化产品的日文名
-      * <p> 示例值：ja_jp_name
-      */
+        /**
+         * 商业化产品的日文名
+         * <p> 示例值：ja_jp_name
+         */
         private String jaJp;
-     /**
-      * 商业化产品的英文名
-      * <p> 示例值：en_name
-      */
+        /**
+         * 商业化产品的英文名
+         * <p> 示例值：en_name
+         */
         private String enUs;
 
         /**
          * 商业化产品的中文名
          * <p> 示例值：zh_cn_name
+         *
          * @param zhCn
          * @return
          */
         public Builder zhCn(String zhCn) {
-             this.zhCn = zhCn;
-             return this;
+            this.zhCn = zhCn;
+            return this;
         }
 
-    
 
         /**
          * 商业化产品的日文名
          * <p> 示例值：ja_jp_name
+         *
          * @param jaJp
          * @return
          */
         public Builder jaJp(String jaJp) {
-             this.jaJp = jaJp;
-             return this;
+            this.jaJp = jaJp;
+            return this;
         }
 
-    
 
         /**
          * 商业化产品的英文名
          * <p> 示例值：en_name
+         *
          * @param enUs
          * @return
          */
         public Builder enUs(String enUs) {
-             this.enUs = enUs;
-             return this;
+            this.enUs = enUs;
+            return this;
         }
 
-    
-    
-    public ProductI18nName build(){
-        return new ProductI18nName(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ProductI18nName build() {
+            return new ProductI18nName(this);
+        }
     }
 }

@@ -12,60 +12,65 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CreateExamRespBody {
-     /**
-      * 笔试 ID
-      * <p> 示例值：7031822096580868396
-      */
+    /**
+     * 笔试 ID
+     * <p> 示例值：7031822096580868396
+     */
     @SerializedName("exam_id")
     private String examId;
-     /**
-      * 投递 ID
-      * <p> 示例值：7031822096580868396
-      */
+    /**
+     * 投递 ID
+     * <p> 示例值：7031822096580868396
+     */
     @SerializedName("application_id")
     private String applicationId;
-     /**
-      * 试卷名称
-      * <p> 示例值：测试名字
-      */
+    /**
+     * 试卷名称
+     * <p> 示例值：测试名字
+     */
     @SerializedName("exam_resource_name")
     private String examResourceName;
-     /**
-      * 笔试分数
-      * <p> 示例值：95.5
-      */
+    /**
+     * 笔试分数
+     * <p> 示例值：95.5
+     */
     @SerializedName("score")
     private Double score;
-     /**
-      * 附件ID
-      * <p> 示例值：6949805467799537964
-      */
+    /**
+     * 附件ID
+     * <p> 示例值：6949805467799537964
+     */
     @SerializedName("uuid")
     private String uuid;
-     /**
-      * 操作人 ID
-      * <p> 示例值：ou_xxx
-      */
+    /**
+     * 操作人 ID
+     * <p> 示例值：ou_xxx
+     */
     @SerializedName("operator_id")
     private String operatorId;
-     /**
-      * 操作时间
-      * <p> 示例值：1637295516451
-      */
+    /**
+     * 操作时间
+     * <p> 示例值：1637295516451
+     */
     @SerializedName("operate_time")
     private String operateTime;
+
     public String getExamId() {
         return this.examId;
     }

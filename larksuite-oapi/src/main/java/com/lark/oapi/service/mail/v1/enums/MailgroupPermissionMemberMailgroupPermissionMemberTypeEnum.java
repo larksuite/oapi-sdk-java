@@ -17,17 +17,18 @@ package com.lark.oapi.service.mail.v1.enums;
  * 成员类型
  */
 public enum MailgroupPermissionMemberMailgroupPermissionMemberTypeEnum {
-     USER("USER"), // internal user in the team
-     DEPARTMENT("DEPARTMENT"), // member is a department
-     MAIL_GROUP("MAIL_GROUP"), // member is a mail group
-     PUBLIC_MAILBOX("PUBLIC_MAILBOX"), // member is a public mailbox
-  ;
-   private String value;
+    USER("USER"), // internal user in the team
+    DEPARTMENT("DEPARTMENT"), // member is a department
+    MAIL_GROUP("MAIL_GROUP"), // member is a mail group
+    PUBLIC_MAILBOX("PUBLIC_MAILBOX"), // member is a public mailbox
+    ;
+    private String value;
+
     MailgroupPermissionMemberMailgroupPermissionMemberTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

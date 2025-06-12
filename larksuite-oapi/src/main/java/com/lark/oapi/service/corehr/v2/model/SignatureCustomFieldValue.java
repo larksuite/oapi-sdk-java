@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class SignatureCustomFieldValue {
-     /**
-      * 自定义字段的值
-      * <p> 示例值：test
-      */
+    /**
+     * 自定义字段的值
+     * <p> 示例值：test
+     */
     @SerializedName("text_value")
     private String textValue;
-     /**
-      * 自定义字段的值对应的多语value
-      * <p> 示例值：
-      */
+    /**
+     * 自定义字段的值对应的多语value
+     * <p> 示例值：
+     */
     @SerializedName("multilingual_value")
     private SignatureCustomFieldValueMultilingualValue multilingualValue;
+
+    // builder 开始
+    public SignatureCustomFieldValue() {
+    }
+
+    public SignatureCustomFieldValue(Builder builder) {
+        /**
+         * 自定义字段的值
+         * <p> 示例值：test
+         */
+        this.textValue = builder.textValue;
+        /**
+         * 自定义字段的值对应的多语value
+         * <p> 示例值：
+         */
+        this.multilingualValue = builder.multilingualValue;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getTextValue() {
         return this.textValue;
     }
@@ -53,67 +79,46 @@ public class SignatureCustomFieldValue {
         this.multilingualValue = multilingualValue;
     }
 
-
-// builder 开始
-  public SignatureCustomFieldValue(){}
-
-  public SignatureCustomFieldValue(Builder builder){
-         /**
-          * 自定义字段的值
-          * <p> 示例值：test
-          */
-      this.textValue = builder.textValue;
-         /**
-          * 自定义字段的值对应的多语value
-          * <p> 示例值：
-          */
-      this.multilingualValue = builder.multilingualValue;
-  }
-
     public static class Builder {
-     /**
-      * 自定义字段的值
-      * <p> 示例值：test
-      */
+        /**
+         * 自定义字段的值
+         * <p> 示例值：test
+         */
         private String textValue;
-     /**
-      * 自定义字段的值对应的多语value
-      * <p> 示例值：
-      */
+        /**
+         * 自定义字段的值对应的多语value
+         * <p> 示例值：
+         */
         private SignatureCustomFieldValueMultilingualValue multilingualValue;
 
         /**
          * 自定义字段的值
          * <p> 示例值：test
+         *
          * @param textValue
          * @return
          */
         public Builder textValue(String textValue) {
-             this.textValue = textValue;
-             return this;
+            this.textValue = textValue;
+            return this;
         }
 
-    
 
         /**
          * 自定义字段的值对应的多语value
          * <p> 示例值：
+         *
          * @param multilingualValue
          * @return
          */
         public Builder multilingualValue(SignatureCustomFieldValueMultilingualValue multilingualValue) {
-             this.multilingualValue = multilingualValue;
-             return this;
+            this.multilingualValue = multilingualValue;
+            return this;
         }
 
-    
-    
-    public SignatureCustomFieldValue build(){
-        return new SignatureCustomFieldValue(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public SignatureCustomFieldValue build() {
+            return new SignatureCustomFieldValue(this);
+        }
     }
 }

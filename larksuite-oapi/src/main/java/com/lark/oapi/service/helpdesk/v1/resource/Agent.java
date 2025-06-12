@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.resource;
+
 import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.Transport;
 import com.lark.oapi.core.response.RawResponse;
@@ -20,12 +21,16 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import java.nio.charset.StandardCharsets;
 
 import com.lark.oapi.core.Config;
 import com.lark.oapi.core.request.RequestOptions;
+
 import java.io.ByteArrayOutputStream;
+
 import com.lark.oapi.service.helpdesk.v1.model.*;
+
 import java.io.*;
 import java.util.Map;
 import java.util.HashMap;
@@ -41,13 +46,13 @@ public class Agent {
         this.config = config;
     }
 
-    
+
     /**
      * 获取客服邮箱地址，该接口用于获取客服邮箱地址
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/agent/agent_email">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/agent/agent_email</a> ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/helpdeskv1/AgentEmailAgentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/helpdeskv1/AgentEmailAgentSample.java</a> ;
      */
-    public AgentEmailAgentResp agentEmail( RequestOptions reqOptions) throws Exception {
+    public AgentEmailAgentResp agentEmail(RequestOptions reqOptions) throws Exception {
         // 请求参数选项
         if (reqOptions == null) {
             reqOptions = new RequestOptions();
@@ -59,21 +64,21 @@ public class Agent {
                 , "/open-apis/helpdesk/v1/agent_emails"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , null);
-        
+
         // 反序列化
         AgentEmailAgentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, AgentEmailAgentResp.class);
         if (resp == null) {
             log.error(String.format(
                     "%s,callError,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/helpdesk/v1/agent_emails"
-                    ,  Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                    , Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
-            
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+                            StandardCharsets.UTF_8)));
 
-       resp.setRawResponse(httpResponse);
-       return resp;
+            throw new IllegalArgumentException("The result returned by the server is illegal");
+        }
+
+        resp.setRawResponse(httpResponse);
+        return resp;
     }
 
     /**
@@ -91,22 +96,23 @@ public class Agent {
                 , "/open-apis/helpdesk/v1/agent_emails"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , null);
-        
+
         // 反序列化
         AgentEmailAgentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, AgentEmailAgentResp.class);
         if (resp == null) {
             log.error(String.format(
                     "%s,callError,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/helpdesk/v1/agent_emails"
-                    ,  Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                    , Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
-            
+                            StandardCharsets.UTF_8)));
+
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
         resp.setRawResponse(httpResponse);
         return resp;
     }
+
     /**
      * 更新客服信息，更新客服状态等信息
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/agent/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/agent/patch</a> ;
@@ -124,7 +130,7 @@ public class Agent {
                 , "/open-apis/helpdesk/v1/agents/:agent_id"
                 , Sets.newHashSet(AccessTokenType.User)
                 , req);
-        
+
         // 反序列化
         PatchAgentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchAgentResp.class);
         if (resp == null) {
@@ -132,14 +138,14 @@ public class Agent {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/helpdesk/v1/agents/:agent_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
-       resp.setRawResponse(httpResponse);
-       resp.setRequest(req);
-       
-       return resp;
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
     }
 
     /**
@@ -157,7 +163,7 @@ public class Agent {
                 , "/open-apis/helpdesk/v1/agents/:agent_id"
                 , Sets.newHashSet(AccessTokenType.User)
                 , req);
-        
+
         // 反序列化
         PatchAgentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchAgentResp.class);
         if (resp == null) {
@@ -165,13 +171,13 @@ public class Agent {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/helpdesk/v1/agents/:agent_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-        
+
         return resp;
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class JobDataCostCenter {
-     /**
-      * 成本中心 ID，可以通过【查询单个成本中心信息】接口获取对应的成本中心信息
-      * <p> 示例值：6950635856373745165
-      */
+    /**
+     * 成本中心 ID，可以通过【查询单个成本中心信息】接口获取对应的成本中心信息
+     * <p> 示例值：6950635856373745165
+     */
     @SerializedName("cost_center_id")
     private String costCenterId;
-     /**
-      * 分摊比例(整数)
-      * <p> 示例值：100
-      */
+    /**
+     * 分摊比例(整数)
+     * <p> 示例值：100
+     */
     @SerializedName("rate")
     private Integer rate;
-     /**
-      * 分摊比例
-      * <p> 示例值：50.2
-      */
+    /**
+     * 分摊比例
+     * <p> 示例值：50.2
+     */
     @SerializedName("new_rate")
     private Double newRate;
+
+    // builder 开始
+    public JobDataCostCenter() {
+    }
+
+    public JobDataCostCenter(Builder builder) {
+        /**
+         * 成本中心 ID，可以通过【查询单个成本中心信息】接口获取对应的成本中心信息
+         * <p> 示例值：6950635856373745165
+         */
+        this.costCenterId = builder.costCenterId;
+        /**
+         * 分摊比例(整数)
+         * <p> 示例值：100
+         */
+        this.rate = builder.rate;
+        /**
+         * 分摊比例
+         * <p> 示例值：50.2
+         */
+        this.newRate = builder.newRate;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getCostCenterId() {
         return this.costCenterId;
     }
@@ -67,90 +98,64 @@ public class JobDataCostCenter {
         this.newRate = newRate;
     }
 
-
-// builder 开始
-  public JobDataCostCenter(){}
-
-  public JobDataCostCenter(Builder builder){
-         /**
-          * 成本中心 ID，可以通过【查询单个成本中心信息】接口获取对应的成本中心信息
-          * <p> 示例值：6950635856373745165
-          */
-      this.costCenterId = builder.costCenterId;
-         /**
-          * 分摊比例(整数)
-          * <p> 示例值：100
-          */
-      this.rate = builder.rate;
-         /**
-          * 分摊比例
-          * <p> 示例值：50.2
-          */
-      this.newRate = builder.newRate;
-  }
-
     public static class Builder {
-     /**
-      * 成本中心 ID，可以通过【查询单个成本中心信息】接口获取对应的成本中心信息
-      * <p> 示例值：6950635856373745165
-      */
+        /**
+         * 成本中心 ID，可以通过【查询单个成本中心信息】接口获取对应的成本中心信息
+         * <p> 示例值：6950635856373745165
+         */
         private String costCenterId;
-     /**
-      * 分摊比例(整数)
-      * <p> 示例值：100
-      */
+        /**
+         * 分摊比例(整数)
+         * <p> 示例值：100
+         */
         private Integer rate;
-     /**
-      * 分摊比例
-      * <p> 示例值：50.2
-      */
+        /**
+         * 分摊比例
+         * <p> 示例值：50.2
+         */
         private Double newRate;
 
         /**
          * 成本中心 ID，可以通过【查询单个成本中心信息】接口获取对应的成本中心信息
          * <p> 示例值：6950635856373745165
+         *
          * @param costCenterId
          * @return
          */
         public Builder costCenterId(String costCenterId) {
-             this.costCenterId = costCenterId;
-             return this;
+            this.costCenterId = costCenterId;
+            return this;
         }
 
-    
 
         /**
          * 分摊比例(整数)
          * <p> 示例值：100
+         *
          * @param rate
          * @return
          */
         public Builder rate(Integer rate) {
-             this.rate = rate;
-             return this;
+            this.rate = rate;
+            return this;
         }
 
-    
 
         /**
          * 分摊比例
          * <p> 示例值：50.2
+         *
          * @param newRate
          * @return
          */
         public Builder newRate(Double newRate) {
-             this.newRate = newRate;
-             return this;
+            this.newRate = newRate;
+            return this;
         }
 
-    
-    
-    public JobDataCostCenter build(){
-        return new JobDataCostCenter(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public JobDataCostCenter build() {
+            return new JobDataCostCenter(this);
+        }
     }
 }

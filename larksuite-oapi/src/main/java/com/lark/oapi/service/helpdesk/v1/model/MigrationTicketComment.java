@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class MigrationTicketComment {
-     /**
-      * 评论用户 ID
-      * <p> 示例值：ou_37019b7c830210acd88fdce886e25c71
-      */
+    /**
+     * 评论用户 ID
+     * <p> 示例值：ou_37019b7c830210acd88fdce886e25c71
+     */
     @SerializedName("user_id")
     private String userId;
-     /**
-      * 评论创建时间（毫秒）
-      * <p> 示例值：1741849380
-      */
+    /**
+     * 评论创建时间（毫秒）
+     * <p> 示例值：1741849380
+     */
     @SerializedName("create_at_ms")
     private String createAtMs;
-     /**
-      * 评论内容
-      * <p> 示例值：这是一条工单评论
-      */
+    /**
+     * 评论内容
+     * <p> 示例值：这是一条工单评论
+     */
     @SerializedName("content")
     private String content;
+
+    // builder 开始
+    public MigrationTicketComment() {
+    }
+
+    public MigrationTicketComment(Builder builder) {
+        /**
+         * 评论用户 ID
+         * <p> 示例值：ou_37019b7c830210acd88fdce886e25c71
+         */
+        this.userId = builder.userId;
+        /**
+         * 评论创建时间（毫秒）
+         * <p> 示例值：1741849380
+         */
+        this.createAtMs = builder.createAtMs;
+        /**
+         * 评论内容
+         * <p> 示例值：这是一条工单评论
+         */
+        this.content = builder.content;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getUserId() {
         return this.userId;
     }
@@ -67,90 +98,64 @@ public class MigrationTicketComment {
         this.content = content;
     }
 
-
-// builder 开始
-  public MigrationTicketComment(){}
-
-  public MigrationTicketComment(Builder builder){
-         /**
-          * 评论用户 ID
-          * <p> 示例值：ou_37019b7c830210acd88fdce886e25c71
-          */
-      this.userId = builder.userId;
-         /**
-          * 评论创建时间（毫秒）
-          * <p> 示例值：1741849380
-          */
-      this.createAtMs = builder.createAtMs;
-         /**
-          * 评论内容
-          * <p> 示例值：这是一条工单评论
-          */
-      this.content = builder.content;
-  }
-
     public static class Builder {
-     /**
-      * 评论用户 ID
-      * <p> 示例值：ou_37019b7c830210acd88fdce886e25c71
-      */
+        /**
+         * 评论用户 ID
+         * <p> 示例值：ou_37019b7c830210acd88fdce886e25c71
+         */
         private String userId;
-     /**
-      * 评论创建时间（毫秒）
-      * <p> 示例值：1741849380
-      */
+        /**
+         * 评论创建时间（毫秒）
+         * <p> 示例值：1741849380
+         */
         private String createAtMs;
-     /**
-      * 评论内容
-      * <p> 示例值：这是一条工单评论
-      */
+        /**
+         * 评论内容
+         * <p> 示例值：这是一条工单评论
+         */
         private String content;
 
         /**
          * 评论用户 ID
          * <p> 示例值：ou_37019b7c830210acd88fdce886e25c71
+         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-             this.userId = userId;
-             return this;
+            this.userId = userId;
+            return this;
         }
 
-    
 
         /**
          * 评论创建时间（毫秒）
          * <p> 示例值：1741849380
+         *
          * @param createAtMs
          * @return
          */
         public Builder createAtMs(String createAtMs) {
-             this.createAtMs = createAtMs;
-             return this;
+            this.createAtMs = createAtMs;
+            return this;
         }
 
-    
 
         /**
          * 评论内容
          * <p> 示例值：这是一条工单评论
+         *
          * @param content
          * @return
          */
         public Builder content(String content) {
-             this.content = content;
-             return this;
+            this.content = content;
+            return this;
         }
 
-    
-    
-    public MigrationTicketComment build(){
-        return new MigrationTicketComment(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public MigrationTicketComment build() {
+            return new MigrationTicketComment(this);
+        }
     }
 }

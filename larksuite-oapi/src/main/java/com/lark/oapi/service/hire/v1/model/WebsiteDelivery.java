@@ -12,48 +12,89 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class WebsiteDelivery {
-     /**
-      * 职位广告 ID
-      * <p> 示例值：6960663240925956636
-      */
+    /**
+     * 职位广告 ID
+     * <p> 示例值：6960663240925956636
+     */
     @SerializedName("job_post_id")
     private String jobPostId;
-     /**
-      * 人才信息
-      * <p> 示例值：
-      */
+    /**
+     * 人才信息
+     * <p> 示例值：
+     */
     @SerializedName("resume")
     private WebsiteDeliveryResume resume;
-     /**
-      * 官网用户 ID
-      * <p> 示例值：6960663240925956634
-      */
+    /**
+     * 官网用户 ID
+     * <p> 示例值：6960663240925956634
+     */
     @SerializedName("user_id")
     private String userId;
-     /**
-      * 意向投递城市列表，可从「获取职位信息」返回的工作地点列表获取
-      * <p> 示例值：CT_11
-      */
+    /**
+     * 意向投递城市列表，可从「获取职位信息」返回的工作地点列表获取
+     * <p> 示例值：CT_11
+     */
     @SerializedName("application_preferred_city_code_list")
     private String[] applicationPreferredCityCodeList;
-     /**
-      * 官网推广渠道 ID
-      * <p> 示例值：6891560630172518670
-      */
+    /**
+     * 官网推广渠道 ID
+     * <p> 示例值：6891560630172518670
+     */
     @SerializedName("channel_id")
     private String channelId;
+
+    // builder 开始
+    public WebsiteDelivery() {
+    }
+
+    public WebsiteDelivery(Builder builder) {
+        /**
+         * 职位广告 ID
+         * <p> 示例值：6960663240925956636
+         */
+        this.jobPostId = builder.jobPostId;
+        /**
+         * 人才信息
+         * <p> 示例值：
+         */
+        this.resume = builder.resume;
+        /**
+         * 官网用户 ID
+         * <p> 示例值：6960663240925956634
+         */
+        this.userId = builder.userId;
+        /**
+         * 意向投递城市列表，可从「获取职位信息」返回的工作地点列表获取
+         * <p> 示例值：CT_11
+         */
+        this.applicationPreferredCityCodeList = builder.applicationPreferredCityCodeList;
+        /**
+         * 官网推广渠道 ID
+         * <p> 示例值：6891560630172518670
+         */
+        this.channelId = builder.channelId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getJobPostId() {
         return this.jobPostId;
     }
@@ -94,136 +135,100 @@ public class WebsiteDelivery {
         this.channelId = channelId;
     }
 
-
-// builder 开始
-  public WebsiteDelivery(){}
-
-  public WebsiteDelivery(Builder builder){
-         /**
-          * 职位广告 ID
-          * <p> 示例值：6960663240925956636
-          */
-      this.jobPostId = builder.jobPostId;
-         /**
-          * 人才信息
-          * <p> 示例值：
-          */
-      this.resume = builder.resume;
-         /**
-          * 官网用户 ID
-          * <p> 示例值：6960663240925956634
-          */
-      this.userId = builder.userId;
-         /**
-          * 意向投递城市列表，可从「获取职位信息」返回的工作地点列表获取
-          * <p> 示例值：CT_11
-          */
-      this.applicationPreferredCityCodeList = builder.applicationPreferredCityCodeList;
-         /**
-          * 官网推广渠道 ID
-          * <p> 示例值：6891560630172518670
-          */
-      this.channelId = builder.channelId;
-  }
-
     public static class Builder {
-     /**
-      * 职位广告 ID
-      * <p> 示例值：6960663240925956636
-      */
+        /**
+         * 职位广告 ID
+         * <p> 示例值：6960663240925956636
+         */
         private String jobPostId;
-     /**
-      * 人才信息
-      * <p> 示例值：
-      */
+        /**
+         * 人才信息
+         * <p> 示例值：
+         */
         private WebsiteDeliveryResume resume;
-     /**
-      * 官网用户 ID
-      * <p> 示例值：6960663240925956634
-      */
+        /**
+         * 官网用户 ID
+         * <p> 示例值：6960663240925956634
+         */
         private String userId;
-     /**
-      * 意向投递城市列表，可从「获取职位信息」返回的工作地点列表获取
-      * <p> 示例值：CT_11
-      */
+        /**
+         * 意向投递城市列表，可从「获取职位信息」返回的工作地点列表获取
+         * <p> 示例值：CT_11
+         */
         private String[] applicationPreferredCityCodeList;
-     /**
-      * 官网推广渠道 ID
-      * <p> 示例值：6891560630172518670
-      */
+        /**
+         * 官网推广渠道 ID
+         * <p> 示例值：6891560630172518670
+         */
         private String channelId;
 
         /**
          * 职位广告 ID
          * <p> 示例值：6960663240925956636
+         *
          * @param jobPostId
          * @return
          */
         public Builder jobPostId(String jobPostId) {
-             this.jobPostId = jobPostId;
-             return this;
+            this.jobPostId = jobPostId;
+            return this;
         }
 
-    
 
         /**
          * 人才信息
          * <p> 示例值：
+         *
          * @param resume
          * @return
          */
         public Builder resume(WebsiteDeliveryResume resume) {
-             this.resume = resume;
-             return this;
+            this.resume = resume;
+            return this;
         }
 
-    
 
         /**
          * 官网用户 ID
          * <p> 示例值：6960663240925956634
+         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-             this.userId = userId;
-             return this;
+            this.userId = userId;
+            return this;
         }
 
-    
 
         /**
          * 意向投递城市列表，可从「获取职位信息」返回的工作地点列表获取
          * <p> 示例值：CT_11
+         *
          * @param applicationPreferredCityCodeList
          * @return
          */
         public Builder applicationPreferredCityCodeList(String[] applicationPreferredCityCodeList) {
-             this.applicationPreferredCityCodeList = applicationPreferredCityCodeList;
-             return this;
+            this.applicationPreferredCityCodeList = applicationPreferredCityCodeList;
+            return this;
         }
 
-    
 
         /**
          * 官网推广渠道 ID
          * <p> 示例值：6891560630172518670
+         *
          * @param channelId
          * @return
          */
         public Builder channelId(String channelId) {
-             this.channelId = channelId;
-             return this;
+            this.channelId = channelId;
+            return this;
         }
 
-    
-    
-    public WebsiteDelivery build(){
-        return new WebsiteDelivery(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public WebsiteDelivery build() {
+            return new WebsiteDelivery(this);
+        }
     }
 }

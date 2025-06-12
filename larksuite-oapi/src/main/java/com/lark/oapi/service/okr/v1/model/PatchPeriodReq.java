@@ -12,25 +12,49 @@
  */
 
 package com.lark.oapi.service.okr.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.okr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class PatchPeriodReq {
-     /**
-      * 周期id
-      * <p> 示例值：6969864184272078374
-      */
+    /**
+     * 周期id
+     * <p> 示例值：6969864184272078374
+     */
     @Path
     @SerializedName("period_id")
     private String periodId;
+    @Body
+    private PatchPeriodReqBody body;
+
+    // builder 开始
+    public PatchPeriodReq() {
+    }
+
+    public PatchPeriodReq(Builder builder) {
+        /**
+         * 周期id
+         * <p> 示例值：6969864184272078374
+         */
+        this.periodId = builder.periodId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getPeriodId() {
         return this.periodId;
     }
@@ -38,9 +62,6 @@ public class PatchPeriodReq {
     public void setPeriodId(String periodId) {
         this.periodId = periodId;
     }
-
-    @Body
-    private PatchPeriodReqBody body;
 
     public PatchPeriodReqBody getPatchPeriodReqBody() {
         return this.body;
@@ -50,54 +71,40 @@ public class PatchPeriodReq {
         this.body = body;
     }
 
-// builder 开始
-  public PatchPeriodReq(){}
-
-  public PatchPeriodReq(Builder builder){
-     /**
-      * 周期id
-      * <p> 示例值：6969864184272078374
-      */
-       this.periodId = builder.periodId;
-        this.body = builder.body;
-  }
-
     public static class Builder {
-    
+
         private String periodId; // 周期id
+        private PatchPeriodReqBody body;
+
         /**
          * 周期id
          * <p> 示例值：6969864184272078374
+         *
          * @param periodId
          * @return
          */
-          public Builder periodId(String periodId) {
-               this.periodId = periodId;
-               return this;
-          }
+        public Builder periodId(String periodId) {
+            this.periodId = periodId;
+            return this;
+        }
 
-    
-        private PatchPeriodReqBody body;
-    
         public PatchPeriodReqBody getPatchPeriodReqBody() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder patchPeriodReqBody(PatchPeriodReqBody body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public PatchPeriodReq build(){
-        return new PatchPeriodReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public PatchPeriodReq build() {
+            return new PatchPeriodReq(this);
+        }
     }
 }

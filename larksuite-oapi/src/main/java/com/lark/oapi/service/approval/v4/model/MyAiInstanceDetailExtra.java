@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class MyAiInstanceDetailExtra {
-     /**
-      * 审批实例ID
-      * <p> 示例值：281946120421094712
-      */
+    /**
+     * 审批实例ID
+     * <p> 示例值：281946120421094712
+     */
     @SerializedName("instance_id")
     private String instanceId;
+
+    // builder 开始
+    public MyAiInstanceDetailExtra() {
+    }
+
+    public MyAiInstanceDetailExtra(Builder builder) {
+        /**
+         * 审批实例ID
+         * <p> 示例值：281946120421094712
+         */
+        this.instanceId = builder.instanceId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getInstanceId() {
         return this.instanceId;
     }
@@ -39,44 +60,28 @@ public class MyAiInstanceDetailExtra {
         this.instanceId = instanceId;
     }
 
-
-// builder 开始
-  public MyAiInstanceDetailExtra(){}
-
-  public MyAiInstanceDetailExtra(Builder builder){
-         /**
-          * 审批实例ID
-          * <p> 示例值：281946120421094712
-          */
-      this.instanceId = builder.instanceId;
-  }
-
     public static class Builder {
-     /**
-      * 审批实例ID
-      * <p> 示例值：281946120421094712
-      */
+        /**
+         * 审批实例ID
+         * <p> 示例值：281946120421094712
+         */
         private String instanceId;
 
         /**
          * 审批实例ID
          * <p> 示例值：281946120421094712
+         *
          * @param instanceId
          * @return
          */
         public Builder instanceId(String instanceId) {
-             this.instanceId = instanceId;
-             return this;
+            this.instanceId = instanceId;
+            return this;
         }
 
-    
-    
-    public MyAiInstanceDetailExtra build(){
-        return new MyAiInstanceDetailExtra(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public MyAiInstanceDetailExtra build() {
+            return new MyAiInstanceDetailExtra(this);
+        }
     }
 }

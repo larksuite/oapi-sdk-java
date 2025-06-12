@@ -17,15 +17,16 @@ package com.lark.oapi.service.compensation.v1.enums;
  * 适用范围操作
  */
 public enum PlanConditionScopeOperatorEnum {
-     INCLUDE(1), // 包含
-     NOTINCLUDE(2), // 不包含
-  ;
-   private Integer value;
+    INCLUDE(1), // 包含
+    NOTINCLUDE(2), // 不包含
+    ;
+    private Integer value;
+
     PlanConditionScopeOperatorEnum(Integer value) {
-      this.value = value;
+        this.value = value;
     }
 
     public Integer getValue() {
-      return this.value;
+        return this.value;
     }
 }

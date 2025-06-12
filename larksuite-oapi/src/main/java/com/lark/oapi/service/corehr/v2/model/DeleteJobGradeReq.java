@@ -12,25 +12,46 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class DeleteJobGradeReq {
-     /**
-      * 需要删除的职等ID
-      * <p> 示例值：1616161616
-      */
+    /**
+     * 需要删除的职等ID
+     * <p> 示例值：1616161616
+     */
     @Path
     @SerializedName("job_grade_id")
     private String jobGradeId;
+
+    // builder 开始
+    public DeleteJobGradeReq() {
+    }
+
+    public DeleteJobGradeReq(Builder builder) {
+        /**
+         * 需要删除的职等ID
+         * <p> 示例值：1616161616
+         */
+        this.jobGradeId = builder.jobGradeId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getJobGradeId() {
         return this.jobGradeId;
     }
@@ -39,39 +60,25 @@ public class DeleteJobGradeReq {
         this.jobGradeId = jobGradeId;
     }
 
-
-// builder 开始
-  public DeleteJobGradeReq(){}
-
-  public DeleteJobGradeReq(Builder builder){
-     /**
-      * 需要删除的职等ID
-      * <p> 示例值：1616161616
-      */
-       this.jobGradeId = builder.jobGradeId;
-  }
-
     public static class Builder {
-    
+
         private String jobGradeId; // 需要删除的职等ID
+
         /**
          * 需要删除的职等ID
          * <p> 示例值：1616161616
+         *
          * @param jobGradeId
          * @return
          */
-          public Builder jobGradeId(String jobGradeId) {
-               this.jobGradeId = jobGradeId;
-               return this;
-          }
+        public Builder jobGradeId(String jobGradeId) {
+            this.jobGradeId = jobGradeId;
+            return this;
+        }
 
-    
-    public DeleteJobGradeReq build(){
-        return new DeleteJobGradeReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public DeleteJobGradeReq build() {
+            return new DeleteJobGradeReq(this);
+        }
     }
 }

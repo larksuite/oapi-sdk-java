@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class GlobalOptionElement {
-     /**
-      * 选项API 名称
-      * <p> 示例值：option_text
-      */
+    /**
+     * 选项API 名称
+     * <p> 示例值：option_text
+     */
     @SerializedName("api_name")
     private String apiName;
-     /**
-      * 选项描述
-      * <p> 示例值：
-      */
+    /**
+     * 选项描述
+     * <p> 示例值：
+     */
     @SerializedName("label")
     private GlobalOptionLabel label;
-     /**
-      * 是否启用
-      * <p> 示例值：true
-      */
+    /**
+     * 是否启用
+     * <p> 示例值：true
+     */
     @SerializedName("active")
     private Boolean active;
+
+    // builder 开始
+    public GlobalOptionElement() {
+    }
+
+    public GlobalOptionElement(Builder builder) {
+        /**
+         * 选项API 名称
+         * <p> 示例值：option_text
+         */
+        this.apiName = builder.apiName;
+        /**
+         * 选项描述
+         * <p> 示例值：
+         */
+        this.label = builder.label;
+        /**
+         * 是否启用
+         * <p> 示例值：true
+         */
+        this.active = builder.active;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getApiName() {
         return this.apiName;
     }
@@ -67,90 +98,64 @@ public class GlobalOptionElement {
         this.active = active;
     }
 
-
-// builder 开始
-  public GlobalOptionElement(){}
-
-  public GlobalOptionElement(Builder builder){
-         /**
-          * 选项API 名称
-          * <p> 示例值：option_text
-          */
-      this.apiName = builder.apiName;
-         /**
-          * 选项描述
-          * <p> 示例值：
-          */
-      this.label = builder.label;
-         /**
-          * 是否启用
-          * <p> 示例值：true
-          */
-      this.active = builder.active;
-  }
-
     public static class Builder {
-     /**
-      * 选项API 名称
-      * <p> 示例值：option_text
-      */
+        /**
+         * 选项API 名称
+         * <p> 示例值：option_text
+         */
         private String apiName;
-     /**
-      * 选项描述
-      * <p> 示例值：
-      */
+        /**
+         * 选项描述
+         * <p> 示例值：
+         */
         private GlobalOptionLabel label;
-     /**
-      * 是否启用
-      * <p> 示例值：true
-      */
+        /**
+         * 是否启用
+         * <p> 示例值：true
+         */
         private Boolean active;
 
         /**
          * 选项API 名称
          * <p> 示例值：option_text
+         *
          * @param apiName
          * @return
          */
         public Builder apiName(String apiName) {
-             this.apiName = apiName;
-             return this;
+            this.apiName = apiName;
+            return this;
         }
 
-    
 
         /**
          * 选项描述
          * <p> 示例值：
+         *
          * @param label
          * @return
          */
         public Builder label(GlobalOptionLabel label) {
-             this.label = label;
-             return this;
+            this.label = label;
+            return this;
         }
 
-    
 
         /**
          * 是否启用
          * <p> 示例值：true
+         *
          * @param active
          * @return
          */
         public Builder active(Boolean active) {
-             this.active = active;
-             return this;
+            this.active = active;
+            return this;
         }
 
-    
-    
-    public GlobalOptionElement build(){
-        return new GlobalOptionElement(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public GlobalOptionElement build() {
+            return new GlobalOptionElement(this);
+        }
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.personal_settings.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.personal_settings.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class BatchCloseSystemStatusReqBody {
-     /**
-      * 成员列表
-      * <p> 示例值：ou_53edd3282dbc2fdbe5c593cfa5ce82ab
-      */
+    /**
+     * 成员列表
+     * <p> 示例值：ou_53edd3282dbc2fdbe5c593cfa5ce82ab
+     */
     @SerializedName("user_list")
     private String[] userList;
+
+    // builder 开始
+    public BatchCloseSystemStatusReqBody() {
+    }
+
+    public BatchCloseSystemStatusReqBody(Builder builder) {
+        /**
+         * 成员列表
+         * <p> 示例值：ou_53edd3282dbc2fdbe5c593cfa5ce82ab
+         */
+        this.userList = builder.userList;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String[] getUserList() {
         return this.userList;
     }
@@ -39,44 +60,28 @@ public class BatchCloseSystemStatusReqBody {
         this.userList = userList;
     }
 
-
-// builder 开始
-  public BatchCloseSystemStatusReqBody(){}
-
-  public BatchCloseSystemStatusReqBody(Builder builder){
-         /**
-          * 成员列表
-          * <p> 示例值：ou_53edd3282dbc2fdbe5c593cfa5ce82ab
-          */
-      this.userList = builder.userList;
-  }
-
     public static class Builder {
-     /**
-      * 成员列表
-      * <p> 示例值：ou_53edd3282dbc2fdbe5c593cfa5ce82ab
-      */
+        /**
+         * 成员列表
+         * <p> 示例值：ou_53edd3282dbc2fdbe5c593cfa5ce82ab
+         */
         private String[] userList;
 
         /**
          * 成员列表
          * <p> 示例值：ou_53edd3282dbc2fdbe5c593cfa5ce82ab
+         *
          * @param userList
          * @return
          */
         public Builder userList(String[] userList) {
-             this.userList = userList;
-             return this;
+            this.userList = userList;
+            return this;
         }
 
-    
-    
-    public BatchCloseSystemStatusReqBody build(){
-        return new BatchCloseSystemStatusReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public BatchCloseSystemStatusReqBody build() {
+            return new BatchCloseSystemStatusReqBody(this);
+        }
     }
 }

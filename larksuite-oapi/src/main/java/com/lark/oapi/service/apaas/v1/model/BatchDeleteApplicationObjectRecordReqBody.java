@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class BatchDeleteApplicationObjectRecordReqBody {
-     /**
-      * 记录 ID 列表，操作记录数上限为 500
-      * <p> 示例值：
-      */
+    /**
+     * 记录 ID 列表，操作记录数上限为 500
+     * <p> 示例值：
+     */
     @SerializedName("ids")
     private String[] ids;
+
+    // builder 开始
+    public BatchDeleteApplicationObjectRecordReqBody() {
+    }
+
+    public BatchDeleteApplicationObjectRecordReqBody(Builder builder) {
+        /**
+         * 记录 ID 列表，操作记录数上限为 500
+         * <p> 示例值：
+         */
+        this.ids = builder.ids;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String[] getIds() {
         return this.ids;
     }
@@ -39,44 +60,28 @@ public class BatchDeleteApplicationObjectRecordReqBody {
         this.ids = ids;
     }
 
-
-// builder 开始
-  public BatchDeleteApplicationObjectRecordReqBody(){}
-
-  public BatchDeleteApplicationObjectRecordReqBody(Builder builder){
-         /**
-          * 记录 ID 列表，操作记录数上限为 500
-          * <p> 示例值：
-          */
-      this.ids = builder.ids;
-  }
-
     public static class Builder {
-     /**
-      * 记录 ID 列表，操作记录数上限为 500
-      * <p> 示例值：
-      */
+        /**
+         * 记录 ID 列表，操作记录数上限为 500
+         * <p> 示例值：
+         */
         private String[] ids;
 
         /**
          * 记录 ID 列表，操作记录数上限为 500
          * <p> 示例值：
+         *
          * @param ids
          * @return
          */
         public Builder ids(String[] ids) {
-             this.ids = ids;
-             return this;
+            this.ids = ids;
+            return this;
         }
 
-    
-    
-    public BatchDeleteApplicationObjectRecordReqBody build(){
-        return new BatchDeleteApplicationObjectRecordReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public BatchDeleteApplicationObjectRecordReqBody build() {
+            return new BatchDeleteApplicationObjectRecordReqBody(this);
+        }
     }
 }

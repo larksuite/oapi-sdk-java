@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.lingo.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.lingo.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class MatchEntityReqBody {
-     /**
-      * 实体词主关键词、全称、别名全匹配
-      * <p> 示例值：企业百科
-      */
+    /**
+     * 实体词主关键词、全称、别名全匹配
+     * <p> 示例值：企业百科
+     */
     @SerializedName("word")
     private String word;
+
+    // builder 开始
+    public MatchEntityReqBody() {
+    }
+
+    public MatchEntityReqBody(Builder builder) {
+        /**
+         * 实体词主关键词、全称、别名全匹配
+         * <p> 示例值：企业百科
+         */
+        this.word = builder.word;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getWord() {
         return this.word;
     }
@@ -39,44 +60,28 @@ public class MatchEntityReqBody {
         this.word = word;
     }
 
-
-// builder 开始
-  public MatchEntityReqBody(){}
-
-  public MatchEntityReqBody(Builder builder){
-         /**
-          * 实体词主关键词、全称、别名全匹配
-          * <p> 示例值：企业百科
-          */
-      this.word = builder.word;
-  }
-
     public static class Builder {
-     /**
-      * 实体词主关键词、全称、别名全匹配
-      * <p> 示例值：企业百科
-      */
+        /**
+         * 实体词主关键词、全称、别名全匹配
+         * <p> 示例值：企业百科
+         */
         private String word;
 
         /**
          * 实体词主关键词、全称、别名全匹配
          * <p> 示例值：企业百科
+         *
          * @param word
          * @return
          */
         public Builder word(String word) {
-             this.word = word;
-             return this;
+            this.word = word;
+            return this;
         }
 
-    
-    
-    public MatchEntityReqBody build(){
-        return new MatchEntityReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public MatchEntityReqBody build() {
+            return new MatchEntityReqBody(this);
+        }
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class SearchBasicInfoTimeZoneReqBody {
-     /**
-      * 时区 ID 列表
-      * <p> 示例值：
-      */
+    /**
+     * 时区 ID 列表
+     * <p> 示例值：
+     */
     @SerializedName("time_zone_id_list")
     private String[] timeZoneIdList;
-     /**
-      * 状态列表
-      * <p> 示例值：
-      */
+    /**
+     * 状态列表
+     * <p> 示例值：
+     */
     @SerializedName("status_list")
     private Integer[] statusList;
+
+    // builder 开始
+    public SearchBasicInfoTimeZoneReqBody() {
+    }
+
+    public SearchBasicInfoTimeZoneReqBody(Builder builder) {
+        /**
+         * 时区 ID 列表
+         * <p> 示例值：
+         */
+        this.timeZoneIdList = builder.timeZoneIdList;
+        /**
+         * 状态列表
+         * <p> 示例值：
+         */
+        this.statusList = builder.statusList;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String[] getTimeZoneIdList() {
         return this.timeZoneIdList;
     }
@@ -53,67 +79,46 @@ public class SearchBasicInfoTimeZoneReqBody {
         this.statusList = statusList;
     }
 
-
-// builder 开始
-  public SearchBasicInfoTimeZoneReqBody(){}
-
-  public SearchBasicInfoTimeZoneReqBody(Builder builder){
-         /**
-          * 时区 ID 列表
-          * <p> 示例值：
-          */
-      this.timeZoneIdList = builder.timeZoneIdList;
-         /**
-          * 状态列表
-          * <p> 示例值：
-          */
-      this.statusList = builder.statusList;
-  }
-
     public static class Builder {
-     /**
-      * 时区 ID 列表
-      * <p> 示例值：
-      */
+        /**
+         * 时区 ID 列表
+         * <p> 示例值：
+         */
         private String[] timeZoneIdList;
-     /**
-      * 状态列表
-      * <p> 示例值：
-      */
+        /**
+         * 状态列表
+         * <p> 示例值：
+         */
         private Integer[] statusList;
 
         /**
          * 时区 ID 列表
          * <p> 示例值：
+         *
          * @param timeZoneIdList
          * @return
          */
         public Builder timeZoneIdList(String[] timeZoneIdList) {
-             this.timeZoneIdList = timeZoneIdList;
-             return this;
+            this.timeZoneIdList = timeZoneIdList;
+            return this;
         }
 
-    
 
         /**
          * 状态列表
          * <p> 示例值：
+         *
          * @param statusList
          * @return
          */
         public Builder statusList(Integer[] statusList) {
-             this.statusList = statusList;
-             return this;
+            this.statusList = statusList;
+            return this;
         }
 
-    
-    
-    public SearchBasicInfoTimeZoneReqBody build(){
-        return new SearchBasicInfoTimeZoneReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public SearchBasicInfoTimeZoneReqBody build() {
+            return new SearchBasicInfoTimeZoneReqBody(this);
+        }
     }
 }

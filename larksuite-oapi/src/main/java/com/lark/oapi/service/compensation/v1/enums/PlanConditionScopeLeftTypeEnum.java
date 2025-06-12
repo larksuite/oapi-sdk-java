@@ -17,27 +17,28 @@ package com.lark.oapi.service.compensation.v1.enums;
  * 适用范围左值
  */
 public enum PlanConditionScopeLeftTypeEnum {
-     DEPARTMENT(1), // 部门
-     DEPARTMENTCONTAINSSUB(2), // 部门（包含下级部门）
-     LOCATION(3), // 工作地点
-     LOCATIONCONTAINSSUB(4), // 工作地点（包含下级地点）
-     COMPANY(5), // 公司
-     COMPANYCONTAINSSUB(6), // 公司（包含下级公司）
-     JOBFAMILY(7), // 序列
-     JOBFAMILYCONTAINSSUB(8), // 序列（包含子序列）
-     JOB(9), // 职务
-     JOBLEVEL(10), // 职级
-     WORKFORCETYPE(11), // 人员类型
-     RECRUITMENTTYPE(12), // 招聘类型
-     COUNTRYREGION(13), // 国家/地区
-     JOBGRADE(14), // 职等
-  ;
-   private Integer value;
+    DEPARTMENT(1), // 部门
+    DEPARTMENTCONTAINSSUB(2), // 部门（包含下级部门）
+    LOCATION(3), // 工作地点
+    LOCATIONCONTAINSSUB(4), // 工作地点（包含下级地点）
+    COMPANY(5), // 公司
+    COMPANYCONTAINSSUB(6), // 公司（包含下级公司）
+    JOBFAMILY(7), // 序列
+    JOBFAMILYCONTAINSSUB(8), // 序列（包含子序列）
+    JOB(9), // 职务
+    JOBLEVEL(10), // 职级
+    WORKFORCETYPE(11), // 人员类型
+    RECRUITMENTTYPE(12), // 招聘类型
+    COUNTRYREGION(13), // 国家/地区
+    JOBGRADE(14), // 职等
+    ;
+    private Integer value;
+
     PlanConditionScopeLeftTypeEnum(Integer value) {
-      this.value = value;
+        this.value = value;
     }
 
     public Integer getValue() {
-      return this.value;
+        return this.value;
     }
 }

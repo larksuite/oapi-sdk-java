@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.document_ai.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.document_ai.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,66 +20,126 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ResumeCareer {
-     /**
-      * 公司名称
-      * <p> 示例值：XX公司
-      */
+    /**
+     * 公司名称
+     * <p> 示例值：XX公司
+     */
     @SerializedName("company")
     private String company;
-     /**
-      * 开始时间,格式：YYYY-MM-DD
-      * <p> 示例值：2022-01-03
-      */
+    /**
+     * 开始时间,格式：YYYY-MM-DD
+     * <p> 示例值：2022-01-03
+     */
     @SerializedName("start_date")
     private String startDate;
-     /**
-      * 始时间,格式：YYYY-MM-DD,跟start_date值一样
-      * <p> 示例值：2022-01-03
-      */
+    /**
+     * 始时间,格式：YYYY-MM-DD,跟start_date值一样
+     * <p> 示例值：2022-01-03
+     */
     @SerializedName("start_time")
     private String startTime;
-     /**
-      * 结束时间,格式：YYYY-MM-DD
-      * <p> 示例值：2023-01-03
-      */
+    /**
+     * 结束时间,格式：YYYY-MM-DD
+     * <p> 示例值：2023-01-03
+     */
     @SerializedName("end_date")
     private String endDate;
-     /**
-      * 结束时间,格式：YYYY-MM-DD 或 “至今”，当值为“至今”时，end_date=="",值为其他时，end_date==end_time
-      * <p> 示例值：2023-01-03
-      */
+    /**
+     * 结束时间,格式：YYYY-MM-DD 或 “至今”，当值为“至今”时，end_date=="",值为其他时，end_date==end_time
+     * <p> 示例值：2023-01-03
+     */
     @SerializedName("end_time")
     private String endTime;
-     /**
-      * 职位
-      * <p> 示例值：XXX工程师
-      */
+    /**
+     * 职位
+     * <p> 示例值：XXX工程师
+     */
     @SerializedName("title")
     private String title;
-     /**
-      * 工作类型
-      * <p> 示例值：2
-      */
+    /**
+     * 工作类型
+     * <p> 示例值：2
+     */
     @SerializedName("type")
     private Integer type;
-     /**
-      * 工作类型——'实习'、'全职'
-      * <p> 示例值：全职
-      */
+    /**
+     * 工作类型——'实习'、'全职'
+     * <p> 示例值：全职
+     */
     @SerializedName("type_str")
     private String typeStr;
-     /**
-      * 工作描述
-      * <p> 示例值：负责XXX开发...
-      */
+    /**
+     * 工作描述
+     * <p> 示例值：负责XXX开发...
+     */
     @SerializedName("job_description")
     private String jobDescription;
+
+    // builder 开始
+    public ResumeCareer() {
+    }
+
+    public ResumeCareer(Builder builder) {
+        /**
+         * 公司名称
+         * <p> 示例值：XX公司
+         */
+        this.company = builder.company;
+        /**
+         * 开始时间,格式：YYYY-MM-DD
+         * <p> 示例值：2022-01-03
+         */
+        this.startDate = builder.startDate;
+        /**
+         * 始时间,格式：YYYY-MM-DD,跟start_date值一样
+         * <p> 示例值：2022-01-03
+         */
+        this.startTime = builder.startTime;
+        /**
+         * 结束时间,格式：YYYY-MM-DD
+         * <p> 示例值：2023-01-03
+         */
+        this.endDate = builder.endDate;
+        /**
+         * 结束时间,格式：YYYY-MM-DD 或 “至今”，当值为“至今”时，end_date=="",值为其他时，end_date==end_time
+         * <p> 示例值：2023-01-03
+         */
+        this.endTime = builder.endTime;
+        /**
+         * 职位
+         * <p> 示例值：XXX工程师
+         */
+        this.title = builder.title;
+        /**
+         * 工作类型
+         * <p> 示例值：2
+         */
+        this.type = builder.type;
+        /**
+         * 工作类型——'实习'、'全职'
+         * <p> 示例值：全职
+         */
+        this.typeStr = builder.typeStr;
+        /**
+         * 工作描述
+         * <p> 示例值：负责XXX开发...
+         */
+        this.jobDescription = builder.jobDescription;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getCompany() {
         return this.company;
     }
@@ -151,238 +212,184 @@ public class ResumeCareer {
         this.jobDescription = jobDescription;
     }
 
-
-// builder 开始
-  public ResumeCareer(){}
-
-  public ResumeCareer(Builder builder){
-         /**
-          * 公司名称
-          * <p> 示例值：XX公司
-          */
-      this.company = builder.company;
-         /**
-          * 开始时间,格式：YYYY-MM-DD
-          * <p> 示例值：2022-01-03
-          */
-      this.startDate = builder.startDate;
-         /**
-          * 始时间,格式：YYYY-MM-DD,跟start_date值一样
-          * <p> 示例值：2022-01-03
-          */
-      this.startTime = builder.startTime;
-         /**
-          * 结束时间,格式：YYYY-MM-DD
-          * <p> 示例值：2023-01-03
-          */
-      this.endDate = builder.endDate;
-         /**
-          * 结束时间,格式：YYYY-MM-DD 或 “至今”，当值为“至今”时，end_date=="",值为其他时，end_date==end_time
-          * <p> 示例值：2023-01-03
-          */
-      this.endTime = builder.endTime;
-         /**
-          * 职位
-          * <p> 示例值：XXX工程师
-          */
-      this.title = builder.title;
-         /**
-          * 工作类型
-          * <p> 示例值：2
-          */
-      this.type = builder.type;
-         /**
-          * 工作类型——'实习'、'全职'
-          * <p> 示例值：全职
-          */
-      this.typeStr = builder.typeStr;
-         /**
-          * 工作描述
-          * <p> 示例值：负责XXX开发...
-          */
-      this.jobDescription = builder.jobDescription;
-  }
-
     public static class Builder {
-     /**
-      * 公司名称
-      * <p> 示例值：XX公司
-      */
+        /**
+         * 公司名称
+         * <p> 示例值：XX公司
+         */
         private String company;
-     /**
-      * 开始时间,格式：YYYY-MM-DD
-      * <p> 示例值：2022-01-03
-      */
+        /**
+         * 开始时间,格式：YYYY-MM-DD
+         * <p> 示例值：2022-01-03
+         */
         private String startDate;
-     /**
-      * 始时间,格式：YYYY-MM-DD,跟start_date值一样
-      * <p> 示例值：2022-01-03
-      */
+        /**
+         * 始时间,格式：YYYY-MM-DD,跟start_date值一样
+         * <p> 示例值：2022-01-03
+         */
         private String startTime;
-     /**
-      * 结束时间,格式：YYYY-MM-DD
-      * <p> 示例值：2023-01-03
-      */
+        /**
+         * 结束时间,格式：YYYY-MM-DD
+         * <p> 示例值：2023-01-03
+         */
         private String endDate;
-     /**
-      * 结束时间,格式：YYYY-MM-DD 或 “至今”，当值为“至今”时，end_date=="",值为其他时，end_date==end_time
-      * <p> 示例值：2023-01-03
-      */
+        /**
+         * 结束时间,格式：YYYY-MM-DD 或 “至今”，当值为“至今”时，end_date=="",值为其他时，end_date==end_time
+         * <p> 示例值：2023-01-03
+         */
         private String endTime;
-     /**
-      * 职位
-      * <p> 示例值：XXX工程师
-      */
+        /**
+         * 职位
+         * <p> 示例值：XXX工程师
+         */
         private String title;
-     /**
-      * 工作类型
-      * <p> 示例值：2
-      */
+        /**
+         * 工作类型
+         * <p> 示例值：2
+         */
         private Integer type;
-     /**
-      * 工作类型——'实习'、'全职'
-      * <p> 示例值：全职
-      */
+        /**
+         * 工作类型——'实习'、'全职'
+         * <p> 示例值：全职
+         */
         private String typeStr;
-     /**
-      * 工作描述
-      * <p> 示例值：负责XXX开发...
-      */
+        /**
+         * 工作描述
+         * <p> 示例值：负责XXX开发...
+         */
         private String jobDescription;
 
         /**
          * 公司名称
          * <p> 示例值：XX公司
+         *
          * @param company
          * @return
          */
         public Builder company(String company) {
-             this.company = company;
-             return this;
+            this.company = company;
+            return this;
         }
 
-    
 
         /**
          * 开始时间,格式：YYYY-MM-DD
          * <p> 示例值：2022-01-03
+         *
          * @param startDate
          * @return
          */
         public Builder startDate(String startDate) {
-             this.startDate = startDate;
-             return this;
+            this.startDate = startDate;
+            return this;
         }
 
-    
 
         /**
          * 始时间,格式：YYYY-MM-DD,跟start_date值一样
          * <p> 示例值：2022-01-03
+         *
          * @param startTime
          * @return
          */
         public Builder startTime(String startTime) {
-             this.startTime = startTime;
-             return this;
+            this.startTime = startTime;
+            return this;
         }
 
-    
 
         /**
          * 结束时间,格式：YYYY-MM-DD
          * <p> 示例值：2023-01-03
+         *
          * @param endDate
          * @return
          */
         public Builder endDate(String endDate) {
-             this.endDate = endDate;
-             return this;
+            this.endDate = endDate;
+            return this;
         }
 
-    
 
         /**
          * 结束时间,格式：YYYY-MM-DD 或 “至今”，当值为“至今”时，end_date=="",值为其他时，end_date==end_time
          * <p> 示例值：2023-01-03
+         *
          * @param endTime
          * @return
          */
         public Builder endTime(String endTime) {
-             this.endTime = endTime;
-             return this;
+            this.endTime = endTime;
+            return this;
         }
 
-    
 
         /**
          * 职位
          * <p> 示例值：XXX工程师
+         *
          * @param title
          * @return
          */
         public Builder title(String title) {
-             this.title = title;
-             return this;
+            this.title = title;
+            return this;
         }
 
-    
 
         /**
          * 工作类型
          * <p> 示例值：2
+         *
          * @param type
          * @return
          */
         public Builder type(Integer type) {
-             this.type = type;
-             return this;
+            this.type = type;
+            return this;
         }
+
         /**
          * 工作类型
          * <p> 示例值：2
+         *
          * @param type {@link com.lark.oapi.service.document_ai.v1.enums.ResumeCareerResumeCareerTypeEnum}
          * @return
          */
         public Builder type(com.lark.oapi.service.document_ai.v1.enums.ResumeCareerResumeCareerTypeEnum type) {
-             this.type = type.getValue();
-             return this;
+            this.type = type.getValue();
+            return this;
         }
 
-    
 
         /**
          * 工作类型——'实习'、'全职'
          * <p> 示例值：全职
+         *
          * @param typeStr
          * @return
          */
         public Builder typeStr(String typeStr) {
-             this.typeStr = typeStr;
-             return this;
+            this.typeStr = typeStr;
+            return this;
         }
 
-    
 
         /**
          * 工作描述
          * <p> 示例值：负责XXX开发...
+         *
          * @param jobDescription
          * @return
          */
         public Builder jobDescription(String jobDescription) {
-             this.jobDescription = jobDescription;
-             return this;
+            this.jobDescription = jobDescription;
+            return this;
         }
 
-    
-    
-    public ResumeCareer build(){
-        return new ResumeCareer(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ResumeCareer build() {
+            return new ResumeCareer(this);
+        }
     }
 }

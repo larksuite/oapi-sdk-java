@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,42 +20,82 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ProcessApprover {
-     /**
-      * 将审批任务修改为同意/拒绝
-      * <p> 示例值：2
-      */
+    /**
+     * 将审批任务修改为同意/拒绝
+     * <p> 示例值：2
+     */
     @SerializedName("status")
     private Integer status;
-     /**
-      * 按user_id_type类型传递。如果system_approval为false，则必填。否则非必填。
-      * <p> 示例值：ou_91791271921729102012
-      */
+    /**
+     * 按user_id_type类型传递。如果system_approval为false，则必填。否则非必填。
+     * <p> 示例值：ou_91791271921729102012
+     */
     @SerializedName("user_id")
     private String userId;
-     /**
-      * true - 使用系统身份审批
-      * <p> 示例值：true
-      */
+    /**
+     * true - 使用系统身份审批
+     * <p> 示例值：true
+     */
     @SerializedName("system_approval")
     private Boolean systemApproval;
-     /**
-      * 通过原因，长度限制为1000
-      * <p> 示例值：原因自定义字符串
-      */
+    /**
+     * 通过原因，长度限制为1000
+     * <p> 示例值：原因自定义字符串
+     */
     @SerializedName("reason")
     private String reason;
-     /**
-      * 表单数据
-      * <p> 示例值：
-      */
+    /**
+     * 表单数据
+     * <p> 示例值：
+     */
     @SerializedName("field_values_v2")
     private ProcessFormVariableV2[] fieldValuesV2;
+
+    // builder 开始
+    public ProcessApprover() {
+    }
+
+    public ProcessApprover(Builder builder) {
+        /**
+         * 将审批任务修改为同意/拒绝
+         * <p> 示例值：2
+         */
+        this.status = builder.status;
+        /**
+         * 按user_id_type类型传递。如果system_approval为false，则必填。否则非必填。
+         * <p> 示例值：ou_91791271921729102012
+         */
+        this.userId = builder.userId;
+        /**
+         * true - 使用系统身份审批
+         * <p> 示例值：true
+         */
+        this.systemApproval = builder.systemApproval;
+        /**
+         * 通过原因，长度限制为1000
+         * <p> 示例值：原因自定义字符串
+         */
+        this.reason = builder.reason;
+        /**
+         * 表单数据
+         * <p> 示例值：
+         */
+        this.fieldValuesV2 = builder.fieldValuesV2;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Integer getStatus() {
         return this.status;
     }
@@ -95,146 +136,112 @@ public class ProcessApprover {
         this.fieldValuesV2 = fieldValuesV2;
     }
 
-
-// builder 开始
-  public ProcessApprover(){}
-
-  public ProcessApprover(Builder builder){
-         /**
-          * 将审批任务修改为同意/拒绝
-          * <p> 示例值：2
-          */
-      this.status = builder.status;
-         /**
-          * 按user_id_type类型传递。如果system_approval为false，则必填。否则非必填。
-          * <p> 示例值：ou_91791271921729102012
-          */
-      this.userId = builder.userId;
-         /**
-          * true - 使用系统身份审批
-          * <p> 示例值：true
-          */
-      this.systemApproval = builder.systemApproval;
-         /**
-          * 通过原因，长度限制为1000
-          * <p> 示例值：原因自定义字符串
-          */
-      this.reason = builder.reason;
-         /**
-          * 表单数据
-          * <p> 示例值：
-          */
-      this.fieldValuesV2 = builder.fieldValuesV2;
-  }
-
     public static class Builder {
-     /**
-      * 将审批任务修改为同意/拒绝
-      * <p> 示例值：2
-      */
+        /**
+         * 将审批任务修改为同意/拒绝
+         * <p> 示例值：2
+         */
         private Integer status;
-     /**
-      * 按user_id_type类型传递。如果system_approval为false，则必填。否则非必填。
-      * <p> 示例值：ou_91791271921729102012
-      */
+        /**
+         * 按user_id_type类型传递。如果system_approval为false，则必填。否则非必填。
+         * <p> 示例值：ou_91791271921729102012
+         */
         private String userId;
-     /**
-      * true - 使用系统身份审批
-      * <p> 示例值：true
-      */
+        /**
+         * true - 使用系统身份审批
+         * <p> 示例值：true
+         */
         private Boolean systemApproval;
-     /**
-      * 通过原因，长度限制为1000
-      * <p> 示例值：原因自定义字符串
-      */
+        /**
+         * 通过原因，长度限制为1000
+         * <p> 示例值：原因自定义字符串
+         */
         private String reason;
-     /**
-      * 表单数据
-      * <p> 示例值：
-      */
+        /**
+         * 表单数据
+         * <p> 示例值：
+         */
         private ProcessFormVariableV2[] fieldValuesV2;
 
         /**
          * 将审批任务修改为同意/拒绝
          * <p> 示例值：2
+         *
          * @param status
          * @return
          */
         public Builder status(Integer status) {
-             this.status = status;
-             return this;
+            this.status = status;
+            return this;
         }
+
         /**
          * 将审批任务修改为同意/拒绝
          * <p> 示例值：2
+         *
          * @param status {@link com.lark.oapi.service.corehr.v2.enums.ProcessApproverStatusEnum}
          * @return
          */
         public Builder status(com.lark.oapi.service.corehr.v2.enums.ProcessApproverStatusEnum status) {
-             this.status = status.getValue();
-             return this;
+            this.status = status.getValue();
+            return this;
         }
 
-    
 
         /**
          * 按user_id_type类型传递。如果system_approval为false，则必填。否则非必填。
          * <p> 示例值：ou_91791271921729102012
+         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-             this.userId = userId;
-             return this;
+            this.userId = userId;
+            return this;
         }
 
-    
 
         /**
          * true - 使用系统身份审批
          * <p> 示例值：true
+         *
          * @param systemApproval
          * @return
          */
         public Builder systemApproval(Boolean systemApproval) {
-             this.systemApproval = systemApproval;
-             return this;
+            this.systemApproval = systemApproval;
+            return this;
         }
 
-    
 
         /**
          * 通过原因，长度限制为1000
          * <p> 示例值：原因自定义字符串
+         *
          * @param reason
          * @return
          */
         public Builder reason(String reason) {
-             this.reason = reason;
-             return this;
+            this.reason = reason;
+            return this;
         }
 
-    
 
         /**
          * 表单数据
          * <p> 示例值：
+         *
          * @param fieldValuesV2
          * @return
          */
         public Builder fieldValuesV2(ProcessFormVariableV2[] fieldValuesV2) {
-             this.fieldValuesV2 = fieldValuesV2;
-             return this;
+            this.fieldValuesV2 = fieldValuesV2;
+            return this;
         }
 
-    
-    
-    public ProcessApprover build(){
-        return new ProcessApprover(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ProcessApprover build() {
+            return new ProcessApprover(this);
+        }
     }
 }

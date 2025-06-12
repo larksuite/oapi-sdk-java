@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.docx.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.docx.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CreateDocumentReqBody {
-     /**
-      * 文件夹 token，获取方式见云文档接口快速入门；空表示根目录，tenant_access_token应用权限仅允许操作应用创建的目录
-      * <p> 示例值：fldcnqquW1svRIYVT2Np6IuLCKd
-      */
+    /**
+     * 文件夹 token，获取方式见云文档接口快速入门；空表示根目录，tenant_access_token应用权限仅允许操作应用创建的目录
+     * <p> 示例值：fldcnqquW1svRIYVT2Np6IuLCKd
+     */
     @SerializedName("folder_token")
     private String folderToken;
-     /**
-      * 文档标题，只支持纯文本
-      * <p> 示例值：undefined
-      */
+    /**
+     * 文档标题，只支持纯文本
+     * <p> 示例值：undefined
+     */
     @SerializedName("title")
     private String title;
+
+    // builder 开始
+    public CreateDocumentReqBody() {
+    }
+
+    public CreateDocumentReqBody(Builder builder) {
+        /**
+         * 文件夹 token，获取方式见云文档接口快速入门；空表示根目录，tenant_access_token应用权限仅允许操作应用创建的目录
+         * <p> 示例值：fldcnqquW1svRIYVT2Np6IuLCKd
+         */
+        this.folderToken = builder.folderToken;
+        /**
+         * 文档标题，只支持纯文本
+         * <p> 示例值：undefined
+         */
+        this.title = builder.title;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getFolderToken() {
         return this.folderToken;
     }
@@ -53,67 +79,46 @@ public class CreateDocumentReqBody {
         this.title = title;
     }
 
-
-// builder 开始
-  public CreateDocumentReqBody(){}
-
-  public CreateDocumentReqBody(Builder builder){
-         /**
-          * 文件夹 token，获取方式见云文档接口快速入门；空表示根目录，tenant_access_token应用权限仅允许操作应用创建的目录
-          * <p> 示例值：fldcnqquW1svRIYVT2Np6IuLCKd
-          */
-      this.folderToken = builder.folderToken;
-         /**
-          * 文档标题，只支持纯文本
-          * <p> 示例值：undefined
-          */
-      this.title = builder.title;
-  }
-
     public static class Builder {
-     /**
-      * 文件夹 token，获取方式见云文档接口快速入门；空表示根目录，tenant_access_token应用权限仅允许操作应用创建的目录
-      * <p> 示例值：fldcnqquW1svRIYVT2Np6IuLCKd
-      */
+        /**
+         * 文件夹 token，获取方式见云文档接口快速入门；空表示根目录，tenant_access_token应用权限仅允许操作应用创建的目录
+         * <p> 示例值：fldcnqquW1svRIYVT2Np6IuLCKd
+         */
         private String folderToken;
-     /**
-      * 文档标题，只支持纯文本
-      * <p> 示例值：undefined
-      */
+        /**
+         * 文档标题，只支持纯文本
+         * <p> 示例值：undefined
+         */
         private String title;
 
         /**
          * 文件夹 token，获取方式见云文档接口快速入门；空表示根目录，tenant_access_token应用权限仅允许操作应用创建的目录
          * <p> 示例值：fldcnqquW1svRIYVT2Np6IuLCKd
+         *
          * @param folderToken
          * @return
          */
         public Builder folderToken(String folderToken) {
-             this.folderToken = folderToken;
-             return this;
+            this.folderToken = folderToken;
+            return this;
         }
 
-    
 
         /**
          * 文档标题，只支持纯文本
          * <p> 示例值：undefined
+         *
          * @param title
          * @return
          */
         public Builder title(String title) {
-             this.title = title;
-             return this;
+            this.title = title;
+            return this;
         }
 
-    
-    
-    public CreateDocumentReqBody build(){
-        return new CreateDocumentReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public CreateDocumentReqBody build() {
+            return new CreateDocumentReqBody(this);
+        }
     }
 }

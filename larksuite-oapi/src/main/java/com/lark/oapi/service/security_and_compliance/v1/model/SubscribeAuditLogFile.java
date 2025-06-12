@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.security_and_compliance.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.security_and_compliance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,48 +20,93 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class SubscribeAuditLogFile {
-     /**
-      * 文件 id
-      * <p> 示例值：example
-      */
+    /**
+     * 文件 id
+     * <p> 示例值：example
+     */
     @SerializedName("file_id")
     private String fileId;
-     /**
-      * 文件地址
-      * <p> 示例值：example.gz
-      */
+    /**
+     * 文件地址
+     * <p> 示例值：example.gz
+     */
     @SerializedName("file_url")
     private String fileUrl;
-     /**
-      * 文件过期时间，秒级时间戳
-      * <p> 示例值：1741759604
-      */
+    /**
+     * 文件过期时间，秒级时间戳
+     * <p> 示例值：1741759604
+     */
     @SerializedName("file_url_expire_time")
     private Integer fileUrlExpireTime;
-     /**
-      * 文件大小
-      * <p> 示例值：10
-      */
+    /**
+     * 文件大小
+     * <p> 示例值：10
+     */
     @SerializedName("file_size")
     private Integer fileSize;
-     /**
-      * 文件打包的日志的开始时间
-      * <p> 示例值：1741759604
-      */
+    /**
+     * 文件打包的日志的开始时间
+     * <p> 示例值：1741759604
+     */
     @SerializedName("start_time")
     private Integer startTime;
-     /**
-      * 文件打包的日志的结束时间
-      * <p> 示例值：1741759704
-      */
+    /**
+     * 文件打包的日志的结束时间
+     * <p> 示例值：1741759704
+     */
     @SerializedName("end_time")
     private Integer endTime;
+
+    // builder 开始
+    public SubscribeAuditLogFile() {
+    }
+
+    public SubscribeAuditLogFile(Builder builder) {
+        /**
+         * 文件 id
+         * <p> 示例值：example
+         */
+        this.fileId = builder.fileId;
+        /**
+         * 文件地址
+         * <p> 示例值：example.gz
+         */
+        this.fileUrl = builder.fileUrl;
+        /**
+         * 文件过期时间，秒级时间戳
+         * <p> 示例值：1741759604
+         */
+        this.fileUrlExpireTime = builder.fileUrlExpireTime;
+        /**
+         * 文件大小
+         * <p> 示例值：10
+         */
+        this.fileSize = builder.fileSize;
+        /**
+         * 文件打包的日志的开始时间
+         * <p> 示例值：1741759604
+         */
+        this.startTime = builder.startTime;
+        /**
+         * 文件打包的日志的结束时间
+         * <p> 示例值：1741759704
+         */
+        this.endTime = builder.endTime;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getFileId() {
         return this.fileId;
     }
@@ -109,159 +155,118 @@ public class SubscribeAuditLogFile {
         this.endTime = endTime;
     }
 
-
-// builder 开始
-  public SubscribeAuditLogFile(){}
-
-  public SubscribeAuditLogFile(Builder builder){
-         /**
-          * 文件 id
-          * <p> 示例值：example
-          */
-      this.fileId = builder.fileId;
-         /**
-          * 文件地址
-          * <p> 示例值：example.gz
-          */
-      this.fileUrl = builder.fileUrl;
-         /**
-          * 文件过期时间，秒级时间戳
-          * <p> 示例值：1741759604
-          */
-      this.fileUrlExpireTime = builder.fileUrlExpireTime;
-         /**
-          * 文件大小
-          * <p> 示例值：10
-          */
-      this.fileSize = builder.fileSize;
-         /**
-          * 文件打包的日志的开始时间
-          * <p> 示例值：1741759604
-          */
-      this.startTime = builder.startTime;
-         /**
-          * 文件打包的日志的结束时间
-          * <p> 示例值：1741759704
-          */
-      this.endTime = builder.endTime;
-  }
-
     public static class Builder {
-     /**
-      * 文件 id
-      * <p> 示例值：example
-      */
+        /**
+         * 文件 id
+         * <p> 示例值：example
+         */
         private String fileId;
-     /**
-      * 文件地址
-      * <p> 示例值：example.gz
-      */
+        /**
+         * 文件地址
+         * <p> 示例值：example.gz
+         */
         private String fileUrl;
-     /**
-      * 文件过期时间，秒级时间戳
-      * <p> 示例值：1741759604
-      */
+        /**
+         * 文件过期时间，秒级时间戳
+         * <p> 示例值：1741759604
+         */
         private Integer fileUrlExpireTime;
-     /**
-      * 文件大小
-      * <p> 示例值：10
-      */
+        /**
+         * 文件大小
+         * <p> 示例值：10
+         */
         private Integer fileSize;
-     /**
-      * 文件打包的日志的开始时间
-      * <p> 示例值：1741759604
-      */
+        /**
+         * 文件打包的日志的开始时间
+         * <p> 示例值：1741759604
+         */
         private Integer startTime;
-     /**
-      * 文件打包的日志的结束时间
-      * <p> 示例值：1741759704
-      */
+        /**
+         * 文件打包的日志的结束时间
+         * <p> 示例值：1741759704
+         */
         private Integer endTime;
 
         /**
          * 文件 id
          * <p> 示例值：example
+         *
          * @param fileId
          * @return
          */
         public Builder fileId(String fileId) {
-             this.fileId = fileId;
-             return this;
+            this.fileId = fileId;
+            return this;
         }
 
-    
 
         /**
          * 文件地址
          * <p> 示例值：example.gz
+         *
          * @param fileUrl
          * @return
          */
         public Builder fileUrl(String fileUrl) {
-             this.fileUrl = fileUrl;
-             return this;
+            this.fileUrl = fileUrl;
+            return this;
         }
 
-    
 
         /**
          * 文件过期时间，秒级时间戳
          * <p> 示例值：1741759604
+         *
          * @param fileUrlExpireTime
          * @return
          */
         public Builder fileUrlExpireTime(Integer fileUrlExpireTime) {
-             this.fileUrlExpireTime = fileUrlExpireTime;
-             return this;
+            this.fileUrlExpireTime = fileUrlExpireTime;
+            return this;
         }
 
-    
 
         /**
          * 文件大小
          * <p> 示例值：10
+         *
          * @param fileSize
          * @return
          */
         public Builder fileSize(Integer fileSize) {
-             this.fileSize = fileSize;
-             return this;
+            this.fileSize = fileSize;
+            return this;
         }
 
-    
 
         /**
          * 文件打包的日志的开始时间
          * <p> 示例值：1741759604
+         *
          * @param startTime
          * @return
          */
         public Builder startTime(Integer startTime) {
-             this.startTime = startTime;
-             return this;
+            this.startTime = startTime;
+            return this;
         }
 
-    
 
         /**
          * 文件打包的日志的结束时间
          * <p> 示例值：1741759704
+         *
          * @param endTime
          * @return
          */
         public Builder endTime(Integer endTime) {
-             this.endTime = endTime;
-             return this;
+            this.endTime = endTime;
+            return this;
         }
 
-    
-    
-    public SubscribeAuditLogFile build(){
-        return new SubscribeAuditLogFile(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public SubscribeAuditLogFile build() {
+            return new SubscribeAuditLogFile(this);
+        }
     }
 }

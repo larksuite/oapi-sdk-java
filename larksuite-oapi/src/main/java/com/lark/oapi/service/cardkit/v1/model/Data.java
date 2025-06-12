@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.cardkit.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.cardkit.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,36 +20,71 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Data {
-     /**
-      * 卡片规范版本
-      * <p> 示例值：2.0
-      */
+    /**
+     * 卡片规范版本
+     * <p> 示例值：2.0
+     */
     @SerializedName("schema")
     private String schema;
-     /**
-      * 卡片组件
-      * <p> 示例值：
-      */
+    /**
+     * 卡片组件
+     * <p> 示例值：
+     */
     @SerializedName("body")
     private Element body;
-     /**
-      * 用于配置卡片的标题
-      * <p> 示例值：
-      */
+    /**
+     * 用于配置卡片的标题
+     * <p> 示例值：
+     */
     @SerializedName("header")
     private Header header;
-     /**
-      * 用于指定卡片整体的跳转链接
-      * <p> 示例值：
-      */
+    /**
+     * 用于指定卡片整体的跳转链接
+     * <p> 示例值：
+     */
     @SerializedName("card_link")
     private CardLink cardLink;
+
+    // builder 开始
+    public Data() {
+    }
+
+    public Data(Builder builder) {
+        /**
+         * 卡片规范版本
+         * <p> 示例值：2.0
+         */
+        this.schema = builder.schema;
+        /**
+         * 卡片组件
+         * <p> 示例值：
+         */
+        this.body = builder.body;
+        /**
+         * 用于配置卡片的标题
+         * <p> 示例值：
+         */
+        this.header = builder.header;
+        /**
+         * 用于指定卡片整体的跳转链接
+         * <p> 示例值：
+         */
+        this.cardLink = builder.cardLink;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getSchema() {
         return this.schema;
     }
@@ -81,113 +117,82 @@ public class Data {
         this.cardLink = cardLink;
     }
 
-
-// builder 开始
-  public Data(){}
-
-  public Data(Builder builder){
-         /**
-          * 卡片规范版本
-          * <p> 示例值：2.0
-          */
-      this.schema = builder.schema;
-         /**
-          * 卡片组件
-          * <p> 示例值：
-          */
-      this.body = builder.body;
-         /**
-          * 用于配置卡片的标题
-          * <p> 示例值：
-          */
-      this.header = builder.header;
-         /**
-          * 用于指定卡片整体的跳转链接
-          * <p> 示例值：
-          */
-      this.cardLink = builder.cardLink;
-  }
-
     public static class Builder {
-     /**
-      * 卡片规范版本
-      * <p> 示例值：2.0
-      */
+        /**
+         * 卡片规范版本
+         * <p> 示例值：2.0
+         */
         private String schema;
-     /**
-      * 卡片组件
-      * <p> 示例值：
-      */
+        /**
+         * 卡片组件
+         * <p> 示例值：
+         */
         private Element body;
-     /**
-      * 用于配置卡片的标题
-      * <p> 示例值：
-      */
+        /**
+         * 用于配置卡片的标题
+         * <p> 示例值：
+         */
         private Header header;
-     /**
-      * 用于指定卡片整体的跳转链接
-      * <p> 示例值：
-      */
+        /**
+         * 用于指定卡片整体的跳转链接
+         * <p> 示例值：
+         */
         private CardLink cardLink;
 
         /**
          * 卡片规范版本
          * <p> 示例值：2.0
+         *
          * @param schema
          * @return
          */
         public Builder schema(String schema) {
-             this.schema = schema;
-             return this;
+            this.schema = schema;
+            return this;
         }
 
-    
 
         /**
          * 卡片组件
          * <p> 示例值：
+         *
          * @param body
          * @return
          */
         public Builder body(Element body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
 
-    
 
         /**
          * 用于配置卡片的标题
          * <p> 示例值：
+         *
          * @param header
          * @return
          */
         public Builder header(Header header) {
-             this.header = header;
-             return this;
+            this.header = header;
+            return this;
         }
 
-    
 
         /**
          * 用于指定卡片整体的跳转链接
          * <p> 示例值：
+         *
          * @param cardLink
          * @return
          */
         public Builder cardLink(CardLink cardLink) {
-             this.cardLink = cardLink;
-             return this;
+            this.cardLink = cardLink;
+            return this;
         }
 
-    
-    
-    public Data build(){
-        return new Data(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Data build() {
+            return new Data(this);
+        }
     }
 }

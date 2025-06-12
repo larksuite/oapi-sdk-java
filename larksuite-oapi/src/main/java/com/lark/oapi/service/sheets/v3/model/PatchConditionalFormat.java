@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.sheets.v3.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.sheets.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class PatchConditionalFormat {
-     /**
-      * 条件格式应用范围
-      * <p> 示例值：
-      */
+    /**
+     * 条件格式应用范围
+     * <p> 示例值：
+     */
     @SerializedName("ranges")
     private ConditionalFormatRange[] ranges;
-     /**
-      * 条件格式规则
-      * <p> 示例值：
-      */
+    /**
+     * 条件格式规则
+     * <p> 示例值：
+     */
     @SerializedName("conditional_format_rule")
     private ConditionalFormatRule conditionalFormatRule;
-     /**
-      * 条件格式索引位置
-      * <p> 示例值：0
-      */
+    /**
+     * 条件格式索引位置
+     * <p> 示例值：0
+     */
     @SerializedName("index")
     private Integer index;
+
+    // builder 开始
+    public PatchConditionalFormat() {
+    }
+
+    public PatchConditionalFormat(Builder builder) {
+        /**
+         * 条件格式应用范围
+         * <p> 示例值：
+         */
+        this.ranges = builder.ranges;
+        /**
+         * 条件格式规则
+         * <p> 示例值：
+         */
+        this.conditionalFormatRule = builder.conditionalFormatRule;
+        /**
+         * 条件格式索引位置
+         * <p> 示例值：0
+         */
+        this.index = builder.index;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public ConditionalFormatRange[] getRanges() {
         return this.ranges;
     }
@@ -67,90 +98,64 @@ public class PatchConditionalFormat {
         this.index = index;
     }
 
-
-// builder 开始
-  public PatchConditionalFormat(){}
-
-  public PatchConditionalFormat(Builder builder){
-         /**
-          * 条件格式应用范围
-          * <p> 示例值：
-          */
-      this.ranges = builder.ranges;
-         /**
-          * 条件格式规则
-          * <p> 示例值：
-          */
-      this.conditionalFormatRule = builder.conditionalFormatRule;
-         /**
-          * 条件格式索引位置
-          * <p> 示例值：0
-          */
-      this.index = builder.index;
-  }
-
     public static class Builder {
-     /**
-      * 条件格式应用范围
-      * <p> 示例值：
-      */
+        /**
+         * 条件格式应用范围
+         * <p> 示例值：
+         */
         private ConditionalFormatRange[] ranges;
-     /**
-      * 条件格式规则
-      * <p> 示例值：
-      */
+        /**
+         * 条件格式规则
+         * <p> 示例值：
+         */
         private ConditionalFormatRule conditionalFormatRule;
-     /**
-      * 条件格式索引位置
-      * <p> 示例值：0
-      */
+        /**
+         * 条件格式索引位置
+         * <p> 示例值：0
+         */
         private Integer index;
 
         /**
          * 条件格式应用范围
          * <p> 示例值：
+         *
          * @param ranges
          * @return
          */
         public Builder ranges(ConditionalFormatRange[] ranges) {
-             this.ranges = ranges;
-             return this;
+            this.ranges = ranges;
+            return this;
         }
 
-    
 
         /**
          * 条件格式规则
          * <p> 示例值：
+         *
          * @param conditionalFormatRule
          * @return
          */
         public Builder conditionalFormatRule(ConditionalFormatRule conditionalFormatRule) {
-             this.conditionalFormatRule = conditionalFormatRule;
-             return this;
+            this.conditionalFormatRule = conditionalFormatRule;
+            return this;
         }
 
-    
 
         /**
          * 条件格式索引位置
          * <p> 示例值：0
+         *
          * @param index
          * @return
          */
         public Builder index(Integer index) {
-             this.index = index;
-             return this;
+            this.index = index;
+            return this;
         }
 
-    
-    
-    public PatchConditionalFormat build(){
-        return new PatchConditionalFormat(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public PatchConditionalFormat build() {
+            return new PatchConditionalFormat(this);
+        }
     }
 }

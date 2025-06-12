@@ -12,72 +12,133 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ExternalOffer {
-     /**
-      * 外部 Offer ID
-      * <p> 示例值：6989202908470446380
-      */
+    /**
+     * 外部 Offer ID
+     * <p> 示例值：6989202908470446380
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 外部系统 Offer 主键（仅用于幂等）
-      * <p> 示例值：123
-      */
+    /**
+     * 外部系统 Offer 主键（仅用于幂等）
+     * <p> 示例值：123
+     */
     @SerializedName("external_id")
     private String externalId;
-     /**
-      * 外部投递 ID
-      * <p> 示例值：7395015673275697419
-      */
+    /**
+     * 外部投递 ID
+     * <p> 示例值：7395015673275697419
+     */
     @SerializedName("external_application_id")
     private String externalApplicationId;
-     /**
-      * Offer 创建时间，毫秒时间戳
-      * <p> 示例值：1721899352428
-      */
+    /**
+     * Offer 创建时间，毫秒时间戳
+     * <p> 示例值：1721899352428
+     */
     @SerializedName("biz_create_time")
     private String bizCreateTime;
-     /**
-      * Offer 负责人
-      * <p> 示例值：张三
-      */
+    /**
+     * Offer 负责人
+     * <p> 示例值：张三
+     */
     @SerializedName("owner")
     private String owner;
-     /**
-      * Offer 创建人
-      * <p> 示例值：张三
-      */
+    /**
+     * Offer 创建人
+     * <p> 示例值：张三
+     */
     @SerializedName("creator")
     private String creator;
-     /**
-      * Offer 状态
-      * <p> 示例值：已发送
-      */
+    /**
+     * Offer 状态
+     * <p> 示例值：已发送
+     */
     @SerializedName("offer_status")
     private String offerStatus;
-     /**
-      * Offer详情附件ID列表
-      * <p> 示例值：
-      */
+    /**
+     * Offer详情附件ID列表
+     * <p> 示例值：
+     */
     @SerializedName("attachment_id_list")
     private String[] attachmentIdList;
-     /**
-      * Offer 附件列表
-      * <p> 示例值：
-      */
+    /**
+     * Offer 附件列表
+     * <p> 示例值：
+     */
     @SerializedName("attachment_list")
     private ExternalCommonAttachment[] attachmentList;
+
+    // builder 开始
+    public ExternalOffer() {
+    }
+
+    public ExternalOffer(Builder builder) {
+        /**
+         * 外部 Offer ID
+         * <p> 示例值：6989202908470446380
+         */
+        this.id = builder.id;
+        /**
+         * 外部系统 Offer 主键（仅用于幂等）
+         * <p> 示例值：123
+         */
+        this.externalId = builder.externalId;
+        /**
+         * 外部投递 ID
+         * <p> 示例值：7395015673275697419
+         */
+        this.externalApplicationId = builder.externalApplicationId;
+        /**
+         * Offer 创建时间，毫秒时间戳
+         * <p> 示例值：1721899352428
+         */
+        this.bizCreateTime = builder.bizCreateTime;
+        /**
+         * Offer 负责人
+         * <p> 示例值：张三
+         */
+        this.owner = builder.owner;
+        /**
+         * Offer 创建人
+         * <p> 示例值：张三
+         */
+        this.creator = builder.creator;
+        /**
+         * Offer 状态
+         * <p> 示例值：已发送
+         */
+        this.offerStatus = builder.offerStatus;
+        /**
+         * Offer详情附件ID列表
+         * <p> 示例值：
+         */
+        this.attachmentIdList = builder.attachmentIdList;
+        /**
+         * Offer 附件列表
+         * <p> 示例值：
+         */
+        this.attachmentList = builder.attachmentList;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -150,228 +211,172 @@ public class ExternalOffer {
         this.attachmentList = attachmentList;
     }
 
-
-// builder 开始
-  public ExternalOffer(){}
-
-  public ExternalOffer(Builder builder){
-         /**
-          * 外部 Offer ID
-          * <p> 示例值：6989202908470446380
-          */
-      this.id = builder.id;
-         /**
-          * 外部系统 Offer 主键（仅用于幂等）
-          * <p> 示例值：123
-          */
-      this.externalId = builder.externalId;
-         /**
-          * 外部投递 ID
-          * <p> 示例值：7395015673275697419
-          */
-      this.externalApplicationId = builder.externalApplicationId;
-         /**
-          * Offer 创建时间，毫秒时间戳
-          * <p> 示例值：1721899352428
-          */
-      this.bizCreateTime = builder.bizCreateTime;
-         /**
-          * Offer 负责人
-          * <p> 示例值：张三
-          */
-      this.owner = builder.owner;
-         /**
-          * Offer 创建人
-          * <p> 示例值：张三
-          */
-      this.creator = builder.creator;
-         /**
-          * Offer 状态
-          * <p> 示例值：已发送
-          */
-      this.offerStatus = builder.offerStatus;
-         /**
-          * Offer详情附件ID列表
-          * <p> 示例值：
-          */
-      this.attachmentIdList = builder.attachmentIdList;
-         /**
-          * Offer 附件列表
-          * <p> 示例值：
-          */
-      this.attachmentList = builder.attachmentList;
-  }
-
     public static class Builder {
-     /**
-      * 外部 Offer ID
-      * <p> 示例值：6989202908470446380
-      */
+        /**
+         * 外部 Offer ID
+         * <p> 示例值：6989202908470446380
+         */
         private String id;
-     /**
-      * 外部系统 Offer 主键（仅用于幂等）
-      * <p> 示例值：123
-      */
+        /**
+         * 外部系统 Offer 主键（仅用于幂等）
+         * <p> 示例值：123
+         */
         private String externalId;
-     /**
-      * 外部投递 ID
-      * <p> 示例值：7395015673275697419
-      */
+        /**
+         * 外部投递 ID
+         * <p> 示例值：7395015673275697419
+         */
         private String externalApplicationId;
-     /**
-      * Offer 创建时间，毫秒时间戳
-      * <p> 示例值：1721899352428
-      */
+        /**
+         * Offer 创建时间，毫秒时间戳
+         * <p> 示例值：1721899352428
+         */
         private String bizCreateTime;
-     /**
-      * Offer 负责人
-      * <p> 示例值：张三
-      */
+        /**
+         * Offer 负责人
+         * <p> 示例值：张三
+         */
         private String owner;
-     /**
-      * Offer 创建人
-      * <p> 示例值：张三
-      */
+        /**
+         * Offer 创建人
+         * <p> 示例值：张三
+         */
         private String creator;
-     /**
-      * Offer 状态
-      * <p> 示例值：已发送
-      */
+        /**
+         * Offer 状态
+         * <p> 示例值：已发送
+         */
         private String offerStatus;
-     /**
-      * Offer详情附件ID列表
-      * <p> 示例值：
-      */
+        /**
+         * Offer详情附件ID列表
+         * <p> 示例值：
+         */
         private String[] attachmentIdList;
-     /**
-      * Offer 附件列表
-      * <p> 示例值：
-      */
+        /**
+         * Offer 附件列表
+         * <p> 示例值：
+         */
         private ExternalCommonAttachment[] attachmentList;
 
         /**
          * 外部 Offer ID
          * <p> 示例值：6989202908470446380
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 外部系统 Offer 主键（仅用于幂等）
          * <p> 示例值：123
+         *
          * @param externalId
          * @return
          */
         public Builder externalId(String externalId) {
-             this.externalId = externalId;
-             return this;
+            this.externalId = externalId;
+            return this;
         }
 
-    
 
         /**
          * 外部投递 ID
          * <p> 示例值：7395015673275697419
+         *
          * @param externalApplicationId
          * @return
          */
         public Builder externalApplicationId(String externalApplicationId) {
-             this.externalApplicationId = externalApplicationId;
-             return this;
+            this.externalApplicationId = externalApplicationId;
+            return this;
         }
 
-    
 
         /**
          * Offer 创建时间，毫秒时间戳
          * <p> 示例值：1721899352428
+         *
          * @param bizCreateTime
          * @return
          */
         public Builder bizCreateTime(String bizCreateTime) {
-             this.bizCreateTime = bizCreateTime;
-             return this;
+            this.bizCreateTime = bizCreateTime;
+            return this;
         }
 
-    
 
         /**
          * Offer 负责人
          * <p> 示例值：张三
+         *
          * @param owner
          * @return
          */
         public Builder owner(String owner) {
-             this.owner = owner;
-             return this;
+            this.owner = owner;
+            return this;
         }
 
-    
 
         /**
          * Offer 创建人
          * <p> 示例值：张三
+         *
          * @param creator
          * @return
          */
         public Builder creator(String creator) {
-             this.creator = creator;
-             return this;
+            this.creator = creator;
+            return this;
         }
 
-    
 
         /**
          * Offer 状态
          * <p> 示例值：已发送
+         *
          * @param offerStatus
          * @return
          */
         public Builder offerStatus(String offerStatus) {
-             this.offerStatus = offerStatus;
-             return this;
+            this.offerStatus = offerStatus;
+            return this;
         }
 
-    
 
         /**
          * Offer详情附件ID列表
          * <p> 示例值：
+         *
          * @param attachmentIdList
          * @return
          */
         public Builder attachmentIdList(String[] attachmentIdList) {
-             this.attachmentIdList = attachmentIdList;
-             return this;
+            this.attachmentIdList = attachmentIdList;
+            return this;
         }
 
-    
 
         /**
          * Offer 附件列表
          * <p> 示例值：
+         *
          * @param attachmentList
          * @return
          */
         public Builder attachmentList(ExternalCommonAttachment[] attachmentList) {
-             this.attachmentList = attachmentList;
-             return this;
+            this.attachmentList = attachmentList;
+            return this;
         }
 
-    
-    
-    public ExternalOffer build(){
-        return new ExternalOffer(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ExternalOffer build() {
+            return new ExternalOffer(this);
+        }
     }
 }

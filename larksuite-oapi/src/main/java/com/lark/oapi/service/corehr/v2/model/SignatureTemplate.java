@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class SignatureTemplate {
-     /**
-      * 电子签模板id
-      * <p> 示例值：12313
-      */
+    /**
+     * 电子签模板id
+     * <p> 示例值：12313
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 简略信息
-      * <p> 示例值：
-      */
+    /**
+     * 简略信息
+     * <p> 示例值：
+     */
     @SerializedName("brief_info")
     private SignatureTemplateBriefInfo briefInfo;
-     /**
-      * 模板内容信息
-      * <p> 示例值：
-      */
+    /**
+     * 模板内容信息
+     * <p> 示例值：
+     */
     @SerializedName("content_info")
     private SignatureTemplateContentInfo contentInfo;
+
+    // builder 开始
+    public SignatureTemplate() {
+    }
+
+    public SignatureTemplate(Builder builder) {
+        /**
+         * 电子签模板id
+         * <p> 示例值：12313
+         */
+        this.id = builder.id;
+        /**
+         * 简略信息
+         * <p> 示例值：
+         */
+        this.briefInfo = builder.briefInfo;
+        /**
+         * 模板内容信息
+         * <p> 示例值：
+         */
+        this.contentInfo = builder.contentInfo;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -67,90 +98,64 @@ public class SignatureTemplate {
         this.contentInfo = contentInfo;
     }
 
-
-// builder 开始
-  public SignatureTemplate(){}
-
-  public SignatureTemplate(Builder builder){
-         /**
-          * 电子签模板id
-          * <p> 示例值：12313
-          */
-      this.id = builder.id;
-         /**
-          * 简略信息
-          * <p> 示例值：
-          */
-      this.briefInfo = builder.briefInfo;
-         /**
-          * 模板内容信息
-          * <p> 示例值：
-          */
-      this.contentInfo = builder.contentInfo;
-  }
-
     public static class Builder {
-     /**
-      * 电子签模板id
-      * <p> 示例值：12313
-      */
+        /**
+         * 电子签模板id
+         * <p> 示例值：12313
+         */
         private String id;
-     /**
-      * 简略信息
-      * <p> 示例值：
-      */
+        /**
+         * 简略信息
+         * <p> 示例值：
+         */
         private SignatureTemplateBriefInfo briefInfo;
-     /**
-      * 模板内容信息
-      * <p> 示例值：
-      */
+        /**
+         * 模板内容信息
+         * <p> 示例值：
+         */
         private SignatureTemplateContentInfo contentInfo;
 
         /**
          * 电子签模板id
          * <p> 示例值：12313
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 简略信息
          * <p> 示例值：
+         *
          * @param briefInfo
          * @return
          */
         public Builder briefInfo(SignatureTemplateBriefInfo briefInfo) {
-             this.briefInfo = briefInfo;
-             return this;
+            this.briefInfo = briefInfo;
+            return this;
         }
 
-    
 
         /**
          * 模板内容信息
          * <p> 示例值：
+         *
          * @param contentInfo
          * @return
          */
         public Builder contentInfo(SignatureTemplateContentInfo contentInfo) {
-             this.contentInfo = contentInfo;
-             return this;
+            this.contentInfo = contentInfo;
+            return this;
         }
 
-    
-    
-    public SignatureTemplate build(){
-        return new SignatureTemplate(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public SignatureTemplate build() {
+            return new SignatureTemplate(this);
+        }
     }
 }

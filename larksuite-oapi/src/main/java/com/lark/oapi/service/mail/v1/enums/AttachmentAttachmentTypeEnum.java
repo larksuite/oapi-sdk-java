@@ -17,15 +17,16 @@ package com.lark.oapi.service.mail.v1.enums;
  * 附件类型
  */
 public enum AttachmentAttachmentTypeEnum {
-     NORMALATTACHMENT(1), // 普通附件
-     LARGEATTACHMENT(2), // 超大附件
-  ;
-   private Integer value;
+    NORMALATTACHMENT(1), // 普通附件
+    LARGEATTACHMENT(2), // 超大附件
+    ;
+    private Integer value;
+
     AttachmentAttachmentTypeEnum(Integer value) {
-      this.value = value;
+        this.value = value;
     }
 
     public Integer getValue() {
-      return this.value;
+        return this.value;
     }
 }

@@ -12,84 +12,155 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class InterviewDimensionAssessment {
-     /**
-      * 题目评价 ID
-      * <p> 示例值：6949805467799537964
-      */
+    /**
+     * 题目评价 ID
+     * <p> 示例值：6949805467799537964
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 题目名称
-      * <p> 示例值：
-      */
+    /**
+     * 题目名称
+     * <p> 示例值：
+     */
     @SerializedName("name")
     private I18n name;
-     /**
-      * 打分题总分，仅当题目类型为「打分题(单选)」、「打分题(填空)」时可用
-      * <p> 示例值：100
-      */
+    /**
+     * 打分题总分，仅当题目类型为「打分题(单选)」、「打分题(填空)」时可用
+     * <p> 示例值：100
+     */
     @SerializedName("full_score")
     private Integer fullScore;
-     /**
-      * 当题目类型为描述题时，从此取值
-      * <p> 示例值：这个候选人还不错
-      */
+    /**
+     * 当题目类型为描述题时，从此取值
+     * <p> 示例值：这个候选人还不错
+     */
     @SerializedName("content")
     private String content;
-     /**
-      * 题目 ID
-      * <p> 示例值：11111111
-      */
+    /**
+     * 题目 ID
+     * <p> 示例值：11111111
+     */
     @SerializedName("dimension_id")
     private String dimensionId;
-     /**
-      * 当题目类型为单选题时，从此取值
-      * <p> 示例值：
-      */
+    /**
+     * 当题目类型为单选题时，从此取值
+     * <p> 示例值：
+     */
     @SerializedName("dimension_score")
     private InterviewDimensionScore dimensionScore;
-     /**
-      * 当题目类型为多选题时，从此取值
-      * <p> 示例值：
-      */
+    /**
+     * 当题目类型为多选题时，从此取值
+     * <p> 示例值：
+     */
     @SerializedName("dimension_score_list")
     private InterviewDimensionScore[] dimensionScoreList;
-     /**
-      * 当维度评价方式为「打分题(填空)时」，从此取值
-      * <p> 示例值：10
-      */
+    /**
+     * 当维度评价方式为「打分题(填空)时」，从此取值
+     * <p> 示例值：10
+     */
     @SerializedName("dimension_custom_score")
     private Integer dimensionCustomScore;
-     /**
-      * 维度关联能力项
-      * <p> 示例值：
-      */
+    /**
+     * 维度关联能力项
+     * <p> 示例值：
+     */
     @SerializedName("ability_list")
     private Ability[] abilityList;
-     /**
-      * 维度关联面试题
-      * <p> 示例值：
-      */
+    /**
+     * 维度关联面试题
+     * <p> 示例值：
+     */
     @SerializedName("question_list")
     private InterviewQuestion[] questionList;
-     /**
-      * 题目类型
-      * <p> 示例值：1
-      */
+    /**
+     * 题目类型
+     * <p> 示例值：1
+     */
     @SerializedName("dimension_type")
     private Integer dimensionType;
+
+    // builder 开始
+    public InterviewDimensionAssessment() {
+    }
+
+    public InterviewDimensionAssessment(Builder builder) {
+        /**
+         * 题目评价 ID
+         * <p> 示例值：6949805467799537964
+         */
+        this.id = builder.id;
+        /**
+         * 题目名称
+         * <p> 示例值：
+         */
+        this.name = builder.name;
+        /**
+         * 打分题总分，仅当题目类型为「打分题(单选)」、「打分题(填空)」时可用
+         * <p> 示例值：100
+         */
+        this.fullScore = builder.fullScore;
+        /**
+         * 当题目类型为描述题时，从此取值
+         * <p> 示例值：这个候选人还不错
+         */
+        this.content = builder.content;
+        /**
+         * 题目 ID
+         * <p> 示例值：11111111
+         */
+        this.dimensionId = builder.dimensionId;
+        /**
+         * 当题目类型为单选题时，从此取值
+         * <p> 示例值：
+         */
+        this.dimensionScore = builder.dimensionScore;
+        /**
+         * 当题目类型为多选题时，从此取值
+         * <p> 示例值：
+         */
+        this.dimensionScoreList = builder.dimensionScoreList;
+        /**
+         * 当维度评价方式为「打分题(填空)时」，从此取值
+         * <p> 示例值：10
+         */
+        this.dimensionCustomScore = builder.dimensionCustomScore;
+        /**
+         * 维度关联能力项
+         * <p> 示例值：
+         */
+        this.abilityList = builder.abilityList;
+        /**
+         * 维度关联面试题
+         * <p> 示例值：
+         */
+        this.questionList = builder.questionList;
+        /**
+         * 题目类型
+         * <p> 示例值：1
+         */
+        this.dimensionType = builder.dimensionType;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -178,274 +249,208 @@ public class InterviewDimensionAssessment {
         this.dimensionType = dimensionType;
     }
 
-
-// builder 开始
-  public InterviewDimensionAssessment(){}
-
-  public InterviewDimensionAssessment(Builder builder){
-         /**
-          * 题目评价 ID
-          * <p> 示例值：6949805467799537964
-          */
-      this.id = builder.id;
-         /**
-          * 题目名称
-          * <p> 示例值：
-          */
-      this.name = builder.name;
-         /**
-          * 打分题总分，仅当题目类型为「打分题(单选)」、「打分题(填空)」时可用
-          * <p> 示例值：100
-          */
-      this.fullScore = builder.fullScore;
-         /**
-          * 当题目类型为描述题时，从此取值
-          * <p> 示例值：这个候选人还不错
-          */
-      this.content = builder.content;
-         /**
-          * 题目 ID
-          * <p> 示例值：11111111
-          */
-      this.dimensionId = builder.dimensionId;
-         /**
-          * 当题目类型为单选题时，从此取值
-          * <p> 示例值：
-          */
-      this.dimensionScore = builder.dimensionScore;
-         /**
-          * 当题目类型为多选题时，从此取值
-          * <p> 示例值：
-          */
-      this.dimensionScoreList = builder.dimensionScoreList;
-         /**
-          * 当维度评价方式为「打分题(填空)时」，从此取值
-          * <p> 示例值：10
-          */
-      this.dimensionCustomScore = builder.dimensionCustomScore;
-         /**
-          * 维度关联能力项
-          * <p> 示例值：
-          */
-      this.abilityList = builder.abilityList;
-         /**
-          * 维度关联面试题
-          * <p> 示例值：
-          */
-      this.questionList = builder.questionList;
-         /**
-          * 题目类型
-          * <p> 示例值：1
-          */
-      this.dimensionType = builder.dimensionType;
-  }
-
     public static class Builder {
-     /**
-      * 题目评价 ID
-      * <p> 示例值：6949805467799537964
-      */
+        /**
+         * 题目评价 ID
+         * <p> 示例值：6949805467799537964
+         */
         private String id;
-     /**
-      * 题目名称
-      * <p> 示例值：
-      */
+        /**
+         * 题目名称
+         * <p> 示例值：
+         */
         private I18n name;
-     /**
-      * 打分题总分，仅当题目类型为「打分题(单选)」、「打分题(填空)」时可用
-      * <p> 示例值：100
-      */
+        /**
+         * 打分题总分，仅当题目类型为「打分题(单选)」、「打分题(填空)」时可用
+         * <p> 示例值：100
+         */
         private Integer fullScore;
-     /**
-      * 当题目类型为描述题时，从此取值
-      * <p> 示例值：这个候选人还不错
-      */
+        /**
+         * 当题目类型为描述题时，从此取值
+         * <p> 示例值：这个候选人还不错
+         */
         private String content;
-     /**
-      * 题目 ID
-      * <p> 示例值：11111111
-      */
+        /**
+         * 题目 ID
+         * <p> 示例值：11111111
+         */
         private String dimensionId;
-     /**
-      * 当题目类型为单选题时，从此取值
-      * <p> 示例值：
-      */
+        /**
+         * 当题目类型为单选题时，从此取值
+         * <p> 示例值：
+         */
         private InterviewDimensionScore dimensionScore;
-     /**
-      * 当题目类型为多选题时，从此取值
-      * <p> 示例值：
-      */
+        /**
+         * 当题目类型为多选题时，从此取值
+         * <p> 示例值：
+         */
         private InterviewDimensionScore[] dimensionScoreList;
-     /**
-      * 当维度评价方式为「打分题(填空)时」，从此取值
-      * <p> 示例值：10
-      */
+        /**
+         * 当维度评价方式为「打分题(填空)时」，从此取值
+         * <p> 示例值：10
+         */
         private Integer dimensionCustomScore;
-     /**
-      * 维度关联能力项
-      * <p> 示例值：
-      */
+        /**
+         * 维度关联能力项
+         * <p> 示例值：
+         */
         private Ability[] abilityList;
-     /**
-      * 维度关联面试题
-      * <p> 示例值：
-      */
+        /**
+         * 维度关联面试题
+         * <p> 示例值：
+         */
         private InterviewQuestion[] questionList;
-     /**
-      * 题目类型
-      * <p> 示例值：1
-      */
+        /**
+         * 题目类型
+         * <p> 示例值：1
+         */
         private Integer dimensionType;
 
         /**
          * 题目评价 ID
          * <p> 示例值：6949805467799537964
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 题目名称
          * <p> 示例值：
+         *
          * @param name
          * @return
          */
         public Builder name(I18n name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 打分题总分，仅当题目类型为「打分题(单选)」、「打分题(填空)」时可用
          * <p> 示例值：100
+         *
          * @param fullScore
          * @return
          */
         public Builder fullScore(Integer fullScore) {
-             this.fullScore = fullScore;
-             return this;
+            this.fullScore = fullScore;
+            return this;
         }
 
-    
 
         /**
          * 当题目类型为描述题时，从此取值
          * <p> 示例值：这个候选人还不错
+         *
          * @param content
          * @return
          */
         public Builder content(String content) {
-             this.content = content;
-             return this;
+            this.content = content;
+            return this;
         }
 
-    
 
         /**
          * 题目 ID
          * <p> 示例值：11111111
+         *
          * @param dimensionId
          * @return
          */
         public Builder dimensionId(String dimensionId) {
-             this.dimensionId = dimensionId;
-             return this;
+            this.dimensionId = dimensionId;
+            return this;
         }
 
-    
 
         /**
          * 当题目类型为单选题时，从此取值
          * <p> 示例值：
+         *
          * @param dimensionScore
          * @return
          */
         public Builder dimensionScore(InterviewDimensionScore dimensionScore) {
-             this.dimensionScore = dimensionScore;
-             return this;
+            this.dimensionScore = dimensionScore;
+            return this;
         }
 
-    
 
         /**
          * 当题目类型为多选题时，从此取值
          * <p> 示例值：
+         *
          * @param dimensionScoreList
          * @return
          */
         public Builder dimensionScoreList(InterviewDimensionScore[] dimensionScoreList) {
-             this.dimensionScoreList = dimensionScoreList;
-             return this;
+            this.dimensionScoreList = dimensionScoreList;
+            return this;
         }
 
-    
 
         /**
          * 当维度评价方式为「打分题(填空)时」，从此取值
          * <p> 示例值：10
+         *
          * @param dimensionCustomScore
          * @return
          */
         public Builder dimensionCustomScore(Integer dimensionCustomScore) {
-             this.dimensionCustomScore = dimensionCustomScore;
-             return this;
+            this.dimensionCustomScore = dimensionCustomScore;
+            return this;
         }
 
-    
 
         /**
          * 维度关联能力项
          * <p> 示例值：
+         *
          * @param abilityList
          * @return
          */
         public Builder abilityList(Ability[] abilityList) {
-             this.abilityList = abilityList;
-             return this;
+            this.abilityList = abilityList;
+            return this;
         }
 
-    
 
         /**
          * 维度关联面试题
          * <p> 示例值：
+         *
          * @param questionList
          * @return
          */
         public Builder questionList(InterviewQuestion[] questionList) {
-             this.questionList = questionList;
-             return this;
+            this.questionList = questionList;
+            return this;
         }
 
-    
 
         /**
          * 题目类型
          * <p> 示例值：1
+         *
          * @param dimensionType
          * @return
          */
         public Builder dimensionType(Integer dimensionType) {
-             this.dimensionType = dimensionType;
-             return this;
+            this.dimensionType = dimensionType;
+            return this;
         }
 
-    
-    
-    public InterviewDimensionAssessment build(){
-        return new InterviewDimensionAssessment(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public InterviewDimensionAssessment build() {
+            return new InterviewDimensionAssessment(this);
+        }
     }
 }

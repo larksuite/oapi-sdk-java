@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class AllowedRollbaclkTaskItemType {
-     /**
-      * 任务ID
-      * <p> 示例值：1234
-      */
+    /**
+     * 任务ID
+     * <p> 示例值：1234
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 任务对应的活动名称
-      * <p> 示例值：
-      */
+    /**
+     * 任务对应的活动名称
+     * <p> 示例值：
+     */
     @SerializedName("activity_label")
     private I18n[] activityLabel;
-     /**
-      * 是否开始节点
-      * <p> 示例值：
-      */
+    /**
+     * 是否开始节点
+     * <p> 示例值：
+     */
     @SerializedName("is_start")
     private Boolean isStart;
+
+    // builder 开始
+    public AllowedRollbaclkTaskItemType() {
+    }
+
+    public AllowedRollbaclkTaskItemType(Builder builder) {
+        /**
+         * 任务ID
+         * <p> 示例值：1234
+         */
+        this.id = builder.id;
+        /**
+         * 任务对应的活动名称
+         * <p> 示例值：
+         */
+        this.activityLabel = builder.activityLabel;
+        /**
+         * 是否开始节点
+         * <p> 示例值：
+         */
+        this.isStart = builder.isStart;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -67,90 +98,64 @@ public class AllowedRollbaclkTaskItemType {
         this.isStart = isStart;
     }
 
-
-// builder 开始
-  public AllowedRollbaclkTaskItemType(){}
-
-  public AllowedRollbaclkTaskItemType(Builder builder){
-         /**
-          * 任务ID
-          * <p> 示例值：1234
-          */
-      this.id = builder.id;
-         /**
-          * 任务对应的活动名称
-          * <p> 示例值：
-          */
-      this.activityLabel = builder.activityLabel;
-         /**
-          * 是否开始节点
-          * <p> 示例值：
-          */
-      this.isStart = builder.isStart;
-  }
-
     public static class Builder {
-     /**
-      * 任务ID
-      * <p> 示例值：1234
-      */
+        /**
+         * 任务ID
+         * <p> 示例值：1234
+         */
         private String id;
-     /**
-      * 任务对应的活动名称
-      * <p> 示例值：
-      */
+        /**
+         * 任务对应的活动名称
+         * <p> 示例值：
+         */
         private I18n[] activityLabel;
-     /**
-      * 是否开始节点
-      * <p> 示例值：
-      */
+        /**
+         * 是否开始节点
+         * <p> 示例值：
+         */
         private Boolean isStart;
 
         /**
          * 任务ID
          * <p> 示例值：1234
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 任务对应的活动名称
          * <p> 示例值：
+         *
          * @param activityLabel
          * @return
          */
         public Builder activityLabel(I18n[] activityLabel) {
-             this.activityLabel = activityLabel;
-             return this;
+            this.activityLabel = activityLabel;
+            return this;
         }
 
-    
 
         /**
          * 是否开始节点
          * <p> 示例值：
+         *
          * @param isStart
          * @return
          */
         public Builder isStart(Boolean isStart) {
-             this.isStart = isStart;
-             return this;
+            this.isStart = isStart;
+            return this;
         }
 
-    
-    
-    public AllowedRollbaclkTaskItemType build(){
-        return new AllowedRollbaclkTaskItemType(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public AllowedRollbaclkTaskItemType build() {
+            return new AllowedRollbaclkTaskItemType(this);
+        }
     }
 }

@@ -12,24 +12,60 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class PatchInterviewerReq {
-     /**
-      * 此次调用中使用的用户ID的类型
-      * <p> 示例值：
-      */
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
+    /**
+     * 面试官userID
+     * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+     */
+    @Path
+    @SerializedName("interviewer_id")
+    private String interviewerId;
+    @Body
+    private PatchInterviewerReqBody body;
+
+    // builder 开始
+    public PatchInterviewerReq() {
+    }
+
+    public PatchInterviewerReq(Builder builder) {
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         */
+        this.userIdType = builder.userIdType;
+        /**
+         * 面试官userID
+         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+         */
+        this.interviewerId = builder.interviewerId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getUserIdType() {
         return this.userIdType;
     }
@@ -38,13 +74,6 @@ public class PatchInterviewerReq {
         this.userIdType = userIdType;
     }
 
-     /**
-      * 面试官userID
-      * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-      */
-    @Path
-    @SerializedName("interviewer_id")
-    private String interviewerId;
     public String getInterviewerId() {
         return this.interviewerId;
     }
@@ -52,9 +81,6 @@ public class PatchInterviewerReq {
     public void setInterviewerId(String interviewerId) {
         this.interviewerId = interviewerId;
     }
-
-    @Body
-    private PatchInterviewerReqBody body;
 
     public PatchInterviewerReqBody getPatchInterviewerReqBody() {
         return this.body;
@@ -64,72 +90,52 @@ public class PatchInterviewerReq {
         this.body = body;
     }
 
-// builder 开始
-  public PatchInterviewerReq(){}
-
-  public PatchInterviewerReq(Builder builder){
-         /**
-          * 此次调用中使用的用户ID的类型
-          * <p> 示例值：
-          */
-       this.userIdType = builder.userIdType;
-     /**
-      * 面试官userID
-      * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-      */
-       this.interviewerId = builder.interviewerId;
-        this.body = builder.body;
-  }
-
     public static class Builder {
         private String userIdType; // 此次调用中使用的用户ID的类型
-    
+        private String interviewerId; // 面试官userID
+        private PatchInterviewerReqBody body;
+
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
+         *
          * @param userIdType
          * @return
          */
-           public Builder userIdType(String userIdType) {
-                this.userIdType = userIdType;
-                return this;
-           }
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
 
-    
-        private String interviewerId; // 面试官userID
         /**
          * 面试官userID
          * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+         *
          * @param interviewerId
          * @return
          */
-          public Builder interviewerId(String interviewerId) {
-               this.interviewerId = interviewerId;
-               return this;
-          }
+        public Builder interviewerId(String interviewerId) {
+            this.interviewerId = interviewerId;
+            return this;
+        }
 
-    
-        private PatchInterviewerReqBody body;
-    
         public PatchInterviewerReqBody getPatchInterviewerReqBody() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder patchInterviewerReqBody(PatchInterviewerReqBody body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public PatchInterviewerReq build(){
-        return new PatchInterviewerReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public PatchInterviewerReq build() {
+            return new PatchInterviewerReq(this);
+        }
     }
 }

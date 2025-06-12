@@ -12,25 +12,46 @@
  */
 
 package com.lark.oapi.service.mail.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class DeletePublicMailboxReq {
-     /**
-      * 要释放的公共邮箱地址
-      * <p> 示例值：xxxxxx@abc.com
-      */
+    /**
+     * 要释放的公共邮箱地址
+     * <p> 示例值：xxxxxx@abc.com
+     */
     @Path
     @SerializedName("public_mailbox_id")
     private String publicMailboxId;
+
+    // builder 开始
+    public DeletePublicMailboxReq() {
+    }
+
+    public DeletePublicMailboxReq(Builder builder) {
+        /**
+         * 要释放的公共邮箱地址
+         * <p> 示例值：xxxxxx@abc.com
+         */
+        this.publicMailboxId = builder.publicMailboxId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getPublicMailboxId() {
         return this.publicMailboxId;
     }
@@ -39,39 +60,25 @@ public class DeletePublicMailboxReq {
         this.publicMailboxId = publicMailboxId;
     }
 
-
-// builder 开始
-  public DeletePublicMailboxReq(){}
-
-  public DeletePublicMailboxReq(Builder builder){
-     /**
-      * 要释放的公共邮箱地址
-      * <p> 示例值：xxxxxx@abc.com
-      */
-       this.publicMailboxId = builder.publicMailboxId;
-  }
-
     public static class Builder {
-    
+
         private String publicMailboxId; // 要释放的公共邮箱地址
+
         /**
          * 要释放的公共邮箱地址
          * <p> 示例值：xxxxxx@abc.com
+         *
          * @param publicMailboxId
          * @return
          */
-          public Builder publicMailboxId(String publicMailboxId) {
-               this.publicMailboxId = publicMailboxId;
-               return this;
-          }
+        public Builder publicMailboxId(String publicMailboxId) {
+            this.publicMailboxId = publicMailboxId;
+            return this;
+        }
 
-    
-    public DeletePublicMailboxReq build(){
-        return new DeletePublicMailboxReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public DeletePublicMailboxReq build() {
+            return new DeletePublicMailboxReq(this);
+        }
     }
 }

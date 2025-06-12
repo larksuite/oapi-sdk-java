@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class BatchCreateApplicationObjectRecordReqBody {
-     /**
-      * 记录详情列表，格式为 List<Map<string, ANY>>，操作记录数上限为 500 条
-      * <p> 示例值：[{\"book_name\":\"name21\",\"book_count\":2}]
-      */
+    /**
+     * 记录详情列表，格式为 List<Map<string, ANY>>，操作记录数上限为 500 条
+     * <p> 示例值：[{\"book_name\":\"name21\",\"book_count\":2}]
+     */
     @SerializedName("records")
     private String records;
+
+    // builder 开始
+    public BatchCreateApplicationObjectRecordReqBody() {
+    }
+
+    public BatchCreateApplicationObjectRecordReqBody(Builder builder) {
+        /**
+         * 记录详情列表，格式为 List<Map<string, ANY>>，操作记录数上限为 500 条
+         * <p> 示例值：[{\"book_name\":\"name21\",\"book_count\":2}]
+         */
+        this.records = builder.records;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getRecords() {
         return this.records;
     }
@@ -39,44 +60,28 @@ public class BatchCreateApplicationObjectRecordReqBody {
         this.records = records;
     }
 
-
-// builder 开始
-  public BatchCreateApplicationObjectRecordReqBody(){}
-
-  public BatchCreateApplicationObjectRecordReqBody(Builder builder){
-         /**
-          * 记录详情列表，格式为 List<Map<string, ANY>>，操作记录数上限为 500 条
-          * <p> 示例值：[{\"book_name\":\"name21\",\"book_count\":2}]
-          */
-      this.records = builder.records;
-  }
-
     public static class Builder {
-     /**
-      * 记录详情列表，格式为 List<Map<string, ANY>>，操作记录数上限为 500 条
-      * <p> 示例值：[{\"book_name\":\"name21\",\"book_count\":2}]
-      */
+        /**
+         * 记录详情列表，格式为 List<Map<string, ANY>>，操作记录数上限为 500 条
+         * <p> 示例值：[{\"book_name\":\"name21\",\"book_count\":2}]
+         */
         private String records;
 
         /**
          * 记录详情列表，格式为 List<Map<string, ANY>>，操作记录数上限为 500 条
          * <p> 示例值：[{\"book_name\":\"name21\",\"book_count\":2}]
+         *
          * @param records
          * @return
          */
         public Builder records(String records) {
-             this.records = records;
-             return this;
+            this.records = records;
+            return this;
         }
 
-    
-    
-    public BatchCreateApplicationObjectRecordReqBody build(){
-        return new BatchCreateApplicationObjectRecordReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public BatchCreateApplicationObjectRecordReqBody build() {
+            return new BatchCreateApplicationObjectRecordReqBody(this);
+        }
     }
 }

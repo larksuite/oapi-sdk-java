@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.hire.v1.resource;
+
 import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.Transport;
 import com.lark.oapi.core.response.RawResponse;
@@ -20,12 +21,16 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import java.nio.charset.StandardCharsets;
 
 import com.lark.oapi.core.Config;
 import com.lark.oapi.core.request.RequestOptions;
+
 import java.io.ByteArrayOutputStream;
+
 import com.lark.oapi.service.hire.v1.model.*;
+
 import java.io.*;
 import java.util.Map;
 import java.util.HashMap;
@@ -41,13 +46,13 @@ public class TalentObject {
         this.config = config;
     }
 
-    
+
     /**
      * 获取人才字段，获取人才字段
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_object/query">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_object/query</a> ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/QueryTalentObjectSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/QueryTalentObjectSample.java</a> ;
      */
-    public QueryTalentObjectResp query( RequestOptions reqOptions) throws Exception {
+    public QueryTalentObjectResp query(RequestOptions reqOptions) throws Exception {
         // 请求参数选项
         if (reqOptions == null) {
             reqOptions = new RequestOptions();
@@ -58,21 +63,21 @@ public class TalentObject {
                 , "/open-apis/hire/v1/talent_objects/query"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , null);
-        
+
         // 反序列化
         QueryTalentObjectResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, QueryTalentObjectResp.class);
         if (resp == null) {
             log.error(String.format(
                     "%s,callError,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/talent_objects/query"
-                    ,  Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                    , Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
-            
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+                            StandardCharsets.UTF_8)));
 
-       resp.setRawResponse(httpResponse);
-       return resp;
+            throw new IllegalArgumentException("The result returned by the server is illegal");
+        }
+
+        resp.setRawResponse(httpResponse);
+        return resp;
     }
 
     /**
@@ -89,18 +94,18 @@ public class TalentObject {
                 , "/open-apis/hire/v1/talent_objects/query"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , null);
-        
+
         // 反序列化
         QueryTalentObjectResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, QueryTalentObjectResp.class);
         if (resp == null) {
             log.error(String.format(
                     "%s,callError,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/talent_objects/query"
-                    ,  Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                    , Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
-            
+                            StandardCharsets.UTF_8)));
+
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
         resp.setRawResponse(httpResponse);
         return resp;

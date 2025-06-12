@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class AppTableFieldPropertyType {
-     /**
-      * 公式字段对应的数据类型
-      * <p> 示例值：1
-      */
+    /**
+     * 公式字段对应的数据类型
+     * <p> 示例值：1
+     */
     @SerializedName("data_type")
     private Integer dataType;
-     /**
-      * 公式数据属性
-      * <p> 示例值：
-      */
+    /**
+     * 公式数据属性
+     * <p> 示例值：
+     */
     @SerializedName("ui_property")
     private AppTableFieldPropertyTypeUiProperty uiProperty;
-     /**
-      * 公式字段在界面上的展示类型，例如进度字段是数字的一种展示形态
-      * <p> 示例值：Progress
-      */
+    /**
+     * 公式字段在界面上的展示类型，例如进度字段是数字的一种展示形态
+     * <p> 示例值：Progress
+     */
     @SerializedName("ui_type")
     private String uiType;
+
+    // builder 开始
+    public AppTableFieldPropertyType() {
+    }
+
+    public AppTableFieldPropertyType(Builder builder) {
+        /**
+         * 公式字段对应的数据类型
+         * <p> 示例值：1
+         */
+        this.dataType = builder.dataType;
+        /**
+         * 公式数据属性
+         * <p> 示例值：
+         */
+        this.uiProperty = builder.uiProperty;
+        /**
+         * 公式字段在界面上的展示类型，例如进度字段是数字的一种展示形态
+         * <p> 示例值：Progress
+         */
+        this.uiType = builder.uiType;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Integer getDataType() {
         return this.dataType;
     }
@@ -67,110 +98,88 @@ public class AppTableFieldPropertyType {
         this.uiType = uiType;
     }
 
-
-// builder 开始
-  public AppTableFieldPropertyType(){}
-
-  public AppTableFieldPropertyType(Builder builder){
-         /**
-          * 公式字段对应的数据类型
-          * <p> 示例值：1
-          */
-      this.dataType = builder.dataType;
-         /**
-          * 公式数据属性
-          * <p> 示例值：
-          */
-      this.uiProperty = builder.uiProperty;
-         /**
-          * 公式字段在界面上的展示类型，例如进度字段是数字的一种展示形态
-          * <p> 示例值：Progress
-          */
-      this.uiType = builder.uiType;
-  }
-
     public static class Builder {
-     /**
-      * 公式字段对应的数据类型
-      * <p> 示例值：1
-      */
+        /**
+         * 公式字段对应的数据类型
+         * <p> 示例值：1
+         */
         private Integer dataType;
-     /**
-      * 公式数据属性
-      * <p> 示例值：
-      */
+        /**
+         * 公式数据属性
+         * <p> 示例值：
+         */
         private AppTableFieldPropertyTypeUiProperty uiProperty;
-     /**
-      * 公式字段在界面上的展示类型，例如进度字段是数字的一种展示形态
-      * <p> 示例值：Progress
-      */
+        /**
+         * 公式字段在界面上的展示类型，例如进度字段是数字的一种展示形态
+         * <p> 示例值：Progress
+         */
         private String uiType;
 
         /**
          * 公式字段对应的数据类型
          * <p> 示例值：1
+         *
          * @param dataType
          * @return
          */
         public Builder dataType(Integer dataType) {
-             this.dataType = dataType;
-             return this;
+            this.dataType = dataType;
+            return this;
         }
+
         /**
          * 公式字段对应的数据类型
          * <p> 示例值：1
+         *
          * @param dataType {@link com.lark.oapi.service.bitable.v1.enums.AppTableFieldPropertyTypeDataTypeEnum}
          * @return
          */
         public Builder dataType(com.lark.oapi.service.bitable.v1.enums.AppTableFieldPropertyTypeDataTypeEnum dataType) {
-             this.dataType = dataType.getValue();
-             return this;
+            this.dataType = dataType.getValue();
+            return this;
         }
 
-    
 
         /**
          * 公式数据属性
          * <p> 示例值：
+         *
          * @param uiProperty
          * @return
          */
         public Builder uiProperty(AppTableFieldPropertyTypeUiProperty uiProperty) {
-             this.uiProperty = uiProperty;
-             return this;
+            this.uiProperty = uiProperty;
+            return this;
         }
 
-    
 
         /**
          * 公式字段在界面上的展示类型，例如进度字段是数字的一种展示形态
          * <p> 示例值：Progress
+         *
          * @param uiType
          * @return
          */
         public Builder uiType(String uiType) {
-             this.uiType = uiType;
-             return this;
+            this.uiType = uiType;
+            return this;
         }
+
         /**
          * 公式字段在界面上的展示类型，例如进度字段是数字的一种展示形态
          * <p> 示例值：Progress
+         *
          * @param uiType {@link com.lark.oapi.service.bitable.v1.enums.AppTableFieldPropertyTypeUiTypeEnum}
          * @return
          */
         public Builder uiType(com.lark.oapi.service.bitable.v1.enums.AppTableFieldPropertyTypeUiTypeEnum uiType) {
-             this.uiType = uiType.getValue();
-             return this;
+            this.uiType = uiType.getValue();
+            return this;
         }
 
-    
-    
-    public AppTableFieldPropertyType build(){
-        return new AppTableFieldPropertyType(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public AppTableFieldPropertyType build() {
+            return new AppTableFieldPropertyType(this);
+        }
     }
 }

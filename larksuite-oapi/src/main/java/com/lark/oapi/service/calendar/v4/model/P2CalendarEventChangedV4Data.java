@@ -12,48 +12,53 @@
  */
 
 package com.lark.oapi.service.calendar.v4.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class P2CalendarEventChangedV4Data {
-     /**
-      * 日历id
-      * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
-      */
+    /**
+     * 日历id
+     * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
+     */
     @SerializedName("calendar_id")
     private String calendarId;
-     /**
-      * 需要推送事件的用户列表
-      * <p> 示例值：
-      */
+    /**
+     * 需要推送事件的用户列表
+     * <p> 示例值：
+     */
     @SerializedName("user_id_list")
     private UserId[] userIdList;
-     /**
-      * 发生变更的日程ID
-      * <p> 示例值：efa67a98-06a8-4df5-8559-746c8f4477ef_0
-      */
+    /**
+     * 发生变更的日程ID
+     * <p> 示例值：efa67a98-06a8-4df5-8559-746c8f4477ef_0
+     */
     @SerializedName("calendar_event_id")
     private String calendarEventId;
-     /**
-      * 变更类型
-      * <p> 示例值：create
-      */
+    /**
+     * 变更类型
+     * <p> 示例值：create
+     */
     @SerializedName("change_type")
     private String changeType;
-     /**
-      * RSVP变更详情
-      * <p> 示例值：
-      */
+    /**
+     * RSVP变更详情
+     * <p> 示例值：
+     */
     @SerializedName("rsvp_infos")
     private OpenEventRsvpInfo[] rsvpInfos;
+
     public String getCalendarId() {
         return this.calendarId;
     }

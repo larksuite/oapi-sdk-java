@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.contact.v3.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class UnbindDepartmentChatDepartmentReqBody {
-     /**
-      * 部门ID
-      * <p> 示例值：D096
-      */
+    /**
+     * 部门ID
+     * <p> 示例值：D096
+     */
     @SerializedName("department_id")
     private String departmentId;
+
+    // builder 开始
+    public UnbindDepartmentChatDepartmentReqBody() {
+    }
+
+    public UnbindDepartmentChatDepartmentReqBody(Builder builder) {
+        /**
+         * 部门ID
+         * <p> 示例值：D096
+         */
+        this.departmentId = builder.departmentId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getDepartmentId() {
         return this.departmentId;
     }
@@ -39,44 +60,28 @@ public class UnbindDepartmentChatDepartmentReqBody {
         this.departmentId = departmentId;
     }
 
-
-// builder 开始
-  public UnbindDepartmentChatDepartmentReqBody(){}
-
-  public UnbindDepartmentChatDepartmentReqBody(Builder builder){
-         /**
-          * 部门ID
-          * <p> 示例值：D096
-          */
-      this.departmentId = builder.departmentId;
-  }
-
     public static class Builder {
-     /**
-      * 部门ID
-      * <p> 示例值：D096
-      */
+        /**
+         * 部门ID
+         * <p> 示例值：D096
+         */
         private String departmentId;
 
         /**
          * 部门ID
          * <p> 示例值：D096
+         *
          * @param departmentId
          * @return
          */
         public Builder departmentId(String departmentId) {
-             this.departmentId = departmentId;
-             return this;
+            this.departmentId = departmentId;
+            return this;
         }
 
-    
-    
-    public UnbindDepartmentChatDepartmentReqBody build(){
-        return new UnbindDepartmentChatDepartmentReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public UnbindDepartmentChatDepartmentReqBody build() {
+            return new UnbindDepartmentChatDepartmentReqBody(this);
+        }
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.calendar.v4.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.calendar.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,48 +20,93 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ListFreebusyReqBody {
-     /**
-      * 查询时段开始时间，需要url编码
-      * <p> 示例值：2020-10-28T12:00:00+08:00
-      */
+    /**
+     * 查询时段开始时间，需要url编码
+     * <p> 示例值：2020-10-28T12:00:00+08:00
+     */
     @SerializedName("time_min")
     private String timeMin;
-     /**
-      * 查询时段结束时间，需要url编码
-      * <p> 示例值：2020-12-28T12:00:00+08:00
-      */
+    /**
+     * 查询时段结束时间，需要url编码
+     * <p> 示例值：2020-12-28T12:00:00+08:00
+     */
     @SerializedName("time_max")
     private String timeMax;
-     /**
-      * 用户user_id，输入时与 room_id 二选一。参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
-      * <p> 示例值：ou_xxxxxxxxxx
-      */
+    /**
+     * 用户user_id，输入时与 room_id 二选一。参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
+     * <p> 示例值：ou_xxxxxxxxxx
+     */
     @SerializedName("user_id")
     private String userId;
-     /**
-      * 会议室room_id，输入时与 user_id 二选一
-      * <p> 示例值：omm_xxxxxxxxxx
-      */
+    /**
+     * 会议室room_id，输入时与 user_id 二选一
+     * <p> 示例值：omm_xxxxxxxxxx
+     */
     @SerializedName("room_id")
     private String roomId;
-     /**
-      * 是否包含绑定的三方日历中的日程，不传默认为true，即包含。
-      * <p> 示例值：true
-      */
+    /**
+     * 是否包含绑定的三方日历中的日程，不传默认为true，即包含。
+     * <p> 示例值：true
+     */
     @SerializedName("include_external_calendar")
     private Boolean includeExternalCalendar;
-     /**
-      * 是否包含标记为空闲的日程，不传默认为true，即包含。
-      * <p> 示例值：true
-      */
+    /**
+     * 是否包含标记为空闲的日程，不传默认为true，即包含。
+     * <p> 示例值：true
+     */
     @SerializedName("only_busy")
     private Boolean onlyBusy;
+
+    // builder 开始
+    public ListFreebusyReqBody() {
+    }
+
+    public ListFreebusyReqBody(Builder builder) {
+        /**
+         * 查询时段开始时间，需要url编码
+         * <p> 示例值：2020-10-28T12:00:00+08:00
+         */
+        this.timeMin = builder.timeMin;
+        /**
+         * 查询时段结束时间，需要url编码
+         * <p> 示例值：2020-12-28T12:00:00+08:00
+         */
+        this.timeMax = builder.timeMax;
+        /**
+         * 用户user_id，输入时与 room_id 二选一。参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
+         * <p> 示例值：ou_xxxxxxxxxx
+         */
+        this.userId = builder.userId;
+        /**
+         * 会议室room_id，输入时与 user_id 二选一
+         * <p> 示例值：omm_xxxxxxxxxx
+         */
+        this.roomId = builder.roomId;
+        /**
+         * 是否包含绑定的三方日历中的日程，不传默认为true，即包含。
+         * <p> 示例值：true
+         */
+        this.includeExternalCalendar = builder.includeExternalCalendar;
+        /**
+         * 是否包含标记为空闲的日程，不传默认为true，即包含。
+         * <p> 示例值：true
+         */
+        this.onlyBusy = builder.onlyBusy;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getTimeMin() {
         return this.timeMin;
     }
@@ -109,159 +155,118 @@ public class ListFreebusyReqBody {
         this.onlyBusy = onlyBusy;
     }
 
-
-// builder 开始
-  public ListFreebusyReqBody(){}
-
-  public ListFreebusyReqBody(Builder builder){
-         /**
-          * 查询时段开始时间，需要url编码
-          * <p> 示例值：2020-10-28T12:00:00+08:00
-          */
-      this.timeMin = builder.timeMin;
-         /**
-          * 查询时段结束时间，需要url编码
-          * <p> 示例值：2020-12-28T12:00:00+08:00
-          */
-      this.timeMax = builder.timeMax;
-         /**
-          * 用户user_id，输入时与 room_id 二选一。参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
-          * <p> 示例值：ou_xxxxxxxxxx
-          */
-      this.userId = builder.userId;
-         /**
-          * 会议室room_id，输入时与 user_id 二选一
-          * <p> 示例值：omm_xxxxxxxxxx
-          */
-      this.roomId = builder.roomId;
-         /**
-          * 是否包含绑定的三方日历中的日程，不传默认为true，即包含。
-          * <p> 示例值：true
-          */
-      this.includeExternalCalendar = builder.includeExternalCalendar;
-         /**
-          * 是否包含标记为空闲的日程，不传默认为true，即包含。
-          * <p> 示例值：true
-          */
-      this.onlyBusy = builder.onlyBusy;
-  }
-
     public static class Builder {
-     /**
-      * 查询时段开始时间，需要url编码
-      * <p> 示例值：2020-10-28T12:00:00+08:00
-      */
+        /**
+         * 查询时段开始时间，需要url编码
+         * <p> 示例值：2020-10-28T12:00:00+08:00
+         */
         private String timeMin;
-     /**
-      * 查询时段结束时间，需要url编码
-      * <p> 示例值：2020-12-28T12:00:00+08:00
-      */
+        /**
+         * 查询时段结束时间，需要url编码
+         * <p> 示例值：2020-12-28T12:00:00+08:00
+         */
         private String timeMax;
-     /**
-      * 用户user_id，输入时与 room_id 二选一。参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
-      * <p> 示例值：ou_xxxxxxxxxx
-      */
+        /**
+         * 用户user_id，输入时与 room_id 二选一。参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
+         * <p> 示例值：ou_xxxxxxxxxx
+         */
         private String userId;
-     /**
-      * 会议室room_id，输入时与 user_id 二选一
-      * <p> 示例值：omm_xxxxxxxxxx
-      */
+        /**
+         * 会议室room_id，输入时与 user_id 二选一
+         * <p> 示例值：omm_xxxxxxxxxx
+         */
         private String roomId;
-     /**
-      * 是否包含绑定的三方日历中的日程，不传默认为true，即包含。
-      * <p> 示例值：true
-      */
+        /**
+         * 是否包含绑定的三方日历中的日程，不传默认为true，即包含。
+         * <p> 示例值：true
+         */
         private Boolean includeExternalCalendar;
-     /**
-      * 是否包含标记为空闲的日程，不传默认为true，即包含。
-      * <p> 示例值：true
-      */
+        /**
+         * 是否包含标记为空闲的日程，不传默认为true，即包含。
+         * <p> 示例值：true
+         */
         private Boolean onlyBusy;
 
         /**
          * 查询时段开始时间，需要url编码
          * <p> 示例值：2020-10-28T12:00:00+08:00
+         *
          * @param timeMin
          * @return
          */
         public Builder timeMin(String timeMin) {
-             this.timeMin = timeMin;
-             return this;
+            this.timeMin = timeMin;
+            return this;
         }
 
-    
 
         /**
          * 查询时段结束时间，需要url编码
          * <p> 示例值：2020-12-28T12:00:00+08:00
+         *
          * @param timeMax
          * @return
          */
         public Builder timeMax(String timeMax) {
-             this.timeMax = timeMax;
-             return this;
+            this.timeMax = timeMax;
+            return this;
         }
 
-    
 
         /**
          * 用户user_id，输入时与 room_id 二选一。参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
          * <p> 示例值：ou_xxxxxxxxxx
+         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-             this.userId = userId;
-             return this;
+            this.userId = userId;
+            return this;
         }
 
-    
 
         /**
          * 会议室room_id，输入时与 user_id 二选一
          * <p> 示例值：omm_xxxxxxxxxx
+         *
          * @param roomId
          * @return
          */
         public Builder roomId(String roomId) {
-             this.roomId = roomId;
-             return this;
+            this.roomId = roomId;
+            return this;
         }
 
-    
 
         /**
          * 是否包含绑定的三方日历中的日程，不传默认为true，即包含。
          * <p> 示例值：true
+         *
          * @param includeExternalCalendar
          * @return
          */
         public Builder includeExternalCalendar(Boolean includeExternalCalendar) {
-             this.includeExternalCalendar = includeExternalCalendar;
-             return this;
+            this.includeExternalCalendar = includeExternalCalendar;
+            return this;
         }
 
-    
 
         /**
          * 是否包含标记为空闲的日程，不传默认为true，即包含。
          * <p> 示例值：true
+         *
          * @param onlyBusy
          * @return
          */
         public Builder onlyBusy(Boolean onlyBusy) {
-             this.onlyBusy = onlyBusy;
-             return this;
+            this.onlyBusy = onlyBusy;
+            return this;
         }
 
-    
-    
-    public ListFreebusyReqBody build(){
-        return new ListFreebusyReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ListFreebusyReqBody build() {
+            return new ListFreebusyReqBody(this);
+        }
     }
 }

@@ -17,15 +17,16 @@ package com.lark.oapi.service.corehr.v1.enums;
  * 套餐
  */
 public enum BackgroundCheckPackageEnum {
-     STANDARDPACKAGE(1), // 标准套餐
-     INTERNCAMPUSRECRUITEMENTPACKAGE(2), // 实习校招招聘套餐
-  ;
-   private Integer value;
+    STANDARDPACKAGE(1), // 标准套餐
+    INTERNCAMPUSRECRUITEMENTPACKAGE(2), // 实习校招招聘套餐
+    ;
+    private Integer value;
+
     BackgroundCheckPackageEnum(Integer value) {
-      this.value = value;
+        this.value = value;
     }
 
     public Integer getValue() {
-      return this.value;
+        return this.value;
     }
 }

@@ -17,19 +17,20 @@ package com.lark.oapi.service.base.v2.enums;
  * 运算符
  */
 public enum RecRuleConditionOperatorEnum {
-     IS("is"), // 等于
-     ISNOT("isNot"), // 不等于
-     CONTAINS("contains"), // 包含
-     DOESNOTCONTAIN("doesNotContain"), // 不包含
-     ISEMPTY("isEmpty"), // 为空
-     ISNOTEMPTY("isNotEmpty"), // 不为空
-  ;
-   private String value;
+    IS("is"), // 等于
+    ISNOT("isNot"), // 不等于
+    CONTAINS("contains"), // 包含
+    DOESNOTCONTAIN("doesNotContain"), // 不包含
+    ISEMPTY("isEmpty"), // 为空
+    ISNOTEMPTY("isNotEmpty"), // 不为空
+    ;
+    private String value;
+
     RecRuleConditionOperatorEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

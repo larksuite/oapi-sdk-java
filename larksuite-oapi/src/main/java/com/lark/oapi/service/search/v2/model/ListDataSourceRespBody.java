@@ -12,36 +12,41 @@
  */
 
 package com.lark.oapi.service.search.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ListDataSourceRespBody {
-     /**
-      * 是否有更多数据
-      * <p> 示例值：true
-      */
+    /**
+     * 是否有更多数据
+     * <p> 示例值：true
+     */
     @SerializedName("has_more")
     private Boolean hasMore;
-     /**
-      * 取数据的凭证
-      * <p> 示例值：763bd1e74d05e958
-      */
+    /**
+     * 取数据的凭证
+     * <p> 示例值：763bd1e74d05e958
+     */
     @SerializedName("page_token")
     private String pageToken;
-     /**
-      * 数据源中的数据记录
-      * <p> 示例值：
-      */
+    /**
+     * 数据源中的数据记录
+     * <p> 示例值：
+     */
     @SerializedName("items")
     private DataSource[] items;
+
     public Boolean getHasMore() {
         return this.hasMore;
     }

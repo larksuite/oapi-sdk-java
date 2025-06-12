@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class MyAiAvPluginUploadObject {
-     /**
-      * 业务ID
-      * <p> 示例值：obcnxxxxxxx
-      */
+    /**
+     * 业务ID
+     * <p> 示例值：obcnxxxxxxx
+     */
     @SerializedName("biz_id")
     private String bizId;
-     /**
-      * 类型
-      * <p> 示例值：MEETING_MINUTE
-      */
+    /**
+     * 类型
+     * <p> 示例值：MEETING_MINUTE
+     */
     @SerializedName("type")
     private String type;
+
+    // builder 开始
+    public MyAiAvPluginUploadObject() {
+    }
+
+    public MyAiAvPluginUploadObject(Builder builder) {
+        /**
+         * 业务ID
+         * <p> 示例值：obcnxxxxxxx
+         */
+        this.bizId = builder.bizId;
+        /**
+         * 类型
+         * <p> 示例值：MEETING_MINUTE
+         */
+        this.type = builder.type;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getBizId() {
         return this.bizId;
     }
@@ -53,67 +79,46 @@ public class MyAiAvPluginUploadObject {
         this.type = type;
     }
 
-
-// builder 开始
-  public MyAiAvPluginUploadObject(){}
-
-  public MyAiAvPluginUploadObject(Builder builder){
-         /**
-          * 业务ID
-          * <p> 示例值：obcnxxxxxxx
-          */
-      this.bizId = builder.bizId;
-         /**
-          * 类型
-          * <p> 示例值：MEETING_MINUTE
-          */
-      this.type = builder.type;
-  }
-
     public static class Builder {
-     /**
-      * 业务ID
-      * <p> 示例值：obcnxxxxxxx
-      */
+        /**
+         * 业务ID
+         * <p> 示例值：obcnxxxxxxx
+         */
         private String bizId;
-     /**
-      * 类型
-      * <p> 示例值：MEETING_MINUTE
-      */
+        /**
+         * 类型
+         * <p> 示例值：MEETING_MINUTE
+         */
         private String type;
 
         /**
          * 业务ID
          * <p> 示例值：obcnxxxxxxx
+         *
          * @param bizId
          * @return
          */
         public Builder bizId(String bizId) {
-             this.bizId = bizId;
-             return this;
+            this.bizId = bizId;
+            return this;
         }
 
-    
 
         /**
          * 类型
          * <p> 示例值：MEETING_MINUTE
+         *
          * @param type
          * @return
          */
         public Builder type(String type) {
-             this.type = type;
-             return this;
+            this.type = type;
+            return this;
         }
 
-    
-    
-    public MyAiAvPluginUploadObject build(){
-        return new MyAiAvPluginUploadObject(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public MyAiAvPluginUploadObject build() {
+            return new MyAiAvPluginUploadObject(this);
+        }
     }
 }

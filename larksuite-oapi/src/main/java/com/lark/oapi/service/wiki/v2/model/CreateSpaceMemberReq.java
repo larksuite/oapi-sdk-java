@@ -12,25 +12,61 @@
  */
 
 package com.lark.oapi.service.wiki.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.wiki.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CreateSpaceMemberReq {
-     /**
-      * 添加权限后是否通知对方
-      * <p> 示例值：true
-      */
+    /**
+     * 添加权限后是否通知对方
+     * <p> 示例值：true
+     */
     @Query
     @SerializedName("need_notification")
     private Boolean needNotification;
+    /**
+     * 知识空间id
+     * <p> 示例值：1565676577122621
+     */
+    @Path
+    @SerializedName("space_id")
+    private String spaceId;
+    @Body
+    private Member body;
+
+    // builder 开始
+    public CreateSpaceMemberReq() {
+    }
+
+    public CreateSpaceMemberReq(Builder builder) {
+        /**
+         * 添加权限后是否通知对方
+         * <p> 示例值：true
+         */
+        this.needNotification = builder.needNotification;
+        /**
+         * 知识空间id
+         * <p> 示例值：1565676577122621
+         */
+        this.spaceId = builder.spaceId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Boolean getNeedNotification() {
         return this.needNotification;
     }
@@ -39,13 +75,6 @@ public class CreateSpaceMemberReq {
         this.needNotification = needNotification;
     }
 
-     /**
-      * 知识空间id
-      * <p> 示例值：1565676577122621
-      */
-    @Path
-    @SerializedName("space_id")
-    private String spaceId;
     public String getSpaceId() {
         return this.spaceId;
     }
@@ -53,9 +82,6 @@ public class CreateSpaceMemberReq {
     public void setSpaceId(String spaceId) {
         this.spaceId = spaceId;
     }
-
-    @Body
-    private Member body;
 
     public Member getMember() {
         return this.body;
@@ -65,72 +91,52 @@ public class CreateSpaceMemberReq {
         this.body = body;
     }
 
-// builder 开始
-  public CreateSpaceMemberReq(){}
-
-  public CreateSpaceMemberReq(Builder builder){
-         /**
-          * 添加权限后是否通知对方
-          * <p> 示例值：true
-          */
-       this.needNotification = builder.needNotification;
-     /**
-      * 知识空间id
-      * <p> 示例值：1565676577122621
-      */
-       this.spaceId = builder.spaceId;
-        this.body = builder.body;
-  }
-
     public static class Builder {
         private Boolean needNotification; // 添加权限后是否通知对方
-    
+        private String spaceId; // 知识空间id
+        private Member body;
+
         /**
          * 添加权限后是否通知对方
          * <p> 示例值：true
+         *
          * @param needNotification
          * @return
          */
-           public Builder needNotification(Boolean needNotification) {
-                this.needNotification = needNotification;
-                return this;
-           }
+        public Builder needNotification(Boolean needNotification) {
+            this.needNotification = needNotification;
+            return this;
+        }
 
-    
-        private String spaceId; // 知识空间id
         /**
          * 知识空间id
          * <p> 示例值：1565676577122621
+         *
          * @param spaceId
          * @return
          */
-          public Builder spaceId(String spaceId) {
-               this.spaceId = spaceId;
-               return this;
-          }
+        public Builder spaceId(String spaceId) {
+            this.spaceId = spaceId;
+            return this;
+        }
 
-    
-        private Member body;
-    
         public Member getMember() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder member(Member body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public CreateSpaceMemberReq build(){
-        return new CreateSpaceMemberReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public CreateSpaceMemberReq build() {
+            return new CreateSpaceMemberReq(this);
+        }
     }
 }

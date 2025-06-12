@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.sheets.v3.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.sheets.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Image {
-     /**
-      * 图片token
-      * <p> 示例值：boxxxxxxxxxx
-      */
+    /**
+     * 图片token
+     * <p> 示例值：boxxxxxxxxxx
+     */
     @SerializedName("image_token")
     private String imageToken;
+
+    // builder 开始
+    public Image() {
+    }
+
+    public Image(Builder builder) {
+        /**
+         * 图片token
+         * <p> 示例值：boxxxxxxxxxx
+         */
+        this.imageToken = builder.imageToken;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getImageToken() {
         return this.imageToken;
     }
@@ -39,44 +60,28 @@ public class Image {
         this.imageToken = imageToken;
     }
 
-
-// builder 开始
-  public Image(){}
-
-  public Image(Builder builder){
-         /**
-          * 图片token
-          * <p> 示例值：boxxxxxxxxxx
-          */
-      this.imageToken = builder.imageToken;
-  }
-
     public static class Builder {
-     /**
-      * 图片token
-      * <p> 示例值：boxxxxxxxxxx
-      */
+        /**
+         * 图片token
+         * <p> 示例值：boxxxxxxxxxx
+         */
         private String imageToken;
 
         /**
          * 图片token
          * <p> 示例值：boxxxxxxxxxx
+         *
          * @param imageToken
          * @return
          */
         public Builder imageToken(String imageToken) {
-             this.imageToken = imageToken;
-             return this;
+            this.imageToken = imageToken;
+            return this;
         }
 
-    
-    
-    public Image build(){
-        return new Image(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Image build() {
+            return new Image(this);
+        }
     }
 }

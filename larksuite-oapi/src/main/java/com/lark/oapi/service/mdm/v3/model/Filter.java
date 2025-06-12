@@ -12,30 +12,56 @@
  */
 
 package com.lark.oapi.service.mdm.v3.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Filter {
-     /**
-      * 与、或条件
-      * <p> 示例值：
-      */
+    /**
+     * 与、或条件
+     * <p> 示例值：
+     */
     @SerializedName("logic")
     private String logic;
-     /**
-      * 过滤条件
-      * <p> 示例值：
-      */
+    /**
+     * 过滤条件
+     * <p> 示例值：
+     */
     @SerializedName("expressions")
     private Expression[] expressions;
+
+    // builder 开始
+    public Filter() {
+    }
+
+    public Filter(Builder builder) {
+        /**
+         * 与、或条件
+         * <p> 示例值：
+         */
+        this.logic = builder.logic;
+        /**
+         * 过滤条件
+         * <p> 示例值：
+         */
+        this.expressions = builder.expressions;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getLogic() {
         return this.logic;
     }
@@ -52,67 +78,46 @@ public class Filter {
         this.expressions = expressions;
     }
 
-
-// builder 开始
-  public Filter(){}
-
-  public Filter(Builder builder){
-         /**
-          * 与、或条件
-          * <p> 示例值：
-          */
-      this.logic = builder.logic;
-         /**
-          * 过滤条件
-          * <p> 示例值：
-          */
-      this.expressions = builder.expressions;
-  }
-
     public static class Builder {
-     /**
-      * 与、或条件
-      * <p> 示例值：
-      */
+        /**
+         * 与、或条件
+         * <p> 示例值：
+         */
         private String logic;
-     /**
-      * 过滤条件
-      * <p> 示例值：
-      */
+        /**
+         * 过滤条件
+         * <p> 示例值：
+         */
         private Expression[] expressions;
 
         /**
          * 与、或条件
          * <p> 示例值：
+         *
          * @param logic
          * @return
          */
         public Builder logic(String logic) {
-             this.logic = logic;
-             return this;
+            this.logic = logic;
+            return this;
         }
 
-    
 
         /**
          * 过滤条件
          * <p> 示例值：
+         *
          * @param expressions
          * @return
          */
         public Builder expressions(Expression[] expressions) {
-             this.expressions = expressions;
-             return this;
+            this.expressions = expressions;
+            return this;
         }
 
-    
-    
-    public Filter build(){
-        return new Filter(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Filter build() {
+            return new Filter(this);
+        }
     }
 }

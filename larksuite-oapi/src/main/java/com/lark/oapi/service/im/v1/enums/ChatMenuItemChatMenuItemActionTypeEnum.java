@@ -17,15 +17,16 @@ package com.lark.oapi.service.im.v1.enums;
  * 菜单类型
  */
 public enum ChatMenuItemChatMenuItemActionTypeEnum {
-     NONE("NONE"), // 无类型，仅一级菜单存在二级菜单时，该一级菜单设置NONE类型。
-     REDIRECT_LINK("REDIRECT_LINK"), // 跳转链接类型
-  ;
-   private String value;
+    NONE("NONE"), // 无类型，仅一级菜单存在二级菜单时，该一级菜单设置NONE类型。
+    REDIRECT_LINK("REDIRECT_LINK"), // 跳转链接类型
+    ;
+    private String value;
+
     ChatMenuItemChatMenuItemActionTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

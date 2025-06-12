@@ -12,30 +12,35 @@
  */
 
 package com.lark.oapi.service.okr.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class UploadImageRespBody {
-     /**
-      * 图片token
-      * <p> 示例值：boxbcLxEnhUE3REJSAwAbVFZwPf
-      */
+    /**
+     * 图片token
+     * <p> 示例值：boxbcLxEnhUE3REJSAwAbVFZwPf
+     */
     @SerializedName("file_token")
     private String fileToken;
-     /**
-      * 图片下载链接
-      * <p> 示例值：https://bytedance.feishu.cn/drive/home/
-      */
+    /**
+     * 图片下载链接
+     * <p> 示例值：https://bytedance.feishu.cn/drive/home/
+     */
     @SerializedName("url")
     private String url;
+
     public String getFileToken() {
         return this.fileToken;
     }

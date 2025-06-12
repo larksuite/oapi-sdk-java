@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Widget {
-     /**
-      * 小组件ID
-      * <p> 示例值：7117116451961487361
-      */
+    /**
+     * 小组件ID
+     * <p> 示例值：7117116451961487361
+     */
     @SerializedName("widget_id")
     private String widgetId;
-     /**
-      * 小组件类型
-      * <p> 示例值：URL
-      */
+    /**
+     * 小组件类型
+     * <p> 示例值：URL
+     */
     @SerializedName("widget_type")
     private String widgetType;
-     /**
-      * 小组件链接，必须以http开头
-      * <p> 示例值：
-      */
+    /**
+     * 小组件链接，必须以http开头
+     * <p> 示例值：
+     */
     @SerializedName("widget_url")
     private WidgetUrl widgetUrl;
+
+    // builder 开始
+    public Widget() {
+    }
+
+    public Widget(Builder builder) {
+        /**
+         * 小组件ID
+         * <p> 示例值：7117116451961487361
+         */
+        this.widgetId = builder.widgetId;
+        /**
+         * 小组件类型
+         * <p> 示例值：URL
+         */
+        this.widgetType = builder.widgetType;
+        /**
+         * 小组件链接，必须以http开头
+         * <p> 示例值：
+         */
+        this.widgetUrl = builder.widgetUrl;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getWidgetId() {
         return this.widgetId;
     }
@@ -67,100 +98,76 @@ public class Widget {
         this.widgetUrl = widgetUrl;
     }
 
-
-// builder 开始
-  public Widget(){}
-
-  public Widget(Builder builder){
-         /**
-          * 小组件ID
-          * <p> 示例值：7117116451961487361
-          */
-      this.widgetId = builder.widgetId;
-         /**
-          * 小组件类型
-          * <p> 示例值：URL
-          */
-      this.widgetType = builder.widgetType;
-         /**
-          * 小组件链接，必须以http开头
-          * <p> 示例值：
-          */
-      this.widgetUrl = builder.widgetUrl;
-  }
-
     public static class Builder {
-     /**
-      * 小组件ID
-      * <p> 示例值：7117116451961487361
-      */
+        /**
+         * 小组件ID
+         * <p> 示例值：7117116451961487361
+         */
         private String widgetId;
-     /**
-      * 小组件类型
-      * <p> 示例值：URL
-      */
+        /**
+         * 小组件类型
+         * <p> 示例值：URL
+         */
         private String widgetType;
-     /**
-      * 小组件链接，必须以http开头
-      * <p> 示例值：
-      */
+        /**
+         * 小组件链接，必须以http开头
+         * <p> 示例值：
+         */
         private WidgetUrl widgetUrl;
 
         /**
          * 小组件ID
          * <p> 示例值：7117116451961487361
+         *
          * @param widgetId
          * @return
          */
         public Builder widgetId(String widgetId) {
-             this.widgetId = widgetId;
-             return this;
+            this.widgetId = widgetId;
+            return this;
         }
 
-    
 
         /**
          * 小组件类型
          * <p> 示例值：URL
+         *
          * @param widgetType
          * @return
          */
         public Builder widgetType(String widgetType) {
-             this.widgetType = widgetType;
-             return this;
+            this.widgetType = widgetType;
+            return this;
         }
+
         /**
          * 小组件类型
          * <p> 示例值：URL
+         *
          * @param widgetType {@link com.lark.oapi.service.im.v1.enums.WidgetWidgetTypeEnum}
          * @return
          */
         public Builder widgetType(com.lark.oapi.service.im.v1.enums.WidgetWidgetTypeEnum widgetType) {
-             this.widgetType = widgetType.getValue();
-             return this;
+            this.widgetType = widgetType.getValue();
+            return this;
         }
 
-    
 
         /**
          * 小组件链接，必须以http开头
          * <p> 示例值：
+         *
          * @param widgetUrl
          * @return
          */
         public Builder widgetUrl(WidgetUrl widgetUrl) {
-             this.widgetUrl = widgetUrl;
-             return this;
+            this.widgetUrl = widgetUrl;
+            return this;
         }
 
-    
-    
-    public Widget build(){
-        return new Widget(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Widget build() {
+            return new Widget(this);
+        }
     }
 }

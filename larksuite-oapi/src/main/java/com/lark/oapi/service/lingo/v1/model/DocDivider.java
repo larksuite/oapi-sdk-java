@@ -12,33 +12,38 @@
  */
 
 package com.lark.oapi.service.lingo.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.lingo.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class DocDivider {
 
-// builder 开始
-  public DocDivider(){}
+    // builder 开始
+    public DocDivider() {
+    }
 
-  public DocDivider(Builder builder){
-  }
-
-    public static class Builder {
-    
-    public DocDivider build(){
-        return new DocDivider(this);
-      }
+    public DocDivider(Builder builder) {
     }
 
     public static Builder newBuilder() {
         return new Builder();
+    }
+
+    public static class Builder {
+
+        public DocDivider build() {
+            return new DocDivider(this);
+        }
     }
 }

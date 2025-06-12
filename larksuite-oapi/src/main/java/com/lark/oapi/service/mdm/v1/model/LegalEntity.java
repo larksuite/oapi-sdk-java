@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.mdm.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.mdm.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,132 +20,247 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class LegalEntity {
-     /**
-      * 法人实体id
-      * <p> 示例值：7003410079584092448
-      */
+    /**
+     * 法人实体id
+     * <p> 示例值：7003410079584092448
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 法人实体编码(根据配置会有不同的生成规则)
-      * <p> 示例值：L00002002
-      */
+    /**
+     * 法人实体编码(根据配置会有不同的生成规则)
+     * <p> 示例值：L00002002
+     */
     @SerializedName("legal_entity")
     private String legalEntity;
-     /**
-      * 法人实体名称
-      * <p> 示例值：法人22
-      */
+    /**
+     * 法人实体名称
+     * <p> 示例值：法人22
+     */
     @SerializedName("legal_entity_text")
     private String legalEntityText;
-     /**
-      * 法人实体英文名称
-      * <p> 示例值：legal_person
-      */
+    /**
+     * 法人实体英文名称
+     * <p> 示例值：legal_person
+     */
     @SerializedName("short_text")
     private String shortText;
-     /**
-      * 证件类型
-      * <p> 示例值：0
-      */
+    /**
+     * 证件类型
+     * <p> 示例值：0
+     */
     @SerializedName("certification_type")
     private String certificationType;
-     /**
-      * 证件id
-      * <p> 示例值：91310120MA1H23N81AX
-      */
+    /**
+     * 证件id
+     * <p> 示例值：91310120MA1H23N81AX
+     */
     @SerializedName("certification_id")
     private String certificationId;
-     /**
-      * 法人
-      * <p> 示例值：张三
-      */
+    /**
+     * 法人
+     * <p> 示例值：张三
+     */
     @SerializedName("legal_person")
     private String legalPerson;
-     /**
-      * 国家
-      * <p> 示例值：CN
-      */
+    /**
+     * 国家
+     * <p> 示例值：CN
+     */
     @SerializedName("country")
     private String country;
-     /**
-      * 省份
-      * <p> 示例值：MDPS00004000
-      */
+    /**
+     * 省份
+     * <p> 示例值：MDPS00004000
+     */
     @SerializedName("province")
     private String province;
-     /**
-      * 城市
-      * <p> 示例值：MDCY00006000
-      */
+    /**
+     * 城市
+     * <p> 示例值：MDCY00006000
+     */
     @SerializedName("city")
     private String city;
-     /**
-      * 地址
-      * <p> 示例值：地址
-      */
+    /**
+     * 地址
+     * <p> 示例值：地址
+     */
     @SerializedName("address")
     private String address;
-     /**
-      * 纳税人类型
-      * <p> 示例值：1
-      */
+    /**
+     * 纳税人类型
+     * <p> 示例值：1
+     */
     @SerializedName("taxpayer_type")
     private String taxpayerType;
-     /**
-      * 联系电话
-      * <p> 示例值：010-58341796
-      */
+    /**
+     * 联系电话
+     * <p> 示例值：010-58341796
+     */
     @SerializedName("telephone")
     private String telephone;
-     /**
-      * 银行内部Id
-      * <p> 示例值：MDBK00072319
-      */
+    /**
+     * 银行内部Id
+     * <p> 示例值：MDBK00072319
+     */
     @SerializedName("bank_id")
     private String bankId;
-     /**
-      * 开户银行名称
-      * <p> 示例值：中原银行股份有限公司南阳华瑞支行
-      */
+    /**
+     * 开户银行名称
+     * <p> 示例值：中原银行股份有限公司南阳华瑞支行
+     */
     @SerializedName("bank_name")
     private String bankName;
-     /**
-      * 开户行账号
-      * <p> 示例值：644666446
-      */
+    /**
+     * 开户行账号
+     * <p> 示例值：644666446
+     */
     @SerializedName("bank_account")
     private String bankAccount;
-     /**
-      * 状态
-      * <p> 示例值：1
-      */
+    /**
+     * 状态
+     * <p> 示例值：1
+     */
     @SerializedName("status")
     private Integer status;
-     /**
-      * 银行账户列表
-      * <p> 示例值：
-      */
+    /**
+     * 银行账户列表
+     * <p> 示例值：
+     */
     @SerializedName("legal_entity_banks")
     private LegalEntityBank[] legalEntityBanks;
-     /**
-      * 扩展字段相关信息列表
-      * <p> 示例值：
-      */
+    /**
+     * 扩展字段相关信息列表
+     * <p> 示例值：
+     */
     @SerializedName("extend_info")
     private ExtendField[] extendInfo;
-     /**
-      * 附件列表
-      * <p> 示例值：
-      */
+    /**
+     * 附件列表
+     * <p> 示例值：
+     */
     @SerializedName("appendix")
     private Appendix[] appendix;
+
+    // builder 开始
+    public LegalEntity() {
+    }
+
+    public LegalEntity(Builder builder) {
+        /**
+         * 法人实体id
+         * <p> 示例值：7003410079584092448
+         */
+        this.id = builder.id;
+        /**
+         * 法人实体编码(根据配置会有不同的生成规则)
+         * <p> 示例值：L00002002
+         */
+        this.legalEntity = builder.legalEntity;
+        /**
+         * 法人实体名称
+         * <p> 示例值：法人22
+         */
+        this.legalEntityText = builder.legalEntityText;
+        /**
+         * 法人实体英文名称
+         * <p> 示例值：legal_person
+         */
+        this.shortText = builder.shortText;
+        /**
+         * 证件类型
+         * <p> 示例值：0
+         */
+        this.certificationType = builder.certificationType;
+        /**
+         * 证件id
+         * <p> 示例值：91310120MA1H23N81AX
+         */
+        this.certificationId = builder.certificationId;
+        /**
+         * 法人
+         * <p> 示例值：张三
+         */
+        this.legalPerson = builder.legalPerson;
+        /**
+         * 国家
+         * <p> 示例值：CN
+         */
+        this.country = builder.country;
+        /**
+         * 省份
+         * <p> 示例值：MDPS00004000
+         */
+        this.province = builder.province;
+        /**
+         * 城市
+         * <p> 示例值：MDCY00006000
+         */
+        this.city = builder.city;
+        /**
+         * 地址
+         * <p> 示例值：地址
+         */
+        this.address = builder.address;
+        /**
+         * 纳税人类型
+         * <p> 示例值：1
+         */
+        this.taxpayerType = builder.taxpayerType;
+        /**
+         * 联系电话
+         * <p> 示例值：010-58341796
+         */
+        this.telephone = builder.telephone;
+        /**
+         * 银行内部Id
+         * <p> 示例值：MDBK00072319
+         */
+        this.bankId = builder.bankId;
+        /**
+         * 开户银行名称
+         * <p> 示例值：中原银行股份有限公司南阳华瑞支行
+         */
+        this.bankName = builder.bankName;
+        /**
+         * 开户行账号
+         * <p> 示例值：644666446
+         */
+        this.bankAccount = builder.bankAccount;
+        /**
+         * 状态
+         * <p> 示例值：1
+         */
+        this.status = builder.status;
+        /**
+         * 银行账户列表
+         * <p> 示例值：
+         */
+        this.legalEntityBanks = builder.legalEntityBanks;
+        /**
+         * 扩展字段相关信息列表
+         * <p> 示例值：
+         */
+        this.extendInfo = builder.extendInfo;
+        /**
+         * 附件列表
+         * <p> 示例值：
+         */
+        this.appendix = builder.appendix;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -305,511 +421,406 @@ public class LegalEntity {
         this.appendix = appendix;
     }
 
-
-// builder 开始
-  public LegalEntity(){}
-
-  public LegalEntity(Builder builder){
-         /**
-          * 法人实体id
-          * <p> 示例值：7003410079584092448
-          */
-      this.id = builder.id;
-         /**
-          * 法人实体编码(根据配置会有不同的生成规则)
-          * <p> 示例值：L00002002
-          */
-      this.legalEntity = builder.legalEntity;
-         /**
-          * 法人实体名称
-          * <p> 示例值：法人22
-          */
-      this.legalEntityText = builder.legalEntityText;
-         /**
-          * 法人实体英文名称
-          * <p> 示例值：legal_person
-          */
-      this.shortText = builder.shortText;
-         /**
-          * 证件类型
-          * <p> 示例值：0
-          */
-      this.certificationType = builder.certificationType;
-         /**
-          * 证件id
-          * <p> 示例值：91310120MA1H23N81AX
-          */
-      this.certificationId = builder.certificationId;
-         /**
-          * 法人
-          * <p> 示例值：张三
-          */
-      this.legalPerson = builder.legalPerson;
-         /**
-          * 国家
-          * <p> 示例值：CN
-          */
-      this.country = builder.country;
-         /**
-          * 省份
-          * <p> 示例值：MDPS00004000
-          */
-      this.province = builder.province;
-         /**
-          * 城市
-          * <p> 示例值：MDCY00006000
-          */
-      this.city = builder.city;
-         /**
-          * 地址
-          * <p> 示例值：地址
-          */
-      this.address = builder.address;
-         /**
-          * 纳税人类型
-          * <p> 示例值：1
-          */
-      this.taxpayerType = builder.taxpayerType;
-         /**
-          * 联系电话
-          * <p> 示例值：010-58341796
-          */
-      this.telephone = builder.telephone;
-         /**
-          * 银行内部Id
-          * <p> 示例值：MDBK00072319
-          */
-      this.bankId = builder.bankId;
-         /**
-          * 开户银行名称
-          * <p> 示例值：中原银行股份有限公司南阳华瑞支行
-          */
-      this.bankName = builder.bankName;
-         /**
-          * 开户行账号
-          * <p> 示例值：644666446
-          */
-      this.bankAccount = builder.bankAccount;
-         /**
-          * 状态
-          * <p> 示例值：1
-          */
-      this.status = builder.status;
-         /**
-          * 银行账户列表
-          * <p> 示例值：
-          */
-      this.legalEntityBanks = builder.legalEntityBanks;
-         /**
-          * 扩展字段相关信息列表
-          * <p> 示例值：
-          */
-      this.extendInfo = builder.extendInfo;
-         /**
-          * 附件列表
-          * <p> 示例值：
-          */
-      this.appendix = builder.appendix;
-  }
-
     public static class Builder {
-     /**
-      * 法人实体id
-      * <p> 示例值：7003410079584092448
-      */
+        /**
+         * 法人实体id
+         * <p> 示例值：7003410079584092448
+         */
         private String id;
-     /**
-      * 法人实体编码(根据配置会有不同的生成规则)
-      * <p> 示例值：L00002002
-      */
+        /**
+         * 法人实体编码(根据配置会有不同的生成规则)
+         * <p> 示例值：L00002002
+         */
         private String legalEntity;
-     /**
-      * 法人实体名称
-      * <p> 示例值：法人22
-      */
+        /**
+         * 法人实体名称
+         * <p> 示例值：法人22
+         */
         private String legalEntityText;
-     /**
-      * 法人实体英文名称
-      * <p> 示例值：legal_person
-      */
+        /**
+         * 法人实体英文名称
+         * <p> 示例值：legal_person
+         */
         private String shortText;
-     /**
-      * 证件类型
-      * <p> 示例值：0
-      */
+        /**
+         * 证件类型
+         * <p> 示例值：0
+         */
         private String certificationType;
-     /**
-      * 证件id
-      * <p> 示例值：91310120MA1H23N81AX
-      */
+        /**
+         * 证件id
+         * <p> 示例值：91310120MA1H23N81AX
+         */
         private String certificationId;
-     /**
-      * 法人
-      * <p> 示例值：张三
-      */
+        /**
+         * 法人
+         * <p> 示例值：张三
+         */
         private String legalPerson;
-     /**
-      * 国家
-      * <p> 示例值：CN
-      */
+        /**
+         * 国家
+         * <p> 示例值：CN
+         */
         private String country;
-     /**
-      * 省份
-      * <p> 示例值：MDPS00004000
-      */
+        /**
+         * 省份
+         * <p> 示例值：MDPS00004000
+         */
         private String province;
-     /**
-      * 城市
-      * <p> 示例值：MDCY00006000
-      */
+        /**
+         * 城市
+         * <p> 示例值：MDCY00006000
+         */
         private String city;
-     /**
-      * 地址
-      * <p> 示例值：地址
-      */
+        /**
+         * 地址
+         * <p> 示例值：地址
+         */
         private String address;
-     /**
-      * 纳税人类型
-      * <p> 示例值：1
-      */
+        /**
+         * 纳税人类型
+         * <p> 示例值：1
+         */
         private String taxpayerType;
-     /**
-      * 联系电话
-      * <p> 示例值：010-58341796
-      */
+        /**
+         * 联系电话
+         * <p> 示例值：010-58341796
+         */
         private String telephone;
-     /**
-      * 银行内部Id
-      * <p> 示例值：MDBK00072319
-      */
+        /**
+         * 银行内部Id
+         * <p> 示例值：MDBK00072319
+         */
         private String bankId;
-     /**
-      * 开户银行名称
-      * <p> 示例值：中原银行股份有限公司南阳华瑞支行
-      */
+        /**
+         * 开户银行名称
+         * <p> 示例值：中原银行股份有限公司南阳华瑞支行
+         */
         private String bankName;
-     /**
-      * 开户行账号
-      * <p> 示例值：644666446
-      */
+        /**
+         * 开户行账号
+         * <p> 示例值：644666446
+         */
         private String bankAccount;
-     /**
-      * 状态
-      * <p> 示例值：1
-      */
+        /**
+         * 状态
+         * <p> 示例值：1
+         */
         private Integer status;
-     /**
-      * 银行账户列表
-      * <p> 示例值：
-      */
+        /**
+         * 银行账户列表
+         * <p> 示例值：
+         */
         private LegalEntityBank[] legalEntityBanks;
-     /**
-      * 扩展字段相关信息列表
-      * <p> 示例值：
-      */
+        /**
+         * 扩展字段相关信息列表
+         * <p> 示例值：
+         */
         private ExtendField[] extendInfo;
-     /**
-      * 附件列表
-      * <p> 示例值：
-      */
+        /**
+         * 附件列表
+         * <p> 示例值：
+         */
         private Appendix[] appendix;
 
         /**
          * 法人实体id
          * <p> 示例值：7003410079584092448
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 法人实体编码(根据配置会有不同的生成规则)
          * <p> 示例值：L00002002
+         *
          * @param legalEntity
          * @return
          */
         public Builder legalEntity(String legalEntity) {
-             this.legalEntity = legalEntity;
-             return this;
+            this.legalEntity = legalEntity;
+            return this;
         }
 
-    
 
         /**
          * 法人实体名称
          * <p> 示例值：法人22
+         *
          * @param legalEntityText
          * @return
          */
         public Builder legalEntityText(String legalEntityText) {
-             this.legalEntityText = legalEntityText;
-             return this;
+            this.legalEntityText = legalEntityText;
+            return this;
         }
 
-    
 
         /**
          * 法人实体英文名称
          * <p> 示例值：legal_person
+         *
          * @param shortText
          * @return
          */
         public Builder shortText(String shortText) {
-             this.shortText = shortText;
-             return this;
+            this.shortText = shortText;
+            return this;
         }
 
-    
 
         /**
          * 证件类型
          * <p> 示例值：0
+         *
          * @param certificationType
          * @return
          */
         public Builder certificationType(String certificationType) {
-             this.certificationType = certificationType;
-             return this;
+            this.certificationType = certificationType;
+            return this;
         }
+
         /**
          * 证件类型
          * <p> 示例值：0
+         *
          * @param certificationType {@link com.lark.oapi.service.mdm.v1.enums.LegalEntityCertificationTypeEnum}
          * @return
          */
         public Builder certificationType(com.lark.oapi.service.mdm.v1.enums.LegalEntityCertificationTypeEnum certificationType) {
-             this.certificationType = certificationType.getValue();
-             return this;
+            this.certificationType = certificationType.getValue();
+            return this;
         }
 
-    
 
         /**
          * 证件id
          * <p> 示例值：91310120MA1H23N81AX
+         *
          * @param certificationId
          * @return
          */
         public Builder certificationId(String certificationId) {
-             this.certificationId = certificationId;
-             return this;
+            this.certificationId = certificationId;
+            return this;
         }
 
-    
 
         /**
          * 法人
          * <p> 示例值：张三
+         *
          * @param legalPerson
          * @return
          */
         public Builder legalPerson(String legalPerson) {
-             this.legalPerson = legalPerson;
-             return this;
+            this.legalPerson = legalPerson;
+            return this;
         }
 
-    
 
         /**
          * 国家
          * <p> 示例值：CN
+         *
          * @param country
          * @return
          */
         public Builder country(String country) {
-             this.country = country;
-             return this;
+            this.country = country;
+            return this;
         }
 
-    
 
         /**
          * 省份
          * <p> 示例值：MDPS00004000
+         *
          * @param province
          * @return
          */
         public Builder province(String province) {
-             this.province = province;
-             return this;
+            this.province = province;
+            return this;
         }
 
-    
 
         /**
          * 城市
          * <p> 示例值：MDCY00006000
+         *
          * @param city
          * @return
          */
         public Builder city(String city) {
-             this.city = city;
-             return this;
+            this.city = city;
+            return this;
         }
 
-    
 
         /**
          * 地址
          * <p> 示例值：地址
+         *
          * @param address
          * @return
          */
         public Builder address(String address) {
-             this.address = address;
-             return this;
+            this.address = address;
+            return this;
         }
 
-    
 
         /**
          * 纳税人类型
          * <p> 示例值：1
+         *
          * @param taxpayerType
          * @return
          */
         public Builder taxpayerType(String taxpayerType) {
-             this.taxpayerType = taxpayerType;
-             return this;
+            this.taxpayerType = taxpayerType;
+            return this;
         }
+
         /**
          * 纳税人类型
          * <p> 示例值：1
+         *
          * @param taxpayerType {@link com.lark.oapi.service.mdm.v1.enums.LegalEntityTaxpayerTypeEnum}
          * @return
          */
         public Builder taxpayerType(com.lark.oapi.service.mdm.v1.enums.LegalEntityTaxpayerTypeEnum taxpayerType) {
-             this.taxpayerType = taxpayerType.getValue();
-             return this;
+            this.taxpayerType = taxpayerType.getValue();
+            return this;
         }
 
-    
 
         /**
          * 联系电话
          * <p> 示例值：010-58341796
+         *
          * @param telephone
          * @return
          */
         public Builder telephone(String telephone) {
-             this.telephone = telephone;
-             return this;
+            this.telephone = telephone;
+            return this;
         }
 
-    
 
         /**
          * 银行内部Id
          * <p> 示例值：MDBK00072319
+         *
          * @param bankId
          * @return
          */
         public Builder bankId(String bankId) {
-             this.bankId = bankId;
-             return this;
+            this.bankId = bankId;
+            return this;
         }
 
-    
 
         /**
          * 开户银行名称
          * <p> 示例值：中原银行股份有限公司南阳华瑞支行
+         *
          * @param bankName
          * @return
          */
         public Builder bankName(String bankName) {
-             this.bankName = bankName;
-             return this;
+            this.bankName = bankName;
+            return this;
         }
 
-    
 
         /**
          * 开户行账号
          * <p> 示例值：644666446
+         *
          * @param bankAccount
          * @return
          */
         public Builder bankAccount(String bankAccount) {
-             this.bankAccount = bankAccount;
-             return this;
+            this.bankAccount = bankAccount;
+            return this;
         }
 
-    
 
         /**
          * 状态
          * <p> 示例值：1
+         *
          * @param status
          * @return
          */
         public Builder status(Integer status) {
-             this.status = status;
-             return this;
+            this.status = status;
+            return this;
         }
+
         /**
          * 状态
          * <p> 示例值：1
+         *
          * @param status {@link com.lark.oapi.service.mdm.v1.enums.LegalEntityStatusEnum}
          * @return
          */
         public Builder status(com.lark.oapi.service.mdm.v1.enums.LegalEntityStatusEnum status) {
-             this.status = status.getValue();
-             return this;
+            this.status = status.getValue();
+            return this;
         }
 
-    
 
         /**
          * 银行账户列表
          * <p> 示例值：
+         *
          * @param legalEntityBanks
          * @return
          */
         public Builder legalEntityBanks(LegalEntityBank[] legalEntityBanks) {
-             this.legalEntityBanks = legalEntityBanks;
-             return this;
+            this.legalEntityBanks = legalEntityBanks;
+            return this;
         }
 
-    
 
         /**
          * 扩展字段相关信息列表
          * <p> 示例值：
+         *
          * @param extendInfo
          * @return
          */
         public Builder extendInfo(ExtendField[] extendInfo) {
-             this.extendInfo = extendInfo;
-             return this;
+            this.extendInfo = extendInfo;
+            return this;
         }
 
-    
 
         /**
          * 附件列表
          * <p> 示例值：
+         *
          * @param appendix
          * @return
          */
         public Builder appendix(Appendix[] appendix) {
-             this.appendix = appendix;
-             return this;
+            this.appendix = appendix;
+            return this;
         }
 
-    
-    
-    public LegalEntity build(){
-        return new LegalEntity(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public LegalEntity build() {
+            return new LegalEntity(this);
+        }
     }
 }

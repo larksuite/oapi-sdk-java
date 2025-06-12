@@ -12,39 +12,70 @@
  */
 
 package com.lark.oapi.service.search.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.search.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ListDataSourceReq {
-     /**
-      * 回包数据格式，0-全量数据；1-摘要数据。;;**注**：摘要数据仅包含"id"，"name"，"state"。
-      * <p> 示例值：0
-      */
+    /**
+     * 回包数据格式，0-全量数据；1-摘要数据。;;**注**：摘要数据仅包含"id"，"name"，"state"。
+     * <p> 示例值：0
+     */
     @Query
     @SerializedName("view")
     private Integer view;
-     /**
-      * 分页大小
-      * <p> 示例值：10
-      */
+    /**
+     * 分页大小
+     * <p> 示例值：10
+     */
     @Query
     @SerializedName("page_size")
     private Integer pageSize;
-     /**
-      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-      * <p> 示例值：PxZFma9OIRhdBlT/dOYNiu2Ro8F2WAhcby7OhOijfljZ
-      */
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     * <p> 示例值：PxZFma9OIRhdBlT/dOYNiu2Ro8F2WAhcby7OhOijfljZ
+     */
     @Query
     @SerializedName("page_token")
     private String pageToken;
+
+    // builder 开始
+    public ListDataSourceReq() {
+    }
+
+    public ListDataSourceReq(Builder builder) {
+        /**
+         * 回包数据格式，0-全量数据；1-摘要数据。;;**注**：摘要数据仅包含"id"，"name"，"state"。
+         * <p> 示例值：0
+         */
+        this.view = builder.view;
+        /**
+         * 分页大小
+         * <p> 示例值：10
+         */
+        this.pageSize = builder.pageSize;
+        /**
+         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+         * <p> 示例值：PxZFma9OIRhdBlT/dOYNiu2Ro8F2WAhcby7OhOijfljZ
+         */
+        this.pageToken = builder.pageToken;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Integer getView() {
         return this.view;
     }
@@ -69,86 +100,64 @@ public class ListDataSourceReq {
         this.pageToken = pageToken;
     }
 
-
-// builder 开始
-  public ListDataSourceReq(){}
-
-  public ListDataSourceReq(Builder builder){
-         /**
-          * 回包数据格式，0-全量数据；1-摘要数据。;;**注**：摘要数据仅包含"id"，"name"，"state"。
-          * <p> 示例值：0
-          */
-       this.view = builder.view;
-         /**
-          * 分页大小
-          * <p> 示例值：10
-          */
-       this.pageSize = builder.pageSize;
-         /**
-          * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-          * <p> 示例值：PxZFma9OIRhdBlT/dOYNiu2Ro8F2WAhcby7OhOijfljZ
-          */
-       this.pageToken = builder.pageToken;
-  }
-
     public static class Builder {
         private Integer view; // 回包数据格式，0-全量数据；1-摘要数据。;;**注**：摘要数据仅包含"id"，"name"，"state"。
         private Integer pageSize; // 分页大小
         private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-    
+
         /**
          * 回包数据格式，0-全量数据；1-摘要数据。;;**注**：摘要数据仅包含"id"，"name"，"state"。
          * <p> 示例值：0
+         *
          * @param view
          * @return
          */
-           public Builder view(Integer view) {
-                this.view = view;
-                return this;
-           }
+        public Builder view(Integer view) {
+            this.view = view;
+            return this;
+        }
 
         /**
          * 回包数据格式，0-全量数据；1-摘要数据。;;**注**：摘要数据仅包含"id"，"name"，"state"。
          * <p> 示例值：0
+         *
          * @param view {@link com.lark.oapi.service.search.v2.enums.ListDataSourceViewEnum}
          * @return
          */
-          public Builder view(com.lark.oapi.service.search.v2.enums.ListDataSourceViewEnum view) {
-               this.view = view.getValue();
-               return this;
-          }
+        public Builder view(com.lark.oapi.service.search.v2.enums.ListDataSourceViewEnum view) {
+            this.view = view.getValue();
+            return this;
+        }
 
-    
+
         /**
          * 分页大小
          * <p> 示例值：10
+         *
          * @param pageSize
          * @return
          */
-           public Builder pageSize(Integer pageSize) {
-                this.pageSize = pageSize;
-                return this;
-           }
+        public Builder pageSize(Integer pageSize) {
+            this.pageSize = pageSize;
+            return this;
+        }
 
-    
+
         /**
          * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
          * <p> 示例值：PxZFma9OIRhdBlT/dOYNiu2Ro8F2WAhcby7OhOijfljZ
+         *
          * @param pageToken
          * @return
          */
-           public Builder pageToken(String pageToken) {
-                this.pageToken = pageToken;
-                return this;
-           }
+        public Builder pageToken(String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+        }
 
-    
-    public ListDataSourceReq build(){
-        return new ListDataSourceReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ListDataSourceReq build() {
+            return new ListDataSourceReq(this);
+        }
     }
 }

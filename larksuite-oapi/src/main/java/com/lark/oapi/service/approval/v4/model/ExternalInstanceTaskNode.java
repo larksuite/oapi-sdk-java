@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,114 +20,214 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ExternalInstanceTaskNode {
-     /**
-      * 审批实例内的唯一标识，用于更新审批任务时定位数据
-      * <p> 示例值：112534
-      */
+    /**
+     * 审批实例内的唯一标识，用于更新审批任务时定位数据
+     * <p> 示例值：112534
+     */
     @SerializedName("task_id")
     private String taskId;
-     /**
-      * 审批人 user_id ，和 open_id 二者至少填一个。该任务会出现在审批人的【待审批】或【已审批】列表中
-      * <p> 示例值：a987sf9s
-      */
+    /**
+     * 审批人 user_id ，和 open_id 二者至少填一个。该任务会出现在审批人的【待审批】或【已审批】列表中
+     * <p> 示例值：a987sf9s
+     */
     @SerializedName("user_id")
     private String userId;
-     /**
-      * 审批人 open_id，和 user_id 二者至少填一个
-      * <p> 示例值：ou_be73cbc0ee35eb6ca54e9e7cc14998c1
-      */
+    /**
+     * 审批人 open_id，和 user_id 二者至少填一个
+     * <p> 示例值：ou_be73cbc0ee35eb6ca54e9e7cc14998c1
+     */
     @SerializedName("open_id")
     private String openId;
-     /**
-      * 审批任务名称
-      * <p> 示例值：i18n1
-      */
+    /**
+     * 审批任务名称
+     * <p> 示例值：i18n1
+     */
     @SerializedName("title")
     private String title;
-     /**
-      * 【待审批】或【已审批】中使用的跳转链接，用于跳转回三方系统pc_link 和 mobile_link 必须填一个，填写的是哪一端的链接，即会跳转到该链接，不受平台影响
-      * <p> 示例值：
-      */
+    /**
+     * 【待审批】或【已审批】中使用的跳转链接，用于跳转回三方系统pc_link 和 mobile_link 必须填一个，填写的是哪一端的链接，即会跳转到该链接，不受平台影响
+     * <p> 示例值：
+     */
     @SerializedName("links")
     private ExternalInstanceLink links;
-     /**
-      * 任务状态
-      * <p> 示例值：PENDING
-      */
+    /**
+     * 任务状态
+     * <p> 示例值：PENDING
+     */
     @SerializedName("status")
     private String status;
-     /**
-      * 扩展 json，任务结束原因需传complete_reason字段。枚举值与对应说明：;  - approved：同意;  - rejected：拒绝;  - node_auto_reject：（因逻辑判断产生的）自动拒绝;  - specific_rollback：退回（包括退回到发起人、退回到中间任一审批人）;  - add：并加签（添加新审批人，和我一起审批）;  - add_pre：前加签（添加新审批人，在我之前审批）;  - add_post：后加签（添加新审批人，在我之后审批）;  - delete_assignee：减签;  - forward_resign：转交（转给其他人审批）;  - recall：撤销（撤回单据，单据失效）;  - delete ：删除审批单;  - admin_forward：管理员在后台操作转交;  - system_forward：系统自动转交;  - auto_skip：自动通过;  - manual_skip：手动跳过;  - submit_again：重新提交任务;  - restart：重新启动流程;  - others：其他（作为兜底）
-      * <p> 示例值：{\"xxx\":\"xxx\",\"complete_reason\":\"approved\"}
-      */
+    /**
+     * 扩展 json，任务结束原因需传complete_reason字段。枚举值与对应说明：;  - approved：同意;  - rejected：拒绝;  - node_auto_reject：（因逻辑判断产生的）自动拒绝;  - specific_rollback：退回（包括退回到发起人、退回到中间任一审批人）;  - add：并加签（添加新审批人，和我一起审批）;  - add_pre：前加签（添加新审批人，在我之前审批）;  - add_post：后加签（添加新审批人，在我之后审批）;  - delete_assignee：减签;  - forward_resign：转交（转给其他人审批）;  - recall：撤销（撤回单据，单据失效）;  - delete ：删除审批单;  - admin_forward：管理员在后台操作转交;  - system_forward：系统自动转交;  - auto_skip：自动通过;  - manual_skip：手动跳过;  - submit_again：重新提交任务;  - restart：重新启动流程;  - others：其他（作为兜底）
+     * <p> 示例值：{\"xxx\":\"xxx\",\"complete_reason\":\"approved\"}
+     */
     @SerializedName("extra")
     private String extra;
-     /**
-      * 任务创建时间，Unix 毫秒时间戳
-      * <p> 示例值：1556468012678
-      */
+    /**
+     * 任务创建时间，Unix 毫秒时间戳
+     * <p> 示例值：1556468012678
+     */
     @SerializedName("create_time")
     private String createTime;
-     /**
-      * 任务完成时间：未结束的审批为 0，Unix 毫秒时间戳
-      * <p> 示例值：1556468012678
-      */
+    /**
+     * 任务完成时间：未结束的审批为 0，Unix 毫秒时间戳
+     * <p> 示例值：1556468012678
+     */
     @SerializedName("end_time")
     private String endTime;
-     /**
-      * task最近更新时间，用于推送数据版本控制； 更新策略同 instance 中的 update_time
-      * <p> 示例值：1556468012678
-      */
+    /**
+     * task最近更新时间，用于推送数据版本控制； 更新策略同 instance 中的 update_time
+     * <p> 示例值：1556468012678
+     */
     @SerializedName("update_time")
     private String updateTime;
-     /**
-      * 操作上下文，当用户操作时，回调请求中带上该参数，用于传递该任务的上下文数据
-      * <p> 示例值：123456
-      */
+    /**
+     * 操作上下文，当用户操作时，回调请求中带上该参数，用于传递该任务的上下文数据
+     * <p> 示例值：123456
+     */
     @SerializedName("action_context")
     private String actionContext;
-     /**
-      * 任务级别操作配置,快捷审批目前支持移动端操作
-      * <p> 示例值：
-      */
+    /**
+     * 任务级别操作配置,快捷审批目前支持移动端操作
+     * <p> 示例值：
+     */
     @SerializedName("action_configs")
     private ActionConfig[] actionConfigs;
-     /**
-      * 列表页打开审批任务的方式
-      * <p> 示例值：BROWSER
-      */
+    /**
+     * 列表页打开审批任务的方式
+     * <p> 示例值：BROWSER
+     */
     @SerializedName("display_method")
     private String displayMethod;
-     /**
-      * 三方任务支持不纳入效率统计。;false：纳入效率统计。;true：不纳入效率统计
-      * <p> 示例值：false
-      */
+    /**
+     * 三方任务支持不纳入效率统计。;false：纳入效率统计。;true：不纳入效率统计
+     * <p> 示例值：false
+     */
     @SerializedName("exclude_statistics")
     private Boolean excludeStatistics;
-     /**
-      * 节点id：必须同时满足;- 一个流程内，每个节点id唯一。如一个流程下「直属上级」、「隔级上级」等每个节点的Node_id均不一样;- 同一个流程定义内，不同审批实例中的相同节点，Node_id要保持不变。例如张三和李四分别发起了请假申请，这2个审批实例中的「直属上级」节点的node_id应该保持一致
-      * <p> 示例值：node
-      */
+    /**
+     * 节点id：必须同时满足;- 一个流程内，每个节点id唯一。如一个流程下「直属上级」、「隔级上级」等每个节点的Node_id均不一样;- 同一个流程定义内，不同审批实例中的相同节点，Node_id要保持不变。例如张三和李四分别发起了请假申请，这2个审批实例中的「直属上级」节点的node_id应该保持一致
+     * <p> 示例值：node
+     */
     @SerializedName("node_id")
     private String nodeId;
-     /**
-      * 节点名称，如「财务审批」「法务审批」，支持中英日三种语言。示例：i18n@name。需要在i18n_resources中传该名称对应的国际化文案
-      * <p> 示例值：i18n@name
-      */
+    /**
+     * 节点名称，如「财务审批」「法务审批」，支持中英日三种语言。示例：i18n@name。需要在i18n_resources中传该名称对应的国际化文案
+     * <p> 示例值：i18n@name
+     */
     @SerializedName("node_name")
     private String nodeName;
-     /**
-      * 任务生成类型
-      * <p> 示例值：EXTERNAL_CONSIGN
-      */
+    /**
+     * 任务生成类型
+     * <p> 示例值：EXTERNAL_CONSIGN
+     */
     @SerializedName("generate_type")
     private String generateType;
+
+    // builder 开始
+    public ExternalInstanceTaskNode() {
+    }
+
+    public ExternalInstanceTaskNode(Builder builder) {
+        /**
+         * 审批实例内的唯一标识，用于更新审批任务时定位数据
+         * <p> 示例值：112534
+         */
+        this.taskId = builder.taskId;
+        /**
+         * 审批人 user_id ，和 open_id 二者至少填一个。该任务会出现在审批人的【待审批】或【已审批】列表中
+         * <p> 示例值：a987sf9s
+         */
+        this.userId = builder.userId;
+        /**
+         * 审批人 open_id，和 user_id 二者至少填一个
+         * <p> 示例值：ou_be73cbc0ee35eb6ca54e9e7cc14998c1
+         */
+        this.openId = builder.openId;
+        /**
+         * 审批任务名称
+         * <p> 示例值：i18n1
+         */
+        this.title = builder.title;
+        /**
+         * 【待审批】或【已审批】中使用的跳转链接，用于跳转回三方系统pc_link 和 mobile_link 必须填一个，填写的是哪一端的链接，即会跳转到该链接，不受平台影响
+         * <p> 示例值：
+         */
+        this.links = builder.links;
+        /**
+         * 任务状态
+         * <p> 示例值：PENDING
+         */
+        this.status = builder.status;
+        /**
+         * 扩展 json，任务结束原因需传complete_reason字段。枚举值与对应说明：;  - approved：同意;  - rejected：拒绝;  - node_auto_reject：（因逻辑判断产生的）自动拒绝;  - specific_rollback：退回（包括退回到发起人、退回到中间任一审批人）;  - add：并加签（添加新审批人，和我一起审批）;  - add_pre：前加签（添加新审批人，在我之前审批）;  - add_post：后加签（添加新审批人，在我之后审批）;  - delete_assignee：减签;  - forward_resign：转交（转给其他人审批）;  - recall：撤销（撤回单据，单据失效）;  - delete ：删除审批单;  - admin_forward：管理员在后台操作转交;  - system_forward：系统自动转交;  - auto_skip：自动通过;  - manual_skip：手动跳过;  - submit_again：重新提交任务;  - restart：重新启动流程;  - others：其他（作为兜底）
+         * <p> 示例值：{\"xxx\":\"xxx\",\"complete_reason\":\"approved\"}
+         */
+        this.extra = builder.extra;
+        /**
+         * 任务创建时间，Unix 毫秒时间戳
+         * <p> 示例值：1556468012678
+         */
+        this.createTime = builder.createTime;
+        /**
+         * 任务完成时间：未结束的审批为 0，Unix 毫秒时间戳
+         * <p> 示例值：1556468012678
+         */
+        this.endTime = builder.endTime;
+        /**
+         * task最近更新时间，用于推送数据版本控制； 更新策略同 instance 中的 update_time
+         * <p> 示例值：1556468012678
+         */
+        this.updateTime = builder.updateTime;
+        /**
+         * 操作上下文，当用户操作时，回调请求中带上该参数，用于传递该任务的上下文数据
+         * <p> 示例值：123456
+         */
+        this.actionContext = builder.actionContext;
+        /**
+         * 任务级别操作配置,快捷审批目前支持移动端操作
+         * <p> 示例值：
+         */
+        this.actionConfigs = builder.actionConfigs;
+        /**
+         * 列表页打开审批任务的方式
+         * <p> 示例值：BROWSER
+         */
+        this.displayMethod = builder.displayMethod;
+        /**
+         * 三方任务支持不纳入效率统计。;false：纳入效率统计。;true：不纳入效率统计
+         * <p> 示例值：false
+         */
+        this.excludeStatistics = builder.excludeStatistics;
+        /**
+         * 节点id：必须同时满足;- 一个流程内，每个节点id唯一。如一个流程下「直属上级」、「隔级上级」等每个节点的Node_id均不一样;- 同一个流程定义内，不同审批实例中的相同节点，Node_id要保持不变。例如张三和李四分别发起了请假申请，这2个审批实例中的「直属上级」节点的node_id应该保持一致
+         * <p> 示例值：node
+         */
+        this.nodeId = builder.nodeId;
+        /**
+         * 节点名称，如「财务审批」「法务审批」，支持中英日三种语言。示例：i18n@name。需要在i18n_resources中传该名称对应的国际化文案
+         * <p> 示例值：i18n@name
+         */
+        this.nodeName = builder.nodeName;
+        /**
+         * 任务生成类型
+         * <p> 示例值：EXTERNAL_CONSIGN
+         */
+        this.generateType = builder.generateType;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getTaskId() {
         return this.taskId;
     }
@@ -263,442 +364,352 @@ public class ExternalInstanceTaskNode {
         this.generateType = generateType;
     }
 
-
-// builder 开始
-  public ExternalInstanceTaskNode(){}
-
-  public ExternalInstanceTaskNode(Builder builder){
-         /**
-          * 审批实例内的唯一标识，用于更新审批任务时定位数据
-          * <p> 示例值：112534
-          */
-      this.taskId = builder.taskId;
-         /**
-          * 审批人 user_id ，和 open_id 二者至少填一个。该任务会出现在审批人的【待审批】或【已审批】列表中
-          * <p> 示例值：a987sf9s
-          */
-      this.userId = builder.userId;
-         /**
-          * 审批人 open_id，和 user_id 二者至少填一个
-          * <p> 示例值：ou_be73cbc0ee35eb6ca54e9e7cc14998c1
-          */
-      this.openId = builder.openId;
-         /**
-          * 审批任务名称
-          * <p> 示例值：i18n1
-          */
-      this.title = builder.title;
-         /**
-          * 【待审批】或【已审批】中使用的跳转链接，用于跳转回三方系统pc_link 和 mobile_link 必须填一个，填写的是哪一端的链接，即会跳转到该链接，不受平台影响
-          * <p> 示例值：
-          */
-      this.links = builder.links;
-         /**
-          * 任务状态
-          * <p> 示例值：PENDING
-          */
-      this.status = builder.status;
-         /**
-          * 扩展 json，任务结束原因需传complete_reason字段。枚举值与对应说明：;  - approved：同意;  - rejected：拒绝;  - node_auto_reject：（因逻辑判断产生的）自动拒绝;  - specific_rollback：退回（包括退回到发起人、退回到中间任一审批人）;  - add：并加签（添加新审批人，和我一起审批）;  - add_pre：前加签（添加新审批人，在我之前审批）;  - add_post：后加签（添加新审批人，在我之后审批）;  - delete_assignee：减签;  - forward_resign：转交（转给其他人审批）;  - recall：撤销（撤回单据，单据失效）;  - delete ：删除审批单;  - admin_forward：管理员在后台操作转交;  - system_forward：系统自动转交;  - auto_skip：自动通过;  - manual_skip：手动跳过;  - submit_again：重新提交任务;  - restart：重新启动流程;  - others：其他（作为兜底）
-          * <p> 示例值：{\"xxx\":\"xxx\",\"complete_reason\":\"approved\"}
-          */
-      this.extra = builder.extra;
-         /**
-          * 任务创建时间，Unix 毫秒时间戳
-          * <p> 示例值：1556468012678
-          */
-      this.createTime = builder.createTime;
-         /**
-          * 任务完成时间：未结束的审批为 0，Unix 毫秒时间戳
-          * <p> 示例值：1556468012678
-          */
-      this.endTime = builder.endTime;
-         /**
-          * task最近更新时间，用于推送数据版本控制； 更新策略同 instance 中的 update_time
-          * <p> 示例值：1556468012678
-          */
-      this.updateTime = builder.updateTime;
-         /**
-          * 操作上下文，当用户操作时，回调请求中带上该参数，用于传递该任务的上下文数据
-          * <p> 示例值：123456
-          */
-      this.actionContext = builder.actionContext;
-         /**
-          * 任务级别操作配置,快捷审批目前支持移动端操作
-          * <p> 示例值：
-          */
-      this.actionConfigs = builder.actionConfigs;
-         /**
-          * 列表页打开审批任务的方式
-          * <p> 示例值：BROWSER
-          */
-      this.displayMethod = builder.displayMethod;
-         /**
-          * 三方任务支持不纳入效率统计。;false：纳入效率统计。;true：不纳入效率统计
-          * <p> 示例值：false
-          */
-      this.excludeStatistics = builder.excludeStatistics;
-         /**
-          * 节点id：必须同时满足;- 一个流程内，每个节点id唯一。如一个流程下「直属上级」、「隔级上级」等每个节点的Node_id均不一样;- 同一个流程定义内，不同审批实例中的相同节点，Node_id要保持不变。例如张三和李四分别发起了请假申请，这2个审批实例中的「直属上级」节点的node_id应该保持一致
-          * <p> 示例值：node
-          */
-      this.nodeId = builder.nodeId;
-         /**
-          * 节点名称，如「财务审批」「法务审批」，支持中英日三种语言。示例：i18n@name。需要在i18n_resources中传该名称对应的国际化文案
-          * <p> 示例值：i18n@name
-          */
-      this.nodeName = builder.nodeName;
-         /**
-          * 任务生成类型
-          * <p> 示例值：EXTERNAL_CONSIGN
-          */
-      this.generateType = builder.generateType;
-  }
-
     public static class Builder {
-     /**
-      * 审批实例内的唯一标识，用于更新审批任务时定位数据
-      * <p> 示例值：112534
-      */
+        /**
+         * 审批实例内的唯一标识，用于更新审批任务时定位数据
+         * <p> 示例值：112534
+         */
         private String taskId;
-     /**
-      * 审批人 user_id ，和 open_id 二者至少填一个。该任务会出现在审批人的【待审批】或【已审批】列表中
-      * <p> 示例值：a987sf9s
-      */
+        /**
+         * 审批人 user_id ，和 open_id 二者至少填一个。该任务会出现在审批人的【待审批】或【已审批】列表中
+         * <p> 示例值：a987sf9s
+         */
         private String userId;
-     /**
-      * 审批人 open_id，和 user_id 二者至少填一个
-      * <p> 示例值：ou_be73cbc0ee35eb6ca54e9e7cc14998c1
-      */
+        /**
+         * 审批人 open_id，和 user_id 二者至少填一个
+         * <p> 示例值：ou_be73cbc0ee35eb6ca54e9e7cc14998c1
+         */
         private String openId;
-     /**
-      * 审批任务名称
-      * <p> 示例值：i18n1
-      */
+        /**
+         * 审批任务名称
+         * <p> 示例值：i18n1
+         */
         private String title;
-     /**
-      * 【待审批】或【已审批】中使用的跳转链接，用于跳转回三方系统pc_link 和 mobile_link 必须填一个，填写的是哪一端的链接，即会跳转到该链接，不受平台影响
-      * <p> 示例值：
-      */
+        /**
+         * 【待审批】或【已审批】中使用的跳转链接，用于跳转回三方系统pc_link 和 mobile_link 必须填一个，填写的是哪一端的链接，即会跳转到该链接，不受平台影响
+         * <p> 示例值：
+         */
         private ExternalInstanceLink links;
-     /**
-      * 任务状态
-      * <p> 示例值：PENDING
-      */
+        /**
+         * 任务状态
+         * <p> 示例值：PENDING
+         */
         private String status;
-     /**
-      * 扩展 json，任务结束原因需传complete_reason字段。枚举值与对应说明：;  - approved：同意;  - rejected：拒绝;  - node_auto_reject：（因逻辑判断产生的）自动拒绝;  - specific_rollback：退回（包括退回到发起人、退回到中间任一审批人）;  - add：并加签（添加新审批人，和我一起审批）;  - add_pre：前加签（添加新审批人，在我之前审批）;  - add_post：后加签（添加新审批人，在我之后审批）;  - delete_assignee：减签;  - forward_resign：转交（转给其他人审批）;  - recall：撤销（撤回单据，单据失效）;  - delete ：删除审批单;  - admin_forward：管理员在后台操作转交;  - system_forward：系统自动转交;  - auto_skip：自动通过;  - manual_skip：手动跳过;  - submit_again：重新提交任务;  - restart：重新启动流程;  - others：其他（作为兜底）
-      * <p> 示例值：{\"xxx\":\"xxx\",\"complete_reason\":\"approved\"}
-      */
+        /**
+         * 扩展 json，任务结束原因需传complete_reason字段。枚举值与对应说明：;  - approved：同意;  - rejected：拒绝;  - node_auto_reject：（因逻辑判断产生的）自动拒绝;  - specific_rollback：退回（包括退回到发起人、退回到中间任一审批人）;  - add：并加签（添加新审批人，和我一起审批）;  - add_pre：前加签（添加新审批人，在我之前审批）;  - add_post：后加签（添加新审批人，在我之后审批）;  - delete_assignee：减签;  - forward_resign：转交（转给其他人审批）;  - recall：撤销（撤回单据，单据失效）;  - delete ：删除审批单;  - admin_forward：管理员在后台操作转交;  - system_forward：系统自动转交;  - auto_skip：自动通过;  - manual_skip：手动跳过;  - submit_again：重新提交任务;  - restart：重新启动流程;  - others：其他（作为兜底）
+         * <p> 示例值：{\"xxx\":\"xxx\",\"complete_reason\":\"approved\"}
+         */
         private String extra;
-     /**
-      * 任务创建时间，Unix 毫秒时间戳
-      * <p> 示例值：1556468012678
-      */
+        /**
+         * 任务创建时间，Unix 毫秒时间戳
+         * <p> 示例值：1556468012678
+         */
         private String createTime;
-     /**
-      * 任务完成时间：未结束的审批为 0，Unix 毫秒时间戳
-      * <p> 示例值：1556468012678
-      */
+        /**
+         * 任务完成时间：未结束的审批为 0，Unix 毫秒时间戳
+         * <p> 示例值：1556468012678
+         */
         private String endTime;
-     /**
-      * task最近更新时间，用于推送数据版本控制； 更新策略同 instance 中的 update_time
-      * <p> 示例值：1556468012678
-      */
+        /**
+         * task最近更新时间，用于推送数据版本控制； 更新策略同 instance 中的 update_time
+         * <p> 示例值：1556468012678
+         */
         private String updateTime;
-     /**
-      * 操作上下文，当用户操作时，回调请求中带上该参数，用于传递该任务的上下文数据
-      * <p> 示例值：123456
-      */
+        /**
+         * 操作上下文，当用户操作时，回调请求中带上该参数，用于传递该任务的上下文数据
+         * <p> 示例值：123456
+         */
         private String actionContext;
-     /**
-      * 任务级别操作配置,快捷审批目前支持移动端操作
-      * <p> 示例值：
-      */
+        /**
+         * 任务级别操作配置,快捷审批目前支持移动端操作
+         * <p> 示例值：
+         */
         private ActionConfig[] actionConfigs;
-     /**
-      * 列表页打开审批任务的方式
-      * <p> 示例值：BROWSER
-      */
+        /**
+         * 列表页打开审批任务的方式
+         * <p> 示例值：BROWSER
+         */
         private String displayMethod;
-     /**
-      * 三方任务支持不纳入效率统计。;false：纳入效率统计。;true：不纳入效率统计
-      * <p> 示例值：false
-      */
+        /**
+         * 三方任务支持不纳入效率统计。;false：纳入效率统计。;true：不纳入效率统计
+         * <p> 示例值：false
+         */
         private Boolean excludeStatistics;
-     /**
-      * 节点id：必须同时满足;- 一个流程内，每个节点id唯一。如一个流程下「直属上级」、「隔级上级」等每个节点的Node_id均不一样;- 同一个流程定义内，不同审批实例中的相同节点，Node_id要保持不变。例如张三和李四分别发起了请假申请，这2个审批实例中的「直属上级」节点的node_id应该保持一致
-      * <p> 示例值：node
-      */
+        /**
+         * 节点id：必须同时满足;- 一个流程内，每个节点id唯一。如一个流程下「直属上级」、「隔级上级」等每个节点的Node_id均不一样;- 同一个流程定义内，不同审批实例中的相同节点，Node_id要保持不变。例如张三和李四分别发起了请假申请，这2个审批实例中的「直属上级」节点的node_id应该保持一致
+         * <p> 示例值：node
+         */
         private String nodeId;
-     /**
-      * 节点名称，如「财务审批」「法务审批」，支持中英日三种语言。示例：i18n@name。需要在i18n_resources中传该名称对应的国际化文案
-      * <p> 示例值：i18n@name
-      */
+        /**
+         * 节点名称，如「财务审批」「法务审批」，支持中英日三种语言。示例：i18n@name。需要在i18n_resources中传该名称对应的国际化文案
+         * <p> 示例值：i18n@name
+         */
         private String nodeName;
-     /**
-      * 任务生成类型
-      * <p> 示例值：EXTERNAL_CONSIGN
-      */
+        /**
+         * 任务生成类型
+         * <p> 示例值：EXTERNAL_CONSIGN
+         */
         private String generateType;
 
         /**
          * 审批实例内的唯一标识，用于更新审批任务时定位数据
          * <p> 示例值：112534
+         *
          * @param taskId
          * @return
          */
         public Builder taskId(String taskId) {
-             this.taskId = taskId;
-             return this;
+            this.taskId = taskId;
+            return this;
         }
 
-    
 
         /**
          * 审批人 user_id ，和 open_id 二者至少填一个。该任务会出现在审批人的【待审批】或【已审批】列表中
          * <p> 示例值：a987sf9s
+         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-             this.userId = userId;
-             return this;
+            this.userId = userId;
+            return this;
         }
 
-    
 
         /**
          * 审批人 open_id，和 user_id 二者至少填一个
          * <p> 示例值：ou_be73cbc0ee35eb6ca54e9e7cc14998c1
+         *
          * @param openId
          * @return
          */
         public Builder openId(String openId) {
-             this.openId = openId;
-             return this;
+            this.openId = openId;
+            return this;
         }
 
-    
 
         /**
          * 审批任务名称
          * <p> 示例值：i18n1
+         *
          * @param title
          * @return
          */
         public Builder title(String title) {
-             this.title = title;
-             return this;
+            this.title = title;
+            return this;
         }
 
-    
 
         /**
          * 【待审批】或【已审批】中使用的跳转链接，用于跳转回三方系统pc_link 和 mobile_link 必须填一个，填写的是哪一端的链接，即会跳转到该链接，不受平台影响
          * <p> 示例值：
+         *
          * @param links
          * @return
          */
         public Builder links(ExternalInstanceLink links) {
-             this.links = links;
-             return this;
+            this.links = links;
+            return this;
         }
 
-    
 
         /**
          * 任务状态
          * <p> 示例值：PENDING
+         *
          * @param status
          * @return
          */
         public Builder status(String status) {
-             this.status = status;
-             return this;
+            this.status = status;
+            return this;
         }
+
         /**
          * 任务状态
          * <p> 示例值：PENDING
+         *
          * @param status {@link com.lark.oapi.service.approval.v4.enums.ExternalInstanceTaskNodeStatusEnum}
          * @return
          */
         public Builder status(com.lark.oapi.service.approval.v4.enums.ExternalInstanceTaskNodeStatusEnum status) {
-             this.status = status.getValue();
-             return this;
+            this.status = status.getValue();
+            return this;
         }
 
-    
 
         /**
          * 扩展 json，任务结束原因需传complete_reason字段。枚举值与对应说明：;  - approved：同意;  - rejected：拒绝;  - node_auto_reject：（因逻辑判断产生的）自动拒绝;  - specific_rollback：退回（包括退回到发起人、退回到中间任一审批人）;  - add：并加签（添加新审批人，和我一起审批）;  - add_pre：前加签（添加新审批人，在我之前审批）;  - add_post：后加签（添加新审批人，在我之后审批）;  - delete_assignee：减签;  - forward_resign：转交（转给其他人审批）;  - recall：撤销（撤回单据，单据失效）;  - delete ：删除审批单;  - admin_forward：管理员在后台操作转交;  - system_forward：系统自动转交;  - auto_skip：自动通过;  - manual_skip：手动跳过;  - submit_again：重新提交任务;  - restart：重新启动流程;  - others：其他（作为兜底）
          * <p> 示例值：{\"xxx\":\"xxx\",\"complete_reason\":\"approved\"}
+         *
          * @param extra
          * @return
          */
         public Builder extra(String extra) {
-             this.extra = extra;
-             return this;
+            this.extra = extra;
+            return this;
         }
 
-    
 
         /**
          * 任务创建时间，Unix 毫秒时间戳
          * <p> 示例值：1556468012678
+         *
          * @param createTime
          * @return
          */
         public Builder createTime(String createTime) {
-             this.createTime = createTime;
-             return this;
+            this.createTime = createTime;
+            return this;
         }
 
-    
 
         /**
          * 任务完成时间：未结束的审批为 0，Unix 毫秒时间戳
          * <p> 示例值：1556468012678
+         *
          * @param endTime
          * @return
          */
         public Builder endTime(String endTime) {
-             this.endTime = endTime;
-             return this;
+            this.endTime = endTime;
+            return this;
         }
 
-    
 
         /**
          * task最近更新时间，用于推送数据版本控制； 更新策略同 instance 中的 update_time
          * <p> 示例值：1556468012678
+         *
          * @param updateTime
          * @return
          */
         public Builder updateTime(String updateTime) {
-             this.updateTime = updateTime;
-             return this;
+            this.updateTime = updateTime;
+            return this;
         }
 
-    
 
         /**
          * 操作上下文，当用户操作时，回调请求中带上该参数，用于传递该任务的上下文数据
          * <p> 示例值：123456
+         *
          * @param actionContext
          * @return
          */
         public Builder actionContext(String actionContext) {
-             this.actionContext = actionContext;
-             return this;
+            this.actionContext = actionContext;
+            return this;
         }
 
-    
 
         /**
          * 任务级别操作配置,快捷审批目前支持移动端操作
          * <p> 示例值：
+         *
          * @param actionConfigs
          * @return
          */
         public Builder actionConfigs(ActionConfig[] actionConfigs) {
-             this.actionConfigs = actionConfigs;
-             return this;
+            this.actionConfigs = actionConfigs;
+            return this;
         }
 
-    
 
         /**
          * 列表页打开审批任务的方式
          * <p> 示例值：BROWSER
+         *
          * @param displayMethod
          * @return
          */
         public Builder displayMethod(String displayMethod) {
-             this.displayMethod = displayMethod;
-             return this;
+            this.displayMethod = displayMethod;
+            return this;
         }
+
         /**
          * 列表页打开审批任务的方式
          * <p> 示例值：BROWSER
+         *
          * @param displayMethod {@link com.lark.oapi.service.approval.v4.enums.ExternalInstanceTaskNodeDisplayMethodEnum}
          * @return
          */
         public Builder displayMethod(com.lark.oapi.service.approval.v4.enums.ExternalInstanceTaskNodeDisplayMethodEnum displayMethod) {
-             this.displayMethod = displayMethod.getValue();
-             return this;
+            this.displayMethod = displayMethod.getValue();
+            return this;
         }
 
-    
 
         /**
          * 三方任务支持不纳入效率统计。;false：纳入效率统计。;true：不纳入效率统计
          * <p> 示例值：false
+         *
          * @param excludeStatistics
          * @return
          */
         public Builder excludeStatistics(Boolean excludeStatistics) {
-             this.excludeStatistics = excludeStatistics;
-             return this;
+            this.excludeStatistics = excludeStatistics;
+            return this;
         }
 
-    
 
         /**
          * 节点id：必须同时满足;- 一个流程内，每个节点id唯一。如一个流程下「直属上级」、「隔级上级」等每个节点的Node_id均不一样;- 同一个流程定义内，不同审批实例中的相同节点，Node_id要保持不变。例如张三和李四分别发起了请假申请，这2个审批实例中的「直属上级」节点的node_id应该保持一致
          * <p> 示例值：node
+         *
          * @param nodeId
          * @return
          */
         public Builder nodeId(String nodeId) {
-             this.nodeId = nodeId;
-             return this;
+            this.nodeId = nodeId;
+            return this;
         }
 
-    
 
         /**
          * 节点名称，如「财务审批」「法务审批」，支持中英日三种语言。示例：i18n@name。需要在i18n_resources中传该名称对应的国际化文案
          * <p> 示例值：i18n@name
+         *
          * @param nodeName
          * @return
          */
         public Builder nodeName(String nodeName) {
-             this.nodeName = nodeName;
-             return this;
+            this.nodeName = nodeName;
+            return this;
         }
 
-    
 
         /**
          * 任务生成类型
          * <p> 示例值：EXTERNAL_CONSIGN
+         *
          * @param generateType
          * @return
          */
         public Builder generateType(String generateType) {
-             this.generateType = generateType;
-             return this;
+            this.generateType = generateType;
+            return this;
         }
+
         /**
          * 任务生成类型
          * <p> 示例值：EXTERNAL_CONSIGN
+         *
          * @param generateType {@link com.lark.oapi.service.approval.v4.enums.ExternalInstanceTaskNodeGenerateTypeEnum}
          * @return
          */
         public Builder generateType(com.lark.oapi.service.approval.v4.enums.ExternalInstanceTaskNodeGenerateTypeEnum generateType) {
-             this.generateType = generateType.getValue();
-             return this;
+            this.generateType = generateType.getValue();
+            return this;
         }
 
-    
-    
-    public ExternalInstanceTaskNode build(){
-        return new ExternalInstanceTaskNode(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ExternalInstanceTaskNode build() {
+            return new ExternalInstanceTaskNode(this);
+        }
     }
 }

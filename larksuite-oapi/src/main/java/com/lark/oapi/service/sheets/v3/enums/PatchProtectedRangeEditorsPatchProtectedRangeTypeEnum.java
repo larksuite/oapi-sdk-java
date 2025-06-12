@@ -17,15 +17,16 @@ package com.lark.oapi.service.sheets.v3.enums;
  * 修改类型
  */
 public enum PatchProtectedRangeEditorsPatchProtectedRangeTypeEnum {
-     ADDEDITORS("AddEditors"), // 增加可编辑人员
-     REMOVEEDITORS("RemoveEditors"), // 移除可编辑人员
-  ;
-   private String value;
+    ADDEDITORS("AddEditors"), // 增加可编辑人员
+    REMOVEEDITORS("RemoveEditors"), // 移除可编辑人员
+    ;
+    private String value;
+
     PatchProtectedRangeEditorsPatchProtectedRangeTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

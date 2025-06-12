@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,54 +20,104 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class EmpCustomOrgList {
-     /**
-      * 自定义组织列表
-      * <p> 示例值：
-      */
+    /**
+     * 自定义组织列表
+     * <p> 示例值：
+     */
     @SerializedName("custom_org_list")
     private CustomOrgList[] customOrgList;
-     /**
-      * 生效时间
-      * <p> 示例值：2024-06-13 00:00:00
-      */
+    /**
+     * 生效时间
+     * <p> 示例值：2024-06-13 00:00:00
+     */
     @SerializedName("effective_time")
     private String effectiveTime;
-     /**
-      * 变动原因
-      * <p> 示例值：自动打标
-      */
+    /**
+     * 变动原因
+     * <p> 示例值：自动打标
+     */
     @SerializedName("start_reason")
     private String startReason;
-     /**
-      * ID
-      * <p> 示例值：7260357352426782739
-      */
+    /**
+     * ID
+     * <p> 示例值：7260357352426782739
+     */
     @SerializedName("job_data_custom_org_id")
     private String jobDataCustomOrgId;
-     /**
-      * 版本号
-      * <p> 示例值：7260357352426782749
-      */
+    /**
+     * 版本号
+     * <p> 示例值：7260357352426782749
+     */
     @SerializedName("version_id")
     private String versionId;
-     /**
-      * 自定义组织类型
-      * <p> 示例值：custom_org_03
-      */
+    /**
+     * 自定义组织类型
+     * <p> 示例值：custom_org_03
+     */
     @SerializedName("object_api_name")
     private String objectApiName;
-     /**
-      * 用户id
-      * <p> 示例值：7352797725202581036
-      */
+    /**
+     * 用户id
+     * <p> 示例值：7352797725202581036
+     */
     @SerializedName("user_id")
     private String userId;
+
+    // builder 开始
+    public EmpCustomOrgList() {
+    }
+
+    public EmpCustomOrgList(Builder builder) {
+        /**
+         * 自定义组织列表
+         * <p> 示例值：
+         */
+        this.customOrgList = builder.customOrgList;
+        /**
+         * 生效时间
+         * <p> 示例值：2024-06-13 00:00:00
+         */
+        this.effectiveTime = builder.effectiveTime;
+        /**
+         * 变动原因
+         * <p> 示例值：自动打标
+         */
+        this.startReason = builder.startReason;
+        /**
+         * ID
+         * <p> 示例值：7260357352426782739
+         */
+        this.jobDataCustomOrgId = builder.jobDataCustomOrgId;
+        /**
+         * 版本号
+         * <p> 示例值：7260357352426782749
+         */
+        this.versionId = builder.versionId;
+        /**
+         * 自定义组织类型
+         * <p> 示例值：custom_org_03
+         */
+        this.objectApiName = builder.objectApiName;
+        /**
+         * 用户id
+         * <p> 示例值：7352797725202581036
+         */
+        this.userId = builder.userId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public CustomOrgList[] getCustomOrgList() {
         return this.customOrgList;
     }
@@ -123,182 +174,136 @@ public class EmpCustomOrgList {
         this.userId = userId;
     }
 
-
-// builder 开始
-  public EmpCustomOrgList(){}
-
-  public EmpCustomOrgList(Builder builder){
-         /**
-          * 自定义组织列表
-          * <p> 示例值：
-          */
-      this.customOrgList = builder.customOrgList;
-         /**
-          * 生效时间
-          * <p> 示例值：2024-06-13 00:00:00
-          */
-      this.effectiveTime = builder.effectiveTime;
-         /**
-          * 变动原因
-          * <p> 示例值：自动打标
-          */
-      this.startReason = builder.startReason;
-         /**
-          * ID
-          * <p> 示例值：7260357352426782739
-          */
-      this.jobDataCustomOrgId = builder.jobDataCustomOrgId;
-         /**
-          * 版本号
-          * <p> 示例值：7260357352426782749
-          */
-      this.versionId = builder.versionId;
-         /**
-          * 自定义组织类型
-          * <p> 示例值：custom_org_03
-          */
-      this.objectApiName = builder.objectApiName;
-         /**
-          * 用户id
-          * <p> 示例值：7352797725202581036
-          */
-      this.userId = builder.userId;
-  }
-
     public static class Builder {
-     /**
-      * 自定义组织列表
-      * <p> 示例值：
-      */
+        /**
+         * 自定义组织列表
+         * <p> 示例值：
+         */
         private CustomOrgList[] customOrgList;
-     /**
-      * 生效时间
-      * <p> 示例值：2024-06-13 00:00:00
-      */
+        /**
+         * 生效时间
+         * <p> 示例值：2024-06-13 00:00:00
+         */
         private String effectiveTime;
-     /**
-      * 变动原因
-      * <p> 示例值：自动打标
-      */
+        /**
+         * 变动原因
+         * <p> 示例值：自动打标
+         */
         private String startReason;
-     /**
-      * ID
-      * <p> 示例值：7260357352426782739
-      */
+        /**
+         * ID
+         * <p> 示例值：7260357352426782739
+         */
         private String jobDataCustomOrgId;
-     /**
-      * 版本号
-      * <p> 示例值：7260357352426782749
-      */
+        /**
+         * 版本号
+         * <p> 示例值：7260357352426782749
+         */
         private String versionId;
-     /**
-      * 自定义组织类型
-      * <p> 示例值：custom_org_03
-      */
+        /**
+         * 自定义组织类型
+         * <p> 示例值：custom_org_03
+         */
         private String objectApiName;
-     /**
-      * 用户id
-      * <p> 示例值：7352797725202581036
-      */
+        /**
+         * 用户id
+         * <p> 示例值：7352797725202581036
+         */
         private String userId;
 
         /**
          * 自定义组织列表
          * <p> 示例值：
+         *
          * @param customOrgList
          * @return
          */
         public Builder customOrgList(CustomOrgList[] customOrgList) {
-             this.customOrgList = customOrgList;
-             return this;
+            this.customOrgList = customOrgList;
+            return this;
         }
 
-    
 
         /**
          * 生效时间
          * <p> 示例值：2024-06-13 00:00:00
+         *
          * @param effectiveTime
          * @return
          */
         public Builder effectiveTime(String effectiveTime) {
-             this.effectiveTime = effectiveTime;
-             return this;
+            this.effectiveTime = effectiveTime;
+            return this;
         }
 
-    
 
         /**
          * 变动原因
          * <p> 示例值：自动打标
+         *
          * @param startReason
          * @return
          */
         public Builder startReason(String startReason) {
-             this.startReason = startReason;
-             return this;
+            this.startReason = startReason;
+            return this;
         }
 
-    
 
         /**
          * ID
          * <p> 示例值：7260357352426782739
+         *
          * @param jobDataCustomOrgId
          * @return
          */
         public Builder jobDataCustomOrgId(String jobDataCustomOrgId) {
-             this.jobDataCustomOrgId = jobDataCustomOrgId;
-             return this;
+            this.jobDataCustomOrgId = jobDataCustomOrgId;
+            return this;
         }
 
-    
 
         /**
          * 版本号
          * <p> 示例值：7260357352426782749
+         *
          * @param versionId
          * @return
          */
         public Builder versionId(String versionId) {
-             this.versionId = versionId;
-             return this;
+            this.versionId = versionId;
+            return this;
         }
 
-    
 
         /**
          * 自定义组织类型
          * <p> 示例值：custom_org_03
+         *
          * @param objectApiName
          * @return
          */
         public Builder objectApiName(String objectApiName) {
-             this.objectApiName = objectApiName;
-             return this;
+            this.objectApiName = objectApiName;
+            return this;
         }
 
-    
 
         /**
          * 用户id
          * <p> 示例值：7352797725202581036
+         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-             this.userId = userId;
-             return this;
+            this.userId = userId;
+            return this;
         }
 
-    
-    
-    public EmpCustomOrgList build(){
-        return new EmpCustomOrgList(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public EmpCustomOrgList build() {
+            return new EmpCustomOrgList(this);
+        }
     }
 }

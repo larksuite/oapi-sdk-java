@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.calendar.v4.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.calendar.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class RoomMeta {
-     /**
-      * 会议室名称
-      * <p> 示例值：none
-      */
+    /**
+     * 会议室名称
+     * <p> 示例值：none
+     */
     @SerializedName("name")
     private String name;
-     /**
-      * 会议室ID
-      * <p> 示例值：none
-      */
+    /**
+     * 会议室ID
+     * <p> 示例值：none
+     */
     @SerializedName("room_id")
     private String roomId;
+
+    // builder 开始
+    public RoomMeta() {
+    }
+
+    public RoomMeta(Builder builder) {
+        /**
+         * 会议室名称
+         * <p> 示例值：none
+         */
+        this.name = builder.name;
+        /**
+         * 会议室ID
+         * <p> 示例值：none
+         */
+        this.roomId = builder.roomId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getName() {
         return this.name;
     }
@@ -53,67 +79,46 @@ public class RoomMeta {
         this.roomId = roomId;
     }
 
-
-// builder 开始
-  public RoomMeta(){}
-
-  public RoomMeta(Builder builder){
-         /**
-          * 会议室名称
-          * <p> 示例值：none
-          */
-      this.name = builder.name;
-         /**
-          * 会议室ID
-          * <p> 示例值：none
-          */
-      this.roomId = builder.roomId;
-  }
-
     public static class Builder {
-     /**
-      * 会议室名称
-      * <p> 示例值：none
-      */
+        /**
+         * 会议室名称
+         * <p> 示例值：none
+         */
         private String name;
-     /**
-      * 会议室ID
-      * <p> 示例值：none
-      */
+        /**
+         * 会议室ID
+         * <p> 示例值：none
+         */
         private String roomId;
 
         /**
          * 会议室名称
          * <p> 示例值：none
+         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 会议室ID
          * <p> 示例值：none
+         *
          * @param roomId
          * @return
          */
         public Builder roomId(String roomId) {
-             this.roomId = roomId;
-             return this;
+            this.roomId = roomId;
+            return this;
         }
 
-    
-    
-    public RoomMeta build(){
-        return new RoomMeta(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public RoomMeta build() {
+            return new RoomMeta(this);
+        }
     }
 }

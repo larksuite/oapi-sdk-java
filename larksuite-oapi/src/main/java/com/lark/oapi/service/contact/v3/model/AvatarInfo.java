@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.contact.v3.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,36 +20,71 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class AvatarInfo {
-     /**
-      * 72*72像素头像链接
-      * <p> 示例值：https://foo.icon.com/xxxx
-      */
+    /**
+     * 72*72像素头像链接
+     * <p> 示例值：https://foo.icon.com/xxxx
+     */
     @SerializedName("avatar_72")
     private String avatar72;
-     /**
-      * 240*240像素头像链接
-      * <p> 示例值：https://foo.icon.com/xxxx
-      */
+    /**
+     * 240*240像素头像链接
+     * <p> 示例值：https://foo.icon.com/xxxx
+     */
     @SerializedName("avatar_240")
     private String avatar240;
-     /**
-      * 640*640像素头像链接
-      * <p> 示例值：https://foo.icon.com/xxxx
-      */
+    /**
+     * 640*640像素头像链接
+     * <p> 示例值：https://foo.icon.com/xxxx
+     */
     @SerializedName("avatar_640")
     private String avatar640;
-     /**
-      * 原始头像链接
-      * <p> 示例值：https://foo.icon.com/xxxx
-      */
+    /**
+     * 原始头像链接
+     * <p> 示例值：https://foo.icon.com/xxxx
+     */
     @SerializedName("avatar_origin")
     private String avatarOrigin;
+
+    // builder 开始
+    public AvatarInfo() {
+    }
+
+    public AvatarInfo(Builder builder) {
+        /**
+         * 72*72像素头像链接
+         * <p> 示例值：https://foo.icon.com/xxxx
+         */
+        this.avatar72 = builder.avatar72;
+        /**
+         * 240*240像素头像链接
+         * <p> 示例值：https://foo.icon.com/xxxx
+         */
+        this.avatar240 = builder.avatar240;
+        /**
+         * 640*640像素头像链接
+         * <p> 示例值：https://foo.icon.com/xxxx
+         */
+        this.avatar640 = builder.avatar640;
+        /**
+         * 原始头像链接
+         * <p> 示例值：https://foo.icon.com/xxxx
+         */
+        this.avatarOrigin = builder.avatarOrigin;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getAvatar72() {
         return this.avatar72;
     }
@@ -81,113 +117,82 @@ public class AvatarInfo {
         this.avatarOrigin = avatarOrigin;
     }
 
-
-// builder 开始
-  public AvatarInfo(){}
-
-  public AvatarInfo(Builder builder){
-         /**
-          * 72*72像素头像链接
-          * <p> 示例值：https://foo.icon.com/xxxx
-          */
-      this.avatar72 = builder.avatar72;
-         /**
-          * 240*240像素头像链接
-          * <p> 示例值：https://foo.icon.com/xxxx
-          */
-      this.avatar240 = builder.avatar240;
-         /**
-          * 640*640像素头像链接
-          * <p> 示例值：https://foo.icon.com/xxxx
-          */
-      this.avatar640 = builder.avatar640;
-         /**
-          * 原始头像链接
-          * <p> 示例值：https://foo.icon.com/xxxx
-          */
-      this.avatarOrigin = builder.avatarOrigin;
-  }
-
     public static class Builder {
-     /**
-      * 72*72像素头像链接
-      * <p> 示例值：https://foo.icon.com/xxxx
-      */
+        /**
+         * 72*72像素头像链接
+         * <p> 示例值：https://foo.icon.com/xxxx
+         */
         private String avatar72;
-     /**
-      * 240*240像素头像链接
-      * <p> 示例值：https://foo.icon.com/xxxx
-      */
+        /**
+         * 240*240像素头像链接
+         * <p> 示例值：https://foo.icon.com/xxxx
+         */
         private String avatar240;
-     /**
-      * 640*640像素头像链接
-      * <p> 示例值：https://foo.icon.com/xxxx
-      */
+        /**
+         * 640*640像素头像链接
+         * <p> 示例值：https://foo.icon.com/xxxx
+         */
         private String avatar640;
-     /**
-      * 原始头像链接
-      * <p> 示例值：https://foo.icon.com/xxxx
-      */
+        /**
+         * 原始头像链接
+         * <p> 示例值：https://foo.icon.com/xxxx
+         */
         private String avatarOrigin;
 
         /**
          * 72*72像素头像链接
          * <p> 示例值：https://foo.icon.com/xxxx
+         *
          * @param avatar72
          * @return
          */
         public Builder avatar72(String avatar72) {
-             this.avatar72 = avatar72;
-             return this;
+            this.avatar72 = avatar72;
+            return this;
         }
 
-    
 
         /**
          * 240*240像素头像链接
          * <p> 示例值：https://foo.icon.com/xxxx
+         *
          * @param avatar240
          * @return
          */
         public Builder avatar240(String avatar240) {
-             this.avatar240 = avatar240;
-             return this;
+            this.avatar240 = avatar240;
+            return this;
         }
 
-    
 
         /**
          * 640*640像素头像链接
          * <p> 示例值：https://foo.icon.com/xxxx
+         *
          * @param avatar640
          * @return
          */
         public Builder avatar640(String avatar640) {
-             this.avatar640 = avatar640;
-             return this;
+            this.avatar640 = avatar640;
+            return this;
         }
 
-    
 
         /**
          * 原始头像链接
          * <p> 示例值：https://foo.icon.com/xxxx
+         *
          * @param avatarOrigin
          * @return
          */
         public Builder avatarOrigin(String avatarOrigin) {
-             this.avatarOrigin = avatarOrigin;
-             return this;
+            this.avatarOrigin = avatarOrigin;
+            return this;
         }
 
-    
-    
-    public AvatarInfo build(){
-        return new AvatarInfo(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public AvatarInfo build() {
+            return new AvatarInfo(this);
+        }
     }
 }

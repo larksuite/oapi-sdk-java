@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.task.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.task.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Dummy {
-     /**
-      * amazing的api meta
-      * <p> 示例值：amazing the api meta haha
-      */
+    /**
+     * amazing的api meta
+     * <p> 示例值：amazing the api meta haha
+     */
     @SerializedName("foo")
     private String foo;
+
+    // builder 开始
+    public Dummy() {
+    }
+
+    public Dummy(Builder builder) {
+        /**
+         * amazing的api meta
+         * <p> 示例值：amazing the api meta haha
+         */
+        this.foo = builder.foo;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getFoo() {
         return this.foo;
     }
@@ -39,44 +60,28 @@ public class Dummy {
         this.foo = foo;
     }
 
-
-// builder 开始
-  public Dummy(){}
-
-  public Dummy(Builder builder){
-         /**
-          * amazing的api meta
-          * <p> 示例值：amazing the api meta haha
-          */
-      this.foo = builder.foo;
-  }
-
     public static class Builder {
-     /**
-      * amazing的api meta
-      * <p> 示例值：amazing the api meta haha
-      */
+        /**
+         * amazing的api meta
+         * <p> 示例值：amazing the api meta haha
+         */
         private String foo;
 
         /**
          * amazing的api meta
          * <p> 示例值：amazing the api meta haha
+         *
          * @param foo
          * @return
          */
         public Builder foo(String foo) {
-             this.foo = foo;
-             return this;
+            this.foo = foo;
+            return this;
         }
 
-    
-    
-    public Dummy build(){
-        return new Dummy(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Dummy build() {
+            return new Dummy(this);
+        }
     }
 }

@@ -12,42 +12,47 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class P2ApplicationAppVersionPublishApplyV6Data {
-     /**
-      * 用户 ID
-      * <p> 示例值：
-      */
+    /**
+     * 用户 ID
+     * <p> 示例值：
+     */
     @SerializedName("operator_id")
     private UserId operatorId;
-     /**
-      * 当前线上版本信息
-      * <p> 示例值：
-      */
+    /**
+     * 当前线上版本信息
+     * <p> 示例值：
+     */
     @SerializedName("online_version")
     private ApplicationAppVersionEvent onlineVersion;
-     /**
-      * 当前在审核的应用版本
-      * <p> 示例值：
-      */
+    /**
+     * 当前在审核的应用版本
+     * <p> 示例值：
+     */
     @SerializedName("under_audit_version")
     private ApplicationAppVersionEvent underAuditVersion;
-     /**
-      * 应用状态
-      * <p> 示例值：1
-      */
+    /**
+     * 应用状态
+     * <p> 示例值：1
+     */
     @SerializedName("app_status")
     private Integer appStatus;
+
     public UserId getOperatorId() {
         return this.operatorId;
     }

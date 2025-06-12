@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.payroll.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.payroll.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,48 +20,93 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Datasource {
-     /**
-      * 数据源编码
-      * <p> 示例值：test_datasource__c
-      */
+    /**
+     * 数据源编码
+     * <p> 示例值：test_datasource__c
+     */
     @SerializedName("code")
     private String code;
-     /**
-      * 数据源名称
-      * <p> 示例值：
-      */
+    /**
+     * 数据源名称
+     * <p> 示例值：
+     */
     @SerializedName("i18n_names")
     private I18nContent[] i18nNames;
-     /**
-      * 启停用状态
-      * <p> 示例值：1
-      */
+    /**
+     * 启停用状态
+     * <p> 示例值：1
+     */
     @SerializedName("active_status")
     private Integer activeStatus;
-     /**
-      * 数据源字段列表
-      * <p> 示例值：
-      */
+    /**
+     * 数据源字段列表
+     * <p> 示例值：
+     */
     @SerializedName("fields")
     private DatasourceField[] fields;
-     /**
-      * 数据源描述
-      * <p> 示例值：
-      */
+    /**
+     * 数据源描述
+     * <p> 示例值：
+     */
     @SerializedName("i18n_description")
     private I18nContent[] i18nDescription;
-     /**
-      * 数据期间类型（数据写入维度）
-      * <p> 示例值：
-      */
+    /**
+     * 数据期间类型（数据写入维度）
+     * <p> 示例值：
+     */
     @SerializedName("data_period_type")
     private Integer dataPeriodType;
+
+    // builder 开始
+    public Datasource() {
+    }
+
+    public Datasource(Builder builder) {
+        /**
+         * 数据源编码
+         * <p> 示例值：test_datasource__c
+         */
+        this.code = builder.code;
+        /**
+         * 数据源名称
+         * <p> 示例值：
+         */
+        this.i18nNames = builder.i18nNames;
+        /**
+         * 启停用状态
+         * <p> 示例值：1
+         */
+        this.activeStatus = builder.activeStatus;
+        /**
+         * 数据源字段列表
+         * <p> 示例值：
+         */
+        this.fields = builder.fields;
+        /**
+         * 数据源描述
+         * <p> 示例值：
+         */
+        this.i18nDescription = builder.i18nDescription;
+        /**
+         * 数据期间类型（数据写入维度）
+         * <p> 示例值：
+         */
+        this.dataPeriodType = builder.dataPeriodType;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getCode() {
         return this.code;
     }
@@ -109,179 +155,142 @@ public class Datasource {
         this.dataPeriodType = dataPeriodType;
     }
 
-
-// builder 开始
-  public Datasource(){}
-
-  public Datasource(Builder builder){
-         /**
-          * 数据源编码
-          * <p> 示例值：test_datasource__c
-          */
-      this.code = builder.code;
-         /**
-          * 数据源名称
-          * <p> 示例值：
-          */
-      this.i18nNames = builder.i18nNames;
-         /**
-          * 启停用状态
-          * <p> 示例值：1
-          */
-      this.activeStatus = builder.activeStatus;
-         /**
-          * 数据源字段列表
-          * <p> 示例值：
-          */
-      this.fields = builder.fields;
-         /**
-          * 数据源描述
-          * <p> 示例值：
-          */
-      this.i18nDescription = builder.i18nDescription;
-         /**
-          * 数据期间类型（数据写入维度）
-          * <p> 示例值：
-          */
-      this.dataPeriodType = builder.dataPeriodType;
-  }
-
     public static class Builder {
-     /**
-      * 数据源编码
-      * <p> 示例值：test_datasource__c
-      */
+        /**
+         * 数据源编码
+         * <p> 示例值：test_datasource__c
+         */
         private String code;
-     /**
-      * 数据源名称
-      * <p> 示例值：
-      */
+        /**
+         * 数据源名称
+         * <p> 示例值：
+         */
         private I18nContent[] i18nNames;
-     /**
-      * 启停用状态
-      * <p> 示例值：1
-      */
+        /**
+         * 启停用状态
+         * <p> 示例值：1
+         */
         private Integer activeStatus;
-     /**
-      * 数据源字段列表
-      * <p> 示例值：
-      */
+        /**
+         * 数据源字段列表
+         * <p> 示例值：
+         */
         private DatasourceField[] fields;
-     /**
-      * 数据源描述
-      * <p> 示例值：
-      */
+        /**
+         * 数据源描述
+         * <p> 示例值：
+         */
         private I18nContent[] i18nDescription;
-     /**
-      * 数据期间类型（数据写入维度）
-      * <p> 示例值：
-      */
+        /**
+         * 数据期间类型（数据写入维度）
+         * <p> 示例值：
+         */
         private Integer dataPeriodType;
 
         /**
          * 数据源编码
          * <p> 示例值：test_datasource__c
+         *
          * @param code
          * @return
          */
         public Builder code(String code) {
-             this.code = code;
-             return this;
+            this.code = code;
+            return this;
         }
 
-    
 
         /**
          * 数据源名称
          * <p> 示例值：
+         *
          * @param i18nNames
          * @return
          */
         public Builder i18nNames(I18nContent[] i18nNames) {
-             this.i18nNames = i18nNames;
-             return this;
+            this.i18nNames = i18nNames;
+            return this;
         }
 
-    
 
         /**
          * 启停用状态
          * <p> 示例值：1
+         *
          * @param activeStatus
          * @return
          */
         public Builder activeStatus(Integer activeStatus) {
-             this.activeStatus = activeStatus;
-             return this;
+            this.activeStatus = activeStatus;
+            return this;
         }
+
         /**
          * 启停用状态
          * <p> 示例值：1
+         *
          * @param activeStatus {@link com.lark.oapi.service.payroll.v1.enums.DatasourceActiveStatusEnum}
          * @return
          */
         public Builder activeStatus(com.lark.oapi.service.payroll.v1.enums.DatasourceActiveStatusEnum activeStatus) {
-             this.activeStatus = activeStatus.getValue();
-             return this;
+            this.activeStatus = activeStatus.getValue();
+            return this;
         }
 
-    
 
         /**
          * 数据源字段列表
          * <p> 示例值：
+         *
          * @param fields
          * @return
          */
         public Builder fields(DatasourceField[] fields) {
-             this.fields = fields;
-             return this;
+            this.fields = fields;
+            return this;
         }
 
-    
 
         /**
          * 数据源描述
          * <p> 示例值：
+         *
          * @param i18nDescription
          * @return
          */
         public Builder i18nDescription(I18nContent[] i18nDescription) {
-             this.i18nDescription = i18nDescription;
-             return this;
+            this.i18nDescription = i18nDescription;
+            return this;
         }
 
-    
 
         /**
          * 数据期间类型（数据写入维度）
          * <p> 示例值：
+         *
          * @param dataPeriodType
          * @return
          */
         public Builder dataPeriodType(Integer dataPeriodType) {
-             this.dataPeriodType = dataPeriodType;
-             return this;
+            this.dataPeriodType = dataPeriodType;
+            return this;
         }
+
         /**
          * 数据期间类型（数据写入维度）
          * <p> 示例值：
+         *
          * @param dataPeriodType {@link com.lark.oapi.service.payroll.v1.enums.DatasourceDataPeriodTypeEnum}
          * @return
          */
         public Builder dataPeriodType(com.lark.oapi.service.payroll.v1.enums.DatasourceDataPeriodTypeEnum dataPeriodType) {
-             this.dataPeriodType = dataPeriodType.getValue();
-             return this;
+            this.dataPeriodType = dataPeriodType.getValue();
+            return this;
         }
 
-    
-    
-    public Datasource build(){
-        return new Datasource(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Datasource build() {
+            return new Datasource(this);
+        }
     }
 }

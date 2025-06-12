@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,36 +20,71 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class RecordResultError {
-     /**
-      * 错误码
-      * <p> 示例值：0
-      */
+    /**
+     * 错误码
+     * <p> 示例值：0
+     */
     @SerializedName("code")
     private String code;
-     /**
-      * success
-      * <p> 示例值：success
-      */
+    /**
+     * success
+     * <p> 示例值：success
+     */
     @SerializedName("message")
     private String message;
-     /**
-      * 权限错误时的细分 code
-      * <p> 示例值：k_ec_00001
-      */
+    /**
+     * 权限错误时的细分 code
+     * <p> 示例值：k_ec_00001
+     */
     @SerializedName("sub_code")
     private String subCode;
-     /**
-      * 权限错误时的涉及的字段 APIID 集合
-      * <p> 示例值：
-      */
+    /**
+     * 权限错误时的涉及的字段 APIID 集合
+     * <p> 示例值：
+     */
     @SerializedName("fields")
     private String[] fields;
+
+    // builder 开始
+    public RecordResultError() {
+    }
+
+    public RecordResultError(Builder builder) {
+        /**
+         * 错误码
+         * <p> 示例值：0
+         */
+        this.code = builder.code;
+        /**
+         * success
+         * <p> 示例值：success
+         */
+        this.message = builder.message;
+        /**
+         * 权限错误时的细分 code
+         * <p> 示例值：k_ec_00001
+         */
+        this.subCode = builder.subCode;
+        /**
+         * 权限错误时的涉及的字段 APIID 集合
+         * <p> 示例值：
+         */
+        this.fields = builder.fields;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getCode() {
         return this.code;
     }
@@ -81,113 +117,82 @@ public class RecordResultError {
         this.fields = fields;
     }
 
-
-// builder 开始
-  public RecordResultError(){}
-
-  public RecordResultError(Builder builder){
-         /**
-          * 错误码
-          * <p> 示例值：0
-          */
-      this.code = builder.code;
-         /**
-          * success
-          * <p> 示例值：success
-          */
-      this.message = builder.message;
-         /**
-          * 权限错误时的细分 code
-          * <p> 示例值：k_ec_00001
-          */
-      this.subCode = builder.subCode;
-         /**
-          * 权限错误时的涉及的字段 APIID 集合
-          * <p> 示例值：
-          */
-      this.fields = builder.fields;
-  }
-
     public static class Builder {
-     /**
-      * 错误码
-      * <p> 示例值：0
-      */
+        /**
+         * 错误码
+         * <p> 示例值：0
+         */
         private String code;
-     /**
-      * success
-      * <p> 示例值：success
-      */
+        /**
+         * success
+         * <p> 示例值：success
+         */
         private String message;
-     /**
-      * 权限错误时的细分 code
-      * <p> 示例值：k_ec_00001
-      */
+        /**
+         * 权限错误时的细分 code
+         * <p> 示例值：k_ec_00001
+         */
         private String subCode;
-     /**
-      * 权限错误时的涉及的字段 APIID 集合
-      * <p> 示例值：
-      */
+        /**
+         * 权限错误时的涉及的字段 APIID 集合
+         * <p> 示例值：
+         */
         private String[] fields;
 
         /**
          * 错误码
          * <p> 示例值：0
+         *
          * @param code
          * @return
          */
         public Builder code(String code) {
-             this.code = code;
-             return this;
+            this.code = code;
+            return this;
         }
 
-    
 
         /**
          * success
          * <p> 示例值：success
+         *
          * @param message
          * @return
          */
         public Builder message(String message) {
-             this.message = message;
-             return this;
+            this.message = message;
+            return this;
         }
 
-    
 
         /**
          * 权限错误时的细分 code
          * <p> 示例值：k_ec_00001
+         *
          * @param subCode
          * @return
          */
         public Builder subCode(String subCode) {
-             this.subCode = subCode;
-             return this;
+            this.subCode = subCode;
+            return this;
         }
 
-    
 
         /**
          * 权限错误时的涉及的字段 APIID 集合
          * <p> 示例值：
+         *
          * @param fields
          * @return
          */
         public Builder fields(String[] fields) {
-             this.fields = fields;
-             return this;
+            this.fields = fields;
+            return this;
         }
 
-    
-    
-    public RecordResultError build(){
-        return new RecordResultError(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public RecordResultError build() {
+            return new RecordResultError(this);
+        }
     }
 }

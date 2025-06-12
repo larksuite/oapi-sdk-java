@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.search.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.search.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class RagAnswerResponse {
-     /**
-      * 模型总结的结果
-      * <p> 示例值：总结
-      */
+    /**
+     * 模型总结的结果
+     * <p> 示例值：总结
+     */
     @SerializedName("answer")
     private String answer;
-     /**
-      * 召回的passage列表
-      * <p> 示例值：
-      */
+    /**
+     * 召回的passage列表
+     * <p> 示例值：
+     */
     @SerializedName("passages")
     private Passage[] passages;
-     /**
-      * 返回结果提示
-      * <p> 示例值：
-      */
+    /**
+     * 返回结果提示
+     * <p> 示例值：
+     */
     @SerializedName("probe")
     private RagProbe probe;
+
+    // builder 开始
+    public RagAnswerResponse() {
+    }
+
+    public RagAnswerResponse(Builder builder) {
+        /**
+         * 模型总结的结果
+         * <p> 示例值：总结
+         */
+        this.answer = builder.answer;
+        /**
+         * 召回的passage列表
+         * <p> 示例值：
+         */
+        this.passages = builder.passages;
+        /**
+         * 返回结果提示
+         * <p> 示例值：
+         */
+        this.probe = builder.probe;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getAnswer() {
         return this.answer;
     }
@@ -67,90 +98,64 @@ public class RagAnswerResponse {
         this.probe = probe;
     }
 
-
-// builder 开始
-  public RagAnswerResponse(){}
-
-  public RagAnswerResponse(Builder builder){
-         /**
-          * 模型总结的结果
-          * <p> 示例值：总结
-          */
-      this.answer = builder.answer;
-         /**
-          * 召回的passage列表
-          * <p> 示例值：
-          */
-      this.passages = builder.passages;
-         /**
-          * 返回结果提示
-          * <p> 示例值：
-          */
-      this.probe = builder.probe;
-  }
-
     public static class Builder {
-     /**
-      * 模型总结的结果
-      * <p> 示例值：总结
-      */
+        /**
+         * 模型总结的结果
+         * <p> 示例值：总结
+         */
         private String answer;
-     /**
-      * 召回的passage列表
-      * <p> 示例值：
-      */
+        /**
+         * 召回的passage列表
+         * <p> 示例值：
+         */
         private Passage[] passages;
-     /**
-      * 返回结果提示
-      * <p> 示例值：
-      */
+        /**
+         * 返回结果提示
+         * <p> 示例值：
+         */
         private RagProbe probe;
 
         /**
          * 模型总结的结果
          * <p> 示例值：总结
+         *
          * @param answer
          * @return
          */
         public Builder answer(String answer) {
-             this.answer = answer;
-             return this;
+            this.answer = answer;
+            return this;
         }
 
-    
 
         /**
          * 召回的passage列表
          * <p> 示例值：
+         *
          * @param passages
          * @return
          */
         public Builder passages(Passage[] passages) {
-             this.passages = passages;
-             return this;
+            this.passages = passages;
+            return this;
         }
 
-    
 
         /**
          * 返回结果提示
          * <p> 示例值：
+         *
          * @param probe
          * @return
          */
         public Builder probe(RagProbe probe) {
-             this.probe = probe;
-             return this;
+            this.probe = probe;
+            return this;
         }
 
-    
-    
-    public RagAnswerResponse build(){
-        return new RagAnswerResponse(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public RagAnswerResponse build() {
+            return new RagAnswerResponse(this);
+        }
     }
 }

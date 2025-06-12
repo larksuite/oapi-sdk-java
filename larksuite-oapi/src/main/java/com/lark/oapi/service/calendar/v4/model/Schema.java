@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.calendar.v4.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.calendar.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Schema {
-     /**
-      * UI名称。取值范围如下： ;- ForwardIcon: 日程转发按钮 ;- MeetingChatIcon: 会议群聊按钮 ;- MeetingMinutesIcon: 会议纪要按钮 ;- MeetingVideo: 视频会议区域 ;- RSVP: 接受/拒绝/待定区域 ;- Attendee: 参与者区域 ;- OrganizerOrCreator: 组织者/创建者区域
-      * <p> 示例值：ForwardIcon
-      */
+    /**
+     * UI名称。取值范围如下： ;- ForwardIcon: 日程转发按钮 ;- MeetingChatIcon: 会议群聊按钮 ;- MeetingMinutesIcon: 会议纪要按钮 ;- MeetingVideo: 视频会议区域 ;- RSVP: 接受/拒绝/待定区域 ;- Attendee: 参与者区域 ;- OrganizerOrCreator: 组织者/创建者区域
+     * <p> 示例值：ForwardIcon
+     */
     @SerializedName("ui_name")
     private String uiName;
-     /**
-      * UI项自定义状态。**目前只支持hide**
-      * <p> 示例值：hide
-      */
+    /**
+     * UI项自定义状态。**目前只支持hide**
+     * <p> 示例值：hide
+     */
     @SerializedName("ui_status")
     private String uiStatus;
-     /**
-      * 按钮点击后跳转的链接; **该字段暂不支持传入。**
-      * <p> 示例值：https://applink.feishu.cn/client/calendar/event/detail?calendarId=xxxxxx&key=xxxxxx&originalTime=xxxxxx&startTime=xxxxxx
-      */
+    /**
+     * 按钮点击后跳转的链接; **该字段暂不支持传入。**
+     * <p> 示例值：https://applink.feishu.cn/client/calendar/event/detail?calendarId=xxxxxx&key=xxxxxx&originalTime=xxxxxx&startTime=xxxxxx
+     */
     @SerializedName("app_link")
     private String appLink;
+
+    // builder 开始
+    public Schema() {
+    }
+
+    public Schema(Builder builder) {
+        /**
+         * UI名称。取值范围如下： ;- ForwardIcon: 日程转发按钮 ;- MeetingChatIcon: 会议群聊按钮 ;- MeetingMinutesIcon: 会议纪要按钮 ;- MeetingVideo: 视频会议区域 ;- RSVP: 接受/拒绝/待定区域 ;- Attendee: 参与者区域 ;- OrganizerOrCreator: 组织者/创建者区域
+         * <p> 示例值：ForwardIcon
+         */
+        this.uiName = builder.uiName;
+        /**
+         * UI项自定义状态。**目前只支持hide**
+         * <p> 示例值：hide
+         */
+        this.uiStatus = builder.uiStatus;
+        /**
+         * 按钮点击后跳转的链接; **该字段暂不支持传入。**
+         * <p> 示例值：https://applink.feishu.cn/client/calendar/event/detail?calendarId=xxxxxx&key=xxxxxx&originalTime=xxxxxx&startTime=xxxxxx
+         */
+        this.appLink = builder.appLink;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getUiName() {
         return this.uiName;
     }
@@ -67,100 +98,76 @@ public class Schema {
         this.appLink = appLink;
     }
 
-
-// builder 开始
-  public Schema(){}
-
-  public Schema(Builder builder){
-         /**
-          * UI名称。取值范围如下： ;- ForwardIcon: 日程转发按钮 ;- MeetingChatIcon: 会议群聊按钮 ;- MeetingMinutesIcon: 会议纪要按钮 ;- MeetingVideo: 视频会议区域 ;- RSVP: 接受/拒绝/待定区域 ;- Attendee: 参与者区域 ;- OrganizerOrCreator: 组织者/创建者区域
-          * <p> 示例值：ForwardIcon
-          */
-      this.uiName = builder.uiName;
-         /**
-          * UI项自定义状态。**目前只支持hide**
-          * <p> 示例值：hide
-          */
-      this.uiStatus = builder.uiStatus;
-         /**
-          * 按钮点击后跳转的链接; **该字段暂不支持传入。**
-          * <p> 示例值：https://applink.feishu.cn/client/calendar/event/detail?calendarId=xxxxxx&key=xxxxxx&originalTime=xxxxxx&startTime=xxxxxx
-          */
-      this.appLink = builder.appLink;
-  }
-
     public static class Builder {
-     /**
-      * UI名称。取值范围如下： ;- ForwardIcon: 日程转发按钮 ;- MeetingChatIcon: 会议群聊按钮 ;- MeetingMinutesIcon: 会议纪要按钮 ;- MeetingVideo: 视频会议区域 ;- RSVP: 接受/拒绝/待定区域 ;- Attendee: 参与者区域 ;- OrganizerOrCreator: 组织者/创建者区域
-      * <p> 示例值：ForwardIcon
-      */
+        /**
+         * UI名称。取值范围如下： ;- ForwardIcon: 日程转发按钮 ;- MeetingChatIcon: 会议群聊按钮 ;- MeetingMinutesIcon: 会议纪要按钮 ;- MeetingVideo: 视频会议区域 ;- RSVP: 接受/拒绝/待定区域 ;- Attendee: 参与者区域 ;- OrganizerOrCreator: 组织者/创建者区域
+         * <p> 示例值：ForwardIcon
+         */
         private String uiName;
-     /**
-      * UI项自定义状态。**目前只支持hide**
-      * <p> 示例值：hide
-      */
+        /**
+         * UI项自定义状态。**目前只支持hide**
+         * <p> 示例值：hide
+         */
         private String uiStatus;
-     /**
-      * 按钮点击后跳转的链接; **该字段暂不支持传入。**
-      * <p> 示例值：https://applink.feishu.cn/client/calendar/event/detail?calendarId=xxxxxx&key=xxxxxx&originalTime=xxxxxx&startTime=xxxxxx
-      */
+        /**
+         * 按钮点击后跳转的链接; **该字段暂不支持传入。**
+         * <p> 示例值：https://applink.feishu.cn/client/calendar/event/detail?calendarId=xxxxxx&key=xxxxxx&originalTime=xxxxxx&startTime=xxxxxx
+         */
         private String appLink;
 
         /**
          * UI名称。取值范围如下： ;- ForwardIcon: 日程转发按钮 ;- MeetingChatIcon: 会议群聊按钮 ;- MeetingMinutesIcon: 会议纪要按钮 ;- MeetingVideo: 视频会议区域 ;- RSVP: 接受/拒绝/待定区域 ;- Attendee: 参与者区域 ;- OrganizerOrCreator: 组织者/创建者区域
          * <p> 示例值：ForwardIcon
+         *
          * @param uiName
          * @return
          */
         public Builder uiName(String uiName) {
-             this.uiName = uiName;
-             return this;
+            this.uiName = uiName;
+            return this;
         }
 
-    
 
         /**
          * UI项自定义状态。**目前只支持hide**
          * <p> 示例值：hide
+         *
          * @param uiStatus
          * @return
          */
         public Builder uiStatus(String uiStatus) {
-             this.uiStatus = uiStatus;
-             return this;
+            this.uiStatus = uiStatus;
+            return this;
         }
+
         /**
          * UI项自定义状态。**目前只支持hide**
          * <p> 示例值：hide
+         *
          * @param uiStatus {@link com.lark.oapi.service.calendar.v4.enums.SchemaSchemaUiStatusEnum}
          * @return
          */
         public Builder uiStatus(com.lark.oapi.service.calendar.v4.enums.SchemaSchemaUiStatusEnum uiStatus) {
-             this.uiStatus = uiStatus.getValue();
-             return this;
+            this.uiStatus = uiStatus.getValue();
+            return this;
         }
 
-    
 
         /**
          * 按钮点击后跳转的链接; **该字段暂不支持传入。**
          * <p> 示例值：https://applink.feishu.cn/client/calendar/event/detail?calendarId=xxxxxx&key=xxxxxx&originalTime=xxxxxx&startTime=xxxxxx
+         *
          * @param appLink
          * @return
          */
         public Builder appLink(String appLink) {
-             this.appLink = appLink;
-             return this;
+            this.appLink = appLink;
+            return this;
         }
 
-    
-    
-    public Schema build(){
-        return new Schema(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Schema build() {
+            return new Schema(this);
+        }
     }
 }

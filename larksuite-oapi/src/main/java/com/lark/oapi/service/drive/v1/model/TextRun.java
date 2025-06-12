@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class TextRun {
-     /**
-      * 回复 普通文本
-      * <p> 示例值：comment text
-      */
+    /**
+     * 回复 普通文本
+     * <p> 示例值：comment text
+     */
     @SerializedName("text")
     private String text;
+
+    // builder 开始
+    public TextRun() {
+    }
+
+    public TextRun(Builder builder) {
+        /**
+         * 回复 普通文本
+         * <p> 示例值：comment text
+         */
+        this.text = builder.text;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getText() {
         return this.text;
     }
@@ -39,44 +60,28 @@ public class TextRun {
         this.text = text;
     }
 
-
-// builder 开始
-  public TextRun(){}
-
-  public TextRun(Builder builder){
-         /**
-          * 回复 普通文本
-          * <p> 示例值：comment text
-          */
-      this.text = builder.text;
-  }
-
     public static class Builder {
-     /**
-      * 回复 普通文本
-      * <p> 示例值：comment text
-      */
+        /**
+         * 回复 普通文本
+         * <p> 示例值：comment text
+         */
         private String text;
 
         /**
          * 回复 普通文本
          * <p> 示例值：comment text
+         *
          * @param text
          * @return
          */
         public Builder text(String text) {
-             this.text = text;
-             return this;
+            this.text = text;
+            return this;
         }
 
-    
-    
-    public TextRun build(){
-        return new TextRun(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public TextRun build() {
+            return new TextRun(this);
+        }
     }
 }

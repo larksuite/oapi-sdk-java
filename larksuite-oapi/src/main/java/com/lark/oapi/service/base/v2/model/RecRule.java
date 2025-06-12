@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.base.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.base.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,36 +20,71 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class RecRule {
-     /**
-      * 记录筛选条件
-      * <p> 示例值：
-      */
+    /**
+     * 记录筛选条件
+     * <p> 示例值：
+     */
     @SerializedName("conditions")
     private RecRuleCondition[] conditions;
-     /**
-      * 多个筛选条件的关系
-      * <p> 示例值：and
-      */
+    /**
+     * 多个筛选条件的关系
+     * <p> 示例值：and
+     */
     @SerializedName("conjunction")
     private String conjunction;
-     /**
-      * 规则筛选记录对应的权限
-      * <p> 示例值：1
-      */
+    /**
+     * 规则筛选记录对应的权限
+     * <p> 示例值：1
+     */
     @SerializedName("perm")
     private Integer perm;
-     /**
-      * 其他记录权限，仅在table_perm为2时有效
-      * <p> 示例值：1
-      */
+    /**
+     * 其他记录权限，仅在table_perm为2时有效
+     * <p> 示例值：1
+     */
     @SerializedName("other_perm")
     private Integer otherPerm;
+
+    // builder 开始
+    public RecRule() {
+    }
+
+    public RecRule(Builder builder) {
+        /**
+         * 记录筛选条件
+         * <p> 示例值：
+         */
+        this.conditions = builder.conditions;
+        /**
+         * 多个筛选条件的关系
+         * <p> 示例值：and
+         */
+        this.conjunction = builder.conjunction;
+        /**
+         * 规则筛选记录对应的权限
+         * <p> 示例值：1
+         */
+        this.perm = builder.perm;
+        /**
+         * 其他记录权限，仅在table_perm为2时有效
+         * <p> 示例值：1
+         */
+        this.otherPerm = builder.otherPerm;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public RecRuleCondition[] getConditions() {
         return this.conditions;
     }
@@ -81,143 +117,118 @@ public class RecRule {
         this.otherPerm = otherPerm;
     }
 
-
-// builder 开始
-  public RecRule(){}
-
-  public RecRule(Builder builder){
-         /**
-          * 记录筛选条件
-          * <p> 示例值：
-          */
-      this.conditions = builder.conditions;
-         /**
-          * 多个筛选条件的关系
-          * <p> 示例值：and
-          */
-      this.conjunction = builder.conjunction;
-         /**
-          * 规则筛选记录对应的权限
-          * <p> 示例值：1
-          */
-      this.perm = builder.perm;
-         /**
-          * 其他记录权限，仅在table_perm为2时有效
-          * <p> 示例值：1
-          */
-      this.otherPerm = builder.otherPerm;
-  }
-
     public static class Builder {
-     /**
-      * 记录筛选条件
-      * <p> 示例值：
-      */
+        /**
+         * 记录筛选条件
+         * <p> 示例值：
+         */
         private RecRuleCondition[] conditions;
-     /**
-      * 多个筛选条件的关系
-      * <p> 示例值：and
-      */
+        /**
+         * 多个筛选条件的关系
+         * <p> 示例值：and
+         */
         private String conjunction;
-     /**
-      * 规则筛选记录对应的权限
-      * <p> 示例值：1
-      */
+        /**
+         * 规则筛选记录对应的权限
+         * <p> 示例值：1
+         */
         private Integer perm;
-     /**
-      * 其他记录权限，仅在table_perm为2时有效
-      * <p> 示例值：1
-      */
+        /**
+         * 其他记录权限，仅在table_perm为2时有效
+         * <p> 示例值：1
+         */
         private Integer otherPerm;
 
         /**
          * 记录筛选条件
          * <p> 示例值：
+         *
          * @param conditions
          * @return
          */
         public Builder conditions(RecRuleCondition[] conditions) {
-             this.conditions = conditions;
-             return this;
+            this.conditions = conditions;
+            return this;
         }
 
-    
 
         /**
          * 多个筛选条件的关系
          * <p> 示例值：and
+         *
          * @param conjunction
          * @return
          */
         public Builder conjunction(String conjunction) {
-             this.conjunction = conjunction;
-             return this;
+            this.conjunction = conjunction;
+            return this;
         }
+
         /**
          * 多个筛选条件的关系
          * <p> 示例值：and
+         *
          * @param conjunction {@link com.lark.oapi.service.base.v2.enums.RecRuleConjunctionEnum}
          * @return
          */
         public Builder conjunction(com.lark.oapi.service.base.v2.enums.RecRuleConjunctionEnum conjunction) {
-             this.conjunction = conjunction.getValue();
-             return this;
+            this.conjunction = conjunction.getValue();
+            return this;
         }
 
-    
 
         /**
          * 规则筛选记录对应的权限
          * <p> 示例值：1
+         *
          * @param perm
          * @return
          */
         public Builder perm(Integer perm) {
-             this.perm = perm;
-             return this;
+            this.perm = perm;
+            return this;
         }
+
         /**
          * 规则筛选记录对应的权限
          * <p> 示例值：1
+         *
          * @param perm {@link com.lark.oapi.service.base.v2.enums.RecRulePermEnum}
          * @return
          */
         public Builder perm(com.lark.oapi.service.base.v2.enums.RecRulePermEnum perm) {
-             this.perm = perm.getValue();
-             return this;
+            this.perm = perm.getValue();
+            return this;
         }
 
-    
 
         /**
          * 其他记录权限，仅在table_perm为2时有效
          * <p> 示例值：1
+         *
          * @param otherPerm
          * @return
          */
         public Builder otherPerm(Integer otherPerm) {
-             this.otherPerm = otherPerm;
-             return this;
+            this.otherPerm = otherPerm;
+            return this;
         }
+
         /**
          * 其他记录权限，仅在table_perm为2时有效
          * <p> 示例值：1
+         *
          * @param otherPerm {@link com.lark.oapi.service.base.v2.enums.RecRuleOtherPermEnum}
          * @return
          */
         public Builder otherPerm(com.lark.oapi.service.base.v2.enums.RecRuleOtherPermEnum otherPerm) {
-             this.otherPerm = otherPerm.getValue();
-             return this;
+            this.otherPerm = otherPerm.getValue();
+            return this;
         }
 
-    
-    
-    public RecRule build(){
-        return new RecRule(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public RecRule build() {
+            return new RecRule(this);
+        }
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.acs.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.acs.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CreateVisitorReqBody {
-     /**
-      * 访客信息
-      * <p> 示例值：
-      */
+    /**
+     * 访客信息
+     * <p> 示例值：
+     */
     @SerializedName("user")
     private UserExternal user;
+
+    // builder 开始
+    public CreateVisitorReqBody() {
+    }
+
+    public CreateVisitorReqBody(Builder builder) {
+        /**
+         * 访客信息
+         * <p> 示例值：
+         */
+        this.user = builder.user;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public UserExternal getUser() {
         return this.user;
     }
@@ -39,44 +60,28 @@ public class CreateVisitorReqBody {
         this.user = user;
     }
 
-
-// builder 开始
-  public CreateVisitorReqBody(){}
-
-  public CreateVisitorReqBody(Builder builder){
-         /**
-          * 访客信息
-          * <p> 示例值：
-          */
-      this.user = builder.user;
-  }
-
     public static class Builder {
-     /**
-      * 访客信息
-      * <p> 示例值：
-      */
+        /**
+         * 访客信息
+         * <p> 示例值：
+         */
         private UserExternal user;
 
         /**
          * 访客信息
          * <p> 示例值：
+         *
          * @param user
          * @return
          */
         public Builder user(UserExternal user) {
-             this.user = user;
-             return this;
+            this.user = user;
+            return this;
         }
 
-    
-    
-    public CreateVisitorReqBody build(){
-        return new CreateVisitorReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public CreateVisitorReqBody build() {
+            return new CreateVisitorReqBody(this);
+        }
     }
 }

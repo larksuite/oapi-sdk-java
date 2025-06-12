@@ -17,21 +17,22 @@ package com.lark.oapi.service.wiki.v2.enums;
  * 文档类型
  */
 public enum GetNodeSpaceObjTypeForQueryEnum {
-     OBJTYPEDOC("doc"), // 旧版文档
-     OBJTYPEDOCX("docx"), // 新版文档
-     OBJTYPESHEET("sheet"), // 表格
-     OBJTYPEMINDNOTE("mindnote"), // 思维导图
-     OBJTYPEBITABLE("bitable"), // 多维表格
-     OBJTYPEFILE("file"), // 文件
-     OBJTYPESLIDES("slides"), // 幻灯片
-     OBJTYPEWIKI("wiki"), // 知识库节点
-  ;
-   private String value;
+    OBJTYPEDOC("doc"), // 旧版文档
+    OBJTYPEDOCX("docx"), // 新版文档
+    OBJTYPESHEET("sheet"), // 表格
+    OBJTYPEMINDNOTE("mindnote"), // 思维导图
+    OBJTYPEBITABLE("bitable"), // 多维表格
+    OBJTYPEFILE("file"), // 文件
+    OBJTYPESLIDES("slides"), // 幻灯片
+    OBJTYPEWIKI("wiki"), // 知识库节点
+    ;
+    private String value;
+
     GetNodeSpaceObjTypeForQueryEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

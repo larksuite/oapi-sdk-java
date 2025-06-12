@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.payroll.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.payroll.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class I18nContent {
-     /**
-      * 语种
-      * <p> 示例值：zh_cn
-      */
+    /**
+     * 语种
+     * <p> 示例值：zh_cn
+     */
     @SerializedName("locale")
     private String locale;
-     /**
-      * 语种对应的值
-      * <p> 示例值：名称
-      */
+    /**
+     * 语种对应的值
+     * <p> 示例值：名称
+     */
     @SerializedName("value")
     private String value;
-     /**
-      * 名称对应的实体id
-      * <p> 示例值：723123123123123213
-      */
+    /**
+     * 名称对应的实体id
+     * <p> 示例值：723123123123123213
+     */
     @SerializedName("id")
     private String id;
+
+    // builder 开始
+    public I18nContent() {
+    }
+
+    public I18nContent(Builder builder) {
+        /**
+         * 语种
+         * <p> 示例值：zh_cn
+         */
+        this.locale = builder.locale;
+        /**
+         * 语种对应的值
+         * <p> 示例值：名称
+         */
+        this.value = builder.value;
+        /**
+         * 名称对应的实体id
+         * <p> 示例值：723123123123123213
+         */
+        this.id = builder.id;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getLocale() {
         return this.locale;
     }
@@ -67,90 +98,64 @@ public class I18nContent {
         this.id = id;
     }
 
-
-// builder 开始
-  public I18nContent(){}
-
-  public I18nContent(Builder builder){
-         /**
-          * 语种
-          * <p> 示例值：zh_cn
-          */
-      this.locale = builder.locale;
-         /**
-          * 语种对应的值
-          * <p> 示例值：名称
-          */
-      this.value = builder.value;
-         /**
-          * 名称对应的实体id
-          * <p> 示例值：723123123123123213
-          */
-      this.id = builder.id;
-  }
-
     public static class Builder {
-     /**
-      * 语种
-      * <p> 示例值：zh_cn
-      */
+        /**
+         * 语种
+         * <p> 示例值：zh_cn
+         */
         private String locale;
-     /**
-      * 语种对应的值
-      * <p> 示例值：名称
-      */
+        /**
+         * 语种对应的值
+         * <p> 示例值：名称
+         */
         private String value;
-     /**
-      * 名称对应的实体id
-      * <p> 示例值：723123123123123213
-      */
+        /**
+         * 名称对应的实体id
+         * <p> 示例值：723123123123123213
+         */
         private String id;
 
         /**
          * 语种
          * <p> 示例值：zh_cn
+         *
          * @param locale
          * @return
          */
         public Builder locale(String locale) {
-             this.locale = locale;
-             return this;
+            this.locale = locale;
+            return this;
         }
 
-    
 
         /**
          * 语种对应的值
          * <p> 示例值：名称
+         *
          * @param value
          * @return
          */
         public Builder value(String value) {
-             this.value = value;
-             return this;
+            this.value = value;
+            return this;
         }
 
-    
 
         /**
          * 名称对应的实体id
          * <p> 示例值：723123123123123213
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
-    
-    public I18nContent build(){
-        return new I18nContent(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public I18nContent build() {
+            return new I18nContent(this);
+        }
     }
 }

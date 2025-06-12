@@ -12,30 +12,56 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class OfferApplyFormSchema {
-     /**
-      * schema ID
-      * <p> 示例值：7080465990618843430
-      */
+    /**
+     * schema ID
+     * <p> 示例值：7080465990618843430
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 模块列表
-      * <p> 示例值：
-      */
+    /**
+     * 模块列表
+     * <p> 示例值：
+     */
     @SerializedName("module_list")
     private OfferApplyFormModuleInfo[] moduleList;
+
+    // builder 开始
+    public OfferApplyFormSchema() {
+    }
+
+    public OfferApplyFormSchema(Builder builder) {
+        /**
+         * schema ID
+         * <p> 示例值：7080465990618843430
+         */
+        this.id = builder.id;
+        /**
+         * 模块列表
+         * <p> 示例值：
+         */
+        this.moduleList = builder.moduleList;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -52,67 +78,46 @@ public class OfferApplyFormSchema {
         this.moduleList = moduleList;
     }
 
-
-// builder 开始
-  public OfferApplyFormSchema(){}
-
-  public OfferApplyFormSchema(Builder builder){
-         /**
-          * schema ID
-          * <p> 示例值：7080465990618843430
-          */
-      this.id = builder.id;
-         /**
-          * 模块列表
-          * <p> 示例值：
-          */
-      this.moduleList = builder.moduleList;
-  }
-
     public static class Builder {
-     /**
-      * schema ID
-      * <p> 示例值：7080465990618843430
-      */
+        /**
+         * schema ID
+         * <p> 示例值：7080465990618843430
+         */
         private String id;
-     /**
-      * 模块列表
-      * <p> 示例值：
-      */
+        /**
+         * 模块列表
+         * <p> 示例值：
+         */
         private OfferApplyFormModuleInfo[] moduleList;
 
         /**
          * schema ID
          * <p> 示例值：7080465990618843430
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 模块列表
          * <p> 示例值：
+         *
          * @param moduleList
          * @return
          */
         public Builder moduleList(OfferApplyFormModuleInfo[] moduleList) {
-             this.moduleList = moduleList;
-             return this;
+            this.moduleList = moduleList;
+            return this;
         }
 
-    
-    
-    public OfferApplyFormSchema build(){
-        return new OfferApplyFormSchema(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public OfferApplyFormSchema build() {
+            return new OfferApplyFormSchema(this);
+        }
     }
 }

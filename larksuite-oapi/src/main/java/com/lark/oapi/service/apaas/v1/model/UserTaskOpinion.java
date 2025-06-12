@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class UserTaskOpinion {
-     /**
-      * 审批常用语文本
-      * <p> 示例值：审批通过
-      */
+    /**
+     * 审批常用语文本
+     * <p> 示例值：审批通过
+     */
     @SerializedName("content")
     private String content;
+
+    // builder 开始
+    public UserTaskOpinion() {
+    }
+
+    public UserTaskOpinion(Builder builder) {
+        /**
+         * 审批常用语文本
+         * <p> 示例值：审批通过
+         */
+        this.content = builder.content;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getContent() {
         return this.content;
     }
@@ -39,44 +60,28 @@ public class UserTaskOpinion {
         this.content = content;
     }
 
-
-// builder 开始
-  public UserTaskOpinion(){}
-
-  public UserTaskOpinion(Builder builder){
-         /**
-          * 审批常用语文本
-          * <p> 示例值：审批通过
-          */
-      this.content = builder.content;
-  }
-
     public static class Builder {
-     /**
-      * 审批常用语文本
-      * <p> 示例值：审批通过
-      */
+        /**
+         * 审批常用语文本
+         * <p> 示例值：审批通过
+         */
         private String content;
 
         /**
          * 审批常用语文本
          * <p> 示例值：审批通过
+         *
          * @param content
          * @return
          */
         public Builder content(String content) {
-             this.content = content;
-             return this;
+            this.content = content;
+            return this;
         }
 
-    
-    
-    public UserTaskOpinion build(){
-        return new UserTaskOpinion(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public UserTaskOpinion build() {
+            return new UserTaskOpinion(this);
+        }
     }
 }

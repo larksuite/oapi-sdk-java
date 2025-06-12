@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class GroupMeta {
-     /**
-      * 考勤组 ID
-      * <p> 示例值：6919358128597097404
-      */
+    /**
+     * 考勤组 ID
+     * <p> 示例值：6919358128597097404
+     */
     @SerializedName("group_id")
     private String groupId;
-     /**
-      * 考勤组名称
-      * <p> 示例值：考勤组1
-      */
+    /**
+     * 考勤组名称
+     * <p> 示例值：考勤组1
+     */
     @SerializedName("group_name")
     private String groupName;
+
+    // builder 开始
+    public GroupMeta() {
+    }
+
+    public GroupMeta(Builder builder) {
+        /**
+         * 考勤组 ID
+         * <p> 示例值：6919358128597097404
+         */
+        this.groupId = builder.groupId;
+        /**
+         * 考勤组名称
+         * <p> 示例值：考勤组1
+         */
+        this.groupName = builder.groupName;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getGroupId() {
         return this.groupId;
     }
@@ -53,67 +79,46 @@ public class GroupMeta {
         this.groupName = groupName;
     }
 
-
-// builder 开始
-  public GroupMeta(){}
-
-  public GroupMeta(Builder builder){
-         /**
-          * 考勤组 ID
-          * <p> 示例值：6919358128597097404
-          */
-      this.groupId = builder.groupId;
-         /**
-          * 考勤组名称
-          * <p> 示例值：考勤组1
-          */
-      this.groupName = builder.groupName;
-  }
-
     public static class Builder {
-     /**
-      * 考勤组 ID
-      * <p> 示例值：6919358128597097404
-      */
+        /**
+         * 考勤组 ID
+         * <p> 示例值：6919358128597097404
+         */
         private String groupId;
-     /**
-      * 考勤组名称
-      * <p> 示例值：考勤组1
-      */
+        /**
+         * 考勤组名称
+         * <p> 示例值：考勤组1
+         */
         private String groupName;
 
         /**
          * 考勤组 ID
          * <p> 示例值：6919358128597097404
+         *
          * @param groupId
          * @return
          */
         public Builder groupId(String groupId) {
-             this.groupId = groupId;
-             return this;
+            this.groupId = groupId;
+            return this;
         }
 
-    
 
         /**
          * 考勤组名称
          * <p> 示例值：考勤组1
+         *
          * @param groupName
          * @return
          */
         public Builder groupName(String groupName) {
-             this.groupName = groupName;
-             return this;
+            this.groupName = groupName;
+            return this;
         }
 
-    
-    
-    public GroupMeta build(){
-        return new GroupMeta(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public GroupMeta build() {
+            return new GroupMeta(this);
+        }
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Bot {
-     /**
-      * 消息卡片回调地址
-      * <p> 示例值：https://www.example.com
-      */
+    /**
+     * 消息卡片回调地址
+     * <p> 示例值：https://www.example.com
+     */
     @SerializedName("card_request_url")
     private String cardRequestUrl;
+
+    // builder 开始
+    public Bot() {
+    }
+
+    public Bot(Builder builder) {
+        /**
+         * 消息卡片回调地址
+         * <p> 示例值：https://www.example.com
+         */
+        this.cardRequestUrl = builder.cardRequestUrl;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getCardRequestUrl() {
         return this.cardRequestUrl;
     }
@@ -39,44 +60,28 @@ public class Bot {
         this.cardRequestUrl = cardRequestUrl;
     }
 
-
-// builder 开始
-  public Bot(){}
-
-  public Bot(Builder builder){
-         /**
-          * 消息卡片回调地址
-          * <p> 示例值：https://www.example.com
-          */
-      this.cardRequestUrl = builder.cardRequestUrl;
-  }
-
     public static class Builder {
-     /**
-      * 消息卡片回调地址
-      * <p> 示例值：https://www.example.com
-      */
+        /**
+         * 消息卡片回调地址
+         * <p> 示例值：https://www.example.com
+         */
         private String cardRequestUrl;
 
         /**
          * 消息卡片回调地址
          * <p> 示例值：https://www.example.com
+         *
          * @param cardRequestUrl
          * @return
          */
         public Builder cardRequestUrl(String cardRequestUrl) {
-             this.cardRequestUrl = cardRequestUrl;
-             return this;
+            this.cardRequestUrl = cardRequestUrl;
+            return this;
         }
 
-    
-    
-    public Bot build(){
-        return new Bot(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Bot build() {
+            return new Bot(this);
+        }
     }
 }

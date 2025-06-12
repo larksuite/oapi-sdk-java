@@ -17,25 +17,26 @@ package com.lark.oapi.service.compensation.v1.enums;
  * 范围API
  */
 public enum StandardScopeExpressionApiNameEnum {
-     COMPANY("company"), // 合同主体
-     DEPARTMENT("department"), // 部门
-     JOB_FAMILY("job_family"), // 序列
-     JOB_LEVEL("job_level"), // 职级
-     JOB_GRADE("job_grade"), // 职等
-     JOB("job"), // 职务
-     WORK_LOCATION("work_location"), // 工作地点
-     WORKFORCE_TYPE("workforce_type"), // 人员类型
-     RECRUITMENT_TYPE("recruitment_type"), // 招聘类型
-     CPST_PLAN("cpst_plan"), // 薪资方案
-     SALARY_LEVEL("salary_level"), // 薪级薪等
-     CPST_CHANGE_REASON("cpst_change_reason"), // 定调薪原因
-  ;
-   private String value;
+    COMPANY("company"), // 合同主体
+    DEPARTMENT("department"), // 部门
+    JOB_FAMILY("job_family"), // 序列
+    JOB_LEVEL("job_level"), // 职级
+    JOB_GRADE("job_grade"), // 职等
+    JOB("job"), // 职务
+    WORK_LOCATION("work_location"), // 工作地点
+    WORKFORCE_TYPE("workforce_type"), // 人员类型
+    RECRUITMENT_TYPE("recruitment_type"), // 招聘类型
+    CPST_PLAN("cpst_plan"), // 薪资方案
+    SALARY_LEVEL("salary_level"), // 薪级薪等
+    CPST_CHANGE_REASON("cpst_change_reason"), // 定调薪原因
+    ;
+    private String value;
+
     StandardScopeExpressionApiNameEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

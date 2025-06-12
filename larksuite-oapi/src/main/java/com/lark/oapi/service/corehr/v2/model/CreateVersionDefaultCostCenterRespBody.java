@@ -12,30 +12,35 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CreateVersionDefaultCostCenterRespBody {
-     /**
-      * 默认成本中心id
-      * <p> 示例值：6862995757234914824
-      */
+    /**
+     * 默认成本中心id
+     * <p> 示例值：6862995757234914824
+     */
     @SerializedName("wk_id")
     private String wkId;
-     /**
-      * 默认成本中心版本id
-      * <p> 示例值：6862995757234914821
-      */
+    /**
+     * 默认成本中心版本id
+     * <p> 示例值：6862995757234914821
+     */
     @SerializedName("wk_tid")
     private String wkTid;
+
     public String getWkId() {
         return this.wkId;
     }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.im.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,66 +20,126 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ChatPin {
-     /**
-      * 置顶ID
-      * <p> 示例值：7262656565168242692
-      */
+    /**
+     * 置顶ID
+     * <p> 示例值：7262656565168242692
+     */
     @SerializedName("chat_pin_id")
     private String chatPinId;
-     /**
-      * 群ID
-      * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
-      */
+    /**
+     * 群ID
+     * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
+     */
     @SerializedName("chat_id")
     private String chatId;
-     /**
-      * 置顶类型
-      * <p> 示例值：message_pin
-      */
+    /**
+     * 置顶类型
+     * <p> 示例值：message_pin
+     */
     @SerializedName("chat_pin_type")
     private String chatPinType;
-     /**
-      * 置顶创建时间，毫秒级别
-      * <p> 示例值：1694519103000
-      */
+    /**
+     * 置顶创建时间，毫秒级别
+     * <p> 示例值：1694519103000
+     */
     @SerializedName("create_time")
     private String createTime;
-     /**
-      * 创建置顶的操作者ID
-      * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
-      */
+    /**
+     * 创建置顶的操作者ID
+     * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
+     */
     @SerializedName("chatter_id")
     private String chatterId;
-     /**
-      * 该置顶是否固定在置顶列表的最前面
-      * <p> 示例值：false
-      */
+    /**
+     * 该置顶是否固定在置顶列表的最前面
+     * <p> 示例值：false
+     */
     @SerializedName("is_fixed")
     private Boolean isFixed;
-     /**
-      * 固定置顶到置顶列表前面的操作者ID
-      * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
-      */
+    /**
+     * 固定置顶到置顶列表前面的操作者ID
+     * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
+     */
     @SerializedName("operate_fix_chatter_id")
     private String operateFixChatterId;
-     /**
-      * 消息置顶数据
-      * <p> 示例值：
-      */
+    /**
+     * 消息置顶数据
+     * <p> 示例值：
+     */
     @SerializedName("message_pin_data")
     private MessagePin messagePinData;
-     /**
-      * url类型置顶数据
-      * <p> 示例值：
-      */
+    /**
+     * url类型置顶数据
+     * <p> 示例值：
+     */
     @SerializedName("url_pin_data")
     private UrlPin urlPinData;
+
+    // builder 开始
+    public ChatPin() {
+    }
+
+    public ChatPin(Builder builder) {
+        /**
+         * 置顶ID
+         * <p> 示例值：7262656565168242692
+         */
+        this.chatPinId = builder.chatPinId;
+        /**
+         * 群ID
+         * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
+         */
+        this.chatId = builder.chatId;
+        /**
+         * 置顶类型
+         * <p> 示例值：message_pin
+         */
+        this.chatPinType = builder.chatPinType;
+        /**
+         * 置顶创建时间，毫秒级别
+         * <p> 示例值：1694519103000
+         */
+        this.createTime = builder.createTime;
+        /**
+         * 创建置顶的操作者ID
+         * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
+         */
+        this.chatterId = builder.chatterId;
+        /**
+         * 该置顶是否固定在置顶列表的最前面
+         * <p> 示例值：false
+         */
+        this.isFixed = builder.isFixed;
+        /**
+         * 固定置顶到置顶列表前面的操作者ID
+         * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
+         */
+        this.operateFixChatterId = builder.operateFixChatterId;
+        /**
+         * 消息置顶数据
+         * <p> 示例值：
+         */
+        this.messagePinData = builder.messagePinData;
+        /**
+         * url类型置顶数据
+         * <p> 示例值：
+         */
+        this.urlPinData = builder.urlPinData;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getChatPinId() {
         return this.chatPinId;
     }
@@ -151,238 +212,184 @@ public class ChatPin {
         this.urlPinData = urlPinData;
     }
 
-
-// builder 开始
-  public ChatPin(){}
-
-  public ChatPin(Builder builder){
-         /**
-          * 置顶ID
-          * <p> 示例值：7262656565168242692
-          */
-      this.chatPinId = builder.chatPinId;
-         /**
-          * 群ID
-          * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
-          */
-      this.chatId = builder.chatId;
-         /**
-          * 置顶类型
-          * <p> 示例值：message_pin
-          */
-      this.chatPinType = builder.chatPinType;
-         /**
-          * 置顶创建时间，毫秒级别
-          * <p> 示例值：1694519103000
-          */
-      this.createTime = builder.createTime;
-         /**
-          * 创建置顶的操作者ID
-          * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
-          */
-      this.chatterId = builder.chatterId;
-         /**
-          * 该置顶是否固定在置顶列表的最前面
-          * <p> 示例值：false
-          */
-      this.isFixed = builder.isFixed;
-         /**
-          * 固定置顶到置顶列表前面的操作者ID
-          * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
-          */
-      this.operateFixChatterId = builder.operateFixChatterId;
-         /**
-          * 消息置顶数据
-          * <p> 示例值：
-          */
-      this.messagePinData = builder.messagePinData;
-         /**
-          * url类型置顶数据
-          * <p> 示例值：
-          */
-      this.urlPinData = builder.urlPinData;
-  }
-
     public static class Builder {
-     /**
-      * 置顶ID
-      * <p> 示例值：7262656565168242692
-      */
+        /**
+         * 置顶ID
+         * <p> 示例值：7262656565168242692
+         */
         private String chatPinId;
-     /**
-      * 群ID
-      * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
-      */
+        /**
+         * 群ID
+         * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
+         */
         private String chatId;
-     /**
-      * 置顶类型
-      * <p> 示例值：message_pin
-      */
+        /**
+         * 置顶类型
+         * <p> 示例值：message_pin
+         */
         private String chatPinType;
-     /**
-      * 置顶创建时间，毫秒级别
-      * <p> 示例值：1694519103000
-      */
+        /**
+         * 置顶创建时间，毫秒级别
+         * <p> 示例值：1694519103000
+         */
         private String createTime;
-     /**
-      * 创建置顶的操作者ID
-      * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
-      */
+        /**
+         * 创建置顶的操作者ID
+         * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
+         */
         private String chatterId;
-     /**
-      * 该置顶是否固定在置顶列表的最前面
-      * <p> 示例值：false
-      */
+        /**
+         * 该置顶是否固定在置顶列表的最前面
+         * <p> 示例值：false
+         */
         private Boolean isFixed;
-     /**
-      * 固定置顶到置顶列表前面的操作者ID
-      * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
-      */
+        /**
+         * 固定置顶到置顶列表前面的操作者ID
+         * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
+         */
         private String operateFixChatterId;
-     /**
-      * 消息置顶数据
-      * <p> 示例值：
-      */
+        /**
+         * 消息置顶数据
+         * <p> 示例值：
+         */
         private MessagePin messagePinData;
-     /**
-      * url类型置顶数据
-      * <p> 示例值：
-      */
+        /**
+         * url类型置顶数据
+         * <p> 示例值：
+         */
         private UrlPin urlPinData;
 
         /**
          * 置顶ID
          * <p> 示例值：7262656565168242692
+         *
          * @param chatPinId
          * @return
          */
         public Builder chatPinId(String chatPinId) {
-             this.chatPinId = chatPinId;
-             return this;
+            this.chatPinId = chatPinId;
+            return this;
         }
 
-    
 
         /**
          * 群ID
          * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
+         *
          * @param chatId
          * @return
          */
         public Builder chatId(String chatId) {
-             this.chatId = chatId;
-             return this;
+            this.chatId = chatId;
+            return this;
         }
 
-    
 
         /**
          * 置顶类型
          * <p> 示例值：message_pin
+         *
          * @param chatPinType
          * @return
          */
         public Builder chatPinType(String chatPinType) {
-             this.chatPinType = chatPinType;
-             return this;
+            this.chatPinType = chatPinType;
+            return this;
         }
+
         /**
          * 置顶类型
          * <p> 示例值：message_pin
+         *
          * @param chatPinType {@link com.lark.oapi.service.im.v2.enums.ChatPinChatPinTypeEnum}
          * @return
          */
         public Builder chatPinType(com.lark.oapi.service.im.v2.enums.ChatPinChatPinTypeEnum chatPinType) {
-             this.chatPinType = chatPinType.getValue();
-             return this;
+            this.chatPinType = chatPinType.getValue();
+            return this;
         }
 
-    
 
         /**
          * 置顶创建时间，毫秒级别
          * <p> 示例值：1694519103000
+         *
          * @param createTime
          * @return
          */
         public Builder createTime(String createTime) {
-             this.createTime = createTime;
-             return this;
+            this.createTime = createTime;
+            return this;
         }
 
-    
 
         /**
          * 创建置顶的操作者ID
          * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
+         *
          * @param chatterId
          * @return
          */
         public Builder chatterId(String chatterId) {
-             this.chatterId = chatterId;
-             return this;
+            this.chatterId = chatterId;
+            return this;
         }
 
-    
 
         /**
          * 该置顶是否固定在置顶列表的最前面
          * <p> 示例值：false
+         *
          * @param isFixed
          * @return
          */
         public Builder isFixed(Boolean isFixed) {
-             this.isFixed = isFixed;
-             return this;
+            this.isFixed = isFixed;
+            return this;
         }
 
-    
 
         /**
          * 固定置顶到置顶列表前面的操作者ID
          * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
+         *
          * @param operateFixChatterId
          * @return
          */
         public Builder operateFixChatterId(String operateFixChatterId) {
-             this.operateFixChatterId = operateFixChatterId;
-             return this;
+            this.operateFixChatterId = operateFixChatterId;
+            return this;
         }
 
-    
 
         /**
          * 消息置顶数据
          * <p> 示例值：
+         *
          * @param messagePinData
          * @return
          */
         public Builder messagePinData(MessagePin messagePinData) {
-             this.messagePinData = messagePinData;
-             return this;
+            this.messagePinData = messagePinData;
+            return this;
         }
 
-    
 
         /**
          * url类型置顶数据
          * <p> 示例值：
+         *
          * @param urlPinData
          * @return
          */
         public Builder urlPinData(UrlPin urlPinData) {
-             this.urlPinData = urlPinData;
-             return this;
+            this.urlPinData = urlPinData;
+            return this;
         }
 
-    
-    
-    public ChatPin build(){
-        return new ChatPin(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ChatPin build() {
+            return new ChatPin(this);
+        }
     }
 }

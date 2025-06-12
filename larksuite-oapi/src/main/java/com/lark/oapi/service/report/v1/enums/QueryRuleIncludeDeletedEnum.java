@@ -17,15 +17,16 @@ package com.lark.oapi.service.report.v1.enums;
  * 是否包括已删除，默认未删除
  */
 public enum QueryRuleIncludeDeletedEnum {
-     EXCLUDE(0), // 不包括已删除
-     INCLUDE(1), // 包括已删除
-  ;
-   private Integer value;
+    EXCLUDE(0), // 不包括已删除
+    INCLUDE(1), // 包括已删除
+    ;
+    private Integer value;
+
     QueryRuleIncludeDeletedEnum(Integer value) {
-      this.value = value;
+        this.value = value;
     }
 
     public Integer getValue() {
-      return this.value;
+        return this.value;
     }
 }

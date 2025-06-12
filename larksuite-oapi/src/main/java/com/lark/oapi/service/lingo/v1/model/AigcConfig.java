@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.lingo.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.lingo.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class AigcConfig {
-     /**
-      * 是否需要人工审核
-      * <p> 示例值：false
-      */
+    /**
+     * 是否需要人工审核
+     * <p> 示例值：false
+     */
     @SerializedName("need_review")
     private Boolean needReview;
-     /**
-      * 词库ID
-      * <p> 示例值：7203646336854390000
-      */
+    /**
+     * 词库ID
+     * <p> 示例值：7203646336854390000
+     */
     @SerializedName("repo_id")
     private String repoId;
+
+    // builder 开始
+    public AigcConfig() {
+    }
+
+    public AigcConfig(Builder builder) {
+        /**
+         * 是否需要人工审核
+         * <p> 示例值：false
+         */
+        this.needReview = builder.needReview;
+        /**
+         * 词库ID
+         * <p> 示例值：7203646336854390000
+         */
+        this.repoId = builder.repoId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Boolean getNeedReview() {
         return this.needReview;
     }
@@ -53,67 +79,46 @@ public class AigcConfig {
         this.repoId = repoId;
     }
 
-
-// builder 开始
-  public AigcConfig(){}
-
-  public AigcConfig(Builder builder){
-         /**
-          * 是否需要人工审核
-          * <p> 示例值：false
-          */
-      this.needReview = builder.needReview;
-         /**
-          * 词库ID
-          * <p> 示例值：7203646336854390000
-          */
-      this.repoId = builder.repoId;
-  }
-
     public static class Builder {
-     /**
-      * 是否需要人工审核
-      * <p> 示例值：false
-      */
+        /**
+         * 是否需要人工审核
+         * <p> 示例值：false
+         */
         private Boolean needReview;
-     /**
-      * 词库ID
-      * <p> 示例值：7203646336854390000
-      */
+        /**
+         * 词库ID
+         * <p> 示例值：7203646336854390000
+         */
         private String repoId;
 
         /**
          * 是否需要人工审核
          * <p> 示例值：false
+         *
          * @param needReview
          * @return
          */
         public Builder needReview(Boolean needReview) {
-             this.needReview = needReview;
-             return this;
+            this.needReview = needReview;
+            return this;
         }
 
-    
 
         /**
          * 词库ID
          * <p> 示例值：7203646336854390000
+         *
          * @param repoId
          * @return
          */
         public Builder repoId(String repoId) {
-             this.repoId = repoId;
-             return this;
+            this.repoId = repoId;
+            return this;
         }
 
-    
-    
-    public AigcConfig build(){
-        return new AigcConfig(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public AigcConfig build() {
+            return new AigcConfig(this);
+        }
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ExternalInstanceTask {
-     /**
-      * 任务 id
-      * <p> 示例值：112253
-      */
+    /**
+     * 任务 id
+     * <p> 示例值：112253
+     */
     @SerializedName("task_id")
     private String taskId;
-     /**
-      * 任务最近更新时间
-      * <p> 示例值：1591603040000
-      */
+    /**
+     * 任务最近更新时间
+     * <p> 示例值：1591603040000
+     */
     @SerializedName("update_time")
     private String updateTime;
+
+    // builder 开始
+    public ExternalInstanceTask() {
+    }
+
+    public ExternalInstanceTask(Builder builder) {
+        /**
+         * 任务 id
+         * <p> 示例值：112253
+         */
+        this.taskId = builder.taskId;
+        /**
+         * 任务最近更新时间
+         * <p> 示例值：1591603040000
+         */
+        this.updateTime = builder.updateTime;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getTaskId() {
         return this.taskId;
     }
@@ -53,67 +79,46 @@ public class ExternalInstanceTask {
         this.updateTime = updateTime;
     }
 
-
-// builder 开始
-  public ExternalInstanceTask(){}
-
-  public ExternalInstanceTask(Builder builder){
-         /**
-          * 任务 id
-          * <p> 示例值：112253
-          */
-      this.taskId = builder.taskId;
-         /**
-          * 任务最近更新时间
-          * <p> 示例值：1591603040000
-          */
-      this.updateTime = builder.updateTime;
-  }
-
     public static class Builder {
-     /**
-      * 任务 id
-      * <p> 示例值：112253
-      */
+        /**
+         * 任务 id
+         * <p> 示例值：112253
+         */
         private String taskId;
-     /**
-      * 任务最近更新时间
-      * <p> 示例值：1591603040000
-      */
+        /**
+         * 任务最近更新时间
+         * <p> 示例值：1591603040000
+         */
         private String updateTime;
 
         /**
          * 任务 id
          * <p> 示例值：112253
+         *
          * @param taskId
          * @return
          */
         public Builder taskId(String taskId) {
-             this.taskId = taskId;
-             return this;
+            this.taskId = taskId;
+            return this;
         }
 
-    
 
         /**
          * 任务最近更新时间
          * <p> 示例值：1591603040000
+         *
          * @param updateTime
          * @return
          */
         public Builder updateTime(String updateTime) {
-             this.updateTime = updateTime;
-             return this;
+            this.updateTime = updateTime;
+            return this;
         }
 
-    
-    
-    public ExternalInstanceTask build(){
-        return new ExternalInstanceTask(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ExternalInstanceTask build() {
+            return new ExternalInstanceTask(this);
+        }
     }
 }

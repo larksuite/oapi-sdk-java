@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.okr.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.okr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CreatePeriodReqBody {
-     /**
-      * 周期规则 id
-      * <p> 示例值：6969864184272078374
-      */
+    /**
+     * 周期规则 id
+     * <p> 示例值：6969864184272078374
+     */
     @SerializedName("period_rule_id")
     private String periodRuleId;
-     /**
-      * 周期起始年月
-      * <p> 示例值：2022-01
-      */
+    /**
+     * 周期起始年月
+     * <p> 示例值：2022-01
+     */
     @SerializedName("start_month")
     private String startMonth;
+
+    // builder 开始
+    public CreatePeriodReqBody() {
+    }
+
+    public CreatePeriodReqBody(Builder builder) {
+        /**
+         * 周期规则 id
+         * <p> 示例值：6969864184272078374
+         */
+        this.periodRuleId = builder.periodRuleId;
+        /**
+         * 周期起始年月
+         * <p> 示例值：2022-01
+         */
+        this.startMonth = builder.startMonth;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getPeriodRuleId() {
         return this.periodRuleId;
     }
@@ -53,67 +79,46 @@ public class CreatePeriodReqBody {
         this.startMonth = startMonth;
     }
 
-
-// builder 开始
-  public CreatePeriodReqBody(){}
-
-  public CreatePeriodReqBody(Builder builder){
-         /**
-          * 周期规则 id
-          * <p> 示例值：6969864184272078374
-          */
-      this.periodRuleId = builder.periodRuleId;
-         /**
-          * 周期起始年月
-          * <p> 示例值：2022-01
-          */
-      this.startMonth = builder.startMonth;
-  }
-
     public static class Builder {
-     /**
-      * 周期规则 id
-      * <p> 示例值：6969864184272078374
-      */
+        /**
+         * 周期规则 id
+         * <p> 示例值：6969864184272078374
+         */
         private String periodRuleId;
-     /**
-      * 周期起始年月
-      * <p> 示例值：2022-01
-      */
+        /**
+         * 周期起始年月
+         * <p> 示例值：2022-01
+         */
         private String startMonth;
 
         /**
          * 周期规则 id
          * <p> 示例值：6969864184272078374
+         *
          * @param periodRuleId
          * @return
          */
         public Builder periodRuleId(String periodRuleId) {
-             this.periodRuleId = periodRuleId;
-             return this;
+            this.periodRuleId = periodRuleId;
+            return this;
         }
 
-    
 
         /**
          * 周期起始年月
          * <p> 示例值：2022-01
+         *
          * @param startMonth
          * @return
          */
         public Builder startMonth(String startMonth) {
-             this.startMonth = startMonth;
-             return this;
+            this.startMonth = startMonth;
+            return this;
         }
 
-    
-    
-    public CreatePeriodReqBody build(){
-        return new CreatePeriodReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public CreatePeriodReqBody build() {
+            return new CreatePeriodReqBody(this);
+        }
     }
 }

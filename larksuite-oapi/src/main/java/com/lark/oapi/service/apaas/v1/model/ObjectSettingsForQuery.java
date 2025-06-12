@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ObjectSettingsForQuery {
-     /**
-      * 展示名称
-      * <p> 示例值：_id
-      */
+    /**
+     * 展示名称
+     * <p> 示例值：_id
+     */
     @SerializedName("display_name")
     private String displayName;
-     /**
-      * 允许搜索字段
-      * <p> 示例值：
-      */
+    /**
+     * 允许搜索字段
+     * <p> 示例值：
+     */
     @SerializedName("allow_search_fields")
     private String[] allowSearchFields;
-     /**
-      * 展示字段
-      * <p> 示例值：
-      */
+    /**
+     * 展示字段
+     * <p> 示例值：
+     */
     @SerializedName("search_layouts")
     private String[] searchLayouts;
+
+    // builder 开始
+    public ObjectSettingsForQuery() {
+    }
+
+    public ObjectSettingsForQuery(Builder builder) {
+        /**
+         * 展示名称
+         * <p> 示例值：_id
+         */
+        this.displayName = builder.displayName;
+        /**
+         * 允许搜索字段
+         * <p> 示例值：
+         */
+        this.allowSearchFields = builder.allowSearchFields;
+        /**
+         * 展示字段
+         * <p> 示例值：
+         */
+        this.searchLayouts = builder.searchLayouts;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getDisplayName() {
         return this.displayName;
     }
@@ -67,90 +98,64 @@ public class ObjectSettingsForQuery {
         this.searchLayouts = searchLayouts;
     }
 
-
-// builder 开始
-  public ObjectSettingsForQuery(){}
-
-  public ObjectSettingsForQuery(Builder builder){
-         /**
-          * 展示名称
-          * <p> 示例值：_id
-          */
-      this.displayName = builder.displayName;
-         /**
-          * 允许搜索字段
-          * <p> 示例值：
-          */
-      this.allowSearchFields = builder.allowSearchFields;
-         /**
-          * 展示字段
-          * <p> 示例值：
-          */
-      this.searchLayouts = builder.searchLayouts;
-  }
-
     public static class Builder {
-     /**
-      * 展示名称
-      * <p> 示例值：_id
-      */
+        /**
+         * 展示名称
+         * <p> 示例值：_id
+         */
         private String displayName;
-     /**
-      * 允许搜索字段
-      * <p> 示例值：
-      */
+        /**
+         * 允许搜索字段
+         * <p> 示例值：
+         */
         private String[] allowSearchFields;
-     /**
-      * 展示字段
-      * <p> 示例值：
-      */
+        /**
+         * 展示字段
+         * <p> 示例值：
+         */
         private String[] searchLayouts;
 
         /**
          * 展示名称
          * <p> 示例值：_id
+         *
          * @param displayName
          * @return
          */
         public Builder displayName(String displayName) {
-             this.displayName = displayName;
-             return this;
+            this.displayName = displayName;
+            return this;
         }
 
-    
 
         /**
          * 允许搜索字段
          * <p> 示例值：
+         *
          * @param allowSearchFields
          * @return
          */
         public Builder allowSearchFields(String[] allowSearchFields) {
-             this.allowSearchFields = allowSearchFields;
-             return this;
+            this.allowSearchFields = allowSearchFields;
+            return this;
         }
 
-    
 
         /**
          * 展示字段
          * <p> 示例值：
+         *
          * @param searchLayouts
          * @return
          */
         public Builder searchLayouts(String[] searchLayouts) {
-             this.searchLayouts = searchLayouts;
-             return this;
+            this.searchLayouts = searchLayouts;
+            return this;
         }
 
-    
-    
-    public ObjectSettingsForQuery build(){
-        return new ObjectSettingsForQuery(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ObjectSettingsForQuery build() {
+            return new ObjectSettingsForQuery(this);
+        }
     }
 }

@@ -12,32 +12,70 @@
  */
 
 package com.lark.oapi.service.aily.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.aily.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ListAilySessionRunReq {
-     /**
-      * 页面大小
-      * <p> 示例值：
-      */
+    /**
+     * 页面大小
+     * <p> 示例值：
+     */
     @Query
     @SerializedName("page_size")
     private Integer pageSize;
-     /**
-      * 分页偏移量
-      * <p> 示例值：
-      */
+    /**
+     * 分页偏移量
+     * <p> 示例值：
+     */
     @Query
     @SerializedName("page_token")
     private String pageToken;
+    /**
+     * 会话 ID
+     * <p> 示例值：session_4dfunz7sp1g8m
+     */
+    @Path
+    @SerializedName("aily_session_id")
+    private String ailySessionId;
+
+    // builder 开始
+    public ListAilySessionRunReq() {
+    }
+
+    public ListAilySessionRunReq(Builder builder) {
+        /**
+         * 页面大小
+         * <p> 示例值：
+         */
+        this.pageSize = builder.pageSize;
+        /**
+         * 分页偏移量
+         * <p> 示例值：
+         */
+        this.pageToken = builder.pageToken;
+        /**
+         * 会话 ID
+         * <p> 示例值：session_4dfunz7sp1g8m
+         */
+        this.ailySessionId = builder.ailySessionId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Integer getPageSize() {
         return this.pageSize;
     }
@@ -54,13 +92,6 @@ public class ListAilySessionRunReq {
         this.pageToken = pageToken;
     }
 
-     /**
-      * 会话 ID
-      * <p> 示例值：session_4dfunz7sp1g8m
-      */
-    @Path
-    @SerializedName("aily_session_id")
-    private String ailySessionId;
     public String getAilySessionId() {
         return this.ailySessionId;
     }
@@ -69,75 +100,50 @@ public class ListAilySessionRunReq {
         this.ailySessionId = ailySessionId;
     }
 
-
-// builder 开始
-  public ListAilySessionRunReq(){}
-
-  public ListAilySessionRunReq(Builder builder){
-         /**
-          * 页面大小
-          * <p> 示例值：
-          */
-       this.pageSize = builder.pageSize;
-         /**
-          * 分页偏移量
-          * <p> 示例值：
-          */
-       this.pageToken = builder.pageToken;
-     /**
-      * 会话 ID
-      * <p> 示例值：session_4dfunz7sp1g8m
-      */
-       this.ailySessionId = builder.ailySessionId;
-  }
-
     public static class Builder {
         private Integer pageSize; // 页面大小
         private String pageToken; // 分页偏移量
-    
+        private String ailySessionId; // 会话 ID
+
         /**
          * 页面大小
          * <p> 示例值：
+         *
          * @param pageSize
          * @return
          */
-           public Builder pageSize(Integer pageSize) {
-                this.pageSize = pageSize;
-                return this;
-           }
+        public Builder pageSize(Integer pageSize) {
+            this.pageSize = pageSize;
+            return this;
+        }
 
-    
         /**
          * 分页偏移量
          * <p> 示例值：
+         *
          * @param pageToken
          * @return
          */
-           public Builder pageToken(String pageToken) {
-                this.pageToken = pageToken;
-                return this;
-           }
+        public Builder pageToken(String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+        }
 
-    
-        private String ailySessionId; // 会话 ID
         /**
          * 会话 ID
          * <p> 示例值：session_4dfunz7sp1g8m
+         *
          * @param ailySessionId
          * @return
          */
-          public Builder ailySessionId(String ailySessionId) {
-               this.ailySessionId = ailySessionId;
-               return this;
-          }
+        public Builder ailySessionId(String ailySessionId) {
+            this.ailySessionId = ailySessionId;
+            return this;
+        }
 
-    
-    public ListAilySessionRunReq build(){
-        return new ListAilySessionRunReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ListAilySessionRunReq build() {
+            return new ListAilySessionRunReq(this);
+        }
     }
 }

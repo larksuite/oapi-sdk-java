@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CommentAtInfo {
-     /**
-      * 被艾特人的ID
-      * <p> 示例值：579fd9c4
-      */
+    /**
+     * 被艾特人的ID
+     * <p> 示例值：579fd9c4
+     */
     @SerializedName("user_id")
     private String userId;
-     /**
-      * 被艾特人的姓名
-      * <p> 示例值：张某
-      */
+    /**
+     * 被艾特人的姓名
+     * <p> 示例值：张某
+     */
     @SerializedName("name")
     private String name;
-     /**
-      * 被艾特人在评论中的位置，从0开始
-      * <p> 示例值：1
-      */
+    /**
+     * 被艾特人在评论中的位置，从0开始
+     * <p> 示例值：1
+     */
     @SerializedName("offset")
     private String offset;
+
+    // builder 开始
+    public CommentAtInfo() {
+    }
+
+    public CommentAtInfo(Builder builder) {
+        /**
+         * 被艾特人的ID
+         * <p> 示例值：579fd9c4
+         */
+        this.userId = builder.userId;
+        /**
+         * 被艾特人的姓名
+         * <p> 示例值：张某
+         */
+        this.name = builder.name;
+        /**
+         * 被艾特人在评论中的位置，从0开始
+         * <p> 示例值：1
+         */
+        this.offset = builder.offset;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getUserId() {
         return this.userId;
     }
@@ -67,90 +98,64 @@ public class CommentAtInfo {
         this.offset = offset;
     }
 
-
-// builder 开始
-  public CommentAtInfo(){}
-
-  public CommentAtInfo(Builder builder){
-         /**
-          * 被艾特人的ID
-          * <p> 示例值：579fd9c4
-          */
-      this.userId = builder.userId;
-         /**
-          * 被艾特人的姓名
-          * <p> 示例值：张某
-          */
-      this.name = builder.name;
-         /**
-          * 被艾特人在评论中的位置，从0开始
-          * <p> 示例值：1
-          */
-      this.offset = builder.offset;
-  }
-
     public static class Builder {
-     /**
-      * 被艾特人的ID
-      * <p> 示例值：579fd9c4
-      */
+        /**
+         * 被艾特人的ID
+         * <p> 示例值：579fd9c4
+         */
         private String userId;
-     /**
-      * 被艾特人的姓名
-      * <p> 示例值：张某
-      */
+        /**
+         * 被艾特人的姓名
+         * <p> 示例值：张某
+         */
         private String name;
-     /**
-      * 被艾特人在评论中的位置，从0开始
-      * <p> 示例值：1
-      */
+        /**
+         * 被艾特人在评论中的位置，从0开始
+         * <p> 示例值：1
+         */
         private String offset;
 
         /**
          * 被艾特人的ID
          * <p> 示例值：579fd9c4
+         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-             this.userId = userId;
-             return this;
+            this.userId = userId;
+            return this;
         }
 
-    
 
         /**
          * 被艾特人的姓名
          * <p> 示例值：张某
+         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 被艾特人在评论中的位置，从0开始
          * <p> 示例值：1
+         *
          * @param offset
          * @return
          */
         public Builder offset(String offset) {
-             this.offset = offset;
-             return this;
+            this.offset = offset;
+            return this;
         }
 
-    
-    
-    public CommentAtInfo build(){
-        return new CommentAtInfo(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public CommentAtInfo build() {
+            return new CommentAtInfo(this);
+        }
     }
 }

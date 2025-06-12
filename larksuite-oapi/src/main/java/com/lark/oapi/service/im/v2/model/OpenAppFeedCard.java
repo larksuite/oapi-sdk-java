@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.im.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,66 +20,126 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class OpenAppFeedCard {
-     /**
-      * 业务 ID
-      * <p> 示例值：096e2927-40a6-41a3-9562-314d641d09ae
-      */
+    /**
+     * 业务 ID
+     * <p> 示例值：096e2927-40a6-41a3-9562-314d641d09ae
+     */
     @SerializedName("biz_id")
     private String bizId;
-     /**
-      * 主标题
-      * <p> 示例值：主标题
-      */
+    /**
+     * 主标题
+     * <p> 示例值：主标题
+     */
     @SerializedName("title")
     private String title;
-     /**
-      * 头像 key
-      * <p> 示例值：v3_0041_007bca9f-67ba-4199-bf00-4031b12cf226
-      */
+    /**
+     * 头像 key
+     * <p> 示例值：v3_0041_007bca9f-67ba-4199-bf00-4031b12cf226
+     */
     @SerializedName("avatar_key")
     private String avatarKey;
-     /**
-      * 预览信息
-      * <p> 示例值：预览信息
-      */
+    /**
+     * 预览信息
+     * <p> 示例值：预览信息
+     */
     @SerializedName("preview")
     private String preview;
-     /**
-      * 状态标签
-      * <p> 示例值：
-      */
+    /**
+     * 状态标签
+     * <p> 示例值：
+     */
     @SerializedName("status_label")
     private OpenFeedStatusLabel statusLabel;
-     /**
-      * 交互按钮
-      * <p> 示例值：
-      */
+    /**
+     * 交互按钮
+     * <p> 示例值：
+     */
     @SerializedName("buttons")
     private OpenAppFeedCardButtons buttons;
-     /**
-      * 跳转链接
-      * <p> 示例值：
-      */
+    /**
+     * 跳转链接
+     * <p> 示例值：
+     */
     @SerializedName("link")
     private OpenAppFeedLink link;
-     /**
-      * 即时提醒状态，true-打开，false-关闭
-      * <p> 示例值：false
-      */
+    /**
+     * 即时提醒状态，true-打开，false-关闭
+     * <p> 示例值：false
+     */
     @SerializedName("time_sensitive")
     private Boolean timeSensitive;
-     /**
-      * 通知设置，当前可设置通知是否关闭，为空时默认进行通知
-      * <p> 示例值：
-      */
+    /**
+     * 通知设置，当前可设置通知是否关闭，为空时默认进行通知
+     * <p> 示例值：
+     */
     @SerializedName("notify")
     private AppFeedNotify notify;
+
+    // builder 开始
+    public OpenAppFeedCard() {
+    }
+
+    public OpenAppFeedCard(Builder builder) {
+        /**
+         * 业务 ID
+         * <p> 示例值：096e2927-40a6-41a3-9562-314d641d09ae
+         */
+        this.bizId = builder.bizId;
+        /**
+         * 主标题
+         * <p> 示例值：主标题
+         */
+        this.title = builder.title;
+        /**
+         * 头像 key
+         * <p> 示例值：v3_0041_007bca9f-67ba-4199-bf00-4031b12cf226
+         */
+        this.avatarKey = builder.avatarKey;
+        /**
+         * 预览信息
+         * <p> 示例值：预览信息
+         */
+        this.preview = builder.preview;
+        /**
+         * 状态标签
+         * <p> 示例值：
+         */
+        this.statusLabel = builder.statusLabel;
+        /**
+         * 交互按钮
+         * <p> 示例值：
+         */
+        this.buttons = builder.buttons;
+        /**
+         * 跳转链接
+         * <p> 示例值：
+         */
+        this.link = builder.link;
+        /**
+         * 即时提醒状态，true-打开，false-关闭
+         * <p> 示例值：false
+         */
+        this.timeSensitive = builder.timeSensitive;
+        /**
+         * 通知设置，当前可设置通知是否关闭，为空时默认进行通知
+         * <p> 示例值：
+         */
+        this.notify = builder.notify;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getBizId() {
         return this.bizId;
     }
@@ -151,228 +212,172 @@ public class OpenAppFeedCard {
         this.notify = notify;
     }
 
-
-// builder 开始
-  public OpenAppFeedCard(){}
-
-  public OpenAppFeedCard(Builder builder){
-         /**
-          * 业务 ID
-          * <p> 示例值：096e2927-40a6-41a3-9562-314d641d09ae
-          */
-      this.bizId = builder.bizId;
-         /**
-          * 主标题
-          * <p> 示例值：主标题
-          */
-      this.title = builder.title;
-         /**
-          * 头像 key
-          * <p> 示例值：v3_0041_007bca9f-67ba-4199-bf00-4031b12cf226
-          */
-      this.avatarKey = builder.avatarKey;
-         /**
-          * 预览信息
-          * <p> 示例值：预览信息
-          */
-      this.preview = builder.preview;
-         /**
-          * 状态标签
-          * <p> 示例值：
-          */
-      this.statusLabel = builder.statusLabel;
-         /**
-          * 交互按钮
-          * <p> 示例值：
-          */
-      this.buttons = builder.buttons;
-         /**
-          * 跳转链接
-          * <p> 示例值：
-          */
-      this.link = builder.link;
-         /**
-          * 即时提醒状态，true-打开，false-关闭
-          * <p> 示例值：false
-          */
-      this.timeSensitive = builder.timeSensitive;
-         /**
-          * 通知设置，当前可设置通知是否关闭，为空时默认进行通知
-          * <p> 示例值：
-          */
-      this.notify = builder.notify;
-  }
-
     public static class Builder {
-     /**
-      * 业务 ID
-      * <p> 示例值：096e2927-40a6-41a3-9562-314d641d09ae
-      */
+        /**
+         * 业务 ID
+         * <p> 示例值：096e2927-40a6-41a3-9562-314d641d09ae
+         */
         private String bizId;
-     /**
-      * 主标题
-      * <p> 示例值：主标题
-      */
+        /**
+         * 主标题
+         * <p> 示例值：主标题
+         */
         private String title;
-     /**
-      * 头像 key
-      * <p> 示例值：v3_0041_007bca9f-67ba-4199-bf00-4031b12cf226
-      */
+        /**
+         * 头像 key
+         * <p> 示例值：v3_0041_007bca9f-67ba-4199-bf00-4031b12cf226
+         */
         private String avatarKey;
-     /**
-      * 预览信息
-      * <p> 示例值：预览信息
-      */
+        /**
+         * 预览信息
+         * <p> 示例值：预览信息
+         */
         private String preview;
-     /**
-      * 状态标签
-      * <p> 示例值：
-      */
+        /**
+         * 状态标签
+         * <p> 示例值：
+         */
         private OpenFeedStatusLabel statusLabel;
-     /**
-      * 交互按钮
-      * <p> 示例值：
-      */
+        /**
+         * 交互按钮
+         * <p> 示例值：
+         */
         private OpenAppFeedCardButtons buttons;
-     /**
-      * 跳转链接
-      * <p> 示例值：
-      */
+        /**
+         * 跳转链接
+         * <p> 示例值：
+         */
         private OpenAppFeedLink link;
-     /**
-      * 即时提醒状态，true-打开，false-关闭
-      * <p> 示例值：false
-      */
+        /**
+         * 即时提醒状态，true-打开，false-关闭
+         * <p> 示例值：false
+         */
         private Boolean timeSensitive;
-     /**
-      * 通知设置，当前可设置通知是否关闭，为空时默认进行通知
-      * <p> 示例值：
-      */
+        /**
+         * 通知设置，当前可设置通知是否关闭，为空时默认进行通知
+         * <p> 示例值：
+         */
         private AppFeedNotify notify;
 
         /**
          * 业务 ID
          * <p> 示例值：096e2927-40a6-41a3-9562-314d641d09ae
+         *
          * @param bizId
          * @return
          */
         public Builder bizId(String bizId) {
-             this.bizId = bizId;
-             return this;
+            this.bizId = bizId;
+            return this;
         }
 
-    
 
         /**
          * 主标题
          * <p> 示例值：主标题
+         *
          * @param title
          * @return
          */
         public Builder title(String title) {
-             this.title = title;
-             return this;
+            this.title = title;
+            return this;
         }
 
-    
 
         /**
          * 头像 key
          * <p> 示例值：v3_0041_007bca9f-67ba-4199-bf00-4031b12cf226
+         *
          * @param avatarKey
          * @return
          */
         public Builder avatarKey(String avatarKey) {
-             this.avatarKey = avatarKey;
-             return this;
+            this.avatarKey = avatarKey;
+            return this;
         }
 
-    
 
         /**
          * 预览信息
          * <p> 示例值：预览信息
+         *
          * @param preview
          * @return
          */
         public Builder preview(String preview) {
-             this.preview = preview;
-             return this;
+            this.preview = preview;
+            return this;
         }
 
-    
 
         /**
          * 状态标签
          * <p> 示例值：
+         *
          * @param statusLabel
          * @return
          */
         public Builder statusLabel(OpenFeedStatusLabel statusLabel) {
-             this.statusLabel = statusLabel;
-             return this;
+            this.statusLabel = statusLabel;
+            return this;
         }
 
-    
 
         /**
          * 交互按钮
          * <p> 示例值：
+         *
          * @param buttons
          * @return
          */
         public Builder buttons(OpenAppFeedCardButtons buttons) {
-             this.buttons = buttons;
-             return this;
+            this.buttons = buttons;
+            return this;
         }
 
-    
 
         /**
          * 跳转链接
          * <p> 示例值：
+         *
          * @param link
          * @return
          */
         public Builder link(OpenAppFeedLink link) {
-             this.link = link;
-             return this;
+            this.link = link;
+            return this;
         }
 
-    
 
         /**
          * 即时提醒状态，true-打开，false-关闭
          * <p> 示例值：false
+         *
          * @param timeSensitive
          * @return
          */
         public Builder timeSensitive(Boolean timeSensitive) {
-             this.timeSensitive = timeSensitive;
-             return this;
+            this.timeSensitive = timeSensitive;
+            return this;
         }
 
-    
 
         /**
          * 通知设置，当前可设置通知是否关闭，为空时默认进行通知
          * <p> 示例值：
+         *
          * @param notify
          * @return
          */
         public Builder notify(AppFeedNotify notify) {
-             this.notify = notify;
-             return this;
+            this.notify = notify;
+            return this;
         }
 
-    
-    
-    public OpenAppFeedCard build(){
-        return new OpenAppFeedCard(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public OpenAppFeedCard build() {
+            return new OpenAppFeedCard(this);
+        }
     }
 }

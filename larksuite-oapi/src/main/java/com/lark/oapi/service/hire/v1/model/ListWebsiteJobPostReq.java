@@ -12,80 +12,153 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ListWebsiteJobPostReq {
-     /**
-      * 下一页页码
-      * <p> 示例值：eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==
-      */
+    /**
+     * 下一页页码
+     * <p> 示例值：eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==
+     */
     @Query
     @SerializedName("page_token")
     private String pageToken;
-     /**
-      * 每页获取记录数量，最大10
-      * <p> 示例值：10
-      */
+    /**
+     * 每页获取记录数量，最大10
+     * <p> 示例值：10
+     */
     @Query
     @SerializedName("page_size")
     private Integer pageSize;
-     /**
-      * 用户 ID 类型
-      * <p> 示例值：open_id
-      */
+    /**
+     * 用户 ID 类型
+     * <p> 示例值：open_id
+     */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
-     /**
-      * 此次调用中使用的部门 ID 的类型
-      * <p> 示例值：
-      */
+    /**
+     * 此次调用中使用的部门 ID 的类型
+     * <p> 示例值：
+     */
     @Query
     @SerializedName("department_id_type")
     private String departmentIdType;
-     /**
-      * 此次调用中使用的「职级 ID」的类型
-      * <p> 示例值：
-      */
+    /**
+     * 此次调用中使用的「职级 ID」的类型
+     * <p> 示例值：
+     */
     @Query
     @SerializedName("job_level_id_type")
     private String jobLevelIdType;
-     /**
-      * 最早更新时间,毫秒级时间戳
-      * <p> 示例值：1618500278663
-      */
+    /**
+     * 最早更新时间,毫秒级时间戳
+     * <p> 示例值：1618500278663
+     */
     @Query
     @SerializedName("update_start_time")
     private String updateStartTime;
-     /**
-      * 最晚更新时间,毫秒级时间戳
-      * <p> 示例值：1618500278663
-      */
+    /**
+     * 最晚更新时间,毫秒级时间戳
+     * <p> 示例值：1618500278663
+     */
     @Query
     @SerializedName("update_end_time")
     private String updateEndTime;
-     /**
-      * 最早创建时间,毫秒级时间戳
-      * <p> 示例值：1618500278663
-      */
+    /**
+     * 最早创建时间,毫秒级时间戳
+     * <p> 示例值：1618500278663
+     */
     @Query
     @SerializedName("create_start_time")
     private String createStartTime;
-     /**
-      * 最晚创建时间,毫秒级时间戳
-      * <p> 示例值：1618500278663
-      */
+    /**
+     * 最晚创建时间,毫秒级时间戳
+     * <p> 示例值：1618500278663
+     */
     @Query
     @SerializedName("create_end_time")
     private String createEndTime;
+    /**
+     * 官网 ID
+     * <p> 示例值：111
+     */
+    @Path
+    @SerializedName("website_id")
+    private String websiteId;
+
+    // builder 开始
+    public ListWebsiteJobPostReq() {
+    }
+
+    public ListWebsiteJobPostReq(Builder builder) {
+        /**
+         * 下一页页码
+         * <p> 示例值：eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==
+         */
+        this.pageToken = builder.pageToken;
+        /**
+         * 每页获取记录数量，最大10
+         * <p> 示例值：10
+         */
+        this.pageSize = builder.pageSize;
+        /**
+         * 用户 ID 类型
+         * <p> 示例值：open_id
+         */
+        this.userIdType = builder.userIdType;
+        /**
+         * 此次调用中使用的部门 ID 的类型
+         * <p> 示例值：
+         */
+        this.departmentIdType = builder.departmentIdType;
+        /**
+         * 此次调用中使用的「职级 ID」的类型
+         * <p> 示例值：
+         */
+        this.jobLevelIdType = builder.jobLevelIdType;
+        /**
+         * 最早更新时间,毫秒级时间戳
+         * <p> 示例值：1618500278663
+         */
+        this.updateStartTime = builder.updateStartTime;
+        /**
+         * 最晚更新时间,毫秒级时间戳
+         * <p> 示例值：1618500278663
+         */
+        this.updateEndTime = builder.updateEndTime;
+        /**
+         * 最早创建时间,毫秒级时间戳
+         * <p> 示例值：1618500278663
+         */
+        this.createStartTime = builder.createStartTime;
+        /**
+         * 最晚创建时间,毫秒级时间戳
+         * <p> 示例值：1618500278663
+         */
+        this.createEndTime = builder.createEndTime;
+        /**
+         * 官网 ID
+         * <p> 示例值：111
+         */
+        this.websiteId = builder.websiteId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getPageToken() {
         return this.pageToken;
     }
@@ -158,13 +231,6 @@ public class ListWebsiteJobPostReq {
         this.createEndTime = createEndTime;
     }
 
-     /**
-      * 官网 ID
-      * <p> 示例值：111
-      */
-    @Path
-    @SerializedName("website_id")
-    private String websiteId;
     public String getWebsiteId() {
         return this.websiteId;
     }
@@ -172,63 +238,6 @@ public class ListWebsiteJobPostReq {
     public void setWebsiteId(String websiteId) {
         this.websiteId = websiteId;
     }
-
-
-// builder 开始
-  public ListWebsiteJobPostReq(){}
-
-  public ListWebsiteJobPostReq(Builder builder){
-         /**
-          * 下一页页码
-          * <p> 示例值：eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==
-          */
-       this.pageToken = builder.pageToken;
-         /**
-          * 每页获取记录数量，最大10
-          * <p> 示例值：10
-          */
-       this.pageSize = builder.pageSize;
-         /**
-          * 用户 ID 类型
-          * <p> 示例值：open_id
-          */
-       this.userIdType = builder.userIdType;
-         /**
-          * 此次调用中使用的部门 ID 的类型
-          * <p> 示例值：
-          */
-       this.departmentIdType = builder.departmentIdType;
-         /**
-          * 此次调用中使用的「职级 ID」的类型
-          * <p> 示例值：
-          */
-       this.jobLevelIdType = builder.jobLevelIdType;
-         /**
-          * 最早更新时间,毫秒级时间戳
-          * <p> 示例值：1618500278663
-          */
-       this.updateStartTime = builder.updateStartTime;
-         /**
-          * 最晚更新时间,毫秒级时间戳
-          * <p> 示例值：1618500278663
-          */
-       this.updateEndTime = builder.updateEndTime;
-         /**
-          * 最早创建时间,毫秒级时间戳
-          * <p> 示例值：1618500278663
-          */
-       this.createStartTime = builder.createStartTime;
-         /**
-          * 最晚创建时间,毫秒级时间戳
-          * <p> 示例值：1618500278663
-          */
-       this.createEndTime = builder.createEndTime;
-     /**
-      * 官网 ID
-      * <p> 示例值：111
-      */
-       this.websiteId = builder.websiteId;
-  }
 
     public static class Builder {
         private String pageToken; // 下一页页码
@@ -240,134 +249,131 @@ public class ListWebsiteJobPostReq {
         private String updateEndTime; // 最晚更新时间,毫秒级时间戳
         private String createStartTime; // 最早创建时间,毫秒级时间戳
         private String createEndTime; // 最晚创建时间,毫秒级时间戳
-    
+        private String websiteId; // 官网 ID
+
         /**
          * 下一页页码
          * <p> 示例值：eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==
+         *
          * @param pageToken
          * @return
          */
-           public Builder pageToken(String pageToken) {
-                this.pageToken = pageToken;
-                return this;
-           }
+        public Builder pageToken(String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+        }
 
-    
         /**
          * 每页获取记录数量，最大10
          * <p> 示例值：10
+         *
          * @param pageSize
          * @return
          */
-           public Builder pageSize(Integer pageSize) {
-                this.pageSize = pageSize;
-                return this;
-           }
+        public Builder pageSize(Integer pageSize) {
+            this.pageSize = pageSize;
+            return this;
+        }
 
-    
         /**
          * 用户 ID 类型
          * <p> 示例值：open_id
+         *
          * @param userIdType
          * @return
          */
-           public Builder userIdType(String userIdType) {
-                this.userIdType = userIdType;
-                return this;
-           }
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
 
-    
         /**
          * 此次调用中使用的部门 ID 的类型
          * <p> 示例值：
+         *
          * @param departmentIdType
          * @return
          */
-           public Builder departmentIdType(String departmentIdType) {
-                this.departmentIdType = departmentIdType;
-                return this;
-           }
+        public Builder departmentIdType(String departmentIdType) {
+            this.departmentIdType = departmentIdType;
+            return this;
+        }
 
-    
         /**
          * 此次调用中使用的「职级 ID」的类型
          * <p> 示例值：
+         *
          * @param jobLevelIdType
          * @return
          */
-           public Builder jobLevelIdType(String jobLevelIdType) {
-                this.jobLevelIdType = jobLevelIdType;
-                return this;
-           }
+        public Builder jobLevelIdType(String jobLevelIdType) {
+            this.jobLevelIdType = jobLevelIdType;
+            return this;
+        }
 
-    
         /**
          * 最早更新时间,毫秒级时间戳
          * <p> 示例值：1618500278663
+         *
          * @param updateStartTime
          * @return
          */
-           public Builder updateStartTime(String updateStartTime) {
-                this.updateStartTime = updateStartTime;
-                return this;
-           }
+        public Builder updateStartTime(String updateStartTime) {
+            this.updateStartTime = updateStartTime;
+            return this;
+        }
 
-    
         /**
          * 最晚更新时间,毫秒级时间戳
          * <p> 示例值：1618500278663
+         *
          * @param updateEndTime
          * @return
          */
-           public Builder updateEndTime(String updateEndTime) {
-                this.updateEndTime = updateEndTime;
-                return this;
-           }
+        public Builder updateEndTime(String updateEndTime) {
+            this.updateEndTime = updateEndTime;
+            return this;
+        }
 
-    
         /**
          * 最早创建时间,毫秒级时间戳
          * <p> 示例值：1618500278663
+         *
          * @param createStartTime
          * @return
          */
-           public Builder createStartTime(String createStartTime) {
-                this.createStartTime = createStartTime;
-                return this;
-           }
+        public Builder createStartTime(String createStartTime) {
+            this.createStartTime = createStartTime;
+            return this;
+        }
 
-    
         /**
          * 最晚创建时间,毫秒级时间戳
          * <p> 示例值：1618500278663
+         *
          * @param createEndTime
          * @return
          */
-           public Builder createEndTime(String createEndTime) {
-                this.createEndTime = createEndTime;
-                return this;
-           }
+        public Builder createEndTime(String createEndTime) {
+            this.createEndTime = createEndTime;
+            return this;
+        }
 
-    
-        private String websiteId; // 官网 ID
         /**
          * 官网 ID
          * <p> 示例值：111
+         *
          * @param websiteId
          * @return
          */
-          public Builder websiteId(String websiteId) {
-               this.websiteId = websiteId;
-               return this;
-          }
+        public Builder websiteId(String websiteId) {
+            this.websiteId = websiteId;
+            return this;
+        }
 
-    
-    public ListWebsiteJobPostReq build(){
-        return new ListWebsiteJobPostReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ListWebsiteJobPostReq build() {
+            return new ListWebsiteJobPostReq(this);
+        }
     }
 }

@@ -17,21 +17,22 @@ package com.lark.oapi.service.mail.v1.enums;
  * 匹配条件操作符
  */
 public enum RuleConditionItemRuleConditionItemOperatorEnum {
-     CONTAINS(1), // 包含
-     DOESNOTCONTAINS(2), // 不包含
-     STARTSWITH(3), // 开头是
-     ENDSWITH(4), // 结尾是
-     IS(5), // 是
-     ISNOT(6), // 不是
-     INCLUDESME(7), // 包含自己
-     ISEMPTY(10), // 为空
-  ;
-   private Integer value;
+    CONTAINS(1), // 包含
+    DOESNOTCONTAINS(2), // 不包含
+    STARTSWITH(3), // 开头是
+    ENDSWITH(4), // 结尾是
+    IS(5), // 是
+    ISNOT(6), // 不是
+    INCLUDESME(7), // 包含自己
+    ISEMPTY(10), // 为空
+    ;
+    private Integer value;
+
     RuleConditionItemRuleConditionItemOperatorEnum(Integer value) {
-      this.value = value;
+        this.value = value;
     }
 
     public Integer getValue() {
-      return this.value;
+        return this.value;
     }
 }

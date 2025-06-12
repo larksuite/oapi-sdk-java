@@ -12,24 +12,45 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CloseJobReq {
-     /**
-      * 职位 ID
-      * <p> 示例值：6960663240925956555
-      */
+    /**
+     * 职位 ID
+     * <p> 示例值：6960663240925956555
+     */
     @Path
     @SerializedName("job_id")
     private String jobId;
+
+    // builder 开始
+    public CloseJobReq() {
+    }
+
+    public CloseJobReq(Builder builder) {
+        /**
+         * 职位 ID
+         * <p> 示例值：6960663240925956555
+         */
+        this.jobId = builder.jobId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getJobId() {
         return this.jobId;
     }
@@ -38,39 +59,25 @@ public class CloseJobReq {
         this.jobId = jobId;
     }
 
-
-// builder 开始
-  public CloseJobReq(){}
-
-  public CloseJobReq(Builder builder){
-     /**
-      * 职位 ID
-      * <p> 示例值：6960663240925956555
-      */
-       this.jobId = builder.jobId;
-  }
-
     public static class Builder {
-    
+
         private String jobId; // 职位 ID
+
         /**
          * 职位 ID
          * <p> 示例值：6960663240925956555
+         *
          * @param jobId
          * @return
          */
-          public Builder jobId(String jobId) {
-               this.jobId = jobId;
-               return this;
-          }
+        public Builder jobId(String jobId) {
+            this.jobId = jobId;
+            return this;
+        }
 
-    
-    public CloseJobReq build(){
-        return new CloseJobReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public CloseJobReq build() {
+            return new CloseJobReq(this);
+        }
     }
 }

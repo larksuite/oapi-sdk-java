@@ -12,42 +12,47 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ListWorkforcePlanRespBody {
-     /**
-      * 方案列表
-      * <p> 示例值：
-      */
+    /**
+     * 方案列表
+     * <p> 示例值：
+     */
     @SerializedName("items")
     private WorkforcePlan[] items;
-     /**
-      * 方案总数
-      * <p> 示例值：100
-      */
+    /**
+     * 方案总数
+     * <p> 示例值：100
+     */
     @SerializedName("total")
     private Integer total;
-     /**
-      * 分页标识
-      * <p> 示例值：34523459
-      */
+    /**
+     * 分页标识
+     * <p> 示例值：34523459
+     */
     @SerializedName("page_token")
     private String pageToken;
-     /**
-      * 是否有下一页
-      * <p> 示例值：true
-      */
+    /**
+     * 是否有下一页
+     * <p> 示例值：true
+     */
     @SerializedName("has_more")
     private Boolean hasMore;
+
     public WorkforcePlan[] getItems() {
         return this.items;
     }

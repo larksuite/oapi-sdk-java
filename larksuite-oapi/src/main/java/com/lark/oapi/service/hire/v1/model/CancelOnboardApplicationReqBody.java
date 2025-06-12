@@ -12,36 +12,67 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CancelOnboardApplicationReqBody {
-     /**
-      * 终止类型
-      * <p> 示例值：1
-      */
+    /**
+     * 终止类型
+     * <p> 示例值：1
+     */
     @SerializedName("termination_type")
     private Integer terminationType;
-     /**
-      * 终止原因 ID 列表
-      * <p> 示例值：11111
-      */
+    /**
+     * 终止原因 ID 列表
+     * <p> 示例值：11111
+     */
     @SerializedName("termination_reason_id_list")
     private String[] terminationReasonIdList;
-     /**
-      * 备注
-      * <p> 示例值：测试
-      */
+    /**
+     * 备注
+     * <p> 示例值：测试
+     */
     @SerializedName("termination_reason_notes")
     private String terminationReasonNotes;
+
+    // builder 开始
+    public CancelOnboardApplicationReqBody() {
+    }
+
+    public CancelOnboardApplicationReqBody(Builder builder) {
+        /**
+         * 终止类型
+         * <p> 示例值：1
+         */
+        this.terminationType = builder.terminationType;
+        /**
+         * 终止原因 ID 列表
+         * <p> 示例值：11111
+         */
+        this.terminationReasonIdList = builder.terminationReasonIdList;
+        /**
+         * 备注
+         * <p> 示例值：测试
+         */
+        this.terminationReasonNotes = builder.terminationReasonNotes;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Integer getTerminationType() {
         return this.terminationType;
     }
@@ -66,90 +97,64 @@ public class CancelOnboardApplicationReqBody {
         this.terminationReasonNotes = terminationReasonNotes;
     }
 
-
-// builder 开始
-  public CancelOnboardApplicationReqBody(){}
-
-  public CancelOnboardApplicationReqBody(Builder builder){
-         /**
-          * 终止类型
-          * <p> 示例值：1
-          */
-      this.terminationType = builder.terminationType;
-         /**
-          * 终止原因 ID 列表
-          * <p> 示例值：11111
-          */
-      this.terminationReasonIdList = builder.terminationReasonIdList;
-         /**
-          * 备注
-          * <p> 示例值：测试
-          */
-      this.terminationReasonNotes = builder.terminationReasonNotes;
-  }
-
     public static class Builder {
-     /**
-      * 终止类型
-      * <p> 示例值：1
-      */
+        /**
+         * 终止类型
+         * <p> 示例值：1
+         */
         private Integer terminationType;
-     /**
-      * 终止原因 ID 列表
-      * <p> 示例值：11111
-      */
+        /**
+         * 终止原因 ID 列表
+         * <p> 示例值：11111
+         */
         private String[] terminationReasonIdList;
-     /**
-      * 备注
-      * <p> 示例值：测试
-      */
+        /**
+         * 备注
+         * <p> 示例值：测试
+         */
         private String terminationReasonNotes;
 
         /**
          * 终止类型
          * <p> 示例值：1
+         *
          * @param terminationType
          * @return
          */
         public Builder terminationType(Integer terminationType) {
-             this.terminationType = terminationType;
-             return this;
+            this.terminationType = terminationType;
+            return this;
         }
 
-    
 
         /**
          * 终止原因 ID 列表
          * <p> 示例值：11111
+         *
          * @param terminationReasonIdList
          * @return
          */
         public Builder terminationReasonIdList(String[] terminationReasonIdList) {
-             this.terminationReasonIdList = terminationReasonIdList;
-             return this;
+            this.terminationReasonIdList = terminationReasonIdList;
+            return this;
         }
 
-    
 
         /**
          * 备注
          * <p> 示例值：测试
+         *
          * @param terminationReasonNotes
          * @return
          */
         public Builder terminationReasonNotes(String terminationReasonNotes) {
-             this.terminationReasonNotes = terminationReasonNotes;
-             return this;
+            this.terminationReasonNotes = terminationReasonNotes;
+            return this;
         }
 
-    
-    
-    public CancelOnboardApplicationReqBody build(){
-        return new CancelOnboardApplicationReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public CancelOnboardApplicationReqBody build() {
+            return new CancelOnboardApplicationReqBody(this);
+        }
     }
 }

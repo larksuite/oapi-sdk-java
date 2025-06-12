@@ -12,72 +12,77 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class P2EmployeeDomainEventV2Data {
-     /**
-      * 事件类型
-      * <p> 示例值：1
-      */
+    /**
+     * 事件类型
+     * <p> 示例值：1
+     */
     @SerializedName("event_type")
     private Integer eventType;
-     /**
-      * 子事件类型
-      * <p> 示例值：1001
-      */
+    /**
+     * 子事件类型
+     * <p> 示例值：1001
+     */
     @SerializedName("sub_event_type")
     private Integer subEventType;
-     /**
-      * 操作用户 ID
-      * <p> 示例值：7216228370772919852
-      */
+    /**
+     * 操作用户 ID
+     * <p> 示例值：7216228370772919852
+     */
     @SerializedName("operator_user_id")
     private String operatorUserId;
-     /**
-      * 业务场景
-      * <p> 示例值：OpenAPIAddEmployee
-      */
+    /**
+     * 业务场景
+     * <p> 示例值：OpenAPIAddEmployee
+     */
     @SerializedName("opt_scene")
     private String optScene;
-     /**
-      * 操作描述
-      * <p> 示例值：开放平台创建任职记录V1接口入职员工
-      */
+    /**
+     * 操作描述
+     * <p> 示例值：开放平台创建任职记录V1接口入职员工
+     */
     @SerializedName("opt_desc")
     private String optDesc;
-     /**
-      * 操作时间
-      * <p> 示例值：1697701824
-      */
+    /**
+     * 操作时间
+     * <p> 示例值：1697701824
+     */
     @SerializedName("opt_time")
     private String optTime;
-     /**
-      * 操作ID
-      * <p> 示例值：7291571779879978540
-      */
+    /**
+     * 操作ID
+     * <p> 示例值：7291571779879978540
+     */
     @SerializedName("opt_id")
     private String optId;
-     /**
-      * 被操作人的雇佣 ID
-      * <p> 示例值：7324965529786844716
-      */
+    /**
+     * 被操作人的雇佣 ID
+     * <p> 示例值：7324965529786844716
+     */
     @SerializedName("employment_id")
     private String employmentId;
-     /**
-      * 变更数据
-      * <p> 示例值：
-      */
+    /**
+     * 变更数据
+     * <p> 示例值：
+     */
     @SerializedName("data")
     private EmployeeDomainEventData[] data;
+
     public Integer getEventType() {
         return this.eventType;
     }

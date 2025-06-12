@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,120 +20,225 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ComponentLibBasic {
-     /**
-      * -
-      * <p> 示例值：-
-      */
+    /**
+     * -
+     * <p> 示例值：-
+     */
     @SerializedName("lib_id")
     private String libId;
-     /**
-      * -
-      * <p> 示例值：-
-      */
+    /**
+     * -
+     * <p> 示例值：-
+     */
     @SerializedName("namespace")
     private String namespace;
-     /**
-      * -
-      * <p> 示例值：
-      */
+    /**
+     * -
+     * <p> 示例值：
+     */
     @SerializedName("names")
     private I18n[] names;
-     /**
-      * -
-      * <p> 示例值：
-      */
+    /**
+     * -
+     * <p> 示例值：
+     */
     @SerializedName("descriptions")
     private I18n[] descriptions;
-     /**
-      * -
-      * <p> 示例值：
-      */
+    /**
+     * -
+     * <p> 示例值：
+     */
     @SerializedName("logo")
     private Icon logo;
-     /**
-      * -
-      * <p> 示例值：
-      */
+    /**
+     * -
+     * <p> 示例值：
+     */
     @SerializedName("lib_type")
     private String libType;
-     /**
-      * -
-      * <p> 示例值：
-      */
+    /**
+     * -
+     * <p> 示例值：
+     */
     @SerializedName("owner")
     private LookupWithAvatar owner;
-     /**
-      * -
-      * <p> 示例值：
-      */
+    /**
+     * -
+     * <p> 示例值：
+     */
     @SerializedName("install_task_info")
     private TaskInfo installTaskInfo;
-     /**
-      * -
-      * <p> 示例值：-
-      */
+    /**
+     * -
+     * <p> 示例值：-
+     */
     @SerializedName("sandbox_tenant_name")
     private String sandboxTenantName;
-     /**
-      * -
-      * <p> 示例值：-
-      */
+    /**
+     * -
+     * <p> 示例值：-
+     */
     @SerializedName("status")
     private String status;
-     /**
-      * -
-      * <p> 示例值：-
-      */
+    /**
+     * -
+     * <p> 示例值：-
+     */
     @SerializedName("i_s_v_market_version")
     private String iSVMarketVersion;
-     /**
-      * -
-      * <p> 示例值：-
-      */
+    /**
+     * -
+     * <p> 示例值：-
+     */
     @SerializedName("i_s_v_customer_count")
     private String iSVCustomerCount;
-     /**
-      * -
-      * <p> 示例值：-
-      */
+    /**
+     * -
+     * <p> 示例值：-
+     */
     @SerializedName("created_at")
     private String createdAt;
-     /**
-      * -
-      * <p> 示例值：
-      */
+    /**
+     * -
+     * <p> 示例值：
+     */
     @SerializedName("created_by")
     private LookupWithAvatar createdBy;
-     /**
-      * -
-      * <p> 示例值：-
-      */
+    /**
+     * -
+     * <p> 示例值：-
+     */
     @SerializedName("updated_at")
     private String updatedAt;
-     /**
-      * -
-      * <p> 示例值：
-      */
+    /**
+     * -
+     * <p> 示例值：
+     */
     @SerializedName("updated_by")
     private LookupWithAvatar updatedBy;
-     /**
-      * -
-      * <p> 示例值：-
-      */
+    /**
+     * -
+     * <p> 示例值：-
+     */
     @SerializedName("lib_status")
     private String libStatus;
-     /**
-      * -
-      * <p> 示例值：
-      */
+    /**
+     * -
+     * <p> 示例值：
+     */
     @SerializedName("on_top")
     private Boolean onTop;
+
+    // builder 开始
+    public ComponentLibBasic() {
+    }
+
+    public ComponentLibBasic(Builder builder) {
+        /**
+         * -
+         * <p> 示例值：-
+         */
+        this.libId = builder.libId;
+        /**
+         * -
+         * <p> 示例值：-
+         */
+        this.namespace = builder.namespace;
+        /**
+         * -
+         * <p> 示例值：
+         */
+        this.names = builder.names;
+        /**
+         * -
+         * <p> 示例值：
+         */
+        this.descriptions = builder.descriptions;
+        /**
+         * -
+         * <p> 示例值：
+         */
+        this.logo = builder.logo;
+        /**
+         * -
+         * <p> 示例值：
+         */
+        this.libType = builder.libType;
+        /**
+         * -
+         * <p> 示例值：
+         */
+        this.owner = builder.owner;
+        /**
+         * -
+         * <p> 示例值：
+         */
+        this.installTaskInfo = builder.installTaskInfo;
+        /**
+         * -
+         * <p> 示例值：-
+         */
+        this.sandboxTenantName = builder.sandboxTenantName;
+        /**
+         * -
+         * <p> 示例值：-
+         */
+        this.status = builder.status;
+        /**
+         * -
+         * <p> 示例值：-
+         */
+        this.iSVMarketVersion = builder.iSVMarketVersion;
+        /**
+         * -
+         * <p> 示例值：-
+         */
+        this.iSVCustomerCount = builder.iSVCustomerCount;
+        /**
+         * -
+         * <p> 示例值：-
+         */
+        this.createdAt = builder.createdAt;
+        /**
+         * -
+         * <p> 示例值：
+         */
+        this.createdBy = builder.createdBy;
+        /**
+         * -
+         * <p> 示例值：-
+         */
+        this.updatedAt = builder.updatedAt;
+        /**
+         * -
+         * <p> 示例值：
+         */
+        this.updatedBy = builder.updatedBy;
+        /**
+         * -
+         * <p> 示例值：-
+         */
+        this.libStatus = builder.libStatus;
+        /**
+         * -
+         * <p> 示例值：
+         */
+        this.onTop = builder.onTop;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getLibId() {
         return this.libId;
     }
@@ -277,445 +383,346 @@ public class ComponentLibBasic {
         this.onTop = onTop;
     }
 
-
-// builder 开始
-  public ComponentLibBasic(){}
-
-  public ComponentLibBasic(Builder builder){
-         /**
-          * -
-          * <p> 示例值：-
-          */
-      this.libId = builder.libId;
-         /**
-          * -
-          * <p> 示例值：-
-          */
-      this.namespace = builder.namespace;
-         /**
-          * -
-          * <p> 示例值：
-          */
-      this.names = builder.names;
-         /**
-          * -
-          * <p> 示例值：
-          */
-      this.descriptions = builder.descriptions;
-         /**
-          * -
-          * <p> 示例值：
-          */
-      this.logo = builder.logo;
-         /**
-          * -
-          * <p> 示例值：
-          */
-      this.libType = builder.libType;
-         /**
-          * -
-          * <p> 示例值：
-          */
-      this.owner = builder.owner;
-         /**
-          * -
-          * <p> 示例值：
-          */
-      this.installTaskInfo = builder.installTaskInfo;
-         /**
-          * -
-          * <p> 示例值：-
-          */
-      this.sandboxTenantName = builder.sandboxTenantName;
-         /**
-          * -
-          * <p> 示例值：-
-          */
-      this.status = builder.status;
-         /**
-          * -
-          * <p> 示例值：-
-          */
-      this.iSVMarketVersion = builder.iSVMarketVersion;
-         /**
-          * -
-          * <p> 示例值：-
-          */
-      this.iSVCustomerCount = builder.iSVCustomerCount;
-         /**
-          * -
-          * <p> 示例值：-
-          */
-      this.createdAt = builder.createdAt;
-         /**
-          * -
-          * <p> 示例值：
-          */
-      this.createdBy = builder.createdBy;
-         /**
-          * -
-          * <p> 示例值：-
-          */
-      this.updatedAt = builder.updatedAt;
-         /**
-          * -
-          * <p> 示例值：
-          */
-      this.updatedBy = builder.updatedBy;
-         /**
-          * -
-          * <p> 示例值：-
-          */
-      this.libStatus = builder.libStatus;
-         /**
-          * -
-          * <p> 示例值：
-          */
-      this.onTop = builder.onTop;
-  }
-
     public static class Builder {
-     /**
-      * -
-      * <p> 示例值：-
-      */
+        /**
+         * -
+         * <p> 示例值：-
+         */
         private String libId;
-     /**
-      * -
-      * <p> 示例值：-
-      */
+        /**
+         * -
+         * <p> 示例值：-
+         */
         private String namespace;
-     /**
-      * -
-      * <p> 示例值：
-      */
+        /**
+         * -
+         * <p> 示例值：
+         */
         private I18n[] names;
-     /**
-      * -
-      * <p> 示例值：
-      */
+        /**
+         * -
+         * <p> 示例值：
+         */
         private I18n[] descriptions;
-     /**
-      * -
-      * <p> 示例值：
-      */
+        /**
+         * -
+         * <p> 示例值：
+         */
         private Icon logo;
-     /**
-      * -
-      * <p> 示例值：
-      */
+        /**
+         * -
+         * <p> 示例值：
+         */
         private String libType;
-     /**
-      * -
-      * <p> 示例值：
-      */
+        /**
+         * -
+         * <p> 示例值：
+         */
         private LookupWithAvatar owner;
-     /**
-      * -
-      * <p> 示例值：
-      */
+        /**
+         * -
+         * <p> 示例值：
+         */
         private TaskInfo installTaskInfo;
-     /**
-      * -
-      * <p> 示例值：-
-      */
+        /**
+         * -
+         * <p> 示例值：-
+         */
         private String sandboxTenantName;
-     /**
-      * -
-      * <p> 示例值：-
-      */
+        /**
+         * -
+         * <p> 示例值：-
+         */
         private String status;
-     /**
-      * -
-      * <p> 示例值：-
-      */
+        /**
+         * -
+         * <p> 示例值：-
+         */
         private String iSVMarketVersion;
-     /**
-      * -
-      * <p> 示例值：-
-      */
+        /**
+         * -
+         * <p> 示例值：-
+         */
         private String iSVCustomerCount;
-     /**
-      * -
-      * <p> 示例值：-
-      */
+        /**
+         * -
+         * <p> 示例值：-
+         */
         private String createdAt;
-     /**
-      * -
-      * <p> 示例值：
-      */
+        /**
+         * -
+         * <p> 示例值：
+         */
         private LookupWithAvatar createdBy;
-     /**
-      * -
-      * <p> 示例值：-
-      */
+        /**
+         * -
+         * <p> 示例值：-
+         */
         private String updatedAt;
-     /**
-      * -
-      * <p> 示例值：
-      */
+        /**
+         * -
+         * <p> 示例值：
+         */
         private LookupWithAvatar updatedBy;
-     /**
-      * -
-      * <p> 示例值：-
-      */
+        /**
+         * -
+         * <p> 示例值：-
+         */
         private String libStatus;
-     /**
-      * -
-      * <p> 示例值：
-      */
+        /**
+         * -
+         * <p> 示例值：
+         */
         private Boolean onTop;
 
         /**
          * -
          * <p> 示例值：-
+         *
          * @param libId
          * @return
          */
         public Builder libId(String libId) {
-             this.libId = libId;
-             return this;
+            this.libId = libId;
+            return this;
         }
 
-    
 
         /**
          * -
          * <p> 示例值：-
+         *
          * @param namespace
          * @return
          */
         public Builder namespace(String namespace) {
-             this.namespace = namespace;
-             return this;
+            this.namespace = namespace;
+            return this;
         }
 
-    
 
         /**
          * -
          * <p> 示例值：
+         *
          * @param names
          * @return
          */
         public Builder names(I18n[] names) {
-             this.names = names;
-             return this;
+            this.names = names;
+            return this;
         }
 
-    
 
         /**
          * -
          * <p> 示例值：
+         *
          * @param descriptions
          * @return
          */
         public Builder descriptions(I18n[] descriptions) {
-             this.descriptions = descriptions;
-             return this;
+            this.descriptions = descriptions;
+            return this;
         }
 
-    
 
         /**
          * -
          * <p> 示例值：
+         *
          * @param logo
          * @return
          */
         public Builder logo(Icon logo) {
-             this.logo = logo;
-             return this;
+            this.logo = logo;
+            return this;
         }
 
-    
 
         /**
          * -
          * <p> 示例值：
+         *
          * @param libType
          * @return
          */
         public Builder libType(String libType) {
-             this.libType = libType;
-             return this;
+            this.libType = libType;
+            return this;
         }
+
         /**
          * -
          * <p> 示例值：
+         *
          * @param libType {@link com.lark.oapi.service.apaas.v1.enums.ComponentLibBasicLibTypeEnum}
          * @return
          */
         public Builder libType(com.lark.oapi.service.apaas.v1.enums.ComponentLibBasicLibTypeEnum libType) {
-             this.libType = libType.getValue();
-             return this;
+            this.libType = libType.getValue();
+            return this;
         }
 
-    
 
         /**
          * -
          * <p> 示例值：
+         *
          * @param owner
          * @return
          */
         public Builder owner(LookupWithAvatar owner) {
-             this.owner = owner;
-             return this;
+            this.owner = owner;
+            return this;
         }
 
-    
 
         /**
          * -
          * <p> 示例值：
+         *
          * @param installTaskInfo
          * @return
          */
         public Builder installTaskInfo(TaskInfo installTaskInfo) {
-             this.installTaskInfo = installTaskInfo;
-             return this;
+            this.installTaskInfo = installTaskInfo;
+            return this;
         }
 
-    
 
         /**
          * -
          * <p> 示例值：-
+         *
          * @param sandboxTenantName
          * @return
          */
         public Builder sandboxTenantName(String sandboxTenantName) {
-             this.sandboxTenantName = sandboxTenantName;
-             return this;
+            this.sandboxTenantName = sandboxTenantName;
+            return this;
         }
 
-    
 
         /**
          * -
          * <p> 示例值：-
+         *
          * @param status
          * @return
          */
         public Builder status(String status) {
-             this.status = status;
-             return this;
+            this.status = status;
+            return this;
         }
 
-    
 
         /**
          * -
          * <p> 示例值：-
+         *
          * @param iSVMarketVersion
          * @return
          */
         public Builder iSVMarketVersion(String iSVMarketVersion) {
-             this.iSVMarketVersion = iSVMarketVersion;
-             return this;
+            this.iSVMarketVersion = iSVMarketVersion;
+            return this;
         }
 
-    
 
         /**
          * -
          * <p> 示例值：-
+         *
          * @param iSVCustomerCount
          * @return
          */
         public Builder iSVCustomerCount(String iSVCustomerCount) {
-             this.iSVCustomerCount = iSVCustomerCount;
-             return this;
+            this.iSVCustomerCount = iSVCustomerCount;
+            return this;
         }
 
-    
 
         /**
          * -
          * <p> 示例值：-
+         *
          * @param createdAt
          * @return
          */
         public Builder createdAt(String createdAt) {
-             this.createdAt = createdAt;
-             return this;
+            this.createdAt = createdAt;
+            return this;
         }
 
-    
 
         /**
          * -
          * <p> 示例值：
+         *
          * @param createdBy
          * @return
          */
         public Builder createdBy(LookupWithAvatar createdBy) {
-             this.createdBy = createdBy;
-             return this;
+            this.createdBy = createdBy;
+            return this;
         }
 
-    
 
         /**
          * -
          * <p> 示例值：-
+         *
          * @param updatedAt
          * @return
          */
         public Builder updatedAt(String updatedAt) {
-             this.updatedAt = updatedAt;
-             return this;
+            this.updatedAt = updatedAt;
+            return this;
         }
 
-    
 
         /**
          * -
          * <p> 示例值：
+         *
          * @param updatedBy
          * @return
          */
         public Builder updatedBy(LookupWithAvatar updatedBy) {
-             this.updatedBy = updatedBy;
-             return this;
+            this.updatedBy = updatedBy;
+            return this;
         }
 
-    
 
         /**
          * -
          * <p> 示例值：-
+         *
          * @param libStatus
          * @return
          */
         public Builder libStatus(String libStatus) {
-             this.libStatus = libStatus;
-             return this;
+            this.libStatus = libStatus;
+            return this;
         }
 
-    
 
         /**
          * -
          * <p> 示例值：
+         *
          * @param onTop
          * @return
          */
         public Builder onTop(Boolean onTop) {
-             this.onTop = onTop;
-             return this;
+            this.onTop = onTop;
+            return this;
         }
 
-    
-    
-    public ComponentLibBasic build(){
-        return new ComponentLibBasic(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ComponentLibBasic build() {
+            return new ComponentLibBasic(this);
+        }
     }
 }

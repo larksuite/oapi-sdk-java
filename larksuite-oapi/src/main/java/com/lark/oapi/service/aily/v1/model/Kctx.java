@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.aily.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.aily.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,108 +20,203 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Kctx {
-     /**
-      * 租户 id
-      * <p> 示例值：0
-      */
+    /**
+     * 租户 id
+     * <p> 示例值：0
+     */
     @SerializedName("tenant_id")
     private Integer tenantId;
-     /**
-      * 用户 id
-      * <p> 示例值：
-      */
+    /**
+     * 用户 id
+     * <p> 示例值：
+     */
     @SerializedName("user_id")
     private Integer userId;
-     /**
-      * 租户域名
-      * <p> 示例值：apaas
-      */
+    /**
+     * 租户域名
+     * <p> 示例值：apaas
+     */
     @SerializedName("tenant_domain_name")
     private String tenantDomainName;
-     /**
-      * 用户设置
-      * <p> 示例值："{}"
-      */
+    /**
+     * 用户设置
+     * <p> 示例值："{}"
+     */
     @SerializedName("user_setting")
     private String userSetting;
-     /**
-      * 语言
-      * <p> 示例值：1033
-      */
+    /**
+     * 语言
+     * <p> 示例值：1033
+     */
     @SerializedName("lang_id")
     private Integer langId;
-     /**
-      * 请求 id
-      * <p> 示例值：a
-      */
+    /**
+     * 请求 id
+     * <p> 示例值：a
+     */
     @SerializedName("request_id")
     private String requestId;
-     /**
-      * 域名
-      * <p> 示例值：a
-      */
+    /**
+     * 域名
+     * <p> 示例值：a
+     */
     @SerializedName("host")
     private String host;
-     /**
-      * 资源路由 key
-      * <p> 示例值："a"
-      */
+    /**
+     * 资源路由 key
+     * <p> 示例值："a"
+     */
     @SerializedName("tenant_resource_route_key")
     private String tenantResourceRouteKey;
-     /**
-      * 命名空间
-      * <p> 示例值：package_abc
-      */
+    /**
+     * 命名空间
+     * <p> 示例值：package_abc
+     */
     @SerializedName("namespace")
     private String namespace;
-     /**
-      * 租户类型
-      * <p> 示例值：1
-      */
+    /**
+     * 租户类型
+     * <p> 示例值：1
+     */
     @SerializedName("tenant_type")
     private Integer tenantType;
-     /**
-      * 事务ID
-      * <p> 示例值：0
-      */
+    /**
+     * 事务ID
+     * <p> 示例值：0
+     */
     @SerializedName("transaction_id")
     private Integer transactionId;
-     /**
-      * consistency retry type
-      * <p> 示例值：a
-      */
+    /**
+     * consistency retry type
+     * <p> 示例值：a
+     */
     @SerializedName("ConsistencyRetryType")
     private String consistencyRetryType;
-     /**
-      * psm link
-      * <p> 示例值：a
-      */
+    /**
+     * psm link
+     * <p> 示例值：a
+     */
     @SerializedName("PsmLink")
     private String psmLink;
-     /**
-      * breakout retry psm
-      * <p> 示例值：a
-      */
+    /**
+     * breakout retry psm
+     * <p> 示例值：a
+     */
     @SerializedName("BreakoutRetryPsm")
     private String breakoutRetryPsm;
-     /**
-      * credential id
-      * <p> 示例值：a
-      */
+    /**
+     * credential id
+     * <p> 示例值：a
+     */
     @SerializedName("CredentialID")
     private String credentialID;
-     /**
-      * 鉴权类型
-      * <p> 示例值：user
-      */
+    /**
+     * 鉴权类型
+     * <p> 示例值：user
+     */
     @SerializedName("AuthenticationType")
     private String authenticationType;
+
+    // builder 开始
+    public Kctx() {
+    }
+
+    public Kctx(Builder builder) {
+        /**
+         * 租户 id
+         * <p> 示例值：0
+         */
+        this.tenantId = builder.tenantId;
+        /**
+         * 用户 id
+         * <p> 示例值：
+         */
+        this.userId = builder.userId;
+        /**
+         * 租户域名
+         * <p> 示例值：apaas
+         */
+        this.tenantDomainName = builder.tenantDomainName;
+        /**
+         * 用户设置
+         * <p> 示例值："{}"
+         */
+        this.userSetting = builder.userSetting;
+        /**
+         * 语言
+         * <p> 示例值：1033
+         */
+        this.langId = builder.langId;
+        /**
+         * 请求 id
+         * <p> 示例值：a
+         */
+        this.requestId = builder.requestId;
+        /**
+         * 域名
+         * <p> 示例值：a
+         */
+        this.host = builder.host;
+        /**
+         * 资源路由 key
+         * <p> 示例值："a"
+         */
+        this.tenantResourceRouteKey = builder.tenantResourceRouteKey;
+        /**
+         * 命名空间
+         * <p> 示例值：package_abc
+         */
+        this.namespace = builder.namespace;
+        /**
+         * 租户类型
+         * <p> 示例值：1
+         */
+        this.tenantType = builder.tenantType;
+        /**
+         * 事务ID
+         * <p> 示例值：0
+         */
+        this.transactionId = builder.transactionId;
+        /**
+         * consistency retry type
+         * <p> 示例值：a
+         */
+        this.consistencyRetryType = builder.consistencyRetryType;
+        /**
+         * psm link
+         * <p> 示例值：a
+         */
+        this.psmLink = builder.psmLink;
+        /**
+         * breakout retry psm
+         * <p> 示例值：a
+         */
+        this.breakoutRetryPsm = builder.breakoutRetryPsm;
+        /**
+         * credential id
+         * <p> 示例值：a
+         */
+        this.credentialID = builder.credentialID;
+        /**
+         * 鉴权类型
+         * <p> 示例值：user
+         */
+        this.authenticationType = builder.authenticationType;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Integer getTenantId() {
         return this.tenantId;
     }
@@ -249,389 +345,298 @@ public class Kctx {
         this.authenticationType = authenticationType;
     }
 
-
-// builder 开始
-  public Kctx(){}
-
-  public Kctx(Builder builder){
-         /**
-          * 租户 id
-          * <p> 示例值：0
-          */
-      this.tenantId = builder.tenantId;
-         /**
-          * 用户 id
-          * <p> 示例值：
-          */
-      this.userId = builder.userId;
-         /**
-          * 租户域名
-          * <p> 示例值：apaas
-          */
-      this.tenantDomainName = builder.tenantDomainName;
-         /**
-          * 用户设置
-          * <p> 示例值："{}"
-          */
-      this.userSetting = builder.userSetting;
-         /**
-          * 语言
-          * <p> 示例值：1033
-          */
-      this.langId = builder.langId;
-         /**
-          * 请求 id
-          * <p> 示例值：a
-          */
-      this.requestId = builder.requestId;
-         /**
-          * 域名
-          * <p> 示例值：a
-          */
-      this.host = builder.host;
-         /**
-          * 资源路由 key
-          * <p> 示例值："a"
-          */
-      this.tenantResourceRouteKey = builder.tenantResourceRouteKey;
-         /**
-          * 命名空间
-          * <p> 示例值：package_abc
-          */
-      this.namespace = builder.namespace;
-         /**
-          * 租户类型
-          * <p> 示例值：1
-          */
-      this.tenantType = builder.tenantType;
-         /**
-          * 事务ID
-          * <p> 示例值：0
-          */
-      this.transactionId = builder.transactionId;
-         /**
-          * consistency retry type
-          * <p> 示例值：a
-          */
-      this.consistencyRetryType = builder.consistencyRetryType;
-         /**
-          * psm link
-          * <p> 示例值：a
-          */
-      this.psmLink = builder.psmLink;
-         /**
-          * breakout retry psm
-          * <p> 示例值：a
-          */
-      this.breakoutRetryPsm = builder.breakoutRetryPsm;
-         /**
-          * credential id
-          * <p> 示例值：a
-          */
-      this.credentialID = builder.credentialID;
-         /**
-          * 鉴权类型
-          * <p> 示例值：user
-          */
-      this.authenticationType = builder.authenticationType;
-  }
-
     public static class Builder {
-     /**
-      * 租户 id
-      * <p> 示例值：0
-      */
+        /**
+         * 租户 id
+         * <p> 示例值：0
+         */
         private Integer tenantId;
-     /**
-      * 用户 id
-      * <p> 示例值：
-      */
+        /**
+         * 用户 id
+         * <p> 示例值：
+         */
         private Integer userId;
-     /**
-      * 租户域名
-      * <p> 示例值：apaas
-      */
+        /**
+         * 租户域名
+         * <p> 示例值：apaas
+         */
         private String tenantDomainName;
-     /**
-      * 用户设置
-      * <p> 示例值："{}"
-      */
+        /**
+         * 用户设置
+         * <p> 示例值："{}"
+         */
         private String userSetting;
-     /**
-      * 语言
-      * <p> 示例值：1033
-      */
+        /**
+         * 语言
+         * <p> 示例值：1033
+         */
         private Integer langId;
-     /**
-      * 请求 id
-      * <p> 示例值：a
-      */
+        /**
+         * 请求 id
+         * <p> 示例值：a
+         */
         private String requestId;
-     /**
-      * 域名
-      * <p> 示例值：a
-      */
+        /**
+         * 域名
+         * <p> 示例值：a
+         */
         private String host;
-     /**
-      * 资源路由 key
-      * <p> 示例值："a"
-      */
+        /**
+         * 资源路由 key
+         * <p> 示例值："a"
+         */
         private String tenantResourceRouteKey;
-     /**
-      * 命名空间
-      * <p> 示例值：package_abc
-      */
+        /**
+         * 命名空间
+         * <p> 示例值：package_abc
+         */
         private String namespace;
-     /**
-      * 租户类型
-      * <p> 示例值：1
-      */
+        /**
+         * 租户类型
+         * <p> 示例值：1
+         */
         private Integer tenantType;
-     /**
-      * 事务ID
-      * <p> 示例值：0
-      */
+        /**
+         * 事务ID
+         * <p> 示例值：0
+         */
         private Integer transactionId;
-     /**
-      * consistency retry type
-      * <p> 示例值：a
-      */
+        /**
+         * consistency retry type
+         * <p> 示例值：a
+         */
         private String consistencyRetryType;
-     /**
-      * psm link
-      * <p> 示例值：a
-      */
+        /**
+         * psm link
+         * <p> 示例值：a
+         */
         private String psmLink;
-     /**
-      * breakout retry psm
-      * <p> 示例值：a
-      */
+        /**
+         * breakout retry psm
+         * <p> 示例值：a
+         */
         private String breakoutRetryPsm;
-     /**
-      * credential id
-      * <p> 示例值：a
-      */
+        /**
+         * credential id
+         * <p> 示例值：a
+         */
         private String credentialID;
-     /**
-      * 鉴权类型
-      * <p> 示例值：user
-      */
+        /**
+         * 鉴权类型
+         * <p> 示例值：user
+         */
         private String authenticationType;
 
         /**
          * 租户 id
          * <p> 示例值：0
+         *
          * @param tenantId
          * @return
          */
         public Builder tenantId(Integer tenantId) {
-             this.tenantId = tenantId;
-             return this;
+            this.tenantId = tenantId;
+            return this;
         }
 
-    
 
         /**
          * 用户 id
          * <p> 示例值：
+         *
          * @param userId
          * @return
          */
         public Builder userId(Integer userId) {
-             this.userId = userId;
-             return this;
+            this.userId = userId;
+            return this;
         }
 
-    
 
         /**
          * 租户域名
          * <p> 示例值：apaas
+         *
          * @param tenantDomainName
          * @return
          */
         public Builder tenantDomainName(String tenantDomainName) {
-             this.tenantDomainName = tenantDomainName;
-             return this;
+            this.tenantDomainName = tenantDomainName;
+            return this;
         }
 
-    
 
         /**
          * 用户设置
          * <p> 示例值："{}"
+         *
          * @param userSetting
          * @return
          */
         public Builder userSetting(String userSetting) {
-             this.userSetting = userSetting;
-             return this;
+            this.userSetting = userSetting;
+            return this;
         }
 
-    
 
         /**
          * 语言
          * <p> 示例值：1033
+         *
          * @param langId
          * @return
          */
         public Builder langId(Integer langId) {
-             this.langId = langId;
-             return this;
+            this.langId = langId;
+            return this;
         }
 
-    
 
         /**
          * 请求 id
          * <p> 示例值：a
+         *
          * @param requestId
          * @return
          */
         public Builder requestId(String requestId) {
-             this.requestId = requestId;
-             return this;
+            this.requestId = requestId;
+            return this;
         }
 
-    
 
         /**
          * 域名
          * <p> 示例值：a
+         *
          * @param host
          * @return
          */
         public Builder host(String host) {
-             this.host = host;
-             return this;
+            this.host = host;
+            return this;
         }
 
-    
 
         /**
          * 资源路由 key
          * <p> 示例值："a"
+         *
          * @param tenantResourceRouteKey
          * @return
          */
         public Builder tenantResourceRouteKey(String tenantResourceRouteKey) {
-             this.tenantResourceRouteKey = tenantResourceRouteKey;
-             return this;
+            this.tenantResourceRouteKey = tenantResourceRouteKey;
+            return this;
         }
 
-    
 
         /**
          * 命名空间
          * <p> 示例值：package_abc
+         *
          * @param namespace
          * @return
          */
         public Builder namespace(String namespace) {
-             this.namespace = namespace;
-             return this;
+            this.namespace = namespace;
+            return this;
         }
 
-    
 
         /**
          * 租户类型
          * <p> 示例值：1
+         *
          * @param tenantType
          * @return
          */
         public Builder tenantType(Integer tenantType) {
-             this.tenantType = tenantType;
-             return this;
+            this.tenantType = tenantType;
+            return this;
         }
 
-    
 
         /**
          * 事务ID
          * <p> 示例值：0
+         *
          * @param transactionId
          * @return
          */
         public Builder transactionId(Integer transactionId) {
-             this.transactionId = transactionId;
-             return this;
+            this.transactionId = transactionId;
+            return this;
         }
 
-    
 
         /**
          * consistency retry type
          * <p> 示例值：a
+         *
          * @param consistencyRetryType
          * @return
          */
         public Builder consistencyRetryType(String consistencyRetryType) {
-             this.consistencyRetryType = consistencyRetryType;
-             return this;
+            this.consistencyRetryType = consistencyRetryType;
+            return this;
         }
 
-    
 
         /**
          * psm link
          * <p> 示例值：a
+         *
          * @param psmLink
          * @return
          */
         public Builder psmLink(String psmLink) {
-             this.psmLink = psmLink;
-             return this;
+            this.psmLink = psmLink;
+            return this;
         }
 
-    
 
         /**
          * breakout retry psm
          * <p> 示例值：a
+         *
          * @param breakoutRetryPsm
          * @return
          */
         public Builder breakoutRetryPsm(String breakoutRetryPsm) {
-             this.breakoutRetryPsm = breakoutRetryPsm;
-             return this;
+            this.breakoutRetryPsm = breakoutRetryPsm;
+            return this;
         }
 
-    
 
         /**
          * credential id
          * <p> 示例值：a
+         *
          * @param credentialID
          * @return
          */
         public Builder credentialID(String credentialID) {
-             this.credentialID = credentialID;
-             return this;
+            this.credentialID = credentialID;
+            return this;
         }
 
-    
 
         /**
          * 鉴权类型
          * <p> 示例值：user
+         *
          * @param authenticationType
          * @return
          */
         public Builder authenticationType(String authenticationType) {
-             this.authenticationType = authenticationType;
-             return this;
+            this.authenticationType = authenticationType;
+            return this;
         }
 
-    
-    
-    public Kctx build(){
-        return new Kctx(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Kctx build() {
+            return new Kctx(this);
+        }
     }
 }

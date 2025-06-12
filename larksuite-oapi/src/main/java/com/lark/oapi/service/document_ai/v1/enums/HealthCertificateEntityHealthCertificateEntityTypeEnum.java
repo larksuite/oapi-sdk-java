@@ -17,20 +17,21 @@ package com.lark.oapi.service.document_ai.v1.enums;
  * 识别的字段种类
  */
 public enum HealthCertificateEntityHealthCertificateEntityTypeEnum {
-     NAME("name"), // 姓名
-     ISSUEDBY("issued_by"), // 发证机关
-     DATEOFHANDLING("date_of_handling"), // 办证日期
-     DATEOFISSUE("date_of_issue"), // 发证日期
-     DATEOFMEDICALEXAMINATION("date_of_medical_examination"), // 体检日期
-     VALIDDATE("valid_date"), // 有效日期
-     OTHERDATE("other_date"), // 其他日期
-  ;
-   private String value;
+    NAME("name"), // 姓名
+    ISSUEDBY("issued_by"), // 发证机关
+    DATEOFHANDLING("date_of_handling"), // 办证日期
+    DATEOFISSUE("date_of_issue"), // 发证日期
+    DATEOFMEDICALEXAMINATION("date_of_medical_examination"), // 体检日期
+    VALIDDATE("valid_date"), // 有效日期
+    OTHERDATE("other_date"), // 其他日期
+    ;
+    private String value;
+
     HealthCertificateEntityHealthCertificateEntityTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

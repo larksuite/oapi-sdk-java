@@ -17,17 +17,18 @@ package com.lark.oapi.service.attendance.v1.enums;
  * 半天分割类型
  */
 public enum ShiftMiddleTimeRuleMiddleTimeTypeEnum {
-     DEFAULTWITHREST(0), // 按全天班次时长（含休息）的中点分割
-     DEFAULTWITHOUTREST(1), // 按全天班次时长（不含休息）的中点分割
-     BASEINREST(2), // 按休息时间分割
-     BASEINFIXED(3), // 按固定时间点分割
-  ;
-   private Integer value;
+    DEFAULTWITHREST(0), // 按全天班次时长（含休息）的中点分割
+    DEFAULTWITHOUTREST(1), // 按全天班次时长（不含休息）的中点分割
+    BASEINREST(2), // 按休息时间分割
+    BASEINFIXED(3), // 按固定时间点分割
+    ;
+    private Integer value;
+
     ShiftMiddleTimeRuleMiddleTimeTypeEnum(Integer value) {
-      this.value = value;
+        this.value = value;
     }
 
     public Integer getValue() {
-      return this.value;
+        return this.value;
     }
 }

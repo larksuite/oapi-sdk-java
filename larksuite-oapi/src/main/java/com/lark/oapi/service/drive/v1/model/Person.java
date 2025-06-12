@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Person {
-     /**
-      * 回复 at联系人
-      * <p> 示例值：ou_cc19b2bfb93f8a44db4b4d6eababcef
-      */
+    /**
+     * 回复 at联系人
+     * <p> 示例值：ou_cc19b2bfb93f8a44db4b4d6eababcef
+     */
     @SerializedName("user_id")
     private String userId;
+
+    // builder 开始
+    public Person() {
+    }
+
+    public Person(Builder builder) {
+        /**
+         * 回复 at联系人
+         * <p> 示例值：ou_cc19b2bfb93f8a44db4b4d6eababcef
+         */
+        this.userId = builder.userId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getUserId() {
         return this.userId;
     }
@@ -39,44 +60,28 @@ public class Person {
         this.userId = userId;
     }
 
-
-// builder 开始
-  public Person(){}
-
-  public Person(Builder builder){
-         /**
-          * 回复 at联系人
-          * <p> 示例值：ou_cc19b2bfb93f8a44db4b4d6eababcef
-          */
-      this.userId = builder.userId;
-  }
-
     public static class Builder {
-     /**
-      * 回复 at联系人
-      * <p> 示例值：ou_cc19b2bfb93f8a44db4b4d6eababcef
-      */
+        /**
+         * 回复 at联系人
+         * <p> 示例值：ou_cc19b2bfb93f8a44db4b4d6eababcef
+         */
         private String userId;
 
         /**
          * 回复 at联系人
          * <p> 示例值：ou_cc19b2bfb93f8a44db4b4d6eababcef
+         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-             this.userId = userId;
-             return this;
+            this.userId = userId;
+            return this;
         }
 
-    
-    
-    public Person build(){
-        return new Person(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Person build() {
+            return new Person(this);
+        }
     }
 }

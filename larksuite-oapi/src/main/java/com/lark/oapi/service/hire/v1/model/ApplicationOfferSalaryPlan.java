@@ -12,72 +12,133 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ApplicationOfferSalaryPlan {
-     /**
-      * 币种
-      * <p> 示例值：CNY
-      */
+    /**
+     * 币种
+     * <p> 示例值：CNY
+     */
     @SerializedName("currency")
     private String currency;
-     /**
-      * 基本薪资，为JSON 格式，amount 代表基本薪资的金额，peroid 代表基本薪资的周期单位，如："{"amount":"10000","period":2}"
-      * <p> 示例值：{"amount":"10000","period":2}
-      */
+    /**
+     * 基本薪资，为JSON 格式，amount 代表基本薪资的金额，peroid 代表基本薪资的周期单位，如："{"amount":"10000","period":2}"
+     * <p> 示例值：{"amount":"10000","period":2}
+     */
     @SerializedName("basic_salary")
     private String basicSalary;
-     /**
-      * 试用期百分比
-      * <p> 示例值：10%
-      */
+    /**
+     * 试用期百分比
+     * <p> 示例值：10%
+     */
     @SerializedName("probation_salary_percentage")
     private String probationSalaryPercentage;
-     /**
-      * 年终奖月数
-      * <p> 示例值：12
-      */
+    /**
+     * 年终奖月数
+     * <p> 示例值：12
+     */
     @SerializedName("award_salary_multiple")
     private String awardSalaryMultiple;
-     /**
-      * 期权股数
-      * <p> 示例值：11
-      */
+    /**
+     * 期权股数
+     * <p> 示例值：11
+     */
     @SerializedName("option_shares")
     private String optionShares;
-     /**
-      * 季度奖金额
-      * <p> 示例值：11111
-      */
+    /**
+     * 季度奖金额
+     * <p> 示例值：11111
+     */
     @SerializedName("quarterly_bonus")
     private String quarterlyBonus;
-     /**
-      * 半年奖金额
-      * <p> 示例值：11111
-      */
+    /**
+     * 半年奖金额
+     * <p> 示例值：11111
+     */
     @SerializedName("half_year_bonus")
     private String halfYearBonus;
-     /**
-      * 年度现金总额(数量，非公式)
-      * <p> 示例值：11111
-      */
+    /**
+     * 年度现金总额(数量，非公式)
+     * <p> 示例值：11111
+     */
     @SerializedName("total_annual_cash")
     private String totalAnnualCash;
-     /**
-      * 自定义字段的 value 信息
-      * <p> 示例值：
-      */
+    /**
+     * 自定义字段的 value 信息
+     * <p> 示例值：
+     */
     @SerializedName("customize_info_list")
     private ApplicationOfferCustomValue[] customizeInfoList;
+
+    // builder 开始
+    public ApplicationOfferSalaryPlan() {
+    }
+
+    public ApplicationOfferSalaryPlan(Builder builder) {
+        /**
+         * 币种
+         * <p> 示例值：CNY
+         */
+        this.currency = builder.currency;
+        /**
+         * 基本薪资，为JSON 格式，amount 代表基本薪资的金额，peroid 代表基本薪资的周期单位，如："{"amount":"10000","period":2}"
+         * <p> 示例值：{"amount":"10000","period":2}
+         */
+        this.basicSalary = builder.basicSalary;
+        /**
+         * 试用期百分比
+         * <p> 示例值：10%
+         */
+        this.probationSalaryPercentage = builder.probationSalaryPercentage;
+        /**
+         * 年终奖月数
+         * <p> 示例值：12
+         */
+        this.awardSalaryMultiple = builder.awardSalaryMultiple;
+        /**
+         * 期权股数
+         * <p> 示例值：11
+         */
+        this.optionShares = builder.optionShares;
+        /**
+         * 季度奖金额
+         * <p> 示例值：11111
+         */
+        this.quarterlyBonus = builder.quarterlyBonus;
+        /**
+         * 半年奖金额
+         * <p> 示例值：11111
+         */
+        this.halfYearBonus = builder.halfYearBonus;
+        /**
+         * 年度现金总额(数量，非公式)
+         * <p> 示例值：11111
+         */
+        this.totalAnnualCash = builder.totalAnnualCash;
+        /**
+         * 自定义字段的 value 信息
+         * <p> 示例值：
+         */
+        this.customizeInfoList = builder.customizeInfoList;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getCurrency() {
         return this.currency;
     }
@@ -150,228 +211,172 @@ public class ApplicationOfferSalaryPlan {
         this.customizeInfoList = customizeInfoList;
     }
 
-
-// builder 开始
-  public ApplicationOfferSalaryPlan(){}
-
-  public ApplicationOfferSalaryPlan(Builder builder){
-         /**
-          * 币种
-          * <p> 示例值：CNY
-          */
-      this.currency = builder.currency;
-         /**
-          * 基本薪资，为JSON 格式，amount 代表基本薪资的金额，peroid 代表基本薪资的周期单位，如："{"amount":"10000","period":2}"
-          * <p> 示例值：{"amount":"10000","period":2}
-          */
-      this.basicSalary = builder.basicSalary;
-         /**
-          * 试用期百分比
-          * <p> 示例值：10%
-          */
-      this.probationSalaryPercentage = builder.probationSalaryPercentage;
-         /**
-          * 年终奖月数
-          * <p> 示例值：12
-          */
-      this.awardSalaryMultiple = builder.awardSalaryMultiple;
-         /**
-          * 期权股数
-          * <p> 示例值：11
-          */
-      this.optionShares = builder.optionShares;
-         /**
-          * 季度奖金额
-          * <p> 示例值：11111
-          */
-      this.quarterlyBonus = builder.quarterlyBonus;
-         /**
-          * 半年奖金额
-          * <p> 示例值：11111
-          */
-      this.halfYearBonus = builder.halfYearBonus;
-         /**
-          * 年度现金总额(数量，非公式)
-          * <p> 示例值：11111
-          */
-      this.totalAnnualCash = builder.totalAnnualCash;
-         /**
-          * 自定义字段的 value 信息
-          * <p> 示例值：
-          */
-      this.customizeInfoList = builder.customizeInfoList;
-  }
-
     public static class Builder {
-     /**
-      * 币种
-      * <p> 示例值：CNY
-      */
+        /**
+         * 币种
+         * <p> 示例值：CNY
+         */
         private String currency;
-     /**
-      * 基本薪资，为JSON 格式，amount 代表基本薪资的金额，peroid 代表基本薪资的周期单位，如："{"amount":"10000","period":2}"
-      * <p> 示例值：{"amount":"10000","period":2}
-      */
+        /**
+         * 基本薪资，为JSON 格式，amount 代表基本薪资的金额，peroid 代表基本薪资的周期单位，如："{"amount":"10000","period":2}"
+         * <p> 示例值：{"amount":"10000","period":2}
+         */
         private String basicSalary;
-     /**
-      * 试用期百分比
-      * <p> 示例值：10%
-      */
+        /**
+         * 试用期百分比
+         * <p> 示例值：10%
+         */
         private String probationSalaryPercentage;
-     /**
-      * 年终奖月数
-      * <p> 示例值：12
-      */
+        /**
+         * 年终奖月数
+         * <p> 示例值：12
+         */
         private String awardSalaryMultiple;
-     /**
-      * 期权股数
-      * <p> 示例值：11
-      */
+        /**
+         * 期权股数
+         * <p> 示例值：11
+         */
         private String optionShares;
-     /**
-      * 季度奖金额
-      * <p> 示例值：11111
-      */
+        /**
+         * 季度奖金额
+         * <p> 示例值：11111
+         */
         private String quarterlyBonus;
-     /**
-      * 半年奖金额
-      * <p> 示例值：11111
-      */
+        /**
+         * 半年奖金额
+         * <p> 示例值：11111
+         */
         private String halfYearBonus;
-     /**
-      * 年度现金总额(数量，非公式)
-      * <p> 示例值：11111
-      */
+        /**
+         * 年度现金总额(数量，非公式)
+         * <p> 示例值：11111
+         */
         private String totalAnnualCash;
-     /**
-      * 自定义字段的 value 信息
-      * <p> 示例值：
-      */
+        /**
+         * 自定义字段的 value 信息
+         * <p> 示例值：
+         */
         private ApplicationOfferCustomValue[] customizeInfoList;
 
         /**
          * 币种
          * <p> 示例值：CNY
+         *
          * @param currency
          * @return
          */
         public Builder currency(String currency) {
-             this.currency = currency;
-             return this;
+            this.currency = currency;
+            return this;
         }
 
-    
 
         /**
          * 基本薪资，为JSON 格式，amount 代表基本薪资的金额，peroid 代表基本薪资的周期单位，如："{"amount":"10000","period":2}"
          * <p> 示例值：{"amount":"10000","period":2}
+         *
          * @param basicSalary
          * @return
          */
         public Builder basicSalary(String basicSalary) {
-             this.basicSalary = basicSalary;
-             return this;
+            this.basicSalary = basicSalary;
+            return this;
         }
 
-    
 
         /**
          * 试用期百分比
          * <p> 示例值：10%
+         *
          * @param probationSalaryPercentage
          * @return
          */
         public Builder probationSalaryPercentage(String probationSalaryPercentage) {
-             this.probationSalaryPercentage = probationSalaryPercentage;
-             return this;
+            this.probationSalaryPercentage = probationSalaryPercentage;
+            return this;
         }
 
-    
 
         /**
          * 年终奖月数
          * <p> 示例值：12
+         *
          * @param awardSalaryMultiple
          * @return
          */
         public Builder awardSalaryMultiple(String awardSalaryMultiple) {
-             this.awardSalaryMultiple = awardSalaryMultiple;
-             return this;
+            this.awardSalaryMultiple = awardSalaryMultiple;
+            return this;
         }
 
-    
 
         /**
          * 期权股数
          * <p> 示例值：11
+         *
          * @param optionShares
          * @return
          */
         public Builder optionShares(String optionShares) {
-             this.optionShares = optionShares;
-             return this;
+            this.optionShares = optionShares;
+            return this;
         }
 
-    
 
         /**
          * 季度奖金额
          * <p> 示例值：11111
+         *
          * @param quarterlyBonus
          * @return
          */
         public Builder quarterlyBonus(String quarterlyBonus) {
-             this.quarterlyBonus = quarterlyBonus;
-             return this;
+            this.quarterlyBonus = quarterlyBonus;
+            return this;
         }
 
-    
 
         /**
          * 半年奖金额
          * <p> 示例值：11111
+         *
          * @param halfYearBonus
          * @return
          */
         public Builder halfYearBonus(String halfYearBonus) {
-             this.halfYearBonus = halfYearBonus;
-             return this;
+            this.halfYearBonus = halfYearBonus;
+            return this;
         }
 
-    
 
         /**
          * 年度现金总额(数量，非公式)
          * <p> 示例值：11111
+         *
          * @param totalAnnualCash
          * @return
          */
         public Builder totalAnnualCash(String totalAnnualCash) {
-             this.totalAnnualCash = totalAnnualCash;
-             return this;
+            this.totalAnnualCash = totalAnnualCash;
+            return this;
         }
 
-    
 
         /**
          * 自定义字段的 value 信息
          * <p> 示例值：
+         *
          * @param customizeInfoList
          * @return
          */
         public Builder customizeInfoList(ApplicationOfferCustomValue[] customizeInfoList) {
-             this.customizeInfoList = customizeInfoList;
-             return this;
+            this.customizeInfoList = customizeInfoList;
+            return this;
         }
 
-    
-    
-    public ApplicationOfferSalaryPlan build(){
-        return new ApplicationOfferSalaryPlan(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ApplicationOfferSalaryPlan build() {
+            return new ApplicationOfferSalaryPlan(this);
+        }
     }
 }

@@ -12,36 +12,67 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class SiteResumeWork {
-     /**
-      * 作品链接
-      * <p> 示例值：
-      */
+    /**
+     * 作品链接
+     * <p> 示例值：
+     */
     @SerializedName("link")
     private String link;
-     /**
-      * 描述
-      * <p> 示例值：
-      */
+    /**
+     * 描述
+     * <p> 示例值：
+     */
     @SerializedName("description")
     private String description;
-     /**
-      * 作品附件id
-      * <p> 示例值：
-      */
+    /**
+     * 作品附件id
+     * <p> 示例值：
+     */
     @SerializedName("site_attachment_id")
     private String siteAttachmentId;
+
+    // builder 开始
+    public SiteResumeWork() {
+    }
+
+    public SiteResumeWork(Builder builder) {
+        /**
+         * 作品链接
+         * <p> 示例值：
+         */
+        this.link = builder.link;
+        /**
+         * 描述
+         * <p> 示例值：
+         */
+        this.description = builder.description;
+        /**
+         * 作品附件id
+         * <p> 示例值：
+         */
+        this.siteAttachmentId = builder.siteAttachmentId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getLink() {
         return this.link;
     }
@@ -66,90 +97,64 @@ public class SiteResumeWork {
         this.siteAttachmentId = siteAttachmentId;
     }
 
-
-// builder 开始
-  public SiteResumeWork(){}
-
-  public SiteResumeWork(Builder builder){
-         /**
-          * 作品链接
-          * <p> 示例值：
-          */
-      this.link = builder.link;
-         /**
-          * 描述
-          * <p> 示例值：
-          */
-      this.description = builder.description;
-         /**
-          * 作品附件id
-          * <p> 示例值：
-          */
-      this.siteAttachmentId = builder.siteAttachmentId;
-  }
-
     public static class Builder {
-     /**
-      * 作品链接
-      * <p> 示例值：
-      */
+        /**
+         * 作品链接
+         * <p> 示例值：
+         */
         private String link;
-     /**
-      * 描述
-      * <p> 示例值：
-      */
+        /**
+         * 描述
+         * <p> 示例值：
+         */
         private String description;
-     /**
-      * 作品附件id
-      * <p> 示例值：
-      */
+        /**
+         * 作品附件id
+         * <p> 示例值：
+         */
         private String siteAttachmentId;
 
         /**
          * 作品链接
          * <p> 示例值：
+         *
          * @param link
          * @return
          */
         public Builder link(String link) {
-             this.link = link;
-             return this;
+            this.link = link;
+            return this;
         }
 
-    
 
         /**
          * 描述
          * <p> 示例值：
+         *
          * @param description
          * @return
          */
         public Builder description(String description) {
-             this.description = description;
-             return this;
+            this.description = description;
+            return this;
         }
 
-    
 
         /**
          * 作品附件id
          * <p> 示例值：
+         *
          * @param siteAttachmentId
          * @return
          */
         public Builder siteAttachmentId(String siteAttachmentId) {
-             this.siteAttachmentId = siteAttachmentId;
-             return this;
+            this.siteAttachmentId = siteAttachmentId;
+            return this;
         }
 
-    
-    
-    public SiteResumeWork build(){
-        return new SiteResumeWork(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public SiteResumeWork build() {
+            return new SiteResumeWork(this);
+        }
     }
 }

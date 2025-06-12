@@ -17,14 +17,15 @@ package com.lark.oapi.service.im.v2.enums;
  * 业务类型
  */
 public enum CreateBizEntityTagRelationTagBizTypeEnum {
-     CHAT("chat"), // chat类型
-  ;
-   private String value;
+    CHAT("chat"), // chat类型
+    ;
+    private String value;
+
     CreateBizEntityTagRelationTagBizTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

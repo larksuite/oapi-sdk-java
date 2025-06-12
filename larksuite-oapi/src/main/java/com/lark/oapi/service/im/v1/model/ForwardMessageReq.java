@@ -12,32 +12,73 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ForwardMessageReq {
-     /**
-      * 消息接收者id类型 open_id/user_id/union_id/email/chat_id
-      * <p> 示例值：
-      */
+    /**
+     * 消息接收者id类型 open_id/user_id/union_id/email/chat_id
+     * <p> 示例值：
+     */
     @Query
     @SerializedName("receive_id_type")
     private String receiveIdType;
-     /**
-      * 由开发者生成的唯一字符串序列，用于转发消息请求去重；持有相同uuid的请求在1小时内向同一个目标的转发只可成功一次。
-      * <p> 示例值：b13g2t38-1jd2-458b-8djf-dtbca5104204
-      */
+    /**
+     * 由开发者生成的唯一字符串序列，用于转发消息请求去重；持有相同uuid的请求在1小时内向同一个目标的转发只可成功一次。
+     * <p> 示例值：b13g2t38-1jd2-458b-8djf-dtbca5104204
+     */
     @Query
     @SerializedName("uuid")
     private String uuid;
+    /**
+     * 要转发的消息ID
+     * <p> 示例值：om_dc13264520392913993dd051dba21dcf
+     */
+    @Path
+    @SerializedName("message_id")
+    private String messageId;
+    @Body
+    private ForwardMessageReqBody body;
+
+    // builder 开始
+    public ForwardMessageReq() {
+    }
+
+    public ForwardMessageReq(Builder builder) {
+        /**
+         * 消息接收者id类型 open_id/user_id/union_id/email/chat_id
+         * <p> 示例值：
+         */
+        this.receiveIdType = builder.receiveIdType;
+        /**
+         * 由开发者生成的唯一字符串序列，用于转发消息请求去重；持有相同uuid的请求在1小时内向同一个目标的转发只可成功一次。
+         * <p> 示例值：b13g2t38-1jd2-458b-8djf-dtbca5104204
+         */
+        this.uuid = builder.uuid;
+        /**
+         * 要转发的消息ID
+         * <p> 示例值：om_dc13264520392913993dd051dba21dcf
+         */
+        this.messageId = builder.messageId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getReceiveIdType() {
         return this.receiveIdType;
     }
@@ -54,13 +95,6 @@ public class ForwardMessageReq {
         this.uuid = uuid;
     }
 
-     /**
-      * 要转发的消息ID
-      * <p> 示例值：om_dc13264520392913993dd051dba21dcf
-      */
-    @Path
-    @SerializedName("message_id")
-    private String messageId;
     public String getMessageId() {
         return this.messageId;
     }
@@ -68,9 +102,6 @@ public class ForwardMessageReq {
     public void setMessageId(String messageId) {
         this.messageId = messageId;
     }
-
-    @Body
-    private ForwardMessageReqBody body;
 
     public ForwardMessageReqBody getForwardMessageReqBody() {
         return this.body;
@@ -80,101 +111,77 @@ public class ForwardMessageReq {
         this.body = body;
     }
 
-// builder 开始
-  public ForwardMessageReq(){}
-
-  public ForwardMessageReq(Builder builder){
-         /**
-          * 消息接收者id类型 open_id/user_id/union_id/email/chat_id
-          * <p> 示例值：
-          */
-       this.receiveIdType = builder.receiveIdType;
-         /**
-          * 由开发者生成的唯一字符串序列，用于转发消息请求去重；持有相同uuid的请求在1小时内向同一个目标的转发只可成功一次。
-          * <p> 示例值：b13g2t38-1jd2-458b-8djf-dtbca5104204
-          */
-       this.uuid = builder.uuid;
-     /**
-      * 要转发的消息ID
-      * <p> 示例值：om_dc13264520392913993dd051dba21dcf
-      */
-       this.messageId = builder.messageId;
-        this.body = builder.body;
-  }
-
     public static class Builder {
         private String receiveIdType; // 消息接收者id类型 open_id/user_id/union_id/email/chat_id
         private String uuid; // 由开发者生成的唯一字符串序列，用于转发消息请求去重；持有相同uuid的请求在1小时内向同一个目标的转发只可成功一次。
-    
+        private String messageId; // 要转发的消息ID
+        private ForwardMessageReqBody body;
+
         /**
          * 消息接收者id类型 open_id/user_id/union_id/email/chat_id
          * <p> 示例值：
+         *
          * @param receiveIdType
          * @return
          */
-           public Builder receiveIdType(String receiveIdType) {
-                this.receiveIdType = receiveIdType;
-                return this;
-           }
+        public Builder receiveIdType(String receiveIdType) {
+            this.receiveIdType = receiveIdType;
+            return this;
+        }
 
         /**
          * 消息接收者id类型 open_id/user_id/union_id/email/chat_id
          * <p> 示例值：
+         *
          * @param receiveIdType {@link com.lark.oapi.service.im.v1.enums.ForwardMessageReceiveIdTypeEnum}
          * @return
          */
-          public Builder receiveIdType(com.lark.oapi.service.im.v1.enums.ForwardMessageReceiveIdTypeEnum receiveIdType) {
-               this.receiveIdType = receiveIdType.getValue();
-               return this;
-          }
+        public Builder receiveIdType(com.lark.oapi.service.im.v1.enums.ForwardMessageReceiveIdTypeEnum receiveIdType) {
+            this.receiveIdType = receiveIdType.getValue();
+            return this;
+        }
 
-    
         /**
          * 由开发者生成的唯一字符串序列，用于转发消息请求去重；持有相同uuid的请求在1小时内向同一个目标的转发只可成功一次。
          * <p> 示例值：b13g2t38-1jd2-458b-8djf-dtbca5104204
+         *
          * @param uuid
          * @return
          */
-           public Builder uuid(String uuid) {
-                this.uuid = uuid;
-                return this;
-           }
+        public Builder uuid(String uuid) {
+            this.uuid = uuid;
+            return this;
+        }
 
-    
-        private String messageId; // 要转发的消息ID
         /**
          * 要转发的消息ID
          * <p> 示例值：om_dc13264520392913993dd051dba21dcf
+         *
          * @param messageId
          * @return
          */
-          public Builder messageId(String messageId) {
-               this.messageId = messageId;
-               return this;
-          }
+        public Builder messageId(String messageId) {
+            this.messageId = messageId;
+            return this;
+        }
 
-    
-        private ForwardMessageReqBody body;
-    
         public ForwardMessageReqBody getForwardMessageReqBody() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder forwardMessageReqBody(ForwardMessageReqBody body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public ForwardMessageReq build(){
-        return new ForwardMessageReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ForwardMessageReq build() {
+            return new ForwardMessageReq(this);
+        }
     }
 }

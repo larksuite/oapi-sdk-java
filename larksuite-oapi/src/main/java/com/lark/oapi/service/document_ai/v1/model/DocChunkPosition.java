@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.document_ai.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.document_ai.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class DocChunkPosition {
-     /**
-      * pdf文件解析结果所在页数
-      * <p> 示例值：
-      */
+    /**
+     * pdf文件解析结果所在页数
+     * <p> 示例值：
+     */
     @SerializedName("page_numbers")
     private Integer[] pageNumbers;
-     /**
-      * pdf文件解析结果bbox信息
-      * <p> 示例值：
-      */
+    /**
+     * pdf文件解析结果bbox信息
+     * <p> 示例值：
+     */
     @SerializedName("bboxes")
     private DocChunkBboxItem[] bboxes;
+
+    // builder 开始
+    public DocChunkPosition() {
+    }
+
+    public DocChunkPosition(Builder builder) {
+        /**
+         * pdf文件解析结果所在页数
+         * <p> 示例值：
+         */
+        this.pageNumbers = builder.pageNumbers;
+        /**
+         * pdf文件解析结果bbox信息
+         * <p> 示例值：
+         */
+        this.bboxes = builder.bboxes;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Integer[] getPageNumbers() {
         return this.pageNumbers;
     }
@@ -53,67 +79,46 @@ public class DocChunkPosition {
         this.bboxes = bboxes;
     }
 
-
-// builder 开始
-  public DocChunkPosition(){}
-
-  public DocChunkPosition(Builder builder){
-         /**
-          * pdf文件解析结果所在页数
-          * <p> 示例值：
-          */
-      this.pageNumbers = builder.pageNumbers;
-         /**
-          * pdf文件解析结果bbox信息
-          * <p> 示例值：
-          */
-      this.bboxes = builder.bboxes;
-  }
-
     public static class Builder {
-     /**
-      * pdf文件解析结果所在页数
-      * <p> 示例值：
-      */
+        /**
+         * pdf文件解析结果所在页数
+         * <p> 示例值：
+         */
         private Integer[] pageNumbers;
-     /**
-      * pdf文件解析结果bbox信息
-      * <p> 示例值：
-      */
+        /**
+         * pdf文件解析结果bbox信息
+         * <p> 示例值：
+         */
         private DocChunkBboxItem[] bboxes;
 
         /**
          * pdf文件解析结果所在页数
          * <p> 示例值：
+         *
          * @param pageNumbers
          * @return
          */
         public Builder pageNumbers(Integer[] pageNumbers) {
-             this.pageNumbers = pageNumbers;
-             return this;
+            this.pageNumbers = pageNumbers;
+            return this;
         }
 
-    
 
         /**
          * pdf文件解析结果bbox信息
          * <p> 示例值：
+         *
          * @param bboxes
          * @return
          */
         public Builder bboxes(DocChunkBboxItem[] bboxes) {
-             this.bboxes = bboxes;
-             return this;
+            this.bboxes = bboxes;
+            return this;
         }
 
-    
-    
-    public DocChunkPosition build(){
-        return new DocChunkPosition(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public DocChunkPosition build() {
+            return new DocChunkPosition(this);
+        }
     }
 }

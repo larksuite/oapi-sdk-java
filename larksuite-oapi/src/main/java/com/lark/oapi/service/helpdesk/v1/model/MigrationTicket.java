@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,186 +20,346 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class MigrationTicket {
-     /**
-      * 工单用户 ID
-      * <p> 示例值：ou_37019b7c830210acd88fdce886e25c71
-      */
+    /**
+     * 工单用户 ID
+     * <p> 示例值：ou_37019b7c830210acd88fdce886e25c71
+     */
     @SerializedName("guest_id")
     private String guestId;
-     /**
-      * 关闭工单用户 ID
-      * <p> 示例值：ou_37019b7c830210acd88fdce886e25c71
-      */
+    /**
+     * 关闭工单用户 ID
+     * <p> 示例值：ou_37019b7c830210acd88fdce886e25c71
+     */
     @SerializedName("close_by")
     private String closeBy;
-     /**
-      * 工单创建用户 ID
-      * <p> 示例值：ou_37019b7c830210acd88fdce886e25c71
-      */
+    /**
+     * 工单创建用户 ID
+     * <p> 示例值：ou_37019b7c830210acd88fdce886e25c71
+     */
     @SerializedName("creator_id")
     private String creatorId;
-     /**
-      * 工单主责客服 ID
-      * <p> 示例值：ou_41119b7c830210abb12fdce886e25b98
-      */
+    /**
+     * 工单主责客服 ID
+     * <p> 示例值：ou_41119b7c830210abb12fdce886e25b98
+     */
     @SerializedName("owner_agent_id")
     private String ownerAgentId;
-     /**
-      * 工单创建时间（毫秒）
-      * <p> 示例值：1742377835277
-      */
+    /**
+     * 工单创建时间（毫秒）
+     * <p> 示例值：1742377835277
+     */
     @SerializedName("create_at_ms")
     private String createAtMs;
-     /**
-      * 工单关闭时间（毫秒）
-      * <p> 示例值：1742377835277
-      */
+    /**
+     * 工单关闭时间（毫秒）
+     * <p> 示例值：1742377835277
+     */
     @SerializedName("close_at_ms")
     private String closeAtMs;
-     /**
-      * 工单更新时间（毫秒）
-      * <p> 示例值：1742377835277
-      */
+    /**
+     * 工单更新时间（毫秒）
+     * <p> 示例值：1742377835277
+     */
     @SerializedName("update_at_ms")
     private String updateAtMs;
-     /**
-      * 工单用户开始排队时间（毫秒）
-      * <p> 示例值：1742377835277
-      */
+    /**
+     * 工单用户开始排队时间（毫秒）
+     * <p> 示例值：1742377835277
+     */
     @SerializedName("queued_at_ms")
     private String queuedAtMs;
-     /**
-      * 客服首次响应时间（毫秒）
-      * <p> 示例值：1741849380
-      */
+    /**
+     * 客服首次响应时间（毫秒）
+     * <p> 示例值：1741849380
+     */
     @SerializedName("first_response_ms")
     private String firstResponseMs;
-     /**
-      * 客服最后响应时间（毫秒）
-      * <p> 示例值：1741849380
-      */
+    /**
+     * 客服最后响应时间（毫秒）
+     * <p> 示例值：1741849380
+     */
     @SerializedName("last_response_ms")
     private String lastResponseMs;
-     /**
-      * 工单阶段：1. 机器人 2. 人工
-      * <p> 示例值：1
-      */
+    /**
+     * 工单阶段：1. 机器人 2. 人工
+     * <p> 示例值：1
+     */
     @SerializedName("stage")
     private Integer stage;
-     /**
-      * 工单状态，1：已创建 2: 处理中 3: 排队中 4：待定 5：待用户响应 50: 被机器人关闭 51: 被客服关闭 52: 用户自己关闭
-      * <p> 示例值：1
-      */
+    /**
+     * 工单状态，1：已创建 2: 处理中 3: 排队中 4：待定 5：待用户响应 50: 被机器人关闭 51: 被客服关闭 52: 用户自己关闭
+     * <p> 示例值：1
+     */
     @SerializedName("status")
     private Integer status;
-     /**
-      * 工单评分，1：不满意，2:一般，3:满意
-      * <p> 示例值：3
-      */
+    /**
+     * 工单评分，1：不满意，2:一般，3:满意
+     * <p> 示例值：3
+     */
     @SerializedName("score")
     private Integer score;
-     /**
-      * 工单渠道，描述：9：Open API 2：二维码 14：分享 13：搜索 其他数字：其他渠道
-      * <p> 示例值：9
-      */
+    /**
+     * 工单渠道，描述：9：Open API 2：二维码 14：分享 13：搜索 其他数字：其他渠道
+     * <p> 示例值：9
+     */
     @SerializedName("channel")
     private Integer channel;
-     /**
-      * 客服进入时间，单位毫秒
-      * <p> 示例值：1742377835277
-      */
+    /**
+     * 客服进入时间，单位毫秒
+     * <p> 示例值：1742377835277
+     */
     @SerializedName("agent_entry_time_ms")
     private String agentEntryTimeMs;
-     /**
-      * 工单备注
-      * <p> 示例值：
-      */
+    /**
+     * 工单备注
+     * <p> 示例值：
+     */
     @SerializedName("comments")
     private MigrationTicketComment[] comments;
-     /**
-      * 不满意原因
-      * <p> 示例值：
-      */
+    /**
+     * 不满意原因
+     * <p> 示例值：
+     */
     @SerializedName("dissatisfaction_reasons")
     private I18n[] dissatisfactionReasons;
-     /**
-      * 工单实际处理时长，处理时长=解决时长-工单待定时长（将工单状态修改为待定后的时间），单位秒
-      * <p> 示例值：1741849380
-      */
+    /**
+     * 工单实际处理时长，处理时长=解决时长-工单待定时长（将工单状态修改为待定后的时间），单位秒
+     * <p> 示例值：1741849380
+     */
     @SerializedName("actual_processing_time")
     private String actualProcessingTime;
-     /**
-      * 工单语言（中文：zh_cn，日文： ja_jp，英文：en_us）
-      * <p> 示例值：zh_cn
-      */
+    /**
+     * 工单语言（中文：zh_cn，日文： ja_jp，英文：en_us）
+     * <p> 示例值：zh_cn
+     */
     @SerializedName("language")
     private String language;
-     /**
-      * 第一个客服进群的时间，单位秒
-      * <p> 示例值：1742377835277
-      */
+    /**
+     * 第一个客服进群的时间，单位秒
+     * <p> 示例值：1742377835277
+     */
     @SerializedName("first_agent_entry_chat_time")
     private String firstAgentEntryChatTime;
-     /**
-      * 工单用户国家信息
-      * <p> 示例值：国家
-      */
+    /**
+     * 工单用户国家信息
+     * <p> 示例值：国家
+     */
     @SerializedName("guest_country")
     private String guestCountry;
-     /**
-      * 工单用户城市
-      * <p> 示例值：城市
-      */
+    /**
+     * 工单用户城市
+     * <p> 示例值：城市
+     */
     @SerializedName("guest_city")
     private String guestCity;
-     /**
-      * 工单客服技能组名称
-      * <p> 示例值：测试技能组
-      */
+    /**
+     * 工单客服技能组名称
+     * <p> 示例值：测试技能组
+     */
     @SerializedName("agent_group_name")
     private String agentGroupName;
-     /**
-      * 转单备注
-      * <p> 示例值：这是一个转接工单备注
-      */
+    /**
+     * 转单备注
+     * <p> 示例值：这是一个转接工单备注
+     */
     @SerializedName("transfer_comment")
     private String transferComment;
-     /**
-      * 工单描述
-      * <p> 示例值：这是一个工单描述
-      */
+    /**
+     * 工单描述
+     * <p> 示例值：这是一个工单描述
+     */
     @SerializedName("description")
     private String description;
-     /**
-      * 工单关单方式（1：客服直接结束，2：客服转接结束）
-      * <p> 示例值：1
-      */
+    /**
+     * 工单关单方式（1：客服直接结束，2：客服转接结束）
+     * <p> 示例值：1
+     */
     @SerializedName("close_way")
     private Integer closeWay;
-     /**
-      * 工单协作者 ID
-      * <p> 示例值：
-      */
+    /**
+     * 工单协作者 ID
+     * <p> 示例值：
+     */
     @SerializedName("collaborators")
     private String[] collaborators;
-     /**
-      * 工单关联客服 ID
-      * <p> 示例值：
-      */
+    /**
+     * 工单关联客服 ID
+     * <p> 示例值：
+     */
     @SerializedName("agent_ids")
     private String[] agentIds;
-     /**
-      * 工单 ID
-      * <p> 示例值：7475259964853534722
-      */
+    /**
+     * 工单 ID
+     * <p> 示例值：7475259964853534722
+     */
     @SerializedName("id")
     private String id;
+
+    // builder 开始
+    public MigrationTicket() {
+    }
+
+    public MigrationTicket(Builder builder) {
+        /**
+         * 工单用户 ID
+         * <p> 示例值：ou_37019b7c830210acd88fdce886e25c71
+         */
+        this.guestId = builder.guestId;
+        /**
+         * 关闭工单用户 ID
+         * <p> 示例值：ou_37019b7c830210acd88fdce886e25c71
+         */
+        this.closeBy = builder.closeBy;
+        /**
+         * 工单创建用户 ID
+         * <p> 示例值：ou_37019b7c830210acd88fdce886e25c71
+         */
+        this.creatorId = builder.creatorId;
+        /**
+         * 工单主责客服 ID
+         * <p> 示例值：ou_41119b7c830210abb12fdce886e25b98
+         */
+        this.ownerAgentId = builder.ownerAgentId;
+        /**
+         * 工单创建时间（毫秒）
+         * <p> 示例值：1742377835277
+         */
+        this.createAtMs = builder.createAtMs;
+        /**
+         * 工单关闭时间（毫秒）
+         * <p> 示例值：1742377835277
+         */
+        this.closeAtMs = builder.closeAtMs;
+        /**
+         * 工单更新时间（毫秒）
+         * <p> 示例值：1742377835277
+         */
+        this.updateAtMs = builder.updateAtMs;
+        /**
+         * 工单用户开始排队时间（毫秒）
+         * <p> 示例值：1742377835277
+         */
+        this.queuedAtMs = builder.queuedAtMs;
+        /**
+         * 客服首次响应时间（毫秒）
+         * <p> 示例值：1741849380
+         */
+        this.firstResponseMs = builder.firstResponseMs;
+        /**
+         * 客服最后响应时间（毫秒）
+         * <p> 示例值：1741849380
+         */
+        this.lastResponseMs = builder.lastResponseMs;
+        /**
+         * 工单阶段：1. 机器人 2. 人工
+         * <p> 示例值：1
+         */
+        this.stage = builder.stage;
+        /**
+         * 工单状态，1：已创建 2: 处理中 3: 排队中 4：待定 5：待用户响应 50: 被机器人关闭 51: 被客服关闭 52: 用户自己关闭
+         * <p> 示例值：1
+         */
+        this.status = builder.status;
+        /**
+         * 工单评分，1：不满意，2:一般，3:满意
+         * <p> 示例值：3
+         */
+        this.score = builder.score;
+        /**
+         * 工单渠道，描述：9：Open API 2：二维码 14：分享 13：搜索 其他数字：其他渠道
+         * <p> 示例值：9
+         */
+        this.channel = builder.channel;
+        /**
+         * 客服进入时间，单位毫秒
+         * <p> 示例值：1742377835277
+         */
+        this.agentEntryTimeMs = builder.agentEntryTimeMs;
+        /**
+         * 工单备注
+         * <p> 示例值：
+         */
+        this.comments = builder.comments;
+        /**
+         * 不满意原因
+         * <p> 示例值：
+         */
+        this.dissatisfactionReasons = builder.dissatisfactionReasons;
+        /**
+         * 工单实际处理时长，处理时长=解决时长-工单待定时长（将工单状态修改为待定后的时间），单位秒
+         * <p> 示例值：1741849380
+         */
+        this.actualProcessingTime = builder.actualProcessingTime;
+        /**
+         * 工单语言（中文：zh_cn，日文： ja_jp，英文：en_us）
+         * <p> 示例值：zh_cn
+         */
+        this.language = builder.language;
+        /**
+         * 第一个客服进群的时间，单位秒
+         * <p> 示例值：1742377835277
+         */
+        this.firstAgentEntryChatTime = builder.firstAgentEntryChatTime;
+        /**
+         * 工单用户国家信息
+         * <p> 示例值：国家
+         */
+        this.guestCountry = builder.guestCountry;
+        /**
+         * 工单用户城市
+         * <p> 示例值：城市
+         */
+        this.guestCity = builder.guestCity;
+        /**
+         * 工单客服技能组名称
+         * <p> 示例值：测试技能组
+         */
+        this.agentGroupName = builder.agentGroupName;
+        /**
+         * 转单备注
+         * <p> 示例值：这是一个转接工单备注
+         */
+        this.transferComment = builder.transferComment;
+        /**
+         * 工单描述
+         * <p> 示例值：这是一个工单描述
+         */
+        this.description = builder.description;
+        /**
+         * 工单关单方式（1：客服直接结束，2：客服转接结束）
+         * <p> 示例值：1
+         */
+        this.closeWay = builder.closeWay;
+        /**
+         * 工单协作者 ID
+         * <p> 示例值：
+         */
+        this.collaborators = builder.collaborators;
+        /**
+         * 工单关联客服 ID
+         * <p> 示例值：
+         */
+        this.agentIds = builder.agentIds;
+        /**
+         * 工单 ID
+         * <p> 示例值：7475259964853534722
+         */
+        this.id = builder.id;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getGuestId() {
         return this.guestId;
     }
@@ -431,688 +592,532 @@ public class MigrationTicket {
         this.id = id;
     }
 
-
-// builder 开始
-  public MigrationTicket(){}
-
-  public MigrationTicket(Builder builder){
-         /**
-          * 工单用户 ID
-          * <p> 示例值：ou_37019b7c830210acd88fdce886e25c71
-          */
-      this.guestId = builder.guestId;
-         /**
-          * 关闭工单用户 ID
-          * <p> 示例值：ou_37019b7c830210acd88fdce886e25c71
-          */
-      this.closeBy = builder.closeBy;
-         /**
-          * 工单创建用户 ID
-          * <p> 示例值：ou_37019b7c830210acd88fdce886e25c71
-          */
-      this.creatorId = builder.creatorId;
-         /**
-          * 工单主责客服 ID
-          * <p> 示例值：ou_41119b7c830210abb12fdce886e25b98
-          */
-      this.ownerAgentId = builder.ownerAgentId;
-         /**
-          * 工单创建时间（毫秒）
-          * <p> 示例值：1742377835277
-          */
-      this.createAtMs = builder.createAtMs;
-         /**
-          * 工单关闭时间（毫秒）
-          * <p> 示例值：1742377835277
-          */
-      this.closeAtMs = builder.closeAtMs;
-         /**
-          * 工单更新时间（毫秒）
-          * <p> 示例值：1742377835277
-          */
-      this.updateAtMs = builder.updateAtMs;
-         /**
-          * 工单用户开始排队时间（毫秒）
-          * <p> 示例值：1742377835277
-          */
-      this.queuedAtMs = builder.queuedAtMs;
-         /**
-          * 客服首次响应时间（毫秒）
-          * <p> 示例值：1741849380
-          */
-      this.firstResponseMs = builder.firstResponseMs;
-         /**
-          * 客服最后响应时间（毫秒）
-          * <p> 示例值：1741849380
-          */
-      this.lastResponseMs = builder.lastResponseMs;
-         /**
-          * 工单阶段：1. 机器人 2. 人工
-          * <p> 示例值：1
-          */
-      this.stage = builder.stage;
-         /**
-          * 工单状态，1：已创建 2: 处理中 3: 排队中 4：待定 5：待用户响应 50: 被机器人关闭 51: 被客服关闭 52: 用户自己关闭
-          * <p> 示例值：1
-          */
-      this.status = builder.status;
-         /**
-          * 工单评分，1：不满意，2:一般，3:满意
-          * <p> 示例值：3
-          */
-      this.score = builder.score;
-         /**
-          * 工单渠道，描述：9：Open API 2：二维码 14：分享 13：搜索 其他数字：其他渠道
-          * <p> 示例值：9
-          */
-      this.channel = builder.channel;
-         /**
-          * 客服进入时间，单位毫秒
-          * <p> 示例值：1742377835277
-          */
-      this.agentEntryTimeMs = builder.agentEntryTimeMs;
-         /**
-          * 工单备注
-          * <p> 示例值：
-          */
-      this.comments = builder.comments;
-         /**
-          * 不满意原因
-          * <p> 示例值：
-          */
-      this.dissatisfactionReasons = builder.dissatisfactionReasons;
-         /**
-          * 工单实际处理时长，处理时长=解决时长-工单待定时长（将工单状态修改为待定后的时间），单位秒
-          * <p> 示例值：1741849380
-          */
-      this.actualProcessingTime = builder.actualProcessingTime;
-         /**
-          * 工单语言（中文：zh_cn，日文： ja_jp，英文：en_us）
-          * <p> 示例值：zh_cn
-          */
-      this.language = builder.language;
-         /**
-          * 第一个客服进群的时间，单位秒
-          * <p> 示例值：1742377835277
-          */
-      this.firstAgentEntryChatTime = builder.firstAgentEntryChatTime;
-         /**
-          * 工单用户国家信息
-          * <p> 示例值：国家
-          */
-      this.guestCountry = builder.guestCountry;
-         /**
-          * 工单用户城市
-          * <p> 示例值：城市
-          */
-      this.guestCity = builder.guestCity;
-         /**
-          * 工单客服技能组名称
-          * <p> 示例值：测试技能组
-          */
-      this.agentGroupName = builder.agentGroupName;
-         /**
-          * 转单备注
-          * <p> 示例值：这是一个转接工单备注
-          */
-      this.transferComment = builder.transferComment;
-         /**
-          * 工单描述
-          * <p> 示例值：这是一个工单描述
-          */
-      this.description = builder.description;
-         /**
-          * 工单关单方式（1：客服直接结束，2：客服转接结束）
-          * <p> 示例值：1
-          */
-      this.closeWay = builder.closeWay;
-         /**
-          * 工单协作者 ID
-          * <p> 示例值：
-          */
-      this.collaborators = builder.collaborators;
-         /**
-          * 工单关联客服 ID
-          * <p> 示例值：
-          */
-      this.agentIds = builder.agentIds;
-         /**
-          * 工单 ID
-          * <p> 示例值：7475259964853534722
-          */
-      this.id = builder.id;
-  }
-
     public static class Builder {
-     /**
-      * 工单用户 ID
-      * <p> 示例值：ou_37019b7c830210acd88fdce886e25c71
-      */
+        /**
+         * 工单用户 ID
+         * <p> 示例值：ou_37019b7c830210acd88fdce886e25c71
+         */
         private String guestId;
-     /**
-      * 关闭工单用户 ID
-      * <p> 示例值：ou_37019b7c830210acd88fdce886e25c71
-      */
+        /**
+         * 关闭工单用户 ID
+         * <p> 示例值：ou_37019b7c830210acd88fdce886e25c71
+         */
         private String closeBy;
-     /**
-      * 工单创建用户 ID
-      * <p> 示例值：ou_37019b7c830210acd88fdce886e25c71
-      */
+        /**
+         * 工单创建用户 ID
+         * <p> 示例值：ou_37019b7c830210acd88fdce886e25c71
+         */
         private String creatorId;
-     /**
-      * 工单主责客服 ID
-      * <p> 示例值：ou_41119b7c830210abb12fdce886e25b98
-      */
+        /**
+         * 工单主责客服 ID
+         * <p> 示例值：ou_41119b7c830210abb12fdce886e25b98
+         */
         private String ownerAgentId;
-     /**
-      * 工单创建时间（毫秒）
-      * <p> 示例值：1742377835277
-      */
+        /**
+         * 工单创建时间（毫秒）
+         * <p> 示例值：1742377835277
+         */
         private String createAtMs;
-     /**
-      * 工单关闭时间（毫秒）
-      * <p> 示例值：1742377835277
-      */
+        /**
+         * 工单关闭时间（毫秒）
+         * <p> 示例值：1742377835277
+         */
         private String closeAtMs;
-     /**
-      * 工单更新时间（毫秒）
-      * <p> 示例值：1742377835277
-      */
+        /**
+         * 工单更新时间（毫秒）
+         * <p> 示例值：1742377835277
+         */
         private String updateAtMs;
-     /**
-      * 工单用户开始排队时间（毫秒）
-      * <p> 示例值：1742377835277
-      */
+        /**
+         * 工单用户开始排队时间（毫秒）
+         * <p> 示例值：1742377835277
+         */
         private String queuedAtMs;
-     /**
-      * 客服首次响应时间（毫秒）
-      * <p> 示例值：1741849380
-      */
+        /**
+         * 客服首次响应时间（毫秒）
+         * <p> 示例值：1741849380
+         */
         private String firstResponseMs;
-     /**
-      * 客服最后响应时间（毫秒）
-      * <p> 示例值：1741849380
-      */
+        /**
+         * 客服最后响应时间（毫秒）
+         * <p> 示例值：1741849380
+         */
         private String lastResponseMs;
-     /**
-      * 工单阶段：1. 机器人 2. 人工
-      * <p> 示例值：1
-      */
+        /**
+         * 工单阶段：1. 机器人 2. 人工
+         * <p> 示例值：1
+         */
         private Integer stage;
-     /**
-      * 工单状态，1：已创建 2: 处理中 3: 排队中 4：待定 5：待用户响应 50: 被机器人关闭 51: 被客服关闭 52: 用户自己关闭
-      * <p> 示例值：1
-      */
+        /**
+         * 工单状态，1：已创建 2: 处理中 3: 排队中 4：待定 5：待用户响应 50: 被机器人关闭 51: 被客服关闭 52: 用户自己关闭
+         * <p> 示例值：1
+         */
         private Integer status;
-     /**
-      * 工单评分，1：不满意，2:一般，3:满意
-      * <p> 示例值：3
-      */
+        /**
+         * 工单评分，1：不满意，2:一般，3:满意
+         * <p> 示例值：3
+         */
         private Integer score;
-     /**
-      * 工单渠道，描述：9：Open API 2：二维码 14：分享 13：搜索 其他数字：其他渠道
-      * <p> 示例值：9
-      */
+        /**
+         * 工单渠道，描述：9：Open API 2：二维码 14：分享 13：搜索 其他数字：其他渠道
+         * <p> 示例值：9
+         */
         private Integer channel;
-     /**
-      * 客服进入时间，单位毫秒
-      * <p> 示例值：1742377835277
-      */
+        /**
+         * 客服进入时间，单位毫秒
+         * <p> 示例值：1742377835277
+         */
         private String agentEntryTimeMs;
-     /**
-      * 工单备注
-      * <p> 示例值：
-      */
+        /**
+         * 工单备注
+         * <p> 示例值：
+         */
         private MigrationTicketComment[] comments;
-     /**
-      * 不满意原因
-      * <p> 示例值：
-      */
+        /**
+         * 不满意原因
+         * <p> 示例值：
+         */
         private I18n[] dissatisfactionReasons;
-     /**
-      * 工单实际处理时长，处理时长=解决时长-工单待定时长（将工单状态修改为待定后的时间），单位秒
-      * <p> 示例值：1741849380
-      */
+        /**
+         * 工单实际处理时长，处理时长=解决时长-工单待定时长（将工单状态修改为待定后的时间），单位秒
+         * <p> 示例值：1741849380
+         */
         private String actualProcessingTime;
-     /**
-      * 工单语言（中文：zh_cn，日文： ja_jp，英文：en_us）
-      * <p> 示例值：zh_cn
-      */
+        /**
+         * 工单语言（中文：zh_cn，日文： ja_jp，英文：en_us）
+         * <p> 示例值：zh_cn
+         */
         private String language;
-     /**
-      * 第一个客服进群的时间，单位秒
-      * <p> 示例值：1742377835277
-      */
+        /**
+         * 第一个客服进群的时间，单位秒
+         * <p> 示例值：1742377835277
+         */
         private String firstAgentEntryChatTime;
-     /**
-      * 工单用户国家信息
-      * <p> 示例值：国家
-      */
+        /**
+         * 工单用户国家信息
+         * <p> 示例值：国家
+         */
         private String guestCountry;
-     /**
-      * 工单用户城市
-      * <p> 示例值：城市
-      */
+        /**
+         * 工单用户城市
+         * <p> 示例值：城市
+         */
         private String guestCity;
-     /**
-      * 工单客服技能组名称
-      * <p> 示例值：测试技能组
-      */
+        /**
+         * 工单客服技能组名称
+         * <p> 示例值：测试技能组
+         */
         private String agentGroupName;
-     /**
-      * 转单备注
-      * <p> 示例值：这是一个转接工单备注
-      */
+        /**
+         * 转单备注
+         * <p> 示例值：这是一个转接工单备注
+         */
         private String transferComment;
-     /**
-      * 工单描述
-      * <p> 示例值：这是一个工单描述
-      */
+        /**
+         * 工单描述
+         * <p> 示例值：这是一个工单描述
+         */
         private String description;
-     /**
-      * 工单关单方式（1：客服直接结束，2：客服转接结束）
-      * <p> 示例值：1
-      */
+        /**
+         * 工单关单方式（1：客服直接结束，2：客服转接结束）
+         * <p> 示例值：1
+         */
         private Integer closeWay;
-     /**
-      * 工单协作者 ID
-      * <p> 示例值：
-      */
+        /**
+         * 工单协作者 ID
+         * <p> 示例值：
+         */
         private String[] collaborators;
-     /**
-      * 工单关联客服 ID
-      * <p> 示例值：
-      */
+        /**
+         * 工单关联客服 ID
+         * <p> 示例值：
+         */
         private String[] agentIds;
-     /**
-      * 工单 ID
-      * <p> 示例值：7475259964853534722
-      */
+        /**
+         * 工单 ID
+         * <p> 示例值：7475259964853534722
+         */
         private String id;
 
         /**
          * 工单用户 ID
          * <p> 示例值：ou_37019b7c830210acd88fdce886e25c71
+         *
          * @param guestId
          * @return
          */
         public Builder guestId(String guestId) {
-             this.guestId = guestId;
-             return this;
+            this.guestId = guestId;
+            return this;
         }
 
-    
 
         /**
          * 关闭工单用户 ID
          * <p> 示例值：ou_37019b7c830210acd88fdce886e25c71
+         *
          * @param closeBy
          * @return
          */
         public Builder closeBy(String closeBy) {
-             this.closeBy = closeBy;
-             return this;
+            this.closeBy = closeBy;
+            return this;
         }
 
-    
 
         /**
          * 工单创建用户 ID
          * <p> 示例值：ou_37019b7c830210acd88fdce886e25c71
+         *
          * @param creatorId
          * @return
          */
         public Builder creatorId(String creatorId) {
-             this.creatorId = creatorId;
-             return this;
+            this.creatorId = creatorId;
+            return this;
         }
 
-    
 
         /**
          * 工单主责客服 ID
          * <p> 示例值：ou_41119b7c830210abb12fdce886e25b98
+         *
          * @param ownerAgentId
          * @return
          */
         public Builder ownerAgentId(String ownerAgentId) {
-             this.ownerAgentId = ownerAgentId;
-             return this;
+            this.ownerAgentId = ownerAgentId;
+            return this;
         }
 
-    
 
         /**
          * 工单创建时间（毫秒）
          * <p> 示例值：1742377835277
+         *
          * @param createAtMs
          * @return
          */
         public Builder createAtMs(String createAtMs) {
-             this.createAtMs = createAtMs;
-             return this;
+            this.createAtMs = createAtMs;
+            return this;
         }
 
-    
 
         /**
          * 工单关闭时间（毫秒）
          * <p> 示例值：1742377835277
+         *
          * @param closeAtMs
          * @return
          */
         public Builder closeAtMs(String closeAtMs) {
-             this.closeAtMs = closeAtMs;
-             return this;
+            this.closeAtMs = closeAtMs;
+            return this;
         }
 
-    
 
         /**
          * 工单更新时间（毫秒）
          * <p> 示例值：1742377835277
+         *
          * @param updateAtMs
          * @return
          */
         public Builder updateAtMs(String updateAtMs) {
-             this.updateAtMs = updateAtMs;
-             return this;
+            this.updateAtMs = updateAtMs;
+            return this;
         }
 
-    
 
         /**
          * 工单用户开始排队时间（毫秒）
          * <p> 示例值：1742377835277
+         *
          * @param queuedAtMs
          * @return
          */
         public Builder queuedAtMs(String queuedAtMs) {
-             this.queuedAtMs = queuedAtMs;
-             return this;
+            this.queuedAtMs = queuedAtMs;
+            return this;
         }
 
-    
 
         /**
          * 客服首次响应时间（毫秒）
          * <p> 示例值：1741849380
+         *
          * @param firstResponseMs
          * @return
          */
         public Builder firstResponseMs(String firstResponseMs) {
-             this.firstResponseMs = firstResponseMs;
-             return this;
+            this.firstResponseMs = firstResponseMs;
+            return this;
         }
 
-    
 
         /**
          * 客服最后响应时间（毫秒）
          * <p> 示例值：1741849380
+         *
          * @param lastResponseMs
          * @return
          */
         public Builder lastResponseMs(String lastResponseMs) {
-             this.lastResponseMs = lastResponseMs;
-             return this;
+            this.lastResponseMs = lastResponseMs;
+            return this;
         }
 
-    
 
         /**
          * 工单阶段：1. 机器人 2. 人工
          * <p> 示例值：1
+         *
          * @param stage
          * @return
          */
         public Builder stage(Integer stage) {
-             this.stage = stage;
-             return this;
+            this.stage = stage;
+            return this;
         }
 
-    
 
         /**
          * 工单状态，1：已创建 2: 处理中 3: 排队中 4：待定 5：待用户响应 50: 被机器人关闭 51: 被客服关闭 52: 用户自己关闭
          * <p> 示例值：1
+         *
          * @param status
          * @return
          */
         public Builder status(Integer status) {
-             this.status = status;
-             return this;
+            this.status = status;
+            return this;
         }
 
-    
 
         /**
          * 工单评分，1：不满意，2:一般，3:满意
          * <p> 示例值：3
+         *
          * @param score
          * @return
          */
         public Builder score(Integer score) {
-             this.score = score;
-             return this;
+            this.score = score;
+            return this;
         }
 
-    
 
         /**
          * 工单渠道，描述：9：Open API 2：二维码 14：分享 13：搜索 其他数字：其他渠道
          * <p> 示例值：9
+         *
          * @param channel
          * @return
          */
         public Builder channel(Integer channel) {
-             this.channel = channel;
-             return this;
+            this.channel = channel;
+            return this;
         }
 
-    
 
         /**
          * 客服进入时间，单位毫秒
          * <p> 示例值：1742377835277
+         *
          * @param agentEntryTimeMs
          * @return
          */
         public Builder agentEntryTimeMs(String agentEntryTimeMs) {
-             this.agentEntryTimeMs = agentEntryTimeMs;
-             return this;
+            this.agentEntryTimeMs = agentEntryTimeMs;
+            return this;
         }
 
-    
 
         /**
          * 工单备注
          * <p> 示例值：
+         *
          * @param comments
          * @return
          */
         public Builder comments(MigrationTicketComment[] comments) {
-             this.comments = comments;
-             return this;
+            this.comments = comments;
+            return this;
         }
 
-    
 
         /**
          * 不满意原因
          * <p> 示例值：
+         *
          * @param dissatisfactionReasons
          * @return
          */
         public Builder dissatisfactionReasons(I18n[] dissatisfactionReasons) {
-             this.dissatisfactionReasons = dissatisfactionReasons;
-             return this;
+            this.dissatisfactionReasons = dissatisfactionReasons;
+            return this;
         }
 
-    
 
         /**
          * 工单实际处理时长，处理时长=解决时长-工单待定时长（将工单状态修改为待定后的时间），单位秒
          * <p> 示例值：1741849380
+         *
          * @param actualProcessingTime
          * @return
          */
         public Builder actualProcessingTime(String actualProcessingTime) {
-             this.actualProcessingTime = actualProcessingTime;
-             return this;
+            this.actualProcessingTime = actualProcessingTime;
+            return this;
         }
 
-    
 
         /**
          * 工单语言（中文：zh_cn，日文： ja_jp，英文：en_us）
          * <p> 示例值：zh_cn
+         *
          * @param language
          * @return
          */
         public Builder language(String language) {
-             this.language = language;
-             return this;
+            this.language = language;
+            return this;
         }
 
-    
 
         /**
          * 第一个客服进群的时间，单位秒
          * <p> 示例值：1742377835277
+         *
          * @param firstAgentEntryChatTime
          * @return
          */
         public Builder firstAgentEntryChatTime(String firstAgentEntryChatTime) {
-             this.firstAgentEntryChatTime = firstAgentEntryChatTime;
-             return this;
+            this.firstAgentEntryChatTime = firstAgentEntryChatTime;
+            return this;
         }
 
-    
 
         /**
          * 工单用户国家信息
          * <p> 示例值：国家
+         *
          * @param guestCountry
          * @return
          */
         public Builder guestCountry(String guestCountry) {
-             this.guestCountry = guestCountry;
-             return this;
+            this.guestCountry = guestCountry;
+            return this;
         }
 
-    
 
         /**
          * 工单用户城市
          * <p> 示例值：城市
+         *
          * @param guestCity
          * @return
          */
         public Builder guestCity(String guestCity) {
-             this.guestCity = guestCity;
-             return this;
+            this.guestCity = guestCity;
+            return this;
         }
 
-    
 
         /**
          * 工单客服技能组名称
          * <p> 示例值：测试技能组
+         *
          * @param agentGroupName
          * @return
          */
         public Builder agentGroupName(String agentGroupName) {
-             this.agentGroupName = agentGroupName;
-             return this;
+            this.agentGroupName = agentGroupName;
+            return this;
         }
 
-    
 
         /**
          * 转单备注
          * <p> 示例值：这是一个转接工单备注
+         *
          * @param transferComment
          * @return
          */
         public Builder transferComment(String transferComment) {
-             this.transferComment = transferComment;
-             return this;
+            this.transferComment = transferComment;
+            return this;
         }
 
-    
 
         /**
          * 工单描述
          * <p> 示例值：这是一个工单描述
+         *
          * @param description
          * @return
          */
         public Builder description(String description) {
-             this.description = description;
-             return this;
+            this.description = description;
+            return this;
         }
 
-    
 
         /**
          * 工单关单方式（1：客服直接结束，2：客服转接结束）
          * <p> 示例值：1
+         *
          * @param closeWay
          * @return
          */
         public Builder closeWay(Integer closeWay) {
-             this.closeWay = closeWay;
-             return this;
+            this.closeWay = closeWay;
+            return this;
         }
 
-    
 
         /**
          * 工单协作者 ID
          * <p> 示例值：
+         *
          * @param collaborators
          * @return
          */
         public Builder collaborators(String[] collaborators) {
-             this.collaborators = collaborators;
-             return this;
+            this.collaborators = collaborators;
+            return this;
         }
 
-    
 
         /**
          * 工单关联客服 ID
          * <p> 示例值：
+         *
          * @param agentIds
          * @return
          */
         public Builder agentIds(String[] agentIds) {
-             this.agentIds = agentIds;
-             return this;
+            this.agentIds = agentIds;
+            return this;
         }
 
-    
 
         /**
          * 工单 ID
          * <p> 示例值：7475259964853534722
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
-    
-    public MigrationTicket build(){
-        return new MigrationTicket(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public MigrationTicket build() {
+            return new MigrationTicket(this);
+        }
     }
 }

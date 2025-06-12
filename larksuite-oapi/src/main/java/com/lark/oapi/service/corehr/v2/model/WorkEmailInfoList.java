@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class WorkEmailInfoList {
-     /**
-      * 工作邮箱值
-      * <p> 示例值：zhangsan.123@bytedance.com
-      */
+    /**
+     * 工作邮箱值
+     * <p> 示例值：zhangsan.123@bytedance.com
+     */
     @SerializedName("work_email")
     private String workEmail;
-     /**
-      * 国家地区三字码
-      * <p> 示例值：CHN
-      */
+    /**
+     * 国家地区三字码
+     * <p> 示例值：CHN
+     */
     @SerializedName("country_region_alpha_3_code")
     private String countryRegionAlpha3Code;
-     /**
-      * 姓名拼音
-      * <p> 示例值：zhangsan
-      */
+    /**
+     * 姓名拼音
+     * <p> 示例值：zhangsan
+     */
     @SerializedName("pinyin")
     private String pinyin;
+
+    // builder 开始
+    public WorkEmailInfoList() {
+    }
+
+    public WorkEmailInfoList(Builder builder) {
+        /**
+         * 工作邮箱值
+         * <p> 示例值：zhangsan.123@bytedance.com
+         */
+        this.workEmail = builder.workEmail;
+        /**
+         * 国家地区三字码
+         * <p> 示例值：CHN
+         */
+        this.countryRegionAlpha3Code = builder.countryRegionAlpha3Code;
+        /**
+         * 姓名拼音
+         * <p> 示例值：zhangsan
+         */
+        this.pinyin = builder.pinyin;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getWorkEmail() {
         return this.workEmail;
     }
@@ -67,90 +98,64 @@ public class WorkEmailInfoList {
         this.pinyin = pinyin;
     }
 
-
-// builder 开始
-  public WorkEmailInfoList(){}
-
-  public WorkEmailInfoList(Builder builder){
-         /**
-          * 工作邮箱值
-          * <p> 示例值：zhangsan.123@bytedance.com
-          */
-      this.workEmail = builder.workEmail;
-         /**
-          * 国家地区三字码
-          * <p> 示例值：CHN
-          */
-      this.countryRegionAlpha3Code = builder.countryRegionAlpha3Code;
-         /**
-          * 姓名拼音
-          * <p> 示例值：zhangsan
-          */
-      this.pinyin = builder.pinyin;
-  }
-
     public static class Builder {
-     /**
-      * 工作邮箱值
-      * <p> 示例值：zhangsan.123@bytedance.com
-      */
+        /**
+         * 工作邮箱值
+         * <p> 示例值：zhangsan.123@bytedance.com
+         */
         private String workEmail;
-     /**
-      * 国家地区三字码
-      * <p> 示例值：CHN
-      */
+        /**
+         * 国家地区三字码
+         * <p> 示例值：CHN
+         */
         private String countryRegionAlpha3Code;
-     /**
-      * 姓名拼音
-      * <p> 示例值：zhangsan
-      */
+        /**
+         * 姓名拼音
+         * <p> 示例值：zhangsan
+         */
         private String pinyin;
 
         /**
          * 工作邮箱值
          * <p> 示例值：zhangsan.123@bytedance.com
+         *
          * @param workEmail
          * @return
          */
         public Builder workEmail(String workEmail) {
-             this.workEmail = workEmail;
-             return this;
+            this.workEmail = workEmail;
+            return this;
         }
 
-    
 
         /**
          * 国家地区三字码
          * <p> 示例值：CHN
+         *
          * @param countryRegionAlpha3Code
          * @return
          */
         public Builder countryRegionAlpha3Code(String countryRegionAlpha3Code) {
-             this.countryRegionAlpha3Code = countryRegionAlpha3Code;
-             return this;
+            this.countryRegionAlpha3Code = countryRegionAlpha3Code;
+            return this;
         }
 
-    
 
         /**
          * 姓名拼音
          * <p> 示例值：zhangsan
+         *
          * @param pinyin
          * @return
          */
         public Builder pinyin(String pinyin) {
-             this.pinyin = pinyin;
-             return this;
+            this.pinyin = pinyin;
+            return this;
         }
 
-    
-    
-    public WorkEmailInfoList build(){
-        return new WorkEmailInfoList(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public WorkEmailInfoList build() {
+            return new WorkEmailInfoList(this);
+        }
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,55 +20,107 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
+
 import java.util.Map;
+
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ConnectorInstance {
-     /**
-      * 连接器实例ID
-      * <p> 示例值：test1
-      */
+    /**
+     * 连接器实例ID
+     * <p> 示例值：test1
+     */
     @SerializedName("api_id")
     private String apiId;
-     /**
-      * 连接器实例APIName
-      * <p> 示例值：test_apiname
-      */
+    /**
+     * 连接器实例APIName
+     * <p> 示例值：test_apiname
+     */
     @SerializedName("api_name")
     private String apiName;
-     /**
-      * 连接器实例标题
-      * <p> 示例值：test_label
-      */
+    /**
+     * 连接器实例标题
+     * <p> 示例值：test_label
+     */
     @SerializedName("label")
     private Map<String, String> label;
-     /**
-      * 连接器实例描述
-      * <p> 示例值：test_desc
-      */
+    /**
+     * 连接器实例描述
+     * <p> 示例值：test_desc
+     */
     @SerializedName("desc")
     private Map<String, String> desc;
-     /**
-      * 连接器业务类型
-      * <p> 示例值：test_outBizType
-      */
+    /**
+     * 连接器业务类型
+     * <p> 示例值：test_outBizType
+     */
     @SerializedName("out_biz_type")
     private String outBizType;
-     /**
-      * 连接器业务ID
-      * <p> 示例值：test_out_biz_id
-      */
+    /**
+     * 连接器业务ID
+     * <p> 示例值：test_out_biz_id
+     */
     @SerializedName("out_biz_id")
     private String outBizId;
-     /**
-      * 连接器实例定义
-      * <p> 示例值：test_definition
-      */
+    /**
+     * 连接器实例定义
+     * <p> 示例值：test_definition
+     */
     @SerializedName("definition")
     private ConnectorInstanceDefinition definition;
+
+    // builder 开始
+    public ConnectorInstance() {
+    }
+
+    public ConnectorInstance(Builder builder) {
+        /**
+         * 连接器实例ID
+         * <p> 示例值：test1
+         */
+        this.apiId = builder.apiId;
+        /**
+         * 连接器实例APIName
+         * <p> 示例值：test_apiname
+         */
+        this.apiName = builder.apiName;
+        /**
+         * 连接器实例标题
+         * <p> 示例值：test_label
+         */
+        this.label = builder.label;
+        /**
+         * 连接器实例描述
+         * <p> 示例值：test_desc
+         */
+        this.desc = builder.desc;
+        /**
+         * 连接器业务类型
+         * <p> 示例值：test_outBizType
+         */
+        this.outBizType = builder.outBizType;
+        /**
+         * 连接器业务ID
+         * <p> 示例值：test_out_biz_id
+         */
+        this.outBizId = builder.outBizId;
+        /**
+         * 连接器实例定义
+         * <p> 示例值：test_definition
+         */
+        this.definition = builder.definition;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getApiId() {
         return this.apiId;
     }
@@ -124,182 +177,136 @@ public class ConnectorInstance {
         this.definition = definition;
     }
 
-
-// builder 开始
-  public ConnectorInstance(){}
-
-  public ConnectorInstance(Builder builder){
-         /**
-          * 连接器实例ID
-          * <p> 示例值：test1
-          */
-      this.apiId = builder.apiId;
-         /**
-          * 连接器实例APIName
-          * <p> 示例值：test_apiname
-          */
-      this.apiName = builder.apiName;
-         /**
-          * 连接器实例标题
-          * <p> 示例值：test_label
-          */
-      this.label = builder.label;
-         /**
-          * 连接器实例描述
-          * <p> 示例值：test_desc
-          */
-      this.desc = builder.desc;
-         /**
-          * 连接器业务类型
-          * <p> 示例值：test_outBizType
-          */
-      this.outBizType = builder.outBizType;
-         /**
-          * 连接器业务ID
-          * <p> 示例值：test_out_biz_id
-          */
-      this.outBizId = builder.outBizId;
-         /**
-          * 连接器实例定义
-          * <p> 示例值：test_definition
-          */
-      this.definition = builder.definition;
-  }
-
     public static class Builder {
-     /**
-      * 连接器实例ID
-      * <p> 示例值：test1
-      */
+        /**
+         * 连接器实例ID
+         * <p> 示例值：test1
+         */
         private String apiId;
-     /**
-      * 连接器实例APIName
-      * <p> 示例值：test_apiname
-      */
+        /**
+         * 连接器实例APIName
+         * <p> 示例值：test_apiname
+         */
         private String apiName;
-     /**
-      * 连接器实例标题
-      * <p> 示例值：test_label
-      */
+        /**
+         * 连接器实例标题
+         * <p> 示例值：test_label
+         */
         private Map<String, String> label;
-     /**
-      * 连接器实例描述
-      * <p> 示例值：test_desc
-      */
+        /**
+         * 连接器实例描述
+         * <p> 示例值：test_desc
+         */
         private Map<String, String> desc;
-     /**
-      * 连接器业务类型
-      * <p> 示例值：test_outBizType
-      */
+        /**
+         * 连接器业务类型
+         * <p> 示例值：test_outBizType
+         */
         private String outBizType;
-     /**
-      * 连接器业务ID
-      * <p> 示例值：test_out_biz_id
-      */
+        /**
+         * 连接器业务ID
+         * <p> 示例值：test_out_biz_id
+         */
         private String outBizId;
-     /**
-      * 连接器实例定义
-      * <p> 示例值：test_definition
-      */
+        /**
+         * 连接器实例定义
+         * <p> 示例值：test_definition
+         */
         private ConnectorInstanceDefinition definition;
 
         /**
          * 连接器实例ID
          * <p> 示例值：test1
+         *
          * @param apiId
          * @return
          */
         public Builder apiId(String apiId) {
-             this.apiId = apiId;
-             return this;
+            this.apiId = apiId;
+            return this;
         }
 
-    
 
         /**
          * 连接器实例APIName
          * <p> 示例值：test_apiname
+         *
          * @param apiName
          * @return
          */
         public Builder apiName(String apiName) {
-             this.apiName = apiName;
-             return this;
+            this.apiName = apiName;
+            return this;
         }
 
-    
 
         /**
          * 连接器实例标题
          * <p> 示例值：test_label
+         *
          * @param label
          * @return
          */
         public Builder label(Map<String, String> label) {
-             this.label = label;
-             return this;
+            this.label = label;
+            return this;
         }
 
-    
 
         /**
          * 连接器实例描述
          * <p> 示例值：test_desc
+         *
          * @param desc
          * @return
          */
         public Builder desc(Map<String, String> desc) {
-             this.desc = desc;
-             return this;
+            this.desc = desc;
+            return this;
         }
 
-    
 
         /**
          * 连接器业务类型
          * <p> 示例值：test_outBizType
+         *
          * @param outBizType
          * @return
          */
         public Builder outBizType(String outBizType) {
-             this.outBizType = outBizType;
-             return this;
+            this.outBizType = outBizType;
+            return this;
         }
 
-    
 
         /**
          * 连接器业务ID
          * <p> 示例值：test_out_biz_id
+         *
          * @param outBizId
          * @return
          */
         public Builder outBizId(String outBizId) {
-             this.outBizId = outBizId;
-             return this;
+            this.outBizId = outBizId;
+            return this;
         }
 
-    
 
         /**
          * 连接器实例定义
          * <p> 示例值：test_definition
+         *
          * @param definition
          * @return
          */
         public Builder definition(ConnectorInstanceDefinition definition) {
-             this.definition = definition;
-             return this;
+            this.definition = definition;
+            return this;
         }
 
-    
-    
-    public ConnectorInstance build(){
-        return new ConnectorInstance(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ConnectorInstance build() {
+            return new ConnectorInstance(this);
+        }
     }
 }

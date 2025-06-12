@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.sheets.v3.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.sheets.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ConditionalFormatRule {
-     /**
-      * 布尔类型条件格式
-      * <p> 示例值：
-      */
+    /**
+     * 布尔类型条件格式
+     * <p> 示例值：
+     */
     @SerializedName("boolean_rule")
     private BooleanRuleCondition booleanRule;
-     /**
-      * 条件格式类型
-      * <p> 示例值：BooleanRuleCondition
-      */
+    /**
+     * 条件格式类型
+     * <p> 示例值：BooleanRuleCondition
+     */
     @SerializedName("type")
     private String type;
+
+    // builder 开始
+    public ConditionalFormatRule() {
+    }
+
+    public ConditionalFormatRule(Builder builder) {
+        /**
+         * 布尔类型条件格式
+         * <p> 示例值：
+         */
+        this.booleanRule = builder.booleanRule;
+        /**
+         * 条件格式类型
+         * <p> 示例值：BooleanRuleCondition
+         */
+        this.type = builder.type;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public BooleanRuleCondition getBooleanRule() {
         return this.booleanRule;
     }
@@ -53,77 +79,58 @@ public class ConditionalFormatRule {
         this.type = type;
     }
 
-
-// builder 开始
-  public ConditionalFormatRule(){}
-
-  public ConditionalFormatRule(Builder builder){
-         /**
-          * 布尔类型条件格式
-          * <p> 示例值：
-          */
-      this.booleanRule = builder.booleanRule;
-         /**
-          * 条件格式类型
-          * <p> 示例值：BooleanRuleCondition
-          */
-      this.type = builder.type;
-  }
-
     public static class Builder {
-     /**
-      * 布尔类型条件格式
-      * <p> 示例值：
-      */
+        /**
+         * 布尔类型条件格式
+         * <p> 示例值：
+         */
         private BooleanRuleCondition booleanRule;
-     /**
-      * 条件格式类型
-      * <p> 示例值：BooleanRuleCondition
-      */
+        /**
+         * 条件格式类型
+         * <p> 示例值：BooleanRuleCondition
+         */
         private String type;
 
         /**
          * 布尔类型条件格式
          * <p> 示例值：
+         *
          * @param booleanRule
          * @return
          */
         public Builder booleanRule(BooleanRuleCondition booleanRule) {
-             this.booleanRule = booleanRule;
-             return this;
+            this.booleanRule = booleanRule;
+            return this;
         }
 
-    
 
         /**
          * 条件格式类型
          * <p> 示例值：BooleanRuleCondition
+         *
          * @param type
          * @return
          */
         public Builder type(String type) {
-             this.type = type;
-             return this;
+            this.type = type;
+            return this;
         }
+
         /**
          * 条件格式类型
          * <p> 示例值：BooleanRuleCondition
+         *
          * @param type {@link com.lark.oapi.service.sheets.v3.enums.ConditionalFormatRuleConditionalFormatRuleTypeEnum}
          * @return
          */
         public Builder type(com.lark.oapi.service.sheets.v3.enums.ConditionalFormatRuleConditionalFormatRuleTypeEnum type) {
-             this.type = type.getValue();
-             return this;
+            this.type = type.getValue();
+            return this;
         }
 
-    
-    
-    public ConditionalFormatRule build(){
-        return new ConditionalFormatRule(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ConditionalFormatRule build() {
+            return new ConditionalFormatRule(this);
+        }
     }
 }

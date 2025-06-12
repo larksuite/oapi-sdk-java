@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.passport.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.passport.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,48 +20,93 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class LogoutSessionReqBody {
-     /**
-      * idp 侧的唯一标识
-      * <p> 示例值：1
-      */
+    /**
+     * idp 侧的唯一标识
+     * <p> 示例值：1
+     */
     @SerializedName("idp_credential_id")
     private String idpCredentialId;
-     /**
-      * 登出的方式
-      * <p> 示例值：1
-      */
+    /**
+     * 登出的方式
+     * <p> 示例值：1
+     */
     @SerializedName("logout_type")
     private Integer logoutType;
-     /**
-      * 登出的客户端类型，默认全部登出，1-桌面端，2-网页端，3-安卓移动端，4-Apple移动端 5-服务端 6-旧版小程序端 8-其他移动端
-      * <p> 示例值：
-      */
+    /**
+     * 登出的客户端类型，默认全部登出，1-桌面端，2-网页端，3-安卓移动端，4-Apple移动端 5-服务端 6-旧版小程序端 8-其他移动端
+     * <p> 示例值：
+     */
     @SerializedName("terminal_type")
     private Integer[] terminalType;
-     /**
-      * user_id
-      * <p> 示例值：1
-      */
+    /**
+     * user_id
+     * <p> 示例值：1
+     */
     @SerializedName("user_id")
     private String userId;
-     /**
-      * 登出原因
-      * <p> 示例值：34: 修改密码；35: 登陆态失效；36: 密码过期
-      */
+    /**
+     * 登出原因
+     * <p> 示例值：34: 修改密码；35: 登陆态失效；36: 密码过期
+     */
     @SerializedName("logout_reason")
     private Integer logoutReason;
-     /**
-      * 需要精确登出的 session 标识符
-      * <p> 示例值：AAAAAAAAAANll6nQoIAAFA==
-      */
+    /**
+     * 需要精确登出的 session 标识符
+     * <p> 示例值：AAAAAAAAAANll6nQoIAAFA==
+     */
     @SerializedName("sid")
     private String sid;
+
+    // builder 开始
+    public LogoutSessionReqBody() {
+    }
+
+    public LogoutSessionReqBody(Builder builder) {
+        /**
+         * idp 侧的唯一标识
+         * <p> 示例值：1
+         */
+        this.idpCredentialId = builder.idpCredentialId;
+        /**
+         * 登出的方式
+         * <p> 示例值：1
+         */
+        this.logoutType = builder.logoutType;
+        /**
+         * 登出的客户端类型，默认全部登出，1-桌面端，2-网页端，3-安卓移动端，4-Apple移动端 5-服务端 6-旧版小程序端 8-其他移动端
+         * <p> 示例值：
+         */
+        this.terminalType = builder.terminalType;
+        /**
+         * user_id
+         * <p> 示例值：1
+         */
+        this.userId = builder.userId;
+        /**
+         * 登出原因
+         * <p> 示例值：34: 修改密码；35: 登陆态失效；36: 密码过期
+         */
+        this.logoutReason = builder.logoutReason;
+        /**
+         * 需要精确登出的 session 标识符
+         * <p> 示例值：AAAAAAAAAANll6nQoIAAFA==
+         */
+        this.sid = builder.sid;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getIdpCredentialId() {
         return this.idpCredentialId;
     }
@@ -109,169 +155,130 @@ public class LogoutSessionReqBody {
         this.sid = sid;
     }
 
-
-// builder 开始
-  public LogoutSessionReqBody(){}
-
-  public LogoutSessionReqBody(Builder builder){
-         /**
-          * idp 侧的唯一标识
-          * <p> 示例值：1
-          */
-      this.idpCredentialId = builder.idpCredentialId;
-         /**
-          * 登出的方式
-          * <p> 示例值：1
-          */
-      this.logoutType = builder.logoutType;
-         /**
-          * 登出的客户端类型，默认全部登出，1-桌面端，2-网页端，3-安卓移动端，4-Apple移动端 5-服务端 6-旧版小程序端 8-其他移动端
-          * <p> 示例值：
-          */
-      this.terminalType = builder.terminalType;
-         /**
-          * user_id
-          * <p> 示例值：1
-          */
-      this.userId = builder.userId;
-         /**
-          * 登出原因
-          * <p> 示例值：34: 修改密码；35: 登陆态失效；36: 密码过期
-          */
-      this.logoutReason = builder.logoutReason;
-         /**
-          * 需要精确登出的 session 标识符
-          * <p> 示例值：AAAAAAAAAANll6nQoIAAFA==
-          */
-      this.sid = builder.sid;
-  }
-
     public static class Builder {
-     /**
-      * idp 侧的唯一标识
-      * <p> 示例值：1
-      */
+        /**
+         * idp 侧的唯一标识
+         * <p> 示例值：1
+         */
         private String idpCredentialId;
-     /**
-      * 登出的方式
-      * <p> 示例值：1
-      */
+        /**
+         * 登出的方式
+         * <p> 示例值：1
+         */
         private Integer logoutType;
-     /**
-      * 登出的客户端类型，默认全部登出，1-桌面端，2-网页端，3-安卓移动端，4-Apple移动端 5-服务端 6-旧版小程序端 8-其他移动端
-      * <p> 示例值：
-      */
+        /**
+         * 登出的客户端类型，默认全部登出，1-桌面端，2-网页端，3-安卓移动端，4-Apple移动端 5-服务端 6-旧版小程序端 8-其他移动端
+         * <p> 示例值：
+         */
         private Integer[] terminalType;
-     /**
-      * user_id
-      * <p> 示例值：1
-      */
+        /**
+         * user_id
+         * <p> 示例值：1
+         */
         private String userId;
-     /**
-      * 登出原因
-      * <p> 示例值：34: 修改密码；35: 登陆态失效；36: 密码过期
-      */
+        /**
+         * 登出原因
+         * <p> 示例值：34: 修改密码；35: 登陆态失效；36: 密码过期
+         */
         private Integer logoutReason;
-     /**
-      * 需要精确登出的 session 标识符
-      * <p> 示例值：AAAAAAAAAANll6nQoIAAFA==
-      */
+        /**
+         * 需要精确登出的 session 标识符
+         * <p> 示例值：AAAAAAAAAANll6nQoIAAFA==
+         */
         private String sid;
 
         /**
          * idp 侧的唯一标识
          * <p> 示例值：1
+         *
          * @param idpCredentialId
          * @return
          */
         public Builder idpCredentialId(String idpCredentialId) {
-             this.idpCredentialId = idpCredentialId;
-             return this;
+            this.idpCredentialId = idpCredentialId;
+            return this;
         }
 
-    
 
         /**
          * 登出的方式
          * <p> 示例值：1
+         *
          * @param logoutType
          * @return
          */
         public Builder logoutType(Integer logoutType) {
-             this.logoutType = logoutType;
-             return this;
+            this.logoutType = logoutType;
+            return this;
         }
+
         /**
          * 登出的方式
          * <p> 示例值：1
+         *
          * @param logoutType {@link com.lark.oapi.service.passport.v1.enums.LogoutSessionKiteEnum}
          * @return
          */
         public Builder logoutType(com.lark.oapi.service.passport.v1.enums.LogoutSessionKiteEnum logoutType) {
-             this.logoutType = logoutType.getValue();
-             return this;
+            this.logoutType = logoutType.getValue();
+            return this;
         }
 
-    
 
         /**
          * 登出的客户端类型，默认全部登出，1-桌面端，2-网页端，3-安卓移动端，4-Apple移动端 5-服务端 6-旧版小程序端 8-其他移动端
          * <p> 示例值：
+         *
          * @param terminalType
          * @return
          */
         public Builder terminalType(Integer[] terminalType) {
-             this.terminalType = terminalType;
-             return this;
+            this.terminalType = terminalType;
+            return this;
         }
 
-    
 
         /**
          * user_id
          * <p> 示例值：1
+         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-             this.userId = userId;
-             return this;
+            this.userId = userId;
+            return this;
         }
 
-    
 
         /**
          * 登出原因
          * <p> 示例值：34: 修改密码；35: 登陆态失效；36: 密码过期
+         *
          * @param logoutReason
          * @return
          */
         public Builder logoutReason(Integer logoutReason) {
-             this.logoutReason = logoutReason;
-             return this;
+            this.logoutReason = logoutReason;
+            return this;
         }
 
-    
 
         /**
          * 需要精确登出的 session 标识符
          * <p> 示例值：AAAAAAAAAANll6nQoIAAFA==
+         *
          * @param sid
          * @return
          */
         public Builder sid(String sid) {
-             this.sid = sid;
-             return this;
+            this.sid = sid;
+            return this;
         }
 
-    
-    
-    public LogoutSessionReqBody build(){
-        return new LogoutSessionReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public LogoutSessionReqBody build() {
+            return new LogoutSessionReqBody(this);
+        }
     }
 }

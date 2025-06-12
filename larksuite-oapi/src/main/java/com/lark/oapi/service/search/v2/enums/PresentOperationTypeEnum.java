@@ -17,15 +17,16 @@ package com.lark.oapi.service.search.v2.enums;
  * 在交互卡片的场景下，如果用户完成交互，根据交互行为 Tool 对该交互行为做出的响应
  */
 public enum PresentOperationTypeEnum {
-     UPDATE("UPDATE"), // 更新卡片使用
-     APPEND("APPEND"), // 上屏新卡片使用
-  ;
-   private String value;
+    UPDATE("UPDATE"), // 更新卡片使用
+    APPEND("APPEND"), // 上屏新卡片使用
+    ;
+    private String value;
+
     PresentOperationTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

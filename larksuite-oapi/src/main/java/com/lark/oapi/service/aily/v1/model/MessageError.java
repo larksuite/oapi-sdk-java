@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.aily.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.aily.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,42 +20,82 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class MessageError {
-     /**
-      * 错误码
-      * <p> 示例值：sp_ec_cr_200001
-      */
+    /**
+     * 错误码
+     * <p> 示例值：sp_ec_cr_200001
+     */
     @SerializedName("code")
     private String code;
-     /**
-      * 错误消息
-      * <p> 示例值：意图状态不合法，当前为1，实际为4
-      */
+    /**
+     * 错误消息
+     * <p> 示例值：意图状态不合法，当前为1，实际为4
+     */
     @SerializedName("message")
     private String message;
-     /**
-      * 错误类型
-      * <p> 示例值：SYSTEM
-      */
+    /**
+     * 错误类型
+     * <p> 示例值：SYSTEM
+     */
     @SerializedName("error_type")
     private String errorType;
-     /**
-      * 反馈码
-      * <p> 示例值：2023122620474996FAC90E4B49302D7C93
-      */
+    /**
+     * 反馈码
+     * <p> 示例值：2023122620474996FAC90E4B49302D7C93
+     */
     @SerializedName("log_id")
     private String logId;
-     /**
-      * 错误标题
-      * <p> 示例值：意图状态不合法
-      */
+    /**
+     * 错误标题
+     * <p> 示例值：意图状态不合法
+     */
     @SerializedName("title")
     private String title;
+
+    // builder 开始
+    public MessageError() {
+    }
+
+    public MessageError(Builder builder) {
+        /**
+         * 错误码
+         * <p> 示例值：sp_ec_cr_200001
+         */
+        this.code = builder.code;
+        /**
+         * 错误消息
+         * <p> 示例值：意图状态不合法，当前为1，实际为4
+         */
+        this.message = builder.message;
+        /**
+         * 错误类型
+         * <p> 示例值：SYSTEM
+         */
+        this.errorType = builder.errorType;
+        /**
+         * 反馈码
+         * <p> 示例值：2023122620474996FAC90E4B49302D7C93
+         */
+        this.logId = builder.logId;
+        /**
+         * 错误标题
+         * <p> 示例值：意图状态不合法
+         */
+        this.title = builder.title;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getCode() {
         return this.code;
     }
@@ -95,146 +136,112 @@ public class MessageError {
         this.title = title;
     }
 
-
-// builder 开始
-  public MessageError(){}
-
-  public MessageError(Builder builder){
-         /**
-          * 错误码
-          * <p> 示例值：sp_ec_cr_200001
-          */
-      this.code = builder.code;
-         /**
-          * 错误消息
-          * <p> 示例值：意图状态不合法，当前为1，实际为4
-          */
-      this.message = builder.message;
-         /**
-          * 错误类型
-          * <p> 示例值：SYSTEM
-          */
-      this.errorType = builder.errorType;
-         /**
-          * 反馈码
-          * <p> 示例值：2023122620474996FAC90E4B49302D7C93
-          */
-      this.logId = builder.logId;
-         /**
-          * 错误标题
-          * <p> 示例值：意图状态不合法
-          */
-      this.title = builder.title;
-  }
-
     public static class Builder {
-     /**
-      * 错误码
-      * <p> 示例值：sp_ec_cr_200001
-      */
+        /**
+         * 错误码
+         * <p> 示例值：sp_ec_cr_200001
+         */
         private String code;
-     /**
-      * 错误消息
-      * <p> 示例值：意图状态不合法，当前为1，实际为4
-      */
+        /**
+         * 错误消息
+         * <p> 示例值：意图状态不合法，当前为1，实际为4
+         */
         private String message;
-     /**
-      * 错误类型
-      * <p> 示例值：SYSTEM
-      */
+        /**
+         * 错误类型
+         * <p> 示例值：SYSTEM
+         */
         private String errorType;
-     /**
-      * 反馈码
-      * <p> 示例值：2023122620474996FAC90E4B49302D7C93
-      */
+        /**
+         * 反馈码
+         * <p> 示例值：2023122620474996FAC90E4B49302D7C93
+         */
         private String logId;
-     /**
-      * 错误标题
-      * <p> 示例值：意图状态不合法
-      */
+        /**
+         * 错误标题
+         * <p> 示例值：意图状态不合法
+         */
         private String title;
 
         /**
          * 错误码
          * <p> 示例值：sp_ec_cr_200001
+         *
          * @param code
          * @return
          */
         public Builder code(String code) {
-             this.code = code;
-             return this;
+            this.code = code;
+            return this;
         }
 
-    
 
         /**
          * 错误消息
          * <p> 示例值：意图状态不合法，当前为1，实际为4
+         *
          * @param message
          * @return
          */
         public Builder message(String message) {
-             this.message = message;
-             return this;
+            this.message = message;
+            return this;
         }
 
-    
 
         /**
          * 错误类型
          * <p> 示例值：SYSTEM
+         *
          * @param errorType
          * @return
          */
         public Builder errorType(String errorType) {
-             this.errorType = errorType;
-             return this;
+            this.errorType = errorType;
+            return this;
         }
+
         /**
          * 错误类型
          * <p> 示例值：SYSTEM
+         *
          * @param errorType {@link com.lark.oapi.service.aily.v1.enums.MessageErrorErrorTypeEnum}
          * @return
          */
         public Builder errorType(com.lark.oapi.service.aily.v1.enums.MessageErrorErrorTypeEnum errorType) {
-             this.errorType = errorType.getValue();
-             return this;
+            this.errorType = errorType.getValue();
+            return this;
         }
 
-    
 
         /**
          * 反馈码
          * <p> 示例值：2023122620474996FAC90E4B49302D7C93
+         *
          * @param logId
          * @return
          */
         public Builder logId(String logId) {
-             this.logId = logId;
-             return this;
+            this.logId = logId;
+            return this;
         }
 
-    
 
         /**
          * 错误标题
          * <p> 示例值：意图状态不合法
+         *
          * @param title
          * @return
          */
         public Builder title(String title) {
-             this.title = title;
-             return this;
+            this.title = title;
+            return this;
         }
 
-    
-    
-    public MessageError build(){
-        return new MessageError(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public MessageError build() {
+            return new MessageError(this);
+        }
     }
 }

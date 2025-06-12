@@ -12,32 +12,58 @@
  */
 
 package com.lark.oapi.service.mail.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class DeleteUserMailboxMailContactReq {
-     /**
-      * 用户邮箱地址 或 输入me代表当前调用接口用户
-      * <p> 示例值：用户邮箱地址 或 输入me代表当前调用接口用户
-      */
+    /**
+     * 用户邮箱地址 或 输入me代表当前调用接口用户
+     * <p> 示例值：用户邮箱地址 或 输入me代表当前调用接口用户
+     */
     @Path
     @SerializedName("user_mailbox_id")
     private String userMailboxId;
-     /**
-      * 邮箱联系人 id
-      * <p> 示例值：123
-      */
+    /**
+     * 邮箱联系人 id
+     * <p> 示例值：123
+     */
     @Path
     @SerializedName("mail_contact_id")
     private String mailContactId;
+
+    // builder 开始
+    public DeleteUserMailboxMailContactReq() {
+    }
+
+    public DeleteUserMailboxMailContactReq(Builder builder) {
+        /**
+         * 用户邮箱地址 或 输入me代表当前调用接口用户
+         * <p> 示例值：用户邮箱地址 或 输入me代表当前调用接口用户
+         */
+        this.userMailboxId = builder.userMailboxId;
+        /**
+         * 邮箱联系人 id
+         * <p> 示例值：123
+         */
+        this.mailContactId = builder.mailContactId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getUserMailboxId() {
         return this.userMailboxId;
     }
@@ -54,57 +80,39 @@ public class DeleteUserMailboxMailContactReq {
         this.mailContactId = mailContactId;
     }
 
-
-// builder 开始
-  public DeleteUserMailboxMailContactReq(){}
-
-  public DeleteUserMailboxMailContactReq(Builder builder){
-     /**
-      * 用户邮箱地址 或 输入me代表当前调用接口用户
-      * <p> 示例值：用户邮箱地址 或 输入me代表当前调用接口用户
-      */
-       this.userMailboxId = builder.userMailboxId;
-     /**
-      * 邮箱联系人 id
-      * <p> 示例值：123
-      */
-       this.mailContactId = builder.mailContactId;
-  }
-
     public static class Builder {
-    
+
         private String userMailboxId; // 用户邮箱地址 或 输入me代表当前调用接口用户
         private String mailContactId; // 邮箱联系人 id
+
         /**
          * 用户邮箱地址 或 输入me代表当前调用接口用户
          * <p> 示例值：用户邮箱地址 或 输入me代表当前调用接口用户
+         *
          * @param userMailboxId
          * @return
          */
-          public Builder userMailboxId(String userMailboxId) {
-               this.userMailboxId = userMailboxId;
-               return this;
-          }
+        public Builder userMailboxId(String userMailboxId) {
+            this.userMailboxId = userMailboxId;
+            return this;
+        }
 
-    
+
         /**
          * 邮箱联系人 id
          * <p> 示例值：123
+         *
          * @param mailContactId
          * @return
          */
-          public Builder mailContactId(String mailContactId) {
-               this.mailContactId = mailContactId;
-               return this;
-          }
+        public Builder mailContactId(String mailContactId) {
+            this.mailContactId = mailContactId;
+            return this;
+        }
 
-    
-    public DeleteUserMailboxMailContactReq build(){
-        return new DeleteUserMailboxMailContactReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public DeleteUserMailboxMailContactReq build() {
+            return new DeleteUserMailboxMailContactReq(this);
+        }
     }
 }

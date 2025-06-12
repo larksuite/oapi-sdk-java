@@ -12,42 +12,47 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class QueryRecentChangeCostCenterRespBody {
-     /**
-      * 成本中心 ID 列表
-      * <p> 示例值：
-      */
+    /**
+     * 成本中心 ID 列表
+     * <p> 示例值：
+     */
     @SerializedName("cost_center_ids")
     private String[] costCenterIds;
-     /**
-      * 下一页页码
-      * <p> 示例值：
-      */
+    /**
+     * 下一页页码
+     * <p> 示例值：
+     */
     @SerializedName("page_token")
     private String pageToken;
-     /**
-      * 是否有下一页
-      * <p> 示例值：
-      */
+    /**
+     * 是否有下一页
+     * <p> 示例值：
+     */
     @SerializedName("has_more")
     private Boolean hasMore;
-     /**
-      * 删除的成本中心 ID 列表
-      * <p> 示例值：
-      */
+    /**
+     * 删除的成本中心 ID 列表
+     * <p> 示例值：
+     */
     @SerializedName("deleted_cost_center_ids")
     private String[] deletedCostCenterIds;
+
     public String[] getCostCenterIds() {
         return this.costCenterIds;
     }

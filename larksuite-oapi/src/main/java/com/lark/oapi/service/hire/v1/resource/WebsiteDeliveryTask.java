@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.hire.v1.resource;
+
 import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.Transport;
 import com.lark.oapi.core.response.RawResponse;
@@ -20,12 +21,16 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import java.nio.charset.StandardCharsets;
 
 import com.lark.oapi.core.Config;
 import com.lark.oapi.core.request.RequestOptions;
+
 import java.io.ByteArrayOutputStream;
+
 import com.lark.oapi.service.hire.v1.model.*;
+
 import java.io.*;
 import java.util.Map;
 import java.util.HashMap;
@@ -41,7 +46,7 @@ public class WebsiteDeliveryTask {
         this.config = config;
     }
 
-    
+
     /**
      * 获取简历解析创建官网投递任务结果，获取官网投递任务信息;，如果获取到的数据data为空，仍然继续轮询，直到data不为空时，再查询data里面的数据
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/website-delivery_task/get">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/website-delivery_task/get</a> ;
@@ -58,7 +63,7 @@ public class WebsiteDeliveryTask {
                 , "/open-apis/hire/v1/websites/:website_id/delivery_tasks/:delivery_task_id"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-        
+
         // 反序列化
         GetWebsiteDeliveryTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetWebsiteDeliveryTaskResp.class);
         if (resp == null) {
@@ -66,14 +71,14 @@ public class WebsiteDeliveryTask {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/websites/:website_id/delivery_tasks/:delivery_task_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
-       resp.setRawResponse(httpResponse);
-       resp.setRequest(req);
-       
-       return resp;
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
     }
 
     /**
@@ -90,7 +95,7 @@ public class WebsiteDeliveryTask {
                 , "/open-apis/hire/v1/websites/:website_id/delivery_tasks/:delivery_task_id"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-        
+
         // 反序列化
         GetWebsiteDeliveryTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetWebsiteDeliveryTaskResp.class);
         if (resp == null) {
@@ -98,13 +103,13 @@ public class WebsiteDeliveryTask {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/websites/:website_id/delivery_tasks/:delivery_task_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-        
+
         return resp;
     }
 }

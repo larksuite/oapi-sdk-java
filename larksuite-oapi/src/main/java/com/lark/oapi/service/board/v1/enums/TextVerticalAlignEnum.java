@@ -17,16 +17,17 @@ package com.lark.oapi.service.board.v1.enums;
  * 垂直对齐
  */
 public enum TextVerticalAlignEnum {
-     TOP("top"), // 顶部对齐
-     MID("mid"), // 垂直居中
-     BOTTOM("bottom"), // 底部对齐
-  ;
-   private String value;
+    TOP("top"), // 顶部对齐
+    MID("mid"), // 垂直居中
+    BOTTOM("bottom"), // 底部对齐
+    ;
+    private String value;
+
     TextVerticalAlignEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

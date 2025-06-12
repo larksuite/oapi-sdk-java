@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,96 +20,181 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class LeaveAccrualRecord {
-     /**
-      * 授予记录唯一ID
-      * <p> 示例值：1
-      */
+    /**
+     * 授予记录唯一ID
+     * <p> 示例值：1
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 员工ID
-      * <p> 示例值：1
-      */
+    /**
+     * 员工ID
+     * <p> 示例值：1
+     */
     @SerializedName("employment_id")
     private String employmentId;
-     /**
-      * 假期类型ID
-      * <p> 示例值：1
-      */
+    /**
+     * 假期类型ID
+     * <p> 示例值：1
+     */
     @SerializedName("leave_type_id")
     private String leaveTypeId;
-     /**
-      * 授予数量
-      * <p> 示例值：1
-      */
+    /**
+     * 授予数量
+     * <p> 示例值：1
+     */
     @SerializedName("granting_quantity")
     private String grantingQuantity;
-     /**
-      * 授予单位，1表示天，2表示小时
-      * <p> 示例值：1
-      */
+    /**
+     * 授予单位，1表示天，2表示小时
+     * <p> 示例值：1
+     */
     @SerializedName("granting_unit")
     private Integer grantingUnit;
-     /**
-      * 生效日期，格式"2020-01-01"
-      * <p> 示例值：2020-01-01
-      */
+    /**
+     * 生效日期，格式"2020-01-01"
+     * <p> 示例值：2020-01-01
+     */
     @SerializedName("effective_date")
     private String effectiveDate;
-     /**
-      * 失效日期，格式"2020-01-01"
-      * <p> 示例值：2020-01-01
-      */
+    /**
+     * 失效日期，格式"2020-01-01"
+     * <p> 示例值：2020-01-01
+     */
     @SerializedName("expiration_date")
     private String expirationDate;
-     /**
-      * 授予来源，1：系统授予；2：手动授予；3：外部系统授予
-      * <p> 示例值：1
-      */
+    /**
+     * 授予来源，1：系统授予；2：手动授予；3：外部系统授予
+     * <p> 示例值：1
+     */
     @SerializedName("granted_by")
     private Integer grantedBy;
-     /**
-      * 授予原因
-      * <p> 示例值：
-      */
+    /**
+     * 授予原因
+     * <p> 示例值：
+     */
     @SerializedName("reason")
     private LangText[] reason;
-     /**
-      * 授予记录的创建时间，unix时间戳
-      * <p> 示例值：1
-      */
+    /**
+     * 授予记录的创建时间，unix时间戳
+     * <p> 示例值：1
+     */
     @SerializedName("created_at")
     private String createdAt;
-     /**
-      * 授予记录的创建人的ID
-      * <p> 示例值：1
-      */
+    /**
+     * 授予记录的创建人的ID
+     * <p> 示例值：1
+     */
     @SerializedName("created_by")
     private String createdBy;
-     /**
-      * 授予记录的更新时间，unix时间戳
-      * <p> 示例值：1
-      */
+    /**
+     * 授予记录的更新时间，unix时间戳
+     * <p> 示例值：1
+     */
     @SerializedName("updated_at")
     private String updatedAt;
-     /**
-      * 授予记录的更新人的ID
-      * <p> 示例值：1
-      */
+    /**
+     * 授予记录的更新人的ID
+     * <p> 示例值：1
+     */
     @SerializedName("updated_by")
     private String updatedBy;
-     /**
-      * 是否参与折算
-      * <p> 示例值：1
-      */
+    /**
+     * 是否参与折算
+     * <p> 示例值：1
+     */
     @SerializedName("section_type")
     private Integer sectionType;
+
+    // builder 开始
+    public LeaveAccrualRecord() {
+    }
+
+    public LeaveAccrualRecord(Builder builder) {
+        /**
+         * 授予记录唯一ID
+         * <p> 示例值：1
+         */
+        this.id = builder.id;
+        /**
+         * 员工ID
+         * <p> 示例值：1
+         */
+        this.employmentId = builder.employmentId;
+        /**
+         * 假期类型ID
+         * <p> 示例值：1
+         */
+        this.leaveTypeId = builder.leaveTypeId;
+        /**
+         * 授予数量
+         * <p> 示例值：1
+         */
+        this.grantingQuantity = builder.grantingQuantity;
+        /**
+         * 授予单位，1表示天，2表示小时
+         * <p> 示例值：1
+         */
+        this.grantingUnit = builder.grantingUnit;
+        /**
+         * 生效日期，格式"2020-01-01"
+         * <p> 示例值：2020-01-01
+         */
+        this.effectiveDate = builder.effectiveDate;
+        /**
+         * 失效日期，格式"2020-01-01"
+         * <p> 示例值：2020-01-01
+         */
+        this.expirationDate = builder.expirationDate;
+        /**
+         * 授予来源，1：系统授予；2：手动授予；3：外部系统授予
+         * <p> 示例值：1
+         */
+        this.grantedBy = builder.grantedBy;
+        /**
+         * 授予原因
+         * <p> 示例值：
+         */
+        this.reason = builder.reason;
+        /**
+         * 授予记录的创建时间，unix时间戳
+         * <p> 示例值：1
+         */
+        this.createdAt = builder.createdAt;
+        /**
+         * 授予记录的创建人的ID
+         * <p> 示例值：1
+         */
+        this.createdBy = builder.createdBy;
+        /**
+         * 授予记录的更新时间，unix时间戳
+         * <p> 示例值：1
+         */
+        this.updatedAt = builder.updatedAt;
+        /**
+         * 授予记录的更新人的ID
+         * <p> 示例值：1
+         */
+        this.updatedBy = builder.updatedBy;
+        /**
+         * 是否参与折算
+         * <p> 示例值：1
+         */
+        this.sectionType = builder.sectionType;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -221,343 +307,262 @@ public class LeaveAccrualRecord {
         this.sectionType = sectionType;
     }
 
-
-// builder 开始
-  public LeaveAccrualRecord(){}
-
-  public LeaveAccrualRecord(Builder builder){
-         /**
-          * 授予记录唯一ID
-          * <p> 示例值：1
-          */
-      this.id = builder.id;
-         /**
-          * 员工ID
-          * <p> 示例值：1
-          */
-      this.employmentId = builder.employmentId;
-         /**
-          * 假期类型ID
-          * <p> 示例值：1
-          */
-      this.leaveTypeId = builder.leaveTypeId;
-         /**
-          * 授予数量
-          * <p> 示例值：1
-          */
-      this.grantingQuantity = builder.grantingQuantity;
-         /**
-          * 授予单位，1表示天，2表示小时
-          * <p> 示例值：1
-          */
-      this.grantingUnit = builder.grantingUnit;
-         /**
-          * 生效日期，格式"2020-01-01"
-          * <p> 示例值：2020-01-01
-          */
-      this.effectiveDate = builder.effectiveDate;
-         /**
-          * 失效日期，格式"2020-01-01"
-          * <p> 示例值：2020-01-01
-          */
-      this.expirationDate = builder.expirationDate;
-         /**
-          * 授予来源，1：系统授予；2：手动授予；3：外部系统授予
-          * <p> 示例值：1
-          */
-      this.grantedBy = builder.grantedBy;
-         /**
-          * 授予原因
-          * <p> 示例值：
-          */
-      this.reason = builder.reason;
-         /**
-          * 授予记录的创建时间，unix时间戳
-          * <p> 示例值：1
-          */
-      this.createdAt = builder.createdAt;
-         /**
-          * 授予记录的创建人的ID
-          * <p> 示例值：1
-          */
-      this.createdBy = builder.createdBy;
-         /**
-          * 授予记录的更新时间，unix时间戳
-          * <p> 示例值：1
-          */
-      this.updatedAt = builder.updatedAt;
-         /**
-          * 授予记录的更新人的ID
-          * <p> 示例值：1
-          */
-      this.updatedBy = builder.updatedBy;
-         /**
-          * 是否参与折算
-          * <p> 示例值：1
-          */
-      this.sectionType = builder.sectionType;
-  }
-
     public static class Builder {
-     /**
-      * 授予记录唯一ID
-      * <p> 示例值：1
-      */
+        /**
+         * 授予记录唯一ID
+         * <p> 示例值：1
+         */
         private String id;
-     /**
-      * 员工ID
-      * <p> 示例值：1
-      */
+        /**
+         * 员工ID
+         * <p> 示例值：1
+         */
         private String employmentId;
-     /**
-      * 假期类型ID
-      * <p> 示例值：1
-      */
+        /**
+         * 假期类型ID
+         * <p> 示例值：1
+         */
         private String leaveTypeId;
-     /**
-      * 授予数量
-      * <p> 示例值：1
-      */
+        /**
+         * 授予数量
+         * <p> 示例值：1
+         */
         private String grantingQuantity;
-     /**
-      * 授予单位，1表示天，2表示小时
-      * <p> 示例值：1
-      */
+        /**
+         * 授予单位，1表示天，2表示小时
+         * <p> 示例值：1
+         */
         private Integer grantingUnit;
-     /**
-      * 生效日期，格式"2020-01-01"
-      * <p> 示例值：2020-01-01
-      */
+        /**
+         * 生效日期，格式"2020-01-01"
+         * <p> 示例值：2020-01-01
+         */
         private String effectiveDate;
-     /**
-      * 失效日期，格式"2020-01-01"
-      * <p> 示例值：2020-01-01
-      */
+        /**
+         * 失效日期，格式"2020-01-01"
+         * <p> 示例值：2020-01-01
+         */
         private String expirationDate;
-     /**
-      * 授予来源，1：系统授予；2：手动授予；3：外部系统授予
-      * <p> 示例值：1
-      */
+        /**
+         * 授予来源，1：系统授予；2：手动授予；3：外部系统授予
+         * <p> 示例值：1
+         */
         private Integer grantedBy;
-     /**
-      * 授予原因
-      * <p> 示例值：
-      */
+        /**
+         * 授予原因
+         * <p> 示例值：
+         */
         private LangText[] reason;
-     /**
-      * 授予记录的创建时间，unix时间戳
-      * <p> 示例值：1
-      */
+        /**
+         * 授予记录的创建时间，unix时间戳
+         * <p> 示例值：1
+         */
         private String createdAt;
-     /**
-      * 授予记录的创建人的ID
-      * <p> 示例值：1
-      */
+        /**
+         * 授予记录的创建人的ID
+         * <p> 示例值：1
+         */
         private String createdBy;
-     /**
-      * 授予记录的更新时间，unix时间戳
-      * <p> 示例值：1
-      */
+        /**
+         * 授予记录的更新时间，unix时间戳
+         * <p> 示例值：1
+         */
         private String updatedAt;
-     /**
-      * 授予记录的更新人的ID
-      * <p> 示例值：1
-      */
+        /**
+         * 授予记录的更新人的ID
+         * <p> 示例值：1
+         */
         private String updatedBy;
-     /**
-      * 是否参与折算
-      * <p> 示例值：1
-      */
+        /**
+         * 是否参与折算
+         * <p> 示例值：1
+         */
         private Integer sectionType;
 
         /**
          * 授予记录唯一ID
          * <p> 示例值：1
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 员工ID
          * <p> 示例值：1
+         *
          * @param employmentId
          * @return
          */
         public Builder employmentId(String employmentId) {
-             this.employmentId = employmentId;
-             return this;
+            this.employmentId = employmentId;
+            return this;
         }
 
-    
 
         /**
          * 假期类型ID
          * <p> 示例值：1
+         *
          * @param leaveTypeId
          * @return
          */
         public Builder leaveTypeId(String leaveTypeId) {
-             this.leaveTypeId = leaveTypeId;
-             return this;
+            this.leaveTypeId = leaveTypeId;
+            return this;
         }
 
-    
 
         /**
          * 授予数量
          * <p> 示例值：1
+         *
          * @param grantingQuantity
          * @return
          */
         public Builder grantingQuantity(String grantingQuantity) {
-             this.grantingQuantity = grantingQuantity;
-             return this;
+            this.grantingQuantity = grantingQuantity;
+            return this;
         }
 
-    
 
         /**
          * 授予单位，1表示天，2表示小时
          * <p> 示例值：1
+         *
          * @param grantingUnit
          * @return
          */
         public Builder grantingUnit(Integer grantingUnit) {
-             this.grantingUnit = grantingUnit;
-             return this;
+            this.grantingUnit = grantingUnit;
+            return this;
         }
 
-    
 
         /**
          * 生效日期，格式"2020-01-01"
          * <p> 示例值：2020-01-01
+         *
          * @param effectiveDate
          * @return
          */
         public Builder effectiveDate(String effectiveDate) {
-             this.effectiveDate = effectiveDate;
-             return this;
+            this.effectiveDate = effectiveDate;
+            return this;
         }
 
-    
 
         /**
          * 失效日期，格式"2020-01-01"
          * <p> 示例值：2020-01-01
+         *
          * @param expirationDate
          * @return
          */
         public Builder expirationDate(String expirationDate) {
-             this.expirationDate = expirationDate;
-             return this;
+            this.expirationDate = expirationDate;
+            return this;
         }
 
-    
 
         /**
          * 授予来源，1：系统授予；2：手动授予；3：外部系统授予
          * <p> 示例值：1
+         *
          * @param grantedBy
          * @return
          */
         public Builder grantedBy(Integer grantedBy) {
-             this.grantedBy = grantedBy;
-             return this;
+            this.grantedBy = grantedBy;
+            return this;
         }
 
-    
 
         /**
          * 授予原因
          * <p> 示例值：
+         *
          * @param reason
          * @return
          */
         public Builder reason(LangText[] reason) {
-             this.reason = reason;
-             return this;
+            this.reason = reason;
+            return this;
         }
 
-    
 
         /**
          * 授予记录的创建时间，unix时间戳
          * <p> 示例值：1
+         *
          * @param createdAt
          * @return
          */
         public Builder createdAt(String createdAt) {
-             this.createdAt = createdAt;
-             return this;
+            this.createdAt = createdAt;
+            return this;
         }
 
-    
 
         /**
          * 授予记录的创建人的ID
          * <p> 示例值：1
+         *
          * @param createdBy
          * @return
          */
         public Builder createdBy(String createdBy) {
-             this.createdBy = createdBy;
-             return this;
+            this.createdBy = createdBy;
+            return this;
         }
 
-    
 
         /**
          * 授予记录的更新时间，unix时间戳
          * <p> 示例值：1
+         *
          * @param updatedAt
          * @return
          */
         public Builder updatedAt(String updatedAt) {
-             this.updatedAt = updatedAt;
-             return this;
+            this.updatedAt = updatedAt;
+            return this;
         }
 
-    
 
         /**
          * 授予记录的更新人的ID
          * <p> 示例值：1
+         *
          * @param updatedBy
          * @return
          */
         public Builder updatedBy(String updatedBy) {
-             this.updatedBy = updatedBy;
-             return this;
+            this.updatedBy = updatedBy;
+            return this;
         }
 
-    
 
         /**
          * 是否参与折算
          * <p> 示例值：1
+         *
          * @param sectionType
          * @return
          */
         public Builder sectionType(Integer sectionType) {
-             this.sectionType = sectionType;
-             return this;
+            this.sectionType = sectionType;
+            return this;
         }
 
-    
-    
-    public LeaveAccrualRecord build(){
-        return new LeaveAccrualRecord(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public LeaveAccrualRecord build() {
+            return new LeaveAccrualRecord(this);
+        }
     }
 }

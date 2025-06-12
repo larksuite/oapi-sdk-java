@@ -12,39 +12,70 @@
  */
 
 package com.lark.oapi.service.okr.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.okr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class BatchGetOkrReq {
-     /**
-      * 此次调用中使用的用户ID的类型
-      * <p> 示例值：
-      */
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
-     /**
-      * OKR ID 列表，最多10个
-      * <p> 示例值：7043693679567028244
-      */
+    /**
+     * OKR ID 列表，最多10个
+     * <p> 示例值：7043693679567028244
+     */
     @Query
     @SerializedName("okr_ids")
     private String[] okrIds;
-     /**
-      * 请求OKR的语言版本（比如@的人名），lang=en_us/zh_cn，请求 Query中
-      * <p> 示例值：zh_cn
-      */
+    /**
+     * 请求OKR的语言版本（比如@的人名），lang=en_us/zh_cn，请求 Query中
+     * <p> 示例值：zh_cn
+     */
     @Query
     @SerializedName("lang")
     private String lang;
+
+    // builder 开始
+    public BatchGetOkrReq() {
+    }
+
+    public BatchGetOkrReq(Builder builder) {
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         */
+        this.userIdType = builder.userIdType;
+        /**
+         * OKR ID 列表，最多10个
+         * <p> 示例值：7043693679567028244
+         */
+        this.okrIds = builder.okrIds;
+        /**
+         * 请求OKR的语言版本（比如@的人名），lang=en_us/zh_cn，请求 Query中
+         * <p> 示例值：zh_cn
+         */
+        this.lang = builder.lang;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getUserIdType() {
         return this.userIdType;
     }
@@ -69,86 +100,64 @@ public class BatchGetOkrReq {
         this.lang = lang;
     }
 
-
-// builder 开始
-  public BatchGetOkrReq(){}
-
-  public BatchGetOkrReq(Builder builder){
-         /**
-          * 此次调用中使用的用户ID的类型
-          * <p> 示例值：
-          */
-       this.userIdType = builder.userIdType;
-         /**
-          * OKR ID 列表，最多10个
-          * <p> 示例值：7043693679567028244
-          */
-       this.okrIds = builder.okrIds;
-         /**
-          * 请求OKR的语言版本（比如@的人名），lang=en_us/zh_cn，请求 Query中
-          * <p> 示例值：zh_cn
-          */
-       this.lang = builder.lang;
-  }
-
     public static class Builder {
         private String userIdType; // 此次调用中使用的用户ID的类型
         private String[] okrIds; // OKR ID 列表，最多10个
         private String lang; // 请求OKR的语言版本（比如@的人名），lang=en_us/zh_cn，请求 Query中
-    
+
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
+         *
          * @param userIdType
          * @return
          */
-           public Builder userIdType(String userIdType) {
-                this.userIdType = userIdType;
-                return this;
-           }
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
 
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
+         *
          * @param userIdType {@link com.lark.oapi.service.okr.v1.enums.BatchGetOkrUserIdTypeEnum}
          * @return
          */
-          public Builder userIdType(com.lark.oapi.service.okr.v1.enums.BatchGetOkrUserIdTypeEnum userIdType) {
-               this.userIdType = userIdType.getValue();
-               return this;
-          }
+        public Builder userIdType(com.lark.oapi.service.okr.v1.enums.BatchGetOkrUserIdTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
+            return this;
+        }
 
-    
+
         /**
          * OKR ID 列表，最多10个
          * <p> 示例值：7043693679567028244
+         *
          * @param okrIds
          * @return
          */
-           public Builder okrIds(String[] okrIds) {
-                this.okrIds = okrIds;
-                return this;
-           }
+        public Builder okrIds(String[] okrIds) {
+            this.okrIds = okrIds;
+            return this;
+        }
 
-    
+
         /**
          * 请求OKR的语言版本（比如@的人名），lang=en_us/zh_cn，请求 Query中
          * <p> 示例值：zh_cn
+         *
          * @param lang
          * @return
          */
-           public Builder lang(String lang) {
-                this.lang = lang;
-                return this;
-           }
+        public Builder lang(String lang) {
+            this.lang = lang;
+            return this;
+        }
 
-    
-    public BatchGetOkrReq build(){
-        return new BatchGetOkrReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public BatchGetOkrReq build() {
+            return new BatchGetOkrReq(this);
+        }
     }
 }

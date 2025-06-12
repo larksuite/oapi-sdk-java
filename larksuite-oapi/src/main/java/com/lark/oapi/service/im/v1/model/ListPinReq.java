@@ -12,53 +12,94 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ListPinReq {
-     /**
-      * 待获取Pin消息的Chat ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
-      * <p> 示例值：oc_234jsi43d3ssi993d43545f
-      */
+    /**
+     * 待获取Pin消息的Chat ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+     * <p> 示例值：oc_234jsi43d3ssi993d43545f
+     */
     @Query
     @SerializedName("chat_id")
     private String chatId;
-     /**
-      * Pin信息的起始时间（毫秒级时间戳）。若未填写默认获取到群聊内最早的Pin信息
-      * <p> 示例值：1658632251800
-      */
+    /**
+     * Pin信息的起始时间（毫秒级时间戳）。若未填写默认获取到群聊内最早的Pin信息
+     * <p> 示例值：1658632251800
+     */
     @Query
     @SerializedName("start_time")
     private String startTime;
-     /**
-      * Pin信息的结束时间（毫秒级时间戳）。若未填写默认从群聊内最新的Pin信息开始获取;;**注意**：`end_time`值应大于`start_time`值
-      * <p> 示例值：1658731646425
-      */
+    /**
+     * Pin信息的结束时间（毫秒级时间戳）。若未填写默认从群聊内最新的Pin信息开始获取;;**注意**：`end_time`值应大于`start_time`值
+     * <p> 示例值：1658731646425
+     */
     @Query
     @SerializedName("end_time")
     private String endTime;
-     /**
-      * 此次调用中使用的分页的大小
-      * <p> 示例值：20
-      */
+    /**
+     * 此次调用中使用的分页的大小
+     * <p> 示例值：20
+     */
     @Query
     @SerializedName("page_size")
     private Integer pageSize;
-     /**
-      * 下一页分页的token
-      * <p> 示例值：GxmvlNRvP0NdQZpa7yIqf_Lv_QuBwTQ8tXkX7w-irAghVD_TvuYd1aoJ1LQph86O-XImC4X9j9FhUPhXQDvtrQ==
-      */
+    /**
+     * 下一页分页的token
+     * <p> 示例值：GxmvlNRvP0NdQZpa7yIqf_Lv_QuBwTQ8tXkX7w-irAghVD_TvuYd1aoJ1LQph86O-XImC4X9j9FhUPhXQDvtrQ==
+     */
     @Query
     @SerializedName("page_token")
     private String pageToken;
+
+    // builder 开始
+    public ListPinReq() {
+    }
+
+    public ListPinReq(Builder builder) {
+        /**
+         * 待获取Pin消息的Chat ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+         * <p> 示例值：oc_234jsi43d3ssi993d43545f
+         */
+        this.chatId = builder.chatId;
+        /**
+         * Pin信息的起始时间（毫秒级时间戳）。若未填写默认获取到群聊内最早的Pin信息
+         * <p> 示例值：1658632251800
+         */
+        this.startTime = builder.startTime;
+        /**
+         * Pin信息的结束时间（毫秒级时间戳）。若未填写默认从群聊内最新的Pin信息开始获取;;**注意**：`end_time`值应大于`start_time`值
+         * <p> 示例值：1658731646425
+         */
+        this.endTime = builder.endTime;
+        /**
+         * 此次调用中使用的分页的大小
+         * <p> 示例值：20
+         */
+        this.pageSize = builder.pageSize;
+        /**
+         * 下一页分页的token
+         * <p> 示例值：GxmvlNRvP0NdQZpa7yIqf_Lv_QuBwTQ8tXkX7w-irAghVD_TvuYd1aoJ1LQph86O-XImC4X9j9FhUPhXQDvtrQ==
+         */
+        this.pageToken = builder.pageToken;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getChatId() {
         return this.chatId;
     }
@@ -99,111 +140,80 @@ public class ListPinReq {
         this.pageToken = pageToken;
     }
 
-
-// builder 开始
-  public ListPinReq(){}
-
-  public ListPinReq(Builder builder){
-         /**
-          * 待获取Pin消息的Chat ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
-          * <p> 示例值：oc_234jsi43d3ssi993d43545f
-          */
-       this.chatId = builder.chatId;
-         /**
-          * Pin信息的起始时间（毫秒级时间戳）。若未填写默认获取到群聊内最早的Pin信息
-          * <p> 示例值：1658632251800
-          */
-       this.startTime = builder.startTime;
-         /**
-          * Pin信息的结束时间（毫秒级时间戳）。若未填写默认从群聊内最新的Pin信息开始获取;;**注意**：`end_time`值应大于`start_time`值
-          * <p> 示例值：1658731646425
-          */
-       this.endTime = builder.endTime;
-         /**
-          * 此次调用中使用的分页的大小
-          * <p> 示例值：20
-          */
-       this.pageSize = builder.pageSize;
-         /**
-          * 下一页分页的token
-          * <p> 示例值：GxmvlNRvP0NdQZpa7yIqf_Lv_QuBwTQ8tXkX7w-irAghVD_TvuYd1aoJ1LQph86O-XImC4X9j9FhUPhXQDvtrQ==
-          */
-       this.pageToken = builder.pageToken;
-  }
-
     public static class Builder {
         private String chatId; // 待获取Pin消息的Chat ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
         private String startTime; // Pin信息的起始时间（毫秒级时间戳）。若未填写默认获取到群聊内最早的Pin信息
         private String endTime; // Pin信息的结束时间（毫秒级时间戳）。若未填写默认从群聊内最新的Pin信息开始获取;;**注意**：`end_time`值应大于`start_time`值
         private Integer pageSize; // 此次调用中使用的分页的大小
         private String pageToken; // 下一页分页的token
-    
+
         /**
          * 待获取Pin消息的Chat ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
          * <p> 示例值：oc_234jsi43d3ssi993d43545f
+         *
          * @param chatId
          * @return
          */
-           public Builder chatId(String chatId) {
-                this.chatId = chatId;
-                return this;
-           }
+        public Builder chatId(String chatId) {
+            this.chatId = chatId;
+            return this;
+        }
 
-    
+
         /**
          * Pin信息的起始时间（毫秒级时间戳）。若未填写默认获取到群聊内最早的Pin信息
          * <p> 示例值：1658632251800
+         *
          * @param startTime
          * @return
          */
-           public Builder startTime(String startTime) {
-                this.startTime = startTime;
-                return this;
-           }
+        public Builder startTime(String startTime) {
+            this.startTime = startTime;
+            return this;
+        }
 
-    
+
         /**
          * Pin信息的结束时间（毫秒级时间戳）。若未填写默认从群聊内最新的Pin信息开始获取;;**注意**：`end_time`值应大于`start_time`值
          * <p> 示例值：1658731646425
+         *
          * @param endTime
          * @return
          */
-           public Builder endTime(String endTime) {
-                this.endTime = endTime;
-                return this;
-           }
+        public Builder endTime(String endTime) {
+            this.endTime = endTime;
+            return this;
+        }
 
-    
+
         /**
          * 此次调用中使用的分页的大小
          * <p> 示例值：20
+         *
          * @param pageSize
          * @return
          */
-           public Builder pageSize(Integer pageSize) {
-                this.pageSize = pageSize;
-                return this;
-           }
+        public Builder pageSize(Integer pageSize) {
+            this.pageSize = pageSize;
+            return this;
+        }
 
-    
+
         /**
          * 下一页分页的token
          * <p> 示例值：GxmvlNRvP0NdQZpa7yIqf_Lv_QuBwTQ8tXkX7w-irAghVD_TvuYd1aoJ1LQph86O-XImC4X9j9FhUPhXQDvtrQ==
+         *
          * @param pageToken
          * @return
          */
-           public Builder pageToken(String pageToken) {
-                this.pageToken = pageToken;
-                return this;
-           }
+        public Builder pageToken(String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+        }
 
-    
-    public ListPinReq build(){
-        return new ListPinReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ListPinReq build() {
+            return new ListPinReq(this);
+        }
     }
 }

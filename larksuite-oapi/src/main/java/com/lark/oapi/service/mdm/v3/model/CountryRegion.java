@@ -12,162 +12,298 @@
  */
 
 package com.lark.oapi.service.mdm.v3.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CountryRegion {
-     /**
-      * 自增id（业务无需关心）
-      * <p> 示例值：-
-      */
+    /**
+     * 自增id（业务无需关心）
+     * <p> 示例值：-
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 更新人
-      * <p> 示例值：-
-      */
+    /**
+     * 更新人
+     * <p> 示例值：-
+     */
     @SerializedName("update_by")
     private String updateBy;
-     /**
-      * 创建人
-      * <p> 示例值：-
-      */
+    /**
+     * 创建人
+     * <p> 示例值：-
+     */
     @SerializedName("create_by")
     private String createBy;
-     /**
-      * 更新时间
-      * <p> 示例值：-
-      */
+    /**
+     * 更新时间
+     * <p> 示例值：-
+     */
     @SerializedName("update_time")
     private String updateTime;
-     /**
-      * 创建时间
-      * <p> 示例值：-
-      */
+    /**
+     * 创建时间
+     * <p> 示例值：-
+     */
     @SerializedName("create_time")
     private String createTime;
-     /**
-      * 三位字母代码
-      * <p> 示例值：-
-      */
+    /**
+     * 三位字母代码
+     * <p> 示例值：-
+     */
     @SerializedName("alpha_3_code")
     private String alpha3Code;
-     /**
-      * 两位字母代码
-      * <p> 示例值：-
-      */
+    /**
+     * 两位字母代码
+     * <p> 示例值：-
+     */
     @SerializedName("alpha_2_code")
     private String alpha2Code;
-     /**
-      * 数字代码
-      * <p> 示例值：-
-      */
+    /**
+     * 数字代码
+     * <p> 示例值：-
+     */
     @SerializedName("numeric_code")
     private String numericCode;
-     /**
-      * 名称
-      * <p> 示例值：
-      */
+    /**
+     * 名称
+     * <p> 示例值：
+     */
     @SerializedName("name")
     private I18nString name;
-     /**
-      * 本地文字通常为mdmCode
-      * <p> 示例值：-
-      */
+    /**
+     * 本地文字通常为mdmCode
+     * <p> 示例值：-
+     */
     @SerializedName("local_script")
     private String localScript;
-     /**
-      * 西方文字通常为mdmCode
-      * <p> 示例值：-
-      */
+    /**
+     * 西方文字通常为mdmCode
+     * <p> 示例值：-
+     */
     @SerializedName("western_script")
     private String westernScript;
-     /**
-      * 主数据编码（系统生成的唯一永久代码，格式为“MDCT+8位数字”）
-      * <p> 示例值：-
-      */
+    /**
+     * 主数据编码（系统生成的唯一永久代码，格式为“MDCT+8位数字”）
+     * <p> 示例值：-
+     */
     @SerializedName("mdm_code")
     private String mdmCode;
-     /**
-      * 国家/地区全称（国家/地区行政全称，对应EA的full_name，多语行级数据映射到多语map，wukong模型新增字段）
-      * <p> 示例值：
-      */
+    /**
+     * 国家/地区全称（国家/地区行政全称，对应EA的full_name，多语行级数据映射到多语map，wukong模型新增字段）
+     * <p> 示例值：
+     */
     @SerializedName("full_name")
     private I18nString fullName;
-     /**
-      * 国际电话区号（国际电话区号，对应EA模型中的globalCode，wukong模型新增字段）
-      * <p> 示例值：-
-      */
+    /**
+     * 国际电话区号（国际电话区号，对应EA模型中的globalCode，wukong模型新增字段）
+     * <p> 示例值：-
+     */
     @SerializedName("global_code")
     private String globalCode;
-     /**
-      * 时区（lookup对象time_zone，行级数据映射关系须人工整理）通常为mdmCode
-      * <p> 示例值：
-      */
+    /**
+     * 时区（lookup对象time_zone，行级数据映射关系须人工整理）通常为mdmCode
+     * <p> 示例值：
+     */
     @SerializedName("time_zone")
     private String[] timeZone;
-     /**
-      * 是否海外（EA中特有字段，字节定制使用，为了区分中国大陆和其他所有国家/地区）
-      * <p> 示例值：-
-      */
+    /**
+     * 是否海外（EA中特有字段，字节定制使用，为了区分中国大陆和其他所有国家/地区）
+     * <p> 示例值：-
+     */
     @SerializedName("overseas")
     private String overseas;
-     /**
-      * 层级
-      * <p> 示例值：-
-      */
+    /**
+     * 层级
+     * <p> 示例值：-
+     */
     @SerializedName("level")
     private String level;
-     /**
-      * 备注
-      * <p> 示例值：-
-      */
+    /**
+     * 备注
+     * <p> 示例值：-
+     */
     @SerializedName("remark")
     private String remark;
-     /**
-      * 更新原因
-      * <p> 示例值：-
-      */
+    /**
+     * 更新原因
+     * <p> 示例值：-
+     */
     @SerializedName("update_reason")
     private String updateReason;
-     /**
-      * 是否生效
-      * <p> 示例值：-
-      */
+    /**
+     * 是否生效
+     * <p> 示例值：-
+     */
     @SerializedName("status")
     private String status;
-     /**
-      * 所属大洲（EA系统中用数字枚举，升级为常量集，常量的API Name对应以下数字：1-亚洲，2-欧洲，3-非洲，4-北美洲，5-南美洲，6-大洋洲，7-南极洲）
-      * <p> 示例值：
-      */
+    /**
+     * 所属大洲（EA系统中用数字枚举，升级为常量集，常量的API Name对应以下数字：1-亚洲，2-欧洲，3-非洲，4-北美洲，5-南美洲，6-大洋洲，7-南极洲）
+     * <p> 示例值：
+     */
     @SerializedName("continents")
     private Enum continents;
-     /**
-      * 语言
-      * <p> 示例值：
-      */
+    /**
+     * 语言
+     * <p> 示例值：
+     */
     @SerializedName("md_local_script")
     private Language mdLocalScript;
-     /**
-      * 语言
-      * <p> 示例值：
-      */
+    /**
+     * 语言
+     * <p> 示例值：
+     */
     @SerializedName("md_western_script")
     private Language mdWesternScript;
-     /**
-      * 时区（lookup对象time_zone，行级数据映射关系须人工整理）
-      * <p> 示例值：
-      */
+    /**
+     * 时区（lookup对象time_zone，行级数据映射关系须人工整理）
+     * <p> 示例值：
+     */
     @SerializedName("md_time_zone")
     private TimeZone[] mdTimeZone;
+
+    // builder 开始
+    public CountryRegion() {
+    }
+
+    public CountryRegion(Builder builder) {
+        /**
+         * 自增id（业务无需关心）
+         * <p> 示例值：-
+         */
+        this.id = builder.id;
+        /**
+         * 更新人
+         * <p> 示例值：-
+         */
+        this.updateBy = builder.updateBy;
+        /**
+         * 创建人
+         * <p> 示例值：-
+         */
+        this.createBy = builder.createBy;
+        /**
+         * 更新时间
+         * <p> 示例值：-
+         */
+        this.updateTime = builder.updateTime;
+        /**
+         * 创建时间
+         * <p> 示例值：-
+         */
+        this.createTime = builder.createTime;
+        /**
+         * 三位字母代码
+         * <p> 示例值：-
+         */
+        this.alpha3Code = builder.alpha3Code;
+        /**
+         * 两位字母代码
+         * <p> 示例值：-
+         */
+        this.alpha2Code = builder.alpha2Code;
+        /**
+         * 数字代码
+         * <p> 示例值：-
+         */
+        this.numericCode = builder.numericCode;
+        /**
+         * 名称
+         * <p> 示例值：
+         */
+        this.name = builder.name;
+        /**
+         * 本地文字通常为mdmCode
+         * <p> 示例值：-
+         */
+        this.localScript = builder.localScript;
+        /**
+         * 西方文字通常为mdmCode
+         * <p> 示例值：-
+         */
+        this.westernScript = builder.westernScript;
+        /**
+         * 主数据编码（系统生成的唯一永久代码，格式为“MDCT+8位数字”）
+         * <p> 示例值：-
+         */
+        this.mdmCode = builder.mdmCode;
+        /**
+         * 国家/地区全称（国家/地区行政全称，对应EA的full_name，多语行级数据映射到多语map，wukong模型新增字段）
+         * <p> 示例值：
+         */
+        this.fullName = builder.fullName;
+        /**
+         * 国际电话区号（国际电话区号，对应EA模型中的globalCode，wukong模型新增字段）
+         * <p> 示例值：-
+         */
+        this.globalCode = builder.globalCode;
+        /**
+         * 时区（lookup对象time_zone，行级数据映射关系须人工整理）通常为mdmCode
+         * <p> 示例值：
+         */
+        this.timeZone = builder.timeZone;
+        /**
+         * 是否海外（EA中特有字段，字节定制使用，为了区分中国大陆和其他所有国家/地区）
+         * <p> 示例值：-
+         */
+        this.overseas = builder.overseas;
+        /**
+         * 层级
+         * <p> 示例值：-
+         */
+        this.level = builder.level;
+        /**
+         * 备注
+         * <p> 示例值：-
+         */
+        this.remark = builder.remark;
+        /**
+         * 更新原因
+         * <p> 示例值：-
+         */
+        this.updateReason = builder.updateReason;
+        /**
+         * 是否生效
+         * <p> 示例值：-
+         */
+        this.status = builder.status;
+        /**
+         * 所属大洲（EA系统中用数字枚举，升级为常量集，常量的API Name对应以下数字：1-亚洲，2-欧洲，3-非洲，4-北美洲，5-南美洲，6-大洋洲，7-南极洲）
+         * <p> 示例值：
+         */
+        this.continents = builder.continents;
+        /**
+         * 语言
+         * <p> 示例值：
+         */
+        this.mdLocalScript = builder.mdLocalScript;
+        /**
+         * 语言
+         * <p> 示例值：
+         */
+        this.mdWesternScript = builder.mdWesternScript;
+        /**
+         * 时区（lookup对象time_zone，行级数据映射关系须人工整理）
+         * <p> 示例值：
+         */
+        this.mdTimeZone = builder.mdTimeZone;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -360,573 +496,442 @@ public class CountryRegion {
         this.mdTimeZone = mdTimeZone;
     }
 
-
-// builder 开始
-  public CountryRegion(){}
-
-  public CountryRegion(Builder builder){
-         /**
-          * 自增id（业务无需关心）
-          * <p> 示例值：-
-          */
-      this.id = builder.id;
-         /**
-          * 更新人
-          * <p> 示例值：-
-          */
-      this.updateBy = builder.updateBy;
-         /**
-          * 创建人
-          * <p> 示例值：-
-          */
-      this.createBy = builder.createBy;
-         /**
-          * 更新时间
-          * <p> 示例值：-
-          */
-      this.updateTime = builder.updateTime;
-         /**
-          * 创建时间
-          * <p> 示例值：-
-          */
-      this.createTime = builder.createTime;
-         /**
-          * 三位字母代码
-          * <p> 示例值：-
-          */
-      this.alpha3Code = builder.alpha3Code;
-         /**
-          * 两位字母代码
-          * <p> 示例值：-
-          */
-      this.alpha2Code = builder.alpha2Code;
-         /**
-          * 数字代码
-          * <p> 示例值：-
-          */
-      this.numericCode = builder.numericCode;
-         /**
-          * 名称
-          * <p> 示例值：
-          */
-      this.name = builder.name;
-         /**
-          * 本地文字通常为mdmCode
-          * <p> 示例值：-
-          */
-      this.localScript = builder.localScript;
-         /**
-          * 西方文字通常为mdmCode
-          * <p> 示例值：-
-          */
-      this.westernScript = builder.westernScript;
-         /**
-          * 主数据编码（系统生成的唯一永久代码，格式为“MDCT+8位数字”）
-          * <p> 示例值：-
-          */
-      this.mdmCode = builder.mdmCode;
-         /**
-          * 国家/地区全称（国家/地区行政全称，对应EA的full_name，多语行级数据映射到多语map，wukong模型新增字段）
-          * <p> 示例值：
-          */
-      this.fullName = builder.fullName;
-         /**
-          * 国际电话区号（国际电话区号，对应EA模型中的globalCode，wukong模型新增字段）
-          * <p> 示例值：-
-          */
-      this.globalCode = builder.globalCode;
-         /**
-          * 时区（lookup对象time_zone，行级数据映射关系须人工整理）通常为mdmCode
-          * <p> 示例值：
-          */
-      this.timeZone = builder.timeZone;
-         /**
-          * 是否海外（EA中特有字段，字节定制使用，为了区分中国大陆和其他所有国家/地区）
-          * <p> 示例值：-
-          */
-      this.overseas = builder.overseas;
-         /**
-          * 层级
-          * <p> 示例值：-
-          */
-      this.level = builder.level;
-         /**
-          * 备注
-          * <p> 示例值：-
-          */
-      this.remark = builder.remark;
-         /**
-          * 更新原因
-          * <p> 示例值：-
-          */
-      this.updateReason = builder.updateReason;
-         /**
-          * 是否生效
-          * <p> 示例值：-
-          */
-      this.status = builder.status;
-         /**
-          * 所属大洲（EA系统中用数字枚举，升级为常量集，常量的API Name对应以下数字：1-亚洲，2-欧洲，3-非洲，4-北美洲，5-南美洲，6-大洋洲，7-南极洲）
-          * <p> 示例值：
-          */
-      this.continents = builder.continents;
-         /**
-          * 语言
-          * <p> 示例值：
-          */
-      this.mdLocalScript = builder.mdLocalScript;
-         /**
-          * 语言
-          * <p> 示例值：
-          */
-      this.mdWesternScript = builder.mdWesternScript;
-         /**
-          * 时区（lookup对象time_zone，行级数据映射关系须人工整理）
-          * <p> 示例值：
-          */
-      this.mdTimeZone = builder.mdTimeZone;
-  }
-
     public static class Builder {
-     /**
-      * 自增id（业务无需关心）
-      * <p> 示例值：-
-      */
+        /**
+         * 自增id（业务无需关心）
+         * <p> 示例值：-
+         */
         private String id;
-     /**
-      * 更新人
-      * <p> 示例值：-
-      */
+        /**
+         * 更新人
+         * <p> 示例值：-
+         */
         private String updateBy;
-     /**
-      * 创建人
-      * <p> 示例值：-
-      */
+        /**
+         * 创建人
+         * <p> 示例值：-
+         */
         private String createBy;
-     /**
-      * 更新时间
-      * <p> 示例值：-
-      */
+        /**
+         * 更新时间
+         * <p> 示例值：-
+         */
         private String updateTime;
-     /**
-      * 创建时间
-      * <p> 示例值：-
-      */
+        /**
+         * 创建时间
+         * <p> 示例值：-
+         */
         private String createTime;
-     /**
-      * 三位字母代码
-      * <p> 示例值：-
-      */
+        /**
+         * 三位字母代码
+         * <p> 示例值：-
+         */
         private String alpha3Code;
-     /**
-      * 两位字母代码
-      * <p> 示例值：-
-      */
+        /**
+         * 两位字母代码
+         * <p> 示例值：-
+         */
         private String alpha2Code;
-     /**
-      * 数字代码
-      * <p> 示例值：-
-      */
+        /**
+         * 数字代码
+         * <p> 示例值：-
+         */
         private String numericCode;
-     /**
-      * 名称
-      * <p> 示例值：
-      */
+        /**
+         * 名称
+         * <p> 示例值：
+         */
         private I18nString name;
-     /**
-      * 本地文字通常为mdmCode
-      * <p> 示例值：-
-      */
+        /**
+         * 本地文字通常为mdmCode
+         * <p> 示例值：-
+         */
         private String localScript;
-     /**
-      * 西方文字通常为mdmCode
-      * <p> 示例值：-
-      */
+        /**
+         * 西方文字通常为mdmCode
+         * <p> 示例值：-
+         */
         private String westernScript;
-     /**
-      * 主数据编码（系统生成的唯一永久代码，格式为“MDCT+8位数字”）
-      * <p> 示例值：-
-      */
+        /**
+         * 主数据编码（系统生成的唯一永久代码，格式为“MDCT+8位数字”）
+         * <p> 示例值：-
+         */
         private String mdmCode;
-     /**
-      * 国家/地区全称（国家/地区行政全称，对应EA的full_name，多语行级数据映射到多语map，wukong模型新增字段）
-      * <p> 示例值：
-      */
+        /**
+         * 国家/地区全称（国家/地区行政全称，对应EA的full_name，多语行级数据映射到多语map，wukong模型新增字段）
+         * <p> 示例值：
+         */
         private I18nString fullName;
-     /**
-      * 国际电话区号（国际电话区号，对应EA模型中的globalCode，wukong模型新增字段）
-      * <p> 示例值：-
-      */
+        /**
+         * 国际电话区号（国际电话区号，对应EA模型中的globalCode，wukong模型新增字段）
+         * <p> 示例值：-
+         */
         private String globalCode;
-     /**
-      * 时区（lookup对象time_zone，行级数据映射关系须人工整理）通常为mdmCode
-      * <p> 示例值：
-      */
+        /**
+         * 时区（lookup对象time_zone，行级数据映射关系须人工整理）通常为mdmCode
+         * <p> 示例值：
+         */
         private String[] timeZone;
-     /**
-      * 是否海外（EA中特有字段，字节定制使用，为了区分中国大陆和其他所有国家/地区）
-      * <p> 示例值：-
-      */
+        /**
+         * 是否海外（EA中特有字段，字节定制使用，为了区分中国大陆和其他所有国家/地区）
+         * <p> 示例值：-
+         */
         private String overseas;
-     /**
-      * 层级
-      * <p> 示例值：-
-      */
+        /**
+         * 层级
+         * <p> 示例值：-
+         */
         private String level;
-     /**
-      * 备注
-      * <p> 示例值：-
-      */
+        /**
+         * 备注
+         * <p> 示例值：-
+         */
         private String remark;
-     /**
-      * 更新原因
-      * <p> 示例值：-
-      */
+        /**
+         * 更新原因
+         * <p> 示例值：-
+         */
         private String updateReason;
-     /**
-      * 是否生效
-      * <p> 示例值：-
-      */
+        /**
+         * 是否生效
+         * <p> 示例值：-
+         */
         private String status;
-     /**
-      * 所属大洲（EA系统中用数字枚举，升级为常量集，常量的API Name对应以下数字：1-亚洲，2-欧洲，3-非洲，4-北美洲，5-南美洲，6-大洋洲，7-南极洲）
-      * <p> 示例值：
-      */
+        /**
+         * 所属大洲（EA系统中用数字枚举，升级为常量集，常量的API Name对应以下数字：1-亚洲，2-欧洲，3-非洲，4-北美洲，5-南美洲，6-大洋洲，7-南极洲）
+         * <p> 示例值：
+         */
         private Enum continents;
-     /**
-      * 语言
-      * <p> 示例值：
-      */
+        /**
+         * 语言
+         * <p> 示例值：
+         */
         private Language mdLocalScript;
-     /**
-      * 语言
-      * <p> 示例值：
-      */
+        /**
+         * 语言
+         * <p> 示例值：
+         */
         private Language mdWesternScript;
-     /**
-      * 时区（lookup对象time_zone，行级数据映射关系须人工整理）
-      * <p> 示例值：
-      */
+        /**
+         * 时区（lookup对象time_zone，行级数据映射关系须人工整理）
+         * <p> 示例值：
+         */
         private TimeZone[] mdTimeZone;
 
         /**
          * 自增id（业务无需关心）
          * <p> 示例值：-
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 更新人
          * <p> 示例值：-
+         *
          * @param updateBy
          * @return
          */
         public Builder updateBy(String updateBy) {
-             this.updateBy = updateBy;
-             return this;
+            this.updateBy = updateBy;
+            return this;
         }
 
-    
 
         /**
          * 创建人
          * <p> 示例值：-
+         *
          * @param createBy
          * @return
          */
         public Builder createBy(String createBy) {
-             this.createBy = createBy;
-             return this;
+            this.createBy = createBy;
+            return this;
         }
 
-    
 
         /**
          * 更新时间
          * <p> 示例值：-
+         *
          * @param updateTime
          * @return
          */
         public Builder updateTime(String updateTime) {
-             this.updateTime = updateTime;
-             return this;
+            this.updateTime = updateTime;
+            return this;
         }
 
-    
 
         /**
          * 创建时间
          * <p> 示例值：-
+         *
          * @param createTime
          * @return
          */
         public Builder createTime(String createTime) {
-             this.createTime = createTime;
-             return this;
+            this.createTime = createTime;
+            return this;
         }
 
-    
 
         /**
          * 三位字母代码
          * <p> 示例值：-
+         *
          * @param alpha3Code
          * @return
          */
         public Builder alpha3Code(String alpha3Code) {
-             this.alpha3Code = alpha3Code;
-             return this;
+            this.alpha3Code = alpha3Code;
+            return this;
         }
 
-    
 
         /**
          * 两位字母代码
          * <p> 示例值：-
+         *
          * @param alpha2Code
          * @return
          */
         public Builder alpha2Code(String alpha2Code) {
-             this.alpha2Code = alpha2Code;
-             return this;
+            this.alpha2Code = alpha2Code;
+            return this;
         }
 
-    
 
         /**
          * 数字代码
          * <p> 示例值：-
+         *
          * @param numericCode
          * @return
          */
         public Builder numericCode(String numericCode) {
-             this.numericCode = numericCode;
-             return this;
+            this.numericCode = numericCode;
+            return this;
         }
 
-    
 
         /**
          * 名称
          * <p> 示例值：
+         *
          * @param name
          * @return
          */
         public Builder name(I18nString name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 本地文字通常为mdmCode
          * <p> 示例值：-
+         *
          * @param localScript
          * @return
          */
         public Builder localScript(String localScript) {
-             this.localScript = localScript;
-             return this;
+            this.localScript = localScript;
+            return this;
         }
 
-    
 
         /**
          * 西方文字通常为mdmCode
          * <p> 示例值：-
+         *
          * @param westernScript
          * @return
          */
         public Builder westernScript(String westernScript) {
-             this.westernScript = westernScript;
-             return this;
+            this.westernScript = westernScript;
+            return this;
         }
 
-    
 
         /**
          * 主数据编码（系统生成的唯一永久代码，格式为“MDCT+8位数字”）
          * <p> 示例值：-
+         *
          * @param mdmCode
          * @return
          */
         public Builder mdmCode(String mdmCode) {
-             this.mdmCode = mdmCode;
-             return this;
+            this.mdmCode = mdmCode;
+            return this;
         }
 
-    
 
         /**
          * 国家/地区全称（国家/地区行政全称，对应EA的full_name，多语行级数据映射到多语map，wukong模型新增字段）
          * <p> 示例值：
+         *
          * @param fullName
          * @return
          */
         public Builder fullName(I18nString fullName) {
-             this.fullName = fullName;
-             return this;
+            this.fullName = fullName;
+            return this;
         }
 
-    
 
         /**
          * 国际电话区号（国际电话区号，对应EA模型中的globalCode，wukong模型新增字段）
          * <p> 示例值：-
+         *
          * @param globalCode
          * @return
          */
         public Builder globalCode(String globalCode) {
-             this.globalCode = globalCode;
-             return this;
+            this.globalCode = globalCode;
+            return this;
         }
 
-    
 
         /**
          * 时区（lookup对象time_zone，行级数据映射关系须人工整理）通常为mdmCode
          * <p> 示例值：
+         *
          * @param timeZone
          * @return
          */
         public Builder timeZone(String[] timeZone) {
-             this.timeZone = timeZone;
-             return this;
+            this.timeZone = timeZone;
+            return this;
         }
 
-    
 
         /**
          * 是否海外（EA中特有字段，字节定制使用，为了区分中国大陆和其他所有国家/地区）
          * <p> 示例值：-
+         *
          * @param overseas
          * @return
          */
         public Builder overseas(String overseas) {
-             this.overseas = overseas;
-             return this;
+            this.overseas = overseas;
+            return this;
         }
 
-    
 
         /**
          * 层级
          * <p> 示例值：-
+         *
          * @param level
          * @return
          */
         public Builder level(String level) {
-             this.level = level;
-             return this;
+            this.level = level;
+            return this;
         }
 
-    
 
         /**
          * 备注
          * <p> 示例值：-
+         *
          * @param remark
          * @return
          */
         public Builder remark(String remark) {
-             this.remark = remark;
-             return this;
+            this.remark = remark;
+            return this;
         }
 
-    
 
         /**
          * 更新原因
          * <p> 示例值：-
+         *
          * @param updateReason
          * @return
          */
         public Builder updateReason(String updateReason) {
-             this.updateReason = updateReason;
-             return this;
+            this.updateReason = updateReason;
+            return this;
         }
 
-    
 
         /**
          * 是否生效
          * <p> 示例值：-
+         *
          * @param status
          * @return
          */
         public Builder status(String status) {
-             this.status = status;
-             return this;
+            this.status = status;
+            return this;
         }
 
-    
 
         /**
          * 所属大洲（EA系统中用数字枚举，升级为常量集，常量的API Name对应以下数字：1-亚洲，2-欧洲，3-非洲，4-北美洲，5-南美洲，6-大洋洲，7-南极洲）
          * <p> 示例值：
+         *
          * @param continents
          * @return
          */
         public Builder continents(Enum continents) {
-             this.continents = continents;
-             return this;
+            this.continents = continents;
+            return this;
         }
 
-    
 
         /**
          * 语言
          * <p> 示例值：
+         *
          * @param mdLocalScript
          * @return
          */
         public Builder mdLocalScript(Language mdLocalScript) {
-             this.mdLocalScript = mdLocalScript;
-             return this;
+            this.mdLocalScript = mdLocalScript;
+            return this;
         }
 
-    
 
         /**
          * 语言
          * <p> 示例值：
+         *
          * @param mdWesternScript
          * @return
          */
         public Builder mdWesternScript(Language mdWesternScript) {
-             this.mdWesternScript = mdWesternScript;
-             return this;
+            this.mdWesternScript = mdWesternScript;
+            return this;
         }
 
-    
 
         /**
          * 时区（lookup对象time_zone，行级数据映射关系须人工整理）
          * <p> 示例值：
+         *
          * @param mdTimeZone
          * @return
          */
         public Builder mdTimeZone(TimeZone[] mdTimeZone) {
-             this.mdTimeZone = mdTimeZone;
-             return this;
+            this.mdTimeZone = mdTimeZone;
+            return this;
         }
 
-    
-    
-    public CountryRegion build(){
-        return new CountryRegion(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public CountryRegion build() {
+            return new CountryRegion(this);
+        }
     }
 }

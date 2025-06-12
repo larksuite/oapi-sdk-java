@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.calendar.v4.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.calendar.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,42 +20,82 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class AttendeeChatMember {
-     /**
-      * 参与人RSVP状态
-      * <p> 示例值：needs_action
-      */
+    /**
+     * 参与人RSVP状态
+     * <p> 示例值：needs_action
+     */
     @SerializedName("rsvp_status")
     private String rsvpStatus;
-     /**
-      * 参与人是否为「可选参加」
-      * <p> 示例值：true
-      */
+    /**
+     * 参与人是否为「可选参加」
+     * <p> 示例值：true
+     */
     @SerializedName("is_optional")
     private Boolean isOptional;
-     /**
-      * 参与人名称
-      * <p> 示例值：Group
-      */
+    /**
+     * 参与人名称
+     * <p> 示例值：Group
+     */
     @SerializedName("display_name")
     private String displayName;
-     /**
-      * 参与人是否为日程组织者
-      * <p> 示例值：false
-      */
+    /**
+     * 参与人是否为日程组织者
+     * <p> 示例值：false
+     */
     @SerializedName("is_organizer")
     private Boolean isOrganizer;
-     /**
-      * 参与人是否为外部参与人
-      * <p> 示例值：false
-      */
+    /**
+     * 参与人是否为外部参与人
+     * <p> 示例值：false
+     */
     @SerializedName("is_external")
     private Boolean isExternal;
+
+    // builder 开始
+    public AttendeeChatMember() {
+    }
+
+    public AttendeeChatMember(Builder builder) {
+        /**
+         * 参与人RSVP状态
+         * <p> 示例值：needs_action
+         */
+        this.rsvpStatus = builder.rsvpStatus;
+        /**
+         * 参与人是否为「可选参加」
+         * <p> 示例值：true
+         */
+        this.isOptional = builder.isOptional;
+        /**
+         * 参与人名称
+         * <p> 示例值：Group
+         */
+        this.displayName = builder.displayName;
+        /**
+         * 参与人是否为日程组织者
+         * <p> 示例值：false
+         */
+        this.isOrganizer = builder.isOrganizer;
+        /**
+         * 参与人是否为外部参与人
+         * <p> 示例值：false
+         */
+        this.isExternal = builder.isExternal;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getRsvpStatus() {
         return this.rsvpStatus;
     }
@@ -95,146 +136,112 @@ public class AttendeeChatMember {
         this.isExternal = isExternal;
     }
 
-
-// builder 开始
-  public AttendeeChatMember(){}
-
-  public AttendeeChatMember(Builder builder){
-         /**
-          * 参与人RSVP状态
-          * <p> 示例值：needs_action
-          */
-      this.rsvpStatus = builder.rsvpStatus;
-         /**
-          * 参与人是否为「可选参加」
-          * <p> 示例值：true
-          */
-      this.isOptional = builder.isOptional;
-         /**
-          * 参与人名称
-          * <p> 示例值：Group
-          */
-      this.displayName = builder.displayName;
-         /**
-          * 参与人是否为日程组织者
-          * <p> 示例值：false
-          */
-      this.isOrganizer = builder.isOrganizer;
-         /**
-          * 参与人是否为外部参与人
-          * <p> 示例值：false
-          */
-      this.isExternal = builder.isExternal;
-  }
-
     public static class Builder {
-     /**
-      * 参与人RSVP状态
-      * <p> 示例值：needs_action
-      */
+        /**
+         * 参与人RSVP状态
+         * <p> 示例值：needs_action
+         */
         private String rsvpStatus;
-     /**
-      * 参与人是否为「可选参加」
-      * <p> 示例值：true
-      */
+        /**
+         * 参与人是否为「可选参加」
+         * <p> 示例值：true
+         */
         private Boolean isOptional;
-     /**
-      * 参与人名称
-      * <p> 示例值：Group
-      */
+        /**
+         * 参与人名称
+         * <p> 示例值：Group
+         */
         private String displayName;
-     /**
-      * 参与人是否为日程组织者
-      * <p> 示例值：false
-      */
+        /**
+         * 参与人是否为日程组织者
+         * <p> 示例值：false
+         */
         private Boolean isOrganizer;
-     /**
-      * 参与人是否为外部参与人
-      * <p> 示例值：false
-      */
+        /**
+         * 参与人是否为外部参与人
+         * <p> 示例值：false
+         */
         private Boolean isExternal;
 
         /**
          * 参与人RSVP状态
          * <p> 示例值：needs_action
+         *
          * @param rsvpStatus
          * @return
          */
         public Builder rsvpStatus(String rsvpStatus) {
-             this.rsvpStatus = rsvpStatus;
-             return this;
+            this.rsvpStatus = rsvpStatus;
+            return this;
         }
+
         /**
          * 参与人RSVP状态
          * <p> 示例值：needs_action
+         *
          * @param rsvpStatus {@link com.lark.oapi.service.calendar.v4.enums.AttendeeChatMemberRsvpStatusEnum}
          * @return
          */
         public Builder rsvpStatus(com.lark.oapi.service.calendar.v4.enums.AttendeeChatMemberRsvpStatusEnum rsvpStatus) {
-             this.rsvpStatus = rsvpStatus.getValue();
-             return this;
+            this.rsvpStatus = rsvpStatus.getValue();
+            return this;
         }
 
-    
 
         /**
          * 参与人是否为「可选参加」
          * <p> 示例值：true
+         *
          * @param isOptional
          * @return
          */
         public Builder isOptional(Boolean isOptional) {
-             this.isOptional = isOptional;
-             return this;
+            this.isOptional = isOptional;
+            return this;
         }
 
-    
 
         /**
          * 参与人名称
          * <p> 示例值：Group
+         *
          * @param displayName
          * @return
          */
         public Builder displayName(String displayName) {
-             this.displayName = displayName;
-             return this;
+            this.displayName = displayName;
+            return this;
         }
 
-    
 
         /**
          * 参与人是否为日程组织者
          * <p> 示例值：false
+         *
          * @param isOrganizer
          * @return
          */
         public Builder isOrganizer(Boolean isOrganizer) {
-             this.isOrganizer = isOrganizer;
-             return this;
+            this.isOrganizer = isOrganizer;
+            return this;
         }
 
-    
 
         /**
          * 参与人是否为外部参与人
          * <p> 示例值：false
+         *
          * @param isExternal
          * @return
          */
         public Builder isExternal(Boolean isExternal) {
-             this.isExternal = isExternal;
-             return this;
+            this.isExternal = isExternal;
+            return this;
         }
 
-    
-    
-    public AttendeeChatMember build(){
-        return new AttendeeChatMember(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public AttendeeChatMember build() {
+            return new AttendeeChatMember(this);
+        }
     }
 }

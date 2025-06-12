@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.task.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.task.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class TasklistSummary {
-     /**
-      * 清单的全局唯一ID
-      * <p> 示例值：cc371766-6584-cf50-a222-c22cd9055004
-      */
+    /**
+     * 清单的全局唯一ID
+     * <p> 示例值：cc371766-6584-cf50-a222-c22cd9055004
+     */
     @SerializedName("guid")
     private String guid;
-     /**
-      * 清单名字
-      * <p> 示例值：活动分工任务列表
-      */
+    /**
+     * 清单名字
+     * <p> 示例值：活动分工任务列表
+     */
     @SerializedName("name")
     private String name;
+
+    // builder 开始
+    public TasklistSummary() {
+    }
+
+    public TasklistSummary(Builder builder) {
+        /**
+         * 清单的全局唯一ID
+         * <p> 示例值：cc371766-6584-cf50-a222-c22cd9055004
+         */
+        this.guid = builder.guid;
+        /**
+         * 清单名字
+         * <p> 示例值：活动分工任务列表
+         */
+        this.name = builder.name;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getGuid() {
         return this.guid;
     }
@@ -53,67 +79,46 @@ public class TasklistSummary {
         this.name = name;
     }
 
-
-// builder 开始
-  public TasklistSummary(){}
-
-  public TasklistSummary(Builder builder){
-         /**
-          * 清单的全局唯一ID
-          * <p> 示例值：cc371766-6584-cf50-a222-c22cd9055004
-          */
-      this.guid = builder.guid;
-         /**
-          * 清单名字
-          * <p> 示例值：活动分工任务列表
-          */
-      this.name = builder.name;
-  }
-
     public static class Builder {
-     /**
-      * 清单的全局唯一ID
-      * <p> 示例值：cc371766-6584-cf50-a222-c22cd9055004
-      */
+        /**
+         * 清单的全局唯一ID
+         * <p> 示例值：cc371766-6584-cf50-a222-c22cd9055004
+         */
         private String guid;
-     /**
-      * 清单名字
-      * <p> 示例值：活动分工任务列表
-      */
+        /**
+         * 清单名字
+         * <p> 示例值：活动分工任务列表
+         */
         private String name;
 
         /**
          * 清单的全局唯一ID
          * <p> 示例值：cc371766-6584-cf50-a222-c22cd9055004
+         *
          * @param guid
          * @return
          */
         public Builder guid(String guid) {
-             this.guid = guid;
-             return this;
+            this.guid = guid;
+            return this;
         }
 
-    
 
         /**
          * 清单名字
          * <p> 示例值：活动分工任务列表
+         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
-    
-    public TasklistSummary build(){
-        return new TasklistSummary(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public TasklistSummary build() {
+            return new TasklistSummary(this);
+        }
     }
 }

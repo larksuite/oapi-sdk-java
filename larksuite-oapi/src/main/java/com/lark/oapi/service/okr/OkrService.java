@@ -35,36 +35,44 @@ public class OkrService {
     private final UserOkr userOkr; // 用户OKR
 
     public OkrService(Config config) {
-    this.v1 = new V1(config);
-    this.image = new Image(config);
-    this.okr = new Okr(config);
-    this.period = new Period(config);
-    this.periodRule = new PeriodRule(config);
-    this.progressRecord = new ProgressRecord(config);
-    this.review = new Review(config);
-    this.userOkr = new UserOkr(config);
+        this.v1 = new V1(config);
+        this.image = new Image(config);
+        this.okr = new Okr(config);
+        this.period = new Period(config);
+        this.periodRule = new PeriodRule(config);
+        this.progressRecord = new ProgressRecord(config);
+        this.review = new Review(config);
+        this.userOkr = new UserOkr(config);
     }
+
     public V1 v1() {
         return v1;
     }
+
     public Image image() {
         return image;
     }
+
     public Okr okr() {
         return okr;
     }
+
     public Period period() {
         return period;
     }
+
     public PeriodRule periodRule() {
         return periodRule;
     }
+
     public ProgressRecord progressRecord() {
         return progressRecord;
     }
+
     public Review review() {
         return review;
     }
+
     public UserOkr userOkr() {
         return userOkr;
     }

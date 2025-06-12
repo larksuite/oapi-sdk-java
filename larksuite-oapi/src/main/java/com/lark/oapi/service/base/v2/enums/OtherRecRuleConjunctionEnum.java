@@ -17,15 +17,16 @@ package com.lark.oapi.service.base.v2.enums;
  * 多个筛选条件的关系
  */
 public enum OtherRecRuleConjunctionEnum {
-     AND("and"), // 与
-     OR("or"), // 或
-  ;
-   private String value;
+    AND("and"), // 与
+    OR("or"), // 或
+    ;
+    private String value;
+
     OtherRecRuleConjunctionEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

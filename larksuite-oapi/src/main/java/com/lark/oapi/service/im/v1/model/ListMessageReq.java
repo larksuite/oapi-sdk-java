@@ -12,67 +12,118 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ListMessageReq {
-     /**
-      * 容器类型 ，目前可选值仅有"chat"，包含单聊（p2p）和群聊（group）
-      * <p> 示例值：chat
-      */
+    /**
+     * 容器类型 ，目前可选值仅有"chat"，包含单聊（p2p）和群聊（group）
+     * <p> 示例值：chat
+     */
     @Query
     @SerializedName("container_id_type")
     private String containerIdType;
-     /**
-      * 容器的id，即chat的id，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
-      * <p> 示例值：oc_234jsi43d3ssi993d43545f
-      */
+    /**
+     * 容器的id，即chat的id，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+     * <p> 示例值：oc_234jsi43d3ssi993d43545f
+     */
     @Query
     @SerializedName("container_id")
     private String containerId;
-     /**
-      * 历史信息的起始时间（秒级时间戳）
-      * <p> 示例值：1609296809
-      */
+    /**
+     * 历史信息的起始时间（秒级时间戳）
+     * <p> 示例值：1609296809
+     */
     @Query
     @SerializedName("start_time")
     private String startTime;
-     /**
-      * 历史信息的结束时间（秒级时间戳）
-      * <p> 示例值：1608594809
-      */
+    /**
+     * 历史信息的结束时间（秒级时间戳）
+     * <p> 示例值：1608594809
+     */
     @Query
     @SerializedName("end_time")
     private String endTime;
-     /**
-      * 消息排序方式
-      * <p> 示例值：ByCreateTimeAsc
-      */
+    /**
+     * 消息排序方式
+     * <p> 示例值：ByCreateTimeAsc
+     */
     @Query
     @SerializedName("sort_type")
     private String sortType;
-     /**
-      * 分页大小
-      * <p> 示例值：20
-      */
+    /**
+     * 分页大小
+     * <p> 示例值：20
+     */
     @Query
     @SerializedName("page_size")
     private Integer pageSize;
-     /**
-      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
-      * <p> 示例值：GxmvlNRvP0NdQZpa7yIqf_Lv_QuBwTQ8tXkX7w-irAghVD_TvuYd1aoJ1LQph86O-XImC4X9j9FhUPhXQDvtrQ==
-      */
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
+     * <p> 示例值：GxmvlNRvP0NdQZpa7yIqf_Lv_QuBwTQ8tXkX7w-irAghVD_TvuYd1aoJ1LQph86O-XImC4X9j9FhUPhXQDvtrQ==
+     */
     @Query
     @SerializedName("page_token")
     private String pageToken;
+
+    // builder 开始
+    public ListMessageReq() {
+    }
+
+    public ListMessageReq(Builder builder) {
+        /**
+         * 容器类型 ，目前可选值仅有"chat"，包含单聊（p2p）和群聊（group）
+         * <p> 示例值：chat
+         */
+        this.containerIdType = builder.containerIdType;
+        /**
+         * 容器的id，即chat的id，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+         * <p> 示例值：oc_234jsi43d3ssi993d43545f
+         */
+        this.containerId = builder.containerId;
+        /**
+         * 历史信息的起始时间（秒级时间戳）
+         * <p> 示例值：1609296809
+         */
+        this.startTime = builder.startTime;
+        /**
+         * 历史信息的结束时间（秒级时间戳）
+         * <p> 示例值：1608594809
+         */
+        this.endTime = builder.endTime;
+        /**
+         * 消息排序方式
+         * <p> 示例值：ByCreateTimeAsc
+         */
+        this.sortType = builder.sortType;
+        /**
+         * 分页大小
+         * <p> 示例值：20
+         */
+        this.pageSize = builder.pageSize;
+        /**
+         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
+         * <p> 示例值：GxmvlNRvP0NdQZpa7yIqf_Lv_QuBwTQ8tXkX7w-irAghVD_TvuYd1aoJ1LQph86O-XImC4X9j9FhUPhXQDvtrQ==
+         */
+        this.pageToken = builder.pageToken;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getContainerIdType() {
         return this.containerIdType;
     }
@@ -129,48 +180,6 @@ public class ListMessageReq {
         this.pageToken = pageToken;
     }
 
-
-// builder 开始
-  public ListMessageReq(){}
-
-  public ListMessageReq(Builder builder){
-         /**
-          * 容器类型 ，目前可选值仅有"chat"，包含单聊（p2p）和群聊（group）
-          * <p> 示例值：chat
-          */
-       this.containerIdType = builder.containerIdType;
-         /**
-          * 容器的id，即chat的id，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
-          * <p> 示例值：oc_234jsi43d3ssi993d43545f
-          */
-       this.containerId = builder.containerId;
-         /**
-          * 历史信息的起始时间（秒级时间戳）
-          * <p> 示例值：1609296809
-          */
-       this.startTime = builder.startTime;
-         /**
-          * 历史信息的结束时间（秒级时间戳）
-          * <p> 示例值：1608594809
-          */
-       this.endTime = builder.endTime;
-         /**
-          * 消息排序方式
-          * <p> 示例值：ByCreateTimeAsc
-          */
-       this.sortType = builder.sortType;
-         /**
-          * 分页大小
-          * <p> 示例值：20
-          */
-       this.pageSize = builder.pageSize;
-         /**
-          * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
-          * <p> 示例值：GxmvlNRvP0NdQZpa7yIqf_Lv_QuBwTQ8tXkX7w-irAghVD_TvuYd1aoJ1LQph86O-XImC4X9j9FhUPhXQDvtrQ==
-          */
-       this.pageToken = builder.pageToken;
-  }
-
     public static class Builder {
         private String containerIdType; // 容器类型 ，目前可选值仅有"chat"，包含单聊（p2p）和群聊（group）
         private String containerId; // 容器的id，即chat的id，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
@@ -179,108 +188,112 @@ public class ListMessageReq {
         private String sortType; // 消息排序方式
         private Integer pageSize; // 分页大小
         private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
-    
+
         /**
          * 容器类型 ，目前可选值仅有"chat"，包含单聊（p2p）和群聊（group）
          * <p> 示例值：chat
+         *
          * @param containerIdType
          * @return
          */
-           public Builder containerIdType(String containerIdType) {
-                this.containerIdType = containerIdType;
-                return this;
-           }
+        public Builder containerIdType(String containerIdType) {
+            this.containerIdType = containerIdType;
+            return this;
+        }
 
-    
+
         /**
          * 容器的id，即chat的id，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
          * <p> 示例值：oc_234jsi43d3ssi993d43545f
+         *
          * @param containerId
          * @return
          */
-           public Builder containerId(String containerId) {
-                this.containerId = containerId;
-                return this;
-           }
+        public Builder containerId(String containerId) {
+            this.containerId = containerId;
+            return this;
+        }
 
-    
+
         /**
          * 历史信息的起始时间（秒级时间戳）
          * <p> 示例值：1609296809
+         *
          * @param startTime
          * @return
          */
-           public Builder startTime(String startTime) {
-                this.startTime = startTime;
-                return this;
-           }
+        public Builder startTime(String startTime) {
+            this.startTime = startTime;
+            return this;
+        }
 
-    
+
         /**
          * 历史信息的结束时间（秒级时间戳）
          * <p> 示例值：1608594809
+         *
          * @param endTime
          * @return
          */
-           public Builder endTime(String endTime) {
-                this.endTime = endTime;
-                return this;
-           }
+        public Builder endTime(String endTime) {
+            this.endTime = endTime;
+            return this;
+        }
 
-    
+
         /**
          * 消息排序方式
          * <p> 示例值：ByCreateTimeAsc
+         *
          * @param sortType
          * @return
          */
-           public Builder sortType(String sortType) {
-                this.sortType = sortType;
-                return this;
-           }
+        public Builder sortType(String sortType) {
+            this.sortType = sortType;
+            return this;
+        }
 
         /**
          * 消息排序方式
          * <p> 示例值：ByCreateTimeAsc
+         *
          * @param sortType {@link com.lark.oapi.service.im.v1.enums.ListMessageSortTypeEnum}
          * @return
          */
-          public Builder sortType(com.lark.oapi.service.im.v1.enums.ListMessageSortTypeEnum sortType) {
-               this.sortType = sortType.getValue();
-               return this;
-          }
+        public Builder sortType(com.lark.oapi.service.im.v1.enums.ListMessageSortTypeEnum sortType) {
+            this.sortType = sortType.getValue();
+            return this;
+        }
 
-    
+
         /**
          * 分页大小
          * <p> 示例值：20
+         *
          * @param pageSize
          * @return
          */
-           public Builder pageSize(Integer pageSize) {
-                this.pageSize = pageSize;
-                return this;
-           }
+        public Builder pageSize(Integer pageSize) {
+            this.pageSize = pageSize;
+            return this;
+        }
 
-    
+
         /**
          * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
          * <p> 示例值：GxmvlNRvP0NdQZpa7yIqf_Lv_QuBwTQ8tXkX7w-irAghVD_TvuYd1aoJ1LQph86O-XImC4X9j9FhUPhXQDvtrQ==
+         *
          * @param pageToken
          * @return
          */
-           public Builder pageToken(String pageToken) {
-                this.pageToken = pageToken;
-                return this;
-           }
+        public Builder pageToken(String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+        }
 
-    
-    public ListMessageReq build(){
-        return new ListMessageReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ListMessageReq build() {
+            return new ListMessageReq(this);
+        }
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.baike.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.baike.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,108 +20,203 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class WordInfo {
-     /**
-      * 用户输入的总词汇量
-      * <p> 示例值：100
-      */
+    /**
+     * 用户输入的总词汇量
+     * <p> 示例值：100
+     */
     @SerializedName("input_total")
     private Integer inputTotal;
-     /**
-      * 用户输入的去重后的总词汇量
-      * <p> 示例值：50
-      */
+    /**
+     * 用户输入的去重后的总词汇量
+     * <p> 示例值：50
+     */
     @SerializedName("dedup_input_total")
     private Integer dedupInputTotal;
-     /**
-      * 时间区间内每一天发送的英文词数，时间是由远到近。以七天数据为例：下标6为昨天，下标5位前天以此类推
-      * <p> 示例值：
-      */
+    /**
+     * 时间区间内每一天发送的英文词数，时间是由远到近。以七天数据为例：下标6为昨天，下标5位前天以此类推
+     * <p> 示例值：
+     */
     @SerializedName("eachday_input")
     private Integer[] eachdayInput;
-     /**
-      * 时间区间内每一天发送的归一化去重后的英文词数，时间是由远到近。以七天数据为例：下标6为昨天，下标5位前天以此类推
-      * <p> 示例值：
-      */
+    /**
+     * 时间区间内每一天发送的归一化去重后的英文词数，时间是由远到近。以七天数据为例：下标6为昨天，下标5位前天以此类推
+     * <p> 示例值：
+     */
     @SerializedName("eachday_dedup_input")
     private Integer[] eachdayDedupInput;
-     /**
-      * 发送的消息总数
-      * <p> 示例值：200
-      */
+    /**
+     * 发送的消息总数
+     * <p> 示例值：200
+     */
     @SerializedName("send_message_total")
     private Integer sendMessageTotal;
-     /**
-      * 发送的英语消息总数
-      * <p> 示例值：150
-      */
+    /**
+     * 发送的英语消息总数
+     * <p> 示例值：150
+     */
     @SerializedName("send_en_message_total")
     private Integer sendEnMessageTotal;
-     /**
-      * 接收消息的数量
-      * <p> 示例值：500
-      */
+    /**
+     * 接收消息的数量
+     * <p> 示例值：500
+     */
     @SerializedName("receive_message_total")
     private Integer receiveMessageTotal;
-     /**
-      * 接收英文消息的数量
-      * <p> 示例值：100
-      */
+    /**
+     * 接收英文消息的数量
+     * <p> 示例值：100
+     */
     @SerializedName("receive_en_message_total")
     private Integer receiveEnMessageTotal;
-     /**
-      * 历史总计英语词数（包含新增）
-      * <p> 示例值：300
-      */
+    /**
+     * 历史总计英语词数（包含新增）
+     * <p> 示例值：300
+     */
     @SerializedName("history_words_total")
     private Integer historyWordsTotal;
-     /**
-      * 新增英语词数
-      * <p> 示例值：20
-      */
+    /**
+     * 新增英语词数
+     * <p> 示例值：20
+     */
     @SerializedName("new_words_total")
     private Integer newWordsTotal;
-     /**
-      * 时间区间内每一天发送的英语消息数
-      * <p> 示例值：
-      */
+    /**
+     * 时间区间内每一天发送的英语消息数
+     * <p> 示例值：
+     */
     @SerializedName("eachday_send_en_message")
     private Integer[] eachdaySendEnMessage;
-     /**
-      * 时间区间内每一天发送的消息数
-      * <p> 示例值：
-      */
+    /**
+     * 时间区间内每一天发送的消息数
+     * <p> 示例值：
+     */
     @SerializedName("eachday_send_message")
     private Integer[] eachdaySendMessage;
-     /**
-      * 时间区间内每一天接收的英文消息数
-      * <p> 示例值：
-      */
+    /**
+     * 时间区间内每一天接收的英文消息数
+     * <p> 示例值：
+     */
     @SerializedName("eachday_receive_en_message")
     private Integer[] eachdayReceiveEnMessage;
-     /**
-      * 时间区间内每一天接收的英文消息数
-      * <p> 示例值：
-      */
+    /**
+     * 时间区间内每一天接收的英文消息数
+     * <p> 示例值：
+     */
     @SerializedName("eachday_receive_message")
     private Integer[] eachdayReceiveMessage;
-     /**
-      * 发送消息占比环比增长变化
-      * <p> 示例值：2.1
-      */
+    /**
+     * 发送消息占比环比增长变化
+     * <p> 示例值：2.1
+     */
     @SerializedName("send_eng_message_rate_ring_growth")
     private Double sendEngMessageRateRingGrowth;
-     /**
-      * 发送英文单词数环比增长变化
-      * <p> 示例值：9
-      */
+    /**
+     * 发送英文单词数环比增长变化
+     * <p> 示例值：9
+     */
     @SerializedName("send_eng_words_ring_growth")
     private Integer sendEngWordsRingGrowth;
+
+    // builder 开始
+    public WordInfo() {
+    }
+
+    public WordInfo(Builder builder) {
+        /**
+         * 用户输入的总词汇量
+         * <p> 示例值：100
+         */
+        this.inputTotal = builder.inputTotal;
+        /**
+         * 用户输入的去重后的总词汇量
+         * <p> 示例值：50
+         */
+        this.dedupInputTotal = builder.dedupInputTotal;
+        /**
+         * 时间区间内每一天发送的英文词数，时间是由远到近。以七天数据为例：下标6为昨天，下标5位前天以此类推
+         * <p> 示例值：
+         */
+        this.eachdayInput = builder.eachdayInput;
+        /**
+         * 时间区间内每一天发送的归一化去重后的英文词数，时间是由远到近。以七天数据为例：下标6为昨天，下标5位前天以此类推
+         * <p> 示例值：
+         */
+        this.eachdayDedupInput = builder.eachdayDedupInput;
+        /**
+         * 发送的消息总数
+         * <p> 示例值：200
+         */
+        this.sendMessageTotal = builder.sendMessageTotal;
+        /**
+         * 发送的英语消息总数
+         * <p> 示例值：150
+         */
+        this.sendEnMessageTotal = builder.sendEnMessageTotal;
+        /**
+         * 接收消息的数量
+         * <p> 示例值：500
+         */
+        this.receiveMessageTotal = builder.receiveMessageTotal;
+        /**
+         * 接收英文消息的数量
+         * <p> 示例值：100
+         */
+        this.receiveEnMessageTotal = builder.receiveEnMessageTotal;
+        /**
+         * 历史总计英语词数（包含新增）
+         * <p> 示例值：300
+         */
+        this.historyWordsTotal = builder.historyWordsTotal;
+        /**
+         * 新增英语词数
+         * <p> 示例值：20
+         */
+        this.newWordsTotal = builder.newWordsTotal;
+        /**
+         * 时间区间内每一天发送的英语消息数
+         * <p> 示例值：
+         */
+        this.eachdaySendEnMessage = builder.eachdaySendEnMessage;
+        /**
+         * 时间区间内每一天发送的消息数
+         * <p> 示例值：
+         */
+        this.eachdaySendMessage = builder.eachdaySendMessage;
+        /**
+         * 时间区间内每一天接收的英文消息数
+         * <p> 示例值：
+         */
+        this.eachdayReceiveEnMessage = builder.eachdayReceiveEnMessage;
+        /**
+         * 时间区间内每一天接收的英文消息数
+         * <p> 示例值：
+         */
+        this.eachdayReceiveMessage = builder.eachdayReceiveMessage;
+        /**
+         * 发送消息占比环比增长变化
+         * <p> 示例值：2.1
+         */
+        this.sendEngMessageRateRingGrowth = builder.sendEngMessageRateRingGrowth;
+        /**
+         * 发送英文单词数环比增长变化
+         * <p> 示例值：9
+         */
+        this.sendEngWordsRingGrowth = builder.sendEngWordsRingGrowth;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Integer getInputTotal() {
         return this.inputTotal;
     }
@@ -249,389 +345,298 @@ public class WordInfo {
         this.sendEngWordsRingGrowth = sendEngWordsRingGrowth;
     }
 
-
-// builder 开始
-  public WordInfo(){}
-
-  public WordInfo(Builder builder){
-         /**
-          * 用户输入的总词汇量
-          * <p> 示例值：100
-          */
-      this.inputTotal = builder.inputTotal;
-         /**
-          * 用户输入的去重后的总词汇量
-          * <p> 示例值：50
-          */
-      this.dedupInputTotal = builder.dedupInputTotal;
-         /**
-          * 时间区间内每一天发送的英文词数，时间是由远到近。以七天数据为例：下标6为昨天，下标5位前天以此类推
-          * <p> 示例值：
-          */
-      this.eachdayInput = builder.eachdayInput;
-         /**
-          * 时间区间内每一天发送的归一化去重后的英文词数，时间是由远到近。以七天数据为例：下标6为昨天，下标5位前天以此类推
-          * <p> 示例值：
-          */
-      this.eachdayDedupInput = builder.eachdayDedupInput;
-         /**
-          * 发送的消息总数
-          * <p> 示例值：200
-          */
-      this.sendMessageTotal = builder.sendMessageTotal;
-         /**
-          * 发送的英语消息总数
-          * <p> 示例值：150
-          */
-      this.sendEnMessageTotal = builder.sendEnMessageTotal;
-         /**
-          * 接收消息的数量
-          * <p> 示例值：500
-          */
-      this.receiveMessageTotal = builder.receiveMessageTotal;
-         /**
-          * 接收英文消息的数量
-          * <p> 示例值：100
-          */
-      this.receiveEnMessageTotal = builder.receiveEnMessageTotal;
-         /**
-          * 历史总计英语词数（包含新增）
-          * <p> 示例值：300
-          */
-      this.historyWordsTotal = builder.historyWordsTotal;
-         /**
-          * 新增英语词数
-          * <p> 示例值：20
-          */
-      this.newWordsTotal = builder.newWordsTotal;
-         /**
-          * 时间区间内每一天发送的英语消息数
-          * <p> 示例值：
-          */
-      this.eachdaySendEnMessage = builder.eachdaySendEnMessage;
-         /**
-          * 时间区间内每一天发送的消息数
-          * <p> 示例值：
-          */
-      this.eachdaySendMessage = builder.eachdaySendMessage;
-         /**
-          * 时间区间内每一天接收的英文消息数
-          * <p> 示例值：
-          */
-      this.eachdayReceiveEnMessage = builder.eachdayReceiveEnMessage;
-         /**
-          * 时间区间内每一天接收的英文消息数
-          * <p> 示例值：
-          */
-      this.eachdayReceiveMessage = builder.eachdayReceiveMessage;
-         /**
-          * 发送消息占比环比增长变化
-          * <p> 示例值：2.1
-          */
-      this.sendEngMessageRateRingGrowth = builder.sendEngMessageRateRingGrowth;
-         /**
-          * 发送英文单词数环比增长变化
-          * <p> 示例值：9
-          */
-      this.sendEngWordsRingGrowth = builder.sendEngWordsRingGrowth;
-  }
-
     public static class Builder {
-     /**
-      * 用户输入的总词汇量
-      * <p> 示例值：100
-      */
+        /**
+         * 用户输入的总词汇量
+         * <p> 示例值：100
+         */
         private Integer inputTotal;
-     /**
-      * 用户输入的去重后的总词汇量
-      * <p> 示例值：50
-      */
+        /**
+         * 用户输入的去重后的总词汇量
+         * <p> 示例值：50
+         */
         private Integer dedupInputTotal;
-     /**
-      * 时间区间内每一天发送的英文词数，时间是由远到近。以七天数据为例：下标6为昨天，下标5位前天以此类推
-      * <p> 示例值：
-      */
+        /**
+         * 时间区间内每一天发送的英文词数，时间是由远到近。以七天数据为例：下标6为昨天，下标5位前天以此类推
+         * <p> 示例值：
+         */
         private Integer[] eachdayInput;
-     /**
-      * 时间区间内每一天发送的归一化去重后的英文词数，时间是由远到近。以七天数据为例：下标6为昨天，下标5位前天以此类推
-      * <p> 示例值：
-      */
+        /**
+         * 时间区间内每一天发送的归一化去重后的英文词数，时间是由远到近。以七天数据为例：下标6为昨天，下标5位前天以此类推
+         * <p> 示例值：
+         */
         private Integer[] eachdayDedupInput;
-     /**
-      * 发送的消息总数
-      * <p> 示例值：200
-      */
+        /**
+         * 发送的消息总数
+         * <p> 示例值：200
+         */
         private Integer sendMessageTotal;
-     /**
-      * 发送的英语消息总数
-      * <p> 示例值：150
-      */
+        /**
+         * 发送的英语消息总数
+         * <p> 示例值：150
+         */
         private Integer sendEnMessageTotal;
-     /**
-      * 接收消息的数量
-      * <p> 示例值：500
-      */
+        /**
+         * 接收消息的数量
+         * <p> 示例值：500
+         */
         private Integer receiveMessageTotal;
-     /**
-      * 接收英文消息的数量
-      * <p> 示例值：100
-      */
+        /**
+         * 接收英文消息的数量
+         * <p> 示例值：100
+         */
         private Integer receiveEnMessageTotal;
-     /**
-      * 历史总计英语词数（包含新增）
-      * <p> 示例值：300
-      */
+        /**
+         * 历史总计英语词数（包含新增）
+         * <p> 示例值：300
+         */
         private Integer historyWordsTotal;
-     /**
-      * 新增英语词数
-      * <p> 示例值：20
-      */
+        /**
+         * 新增英语词数
+         * <p> 示例值：20
+         */
         private Integer newWordsTotal;
-     /**
-      * 时间区间内每一天发送的英语消息数
-      * <p> 示例值：
-      */
+        /**
+         * 时间区间内每一天发送的英语消息数
+         * <p> 示例值：
+         */
         private Integer[] eachdaySendEnMessage;
-     /**
-      * 时间区间内每一天发送的消息数
-      * <p> 示例值：
-      */
+        /**
+         * 时间区间内每一天发送的消息数
+         * <p> 示例值：
+         */
         private Integer[] eachdaySendMessage;
-     /**
-      * 时间区间内每一天接收的英文消息数
-      * <p> 示例值：
-      */
+        /**
+         * 时间区间内每一天接收的英文消息数
+         * <p> 示例值：
+         */
         private Integer[] eachdayReceiveEnMessage;
-     /**
-      * 时间区间内每一天接收的英文消息数
-      * <p> 示例值：
-      */
+        /**
+         * 时间区间内每一天接收的英文消息数
+         * <p> 示例值：
+         */
         private Integer[] eachdayReceiveMessage;
-     /**
-      * 发送消息占比环比增长变化
-      * <p> 示例值：2.1
-      */
+        /**
+         * 发送消息占比环比增长变化
+         * <p> 示例值：2.1
+         */
         private Double sendEngMessageRateRingGrowth;
-     /**
-      * 发送英文单词数环比增长变化
-      * <p> 示例值：9
-      */
+        /**
+         * 发送英文单词数环比增长变化
+         * <p> 示例值：9
+         */
         private Integer sendEngWordsRingGrowth;
 
         /**
          * 用户输入的总词汇量
          * <p> 示例值：100
+         *
          * @param inputTotal
          * @return
          */
         public Builder inputTotal(Integer inputTotal) {
-             this.inputTotal = inputTotal;
-             return this;
+            this.inputTotal = inputTotal;
+            return this;
         }
 
-    
 
         /**
          * 用户输入的去重后的总词汇量
          * <p> 示例值：50
+         *
          * @param dedupInputTotal
          * @return
          */
         public Builder dedupInputTotal(Integer dedupInputTotal) {
-             this.dedupInputTotal = dedupInputTotal;
-             return this;
+            this.dedupInputTotal = dedupInputTotal;
+            return this;
         }
 
-    
 
         /**
          * 时间区间内每一天发送的英文词数，时间是由远到近。以七天数据为例：下标6为昨天，下标5位前天以此类推
          * <p> 示例值：
+         *
          * @param eachdayInput
          * @return
          */
         public Builder eachdayInput(Integer[] eachdayInput) {
-             this.eachdayInput = eachdayInput;
-             return this;
+            this.eachdayInput = eachdayInput;
+            return this;
         }
 
-    
 
         /**
          * 时间区间内每一天发送的归一化去重后的英文词数，时间是由远到近。以七天数据为例：下标6为昨天，下标5位前天以此类推
          * <p> 示例值：
+         *
          * @param eachdayDedupInput
          * @return
          */
         public Builder eachdayDedupInput(Integer[] eachdayDedupInput) {
-             this.eachdayDedupInput = eachdayDedupInput;
-             return this;
+            this.eachdayDedupInput = eachdayDedupInput;
+            return this;
         }
 
-    
 
         /**
          * 发送的消息总数
          * <p> 示例值：200
+         *
          * @param sendMessageTotal
          * @return
          */
         public Builder sendMessageTotal(Integer sendMessageTotal) {
-             this.sendMessageTotal = sendMessageTotal;
-             return this;
+            this.sendMessageTotal = sendMessageTotal;
+            return this;
         }
 
-    
 
         /**
          * 发送的英语消息总数
          * <p> 示例值：150
+         *
          * @param sendEnMessageTotal
          * @return
          */
         public Builder sendEnMessageTotal(Integer sendEnMessageTotal) {
-             this.sendEnMessageTotal = sendEnMessageTotal;
-             return this;
+            this.sendEnMessageTotal = sendEnMessageTotal;
+            return this;
         }
 
-    
 
         /**
          * 接收消息的数量
          * <p> 示例值：500
+         *
          * @param receiveMessageTotal
          * @return
          */
         public Builder receiveMessageTotal(Integer receiveMessageTotal) {
-             this.receiveMessageTotal = receiveMessageTotal;
-             return this;
+            this.receiveMessageTotal = receiveMessageTotal;
+            return this;
         }
 
-    
 
         /**
          * 接收英文消息的数量
          * <p> 示例值：100
+         *
          * @param receiveEnMessageTotal
          * @return
          */
         public Builder receiveEnMessageTotal(Integer receiveEnMessageTotal) {
-             this.receiveEnMessageTotal = receiveEnMessageTotal;
-             return this;
+            this.receiveEnMessageTotal = receiveEnMessageTotal;
+            return this;
         }
 
-    
 
         /**
          * 历史总计英语词数（包含新增）
          * <p> 示例值：300
+         *
          * @param historyWordsTotal
          * @return
          */
         public Builder historyWordsTotal(Integer historyWordsTotal) {
-             this.historyWordsTotal = historyWordsTotal;
-             return this;
+            this.historyWordsTotal = historyWordsTotal;
+            return this;
         }
 
-    
 
         /**
          * 新增英语词数
          * <p> 示例值：20
+         *
          * @param newWordsTotal
          * @return
          */
         public Builder newWordsTotal(Integer newWordsTotal) {
-             this.newWordsTotal = newWordsTotal;
-             return this;
+            this.newWordsTotal = newWordsTotal;
+            return this;
         }
 
-    
 
         /**
          * 时间区间内每一天发送的英语消息数
          * <p> 示例值：
+         *
          * @param eachdaySendEnMessage
          * @return
          */
         public Builder eachdaySendEnMessage(Integer[] eachdaySendEnMessage) {
-             this.eachdaySendEnMessage = eachdaySendEnMessage;
-             return this;
+            this.eachdaySendEnMessage = eachdaySendEnMessage;
+            return this;
         }
 
-    
 
         /**
          * 时间区间内每一天发送的消息数
          * <p> 示例值：
+         *
          * @param eachdaySendMessage
          * @return
          */
         public Builder eachdaySendMessage(Integer[] eachdaySendMessage) {
-             this.eachdaySendMessage = eachdaySendMessage;
-             return this;
+            this.eachdaySendMessage = eachdaySendMessage;
+            return this;
         }
 
-    
 
         /**
          * 时间区间内每一天接收的英文消息数
          * <p> 示例值：
+         *
          * @param eachdayReceiveEnMessage
          * @return
          */
         public Builder eachdayReceiveEnMessage(Integer[] eachdayReceiveEnMessage) {
-             this.eachdayReceiveEnMessage = eachdayReceiveEnMessage;
-             return this;
+            this.eachdayReceiveEnMessage = eachdayReceiveEnMessage;
+            return this;
         }
 
-    
 
         /**
          * 时间区间内每一天接收的英文消息数
          * <p> 示例值：
+         *
          * @param eachdayReceiveMessage
          * @return
          */
         public Builder eachdayReceiveMessage(Integer[] eachdayReceiveMessage) {
-             this.eachdayReceiveMessage = eachdayReceiveMessage;
-             return this;
+            this.eachdayReceiveMessage = eachdayReceiveMessage;
+            return this;
         }
 
-    
 
         /**
          * 发送消息占比环比增长变化
          * <p> 示例值：2.1
+         *
          * @param sendEngMessageRateRingGrowth
          * @return
          */
         public Builder sendEngMessageRateRingGrowth(Double sendEngMessageRateRingGrowth) {
-             this.sendEngMessageRateRingGrowth = sendEngMessageRateRingGrowth;
-             return this;
+            this.sendEngMessageRateRingGrowth = sendEngMessageRateRingGrowth;
+            return this;
         }
 
-    
 
         /**
          * 发送英文单词数环比增长变化
          * <p> 示例值：9
+         *
          * @param sendEngWordsRingGrowth
          * @return
          */
         public Builder sendEngWordsRingGrowth(Integer sendEngWordsRingGrowth) {
-             this.sendEngWordsRingGrowth = sendEngWordsRingGrowth;
-             return this;
+            this.sendEngWordsRingGrowth = sendEngWordsRingGrowth;
+            return this;
         }
 
-    
-    
-    public WordInfo build(){
-        return new WordInfo(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public WordInfo build() {
+            return new WordInfo(this);
+        }
     }
 }

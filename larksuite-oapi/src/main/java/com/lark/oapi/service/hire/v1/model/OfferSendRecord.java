@@ -12,66 +12,122 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class OfferSendRecord {
-     /**
-      * offer 发送记录 id
-      * <p> 示例值：1718959426734
-      */
+    /**
+     * offer 发送记录 id
+     * <p> 示例值：1718959426734
+     */
     @SerializedName("offer_send_record_id")
     private String offerSendRecordId;
-     /**
-      * 操作人 user id
-      * <p> 示例值：ou_ce613028fe74745421f5dc320bb9c709
-      */
+    /**
+     * 操作人 user id
+     * <p> 示例值：ou_ce613028fe74745421f5dc320bb9c709
+     */
     @SerializedName("operator_user_id")
     private String operatorUserId;
-     /**
-      * offer 发送时间
-      * <p> 示例值：1718959426734
-      */
+    /**
+     * offer 发送时间
+     * <p> 示例值：1718959426734
+     */
     @SerializedName("send_time")
     private String sendTime;
-     /**
-      * offer 状态
-      * <p> 示例值：1
-      */
+    /**
+     * offer 状态
+     * <p> 示例值：1
+     */
     @SerializedName("offer_letter_status")
     private Integer offerLetterStatus;
-     /**
-      * offer 邮件信息
-      * <p> 示例值：
-      */
+    /**
+     * offer 邮件信息
+     * <p> 示例值：
+     */
     @SerializedName("email_info")
     private OfferEmailInfo emailInfo;
-     /**
-      * 跟进记录
-      * <p> 示例值：
-      */
+    /**
+     * 跟进记录
+     * <p> 示例值：
+     */
     @SerializedName("acceptance_list")
     private Acceptance[] acceptanceList;
-     /**
-      * offer 文件列表
-      * <p> 示例值：
-      */
+    /**
+     * offer 文件列表
+     * <p> 示例值：
+     */
     @SerializedName("offer_file_list")
     private OfferFile[] offerFileList;
-     /**
-      * offer 签署信息
-      * <p> 示例值：
-      */
+    /**
+     * offer 签署信息
+     * <p> 示例值：
+     */
     @SerializedName("offer_signature_info")
     private OfferSignatureInfo offerSignatureInfo;
+
+    // builder 开始
+    public OfferSendRecord() {
+    }
+
+    public OfferSendRecord(Builder builder) {
+        /**
+         * offer 发送记录 id
+         * <p> 示例值：1718959426734
+         */
+        this.offerSendRecordId = builder.offerSendRecordId;
+        /**
+         * 操作人 user id
+         * <p> 示例值：ou_ce613028fe74745421f5dc320bb9c709
+         */
+        this.operatorUserId = builder.operatorUserId;
+        /**
+         * offer 发送时间
+         * <p> 示例值：1718959426734
+         */
+        this.sendTime = builder.sendTime;
+        /**
+         * offer 状态
+         * <p> 示例值：1
+         */
+        this.offerLetterStatus = builder.offerLetterStatus;
+        /**
+         * offer 邮件信息
+         * <p> 示例值：
+         */
+        this.emailInfo = builder.emailInfo;
+        /**
+         * 跟进记录
+         * <p> 示例值：
+         */
+        this.acceptanceList = builder.acceptanceList;
+        /**
+         * offer 文件列表
+         * <p> 示例值：
+         */
+        this.offerFileList = builder.offerFileList;
+        /**
+         * offer 签署信息
+         * <p> 示例值：
+         */
+        this.offerSignatureInfo = builder.offerSignatureInfo;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getOfferSendRecordId() {
         return this.offerSendRecordId;
     }
@@ -136,205 +192,154 @@ public class OfferSendRecord {
         this.offerSignatureInfo = offerSignatureInfo;
     }
 
-
-// builder 开始
-  public OfferSendRecord(){}
-
-  public OfferSendRecord(Builder builder){
-         /**
-          * offer 发送记录 id
-          * <p> 示例值：1718959426734
-          */
-      this.offerSendRecordId = builder.offerSendRecordId;
-         /**
-          * 操作人 user id
-          * <p> 示例值：ou_ce613028fe74745421f5dc320bb9c709
-          */
-      this.operatorUserId = builder.operatorUserId;
-         /**
-          * offer 发送时间
-          * <p> 示例值：1718959426734
-          */
-      this.sendTime = builder.sendTime;
-         /**
-          * offer 状态
-          * <p> 示例值：1
-          */
-      this.offerLetterStatus = builder.offerLetterStatus;
-         /**
-          * offer 邮件信息
-          * <p> 示例值：
-          */
-      this.emailInfo = builder.emailInfo;
-         /**
-          * 跟进记录
-          * <p> 示例值：
-          */
-      this.acceptanceList = builder.acceptanceList;
-         /**
-          * offer 文件列表
-          * <p> 示例值：
-          */
-      this.offerFileList = builder.offerFileList;
-         /**
-          * offer 签署信息
-          * <p> 示例值：
-          */
-      this.offerSignatureInfo = builder.offerSignatureInfo;
-  }
-
     public static class Builder {
-     /**
-      * offer 发送记录 id
-      * <p> 示例值：1718959426734
-      */
+        /**
+         * offer 发送记录 id
+         * <p> 示例值：1718959426734
+         */
         private String offerSendRecordId;
-     /**
-      * 操作人 user id
-      * <p> 示例值：ou_ce613028fe74745421f5dc320bb9c709
-      */
+        /**
+         * 操作人 user id
+         * <p> 示例值：ou_ce613028fe74745421f5dc320bb9c709
+         */
         private String operatorUserId;
-     /**
-      * offer 发送时间
-      * <p> 示例值：1718959426734
-      */
+        /**
+         * offer 发送时间
+         * <p> 示例值：1718959426734
+         */
         private String sendTime;
-     /**
-      * offer 状态
-      * <p> 示例值：1
-      */
+        /**
+         * offer 状态
+         * <p> 示例值：1
+         */
         private Integer offerLetterStatus;
-     /**
-      * offer 邮件信息
-      * <p> 示例值：
-      */
+        /**
+         * offer 邮件信息
+         * <p> 示例值：
+         */
         private OfferEmailInfo emailInfo;
-     /**
-      * 跟进记录
-      * <p> 示例值：
-      */
+        /**
+         * 跟进记录
+         * <p> 示例值：
+         */
         private Acceptance[] acceptanceList;
-     /**
-      * offer 文件列表
-      * <p> 示例值：
-      */
+        /**
+         * offer 文件列表
+         * <p> 示例值：
+         */
         private OfferFile[] offerFileList;
-     /**
-      * offer 签署信息
-      * <p> 示例值：
-      */
+        /**
+         * offer 签署信息
+         * <p> 示例值：
+         */
         private OfferSignatureInfo offerSignatureInfo;
 
         /**
          * offer 发送记录 id
          * <p> 示例值：1718959426734
+         *
          * @param offerSendRecordId
          * @return
          */
         public Builder offerSendRecordId(String offerSendRecordId) {
-             this.offerSendRecordId = offerSendRecordId;
-             return this;
+            this.offerSendRecordId = offerSendRecordId;
+            return this;
         }
 
-    
 
         /**
          * 操作人 user id
          * <p> 示例值：ou_ce613028fe74745421f5dc320bb9c709
+         *
          * @param operatorUserId
          * @return
          */
         public Builder operatorUserId(String operatorUserId) {
-             this.operatorUserId = operatorUserId;
-             return this;
+            this.operatorUserId = operatorUserId;
+            return this;
         }
 
-    
 
         /**
          * offer 发送时间
          * <p> 示例值：1718959426734
+         *
          * @param sendTime
          * @return
          */
         public Builder sendTime(String sendTime) {
-             this.sendTime = sendTime;
-             return this;
+            this.sendTime = sendTime;
+            return this;
         }
 
-    
 
         /**
          * offer 状态
          * <p> 示例值：1
+         *
          * @param offerLetterStatus
          * @return
          */
         public Builder offerLetterStatus(Integer offerLetterStatus) {
-             this.offerLetterStatus = offerLetterStatus;
-             return this;
+            this.offerLetterStatus = offerLetterStatus;
+            return this;
         }
 
-    
 
         /**
          * offer 邮件信息
          * <p> 示例值：
+         *
          * @param emailInfo
          * @return
          */
         public Builder emailInfo(OfferEmailInfo emailInfo) {
-             this.emailInfo = emailInfo;
-             return this;
+            this.emailInfo = emailInfo;
+            return this;
         }
 
-    
 
         /**
          * 跟进记录
          * <p> 示例值：
+         *
          * @param acceptanceList
          * @return
          */
         public Builder acceptanceList(Acceptance[] acceptanceList) {
-             this.acceptanceList = acceptanceList;
-             return this;
+            this.acceptanceList = acceptanceList;
+            return this;
         }
 
-    
 
         /**
          * offer 文件列表
          * <p> 示例值：
+         *
          * @param offerFileList
          * @return
          */
         public Builder offerFileList(OfferFile[] offerFileList) {
-             this.offerFileList = offerFileList;
-             return this;
+            this.offerFileList = offerFileList;
+            return this;
         }
 
-    
 
         /**
          * offer 签署信息
          * <p> 示例值：
+         *
          * @param offerSignatureInfo
          * @return
          */
         public Builder offerSignatureInfo(OfferSignatureInfo offerSignatureInfo) {
-             this.offerSignatureInfo = offerSignatureInfo;
-             return this;
+            this.offerSignatureInfo = offerSignatureInfo;
+            return this;
         }
 
-    
-    
-    public OfferSendRecord build(){
-        return new OfferSendRecord(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public OfferSendRecord build() {
+            return new OfferSendRecord(this);
+        }
     }
 }

@@ -12,25 +12,58 @@
  */
 
 package com.lark.oapi.service.sheets.v3.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.sheets.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class GetSpreadsheetReq {
-     /**
-      * 此次调用中使用的用户ID的类型
-      * <p> 示例值：
-      */
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
+    /**
+     * 表格的token
+     * <p> 示例值：shtxxxxxxxxxxxxxxx
+     */
+    @Path
+    @SerializedName("spreadsheet_token")
+    private String spreadsheetToken;
+
+    // builder 开始
+    public GetSpreadsheetReq() {
+    }
+
+    public GetSpreadsheetReq(Builder builder) {
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         */
+        this.userIdType = builder.userIdType;
+        /**
+         * 表格的token
+         * <p> 示例值：shtxxxxxxxxxxxxxxx
+         */
+        this.spreadsheetToken = builder.spreadsheetToken;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getUserIdType() {
         return this.userIdType;
     }
@@ -39,13 +72,6 @@ public class GetSpreadsheetReq {
         this.userIdType = userIdType;
     }
 
-     /**
-      * 表格的token
-      * <p> 示例值：shtxxxxxxxxxxxxxxx
-      */
-    @Path
-    @SerializedName("spreadsheet_token")
-    private String spreadsheetToken;
     public String getSpreadsheetToken() {
         return this.spreadsheetToken;
     }
@@ -54,68 +80,49 @@ public class GetSpreadsheetReq {
         this.spreadsheetToken = spreadsheetToken;
     }
 
-
-// builder 开始
-  public GetSpreadsheetReq(){}
-
-  public GetSpreadsheetReq(Builder builder){
-         /**
-          * 此次调用中使用的用户ID的类型
-          * <p> 示例值：
-          */
-       this.userIdType = builder.userIdType;
-     /**
-      * 表格的token
-      * <p> 示例值：shtxxxxxxxxxxxxxxx
-      */
-       this.spreadsheetToken = builder.spreadsheetToken;
-  }
-
     public static class Builder {
         private String userIdType; // 此次调用中使用的用户ID的类型
-    
+        private String spreadsheetToken; // 表格的token
+
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
+         *
          * @param userIdType
          * @return
          */
-           public Builder userIdType(String userIdType) {
-                this.userIdType = userIdType;
-                return this;
-           }
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
 
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
+         *
          * @param userIdType {@link com.lark.oapi.service.sheets.v3.enums.GetSpreadsheetUserIdTypeEnum}
          * @return
          */
-          public Builder userIdType(com.lark.oapi.service.sheets.v3.enums.GetSpreadsheetUserIdTypeEnum userIdType) {
-               this.userIdType = userIdType.getValue();
-               return this;
-          }
+        public Builder userIdType(com.lark.oapi.service.sheets.v3.enums.GetSpreadsheetUserIdTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
+            return this;
+        }
 
-    
-        private String spreadsheetToken; // 表格的token
         /**
          * 表格的token
          * <p> 示例值：shtxxxxxxxxxxxxxxx
+         *
          * @param spreadsheetToken
          * @return
          */
-          public Builder spreadsheetToken(String spreadsheetToken) {
-               this.spreadsheetToken = spreadsheetToken;
-               return this;
-          }
+        public Builder spreadsheetToken(String spreadsheetToken) {
+            this.spreadsheetToken = spreadsheetToken;
+            return this;
+        }
 
-    
-    public GetSpreadsheetReq build(){
-        return new GetSpreadsheetReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public GetSpreadsheetReq build() {
+            return new GetSpreadsheetReq(this);
+        }
     }
 }

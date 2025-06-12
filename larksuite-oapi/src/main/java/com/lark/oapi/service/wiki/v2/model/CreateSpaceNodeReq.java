@@ -12,25 +12,49 @@
  */
 
 package com.lark.oapi.service.wiki.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.wiki.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CreateSpaceNodeReq {
-     /**
-      * 知识空间id;[获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-overview)
-      * <p> 示例值：6704147935988285963
-      */
+    /**
+     * 知识空间id;[获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-overview)
+     * <p> 示例值：6704147935988285963
+     */
     @Path
     @SerializedName("space_id")
     private String spaceId;
+    @Body
+    private Node body;
+
+    // builder 开始
+    public CreateSpaceNodeReq() {
+    }
+
+    public CreateSpaceNodeReq(Builder builder) {
+        /**
+         * 知识空间id;[获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-overview)
+         * <p> 示例值：6704147935988285963
+         */
+        this.spaceId = builder.spaceId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getSpaceId() {
         return this.spaceId;
     }
@@ -38,9 +62,6 @@ public class CreateSpaceNodeReq {
     public void setSpaceId(String spaceId) {
         this.spaceId = spaceId;
     }
-
-    @Body
-    private Node body;
 
     public Node getNode() {
         return this.body;
@@ -50,54 +71,40 @@ public class CreateSpaceNodeReq {
         this.body = body;
     }
 
-// builder 开始
-  public CreateSpaceNodeReq(){}
-
-  public CreateSpaceNodeReq(Builder builder){
-     /**
-      * 知识空间id;[获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-overview)
-      * <p> 示例值：6704147935988285963
-      */
-       this.spaceId = builder.spaceId;
-        this.body = builder.body;
-  }
-
     public static class Builder {
-    
+
         private String spaceId; // 知识空间id;[获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-overview)
+        private Node body;
+
         /**
          * 知识空间id;[获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-overview)
          * <p> 示例值：6704147935988285963
+         *
          * @param spaceId
          * @return
          */
-          public Builder spaceId(String spaceId) {
-               this.spaceId = spaceId;
-               return this;
-          }
+        public Builder spaceId(String spaceId) {
+            this.spaceId = spaceId;
+            return this;
+        }
 
-    
-        private Node body;
-    
         public Node getNode() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder node(Node body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public CreateSpaceNodeReq build(){
-        return new CreateSpaceNodeReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public CreateSpaceNodeReq build() {
+            return new CreateSpaceNodeReq(this);
+        }
     }
 }

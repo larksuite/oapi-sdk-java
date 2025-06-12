@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.performance.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.performance.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class IndicatorOption {
-     /**
-      * 等级 ID
-      * <p> 示例值：7343513161666707459
-      */
+    /**
+     * 等级 ID
+     * <p> 示例值：7343513161666707459
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 等级名称
-      * <p> 示例值：
-      */
+    /**
+     * 等级名称
+     * <p> 示例值：
+     */
     @SerializedName("name")
     private I18n name;
-     /**
-      * 等级代号
-      * <p> 示例值：qwerty
-      */
+    /**
+     * 等级代号
+     * <p> 示例值：qwerty
+     */
     @SerializedName("lable")
     private String lable;
+
+    // builder 开始
+    public IndicatorOption() {
+    }
+
+    public IndicatorOption(Builder builder) {
+        /**
+         * 等级 ID
+         * <p> 示例值：7343513161666707459
+         */
+        this.id = builder.id;
+        /**
+         * 等级名称
+         * <p> 示例值：
+         */
+        this.name = builder.name;
+        /**
+         * 等级代号
+         * <p> 示例值：qwerty
+         */
+        this.lable = builder.lable;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -67,90 +98,64 @@ public class IndicatorOption {
         this.lable = lable;
     }
 
-
-// builder 开始
-  public IndicatorOption(){}
-
-  public IndicatorOption(Builder builder){
-         /**
-          * 等级 ID
-          * <p> 示例值：7343513161666707459
-          */
-      this.id = builder.id;
-         /**
-          * 等级名称
-          * <p> 示例值：
-          */
-      this.name = builder.name;
-         /**
-          * 等级代号
-          * <p> 示例值：qwerty
-          */
-      this.lable = builder.lable;
-  }
-
     public static class Builder {
-     /**
-      * 等级 ID
-      * <p> 示例值：7343513161666707459
-      */
+        /**
+         * 等级 ID
+         * <p> 示例值：7343513161666707459
+         */
         private String id;
-     /**
-      * 等级名称
-      * <p> 示例值：
-      */
+        /**
+         * 等级名称
+         * <p> 示例值：
+         */
         private I18n name;
-     /**
-      * 等级代号
-      * <p> 示例值：qwerty
-      */
+        /**
+         * 等级代号
+         * <p> 示例值：qwerty
+         */
         private String lable;
 
         /**
          * 等级 ID
          * <p> 示例值：7343513161666707459
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 等级名称
          * <p> 示例值：
+         *
          * @param name
          * @return
          */
         public Builder name(I18n name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 等级代号
          * <p> 示例值：qwerty
+         *
          * @param lable
          * @return
          */
         public Builder lable(String lable) {
-             this.lable = lable;
-             return this;
+            this.lable = lable;
+            return this;
         }
 
-    
-    
-    public IndicatorOption build(){
-        return new IndicatorOption(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public IndicatorOption build() {
+            return new IndicatorOption(this);
+        }
     }
 }

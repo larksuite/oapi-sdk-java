@@ -17,12 +17,13 @@ import com.lark.oapi.core.Config;
 import com.lark.oapi.service.verification.v1.resource.*;
 
 public class V1 {
-	private final Verification verification; // 认证信息
+    private final Verification verification; // 认证信息
 
-	public V1(Config config) {
-		this.verification = new Verification(config);
-	}
-	public Verification verification() {
-		return verification;
-	}
+    public V1(Config config) {
+        this.verification = new Verification(config);
+    }
+
+    public Verification verification() {
+        return verification;
+    }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.aily.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.aily.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class UploadFileAppDataAssetReqBody {
-     /**
-      * 需要上传的文件
-      * <p> 示例值：
-      */
+    /**
+     * 需要上传的文件
+     * <p> 示例值：
+     */
     @SerializedName("file")
     private java.io.File file;
+
+    // builder 开始
+    public UploadFileAppDataAssetReqBody() {
+    }
+
+    public UploadFileAppDataAssetReqBody(Builder builder) {
+        /**
+         * 需要上传的文件
+         * <p> 示例值：
+         */
+        this.file = builder.file;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public java.io.File getFile() {
         return this.file;
     }
@@ -39,44 +60,28 @@ public class UploadFileAppDataAssetReqBody {
         this.file = file;
     }
 
-
-// builder 开始
-  public UploadFileAppDataAssetReqBody(){}
-
-  public UploadFileAppDataAssetReqBody(Builder builder){
-         /**
-          * 需要上传的文件
-          * <p> 示例值：
-          */
-      this.file = builder.file;
-  }
-
     public static class Builder {
-     /**
-      * 需要上传的文件
-      * <p> 示例值：
-      */
+        /**
+         * 需要上传的文件
+         * <p> 示例值：
+         */
         private java.io.File file;
 
         /**
          * 需要上传的文件
          * <p> 示例值：
+         *
          * @param file
          * @return
          */
         public Builder file(java.io.File file) {
-             this.file = file;
-             return this;
+            this.file = file;
+            return this;
         }
 
-    
-    
-    public UploadFileAppDataAssetReqBody build(){
-        return new UploadFileAppDataAssetReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public UploadFileAppDataAssetReqBody build() {
+            return new UploadFileAppDataAssetReqBody(this);
+        }
     }
 }

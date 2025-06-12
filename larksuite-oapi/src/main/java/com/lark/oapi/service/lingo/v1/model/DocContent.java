@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.lingo.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.lingo.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,90 +20,170 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class DocContent {
-     /**
-      * 节点ID
-      * <p> 示例值：xxxxx
-      */
+    /**
+     * 节点ID
+     * <p> 示例值：xxxxx
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 子节点
-      * <p> 示例值：
-      */
+    /**
+     * 子节点
+     * <p> 示例值：
+     */
     @SerializedName("children")
     private String[] children;
-     /**
-      * 内容类型
-      * <p> 示例值：1
-      */
+    /**
+     * 内容类型
+     * <p> 示例值：1
+     */
     @SerializedName("content_type")
     private Integer contentType;
-     /**
-      * 纯文本
-      * <p> 示例值：
-      */
+    /**
+     * 纯文本
+     * <p> 示例值：
+     */
     @SerializedName("text")
     private DocText text;
-     /**
-      * 标题
-      * <p> 示例值：
-      */
+    /**
+     * 标题
+     * <p> 示例值：
+     */
     @SerializedName("heading")
     private DocHeading heading;
-     /**
-      * 无序列表
-      * <p> 示例值：
-      */
+    /**
+     * 无序列表
+     * <p> 示例值：
+     */
     @SerializedName("bullet")
     private DocBullet bullet;
-     /**
-      * 有序列表
-      * <p> 示例值：
-      */
+    /**
+     * 有序列表
+     * <p> 示例值：
+     */
     @SerializedName("ordered")
     private DocRodered ordered;
-     /**
-      * 代码块
-      * <p> 示例值：
-      */
+    /**
+     * 代码块
+     * <p> 示例值：
+     */
     @SerializedName("code")
     private DocCode code;
-     /**
-      * 链接
-      * <p> 示例值：
-      */
+    /**
+     * 链接
+     * <p> 示例值：
+     */
     @SerializedName("link")
     private DocLink link;
-     /**
-      * 图片
-      * <p> 示例值：
-      */
+    /**
+     * 图片
+     * <p> 示例值：
+     */
     @SerializedName("image")
     private DocImage image;
-     /**
-      * 用户
-      * <p> 示例值：
-      */
+    /**
+     * 用户
+     * <p> 示例值：
+     */
     @SerializedName("user")
     private DocUser user;
-     /**
-      * 分割线
-      * <p> 示例值：
-      */
+    /**
+     * 分割线
+     * <p> 示例值：
+     */
     @SerializedName("divider")
     private DocDivider divider;
-     /**
-      * 容器
-      * <p> 示例值：
-      */
+    /**
+     * 容器
+     * <p> 示例值：
+     */
     @SerializedName("container")
     private DocContainer container;
+
+    // builder 开始
+    public DocContent() {
+    }
+
+    public DocContent(Builder builder) {
+        /**
+         * 节点ID
+         * <p> 示例值：xxxxx
+         */
+        this.id = builder.id;
+        /**
+         * 子节点
+         * <p> 示例值：
+         */
+        this.children = builder.children;
+        /**
+         * 内容类型
+         * <p> 示例值：1
+         */
+        this.contentType = builder.contentType;
+        /**
+         * 纯文本
+         * <p> 示例值：
+         */
+        this.text = builder.text;
+        /**
+         * 标题
+         * <p> 示例值：
+         */
+        this.heading = builder.heading;
+        /**
+         * 无序列表
+         * <p> 示例值：
+         */
+        this.bullet = builder.bullet;
+        /**
+         * 有序列表
+         * <p> 示例值：
+         */
+        this.ordered = builder.ordered;
+        /**
+         * 代码块
+         * <p> 示例值：
+         */
+        this.code = builder.code;
+        /**
+         * 链接
+         * <p> 示例值：
+         */
+        this.link = builder.link;
+        /**
+         * 图片
+         * <p> 示例值：
+         */
+        this.image = builder.image;
+        /**
+         * 用户
+         * <p> 示例值：
+         */
+        this.user = builder.user;
+        /**
+         * 分割线
+         * <p> 示例值：
+         */
+        this.divider = builder.divider;
+        /**
+         * 容器
+         * <p> 示例值：
+         */
+        this.container = builder.container;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -207,330 +288,256 @@ public class DocContent {
         this.container = container;
     }
 
-
-// builder 开始
-  public DocContent(){}
-
-  public DocContent(Builder builder){
-         /**
-          * 节点ID
-          * <p> 示例值：xxxxx
-          */
-      this.id = builder.id;
-         /**
-          * 子节点
-          * <p> 示例值：
-          */
-      this.children = builder.children;
-         /**
-          * 内容类型
-          * <p> 示例值：1
-          */
-      this.contentType = builder.contentType;
-         /**
-          * 纯文本
-          * <p> 示例值：
-          */
-      this.text = builder.text;
-         /**
-          * 标题
-          * <p> 示例值：
-          */
-      this.heading = builder.heading;
-         /**
-          * 无序列表
-          * <p> 示例值：
-          */
-      this.bullet = builder.bullet;
-         /**
-          * 有序列表
-          * <p> 示例值：
-          */
-      this.ordered = builder.ordered;
-         /**
-          * 代码块
-          * <p> 示例值：
-          */
-      this.code = builder.code;
-         /**
-          * 链接
-          * <p> 示例值：
-          */
-      this.link = builder.link;
-         /**
-          * 图片
-          * <p> 示例值：
-          */
-      this.image = builder.image;
-         /**
-          * 用户
-          * <p> 示例值：
-          */
-      this.user = builder.user;
-         /**
-          * 分割线
-          * <p> 示例值：
-          */
-      this.divider = builder.divider;
-         /**
-          * 容器
-          * <p> 示例值：
-          */
-      this.container = builder.container;
-  }
-
     public static class Builder {
-     /**
-      * 节点ID
-      * <p> 示例值：xxxxx
-      */
+        /**
+         * 节点ID
+         * <p> 示例值：xxxxx
+         */
         private String id;
-     /**
-      * 子节点
-      * <p> 示例值：
-      */
+        /**
+         * 子节点
+         * <p> 示例值：
+         */
         private String[] children;
-     /**
-      * 内容类型
-      * <p> 示例值：1
-      */
+        /**
+         * 内容类型
+         * <p> 示例值：1
+         */
         private Integer contentType;
-     /**
-      * 纯文本
-      * <p> 示例值：
-      */
+        /**
+         * 纯文本
+         * <p> 示例值：
+         */
         private DocText text;
-     /**
-      * 标题
-      * <p> 示例值：
-      */
+        /**
+         * 标题
+         * <p> 示例值：
+         */
         private DocHeading heading;
-     /**
-      * 无序列表
-      * <p> 示例值：
-      */
+        /**
+         * 无序列表
+         * <p> 示例值：
+         */
         private DocBullet bullet;
-     /**
-      * 有序列表
-      * <p> 示例值：
-      */
+        /**
+         * 有序列表
+         * <p> 示例值：
+         */
         private DocRodered ordered;
-     /**
-      * 代码块
-      * <p> 示例值：
-      */
+        /**
+         * 代码块
+         * <p> 示例值：
+         */
         private DocCode code;
-     /**
-      * 链接
-      * <p> 示例值：
-      */
+        /**
+         * 链接
+         * <p> 示例值：
+         */
         private DocLink link;
-     /**
-      * 图片
-      * <p> 示例值：
-      */
+        /**
+         * 图片
+         * <p> 示例值：
+         */
         private DocImage image;
-     /**
-      * 用户
-      * <p> 示例值：
-      */
+        /**
+         * 用户
+         * <p> 示例值：
+         */
         private DocUser user;
-     /**
-      * 分割线
-      * <p> 示例值：
-      */
+        /**
+         * 分割线
+         * <p> 示例值：
+         */
         private DocDivider divider;
-     /**
-      * 容器
-      * <p> 示例值：
-      */
+        /**
+         * 容器
+         * <p> 示例值：
+         */
         private DocContainer container;
 
         /**
          * 节点ID
          * <p> 示例值：xxxxx
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 子节点
          * <p> 示例值：
+         *
          * @param children
          * @return
          */
         public Builder children(String[] children) {
-             this.children = children;
-             return this;
+            this.children = children;
+            return this;
         }
 
-    
 
         /**
          * 内容类型
          * <p> 示例值：1
+         *
          * @param contentType
          * @return
          */
         public Builder contentType(Integer contentType) {
-             this.contentType = contentType;
-             return this;
+            this.contentType = contentType;
+            return this;
         }
+
         /**
          * 内容类型
          * <p> 示例值：1
+         *
          * @param contentType {@link com.lark.oapi.service.lingo.v1.enums.DocContentContentTypeEnum}
          * @return
          */
         public Builder contentType(com.lark.oapi.service.lingo.v1.enums.DocContentContentTypeEnum contentType) {
-             this.contentType = contentType.getValue();
-             return this;
+            this.contentType = contentType.getValue();
+            return this;
         }
 
-    
 
         /**
          * 纯文本
          * <p> 示例值：
+         *
          * @param text
          * @return
          */
         public Builder text(DocText text) {
-             this.text = text;
-             return this;
+            this.text = text;
+            return this;
         }
 
-    
 
         /**
          * 标题
          * <p> 示例值：
+         *
          * @param heading
          * @return
          */
         public Builder heading(DocHeading heading) {
-             this.heading = heading;
-             return this;
+            this.heading = heading;
+            return this;
         }
 
-    
 
         /**
          * 无序列表
          * <p> 示例值：
+         *
          * @param bullet
          * @return
          */
         public Builder bullet(DocBullet bullet) {
-             this.bullet = bullet;
-             return this;
+            this.bullet = bullet;
+            return this;
         }
 
-    
 
         /**
          * 有序列表
          * <p> 示例值：
+         *
          * @param ordered
          * @return
          */
         public Builder ordered(DocRodered ordered) {
-             this.ordered = ordered;
-             return this;
+            this.ordered = ordered;
+            return this;
         }
 
-    
 
         /**
          * 代码块
          * <p> 示例值：
+         *
          * @param code
          * @return
          */
         public Builder code(DocCode code) {
-             this.code = code;
-             return this;
+            this.code = code;
+            return this;
         }
 
-    
 
         /**
          * 链接
          * <p> 示例值：
+         *
          * @param link
          * @return
          */
         public Builder link(DocLink link) {
-             this.link = link;
-             return this;
+            this.link = link;
+            return this;
         }
 
-    
 
         /**
          * 图片
          * <p> 示例值：
+         *
          * @param image
          * @return
          */
         public Builder image(DocImage image) {
-             this.image = image;
-             return this;
+            this.image = image;
+            return this;
         }
 
-    
 
         /**
          * 用户
          * <p> 示例值：
+         *
          * @param user
          * @return
          */
         public Builder user(DocUser user) {
-             this.user = user;
-             return this;
+            this.user = user;
+            return this;
         }
 
-    
 
         /**
          * 分割线
          * <p> 示例值：
+         *
          * @param divider
          * @return
          */
         public Builder divider(DocDivider divider) {
-             this.divider = divider;
-             return this;
+            this.divider = divider;
+            return this;
         }
 
-    
 
         /**
          * 容器
          * <p> 示例值：
+         *
          * @param container
          * @return
          */
         public Builder container(DocContainer container) {
-             this.container = container;
-             return this;
+            this.container = container;
+            return this;
         }
 
-    
-    
-    public DocContent build(){
-        return new DocContent(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public DocContent build() {
+            return new DocContent(this);
+        }
     }
 }

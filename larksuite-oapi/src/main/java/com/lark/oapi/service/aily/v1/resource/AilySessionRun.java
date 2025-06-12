@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.aily.v1.resource;
+
 import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.Transport;
 import com.lark.oapi.core.response.RawResponse;
@@ -20,12 +21,16 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import java.nio.charset.StandardCharsets;
 
 import com.lark.oapi.core.Config;
 import com.lark.oapi.core.request.RequestOptions;
+
 import java.io.ByteArrayOutputStream;
+
 import com.lark.oapi.service.aily.v1.model.*;
+
 import java.io.*;
 import java.util.Map;
 import java.util.HashMap;
@@ -41,7 +46,7 @@ public class AilySessionRun {
         this.config = config;
     }
 
-    
+
     /**
      * ，该 API 用于取消指定的运行（Run）。
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=cancel&project=aily&resource=aily_session.run&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=cancel&project=aily&resource=aily_session.run&version=v1</a> ;
@@ -58,7 +63,7 @@ public class AilySessionRun {
                 , "/open-apis/aily/v1/sessions/:aily_session_id/runs/:run_id/cancel"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-        
+
         // 反序列化
         CancelAilySessionRunResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CancelAilySessionRunResp.class);
         if (resp == null) {
@@ -66,14 +71,14 @@ public class AilySessionRun {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/aily/v1/sessions/:aily_session_id/runs/:run_id/cancel"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
-       resp.setRawResponse(httpResponse);
-       resp.setRequest(req);
-       
-       return resp;
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
     }
 
     /**
@@ -90,7 +95,7 @@ public class AilySessionRun {
                 , "/open-apis/aily/v1/sessions/:aily_session_id/runs/:run_id/cancel"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-        
+
         // 反序列化
         CancelAilySessionRunResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CancelAilySessionRunResp.class);
         if (resp == null) {
@@ -98,15 +103,16 @@ public class AilySessionRun {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/aily/v1/sessions/:aily_session_id/runs/:run_id/cancel"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-        
+
         return resp;
     }
+
     /**
      * ，该 API 用于启动一次运行（Run）。
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=aily&resource=aily_session.run&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=aily&resource=aily_session.run&version=v1</a> ;
@@ -123,7 +129,7 @@ public class AilySessionRun {
                 , "/open-apis/aily/v1/sessions/:aily_session_id/runs"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-        
+
         // 反序列化
         CreateAilySessionRunResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateAilySessionRunResp.class);
         if (resp == null) {
@@ -131,14 +137,14 @@ public class AilySessionRun {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/aily/v1/sessions/:aily_session_id/runs"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
-       resp.setRawResponse(httpResponse);
-       resp.setRequest(req);
-       
-       return resp;
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
     }
 
     /**
@@ -155,7 +161,7 @@ public class AilySessionRun {
                 , "/open-apis/aily/v1/sessions/:aily_session_id/runs"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-        
+
         // 反序列化
         CreateAilySessionRunResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateAilySessionRunResp.class);
         if (resp == null) {
@@ -163,15 +169,16 @@ public class AilySessionRun {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/aily/v1/sessions/:aily_session_id/runs"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-        
+
         return resp;
     }
+
     /**
      * ，该 API 用于获取运行（Run）的详细信息。
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=aily&resource=aily_session.run&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=aily&resource=aily_session.run&version=v1</a> ;
@@ -188,7 +195,7 @@ public class AilySessionRun {
                 , "/open-apis/aily/v1/sessions/:aily_session_id/runs/:run_id"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-        
+
         // 反序列化
         GetAilySessionRunResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetAilySessionRunResp.class);
         if (resp == null) {
@@ -196,14 +203,14 @@ public class AilySessionRun {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/aily/v1/sessions/:aily_session_id/runs/:run_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
-       resp.setRawResponse(httpResponse);
-       resp.setRequest(req);
-       
-       return resp;
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
     }
 
     /**
@@ -220,7 +227,7 @@ public class AilySessionRun {
                 , "/open-apis/aily/v1/sessions/:aily_session_id/runs/:run_id"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-        
+
         // 反序列化
         GetAilySessionRunResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetAilySessionRunResp.class);
         if (resp == null) {
@@ -228,15 +235,16 @@ public class AilySessionRun {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/aily/v1/sessions/:aily_session_id/runs/:run_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-        
+
         return resp;
     }
+
     /**
      * ，该 API 用于批量获取运行（Run）的详细信息。
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=aily&resource=aily_session.run&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=aily&resource=aily_session.run&version=v1</a> ;
@@ -253,7 +261,7 @@ public class AilySessionRun {
                 , "/open-apis/aily/v1/sessions/:aily_session_id/runs"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-        
+
         // 反序列化
         ListAilySessionRunResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListAilySessionRunResp.class);
         if (resp == null) {
@@ -261,14 +269,14 @@ public class AilySessionRun {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/aily/v1/sessions/:aily_session_id/runs"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
-       resp.setRawResponse(httpResponse);
-       resp.setRequest(req);
-       
-       return resp;
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
     }
 
     /**
@@ -285,7 +293,7 @@ public class AilySessionRun {
                 , "/open-apis/aily/v1/sessions/:aily_session_id/runs"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-        
+
         // 反序列化
         ListAilySessionRunResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListAilySessionRunResp.class);
         if (resp == null) {
@@ -293,13 +301,13 @@ public class AilySessionRun {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/aily/v1/sessions/:aily_session_id/runs"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-        
+
         return resp;
     }
 }

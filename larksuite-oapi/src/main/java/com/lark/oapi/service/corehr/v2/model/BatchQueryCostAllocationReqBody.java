@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class BatchQueryCostAllocationReqBody {
-     /**
-      * 员工ID列表
-      * <p> 示例值：
-      */
+    /**
+     * 员工ID列表
+     * <p> 示例值：
+     */
     @SerializedName("employment_ids")
     private String[] employmentIds;
+
+    // builder 开始
+    public BatchQueryCostAllocationReqBody() {
+    }
+
+    public BatchQueryCostAllocationReqBody(Builder builder) {
+        /**
+         * 员工ID列表
+         * <p> 示例值：
+         */
+        this.employmentIds = builder.employmentIds;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String[] getEmploymentIds() {
         return this.employmentIds;
     }
@@ -39,44 +60,28 @@ public class BatchQueryCostAllocationReqBody {
         this.employmentIds = employmentIds;
     }
 
-
-// builder 开始
-  public BatchQueryCostAllocationReqBody(){}
-
-  public BatchQueryCostAllocationReqBody(Builder builder){
-         /**
-          * 员工ID列表
-          * <p> 示例值：
-          */
-      this.employmentIds = builder.employmentIds;
-  }
-
     public static class Builder {
-     /**
-      * 员工ID列表
-      * <p> 示例值：
-      */
+        /**
+         * 员工ID列表
+         * <p> 示例值：
+         */
         private String[] employmentIds;
 
         /**
          * 员工ID列表
          * <p> 示例值：
+         *
          * @param employmentIds
          * @return
          */
         public Builder employmentIds(String[] employmentIds) {
-             this.employmentIds = employmentIds;
-             return this;
+            this.employmentIds = employmentIds;
+            return this;
         }
 
-    
-    
-    public BatchQueryCostAllocationReqBody build(){
-        return new BatchQueryCostAllocationReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public BatchQueryCostAllocationReqBody build() {
+            return new BatchQueryCostAllocationReqBody(this);
+        }
     }
 }

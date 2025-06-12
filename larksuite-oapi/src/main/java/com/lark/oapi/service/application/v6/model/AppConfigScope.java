@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class AppConfigScope {
-     /**
-      * 新增权限
-      * <p> 示例值：
-      */
+    /**
+     * 新增权限
+     * <p> 示例值：
+     */
     @SerializedName("add_scopes")
     private AppConfigScopeItem[] addScopes;
-     /**
-      * 删除权限
-      * <p> 示例值：
-      */
+    /**
+     * 删除权限
+     * <p> 示例值：
+     */
     @SerializedName("remove_scopes")
     private AppConfigScopeItem[] removeScopes;
+
+    // builder 开始
+    public AppConfigScope() {
+    }
+
+    public AppConfigScope(Builder builder) {
+        /**
+         * 新增权限
+         * <p> 示例值：
+         */
+        this.addScopes = builder.addScopes;
+        /**
+         * 删除权限
+         * <p> 示例值：
+         */
+        this.removeScopes = builder.removeScopes;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public AppConfigScopeItem[] getAddScopes() {
         return this.addScopes;
     }
@@ -53,67 +79,46 @@ public class AppConfigScope {
         this.removeScopes = removeScopes;
     }
 
-
-// builder 开始
-  public AppConfigScope(){}
-
-  public AppConfigScope(Builder builder){
-         /**
-          * 新增权限
-          * <p> 示例值：
-          */
-      this.addScopes = builder.addScopes;
-         /**
-          * 删除权限
-          * <p> 示例值：
-          */
-      this.removeScopes = builder.removeScopes;
-  }
-
     public static class Builder {
-     /**
-      * 新增权限
-      * <p> 示例值：
-      */
+        /**
+         * 新增权限
+         * <p> 示例值：
+         */
         private AppConfigScopeItem[] addScopes;
-     /**
-      * 删除权限
-      * <p> 示例值：
-      */
+        /**
+         * 删除权限
+         * <p> 示例值：
+         */
         private AppConfigScopeItem[] removeScopes;
 
         /**
          * 新增权限
          * <p> 示例值：
+         *
          * @param addScopes
          * @return
          */
         public Builder addScopes(AppConfigScopeItem[] addScopes) {
-             this.addScopes = addScopes;
-             return this;
+            this.addScopes = addScopes;
+            return this;
         }
 
-    
 
         /**
          * 删除权限
          * <p> 示例值：
+         *
          * @param removeScopes
          * @return
          */
         public Builder removeScopes(AppConfigScopeItem[] removeScopes) {
-             this.removeScopes = removeScopes;
-             return this;
+            this.removeScopes = removeScopes;
+            return this;
         }
 
-    
-    
-    public AppConfigScope build(){
-        return new AppConfigScope(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public AppConfigScope build() {
+            return new AppConfigScope(this);
+        }
     }
 }

@@ -12,66 +12,71 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class P2FileBitableRecordChangedV1Data {
-     /**
-      * 文档类型
-      * <p> 示例值：
-      */
+    /**
+     * 文档类型
+     * <p> 示例值：
+     */
     @SerializedName("file_type")
     private String fileType;
-     /**
-      * 文档token
-      * <p> 示例值：
-      */
+    /**
+     * 文档token
+     * <p> 示例值：
+     */
     @SerializedName("file_token")
     private String fileToken;
-     /**
-      * 多维表格数据表ID
-      * <p> 示例值：
-      */
+    /**
+     * 多维表格数据表ID
+     * <p> 示例值：
+     */
     @SerializedName("table_id")
     private String tableId;
-     /**
-      * 多维表格数据表的版本号
-      * <p> 示例值：
-      */
+    /**
+     * 多维表格数据表的版本号
+     * <p> 示例值：
+     */
     @SerializedName("revision")
     private Integer revision;
-     /**
-      * 操作者ID
-      * <p> 示例值：
-      */
+    /**
+     * 操作者ID
+     * <p> 示例值：
+     */
     @SerializedName("operator_id")
     private UserId operatorId;
-     /**
-      * 行变更操作列表
-      * <p> 示例值：
-      */
+    /**
+     * 行变更操作列表
+     * <p> 示例值：
+     */
     @SerializedName("action_list")
     private BitableTableRecordAction[] actionList;
-     /**
-      * 订阅用户id列表
-      * <p> 示例值：
-      */
+    /**
+     * 订阅用户id列表
+     * <p> 示例值：
+     */
     @SerializedName("subscriber_id_list")
     private UserId[] subscriberIdList;
-     /**
-      * 编辑时间（格式：时间戳；单位：秒）
-      * <p> 示例值：
-      */
+    /**
+     * 编辑时间（格式：时间戳；单位：秒）
+     * <p> 示例值：
+     */
     @SerializedName("update_time")
     private Integer updateTime;
+
     public String getFileType() {
         return this.fileType;
     }

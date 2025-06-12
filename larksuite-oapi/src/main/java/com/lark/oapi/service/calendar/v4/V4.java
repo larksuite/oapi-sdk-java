@@ -17,62 +17,73 @@ import com.lark.oapi.core.Config;
 import com.lark.oapi.service.calendar.v4.resource.*;
 
 public class V4 {
-	private final Calendar calendar; // 日历管理
-	private final CalendarAcl calendarAcl; // 日历访问控制
-	private final CalendarEvent calendarEvent; // 日程
-	private final CalendarEventAttendee calendarEventAttendee; // 日程参与人
-	private final CalendarEventAttendeeChatMember calendarEventAttendeeChatMember; // 日程参与人群成员
-	private final CalendarEventMeetingChat calendarEventMeetingChat; // calendar.event.meeting_chat
-	private final CalendarEventMeetingMinute calendarEventMeetingMinute; // calendar.event.meeting_minute
-	private final ExchangeBinding exchangeBinding; // Exchange绑定
-	private final Freebusy freebusy; // freebusy
-	private final Setting setting; // 日历设置
-	private final TimeoffEvent timeoffEvent; // 请假
+    private final Calendar calendar; // 日历管理
+    private final CalendarAcl calendarAcl; // 日历访问控制
+    private final CalendarEvent calendarEvent; // 日程
+    private final CalendarEventAttendee calendarEventAttendee; // 日程参与人
+    private final CalendarEventAttendeeChatMember calendarEventAttendeeChatMember; // 日程参与人群成员
+    private final CalendarEventMeetingChat calendarEventMeetingChat; // calendar.event.meeting_chat
+    private final CalendarEventMeetingMinute calendarEventMeetingMinute; // calendar.event.meeting_minute
+    private final ExchangeBinding exchangeBinding; // Exchange绑定
+    private final Freebusy freebusy; // freebusy
+    private final Setting setting; // 日历设置
+    private final TimeoffEvent timeoffEvent; // 请假
 
-	public V4(Config config) {
-		this.calendar = new Calendar(config);
-		this.calendarAcl = new CalendarAcl(config);
-		this.calendarEvent = new CalendarEvent(config);
-		this.calendarEventAttendee = new CalendarEventAttendee(config);
-		this.calendarEventAttendeeChatMember = new CalendarEventAttendeeChatMember(config);
-		this.calendarEventMeetingChat = new CalendarEventMeetingChat(config);
-		this.calendarEventMeetingMinute = new CalendarEventMeetingMinute(config);
-		this.exchangeBinding = new ExchangeBinding(config);
-		this.freebusy = new Freebusy(config);
-		this.setting = new Setting(config);
-		this.timeoffEvent = new TimeoffEvent(config);
-	}
-	public Calendar calendar() {
-		return calendar;
-	}
-	public CalendarAcl calendarAcl() {
-		return calendarAcl;
-	}
-	public CalendarEvent calendarEvent() {
-		return calendarEvent;
-	}
-	public CalendarEventAttendee calendarEventAttendee() {
-		return calendarEventAttendee;
-	}
-	public CalendarEventAttendeeChatMember calendarEventAttendeeChatMember() {
-		return calendarEventAttendeeChatMember;
-	}
-	public CalendarEventMeetingChat calendarEventMeetingChat() {
-		return calendarEventMeetingChat;
-	}
-	public CalendarEventMeetingMinute calendarEventMeetingMinute() {
-		return calendarEventMeetingMinute;
-	}
-	public ExchangeBinding exchangeBinding() {
-		return exchangeBinding;
-	}
-	public Freebusy freebusy() {
-		return freebusy;
-	}
-	public Setting setting() {
-		return setting;
-	}
-	public TimeoffEvent timeoffEvent() {
-		return timeoffEvent;
-	}
+    public V4(Config config) {
+        this.calendar = new Calendar(config);
+        this.calendarAcl = new CalendarAcl(config);
+        this.calendarEvent = new CalendarEvent(config);
+        this.calendarEventAttendee = new CalendarEventAttendee(config);
+        this.calendarEventAttendeeChatMember = new CalendarEventAttendeeChatMember(config);
+        this.calendarEventMeetingChat = new CalendarEventMeetingChat(config);
+        this.calendarEventMeetingMinute = new CalendarEventMeetingMinute(config);
+        this.exchangeBinding = new ExchangeBinding(config);
+        this.freebusy = new Freebusy(config);
+        this.setting = new Setting(config);
+        this.timeoffEvent = new TimeoffEvent(config);
+    }
+
+    public Calendar calendar() {
+        return calendar;
+    }
+
+    public CalendarAcl calendarAcl() {
+        return calendarAcl;
+    }
+
+    public CalendarEvent calendarEvent() {
+        return calendarEvent;
+    }
+
+    public CalendarEventAttendee calendarEventAttendee() {
+        return calendarEventAttendee;
+    }
+
+    public CalendarEventAttendeeChatMember calendarEventAttendeeChatMember() {
+        return calendarEventAttendeeChatMember;
+    }
+
+    public CalendarEventMeetingChat calendarEventMeetingChat() {
+        return calendarEventMeetingChat;
+    }
+
+    public CalendarEventMeetingMinute calendarEventMeetingMinute() {
+        return calendarEventMeetingMinute;
+    }
+
+    public ExchangeBinding exchangeBinding() {
+        return exchangeBinding;
+    }
+
+    public Freebusy freebusy() {
+        return freebusy;
+    }
+
+    public Setting setting() {
+        return setting;
+    }
+
+    public TimeoffEvent timeoffEvent() {
+        return timeoffEvent;
+    }
 }

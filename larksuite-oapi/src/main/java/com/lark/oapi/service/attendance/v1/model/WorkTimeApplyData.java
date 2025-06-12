@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,48 +20,93 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class WorkTimeApplyData {
-     /**
-      * 检查结果,0表示检查通过,-1为不通过
-      * <p> 示例值：0
-      */
+    /**
+     * 检查结果,0表示检查通过,-1为不通过
+     * <p> 示例值：0
+     */
     @SerializedName("check_result")
     private Integer checkResult;
-     /**
-      * 检查结果描述
-      * <p> 示例值：检查结果藐视
-      */
+    /**
+     * 检查结果描述
+     * <p> 示例值：检查结果藐视
+     */
     @SerializedName("check_message")
     private String checkMessage;
-     /**
-      * 流程 id
-      * <p> 示例值：0
-      */
+    /**
+     * 流程 id
+     * <p> 示例值：0
+     */
     @SerializedName("approval_record_id")
     private String approvalRecordId;
-     /**
-      * 校验结果详情列表
-      * <p> 示例值：
-      */
+    /**
+     * 校验结果详情列表
+     * <p> 示例值：
+     */
     @SerializedName("check_details")
     private WorkTime[] checkDetails;
-     /**
-      * 时区
-      * <p> 示例值：Asia/Shanghai
-      */
+    /**
+     * 时区
+     * <p> 示例值：Asia/Shanghai
+     */
     @SerializedName("time_zone")
     private String timeZone;
-     /**
-      * 加班原因
-      * <p> 示例值：加班原因
-      */
+    /**
+     * 加班原因
+     * <p> 示例值：加班原因
+     */
     @SerializedName("reason")
     private String reason;
+
+    // builder 开始
+    public WorkTimeApplyData() {
+    }
+
+    public WorkTimeApplyData(Builder builder) {
+        /**
+         * 检查结果,0表示检查通过,-1为不通过
+         * <p> 示例值：0
+         */
+        this.checkResult = builder.checkResult;
+        /**
+         * 检查结果描述
+         * <p> 示例值：检查结果藐视
+         */
+        this.checkMessage = builder.checkMessage;
+        /**
+         * 流程 id
+         * <p> 示例值：0
+         */
+        this.approvalRecordId = builder.approvalRecordId;
+        /**
+         * 校验结果详情列表
+         * <p> 示例值：
+         */
+        this.checkDetails = builder.checkDetails;
+        /**
+         * 时区
+         * <p> 示例值：Asia/Shanghai
+         */
+        this.timeZone = builder.timeZone;
+        /**
+         * 加班原因
+         * <p> 示例值：加班原因
+         */
+        this.reason = builder.reason;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Integer getCheckResult() {
         return this.checkResult;
     }
@@ -109,159 +155,118 @@ public class WorkTimeApplyData {
         this.reason = reason;
     }
 
-
-// builder 开始
-  public WorkTimeApplyData(){}
-
-  public WorkTimeApplyData(Builder builder){
-         /**
-          * 检查结果,0表示检查通过,-1为不通过
-          * <p> 示例值：0
-          */
-      this.checkResult = builder.checkResult;
-         /**
-          * 检查结果描述
-          * <p> 示例值：检查结果藐视
-          */
-      this.checkMessage = builder.checkMessage;
-         /**
-          * 流程 id
-          * <p> 示例值：0
-          */
-      this.approvalRecordId = builder.approvalRecordId;
-         /**
-          * 校验结果详情列表
-          * <p> 示例值：
-          */
-      this.checkDetails = builder.checkDetails;
-         /**
-          * 时区
-          * <p> 示例值：Asia/Shanghai
-          */
-      this.timeZone = builder.timeZone;
-         /**
-          * 加班原因
-          * <p> 示例值：加班原因
-          */
-      this.reason = builder.reason;
-  }
-
     public static class Builder {
-     /**
-      * 检查结果,0表示检查通过,-1为不通过
-      * <p> 示例值：0
-      */
+        /**
+         * 检查结果,0表示检查通过,-1为不通过
+         * <p> 示例值：0
+         */
         private Integer checkResult;
-     /**
-      * 检查结果描述
-      * <p> 示例值：检查结果藐视
-      */
+        /**
+         * 检查结果描述
+         * <p> 示例值：检查结果藐视
+         */
         private String checkMessage;
-     /**
-      * 流程 id
-      * <p> 示例值：0
-      */
+        /**
+         * 流程 id
+         * <p> 示例值：0
+         */
         private String approvalRecordId;
-     /**
-      * 校验结果详情列表
-      * <p> 示例值：
-      */
+        /**
+         * 校验结果详情列表
+         * <p> 示例值：
+         */
         private WorkTime[] checkDetails;
-     /**
-      * 时区
-      * <p> 示例值：Asia/Shanghai
-      */
+        /**
+         * 时区
+         * <p> 示例值：Asia/Shanghai
+         */
         private String timeZone;
-     /**
-      * 加班原因
-      * <p> 示例值：加班原因
-      */
+        /**
+         * 加班原因
+         * <p> 示例值：加班原因
+         */
         private String reason;
 
         /**
          * 检查结果,0表示检查通过,-1为不通过
          * <p> 示例值：0
+         *
          * @param checkResult
          * @return
          */
         public Builder checkResult(Integer checkResult) {
-             this.checkResult = checkResult;
-             return this;
+            this.checkResult = checkResult;
+            return this;
         }
 
-    
 
         /**
          * 检查结果描述
          * <p> 示例值：检查结果藐视
+         *
          * @param checkMessage
          * @return
          */
         public Builder checkMessage(String checkMessage) {
-             this.checkMessage = checkMessage;
-             return this;
+            this.checkMessage = checkMessage;
+            return this;
         }
 
-    
 
         /**
          * 流程 id
          * <p> 示例值：0
+         *
          * @param approvalRecordId
          * @return
          */
         public Builder approvalRecordId(String approvalRecordId) {
-             this.approvalRecordId = approvalRecordId;
-             return this;
+            this.approvalRecordId = approvalRecordId;
+            return this;
         }
 
-    
 
         /**
          * 校验结果详情列表
          * <p> 示例值：
+         *
          * @param checkDetails
          * @return
          */
         public Builder checkDetails(WorkTime[] checkDetails) {
-             this.checkDetails = checkDetails;
-             return this;
+            this.checkDetails = checkDetails;
+            return this;
         }
 
-    
 
         /**
          * 时区
          * <p> 示例值：Asia/Shanghai
+         *
          * @param timeZone
          * @return
          */
         public Builder timeZone(String timeZone) {
-             this.timeZone = timeZone;
-             return this;
+            this.timeZone = timeZone;
+            return this;
         }
 
-    
 
         /**
          * 加班原因
          * <p> 示例值：加班原因
+         *
          * @param reason
          * @return
          */
         public Builder reason(String reason) {
-             this.reason = reason;
-             return this;
+            this.reason = reason;
+            return this;
         }
 
-    
-    
-    public WorkTimeApplyData build(){
-        return new WorkTimeApplyData(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public WorkTimeApplyData build() {
+            return new WorkTimeApplyData(this);
+        }
     }
 }

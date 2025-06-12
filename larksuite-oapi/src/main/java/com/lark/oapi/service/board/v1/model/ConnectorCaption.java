@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.board.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.board.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ConnectorCaption {
-     /**
-      * 文本
-      * <p> 示例值：
-      */
+    /**
+     * 文本
+     * <p> 示例值：
+     */
     @SerializedName("data")
     private Text[] data;
+
+    // builder 开始
+    public ConnectorCaption() {
+    }
+
+    public ConnectorCaption(Builder builder) {
+        /**
+         * 文本
+         * <p> 示例值：
+         */
+        this.data = builder.data;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Text[] getData() {
         return this.data;
     }
@@ -39,44 +60,28 @@ public class ConnectorCaption {
         this.data = data;
     }
 
-
-// builder 开始
-  public ConnectorCaption(){}
-
-  public ConnectorCaption(Builder builder){
-         /**
-          * 文本
-          * <p> 示例值：
-          */
-      this.data = builder.data;
-  }
-
     public static class Builder {
-     /**
-      * 文本
-      * <p> 示例值：
-      */
+        /**
+         * 文本
+         * <p> 示例值：
+         */
         private Text[] data;
 
         /**
          * 文本
          * <p> 示例值：
+         *
          * @param data
          * @return
          */
         public Builder data(Text[] data) {
-             this.data = data;
-             return this;
+            this.data = data;
+            return this;
         }
 
-    
-    
-    public ConnectorCaption build(){
-        return new ConnectorCaption(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ConnectorCaption build() {
+            return new ConnectorCaption(this);
+        }
     }
 }

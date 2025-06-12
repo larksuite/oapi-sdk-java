@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,54 +20,104 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class TimeConfig {
-     /**
-      * 是否覆盖子层级及会议室
-      * <p> 示例值：true
-      */
+    /**
+     * 是否覆盖子层级及会议室
+     * <p> 示例值：true
+     */
     @SerializedName("if_cover_child_scope")
     private Boolean ifCoverChildScope;
-     /**
-      * 预定时间开关：0 代表关闭，1 代表开启
-      * <p> 示例值：1
-      */
+    /**
+     * 预定时间开关：0 代表关闭，1 代表开启
+     * <p> 示例值：1
+     */
     @SerializedName("time_switch")
     private Integer timeSwitch;
-     /**
-      * 最早可提前 ; days_in_advance 预定会议室（单位：天，取值范围[1-730]）;<b>说明</b>：不填写时，默认更新为 365
-      * <p> 示例值：30
-      */
+    /**
+     * 最早可提前 ; days_in_advance 预定会议室（单位：天，取值范围[1-730]）;<b>说明</b>：不填写时，默认更新为 365
+     * <p> 示例值：30
+     */
     @SerializedName("days_in_advance")
     private Integer daysInAdvance;
-     /**
-      * 开放当天可于 ; opening_hour 开始预定（单位：秒，取值范围[0,86400]）;<b>说明</b>：;1.  不填写时默认更新为 ; 28800 ;2.  如果填写的值不是 60 ; 的倍数，则自动会更新为离其最近的 60 整数倍的值。
-      * <p> 示例值：27900
-      */
+    /**
+     * 开放当天可于 ; opening_hour 开始预定（单位：秒，取值范围[0,86400]）;<b>说明</b>：;1.  不填写时默认更新为 ; 28800 ;2.  如果填写的值不是 60 ; 的倍数，则自动会更新为离其最近的 60 整数倍的值。
+     * <p> 示例值：27900
+     */
     @SerializedName("opening_hour")
     private String openingHour;
-     /**
-      * 每日可预定时间范围的开始时间（单位：秒，取值范围[0,86400]）;<b>说明</b>：;1.  不填写时，默认更新为 0 ，此时填写的  end_time 不得小于 30。;2.  当 start_time 与;  end_time 均填写时，; end_time 至少超过 ; start_time 30 。;3.  如果填写的值不是 60 的倍数，则自动会更新为离其最近的 60 整数倍的值。
-      * <p> 示例值：0
-      */
+    /**
+     * 每日可预定时间范围的开始时间（单位：秒，取值范围[0,86400]）;<b>说明</b>：;1.  不填写时，默认更新为 0 ，此时填写的  end_time 不得小于 30。;2.  当 start_time 与;  end_time 均填写时，; end_time 至少超过 ; start_time 30 。;3.  如果填写的值不是 60 的倍数，则自动会更新为离其最近的 60 整数倍的值。
+     * <p> 示例值：0
+     */
     @SerializedName("start_time")
     private String startTime;
-     /**
-      * 每日可预定时间范围结束时间（单位：秒，取值范围[0,86400]）;<b>说明</b>：;1.  不填写时，默认更新为 86400 ，此时填写的; start_time 不得大于等于 86370 。;2.  当 start_time 与;  end_time 均填写时，; end_time 至少要超过;  start_time 30。;3.  如果填写的值不是  60 的倍数，则自动会更新为离其最近的 60 整数倍的值。
-      * <p> 示例值：86400
-      */
+    /**
+     * 每日可预定时间范围结束时间（单位：秒，取值范围[0,86400]）;<b>说明</b>：;1.  不填写时，默认更新为 86400 ，此时填写的; start_time 不得大于等于 86370 。;2.  当 start_time 与;  end_time 均填写时，; end_time 至少要超过;  start_time 30。;3.  如果填写的值不是  60 的倍数，则自动会更新为离其最近的 60 整数倍的值。
+     * <p> 示例值：86400
+     */
     @SerializedName("end_time")
     private String endTime;
-     /**
-      * 单次会议室可预定时长上限（单位：小时，取值范围[1,99]）;<b>说明</b>：不填写时默认更新为 2
-      * <p> 示例值：24
-      */
+    /**
+     * 单次会议室可预定时长上限（单位：小时，取值范围[1,99]）;<b>说明</b>：不填写时默认更新为 2
+     * <p> 示例值：24
+     */
     @SerializedName("max_duration")
     private Integer maxDuration;
+
+    // builder 开始
+    public TimeConfig() {
+    }
+
+    public TimeConfig(Builder builder) {
+        /**
+         * 是否覆盖子层级及会议室
+         * <p> 示例值：true
+         */
+        this.ifCoverChildScope = builder.ifCoverChildScope;
+        /**
+         * 预定时间开关：0 代表关闭，1 代表开启
+         * <p> 示例值：1
+         */
+        this.timeSwitch = builder.timeSwitch;
+        /**
+         * 最早可提前 ; days_in_advance 预定会议室（单位：天，取值范围[1-730]）;<b>说明</b>：不填写时，默认更新为 365
+         * <p> 示例值：30
+         */
+        this.daysInAdvance = builder.daysInAdvance;
+        /**
+         * 开放当天可于 ; opening_hour 开始预定（单位：秒，取值范围[0,86400]）;<b>说明</b>：;1.  不填写时默认更新为 ; 28800 ;2.  如果填写的值不是 60 ; 的倍数，则自动会更新为离其最近的 60 整数倍的值。
+         * <p> 示例值：27900
+         */
+        this.openingHour = builder.openingHour;
+        /**
+         * 每日可预定时间范围的开始时间（单位：秒，取值范围[0,86400]）;<b>说明</b>：;1.  不填写时，默认更新为 0 ，此时填写的  end_time 不得小于 30。;2.  当 start_time 与;  end_time 均填写时，; end_time 至少超过 ; start_time 30 。;3.  如果填写的值不是 60 的倍数，则自动会更新为离其最近的 60 整数倍的值。
+         * <p> 示例值：0
+         */
+        this.startTime = builder.startTime;
+        /**
+         * 每日可预定时间范围结束时间（单位：秒，取值范围[0,86400]）;<b>说明</b>：;1.  不填写时，默认更新为 86400 ，此时填写的; start_time 不得大于等于 86370 。;2.  当 start_time 与;  end_time 均填写时，; end_time 至少要超过;  start_time 30。;3.  如果填写的值不是  60 的倍数，则自动会更新为离其最近的 60 整数倍的值。
+         * <p> 示例值：86400
+         */
+        this.endTime = builder.endTime;
+        /**
+         * 单次会议室可预定时长上限（单位：小时，取值范围[1,99]）;<b>说明</b>：不填写时默认更新为 2
+         * <p> 示例值：24
+         */
+        this.maxDuration = builder.maxDuration;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Boolean getIfCoverChildScope() {
         return this.ifCoverChildScope;
     }
@@ -123,182 +174,136 @@ public class TimeConfig {
         this.maxDuration = maxDuration;
     }
 
-
-// builder 开始
-  public TimeConfig(){}
-
-  public TimeConfig(Builder builder){
-         /**
-          * 是否覆盖子层级及会议室
-          * <p> 示例值：true
-          */
-      this.ifCoverChildScope = builder.ifCoverChildScope;
-         /**
-          * 预定时间开关：0 代表关闭，1 代表开启
-          * <p> 示例值：1
-          */
-      this.timeSwitch = builder.timeSwitch;
-         /**
-          * 最早可提前 ; days_in_advance 预定会议室（单位：天，取值范围[1-730]）;<b>说明</b>：不填写时，默认更新为 365
-          * <p> 示例值：30
-          */
-      this.daysInAdvance = builder.daysInAdvance;
-         /**
-          * 开放当天可于 ; opening_hour 开始预定（单位：秒，取值范围[0,86400]）;<b>说明</b>：;1.  不填写时默认更新为 ; 28800 ;2.  如果填写的值不是 60 ; 的倍数，则自动会更新为离其最近的 60 整数倍的值。
-          * <p> 示例值：27900
-          */
-      this.openingHour = builder.openingHour;
-         /**
-          * 每日可预定时间范围的开始时间（单位：秒，取值范围[0,86400]）;<b>说明</b>：;1.  不填写时，默认更新为 0 ，此时填写的  end_time 不得小于 30。;2.  当 start_time 与;  end_time 均填写时，; end_time 至少超过 ; start_time 30 。;3.  如果填写的值不是 60 的倍数，则自动会更新为离其最近的 60 整数倍的值。
-          * <p> 示例值：0
-          */
-      this.startTime = builder.startTime;
-         /**
-          * 每日可预定时间范围结束时间（单位：秒，取值范围[0,86400]）;<b>说明</b>：;1.  不填写时，默认更新为 86400 ，此时填写的; start_time 不得大于等于 86370 。;2.  当 start_time 与;  end_time 均填写时，; end_time 至少要超过;  start_time 30。;3.  如果填写的值不是  60 的倍数，则自动会更新为离其最近的 60 整数倍的值。
-          * <p> 示例值：86400
-          */
-      this.endTime = builder.endTime;
-         /**
-          * 单次会议室可预定时长上限（单位：小时，取值范围[1,99]）;<b>说明</b>：不填写时默认更新为 2
-          * <p> 示例值：24
-          */
-      this.maxDuration = builder.maxDuration;
-  }
-
     public static class Builder {
-     /**
-      * 是否覆盖子层级及会议室
-      * <p> 示例值：true
-      */
+        /**
+         * 是否覆盖子层级及会议室
+         * <p> 示例值：true
+         */
         private Boolean ifCoverChildScope;
-     /**
-      * 预定时间开关：0 代表关闭，1 代表开启
-      * <p> 示例值：1
-      */
+        /**
+         * 预定时间开关：0 代表关闭，1 代表开启
+         * <p> 示例值：1
+         */
         private Integer timeSwitch;
-     /**
-      * 最早可提前 ; days_in_advance 预定会议室（单位：天，取值范围[1-730]）;<b>说明</b>：不填写时，默认更新为 365
-      * <p> 示例值：30
-      */
+        /**
+         * 最早可提前 ; days_in_advance 预定会议室（单位：天，取值范围[1-730]）;<b>说明</b>：不填写时，默认更新为 365
+         * <p> 示例值：30
+         */
         private Integer daysInAdvance;
-     /**
-      * 开放当天可于 ; opening_hour 开始预定（单位：秒，取值范围[0,86400]）;<b>说明</b>：;1.  不填写时默认更新为 ; 28800 ;2.  如果填写的值不是 60 ; 的倍数，则自动会更新为离其最近的 60 整数倍的值。
-      * <p> 示例值：27900
-      */
+        /**
+         * 开放当天可于 ; opening_hour 开始预定（单位：秒，取值范围[0,86400]）;<b>说明</b>：;1.  不填写时默认更新为 ; 28800 ;2.  如果填写的值不是 60 ; 的倍数，则自动会更新为离其最近的 60 整数倍的值。
+         * <p> 示例值：27900
+         */
         private String openingHour;
-     /**
-      * 每日可预定时间范围的开始时间（单位：秒，取值范围[0,86400]）;<b>说明</b>：;1.  不填写时，默认更新为 0 ，此时填写的  end_time 不得小于 30。;2.  当 start_time 与;  end_time 均填写时，; end_time 至少超过 ; start_time 30 。;3.  如果填写的值不是 60 的倍数，则自动会更新为离其最近的 60 整数倍的值。
-      * <p> 示例值：0
-      */
+        /**
+         * 每日可预定时间范围的开始时间（单位：秒，取值范围[0,86400]）;<b>说明</b>：;1.  不填写时，默认更新为 0 ，此时填写的  end_time 不得小于 30。;2.  当 start_time 与;  end_time 均填写时，; end_time 至少超过 ; start_time 30 。;3.  如果填写的值不是 60 的倍数，则自动会更新为离其最近的 60 整数倍的值。
+         * <p> 示例值：0
+         */
         private String startTime;
-     /**
-      * 每日可预定时间范围结束时间（单位：秒，取值范围[0,86400]）;<b>说明</b>：;1.  不填写时，默认更新为 86400 ，此时填写的; start_time 不得大于等于 86370 。;2.  当 start_time 与;  end_time 均填写时，; end_time 至少要超过;  start_time 30。;3.  如果填写的值不是  60 的倍数，则自动会更新为离其最近的 60 整数倍的值。
-      * <p> 示例值：86400
-      */
+        /**
+         * 每日可预定时间范围结束时间（单位：秒，取值范围[0,86400]）;<b>说明</b>：;1.  不填写时，默认更新为 86400 ，此时填写的; start_time 不得大于等于 86370 。;2.  当 start_time 与;  end_time 均填写时，; end_time 至少要超过;  start_time 30。;3.  如果填写的值不是  60 的倍数，则自动会更新为离其最近的 60 整数倍的值。
+         * <p> 示例值：86400
+         */
         private String endTime;
-     /**
-      * 单次会议室可预定时长上限（单位：小时，取值范围[1,99]）;<b>说明</b>：不填写时默认更新为 2
-      * <p> 示例值：24
-      */
+        /**
+         * 单次会议室可预定时长上限（单位：小时，取值范围[1,99]）;<b>说明</b>：不填写时默认更新为 2
+         * <p> 示例值：24
+         */
         private Integer maxDuration;
 
         /**
          * 是否覆盖子层级及会议室
          * <p> 示例值：true
+         *
          * @param ifCoverChildScope
          * @return
          */
         public Builder ifCoverChildScope(Boolean ifCoverChildScope) {
-             this.ifCoverChildScope = ifCoverChildScope;
-             return this;
+            this.ifCoverChildScope = ifCoverChildScope;
+            return this;
         }
 
-    
 
         /**
          * 预定时间开关：0 代表关闭，1 代表开启
          * <p> 示例值：1
+         *
          * @param timeSwitch
          * @return
          */
         public Builder timeSwitch(Integer timeSwitch) {
-             this.timeSwitch = timeSwitch;
-             return this;
+            this.timeSwitch = timeSwitch;
+            return this;
         }
 
-    
 
         /**
          * 最早可提前 ; days_in_advance 预定会议室（单位：天，取值范围[1-730]）;<b>说明</b>：不填写时，默认更新为 365
          * <p> 示例值：30
+         *
          * @param daysInAdvance
          * @return
          */
         public Builder daysInAdvance(Integer daysInAdvance) {
-             this.daysInAdvance = daysInAdvance;
-             return this;
+            this.daysInAdvance = daysInAdvance;
+            return this;
         }
 
-    
 
         /**
          * 开放当天可于 ; opening_hour 开始预定（单位：秒，取值范围[0,86400]）;<b>说明</b>：;1.  不填写时默认更新为 ; 28800 ;2.  如果填写的值不是 60 ; 的倍数，则自动会更新为离其最近的 60 整数倍的值。
          * <p> 示例值：27900
+         *
          * @param openingHour
          * @return
          */
         public Builder openingHour(String openingHour) {
-             this.openingHour = openingHour;
-             return this;
+            this.openingHour = openingHour;
+            return this;
         }
 
-    
 
         /**
          * 每日可预定时间范围的开始时间（单位：秒，取值范围[0,86400]）;<b>说明</b>：;1.  不填写时，默认更新为 0 ，此时填写的  end_time 不得小于 30。;2.  当 start_time 与;  end_time 均填写时，; end_time 至少超过 ; start_time 30 。;3.  如果填写的值不是 60 的倍数，则自动会更新为离其最近的 60 整数倍的值。
          * <p> 示例值：0
+         *
          * @param startTime
          * @return
          */
         public Builder startTime(String startTime) {
-             this.startTime = startTime;
-             return this;
+            this.startTime = startTime;
+            return this;
         }
 
-    
 
         /**
          * 每日可预定时间范围结束时间（单位：秒，取值范围[0,86400]）;<b>说明</b>：;1.  不填写时，默认更新为 86400 ，此时填写的; start_time 不得大于等于 86370 。;2.  当 start_time 与;  end_time 均填写时，; end_time 至少要超过;  start_time 30。;3.  如果填写的值不是  60 的倍数，则自动会更新为离其最近的 60 整数倍的值。
          * <p> 示例值：86400
+         *
          * @param endTime
          * @return
          */
         public Builder endTime(String endTime) {
-             this.endTime = endTime;
-             return this;
+            this.endTime = endTime;
+            return this;
         }
 
-    
 
         /**
          * 单次会议室可预定时长上限（单位：小时，取值范围[1,99]）;<b>说明</b>：不填写时默认更新为 2
          * <p> 示例值：24
+         *
          * @param maxDuration
          * @return
          */
         public Builder maxDuration(Integer maxDuration) {
-             this.maxDuration = maxDuration;
-             return this;
+            this.maxDuration = maxDuration;
+            return this;
         }
 
-    
-    
-    public TimeConfig build(){
-        return new TimeConfig(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public TimeConfig build() {
+            return new TimeConfig(this);
+        }
     }
 }

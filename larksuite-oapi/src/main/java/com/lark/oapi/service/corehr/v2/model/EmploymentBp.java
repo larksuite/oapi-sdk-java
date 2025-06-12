@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class EmploymentBp {
-     /**
-      * 员工雇佣 ID
-      * <p> 示例值：6863326262618752123
-      */
+    /**
+     * 员工雇佣 ID
+     * <p> 示例值：6863326262618752123
+     */
     @SerializedName("employment_id")
     private String employmentId;
-     /**
-      * 部门 hrbp 雇佣 ID 列表
-      * <p> 示例值：
-      */
+    /**
+     * 部门 hrbp 雇佣 ID 列表
+     * <p> 示例值：
+     */
     @SerializedName("hrbp_ids")
     private String[] hrbpIds;
-     /**
-      * 属地 bp 雇佣 ID 列表
-      * <p> 示例值：
-      */
+    /**
+     * 属地 bp 雇佣 ID 列表
+     * <p> 示例值：
+     */
     @SerializedName("location_bp_ids")
     private String[] locationBpIds;
+
+    // builder 开始
+    public EmploymentBp() {
+    }
+
+    public EmploymentBp(Builder builder) {
+        /**
+         * 员工雇佣 ID
+         * <p> 示例值：6863326262618752123
+         */
+        this.employmentId = builder.employmentId;
+        /**
+         * 部门 hrbp 雇佣 ID 列表
+         * <p> 示例值：
+         */
+        this.hrbpIds = builder.hrbpIds;
+        /**
+         * 属地 bp 雇佣 ID 列表
+         * <p> 示例值：
+         */
+        this.locationBpIds = builder.locationBpIds;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getEmploymentId() {
         return this.employmentId;
     }
@@ -67,90 +98,64 @@ public class EmploymentBp {
         this.locationBpIds = locationBpIds;
     }
 
-
-// builder 开始
-  public EmploymentBp(){}
-
-  public EmploymentBp(Builder builder){
-         /**
-          * 员工雇佣 ID
-          * <p> 示例值：6863326262618752123
-          */
-      this.employmentId = builder.employmentId;
-         /**
-          * 部门 hrbp 雇佣 ID 列表
-          * <p> 示例值：
-          */
-      this.hrbpIds = builder.hrbpIds;
-         /**
-          * 属地 bp 雇佣 ID 列表
-          * <p> 示例值：
-          */
-      this.locationBpIds = builder.locationBpIds;
-  }
-
     public static class Builder {
-     /**
-      * 员工雇佣 ID
-      * <p> 示例值：6863326262618752123
-      */
+        /**
+         * 员工雇佣 ID
+         * <p> 示例值：6863326262618752123
+         */
         private String employmentId;
-     /**
-      * 部门 hrbp 雇佣 ID 列表
-      * <p> 示例值：
-      */
+        /**
+         * 部门 hrbp 雇佣 ID 列表
+         * <p> 示例值：
+         */
         private String[] hrbpIds;
-     /**
-      * 属地 bp 雇佣 ID 列表
-      * <p> 示例值：
-      */
+        /**
+         * 属地 bp 雇佣 ID 列表
+         * <p> 示例值：
+         */
         private String[] locationBpIds;
 
         /**
          * 员工雇佣 ID
          * <p> 示例值：6863326262618752123
+         *
          * @param employmentId
          * @return
          */
         public Builder employmentId(String employmentId) {
-             this.employmentId = employmentId;
-             return this;
+            this.employmentId = employmentId;
+            return this;
         }
 
-    
 
         /**
          * 部门 hrbp 雇佣 ID 列表
          * <p> 示例值：
+         *
          * @param hrbpIds
          * @return
          */
         public Builder hrbpIds(String[] hrbpIds) {
-             this.hrbpIds = hrbpIds;
-             return this;
+            this.hrbpIds = hrbpIds;
+            return this;
         }
 
-    
 
         /**
          * 属地 bp 雇佣 ID 列表
          * <p> 示例值：
+         *
          * @param locationBpIds
          * @return
          */
         public Builder locationBpIds(String[] locationBpIds) {
-             this.locationBpIds = locationBpIds;
-             return this;
+            this.locationBpIds = locationBpIds;
+            return this;
         }
 
-    
-    
-    public EmploymentBp build(){
-        return new EmploymentBp(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public EmploymentBp build() {
+            return new EmploymentBp(this);
+        }
     }
 }

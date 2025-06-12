@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.mail.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class UnsubscribeUserMailboxEventReqBody {
-     /**
-      * 事件类型
-      * <p> 示例值：1
-      */
+    /**
+     * 事件类型
+     * <p> 示例值：1
+     */
     @SerializedName("event_type")
     private Integer eventType;
+
+    // builder 开始
+    public UnsubscribeUserMailboxEventReqBody() {
+    }
+
+    public UnsubscribeUserMailboxEventReqBody(Builder builder) {
+        /**
+         * 事件类型
+         * <p> 示例值：1
+         */
+        this.eventType = builder.eventType;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Integer getEventType() {
         return this.eventType;
     }
@@ -39,54 +60,40 @@ public class UnsubscribeUserMailboxEventReqBody {
         this.eventType = eventType;
     }
 
-
-// builder 开始
-  public UnsubscribeUserMailboxEventReqBody(){}
-
-  public UnsubscribeUserMailboxEventReqBody(Builder builder){
-         /**
-          * 事件类型
-          * <p> 示例值：1
-          */
-      this.eventType = builder.eventType;
-  }
-
     public static class Builder {
-     /**
-      * 事件类型
-      * <p> 示例值：1
-      */
+        /**
+         * 事件类型
+         * <p> 示例值：1
+         */
         private Integer eventType;
 
         /**
          * 事件类型
          * <p> 示例值：1
+         *
          * @param eventType
          * @return
          */
         public Builder eventType(Integer eventType) {
-             this.eventType = eventType;
-             return this;
+            this.eventType = eventType;
+            return this;
         }
+
         /**
          * 事件类型
          * <p> 示例值：1
+         *
          * @param eventType {@link com.lark.oapi.service.mail.v1.enums.UnsubscribeUserMailboxEventEventTypeEnum}
          * @return
          */
         public Builder eventType(com.lark.oapi.service.mail.v1.enums.UnsubscribeUserMailboxEventEventTypeEnum eventType) {
-             this.eventType = eventType.getValue();
-             return this;
+            this.eventType = eventType.getValue();
+            return this;
         }
 
-    
-    
-    public UnsubscribeUserMailboxEventReqBody build(){
-        return new UnsubscribeUserMailboxEventReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public UnsubscribeUserMailboxEventReqBody build() {
+            return new UnsubscribeUserMailboxEventReqBody(this);
+        }
     }
 }

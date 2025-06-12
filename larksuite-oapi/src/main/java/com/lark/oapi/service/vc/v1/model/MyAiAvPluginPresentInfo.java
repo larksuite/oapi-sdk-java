@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,42 +20,81 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class MyAiAvPluginPresentInfo {
-     /**
-      * present type
-      * <p> 示例值：template_card
-      */
+    /**
+     * present type
+     * <p> 示例值：template_card
+     */
     @SerializedName("type")
     private String type;
-     /**
-      * card template id
-      * <p> 示例值：1232323232
-      */
+    /**
+     * card template id
+     * <p> 示例值：1232323232
+     */
     @SerializedName("card_template_id")
     private String cardTemplateId;
-     /**
-      * body
-      * <p> 示例值：text message
-      */
+    /**
+     * body
+     * <p> 示例值：text message
+     */
     @SerializedName("body")
     private String body;
-     /**
-      * 
-      * <p> 示例值：
-      */
+    /**
+     * <p> 示例值：
+     */
     @SerializedName("card_variables")
     private MyAiAvPluginCardVariables cardVariables;
-     /**
-      * callback info
-      * <p> 示例值：callback info
-      */
+    /**
+     * callback info
+     * <p> 示例值：callback info
+     */
     @SerializedName("callback_info")
     private String callbackInfo;
+
+    // builder 开始
+    public MyAiAvPluginPresentInfo() {
+    }
+
+    public MyAiAvPluginPresentInfo(Builder builder) {
+        /**
+         * present type
+         * <p> 示例值：template_card
+         */
+        this.type = builder.type;
+        /**
+         * card template id
+         * <p> 示例值：1232323232
+         */
+        this.cardTemplateId = builder.cardTemplateId;
+        /**
+         * body
+         * <p> 示例值：text message
+         */
+        this.body = builder.body;
+        /**
+         *
+         * <p> 示例值：
+         */
+        this.cardVariables = builder.cardVariables;
+        /**
+         * callback info
+         * <p> 示例值：callback info
+         */
+        this.callbackInfo = builder.callbackInfo;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getType() {
         return this.type;
     }
@@ -95,136 +135,98 @@ public class MyAiAvPluginPresentInfo {
         this.callbackInfo = callbackInfo;
     }
 
-
-// builder 开始
-  public MyAiAvPluginPresentInfo(){}
-
-  public MyAiAvPluginPresentInfo(Builder builder){
-         /**
-          * present type
-          * <p> 示例值：template_card
-          */
-      this.type = builder.type;
-         /**
-          * card template id
-          * <p> 示例值：1232323232
-          */
-      this.cardTemplateId = builder.cardTemplateId;
-         /**
-          * body
-          * <p> 示例值：text message
-          */
-      this.body = builder.body;
-         /**
-          * 
-          * <p> 示例值：
-          */
-      this.cardVariables = builder.cardVariables;
-         /**
-          * callback info
-          * <p> 示例值：callback info
-          */
-      this.callbackInfo = builder.callbackInfo;
-  }
-
     public static class Builder {
-     /**
-      * present type
-      * <p> 示例值：template_card
-      */
+        /**
+         * present type
+         * <p> 示例值：template_card
+         */
         private String type;
-     /**
-      * card template id
-      * <p> 示例值：1232323232
-      */
+        /**
+         * card template id
+         * <p> 示例值：1232323232
+         */
         private String cardTemplateId;
-     /**
-      * body
-      * <p> 示例值：text message
-      */
+        /**
+         * body
+         * <p> 示例值：text message
+         */
         private String body;
-     /**
-      * 
-      * <p> 示例值：
-      */
+        /**
+         * <p> 示例值：
+         */
         private MyAiAvPluginCardVariables cardVariables;
-     /**
-      * callback info
-      * <p> 示例值：callback info
-      */
+        /**
+         * callback info
+         * <p> 示例值：callback info
+         */
         private String callbackInfo;
 
         /**
          * present type
          * <p> 示例值：template_card
+         *
          * @param type
          * @return
          */
         public Builder type(String type) {
-             this.type = type;
-             return this;
+            this.type = type;
+            return this;
         }
 
-    
 
         /**
          * card template id
          * <p> 示例值：1232323232
+         *
          * @param cardTemplateId
          * @return
          */
         public Builder cardTemplateId(String cardTemplateId) {
-             this.cardTemplateId = cardTemplateId;
-             return this;
+            this.cardTemplateId = cardTemplateId;
+            return this;
         }
 
-    
 
         /**
          * body
          * <p> 示例值：text message
+         *
          * @param body
          * @return
          */
         public Builder body(String body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
 
-    
 
         /**
-         * 
          * <p> 示例值：
+         *
          * @param cardVariables
          * @return
          */
         public Builder cardVariables(MyAiAvPluginCardVariables cardVariables) {
-             this.cardVariables = cardVariables;
-             return this;
+            this.cardVariables = cardVariables;
+            return this;
         }
 
-    
 
         /**
          * callback info
          * <p> 示例值：callback info
+         *
          * @param callbackInfo
          * @return
          */
         public Builder callbackInfo(String callbackInfo) {
-             this.callbackInfo = callbackInfo;
-             return this;
+            this.callbackInfo = callbackInfo;
+            return this;
         }
 
-    
-    
-    public MyAiAvPluginPresentInfo build(){
-        return new MyAiAvPluginPresentInfo(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public MyAiAvPluginPresentInfo build() {
+            return new MyAiAvPluginPresentInfo(this);
+        }
     }
 }

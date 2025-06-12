@@ -12,25 +12,46 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class GetEmployeeTypeReq {
-     /**
-      * 雇员类型ID
-      * <p> 示例值：1
-      */
+    /**
+     * 雇员类型ID
+     * <p> 示例值：1
+     */
     @Path
     @SerializedName("employee_type_id")
     private String employeeTypeId;
+
+    // builder 开始
+    public GetEmployeeTypeReq() {
+    }
+
+    public GetEmployeeTypeReq(Builder builder) {
+        /**
+         * 雇员类型ID
+         * <p> 示例值：1
+         */
+        this.employeeTypeId = builder.employeeTypeId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getEmployeeTypeId() {
         return this.employeeTypeId;
     }
@@ -39,39 +60,25 @@ public class GetEmployeeTypeReq {
         this.employeeTypeId = employeeTypeId;
     }
 
-
-// builder 开始
-  public GetEmployeeTypeReq(){}
-
-  public GetEmployeeTypeReq(Builder builder){
-     /**
-      * 雇员类型ID
-      * <p> 示例值：1
-      */
-       this.employeeTypeId = builder.employeeTypeId;
-  }
-
     public static class Builder {
-    
+
         private String employeeTypeId; // 雇员类型ID
+
         /**
          * 雇员类型ID
          * <p> 示例值：1
+         *
          * @param employeeTypeId
          * @return
          */
-          public Builder employeeTypeId(String employeeTypeId) {
-               this.employeeTypeId = employeeTypeId;
-               return this;
-          }
+        public Builder employeeTypeId(String employeeTypeId) {
+            this.employeeTypeId = employeeTypeId;
+            return this;
+        }
 
-    
-    public GetEmployeeTypeReq build(){
-        return new GetEmployeeTypeReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public GetEmployeeTypeReq build() {
+            return new GetEmployeeTypeReq(this);
+        }
     }
 }

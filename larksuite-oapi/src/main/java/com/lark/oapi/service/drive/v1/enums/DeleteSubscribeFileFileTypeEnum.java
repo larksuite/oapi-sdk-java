@@ -17,20 +17,21 @@ package com.lark.oapi.service.drive.v1.enums;
  * 文档类型
  */
 public enum DeleteSubscribeFileFileTypeEnum {
-     DOC("doc"), // 文档
-     DOCX("docx"), // docx文档
-     SHEET("sheet"), // 表格
-     BITABLE("bitable"), // 多维表格
-     FILE("file"), // 文件
-     FOLDER("folder"), // 文件夹
-     SLIDES("slides"), // 幻灯片
-  ;
-   private String value;
+    DOC("doc"), // 文档
+    DOCX("docx"), // docx文档
+    SHEET("sheet"), // 表格
+    BITABLE("bitable"), // 多维表格
+    FILE("file"), // 文件
+    FOLDER("folder"), // 文件夹
+    SLIDES("slides"), // 幻灯片
+    ;
+    private String value;
+
     DeleteSubscribeFileFileTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

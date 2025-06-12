@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class RemoveVersionCostAllocationReqBody {
-     /**
-      * 员工ID
-      * <p> 示例值：7862995757234914824
-      */
+    /**
+     * 员工ID
+     * <p> 示例值：7862995757234914824
+     */
     @SerializedName("employment_id")
     private String employmentId;
-     /**
-      * 成本分摊
-      * <p> 示例值：
-      */
+    /**
+     * 成本分摊
+     * <p> 示例值：
+     */
     @SerializedName("cost_allocation")
     private EmploymentCostAllocation costAllocation;
+
+    // builder 开始
+    public RemoveVersionCostAllocationReqBody() {
+    }
+
+    public RemoveVersionCostAllocationReqBody(Builder builder) {
+        /**
+         * 员工ID
+         * <p> 示例值：7862995757234914824
+         */
+        this.employmentId = builder.employmentId;
+        /**
+         * 成本分摊
+         * <p> 示例值：
+         */
+        this.costAllocation = builder.costAllocation;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getEmploymentId() {
         return this.employmentId;
     }
@@ -53,67 +79,46 @@ public class RemoveVersionCostAllocationReqBody {
         this.costAllocation = costAllocation;
     }
 
-
-// builder 开始
-  public RemoveVersionCostAllocationReqBody(){}
-
-  public RemoveVersionCostAllocationReqBody(Builder builder){
-         /**
-          * 员工ID
-          * <p> 示例值：7862995757234914824
-          */
-      this.employmentId = builder.employmentId;
-         /**
-          * 成本分摊
-          * <p> 示例值：
-          */
-      this.costAllocation = builder.costAllocation;
-  }
-
     public static class Builder {
-     /**
-      * 员工ID
-      * <p> 示例值：7862995757234914824
-      */
+        /**
+         * 员工ID
+         * <p> 示例值：7862995757234914824
+         */
         private String employmentId;
-     /**
-      * 成本分摊
-      * <p> 示例值：
-      */
+        /**
+         * 成本分摊
+         * <p> 示例值：
+         */
         private EmploymentCostAllocation costAllocation;
 
         /**
          * 员工ID
          * <p> 示例值：7862995757234914824
+         *
          * @param employmentId
          * @return
          */
         public Builder employmentId(String employmentId) {
-             this.employmentId = employmentId;
-             return this;
+            this.employmentId = employmentId;
+            return this;
         }
 
-    
 
         /**
          * 成本分摊
          * <p> 示例值：
+         *
          * @param costAllocation
          * @return
          */
         public Builder costAllocation(EmploymentCostAllocation costAllocation) {
-             this.costAllocation = costAllocation;
-             return this;
+            this.costAllocation = costAllocation;
+            return this;
         }
 
-    
-    
-    public RemoveVersionCostAllocationReqBody build(){
-        return new RemoveVersionCostAllocationReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public RemoveVersionCostAllocationReqBody build() {
+            return new RemoveVersionCostAllocationReqBody(this);
+        }
     }
 }

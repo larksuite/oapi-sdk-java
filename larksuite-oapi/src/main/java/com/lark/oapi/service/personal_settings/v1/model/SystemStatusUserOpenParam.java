@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.personal_settings.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.personal_settings.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class SystemStatusUserOpenParam {
-     /**
-      * 用户ID
-      * <p> 示例值：ou_53edd3282dbc2fdbe5c593cfa5ce82ab
-      */
+    /**
+     * 用户ID
+     * <p> 示例值：ou_53edd3282dbc2fdbe5c593cfa5ce82ab
+     */
     @SerializedName("user_id")
     private String userId;
-     /**
-      * 结束时间，传入的应为秒单位的时间戳，距当前的时间跨度不能超过365天。
-      * <p> 示例值：1665990378
-      */
+    /**
+     * 结束时间，传入的应为秒单位的时间戳，距当前的时间跨度不能超过365天。
+     * <p> 示例值：1665990378
+     */
     @SerializedName("end_time")
     private String endTime;
+
+    // builder 开始
+    public SystemStatusUserOpenParam() {
+    }
+
+    public SystemStatusUserOpenParam(Builder builder) {
+        /**
+         * 用户ID
+         * <p> 示例值：ou_53edd3282dbc2fdbe5c593cfa5ce82ab
+         */
+        this.userId = builder.userId;
+        /**
+         * 结束时间，传入的应为秒单位的时间戳，距当前的时间跨度不能超过365天。
+         * <p> 示例值：1665990378
+         */
+        this.endTime = builder.endTime;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getUserId() {
         return this.userId;
     }
@@ -53,67 +79,46 @@ public class SystemStatusUserOpenParam {
         this.endTime = endTime;
     }
 
-
-// builder 开始
-  public SystemStatusUserOpenParam(){}
-
-  public SystemStatusUserOpenParam(Builder builder){
-         /**
-          * 用户ID
-          * <p> 示例值：ou_53edd3282dbc2fdbe5c593cfa5ce82ab
-          */
-      this.userId = builder.userId;
-         /**
-          * 结束时间，传入的应为秒单位的时间戳，距当前的时间跨度不能超过365天。
-          * <p> 示例值：1665990378
-          */
-      this.endTime = builder.endTime;
-  }
-
     public static class Builder {
-     /**
-      * 用户ID
-      * <p> 示例值：ou_53edd3282dbc2fdbe5c593cfa5ce82ab
-      */
+        /**
+         * 用户ID
+         * <p> 示例值：ou_53edd3282dbc2fdbe5c593cfa5ce82ab
+         */
         private String userId;
-     /**
-      * 结束时间，传入的应为秒单位的时间戳，距当前的时间跨度不能超过365天。
-      * <p> 示例值：1665990378
-      */
+        /**
+         * 结束时间，传入的应为秒单位的时间戳，距当前的时间跨度不能超过365天。
+         * <p> 示例值：1665990378
+         */
         private String endTime;
 
         /**
          * 用户ID
          * <p> 示例值：ou_53edd3282dbc2fdbe5c593cfa5ce82ab
+         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-             this.userId = userId;
-             return this;
+            this.userId = userId;
+            return this;
         }
 
-    
 
         /**
          * 结束时间，传入的应为秒单位的时间戳，距当前的时间跨度不能超过365天。
          * <p> 示例值：1665990378
+         *
          * @param endTime
          * @return
          */
         public Builder endTime(String endTime) {
-             this.endTime = endTime;
-             return this;
+            this.endTime = endTime;
+            return this;
         }
 
-    
-    
-    public SystemStatusUserOpenParam build(){
-        return new SystemStatusUserOpenParam(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public SystemStatusUserOpenParam build() {
+            return new SystemStatusUserOpenParam(this);
+        }
     }
 }

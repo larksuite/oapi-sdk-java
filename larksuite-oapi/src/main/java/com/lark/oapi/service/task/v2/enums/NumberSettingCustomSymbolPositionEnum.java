@@ -17,15 +17,16 @@ package com.lark.oapi.service.task.v2.enums;
  * 自定义符号显示的位置。
  */
 public enum NumberSettingCustomSymbolPositionEnum {
-     LETF("left"), // 自定义符号放在数字左边
-     RIGHT("right"), // 自定义符号放在数字右边
-  ;
-   private String value;
+    LETF("left"), // 自定义符号放在数字左边
+    RIGHT("right"), // 自定义符号放在数字右边
+    ;
+    private String value;
+
     NumberSettingCustomSymbolPositionEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

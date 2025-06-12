@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class WorkforcePlanEaiDetail {
-     /**
-      * 预估月份
-      * <p> 示例值：“2020-10-31”
-      */
+    /**
+     * 预估月份
+     * <p> 示例值：“2020-10-31”
+     */
     @SerializedName("date")
     private String date;
-     /**
-      * 预估在职人数
-      * <p> 示例值：“10.00”
-      */
+    /**
+     * 预估在职人数
+     * <p> 示例值：“10.00”
+     */
     @SerializedName("estimated_active_individuals")
     private String estimatedActiveIndividuals;
+
+    // builder 开始
+    public WorkforcePlanEaiDetail() {
+    }
+
+    public WorkforcePlanEaiDetail(Builder builder) {
+        /**
+         * 预估月份
+         * <p> 示例值：“2020-10-31”
+         */
+        this.date = builder.date;
+        /**
+         * 预估在职人数
+         * <p> 示例值：“10.00”
+         */
+        this.estimatedActiveIndividuals = builder.estimatedActiveIndividuals;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getDate() {
         return this.date;
     }
@@ -53,67 +79,46 @@ public class WorkforcePlanEaiDetail {
         this.estimatedActiveIndividuals = estimatedActiveIndividuals;
     }
 
-
-// builder 开始
-  public WorkforcePlanEaiDetail(){}
-
-  public WorkforcePlanEaiDetail(Builder builder){
-         /**
-          * 预估月份
-          * <p> 示例值：“2020-10-31”
-          */
-      this.date = builder.date;
-         /**
-          * 预估在职人数
-          * <p> 示例值：“10.00”
-          */
-      this.estimatedActiveIndividuals = builder.estimatedActiveIndividuals;
-  }
-
     public static class Builder {
-     /**
-      * 预估月份
-      * <p> 示例值：“2020-10-31”
-      */
+        /**
+         * 预估月份
+         * <p> 示例值：“2020-10-31”
+         */
         private String date;
-     /**
-      * 预估在职人数
-      * <p> 示例值：“10.00”
-      */
+        /**
+         * 预估在职人数
+         * <p> 示例值：“10.00”
+         */
         private String estimatedActiveIndividuals;
 
         /**
          * 预估月份
          * <p> 示例值：“2020-10-31”
+         *
          * @param date
          * @return
          */
         public Builder date(String date) {
-             this.date = date;
-             return this;
+            this.date = date;
+            return this;
         }
 
-    
 
         /**
          * 预估在职人数
          * <p> 示例值：“10.00”
+         *
          * @param estimatedActiveIndividuals
          * @return
          */
         public Builder estimatedActiveIndividuals(String estimatedActiveIndividuals) {
-             this.estimatedActiveIndividuals = estimatedActiveIndividuals;
-             return this;
+            this.estimatedActiveIndividuals = estimatedActiveIndividuals;
+            return this;
         }
 
-    
-    
-    public WorkforcePlanEaiDetail build(){
-        return new WorkforcePlanEaiDetail(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public WorkforcePlanEaiDetail build() {
+            return new WorkforcePlanEaiDetail(this);
+        }
     }
 }

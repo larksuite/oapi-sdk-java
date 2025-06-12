@@ -17,14 +17,15 @@ package com.lark.oapi.service.mail.v1.enums;
  * The type of member. Possible values are:;- USER: internal user in the team
  */
 public enum CreatePublicMailboxMemberPublicMailboxMemberTypeEnum {
-     USER("USER"), // internal user in the team
-  ;
-   private String value;
+    USER("USER"), // internal user in the team
+    ;
+    private String value;
+
     CreatePublicMailboxMemberPublicMailboxMemberTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

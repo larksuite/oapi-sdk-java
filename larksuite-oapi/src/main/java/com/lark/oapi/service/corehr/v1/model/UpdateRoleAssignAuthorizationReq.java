@@ -12,39 +12,73 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class UpdateRoleAssignAuthorizationReq {
-     /**
-      * 雇员 ID
-      * <p> 示例值：67489937334909845
-      */
+    /**
+     * 雇员 ID
+     * <p> 示例值：67489937334909845
+     */
     @Query
     @SerializedName("employment_id")
     private String employmentId;
-     /**
-      * 用户 ID 类型
-      * <p> 示例值：people_corehr_id
-      */
+    /**
+     * 用户 ID 类型
+     * <p> 示例值：people_corehr_id
+     */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
-     /**
-      * 角色 ID
-      * <p> 示例值：67489937334909845
-      */
+    /**
+     * 角色 ID
+     * <p> 示例值：67489937334909845
+     */
     @Query
     @SerializedName("role_id")
     private String roleId;
+    @Body
+    private UpdateRoleAssignAuthorizationReqBody body;
+
+    // builder 开始
+    public UpdateRoleAssignAuthorizationReq() {
+    }
+
+    public UpdateRoleAssignAuthorizationReq(Builder builder) {
+        /**
+         * 雇员 ID
+         * <p> 示例值：67489937334909845
+         */
+        this.employmentId = builder.employmentId;
+        /**
+         * 用户 ID 类型
+         * <p> 示例值：people_corehr_id
+         */
+        this.userIdType = builder.userIdType;
+        /**
+         * 角色 ID
+         * <p> 示例值：67489937334909845
+         */
+        this.roleId = builder.roleId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getEmploymentId() {
         return this.employmentId;
     }
@@ -69,9 +103,6 @@ public class UpdateRoleAssignAuthorizationReq {
         this.roleId = roleId;
     }
 
-    @Body
-    private UpdateRoleAssignAuthorizationReqBody body;
-
     public UpdateRoleAssignAuthorizationReqBody getUpdateRoleAssignAuthorizationReqBody() {
         return this.body;
     }
@@ -80,101 +111,77 @@ public class UpdateRoleAssignAuthorizationReq {
         this.body = body;
     }
 
-// builder 开始
-  public UpdateRoleAssignAuthorizationReq(){}
-
-  public UpdateRoleAssignAuthorizationReq(Builder builder){
-         /**
-          * 雇员 ID
-          * <p> 示例值：67489937334909845
-          */
-       this.employmentId = builder.employmentId;
-         /**
-          * 用户 ID 类型
-          * <p> 示例值：people_corehr_id
-          */
-       this.userIdType = builder.userIdType;
-         /**
-          * 角色 ID
-          * <p> 示例值：67489937334909845
-          */
-       this.roleId = builder.roleId;
-        this.body = builder.body;
-  }
-
     public static class Builder {
         private String employmentId; // 雇员 ID
         private String userIdType; // 用户 ID 类型
         private String roleId; // 角色 ID
-    
+        private UpdateRoleAssignAuthorizationReqBody body;
+
         /**
          * 雇员 ID
          * <p> 示例值：67489937334909845
+         *
          * @param employmentId
          * @return
          */
-           public Builder employmentId(String employmentId) {
-                this.employmentId = employmentId;
-                return this;
-           }
+        public Builder employmentId(String employmentId) {
+            this.employmentId = employmentId;
+            return this;
+        }
 
-    
         /**
          * 用户 ID 类型
          * <p> 示例值：people_corehr_id
+         *
          * @param userIdType
          * @return
          */
-           public Builder userIdType(String userIdType) {
-                this.userIdType = userIdType;
-                return this;
-           }
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
 
         /**
          * 用户 ID 类型
          * <p> 示例值：people_corehr_id
+         *
          * @param userIdType {@link com.lark.oapi.service.corehr.v1.enums.UpdateRoleAssignAuthorizationUserIdTypeEnum}
          * @return
          */
-          public Builder userIdType(com.lark.oapi.service.corehr.v1.enums.UpdateRoleAssignAuthorizationUserIdTypeEnum userIdType) {
-               this.userIdType = userIdType.getValue();
-               return this;
-          }
+        public Builder userIdType(com.lark.oapi.service.corehr.v1.enums.UpdateRoleAssignAuthorizationUserIdTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
+            return this;
+        }
 
-    
         /**
          * 角色 ID
          * <p> 示例值：67489937334909845
+         *
          * @param roleId
          * @return
          */
-           public Builder roleId(String roleId) {
-                this.roleId = roleId;
-                return this;
-           }
+        public Builder roleId(String roleId) {
+            this.roleId = roleId;
+            return this;
+        }
 
-    
-        private UpdateRoleAssignAuthorizationReqBody body;
-    
         public UpdateRoleAssignAuthorizationReqBody getUpdateRoleAssignAuthorizationReqBody() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder updateRoleAssignAuthorizationReqBody(UpdateRoleAssignAuthorizationReqBody body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public UpdateRoleAssignAuthorizationReq build(){
-        return new UpdateRoleAssignAuthorizationReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public UpdateRoleAssignAuthorizationReq build() {
+            return new UpdateRoleAssignAuthorizationReq(this);
+        }
     }
 }

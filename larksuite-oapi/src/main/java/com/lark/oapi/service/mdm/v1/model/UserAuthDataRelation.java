@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.mdm.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.mdm.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,36 +20,71 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class UserAuthDataRelation {
-     /**
-      * 数据类型编码
-      * <p> 示例值：gongsi
-      */
+    /**
+     * 数据类型编码
+     * <p> 示例值：gongsi
+     */
     @SerializedName("root_dimension_type")
     private String rootDimensionType;
-     /**
-      * 数据编码列表
-      * <p> 示例值：zijie
-      */
+    /**
+     * 数据编码列表
+     * <p> 示例值：zijie
+     */
     @SerializedName("sub_dimension_types")
     private String[] subDimensionTypes;
-     /**
-      * 授权人的lark id
-      * <p> 示例值：on_21f2db9bdbafadeb16cd77b76060d41d
-      */
+    /**
+     * 授权人的lark id
+     * <p> 示例值：on_21f2db9bdbafadeb16cd77b76060d41d
+     */
     @SerializedName("authorized_user_ids")
     private String[] authorizedUserIds;
-     /**
-      * uams系统中应用id
-      * <p> 示例值：uams-tenant-test
-      */
+    /**
+     * uams系统中应用id
+     * <p> 示例值：uams-tenant-test
+     */
     @SerializedName("uams_app_id")
     private String uamsAppId;
+
+    // builder 开始
+    public UserAuthDataRelation() {
+    }
+
+    public UserAuthDataRelation(Builder builder) {
+        /**
+         * 数据类型编码
+         * <p> 示例值：gongsi
+         */
+        this.rootDimensionType = builder.rootDimensionType;
+        /**
+         * 数据编码列表
+         * <p> 示例值：zijie
+         */
+        this.subDimensionTypes = builder.subDimensionTypes;
+        /**
+         * 授权人的lark id
+         * <p> 示例值：on_21f2db9bdbafadeb16cd77b76060d41d
+         */
+        this.authorizedUserIds = builder.authorizedUserIds;
+        /**
+         * uams系统中应用id
+         * <p> 示例值：uams-tenant-test
+         */
+        this.uamsAppId = builder.uamsAppId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getRootDimensionType() {
         return this.rootDimensionType;
     }
@@ -81,113 +117,82 @@ public class UserAuthDataRelation {
         this.uamsAppId = uamsAppId;
     }
 
-
-// builder 开始
-  public UserAuthDataRelation(){}
-
-  public UserAuthDataRelation(Builder builder){
-         /**
-          * 数据类型编码
-          * <p> 示例值：gongsi
-          */
-      this.rootDimensionType = builder.rootDimensionType;
-         /**
-          * 数据编码列表
-          * <p> 示例值：zijie
-          */
-      this.subDimensionTypes = builder.subDimensionTypes;
-         /**
-          * 授权人的lark id
-          * <p> 示例值：on_21f2db9bdbafadeb16cd77b76060d41d
-          */
-      this.authorizedUserIds = builder.authorizedUserIds;
-         /**
-          * uams系统中应用id
-          * <p> 示例值：uams-tenant-test
-          */
-      this.uamsAppId = builder.uamsAppId;
-  }
-
     public static class Builder {
-     /**
-      * 数据类型编码
-      * <p> 示例值：gongsi
-      */
+        /**
+         * 数据类型编码
+         * <p> 示例值：gongsi
+         */
         private String rootDimensionType;
-     /**
-      * 数据编码列表
-      * <p> 示例值：zijie
-      */
+        /**
+         * 数据编码列表
+         * <p> 示例值：zijie
+         */
         private String[] subDimensionTypes;
-     /**
-      * 授权人的lark id
-      * <p> 示例值：on_21f2db9bdbafadeb16cd77b76060d41d
-      */
+        /**
+         * 授权人的lark id
+         * <p> 示例值：on_21f2db9bdbafadeb16cd77b76060d41d
+         */
         private String[] authorizedUserIds;
-     /**
-      * uams系统中应用id
-      * <p> 示例值：uams-tenant-test
-      */
+        /**
+         * uams系统中应用id
+         * <p> 示例值：uams-tenant-test
+         */
         private String uamsAppId;
 
         /**
          * 数据类型编码
          * <p> 示例值：gongsi
+         *
          * @param rootDimensionType
          * @return
          */
         public Builder rootDimensionType(String rootDimensionType) {
-             this.rootDimensionType = rootDimensionType;
-             return this;
+            this.rootDimensionType = rootDimensionType;
+            return this;
         }
 
-    
 
         /**
          * 数据编码列表
          * <p> 示例值：zijie
+         *
          * @param subDimensionTypes
          * @return
          */
         public Builder subDimensionTypes(String[] subDimensionTypes) {
-             this.subDimensionTypes = subDimensionTypes;
-             return this;
+            this.subDimensionTypes = subDimensionTypes;
+            return this;
         }
 
-    
 
         /**
          * 授权人的lark id
          * <p> 示例值：on_21f2db9bdbafadeb16cd77b76060d41d
+         *
          * @param authorizedUserIds
          * @return
          */
         public Builder authorizedUserIds(String[] authorizedUserIds) {
-             this.authorizedUserIds = authorizedUserIds;
-             return this;
+            this.authorizedUserIds = authorizedUserIds;
+            return this;
         }
 
-    
 
         /**
          * uams系统中应用id
          * <p> 示例值：uams-tenant-test
+         *
          * @param uamsAppId
          * @return
          */
         public Builder uamsAppId(String uamsAppId) {
-             this.uamsAppId = uamsAppId;
-             return this;
+            this.uamsAppId = uamsAppId;
+            return this;
         }
 
-    
-    
-    public UserAuthDataRelation build(){
-        return new UserAuthDataRelation(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public UserAuthDataRelation build() {
+            return new UserAuthDataRelation(this);
+        }
     }
 }

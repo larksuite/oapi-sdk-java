@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,78 +20,148 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Name {
-     /**
-      * 全名
-      * <p> 示例值：李一一
-      */
+    /**
+     * 全名
+     * <p> 示例值：李一一
+     */
     @SerializedName("full_name")
     private String fullName;
-     /**
-      * 名
-      * <p> 示例值：一
-      */
+    /**
+     * 名
+     * <p> 示例值：一
+     */
     @SerializedName("first_name")
     private String firstName;
-     /**
-      * 中间名
-      * <p> 示例值：一
-      */
+    /**
+     * 中间名
+     * <p> 示例值：一
+     */
     @SerializedName("middle_name")
     private String middleName;
-     /**
-      * 姓
-      * <p> 示例值：李
-      */
+    /**
+     * 姓
+     * <p> 示例值：李
+     */
     @SerializedName("name_primary")
     private String namePrimary;
-     /**
-      * 名 - 本地文字
-      * <p> 示例值：一
-      */
+    /**
+     * 名 - 本地文字
+     * <p> 示例值：一
+     */
     @SerializedName("local_first_name")
     private String localFirstName;
-     /**
-      * 本地中间名
-      * <p> 示例值：一
-      */
+    /**
+     * 本地中间名
+     * <p> 示例值：一
+     */
     @SerializedName("local_middle_name")
     private String localMiddleName;
-     /**
-      * 姓 - 本地文字
-      * <p> 示例值：李
-      */
+    /**
+     * 姓 - 本地文字
+     * <p> 示例值：李
+     */
     @SerializedName("local_primary")
     private String localPrimary;
-     /**
-      * 国家 / 地区
-      * <p> 示例值：6862995757234914824
-      */
+    /**
+     * 国家 / 地区
+     * <p> 示例值：6862995757234914824
+     */
     @SerializedName("country_region_id")
     private String countryRegionId;
-     /**
-      * 本地文字的自定义姓名
-      * <p> 示例值：李一一
-      */
+    /**
+     * 本地文字的自定义姓名
+     * <p> 示例值：李一一
+     */
     @SerializedName("custom_local_name")
     private String customLocalName;
-     /**
-      * 西方文字的自定义姓名
-      * <p> 示例值：YiyiLi
-      */
+    /**
+     * 西方文字的自定义姓名
+     * <p> 示例值：YiyiLi
+     */
     @SerializedName("custom_western_name")
     private String customWesternName;
-     /**
-      * 别名
-      * <p> 示例值：别名
-      */
+    /**
+     * 别名
+     * <p> 示例值：别名
+     */
     @SerializedName("additional_name")
     private String additionalName;
+
+    // builder 开始
+    public Name() {
+    }
+
+    public Name(Builder builder) {
+        /**
+         * 全名
+         * <p> 示例值：李一一
+         */
+        this.fullName = builder.fullName;
+        /**
+         * 名
+         * <p> 示例值：一
+         */
+        this.firstName = builder.firstName;
+        /**
+         * 中间名
+         * <p> 示例值：一
+         */
+        this.middleName = builder.middleName;
+        /**
+         * 姓
+         * <p> 示例值：李
+         */
+        this.namePrimary = builder.namePrimary;
+        /**
+         * 名 - 本地文字
+         * <p> 示例值：一
+         */
+        this.localFirstName = builder.localFirstName;
+        /**
+         * 本地中间名
+         * <p> 示例值：一
+         */
+        this.localMiddleName = builder.localMiddleName;
+        /**
+         * 姓 - 本地文字
+         * <p> 示例值：李
+         */
+        this.localPrimary = builder.localPrimary;
+        /**
+         * 国家 / 地区
+         * <p> 示例值：6862995757234914824
+         */
+        this.countryRegionId = builder.countryRegionId;
+        /**
+         * 本地文字的自定义姓名
+         * <p> 示例值：李一一
+         */
+        this.customLocalName = builder.customLocalName;
+        /**
+         * 西方文字的自定义姓名
+         * <p> 示例值：YiyiLi
+         */
+        this.customWesternName = builder.customWesternName;
+        /**
+         * 别名
+         * <p> 示例值：别名
+         */
+        this.additionalName = builder.additionalName;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getFullName() {
         return this.fullName;
     }
@@ -179,274 +250,208 @@ public class Name {
         this.additionalName = additionalName;
     }
 
-
-// builder 开始
-  public Name(){}
-
-  public Name(Builder builder){
-         /**
-          * 全名
-          * <p> 示例值：李一一
-          */
-      this.fullName = builder.fullName;
-         /**
-          * 名
-          * <p> 示例值：一
-          */
-      this.firstName = builder.firstName;
-         /**
-          * 中间名
-          * <p> 示例值：一
-          */
-      this.middleName = builder.middleName;
-         /**
-          * 姓
-          * <p> 示例值：李
-          */
-      this.namePrimary = builder.namePrimary;
-         /**
-          * 名 - 本地文字
-          * <p> 示例值：一
-          */
-      this.localFirstName = builder.localFirstName;
-         /**
-          * 本地中间名
-          * <p> 示例值：一
-          */
-      this.localMiddleName = builder.localMiddleName;
-         /**
-          * 姓 - 本地文字
-          * <p> 示例值：李
-          */
-      this.localPrimary = builder.localPrimary;
-         /**
-          * 国家 / 地区
-          * <p> 示例值：6862995757234914824
-          */
-      this.countryRegionId = builder.countryRegionId;
-         /**
-          * 本地文字的自定义姓名
-          * <p> 示例值：李一一
-          */
-      this.customLocalName = builder.customLocalName;
-         /**
-          * 西方文字的自定义姓名
-          * <p> 示例值：YiyiLi
-          */
-      this.customWesternName = builder.customWesternName;
-         /**
-          * 别名
-          * <p> 示例值：别名
-          */
-      this.additionalName = builder.additionalName;
-  }
-
     public static class Builder {
-     /**
-      * 全名
-      * <p> 示例值：李一一
-      */
+        /**
+         * 全名
+         * <p> 示例值：李一一
+         */
         private String fullName;
-     /**
-      * 名
-      * <p> 示例值：一
-      */
+        /**
+         * 名
+         * <p> 示例值：一
+         */
         private String firstName;
-     /**
-      * 中间名
-      * <p> 示例值：一
-      */
+        /**
+         * 中间名
+         * <p> 示例值：一
+         */
         private String middleName;
-     /**
-      * 姓
-      * <p> 示例值：李
-      */
+        /**
+         * 姓
+         * <p> 示例值：李
+         */
         private String namePrimary;
-     /**
-      * 名 - 本地文字
-      * <p> 示例值：一
-      */
+        /**
+         * 名 - 本地文字
+         * <p> 示例值：一
+         */
         private String localFirstName;
-     /**
-      * 本地中间名
-      * <p> 示例值：一
-      */
+        /**
+         * 本地中间名
+         * <p> 示例值：一
+         */
         private String localMiddleName;
-     /**
-      * 姓 - 本地文字
-      * <p> 示例值：李
-      */
+        /**
+         * 姓 - 本地文字
+         * <p> 示例值：李
+         */
         private String localPrimary;
-     /**
-      * 国家 / 地区
-      * <p> 示例值：6862995757234914824
-      */
+        /**
+         * 国家 / 地区
+         * <p> 示例值：6862995757234914824
+         */
         private String countryRegionId;
-     /**
-      * 本地文字的自定义姓名
-      * <p> 示例值：李一一
-      */
+        /**
+         * 本地文字的自定义姓名
+         * <p> 示例值：李一一
+         */
         private String customLocalName;
-     /**
-      * 西方文字的自定义姓名
-      * <p> 示例值：YiyiLi
-      */
+        /**
+         * 西方文字的自定义姓名
+         * <p> 示例值：YiyiLi
+         */
         private String customWesternName;
-     /**
-      * 别名
-      * <p> 示例值：别名
-      */
+        /**
+         * 别名
+         * <p> 示例值：别名
+         */
         private String additionalName;
 
         /**
          * 全名
          * <p> 示例值：李一一
+         *
          * @param fullName
          * @return
          */
         public Builder fullName(String fullName) {
-             this.fullName = fullName;
-             return this;
+            this.fullName = fullName;
+            return this;
         }
 
-    
 
         /**
          * 名
          * <p> 示例值：一
+         *
          * @param firstName
          * @return
          */
         public Builder firstName(String firstName) {
-             this.firstName = firstName;
-             return this;
+            this.firstName = firstName;
+            return this;
         }
 
-    
 
         /**
          * 中间名
          * <p> 示例值：一
+         *
          * @param middleName
          * @return
          */
         public Builder middleName(String middleName) {
-             this.middleName = middleName;
-             return this;
+            this.middleName = middleName;
+            return this;
         }
 
-    
 
         /**
          * 姓
          * <p> 示例值：李
+         *
          * @param namePrimary
          * @return
          */
         public Builder namePrimary(String namePrimary) {
-             this.namePrimary = namePrimary;
-             return this;
+            this.namePrimary = namePrimary;
+            return this;
         }
 
-    
 
         /**
          * 名 - 本地文字
          * <p> 示例值：一
+         *
          * @param localFirstName
          * @return
          */
         public Builder localFirstName(String localFirstName) {
-             this.localFirstName = localFirstName;
-             return this;
+            this.localFirstName = localFirstName;
+            return this;
         }
 
-    
 
         /**
          * 本地中间名
          * <p> 示例值：一
+         *
          * @param localMiddleName
          * @return
          */
         public Builder localMiddleName(String localMiddleName) {
-             this.localMiddleName = localMiddleName;
-             return this;
+            this.localMiddleName = localMiddleName;
+            return this;
         }
 
-    
 
         /**
          * 姓 - 本地文字
          * <p> 示例值：李
+         *
          * @param localPrimary
          * @return
          */
         public Builder localPrimary(String localPrimary) {
-             this.localPrimary = localPrimary;
-             return this;
+            this.localPrimary = localPrimary;
+            return this;
         }
 
-    
 
         /**
          * 国家 / 地区
          * <p> 示例值：6862995757234914824
+         *
          * @param countryRegionId
          * @return
          */
         public Builder countryRegionId(String countryRegionId) {
-             this.countryRegionId = countryRegionId;
-             return this;
+            this.countryRegionId = countryRegionId;
+            return this;
         }
 
-    
 
         /**
          * 本地文字的自定义姓名
          * <p> 示例值：李一一
+         *
          * @param customLocalName
          * @return
          */
         public Builder customLocalName(String customLocalName) {
-             this.customLocalName = customLocalName;
-             return this;
+            this.customLocalName = customLocalName;
+            return this;
         }
 
-    
 
         /**
          * 西方文字的自定义姓名
          * <p> 示例值：YiyiLi
+         *
          * @param customWesternName
          * @return
          */
         public Builder customWesternName(String customWesternName) {
-             this.customWesternName = customWesternName;
-             return this;
+            this.customWesternName = customWesternName;
+            return this;
         }
 
-    
 
         /**
          * 别名
          * <p> 示例值：别名
+         *
          * @param additionalName
          * @return
          */
         public Builder additionalName(String additionalName) {
-             this.additionalName = additionalName;
-             return this;
+            this.additionalName = additionalName;
+            return this;
         }
 
-    
-    
-    public Name build(){
-        return new Name(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Name build() {
+            return new Name(this);
+        }
     }
 }

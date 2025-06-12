@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class GlobalOptionFilter {
-     /**
-      * 模糊匹配 GlobalOption.Label 字段
-      * <p> 示例值：option_xx
-      */
+    /**
+     * 模糊匹配 GlobalOption.Label 字段
+     * <p> 示例值：option_xx
+     */
     @SerializedName("quick_query")
     private String quickQuery;
+
+    // builder 开始
+    public GlobalOptionFilter() {
+    }
+
+    public GlobalOptionFilter(Builder builder) {
+        /**
+         * 模糊匹配 GlobalOption.Label 字段
+         * <p> 示例值：option_xx
+         */
+        this.quickQuery = builder.quickQuery;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getQuickQuery() {
         return this.quickQuery;
     }
@@ -39,44 +60,28 @@ public class GlobalOptionFilter {
         this.quickQuery = quickQuery;
     }
 
-
-// builder 开始
-  public GlobalOptionFilter(){}
-
-  public GlobalOptionFilter(Builder builder){
-         /**
-          * 模糊匹配 GlobalOption.Label 字段
-          * <p> 示例值：option_xx
-          */
-      this.quickQuery = builder.quickQuery;
-  }
-
     public static class Builder {
-     /**
-      * 模糊匹配 GlobalOption.Label 字段
-      * <p> 示例值：option_xx
-      */
+        /**
+         * 模糊匹配 GlobalOption.Label 字段
+         * <p> 示例值：option_xx
+         */
         private String quickQuery;
 
         /**
          * 模糊匹配 GlobalOption.Label 字段
          * <p> 示例值：option_xx
+         *
          * @param quickQuery
          * @return
          */
         public Builder quickQuery(String quickQuery) {
-             this.quickQuery = quickQuery;
-             return this;
+            this.quickQuery = quickQuery;
+            return this;
         }
 
-    
-    
-    public GlobalOptionFilter build(){
-        return new GlobalOptionFilter(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public GlobalOptionFilter build() {
+            return new GlobalOptionFilter(this);
+        }
     }
 }

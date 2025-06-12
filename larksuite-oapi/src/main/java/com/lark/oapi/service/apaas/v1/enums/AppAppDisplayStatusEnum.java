@@ -17,18 +17,19 @@ package com.lark.oapi.service.apaas.v1.enums;
  * aPaaS 产品应用的状态
  */
 public enum AppAppDisplayStatusEnum {
-     PENDING_LAUNCH("pending_launch"), // 应用待发布
-     ENABLED("enabled"), // 应用已发布
-     DISABLED("disabled"), // 应用已停用
-     STOPPED("stopped"), // 应用已停服
-     UNSPECIFIED("unspecified"), // 应用状态未确定
-  ;
-   private String value;
+    PENDING_LAUNCH("pending_launch"), // 应用待发布
+    ENABLED("enabled"), // 应用已发布
+    DISABLED("disabled"), // 应用已停用
+    STOPPED("stopped"), // 应用已停服
+    UNSPECIFIED("unspecified"), // 应用状态未确定
+    ;
+    private String value;
+
     AppAppDisplayStatusEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

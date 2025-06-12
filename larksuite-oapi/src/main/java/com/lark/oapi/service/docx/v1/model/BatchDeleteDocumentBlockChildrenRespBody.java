@@ -12,30 +12,35 @@
  */
 
 package com.lark.oapi.service.docx.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class BatchDeleteDocumentBlockChildrenRespBody {
-     /**
-      * 当前删除操作成功后文档的版本号
-      * <p> 示例值：1
-      */
+    /**
+     * 当前删除操作成功后文档的版本号
+     * <p> 示例值：1
+     */
     @SerializedName("document_revision_id")
     private Integer documentRevisionId;
-     /**
-      * 操作的唯一标识，更新请求中使用此值表示幂等的进行此次更新
-      * <p> 示例值：fe599b60-450f-46ff-b2ef-9f6675625b97
-      */
+    /**
+     * 操作的唯一标识，更新请求中使用此值表示幂等的进行此次更新
+     * <p> 示例值：fe599b60-450f-46ff-b2ef-9f6675625b97
+     */
     @SerializedName("client_token")
     private String clientToken;
+
     public Integer getDocumentRevisionId() {
         return this.documentRevisionId;
     }

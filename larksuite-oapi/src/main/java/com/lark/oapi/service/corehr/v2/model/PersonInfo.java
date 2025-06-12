@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,372 +20,687 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class PersonInfo {
-     /**
-      * 个人信息 ID
-      * <p> 示例值：6919733936050406926
-      */
+    /**
+     * 个人信息 ID
+     * <p> 示例值：6919733936050406926
+     */
     @SerializedName("person_id")
     private String personId;
-     /**
-      * 个人电话
-      * <p> 示例值：13649211111
-      */
+    /**
+     * 个人电话
+     * <p> 示例值：13649211111
+     */
     @SerializedName("phone_number")
     private String phoneNumber;
-     /**
-      * 法定姓名
-      * <p> 示例值：张三
-      */
+    /**
+     * 法定姓名
+     * <p> 示例值：张三
+     */
     @SerializedName("legal_name")
     private String legalName;
-     /**
-      * 常用名
-      * <p> 示例值：刘梓新(Henry)
-      */
+    /**
+     * 常用名
+     * <p> 示例值：刘梓新(Henry)
+     */
     @SerializedName("preferred_name")
     private String preferredName;
-     /**
-      * 别名
-      * <p> 示例值：梓新
-      */
+    /**
+     * 别名
+     * <p> 示例值：梓新
+     */
     @SerializedName("additional_name")
     private String additionalName;
-     /**
-      * 常用本地全名
-      * <p> 示例值：刘梓新
-      */
+    /**
+     * 常用本地全名
+     * <p> 示例值：刘梓新
+     */
     @SerializedName("preferred_local_full_name")
     private String preferredLocalFullName;
-     /**
-      * 常用英文全名
-      * <p> 示例值：Henry
-      */
+    /**
+     * 常用英文全名
+     * <p> 示例值：Henry
+     */
     @SerializedName("preferred_english_full_name")
     private String preferredEnglishFullName;
-     /**
-      * 姓名列表
-      * <p> 示例值：
-      */
+    /**
+     * 姓名列表
+     * <p> 示例值：
+     */
     @SerializedName("name_list")
     private PersonName[] nameList;
-     /**
-      * -| 性别，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：gender - object_api_name：person
-      * <p> 示例值：
-      */
+    /**
+     * -| 性别，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：gender - object_api_name：person
+     * <p> 示例值：
+     */
     @SerializedName("gender")
     private Enum gender;
-     /**
-      * 出生日期
-      * <p> 示例值：2020-01-01
-      */
+    /**
+     * 出生日期
+     * <p> 示例值：2020-01-01
+     */
     @SerializedName("date_of_birth")
     private String dateOfBirth;
-     /**
-      * 国籍 ID ，国籍数据可通过【查询国家/地区信息】接口获取
-      * <p> 示例值：6862995757234914811
-      */
+    /**
+     * 国籍 ID ，国籍数据可通过【查询国家/地区信息】接口获取
+     * <p> 示例值：6862995757234914811
+     */
     @SerializedName("nationality_id")
     private String nationalityId;
-     /**
-      * 国籍 ID，可通过【查询国籍信息】接口查询
-      * <p> 示例值：6862995757234914821
-      */
+    /**
+     * 国籍 ID，可通过【查询国籍信息】接口查询
+     * <p> 示例值：6862995757234914821
+     */
     @SerializedName("nationality_id_v2")
     private String nationalityIdV2;
-     /**
-      * 其他国籍
-      * <p> 示例值：
-      */
+    /**
+     * 其他国籍
+     * <p> 示例值：
+     */
     @SerializedName("additional_nationalities")
     private Nationality[] additionalNationalities;
-     /**
-      * 公民身份
-      * <p> 示例值：
-      */
+    /**
+     * 公民身份
+     * <p> 示例值：
+     */
     @SerializedName("citizenship_status")
     private CitizenshipStatus[] citizenshipStatus;
-     /**
-      * -| 民族 / 种族，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：ethnicity_race - object_api_name：person
-      * <p> 示例值：
-      */
+    /**
+     * -| 民族 / 种族，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：ethnicity_race - object_api_name：person
+     * <p> 示例值：
+     */
     @SerializedName("race")
     private Enum race;
-     /**
-      * -| 婚姻状况，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：marital_status - object_api_name：person
-      * <p> 示例值：
-      */
+    /**
+     * -| 婚姻状况，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：marital_status - object_api_name：person
+     * <p> 示例值：
+     */
     @SerializedName("marital_status")
     private Enum maritalStatus;
-     /**
-      * 电话列表，只有当满足下面所有条件时，电话在个人信息页才可见
-      * <p> 示例值：
-      */
+    /**
+     * 电话列表，只有当满足下面所有条件时，电话在个人信息页才可见
+     * <p> 示例值：
+     */
     @SerializedName("phone_list")
     private Phone[] phoneList;
-     /**
-      * 地址列表
-      * <p> 示例值：
-      */
+    /**
+     * 地址列表
+     * <p> 示例值：
+     */
     @SerializedName("address_list")
     private Address[] addressList;
-     /**
-      * 邮箱列表
-      * <p> 示例值：
-      */
+    /**
+     * 邮箱列表
+     * <p> 示例值：
+     */
     @SerializedName("email_list")
     private Email[] emailList;
-     /**
-      * 工作经历列表
-      * <p> 示例值：
-      */
+    /**
+     * 工作经历列表
+     * <p> 示例值：
+     */
     @SerializedName("work_experience_list")
     private WorkExperienceInfo[] workExperienceList;
-     /**
-      * 教育经历列表
-      * <p> 示例值：
-      */
+    /**
+     * 教育经历列表
+     * <p> 示例值：
+     */
     @SerializedName("education_list")
     private Education[] educationList;
-     /**
-      * 银行账户
-      * <p> 示例值：
-      */
+    /**
+     * 银行账户
+     * <p> 示例值：
+     */
     @SerializedName("bank_account_list")
     private BankAccount[] bankAccountList;
-     /**
-      * 证件
-      * <p> 示例值：
-      */
+    /**
+     * 证件
+     * <p> 示例值：
+     */
     @SerializedName("national_id_list")
     private NationalId[] nationalIdList;
-     /**
-      * 家庭成员列表
-      * <p> 示例值：
-      */
+    /**
+     * 家庭成员列表
+     * <p> 示例值：
+     */
     @SerializedName("dependent_list")
     private Dependent[] dependentList;
-     /**
-      * 紧急联系人列表
-      * <p> 示例值：
-      */
+    /**
+     * 紧急联系人列表
+     * <p> 示例值：
+     */
     @SerializedName("emergency_contact_list")
     private EmergencyContact[] emergencyContactList;
-     /**
-      * 参加工作日期
-      * <p> 示例值：2020-10-01
-      */
+    /**
+     * 参加工作日期
+     * <p> 示例值：2020-10-01
+     */
     @SerializedName("date_entered_workforce")
     private String dateEnteredWorkforce;
-     /**
-      * 工龄
-      * <p> 示例值：2
-      */
+    /**
+     * 工龄
+     * <p> 示例值：2
+     */
     @SerializedName("working_years")
     private Integer workingYears;
-     /**
-      * 头像资源的 ID
-      * <p> 示例值：dfysuc8x76dsfsw
-      */
+    /**
+     * 头像资源的 ID
+     * <p> 示例值：dfysuc8x76dsfsw
+     */
     @SerializedName("profile_image_id")
     private String profileImageId;
-     /**
-      * 邮箱地址
-      * <p> 示例值：test@163.com
-      */
+    /**
+     * 邮箱地址
+     * <p> 示例值：test@163.com
+     */
     @SerializedName("email_address")
     private String emailAddress;
-     /**
-      * 年龄
-      * <p> 示例值：22
-      */
+    /**
+     * 年龄
+     * <p> 示例值：22
+     */
     @SerializedName("age")
     private Integer age;
-     /**
-      * 最高学历教育经历
-      * <p> 示例值：
-      */
+    /**
+     * 最高学历教育经历
+     * <p> 示例值：
+     */
     @SerializedName("highest_level_of_education")
     private Education highestLevelOfEducation;
-     /**
-      * 最高学位教育经历
-      * <p> 示例值：
-      */
+    /**
+     * 最高学位教育经历
+     * <p> 示例值：
+     */
     @SerializedName("highest_degree_of_education")
     private Education highestDegreeOfEducation;
-     /**
-      * 个人资料附件
-      * <p> 示例值：
-      */
+    /**
+     * 个人资料附件
+     * <p> 示例值：
+     */
     @SerializedName("personal_profile")
     private PersonalProfile[] personalProfile;
-     /**
-      * 籍贯 ID
-      * <p> 示例值：6863326262618752111
-      */
+    /**
+     * 籍贯 ID
+     * <p> 示例值：6863326262618752111
+     */
     @SerializedName("native_region")
     private String nativeRegion;
-     /**
-      * 户口类型，枚举值可通过文档【飞书人事枚举常量】户口类型（hukou_type）枚举定义部分获得
-      * <p> 示例值：
-      */
+    /**
+     * 户口类型，枚举值可通过文档【飞书人事枚举常量】户口类型（hukou_type）枚举定义部分获得
+     * <p> 示例值：
+     */
     @SerializedName("hukou_type")
     private Enum hukouType;
-     /**
-      * 户口所在地
-      * <p> 示例值：山东省平阴县
-      */
+    /**
+     * 户口所在地
+     * <p> 示例值：山东省平阴县
+     */
     @SerializedName("hukou_location")
     private String hukouLocation;
-     /**
-      * 政治面貌，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：political_affiliation - object_api_name：person_info_chn
-      * <p> 示例值：
-      */
+    /**
+     * 政治面貌，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：political_affiliation - object_api_name：person_info_chn
+     * <p> 示例值：
+     */
     @SerializedName("political_affiliations")
     private Enum[] politicalAffiliations;
-     /**
-      * 人才 ID
-      * <p> 示例值：6863326262618752123
-      */
+    /**
+     * 人才 ID
+     * <p> 示例值：6863326262618752123
+     */
     @SerializedName("talent_id")
     private String talentId;
-     /**
-      * 自定义字段
-      * <p> 示例值：
-      */
+    /**
+     * 自定义字段
+     * <p> 示例值：
+     */
     @SerializedName("custom_fields")
     private CustomFieldData[] customFields;
-     /**
-      * 居民身份证件号码
-      * <p> 示例值：11010000000000
-      */
+    /**
+     * 居民身份证件号码
+     * <p> 示例值：11010000000000
+     */
     @SerializedName("national_id_number")
     private String nationalIdNumber;
-     /**
-      * 家庭地址
-      * <p> 示例值：6863326262618752123
-      */
+    /**
+     * 家庭地址
+     * <p> 示例值：6863326262618752123
+     */
     @SerializedName("family_address")
     private String familyAddress;
-     /**
-      * 个人附加信息
-      * <p> 示例值：6863326262618752123
-      */
+    /**
+     * 个人附加信息
+     * <p> 示例值：6863326262618752123
+     */
     @SerializedName("person_info_chns")
     private PersonInfoChn[] personInfoChns;
-     /**
-      * 出生国家/地区
-      * <p> 示例值：中国
-      */
+    /**
+     * 出生国家/地区
+     * <p> 示例值：中国
+     */
     @SerializedName("born_country_region")
     private String bornCountryRegion;
-     /**
-      * 是否残疾
-      * <p> 示例值：true
-      */
+    /**
+     * 是否残疾
+     * <p> 示例值：true
+     */
     @SerializedName("is_disabled")
     private Boolean isDisabled;
-     /**
-      * 残疾证号
-      * <p> 示例值：1110000
-      */
+    /**
+     * 残疾证号
+     * <p> 示例值：1110000
+     */
     @SerializedName("disable_card_number")
     private String disableCardNumber;
-     /**
-      * 是否烈属
-      * <p> 示例值：true
-      */
+    /**
+     * 是否烈属
+     * <p> 示例值：true
+     */
     @SerializedName("is_martyr_family")
     private Boolean isMartyrFamily;
-     /**
-      * 烈属证号
-      * <p> 示例值：1110000
-      */
+    /**
+     * 烈属证号
+     * <p> 示例值：1110000
+     */
     @SerializedName("martyr_card_number")
     private String martyrCardNumber;
-     /**
-      * 是否孤老
-      * <p> 示例值：true
-      */
+    /**
+     * 是否孤老
+     * <p> 示例值：true
+     */
     @SerializedName("is_old_alone")
     private Boolean isOldAlone;
-     /**
-      * 居民身份信息
-      * <p> 示例值：6863326262618752123
-      */
+    /**
+     * 居民身份信息
+     * <p> 示例值：6863326262618752123
+     */
     @SerializedName("resident_taxes")
     private ResidentTax[] residentTaxes;
-     /**
-      * 首次入境日期
-      * <p> 示例值：2021-01-02
-      */
+    /**
+     * 首次入境日期
+     * <p> 示例值：2021-01-02
+     */
     @SerializedName("first_entry_time")
     private String firstEntryTime;
-     /**
-      * 预计离境日期
-      * <p> 示例值：2022-01-02
-      */
+    /**
+     * 预计离境日期
+     * <p> 示例值：2022-01-02
+     */
     @SerializedName("leave_time")
     private String leaveTime;
-     /**
-      * -| 宗教信仰，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - object_api_name：person - custom_api_name：religion
-      * <p> 示例值：
-      */
+    /**
+     * -| 宗教信仰，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - object_api_name：person - custom_api_name：religion
+     * <p> 示例值：
+     */
     @SerializedName("religion")
     private Enum religion;
-     /**
-      * 工龄 浮点类型
-      * <p> 示例值：2.1
-      */
+    /**
+     * 工龄 浮点类型
+     * <p> 示例值：2.1
+     */
     @SerializedName("working_years_v2")
     private Double workingYearsV2;
-     /**
-      * 个人信息 创建时间
-      * <p> 示例值：2022-01-02
-      */
+    /**
+     * 个人信息 创建时间
+     * <p> 示例值：2022-01-02
+     */
     @SerializedName("created_at")
     private String createdAt;
-     /**
-      * 个人信息 更新时间
-      * <p> 示例值：2022-01-02
-      */
+    /**
+     * 个人信息 更新时间
+     * <p> 示例值：2022-01-02
+     */
     @SerializedName("updated_at")
     private String updatedAt;
-     /**
-      * 个人信息 创建人
-      * <p> 示例值：69928404442626824
-      */
+    /**
+     * 个人信息 创建人
+     * <p> 示例值：69928404442626824
+     */
     @SerializedName("created_by")
     private String createdBy;
-     /**
-      * 个人信息 更新人
-      * <p> 示例值：69928404442626824
-      */
+    /**
+     * 个人信息 更新人
+     * <p> 示例值：69928404442626824
+     */
     @SerializedName("updated_by")
     private String updatedBy;
-     /**
-      * 银行卡号
-      * <p> 示例值：69928404442626824
-      */
+    /**
+     * 银行卡号
+     * <p> 示例值：69928404442626824
+     */
     @SerializedName("bank_account_number")
     private String bankAccountNumber;
-     /**
-      * 护照号码
-      * <p> 示例值：6919733936050406926
-      */
+    /**
+     * 护照号码
+     * <p> 示例值：6919733936050406926
+     */
     @SerializedName("passport_number")
     private String passportNumber;
-     /**
-      * 上家公司
-      * <p> 示例值：
-      */
+    /**
+     * 上家公司
+     * <p> 示例值：
+     */
     @SerializedName("former_employer")
     private I18n[] formerEmployer;
+
+    // builder 开始
+    public PersonInfo() {
+    }
+
+    public PersonInfo(Builder builder) {
+        /**
+         * 个人信息 ID
+         * <p> 示例值：6919733936050406926
+         */
+        this.personId = builder.personId;
+        /**
+         * 个人电话
+         * <p> 示例值：13649211111
+         */
+        this.phoneNumber = builder.phoneNumber;
+        /**
+         * 法定姓名
+         * <p> 示例值：张三
+         */
+        this.legalName = builder.legalName;
+        /**
+         * 常用名
+         * <p> 示例值：刘梓新(Henry)
+         */
+        this.preferredName = builder.preferredName;
+        /**
+         * 别名
+         * <p> 示例值：梓新
+         */
+        this.additionalName = builder.additionalName;
+        /**
+         * 常用本地全名
+         * <p> 示例值：刘梓新
+         */
+        this.preferredLocalFullName = builder.preferredLocalFullName;
+        /**
+         * 常用英文全名
+         * <p> 示例值：Henry
+         */
+        this.preferredEnglishFullName = builder.preferredEnglishFullName;
+        /**
+         * 姓名列表
+         * <p> 示例值：
+         */
+        this.nameList = builder.nameList;
+        /**
+         * -| 性别，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：gender - object_api_name：person
+         * <p> 示例值：
+         */
+        this.gender = builder.gender;
+        /**
+         * 出生日期
+         * <p> 示例值：2020-01-01
+         */
+        this.dateOfBirth = builder.dateOfBirth;
+        /**
+         * 国籍 ID ，国籍数据可通过【查询国家/地区信息】接口获取
+         * <p> 示例值：6862995757234914811
+         */
+        this.nationalityId = builder.nationalityId;
+        /**
+         * 国籍 ID，可通过【查询国籍信息】接口查询
+         * <p> 示例值：6862995757234914821
+         */
+        this.nationalityIdV2 = builder.nationalityIdV2;
+        /**
+         * 其他国籍
+         * <p> 示例值：
+         */
+        this.additionalNationalities = builder.additionalNationalities;
+        /**
+         * 公民身份
+         * <p> 示例值：
+         */
+        this.citizenshipStatus = builder.citizenshipStatus;
+        /**
+         * -| 民族 / 种族，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：ethnicity_race - object_api_name：person
+         * <p> 示例值：
+         */
+        this.race = builder.race;
+        /**
+         * -| 婚姻状况，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：marital_status - object_api_name：person
+         * <p> 示例值：
+         */
+        this.maritalStatus = builder.maritalStatus;
+        /**
+         * 电话列表，只有当满足下面所有条件时，电话在个人信息页才可见
+         * <p> 示例值：
+         */
+        this.phoneList = builder.phoneList;
+        /**
+         * 地址列表
+         * <p> 示例值：
+         */
+        this.addressList = builder.addressList;
+        /**
+         * 邮箱列表
+         * <p> 示例值：
+         */
+        this.emailList = builder.emailList;
+        /**
+         * 工作经历列表
+         * <p> 示例值：
+         */
+        this.workExperienceList = builder.workExperienceList;
+        /**
+         * 教育经历列表
+         * <p> 示例值：
+         */
+        this.educationList = builder.educationList;
+        /**
+         * 银行账户
+         * <p> 示例值：
+         */
+        this.bankAccountList = builder.bankAccountList;
+        /**
+         * 证件
+         * <p> 示例值：
+         */
+        this.nationalIdList = builder.nationalIdList;
+        /**
+         * 家庭成员列表
+         * <p> 示例值：
+         */
+        this.dependentList = builder.dependentList;
+        /**
+         * 紧急联系人列表
+         * <p> 示例值：
+         */
+        this.emergencyContactList = builder.emergencyContactList;
+        /**
+         * 参加工作日期
+         * <p> 示例值：2020-10-01
+         */
+        this.dateEnteredWorkforce = builder.dateEnteredWorkforce;
+        /**
+         * 工龄
+         * <p> 示例值：2
+         */
+        this.workingYears = builder.workingYears;
+        /**
+         * 头像资源的 ID
+         * <p> 示例值：dfysuc8x76dsfsw
+         */
+        this.profileImageId = builder.profileImageId;
+        /**
+         * 邮箱地址
+         * <p> 示例值：test@163.com
+         */
+        this.emailAddress = builder.emailAddress;
+        /**
+         * 年龄
+         * <p> 示例值：22
+         */
+        this.age = builder.age;
+        /**
+         * 最高学历教育经历
+         * <p> 示例值：
+         */
+        this.highestLevelOfEducation = builder.highestLevelOfEducation;
+        /**
+         * 最高学位教育经历
+         * <p> 示例值：
+         */
+        this.highestDegreeOfEducation = builder.highestDegreeOfEducation;
+        /**
+         * 个人资料附件
+         * <p> 示例值：
+         */
+        this.personalProfile = builder.personalProfile;
+        /**
+         * 籍贯 ID
+         * <p> 示例值：6863326262618752111
+         */
+        this.nativeRegion = builder.nativeRegion;
+        /**
+         * 户口类型，枚举值可通过文档【飞书人事枚举常量】户口类型（hukou_type）枚举定义部分获得
+         * <p> 示例值：
+         */
+        this.hukouType = builder.hukouType;
+        /**
+         * 户口所在地
+         * <p> 示例值：山东省平阴县
+         */
+        this.hukouLocation = builder.hukouLocation;
+        /**
+         * 政治面貌，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：political_affiliation - object_api_name：person_info_chn
+         * <p> 示例值：
+         */
+        this.politicalAffiliations = builder.politicalAffiliations;
+        /**
+         * 人才 ID
+         * <p> 示例值：6863326262618752123
+         */
+        this.talentId = builder.talentId;
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
+        this.customFields = builder.customFields;
+        /**
+         * 居民身份证件号码
+         * <p> 示例值：11010000000000
+         */
+        this.nationalIdNumber = builder.nationalIdNumber;
+        /**
+         * 家庭地址
+         * <p> 示例值：6863326262618752123
+         */
+        this.familyAddress = builder.familyAddress;
+        /**
+         * 个人附加信息
+         * <p> 示例值：6863326262618752123
+         */
+        this.personInfoChns = builder.personInfoChns;
+        /**
+         * 出生国家/地区
+         * <p> 示例值：中国
+         */
+        this.bornCountryRegion = builder.bornCountryRegion;
+        /**
+         * 是否残疾
+         * <p> 示例值：true
+         */
+        this.isDisabled = builder.isDisabled;
+        /**
+         * 残疾证号
+         * <p> 示例值：1110000
+         */
+        this.disableCardNumber = builder.disableCardNumber;
+        /**
+         * 是否烈属
+         * <p> 示例值：true
+         */
+        this.isMartyrFamily = builder.isMartyrFamily;
+        /**
+         * 烈属证号
+         * <p> 示例值：1110000
+         */
+        this.martyrCardNumber = builder.martyrCardNumber;
+        /**
+         * 是否孤老
+         * <p> 示例值：true
+         */
+        this.isOldAlone = builder.isOldAlone;
+        /**
+         * 居民身份信息
+         * <p> 示例值：6863326262618752123
+         */
+        this.residentTaxes = builder.residentTaxes;
+        /**
+         * 首次入境日期
+         * <p> 示例值：2021-01-02
+         */
+        this.firstEntryTime = builder.firstEntryTime;
+        /**
+         * 预计离境日期
+         * <p> 示例值：2022-01-02
+         */
+        this.leaveTime = builder.leaveTime;
+        /**
+         * -| 宗教信仰，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - object_api_name：person - custom_api_name：religion
+         * <p> 示例值：
+         */
+        this.religion = builder.religion;
+        /**
+         * 工龄 浮点类型
+         * <p> 示例值：2.1
+         */
+        this.workingYearsV2 = builder.workingYearsV2;
+        /**
+         * 个人信息 创建时间
+         * <p> 示例值：2022-01-02
+         */
+        this.createdAt = builder.createdAt;
+        /**
+         * 个人信息 更新时间
+         * <p> 示例值：2022-01-02
+         */
+        this.updatedAt = builder.updatedAt;
+        /**
+         * 个人信息 创建人
+         * <p> 示例值：69928404442626824
+         */
+        this.createdBy = builder.createdBy;
+        /**
+         * 个人信息 更新人
+         * <p> 示例值：69928404442626824
+         */
+        this.updatedBy = builder.updatedBy;
+        /**
+         * 银行卡号
+         * <p> 示例值：69928404442626824
+         */
+        this.bankAccountNumber = builder.bankAccountNumber;
+        /**
+         * 护照号码
+         * <p> 示例值：6919733936050406926
+         */
+        this.passportNumber = builder.passportNumber;
+        /**
+         * 上家公司
+         * <p> 示例值：
+         */
+        this.formerEmployer = builder.formerEmployer;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getPersonId() {
         return this.personId;
     }
@@ -865,1401 +1181,1090 @@ public class PersonInfo {
         this.formerEmployer = formerEmployer;
     }
 
-
-// builder 开始
-  public PersonInfo(){}
-
-  public PersonInfo(Builder builder){
-         /**
-          * 个人信息 ID
-          * <p> 示例值：6919733936050406926
-          */
-      this.personId = builder.personId;
-         /**
-          * 个人电话
-          * <p> 示例值：13649211111
-          */
-      this.phoneNumber = builder.phoneNumber;
-         /**
-          * 法定姓名
-          * <p> 示例值：张三
-          */
-      this.legalName = builder.legalName;
-         /**
-          * 常用名
-          * <p> 示例值：刘梓新(Henry)
-          */
-      this.preferredName = builder.preferredName;
-         /**
-          * 别名
-          * <p> 示例值：梓新
-          */
-      this.additionalName = builder.additionalName;
-         /**
-          * 常用本地全名
-          * <p> 示例值：刘梓新
-          */
-      this.preferredLocalFullName = builder.preferredLocalFullName;
-         /**
-          * 常用英文全名
-          * <p> 示例值：Henry
-          */
-      this.preferredEnglishFullName = builder.preferredEnglishFullName;
-         /**
-          * 姓名列表
-          * <p> 示例值：
-          */
-      this.nameList = builder.nameList;
-         /**
-          * -| 性别，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：gender - object_api_name：person
-          * <p> 示例值：
-          */
-      this.gender = builder.gender;
-         /**
-          * 出生日期
-          * <p> 示例值：2020-01-01
-          */
-      this.dateOfBirth = builder.dateOfBirth;
-         /**
-          * 国籍 ID ，国籍数据可通过【查询国家/地区信息】接口获取
-          * <p> 示例值：6862995757234914811
-          */
-      this.nationalityId = builder.nationalityId;
-         /**
-          * 国籍 ID，可通过【查询国籍信息】接口查询
-          * <p> 示例值：6862995757234914821
-          */
-      this.nationalityIdV2 = builder.nationalityIdV2;
-         /**
-          * 其他国籍
-          * <p> 示例值：
-          */
-      this.additionalNationalities = builder.additionalNationalities;
-         /**
-          * 公民身份
-          * <p> 示例值：
-          */
-      this.citizenshipStatus = builder.citizenshipStatus;
-         /**
-          * -| 民族 / 种族，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：ethnicity_race - object_api_name：person
-          * <p> 示例值：
-          */
-      this.race = builder.race;
-         /**
-          * -| 婚姻状况，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：marital_status - object_api_name：person
-          * <p> 示例值：
-          */
-      this.maritalStatus = builder.maritalStatus;
-         /**
-          * 电话列表，只有当满足下面所有条件时，电话在个人信息页才可见
-          * <p> 示例值：
-          */
-      this.phoneList = builder.phoneList;
-         /**
-          * 地址列表
-          * <p> 示例值：
-          */
-      this.addressList = builder.addressList;
-         /**
-          * 邮箱列表
-          * <p> 示例值：
-          */
-      this.emailList = builder.emailList;
-         /**
-          * 工作经历列表
-          * <p> 示例值：
-          */
-      this.workExperienceList = builder.workExperienceList;
-         /**
-          * 教育经历列表
-          * <p> 示例值：
-          */
-      this.educationList = builder.educationList;
-         /**
-          * 银行账户
-          * <p> 示例值：
-          */
-      this.bankAccountList = builder.bankAccountList;
-         /**
-          * 证件
-          * <p> 示例值：
-          */
-      this.nationalIdList = builder.nationalIdList;
-         /**
-          * 家庭成员列表
-          * <p> 示例值：
-          */
-      this.dependentList = builder.dependentList;
-         /**
-          * 紧急联系人列表
-          * <p> 示例值：
-          */
-      this.emergencyContactList = builder.emergencyContactList;
-         /**
-          * 参加工作日期
-          * <p> 示例值：2020-10-01
-          */
-      this.dateEnteredWorkforce = builder.dateEnteredWorkforce;
-         /**
-          * 工龄
-          * <p> 示例值：2
-          */
-      this.workingYears = builder.workingYears;
-         /**
-          * 头像资源的 ID
-          * <p> 示例值：dfysuc8x76dsfsw
-          */
-      this.profileImageId = builder.profileImageId;
-         /**
-          * 邮箱地址
-          * <p> 示例值：test@163.com
-          */
-      this.emailAddress = builder.emailAddress;
-         /**
-          * 年龄
-          * <p> 示例值：22
-          */
-      this.age = builder.age;
-         /**
-          * 最高学历教育经历
-          * <p> 示例值：
-          */
-      this.highestLevelOfEducation = builder.highestLevelOfEducation;
-         /**
-          * 最高学位教育经历
-          * <p> 示例值：
-          */
-      this.highestDegreeOfEducation = builder.highestDegreeOfEducation;
-         /**
-          * 个人资料附件
-          * <p> 示例值：
-          */
-      this.personalProfile = builder.personalProfile;
-         /**
-          * 籍贯 ID
-          * <p> 示例值：6863326262618752111
-          */
-      this.nativeRegion = builder.nativeRegion;
-         /**
-          * 户口类型，枚举值可通过文档【飞书人事枚举常量】户口类型（hukou_type）枚举定义部分获得
-          * <p> 示例值：
-          */
-      this.hukouType = builder.hukouType;
-         /**
-          * 户口所在地
-          * <p> 示例值：山东省平阴县
-          */
-      this.hukouLocation = builder.hukouLocation;
-         /**
-          * 政治面貌，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：political_affiliation - object_api_name：person_info_chn
-          * <p> 示例值：
-          */
-      this.politicalAffiliations = builder.politicalAffiliations;
-         /**
-          * 人才 ID
-          * <p> 示例值：6863326262618752123
-          */
-      this.talentId = builder.talentId;
-         /**
-          * 自定义字段
-          * <p> 示例值：
-          */
-      this.customFields = builder.customFields;
-         /**
-          * 居民身份证件号码
-          * <p> 示例值：11010000000000
-          */
-      this.nationalIdNumber = builder.nationalIdNumber;
-         /**
-          * 家庭地址
-          * <p> 示例值：6863326262618752123
-          */
-      this.familyAddress = builder.familyAddress;
-         /**
-          * 个人附加信息
-          * <p> 示例值：6863326262618752123
-          */
-      this.personInfoChns = builder.personInfoChns;
-         /**
-          * 出生国家/地区
-          * <p> 示例值：中国
-          */
-      this.bornCountryRegion = builder.bornCountryRegion;
-         /**
-          * 是否残疾
-          * <p> 示例值：true
-          */
-      this.isDisabled = builder.isDisabled;
-         /**
-          * 残疾证号
-          * <p> 示例值：1110000
-          */
-      this.disableCardNumber = builder.disableCardNumber;
-         /**
-          * 是否烈属
-          * <p> 示例值：true
-          */
-      this.isMartyrFamily = builder.isMartyrFamily;
-         /**
-          * 烈属证号
-          * <p> 示例值：1110000
-          */
-      this.martyrCardNumber = builder.martyrCardNumber;
-         /**
-          * 是否孤老
-          * <p> 示例值：true
-          */
-      this.isOldAlone = builder.isOldAlone;
-         /**
-          * 居民身份信息
-          * <p> 示例值：6863326262618752123
-          */
-      this.residentTaxes = builder.residentTaxes;
-         /**
-          * 首次入境日期
-          * <p> 示例值：2021-01-02
-          */
-      this.firstEntryTime = builder.firstEntryTime;
-         /**
-          * 预计离境日期
-          * <p> 示例值：2022-01-02
-          */
-      this.leaveTime = builder.leaveTime;
-         /**
-          * -| 宗教信仰，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - object_api_name：person - custom_api_name：religion
-          * <p> 示例值：
-          */
-      this.religion = builder.religion;
-         /**
-          * 工龄 浮点类型
-          * <p> 示例值：2.1
-          */
-      this.workingYearsV2 = builder.workingYearsV2;
-         /**
-          * 个人信息 创建时间
-          * <p> 示例值：2022-01-02
-          */
-      this.createdAt = builder.createdAt;
-         /**
-          * 个人信息 更新时间
-          * <p> 示例值：2022-01-02
-          */
-      this.updatedAt = builder.updatedAt;
-         /**
-          * 个人信息 创建人
-          * <p> 示例值：69928404442626824
-          */
-      this.createdBy = builder.createdBy;
-         /**
-          * 个人信息 更新人
-          * <p> 示例值：69928404442626824
-          */
-      this.updatedBy = builder.updatedBy;
-         /**
-          * 银行卡号
-          * <p> 示例值：69928404442626824
-          */
-      this.bankAccountNumber = builder.bankAccountNumber;
-         /**
-          * 护照号码
-          * <p> 示例值：6919733936050406926
-          */
-      this.passportNumber = builder.passportNumber;
-         /**
-          * 上家公司
-          * <p> 示例值：
-          */
-      this.formerEmployer = builder.formerEmployer;
-  }
-
     public static class Builder {
-     /**
-      * 个人信息 ID
-      * <p> 示例值：6919733936050406926
-      */
+        /**
+         * 个人信息 ID
+         * <p> 示例值：6919733936050406926
+         */
         private String personId;
-     /**
-      * 个人电话
-      * <p> 示例值：13649211111
-      */
+        /**
+         * 个人电话
+         * <p> 示例值：13649211111
+         */
         private String phoneNumber;
-     /**
-      * 法定姓名
-      * <p> 示例值：张三
-      */
+        /**
+         * 法定姓名
+         * <p> 示例值：张三
+         */
         private String legalName;
-     /**
-      * 常用名
-      * <p> 示例值：刘梓新(Henry)
-      */
+        /**
+         * 常用名
+         * <p> 示例值：刘梓新(Henry)
+         */
         private String preferredName;
-     /**
-      * 别名
-      * <p> 示例值：梓新
-      */
+        /**
+         * 别名
+         * <p> 示例值：梓新
+         */
         private String additionalName;
-     /**
-      * 常用本地全名
-      * <p> 示例值：刘梓新
-      */
+        /**
+         * 常用本地全名
+         * <p> 示例值：刘梓新
+         */
         private String preferredLocalFullName;
-     /**
-      * 常用英文全名
-      * <p> 示例值：Henry
-      */
+        /**
+         * 常用英文全名
+         * <p> 示例值：Henry
+         */
         private String preferredEnglishFullName;
-     /**
-      * 姓名列表
-      * <p> 示例值：
-      */
+        /**
+         * 姓名列表
+         * <p> 示例值：
+         */
         private PersonName[] nameList;
-     /**
-      * -| 性别，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：gender - object_api_name：person
-      * <p> 示例值：
-      */
+        /**
+         * -| 性别，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：gender - object_api_name：person
+         * <p> 示例值：
+         */
         private Enum gender;
-     /**
-      * 出生日期
-      * <p> 示例值：2020-01-01
-      */
+        /**
+         * 出生日期
+         * <p> 示例值：2020-01-01
+         */
         private String dateOfBirth;
-     /**
-      * 国籍 ID ，国籍数据可通过【查询国家/地区信息】接口获取
-      * <p> 示例值：6862995757234914811
-      */
+        /**
+         * 国籍 ID ，国籍数据可通过【查询国家/地区信息】接口获取
+         * <p> 示例值：6862995757234914811
+         */
         private String nationalityId;
-     /**
-      * 国籍 ID，可通过【查询国籍信息】接口查询
-      * <p> 示例值：6862995757234914821
-      */
+        /**
+         * 国籍 ID，可通过【查询国籍信息】接口查询
+         * <p> 示例值：6862995757234914821
+         */
         private String nationalityIdV2;
-     /**
-      * 其他国籍
-      * <p> 示例值：
-      */
+        /**
+         * 其他国籍
+         * <p> 示例值：
+         */
         private Nationality[] additionalNationalities;
-     /**
-      * 公民身份
-      * <p> 示例值：
-      */
+        /**
+         * 公民身份
+         * <p> 示例值：
+         */
         private CitizenshipStatus[] citizenshipStatus;
-     /**
-      * -| 民族 / 种族，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：ethnicity_race - object_api_name：person
-      * <p> 示例值：
-      */
+        /**
+         * -| 民族 / 种族，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：ethnicity_race - object_api_name：person
+         * <p> 示例值：
+         */
         private Enum race;
-     /**
-      * -| 婚姻状况，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：marital_status - object_api_name：person
-      * <p> 示例值：
-      */
+        /**
+         * -| 婚姻状况，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：marital_status - object_api_name：person
+         * <p> 示例值：
+         */
         private Enum maritalStatus;
-     /**
-      * 电话列表，只有当满足下面所有条件时，电话在个人信息页才可见
-      * <p> 示例值：
-      */
+        /**
+         * 电话列表，只有当满足下面所有条件时，电话在个人信息页才可见
+         * <p> 示例值：
+         */
         private Phone[] phoneList;
-     /**
-      * 地址列表
-      * <p> 示例值：
-      */
+        /**
+         * 地址列表
+         * <p> 示例值：
+         */
         private Address[] addressList;
-     /**
-      * 邮箱列表
-      * <p> 示例值：
-      */
+        /**
+         * 邮箱列表
+         * <p> 示例值：
+         */
         private Email[] emailList;
-     /**
-      * 工作经历列表
-      * <p> 示例值：
-      */
+        /**
+         * 工作经历列表
+         * <p> 示例值：
+         */
         private WorkExperienceInfo[] workExperienceList;
-     /**
-      * 教育经历列表
-      * <p> 示例值：
-      */
+        /**
+         * 教育经历列表
+         * <p> 示例值：
+         */
         private Education[] educationList;
-     /**
-      * 银行账户
-      * <p> 示例值：
-      */
+        /**
+         * 银行账户
+         * <p> 示例值：
+         */
         private BankAccount[] bankAccountList;
-     /**
-      * 证件
-      * <p> 示例值：
-      */
+        /**
+         * 证件
+         * <p> 示例值：
+         */
         private NationalId[] nationalIdList;
-     /**
-      * 家庭成员列表
-      * <p> 示例值：
-      */
+        /**
+         * 家庭成员列表
+         * <p> 示例值：
+         */
         private Dependent[] dependentList;
-     /**
-      * 紧急联系人列表
-      * <p> 示例值：
-      */
+        /**
+         * 紧急联系人列表
+         * <p> 示例值：
+         */
         private EmergencyContact[] emergencyContactList;
-     /**
-      * 参加工作日期
-      * <p> 示例值：2020-10-01
-      */
+        /**
+         * 参加工作日期
+         * <p> 示例值：2020-10-01
+         */
         private String dateEnteredWorkforce;
-     /**
-      * 工龄
-      * <p> 示例值：2
-      */
+        /**
+         * 工龄
+         * <p> 示例值：2
+         */
         private Integer workingYears;
-     /**
-      * 头像资源的 ID
-      * <p> 示例值：dfysuc8x76dsfsw
-      */
+        /**
+         * 头像资源的 ID
+         * <p> 示例值：dfysuc8x76dsfsw
+         */
         private String profileImageId;
-     /**
-      * 邮箱地址
-      * <p> 示例值：test@163.com
-      */
+        /**
+         * 邮箱地址
+         * <p> 示例值：test@163.com
+         */
         private String emailAddress;
-     /**
-      * 年龄
-      * <p> 示例值：22
-      */
+        /**
+         * 年龄
+         * <p> 示例值：22
+         */
         private Integer age;
-     /**
-      * 最高学历教育经历
-      * <p> 示例值：
-      */
+        /**
+         * 最高学历教育经历
+         * <p> 示例值：
+         */
         private Education highestLevelOfEducation;
-     /**
-      * 最高学位教育经历
-      * <p> 示例值：
-      */
+        /**
+         * 最高学位教育经历
+         * <p> 示例值：
+         */
         private Education highestDegreeOfEducation;
-     /**
-      * 个人资料附件
-      * <p> 示例值：
-      */
+        /**
+         * 个人资料附件
+         * <p> 示例值：
+         */
         private PersonalProfile[] personalProfile;
-     /**
-      * 籍贯 ID
-      * <p> 示例值：6863326262618752111
-      */
+        /**
+         * 籍贯 ID
+         * <p> 示例值：6863326262618752111
+         */
         private String nativeRegion;
-     /**
-      * 户口类型，枚举值可通过文档【飞书人事枚举常量】户口类型（hukou_type）枚举定义部分获得
-      * <p> 示例值：
-      */
+        /**
+         * 户口类型，枚举值可通过文档【飞书人事枚举常量】户口类型（hukou_type）枚举定义部分获得
+         * <p> 示例值：
+         */
         private Enum hukouType;
-     /**
-      * 户口所在地
-      * <p> 示例值：山东省平阴县
-      */
+        /**
+         * 户口所在地
+         * <p> 示例值：山东省平阴县
+         */
         private String hukouLocation;
-     /**
-      * 政治面貌，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：political_affiliation - object_api_name：person_info_chn
-      * <p> 示例值：
-      */
+        /**
+         * 政治面貌，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：political_affiliation - object_api_name：person_info_chn
+         * <p> 示例值：
+         */
         private Enum[] politicalAffiliations;
-     /**
-      * 人才 ID
-      * <p> 示例值：6863326262618752123
-      */
+        /**
+         * 人才 ID
+         * <p> 示例值：6863326262618752123
+         */
         private String talentId;
-     /**
-      * 自定义字段
-      * <p> 示例值：
-      */
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
         private CustomFieldData[] customFields;
-     /**
-      * 居民身份证件号码
-      * <p> 示例值：11010000000000
-      */
+        /**
+         * 居民身份证件号码
+         * <p> 示例值：11010000000000
+         */
         private String nationalIdNumber;
-     /**
-      * 家庭地址
-      * <p> 示例值：6863326262618752123
-      */
+        /**
+         * 家庭地址
+         * <p> 示例值：6863326262618752123
+         */
         private String familyAddress;
-     /**
-      * 个人附加信息
-      * <p> 示例值：6863326262618752123
-      */
+        /**
+         * 个人附加信息
+         * <p> 示例值：6863326262618752123
+         */
         private PersonInfoChn[] personInfoChns;
-     /**
-      * 出生国家/地区
-      * <p> 示例值：中国
-      */
+        /**
+         * 出生国家/地区
+         * <p> 示例值：中国
+         */
         private String bornCountryRegion;
-     /**
-      * 是否残疾
-      * <p> 示例值：true
-      */
+        /**
+         * 是否残疾
+         * <p> 示例值：true
+         */
         private Boolean isDisabled;
-     /**
-      * 残疾证号
-      * <p> 示例值：1110000
-      */
+        /**
+         * 残疾证号
+         * <p> 示例值：1110000
+         */
         private String disableCardNumber;
-     /**
-      * 是否烈属
-      * <p> 示例值：true
-      */
+        /**
+         * 是否烈属
+         * <p> 示例值：true
+         */
         private Boolean isMartyrFamily;
-     /**
-      * 烈属证号
-      * <p> 示例值：1110000
-      */
+        /**
+         * 烈属证号
+         * <p> 示例值：1110000
+         */
         private String martyrCardNumber;
-     /**
-      * 是否孤老
-      * <p> 示例值：true
-      */
+        /**
+         * 是否孤老
+         * <p> 示例值：true
+         */
         private Boolean isOldAlone;
-     /**
-      * 居民身份信息
-      * <p> 示例值：6863326262618752123
-      */
+        /**
+         * 居民身份信息
+         * <p> 示例值：6863326262618752123
+         */
         private ResidentTax[] residentTaxes;
-     /**
-      * 首次入境日期
-      * <p> 示例值：2021-01-02
-      */
+        /**
+         * 首次入境日期
+         * <p> 示例值：2021-01-02
+         */
         private String firstEntryTime;
-     /**
-      * 预计离境日期
-      * <p> 示例值：2022-01-02
-      */
+        /**
+         * 预计离境日期
+         * <p> 示例值：2022-01-02
+         */
         private String leaveTime;
-     /**
-      * -| 宗教信仰，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - object_api_name：person - custom_api_name：religion
-      * <p> 示例值：
-      */
+        /**
+         * -| 宗教信仰，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - object_api_name：person - custom_api_name：religion
+         * <p> 示例值：
+         */
         private Enum religion;
-     /**
-      * 工龄 浮点类型
-      * <p> 示例值：2.1
-      */
+        /**
+         * 工龄 浮点类型
+         * <p> 示例值：2.1
+         */
         private Double workingYearsV2;
-     /**
-      * 个人信息 创建时间
-      * <p> 示例值：2022-01-02
-      */
+        /**
+         * 个人信息 创建时间
+         * <p> 示例值：2022-01-02
+         */
         private String createdAt;
-     /**
-      * 个人信息 更新时间
-      * <p> 示例值：2022-01-02
-      */
+        /**
+         * 个人信息 更新时间
+         * <p> 示例值：2022-01-02
+         */
         private String updatedAt;
-     /**
-      * 个人信息 创建人
-      * <p> 示例值：69928404442626824
-      */
+        /**
+         * 个人信息 创建人
+         * <p> 示例值：69928404442626824
+         */
         private String createdBy;
-     /**
-      * 个人信息 更新人
-      * <p> 示例值：69928404442626824
-      */
+        /**
+         * 个人信息 更新人
+         * <p> 示例值：69928404442626824
+         */
         private String updatedBy;
-     /**
-      * 银行卡号
-      * <p> 示例值：69928404442626824
-      */
+        /**
+         * 银行卡号
+         * <p> 示例值：69928404442626824
+         */
         private String bankAccountNumber;
-     /**
-      * 护照号码
-      * <p> 示例值：6919733936050406926
-      */
+        /**
+         * 护照号码
+         * <p> 示例值：6919733936050406926
+         */
         private String passportNumber;
-     /**
-      * 上家公司
-      * <p> 示例值：
-      */
+        /**
+         * 上家公司
+         * <p> 示例值：
+         */
         private I18n[] formerEmployer;
 
         /**
          * 个人信息 ID
          * <p> 示例值：6919733936050406926
+         *
          * @param personId
          * @return
          */
         public Builder personId(String personId) {
-             this.personId = personId;
-             return this;
+            this.personId = personId;
+            return this;
         }
 
-    
 
         /**
          * 个人电话
          * <p> 示例值：13649211111
+         *
          * @param phoneNumber
          * @return
          */
         public Builder phoneNumber(String phoneNumber) {
-             this.phoneNumber = phoneNumber;
-             return this;
+            this.phoneNumber = phoneNumber;
+            return this;
         }
 
-    
 
         /**
          * 法定姓名
          * <p> 示例值：张三
+         *
          * @param legalName
          * @return
          */
         public Builder legalName(String legalName) {
-             this.legalName = legalName;
-             return this;
+            this.legalName = legalName;
+            return this;
         }
 
-    
 
         /**
          * 常用名
          * <p> 示例值：刘梓新(Henry)
+         *
          * @param preferredName
          * @return
          */
         public Builder preferredName(String preferredName) {
-             this.preferredName = preferredName;
-             return this;
+            this.preferredName = preferredName;
+            return this;
         }
 
-    
 
         /**
          * 别名
          * <p> 示例值：梓新
+         *
          * @param additionalName
          * @return
          */
         public Builder additionalName(String additionalName) {
-             this.additionalName = additionalName;
-             return this;
+            this.additionalName = additionalName;
+            return this;
         }
 
-    
 
         /**
          * 常用本地全名
          * <p> 示例值：刘梓新
+         *
          * @param preferredLocalFullName
          * @return
          */
         public Builder preferredLocalFullName(String preferredLocalFullName) {
-             this.preferredLocalFullName = preferredLocalFullName;
-             return this;
+            this.preferredLocalFullName = preferredLocalFullName;
+            return this;
         }
 
-    
 
         /**
          * 常用英文全名
          * <p> 示例值：Henry
+         *
          * @param preferredEnglishFullName
          * @return
          */
         public Builder preferredEnglishFullName(String preferredEnglishFullName) {
-             this.preferredEnglishFullName = preferredEnglishFullName;
-             return this;
+            this.preferredEnglishFullName = preferredEnglishFullName;
+            return this;
         }
 
-    
 
         /**
          * 姓名列表
          * <p> 示例值：
+         *
          * @param nameList
          * @return
          */
         public Builder nameList(PersonName[] nameList) {
-             this.nameList = nameList;
-             return this;
+            this.nameList = nameList;
+            return this;
         }
 
-    
 
         /**
          * -| 性别，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：gender - object_api_name：person
          * <p> 示例值：
+         *
          * @param gender
          * @return
          */
         public Builder gender(Enum gender) {
-             this.gender = gender;
-             return this;
+            this.gender = gender;
+            return this;
         }
 
-    
 
         /**
          * 出生日期
          * <p> 示例值：2020-01-01
+         *
          * @param dateOfBirth
          * @return
          */
         public Builder dateOfBirth(String dateOfBirth) {
-             this.dateOfBirth = dateOfBirth;
-             return this;
+            this.dateOfBirth = dateOfBirth;
+            return this;
         }
 
-    
 
         /**
          * 国籍 ID ，国籍数据可通过【查询国家/地区信息】接口获取
          * <p> 示例值：6862995757234914811
+         *
          * @param nationalityId
          * @return
          */
         public Builder nationalityId(String nationalityId) {
-             this.nationalityId = nationalityId;
-             return this;
+            this.nationalityId = nationalityId;
+            return this;
         }
 
-    
 
         /**
          * 国籍 ID，可通过【查询国籍信息】接口查询
          * <p> 示例值：6862995757234914821
+         *
          * @param nationalityIdV2
          * @return
          */
         public Builder nationalityIdV2(String nationalityIdV2) {
-             this.nationalityIdV2 = nationalityIdV2;
-             return this;
+            this.nationalityIdV2 = nationalityIdV2;
+            return this;
         }
 
-    
 
         /**
          * 其他国籍
          * <p> 示例值：
+         *
          * @param additionalNationalities
          * @return
          */
         public Builder additionalNationalities(Nationality[] additionalNationalities) {
-             this.additionalNationalities = additionalNationalities;
-             return this;
+            this.additionalNationalities = additionalNationalities;
+            return this;
         }
 
-    
 
         /**
          * 公民身份
          * <p> 示例值：
+         *
          * @param citizenshipStatus
          * @return
          */
         public Builder citizenshipStatus(CitizenshipStatus[] citizenshipStatus) {
-             this.citizenshipStatus = citizenshipStatus;
-             return this;
+            this.citizenshipStatus = citizenshipStatus;
+            return this;
         }
 
-    
 
         /**
          * -| 民族 / 种族，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：ethnicity_race - object_api_name：person
          * <p> 示例值：
+         *
          * @param race
          * @return
          */
         public Builder race(Enum race) {
-             this.race = race;
-             return this;
+            this.race = race;
+            return this;
         }
 
-    
 
         /**
          * -| 婚姻状况，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：marital_status - object_api_name：person
          * <p> 示例值：
+         *
          * @param maritalStatus
          * @return
          */
         public Builder maritalStatus(Enum maritalStatus) {
-             this.maritalStatus = maritalStatus;
-             return this;
+            this.maritalStatus = maritalStatus;
+            return this;
         }
 
-    
 
         /**
          * 电话列表，只有当满足下面所有条件时，电话在个人信息页才可见
          * <p> 示例值：
+         *
          * @param phoneList
          * @return
          */
         public Builder phoneList(Phone[] phoneList) {
-             this.phoneList = phoneList;
-             return this;
+            this.phoneList = phoneList;
+            return this;
         }
 
-    
 
         /**
          * 地址列表
          * <p> 示例值：
+         *
          * @param addressList
          * @return
          */
         public Builder addressList(Address[] addressList) {
-             this.addressList = addressList;
-             return this;
+            this.addressList = addressList;
+            return this;
         }
 
-    
 
         /**
          * 邮箱列表
          * <p> 示例值：
+         *
          * @param emailList
          * @return
          */
         public Builder emailList(Email[] emailList) {
-             this.emailList = emailList;
-             return this;
+            this.emailList = emailList;
+            return this;
         }
 
-    
 
         /**
          * 工作经历列表
          * <p> 示例值：
+         *
          * @param workExperienceList
          * @return
          */
         public Builder workExperienceList(WorkExperienceInfo[] workExperienceList) {
-             this.workExperienceList = workExperienceList;
-             return this;
+            this.workExperienceList = workExperienceList;
+            return this;
         }
 
-    
 
         /**
          * 教育经历列表
          * <p> 示例值：
+         *
          * @param educationList
          * @return
          */
         public Builder educationList(Education[] educationList) {
-             this.educationList = educationList;
-             return this;
+            this.educationList = educationList;
+            return this;
         }
 
-    
 
         /**
          * 银行账户
          * <p> 示例值：
+         *
          * @param bankAccountList
          * @return
          */
         public Builder bankAccountList(BankAccount[] bankAccountList) {
-             this.bankAccountList = bankAccountList;
-             return this;
+            this.bankAccountList = bankAccountList;
+            return this;
         }
 
-    
 
         /**
          * 证件
          * <p> 示例值：
+         *
          * @param nationalIdList
          * @return
          */
         public Builder nationalIdList(NationalId[] nationalIdList) {
-             this.nationalIdList = nationalIdList;
-             return this;
+            this.nationalIdList = nationalIdList;
+            return this;
         }
 
-    
 
         /**
          * 家庭成员列表
          * <p> 示例值：
+         *
          * @param dependentList
          * @return
          */
         public Builder dependentList(Dependent[] dependentList) {
-             this.dependentList = dependentList;
-             return this;
+            this.dependentList = dependentList;
+            return this;
         }
 
-    
 
         /**
          * 紧急联系人列表
          * <p> 示例值：
+         *
          * @param emergencyContactList
          * @return
          */
         public Builder emergencyContactList(EmergencyContact[] emergencyContactList) {
-             this.emergencyContactList = emergencyContactList;
-             return this;
+            this.emergencyContactList = emergencyContactList;
+            return this;
         }
 
-    
 
         /**
          * 参加工作日期
          * <p> 示例值：2020-10-01
+         *
          * @param dateEnteredWorkforce
          * @return
          */
         public Builder dateEnteredWorkforce(String dateEnteredWorkforce) {
-             this.dateEnteredWorkforce = dateEnteredWorkforce;
-             return this;
+            this.dateEnteredWorkforce = dateEnteredWorkforce;
+            return this;
         }
 
-    
 
         /**
          * 工龄
          * <p> 示例值：2
+         *
          * @param workingYears
          * @return
          */
         public Builder workingYears(Integer workingYears) {
-             this.workingYears = workingYears;
-             return this;
+            this.workingYears = workingYears;
+            return this;
         }
 
-    
 
         /**
          * 头像资源的 ID
          * <p> 示例值：dfysuc8x76dsfsw
+         *
          * @param profileImageId
          * @return
          */
         public Builder profileImageId(String profileImageId) {
-             this.profileImageId = profileImageId;
-             return this;
+            this.profileImageId = profileImageId;
+            return this;
         }
 
-    
 
         /**
          * 邮箱地址
          * <p> 示例值：test@163.com
+         *
          * @param emailAddress
          * @return
          */
         public Builder emailAddress(String emailAddress) {
-             this.emailAddress = emailAddress;
-             return this;
+            this.emailAddress = emailAddress;
+            return this;
         }
 
-    
 
         /**
          * 年龄
          * <p> 示例值：22
+         *
          * @param age
          * @return
          */
         public Builder age(Integer age) {
-             this.age = age;
-             return this;
+            this.age = age;
+            return this;
         }
 
-    
 
         /**
          * 最高学历教育经历
          * <p> 示例值：
+         *
          * @param highestLevelOfEducation
          * @return
          */
         public Builder highestLevelOfEducation(Education highestLevelOfEducation) {
-             this.highestLevelOfEducation = highestLevelOfEducation;
-             return this;
+            this.highestLevelOfEducation = highestLevelOfEducation;
+            return this;
         }
 
-    
 
         /**
          * 最高学位教育经历
          * <p> 示例值：
+         *
          * @param highestDegreeOfEducation
          * @return
          */
         public Builder highestDegreeOfEducation(Education highestDegreeOfEducation) {
-             this.highestDegreeOfEducation = highestDegreeOfEducation;
-             return this;
+            this.highestDegreeOfEducation = highestDegreeOfEducation;
+            return this;
         }
 
-    
 
         /**
          * 个人资料附件
          * <p> 示例值：
+         *
          * @param personalProfile
          * @return
          */
         public Builder personalProfile(PersonalProfile[] personalProfile) {
-             this.personalProfile = personalProfile;
-             return this;
+            this.personalProfile = personalProfile;
+            return this;
         }
 
-    
 
         /**
          * 籍贯 ID
          * <p> 示例值：6863326262618752111
+         *
          * @param nativeRegion
          * @return
          */
         public Builder nativeRegion(String nativeRegion) {
-             this.nativeRegion = nativeRegion;
-             return this;
+            this.nativeRegion = nativeRegion;
+            return this;
         }
 
-    
 
         /**
          * 户口类型，枚举值可通过文档【飞书人事枚举常量】户口类型（hukou_type）枚举定义部分获得
          * <p> 示例值：
+         *
          * @param hukouType
          * @return
          */
         public Builder hukouType(Enum hukouType) {
-             this.hukouType = hukouType;
-             return this;
+            this.hukouType = hukouType;
+            return this;
         }
 
-    
 
         /**
          * 户口所在地
          * <p> 示例值：山东省平阴县
+         *
          * @param hukouLocation
          * @return
          */
         public Builder hukouLocation(String hukouLocation) {
-             this.hukouLocation = hukouLocation;
-             return this;
+            this.hukouLocation = hukouLocation;
+            return this;
         }
 
-    
 
         /**
          * 政治面貌，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：political_affiliation - object_api_name：person_info_chn
          * <p> 示例值：
+         *
          * @param politicalAffiliations
          * @return
          */
         public Builder politicalAffiliations(Enum[] politicalAffiliations) {
-             this.politicalAffiliations = politicalAffiliations;
-             return this;
+            this.politicalAffiliations = politicalAffiliations;
+            return this;
         }
 
-    
 
         /**
          * 人才 ID
          * <p> 示例值：6863326262618752123
+         *
          * @param talentId
          * @return
          */
         public Builder talentId(String talentId) {
-             this.talentId = talentId;
-             return this;
+            this.talentId = talentId;
+            return this;
         }
 
-    
 
         /**
          * 自定义字段
          * <p> 示例值：
+         *
          * @param customFields
          * @return
          */
         public Builder customFields(CustomFieldData[] customFields) {
-             this.customFields = customFields;
-             return this;
+            this.customFields = customFields;
+            return this;
         }
 
-    
 
         /**
          * 居民身份证件号码
          * <p> 示例值：11010000000000
+         *
          * @param nationalIdNumber
          * @return
          */
         public Builder nationalIdNumber(String nationalIdNumber) {
-             this.nationalIdNumber = nationalIdNumber;
-             return this;
+            this.nationalIdNumber = nationalIdNumber;
+            return this;
         }
 
-    
 
         /**
          * 家庭地址
          * <p> 示例值：6863326262618752123
+         *
          * @param familyAddress
          * @return
          */
         public Builder familyAddress(String familyAddress) {
-             this.familyAddress = familyAddress;
-             return this;
+            this.familyAddress = familyAddress;
+            return this;
         }
 
-    
 
         /**
          * 个人附加信息
          * <p> 示例值：6863326262618752123
+         *
          * @param personInfoChns
          * @return
          */
         public Builder personInfoChns(PersonInfoChn[] personInfoChns) {
-             this.personInfoChns = personInfoChns;
-             return this;
+            this.personInfoChns = personInfoChns;
+            return this;
         }
 
-    
 
         /**
          * 出生国家/地区
          * <p> 示例值：中国
+         *
          * @param bornCountryRegion
          * @return
          */
         public Builder bornCountryRegion(String bornCountryRegion) {
-             this.bornCountryRegion = bornCountryRegion;
-             return this;
+            this.bornCountryRegion = bornCountryRegion;
+            return this;
         }
 
-    
 
         /**
          * 是否残疾
          * <p> 示例值：true
+         *
          * @param isDisabled
          * @return
          */
         public Builder isDisabled(Boolean isDisabled) {
-             this.isDisabled = isDisabled;
-             return this;
+            this.isDisabled = isDisabled;
+            return this;
         }
 
-    
 
         /**
          * 残疾证号
          * <p> 示例值：1110000
+         *
          * @param disableCardNumber
          * @return
          */
         public Builder disableCardNumber(String disableCardNumber) {
-             this.disableCardNumber = disableCardNumber;
-             return this;
+            this.disableCardNumber = disableCardNumber;
+            return this;
         }
 
-    
 
         /**
          * 是否烈属
          * <p> 示例值：true
+         *
          * @param isMartyrFamily
          * @return
          */
         public Builder isMartyrFamily(Boolean isMartyrFamily) {
-             this.isMartyrFamily = isMartyrFamily;
-             return this;
+            this.isMartyrFamily = isMartyrFamily;
+            return this;
         }
 
-    
 
         /**
          * 烈属证号
          * <p> 示例值：1110000
+         *
          * @param martyrCardNumber
          * @return
          */
         public Builder martyrCardNumber(String martyrCardNumber) {
-             this.martyrCardNumber = martyrCardNumber;
-             return this;
+            this.martyrCardNumber = martyrCardNumber;
+            return this;
         }
 
-    
 
         /**
          * 是否孤老
          * <p> 示例值：true
+         *
          * @param isOldAlone
          * @return
          */
         public Builder isOldAlone(Boolean isOldAlone) {
-             this.isOldAlone = isOldAlone;
-             return this;
+            this.isOldAlone = isOldAlone;
+            return this;
         }
 
-    
 
         /**
          * 居民身份信息
          * <p> 示例值：6863326262618752123
+         *
          * @param residentTaxes
          * @return
          */
         public Builder residentTaxes(ResidentTax[] residentTaxes) {
-             this.residentTaxes = residentTaxes;
-             return this;
+            this.residentTaxes = residentTaxes;
+            return this;
         }
 
-    
 
         /**
          * 首次入境日期
          * <p> 示例值：2021-01-02
+         *
          * @param firstEntryTime
          * @return
          */
         public Builder firstEntryTime(String firstEntryTime) {
-             this.firstEntryTime = firstEntryTime;
-             return this;
+            this.firstEntryTime = firstEntryTime;
+            return this;
         }
 
-    
 
         /**
          * 预计离境日期
          * <p> 示例值：2022-01-02
+         *
          * @param leaveTime
          * @return
          */
         public Builder leaveTime(String leaveTime) {
-             this.leaveTime = leaveTime;
-             return this;
+            this.leaveTime = leaveTime;
+            return this;
         }
 
-    
 
         /**
          * -| 宗教信仰，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - object_api_name：person - custom_api_name：religion
          * <p> 示例值：
+         *
          * @param religion
          * @return
          */
         public Builder religion(Enum religion) {
-             this.religion = religion;
-             return this;
+            this.religion = religion;
+            return this;
         }
 
-    
 
         /**
          * 工龄 浮点类型
          * <p> 示例值：2.1
+         *
          * @param workingYearsV2
          * @return
          */
         public Builder workingYearsV2(Double workingYearsV2) {
-             this.workingYearsV2 = workingYearsV2;
-             return this;
+            this.workingYearsV2 = workingYearsV2;
+            return this;
         }
 
-    
 
         /**
          * 个人信息 创建时间
          * <p> 示例值：2022-01-02
+         *
          * @param createdAt
          * @return
          */
         public Builder createdAt(String createdAt) {
-             this.createdAt = createdAt;
-             return this;
+            this.createdAt = createdAt;
+            return this;
         }
 
-    
 
         /**
          * 个人信息 更新时间
          * <p> 示例值：2022-01-02
+         *
          * @param updatedAt
          * @return
          */
         public Builder updatedAt(String updatedAt) {
-             this.updatedAt = updatedAt;
-             return this;
+            this.updatedAt = updatedAt;
+            return this;
         }
 
-    
 
         /**
          * 个人信息 创建人
          * <p> 示例值：69928404442626824
+         *
          * @param createdBy
          * @return
          */
         public Builder createdBy(String createdBy) {
-             this.createdBy = createdBy;
-             return this;
+            this.createdBy = createdBy;
+            return this;
         }
 
-    
 
         /**
          * 个人信息 更新人
          * <p> 示例值：69928404442626824
+         *
          * @param updatedBy
          * @return
          */
         public Builder updatedBy(String updatedBy) {
-             this.updatedBy = updatedBy;
-             return this;
+            this.updatedBy = updatedBy;
+            return this;
         }
 
-    
 
         /**
          * 银行卡号
          * <p> 示例值：69928404442626824
+         *
          * @param bankAccountNumber
          * @return
          */
         public Builder bankAccountNumber(String bankAccountNumber) {
-             this.bankAccountNumber = bankAccountNumber;
-             return this;
+            this.bankAccountNumber = bankAccountNumber;
+            return this;
         }
 
-    
 
         /**
          * 护照号码
          * <p> 示例值：6919733936050406926
+         *
          * @param passportNumber
          * @return
          */
         public Builder passportNumber(String passportNumber) {
-             this.passportNumber = passportNumber;
-             return this;
+            this.passportNumber = passportNumber;
+            return this;
         }
 
-    
 
         /**
          * 上家公司
          * <p> 示例值：
+         *
          * @param formerEmployer
          * @return
          */
         public Builder formerEmployer(I18n[] formerEmployer) {
-             this.formerEmployer = formerEmployer;
-             return this;
+            this.formerEmployer = formerEmployer;
+            return this;
         }
 
-    
-    
-    public PersonInfo build(){
-        return new PersonInfo(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public PersonInfo build() {
+            return new PersonInfo(this);
+        }
     }
 }

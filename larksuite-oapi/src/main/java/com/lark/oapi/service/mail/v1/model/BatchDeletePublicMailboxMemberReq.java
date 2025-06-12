@@ -12,25 +12,49 @@
  */
 
 package com.lark.oapi.service.mail.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class BatchDeletePublicMailboxMemberReq {
-     /**
-      * The unique ID or email address of a public mailbox
-      * <p> 示例值：xxxxxxxxxxxxxxx or test_public_mailbox@xxx.xx
-      */
+    /**
+     * The unique ID or email address of a public mailbox
+     * <p> 示例值：xxxxxxxxxxxxxxx or test_public_mailbox@xxx.xx
+     */
     @Path
     @SerializedName("public_mailbox_id")
     private String publicMailboxId;
+    @Body
+    private BatchDeletePublicMailboxMemberReqBody body;
+
+    // builder 开始
+    public BatchDeletePublicMailboxMemberReq() {
+    }
+
+    public BatchDeletePublicMailboxMemberReq(Builder builder) {
+        /**
+         * The unique ID or email address of a public mailbox
+         * <p> 示例值：xxxxxxxxxxxxxxx or test_public_mailbox@xxx.xx
+         */
+        this.publicMailboxId = builder.publicMailboxId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getPublicMailboxId() {
         return this.publicMailboxId;
     }
@@ -38,9 +62,6 @@ public class BatchDeletePublicMailboxMemberReq {
     public void setPublicMailboxId(String publicMailboxId) {
         this.publicMailboxId = publicMailboxId;
     }
-
-    @Body
-    private BatchDeletePublicMailboxMemberReqBody body;
 
     public BatchDeletePublicMailboxMemberReqBody getBatchDeletePublicMailboxMemberReqBody() {
         return this.body;
@@ -50,54 +71,40 @@ public class BatchDeletePublicMailboxMemberReq {
         this.body = body;
     }
 
-// builder 开始
-  public BatchDeletePublicMailboxMemberReq(){}
-
-  public BatchDeletePublicMailboxMemberReq(Builder builder){
-     /**
-      * The unique ID or email address of a public mailbox
-      * <p> 示例值：xxxxxxxxxxxxxxx or test_public_mailbox@xxx.xx
-      */
-       this.publicMailboxId = builder.publicMailboxId;
-        this.body = builder.body;
-  }
-
     public static class Builder {
-    
+
         private String publicMailboxId; // The unique ID or email address of a public mailbox
+        private BatchDeletePublicMailboxMemberReqBody body;
+
         /**
          * The unique ID or email address of a public mailbox
          * <p> 示例值：xxxxxxxxxxxxxxx or test_public_mailbox@xxx.xx
+         *
          * @param publicMailboxId
          * @return
          */
-          public Builder publicMailboxId(String publicMailboxId) {
-               this.publicMailboxId = publicMailboxId;
-               return this;
-          }
+        public Builder publicMailboxId(String publicMailboxId) {
+            this.publicMailboxId = publicMailboxId;
+            return this;
+        }
 
-    
-        private BatchDeletePublicMailboxMemberReqBody body;
-    
         public BatchDeletePublicMailboxMemberReqBody getBatchDeletePublicMailboxMemberReqBody() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder batchDeletePublicMailboxMemberReqBody(BatchDeletePublicMailboxMemberReqBody body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public BatchDeletePublicMailboxMemberReq build(){
-        return new BatchDeletePublicMailboxMemberReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public BatchDeletePublicMailboxMemberReq build() {
+            return new BatchDeletePublicMailboxMemberReq(this);
+        }
     }
 }

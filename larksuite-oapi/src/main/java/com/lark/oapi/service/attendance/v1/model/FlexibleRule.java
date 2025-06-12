@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class FlexibleRule {
-     /**
-      * 下班最多可早走（上班早到几分钟，下班可早走几分钟）
-      * <p> 示例值：60
-      */
+    /**
+     * 下班最多可早走（上班早到几分钟，下班可早走几分钟）
+     * <p> 示例值：60
+     */
     @SerializedName("flexible_early_minutes")
     private Integer flexibleEarlyMinutes;
-     /**
-      * 上班最多可晚到（上班晚到几分钟，下班须晚走几分钟）
-      * <p> 示例值：60
-      */
+    /**
+     * 上班最多可晚到（上班晚到几分钟，下班须晚走几分钟）
+     * <p> 示例值：60
+     */
     @SerializedName("flexible_late_minutes")
     private Integer flexibleLateMinutes;
+
+    // builder 开始
+    public FlexibleRule() {
+    }
+
+    public FlexibleRule(Builder builder) {
+        /**
+         * 下班最多可早走（上班早到几分钟，下班可早走几分钟）
+         * <p> 示例值：60
+         */
+        this.flexibleEarlyMinutes = builder.flexibleEarlyMinutes;
+        /**
+         * 上班最多可晚到（上班晚到几分钟，下班须晚走几分钟）
+         * <p> 示例值：60
+         */
+        this.flexibleLateMinutes = builder.flexibleLateMinutes;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Integer getFlexibleEarlyMinutes() {
         return this.flexibleEarlyMinutes;
     }
@@ -53,67 +79,46 @@ public class FlexibleRule {
         this.flexibleLateMinutes = flexibleLateMinutes;
     }
 
-
-// builder 开始
-  public FlexibleRule(){}
-
-  public FlexibleRule(Builder builder){
-         /**
-          * 下班最多可早走（上班早到几分钟，下班可早走几分钟）
-          * <p> 示例值：60
-          */
-      this.flexibleEarlyMinutes = builder.flexibleEarlyMinutes;
-         /**
-          * 上班最多可晚到（上班晚到几分钟，下班须晚走几分钟）
-          * <p> 示例值：60
-          */
-      this.flexibleLateMinutes = builder.flexibleLateMinutes;
-  }
-
     public static class Builder {
-     /**
-      * 下班最多可早走（上班早到几分钟，下班可早走几分钟）
-      * <p> 示例值：60
-      */
+        /**
+         * 下班最多可早走（上班早到几分钟，下班可早走几分钟）
+         * <p> 示例值：60
+         */
         private Integer flexibleEarlyMinutes;
-     /**
-      * 上班最多可晚到（上班晚到几分钟，下班须晚走几分钟）
-      * <p> 示例值：60
-      */
+        /**
+         * 上班最多可晚到（上班晚到几分钟，下班须晚走几分钟）
+         * <p> 示例值：60
+         */
         private Integer flexibleLateMinutes;
 
         /**
          * 下班最多可早走（上班早到几分钟，下班可早走几分钟）
          * <p> 示例值：60
+         *
          * @param flexibleEarlyMinutes
          * @return
          */
         public Builder flexibleEarlyMinutes(Integer flexibleEarlyMinutes) {
-             this.flexibleEarlyMinutes = flexibleEarlyMinutes;
-             return this;
+            this.flexibleEarlyMinutes = flexibleEarlyMinutes;
+            return this;
         }
 
-    
 
         /**
          * 上班最多可晚到（上班晚到几分钟，下班须晚走几分钟）
          * <p> 示例值：60
+         *
          * @param flexibleLateMinutes
          * @return
          */
         public Builder flexibleLateMinutes(Integer flexibleLateMinutes) {
-             this.flexibleLateMinutes = flexibleLateMinutes;
-             return this;
+            this.flexibleLateMinutes = flexibleLateMinutes;
+            return this;
         }
 
-    
-    
-    public FlexibleRule build(){
-        return new FlexibleRule(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public FlexibleRule build() {
+            return new FlexibleRule(this);
+        }
     }
 }

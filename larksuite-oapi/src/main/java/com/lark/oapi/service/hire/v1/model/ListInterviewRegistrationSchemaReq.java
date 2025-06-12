@@ -12,31 +12,57 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ListInterviewRegistrationSchemaReq {
-     /**
-      * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
-      * <p> 示例值：eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==
-      */
+    /**
+     * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
+     * <p> 示例值：eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==
+     */
     @Query
     @SerializedName("page_token")
     private String pageToken;
-     /**
-      * 每页获取记录数量，最大10
-      * <p> 示例值：10
-      */
+    /**
+     * 每页获取记录数量，最大10
+     * <p> 示例值：10
+     */
     @Query
     @SerializedName("page_size")
     private Integer pageSize;
+
+    // builder 开始
+    public ListInterviewRegistrationSchemaReq() {
+    }
+
+    public ListInterviewRegistrationSchemaReq(Builder builder) {
+        /**
+         * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
+         * <p> 示例值：eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==
+         */
+        this.pageToken = builder.pageToken;
+        /**
+         * 每页获取记录数量，最大10
+         * <p> 示例值：10
+         */
+        this.pageSize = builder.pageSize;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getPageToken() {
         return this.pageToken;
     }
@@ -53,57 +79,38 @@ public class ListInterviewRegistrationSchemaReq {
         this.pageSize = pageSize;
     }
 
-
-// builder 开始
-  public ListInterviewRegistrationSchemaReq(){}
-
-  public ListInterviewRegistrationSchemaReq(Builder builder){
-         /**
-          * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
-          * <p> 示例值：eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==
-          */
-       this.pageToken = builder.pageToken;
-         /**
-          * 每页获取记录数量，最大10
-          * <p> 示例值：10
-          */
-       this.pageSize = builder.pageSize;
-  }
-
     public static class Builder {
         private String pageToken; // 页码标识，获取第一页传空，每次查询会返回下一页的page_token
         private Integer pageSize; // 每页获取记录数量，最大10
-    
+
         /**
          * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
          * <p> 示例值：eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==
+         *
          * @param pageToken
          * @return
          */
-           public Builder pageToken(String pageToken) {
-                this.pageToken = pageToken;
-                return this;
-           }
+        public Builder pageToken(String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+        }
 
-    
+
         /**
          * 每页获取记录数量，最大10
          * <p> 示例值：10
+         *
          * @param pageSize
          * @return
          */
-           public Builder pageSize(Integer pageSize) {
-                this.pageSize = pageSize;
-                return this;
-           }
+        public Builder pageSize(Integer pageSize) {
+            this.pageSize = pageSize;
+            return this;
+        }
 
-    
-    public ListInterviewRegistrationSchemaReq build(){
-        return new ListInterviewRegistrationSchemaReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ListInterviewRegistrationSchemaReq build() {
+            return new ListInterviewRegistrationSchemaReq(this);
+        }
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,54 +20,104 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ExportTicketMessageContent {
-     /**
-      * 消息内容
-      * <p> 示例值：test message text
-      */
+    /**
+     * 消息内容
+     * <p> 示例值：test message text
+     */
     @SerializedName("content")
     private String content;
-     /**
-      * 消息类型
-      * <p> 示例值：text
-      */
+    /**
+     * 消息类型
+     * <p> 示例值：text
+     */
     @SerializedName("msg_type")
     private String msgType;
-     /**
-      * 图片 Keys
-      * <p> 示例值：
-      */
+    /**
+     * 图片 Keys
+     * <p> 示例值：
+     */
     @SerializedName("image_keys")
     private String[] imageKeys;
-     /**
-      * 图片 Key
-      * <p> 示例值：file_18acc4bd98d9a8c79a
-      */
+    /**
+     * 图片 Key
+     * <p> 示例值：file_18acc4bd98d9a8c79a
+     */
     @SerializedName("image_key")
     private String imageKey;
-     /**
-      * 音频消息文件 Key
-      * <p> 示例值："file_18accbd98d9a8c79a"
-      */
+    /**
+     * 音频消息文件 Key
+     * <p> 示例值："file_18accbd98d9a8c79a"
+     */
     @SerializedName("audio_key")
     private String audioKey;
-     /**
-      * 视频文件 Key
-      * <p> 示例值：file_18acc4bd98d9a8c79a
-      */
+    /**
+     * 视频文件 Key
+     * <p> 示例值：file_18acc4bd98d9a8c79a
+     */
     @SerializedName("media_key")
     private String mediaKey;
-     /**
-      * 文件 Key
-      * <p> 示例值：file_18acc4bd98d9a8c79a
-      */
+    /**
+     * 文件 Key
+     * <p> 示例值：file_18acc4bd98d9a8c79a
+     */
     @SerializedName("file_key")
     private String fileKey;
+
+    // builder 开始
+    public ExportTicketMessageContent() {
+    }
+
+    public ExportTicketMessageContent(Builder builder) {
+        /**
+         * 消息内容
+         * <p> 示例值：test message text
+         */
+        this.content = builder.content;
+        /**
+         * 消息类型
+         * <p> 示例值：text
+         */
+        this.msgType = builder.msgType;
+        /**
+         * 图片 Keys
+         * <p> 示例值：
+         */
+        this.imageKeys = builder.imageKeys;
+        /**
+         * 图片 Key
+         * <p> 示例值：file_18acc4bd98d9a8c79a
+         */
+        this.imageKey = builder.imageKey;
+        /**
+         * 音频消息文件 Key
+         * <p> 示例值："file_18accbd98d9a8c79a"
+         */
+        this.audioKey = builder.audioKey;
+        /**
+         * 视频文件 Key
+         * <p> 示例值：file_18acc4bd98d9a8c79a
+         */
+        this.mediaKey = builder.mediaKey;
+        /**
+         * 文件 Key
+         * <p> 示例值：file_18acc4bd98d9a8c79a
+         */
+        this.fileKey = builder.fileKey;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getContent() {
         return this.content;
     }
@@ -123,182 +174,136 @@ public class ExportTicketMessageContent {
         this.fileKey = fileKey;
     }
 
-
-// builder 开始
-  public ExportTicketMessageContent(){}
-
-  public ExportTicketMessageContent(Builder builder){
-         /**
-          * 消息内容
-          * <p> 示例值：test message text
-          */
-      this.content = builder.content;
-         /**
-          * 消息类型
-          * <p> 示例值：text
-          */
-      this.msgType = builder.msgType;
-         /**
-          * 图片 Keys
-          * <p> 示例值：
-          */
-      this.imageKeys = builder.imageKeys;
-         /**
-          * 图片 Key
-          * <p> 示例值：file_18acc4bd98d9a8c79a
-          */
-      this.imageKey = builder.imageKey;
-         /**
-          * 音频消息文件 Key
-          * <p> 示例值："file_18accbd98d9a8c79a"
-          */
-      this.audioKey = builder.audioKey;
-         /**
-          * 视频文件 Key
-          * <p> 示例值：file_18acc4bd98d9a8c79a
-          */
-      this.mediaKey = builder.mediaKey;
-         /**
-          * 文件 Key
-          * <p> 示例值：file_18acc4bd98d9a8c79a
-          */
-      this.fileKey = builder.fileKey;
-  }
-
     public static class Builder {
-     /**
-      * 消息内容
-      * <p> 示例值：test message text
-      */
+        /**
+         * 消息内容
+         * <p> 示例值：test message text
+         */
         private String content;
-     /**
-      * 消息类型
-      * <p> 示例值：text
-      */
+        /**
+         * 消息类型
+         * <p> 示例值：text
+         */
         private String msgType;
-     /**
-      * 图片 Keys
-      * <p> 示例值：
-      */
+        /**
+         * 图片 Keys
+         * <p> 示例值：
+         */
         private String[] imageKeys;
-     /**
-      * 图片 Key
-      * <p> 示例值：file_18acc4bd98d9a8c79a
-      */
+        /**
+         * 图片 Key
+         * <p> 示例值：file_18acc4bd98d9a8c79a
+         */
         private String imageKey;
-     /**
-      * 音频消息文件 Key
-      * <p> 示例值："file_18accbd98d9a8c79a"
-      */
+        /**
+         * 音频消息文件 Key
+         * <p> 示例值："file_18accbd98d9a8c79a"
+         */
         private String audioKey;
-     /**
-      * 视频文件 Key
-      * <p> 示例值：file_18acc4bd98d9a8c79a
-      */
+        /**
+         * 视频文件 Key
+         * <p> 示例值：file_18acc4bd98d9a8c79a
+         */
         private String mediaKey;
-     /**
-      * 文件 Key
-      * <p> 示例值：file_18acc4bd98d9a8c79a
-      */
+        /**
+         * 文件 Key
+         * <p> 示例值：file_18acc4bd98d9a8c79a
+         */
         private String fileKey;
 
         /**
          * 消息内容
          * <p> 示例值：test message text
+         *
          * @param content
          * @return
          */
         public Builder content(String content) {
-             this.content = content;
-             return this;
+            this.content = content;
+            return this;
         }
 
-    
 
         /**
          * 消息类型
          * <p> 示例值：text
+         *
          * @param msgType
          * @return
          */
         public Builder msgType(String msgType) {
-             this.msgType = msgType;
-             return this;
+            this.msgType = msgType;
+            return this;
         }
 
-    
 
         /**
          * 图片 Keys
          * <p> 示例值：
+         *
          * @param imageKeys
          * @return
          */
         public Builder imageKeys(String[] imageKeys) {
-             this.imageKeys = imageKeys;
-             return this;
+            this.imageKeys = imageKeys;
+            return this;
         }
 
-    
 
         /**
          * 图片 Key
          * <p> 示例值：file_18acc4bd98d9a8c79a
+         *
          * @param imageKey
          * @return
          */
         public Builder imageKey(String imageKey) {
-             this.imageKey = imageKey;
-             return this;
+            this.imageKey = imageKey;
+            return this;
         }
 
-    
 
         /**
          * 音频消息文件 Key
          * <p> 示例值："file_18accbd98d9a8c79a"
+         *
          * @param audioKey
          * @return
          */
         public Builder audioKey(String audioKey) {
-             this.audioKey = audioKey;
-             return this;
+            this.audioKey = audioKey;
+            return this;
         }
 
-    
 
         /**
          * 视频文件 Key
          * <p> 示例值：file_18acc4bd98d9a8c79a
+         *
          * @param mediaKey
          * @return
          */
         public Builder mediaKey(String mediaKey) {
-             this.mediaKey = mediaKey;
-             return this;
+            this.mediaKey = mediaKey;
+            return this;
         }
 
-    
 
         /**
          * 文件 Key
          * <p> 示例值：file_18acc4bd98d9a8c79a
+         *
          * @param fileKey
          * @return
          */
         public Builder fileKey(String fileKey) {
-             this.fileKey = fileKey;
-             return this;
+            this.fileKey = fileKey;
+            return this;
         }
 
-    
-    
-    public ExportTicketMessageContent build(){
-        return new ExportTicketMessageContent(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ExportTicketMessageContent build() {
+            return new ExportTicketMessageContent(this);
+        }
     }
 }

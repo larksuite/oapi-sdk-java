@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,36 +20,71 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ProfileSettingEmpInfoForUpdate {
-     /**
-      * 基本信息
-      * <p> 示例值：
-      */
+    /**
+     * 基本信息
+     * <p> 示例值：
+     */
     @SerializedName("basic_info")
     private ProfileSettingEmpBasicInfoForUpdate basicInfo;
-     /**
-      * 试用期信息
-      * <p> 示例值：
-      */
+    /**
+     * 试用期信息
+     * <p> 示例值：
+     */
     @SerializedName("probation_info")
     private ProfileSettingProbationInfo probationInfo;
-     /**
-      * 自定义分组
-      * <p> 示例值：
-      */
+    /**
+     * 自定义分组
+     * <p> 示例值：
+     */
     @SerializedName("custom_groups")
     private ProfileSettingCustomGroup[] customGroups;
-     /**
-      * 司龄调整信息
-      * <p> 示例值：
-      */
+    /**
+     * 司龄调整信息
+     * <p> 示例值：
+     */
     @SerializedName("seniority_adjust_informations")
     private SeniorityAdjustInformationEdit[] seniorityAdjustInformations;
+
+    // builder 开始
+    public ProfileSettingEmpInfoForUpdate() {
+    }
+
+    public ProfileSettingEmpInfoForUpdate(Builder builder) {
+        /**
+         * 基本信息
+         * <p> 示例值：
+         */
+        this.basicInfo = builder.basicInfo;
+        /**
+         * 试用期信息
+         * <p> 示例值：
+         */
+        this.probationInfo = builder.probationInfo;
+        /**
+         * 自定义分组
+         * <p> 示例值：
+         */
+        this.customGroups = builder.customGroups;
+        /**
+         * 司龄调整信息
+         * <p> 示例值：
+         */
+        this.seniorityAdjustInformations = builder.seniorityAdjustInformations;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public ProfileSettingEmpBasicInfoForUpdate getBasicInfo() {
         return this.basicInfo;
     }
@@ -81,113 +117,82 @@ public class ProfileSettingEmpInfoForUpdate {
         this.seniorityAdjustInformations = seniorityAdjustInformations;
     }
 
-
-// builder 开始
-  public ProfileSettingEmpInfoForUpdate(){}
-
-  public ProfileSettingEmpInfoForUpdate(Builder builder){
-         /**
-          * 基本信息
-          * <p> 示例值：
-          */
-      this.basicInfo = builder.basicInfo;
-         /**
-          * 试用期信息
-          * <p> 示例值：
-          */
-      this.probationInfo = builder.probationInfo;
-         /**
-          * 自定义分组
-          * <p> 示例值：
-          */
-      this.customGroups = builder.customGroups;
-         /**
-          * 司龄调整信息
-          * <p> 示例值：
-          */
-      this.seniorityAdjustInformations = builder.seniorityAdjustInformations;
-  }
-
     public static class Builder {
-     /**
-      * 基本信息
-      * <p> 示例值：
-      */
+        /**
+         * 基本信息
+         * <p> 示例值：
+         */
         private ProfileSettingEmpBasicInfoForUpdate basicInfo;
-     /**
-      * 试用期信息
-      * <p> 示例值：
-      */
+        /**
+         * 试用期信息
+         * <p> 示例值：
+         */
         private ProfileSettingProbationInfo probationInfo;
-     /**
-      * 自定义分组
-      * <p> 示例值：
-      */
+        /**
+         * 自定义分组
+         * <p> 示例值：
+         */
         private ProfileSettingCustomGroup[] customGroups;
-     /**
-      * 司龄调整信息
-      * <p> 示例值：
-      */
+        /**
+         * 司龄调整信息
+         * <p> 示例值：
+         */
         private SeniorityAdjustInformationEdit[] seniorityAdjustInformations;
 
         /**
          * 基本信息
          * <p> 示例值：
+         *
          * @param basicInfo
          * @return
          */
         public Builder basicInfo(ProfileSettingEmpBasicInfoForUpdate basicInfo) {
-             this.basicInfo = basicInfo;
-             return this;
+            this.basicInfo = basicInfo;
+            return this;
         }
 
-    
 
         /**
          * 试用期信息
          * <p> 示例值：
+         *
          * @param probationInfo
          * @return
          */
         public Builder probationInfo(ProfileSettingProbationInfo probationInfo) {
-             this.probationInfo = probationInfo;
-             return this;
+            this.probationInfo = probationInfo;
+            return this;
         }
 
-    
 
         /**
          * 自定义分组
          * <p> 示例值：
+         *
          * @param customGroups
          * @return
          */
         public Builder customGroups(ProfileSettingCustomGroup[] customGroups) {
-             this.customGroups = customGroups;
-             return this;
+            this.customGroups = customGroups;
+            return this;
         }
 
-    
 
         /**
          * 司龄调整信息
          * <p> 示例值：
+         *
          * @param seniorityAdjustInformations
          * @return
          */
         public Builder seniorityAdjustInformations(SeniorityAdjustInformationEdit[] seniorityAdjustInformations) {
-             this.seniorityAdjustInformations = seniorityAdjustInformations;
-             return this;
+            this.seniorityAdjustInformations = seniorityAdjustInformations;
+            return this;
         }
 
-    
-    
-    public ProfileSettingEmpInfoForUpdate build(){
-        return new ProfileSettingEmpInfoForUpdate(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ProfileSettingEmpInfoForUpdate build() {
+            return new ProfileSettingEmpInfoForUpdate(this);
+        }
     }
 }

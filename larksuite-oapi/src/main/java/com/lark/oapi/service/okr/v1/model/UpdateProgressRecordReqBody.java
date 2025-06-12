@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.okr.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.okr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class UpdateProgressRecordReqBody {
-     /**
-      * 进展详情 富文本格式
-      * <p> 示例值：
-      */
+    /**
+     * 进展详情 富文本格式
+     * <p> 示例值：
+     */
     @SerializedName("content")
     private ContentBlock content;
+
+    // builder 开始
+    public UpdateProgressRecordReqBody() {
+    }
+
+    public UpdateProgressRecordReqBody(Builder builder) {
+        /**
+         * 进展详情 富文本格式
+         * <p> 示例值：
+         */
+        this.content = builder.content;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public ContentBlock getContent() {
         return this.content;
     }
@@ -39,44 +60,28 @@ public class UpdateProgressRecordReqBody {
         this.content = content;
     }
 
-
-// builder 开始
-  public UpdateProgressRecordReqBody(){}
-
-  public UpdateProgressRecordReqBody(Builder builder){
-         /**
-          * 进展详情 富文本格式
-          * <p> 示例值：
-          */
-      this.content = builder.content;
-  }
-
     public static class Builder {
-     /**
-      * 进展详情 富文本格式
-      * <p> 示例值：
-      */
+        /**
+         * 进展详情 富文本格式
+         * <p> 示例值：
+         */
         private ContentBlock content;
 
         /**
          * 进展详情 富文本格式
          * <p> 示例值：
+         *
          * @param content
          * @return
          */
         public Builder content(ContentBlock content) {
-             this.content = content;
-             return this;
+            this.content = content;
+            return this;
         }
 
-    
-    
-    public UpdateProgressRecordReqBody build(){
-        return new UpdateProgressRecordReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public UpdateProgressRecordReqBody build() {
+            return new UpdateProgressRecordReqBody(this);
+        }
     }
 }

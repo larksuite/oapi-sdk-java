@@ -12,48 +12,53 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class P2ApplicationFeedbackUpdatedV6Data {
-     /**
-      * 反馈id列表
-      * <p> 示例值：
-      */
+    /**
+     * 反馈id列表
+     * <p> 示例值：
+     */
     @SerializedName("feedback_ids")
     private String[] feedbackIds;
-     /**
-      * 反馈处理状态（枚举值，0: 未处理  1: 已处理  2: 处理中 3: 已关闭）
-      * <p> 示例值：1
-      */
+    /**
+     * 反馈处理状态（枚举值，0: 未处理  1: 已处理  2: 处理中 3: 已关闭）
+     * <p> 示例值：1
+     */
     @SerializedName("status")
     private Integer status;
-     /**
-      * 应用的 app_id
-      * <p> 示例值：cli_9b445f5258795107
-      */
+    /**
+     * 应用的 app_id
+     * <p> 示例值：cli_9b445f5258795107
+     */
     @SerializedName("app_id")
     private String appId;
-     /**
-      * 反馈处理时间，格式为yyyy-mm-dd hh:mm:ss
-      * <p> 示例值：2021-07-01 17:00:00
-      */
+    /**
+     * 反馈处理时间，格式为yyyy-mm-dd hh:mm:ss
+     * <p> 示例值：2021-07-01 17:00:00
+     */
     @SerializedName("update_time")
     private String updateTime;
-     /**
-      * 操作者用户 ID
-      * <p> 示例值：
-      */
+    /**
+     * 操作者用户 ID
+     * <p> 示例值：
+     */
     @SerializedName("operator_id")
     private UserId operatorId;
+
     public String[] getFeedbackIds() {
         return this.feedbackIds;
     }

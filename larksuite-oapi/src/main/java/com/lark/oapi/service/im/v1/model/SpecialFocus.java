@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class SpecialFocus {
-     /**
-      * 成员ID
-      * <p> 示例值：ou_155184d1e73cbfb8973e5a9e698e74f2
-      */
+    /**
+     * 成员ID
+     * <p> 示例值：ou_155184d1e73cbfb8973e5a9e698e74f2
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 成员ID类型。根据member_id_type参数返回`open_id`、`user_id`或`union_id`类型的用户ID；机器人返回`app_id`
-      * <p> 示例值：
-      */
+    /**
+     * 成员ID类型。根据member_id_type参数返回`open_id`、`user_id`或`union_id`类型的用户ID；机器人返回`app_id`
+     * <p> 示例值：
+     */
     @SerializedName("id_type")
     private String idType;
+
+    // builder 开始
+    public SpecialFocus() {
+    }
+
+    public SpecialFocus(Builder builder) {
+        /**
+         * 成员ID
+         * <p> 示例值：ou_155184d1e73cbfb8973e5a9e698e74f2
+         */
+        this.id = builder.id;
+        /**
+         * 成员ID类型。根据member_id_type参数返回`open_id`、`user_id`或`union_id`类型的用户ID；机器人返回`app_id`
+         * <p> 示例值：
+         */
+        this.idType = builder.idType;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -53,77 +79,58 @@ public class SpecialFocus {
         this.idType = idType;
     }
 
-
-// builder 开始
-  public SpecialFocus(){}
-
-  public SpecialFocus(Builder builder){
-         /**
-          * 成员ID
-          * <p> 示例值：ou_155184d1e73cbfb8973e5a9e698e74f2
-          */
-      this.id = builder.id;
-         /**
-          * 成员ID类型。根据member_id_type参数返回`open_id`、`user_id`或`union_id`类型的用户ID；机器人返回`app_id`
-          * <p> 示例值：
-          */
-      this.idType = builder.idType;
-  }
-
     public static class Builder {
-     /**
-      * 成员ID
-      * <p> 示例值：ou_155184d1e73cbfb8973e5a9e698e74f2
-      */
+        /**
+         * 成员ID
+         * <p> 示例值：ou_155184d1e73cbfb8973e5a9e698e74f2
+         */
         private String id;
-     /**
-      * 成员ID类型。根据member_id_type参数返回`open_id`、`user_id`或`union_id`类型的用户ID；机器人返回`app_id`
-      * <p> 示例值：
-      */
+        /**
+         * 成员ID类型。根据member_id_type参数返回`open_id`、`user_id`或`union_id`类型的用户ID；机器人返回`app_id`
+         * <p> 示例值：
+         */
         private String idType;
 
         /**
          * 成员ID
          * <p> 示例值：ou_155184d1e73cbfb8973e5a9e698e74f2
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 成员ID类型。根据member_id_type参数返回`open_id`、`user_id`或`union_id`类型的用户ID；机器人返回`app_id`
          * <p> 示例值：
+         *
          * @param idType
          * @return
          */
         public Builder idType(String idType) {
-             this.idType = idType;
-             return this;
+            this.idType = idType;
+            return this;
         }
+
         /**
          * 成员ID类型。根据member_id_type参数返回`open_id`、`user_id`或`union_id`类型的用户ID；机器人返回`app_id`
          * <p> 示例值：
+         *
          * @param idType {@link com.lark.oapi.service.im.v1.enums.SpecialFocusIdTypeEnum}
          * @return
          */
         public Builder idType(com.lark.oapi.service.im.v1.enums.SpecialFocusIdTypeEnum idType) {
-             this.idType = idType.getValue();
-             return this;
+            this.idType = idType.getValue();
+            return this;
         }
 
-    
-    
-    public SpecialFocus build(){
-        return new SpecialFocus(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public SpecialFocus build() {
+            return new SpecialFocus(this);
+        }
     }
 }

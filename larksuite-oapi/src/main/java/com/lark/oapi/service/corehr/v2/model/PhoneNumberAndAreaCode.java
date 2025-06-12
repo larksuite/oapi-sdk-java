@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class PhoneNumberAndAreaCode {
-     /**
-      * 区号
-      * <p> 示例值：123123
-      */
+    /**
+     * 区号
+     * <p> 示例值：123123
+     */
     @SerializedName("area_code")
     private Enum areaCode;
-     /**
-      * 号码
-      * <p> 示例值：213213
-      */
+    /**
+     * 号码
+     * <p> 示例值：213213
+     */
     @SerializedName("phone_number")
     private String phoneNumber;
+
+    // builder 开始
+    public PhoneNumberAndAreaCode() {
+    }
+
+    public PhoneNumberAndAreaCode(Builder builder) {
+        /**
+         * 区号
+         * <p> 示例值：123123
+         */
+        this.areaCode = builder.areaCode;
+        /**
+         * 号码
+         * <p> 示例值：213213
+         */
+        this.phoneNumber = builder.phoneNumber;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Enum getAreaCode() {
         return this.areaCode;
     }
@@ -53,67 +79,46 @@ public class PhoneNumberAndAreaCode {
         this.phoneNumber = phoneNumber;
     }
 
-
-// builder 开始
-  public PhoneNumberAndAreaCode(){}
-
-  public PhoneNumberAndAreaCode(Builder builder){
-         /**
-          * 区号
-          * <p> 示例值：123123
-          */
-      this.areaCode = builder.areaCode;
-         /**
-          * 号码
-          * <p> 示例值：213213
-          */
-      this.phoneNumber = builder.phoneNumber;
-  }
-
     public static class Builder {
-     /**
-      * 区号
-      * <p> 示例值：123123
-      */
+        /**
+         * 区号
+         * <p> 示例值：123123
+         */
         private Enum areaCode;
-     /**
-      * 号码
-      * <p> 示例值：213213
-      */
+        /**
+         * 号码
+         * <p> 示例值：213213
+         */
         private String phoneNumber;
 
         /**
          * 区号
          * <p> 示例值：123123
+         *
          * @param areaCode
          * @return
          */
         public Builder areaCode(Enum areaCode) {
-             this.areaCode = areaCode;
-             return this;
+            this.areaCode = areaCode;
+            return this;
         }
 
-    
 
         /**
          * 号码
          * <p> 示例值：213213
+         *
          * @param phoneNumber
          * @return
          */
         public Builder phoneNumber(String phoneNumber) {
-             this.phoneNumber = phoneNumber;
-             return this;
+            this.phoneNumber = phoneNumber;
+            return this;
         }
 
-    
-    
-    public PhoneNumberAndAreaCode build(){
-        return new PhoneNumberAndAreaCode(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public PhoneNumberAndAreaCode build() {
+            return new PhoneNumberAndAreaCode(this);
+        }
     }
 }

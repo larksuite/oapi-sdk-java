@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ChildField {
-     /**
-      * 子字段编号
-      * <p> 示例值：50121
-      */
+    /**
+     * 子字段编号
+     * <p> 示例值：50121
+     */
     @SerializedName("code")
     private String code;
-     /**
-      * 子字段名称
-      * <p> 示例值：工号
-      */
+    /**
+     * 子字段名称
+     * <p> 示例值：工号
+     */
     @SerializedName("title")
     private String title;
-     /**
-      * 时间单位
-      * <p> 示例值：
-      */
+    /**
+     * 时间单位
+     * <p> 示例值：
+     */
     @SerializedName("time_unit")
     private String timeUnit;
+
+    // builder 开始
+    public ChildField() {
+    }
+
+    public ChildField(Builder builder) {
+        /**
+         * 子字段编号
+         * <p> 示例值：50121
+         */
+        this.code = builder.code;
+        /**
+         * 子字段名称
+         * <p> 示例值：工号
+         */
+        this.title = builder.title;
+        /**
+         * 时间单位
+         * <p> 示例值：
+         */
+        this.timeUnit = builder.timeUnit;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getCode() {
         return this.code;
     }
@@ -67,90 +98,64 @@ public class ChildField {
         this.timeUnit = timeUnit;
     }
 
-
-// builder 开始
-  public ChildField(){}
-
-  public ChildField(Builder builder){
-         /**
-          * 子字段编号
-          * <p> 示例值：50121
-          */
-      this.code = builder.code;
-         /**
-          * 子字段名称
-          * <p> 示例值：工号
-          */
-      this.title = builder.title;
-         /**
-          * 时间单位
-          * <p> 示例值：
-          */
-      this.timeUnit = builder.timeUnit;
-  }
-
     public static class Builder {
-     /**
-      * 子字段编号
-      * <p> 示例值：50121
-      */
+        /**
+         * 子字段编号
+         * <p> 示例值：50121
+         */
         private String code;
-     /**
-      * 子字段名称
-      * <p> 示例值：工号
-      */
+        /**
+         * 子字段名称
+         * <p> 示例值：工号
+         */
         private String title;
-     /**
-      * 时间单位
-      * <p> 示例值：
-      */
+        /**
+         * 时间单位
+         * <p> 示例值：
+         */
         private String timeUnit;
 
         /**
          * 子字段编号
          * <p> 示例值：50121
+         *
          * @param code
          * @return
          */
         public Builder code(String code) {
-             this.code = code;
-             return this;
+            this.code = code;
+            return this;
         }
 
-    
 
         /**
          * 子字段名称
          * <p> 示例值：工号
+         *
          * @param title
          * @return
          */
         public Builder title(String title) {
-             this.title = title;
-             return this;
+            this.title = title;
+            return this;
         }
 
-    
 
         /**
          * 时间单位
          * <p> 示例值：
+         *
          * @param timeUnit
          * @return
          */
         public Builder timeUnit(String timeUnit) {
-             this.timeUnit = timeUnit;
-             return this;
+            this.timeUnit = timeUnit;
+            return this;
         }
 
-    
-    
-    public ChildField build(){
-        return new ChildField(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ChildField build() {
+            return new ChildField(this);
+        }
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.wiki.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.wiki.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class UpdateTitleSpaceNodeReqBody {
-     /**
-      * 节点新标题
-      * <p> 示例值：新标题
-      */
+    /**
+     * 节点新标题
+     * <p> 示例值：新标题
+     */
     @SerializedName("title")
     private String title;
+
+    // builder 开始
+    public UpdateTitleSpaceNodeReqBody() {
+    }
+
+    public UpdateTitleSpaceNodeReqBody(Builder builder) {
+        /**
+         * 节点新标题
+         * <p> 示例值：新标题
+         */
+        this.title = builder.title;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getTitle() {
         return this.title;
     }
@@ -39,44 +60,28 @@ public class UpdateTitleSpaceNodeReqBody {
         this.title = title;
     }
 
-
-// builder 开始
-  public UpdateTitleSpaceNodeReqBody(){}
-
-  public UpdateTitleSpaceNodeReqBody(Builder builder){
-         /**
-          * 节点新标题
-          * <p> 示例值：新标题
-          */
-      this.title = builder.title;
-  }
-
     public static class Builder {
-     /**
-      * 节点新标题
-      * <p> 示例值：新标题
-      */
+        /**
+         * 节点新标题
+         * <p> 示例值：新标题
+         */
         private String title;
 
         /**
          * 节点新标题
          * <p> 示例值：新标题
+         *
          * @param title
          * @return
          */
         public Builder title(String title) {
-             this.title = title;
-             return this;
+            this.title = title;
+            return this;
         }
 
-    
-    
-    public UpdateTitleSpaceNodeReqBody build(){
-        return new UpdateTitleSpaceNodeReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public UpdateTitleSpaceNodeReqBody build() {
+            return new UpdateTitleSpaceNodeReqBody(this);
+        }
     }
 }

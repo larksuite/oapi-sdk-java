@@ -17,19 +17,20 @@ package com.lark.oapi.service.performance.v2.enums;
  * 360° 评估人的与被评估人关系。如果开启了 360 匿名评估，并且是对全部查看者匿名，且配置隐藏描述信息则不返回该值
  */
 public enum InvitedReviewRecordInfoRelationshipWithRevieweeEnum {
-     DIRECT_REPORT("direct_report"), // 直属下级
-     SKIPLEVEL_REPORT("skiplevel_report"), // 隔级下级
-     FORMER_DIRECT_MANAGER("former_direct_manager"), // 原直属上级
-     SKIPLEVEL_MANAGER("skiplevel_manager"), // 隔级上级
-     TEAMMATE("teammate"), // 相同上级同事
-     CROSSTEAM_COLLEAGUE("crossteam_colleague"), // 不同上级同事
-  ;
-   private String value;
+    DIRECT_REPORT("direct_report"), // 直属下级
+    SKIPLEVEL_REPORT("skiplevel_report"), // 隔级下级
+    FORMER_DIRECT_MANAGER("former_direct_manager"), // 原直属上级
+    SKIPLEVEL_MANAGER("skiplevel_manager"), // 隔级上级
+    TEAMMATE("teammate"), // 相同上级同事
+    CROSSTEAM_COLLEAGUE("crossteam_colleague"), // 不同上级同事
+    ;
+    private String value;
+
     InvitedReviewRecordInfoRelationshipWithRevieweeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

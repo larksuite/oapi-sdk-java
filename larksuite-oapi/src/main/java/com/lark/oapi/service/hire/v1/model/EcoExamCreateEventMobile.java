@@ -12,30 +12,56 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class EcoExamCreateEventMobile {
-     /**
-      * 国家代码
-      * <p> 示例值：86
-      */
+    /**
+     * 国家代码
+     * <p> 示例值：86
+     */
     @SerializedName("code")
     private String code;
-     /**
-      * 手机号码
-      * <p> 示例值：18900001111
-      */
+    /**
+     * 手机号码
+     * <p> 示例值：18900001111
+     */
     @SerializedName("number")
     private String number;
+
+    // builder 开始
+    public EcoExamCreateEventMobile() {
+    }
+
+    public EcoExamCreateEventMobile(Builder builder) {
+        /**
+         * 国家代码
+         * <p> 示例值：86
+         */
+        this.code = builder.code;
+        /**
+         * 手机号码
+         * <p> 示例值：18900001111
+         */
+        this.number = builder.number;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getCode() {
         return this.code;
     }
@@ -52,67 +78,46 @@ public class EcoExamCreateEventMobile {
         this.number = number;
     }
 
-
-// builder 开始
-  public EcoExamCreateEventMobile(){}
-
-  public EcoExamCreateEventMobile(Builder builder){
-         /**
-          * 国家代码
-          * <p> 示例值：86
-          */
-      this.code = builder.code;
-         /**
-          * 手机号码
-          * <p> 示例值：18900001111
-          */
-      this.number = builder.number;
-  }
-
     public static class Builder {
-     /**
-      * 国家代码
-      * <p> 示例值：86
-      */
+        /**
+         * 国家代码
+         * <p> 示例值：86
+         */
         private String code;
-     /**
-      * 手机号码
-      * <p> 示例值：18900001111
-      */
+        /**
+         * 手机号码
+         * <p> 示例值：18900001111
+         */
         private String number;
 
         /**
          * 国家代码
          * <p> 示例值：86
+         *
          * @param code
          * @return
          */
         public Builder code(String code) {
-             this.code = code;
-             return this;
+            this.code = code;
+            return this;
         }
 
-    
 
         /**
          * 手机号码
          * <p> 示例值：18900001111
+         *
          * @param number
          * @return
          */
         public Builder number(String number) {
-             this.number = number;
-             return this;
+            this.number = number;
+            return this;
         }
 
-    
-    
-    public EcoExamCreateEventMobile build(){
-        return new EcoExamCreateEventMobile(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public EcoExamCreateEventMobile build() {
+            return new EcoExamCreateEventMobile(this);
+        }
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class MyAiSimpleCommandResult {
-     /**
-      * result_content
-      * <p> 示例值：hi
-      */
+    /**
+     * result_content
+     * <p> 示例值：hi
+     */
     @SerializedName("content")
     private String content;
+
+    // builder 开始
+    public MyAiSimpleCommandResult() {
+    }
+
+    public MyAiSimpleCommandResult(Builder builder) {
+        /**
+         * result_content
+         * <p> 示例值：hi
+         */
+        this.content = builder.content;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getContent() {
         return this.content;
     }
@@ -39,44 +60,28 @@ public class MyAiSimpleCommandResult {
         this.content = content;
     }
 
-
-// builder 开始
-  public MyAiSimpleCommandResult(){}
-
-  public MyAiSimpleCommandResult(Builder builder){
-         /**
-          * result_content
-          * <p> 示例值：hi
-          */
-      this.content = builder.content;
-  }
-
     public static class Builder {
-     /**
-      * result_content
-      * <p> 示例值：hi
-      */
+        /**
+         * result_content
+         * <p> 示例值：hi
+         */
         private String content;
 
         /**
          * result_content
          * <p> 示例值：hi
+         *
          * @param content
          * @return
          */
         public Builder content(String content) {
-             this.content = content;
-             return this;
+            this.content = content;
+            return this;
         }
 
-    
-    
-    public MyAiSimpleCommandResult build(){
-        return new MyAiSimpleCommandResult(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public MyAiSimpleCommandResult build() {
+            return new MyAiSimpleCommandResult(this);
+        }
     }
 }

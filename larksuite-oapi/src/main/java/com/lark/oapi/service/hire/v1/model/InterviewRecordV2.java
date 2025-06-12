@@ -12,66 +12,122 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class InterviewRecordV2 {
-     /**
-      * 面试评价ID
-      * <p> 示例值：7171693733661327361
-      */
+    /**
+     * 面试评价ID
+     * <p> 示例值：7171693733661327361
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 面试评价表ID
-      * <p> 示例值：71716937336613273612
-      */
+    /**
+     * 面试评价表ID
+     * <p> 示例值：71716937336613273612
+     */
     @SerializedName("feedback_form_id")
     private String feedbackFormId;
-     /**
-      * 提交状态
-      * <p> 示例值：1
-      */
+    /**
+     * 提交状态
+     * <p> 示例值：1
+     */
     @SerializedName("commit_status")
     private Integer commitStatus;
-     /**
-      * 面试评价提交时间
-      * <p> 示例值：1710405457390
-      */
+    /**
+     * 面试评价提交时间
+     * <p> 示例值：1710405457390
+     */
     @SerializedName("submit_time")
     private String submitTime;
-     /**
-      * 面试评价分数
-      * <p> 示例值：
-      */
+    /**
+     * 面试评价分数
+     * <p> 示例值：
+     */
     @SerializedName("record_score")
     private RecordScore recordScore;
-     /**
-      * 面试官信息
-      * <p> 示例值：
-      */
+    /**
+     * 面试官信息
+     * <p> 示例值：
+     */
     @SerializedName("interviewer")
     private BasicUserInfo interviewer;
-     /**
-      * 面试评价附件列表
-      * <p> 示例值：
-      */
+    /**
+     * 面试评价附件列表
+     * <p> 示例值：
+     */
     @SerializedName("attachments")
     private InterviewAttachment[] attachments;
-     /**
-      * 模块评价列表
-      * <p> 示例值：
-      */
+    /**
+     * 模块评价列表
+     * <p> 示例值：
+     */
     @SerializedName("module_assessments")
     private ModuleAssessment[] moduleAssessments;
+
+    // builder 开始
+    public InterviewRecordV2() {
+    }
+
+    public InterviewRecordV2(Builder builder) {
+        /**
+         * 面试评价ID
+         * <p> 示例值：7171693733661327361
+         */
+        this.id = builder.id;
+        /**
+         * 面试评价表ID
+         * <p> 示例值：71716937336613273612
+         */
+        this.feedbackFormId = builder.feedbackFormId;
+        /**
+         * 提交状态
+         * <p> 示例值：1
+         */
+        this.commitStatus = builder.commitStatus;
+        /**
+         * 面试评价提交时间
+         * <p> 示例值：1710405457390
+         */
+        this.submitTime = builder.submitTime;
+        /**
+         * 面试评价分数
+         * <p> 示例值：
+         */
+        this.recordScore = builder.recordScore;
+        /**
+         * 面试官信息
+         * <p> 示例值：
+         */
+        this.interviewer = builder.interviewer;
+        /**
+         * 面试评价附件列表
+         * <p> 示例值：
+         */
+        this.attachments = builder.attachments;
+        /**
+         * 模块评价列表
+         * <p> 示例值：
+         */
+        this.moduleAssessments = builder.moduleAssessments;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -136,205 +192,154 @@ public class InterviewRecordV2 {
         this.moduleAssessments = moduleAssessments;
     }
 
-
-// builder 开始
-  public InterviewRecordV2(){}
-
-  public InterviewRecordV2(Builder builder){
-         /**
-          * 面试评价ID
-          * <p> 示例值：7171693733661327361
-          */
-      this.id = builder.id;
-         /**
-          * 面试评价表ID
-          * <p> 示例值：71716937336613273612
-          */
-      this.feedbackFormId = builder.feedbackFormId;
-         /**
-          * 提交状态
-          * <p> 示例值：1
-          */
-      this.commitStatus = builder.commitStatus;
-         /**
-          * 面试评价提交时间
-          * <p> 示例值：1710405457390
-          */
-      this.submitTime = builder.submitTime;
-         /**
-          * 面试评价分数
-          * <p> 示例值：
-          */
-      this.recordScore = builder.recordScore;
-         /**
-          * 面试官信息
-          * <p> 示例值：
-          */
-      this.interviewer = builder.interviewer;
-         /**
-          * 面试评价附件列表
-          * <p> 示例值：
-          */
-      this.attachments = builder.attachments;
-         /**
-          * 模块评价列表
-          * <p> 示例值：
-          */
-      this.moduleAssessments = builder.moduleAssessments;
-  }
-
     public static class Builder {
-     /**
-      * 面试评价ID
-      * <p> 示例值：7171693733661327361
-      */
+        /**
+         * 面试评价ID
+         * <p> 示例值：7171693733661327361
+         */
         private String id;
-     /**
-      * 面试评价表ID
-      * <p> 示例值：71716937336613273612
-      */
+        /**
+         * 面试评价表ID
+         * <p> 示例值：71716937336613273612
+         */
         private String feedbackFormId;
-     /**
-      * 提交状态
-      * <p> 示例值：1
-      */
+        /**
+         * 提交状态
+         * <p> 示例值：1
+         */
         private Integer commitStatus;
-     /**
-      * 面试评价提交时间
-      * <p> 示例值：1710405457390
-      */
+        /**
+         * 面试评价提交时间
+         * <p> 示例值：1710405457390
+         */
         private String submitTime;
-     /**
-      * 面试评价分数
-      * <p> 示例值：
-      */
+        /**
+         * 面试评价分数
+         * <p> 示例值：
+         */
         private RecordScore recordScore;
-     /**
-      * 面试官信息
-      * <p> 示例值：
-      */
+        /**
+         * 面试官信息
+         * <p> 示例值：
+         */
         private BasicUserInfo interviewer;
-     /**
-      * 面试评价附件列表
-      * <p> 示例值：
-      */
+        /**
+         * 面试评价附件列表
+         * <p> 示例值：
+         */
         private InterviewAttachment[] attachments;
-     /**
-      * 模块评价列表
-      * <p> 示例值：
-      */
+        /**
+         * 模块评价列表
+         * <p> 示例值：
+         */
         private ModuleAssessment[] moduleAssessments;
 
         /**
          * 面试评价ID
          * <p> 示例值：7171693733661327361
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 面试评价表ID
          * <p> 示例值：71716937336613273612
+         *
          * @param feedbackFormId
          * @return
          */
         public Builder feedbackFormId(String feedbackFormId) {
-             this.feedbackFormId = feedbackFormId;
-             return this;
+            this.feedbackFormId = feedbackFormId;
+            return this;
         }
 
-    
 
         /**
          * 提交状态
          * <p> 示例值：1
+         *
          * @param commitStatus
          * @return
          */
         public Builder commitStatus(Integer commitStatus) {
-             this.commitStatus = commitStatus;
-             return this;
+            this.commitStatus = commitStatus;
+            return this;
         }
 
-    
 
         /**
          * 面试评价提交时间
          * <p> 示例值：1710405457390
+         *
          * @param submitTime
          * @return
          */
         public Builder submitTime(String submitTime) {
-             this.submitTime = submitTime;
-             return this;
+            this.submitTime = submitTime;
+            return this;
         }
 
-    
 
         /**
          * 面试评价分数
          * <p> 示例值：
+         *
          * @param recordScore
          * @return
          */
         public Builder recordScore(RecordScore recordScore) {
-             this.recordScore = recordScore;
-             return this;
+            this.recordScore = recordScore;
+            return this;
         }
 
-    
 
         /**
          * 面试官信息
          * <p> 示例值：
+         *
          * @param interviewer
          * @return
          */
         public Builder interviewer(BasicUserInfo interviewer) {
-             this.interviewer = interviewer;
-             return this;
+            this.interviewer = interviewer;
+            return this;
         }
 
-    
 
         /**
          * 面试评价附件列表
          * <p> 示例值：
+         *
          * @param attachments
          * @return
          */
         public Builder attachments(InterviewAttachment[] attachments) {
-             this.attachments = attachments;
-             return this;
+            this.attachments = attachments;
+            return this;
         }
 
-    
 
         /**
          * 模块评价列表
          * <p> 示例值：
+         *
          * @param moduleAssessments
          * @return
          */
         public Builder moduleAssessments(ModuleAssessment[] moduleAssessments) {
-             this.moduleAssessments = moduleAssessments;
-             return this;
+            this.moduleAssessments = moduleAssessments;
+            return this;
         }
 
-    
-    
-    public InterviewRecordV2 build(){
-        return new InterviewRecordV2(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public InterviewRecordV2 build() {
+            return new InterviewRecordV2(this);
+        }
     }
 }

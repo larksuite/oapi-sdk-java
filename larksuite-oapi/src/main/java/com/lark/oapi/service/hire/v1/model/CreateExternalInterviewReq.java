@@ -12,19 +12,35 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CreateExternalInterviewReq {
     @Body
     private ExternalInterview body;
+
+    // builder 开始
+    public CreateExternalInterviewReq() {
+    }
+
+    public CreateExternalInterviewReq(Builder builder) {
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 
     public ExternalInterview getExternalInterview() {
         return this.body;
@@ -34,36 +50,27 @@ public class CreateExternalInterviewReq {
         this.body = body;
     }
 
-// builder 开始
-  public CreateExternalInterviewReq(){}
-
-  public CreateExternalInterviewReq(Builder builder){
-        this.body = builder.body;
-  }
-
     public static class Builder {
-    
+
         private ExternalInterview body;
-    
+
         public ExternalInterview getExternalInterview() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder externalInterview(ExternalInterview body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public CreateExternalInterviewReq build(){
-        return new CreateExternalInterviewReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public CreateExternalInterviewReq build() {
+            return new CreateExternalInterviewReq(this);
+        }
     }
 }

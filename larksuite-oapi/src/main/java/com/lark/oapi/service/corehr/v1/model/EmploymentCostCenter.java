@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class EmploymentCostCenter {
-     /**
-      * 雇员ID
-      * <p> 示例值：6950635856373745165
-      */
+    /**
+     * 雇员ID
+     * <p> 示例值：6950635856373745165
+     */
     @SerializedName("employment_id")
     private String employmentId;
-     /**
-      * 自定义字段
-      * <p> 示例值：
-      */
+    /**
+     * 自定义字段
+     * <p> 示例值：
+     */
     @SerializedName("cost_center")
     private CostCenter[] costCenter;
+
+    // builder 开始
+    public EmploymentCostCenter() {
+    }
+
+    public EmploymentCostCenter(Builder builder) {
+        /**
+         * 雇员ID
+         * <p> 示例值：6950635856373745165
+         */
+        this.employmentId = builder.employmentId;
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
+        this.costCenter = builder.costCenter;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getEmploymentId() {
         return this.employmentId;
     }
@@ -53,67 +79,46 @@ public class EmploymentCostCenter {
         this.costCenter = costCenter;
     }
 
-
-// builder 开始
-  public EmploymentCostCenter(){}
-
-  public EmploymentCostCenter(Builder builder){
-         /**
-          * 雇员ID
-          * <p> 示例值：6950635856373745165
-          */
-      this.employmentId = builder.employmentId;
-         /**
-          * 自定义字段
-          * <p> 示例值：
-          */
-      this.costCenter = builder.costCenter;
-  }
-
     public static class Builder {
-     /**
-      * 雇员ID
-      * <p> 示例值：6950635856373745165
-      */
+        /**
+         * 雇员ID
+         * <p> 示例值：6950635856373745165
+         */
         private String employmentId;
-     /**
-      * 自定义字段
-      * <p> 示例值：
-      */
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
         private CostCenter[] costCenter;
 
         /**
          * 雇员ID
          * <p> 示例值：6950635856373745165
+         *
          * @param employmentId
          * @return
          */
         public Builder employmentId(String employmentId) {
-             this.employmentId = employmentId;
-             return this;
+            this.employmentId = employmentId;
+            return this;
         }
 
-    
 
         /**
          * 自定义字段
          * <p> 示例值：
+         *
          * @param costCenter
          * @return
          */
         public Builder costCenter(CostCenter[] costCenter) {
-             this.costCenter = costCenter;
-             return this;
+            this.costCenter = costCenter;
+            return this;
         }
 
-    
-    
-    public EmploymentCostCenter build(){
-        return new EmploymentCostCenter(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public EmploymentCostCenter build() {
+            return new EmploymentCostCenter(this);
+        }
     }
 }

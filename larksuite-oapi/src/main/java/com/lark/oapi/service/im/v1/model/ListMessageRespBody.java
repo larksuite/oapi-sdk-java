@@ -12,36 +12,41 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ListMessageRespBody {
-     /**
-      * 是否还有后续翻页
-      * <p> 示例值：false
-      */
+    /**
+     * 是否还有后续翻页
+     * <p> 示例值：false
+     */
     @SerializedName("has_more")
     private Boolean hasMore;
-     /**
-      * 下一页分页的token
-      * <p> 示例值：GxmvlNRvP0NdQZpa7yIqf_Lv_QuBwTQ8tXkX7w-irAghVD_TvuYd1aoJ1LQph86O-XImC4X9j9FhUPhXQDvtrQ==
-      */
+    /**
+     * 下一页分页的token
+     * <p> 示例值：GxmvlNRvP0NdQZpa7yIqf_Lv_QuBwTQ8tXkX7w-irAghVD_TvuYd1aoJ1LQph86O-XImC4X9j9FhUPhXQDvtrQ==
+     */
     @SerializedName("page_token")
     private String pageToken;
-     /**
-      * message[]
-      * <p> 示例值：
-      */
+    /**
+     * message[]
+     * <p> 示例值：
+     */
     @SerializedName("items")
     private Message[] items;
+
     public Boolean getHasMore() {
         return this.hasMore;
     }

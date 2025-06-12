@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.mdm.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.mdm.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,42 +20,82 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class DepartmentCostCenterRelationship {
-     /**
-      * 部门成本中心关系唯一ID
-      * <p> 示例值：U1418468581452029052
-      */
+    /**
+     * 部门成本中心关系唯一ID
+     * <p> 示例值：U1418468581452029052
+     */
     @SerializedName("department_cost_center_relationship_uid")
     private String departmentCostCenterRelationshipUid;
-     /**
-      * 公司编码
-      * <p> 示例值：100101
-      */
+    /**
+     * 公司编码
+     * <p> 示例值：100101
+     */
     @SerializedName("company_code")
     private String companyCode;
-     /**
-      * 部门open id，详细说明参见[部门 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
-      * <p> 示例值：od-1001
-      */
+    /**
+     * 部门open id，详细说明参见[部门 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+     * <p> 示例值：od-1001
+     */
     @SerializedName("open_department_id")
     private String openDepartmentId;
-     /**
-      * 成本中心代码
-      * <p> 示例值：1002000100
-      */
+    /**
+     * 成本中心代码
+     * <p> 示例值：1002000100
+     */
     @SerializedName("cost_center_code")
     private String costCenterCode;
-     /**
-      * 部门id，详细说明参见[部门 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
-      * <p> 示例值：1001
-      */
+    /**
+     * 部门id，详细说明参见[部门 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+     * <p> 示例值：1001
+     */
     @SerializedName("department_id")
     private String departmentId;
+
+    // builder 开始
+    public DepartmentCostCenterRelationship() {
+    }
+
+    public DepartmentCostCenterRelationship(Builder builder) {
+        /**
+         * 部门成本中心关系唯一ID
+         * <p> 示例值：U1418468581452029052
+         */
+        this.departmentCostCenterRelationshipUid = builder.departmentCostCenterRelationshipUid;
+        /**
+         * 公司编码
+         * <p> 示例值：100101
+         */
+        this.companyCode = builder.companyCode;
+        /**
+         * 部门open id，详细说明参见[部门 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+         * <p> 示例值：od-1001
+         */
+        this.openDepartmentId = builder.openDepartmentId;
+        /**
+         * 成本中心代码
+         * <p> 示例值：1002000100
+         */
+        this.costCenterCode = builder.costCenterCode;
+        /**
+         * 部门id，详细说明参见[部门 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+         * <p> 示例值：1001
+         */
+        this.departmentId = builder.departmentId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getDepartmentCostCenterRelationshipUid() {
         return this.departmentCostCenterRelationshipUid;
     }
@@ -95,136 +136,100 @@ public class DepartmentCostCenterRelationship {
         this.departmentId = departmentId;
     }
 
-
-// builder 开始
-  public DepartmentCostCenterRelationship(){}
-
-  public DepartmentCostCenterRelationship(Builder builder){
-         /**
-          * 部门成本中心关系唯一ID
-          * <p> 示例值：U1418468581452029052
-          */
-      this.departmentCostCenterRelationshipUid = builder.departmentCostCenterRelationshipUid;
-         /**
-          * 公司编码
-          * <p> 示例值：100101
-          */
-      this.companyCode = builder.companyCode;
-         /**
-          * 部门open id，详细说明参见[部门 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
-          * <p> 示例值：od-1001
-          */
-      this.openDepartmentId = builder.openDepartmentId;
-         /**
-          * 成本中心代码
-          * <p> 示例值：1002000100
-          */
-      this.costCenterCode = builder.costCenterCode;
-         /**
-          * 部门id，详细说明参见[部门 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
-          * <p> 示例值：1001
-          */
-      this.departmentId = builder.departmentId;
-  }
-
     public static class Builder {
-     /**
-      * 部门成本中心关系唯一ID
-      * <p> 示例值：U1418468581452029052
-      */
+        /**
+         * 部门成本中心关系唯一ID
+         * <p> 示例值：U1418468581452029052
+         */
         private String departmentCostCenterRelationshipUid;
-     /**
-      * 公司编码
-      * <p> 示例值：100101
-      */
+        /**
+         * 公司编码
+         * <p> 示例值：100101
+         */
         private String companyCode;
-     /**
-      * 部门open id，详细说明参见[部门 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
-      * <p> 示例值：od-1001
-      */
+        /**
+         * 部门open id，详细说明参见[部门 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+         * <p> 示例值：od-1001
+         */
         private String openDepartmentId;
-     /**
-      * 成本中心代码
-      * <p> 示例值：1002000100
-      */
+        /**
+         * 成本中心代码
+         * <p> 示例值：1002000100
+         */
         private String costCenterCode;
-     /**
-      * 部门id，详细说明参见[部门 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
-      * <p> 示例值：1001
-      */
+        /**
+         * 部门id，详细说明参见[部门 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+         * <p> 示例值：1001
+         */
         private String departmentId;
 
         /**
          * 部门成本中心关系唯一ID
          * <p> 示例值：U1418468581452029052
+         *
          * @param departmentCostCenterRelationshipUid
          * @return
          */
         public Builder departmentCostCenterRelationshipUid(String departmentCostCenterRelationshipUid) {
-             this.departmentCostCenterRelationshipUid = departmentCostCenterRelationshipUid;
-             return this;
+            this.departmentCostCenterRelationshipUid = departmentCostCenterRelationshipUid;
+            return this;
         }
 
-    
 
         /**
          * 公司编码
          * <p> 示例值：100101
+         *
          * @param companyCode
          * @return
          */
         public Builder companyCode(String companyCode) {
-             this.companyCode = companyCode;
-             return this;
+            this.companyCode = companyCode;
+            return this;
         }
 
-    
 
         /**
          * 部门open id，详细说明参见[部门 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
          * <p> 示例值：od-1001
+         *
          * @param openDepartmentId
          * @return
          */
         public Builder openDepartmentId(String openDepartmentId) {
-             this.openDepartmentId = openDepartmentId;
-             return this;
+            this.openDepartmentId = openDepartmentId;
+            return this;
         }
 
-    
 
         /**
          * 成本中心代码
          * <p> 示例值：1002000100
+         *
          * @param costCenterCode
          * @return
          */
         public Builder costCenterCode(String costCenterCode) {
-             this.costCenterCode = costCenterCode;
-             return this;
+            this.costCenterCode = costCenterCode;
+            return this;
         }
 
-    
 
         /**
          * 部门id，详细说明参见[部门 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
          * <p> 示例值：1001
+         *
          * @param departmentId
          * @return
          */
         public Builder departmentId(String departmentId) {
-             this.departmentId = departmentId;
-             return this;
+            this.departmentId = departmentId;
+            return this;
         }
 
-    
-    
-    public DepartmentCostCenterRelationship build(){
-        return new DepartmentCostCenterRelationship(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public DepartmentCostCenterRelationship build() {
+            return new DepartmentCostCenterRelationship(this);
+        }
     }
 }

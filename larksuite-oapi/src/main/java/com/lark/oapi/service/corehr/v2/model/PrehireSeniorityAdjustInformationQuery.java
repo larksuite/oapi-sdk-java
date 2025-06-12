@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,48 +20,93 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class PrehireSeniorityAdjustInformationQuery {
-     /**
-      * 调整值;- 精确度：两位小数;- 单位：年
-      * <p> 示例值：0.5
-      */
+    /**
+     * 调整值;- 精确度：两位小数;- 单位：年
+     * <p> 示例值：0.5
+     */
     @SerializedName("seniority_adjustment")
     private Double seniorityAdjustment;
-     /**
-      * 调整类型;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name：seniority_adjust_information;  - custom_api_name：seniority_adjustment_type
-      * <p> 示例值：增加
-      */
+    /**
+     * 调整类型;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name：seniority_adjust_information;  - custom_api_name：seniority_adjustment_type
+     * <p> 示例值：增加
+     */
     @SerializedName("seniority_adjustment_type")
     private Enum seniorityAdjustmentType;
-     /**
-      * 司龄调整原因
-      * <p> 示例值：工厂停产需要减去半年工龄
-      */
+    /**
+     * 司龄调整原因
+     * <p> 示例值：工厂停产需要减去半年工龄
+     */
     @SerializedName("reasons_for_seniority_adjustment")
     private String reasonsForSeniorityAdjustment;
-     /**
-      * 开始日期
-      * <p> 示例值：2024-05-19
-      */
+    /**
+     * 开始日期
+     * <p> 示例值：2024-05-19
+     */
     @SerializedName("start_date")
     private String startDate;
-     /**
-      * 结束日期
-      * <p> 示例值：2024-11-18
-      */
+    /**
+     * 结束日期
+     * <p> 示例值：2024-11-18
+     */
     @SerializedName("end_date")
     private String endDate;
-     /**
-      * 自定义字段
-      * <p> 示例值：
-      */
+    /**
+     * 自定义字段
+     * <p> 示例值：
+     */
     @SerializedName("custom_fields")
     private CustomFieldData[] customFields;
+
+    // builder 开始
+    public PrehireSeniorityAdjustInformationQuery() {
+    }
+
+    public PrehireSeniorityAdjustInformationQuery(Builder builder) {
+        /**
+         * 调整值;- 精确度：两位小数;- 单位：年
+         * <p> 示例值：0.5
+         */
+        this.seniorityAdjustment = builder.seniorityAdjustment;
+        /**
+         * 调整类型;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name：seniority_adjust_information;  - custom_api_name：seniority_adjustment_type
+         * <p> 示例值：增加
+         */
+        this.seniorityAdjustmentType = builder.seniorityAdjustmentType;
+        /**
+         * 司龄调整原因
+         * <p> 示例值：工厂停产需要减去半年工龄
+         */
+        this.reasonsForSeniorityAdjustment = builder.reasonsForSeniorityAdjustment;
+        /**
+         * 开始日期
+         * <p> 示例值：2024-05-19
+         */
+        this.startDate = builder.startDate;
+        /**
+         * 结束日期
+         * <p> 示例值：2024-11-18
+         */
+        this.endDate = builder.endDate;
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
+        this.customFields = builder.customFields;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Double getSeniorityAdjustment() {
         return this.seniorityAdjustment;
     }
@@ -109,159 +155,118 @@ public class PrehireSeniorityAdjustInformationQuery {
         this.customFields = customFields;
     }
 
-
-// builder 开始
-  public PrehireSeniorityAdjustInformationQuery(){}
-
-  public PrehireSeniorityAdjustInformationQuery(Builder builder){
-         /**
-          * 调整值;- 精确度：两位小数;- 单位：年
-          * <p> 示例值：0.5
-          */
-      this.seniorityAdjustment = builder.seniorityAdjustment;
-         /**
-          * 调整类型;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name：seniority_adjust_information;  - custom_api_name：seniority_adjustment_type
-          * <p> 示例值：增加
-          */
-      this.seniorityAdjustmentType = builder.seniorityAdjustmentType;
-         /**
-          * 司龄调整原因
-          * <p> 示例值：工厂停产需要减去半年工龄
-          */
-      this.reasonsForSeniorityAdjustment = builder.reasonsForSeniorityAdjustment;
-         /**
-          * 开始日期
-          * <p> 示例值：2024-05-19
-          */
-      this.startDate = builder.startDate;
-         /**
-          * 结束日期
-          * <p> 示例值：2024-11-18
-          */
-      this.endDate = builder.endDate;
-         /**
-          * 自定义字段
-          * <p> 示例值：
-          */
-      this.customFields = builder.customFields;
-  }
-
     public static class Builder {
-     /**
-      * 调整值;- 精确度：两位小数;- 单位：年
-      * <p> 示例值：0.5
-      */
+        /**
+         * 调整值;- 精确度：两位小数;- 单位：年
+         * <p> 示例值：0.5
+         */
         private Double seniorityAdjustment;
-     /**
-      * 调整类型;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name：seniority_adjust_information;  - custom_api_name：seniority_adjustment_type
-      * <p> 示例值：增加
-      */
+        /**
+         * 调整类型;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name：seniority_adjust_information;  - custom_api_name：seniority_adjustment_type
+         * <p> 示例值：增加
+         */
         private Enum seniorityAdjustmentType;
-     /**
-      * 司龄调整原因
-      * <p> 示例值：工厂停产需要减去半年工龄
-      */
+        /**
+         * 司龄调整原因
+         * <p> 示例值：工厂停产需要减去半年工龄
+         */
         private String reasonsForSeniorityAdjustment;
-     /**
-      * 开始日期
-      * <p> 示例值：2024-05-19
-      */
+        /**
+         * 开始日期
+         * <p> 示例值：2024-05-19
+         */
         private String startDate;
-     /**
-      * 结束日期
-      * <p> 示例值：2024-11-18
-      */
+        /**
+         * 结束日期
+         * <p> 示例值：2024-11-18
+         */
         private String endDate;
-     /**
-      * 自定义字段
-      * <p> 示例值：
-      */
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
         private CustomFieldData[] customFields;
 
         /**
          * 调整值;- 精确度：两位小数;- 单位：年
          * <p> 示例值：0.5
+         *
          * @param seniorityAdjustment
          * @return
          */
         public Builder seniorityAdjustment(Double seniorityAdjustment) {
-             this.seniorityAdjustment = seniorityAdjustment;
-             return this;
+            this.seniorityAdjustment = seniorityAdjustment;
+            return this;
         }
 
-    
 
         /**
          * 调整类型;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name：seniority_adjust_information;  - custom_api_name：seniority_adjustment_type
          * <p> 示例值：增加
+         *
          * @param seniorityAdjustmentType
          * @return
          */
         public Builder seniorityAdjustmentType(Enum seniorityAdjustmentType) {
-             this.seniorityAdjustmentType = seniorityAdjustmentType;
-             return this;
+            this.seniorityAdjustmentType = seniorityAdjustmentType;
+            return this;
         }
 
-    
 
         /**
          * 司龄调整原因
          * <p> 示例值：工厂停产需要减去半年工龄
+         *
          * @param reasonsForSeniorityAdjustment
          * @return
          */
         public Builder reasonsForSeniorityAdjustment(String reasonsForSeniorityAdjustment) {
-             this.reasonsForSeniorityAdjustment = reasonsForSeniorityAdjustment;
-             return this;
+            this.reasonsForSeniorityAdjustment = reasonsForSeniorityAdjustment;
+            return this;
         }
 
-    
 
         /**
          * 开始日期
          * <p> 示例值：2024-05-19
+         *
          * @param startDate
          * @return
          */
         public Builder startDate(String startDate) {
-             this.startDate = startDate;
-             return this;
+            this.startDate = startDate;
+            return this;
         }
 
-    
 
         /**
          * 结束日期
          * <p> 示例值：2024-11-18
+         *
          * @param endDate
          * @return
          */
         public Builder endDate(String endDate) {
-             this.endDate = endDate;
-             return this;
+            this.endDate = endDate;
+            return this;
         }
 
-    
 
         /**
          * 自定义字段
          * <p> 示例值：
+         *
          * @param customFields
          * @return
          */
         public Builder customFields(CustomFieldData[] customFields) {
-             this.customFields = customFields;
-             return this;
+            this.customFields = customFields;
+            return this;
         }
 
-    
-    
-    public PrehireSeniorityAdjustInformationQuery build(){
-        return new PrehireSeniorityAdjustInformationQuery(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public PrehireSeniorityAdjustInformationQuery build() {
+            return new PrehireSeniorityAdjustInformationQuery(this);
+        }
     }
 }

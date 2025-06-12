@@ -17,16 +17,17 @@ package com.lark.oapi.service.corehr.v2.enums;
  * 单据状态
  */
 public enum ProcessSystemDoneItemApproverStatusEnum {
-     APPROVED(3), // 已完成
-     REJECT(2), // 拒绝
-     CANCEL(4), // 取消
-  ;
-   private Integer value;
+    APPROVED(3), // 已完成
+    REJECT(2), // 拒绝
+    CANCEL(4), // 取消
+    ;
+    private Integer value;
+
     ProcessSystemDoneItemApproverStatusEnum(Integer value) {
-      this.value = value;
+        this.value = value;
     }
 
     public Integer getValue() {
-      return this.value;
+        return this.value;
     }
 }

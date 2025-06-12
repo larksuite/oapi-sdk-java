@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class QuerySecurityGroupReqBody {
-     /**
-      * 角色列表，一次最多支持查询 50 个
-      * <p> 示例值：
-      */
+    /**
+     * 角色列表，一次最多支持查询 50 个
+     * <p> 示例值：
+     */
     @SerializedName("item_list")
     private BpRoleOrganization[] itemList;
-     /**
-      * 授权时间大于
-      * <p> 示例值：1729773628
-      */
+    /**
+     * 授权时间大于
+     * <p> 示例值：1729773628
+     */
     @SerializedName("updated_at_gte")
     private String updatedAtGte;
-     /**
-      * 授权时间小于
-      * <p> 示例值：1729773628
-      */
+    /**
+     * 授权时间小于
+     * <p> 示例值：1729773628
+     */
     @SerializedName("updated_at_lte")
     private String updatedAtLte;
+
+    // builder 开始
+    public QuerySecurityGroupReqBody() {
+    }
+
+    public QuerySecurityGroupReqBody(Builder builder) {
+        /**
+         * 角色列表，一次最多支持查询 50 个
+         * <p> 示例值：
+         */
+        this.itemList = builder.itemList;
+        /**
+         * 授权时间大于
+         * <p> 示例值：1729773628
+         */
+        this.updatedAtGte = builder.updatedAtGte;
+        /**
+         * 授权时间小于
+         * <p> 示例值：1729773628
+         */
+        this.updatedAtLte = builder.updatedAtLte;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public BpRoleOrganization[] getItemList() {
         return this.itemList;
     }
@@ -67,90 +98,64 @@ public class QuerySecurityGroupReqBody {
         this.updatedAtLte = updatedAtLte;
     }
 
-
-// builder 开始
-  public QuerySecurityGroupReqBody(){}
-
-  public QuerySecurityGroupReqBody(Builder builder){
-         /**
-          * 角色列表，一次最多支持查询 50 个
-          * <p> 示例值：
-          */
-      this.itemList = builder.itemList;
-         /**
-          * 授权时间大于
-          * <p> 示例值：1729773628
-          */
-      this.updatedAtGte = builder.updatedAtGte;
-         /**
-          * 授权时间小于
-          * <p> 示例值：1729773628
-          */
-      this.updatedAtLte = builder.updatedAtLte;
-  }
-
     public static class Builder {
-     /**
-      * 角色列表，一次最多支持查询 50 个
-      * <p> 示例值：
-      */
+        /**
+         * 角色列表，一次最多支持查询 50 个
+         * <p> 示例值：
+         */
         private BpRoleOrganization[] itemList;
-     /**
-      * 授权时间大于
-      * <p> 示例值：1729773628
-      */
+        /**
+         * 授权时间大于
+         * <p> 示例值：1729773628
+         */
         private String updatedAtGte;
-     /**
-      * 授权时间小于
-      * <p> 示例值：1729773628
-      */
+        /**
+         * 授权时间小于
+         * <p> 示例值：1729773628
+         */
         private String updatedAtLte;
 
         /**
          * 角色列表，一次最多支持查询 50 个
          * <p> 示例值：
+         *
          * @param itemList
          * @return
          */
         public Builder itemList(BpRoleOrganization[] itemList) {
-             this.itemList = itemList;
-             return this;
+            this.itemList = itemList;
+            return this;
         }
 
-    
 
         /**
          * 授权时间大于
          * <p> 示例值：1729773628
+         *
          * @param updatedAtGte
          * @return
          */
         public Builder updatedAtGte(String updatedAtGte) {
-             this.updatedAtGte = updatedAtGte;
-             return this;
+            this.updatedAtGte = updatedAtGte;
+            return this;
         }
 
-    
 
         /**
          * 授权时间小于
          * <p> 示例值：1729773628
+         *
          * @param updatedAtLte
          * @return
          */
         public Builder updatedAtLte(String updatedAtLte) {
-             this.updatedAtLte = updatedAtLte;
-             return this;
+            this.updatedAtLte = updatedAtLte;
+            return this;
         }
 
-    
-    
-    public QuerySecurityGroupReqBody build(){
-        return new QuerySecurityGroupReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public QuerySecurityGroupReqBody build() {
+            return new QuerySecurityGroupReqBody(this);
+        }
     }
 }

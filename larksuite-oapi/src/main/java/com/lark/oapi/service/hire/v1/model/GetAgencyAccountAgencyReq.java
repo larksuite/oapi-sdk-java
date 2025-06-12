@@ -12,38 +12,72 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class GetAgencyAccountAgencyReq {
-     /**
-      * 此次调用中使用的用户ID的类型
-      * <p> 示例值：
-      */
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
-     /**
-      * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
-      * <p> 示例值：eyJvZmZzZXQiOjEsInRpbWVzdGFtcCI6MTY0MDc2NTYzMjA4OCwiaWQiOm51bGx9
-      */
+    /**
+     * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
+     * <p> 示例值：eyJvZmZzZXQiOjEsInRpbWVzdGFtcCI6MTY0MDc2NTYzMjA4OCwiaWQiOm51bGx9
+     */
     @Query
     @SerializedName("page_token")
     private String pageToken;
-     /**
-      * 每页获取记录数量
-      * <p> 示例值：10
-      */
+    /**
+     * 每页获取记录数量
+     * <p> 示例值：10
+     */
     @Query
     @SerializedName("page_size")
     private Integer pageSize;
+    @Body
+    private GetAgencyAccountAgencyReqBody body;
+
+    // builder 开始
+    public GetAgencyAccountAgencyReq() {
+    }
+
+    public GetAgencyAccountAgencyReq(Builder builder) {
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         */
+        this.userIdType = builder.userIdType;
+        /**
+         * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
+         * <p> 示例值：eyJvZmZzZXQiOjEsInRpbWVzdGFtcCI6MTY0MDc2NTYzMjA4OCwiaWQiOm51bGx9
+         */
+        this.pageToken = builder.pageToken;
+        /**
+         * 每页获取记录数量
+         * <p> 示例值：10
+         */
+        this.pageSize = builder.pageSize;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getUserIdType() {
         return this.userIdType;
     }
@@ -68,9 +102,6 @@ public class GetAgencyAccountAgencyReq {
         this.pageSize = pageSize;
     }
 
-    @Body
-    private GetAgencyAccountAgencyReqBody body;
-
     public GetAgencyAccountAgencyReqBody getGetAgencyAccountAgencyReqBody() {
         return this.body;
     }
@@ -79,90 +110,65 @@ public class GetAgencyAccountAgencyReq {
         this.body = body;
     }
 
-// builder 开始
-  public GetAgencyAccountAgencyReq(){}
-
-  public GetAgencyAccountAgencyReq(Builder builder){
-         /**
-          * 此次调用中使用的用户ID的类型
-          * <p> 示例值：
-          */
-       this.userIdType = builder.userIdType;
-         /**
-          * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
-          * <p> 示例值：eyJvZmZzZXQiOjEsInRpbWVzdGFtcCI6MTY0MDc2NTYzMjA4OCwiaWQiOm51bGx9
-          */
-       this.pageToken = builder.pageToken;
-         /**
-          * 每页获取记录数量
-          * <p> 示例值：10
-          */
-       this.pageSize = builder.pageSize;
-        this.body = builder.body;
-  }
-
     public static class Builder {
         private String userIdType; // 此次调用中使用的用户ID的类型
         private String pageToken; // 页码标识，获取第一页传空，每次查询会返回下一页的page_token
         private Integer pageSize; // 每页获取记录数量
-    
+        private GetAgencyAccountAgencyReqBody body;
+
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
+         *
          * @param userIdType
          * @return
          */
-           public Builder userIdType(String userIdType) {
-                this.userIdType = userIdType;
-                return this;
-           }
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
 
-    
         /**
          * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
          * <p> 示例值：eyJvZmZzZXQiOjEsInRpbWVzdGFtcCI6MTY0MDc2NTYzMjA4OCwiaWQiOm51bGx9
+         *
          * @param pageToken
          * @return
          */
-           public Builder pageToken(String pageToken) {
-                this.pageToken = pageToken;
-                return this;
-           }
+        public Builder pageToken(String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+        }
 
-    
         /**
          * 每页获取记录数量
          * <p> 示例值：10
+         *
          * @param pageSize
          * @return
          */
-           public Builder pageSize(Integer pageSize) {
-                this.pageSize = pageSize;
-                return this;
-           }
+        public Builder pageSize(Integer pageSize) {
+            this.pageSize = pageSize;
+            return this;
+        }
 
-    
-        private GetAgencyAccountAgencyReqBody body;
-    
         public GetAgencyAccountAgencyReqBody getGetAgencyAccountAgencyReqBody() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder getAgencyAccountAgencyReqBody(GetAgencyAccountAgencyReqBody body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public GetAgencyAccountAgencyReq build(){
-        return new GetAgencyAccountAgencyReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public GetAgencyAccountAgencyReq build() {
+            return new GetAgencyAccountAgencyReq(this);
+        }
     }
 }

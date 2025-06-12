@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.baike.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.baike.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Classification {
-     /**
-      * 二级分类 ID
-      * <p> 示例值：7049606926702837761
-      */
+    /**
+     * 二级分类 ID
+     * <p> 示例值：7049606926702837761
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 二级分类名称
-      * <p> 示例值：行业术语
-      */
+    /**
+     * 二级分类名称
+     * <p> 示例值：行业术语
+     */
     @SerializedName("name")
     private String name;
-     /**
-      * 对应一级分类 ID
-      * <p> 示例值：7049606926702837777
-      */
+    /**
+     * 对应一级分类 ID
+     * <p> 示例值：7049606926702837777
+     */
     @SerializedName("father_id")
     private String fatherId;
+
+    // builder 开始
+    public Classification() {
+    }
+
+    public Classification(Builder builder) {
+        /**
+         * 二级分类 ID
+         * <p> 示例值：7049606926702837761
+         */
+        this.id = builder.id;
+        /**
+         * 二级分类名称
+         * <p> 示例值：行业术语
+         */
+        this.name = builder.name;
+        /**
+         * 对应一级分类 ID
+         * <p> 示例值：7049606926702837777
+         */
+        this.fatherId = builder.fatherId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -67,90 +98,64 @@ public class Classification {
         this.fatherId = fatherId;
     }
 
-
-// builder 开始
-  public Classification(){}
-
-  public Classification(Builder builder){
-         /**
-          * 二级分类 ID
-          * <p> 示例值：7049606926702837761
-          */
-      this.id = builder.id;
-         /**
-          * 二级分类名称
-          * <p> 示例值：行业术语
-          */
-      this.name = builder.name;
-         /**
-          * 对应一级分类 ID
-          * <p> 示例值：7049606926702837777
-          */
-      this.fatherId = builder.fatherId;
-  }
-
     public static class Builder {
-     /**
-      * 二级分类 ID
-      * <p> 示例值：7049606926702837761
-      */
+        /**
+         * 二级分类 ID
+         * <p> 示例值：7049606926702837761
+         */
         private String id;
-     /**
-      * 二级分类名称
-      * <p> 示例值：行业术语
-      */
+        /**
+         * 二级分类名称
+         * <p> 示例值：行业术语
+         */
         private String name;
-     /**
-      * 对应一级分类 ID
-      * <p> 示例值：7049606926702837777
-      */
+        /**
+         * 对应一级分类 ID
+         * <p> 示例值：7049606926702837777
+         */
         private String fatherId;
 
         /**
          * 二级分类 ID
          * <p> 示例值：7049606926702837761
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 二级分类名称
          * <p> 示例值：行业术语
+         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 对应一级分类 ID
          * <p> 示例值：7049606926702837777
+         *
          * @param fatherId
          * @return
          */
         public Builder fatherId(String fatherId) {
-             this.fatherId = fatherId;
-             return this;
+            this.fatherId = fatherId;
+            return this;
         }
 
-    
-    
-    public Classification build(){
-        return new Classification(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Classification build() {
+            return new Classification(this);
+        }
     }
 }

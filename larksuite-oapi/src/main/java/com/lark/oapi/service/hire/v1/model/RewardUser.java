@@ -12,42 +12,78 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class RewardUser {
-     /**
-      * 人员 ID
-      * <p> 示例值：ou_efk39117c300506837def50545420c6a
-      */
+    /**
+     * 人员 ID
+     * <p> 示例值：ou_efk39117c300506837def50545420c6a
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 名称
-      * <p> 示例值：
-      */
+    /**
+     * 名称
+     * <p> 示例值：
+     */
     @SerializedName("name")
     private I18n name;
-     /**
-      * 部门
-      * <p> 示例值：
-      */
+    /**
+     * 部门
+     * <p> 示例值：
+     */
     @SerializedName("department")
     private BasicDepartmentInfo department;
-     /**
-      * 内推人人员类型
-      * <p> 示例值：
-      */
+    /**
+     * 内推人人员类型
+     * <p> 示例值：
+     */
     @SerializedName("recruitment_type")
     private Integer recruitmentType;
+
+    // builder 开始
+    public RewardUser() {
+    }
+
+    public RewardUser(Builder builder) {
+        /**
+         * 人员 ID
+         * <p> 示例值：ou_efk39117c300506837def50545420c6a
+         */
+        this.id = builder.id;
+        /**
+         * 名称
+         * <p> 示例值：
+         */
+        this.name = builder.name;
+        /**
+         * 部门
+         * <p> 示例值：
+         */
+        this.department = builder.department;
+        /**
+         * 内推人人员类型
+         * <p> 示例值：
+         */
+        this.recruitmentType = builder.recruitmentType;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -80,113 +116,82 @@ public class RewardUser {
         this.recruitmentType = recruitmentType;
     }
 
-
-// builder 开始
-  public RewardUser(){}
-
-  public RewardUser(Builder builder){
-         /**
-          * 人员 ID
-          * <p> 示例值：ou_efk39117c300506837def50545420c6a
-          */
-      this.id = builder.id;
-         /**
-          * 名称
-          * <p> 示例值：
-          */
-      this.name = builder.name;
-         /**
-          * 部门
-          * <p> 示例值：
-          */
-      this.department = builder.department;
-         /**
-          * 内推人人员类型
-          * <p> 示例值：
-          */
-      this.recruitmentType = builder.recruitmentType;
-  }
-
     public static class Builder {
-     /**
-      * 人员 ID
-      * <p> 示例值：ou_efk39117c300506837def50545420c6a
-      */
+        /**
+         * 人员 ID
+         * <p> 示例值：ou_efk39117c300506837def50545420c6a
+         */
         private String id;
-     /**
-      * 名称
-      * <p> 示例值：
-      */
+        /**
+         * 名称
+         * <p> 示例值：
+         */
         private I18n name;
-     /**
-      * 部门
-      * <p> 示例值：
-      */
+        /**
+         * 部门
+         * <p> 示例值：
+         */
         private BasicDepartmentInfo department;
-     /**
-      * 内推人人员类型
-      * <p> 示例值：
-      */
+        /**
+         * 内推人人员类型
+         * <p> 示例值：
+         */
         private Integer recruitmentType;
 
         /**
          * 人员 ID
          * <p> 示例值：ou_efk39117c300506837def50545420c6a
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 名称
          * <p> 示例值：
+         *
          * @param name
          * @return
          */
         public Builder name(I18n name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 部门
          * <p> 示例值：
+         *
          * @param department
          * @return
          */
         public Builder department(BasicDepartmentInfo department) {
-             this.department = department;
-             return this;
+            this.department = department;
+            return this;
         }
 
-    
 
         /**
          * 内推人人员类型
          * <p> 示例值：
+         *
          * @param recruitmentType
          * @return
          */
         public Builder recruitmentType(Integer recruitmentType) {
-             this.recruitmentType = recruitmentType;
-             return this;
+            this.recruitmentType = recruitmentType;
+            return this;
         }
 
-    
-    
-    public RewardUser build(){
-        return new RewardUser(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public RewardUser build() {
+            return new RewardUser(this);
+        }
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,54 +20,104 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CustomizedFieldDisplayItem {
-     /**
-      * 自定义字段ID
-      * <p> 示例值：123
-      */
+    /**
+     * 自定义字段ID
+     * <p> 示例值：123
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 自定义字段值
-      * <p> 示例值：value
-      */
+    /**
+     * 自定义字段值
+     * <p> 示例值：value
+     */
     @SerializedName("value")
     private String value;
-     /**
-      * 键名
-      * <p> 示例值：key
-      */
+    /**
+     * 键名
+     * <p> 示例值：key
+     */
     @SerializedName("key_name")
     private String keyName;
-     /**
-      * 展示名称
-      * <p> 示例值：display name
-      */
+    /**
+     * 展示名称
+     * <p> 示例值：display name
+     */
     @SerializedName("display_name")
     private String displayName;
-     /**
-      * 展示位置
-      * <p> 示例值：1
-      */
+    /**
+     * 展示位置
+     * <p> 示例值：1
+     */
     @SerializedName("position")
     private Integer position;
-     /**
-      * 是否必填
-      * <p> 示例值：true
-      */
+    /**
+     * 是否必填
+     * <p> 示例值：true
+     */
     @SerializedName("required")
     private Boolean required;
-     /**
-      * 是否可修改
-      * <p> 示例值：true
-      */
+    /**
+     * 是否可修改
+     * <p> 示例值：true
+     */
     @SerializedName("editable")
     private Boolean editable;
+
+    // builder 开始
+    public CustomizedFieldDisplayItem() {
+    }
+
+    public CustomizedFieldDisplayItem(Builder builder) {
+        /**
+         * 自定义字段ID
+         * <p> 示例值：123
+         */
+        this.id = builder.id;
+        /**
+         * 自定义字段值
+         * <p> 示例值：value
+         */
+        this.value = builder.value;
+        /**
+         * 键名
+         * <p> 示例值：key
+         */
+        this.keyName = builder.keyName;
+        /**
+         * 展示名称
+         * <p> 示例值：display name
+         */
+        this.displayName = builder.displayName;
+        /**
+         * 展示位置
+         * <p> 示例值：1
+         */
+        this.position = builder.position;
+        /**
+         * 是否必填
+         * <p> 示例值：true
+         */
+        this.required = builder.required;
+        /**
+         * 是否可修改
+         * <p> 示例值：true
+         */
+        this.editable = builder.editable;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -123,182 +174,136 @@ public class CustomizedFieldDisplayItem {
         this.editable = editable;
     }
 
-
-// builder 开始
-  public CustomizedFieldDisplayItem(){}
-
-  public CustomizedFieldDisplayItem(Builder builder){
-         /**
-          * 自定义字段ID
-          * <p> 示例值：123
-          */
-      this.id = builder.id;
-         /**
-          * 自定义字段值
-          * <p> 示例值：value
-          */
-      this.value = builder.value;
-         /**
-          * 键名
-          * <p> 示例值：key
-          */
-      this.keyName = builder.keyName;
-         /**
-          * 展示名称
-          * <p> 示例值：display name
-          */
-      this.displayName = builder.displayName;
-         /**
-          * 展示位置
-          * <p> 示例值：1
-          */
-      this.position = builder.position;
-         /**
-          * 是否必填
-          * <p> 示例值：true
-          */
-      this.required = builder.required;
-         /**
-          * 是否可修改
-          * <p> 示例值：true
-          */
-      this.editable = builder.editable;
-  }
-
     public static class Builder {
-     /**
-      * 自定义字段ID
-      * <p> 示例值：123
-      */
+        /**
+         * 自定义字段ID
+         * <p> 示例值：123
+         */
         private String id;
-     /**
-      * 自定义字段值
-      * <p> 示例值：value
-      */
+        /**
+         * 自定义字段值
+         * <p> 示例值：value
+         */
         private String value;
-     /**
-      * 键名
-      * <p> 示例值：key
-      */
+        /**
+         * 键名
+         * <p> 示例值：key
+         */
         private String keyName;
-     /**
-      * 展示名称
-      * <p> 示例值：display name
-      */
+        /**
+         * 展示名称
+         * <p> 示例值：display name
+         */
         private String displayName;
-     /**
-      * 展示位置
-      * <p> 示例值：1
-      */
+        /**
+         * 展示位置
+         * <p> 示例值：1
+         */
         private Integer position;
-     /**
-      * 是否必填
-      * <p> 示例值：true
-      */
+        /**
+         * 是否必填
+         * <p> 示例值：true
+         */
         private Boolean required;
-     /**
-      * 是否可修改
-      * <p> 示例值：true
-      */
+        /**
+         * 是否可修改
+         * <p> 示例值：true
+         */
         private Boolean editable;
 
         /**
          * 自定义字段ID
          * <p> 示例值：123
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 自定义字段值
          * <p> 示例值：value
+         *
          * @param value
          * @return
          */
         public Builder value(String value) {
-             this.value = value;
-             return this;
+            this.value = value;
+            return this;
         }
 
-    
 
         /**
          * 键名
          * <p> 示例值：key
+         *
          * @param keyName
          * @return
          */
         public Builder keyName(String keyName) {
-             this.keyName = keyName;
-             return this;
+            this.keyName = keyName;
+            return this;
         }
 
-    
 
         /**
          * 展示名称
          * <p> 示例值：display name
+         *
          * @param displayName
          * @return
          */
         public Builder displayName(String displayName) {
-             this.displayName = displayName;
-             return this;
+            this.displayName = displayName;
+            return this;
         }
 
-    
 
         /**
          * 展示位置
          * <p> 示例值：1
+         *
          * @param position
          * @return
          */
         public Builder position(Integer position) {
-             this.position = position;
-             return this;
+            this.position = position;
+            return this;
         }
 
-    
 
         /**
          * 是否必填
          * <p> 示例值：true
+         *
          * @param required
          * @return
          */
         public Builder required(Boolean required) {
-             this.required = required;
-             return this;
+            this.required = required;
+            return this;
         }
 
-    
 
         /**
          * 是否可修改
          * <p> 示例值：true
+         *
          * @param editable
          * @return
          */
         public Builder editable(Boolean editable) {
-             this.editable = editable;
-             return this;
+            this.editable = editable;
+            return this;
         }
 
-    
-    
-    public CustomizedFieldDisplayItem build(){
-        return new CustomizedFieldDisplayItem(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public CustomizedFieldDisplayItem build() {
+            return new CustomizedFieldDisplayItem(this);
+        }
     }
 }

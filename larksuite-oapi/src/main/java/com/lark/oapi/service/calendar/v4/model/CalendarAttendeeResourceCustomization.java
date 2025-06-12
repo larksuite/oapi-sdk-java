@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.calendar.v4.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.calendar.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CalendarAttendeeResourceCustomization {
-     /**
-      * 每个配置的唯一ID
-      * <p> 示例值：16281481596100
-      */
+    /**
+     * 每个配置的唯一ID
+     * <p> 示例值：16281481596100
+     */
     @SerializedName("index_key")
     private String indexKey;
-     /**
-      * 当type类型为填空时，该参数需要填入
-      * <p> 示例值：xxx
-      */
+    /**
+     * 当type类型为填空时，该参数需要填入
+     * <p> 示例值：xxx
+     */
     @SerializedName("input_content")
     private String inputContent;
-     /**
-      * 每个配置的选项
-      * <p> 示例值：无
-      */
+    /**
+     * 每个配置的选项
+     * <p> 示例值：无
+     */
     @SerializedName("options")
     private CustomizationOption[] options;
+
+    // builder 开始
+    public CalendarAttendeeResourceCustomization() {
+    }
+
+    public CalendarAttendeeResourceCustomization(Builder builder) {
+        /**
+         * 每个配置的唯一ID
+         * <p> 示例值：16281481596100
+         */
+        this.indexKey = builder.indexKey;
+        /**
+         * 当type类型为填空时，该参数需要填入
+         * <p> 示例值：xxx
+         */
+        this.inputContent = builder.inputContent;
+        /**
+         * 每个配置的选项
+         * <p> 示例值：无
+         */
+        this.options = builder.options;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getIndexKey() {
         return this.indexKey;
     }
@@ -67,90 +98,64 @@ public class CalendarAttendeeResourceCustomization {
         this.options = options;
     }
 
-
-// builder 开始
-  public CalendarAttendeeResourceCustomization(){}
-
-  public CalendarAttendeeResourceCustomization(Builder builder){
-         /**
-          * 每个配置的唯一ID
-          * <p> 示例值：16281481596100
-          */
-      this.indexKey = builder.indexKey;
-         /**
-          * 当type类型为填空时，该参数需要填入
-          * <p> 示例值：xxx
-          */
-      this.inputContent = builder.inputContent;
-         /**
-          * 每个配置的选项
-          * <p> 示例值：无
-          */
-      this.options = builder.options;
-  }
-
     public static class Builder {
-     /**
-      * 每个配置的唯一ID
-      * <p> 示例值：16281481596100
-      */
+        /**
+         * 每个配置的唯一ID
+         * <p> 示例值：16281481596100
+         */
         private String indexKey;
-     /**
-      * 当type类型为填空时，该参数需要填入
-      * <p> 示例值：xxx
-      */
+        /**
+         * 当type类型为填空时，该参数需要填入
+         * <p> 示例值：xxx
+         */
         private String inputContent;
-     /**
-      * 每个配置的选项
-      * <p> 示例值：无
-      */
+        /**
+         * 每个配置的选项
+         * <p> 示例值：无
+         */
         private CustomizationOption[] options;
 
         /**
          * 每个配置的唯一ID
          * <p> 示例值：16281481596100
+         *
          * @param indexKey
          * @return
          */
         public Builder indexKey(String indexKey) {
-             this.indexKey = indexKey;
-             return this;
+            this.indexKey = indexKey;
+            return this;
         }
 
-    
 
         /**
          * 当type类型为填空时，该参数需要填入
          * <p> 示例值：xxx
+         *
          * @param inputContent
          * @return
          */
         public Builder inputContent(String inputContent) {
-             this.inputContent = inputContent;
-             return this;
+            this.inputContent = inputContent;
+            return this;
         }
 
-    
 
         /**
          * 每个配置的选项
          * <p> 示例值：无
+         *
          * @param options
          * @return
          */
         public Builder options(CustomizationOption[] options) {
-             this.options = options;
-             return this;
+            this.options = options;
+            return this;
         }
 
-    
-    
-    public CalendarAttendeeResourceCustomization build(){
-        return new CalendarAttendeeResourceCustomization(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public CalendarAttendeeResourceCustomization build() {
+            return new CalendarAttendeeResourceCustomization(this);
+        }
     }
 }

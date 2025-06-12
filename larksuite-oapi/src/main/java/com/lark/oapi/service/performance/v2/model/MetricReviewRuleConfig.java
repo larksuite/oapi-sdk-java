@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.performance.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.performance.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class MetricReviewRuleConfig {
-     /**
-      * 上限
-      * <p> 示例值：10
-      */
+    /**
+     * 上限
+     * <p> 示例值：10
+     */
     @SerializedName("max")
     private String max;
-     /**
-      * 下限
-      * <p> 示例值：0
-      */
+    /**
+     * 下限
+     * <p> 示例值：0
+     */
     @SerializedName("min")
     private String min;
+
+    // builder 开始
+    public MetricReviewRuleConfig() {
+    }
+
+    public MetricReviewRuleConfig(Builder builder) {
+        /**
+         * 上限
+         * <p> 示例值：10
+         */
+        this.max = builder.max;
+        /**
+         * 下限
+         * <p> 示例值：0
+         */
+        this.min = builder.min;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getMax() {
         return this.max;
     }
@@ -53,67 +79,46 @@ public class MetricReviewRuleConfig {
         this.min = min;
     }
 
-
-// builder 开始
-  public MetricReviewRuleConfig(){}
-
-  public MetricReviewRuleConfig(Builder builder){
-         /**
-          * 上限
-          * <p> 示例值：10
-          */
-      this.max = builder.max;
-         /**
-          * 下限
-          * <p> 示例值：0
-          */
-      this.min = builder.min;
-  }
-
     public static class Builder {
-     /**
-      * 上限
-      * <p> 示例值：10
-      */
+        /**
+         * 上限
+         * <p> 示例值：10
+         */
         private String max;
-     /**
-      * 下限
-      * <p> 示例值：0
-      */
+        /**
+         * 下限
+         * <p> 示例值：0
+         */
         private String min;
 
         /**
          * 上限
          * <p> 示例值：10
+         *
          * @param max
          * @return
          */
         public Builder max(String max) {
-             this.max = max;
-             return this;
+            this.max = max;
+            return this;
         }
 
-    
 
         /**
          * 下限
          * <p> 示例值：0
+         *
          * @param min
          * @return
          */
         public Builder min(String min) {
-             this.min = min;
-             return this;
+            this.min = min;
+            return this;
         }
 
-    
-    
-    public MetricReviewRuleConfig build(){
-        return new MetricReviewRuleConfig(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public MetricReviewRuleConfig build() {
+            return new MetricReviewRuleConfig(this);
+        }
     }
 }

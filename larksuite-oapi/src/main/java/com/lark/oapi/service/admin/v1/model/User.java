@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.admin.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.admin.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class User {
-     /**
-      * 用户名称
-      * <p> 示例值：张三
-      */
+    /**
+     * 用户名称
+     * <p> 示例值：张三
+     */
     @SerializedName("name")
     private String name;
-     /**
-      * 用户头像
-      * <p> 示例值：https://internal-api-lark-file.feishu-boe.cn/static-resource/v1/d50ddc01-5ddb-4431-950e-452637e4a09j~?image_size=72x72&cut_type=default-face&quality=&format=png&sticker_format=.webp
-      */
+    /**
+     * 用户头像
+     * <p> 示例值：https://internal-api-lark-file.feishu-boe.cn/static-resource/v1/d50ddc01-5ddb-4431-950e-452637e4a09j~?image_size=72x72&cut_type=default-face&quality=&format=png&sticker_format=.webp
+     */
     @SerializedName("avatar")
     private String avatar;
-     /**
-      * 用户ID
-      * <p> 示例值：6994699009591869459
-      */
+    /**
+     * 用户ID
+     * <p> 示例值：6994699009591869459
+     */
     @SerializedName("id")
     private String id;
+
+    // builder 开始
+    public User() {
+    }
+
+    public User(Builder builder) {
+        /**
+         * 用户名称
+         * <p> 示例值：张三
+         */
+        this.name = builder.name;
+        /**
+         * 用户头像
+         * <p> 示例值：https://internal-api-lark-file.feishu-boe.cn/static-resource/v1/d50ddc01-5ddb-4431-950e-452637e4a09j~?image_size=72x72&cut_type=default-face&quality=&format=png&sticker_format=.webp
+         */
+        this.avatar = builder.avatar;
+        /**
+         * 用户ID
+         * <p> 示例值：6994699009591869459
+         */
+        this.id = builder.id;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getName() {
         return this.name;
     }
@@ -67,90 +98,64 @@ public class User {
         this.id = id;
     }
 
-
-// builder 开始
-  public User(){}
-
-  public User(Builder builder){
-         /**
-          * 用户名称
-          * <p> 示例值：张三
-          */
-      this.name = builder.name;
-         /**
-          * 用户头像
-          * <p> 示例值：https://internal-api-lark-file.feishu-boe.cn/static-resource/v1/d50ddc01-5ddb-4431-950e-452637e4a09j~?image_size=72x72&cut_type=default-face&quality=&format=png&sticker_format=.webp
-          */
-      this.avatar = builder.avatar;
-         /**
-          * 用户ID
-          * <p> 示例值：6994699009591869459
-          */
-      this.id = builder.id;
-  }
-
     public static class Builder {
-     /**
-      * 用户名称
-      * <p> 示例值：张三
-      */
+        /**
+         * 用户名称
+         * <p> 示例值：张三
+         */
         private String name;
-     /**
-      * 用户头像
-      * <p> 示例值：https://internal-api-lark-file.feishu-boe.cn/static-resource/v1/d50ddc01-5ddb-4431-950e-452637e4a09j~?image_size=72x72&cut_type=default-face&quality=&format=png&sticker_format=.webp
-      */
+        /**
+         * 用户头像
+         * <p> 示例值：https://internal-api-lark-file.feishu-boe.cn/static-resource/v1/d50ddc01-5ddb-4431-950e-452637e4a09j~?image_size=72x72&cut_type=default-face&quality=&format=png&sticker_format=.webp
+         */
         private String avatar;
-     /**
-      * 用户ID
-      * <p> 示例值：6994699009591869459
-      */
+        /**
+         * 用户ID
+         * <p> 示例值：6994699009591869459
+         */
         private String id;
 
         /**
          * 用户名称
          * <p> 示例值：张三
+         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 用户头像
          * <p> 示例值：https://internal-api-lark-file.feishu-boe.cn/static-resource/v1/d50ddc01-5ddb-4431-950e-452637e4a09j~?image_size=72x72&cut_type=default-face&quality=&format=png&sticker_format=.webp
+         *
          * @param avatar
          * @return
          */
         public Builder avatar(String avatar) {
-             this.avatar = avatar;
-             return this;
+            this.avatar = avatar;
+            return this;
         }
 
-    
 
         /**
          * 用户ID
          * <p> 示例值：6994699009591869459
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
-    
-    public User build(){
-        return new User(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public User build() {
+            return new User(this);
+        }
     }
 }

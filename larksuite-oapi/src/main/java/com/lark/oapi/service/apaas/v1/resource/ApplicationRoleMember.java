@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.apaas.v1.resource;
+
 import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.Transport;
 import com.lark.oapi.core.response.RawResponse;
@@ -20,12 +21,16 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import java.nio.charset.StandardCharsets;
 
 import com.lark.oapi.core.Config;
 import com.lark.oapi.core.request.RequestOptions;
+
 import java.io.ByteArrayOutputStream;
+
 import com.lark.oapi.service.apaas.v1.model.*;
+
 import java.io.*;
 import java.util.Map;
 import java.util.HashMap;
@@ -41,7 +46,7 @@ public class ApplicationRoleMember {
         this.config = config;
     }
 
-    
+
     /**
      * ，批量添加角色成员用户和部门
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch_create_authorization&project=apaas&resource=application.role.member&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch_create_authorization&project=apaas&resource=application.role.member&version=v1</a> ;
@@ -58,7 +63,7 @@ public class ApplicationRoleMember {
                 , "/open-apis/apaas/v1/applications/:namespace/roles/:role_api_name/member/batch_create_authorization"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-        
+
         // 反序列化
         BatchCreateAuthorizationApplicationRoleMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchCreateAuthorizationApplicationRoleMemberResp.class);
         if (resp == null) {
@@ -66,14 +71,14 @@ public class ApplicationRoleMember {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/apaas/v1/applications/:namespace/roles/:role_api_name/member/batch_create_authorization"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
-       resp.setRawResponse(httpResponse);
-       resp.setRequest(req);
-       
-       return resp;
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
     }
 
     /**
@@ -90,7 +95,7 @@ public class ApplicationRoleMember {
                 , "/open-apis/apaas/v1/applications/:namespace/roles/:role_api_name/member/batch_create_authorization"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-        
+
         // 反序列化
         BatchCreateAuthorizationApplicationRoleMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchCreateAuthorizationApplicationRoleMemberResp.class);
         if (resp == null) {
@@ -98,15 +103,16 @@ public class ApplicationRoleMember {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/apaas/v1/applications/:namespace/roles/:role_api_name/member/batch_create_authorization"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-        
+
         return resp;
     }
+
     /**
      * ，批量删除角色成员用户和部门
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch_remove_authorization&project=apaas&resource=application.role.member&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch_remove_authorization&project=apaas&resource=application.role.member&version=v1</a> ;
@@ -123,7 +129,7 @@ public class ApplicationRoleMember {
                 , "/open-apis/apaas/v1/applications/:namespace/roles/:role_api_name/member/batch_remove_authorization"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-        
+
         // 反序列化
         BatchRemoveAuthorizationApplicationRoleMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchRemoveAuthorizationApplicationRoleMemberResp.class);
         if (resp == null) {
@@ -131,14 +137,14 @@ public class ApplicationRoleMember {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/apaas/v1/applications/:namespace/roles/:role_api_name/member/batch_remove_authorization"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
-       resp.setRawResponse(httpResponse);
-       resp.setRequest(req);
-       
-       return resp;
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
     }
 
     /**
@@ -155,7 +161,7 @@ public class ApplicationRoleMember {
                 , "/open-apis/apaas/v1/applications/:namespace/roles/:role_api_name/member/batch_remove_authorization"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-        
+
         // 反序列化
         BatchRemoveAuthorizationApplicationRoleMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchRemoveAuthorizationApplicationRoleMemberResp.class);
         if (resp == null) {
@@ -163,15 +169,16 @@ public class ApplicationRoleMember {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/apaas/v1/applications/:namespace/roles/:role_api_name/member/batch_remove_authorization"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-        
+
         return resp;
     }
+
     /**
      * ，
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=apaas&resource=application.role.member&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=apaas&resource=application.role.member&version=v1</a> ;
@@ -188,7 +195,7 @@ public class ApplicationRoleMember {
                 , "/open-apis/apaas/v1/applications/:namespace/roles/:role_api_name/member"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-        
+
         // 反序列化
         GetApplicationRoleMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetApplicationRoleMemberResp.class);
         if (resp == null) {
@@ -196,14 +203,14 @@ public class ApplicationRoleMember {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/apaas/v1/applications/:namespace/roles/:role_api_name/member"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
-       resp.setRawResponse(httpResponse);
-       resp.setRequest(req);
-       
-       return resp;
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
     }
 
     /**
@@ -220,7 +227,7 @@ public class ApplicationRoleMember {
                 , "/open-apis/apaas/v1/applications/:namespace/roles/:role_api_name/member"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-        
+
         // 反序列化
         GetApplicationRoleMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetApplicationRoleMemberResp.class);
         if (resp == null) {
@@ -228,13 +235,13 @@ public class ApplicationRoleMember {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/apaas/v1/applications/:namespace/roles/:role_api_name/member"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-        
+
         return resp;
     }
 }

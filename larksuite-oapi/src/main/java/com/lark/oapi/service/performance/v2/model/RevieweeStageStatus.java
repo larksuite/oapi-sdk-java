@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.performance.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.performance.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class RevieweeStageStatus {
-     /**
-      * 环节ID
-      * <p> 示例值：1
-      */
+    /**
+     * 环节ID
+     * <p> 示例值：1
+     */
     @SerializedName("stage_id")
     private String stageId;
-     /**
-      * 环节类型
-      * <p> 示例值：kpi_metric_setting
-      */
+    /**
+     * 环节类型
+     * <p> 示例值：kpi_metric_setting
+     */
     @SerializedName("stage_type")
     private String stageType;
-     /**
-      * 环节状态
-      * <p> 示例值：0
-      */
+    /**
+     * 环节状态
+     * <p> 示例值：0
+     */
     @SerializedName("stage_status")
     private Integer stageStatus;
+
+    // builder 开始
+    public RevieweeStageStatus() {
+    }
+
+    public RevieweeStageStatus(Builder builder) {
+        /**
+         * 环节ID
+         * <p> 示例值：1
+         */
+        this.stageId = builder.stageId;
+        /**
+         * 环节类型
+         * <p> 示例值：kpi_metric_setting
+         */
+        this.stageType = builder.stageType;
+        /**
+         * 环节状态
+         * <p> 示例值：0
+         */
+        this.stageStatus = builder.stageStatus;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getStageId() {
         return this.stageId;
     }
@@ -67,90 +98,64 @@ public class RevieweeStageStatus {
         this.stageStatus = stageStatus;
     }
 
-
-// builder 开始
-  public RevieweeStageStatus(){}
-
-  public RevieweeStageStatus(Builder builder){
-         /**
-          * 环节ID
-          * <p> 示例值：1
-          */
-      this.stageId = builder.stageId;
-         /**
-          * 环节类型
-          * <p> 示例值：kpi_metric_setting
-          */
-      this.stageType = builder.stageType;
-         /**
-          * 环节状态
-          * <p> 示例值：0
-          */
-      this.stageStatus = builder.stageStatus;
-  }
-
     public static class Builder {
-     /**
-      * 环节ID
-      * <p> 示例值：1
-      */
+        /**
+         * 环节ID
+         * <p> 示例值：1
+         */
         private String stageId;
-     /**
-      * 环节类型
-      * <p> 示例值：kpi_metric_setting
-      */
+        /**
+         * 环节类型
+         * <p> 示例值：kpi_metric_setting
+         */
         private String stageType;
-     /**
-      * 环节状态
-      * <p> 示例值：0
-      */
+        /**
+         * 环节状态
+         * <p> 示例值：0
+         */
         private Integer stageStatus;
 
         /**
          * 环节ID
          * <p> 示例值：1
+         *
          * @param stageId
          * @return
          */
         public Builder stageId(String stageId) {
-             this.stageId = stageId;
-             return this;
+            this.stageId = stageId;
+            return this;
         }
 
-    
 
         /**
          * 环节类型
          * <p> 示例值：kpi_metric_setting
+         *
          * @param stageType
          * @return
          */
         public Builder stageType(String stageType) {
-             this.stageType = stageType;
-             return this;
+            this.stageType = stageType;
+            return this;
         }
 
-    
 
         /**
          * 环节状态
          * <p> 示例值：0
+         *
          * @param stageStatus
          * @return
          */
         public Builder stageStatus(Integer stageStatus) {
-             this.stageStatus = stageStatus;
-             return this;
+            this.stageStatus = stageStatus;
+            return this;
         }
 
-    
-    
-    public RevieweeStageStatus build(){
-        return new RevieweeStageStatus(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public RevieweeStageStatus build() {
+            return new RevieweeStageStatus(this);
+        }
     }
 }

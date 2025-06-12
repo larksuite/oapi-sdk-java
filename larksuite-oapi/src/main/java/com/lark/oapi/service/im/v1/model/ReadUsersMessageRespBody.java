@@ -12,36 +12,41 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ReadUsersMessageRespBody {
-     /**
-      * -
-      * <p> 示例值：
-      */
+    /**
+     * -
+     * <p> 示例值：
+     */
     @SerializedName("items")
     private ReadUser[] items;
-     /**
-      * 是否还有下一页
-      * <p> 示例值：true
-      */
+    /**
+     * 是否还有下一页
+     * <p> 示例值：true
+     */
     @SerializedName("has_more")
     private Boolean hasMore;
-     /**
-      * 下一页分页的token
-      * <p> 示例值：GxmvlNRvP0NdQZpa7yIqf_Lv_QuBwTQ8tXkX7w-irAghVD_TvuYd1aoJ1LQph86O-XImC4X9j9FhUPhXQDvtrQ==
-      */
+    /**
+     * 下一页分页的token
+     * <p> 示例值：GxmvlNRvP0NdQZpa7yIqf_Lv_QuBwTQ8tXkX7w-irAghVD_TvuYd1aoJ1LQph86O-XImC4X9j9FhUPhXQDvtrQ==
+     */
     @SerializedName("page_token")
     private String pageToken;
+
     public ReadUser[] getItems() {
         return this.items;
     }

@@ -17,16 +17,17 @@ package com.lark.oapi.service.application.v6.enums;
  * open_id 类型
  */
 public enum PatchApplicationVisibilityPatchApplicationVisibilityUserIDTypeEnum {
-     OPEN_ID("open_id"), // 以open_id 标识用户
-     USER_ID("user_id"), // 以user_id 标识用户
-     UNION_ID("union_id"), // 以union_id 标识用户
-  ;
-   private String value;
+    OPEN_ID("open_id"), // 以open_id 标识用户
+    USER_ID("user_id"), // 以user_id 标识用户
+    UNION_ID("union_id"), // 以union_id 标识用户
+    ;
+    private String value;
+
     PatchApplicationVisibilityPatchApplicationVisibilityUserIDTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

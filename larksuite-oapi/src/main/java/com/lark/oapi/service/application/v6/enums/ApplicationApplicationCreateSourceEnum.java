@@ -17,19 +17,20 @@ package com.lark.oapi.service.application.v6.enums;
  * 应用创建来源(目前仅Base应用返回)
  */
 public enum ApplicationApplicationCreateSourceEnum {
-     DEVELOPER_CONSOLE("developer_console"), // 开发者后台
-     BASE("base"), // 多维表格自动化流程创建的应用
-     APP_ENGINE("app_engine"), // 飞书应用引擎
-     BOT_BUILDER("bot_builder"), // 机器人助手
-     AILY("aily"), // aily(智能伙伴搭建平台)
-     UNKNOWN("unknown"), // 未知来源
-  ;
-   private String value;
+    DEVELOPER_CONSOLE("developer_console"), // 开发者后台
+    BASE("base"), // 多维表格自动化流程创建的应用
+    APP_ENGINE("app_engine"), // 飞书应用引擎
+    BOT_BUILDER("bot_builder"), // 机器人助手
+    AILY("aily"), // aily(智能伙伴搭建平台)
+    UNKNOWN("unknown"), // 未知来源
+    ;
+    private String value;
+
     ApplicationApplicationCreateSourceEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

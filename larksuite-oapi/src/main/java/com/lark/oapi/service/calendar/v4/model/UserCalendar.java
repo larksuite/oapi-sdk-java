@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.calendar.v4.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.calendar.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class UserCalendar {
-     /**
-      * 日历实体信息
-      * <p> 示例值：
-      */
+    /**
+     * 日历实体信息
+     * <p> 示例值：
+     */
     @SerializedName("calendar")
     private Calendar calendar;
-     /**
-      * 日历的创建者user ID，参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
-      * <p> 示例值：ou_xxxxxx
-      */
+    /**
+     * 日历的创建者user ID，参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
+     * <p> 示例值：ou_xxxxxx
+     */
     @SerializedName("user_id")
     private String userId;
+
+    // builder 开始
+    public UserCalendar() {
+    }
+
+    public UserCalendar(Builder builder) {
+        /**
+         * 日历实体信息
+         * <p> 示例值：
+         */
+        this.calendar = builder.calendar;
+        /**
+         * 日历的创建者user ID，参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
+         * <p> 示例值：ou_xxxxxx
+         */
+        this.userId = builder.userId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Calendar getCalendar() {
         return this.calendar;
     }
@@ -53,67 +79,46 @@ public class UserCalendar {
         this.userId = userId;
     }
 
-
-// builder 开始
-  public UserCalendar(){}
-
-  public UserCalendar(Builder builder){
-         /**
-          * 日历实体信息
-          * <p> 示例值：
-          */
-      this.calendar = builder.calendar;
-         /**
-          * 日历的创建者user ID，参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
-          * <p> 示例值：ou_xxxxxx
-          */
-      this.userId = builder.userId;
-  }
-
     public static class Builder {
-     /**
-      * 日历实体信息
-      * <p> 示例值：
-      */
+        /**
+         * 日历实体信息
+         * <p> 示例值：
+         */
         private Calendar calendar;
-     /**
-      * 日历的创建者user ID，参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
-      * <p> 示例值：ou_xxxxxx
-      */
+        /**
+         * 日历的创建者user ID，参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
+         * <p> 示例值：ou_xxxxxx
+         */
         private String userId;
 
         /**
          * 日历实体信息
          * <p> 示例值：
+         *
          * @param calendar
          * @return
          */
         public Builder calendar(Calendar calendar) {
-             this.calendar = calendar;
-             return this;
+            this.calendar = calendar;
+            return this;
         }
 
-    
 
         /**
          * 日历的创建者user ID，参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
          * <p> 示例值：ou_xxxxxx
+         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-             this.userId = userId;
-             return this;
+            this.userId = userId;
+            return this;
         }
 
-    
-    
-    public UserCalendar build(){
-        return new UserCalendar(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public UserCalendar build() {
+            return new UserCalendar(this);
+        }
     }
 }

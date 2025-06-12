@@ -12,30 +12,56 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class DegreeFilter {
-     /**
-      * 是否过滤专升本
-      * <p> 示例值：1
-      */
+    /**
+     * 是否过滤专升本
+     * <p> 示例值：1
+     */
     @SerializedName("hide_option")
     private Integer hideOption;
-     /**
-      * 学历列表
-      * <p> 示例值：
-      */
+    /**
+     * 学历列表
+     * <p> 示例值：
+     */
     @SerializedName("degree")
     private String[] degree;
+
+    // builder 开始
+    public DegreeFilter() {
+    }
+
+    public DegreeFilter(Builder builder) {
+        /**
+         * 是否过滤专升本
+         * <p> 示例值：1
+         */
+        this.hideOption = builder.hideOption;
+        /**
+         * 学历列表
+         * <p> 示例值：
+         */
+        this.degree = builder.degree;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Integer getHideOption() {
         return this.hideOption;
     }
@@ -52,67 +78,46 @@ public class DegreeFilter {
         this.degree = degree;
     }
 
-
-// builder 开始
-  public DegreeFilter(){}
-
-  public DegreeFilter(Builder builder){
-         /**
-          * 是否过滤专升本
-          * <p> 示例值：1
-          */
-      this.hideOption = builder.hideOption;
-         /**
-          * 学历列表
-          * <p> 示例值：
-          */
-      this.degree = builder.degree;
-  }
-
     public static class Builder {
-     /**
-      * 是否过滤专升本
-      * <p> 示例值：1
-      */
+        /**
+         * 是否过滤专升本
+         * <p> 示例值：1
+         */
         private Integer hideOption;
-     /**
-      * 学历列表
-      * <p> 示例值：
-      */
+        /**
+         * 学历列表
+         * <p> 示例值：
+         */
         private String[] degree;
 
         /**
          * 是否过滤专升本
          * <p> 示例值：1
+         *
          * @param hideOption
          * @return
          */
         public Builder hideOption(Integer hideOption) {
-             this.hideOption = hideOption;
-             return this;
+            this.hideOption = hideOption;
+            return this;
         }
 
-    
 
         /**
          * 学历列表
          * <p> 示例值：
+         *
          * @param degree
          * @return
          */
         public Builder degree(String[] degree) {
-             this.degree = degree;
-             return this;
+            this.degree = degree;
+            return this;
         }
 
-    
-    
-    public DegreeFilter build(){
-        return new DegreeFilter(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public DegreeFilter build() {
+            return new DegreeFilter(this);
+        }
     }
 }

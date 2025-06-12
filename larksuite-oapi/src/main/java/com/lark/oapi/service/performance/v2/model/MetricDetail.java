@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.performance.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.performance.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,60 +20,115 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class MetricDetail {
-     /**
-      * 指标 ID
-      * <p> 示例值：7272581996315099155
-      */
+    /**
+     * 指标 ID
+     * <p> 示例值：7272581996315099155
+     */
     @SerializedName("metric_id")
     private String metricId;
-     /**
-      * 指标名称，指标在该明细数据中的名称
-      * <p> 示例值：示例指标
-      */
+    /**
+     * 指标名称，指标在该明细数据中的名称
+     * <p> 示例值：示例指标
+     */
     @SerializedName("name")
     private String name;
-     /**
-      * 指标字段信息
-      * <p> 示例值：
-      */
+    /**
+     * 指标字段信息
+     * <p> 示例值：
+     */
     @SerializedName("fields")
     private MetricFieldInDetails[] fields;
-     /**
-      * 指标所属的指标维度 ID
-      * <p> 示例值：7303895818346430484
-      */
+    /**
+     * 指标所属的指标维度 ID
+     * <p> 示例值：7303895818346430484
+     */
     @SerializedName("dimension_id")
     private String dimensionId;
-     /**
-      * 指标维度名称
-      * <p> 示例值：
-      */
+    /**
+     * 指标维度名称
+     * <p> 示例值：
+     */
     @SerializedName("dimension_name")
     private I18n dimensionName;
-     /**
-      * 指标维度的维度权重，如果没有设置则返回为空
-      * <p> 示例值：90%
-      */
+    /**
+     * 指标维度的维度权重，如果没有设置则返回为空
+     * <p> 示例值：90%
+     */
     @SerializedName("dimension_weight")
     private String dimensionWeight;
-     /**
-      * 指标添加来源
-      * <p> 示例值：
-      */
+    /**
+     * 指标添加来源
+     * <p> 示例值：
+     */
     @SerializedName("add_from")
     private String addFrom;
-     /**
-      * 指标是否引自指标库
-      * <p> 示例值：
-      */
+    /**
+     * 指标是否引自指标库
+     * <p> 示例值：
+     */
     @SerializedName("is_from_library")
     private Boolean isFromLibrary;
+
+    // builder 开始
+    public MetricDetail() {
+    }
+
+    public MetricDetail(Builder builder) {
+        /**
+         * 指标 ID
+         * <p> 示例值：7272581996315099155
+         */
+        this.metricId = builder.metricId;
+        /**
+         * 指标名称，指标在该明细数据中的名称
+         * <p> 示例值：示例指标
+         */
+        this.name = builder.name;
+        /**
+         * 指标字段信息
+         * <p> 示例值：
+         */
+        this.fields = builder.fields;
+        /**
+         * 指标所属的指标维度 ID
+         * <p> 示例值：7303895818346430484
+         */
+        this.dimensionId = builder.dimensionId;
+        /**
+         * 指标维度名称
+         * <p> 示例值：
+         */
+        this.dimensionName = builder.dimensionName;
+        /**
+         * 指标维度的维度权重，如果没有设置则返回为空
+         * <p> 示例值：90%
+         */
+        this.dimensionWeight = builder.dimensionWeight;
+        /**
+         * 指标添加来源
+         * <p> 示例值：
+         */
+        this.addFrom = builder.addFrom;
+        /**
+         * 指标是否引自指标库
+         * <p> 示例值：
+         */
+        this.isFromLibrary = builder.isFromLibrary;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getMetricId() {
         return this.metricId;
     }
@@ -137,215 +193,166 @@ public class MetricDetail {
         this.isFromLibrary = isFromLibrary;
     }
 
-
-// builder 开始
-  public MetricDetail(){}
-
-  public MetricDetail(Builder builder){
-         /**
-          * 指标 ID
-          * <p> 示例值：7272581996315099155
-          */
-      this.metricId = builder.metricId;
-         /**
-          * 指标名称，指标在该明细数据中的名称
-          * <p> 示例值：示例指标
-          */
-      this.name = builder.name;
-         /**
-          * 指标字段信息
-          * <p> 示例值：
-          */
-      this.fields = builder.fields;
-         /**
-          * 指标所属的指标维度 ID
-          * <p> 示例值：7303895818346430484
-          */
-      this.dimensionId = builder.dimensionId;
-         /**
-          * 指标维度名称
-          * <p> 示例值：
-          */
-      this.dimensionName = builder.dimensionName;
-         /**
-          * 指标维度的维度权重，如果没有设置则返回为空
-          * <p> 示例值：90%
-          */
-      this.dimensionWeight = builder.dimensionWeight;
-         /**
-          * 指标添加来源
-          * <p> 示例值：
-          */
-      this.addFrom = builder.addFrom;
-         /**
-          * 指标是否引自指标库
-          * <p> 示例值：
-          */
-      this.isFromLibrary = builder.isFromLibrary;
-  }
-
     public static class Builder {
-     /**
-      * 指标 ID
-      * <p> 示例值：7272581996315099155
-      */
+        /**
+         * 指标 ID
+         * <p> 示例值：7272581996315099155
+         */
         private String metricId;
-     /**
-      * 指标名称，指标在该明细数据中的名称
-      * <p> 示例值：示例指标
-      */
+        /**
+         * 指标名称，指标在该明细数据中的名称
+         * <p> 示例值：示例指标
+         */
         private String name;
-     /**
-      * 指标字段信息
-      * <p> 示例值：
-      */
+        /**
+         * 指标字段信息
+         * <p> 示例值：
+         */
         private MetricFieldInDetails[] fields;
-     /**
-      * 指标所属的指标维度 ID
-      * <p> 示例值：7303895818346430484
-      */
+        /**
+         * 指标所属的指标维度 ID
+         * <p> 示例值：7303895818346430484
+         */
         private String dimensionId;
-     /**
-      * 指标维度名称
-      * <p> 示例值：
-      */
+        /**
+         * 指标维度名称
+         * <p> 示例值：
+         */
         private I18n dimensionName;
-     /**
-      * 指标维度的维度权重，如果没有设置则返回为空
-      * <p> 示例值：90%
-      */
+        /**
+         * 指标维度的维度权重，如果没有设置则返回为空
+         * <p> 示例值：90%
+         */
         private String dimensionWeight;
-     /**
-      * 指标添加来源
-      * <p> 示例值：
-      */
+        /**
+         * 指标添加来源
+         * <p> 示例值：
+         */
         private String addFrom;
-     /**
-      * 指标是否引自指标库
-      * <p> 示例值：
-      */
+        /**
+         * 指标是否引自指标库
+         * <p> 示例值：
+         */
         private Boolean isFromLibrary;
 
         /**
          * 指标 ID
          * <p> 示例值：7272581996315099155
+         *
          * @param metricId
          * @return
          */
         public Builder metricId(String metricId) {
-             this.metricId = metricId;
-             return this;
+            this.metricId = metricId;
+            return this;
         }
 
-    
 
         /**
          * 指标名称，指标在该明细数据中的名称
          * <p> 示例值：示例指标
+         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 指标字段信息
          * <p> 示例值：
+         *
          * @param fields
          * @return
          */
         public Builder fields(MetricFieldInDetails[] fields) {
-             this.fields = fields;
-             return this;
+            this.fields = fields;
+            return this;
         }
 
-    
 
         /**
          * 指标所属的指标维度 ID
          * <p> 示例值：7303895818346430484
+         *
          * @param dimensionId
          * @return
          */
         public Builder dimensionId(String dimensionId) {
-             this.dimensionId = dimensionId;
-             return this;
+            this.dimensionId = dimensionId;
+            return this;
         }
 
-    
 
         /**
          * 指标维度名称
          * <p> 示例值：
+         *
          * @param dimensionName
          * @return
          */
         public Builder dimensionName(I18n dimensionName) {
-             this.dimensionName = dimensionName;
-             return this;
+            this.dimensionName = dimensionName;
+            return this;
         }
 
-    
 
         /**
          * 指标维度的维度权重，如果没有设置则返回为空
          * <p> 示例值：90%
+         *
          * @param dimensionWeight
          * @return
          */
         public Builder dimensionWeight(String dimensionWeight) {
-             this.dimensionWeight = dimensionWeight;
-             return this;
+            this.dimensionWeight = dimensionWeight;
+            return this;
         }
 
-    
 
         /**
          * 指标添加来源
          * <p> 示例值：
+         *
          * @param addFrom
          * @return
          */
         public Builder addFrom(String addFrom) {
-             this.addFrom = addFrom;
-             return this;
+            this.addFrom = addFrom;
+            return this;
         }
+
         /**
          * 指标添加来源
          * <p> 示例值：
+         *
          * @param addFrom {@link com.lark.oapi.service.performance.v2.enums.MetricDetailAddFromEnum}
          * @return
          */
         public Builder addFrom(com.lark.oapi.service.performance.v2.enums.MetricDetailAddFromEnum addFrom) {
-             this.addFrom = addFrom.getValue();
-             return this;
+            this.addFrom = addFrom.getValue();
+            return this;
         }
 
-    
 
         /**
          * 指标是否引自指标库
          * <p> 示例值：
+         *
          * @param isFromLibrary
          * @return
          */
         public Builder isFromLibrary(Boolean isFromLibrary) {
-             this.isFromLibrary = isFromLibrary;
-             return this;
+            this.isFromLibrary = isFromLibrary;
+            return this;
         }
 
-    
-    
-    public MetricDetail build(){
-        return new MetricDetail(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public MetricDetail build() {
+            return new MetricDetail(this);
+        }
     }
 }

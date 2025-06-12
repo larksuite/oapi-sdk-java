@@ -12,32 +12,61 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class PatchChatMenuItemReq {
-     /**
-      * 群ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description);;**注意**：仅支持群模式为`group`的群ID
-      * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
-      */
+    /**
+     * 群ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description);;**注意**：仅支持群模式为`group`的群ID
+     * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
+     */
     @Path
     @SerializedName("chat_id")
     private String chatId;
-     /**
-      * 一级或二级菜单ID，通过 [获取群菜单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-menu_tree/get) 接口通过群ID获取菜单ID。
-      * <p> 示例值：7156553273518882844
-      */
+    /**
+     * 一级或二级菜单ID，通过 [获取群菜单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-menu_tree/get) 接口通过群ID获取菜单ID。
+     * <p> 示例值：7156553273518882844
+     */
     @Path
     @SerializedName("menu_item_id")
     private String menuItemId;
+    @Body
+    private PatchChatMenuItemReqBody body;
+
+    // builder 开始
+    public PatchChatMenuItemReq() {
+    }
+
+    public PatchChatMenuItemReq(Builder builder) {
+        /**
+         * 群ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description);;**注意**：仅支持群模式为`group`的群ID
+         * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
+         */
+        this.chatId = builder.chatId;
+        /**
+         * 一级或二级菜单ID，通过 [获取群菜单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-menu_tree/get) 接口通过群ID获取菜单ID。
+         * <p> 示例值：7156553273518882844
+         */
+        this.menuItemId = builder.menuItemId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getChatId() {
         return this.chatId;
     }
@@ -54,9 +83,6 @@ public class PatchChatMenuItemReq {
         this.menuItemId = menuItemId;
     }
 
-    @Body
-    private PatchChatMenuItemReqBody body;
-
     public PatchChatMenuItemReqBody getPatchChatMenuItemReqBody() {
         return this.body;
     }
@@ -65,72 +91,53 @@ public class PatchChatMenuItemReq {
         this.body = body;
     }
 
-// builder 开始
-  public PatchChatMenuItemReq(){}
-
-  public PatchChatMenuItemReq(Builder builder){
-     /**
-      * 群ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description);;**注意**：仅支持群模式为`group`的群ID
-      * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
-      */
-       this.chatId = builder.chatId;
-     /**
-      * 一级或二级菜单ID，通过 [获取群菜单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-menu_tree/get) 接口通过群ID获取菜单ID。
-      * <p> 示例值：7156553273518882844
-      */
-       this.menuItemId = builder.menuItemId;
-        this.body = builder.body;
-  }
-
     public static class Builder {
-    
+
         private String chatId; // 群ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description);;**注意**：仅支持群模式为`group`的群ID
         private String menuItemId; // 一级或二级菜单ID，通过 [获取群菜单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-menu_tree/get) 接口通过群ID获取菜单ID。
+        private PatchChatMenuItemReqBody body;
+
         /**
          * 群ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description);;**注意**：仅支持群模式为`group`的群ID
          * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
+         *
          * @param chatId
          * @return
          */
-          public Builder chatId(String chatId) {
-               this.chatId = chatId;
-               return this;
-          }
+        public Builder chatId(String chatId) {
+            this.chatId = chatId;
+            return this;
+        }
 
-    
         /**
          * 一级或二级菜单ID，通过 [获取群菜单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-menu_tree/get) 接口通过群ID获取菜单ID。
          * <p> 示例值：7156553273518882844
+         *
          * @param menuItemId
          * @return
          */
-          public Builder menuItemId(String menuItemId) {
-               this.menuItemId = menuItemId;
-               return this;
-          }
+        public Builder menuItemId(String menuItemId) {
+            this.menuItemId = menuItemId;
+            return this;
+        }
 
-    
-        private PatchChatMenuItemReqBody body;
-    
         public PatchChatMenuItemReqBody getPatchChatMenuItemReqBody() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder patchChatMenuItemReqBody(PatchChatMenuItemReqBody body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public PatchChatMenuItemReq build(){
-        return new PatchChatMenuItemReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public PatchChatMenuItemReq build() {
+            return new PatchChatMenuItemReq(this);
+        }
     }
 }

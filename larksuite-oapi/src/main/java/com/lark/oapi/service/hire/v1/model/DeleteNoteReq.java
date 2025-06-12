@@ -12,24 +12,44 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class DeleteNoteReq {
-     /**
-      * 
-      * <p> 示例值：
-      */
+    /**
+     * <p> 示例值：
+     */
     @Path
     @SerializedName("note_id")
     private String noteId;
+
+    // builder 开始
+    public DeleteNoteReq() {
+    }
+
+    public DeleteNoteReq(Builder builder) {
+        /**
+         *
+         * <p> 示例值：
+         */
+        this.noteId = builder.noteId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getNoteId() {
         return this.noteId;
     }
@@ -38,39 +58,24 @@ public class DeleteNoteReq {
         this.noteId = noteId;
     }
 
-
-// builder 开始
-  public DeleteNoteReq(){}
-
-  public DeleteNoteReq(Builder builder){
-     /**
-      * 
-      * <p> 示例值：
-      */
-       this.noteId = builder.noteId;
-  }
-
     public static class Builder {
-    
-        private String noteId; // 
+
+        private String noteId; //
+
         /**
-         * 
          * <p> 示例值：
+         *
          * @param noteId
          * @return
          */
-          public Builder noteId(String noteId) {
-               this.noteId = noteId;
-               return this;
-          }
+        public Builder noteId(String noteId) {
+            this.noteId = noteId;
+            return this;
+        }
 
-    
-    public DeleteNoteReq build(){
-        return new DeleteNoteReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public DeleteNoteReq build() {
+            return new DeleteNoteReq(this);
+        }
     }
 }

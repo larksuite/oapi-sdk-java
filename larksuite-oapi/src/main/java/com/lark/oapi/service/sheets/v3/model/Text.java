@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.sheets.v3.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.sheets.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,48 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Text {
-     /**
-      * 文本值
-      * <p> 示例值：abc
-      */
+    /**
+     * 文本值
+     * <p> 示例值：abc
+     */
     @SerializedName("text")
     private String text;
-     /**
-      * 
-      * <p> 示例值：
-      */
+    /**
+     * <p> 示例值：
+     */
     @SerializedName("segment_style")
     private SegmentStyle segmentStyle;
+
+    // builder 开始
+    public Text() {
+    }
+
+    public Text(Builder builder) {
+        /**
+         * 文本值
+         * <p> 示例值：abc
+         */
+        this.text = builder.text;
+        /**
+         *
+         * <p> 示例值：
+         */
+        this.segmentStyle = builder.segmentStyle;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getText() {
         return this.text;
     }
@@ -53,67 +78,44 @@ public class Text {
         this.segmentStyle = segmentStyle;
     }
 
-
-// builder 开始
-  public Text(){}
-
-  public Text(Builder builder){
-         /**
-          * 文本值
-          * <p> 示例值：abc
-          */
-      this.text = builder.text;
-         /**
-          * 
-          * <p> 示例值：
-          */
-      this.segmentStyle = builder.segmentStyle;
-  }
-
     public static class Builder {
-     /**
-      * 文本值
-      * <p> 示例值：abc
-      */
+        /**
+         * 文本值
+         * <p> 示例值：abc
+         */
         private String text;
-     /**
-      * 
-      * <p> 示例值：
-      */
+        /**
+         * <p> 示例值：
+         */
         private SegmentStyle segmentStyle;
 
         /**
          * 文本值
          * <p> 示例值：abc
+         *
          * @param text
          * @return
          */
         public Builder text(String text) {
-             this.text = text;
-             return this;
+            this.text = text;
+            return this;
         }
 
-    
 
         /**
-         * 
          * <p> 示例值：
+         *
          * @param segmentStyle
          * @return
          */
         public Builder segmentStyle(SegmentStyle segmentStyle) {
-             this.segmentStyle = segmentStyle;
-             return this;
+            this.segmentStyle = segmentStyle;
+            return this;
         }
 
-    
-    
-    public Text build(){
-        return new Text(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Text build() {
+            return new Text(this);
+        }
     }
 }

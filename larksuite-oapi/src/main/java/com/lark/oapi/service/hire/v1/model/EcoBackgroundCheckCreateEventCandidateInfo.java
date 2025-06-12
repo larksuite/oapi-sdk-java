@@ -12,48 +12,89 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class EcoBackgroundCheckCreateEventCandidateInfo {
-     /**
-      * 候选人姓名
-      * <p> 示例值：王二
-      */
+    /**
+     * 候选人姓名
+     * <p> 示例值：王二
+     */
     @SerializedName("name")
     private String name;
-     /**
-      * 候选人手机号
-      * <p> 示例值：
-      */
+    /**
+     * 候选人手机号
+     * <p> 示例值：
+     */
     @SerializedName("mobile")
     private EcoBackgroundCheckCreateEventMobile mobile;
-     /**
-      * 候选人邮箱
-      * <p> 示例值：xxx@abc.vom
-      */
+    /**
+     * 候选人邮箱
+     * <p> 示例值：xxx@abc.vom
+     */
     @SerializedName("email")
     private String email;
-     /**
-      * 名字
-      * <p> 示例值：Ming
-      */
+    /**
+     * 名字
+     * <p> 示例值：Ming
+     */
     @SerializedName("first_name")
     private String firstName;
-     /**
-      * 姓氏
-      * <p> 示例值：Lee
-      */
+    /**
+     * 姓氏
+     * <p> 示例值：Lee
+     */
     @SerializedName("last_name")
     private String lastName;
+
+    // builder 开始
+    public EcoBackgroundCheckCreateEventCandidateInfo() {
+    }
+
+    public EcoBackgroundCheckCreateEventCandidateInfo(Builder builder) {
+        /**
+         * 候选人姓名
+         * <p> 示例值：王二
+         */
+        this.name = builder.name;
+        /**
+         * 候选人手机号
+         * <p> 示例值：
+         */
+        this.mobile = builder.mobile;
+        /**
+         * 候选人邮箱
+         * <p> 示例值：xxx@abc.vom
+         */
+        this.email = builder.email;
+        /**
+         * 名字
+         * <p> 示例值：Ming
+         */
+        this.firstName = builder.firstName;
+        /**
+         * 姓氏
+         * <p> 示例值：Lee
+         */
+        this.lastName = builder.lastName;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getName() {
         return this.name;
     }
@@ -94,136 +135,100 @@ public class EcoBackgroundCheckCreateEventCandidateInfo {
         this.lastName = lastName;
     }
 
-
-// builder 开始
-  public EcoBackgroundCheckCreateEventCandidateInfo(){}
-
-  public EcoBackgroundCheckCreateEventCandidateInfo(Builder builder){
-         /**
-          * 候选人姓名
-          * <p> 示例值：王二
-          */
-      this.name = builder.name;
-         /**
-          * 候选人手机号
-          * <p> 示例值：
-          */
-      this.mobile = builder.mobile;
-         /**
-          * 候选人邮箱
-          * <p> 示例值：xxx@abc.vom
-          */
-      this.email = builder.email;
-         /**
-          * 名字
-          * <p> 示例值：Ming
-          */
-      this.firstName = builder.firstName;
-         /**
-          * 姓氏
-          * <p> 示例值：Lee
-          */
-      this.lastName = builder.lastName;
-  }
-
     public static class Builder {
-     /**
-      * 候选人姓名
-      * <p> 示例值：王二
-      */
+        /**
+         * 候选人姓名
+         * <p> 示例值：王二
+         */
         private String name;
-     /**
-      * 候选人手机号
-      * <p> 示例值：
-      */
+        /**
+         * 候选人手机号
+         * <p> 示例值：
+         */
         private EcoBackgroundCheckCreateEventMobile mobile;
-     /**
-      * 候选人邮箱
-      * <p> 示例值：xxx@abc.vom
-      */
+        /**
+         * 候选人邮箱
+         * <p> 示例值：xxx@abc.vom
+         */
         private String email;
-     /**
-      * 名字
-      * <p> 示例值：Ming
-      */
+        /**
+         * 名字
+         * <p> 示例值：Ming
+         */
         private String firstName;
-     /**
-      * 姓氏
-      * <p> 示例值：Lee
-      */
+        /**
+         * 姓氏
+         * <p> 示例值：Lee
+         */
         private String lastName;
 
         /**
          * 候选人姓名
          * <p> 示例值：王二
+         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 候选人手机号
          * <p> 示例值：
+         *
          * @param mobile
          * @return
          */
         public Builder mobile(EcoBackgroundCheckCreateEventMobile mobile) {
-             this.mobile = mobile;
-             return this;
+            this.mobile = mobile;
+            return this;
         }
 
-    
 
         /**
          * 候选人邮箱
          * <p> 示例值：xxx@abc.vom
+         *
          * @param email
          * @return
          */
         public Builder email(String email) {
-             this.email = email;
-             return this;
+            this.email = email;
+            return this;
         }
 
-    
 
         /**
          * 名字
          * <p> 示例值：Ming
+         *
          * @param firstName
          * @return
          */
         public Builder firstName(String firstName) {
-             this.firstName = firstName;
-             return this;
+            this.firstName = firstName;
+            return this;
         }
 
-    
 
         /**
          * 姓氏
          * <p> 示例值：Lee
+         *
          * @param lastName
          * @return
          */
         public Builder lastName(String lastName) {
-             this.lastName = lastName;
-             return this;
+            this.lastName = lastName;
+            return this;
         }
 
-    
-    
-    public EcoBackgroundCheckCreateEventCandidateInfo build(){
-        return new EcoBackgroundCheckCreateEventCandidateInfo(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public EcoBackgroundCheckCreateEventCandidateInfo build() {
+            return new EcoBackgroundCheckCreateEventCandidateInfo(this);
+        }
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class TicketTag {
-     /**
-      * ticket tag
-      * <p> 示例值："7474857595946745884"
-      */
+    /**
+     * ticket tag
+     * <p> 示例值："7474857595946745884"
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * tag name
-      * <p> 示例值："tag name"
-      */
+    /**
+     * tag name
+     * <p> 示例值："tag name"
+     */
     @SerializedName("name")
     private String name;
+
+    // builder 开始
+    public TicketTag() {
+    }
+
+    public TicketTag(Builder builder) {
+        /**
+         * ticket tag
+         * <p> 示例值："7474857595946745884"
+         */
+        this.id = builder.id;
+        /**
+         * tag name
+         * <p> 示例值："tag name"
+         */
+        this.name = builder.name;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -53,67 +79,46 @@ public class TicketTag {
         this.name = name;
     }
 
-
-// builder 开始
-  public TicketTag(){}
-
-  public TicketTag(Builder builder){
-         /**
-          * ticket tag
-          * <p> 示例值："7474857595946745884"
-          */
-      this.id = builder.id;
-         /**
-          * tag name
-          * <p> 示例值："tag name"
-          */
-      this.name = builder.name;
-  }
-
     public static class Builder {
-     /**
-      * ticket tag
-      * <p> 示例值："7474857595946745884"
-      */
+        /**
+         * ticket tag
+         * <p> 示例值："7474857595946745884"
+         */
         private String id;
-     /**
-      * tag name
-      * <p> 示例值："tag name"
-      */
+        /**
+         * tag name
+         * <p> 示例值："tag name"
+         */
         private String name;
 
         /**
          * ticket tag
          * <p> 示例值："7474857595946745884"
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * tag name
          * <p> 示例值："tag name"
+         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
-    
-    public TicketTag build(){
-        return new TicketTag(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public TicketTag build() {
+            return new TicketTag(this);
+        }
     }
 }

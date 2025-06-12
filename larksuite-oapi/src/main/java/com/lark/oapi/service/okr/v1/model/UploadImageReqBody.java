@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.okr.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.okr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class UploadImageReqBody {
-     /**
-      * 图片
-      * <p> 示例值：file binary
-      */
+    /**
+     * 图片
+     * <p> 示例值：file binary
+     */
     @SerializedName("data")
     private java.io.File data;
-     /**
-      * 图片的目标ID
-      * <p> 示例值：6974586812998174252
-      */
+    /**
+     * 图片的目标ID
+     * <p> 示例值：6974586812998174252
+     */
     @SerializedName("target_id")
     private String targetId;
-     /**
-      * 图片使用的目标类型
-      * <p> 示例值：1
-      */
+    /**
+     * 图片使用的目标类型
+     * <p> 示例值：1
+     */
     @SerializedName("target_type")
     private Integer targetType;
+
+    // builder 开始
+    public UploadImageReqBody() {
+    }
+
+    public UploadImageReqBody(Builder builder) {
+        /**
+         * 图片
+         * <p> 示例值：file binary
+         */
+        this.data = builder.data;
+        /**
+         * 图片的目标ID
+         * <p> 示例值：6974586812998174252
+         */
+        this.targetId = builder.targetId;
+        /**
+         * 图片使用的目标类型
+         * <p> 示例值：1
+         */
+        this.targetType = builder.targetType;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public java.io.File getData() {
         return this.data;
     }
@@ -67,100 +98,76 @@ public class UploadImageReqBody {
         this.targetType = targetType;
     }
 
-
-// builder 开始
-  public UploadImageReqBody(){}
-
-  public UploadImageReqBody(Builder builder){
-         /**
-          * 图片
-          * <p> 示例值：file binary
-          */
-      this.data = builder.data;
-         /**
-          * 图片的目标ID
-          * <p> 示例值：6974586812998174252
-          */
-      this.targetId = builder.targetId;
-         /**
-          * 图片使用的目标类型
-          * <p> 示例值：1
-          */
-      this.targetType = builder.targetType;
-  }
-
     public static class Builder {
-     /**
-      * 图片
-      * <p> 示例值：file binary
-      */
+        /**
+         * 图片
+         * <p> 示例值：file binary
+         */
         private java.io.File data;
-     /**
-      * 图片的目标ID
-      * <p> 示例值：6974586812998174252
-      */
+        /**
+         * 图片的目标ID
+         * <p> 示例值：6974586812998174252
+         */
         private String targetId;
-     /**
-      * 图片使用的目标类型
-      * <p> 示例值：1
-      */
+        /**
+         * 图片使用的目标类型
+         * <p> 示例值：1
+         */
         private Integer targetType;
 
         /**
          * 图片
          * <p> 示例值：file binary
+         *
          * @param data
          * @return
          */
         public Builder data(java.io.File data) {
-             this.data = data;
-             return this;
+            this.data = data;
+            return this;
         }
 
-    
 
         /**
          * 图片的目标ID
          * <p> 示例值：6974586812998174252
+         *
          * @param targetId
          * @return
          */
         public Builder targetId(String targetId) {
-             this.targetId = targetId;
-             return this;
+            this.targetId = targetId;
+            return this;
         }
 
-    
 
         /**
          * 图片使用的目标类型
          * <p> 示例值：1
+         *
          * @param targetType
          * @return
          */
         public Builder targetType(Integer targetType) {
-             this.targetType = targetType;
-             return this;
+            this.targetType = targetType;
+            return this;
         }
+
         /**
          * 图片使用的目标类型
          * <p> 示例值：1
+         *
          * @param targetType {@link com.lark.oapi.service.okr.v1.enums.UploadImageTargetTypeEnum}
          * @return
          */
         public Builder targetType(com.lark.oapi.service.okr.v1.enums.UploadImageTargetTypeEnum targetType) {
-             this.targetType = targetType.getValue();
-             return this;
+            this.targetType = targetType.getValue();
+            return this;
         }
 
-    
-    
-    public UploadImageReqBody build(){
-        return new UploadImageReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public UploadImageReqBody build() {
+            return new UploadImageReqBody(this);
+        }
     }
 }

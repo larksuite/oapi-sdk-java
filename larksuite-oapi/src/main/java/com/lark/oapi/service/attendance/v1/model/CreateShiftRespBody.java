@@ -12,24 +12,29 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CreateShiftRespBody {
-     /**
-      * 班次
-      * <p> 示例值：
-      */
+    /**
+     * 班次
+     * <p> 示例值：
+     */
     @SerializedName("shift")
     private Shift shift;
+
     public Shift getShift() {
         return this.shift;
     }

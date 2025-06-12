@@ -12,30 +12,35 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ListTicketMessageRespBody {
-     /**
-      * 工单消息列表
-      * <p> 示例值：
-      */
+    /**
+     * 工单消息列表
+     * <p> 示例值：
+     */
     @SerializedName("messages")
     private TicketMessage[] messages;
-     /**
-      * 消息总数
-      * <p> 示例值：100
-      */
+    /**
+     * 消息总数
+     * <p> 示例值：100
+     */
     @SerializedName("total")
     private Integer total;
+
     public TicketMessage[] getMessages() {
         return this.messages;
     }

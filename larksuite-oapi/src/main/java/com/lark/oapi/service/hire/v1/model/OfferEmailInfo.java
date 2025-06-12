@@ -12,36 +12,67 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class OfferEmailInfo {
-     /**
-      * 抄送人邮件列表
-      * <p> 示例值：
-      */
+    /**
+     * 抄送人邮件列表
+     * <p> 示例值：
+     */
     @SerializedName("cc_email_list")
     private String[] ccEmailList;
-     /**
-      * 接收人邮件列表
-      * <p> 示例值：
-      */
+    /**
+     * 接收人邮件列表
+     * <p> 示例值：
+     */
     @SerializedName("receiver_email_list")
     private String[] receiverEmailList;
-     /**
-      * 邮件内容
-      * <p> 示例值：This is a test email.
-      */
+    /**
+     * 邮件内容
+     * <p> 示例值：This is a test email.
+     */
     @SerializedName("content")
     private String content;
+
+    // builder 开始
+    public OfferEmailInfo() {
+    }
+
+    public OfferEmailInfo(Builder builder) {
+        /**
+         * 抄送人邮件列表
+         * <p> 示例值：
+         */
+        this.ccEmailList = builder.ccEmailList;
+        /**
+         * 接收人邮件列表
+         * <p> 示例值：
+         */
+        this.receiverEmailList = builder.receiverEmailList;
+        /**
+         * 邮件内容
+         * <p> 示例值：This is a test email.
+         */
+        this.content = builder.content;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String[] getCcEmailList() {
         return this.ccEmailList;
     }
@@ -66,90 +97,64 @@ public class OfferEmailInfo {
         this.content = content;
     }
 
-
-// builder 开始
-  public OfferEmailInfo(){}
-
-  public OfferEmailInfo(Builder builder){
-         /**
-          * 抄送人邮件列表
-          * <p> 示例值：
-          */
-      this.ccEmailList = builder.ccEmailList;
-         /**
-          * 接收人邮件列表
-          * <p> 示例值：
-          */
-      this.receiverEmailList = builder.receiverEmailList;
-         /**
-          * 邮件内容
-          * <p> 示例值：This is a test email.
-          */
-      this.content = builder.content;
-  }
-
     public static class Builder {
-     /**
-      * 抄送人邮件列表
-      * <p> 示例值：
-      */
+        /**
+         * 抄送人邮件列表
+         * <p> 示例值：
+         */
         private String[] ccEmailList;
-     /**
-      * 接收人邮件列表
-      * <p> 示例值：
-      */
+        /**
+         * 接收人邮件列表
+         * <p> 示例值：
+         */
         private String[] receiverEmailList;
-     /**
-      * 邮件内容
-      * <p> 示例值：This is a test email.
-      */
+        /**
+         * 邮件内容
+         * <p> 示例值：This is a test email.
+         */
         private String content;
 
         /**
          * 抄送人邮件列表
          * <p> 示例值：
+         *
          * @param ccEmailList
          * @return
          */
         public Builder ccEmailList(String[] ccEmailList) {
-             this.ccEmailList = ccEmailList;
-             return this;
+            this.ccEmailList = ccEmailList;
+            return this;
         }
 
-    
 
         /**
          * 接收人邮件列表
          * <p> 示例值：
+         *
          * @param receiverEmailList
          * @return
          */
         public Builder receiverEmailList(String[] receiverEmailList) {
-             this.receiverEmailList = receiverEmailList;
-             return this;
+            this.receiverEmailList = receiverEmailList;
+            return this;
         }
 
-    
 
         /**
          * 邮件内容
          * <p> 示例值：This is a test email.
+         *
          * @param content
          * @return
          */
         public Builder content(String content) {
-             this.content = content;
-             return this;
+            this.content = content;
+            return this;
         }
 
-    
-    
-    public OfferEmailInfo build(){
-        return new OfferEmailInfo(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public OfferEmailInfo build() {
+            return new OfferEmailInfo(this);
+        }
     }
 }

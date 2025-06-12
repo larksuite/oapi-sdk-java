@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.search.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.search.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Status {
-     /**
-      * from_status
-      * <p> 示例值：""
-      */
+    /**
+     * from_status
+     * <p> 示例值：""
+     */
     @SerializedName("from_status")
     private String fromStatus;
-     /**
-      * to_status
-      * <p> 示例值：""
-      */
+    /**
+     * to_status
+     * <p> 示例值：""
+     */
     @SerializedName("to_status")
     private String toStatus;
+
+    // builder 开始
+    public Status() {
+    }
+
+    public Status(Builder builder) {
+        /**
+         * from_status
+         * <p> 示例值：""
+         */
+        this.fromStatus = builder.fromStatus;
+        /**
+         * to_status
+         * <p> 示例值：""
+         */
+        this.toStatus = builder.toStatus;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getFromStatus() {
         return this.fromStatus;
     }
@@ -53,67 +79,46 @@ public class Status {
         this.toStatus = toStatus;
     }
 
-
-// builder 开始
-  public Status(){}
-
-  public Status(Builder builder){
-         /**
-          * from_status
-          * <p> 示例值：""
-          */
-      this.fromStatus = builder.fromStatus;
-         /**
-          * to_status
-          * <p> 示例值：""
-          */
-      this.toStatus = builder.toStatus;
-  }
-
     public static class Builder {
-     /**
-      * from_status
-      * <p> 示例值：""
-      */
+        /**
+         * from_status
+         * <p> 示例值：""
+         */
         private String fromStatus;
-     /**
-      * to_status
-      * <p> 示例值：""
-      */
+        /**
+         * to_status
+         * <p> 示例值：""
+         */
         private String toStatus;
 
         /**
          * from_status
          * <p> 示例值：""
+         *
          * @param fromStatus
          * @return
          */
         public Builder fromStatus(String fromStatus) {
-             this.fromStatus = fromStatus;
-             return this;
+            this.fromStatus = fromStatus;
+            return this;
         }
 
-    
 
         /**
          * to_status
          * <p> 示例值：""
+         *
          * @param toStatus
          * @return
          */
         public Builder toStatus(String toStatus) {
-             this.toStatus = toStatus;
-             return this;
+            this.toStatus = toStatus;
+            return this;
         }
 
-    
-    
-    public Status build(){
-        return new Status(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Status build() {
+            return new Status(this);
+        }
     }
 }

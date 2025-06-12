@@ -12,42 +12,47 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class BatchQueryApplicationObjectRecordRespBody {
-     /**
-      * 符合条件的记录列表
-      * <p> 示例值：[{}]
-      */
+    /**
+     * 符合条件的记录列表
+     * <p> 示例值：[{}]
+     */
     @SerializedName("items")
     private String items;
-     /**
-      * 符合条件的记录数
-      * <p> 示例值：0
-      */
+    /**
+     * 符合条件的记录数
+     * <p> 示例值：0
+     */
     @SerializedName("total")
     private Integer total;
-     /**
-      * 下一页的起始位置 Token ，访问至末尾时不返回
-      * <p> 示例值：null
-      */
+    /**
+     * 下一页的起始位置 Token ，访问至末尾时不返回
+     * <p> 示例值：null
+     */
     @SerializedName("next_page_token")
     private String nextPageToken;
-     /**
-      * 是否还有数据
-      * <p> 示例值：
-      */
+    /**
+     * 是否还有数据
+     * <p> 示例值：
+     */
     @SerializedName("has_more")
     private Boolean hasMore;
+
     public String getItems() {
         return this.items;
     }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.report.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.report.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,138 +20,258 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Rule {
-     /**
-      * 规则唯一标识
-      * <p> 示例值：6894788526240432147
-      */
+    /**
+     * 规则唯一标识
+     * <p> 示例值：6894788526240432147
+     */
     @SerializedName("rule_id")
     private String ruleId;
-     /**
-      * 规则名称
-      * <p> 示例值：工作月报
-      */
+    /**
+     * 规则名称
+     * <p> 示例值：工作月报
+     */
     @SerializedName("name")
     private String name;
-     /**
-      * 规则图标
-      * <p> 示例值：日报
-      */
+    /**
+     * 规则图标
+     * <p> 示例值：日报
+     */
     @SerializedName("icon_name")
     private String iconName;
-     /**
-      * 创建时间
-      * <p> 示例值：1622427266
-      */
+    /**
+     * 创建时间
+     * <p> 示例值：1622427266
+     */
     @SerializedName("created_at")
     private Integer createdAt;
-     /**
-      * 创建人ID
-      * <p> 示例值：ou_133f0b6d0f097cf7d7ba00b38fffb110
-      */
+    /**
+     * 创建人ID
+     * <p> 示例值：ou_133f0b6d0f097cf7d7ba00b38fffb110
+     */
     @SerializedName("creator_user_id")
     private String creatorUserId;
-     /**
-      * 创建人名称
-      * <p> 示例值：张三
-      */
+    /**
+     * 创建人名称
+     * <p> 示例值：张三
+     */
     @SerializedName("creator_user_name")
     private String creatorUserName;
-     /**
-      * 规则所有者ID
-      * <p> 示例值：ou_133f0b6d0f097cf7d7ba00b38fffb111
-      */
+    /**
+     * 规则所有者ID
+     * <p> 示例值：ou_133f0b6d0f097cf7d7ba00b38fffb111
+     */
     @SerializedName("owner_user_id")
     private String ownerUserId;
-     /**
-      * 规则所有者名称
-      * <p> 示例值：张三
-      */
+    /**
+     * 规则所有者名称
+     * <p> 示例值：张三
+     */
     @SerializedName("owner_user_name")
     private String ownerUserName;
-     /**
-      * 表单定义
-      * <p> 示例值：
-      */
+    /**
+     * 表单定义
+     * <p> 示例值：
+     */
     @SerializedName("form_schema")
     private FormField[] formSchema;
-     /**
-      * 规则是否已删除
-      * <p> 示例值：0
-      */
+    /**
+     * 规则是否已删除
+     * <p> 示例值：0
+     */
     @SerializedName("is_deleted")
     private Integer isDeleted;
-     /**
-      * 需要汇报的用户ID列表
-      * <p> 示例值：['ou_c04cebc780341ab22bd311ba6902ffsd']
-      */
+    /**
+     * 需要汇报的用户ID列表
+     * <p> 示例值：['ou_c04cebc780341ab22bd311ba6902ffsd']
+     */
     @SerializedName("need_report_user_ids")
     private String[] needReportUserIds;
-     /**
-      * 需要汇报的部门ID列表（如果id为0，表示全员）
-      * <p> 示例值：
-      */
+    /**
+     * 需要汇报的部门ID列表（如果id为0，表示全员）
+     * <p> 示例值：
+     */
     @SerializedName("need_report_department_ids")
     private String[] needReportDepartmentIds;
-     /**
-      * 需要汇报的群ID列表
-      * <p> 示例值：['oc_a7bb9ca5efa68ab8b4fdd2e3b54ffref']
-      */
+    /**
+     * 需要汇报的群ID列表
+     * <p> 示例值：['oc_a7bb9ca5efa68ab8b4fdd2e3b54ffref']
+     */
     @SerializedName("need_report_chat_ids")
     private String[] needReportChatIds;
-     /**
-      * 抄送用户ID列表
-      * <p> 示例值：['ou_45454c20ef2c92c173445abf6f4955rf']
-      */
+    /**
+     * 抄送用户ID列表
+     * <p> 示例值：['ou_45454c20ef2c92c173445abf6f4955rf']
+     */
     @SerializedName("cc_user_ids")
     private String[] ccUserIds;
-     /**
-      * 抄送部门ID列表
-      * <p> 示例值：['od-251480c0bfb8c5c8784ea194ef8b734d']
-      */
+    /**
+     * 抄送部门ID列表
+     * <p> 示例值：['od-251480c0bfb8c5c8784ea194ef8b734d']
+     */
     @SerializedName("cc_department_ids")
     private String[] ccDepartmentIds;
-     /**
-      * 汇报对象用户ID列表
-      * <p> 示例值：['ou_c04cebc780341ab22bd311ba6902fdfe']
-      */
+    /**
+     * 汇报对象用户ID列表
+     * <p> 示例值：['ou_c04cebc780341ab22bd311ba6902fdfe']
+     */
     @SerializedName("to_user_ids")
     private String[] toUserIds;
-     /**
-      * 汇报对象群ID列表
-      * <p> 示例值：['oc_a7bb9ca5efa68ab8b4fdd2e3b54fcerf']
-      */
+    /**
+     * 汇报对象群ID列表
+     * <p> 示例值：['oc_a7bb9ca5efa68ab8b4fdd2e3b54fcerf']
+     */
     @SerializedName("to_chat_ids")
     private String[] toChatIds;
-     /**
-      * 上级汇报对象，0表示第一级，依次类推，最大为5表示第六级
-      * <p> 示例值：[0]
-      */
+    /**
+     * 上级汇报对象，0表示第一级，依次类推，最大为5表示第六级
+     * <p> 示例值：[0]
+     */
     @SerializedName("to_leaders")
     private Integer[] toLeaders;
-     /**
-      * 部门负责人汇报对象，0表示第一级，依次类推，最大为5表示第六级
-      * <p> 示例值：[0]
-      */
+    /**
+     * 部门负责人汇报对象，0表示第一级，依次类推，最大为5表示第六级
+     * <p> 示例值：[0]
+     */
     @SerializedName("to_department_owners")
     private Integer[] toDepartmentOwners;
-     /**
-      * 规则管理员用户ID列表
-      * <p> 示例值：['ou_c04cebc780341ab22bd311ba6902sseb']
-      */
+    /**
+     * 规则管理员用户ID列表
+     * <p> 示例值：['ou_c04cebc780341ab22bd311ba6902sseb']
+     */
     @SerializedName("manager_user_ids")
     private String[] managerUserIds;
-     /**
-      * 抄送群ID列表
-      * <p> 示例值：['oc_a7bb9ca5efa68ab8b4fdd2e3b54fffsf']
-      */
+    /**
+     * 抄送群ID列表
+     * <p> 示例值：['oc_a7bb9ca5efa68ab8b4fdd2e3b54fffsf']
+     */
     @SerializedName("cc_chat_ids")
     private String[] ccChatIds;
+
+    // builder 开始
+    public Rule() {
+    }
+
+    public Rule(Builder builder) {
+        /**
+         * 规则唯一标识
+         * <p> 示例值：6894788526240432147
+         */
+        this.ruleId = builder.ruleId;
+        /**
+         * 规则名称
+         * <p> 示例值：工作月报
+         */
+        this.name = builder.name;
+        /**
+         * 规则图标
+         * <p> 示例值：日报
+         */
+        this.iconName = builder.iconName;
+        /**
+         * 创建时间
+         * <p> 示例值：1622427266
+         */
+        this.createdAt = builder.createdAt;
+        /**
+         * 创建人ID
+         * <p> 示例值：ou_133f0b6d0f097cf7d7ba00b38fffb110
+         */
+        this.creatorUserId = builder.creatorUserId;
+        /**
+         * 创建人名称
+         * <p> 示例值：张三
+         */
+        this.creatorUserName = builder.creatorUserName;
+        /**
+         * 规则所有者ID
+         * <p> 示例值：ou_133f0b6d0f097cf7d7ba00b38fffb111
+         */
+        this.ownerUserId = builder.ownerUserId;
+        /**
+         * 规则所有者名称
+         * <p> 示例值：张三
+         */
+        this.ownerUserName = builder.ownerUserName;
+        /**
+         * 表单定义
+         * <p> 示例值：
+         */
+        this.formSchema = builder.formSchema;
+        /**
+         * 规则是否已删除
+         * <p> 示例值：0
+         */
+        this.isDeleted = builder.isDeleted;
+        /**
+         * 需要汇报的用户ID列表
+         * <p> 示例值：['ou_c04cebc780341ab22bd311ba6902ffsd']
+         */
+        this.needReportUserIds = builder.needReportUserIds;
+        /**
+         * 需要汇报的部门ID列表（如果id为0，表示全员）
+         * <p> 示例值：
+         */
+        this.needReportDepartmentIds = builder.needReportDepartmentIds;
+        /**
+         * 需要汇报的群ID列表
+         * <p> 示例值：['oc_a7bb9ca5efa68ab8b4fdd2e3b54ffref']
+         */
+        this.needReportChatIds = builder.needReportChatIds;
+        /**
+         * 抄送用户ID列表
+         * <p> 示例值：['ou_45454c20ef2c92c173445abf6f4955rf']
+         */
+        this.ccUserIds = builder.ccUserIds;
+        /**
+         * 抄送部门ID列表
+         * <p> 示例值：['od-251480c0bfb8c5c8784ea194ef8b734d']
+         */
+        this.ccDepartmentIds = builder.ccDepartmentIds;
+        /**
+         * 汇报对象用户ID列表
+         * <p> 示例值：['ou_c04cebc780341ab22bd311ba6902fdfe']
+         */
+        this.toUserIds = builder.toUserIds;
+        /**
+         * 汇报对象群ID列表
+         * <p> 示例值：['oc_a7bb9ca5efa68ab8b4fdd2e3b54fcerf']
+         */
+        this.toChatIds = builder.toChatIds;
+        /**
+         * 上级汇报对象，0表示第一级，依次类推，最大为5表示第六级
+         * <p> 示例值：[0]
+         */
+        this.toLeaders = builder.toLeaders;
+        /**
+         * 部门负责人汇报对象，0表示第一级，依次类推，最大为5表示第六级
+         * <p> 示例值：[0]
+         */
+        this.toDepartmentOwners = builder.toDepartmentOwners;
+        /**
+         * 规则管理员用户ID列表
+         * <p> 示例值：['ou_c04cebc780341ab22bd311ba6902sseb']
+         */
+        this.managerUserIds = builder.managerUserIds;
+        /**
+         * 抄送群ID列表
+         * <p> 示例值：['oc_a7bb9ca5efa68ab8b4fdd2e3b54fffsf']
+         */
+        this.ccChatIds = builder.ccChatIds;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getRuleId() {
         return this.ruleId;
     }
@@ -319,514 +440,400 @@ public class Rule {
         this.ccChatIds = ccChatIds;
     }
 
-
-// builder 开始
-  public Rule(){}
-
-  public Rule(Builder builder){
-         /**
-          * 规则唯一标识
-          * <p> 示例值：6894788526240432147
-          */
-      this.ruleId = builder.ruleId;
-         /**
-          * 规则名称
-          * <p> 示例值：工作月报
-          */
-      this.name = builder.name;
-         /**
-          * 规则图标
-          * <p> 示例值：日报
-          */
-      this.iconName = builder.iconName;
-         /**
-          * 创建时间
-          * <p> 示例值：1622427266
-          */
-      this.createdAt = builder.createdAt;
-         /**
-          * 创建人ID
-          * <p> 示例值：ou_133f0b6d0f097cf7d7ba00b38fffb110
-          */
-      this.creatorUserId = builder.creatorUserId;
-         /**
-          * 创建人名称
-          * <p> 示例值：张三
-          */
-      this.creatorUserName = builder.creatorUserName;
-         /**
-          * 规则所有者ID
-          * <p> 示例值：ou_133f0b6d0f097cf7d7ba00b38fffb111
-          */
-      this.ownerUserId = builder.ownerUserId;
-         /**
-          * 规则所有者名称
-          * <p> 示例值：张三
-          */
-      this.ownerUserName = builder.ownerUserName;
-         /**
-          * 表单定义
-          * <p> 示例值：
-          */
-      this.formSchema = builder.formSchema;
-         /**
-          * 规则是否已删除
-          * <p> 示例值：0
-          */
-      this.isDeleted = builder.isDeleted;
-         /**
-          * 需要汇报的用户ID列表
-          * <p> 示例值：['ou_c04cebc780341ab22bd311ba6902ffsd']
-          */
-      this.needReportUserIds = builder.needReportUserIds;
-         /**
-          * 需要汇报的部门ID列表（如果id为0，表示全员）
-          * <p> 示例值：
-          */
-      this.needReportDepartmentIds = builder.needReportDepartmentIds;
-         /**
-          * 需要汇报的群ID列表
-          * <p> 示例值：['oc_a7bb9ca5efa68ab8b4fdd2e3b54ffref']
-          */
-      this.needReportChatIds = builder.needReportChatIds;
-         /**
-          * 抄送用户ID列表
-          * <p> 示例值：['ou_45454c20ef2c92c173445abf6f4955rf']
-          */
-      this.ccUserIds = builder.ccUserIds;
-         /**
-          * 抄送部门ID列表
-          * <p> 示例值：['od-251480c0bfb8c5c8784ea194ef8b734d']
-          */
-      this.ccDepartmentIds = builder.ccDepartmentIds;
-         /**
-          * 汇报对象用户ID列表
-          * <p> 示例值：['ou_c04cebc780341ab22bd311ba6902fdfe']
-          */
-      this.toUserIds = builder.toUserIds;
-         /**
-          * 汇报对象群ID列表
-          * <p> 示例值：['oc_a7bb9ca5efa68ab8b4fdd2e3b54fcerf']
-          */
-      this.toChatIds = builder.toChatIds;
-         /**
-          * 上级汇报对象，0表示第一级，依次类推，最大为5表示第六级
-          * <p> 示例值：[0]
-          */
-      this.toLeaders = builder.toLeaders;
-         /**
-          * 部门负责人汇报对象，0表示第一级，依次类推，最大为5表示第六级
-          * <p> 示例值：[0]
-          */
-      this.toDepartmentOwners = builder.toDepartmentOwners;
-         /**
-          * 规则管理员用户ID列表
-          * <p> 示例值：['ou_c04cebc780341ab22bd311ba6902sseb']
-          */
-      this.managerUserIds = builder.managerUserIds;
-         /**
-          * 抄送群ID列表
-          * <p> 示例值：['oc_a7bb9ca5efa68ab8b4fdd2e3b54fffsf']
-          */
-      this.ccChatIds = builder.ccChatIds;
-  }
-
     public static class Builder {
-     /**
-      * 规则唯一标识
-      * <p> 示例值：6894788526240432147
-      */
+        /**
+         * 规则唯一标识
+         * <p> 示例值：6894788526240432147
+         */
         private String ruleId;
-     /**
-      * 规则名称
-      * <p> 示例值：工作月报
-      */
+        /**
+         * 规则名称
+         * <p> 示例值：工作月报
+         */
         private String name;
-     /**
-      * 规则图标
-      * <p> 示例值：日报
-      */
+        /**
+         * 规则图标
+         * <p> 示例值：日报
+         */
         private String iconName;
-     /**
-      * 创建时间
-      * <p> 示例值：1622427266
-      */
+        /**
+         * 创建时间
+         * <p> 示例值：1622427266
+         */
         private Integer createdAt;
-     /**
-      * 创建人ID
-      * <p> 示例值：ou_133f0b6d0f097cf7d7ba00b38fffb110
-      */
+        /**
+         * 创建人ID
+         * <p> 示例值：ou_133f0b6d0f097cf7d7ba00b38fffb110
+         */
         private String creatorUserId;
-     /**
-      * 创建人名称
-      * <p> 示例值：张三
-      */
+        /**
+         * 创建人名称
+         * <p> 示例值：张三
+         */
         private String creatorUserName;
-     /**
-      * 规则所有者ID
-      * <p> 示例值：ou_133f0b6d0f097cf7d7ba00b38fffb111
-      */
+        /**
+         * 规则所有者ID
+         * <p> 示例值：ou_133f0b6d0f097cf7d7ba00b38fffb111
+         */
         private String ownerUserId;
-     /**
-      * 规则所有者名称
-      * <p> 示例值：张三
-      */
+        /**
+         * 规则所有者名称
+         * <p> 示例值：张三
+         */
         private String ownerUserName;
-     /**
-      * 表单定义
-      * <p> 示例值：
-      */
+        /**
+         * 表单定义
+         * <p> 示例值：
+         */
         private FormField[] formSchema;
-     /**
-      * 规则是否已删除
-      * <p> 示例值：0
-      */
+        /**
+         * 规则是否已删除
+         * <p> 示例值：0
+         */
         private Integer isDeleted;
-     /**
-      * 需要汇报的用户ID列表
-      * <p> 示例值：['ou_c04cebc780341ab22bd311ba6902ffsd']
-      */
+        /**
+         * 需要汇报的用户ID列表
+         * <p> 示例值：['ou_c04cebc780341ab22bd311ba6902ffsd']
+         */
         private String[] needReportUserIds;
-     /**
-      * 需要汇报的部门ID列表（如果id为0，表示全员）
-      * <p> 示例值：
-      */
+        /**
+         * 需要汇报的部门ID列表（如果id为0，表示全员）
+         * <p> 示例值：
+         */
         private String[] needReportDepartmentIds;
-     /**
-      * 需要汇报的群ID列表
-      * <p> 示例值：['oc_a7bb9ca5efa68ab8b4fdd2e3b54ffref']
-      */
+        /**
+         * 需要汇报的群ID列表
+         * <p> 示例值：['oc_a7bb9ca5efa68ab8b4fdd2e3b54ffref']
+         */
         private String[] needReportChatIds;
-     /**
-      * 抄送用户ID列表
-      * <p> 示例值：['ou_45454c20ef2c92c173445abf6f4955rf']
-      */
+        /**
+         * 抄送用户ID列表
+         * <p> 示例值：['ou_45454c20ef2c92c173445abf6f4955rf']
+         */
         private String[] ccUserIds;
-     /**
-      * 抄送部门ID列表
-      * <p> 示例值：['od-251480c0bfb8c5c8784ea194ef8b734d']
-      */
+        /**
+         * 抄送部门ID列表
+         * <p> 示例值：['od-251480c0bfb8c5c8784ea194ef8b734d']
+         */
         private String[] ccDepartmentIds;
-     /**
-      * 汇报对象用户ID列表
-      * <p> 示例值：['ou_c04cebc780341ab22bd311ba6902fdfe']
-      */
+        /**
+         * 汇报对象用户ID列表
+         * <p> 示例值：['ou_c04cebc780341ab22bd311ba6902fdfe']
+         */
         private String[] toUserIds;
-     /**
-      * 汇报对象群ID列表
-      * <p> 示例值：['oc_a7bb9ca5efa68ab8b4fdd2e3b54fcerf']
-      */
+        /**
+         * 汇报对象群ID列表
+         * <p> 示例值：['oc_a7bb9ca5efa68ab8b4fdd2e3b54fcerf']
+         */
         private String[] toChatIds;
-     /**
-      * 上级汇报对象，0表示第一级，依次类推，最大为5表示第六级
-      * <p> 示例值：[0]
-      */
+        /**
+         * 上级汇报对象，0表示第一级，依次类推，最大为5表示第六级
+         * <p> 示例值：[0]
+         */
         private Integer[] toLeaders;
-     /**
-      * 部门负责人汇报对象，0表示第一级，依次类推，最大为5表示第六级
-      * <p> 示例值：[0]
-      */
+        /**
+         * 部门负责人汇报对象，0表示第一级，依次类推，最大为5表示第六级
+         * <p> 示例值：[0]
+         */
         private Integer[] toDepartmentOwners;
-     /**
-      * 规则管理员用户ID列表
-      * <p> 示例值：['ou_c04cebc780341ab22bd311ba6902sseb']
-      */
+        /**
+         * 规则管理员用户ID列表
+         * <p> 示例值：['ou_c04cebc780341ab22bd311ba6902sseb']
+         */
         private String[] managerUserIds;
-     /**
-      * 抄送群ID列表
-      * <p> 示例值：['oc_a7bb9ca5efa68ab8b4fdd2e3b54fffsf']
-      */
+        /**
+         * 抄送群ID列表
+         * <p> 示例值：['oc_a7bb9ca5efa68ab8b4fdd2e3b54fffsf']
+         */
         private String[] ccChatIds;
 
         /**
          * 规则唯一标识
          * <p> 示例值：6894788526240432147
+         *
          * @param ruleId
          * @return
          */
         public Builder ruleId(String ruleId) {
-             this.ruleId = ruleId;
-             return this;
+            this.ruleId = ruleId;
+            return this;
         }
 
-    
 
         /**
          * 规则名称
          * <p> 示例值：工作月报
+         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 规则图标
          * <p> 示例值：日报
+         *
          * @param iconName
          * @return
          */
         public Builder iconName(String iconName) {
-             this.iconName = iconName;
-             return this;
+            this.iconName = iconName;
+            return this;
         }
 
-    
 
         /**
          * 创建时间
          * <p> 示例值：1622427266
+         *
          * @param createdAt
          * @return
          */
         public Builder createdAt(Integer createdAt) {
-             this.createdAt = createdAt;
-             return this;
+            this.createdAt = createdAt;
+            return this;
         }
 
-    
 
         /**
          * 创建人ID
          * <p> 示例值：ou_133f0b6d0f097cf7d7ba00b38fffb110
+         *
          * @param creatorUserId
          * @return
          */
         public Builder creatorUserId(String creatorUserId) {
-             this.creatorUserId = creatorUserId;
-             return this;
+            this.creatorUserId = creatorUserId;
+            return this;
         }
 
-    
 
         /**
          * 创建人名称
          * <p> 示例值：张三
+         *
          * @param creatorUserName
          * @return
          */
         public Builder creatorUserName(String creatorUserName) {
-             this.creatorUserName = creatorUserName;
-             return this;
+            this.creatorUserName = creatorUserName;
+            return this;
         }
 
-    
 
         /**
          * 规则所有者ID
          * <p> 示例值：ou_133f0b6d0f097cf7d7ba00b38fffb111
+         *
          * @param ownerUserId
          * @return
          */
         public Builder ownerUserId(String ownerUserId) {
-             this.ownerUserId = ownerUserId;
-             return this;
+            this.ownerUserId = ownerUserId;
+            return this;
         }
 
-    
 
         /**
          * 规则所有者名称
          * <p> 示例值：张三
+         *
          * @param ownerUserName
          * @return
          */
         public Builder ownerUserName(String ownerUserName) {
-             this.ownerUserName = ownerUserName;
-             return this;
+            this.ownerUserName = ownerUserName;
+            return this;
         }
 
-    
 
         /**
          * 表单定义
          * <p> 示例值：
+         *
          * @param formSchema
          * @return
          */
         public Builder formSchema(FormField[] formSchema) {
-             this.formSchema = formSchema;
-             return this;
+            this.formSchema = formSchema;
+            return this;
         }
 
-    
 
         /**
          * 规则是否已删除
          * <p> 示例值：0
+         *
          * @param isDeleted
          * @return
          */
         public Builder isDeleted(Integer isDeleted) {
-             this.isDeleted = isDeleted;
-             return this;
+            this.isDeleted = isDeleted;
+            return this;
         }
+
         /**
          * 规则是否已删除
          * <p> 示例值：0
+         *
          * @param isDeleted {@link com.lark.oapi.service.report.v1.enums.RuleIsDeletedEnum}
          * @return
          */
         public Builder isDeleted(com.lark.oapi.service.report.v1.enums.RuleIsDeletedEnum isDeleted) {
-             this.isDeleted = isDeleted.getValue();
-             return this;
+            this.isDeleted = isDeleted.getValue();
+            return this;
         }
 
-    
 
         /**
          * 需要汇报的用户ID列表
          * <p> 示例值：['ou_c04cebc780341ab22bd311ba6902ffsd']
+         *
          * @param needReportUserIds
          * @return
          */
         public Builder needReportUserIds(String[] needReportUserIds) {
-             this.needReportUserIds = needReportUserIds;
-             return this;
+            this.needReportUserIds = needReportUserIds;
+            return this;
         }
 
-    
 
         /**
          * 需要汇报的部门ID列表（如果id为0，表示全员）
          * <p> 示例值：
+         *
          * @param needReportDepartmentIds
          * @return
          */
         public Builder needReportDepartmentIds(String[] needReportDepartmentIds) {
-             this.needReportDepartmentIds = needReportDepartmentIds;
-             return this;
+            this.needReportDepartmentIds = needReportDepartmentIds;
+            return this;
         }
 
-    
 
         /**
          * 需要汇报的群ID列表
          * <p> 示例值：['oc_a7bb9ca5efa68ab8b4fdd2e3b54ffref']
+         *
          * @param needReportChatIds
          * @return
          */
         public Builder needReportChatIds(String[] needReportChatIds) {
-             this.needReportChatIds = needReportChatIds;
-             return this;
+            this.needReportChatIds = needReportChatIds;
+            return this;
         }
 
-    
 
         /**
          * 抄送用户ID列表
          * <p> 示例值：['ou_45454c20ef2c92c173445abf6f4955rf']
+         *
          * @param ccUserIds
          * @return
          */
         public Builder ccUserIds(String[] ccUserIds) {
-             this.ccUserIds = ccUserIds;
-             return this;
+            this.ccUserIds = ccUserIds;
+            return this;
         }
 
-    
 
         /**
          * 抄送部门ID列表
          * <p> 示例值：['od-251480c0bfb8c5c8784ea194ef8b734d']
+         *
          * @param ccDepartmentIds
          * @return
          */
         public Builder ccDepartmentIds(String[] ccDepartmentIds) {
-             this.ccDepartmentIds = ccDepartmentIds;
-             return this;
+            this.ccDepartmentIds = ccDepartmentIds;
+            return this;
         }
 
-    
 
         /**
          * 汇报对象用户ID列表
          * <p> 示例值：['ou_c04cebc780341ab22bd311ba6902fdfe']
+         *
          * @param toUserIds
          * @return
          */
         public Builder toUserIds(String[] toUserIds) {
-             this.toUserIds = toUserIds;
-             return this;
+            this.toUserIds = toUserIds;
+            return this;
         }
 
-    
 
         /**
          * 汇报对象群ID列表
          * <p> 示例值：['oc_a7bb9ca5efa68ab8b4fdd2e3b54fcerf']
+         *
          * @param toChatIds
          * @return
          */
         public Builder toChatIds(String[] toChatIds) {
-             this.toChatIds = toChatIds;
-             return this;
+            this.toChatIds = toChatIds;
+            return this;
         }
 
-    
 
         /**
          * 上级汇报对象，0表示第一级，依次类推，最大为5表示第六级
          * <p> 示例值：[0]
+         *
          * @param toLeaders
          * @return
          */
         public Builder toLeaders(Integer[] toLeaders) {
-             this.toLeaders = toLeaders;
-             return this;
+            this.toLeaders = toLeaders;
+            return this;
         }
 
-    
 
         /**
          * 部门负责人汇报对象，0表示第一级，依次类推，最大为5表示第六级
          * <p> 示例值：[0]
+         *
          * @param toDepartmentOwners
          * @return
          */
         public Builder toDepartmentOwners(Integer[] toDepartmentOwners) {
-             this.toDepartmentOwners = toDepartmentOwners;
-             return this;
+            this.toDepartmentOwners = toDepartmentOwners;
+            return this;
         }
 
-    
 
         /**
          * 规则管理员用户ID列表
          * <p> 示例值：['ou_c04cebc780341ab22bd311ba6902sseb']
+         *
          * @param managerUserIds
          * @return
          */
         public Builder managerUserIds(String[] managerUserIds) {
-             this.managerUserIds = managerUserIds;
-             return this;
+            this.managerUserIds = managerUserIds;
+            return this;
         }
 
-    
 
         /**
          * 抄送群ID列表
          * <p> 示例值：['oc_a7bb9ca5efa68ab8b4fdd2e3b54fffsf']
+         *
          * @param ccChatIds
          * @return
          */
         public Builder ccChatIds(String[] ccChatIds) {
-             this.ccChatIds = ccChatIds;
-             return this;
+            this.ccChatIds = ccChatIds;
+            return this;
         }
 
-    
-    
-    public Rule build(){
-        return new Rule(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Rule build() {
+            return new Rule(this);
+        }
     }
 }

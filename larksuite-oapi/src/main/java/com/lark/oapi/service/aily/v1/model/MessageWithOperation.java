@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.aily.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.aily.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,36 +20,71 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class MessageWithOperation {
-     /**
-      * 消息内容
-      * <p> 示例值：
-      */
+    /**
+     * 消息内容
+     * <p> 示例值：
+     */
     @SerializedName("message")
     private Message message;
-     /**
-      * 操作类型
-      * <p> 示例值：APPEND
-      */
+    /**
+     * 操作类型
+     * <p> 示例值：APPEND
+     */
     @SerializedName("operation_type")
     private String operationType;
-     /**
-      * 操作 id
-      * <p> 示例值：7317091517491167252
-      */
+    /**
+     * 操作 id
+     * <p> 示例值：7317091517491167252
+     */
     @SerializedName("operation_id")
     private String operationId;
-     /**
-      * 产生操作的意图 id
-      * <p> 示例值：7317093049367298068
-      */
+    /**
+     * 产生操作的意图 id
+     * <p> 示例值：7317093049367298068
+     */
     @SerializedName("intent_id")
     private String intentId;
+
+    // builder 开始
+    public MessageWithOperation() {
+    }
+
+    public MessageWithOperation(Builder builder) {
+        /**
+         * 消息内容
+         * <p> 示例值：
+         */
+        this.message = builder.message;
+        /**
+         * 操作类型
+         * <p> 示例值：APPEND
+         */
+        this.operationType = builder.operationType;
+        /**
+         * 操作 id
+         * <p> 示例值：7317091517491167252
+         */
+        this.operationId = builder.operationId;
+        /**
+         * 产生操作的意图 id
+         * <p> 示例值：7317093049367298068
+         */
+        this.intentId = builder.intentId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Message getMessage() {
         return this.message;
     }
@@ -81,123 +117,94 @@ public class MessageWithOperation {
         this.intentId = intentId;
     }
 
-
-// builder 开始
-  public MessageWithOperation(){}
-
-  public MessageWithOperation(Builder builder){
-         /**
-          * 消息内容
-          * <p> 示例值：
-          */
-      this.message = builder.message;
-         /**
-          * 操作类型
-          * <p> 示例值：APPEND
-          */
-      this.operationType = builder.operationType;
-         /**
-          * 操作 id
-          * <p> 示例值：7317091517491167252
-          */
-      this.operationId = builder.operationId;
-         /**
-          * 产生操作的意图 id
-          * <p> 示例值：7317093049367298068
-          */
-      this.intentId = builder.intentId;
-  }
-
     public static class Builder {
-     /**
-      * 消息内容
-      * <p> 示例值：
-      */
+        /**
+         * 消息内容
+         * <p> 示例值：
+         */
         private Message message;
-     /**
-      * 操作类型
-      * <p> 示例值：APPEND
-      */
+        /**
+         * 操作类型
+         * <p> 示例值：APPEND
+         */
         private String operationType;
-     /**
-      * 操作 id
-      * <p> 示例值：7317091517491167252
-      */
+        /**
+         * 操作 id
+         * <p> 示例值：7317091517491167252
+         */
         private String operationId;
-     /**
-      * 产生操作的意图 id
-      * <p> 示例值：7317093049367298068
-      */
+        /**
+         * 产生操作的意图 id
+         * <p> 示例值：7317093049367298068
+         */
         private String intentId;
 
         /**
          * 消息内容
          * <p> 示例值：
+         *
          * @param message
          * @return
          */
         public Builder message(Message message) {
-             this.message = message;
-             return this;
+            this.message = message;
+            return this;
         }
 
-    
 
         /**
          * 操作类型
          * <p> 示例值：APPEND
+         *
          * @param operationType
          * @return
          */
         public Builder operationType(String operationType) {
-             this.operationType = operationType;
-             return this;
+            this.operationType = operationType;
+            return this;
         }
+
         /**
          * 操作类型
          * <p> 示例值：APPEND
+         *
          * @param operationType {@link com.lark.oapi.service.aily.v1.enums.MessageWithOperationOperationTypeEnum}
          * @return
          */
         public Builder operationType(com.lark.oapi.service.aily.v1.enums.MessageWithOperationOperationTypeEnum operationType) {
-             this.operationType = operationType.getValue();
-             return this;
+            this.operationType = operationType.getValue();
+            return this;
         }
 
-    
 
         /**
          * 操作 id
          * <p> 示例值：7317091517491167252
+         *
          * @param operationId
          * @return
          */
         public Builder operationId(String operationId) {
-             this.operationId = operationId;
-             return this;
+            this.operationId = operationId;
+            return this;
         }
 
-    
 
         /**
          * 产生操作的意图 id
          * <p> 示例值：7317093049367298068
+         *
          * @param intentId
          * @return
          */
         public Builder intentId(String intentId) {
-             this.intentId = intentId;
-             return this;
+            this.intentId = intentId;
+            return this;
         }
 
-    
-    
-    public MessageWithOperation build(){
-        return new MessageWithOperation(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public MessageWithOperation build() {
+            return new MessageWithOperation(this);
+        }
     }
 }

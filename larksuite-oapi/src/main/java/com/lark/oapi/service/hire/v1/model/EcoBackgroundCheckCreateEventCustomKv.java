@@ -12,30 +12,56 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class EcoBackgroundCheckCreateEventCustomKv {
-     /**
-      * 自定义字段标识
-      * <p> 示例值：auth_token
-      */
+    /**
+     * 自定义字段标识
+     * <p> 示例值：auth_token
+     */
     @SerializedName("key")
     private String key;
-     /**
-      * 自定义字段值
-      * <p> 示例值：apikey_1233kkka
-      */
+    /**
+     * 自定义字段值
+     * <p> 示例值：apikey_1233kkka
+     */
     @SerializedName("value")
     private String value;
+
+    // builder 开始
+    public EcoBackgroundCheckCreateEventCustomKv() {
+    }
+
+    public EcoBackgroundCheckCreateEventCustomKv(Builder builder) {
+        /**
+         * 自定义字段标识
+         * <p> 示例值：auth_token
+         */
+        this.key = builder.key;
+        /**
+         * 自定义字段值
+         * <p> 示例值：apikey_1233kkka
+         */
+        this.value = builder.value;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getKey() {
         return this.key;
     }
@@ -52,67 +78,46 @@ public class EcoBackgroundCheckCreateEventCustomKv {
         this.value = value;
     }
 
-
-// builder 开始
-  public EcoBackgroundCheckCreateEventCustomKv(){}
-
-  public EcoBackgroundCheckCreateEventCustomKv(Builder builder){
-         /**
-          * 自定义字段标识
-          * <p> 示例值：auth_token
-          */
-      this.key = builder.key;
-         /**
-          * 自定义字段值
-          * <p> 示例值：apikey_1233kkka
-          */
-      this.value = builder.value;
-  }
-
     public static class Builder {
-     /**
-      * 自定义字段标识
-      * <p> 示例值：auth_token
-      */
+        /**
+         * 自定义字段标识
+         * <p> 示例值：auth_token
+         */
         private String key;
-     /**
-      * 自定义字段值
-      * <p> 示例值：apikey_1233kkka
-      */
+        /**
+         * 自定义字段值
+         * <p> 示例值：apikey_1233kkka
+         */
         private String value;
 
         /**
          * 自定义字段标识
          * <p> 示例值：auth_token
+         *
          * @param key
          * @return
          */
         public Builder key(String key) {
-             this.key = key;
-             return this;
+            this.key = key;
+            return this;
         }
 
-    
 
         /**
          * 自定义字段值
          * <p> 示例值：apikey_1233kkka
+         *
          * @param value
          * @return
          */
         public Builder value(String value) {
-             this.value = value;
-             return this;
+            this.value = value;
+            return this;
         }
 
-    
-    
-    public EcoBackgroundCheckCreateEventCustomKv build(){
-        return new EcoBackgroundCheckCreateEventCustomKv(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public EcoBackgroundCheckCreateEventCustomKv build() {
+            return new EcoBackgroundCheckCreateEventCustomKv(this);
+        }
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ExternalInstanceForm {
-     /**
-      * 表单字段名称
-      * <p> 示例值：@i18n@2
-      */
+    /**
+     * 表单字段名称
+     * <p> 示例值：@i18n@2
+     */
     @SerializedName("name")
     private String name;
-     /**
-      * 表单值
-      * <p> 示例值：@i18n@3
-      */
+    /**
+     * 表单值
+     * <p> 示例值：@i18n@3
+     */
     @SerializedName("value")
     private String value;
+
+    // builder 开始
+    public ExternalInstanceForm() {
+    }
+
+    public ExternalInstanceForm(Builder builder) {
+        /**
+         * 表单字段名称
+         * <p> 示例值：@i18n@2
+         */
+        this.name = builder.name;
+        /**
+         * 表单值
+         * <p> 示例值：@i18n@3
+         */
+        this.value = builder.value;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getName() {
         return this.name;
     }
@@ -53,67 +79,46 @@ public class ExternalInstanceForm {
         this.value = value;
     }
 
-
-// builder 开始
-  public ExternalInstanceForm(){}
-
-  public ExternalInstanceForm(Builder builder){
-         /**
-          * 表单字段名称
-          * <p> 示例值：@i18n@2
-          */
-      this.name = builder.name;
-         /**
-          * 表单值
-          * <p> 示例值：@i18n@3
-          */
-      this.value = builder.value;
-  }
-
     public static class Builder {
-     /**
-      * 表单字段名称
-      * <p> 示例值：@i18n@2
-      */
+        /**
+         * 表单字段名称
+         * <p> 示例值：@i18n@2
+         */
         private String name;
-     /**
-      * 表单值
-      * <p> 示例值：@i18n@3
-      */
+        /**
+         * 表单值
+         * <p> 示例值：@i18n@3
+         */
         private String value;
 
         /**
          * 表单字段名称
          * <p> 示例值：@i18n@2
+         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 表单值
          * <p> 示例值：@i18n@3
+         *
          * @param value
          * @return
          */
         public Builder value(String value) {
-             this.value = value;
-             return this;
+            this.value = value;
+            return this;
         }
 
-    
-    
-    public ExternalInstanceForm build(){
-        return new ExternalInstanceForm(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ExternalInstanceForm build() {
+            return new ExternalInstanceForm(this);
+        }
     }
 }

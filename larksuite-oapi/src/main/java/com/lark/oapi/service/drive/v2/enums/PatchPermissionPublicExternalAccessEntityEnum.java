@@ -17,16 +17,17 @@ package com.lark.oapi.service.drive.v2.enums;
  * 允许内容被分享到组织外
  */
 public enum PatchPermissionPublicExternalAccessEntityEnum {
-     OPEN("open"), // 打开
-     CLOSED("closed"), // 关闭
-     ALLOWSHAREPARTNERTENANT("allow_share_partner_tenant"), // 允许分享给关联组织
-  ;
-   private String value;
+    OPEN("open"), // 打开
+    CLOSED("closed"), // 关闭
+    ALLOWSHAREPARTNERTENANT("allow_share_partner_tenant"), // 允许分享给关联组织
+    ;
+    private String value;
+
     PatchPermissionPublicExternalAccessEntityEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

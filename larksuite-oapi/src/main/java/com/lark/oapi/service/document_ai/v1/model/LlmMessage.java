@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.document_ai.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.document_ai.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class LlmMessage {
-     /**
-      * 角色名
-      * <p> 示例值：user
-      */
+    /**
+     * 角色名
+     * <p> 示例值：user
+     */
     @SerializedName("role")
     private String role;
-     /**
-      * 内容信息，如果同时输入多张图片和多段文本，默认将所有图片置于开头，取第一段文本作为输入的prompt；如果是图片，目前1个query (dict)最多输入3张图片，每张图片大小不超过3000*3000
-      * <p> 示例值：
-      */
+    /**
+     * 内容信息，如果同时输入多张图片和多段文本，默认将所有图片置于开头，取第一段文本作为输入的prompt；如果是图片，目前1个query (dict)最多输入3张图片，每张图片大小不超过3000*3000
+     * <p> 示例值：
+     */
     @SerializedName("contents")
     private LlmContent[] contents;
+
+    // builder 开始
+    public LlmMessage() {
+    }
+
+    public LlmMessage(Builder builder) {
+        /**
+         * 角色名
+         * <p> 示例值：user
+         */
+        this.role = builder.role;
+        /**
+         * 内容信息，如果同时输入多张图片和多段文本，默认将所有图片置于开头，取第一段文本作为输入的prompt；如果是图片，目前1个query (dict)最多输入3张图片，每张图片大小不超过3000*3000
+         * <p> 示例值：
+         */
+        this.contents = builder.contents;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getRole() {
         return this.role;
     }
@@ -53,67 +79,46 @@ public class LlmMessage {
         this.contents = contents;
     }
 
-
-// builder 开始
-  public LlmMessage(){}
-
-  public LlmMessage(Builder builder){
-         /**
-          * 角色名
-          * <p> 示例值：user
-          */
-      this.role = builder.role;
-         /**
-          * 内容信息，如果同时输入多张图片和多段文本，默认将所有图片置于开头，取第一段文本作为输入的prompt；如果是图片，目前1个query (dict)最多输入3张图片，每张图片大小不超过3000*3000
-          * <p> 示例值：
-          */
-      this.contents = builder.contents;
-  }
-
     public static class Builder {
-     /**
-      * 角色名
-      * <p> 示例值：user
-      */
+        /**
+         * 角色名
+         * <p> 示例值：user
+         */
         private String role;
-     /**
-      * 内容信息，如果同时输入多张图片和多段文本，默认将所有图片置于开头，取第一段文本作为输入的prompt；如果是图片，目前1个query (dict)最多输入3张图片，每张图片大小不超过3000*3000
-      * <p> 示例值：
-      */
+        /**
+         * 内容信息，如果同时输入多张图片和多段文本，默认将所有图片置于开头，取第一段文本作为输入的prompt；如果是图片，目前1个query (dict)最多输入3张图片，每张图片大小不超过3000*3000
+         * <p> 示例值：
+         */
         private LlmContent[] contents;
 
         /**
          * 角色名
          * <p> 示例值：user
+         *
          * @param role
          * @return
          */
         public Builder role(String role) {
-             this.role = role;
-             return this;
+            this.role = role;
+            return this;
         }
 
-    
 
         /**
          * 内容信息，如果同时输入多张图片和多段文本，默认将所有图片置于开头，取第一段文本作为输入的prompt；如果是图片，目前1个query (dict)最多输入3张图片，每张图片大小不超过3000*3000
          * <p> 示例值：
+         *
          * @param contents
          * @return
          */
         public Builder contents(LlmContent[] contents) {
-             this.contents = contents;
-             return this;
+            this.contents = contents;
+            return this;
         }
 
-    
-    
-    public LlmMessage build(){
-        return new LlmMessage(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public LlmMessage build() {
+            return new LlmMessage(this);
+        }
     }
 }

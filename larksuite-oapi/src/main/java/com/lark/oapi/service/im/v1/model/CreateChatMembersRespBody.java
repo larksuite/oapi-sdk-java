@@ -12,36 +12,41 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CreateChatMembersRespBody {
-     /**
-      * 无效成员列表;;**注意**：;- 当`success_type=0`时，`invalid_id_list`只包含已离职的用户ID;- 当`success_type=1`时，`invalid_id_list`中包含已离职的、不可见的、应用未激活的ID
-      * <p> 示例值：
-      */
+    /**
+     * 无效成员列表;;**注意**：;- 当`success_type=0`时，`invalid_id_list`只包含已离职的用户ID;- 当`success_type=1`时，`invalid_id_list`中包含已离职的、不可见的、应用未激活的ID
+     * <p> 示例值：
+     */
     @SerializedName("invalid_id_list")
     private String[] invalidIdList;
-     /**
-      * ID不存在的成员列表
-      * <p> 示例值：
-      */
+    /**
+     * ID不存在的成员列表
+     * <p> 示例值：
+     */
     @SerializedName("not_existed_id_list")
     private String[] notExistedIdList;
-     /**
-      * 等待群主或管理员审批的成员ID列表
-      * <p> 示例值：
-      */
+    /**
+     * 等待群主或管理员审批的成员ID列表
+     * <p> 示例值：
+     */
     @SerializedName("pending_approval_id_list")
     private String[] pendingApprovalIdList;
+
     public String[] getInvalidIdList() {
         return this.invalidIdList;
     }

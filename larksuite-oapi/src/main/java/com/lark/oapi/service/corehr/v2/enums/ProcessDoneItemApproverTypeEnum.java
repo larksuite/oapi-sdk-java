@@ -17,15 +17,16 @@ package com.lark.oapi.service.corehr.v2.enums;
  * 单据类型
  */
 public enum ProcessDoneItemApproverTypeEnum {
-     APPROVER(1), // 审批单
-     FORM(5), // 表单
-  ;
-   private Integer value;
+    APPROVER(1), // 审批单
+    FORM(5), // 表单
+    ;
+    private Integer value;
+
     ProcessDoneItemApproverTypeEnum(Integer value) {
-      this.value = value;
+        this.value = value;
     }
 
     public Integer getValue() {
-      return this.value;
+        return this.value;
     }
 }

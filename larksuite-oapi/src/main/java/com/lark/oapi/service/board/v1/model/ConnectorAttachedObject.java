@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.board.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.board.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ConnectorAttachedObject {
-     /**
-      * 连接图形的 id
-      * <p> 示例值：o1:1
-      */
+    /**
+     * 连接图形的 id
+     * <p> 示例值：o1:1
+     */
     @SerializedName("id")
     private String id;
+
+    // builder 开始
+    public ConnectorAttachedObject() {
+    }
+
+    public ConnectorAttachedObject(Builder builder) {
+        /**
+         * 连接图形的 id
+         * <p> 示例值：o1:1
+         */
+        this.id = builder.id;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -39,44 +60,28 @@ public class ConnectorAttachedObject {
         this.id = id;
     }
 
-
-// builder 开始
-  public ConnectorAttachedObject(){}
-
-  public ConnectorAttachedObject(Builder builder){
-         /**
-          * 连接图形的 id
-          * <p> 示例值：o1:1
-          */
-      this.id = builder.id;
-  }
-
     public static class Builder {
-     /**
-      * 连接图形的 id
-      * <p> 示例值：o1:1
-      */
+        /**
+         * 连接图形的 id
+         * <p> 示例值：o1:1
+         */
         private String id;
 
         /**
          * 连接图形的 id
          * <p> 示例值：o1:1
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
-    
-    public ConnectorAttachedObject build(){
-        return new ConnectorAttachedObject(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ConnectorAttachedObject build() {
+            return new ConnectorAttachedObject(this);
+        }
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,36 +20,71 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class WorkTime {
-     /**
-      * 加班开始时间,时间格式为 yyyy-MM-dd HH:mm
-      * <p> 示例值：2025-01-01 00:00
-      */
+    /**
+     * 加班开始时间,时间格式为 yyyy-MM-dd HH:mm
+     * <p> 示例值：2025-01-01 00:00
+     */
     @SerializedName("work_start_time")
     private String workStartTime;
-     /**
-      * 加班结束时间,时间格式为 yyyy-MM-dd HH:mm
-      * <p> 示例值：2025-01-01 00:00
-      */
+    /**
+     * 加班结束时间,时间格式为 yyyy-MM-dd HH:mm
+     * <p> 示例值：2025-01-01 00:00
+     */
     @SerializedName("work_end_time")
     private String workEndTime;
-     /**
-      * 结算方式,overtime_pay:加班费;compensatory_leave:调休 假;records_only仅记录
-      * <p> 示例值：overtime_pay
-      */
+    /**
+     * 结算方式,overtime_pay:加班费;compensatory_leave:调休 假;records_only仅记录
+     * <p> 示例值：overtime_pay
+     */
     @SerializedName("settlement_type")
     private String settlementType;
-     /**
-      * 请求校验错误原因
-      * <p> 示例值：校验没通过
-      */
+    /**
+     * 请求校验错误原因
+     * <p> 示例值：校验没通过
+     */
     @SerializedName("check_fail_reason")
     private String checkFailReason;
+
+    // builder 开始
+    public WorkTime() {
+    }
+
+    public WorkTime(Builder builder) {
+        /**
+         * 加班开始时间,时间格式为 yyyy-MM-dd HH:mm
+         * <p> 示例值：2025-01-01 00:00
+         */
+        this.workStartTime = builder.workStartTime;
+        /**
+         * 加班结束时间,时间格式为 yyyy-MM-dd HH:mm
+         * <p> 示例值：2025-01-01 00:00
+         */
+        this.workEndTime = builder.workEndTime;
+        /**
+         * 结算方式,overtime_pay:加班费;compensatory_leave:调休 假;records_only仅记录
+         * <p> 示例值：overtime_pay
+         */
+        this.settlementType = builder.settlementType;
+        /**
+         * 请求校验错误原因
+         * <p> 示例值：校验没通过
+         */
+        this.checkFailReason = builder.checkFailReason;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getWorkStartTime() {
         return this.workStartTime;
     }
@@ -81,113 +117,82 @@ public class WorkTime {
         this.checkFailReason = checkFailReason;
     }
 
-
-// builder 开始
-  public WorkTime(){}
-
-  public WorkTime(Builder builder){
-         /**
-          * 加班开始时间,时间格式为 yyyy-MM-dd HH:mm
-          * <p> 示例值：2025-01-01 00:00
-          */
-      this.workStartTime = builder.workStartTime;
-         /**
-          * 加班结束时间,时间格式为 yyyy-MM-dd HH:mm
-          * <p> 示例值：2025-01-01 00:00
-          */
-      this.workEndTime = builder.workEndTime;
-         /**
-          * 结算方式,overtime_pay:加班费;compensatory_leave:调休 假;records_only仅记录
-          * <p> 示例值：overtime_pay
-          */
-      this.settlementType = builder.settlementType;
-         /**
-          * 请求校验错误原因
-          * <p> 示例值：校验没通过
-          */
-      this.checkFailReason = builder.checkFailReason;
-  }
-
     public static class Builder {
-     /**
-      * 加班开始时间,时间格式为 yyyy-MM-dd HH:mm
-      * <p> 示例值：2025-01-01 00:00
-      */
+        /**
+         * 加班开始时间,时间格式为 yyyy-MM-dd HH:mm
+         * <p> 示例值：2025-01-01 00:00
+         */
         private String workStartTime;
-     /**
-      * 加班结束时间,时间格式为 yyyy-MM-dd HH:mm
-      * <p> 示例值：2025-01-01 00:00
-      */
+        /**
+         * 加班结束时间,时间格式为 yyyy-MM-dd HH:mm
+         * <p> 示例值：2025-01-01 00:00
+         */
         private String workEndTime;
-     /**
-      * 结算方式,overtime_pay:加班费;compensatory_leave:调休 假;records_only仅记录
-      * <p> 示例值：overtime_pay
-      */
+        /**
+         * 结算方式,overtime_pay:加班费;compensatory_leave:调休 假;records_only仅记录
+         * <p> 示例值：overtime_pay
+         */
         private String settlementType;
-     /**
-      * 请求校验错误原因
-      * <p> 示例值：校验没通过
-      */
+        /**
+         * 请求校验错误原因
+         * <p> 示例值：校验没通过
+         */
         private String checkFailReason;
 
         /**
          * 加班开始时间,时间格式为 yyyy-MM-dd HH:mm
          * <p> 示例值：2025-01-01 00:00
+         *
          * @param workStartTime
          * @return
          */
         public Builder workStartTime(String workStartTime) {
-             this.workStartTime = workStartTime;
-             return this;
+            this.workStartTime = workStartTime;
+            return this;
         }
 
-    
 
         /**
          * 加班结束时间,时间格式为 yyyy-MM-dd HH:mm
          * <p> 示例值：2025-01-01 00:00
+         *
          * @param workEndTime
          * @return
          */
         public Builder workEndTime(String workEndTime) {
-             this.workEndTime = workEndTime;
-             return this;
+            this.workEndTime = workEndTime;
+            return this;
         }
 
-    
 
         /**
          * 结算方式,overtime_pay:加班费;compensatory_leave:调休 假;records_only仅记录
          * <p> 示例值：overtime_pay
+         *
          * @param settlementType
          * @return
          */
         public Builder settlementType(String settlementType) {
-             this.settlementType = settlementType;
-             return this;
+            this.settlementType = settlementType;
+            return this;
         }
 
-    
 
         /**
          * 请求校验错误原因
          * <p> 示例值：校验没通过
+         *
          * @param checkFailReason
          * @return
          */
         public Builder checkFailReason(String checkFailReason) {
-             this.checkFailReason = checkFailReason;
-             return this;
+            this.checkFailReason = checkFailReason;
+            return this;
         }
 
-    
-    
-    public WorkTime build(){
-        return new WorkTime(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public WorkTime build() {
+            return new WorkTime(this);
+        }
     }
 }

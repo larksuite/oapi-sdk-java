@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class AppFieldPropertyAutoSerialOptions {
-     /**
-      * 自动编号的可选规则项类型
-      * <p> 示例值：created_time
-      */
+    /**
+     * 自动编号的可选规则项类型
+     * <p> 示例值：created_time
+     */
     @SerializedName("type")
     private String type;
-     /**
-      * 与自动编号的可选规则项类型相对应的取值
-      * <p> 示例值：yyyyMMdd
-      */
+    /**
+     * 与自动编号的可选规则项类型相对应的取值
+     * <p> 示例值：yyyyMMdd
+     */
     @SerializedName("value")
     private String value;
+
+    // builder 开始
+    public AppFieldPropertyAutoSerialOptions() {
+    }
+
+    public AppFieldPropertyAutoSerialOptions(Builder builder) {
+        /**
+         * 自动编号的可选规则项类型
+         * <p> 示例值：created_time
+         */
+        this.type = builder.type;
+        /**
+         * 与自动编号的可选规则项类型相对应的取值
+         * <p> 示例值：yyyyMMdd
+         */
+        this.value = builder.value;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getType() {
         return this.type;
     }
@@ -53,77 +79,58 @@ public class AppFieldPropertyAutoSerialOptions {
         this.value = value;
     }
 
-
-// builder 开始
-  public AppFieldPropertyAutoSerialOptions(){}
-
-  public AppFieldPropertyAutoSerialOptions(Builder builder){
-         /**
-          * 自动编号的可选规则项类型
-          * <p> 示例值：created_time
-          */
-      this.type = builder.type;
-         /**
-          * 与自动编号的可选规则项类型相对应的取值
-          * <p> 示例值：yyyyMMdd
-          */
-      this.value = builder.value;
-  }
-
     public static class Builder {
-     /**
-      * 自动编号的可选规则项类型
-      * <p> 示例值：created_time
-      */
+        /**
+         * 自动编号的可选规则项类型
+         * <p> 示例值：created_time
+         */
         private String type;
-     /**
-      * 与自动编号的可选规则项类型相对应的取值
-      * <p> 示例值：yyyyMMdd
-      */
+        /**
+         * 与自动编号的可选规则项类型相对应的取值
+         * <p> 示例值：yyyyMMdd
+         */
         private String value;
 
         /**
          * 自动编号的可选规则项类型
          * <p> 示例值：created_time
+         *
          * @param type
          * @return
          */
         public Builder type(String type) {
-             this.type = type;
-             return this;
+            this.type = type;
+            return this;
         }
+
         /**
          * 自动编号的可选规则项类型
          * <p> 示例值：created_time
+         *
          * @param type {@link com.lark.oapi.service.bitable.v1.enums.AppFieldPropertyAutoSerialOptionsTypeEnum}
          * @return
          */
         public Builder type(com.lark.oapi.service.bitable.v1.enums.AppFieldPropertyAutoSerialOptionsTypeEnum type) {
-             this.type = type.getValue();
-             return this;
+            this.type = type.getValue();
+            return this;
         }
 
-    
 
         /**
          * 与自动编号的可选规则项类型相对应的取值
          * <p> 示例值：yyyyMMdd
+         *
          * @param value
          * @return
          */
         public Builder value(String value) {
-             this.value = value;
-             return this;
+            this.value = value;
+            return this;
         }
 
-    
-    
-    public AppFieldPropertyAutoSerialOptions build(){
-        return new AppFieldPropertyAutoSerialOptions(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public AppFieldPropertyAutoSerialOptions build() {
+            return new AppFieldPropertyAutoSerialOptions(this);
+        }
     }
 }

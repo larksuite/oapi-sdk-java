@@ -12,24 +12,29 @@
  */
 
 package com.lark.oapi.service.im.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class UpdateAppFeedCardBatchRespBody {
-     /**
-      * 失败的卡片
-      * <p> 示例值：
-      */
+    /**
+     * 失败的卡片
+     * <p> 示例值：
+     */
     @SerializedName("failed_cards")
     private OpenFailedUserAppFeedCardItem[] failedCards;
+
     public OpenFailedUserAppFeedCardItem[] getFailedCards() {
         return this.failedCards;
     }

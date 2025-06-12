@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,36 +20,71 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class JobDataCustomOrg {
-     /**
-      * 生效时间
-      * <p> 示例值：2024-07-02
-      */
+    /**
+     * 生效时间
+     * <p> 示例值：2024-07-02
+     */
     @SerializedName("effective_time")
     private String effectiveTime;
-     /**
-      * 原因
-      * <p> 示例值：新增人员
-      */
+    /**
+     * 原因
+     * <p> 示例值：新增人员
+     */
     @SerializedName("start_reason")
     private String startReason;
-     /**
-      * 自定义组织列表
-      * <p> 示例值：
-      */
+    /**
+     * 自定义组织列表
+     * <p> 示例值：
+     */
     @SerializedName("custom_org_with_rates")
     private CreateEmpCustomOrg[] customOrgWithRates;
-     /**
-      * 自定义组织类型
-      * <p> 示例值：custom_org_01
-      */
+    /**
+     * 自定义组织类型
+     * <p> 示例值：custom_org_01
+     */
     @SerializedName("object_api_name")
     private String objectApiName;
+
+    // builder 开始
+    public JobDataCustomOrg() {
+    }
+
+    public JobDataCustomOrg(Builder builder) {
+        /**
+         * 生效时间
+         * <p> 示例值：2024-07-02
+         */
+        this.effectiveTime = builder.effectiveTime;
+        /**
+         * 原因
+         * <p> 示例值：新增人员
+         */
+        this.startReason = builder.startReason;
+        /**
+         * 自定义组织列表
+         * <p> 示例值：
+         */
+        this.customOrgWithRates = builder.customOrgWithRates;
+        /**
+         * 自定义组织类型
+         * <p> 示例值：custom_org_01
+         */
+        this.objectApiName = builder.objectApiName;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getEffectiveTime() {
         return this.effectiveTime;
     }
@@ -81,113 +117,82 @@ public class JobDataCustomOrg {
         this.objectApiName = objectApiName;
     }
 
-
-// builder 开始
-  public JobDataCustomOrg(){}
-
-  public JobDataCustomOrg(Builder builder){
-         /**
-          * 生效时间
-          * <p> 示例值：2024-07-02
-          */
-      this.effectiveTime = builder.effectiveTime;
-         /**
-          * 原因
-          * <p> 示例值：新增人员
-          */
-      this.startReason = builder.startReason;
-         /**
-          * 自定义组织列表
-          * <p> 示例值：
-          */
-      this.customOrgWithRates = builder.customOrgWithRates;
-         /**
-          * 自定义组织类型
-          * <p> 示例值：custom_org_01
-          */
-      this.objectApiName = builder.objectApiName;
-  }
-
     public static class Builder {
-     /**
-      * 生效时间
-      * <p> 示例值：2024-07-02
-      */
+        /**
+         * 生效时间
+         * <p> 示例值：2024-07-02
+         */
         private String effectiveTime;
-     /**
-      * 原因
-      * <p> 示例值：新增人员
-      */
+        /**
+         * 原因
+         * <p> 示例值：新增人员
+         */
         private String startReason;
-     /**
-      * 自定义组织列表
-      * <p> 示例值：
-      */
+        /**
+         * 自定义组织列表
+         * <p> 示例值：
+         */
         private CreateEmpCustomOrg[] customOrgWithRates;
-     /**
-      * 自定义组织类型
-      * <p> 示例值：custom_org_01
-      */
+        /**
+         * 自定义组织类型
+         * <p> 示例值：custom_org_01
+         */
         private String objectApiName;
 
         /**
          * 生效时间
          * <p> 示例值：2024-07-02
+         *
          * @param effectiveTime
          * @return
          */
         public Builder effectiveTime(String effectiveTime) {
-             this.effectiveTime = effectiveTime;
-             return this;
+            this.effectiveTime = effectiveTime;
+            return this;
         }
 
-    
 
         /**
          * 原因
          * <p> 示例值：新增人员
+         *
          * @param startReason
          * @return
          */
         public Builder startReason(String startReason) {
-             this.startReason = startReason;
-             return this;
+            this.startReason = startReason;
+            return this;
         }
 
-    
 
         /**
          * 自定义组织列表
          * <p> 示例值：
+         *
          * @param customOrgWithRates
          * @return
          */
         public Builder customOrgWithRates(CreateEmpCustomOrg[] customOrgWithRates) {
-             this.customOrgWithRates = customOrgWithRates;
-             return this;
+            this.customOrgWithRates = customOrgWithRates;
+            return this;
         }
 
-    
 
         /**
          * 自定义组织类型
          * <p> 示例值：custom_org_01
+         *
          * @param objectApiName
          * @return
          */
         public Builder objectApiName(String objectApiName) {
-             this.objectApiName = objectApiName;
-             return this;
+            this.objectApiName = objectApiName;
+            return this;
         }
 
-    
-    
-    public JobDataCustomOrg build(){
-        return new JobDataCustomOrg(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public JobDataCustomOrg build() {
+            return new JobDataCustomOrg(this);
+        }
     }
 }

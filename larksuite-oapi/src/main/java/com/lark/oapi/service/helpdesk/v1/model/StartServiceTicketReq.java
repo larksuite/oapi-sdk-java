@@ -12,20 +12,36 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class StartServiceTicketReq {
     @Body
     private StartServiceTicketReqBody body;
+
+    // builder 开始
+    public StartServiceTicketReq() {
+    }
+
+    public StartServiceTicketReq(Builder builder) {
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 
     public StartServiceTicketReqBody getStartServiceTicketReqBody() {
         return this.body;
@@ -35,36 +51,27 @@ public class StartServiceTicketReq {
         this.body = body;
     }
 
-// builder 开始
-  public StartServiceTicketReq(){}
-
-  public StartServiceTicketReq(Builder builder){
-        this.body = builder.body;
-  }
-
     public static class Builder {
-    
+
         private StartServiceTicketReqBody body;
-    
+
         public StartServiceTicketReqBody getStartServiceTicketReqBody() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder startServiceTicketReqBody(StartServiceTicketReqBody body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public StartServiceTicketReq build(){
-        return new StartServiceTicketReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public StartServiceTicketReq build() {
+            return new StartServiceTicketReq(this);
+        }
     }
 }

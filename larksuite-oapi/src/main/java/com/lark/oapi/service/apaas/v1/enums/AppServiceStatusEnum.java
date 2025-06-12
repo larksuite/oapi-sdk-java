@@ -17,15 +17,16 @@ package com.lark.oapi.service.apaas.v1.enums;
  * aPaaS 产品应用的服务状态
  */
 public enum AppServiceStatusEnum {
-     AVAILABLE("available"), // 可用
-     UNAVAILABLE("unavailable"), // 不可用
-  ;
-   private String value;
+    AVAILABLE("available"), // 可用
+    UNAVAILABLE("unavailable"), // 不可用
+    ;
+    private String value;
+
     AppServiceStatusEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

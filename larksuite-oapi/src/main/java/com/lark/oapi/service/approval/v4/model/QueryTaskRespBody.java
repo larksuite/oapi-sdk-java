@@ -12,42 +12,47 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class QueryTaskRespBody {
-     /**
-      * 任务列表
-      * <p> 示例值：
-      */
+    /**
+     * 任务列表
+     * <p> 示例值：
+     */
     @SerializedName("tasks")
     private Task[] tasks;
-     /**
-      * 翻页 Token
-      * <p> 示例值：example_page_token
-      */
+    /**
+     * 翻页 Token
+     * <p> 示例值：example_page_token
+     */
     @SerializedName("page_token")
     private String pageToken;
-     /**
-      * 是否有更多任务可供拉取
-      * <p> 示例值：true
-      */
+    /**
+     * 是否有更多任务可供拉取
+     * <p> 示例值：true
+     */
     @SerializedName("has_more")
     private Boolean hasMore;
-     /**
-      * 列表计数，只在分页第一页返回
-      * <p> 示例值：
-      */
+    /**
+     * 列表计数，只在分页第一页返回
+     * <p> 示例值：
+     */
     @SerializedName("count")
     private Count count;
+
     public Task[] getTasks() {
         return this.tasks;
     }

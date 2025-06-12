@@ -17,18 +17,19 @@ package com.lark.oapi.service.im.v2.enums;
  * 原因
  */
 public enum OpenFailedUserAppFeedCardItemReasonEnum {
-     UNKNOWN("0"), // 未知
-     NO_PERMISSION("1"), // 无权限
-     NOT_CREATED("2"), // 未创建
-     RATE_LIMITED("3"), // 频率限制
-     DUPLICATED("4"), // 重复
-  ;
-   private String value;
+    UNKNOWN("0"), // 未知
+    NO_PERMISSION("1"), // 无权限
+    NOT_CREATED("2"), // 未创建
+    RATE_LIMITED("3"), // 频率限制
+    DUPLICATED("4"), // 重复
+    ;
+    private String value;
+
     OpenFailedUserAppFeedCardItemReasonEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

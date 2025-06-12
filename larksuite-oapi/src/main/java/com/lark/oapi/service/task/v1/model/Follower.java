@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.task.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.task.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Follower {
-     /**
-      * 任务关注人 ID
-      * <p> 示例值：ou_99e1a581b36ecc4862cbfbce473f3123
-      */
+    /**
+     * 任务关注人 ID
+     * <p> 示例值：ou_99e1a581b36ecc4862cbfbce473f3123
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 要删除的关注人ID列表
-      * <p> 示例值：[;  "ou_550cc75233d8b7b9fcbdad65f34433f4", "ou_d1e9d27cf3235b40ca9a67c67ef088b0";]
-      */
+    /**
+     * 要删除的关注人ID列表
+     * <p> 示例值：[;  "ou_550cc75233d8b7b9fcbdad65f34433f4", "ou_d1e9d27cf3235b40ca9a67c67ef088b0";]
+     */
     @SerializedName("id_list")
     private String[] idList;
+
+    // builder 开始
+    public Follower() {
+    }
+
+    public Follower(Builder builder) {
+        /**
+         * 任务关注人 ID
+         * <p> 示例值：ou_99e1a581b36ecc4862cbfbce473f3123
+         */
+        this.id = builder.id;
+        /**
+         * 要删除的关注人ID列表
+         * <p> 示例值：[;  "ou_550cc75233d8b7b9fcbdad65f34433f4", "ou_d1e9d27cf3235b40ca9a67c67ef088b0";]
+         */
+        this.idList = builder.idList;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -53,67 +79,46 @@ public class Follower {
         this.idList = idList;
     }
 
-
-// builder 开始
-  public Follower(){}
-
-  public Follower(Builder builder){
-         /**
-          * 任务关注人 ID
-          * <p> 示例值：ou_99e1a581b36ecc4862cbfbce473f3123
-          */
-      this.id = builder.id;
-         /**
-          * 要删除的关注人ID列表
-          * <p> 示例值：[;  "ou_550cc75233d8b7b9fcbdad65f34433f4", "ou_d1e9d27cf3235b40ca9a67c67ef088b0";]
-          */
-      this.idList = builder.idList;
-  }
-
     public static class Builder {
-     /**
-      * 任务关注人 ID
-      * <p> 示例值：ou_99e1a581b36ecc4862cbfbce473f3123
-      */
+        /**
+         * 任务关注人 ID
+         * <p> 示例值：ou_99e1a581b36ecc4862cbfbce473f3123
+         */
         private String id;
-     /**
-      * 要删除的关注人ID列表
-      * <p> 示例值：[;  "ou_550cc75233d8b7b9fcbdad65f34433f4", "ou_d1e9d27cf3235b40ca9a67c67ef088b0";]
-      */
+        /**
+         * 要删除的关注人ID列表
+         * <p> 示例值：[;  "ou_550cc75233d8b7b9fcbdad65f34433f4", "ou_d1e9d27cf3235b40ca9a67c67ef088b0";]
+         */
         private String[] idList;
 
         /**
          * 任务关注人 ID
          * <p> 示例值：ou_99e1a581b36ecc4862cbfbce473f3123
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 要删除的关注人ID列表
          * <p> 示例值：[;  "ou_550cc75233d8b7b9fcbdad65f34433f4", "ou_d1e9d27cf3235b40ca9a67c67ef088b0";]
+         *
          * @param idList
          * @return
          */
         public Builder idList(String[] idList) {
-             this.idList = idList;
-             return this;
+            this.idList = idList;
+            return this;
         }
 
-    
-    
-    public Follower build(){
-        return new Follower(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Follower build() {
+            return new Follower(this);
+        }
     }
 }

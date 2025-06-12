@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class PersonalProfileForUpdate {
-     /**
-      * 资料类型，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可：- object_api_name = "personal_profile" - custom_api_name = "profile_type"
-      * <p> 示例值：1
-      */
+    /**
+     * 资料类型，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可：- object_api_name = "personal_profile" - custom_api_name = "profile_type"
+     * <p> 示例值：1
+     */
     @SerializedName("personal_profile_type")
     private String personalProfileType;
-     /**
-      * 资料文件列表
-      * <p> 示例值：
-      */
+    /**
+     * 资料文件列表
+     * <p> 示例值：
+     */
     @SerializedName("files")
     private File[] files;
+
+    // builder 开始
+    public PersonalProfileForUpdate() {
+    }
+
+    public PersonalProfileForUpdate(Builder builder) {
+        /**
+         * 资料类型，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可：- object_api_name = "personal_profile" - custom_api_name = "profile_type"
+         * <p> 示例值：1
+         */
+        this.personalProfileType = builder.personalProfileType;
+        /**
+         * 资料文件列表
+         * <p> 示例值：
+         */
+        this.files = builder.files;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getPersonalProfileType() {
         return this.personalProfileType;
     }
@@ -53,67 +79,46 @@ public class PersonalProfileForUpdate {
         this.files = files;
     }
 
-
-// builder 开始
-  public PersonalProfileForUpdate(){}
-
-  public PersonalProfileForUpdate(Builder builder){
-         /**
-          * 资料类型，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可：- object_api_name = "personal_profile" - custom_api_name = "profile_type"
-          * <p> 示例值：1
-          */
-      this.personalProfileType = builder.personalProfileType;
-         /**
-          * 资料文件列表
-          * <p> 示例值：
-          */
-      this.files = builder.files;
-  }
-
     public static class Builder {
-     /**
-      * 资料类型，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可：- object_api_name = "personal_profile" - custom_api_name = "profile_type"
-      * <p> 示例值：1
-      */
+        /**
+         * 资料类型，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可：- object_api_name = "personal_profile" - custom_api_name = "profile_type"
+         * <p> 示例值：1
+         */
         private String personalProfileType;
-     /**
-      * 资料文件列表
-      * <p> 示例值：
-      */
+        /**
+         * 资料文件列表
+         * <p> 示例值：
+         */
         private File[] files;
 
         /**
          * 资料类型，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可：- object_api_name = "personal_profile" - custom_api_name = "profile_type"
          * <p> 示例值：1
+         *
          * @param personalProfileType
          * @return
          */
         public Builder personalProfileType(String personalProfileType) {
-             this.personalProfileType = personalProfileType;
-             return this;
+            this.personalProfileType = personalProfileType;
+            return this;
         }
 
-    
 
         /**
          * 资料文件列表
          * <p> 示例值：
+         *
          * @param files
          * @return
          */
         public Builder files(File[] files) {
-             this.files = files;
-             return this;
+            this.files = files;
+            return this;
         }
 
-    
-    
-    public PersonalProfileForUpdate build(){
-        return new PersonalProfileForUpdate(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public PersonalProfileForUpdate build() {
+            return new PersonalProfileForUpdate(this);
+        }
     }
 }

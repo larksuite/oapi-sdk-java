@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,90 +20,170 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class FieldVariableValueToForReview {
-     /**
-      * 文本值
-      * <p> 示例值：测试测试
-      */
+    /**
+     * 文本值
+     * <p> 示例值：测试测试
+     */
     @SerializedName("text_value")
     private String textValue;
-     /**
-      * 布尔值
-      * <p> 示例值：true
-      */
+    /**
+     * 布尔值
+     * <p> 示例值：true
+     */
     @SerializedName("bool_value")
     private Boolean boolValue;
-     /**
-      * 数字值
-      * <p> 示例值：100
-      */
+    /**
+     * 数字值
+     * <p> 示例值：100
+     */
     @SerializedName("number_value")
     private String numberValue;
-     /**
-      * 枚举值，这里是枚举的id
-      * <p> 示例值：home_address
-      */
+    /**
+     * 枚举值，这里是枚举的id
+     * <p> 示例值：home_address
+     */
     @SerializedName("enum_value")
     private String enumValue;
-     /**
-      * 从 1970 开始的天数
-      * <p> 示例值：19838
-      */
+    /**
+     * 从 1970 开始的天数
+     * <p> 示例值：19838
+     */
     @SerializedName("date_value")
     private String dateValue;
-     /**
-      * 时间戳，毫秒
-      * <p> 示例值：1714013877512
-      */
+    /**
+     * 时间戳，毫秒
+     * <p> 示例值：1714013877512
+     */
     @SerializedName("date_time_value")
     private String dateTimeValue;
-     /**
-      * 多语字段值
-      * <p> 示例值：ou_c57053dad6eea0aea4696c48433d8562
-      */
+    /**
+     * 多语字段值
+     * <p> 示例值：ou_c57053dad6eea0aea4696c48433d8562
+     */
     @SerializedName("i18n_value")
     private FieldVariableValueI18n i18nValue;
-     /**
-      * 对象值，包括对象id和对象类型
-      * <p> 示例值：od-a761814f6bc3f14bd3b00905ec1d7c6f
-      */
+    /**
+     * 对象值，包括对象id和对象类型
+     * <p> 示例值：od-a761814f6bc3f14bd3b00905ec1d7c6f
+     */
     @SerializedName("object_value")
     private FieldVariableValueToObject objectValue;
-     /**
-      * 部门id，根据入参选择对应的部门id
-      * <p> 示例值：od-a761814f6bc3f14bd3b00905ec1d7c6f
-      */
+    /**
+     * 部门id，根据入参选择对应的部门id
+     * <p> 示例值：od-a761814f6bc3f14bd3b00905ec1d7c6f
+     */
     @SerializedName("department_value")
     private String departmentValue;
-     /**
-      * 员工类型字段值，为用户id，根据入参选择返回的用户id
-      * <p> 示例值：ou_c57053dad6eea0aea4696c48433d8562
-      */
+    /**
+     * 员工类型字段值，为用户id，根据入参选择返回的用户id
+     * <p> 示例值：ou_c57053dad6eea0aea4696c48433d8562
+     */
     @SerializedName("employment_value")
     private String employmentValue;
-     /**
-      * 数组类型值，里面包含多个值，每个元素都对应subValues中的key
-      * <p> 示例值：
-      */
+    /**
+     * 数组类型值，里面包含多个值，每个元素都对应subValues中的key
+     * <p> 示例值：
+     */
     @SerializedName("list_values")
     private String[] listValues;
-     /**
-      * 文件类型字段值
-      * <p> 示例值：
-      */
+    /**
+     * 文件类型字段值
+     * <p> 示例值：
+     */
     @SerializedName("file_value")
     private FieldVariableValueToFileForWrite fileValue;
-     /**
-      * record类型字段值
-      * <p> 示例值：
-      */
+    /**
+     * record类型字段值
+     * <p> 示例值：
+     */
     @SerializedName("record_values")
     private FieldVariableValueToRecord[] recordValues;
+
+    // builder 开始
+    public FieldVariableValueToForReview() {
+    }
+
+    public FieldVariableValueToForReview(Builder builder) {
+        /**
+         * 文本值
+         * <p> 示例值：测试测试
+         */
+        this.textValue = builder.textValue;
+        /**
+         * 布尔值
+         * <p> 示例值：true
+         */
+        this.boolValue = builder.boolValue;
+        /**
+         * 数字值
+         * <p> 示例值：100
+         */
+        this.numberValue = builder.numberValue;
+        /**
+         * 枚举值，这里是枚举的id
+         * <p> 示例值：home_address
+         */
+        this.enumValue = builder.enumValue;
+        /**
+         * 从 1970 开始的天数
+         * <p> 示例值：19838
+         */
+        this.dateValue = builder.dateValue;
+        /**
+         * 时间戳，毫秒
+         * <p> 示例值：1714013877512
+         */
+        this.dateTimeValue = builder.dateTimeValue;
+        /**
+         * 多语字段值
+         * <p> 示例值：ou_c57053dad6eea0aea4696c48433d8562
+         */
+        this.i18nValue = builder.i18nValue;
+        /**
+         * 对象值，包括对象id和对象类型
+         * <p> 示例值：od-a761814f6bc3f14bd3b00905ec1d7c6f
+         */
+        this.objectValue = builder.objectValue;
+        /**
+         * 部门id，根据入参选择对应的部门id
+         * <p> 示例值：od-a761814f6bc3f14bd3b00905ec1d7c6f
+         */
+        this.departmentValue = builder.departmentValue;
+        /**
+         * 员工类型字段值，为用户id，根据入参选择返回的用户id
+         * <p> 示例值：ou_c57053dad6eea0aea4696c48433d8562
+         */
+        this.employmentValue = builder.employmentValue;
+        /**
+         * 数组类型值，里面包含多个值，每个元素都对应subValues中的key
+         * <p> 示例值：
+         */
+        this.listValues = builder.listValues;
+        /**
+         * 文件类型字段值
+         * <p> 示例值：
+         */
+        this.fileValue = builder.fileValue;
+        /**
+         * record类型字段值
+         * <p> 示例值：
+         */
+        this.recordValues = builder.recordValues;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getTextValue() {
         return this.textValue;
     }
@@ -207,320 +288,244 @@ public class FieldVariableValueToForReview {
         this.recordValues = recordValues;
     }
 
-
-// builder 开始
-  public FieldVariableValueToForReview(){}
-
-  public FieldVariableValueToForReview(Builder builder){
-         /**
-          * 文本值
-          * <p> 示例值：测试测试
-          */
-      this.textValue = builder.textValue;
-         /**
-          * 布尔值
-          * <p> 示例值：true
-          */
-      this.boolValue = builder.boolValue;
-         /**
-          * 数字值
-          * <p> 示例值：100
-          */
-      this.numberValue = builder.numberValue;
-         /**
-          * 枚举值，这里是枚举的id
-          * <p> 示例值：home_address
-          */
-      this.enumValue = builder.enumValue;
-         /**
-          * 从 1970 开始的天数
-          * <p> 示例值：19838
-          */
-      this.dateValue = builder.dateValue;
-         /**
-          * 时间戳，毫秒
-          * <p> 示例值：1714013877512
-          */
-      this.dateTimeValue = builder.dateTimeValue;
-         /**
-          * 多语字段值
-          * <p> 示例值：ou_c57053dad6eea0aea4696c48433d8562
-          */
-      this.i18nValue = builder.i18nValue;
-         /**
-          * 对象值，包括对象id和对象类型
-          * <p> 示例值：od-a761814f6bc3f14bd3b00905ec1d7c6f
-          */
-      this.objectValue = builder.objectValue;
-         /**
-          * 部门id，根据入参选择对应的部门id
-          * <p> 示例值：od-a761814f6bc3f14bd3b00905ec1d7c6f
-          */
-      this.departmentValue = builder.departmentValue;
-         /**
-          * 员工类型字段值，为用户id，根据入参选择返回的用户id
-          * <p> 示例值：ou_c57053dad6eea0aea4696c48433d8562
-          */
-      this.employmentValue = builder.employmentValue;
-         /**
-          * 数组类型值，里面包含多个值，每个元素都对应subValues中的key
-          * <p> 示例值：
-          */
-      this.listValues = builder.listValues;
-         /**
-          * 文件类型字段值
-          * <p> 示例值：
-          */
-      this.fileValue = builder.fileValue;
-         /**
-          * record类型字段值
-          * <p> 示例值：
-          */
-      this.recordValues = builder.recordValues;
-  }
-
     public static class Builder {
-     /**
-      * 文本值
-      * <p> 示例值：测试测试
-      */
+        /**
+         * 文本值
+         * <p> 示例值：测试测试
+         */
         private String textValue;
-     /**
-      * 布尔值
-      * <p> 示例值：true
-      */
+        /**
+         * 布尔值
+         * <p> 示例值：true
+         */
         private Boolean boolValue;
-     /**
-      * 数字值
-      * <p> 示例值：100
-      */
+        /**
+         * 数字值
+         * <p> 示例值：100
+         */
         private String numberValue;
-     /**
-      * 枚举值，这里是枚举的id
-      * <p> 示例值：home_address
-      */
+        /**
+         * 枚举值，这里是枚举的id
+         * <p> 示例值：home_address
+         */
         private String enumValue;
-     /**
-      * 从 1970 开始的天数
-      * <p> 示例值：19838
-      */
+        /**
+         * 从 1970 开始的天数
+         * <p> 示例值：19838
+         */
         private String dateValue;
-     /**
-      * 时间戳，毫秒
-      * <p> 示例值：1714013877512
-      */
+        /**
+         * 时间戳，毫秒
+         * <p> 示例值：1714013877512
+         */
         private String dateTimeValue;
-     /**
-      * 多语字段值
-      * <p> 示例值：ou_c57053dad6eea0aea4696c48433d8562
-      */
+        /**
+         * 多语字段值
+         * <p> 示例值：ou_c57053dad6eea0aea4696c48433d8562
+         */
         private FieldVariableValueI18n i18nValue;
-     /**
-      * 对象值，包括对象id和对象类型
-      * <p> 示例值：od-a761814f6bc3f14bd3b00905ec1d7c6f
-      */
+        /**
+         * 对象值，包括对象id和对象类型
+         * <p> 示例值：od-a761814f6bc3f14bd3b00905ec1d7c6f
+         */
         private FieldVariableValueToObject objectValue;
-     /**
-      * 部门id，根据入参选择对应的部门id
-      * <p> 示例值：od-a761814f6bc3f14bd3b00905ec1d7c6f
-      */
+        /**
+         * 部门id，根据入参选择对应的部门id
+         * <p> 示例值：od-a761814f6bc3f14bd3b00905ec1d7c6f
+         */
         private String departmentValue;
-     /**
-      * 员工类型字段值，为用户id，根据入参选择返回的用户id
-      * <p> 示例值：ou_c57053dad6eea0aea4696c48433d8562
-      */
+        /**
+         * 员工类型字段值，为用户id，根据入参选择返回的用户id
+         * <p> 示例值：ou_c57053dad6eea0aea4696c48433d8562
+         */
         private String employmentValue;
-     /**
-      * 数组类型值，里面包含多个值，每个元素都对应subValues中的key
-      * <p> 示例值：
-      */
+        /**
+         * 数组类型值，里面包含多个值，每个元素都对应subValues中的key
+         * <p> 示例值：
+         */
         private String[] listValues;
-     /**
-      * 文件类型字段值
-      * <p> 示例值：
-      */
+        /**
+         * 文件类型字段值
+         * <p> 示例值：
+         */
         private FieldVariableValueToFileForWrite fileValue;
-     /**
-      * record类型字段值
-      * <p> 示例值：
-      */
+        /**
+         * record类型字段值
+         * <p> 示例值：
+         */
         private FieldVariableValueToRecord[] recordValues;
 
         /**
          * 文本值
          * <p> 示例值：测试测试
+         *
          * @param textValue
          * @return
          */
         public Builder textValue(String textValue) {
-             this.textValue = textValue;
-             return this;
+            this.textValue = textValue;
+            return this;
         }
 
-    
 
         /**
          * 布尔值
          * <p> 示例值：true
+         *
          * @param boolValue
          * @return
          */
         public Builder boolValue(Boolean boolValue) {
-             this.boolValue = boolValue;
-             return this;
+            this.boolValue = boolValue;
+            return this;
         }
 
-    
 
         /**
          * 数字值
          * <p> 示例值：100
+         *
          * @param numberValue
          * @return
          */
         public Builder numberValue(String numberValue) {
-             this.numberValue = numberValue;
-             return this;
+            this.numberValue = numberValue;
+            return this;
         }
 
-    
 
         /**
          * 枚举值，这里是枚举的id
          * <p> 示例值：home_address
+         *
          * @param enumValue
          * @return
          */
         public Builder enumValue(String enumValue) {
-             this.enumValue = enumValue;
-             return this;
+            this.enumValue = enumValue;
+            return this;
         }
 
-    
 
         /**
          * 从 1970 开始的天数
          * <p> 示例值：19838
+         *
          * @param dateValue
          * @return
          */
         public Builder dateValue(String dateValue) {
-             this.dateValue = dateValue;
-             return this;
+            this.dateValue = dateValue;
+            return this;
         }
 
-    
 
         /**
          * 时间戳，毫秒
          * <p> 示例值：1714013877512
+         *
          * @param dateTimeValue
          * @return
          */
         public Builder dateTimeValue(String dateTimeValue) {
-             this.dateTimeValue = dateTimeValue;
-             return this;
+            this.dateTimeValue = dateTimeValue;
+            return this;
         }
 
-    
 
         /**
          * 多语字段值
          * <p> 示例值：ou_c57053dad6eea0aea4696c48433d8562
+         *
          * @param i18nValue
          * @return
          */
         public Builder i18nValue(FieldVariableValueI18n i18nValue) {
-             this.i18nValue = i18nValue;
-             return this;
+            this.i18nValue = i18nValue;
+            return this;
         }
 
-    
 
         /**
          * 对象值，包括对象id和对象类型
          * <p> 示例值：od-a761814f6bc3f14bd3b00905ec1d7c6f
+         *
          * @param objectValue
          * @return
          */
         public Builder objectValue(FieldVariableValueToObject objectValue) {
-             this.objectValue = objectValue;
-             return this;
+            this.objectValue = objectValue;
+            return this;
         }
 
-    
 
         /**
          * 部门id，根据入参选择对应的部门id
          * <p> 示例值：od-a761814f6bc3f14bd3b00905ec1d7c6f
+         *
          * @param departmentValue
          * @return
          */
         public Builder departmentValue(String departmentValue) {
-             this.departmentValue = departmentValue;
-             return this;
+            this.departmentValue = departmentValue;
+            return this;
         }
 
-    
 
         /**
          * 员工类型字段值，为用户id，根据入参选择返回的用户id
          * <p> 示例值：ou_c57053dad6eea0aea4696c48433d8562
+         *
          * @param employmentValue
          * @return
          */
         public Builder employmentValue(String employmentValue) {
-             this.employmentValue = employmentValue;
-             return this;
+            this.employmentValue = employmentValue;
+            return this;
         }
 
-    
 
         /**
          * 数组类型值，里面包含多个值，每个元素都对应subValues中的key
          * <p> 示例值：
+         *
          * @param listValues
          * @return
          */
         public Builder listValues(String[] listValues) {
-             this.listValues = listValues;
-             return this;
+            this.listValues = listValues;
+            return this;
         }
 
-    
 
         /**
          * 文件类型字段值
          * <p> 示例值：
+         *
          * @param fileValue
          * @return
          */
         public Builder fileValue(FieldVariableValueToFileForWrite fileValue) {
-             this.fileValue = fileValue;
-             return this;
+            this.fileValue = fileValue;
+            return this;
         }
 
-    
 
         /**
          * record类型字段值
          * <p> 示例值：
+         *
          * @param recordValues
          * @return
          */
         public Builder recordValues(FieldVariableValueToRecord[] recordValues) {
-             this.recordValues = recordValues;
-             return this;
+            this.recordValues = recordValues;
+            return this;
         }
 
-    
-    
-    public FieldVariableValueToForReview build(){
-        return new FieldVariableValueToForReview(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public FieldVariableValueToForReview build() {
+            return new FieldVariableValueToForReview(this);
+        }
     }
 }

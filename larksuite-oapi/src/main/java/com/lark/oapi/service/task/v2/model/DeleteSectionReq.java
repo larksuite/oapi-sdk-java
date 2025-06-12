@@ -12,25 +12,46 @@
  */
 
 package com.lark.oapi.service.task.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.task.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class DeleteSectionReq {
-     /**
-      * 要删除的自定义分组全局唯一ID
-      * <p> 示例值：9842501a-9f47-4ff5-a622-d319eeecb97f
-      */
+    /**
+     * 要删除的自定义分组全局唯一ID
+     * <p> 示例值：9842501a-9f47-4ff5-a622-d319eeecb97f
+     */
     @Path
     @SerializedName("section_guid")
     private String sectionGuid;
+
+    // builder 开始
+    public DeleteSectionReq() {
+    }
+
+    public DeleteSectionReq(Builder builder) {
+        /**
+         * 要删除的自定义分组全局唯一ID
+         * <p> 示例值：9842501a-9f47-4ff5-a622-d319eeecb97f
+         */
+        this.sectionGuid = builder.sectionGuid;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getSectionGuid() {
         return this.sectionGuid;
     }
@@ -39,39 +60,25 @@ public class DeleteSectionReq {
         this.sectionGuid = sectionGuid;
     }
 
-
-// builder 开始
-  public DeleteSectionReq(){}
-
-  public DeleteSectionReq(Builder builder){
-     /**
-      * 要删除的自定义分组全局唯一ID
-      * <p> 示例值：9842501a-9f47-4ff5-a622-d319eeecb97f
-      */
-       this.sectionGuid = builder.sectionGuid;
-  }
-
     public static class Builder {
-    
+
         private String sectionGuid; // 要删除的自定义分组全局唯一ID
+
         /**
          * 要删除的自定义分组全局唯一ID
          * <p> 示例值：9842501a-9f47-4ff5-a622-d319eeecb97f
+         *
          * @param sectionGuid
          * @return
          */
-          public Builder sectionGuid(String sectionGuid) {
-               this.sectionGuid = sectionGuid;
-               return this;
-          }
+        public Builder sectionGuid(String sectionGuid) {
+            this.sectionGuid = sectionGuid;
+            return this;
+        }
 
-    
-    public DeleteSectionReq build(){
-        return new DeleteSectionReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public DeleteSectionReq build() {
+            return new DeleteSectionReq(this);
+        }
     }
 }

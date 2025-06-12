@@ -12,36 +12,41 @@
  */
 
 package com.lark.oapi.service.mdm.v3.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ListCountryRegionRespBody {
-     /**
-      * 国家/地区目录列表
-      * <p> 示例值：
-      */
+    /**
+     * 国家/地区目录列表
+     * <p> 示例值：
+     */
     @SerializedName("data")
     private CountryRegion[] data;
-     /**
-      * 总数
-      * <p> 示例值：0
-      */
+    /**
+     * 总数
+     * <p> 示例值：0
+     */
     @SerializedName("total")
     private String total;
-     /**
-      * 下一次分页参数
-      * <p> 示例值：token
-      */
+    /**
+     * 下一次分页参数
+     * <p> 示例值：token
+     */
     @SerializedName("next_page_token")
     private String nextPageToken;
+
     public CountryRegion[] getData() {
         return this.data;
     }

@@ -12,20 +12,36 @@
  */
 
 package com.lark.oapi.service.sheets.v3.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.sheets.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CreateSpreadsheetReq {
     @Body
     private Spreadsheet body;
+
+    // builder 开始
+    public CreateSpreadsheetReq() {
+    }
+
+    public CreateSpreadsheetReq(Builder builder) {
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 
     public Spreadsheet getSpreadsheet() {
         return this.body;
@@ -35,36 +51,27 @@ public class CreateSpreadsheetReq {
         this.body = body;
     }
 
-// builder 开始
-  public CreateSpreadsheetReq(){}
-
-  public CreateSpreadsheetReq(Builder builder){
-        this.body = builder.body;
-  }
-
     public static class Builder {
-    
+
         private Spreadsheet body;
-    
+
         public Spreadsheet getSpreadsheet() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder spreadsheet(Spreadsheet body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public CreateSpreadsheetReq build(){
-        return new CreateSpreadsheetReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public CreateSpreadsheetReq build() {
+            return new CreateSpreadsheetReq(this);
+        }
     }
 }

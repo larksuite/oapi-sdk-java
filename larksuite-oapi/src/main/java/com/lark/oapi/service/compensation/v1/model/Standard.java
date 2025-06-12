@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.compensation.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.compensation.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,72 +20,137 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Standard {
-     /**
-      * 薪资标准表ID
-      * <p> 示例值：7491187653210293804
-      */
+    /**
+     * 薪资标准表ID
+     * <p> 示例值：7491187653210293804
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 薪资标准表名称
-      * <p> 示例值：
-      */
+    /**
+     * 薪资标准表名称
+     * <p> 示例值：
+     */
     @SerializedName("name")
     private I18n name;
-     /**
-      * 更新人，id类型：people_corehr_id，详细信息可通过[获取单个用户信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/get)接口查询
-      * <p> 示例值：7433328946189796908
-      */
+    /**
+     * 更新人，id类型：people_corehr_id，详细信息可通过[获取单个用户信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/get)接口查询
+     * <p> 示例值：7433328946189796908
+     */
     @SerializedName("updated_by")
     private String updatedBy;
-     /**
-      * 更新时间，毫秒时间戳格式
-      * <p> 示例值：1744178149000
-      */
+    /**
+     * 更新时间，毫秒时间戳格式
+     * <p> 示例值：1744178149000
+     */
     @SerializedName("updated_at")
     private String updatedAt;
-     /**
-      * 创建人，id类型：people_corehr_id，详细信息可通过[获取单个用户信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/get)接口查询
-      * <p> 示例值：7433328946189796908
-      */
+    /**
+     * 创建人，id类型：people_corehr_id，详细信息可通过[获取单个用户信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/get)接口查询
+     * <p> 示例值：7433328946189796908
+     */
     @SerializedName("created_by")
     private String createdBy;
-     /**
-      * 创建时间，毫秒时间戳格式
-      * <p> 示例值：1744178149000
-      */
+    /**
+     * 创建时间，毫秒时间戳格式
+     * <p> 示例值：1744178149000
+     */
     @SerializedName("created_at")
     private String createdAt;
-     /**
-      * 是否自动回填标准值
-      * <p> 示例值：true
-      */
+    /**
+     * 是否自动回填标准值
+     * <p> 示例值：true
+     */
     @SerializedName("automatic_backfill_standard_value")
     private Boolean automaticBackfillStandardValue;
-     /**
-      * 适用范围
-      * <p> 示例值：
-      */
+    /**
+     * 适用范围
+     * <p> 示例值：
+     */
     @SerializedName("scope")
     private StandardScope scope;
-     /**
-      * 划分维度
-      * <p> 示例值：
-      */
+    /**
+     * 划分维度
+     * <p> 示例值：
+     */
     @SerializedName("dimensions")
     private StandardDimension[] dimensions;
-     /**
-      * 适用项目
-      * <p> 示例值：
-      */
+    /**
+     * 适用项目
+     * <p> 示例值：
+     */
     @SerializedName("reference_objects")
     private StandardReferenceObject[] referenceObjects;
+
+    // builder 开始
+    public Standard() {
+    }
+
+    public Standard(Builder builder) {
+        /**
+         * 薪资标准表ID
+         * <p> 示例值：7491187653210293804
+         */
+        this.id = builder.id;
+        /**
+         * 薪资标准表名称
+         * <p> 示例值：
+         */
+        this.name = builder.name;
+        /**
+         * 更新人，id类型：people_corehr_id，详细信息可通过[获取单个用户信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/get)接口查询
+         * <p> 示例值：7433328946189796908
+         */
+        this.updatedBy = builder.updatedBy;
+        /**
+         * 更新时间，毫秒时间戳格式
+         * <p> 示例值：1744178149000
+         */
+        this.updatedAt = builder.updatedAt;
+        /**
+         * 创建人，id类型：people_corehr_id，详细信息可通过[获取单个用户信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/get)接口查询
+         * <p> 示例值：7433328946189796908
+         */
+        this.createdBy = builder.createdBy;
+        /**
+         * 创建时间，毫秒时间戳格式
+         * <p> 示例值：1744178149000
+         */
+        this.createdAt = builder.createdAt;
+        /**
+         * 是否自动回填标准值
+         * <p> 示例值：true
+         */
+        this.automaticBackfillStandardValue = builder.automaticBackfillStandardValue;
+        /**
+         * 适用范围
+         * <p> 示例值：
+         */
+        this.scope = builder.scope;
+        /**
+         * 划分维度
+         * <p> 示例值：
+         */
+        this.dimensions = builder.dimensions;
+        /**
+         * 适用项目
+         * <p> 示例值：
+         */
+        this.referenceObjects = builder.referenceObjects;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -165,251 +231,190 @@ public class Standard {
         this.referenceObjects = referenceObjects;
     }
 
-
-// builder 开始
-  public Standard(){}
-
-  public Standard(Builder builder){
-         /**
-          * 薪资标准表ID
-          * <p> 示例值：7491187653210293804
-          */
-      this.id = builder.id;
-         /**
-          * 薪资标准表名称
-          * <p> 示例值：
-          */
-      this.name = builder.name;
-         /**
-          * 更新人，id类型：people_corehr_id，详细信息可通过[获取单个用户信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/get)接口查询
-          * <p> 示例值：7433328946189796908
-          */
-      this.updatedBy = builder.updatedBy;
-         /**
-          * 更新时间，毫秒时间戳格式
-          * <p> 示例值：1744178149000
-          */
-      this.updatedAt = builder.updatedAt;
-         /**
-          * 创建人，id类型：people_corehr_id，详细信息可通过[获取单个用户信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/get)接口查询
-          * <p> 示例值：7433328946189796908
-          */
-      this.createdBy = builder.createdBy;
-         /**
-          * 创建时间，毫秒时间戳格式
-          * <p> 示例值：1744178149000
-          */
-      this.createdAt = builder.createdAt;
-         /**
-          * 是否自动回填标准值
-          * <p> 示例值：true
-          */
-      this.automaticBackfillStandardValue = builder.automaticBackfillStandardValue;
-         /**
-          * 适用范围
-          * <p> 示例值：
-          */
-      this.scope = builder.scope;
-         /**
-          * 划分维度
-          * <p> 示例值：
-          */
-      this.dimensions = builder.dimensions;
-         /**
-          * 适用项目
-          * <p> 示例值：
-          */
-      this.referenceObjects = builder.referenceObjects;
-  }
-
     public static class Builder {
-     /**
-      * 薪资标准表ID
-      * <p> 示例值：7491187653210293804
-      */
+        /**
+         * 薪资标准表ID
+         * <p> 示例值：7491187653210293804
+         */
         private String id;
-     /**
-      * 薪资标准表名称
-      * <p> 示例值：
-      */
+        /**
+         * 薪资标准表名称
+         * <p> 示例值：
+         */
         private I18n name;
-     /**
-      * 更新人，id类型：people_corehr_id，详细信息可通过[获取单个用户信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/get)接口查询
-      * <p> 示例值：7433328946189796908
-      */
+        /**
+         * 更新人，id类型：people_corehr_id，详细信息可通过[获取单个用户信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/get)接口查询
+         * <p> 示例值：7433328946189796908
+         */
         private String updatedBy;
-     /**
-      * 更新时间，毫秒时间戳格式
-      * <p> 示例值：1744178149000
-      */
+        /**
+         * 更新时间，毫秒时间戳格式
+         * <p> 示例值：1744178149000
+         */
         private String updatedAt;
-     /**
-      * 创建人，id类型：people_corehr_id，详细信息可通过[获取单个用户信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/get)接口查询
-      * <p> 示例值：7433328946189796908
-      */
+        /**
+         * 创建人，id类型：people_corehr_id，详细信息可通过[获取单个用户信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/get)接口查询
+         * <p> 示例值：7433328946189796908
+         */
         private String createdBy;
-     /**
-      * 创建时间，毫秒时间戳格式
-      * <p> 示例值：1744178149000
-      */
+        /**
+         * 创建时间，毫秒时间戳格式
+         * <p> 示例值：1744178149000
+         */
         private String createdAt;
-     /**
-      * 是否自动回填标准值
-      * <p> 示例值：true
-      */
+        /**
+         * 是否自动回填标准值
+         * <p> 示例值：true
+         */
         private Boolean automaticBackfillStandardValue;
-     /**
-      * 适用范围
-      * <p> 示例值：
-      */
+        /**
+         * 适用范围
+         * <p> 示例值：
+         */
         private StandardScope scope;
-     /**
-      * 划分维度
-      * <p> 示例值：
-      */
+        /**
+         * 划分维度
+         * <p> 示例值：
+         */
         private StandardDimension[] dimensions;
-     /**
-      * 适用项目
-      * <p> 示例值：
-      */
+        /**
+         * 适用项目
+         * <p> 示例值：
+         */
         private StandardReferenceObject[] referenceObjects;
 
         /**
          * 薪资标准表ID
          * <p> 示例值：7491187653210293804
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 薪资标准表名称
          * <p> 示例值：
+         *
          * @param name
          * @return
          */
         public Builder name(I18n name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 更新人，id类型：people_corehr_id，详细信息可通过[获取单个用户信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/get)接口查询
          * <p> 示例值：7433328946189796908
+         *
          * @param updatedBy
          * @return
          */
         public Builder updatedBy(String updatedBy) {
-             this.updatedBy = updatedBy;
-             return this;
+            this.updatedBy = updatedBy;
+            return this;
         }
 
-    
 
         /**
          * 更新时间，毫秒时间戳格式
          * <p> 示例值：1744178149000
+         *
          * @param updatedAt
          * @return
          */
         public Builder updatedAt(String updatedAt) {
-             this.updatedAt = updatedAt;
-             return this;
+            this.updatedAt = updatedAt;
+            return this;
         }
 
-    
 
         /**
          * 创建人，id类型：people_corehr_id，详细信息可通过[获取单个用户信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/get)接口查询
          * <p> 示例值：7433328946189796908
+         *
          * @param createdBy
          * @return
          */
         public Builder createdBy(String createdBy) {
-             this.createdBy = createdBy;
-             return this;
+            this.createdBy = createdBy;
+            return this;
         }
 
-    
 
         /**
          * 创建时间，毫秒时间戳格式
          * <p> 示例值：1744178149000
+         *
          * @param createdAt
          * @return
          */
         public Builder createdAt(String createdAt) {
-             this.createdAt = createdAt;
-             return this;
+            this.createdAt = createdAt;
+            return this;
         }
 
-    
 
         /**
          * 是否自动回填标准值
          * <p> 示例值：true
+         *
          * @param automaticBackfillStandardValue
          * @return
          */
         public Builder automaticBackfillStandardValue(Boolean automaticBackfillStandardValue) {
-             this.automaticBackfillStandardValue = automaticBackfillStandardValue;
-             return this;
+            this.automaticBackfillStandardValue = automaticBackfillStandardValue;
+            return this;
         }
 
-    
 
         /**
          * 适用范围
          * <p> 示例值：
+         *
          * @param scope
          * @return
          */
         public Builder scope(StandardScope scope) {
-             this.scope = scope;
-             return this;
+            this.scope = scope;
+            return this;
         }
 
-    
 
         /**
          * 划分维度
          * <p> 示例值：
+         *
          * @param dimensions
          * @return
          */
         public Builder dimensions(StandardDimension[] dimensions) {
-             this.dimensions = dimensions;
-             return this;
+            this.dimensions = dimensions;
+            return this;
         }
 
-    
 
         /**
          * 适用项目
          * <p> 示例值：
+         *
          * @param referenceObjects
          * @return
          */
         public Builder referenceObjects(StandardReferenceObject[] referenceObjects) {
-             this.referenceObjects = referenceObjects;
-             return this;
+            this.referenceObjects = referenceObjects;
+            return this;
         }
 
-    
-    
-    public Standard build(){
-        return new Standard(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Standard build() {
+            return new Standard(this);
+        }
     }
 }

@@ -17,27 +17,28 @@ package com.lark.oapi.service.document_ai.v1.enums;
  * 识别的字段种类
  */
 public enum DrivingEntityDrivingEntityTypeEnum {
-     IDNUMBER("id_number"), // 证号
-     NAME("name"), // 姓名
-     SEX("sex"), // 性别
-     NATIONALITY("nationality"), // 国籍
-     ADDRESS("address"), // 住址
-     DATEOFBIRTH("date_of_birth"), // 出生日期
-     DATEOFFIRSTISSUE("date_of_first_issue"), // 初次领证日期
-     CLASS("class"), // 准驾车型
-     VALIDBEGIN("valid_begin"), // 有效期起
-     VALIDEND("valid_end"), // 有效期止
-     LICENSEISSUINGAUTHORITY("license_issuing_authority"), // 发证机关
-     DOCUMENTID("document_id"), // 档案编号
-     RECORD("record"), // 记录
-     IDPHOTOLOCATION("id_photo_location"), // 相片位置
-  ;
-   private String value;
+    IDNUMBER("id_number"), // 证号
+    NAME("name"), // 姓名
+    SEX("sex"), // 性别
+    NATIONALITY("nationality"), // 国籍
+    ADDRESS("address"), // 住址
+    DATEOFBIRTH("date_of_birth"), // 出生日期
+    DATEOFFIRSTISSUE("date_of_first_issue"), // 初次领证日期
+    CLASS("class"), // 准驾车型
+    VALIDBEGIN("valid_begin"), // 有效期起
+    VALIDEND("valid_end"), // 有效期止
+    LICENSEISSUINGAUTHORITY("license_issuing_authority"), // 发证机关
+    DOCUMENTID("document_id"), // 档案编号
+    RECORD("record"), // 记录
+    IDPHOTOLOCATION("id_photo_location"), // 相片位置
+    ;
+    private String value;
+
     DrivingEntityDrivingEntityTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

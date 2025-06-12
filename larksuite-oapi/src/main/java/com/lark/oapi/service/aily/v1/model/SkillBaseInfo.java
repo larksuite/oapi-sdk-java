@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.aily.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.aily.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,36 +20,71 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class SkillBaseInfo {
-     /**
-      * 技能名称
-      * <p> 示例值：天气预报
-      */
+    /**
+     * 技能名称
+     * <p> 示例值：天气预报
+     */
     @SerializedName("name")
     private String name;
-     /**
-      * 技能 id
-      * <p> 示例值：skill_43ec7b438a59
-      */
+    /**
+     * 技能 id
+     * <p> 示例值：skill_43ec7b438a59
+     */
     @SerializedName("skill_id")
     private String skillId;
-     /**
-      * 技能类型
-      * <p> 示例值：custom
-      */
+    /**
+     * 技能类型
+     * <p> 示例值：custom
+     */
     @SerializedName("type")
     private String type;
-     /**
-      * 内置技能类型
-      * <p> 示例值：qna
-      */
+    /**
+     * 内置技能类型
+     * <p> 示例值：qna
+     */
     @SerializedName("builtin_type")
     private String builtinType;
+
+    // builder 开始
+    public SkillBaseInfo() {
+    }
+
+    public SkillBaseInfo(Builder builder) {
+        /**
+         * 技能名称
+         * <p> 示例值：天气预报
+         */
+        this.name = builder.name;
+        /**
+         * 技能 id
+         * <p> 示例值：skill_43ec7b438a59
+         */
+        this.skillId = builder.skillId;
+        /**
+         * 技能类型
+         * <p> 示例值：custom
+         */
+        this.type = builder.type;
+        /**
+         * 内置技能类型
+         * <p> 示例值：qna
+         */
+        this.builtinType = builder.builtinType;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getName() {
         return this.name;
     }
@@ -81,113 +117,82 @@ public class SkillBaseInfo {
         this.builtinType = builtinType;
     }
 
-
-// builder 开始
-  public SkillBaseInfo(){}
-
-  public SkillBaseInfo(Builder builder){
-         /**
-          * 技能名称
-          * <p> 示例值：天气预报
-          */
-      this.name = builder.name;
-         /**
-          * 技能 id
-          * <p> 示例值：skill_43ec7b438a59
-          */
-      this.skillId = builder.skillId;
-         /**
-          * 技能类型
-          * <p> 示例值：custom
-          */
-      this.type = builder.type;
-         /**
-          * 内置技能类型
-          * <p> 示例值：qna
-          */
-      this.builtinType = builder.builtinType;
-  }
-
     public static class Builder {
-     /**
-      * 技能名称
-      * <p> 示例值：天气预报
-      */
+        /**
+         * 技能名称
+         * <p> 示例值：天气预报
+         */
         private String name;
-     /**
-      * 技能 id
-      * <p> 示例值：skill_43ec7b438a59
-      */
+        /**
+         * 技能 id
+         * <p> 示例值：skill_43ec7b438a59
+         */
         private String skillId;
-     /**
-      * 技能类型
-      * <p> 示例值：custom
-      */
+        /**
+         * 技能类型
+         * <p> 示例值：custom
+         */
         private String type;
-     /**
-      * 内置技能类型
-      * <p> 示例值：qna
-      */
+        /**
+         * 内置技能类型
+         * <p> 示例值：qna
+         */
         private String builtinType;
 
         /**
          * 技能名称
          * <p> 示例值：天气预报
+         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 技能 id
          * <p> 示例值：skill_43ec7b438a59
+         *
          * @param skillId
          * @return
          */
         public Builder skillId(String skillId) {
-             this.skillId = skillId;
-             return this;
+            this.skillId = skillId;
+            return this;
         }
 
-    
 
         /**
          * 技能类型
          * <p> 示例值：custom
+         *
          * @param type
          * @return
          */
         public Builder type(String type) {
-             this.type = type;
-             return this;
+            this.type = type;
+            return this;
         }
 
-    
 
         /**
          * 内置技能类型
          * <p> 示例值：qna
+         *
          * @param builtinType
          * @return
          */
         public Builder builtinType(String builtinType) {
-             this.builtinType = builtinType;
-             return this;
+            this.builtinType = builtinType;
+            return this;
         }
 
-    
-    
-    public SkillBaseInfo build(){
-        return new SkillBaseInfo(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public SkillBaseInfo build() {
+            return new SkillBaseInfo(this);
+        }
     }
 }

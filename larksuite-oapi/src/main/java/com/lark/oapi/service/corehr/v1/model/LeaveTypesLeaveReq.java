@@ -12,46 +12,82 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class LeaveTypesLeaveReq {
-     /**
-      * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
-      * <p> 示例值：eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
-      */
+    /**
+     * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
+     * <p> 示例值：eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+     */
     @Query
     @SerializedName("page_token")
     private String pageToken;
-     /**
-      * 每页获取记录数量，最大100
-      * <p> 示例值：100
-      */
+    /**
+     * 每页获取记录数量，最大100
+     * <p> 示例值：100
+     */
     @Query
     @SerializedName("page_size")
     private String pageSize;
-     /**
-      * 假期类型状态（不传则为全部）;;可选值有：;;- 1：已启用;;- 2：已停用
-      * <p> 示例值：1
-      */
+    /**
+     * 假期类型状态（不传则为全部）;;可选值有：;;- 1：已启用;;- 2：已停用
+     * <p> 示例值：1
+     */
     @Query
     @SerializedName("status")
     private String status;
-     /**
-      * 用户 ID 类型
-      * <p> 示例值：people_corehr_id
-      */
+    /**
+     * 用户 ID 类型
+     * <p> 示例值：people_corehr_id
+     */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
+
+    // builder 开始
+    public LeaveTypesLeaveReq() {
+    }
+
+    public LeaveTypesLeaveReq(Builder builder) {
+        /**
+         * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
+         * <p> 示例值：eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+         */
+        this.pageToken = builder.pageToken;
+        /**
+         * 每页获取记录数量，最大100
+         * <p> 示例值：100
+         */
+        this.pageSize = builder.pageSize;
+        /**
+         * 假期类型状态（不传则为全部）;;可选值有：;;- 1：已启用;;- 2：已停用
+         * <p> 示例值：1
+         */
+        this.status = builder.status;
+        /**
+         * 用户 ID 类型
+         * <p> 示例值：people_corehr_id
+         */
+        this.userIdType = builder.userIdType;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getPageToken() {
         return this.pageToken;
     }
@@ -84,104 +120,78 @@ public class LeaveTypesLeaveReq {
         this.userIdType = userIdType;
     }
 
-
-// builder 开始
-  public LeaveTypesLeaveReq(){}
-
-  public LeaveTypesLeaveReq(Builder builder){
-         /**
-          * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
-          * <p> 示例值：eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
-          */
-       this.pageToken = builder.pageToken;
-         /**
-          * 每页获取记录数量，最大100
-          * <p> 示例值：100
-          */
-       this.pageSize = builder.pageSize;
-         /**
-          * 假期类型状态（不传则为全部）;;可选值有：;;- 1：已启用;;- 2：已停用
-          * <p> 示例值：1
-          */
-       this.status = builder.status;
-         /**
-          * 用户 ID 类型
-          * <p> 示例值：people_corehr_id
-          */
-       this.userIdType = builder.userIdType;
-  }
-
     public static class Builder {
         private String pageToken; // 页码标识，获取第一页传空，每次查询会返回下一页的page_token
         private String pageSize; // 每页获取记录数量，最大100
         private String status; // 假期类型状态（不传则为全部）;;可选值有：;;- 1：已启用;;- 2：已停用
         private String userIdType; // 用户 ID 类型
-    
+
         /**
          * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
          * <p> 示例值：eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+         *
          * @param pageToken
          * @return
          */
-           public Builder pageToken(String pageToken) {
-                this.pageToken = pageToken;
-                return this;
-           }
+        public Builder pageToken(String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+        }
 
-    
+
         /**
          * 每页获取记录数量，最大100
          * <p> 示例值：100
+         *
          * @param pageSize
          * @return
          */
-           public Builder pageSize(String pageSize) {
-                this.pageSize = pageSize;
-                return this;
-           }
+        public Builder pageSize(String pageSize) {
+            this.pageSize = pageSize;
+            return this;
+        }
 
-    
+
         /**
          * 假期类型状态（不传则为全部）;;可选值有：;;- 1：已启用;;- 2：已停用
          * <p> 示例值：1
+         *
          * @param status
          * @return
          */
-           public Builder status(String status) {
-                this.status = status;
-                return this;
-           }
+        public Builder status(String status) {
+            this.status = status;
+            return this;
+        }
 
-    
+
         /**
          * 用户 ID 类型
          * <p> 示例值：people_corehr_id
+         *
          * @param userIdType
          * @return
          */
-           public Builder userIdType(String userIdType) {
-                this.userIdType = userIdType;
-                return this;
-           }
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
 
         /**
          * 用户 ID 类型
          * <p> 示例值：people_corehr_id
+         *
          * @param userIdType {@link com.lark.oapi.service.corehr.v1.enums.LeaveTypesLeaveUserIdTypeEnum}
          * @return
          */
-          public Builder userIdType(com.lark.oapi.service.corehr.v1.enums.LeaveTypesLeaveUserIdTypeEnum userIdType) {
-               this.userIdType = userIdType.getValue();
-               return this;
-          }
+        public Builder userIdType(com.lark.oapi.service.corehr.v1.enums.LeaveTypesLeaveUserIdTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
+            return this;
+        }
 
-    
-    public LeaveTypesLeaveReq build(){
-        return new LeaveTypesLeaveReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public LeaveTypesLeaveReq build() {
+            return new LeaveTypesLeaveReq(this);
+        }
     }
 }

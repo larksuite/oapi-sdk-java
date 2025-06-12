@@ -12,67 +12,130 @@
  */
 
 package com.lark.oapi.service.calendar.v4.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.calendar.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ListCalendarEventReq {
-     /**
-      * 一次请求要求返回最大数量，默认500，取值范围为[50, 1000]
-      * <p> 示例值：50
-      */
+    /**
+     * 一次请求要求返回最大数量，默认500，取值范围为[50, 1000]
+     * <p> 示例值：50
+     */
     @Query
     @SerializedName("page_size")
     private Integer pageSize;
-     /**
-      * 拉取anchor_time之后的日程，为timestamp
-      * <p> 示例值：1609430400
-      */
+    /**
+     * 拉取anchor_time之后的日程，为timestamp
+     * <p> 示例值：1609430400
+     */
     @Query
     @SerializedName("anchor_time")
     private String anchorTime;
-     /**
-      * 上次请求Response返回的分页标记，首次请求时为空
-      * <p> 示例值：ListCalendarsPageToken_1632452910_1632539310
-      */
+    /**
+     * 上次请求Response返回的分页标记，首次请求时为空
+     * <p> 示例值：ListCalendarsPageToken_1632452910_1632539310
+     */
     @Query
     @SerializedName("page_token")
     private String pageToken;
-     /**
-      * 上次请求Response返回的增量同步标记，分页请求未结束时为空
-      * <p> 示例值：ListCalendarsSyncToken_1632452910
-      */
+    /**
+     * 上次请求Response返回的增量同步标记，分页请求未结束时为空
+     * <p> 示例值：ListCalendarsSyncToken_1632452910
+     */
     @Query
     @SerializedName("sync_token")
     private String syncToken;
-     /**
-      * 日程开始Unix时间戳，单位为秒
-      * <p> 示例值：1631777271
-      */
+    /**
+     * 日程开始Unix时间戳，单位为秒
+     * <p> 示例值：1631777271
+     */
     @Query
     @SerializedName("start_time")
     private String startTime;
-     /**
-      * 日程结束Unix时间戳，单位为秒
-      * <p> 示例值：1631777271
-      */
+    /**
+     * 日程结束Unix时间戳，单位为秒
+     * <p> 示例值：1631777271
+     */
     @Query
     @SerializedName("end_time")
     private String endTime;
-     /**
-      * 此次调用中使用的用户ID的类型
-      * <p> 示例值：
-      */
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
+    /**
+     * 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
+     * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
+     */
+    @Path
+    @SerializedName("calendar_id")
+    private String calendarId;
+
+    // builder 开始
+    public ListCalendarEventReq() {
+    }
+
+    public ListCalendarEventReq(Builder builder) {
+        /**
+         * 一次请求要求返回最大数量，默认500，取值范围为[50, 1000]
+         * <p> 示例值：50
+         */
+        this.pageSize = builder.pageSize;
+        /**
+         * 拉取anchor_time之后的日程，为timestamp
+         * <p> 示例值：1609430400
+         */
+        this.anchorTime = builder.anchorTime;
+        /**
+         * 上次请求Response返回的分页标记，首次请求时为空
+         * <p> 示例值：ListCalendarsPageToken_1632452910_1632539310
+         */
+        this.pageToken = builder.pageToken;
+        /**
+         * 上次请求Response返回的增量同步标记，分页请求未结束时为空
+         * <p> 示例值：ListCalendarsSyncToken_1632452910
+         */
+        this.syncToken = builder.syncToken;
+        /**
+         * 日程开始Unix时间戳，单位为秒
+         * <p> 示例值：1631777271
+         */
+        this.startTime = builder.startTime;
+        /**
+         * 日程结束Unix时间戳，单位为秒
+         * <p> 示例值：1631777271
+         */
+        this.endTime = builder.endTime;
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         */
+        this.userIdType = builder.userIdType;
+        /**
+         * 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
+         * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
+         */
+        this.calendarId = builder.calendarId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Integer getPageSize() {
         return this.pageSize;
     }
@@ -129,13 +192,6 @@ public class ListCalendarEventReq {
         this.userIdType = userIdType;
     }
 
-     /**
-      * 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
-      * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
-      */
-    @Path
-    @SerializedName("calendar_id")
-    private String calendarId;
     public String getCalendarId() {
         return this.calendarId;
     }
@@ -143,53 +199,6 @@ public class ListCalendarEventReq {
     public void setCalendarId(String calendarId) {
         this.calendarId = calendarId;
     }
-
-
-// builder 开始
-  public ListCalendarEventReq(){}
-
-  public ListCalendarEventReq(Builder builder){
-         /**
-          * 一次请求要求返回最大数量，默认500，取值范围为[50, 1000]
-          * <p> 示例值：50
-          */
-       this.pageSize = builder.pageSize;
-         /**
-          * 拉取anchor_time之后的日程，为timestamp
-          * <p> 示例值：1609430400
-          */
-       this.anchorTime = builder.anchorTime;
-         /**
-          * 上次请求Response返回的分页标记，首次请求时为空
-          * <p> 示例值：ListCalendarsPageToken_1632452910_1632539310
-          */
-       this.pageToken = builder.pageToken;
-         /**
-          * 上次请求Response返回的增量同步标记，分页请求未结束时为空
-          * <p> 示例值：ListCalendarsSyncToken_1632452910
-          */
-       this.syncToken = builder.syncToken;
-         /**
-          * 日程开始Unix时间戳，单位为秒
-          * <p> 示例值：1631777271
-          */
-       this.startTime = builder.startTime;
-         /**
-          * 日程结束Unix时间戳，单位为秒
-          * <p> 示例值：1631777271
-          */
-       this.endTime = builder.endTime;
-         /**
-          * 此次调用中使用的用户ID的类型
-          * <p> 示例值：
-          */
-       this.userIdType = builder.userIdType;
-     /**
-      * 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
-      * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
-      */
-       this.calendarId = builder.calendarId;
-  }
 
     public static class Builder {
         private Integer pageSize; // 一次请求要求返回最大数量，默认500，取值范围为[50, 1000]
@@ -199,121 +208,119 @@ public class ListCalendarEventReq {
         private String startTime; // 日程开始Unix时间戳，单位为秒
         private String endTime; // 日程结束Unix时间戳，单位为秒
         private String userIdType; // 此次调用中使用的用户ID的类型
-    
+        private String calendarId; // 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
+
         /**
          * 一次请求要求返回最大数量，默认500，取值范围为[50, 1000]
          * <p> 示例值：50
+         *
          * @param pageSize
          * @return
          */
-           public Builder pageSize(Integer pageSize) {
-                this.pageSize = pageSize;
-                return this;
-           }
+        public Builder pageSize(Integer pageSize) {
+            this.pageSize = pageSize;
+            return this;
+        }
 
-    
         /**
          * 拉取anchor_time之后的日程，为timestamp
          * <p> 示例值：1609430400
+         *
          * @param anchorTime
          * @return
          */
-           public Builder anchorTime(String anchorTime) {
-                this.anchorTime = anchorTime;
-                return this;
-           }
+        public Builder anchorTime(String anchorTime) {
+            this.anchorTime = anchorTime;
+            return this;
+        }
 
-    
         /**
          * 上次请求Response返回的分页标记，首次请求时为空
          * <p> 示例值：ListCalendarsPageToken_1632452910_1632539310
+         *
          * @param pageToken
          * @return
          */
-           public Builder pageToken(String pageToken) {
-                this.pageToken = pageToken;
-                return this;
-           }
+        public Builder pageToken(String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+        }
 
-    
         /**
          * 上次请求Response返回的增量同步标记，分页请求未结束时为空
          * <p> 示例值：ListCalendarsSyncToken_1632452910
+         *
          * @param syncToken
          * @return
          */
-           public Builder syncToken(String syncToken) {
-                this.syncToken = syncToken;
-                return this;
-           }
+        public Builder syncToken(String syncToken) {
+            this.syncToken = syncToken;
+            return this;
+        }
 
-    
         /**
          * 日程开始Unix时间戳，单位为秒
          * <p> 示例值：1631777271
+         *
          * @param startTime
          * @return
          */
-           public Builder startTime(String startTime) {
-                this.startTime = startTime;
-                return this;
-           }
+        public Builder startTime(String startTime) {
+            this.startTime = startTime;
+            return this;
+        }
 
-    
         /**
          * 日程结束Unix时间戳，单位为秒
          * <p> 示例值：1631777271
+         *
          * @param endTime
          * @return
          */
-           public Builder endTime(String endTime) {
-                this.endTime = endTime;
-                return this;
-           }
+        public Builder endTime(String endTime) {
+            this.endTime = endTime;
+            return this;
+        }
 
-    
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
+         *
          * @param userIdType
          * @return
          */
-           public Builder userIdType(String userIdType) {
-                this.userIdType = userIdType;
-                return this;
-           }
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
 
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
+         *
          * @param userIdType {@link com.lark.oapi.service.calendar.v4.enums.ListCalendarEventUserIdTypeEnum}
          * @return
          */
-          public Builder userIdType(com.lark.oapi.service.calendar.v4.enums.ListCalendarEventUserIdTypeEnum userIdType) {
-               this.userIdType = userIdType.getValue();
-               return this;
-          }
+        public Builder userIdType(com.lark.oapi.service.calendar.v4.enums.ListCalendarEventUserIdTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
+            return this;
+        }
 
-    
-        private String calendarId; // 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
         /**
          * 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
          * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
+         *
          * @param calendarId
          * @return
          */
-          public Builder calendarId(String calendarId) {
-               this.calendarId = calendarId;
-               return this;
-          }
+        public Builder calendarId(String calendarId) {
+            this.calendarId = calendarId;
+            return this;
+        }
 
-    
-    public ListCalendarEventReq build(){
-        return new ListCalendarEventReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ListCalendarEventReq build() {
+            return new ListCalendarEventReq(this);
+        }
     }
 }

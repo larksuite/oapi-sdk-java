@@ -17,24 +17,25 @@ package com.lark.oapi.service.document_ai.v1.enums;
  * 识别的字段种类
  */
 public enum RecognizedEntityEntityTypeEnum {
-     CONTACTNAMES("contact_names"), // 联系人名
-     COMPANYNAMES("company_names"), // 公司名
-     DEPARTMENTS("departments"), // 部门
-     JOBTITLES("job_titles"), // 职位
-     EMAILS("emails"), // 邮箱
-     WEBSITES("websites"), // 网站
-     ADDRESSES("addresses"), // 地址
-     MOBILEPHONES("mobile_phones"), // 移动电话
-     WORKPHONES("work_phones"), // 工作电话
-     OTHERPHONES("other_phones"), // 其他电话
-     FAXES("faxes"), // 传真
-  ;
-   private String value;
+    CONTACTNAMES("contact_names"), // 联系人名
+    COMPANYNAMES("company_names"), // 公司名
+    DEPARTMENTS("departments"), // 部门
+    JOBTITLES("job_titles"), // 职位
+    EMAILS("emails"), // 邮箱
+    WEBSITES("websites"), // 网站
+    ADDRESSES("addresses"), // 地址
+    MOBILEPHONES("mobile_phones"), // 移动电话
+    WORKPHONES("work_phones"), // 工作电话
+    OTHERPHONES("other_phones"), // 其他电话
+    FAXES("faxes"), // 传真
+    ;
+    private String value;
+
     RecognizedEntityEntityTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.compensation.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.compensation.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,48 +20,93 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ChangeReason {
-     /**
-      * 调薪原因ID
-      * <p> 示例值：7196951947268589113
-      */
+    /**
+     * 调薪原因ID
+     * <p> 示例值：7196951947268589113
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 调薪原因名称
-      * <p> 示例值：入职调薪
-      */
+    /**
+     * 调薪原因名称
+     * <p> 示例值：入职调薪
+     */
     @SerializedName("name")
     private String name;
-     /**
-      * 调薪原因备注
-      * <p> 示例值：入职时使用的调薪原因
-      */
+    /**
+     * 调薪原因备注
+     * <p> 示例值：入职时使用的调薪原因
+     */
     @SerializedName("note")
     private String note;
-     /**
-      * 启用状态
-      * <p> 示例值：1
-      */
+    /**
+     * 启用状态
+     * <p> 示例值：1
+     */
     @SerializedName("active_status")
     private Integer activeStatus;
-     /**
-      * 多语言名称
-      * <p> 示例值：
-      */
+    /**
+     * 多语言名称
+     * <p> 示例值：
+     */
     @SerializedName("i18n_names")
     private I18nContent[] i18nNames;
-     /**
-      * 多语言描述
-      * <p> 示例值：
-      */
+    /**
+     * 多语言描述
+     * <p> 示例值：
+     */
     @SerializedName("i18n_notes")
     private I18nContent[] i18nNotes;
+
+    // builder 开始
+    public ChangeReason() {
+    }
+
+    public ChangeReason(Builder builder) {
+        /**
+         * 调薪原因ID
+         * <p> 示例值：7196951947268589113
+         */
+        this.id = builder.id;
+        /**
+         * 调薪原因名称
+         * <p> 示例值：入职调薪
+         */
+        this.name = builder.name;
+        /**
+         * 调薪原因备注
+         * <p> 示例值：入职时使用的调薪原因
+         */
+        this.note = builder.note;
+        /**
+         * 启用状态
+         * <p> 示例值：1
+         */
+        this.activeStatus = builder.activeStatus;
+        /**
+         * 多语言名称
+         * <p> 示例值：
+         */
+        this.i18nNames = builder.i18nNames;
+        /**
+         * 多语言描述
+         * <p> 示例值：
+         */
+        this.i18nNotes = builder.i18nNotes;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -109,169 +155,130 @@ public class ChangeReason {
         this.i18nNotes = i18nNotes;
     }
 
-
-// builder 开始
-  public ChangeReason(){}
-
-  public ChangeReason(Builder builder){
-         /**
-          * 调薪原因ID
-          * <p> 示例值：7196951947268589113
-          */
-      this.id = builder.id;
-         /**
-          * 调薪原因名称
-          * <p> 示例值：入职调薪
-          */
-      this.name = builder.name;
-         /**
-          * 调薪原因备注
-          * <p> 示例值：入职时使用的调薪原因
-          */
-      this.note = builder.note;
-         /**
-          * 启用状态
-          * <p> 示例值：1
-          */
-      this.activeStatus = builder.activeStatus;
-         /**
-          * 多语言名称
-          * <p> 示例值：
-          */
-      this.i18nNames = builder.i18nNames;
-         /**
-          * 多语言描述
-          * <p> 示例值：
-          */
-      this.i18nNotes = builder.i18nNotes;
-  }
-
     public static class Builder {
-     /**
-      * 调薪原因ID
-      * <p> 示例值：7196951947268589113
-      */
+        /**
+         * 调薪原因ID
+         * <p> 示例值：7196951947268589113
+         */
         private String id;
-     /**
-      * 调薪原因名称
-      * <p> 示例值：入职调薪
-      */
+        /**
+         * 调薪原因名称
+         * <p> 示例值：入职调薪
+         */
         private String name;
-     /**
-      * 调薪原因备注
-      * <p> 示例值：入职时使用的调薪原因
-      */
+        /**
+         * 调薪原因备注
+         * <p> 示例值：入职时使用的调薪原因
+         */
         private String note;
-     /**
-      * 启用状态
-      * <p> 示例值：1
-      */
+        /**
+         * 启用状态
+         * <p> 示例值：1
+         */
         private Integer activeStatus;
-     /**
-      * 多语言名称
-      * <p> 示例值：
-      */
+        /**
+         * 多语言名称
+         * <p> 示例值：
+         */
         private I18nContent[] i18nNames;
-     /**
-      * 多语言描述
-      * <p> 示例值：
-      */
+        /**
+         * 多语言描述
+         * <p> 示例值：
+         */
         private I18nContent[] i18nNotes;
 
         /**
          * 调薪原因ID
          * <p> 示例值：7196951947268589113
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 调薪原因名称
          * <p> 示例值：入职调薪
+         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 调薪原因备注
          * <p> 示例值：入职时使用的调薪原因
+         *
          * @param note
          * @return
          */
         public Builder note(String note) {
-             this.note = note;
-             return this;
+            this.note = note;
+            return this;
         }
 
-    
 
         /**
          * 启用状态
          * <p> 示例值：1
+         *
          * @param activeStatus
          * @return
          */
         public Builder activeStatus(Integer activeStatus) {
-             this.activeStatus = activeStatus;
-             return this;
+            this.activeStatus = activeStatus;
+            return this;
         }
+
         /**
          * 启用状态
          * <p> 示例值：1
+         *
          * @param activeStatus {@link com.lark.oapi.service.compensation.v1.enums.ChangeReasonActiveStatusEnum}
          * @return
          */
         public Builder activeStatus(com.lark.oapi.service.compensation.v1.enums.ChangeReasonActiveStatusEnum activeStatus) {
-             this.activeStatus = activeStatus.getValue();
-             return this;
+            this.activeStatus = activeStatus.getValue();
+            return this;
         }
 
-    
 
         /**
          * 多语言名称
          * <p> 示例值：
+         *
          * @param i18nNames
          * @return
          */
         public Builder i18nNames(I18nContent[] i18nNames) {
-             this.i18nNames = i18nNames;
-             return this;
+            this.i18nNames = i18nNames;
+            return this;
         }
 
-    
 
         /**
          * 多语言描述
          * <p> 示例值：
+         *
          * @param i18nNotes
          * @return
          */
         public Builder i18nNotes(I18nContent[] i18nNotes) {
-             this.i18nNotes = i18nNotes;
-             return this;
+            this.i18nNotes = i18nNotes;
+            return this;
         }
 
-    
-    
-    public ChangeReason build(){
-        return new ChangeReason(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ChangeReason build() {
+            return new ChangeReason(this);
+        }
     }
 }

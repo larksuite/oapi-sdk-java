@@ -17,16 +17,17 @@ package com.lark.oapi.service.corehr.v2.enums;
  * 启用状态
  */
 public enum BpmFlowInfoStatusEnum {
-     CLOSED(0), // 已停用
-     OPEN(1), // 已启用
-     WAITOPEN(2), // 待启用
-  ;
-   private Integer value;
+    CLOSED(0), // 已停用
+    OPEN(1), // 已启用
+    WAITOPEN(2), // 待启用
+    ;
+    private Integer value;
+
     BpmFlowInfoStatusEnum(Integer value) {
-      this.value = value;
+        this.value = value;
     }
 
     public Integer getValue() {
-      return this.value;
+        return this.value;
     }
 }

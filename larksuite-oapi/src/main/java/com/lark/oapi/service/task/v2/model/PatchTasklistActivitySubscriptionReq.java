@@ -51,7 +51,6 @@ public class PatchTasklistActivitySubscriptionReq {
     private String activitySubscriptionGuid;
     @Body
     private PatchTasklistActivitySubscriptionReqBody body;
-
     // builder 开始
     public PatchTasklistActivitySubscriptionReq() {
     }

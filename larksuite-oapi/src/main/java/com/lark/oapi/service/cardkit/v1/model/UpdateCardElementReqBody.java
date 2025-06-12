@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.cardkit.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.cardkit.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class UpdateCardElementReqBody {
-     /**
-      * 幂等 id，可通过传入唯一的 uuid 以保证相同批次的操作只进行一次。
-      * <p> 示例值：191857678434
-      */
+    /**
+     * 幂等 id，可通过传入唯一的 uuid 以保证相同批次的操作只进行一次。
+     * <p> 示例值：191857678434
+     */
     @SerializedName("uuid")
     private String uuid;
-     /**
-      * 新的组件
-      * <p> 示例值：{\"tag\":\"markdown\",\"id\":\"md_1\",\"content\":\"普通文本\"}
-      */
+    /**
+     * 新的组件
+     * <p> 示例值：{\"tag\":\"markdown\",\"id\":\"md_1\",\"content\":\"普通文本\"}
+     */
     @SerializedName("element")
     private String element;
-     /**
-      * 卡片处于流式更新模式时，进行卡片操作的顺序序号，用于保证多次更新的时序性。值为正整数，一次流式状态的多次更新操作（streaming_mode 一次从 true 到 false 期间）需要保证 sequence 递增，否则将报错。推荐使用时间戳。
-      * <p> 示例值：1712578784
-      */
+    /**
+     * 卡片处于流式更新模式时，进行卡片操作的顺序序号，用于保证多次更新的时序性。值为正整数，一次流式状态的多次更新操作（streaming_mode 一次从 true 到 false 期间）需要保证 sequence 递增，否则将报错。推荐使用时间戳。
+     * <p> 示例值：1712578784
+     */
     @SerializedName("sequence")
     private Integer sequence;
+
+    // builder 开始
+    public UpdateCardElementReqBody() {
+    }
+
+    public UpdateCardElementReqBody(Builder builder) {
+        /**
+         * 幂等 id，可通过传入唯一的 uuid 以保证相同批次的操作只进行一次。
+         * <p> 示例值：191857678434
+         */
+        this.uuid = builder.uuid;
+        /**
+         * 新的组件
+         * <p> 示例值：{\"tag\":\"markdown\",\"id\":\"md_1\",\"content\":\"普通文本\"}
+         */
+        this.element = builder.element;
+        /**
+         * 卡片处于流式更新模式时，进行卡片操作的顺序序号，用于保证多次更新的时序性。值为正整数，一次流式状态的多次更新操作（streaming_mode 一次从 true 到 false 期间）需要保证 sequence 递增，否则将报错。推荐使用时间戳。
+         * <p> 示例值：1712578784
+         */
+        this.sequence = builder.sequence;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getUuid() {
         return this.uuid;
     }
@@ -67,90 +98,64 @@ public class UpdateCardElementReqBody {
         this.sequence = sequence;
     }
 
-
-// builder 开始
-  public UpdateCardElementReqBody(){}
-
-  public UpdateCardElementReqBody(Builder builder){
-         /**
-          * 幂等 id，可通过传入唯一的 uuid 以保证相同批次的操作只进行一次。
-          * <p> 示例值：191857678434
-          */
-      this.uuid = builder.uuid;
-         /**
-          * 新的组件
-          * <p> 示例值：{\"tag\":\"markdown\",\"id\":\"md_1\",\"content\":\"普通文本\"}
-          */
-      this.element = builder.element;
-         /**
-          * 卡片处于流式更新模式时，进行卡片操作的顺序序号，用于保证多次更新的时序性。值为正整数，一次流式状态的多次更新操作（streaming_mode 一次从 true 到 false 期间）需要保证 sequence 递增，否则将报错。推荐使用时间戳。
-          * <p> 示例值：1712578784
-          */
-      this.sequence = builder.sequence;
-  }
-
     public static class Builder {
-     /**
-      * 幂等 id，可通过传入唯一的 uuid 以保证相同批次的操作只进行一次。
-      * <p> 示例值：191857678434
-      */
+        /**
+         * 幂等 id，可通过传入唯一的 uuid 以保证相同批次的操作只进行一次。
+         * <p> 示例值：191857678434
+         */
         private String uuid;
-     /**
-      * 新的组件
-      * <p> 示例值：{\"tag\":\"markdown\",\"id\":\"md_1\",\"content\":\"普通文本\"}
-      */
+        /**
+         * 新的组件
+         * <p> 示例值：{\"tag\":\"markdown\",\"id\":\"md_1\",\"content\":\"普通文本\"}
+         */
         private String element;
-     /**
-      * 卡片处于流式更新模式时，进行卡片操作的顺序序号，用于保证多次更新的时序性。值为正整数，一次流式状态的多次更新操作（streaming_mode 一次从 true 到 false 期间）需要保证 sequence 递增，否则将报错。推荐使用时间戳。
-      * <p> 示例值：1712578784
-      */
+        /**
+         * 卡片处于流式更新模式时，进行卡片操作的顺序序号，用于保证多次更新的时序性。值为正整数，一次流式状态的多次更新操作（streaming_mode 一次从 true 到 false 期间）需要保证 sequence 递增，否则将报错。推荐使用时间戳。
+         * <p> 示例值：1712578784
+         */
         private Integer sequence;
 
         /**
          * 幂等 id，可通过传入唯一的 uuid 以保证相同批次的操作只进行一次。
          * <p> 示例值：191857678434
+         *
          * @param uuid
          * @return
          */
         public Builder uuid(String uuid) {
-             this.uuid = uuid;
-             return this;
+            this.uuid = uuid;
+            return this;
         }
 
-    
 
         /**
          * 新的组件
          * <p> 示例值：{\"tag\":\"markdown\",\"id\":\"md_1\",\"content\":\"普通文本\"}
+         *
          * @param element
          * @return
          */
         public Builder element(String element) {
-             this.element = element;
-             return this;
+            this.element = element;
+            return this;
         }
 
-    
 
         /**
          * 卡片处于流式更新模式时，进行卡片操作的顺序序号，用于保证多次更新的时序性。值为正整数，一次流式状态的多次更新操作（streaming_mode 一次从 true 到 false 期间）需要保证 sequence 递增，否则将报错。推荐使用时间戳。
          * <p> 示例值：1712578784
+         *
          * @param sequence
          * @return
          */
         public Builder sequence(Integer sequence) {
-             this.sequence = sequence;
-             return this;
+            this.sequence = sequence;
+            return this;
         }
 
-    
-    
-    public UpdateCardElementReqBody build(){
-        return new UpdateCardElementReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public UpdateCardElementReqBody build() {
+            return new UpdateCardElementReqBody(this);
+        }
     }
 }

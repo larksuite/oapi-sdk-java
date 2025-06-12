@@ -17,15 +17,16 @@ package com.lark.oapi.service.corehr.v1.enums;
  * 排序顺序
  */
 public enum SortOptionSortOrderEnum {
-     ASC(0), // 升序
-     DESC(1), // 降序
-  ;
-   private Integer value;
+    ASC(0), // 升序
+    DESC(1), // 降序
+    ;
+    private Integer value;
+
     SortOptionSortOrderEnum(Integer value) {
-      this.value = value;
+        this.value = value;
     }
 
     public Integer getValue() {
-      return this.value;
+        return this.value;
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ExteranlInstanceCheck {
-     /**
-      * 审批实例 id
-      * <p> 示例值：1234234234242423
-      */
+    /**
+     * 审批实例 id
+     * <p> 示例值：1234234234242423
+     */
     @SerializedName("instance_id")
     private String instanceId;
-     /**
-      * 审批实例最近更新时间
-      * <p> 示例值：1591603040000
-      */
+    /**
+     * 审批实例最近更新时间
+     * <p> 示例值：1591603040000
+     */
     @SerializedName("update_time")
     private String updateTime;
-     /**
-      * 任务信息
-      * <p> 示例值：
-      */
+    /**
+     * 任务信息
+     * <p> 示例值：
+     */
     @SerializedName("tasks")
     private ExternalInstanceTask[] tasks;
+
+    // builder 开始
+    public ExteranlInstanceCheck() {
+    }
+
+    public ExteranlInstanceCheck(Builder builder) {
+        /**
+         * 审批实例 id
+         * <p> 示例值：1234234234242423
+         */
+        this.instanceId = builder.instanceId;
+        /**
+         * 审批实例最近更新时间
+         * <p> 示例值：1591603040000
+         */
+        this.updateTime = builder.updateTime;
+        /**
+         * 任务信息
+         * <p> 示例值：
+         */
+        this.tasks = builder.tasks;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getInstanceId() {
         return this.instanceId;
     }
@@ -67,90 +98,64 @@ public class ExteranlInstanceCheck {
         this.tasks = tasks;
     }
 
-
-// builder 开始
-  public ExteranlInstanceCheck(){}
-
-  public ExteranlInstanceCheck(Builder builder){
-         /**
-          * 审批实例 id
-          * <p> 示例值：1234234234242423
-          */
-      this.instanceId = builder.instanceId;
-         /**
-          * 审批实例最近更新时间
-          * <p> 示例值：1591603040000
-          */
-      this.updateTime = builder.updateTime;
-         /**
-          * 任务信息
-          * <p> 示例值：
-          */
-      this.tasks = builder.tasks;
-  }
-
     public static class Builder {
-     /**
-      * 审批实例 id
-      * <p> 示例值：1234234234242423
-      */
+        /**
+         * 审批实例 id
+         * <p> 示例值：1234234234242423
+         */
         private String instanceId;
-     /**
-      * 审批实例最近更新时间
-      * <p> 示例值：1591603040000
-      */
+        /**
+         * 审批实例最近更新时间
+         * <p> 示例值：1591603040000
+         */
         private String updateTime;
-     /**
-      * 任务信息
-      * <p> 示例值：
-      */
+        /**
+         * 任务信息
+         * <p> 示例值：
+         */
         private ExternalInstanceTask[] tasks;
 
         /**
          * 审批实例 id
          * <p> 示例值：1234234234242423
+         *
          * @param instanceId
          * @return
          */
         public Builder instanceId(String instanceId) {
-             this.instanceId = instanceId;
-             return this;
+            this.instanceId = instanceId;
+            return this;
         }
 
-    
 
         /**
          * 审批实例最近更新时间
          * <p> 示例值：1591603040000
+         *
          * @param updateTime
          * @return
          */
         public Builder updateTime(String updateTime) {
-             this.updateTime = updateTime;
-             return this;
+            this.updateTime = updateTime;
+            return this;
         }
 
-    
 
         /**
          * 任务信息
          * <p> 示例值：
+         *
          * @param tasks
          * @return
          */
         public Builder tasks(ExternalInstanceTask[] tasks) {
-             this.tasks = tasks;
-             return this;
+            this.tasks = tasks;
+            return this;
         }
 
-    
-    
-    public ExteranlInstanceCheck build(){
-        return new ExteranlInstanceCheck(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ExteranlInstanceCheck build() {
+            return new ExteranlInstanceCheck(this);
+        }
     }
 }

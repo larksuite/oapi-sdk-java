@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.mail.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class UserInfo {
-     /**
-      * 个人邮箱还是公共邮箱
-      * <p> 示例值：user 或 public_mailbox
-      */
+    /**
+     * 个人邮箱还是公共邮箱
+     * <p> 示例值：user 或 public_mailbox
+     */
     @SerializedName("type")
     private String type;
-     /**
-      * 卡片owner的ID，卡片owner为个人邮箱时非空
-      * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad115d62
-      */
+    /**
+     * 卡片owner的ID，卡片owner为个人邮箱时非空
+     * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad115d62
+     */
     @SerializedName("owner_user_id")
     private String ownerUserId;
-     /**
-      * 公共邮箱唯一标识
-      * <p> 示例值：xxxxxxxxxx
-      */
+    /**
+     * 公共邮箱唯一标识
+     * <p> 示例值：xxxxxxxxxx
+     */
     @SerializedName("public_mailbox_id")
     private String publicMailboxId;
+
+    // builder 开始
+    public UserInfo() {
+    }
+
+    public UserInfo(Builder builder) {
+        /**
+         * 个人邮箱还是公共邮箱
+         * <p> 示例值：user 或 public_mailbox
+         */
+        this.type = builder.type;
+        /**
+         * 卡片owner的ID，卡片owner为个人邮箱时非空
+         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad115d62
+         */
+        this.ownerUserId = builder.ownerUserId;
+        /**
+         * 公共邮箱唯一标识
+         * <p> 示例值：xxxxxxxxxx
+         */
+        this.publicMailboxId = builder.publicMailboxId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getType() {
         return this.type;
     }
@@ -67,90 +98,64 @@ public class UserInfo {
         this.publicMailboxId = publicMailboxId;
     }
 
-
-// builder 开始
-  public UserInfo(){}
-
-  public UserInfo(Builder builder){
-         /**
-          * 个人邮箱还是公共邮箱
-          * <p> 示例值：user 或 public_mailbox
-          */
-      this.type = builder.type;
-         /**
-          * 卡片owner的ID，卡片owner为个人邮箱时非空
-          * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad115d62
-          */
-      this.ownerUserId = builder.ownerUserId;
-         /**
-          * 公共邮箱唯一标识
-          * <p> 示例值：xxxxxxxxxx
-          */
-      this.publicMailboxId = builder.publicMailboxId;
-  }
-
     public static class Builder {
-     /**
-      * 个人邮箱还是公共邮箱
-      * <p> 示例值：user 或 public_mailbox
-      */
+        /**
+         * 个人邮箱还是公共邮箱
+         * <p> 示例值：user 或 public_mailbox
+         */
         private String type;
-     /**
-      * 卡片owner的ID，卡片owner为个人邮箱时非空
-      * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad115d62
-      */
+        /**
+         * 卡片owner的ID，卡片owner为个人邮箱时非空
+         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad115d62
+         */
         private String ownerUserId;
-     /**
-      * 公共邮箱唯一标识
-      * <p> 示例值：xxxxxxxxxx
-      */
+        /**
+         * 公共邮箱唯一标识
+         * <p> 示例值：xxxxxxxxxx
+         */
         private String publicMailboxId;
 
         /**
          * 个人邮箱还是公共邮箱
          * <p> 示例值：user 或 public_mailbox
+         *
          * @param type
          * @return
          */
         public Builder type(String type) {
-             this.type = type;
-             return this;
+            this.type = type;
+            return this;
         }
 
-    
 
         /**
          * 卡片owner的ID，卡片owner为个人邮箱时非空
          * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad115d62
+         *
          * @param ownerUserId
          * @return
          */
         public Builder ownerUserId(String ownerUserId) {
-             this.ownerUserId = ownerUserId;
-             return this;
+            this.ownerUserId = ownerUserId;
+            return this;
         }
 
-    
 
         /**
          * 公共邮箱唯一标识
          * <p> 示例值：xxxxxxxxxx
+         *
          * @param publicMailboxId
          * @return
          */
         public Builder publicMailboxId(String publicMailboxId) {
-             this.publicMailboxId = publicMailboxId;
-             return this;
+            this.publicMailboxId = publicMailboxId;
+            return this;
         }
 
-    
-    
-    public UserInfo build(){
-        return new UserInfo(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public UserInfo build() {
+            return new UserInfo(this);
+        }
     }
 }

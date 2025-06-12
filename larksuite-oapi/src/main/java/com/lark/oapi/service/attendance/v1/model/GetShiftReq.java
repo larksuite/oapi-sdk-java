@@ -12,25 +12,46 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class GetShiftReq {
-     /**
-      * 班次 ID，获取方式：1）[按名称查询班次](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/query) 2）[创建班次](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/create)
-      * <p> 示例值：6919358778597097404
-      */
+    /**
+     * 班次 ID，获取方式：1）[按名称查询班次](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/query) 2）[创建班次](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/create)
+     * <p> 示例值：6919358778597097404
+     */
     @Path
     @SerializedName("shift_id")
     private String shiftId;
+
+    // builder 开始
+    public GetShiftReq() {
+    }
+
+    public GetShiftReq(Builder builder) {
+        /**
+         * 班次 ID，获取方式：1）[按名称查询班次](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/query) 2）[创建班次](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/create)
+         * <p> 示例值：6919358778597097404
+         */
+        this.shiftId = builder.shiftId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getShiftId() {
         return this.shiftId;
     }
@@ -39,39 +60,25 @@ public class GetShiftReq {
         this.shiftId = shiftId;
     }
 
-
-// builder 开始
-  public GetShiftReq(){}
-
-  public GetShiftReq(Builder builder){
-     /**
-      * 班次 ID，获取方式：1）[按名称查询班次](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/query) 2）[创建班次](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/create)
-      * <p> 示例值：6919358778597097404
-      */
-       this.shiftId = builder.shiftId;
-  }
-
     public static class Builder {
-    
+
         private String shiftId; // 班次 ID，获取方式：1）[按名称查询班次](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/query) 2）[创建班次](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/create)
+
         /**
          * 班次 ID，获取方式：1）[按名称查询班次](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/query) 2）[创建班次](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/create)
          * <p> 示例值：6919358778597097404
+         *
          * @param shiftId
          * @return
          */
-          public Builder shiftId(String shiftId) {
-               this.shiftId = shiftId;
-               return this;
-          }
+        public Builder shiftId(String shiftId) {
+            this.shiftId = shiftId;
+            return this;
+        }
 
-    
-    public GetShiftReq build(){
-        return new GetShiftReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public GetShiftReq build() {
+            return new GetShiftReq(this);
+        }
     }
 }

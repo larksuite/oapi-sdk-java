@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,84 +20,159 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ComponentLibVersion {
-     /**
-      * -
-      * <p> 示例值：-
-      */
+    /**
+     * -
+     * <p> 示例值：-
+     */
     @SerializedName("version_number")
     private String versionNumber;
-     /**
-      * -
-      * <p> 示例值：
-      */
+    /**
+     * -
+     * <p> 示例值：
+     */
     @SerializedName("directions")
     private I18n[] directions;
-     /**
-      * -
-      * <p> 示例值：1
-      */
+    /**
+     * -
+     * <p> 示例值：1
+     */
     @SerializedName("status")
     private Integer status;
-     /**
-      * -
-      * <p> 示例值：false
-      */
+    /**
+     * -
+     * <p> 示例值：false
+     */
     @SerializedName("is_latest")
     private Boolean isLatest;
-     /**
-      * -
-      * <p> 示例值：-
-      */
+    /**
+     * -
+     * <p> 示例值：-
+     */
     @SerializedName("settings")
     private String settings;
-     /**
-      * -
-      * <p> 示例值：-
-      */
+    /**
+     * -
+     * <p> 示例值：-
+     */
     @SerializedName("isv_link")
     private String isvLink;
-     /**
-      * -
-      * <p> 示例值：false
-      */
+    /**
+     * -
+     * <p> 示例值：false
+     */
     @SerializedName("is_isv_market_version")
     private Boolean isIsvMarketVersion;
-     /**
-      * -
-      * <p> 示例值：-
-      */
+    /**
+     * -
+     * <p> 示例值：-
+     */
     @SerializedName("link")
     private String link;
-     /**
-      * -
-      * <p> 示例值：false
-      */
+    /**
+     * -
+     * <p> 示例值：false
+     */
     @SerializedName("is_market_version")
     private Boolean isMarketVersion;
-     /**
-      * -
-      * <p> 示例值：-
-      */
+    /**
+     * -
+     * <p> 示例值：-
+     */
     @SerializedName("created_at")
     private String createdAt;
-     /**
-      * -
-      * <p> 示例值：
-      */
+    /**
+     * -
+     * <p> 示例值：
+     */
     @SerializedName("created_by")
     private LookupWithAvatar createdBy;
-     /**
-      * -
-      * <p> 示例值：-
-      */
+    /**
+     * -
+     * <p> 示例值：-
+     */
     @SerializedName("applied_at")
     private String appliedAt;
+
+    // builder 开始
+    public ComponentLibVersion() {
+    }
+
+    public ComponentLibVersion(Builder builder) {
+        /**
+         * -
+         * <p> 示例值：-
+         */
+        this.versionNumber = builder.versionNumber;
+        /**
+         * -
+         * <p> 示例值：
+         */
+        this.directions = builder.directions;
+        /**
+         * -
+         * <p> 示例值：1
+         */
+        this.status = builder.status;
+        /**
+         * -
+         * <p> 示例值：false
+         */
+        this.isLatest = builder.isLatest;
+        /**
+         * -
+         * <p> 示例值：-
+         */
+        this.settings = builder.settings;
+        /**
+         * -
+         * <p> 示例值：-
+         */
+        this.isvLink = builder.isvLink;
+        /**
+         * -
+         * <p> 示例值：false
+         */
+        this.isIsvMarketVersion = builder.isIsvMarketVersion;
+        /**
+         * -
+         * <p> 示例值：-
+         */
+        this.link = builder.link;
+        /**
+         * -
+         * <p> 示例值：false
+         */
+        this.isMarketVersion = builder.isMarketVersion;
+        /**
+         * -
+         * <p> 示例值：-
+         */
+        this.createdAt = builder.createdAt;
+        /**
+         * -
+         * <p> 示例值：
+         */
+        this.createdBy = builder.createdBy;
+        /**
+         * -
+         * <p> 示例值：-
+         */
+        this.appliedAt = builder.appliedAt;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getVersionNumber() {
         return this.versionNumber;
     }
@@ -193,297 +269,226 @@ public class ComponentLibVersion {
         this.appliedAt = appliedAt;
     }
 
-
-// builder 开始
-  public ComponentLibVersion(){}
-
-  public ComponentLibVersion(Builder builder){
-         /**
-          * -
-          * <p> 示例值：-
-          */
-      this.versionNumber = builder.versionNumber;
-         /**
-          * -
-          * <p> 示例值：
-          */
-      this.directions = builder.directions;
-         /**
-          * -
-          * <p> 示例值：1
-          */
-      this.status = builder.status;
-         /**
-          * -
-          * <p> 示例值：false
-          */
-      this.isLatest = builder.isLatest;
-         /**
-          * -
-          * <p> 示例值：-
-          */
-      this.settings = builder.settings;
-         /**
-          * -
-          * <p> 示例值：-
-          */
-      this.isvLink = builder.isvLink;
-         /**
-          * -
-          * <p> 示例值：false
-          */
-      this.isIsvMarketVersion = builder.isIsvMarketVersion;
-         /**
-          * -
-          * <p> 示例值：-
-          */
-      this.link = builder.link;
-         /**
-          * -
-          * <p> 示例值：false
-          */
-      this.isMarketVersion = builder.isMarketVersion;
-         /**
-          * -
-          * <p> 示例值：-
-          */
-      this.createdAt = builder.createdAt;
-         /**
-          * -
-          * <p> 示例值：
-          */
-      this.createdBy = builder.createdBy;
-         /**
-          * -
-          * <p> 示例值：-
-          */
-      this.appliedAt = builder.appliedAt;
-  }
-
     public static class Builder {
-     /**
-      * -
-      * <p> 示例值：-
-      */
+        /**
+         * -
+         * <p> 示例值：-
+         */
         private String versionNumber;
-     /**
-      * -
-      * <p> 示例值：
-      */
+        /**
+         * -
+         * <p> 示例值：
+         */
         private I18n[] directions;
-     /**
-      * -
-      * <p> 示例值：1
-      */
+        /**
+         * -
+         * <p> 示例值：1
+         */
         private Integer status;
-     /**
-      * -
-      * <p> 示例值：false
-      */
+        /**
+         * -
+         * <p> 示例值：false
+         */
         private Boolean isLatest;
-     /**
-      * -
-      * <p> 示例值：-
-      */
+        /**
+         * -
+         * <p> 示例值：-
+         */
         private String settings;
-     /**
-      * -
-      * <p> 示例值：-
-      */
+        /**
+         * -
+         * <p> 示例值：-
+         */
         private String isvLink;
-     /**
-      * -
-      * <p> 示例值：false
-      */
+        /**
+         * -
+         * <p> 示例值：false
+         */
         private Boolean isIsvMarketVersion;
-     /**
-      * -
-      * <p> 示例值：-
-      */
+        /**
+         * -
+         * <p> 示例值：-
+         */
         private String link;
-     /**
-      * -
-      * <p> 示例值：false
-      */
+        /**
+         * -
+         * <p> 示例值：false
+         */
         private Boolean isMarketVersion;
-     /**
-      * -
-      * <p> 示例值：-
-      */
+        /**
+         * -
+         * <p> 示例值：-
+         */
         private String createdAt;
-     /**
-      * -
-      * <p> 示例值：
-      */
+        /**
+         * -
+         * <p> 示例值：
+         */
         private LookupWithAvatar createdBy;
-     /**
-      * -
-      * <p> 示例值：-
-      */
+        /**
+         * -
+         * <p> 示例值：-
+         */
         private String appliedAt;
 
         /**
          * -
          * <p> 示例值：-
+         *
          * @param versionNumber
          * @return
          */
         public Builder versionNumber(String versionNumber) {
-             this.versionNumber = versionNumber;
-             return this;
+            this.versionNumber = versionNumber;
+            return this;
         }
 
-    
 
         /**
          * -
          * <p> 示例值：
+         *
          * @param directions
          * @return
          */
         public Builder directions(I18n[] directions) {
-             this.directions = directions;
-             return this;
+            this.directions = directions;
+            return this;
         }
 
-    
 
         /**
          * -
          * <p> 示例值：1
+         *
          * @param status
          * @return
          */
         public Builder status(Integer status) {
-             this.status = status;
-             return this;
+            this.status = status;
+            return this;
         }
 
-    
 
         /**
          * -
          * <p> 示例值：false
+         *
          * @param isLatest
          * @return
          */
         public Builder isLatest(Boolean isLatest) {
-             this.isLatest = isLatest;
-             return this;
+            this.isLatest = isLatest;
+            return this;
         }
 
-    
 
         /**
          * -
          * <p> 示例值：-
+         *
          * @param settings
          * @return
          */
         public Builder settings(String settings) {
-             this.settings = settings;
-             return this;
+            this.settings = settings;
+            return this;
         }
 
-    
 
         /**
          * -
          * <p> 示例值：-
+         *
          * @param isvLink
          * @return
          */
         public Builder isvLink(String isvLink) {
-             this.isvLink = isvLink;
-             return this;
+            this.isvLink = isvLink;
+            return this;
         }
 
-    
 
         /**
          * -
          * <p> 示例值：false
+         *
          * @param isIsvMarketVersion
          * @return
          */
         public Builder isIsvMarketVersion(Boolean isIsvMarketVersion) {
-             this.isIsvMarketVersion = isIsvMarketVersion;
-             return this;
+            this.isIsvMarketVersion = isIsvMarketVersion;
+            return this;
         }
 
-    
 
         /**
          * -
          * <p> 示例值：-
+         *
          * @param link
          * @return
          */
         public Builder link(String link) {
-             this.link = link;
-             return this;
+            this.link = link;
+            return this;
         }
 
-    
 
         /**
          * -
          * <p> 示例值：false
+         *
          * @param isMarketVersion
          * @return
          */
         public Builder isMarketVersion(Boolean isMarketVersion) {
-             this.isMarketVersion = isMarketVersion;
-             return this;
+            this.isMarketVersion = isMarketVersion;
+            return this;
         }
 
-    
 
         /**
          * -
          * <p> 示例值：-
+         *
          * @param createdAt
          * @return
          */
         public Builder createdAt(String createdAt) {
-             this.createdAt = createdAt;
-             return this;
+            this.createdAt = createdAt;
+            return this;
         }
 
-    
 
         /**
          * -
          * <p> 示例值：
+         *
          * @param createdBy
          * @return
          */
         public Builder createdBy(LookupWithAvatar createdBy) {
-             this.createdBy = createdBy;
-             return this;
+            this.createdBy = createdBy;
+            return this;
         }
 
-    
 
         /**
          * -
          * <p> 示例值：-
+         *
          * @param appliedAt
          * @return
          */
         public Builder appliedAt(String appliedAt) {
-             this.appliedAt = appliedAt;
-             return this;
+            this.appliedAt = appliedAt;
+            return this;
         }
 
-    
-    
-    public ComponentLibVersion build(){
-        return new ComponentLibVersion(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ComponentLibVersion build() {
+            return new ComponentLibVersion(this);
+        }
     }
 }

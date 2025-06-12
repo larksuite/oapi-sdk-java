@@ -17,19 +17,20 @@ package com.lark.oapi.service.aily.v1.enums;
  * 数据连接状态
  */
 public enum DataAssetConnectStatusEnum {
-     AWAITING("awaiting"), // 等待连接
-     SYNCING("syncing"), // 连接中
-     SUCCESSFUL("successful"), // 连接成功
-     CONTINUOUSLY_SYNCING("continuously_syncing"), // 增量同步中
-     PARTIALLY_SUCCESSFUL("partially_successful"), // 部分成功
-     FAILED("failed"), // 连接失败
-  ;
-   private String value;
+    AWAITING("awaiting"), // 等待连接
+    SYNCING("syncing"), // 连接中
+    SUCCESSFUL("successful"), // 连接成功
+    CONTINUOUSLY_SYNCING("continuously_syncing"), // 增量同步中
+    PARTIALLY_SUCCESSFUL("partially_successful"), // 部分成功
+    FAILED("failed"), // 连接失败
+    ;
+    private String value;
+
     DataAssetConnectStatusEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

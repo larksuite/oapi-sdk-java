@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,102 +20,203 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class PreHireOnboardingInfo {
-     /**
-      * Offer id , 可以通过招聘【获取 Offer 列表】接口获取
-      * <p> 示例值：7032210902531327521
-      */
+    /**
+     * Offer id , 可以通过招聘【获取 Offer 列表】接口获取
+     * <p> 示例值：7032210902531327521
+     */
     @SerializedName("offer_id")
     private String offerId;
-     /**
-      * Offer hr 的 雇佣 ID
-      * <p> 示例值：7032210902531327521
-      */
+    /**
+     * Offer hr 的 雇佣 ID
+     * <p> 示例值：7032210902531327521
+     */
     @SerializedName("offer_hr_id")
     private String offerHrId;
-     /**
-      * -| 入职方式，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - object_api_name = "pre_hire" - custom_api_name = "onboarding_method"
-      * <p> 示例值：onsite
-      */
+    /**
+     * Offer hr 的 雇佣 ID,ID可以根据user_id_type转换成对应ID
+     * <p> 示例值：7032210902531327521
+     */
+    @SerializedName("offer_hr_id_v2")
+    private String offerHrIdV2;
+    /**
+     * -| 入职方式，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - object_api_name = "pre_hire" - custom_api_name = "onboarding_method"
+     * <p> 示例值：onsite
+     */
     @SerializedName("entry_mode")
     private String entryMode;
-     /**
-      * 入职日期
-      * <p> 示例值：2022-10-08
-      */
+    /**
+     * 入职日期
+     * <p> 示例值：2022-10-08
+     */
     @SerializedName("onboarding_date")
     private String onboardingDate;
-     /**
-      * 招聘投递 ID ，详细信息可以通过招聘【获取投递信息】接口查询获得
-      * <p> 示例值：7140946969586010376
-      */
+    /**
+     * 招聘投递 ID ，详细信息可以通过招聘【获取投递信息】接口查询获得
+     * <p> 示例值：7140946969586010376
+     */
     @SerializedName("ats_application_id")
     private String atsApplicationId;
-     /**
-      * -| 招聘来源 ，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - object_api_name = "pre_hire" - custom_api_name = "recruitment_type"
-      * <p> 示例值：recent_graduates
-      */
+    /**
+     * -| 招聘来源 ，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - object_api_name = "pre_hire" - custom_api_name = "recruitment_type"
+     * <p> 示例值：recent_graduates
+     */
     @SerializedName("recruitment_type")
     private String recruitmentType;
-     /**
-      * -| 入职地点id , 详细信息可通过【批量查询地点】接口获得
-      * <p> 示例值：6977976687350924832
-      */
+    /**
+     * -| 入职地点id , 详细信息可通过【批量查询地点】接口获得
+     * <p> 示例值：6977976687350924832
+     */
     @SerializedName("onboarding_location_id")
     private String onboardingLocationId;
-     /**
-      * -| 需要公司办理签证
-      * <p> 示例值：true
-      */
+    /**
+     * -| 需要公司办理签证
+     * <p> 示例值：true
+     */
     @SerializedName("company_sponsored_visa")
     private Boolean companySponsoredVisa;
-     /**
-      * -| 入职状态
-      * <p> 示例值：
-      */
+    /**
+     * -| 入职状态
+     * <p> 示例值：
+     */
     @SerializedName("onboarding_status")
     private String onboardingStatus;
-     /**
-      * 入职任务列表
-      * <p> 示例值：
-      */
+    /**
+     * 入职任务列表
+     * <p> 示例值：
+     */
     @SerializedName("onboarding_task_list")
     private OnboardingTask[] onboardingTaskList;
-     /**
-      * 入职地址
-      * <p> 示例值：
-      */
+    /**
+     * 入职地址
+     * <p> 示例值：
+     */
     @SerializedName("onboarding_address")
     private Address onboardingAddress;
-     /**
-      * 入职流程
-      * <p> 示例值：
-      */
+    /**
+     * 入职流程
+     * <p> 示例值：
+     */
     @SerializedName("flow_name")
     private I18n[] flowName;
-     /**
-      * 入职流程 ID
-      * <p> 示例值：2342352325
-      */
+    /**
+     * 入职流程 ID
+     * <p> 示例值：2342352325
+     */
     @SerializedName("flow_id")
     private String flowId;
-     /**
-      * 签到时间
-      * <p> 示例值：2023-09-01 13:21:12
-      */
+    /**
+     * 签到时间
+     * <p> 示例值：2023-09-01 13:21:12
+     */
     @SerializedName("check_in_time")
     private String checkInTime;
-     /**
-      * -| 招聘来源 ，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - object_api_name = "pre_hire" - custom_api_name = "check_in_method"
-      * <p> 示例值：
-      */
+    /**
+     * -| 招聘来源 ，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - object_api_name = "pre_hire" - custom_api_name = "check_in_method"
+     * <p> 示例值：
+     */
     @SerializedName("check_in_method")
     private Enum checkInMethod;
+
+    // builder 开始
+    public PreHireOnboardingInfo() {
+    }
+
+    public PreHireOnboardingInfo(Builder builder) {
+        /**
+         * Offer id , 可以通过招聘【获取 Offer 列表】接口获取
+         * <p> 示例值：7032210902531327521
+         */
+        this.offerId = builder.offerId;
+        /**
+         * Offer hr 的 雇佣 ID
+         * <p> 示例值：7032210902531327521
+         */
+        this.offerHrId = builder.offerHrId;
+        /**
+         * Offer hr 的 雇佣 ID,ID可以根据user_id_type转换成对应ID
+         * <p> 示例值：7032210902531327521
+         */
+        this.offerHrIdV2 = builder.offerHrIdV2;
+        /**
+         * -| 入职方式，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - object_api_name = "pre_hire" - custom_api_name = "onboarding_method"
+         * <p> 示例值：onsite
+         */
+        this.entryMode = builder.entryMode;
+        /**
+         * 入职日期
+         * <p> 示例值：2022-10-08
+         */
+        this.onboardingDate = builder.onboardingDate;
+        /**
+         * 招聘投递 ID ，详细信息可以通过招聘【获取投递信息】接口查询获得
+         * <p> 示例值：7140946969586010376
+         */
+        this.atsApplicationId = builder.atsApplicationId;
+        /**
+         * -| 招聘来源 ，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - object_api_name = "pre_hire" - custom_api_name = "recruitment_type"
+         * <p> 示例值：recent_graduates
+         */
+        this.recruitmentType = builder.recruitmentType;
+        /**
+         * -| 入职地点id , 详细信息可通过【批量查询地点】接口获得
+         * <p> 示例值：6977976687350924832
+         */
+        this.onboardingLocationId = builder.onboardingLocationId;
+        /**
+         * -| 需要公司办理签证
+         * <p> 示例值：true
+         */
+        this.companySponsoredVisa = builder.companySponsoredVisa;
+        /**
+         * -| 入职状态
+         * <p> 示例值：
+         */
+        this.onboardingStatus = builder.onboardingStatus;
+        /**
+         * 入职任务列表
+         * <p> 示例值：
+         */
+        this.onboardingTaskList = builder.onboardingTaskList;
+        /**
+         * 入职地址
+         * <p> 示例值：
+         */
+        this.onboardingAddress = builder.onboardingAddress;
+        /**
+         * 入职流程
+         * <p> 示例值：
+         */
+        this.flowName = builder.flowName;
+        /**
+         * 入职流程 ID
+         * <p> 示例值：2342352325
+         */
+        this.flowId = builder.flowId;
+        /**
+         * 签到时间
+         * <p> 示例值：2023-09-01 13:21:12
+         */
+        this.checkInTime = builder.checkInTime;
+        /**
+         * -| 招聘来源 ，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - object_api_name = "pre_hire" - custom_api_name = "check_in_method"
+         * <p> 示例值：
+         */
+        this.checkInMethod = builder.checkInMethod;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getOfferId() {
         return this.offerId;
     }
@@ -129,6 +231,14 @@ public class PreHireOnboardingInfo {
 
     public void setOfferHrId(String offerHrId) {
         this.offerHrId = offerHrId;
+    }
+
+    public String getOfferHrIdV2() {
+        return this.offerHrIdV2;
+    }
+
+    public void setOfferHrIdV2(String offerHrIdV2) {
+        this.offerHrIdV2 = offerHrIdV2;
     }
 
     public String getEntryMode() {
@@ -235,366 +345,298 @@ public class PreHireOnboardingInfo {
         this.checkInMethod = checkInMethod;
     }
 
-
-// builder 开始
-  public PreHireOnboardingInfo(){}
-
-  public PreHireOnboardingInfo(Builder builder){
-         /**
-          * Offer id , 可以通过招聘【获取 Offer 列表】接口获取
-          * <p> 示例值：7032210902531327521
-          */
-      this.offerId = builder.offerId;
-         /**
-          * Offer hr 的 雇佣 ID
-          * <p> 示例值：7032210902531327521
-          */
-      this.offerHrId = builder.offerHrId;
-         /**
-          * -| 入职方式，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - object_api_name = "pre_hire" - custom_api_name = "onboarding_method"
-          * <p> 示例值：onsite
-          */
-      this.entryMode = builder.entryMode;
-         /**
-          * 入职日期
-          * <p> 示例值：2022-10-08
-          */
-      this.onboardingDate = builder.onboardingDate;
-         /**
-          * 招聘投递 ID ，详细信息可以通过招聘【获取投递信息】接口查询获得
-          * <p> 示例值：7140946969586010376
-          */
-      this.atsApplicationId = builder.atsApplicationId;
-         /**
-          * -| 招聘来源 ，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - object_api_name = "pre_hire" - custom_api_name = "recruitment_type"
-          * <p> 示例值：recent_graduates
-          */
-      this.recruitmentType = builder.recruitmentType;
-         /**
-          * -| 入职地点id , 详细信息可通过【批量查询地点】接口获得
-          * <p> 示例值：6977976687350924832
-          */
-      this.onboardingLocationId = builder.onboardingLocationId;
-         /**
-          * -| 需要公司办理签证
-          * <p> 示例值：true
-          */
-      this.companySponsoredVisa = builder.companySponsoredVisa;
-         /**
-          * -| 入职状态
-          * <p> 示例值：
-          */
-      this.onboardingStatus = builder.onboardingStatus;
-         /**
-          * 入职任务列表
-          * <p> 示例值：
-          */
-      this.onboardingTaskList = builder.onboardingTaskList;
-         /**
-          * 入职地址
-          * <p> 示例值：
-          */
-      this.onboardingAddress = builder.onboardingAddress;
-         /**
-          * 入职流程
-          * <p> 示例值：
-          */
-      this.flowName = builder.flowName;
-         /**
-          * 入职流程 ID
-          * <p> 示例值：2342352325
-          */
-      this.flowId = builder.flowId;
-         /**
-          * 签到时间
-          * <p> 示例值：2023-09-01 13:21:12
-          */
-      this.checkInTime = builder.checkInTime;
-         /**
-          * -| 招聘来源 ，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - object_api_name = "pre_hire" - custom_api_name = "check_in_method"
-          * <p> 示例值：
-          */
-      this.checkInMethod = builder.checkInMethod;
-  }
-
     public static class Builder {
-     /**
-      * Offer id , 可以通过招聘【获取 Offer 列表】接口获取
-      * <p> 示例值：7032210902531327521
-      */
+        /**
+         * Offer id , 可以通过招聘【获取 Offer 列表】接口获取
+         * <p> 示例值：7032210902531327521
+         */
         private String offerId;
-     /**
-      * Offer hr 的 雇佣 ID
-      * <p> 示例值：7032210902531327521
-      */
+        /**
+         * Offer hr 的 雇佣 ID
+         * <p> 示例值：7032210902531327521
+         */
         private String offerHrId;
-     /**
-      * -| 入职方式，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - object_api_name = "pre_hire" - custom_api_name = "onboarding_method"
-      * <p> 示例值：onsite
-      */
+        /**
+         * Offer hr 的 雇佣 ID,ID可以根据user_id_type转换成对应ID
+         * <p> 示例值：7032210902531327521
+         */
+        private String offerHrIdV2;
+        /**
+         * -| 入职方式，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - object_api_name = "pre_hire" - custom_api_name = "onboarding_method"
+         * <p> 示例值：onsite
+         */
         private String entryMode;
-     /**
-      * 入职日期
-      * <p> 示例值：2022-10-08
-      */
+        /**
+         * 入职日期
+         * <p> 示例值：2022-10-08
+         */
         private String onboardingDate;
-     /**
-      * 招聘投递 ID ，详细信息可以通过招聘【获取投递信息】接口查询获得
-      * <p> 示例值：7140946969586010376
-      */
+        /**
+         * 招聘投递 ID ，详细信息可以通过招聘【获取投递信息】接口查询获得
+         * <p> 示例值：7140946969586010376
+         */
         private String atsApplicationId;
-     /**
-      * -| 招聘来源 ，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - object_api_name = "pre_hire" - custom_api_name = "recruitment_type"
-      * <p> 示例值：recent_graduates
-      */
+        /**
+         * -| 招聘来源 ，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - object_api_name = "pre_hire" - custom_api_name = "recruitment_type"
+         * <p> 示例值：recent_graduates
+         */
         private String recruitmentType;
-     /**
-      * -| 入职地点id , 详细信息可通过【批量查询地点】接口获得
-      * <p> 示例值：6977976687350924832
-      */
+        /**
+         * -| 入职地点id , 详细信息可通过【批量查询地点】接口获得
+         * <p> 示例值：6977976687350924832
+         */
         private String onboardingLocationId;
-     /**
-      * -| 需要公司办理签证
-      * <p> 示例值：true
-      */
+        /**
+         * -| 需要公司办理签证
+         * <p> 示例值：true
+         */
         private Boolean companySponsoredVisa;
-     /**
-      * -| 入职状态
-      * <p> 示例值：
-      */
+        /**
+         * -| 入职状态
+         * <p> 示例值：
+         */
         private String onboardingStatus;
-     /**
-      * 入职任务列表
-      * <p> 示例值：
-      */
+        /**
+         * 入职任务列表
+         * <p> 示例值：
+         */
         private OnboardingTask[] onboardingTaskList;
-     /**
-      * 入职地址
-      * <p> 示例值：
-      */
+        /**
+         * 入职地址
+         * <p> 示例值：
+         */
         private Address onboardingAddress;
-     /**
-      * 入职流程
-      * <p> 示例值：
-      */
+        /**
+         * 入职流程
+         * <p> 示例值：
+         */
         private I18n[] flowName;
-     /**
-      * 入职流程 ID
-      * <p> 示例值：2342352325
-      */
+        /**
+         * 入职流程 ID
+         * <p> 示例值：2342352325
+         */
         private String flowId;
-     /**
-      * 签到时间
-      * <p> 示例值：2023-09-01 13:21:12
-      */
+        /**
+         * 签到时间
+         * <p> 示例值：2023-09-01 13:21:12
+         */
         private String checkInTime;
-     /**
-      * -| 招聘来源 ，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - object_api_name = "pre_hire" - custom_api_name = "check_in_method"
-      * <p> 示例值：
-      */
+        /**
+         * -| 招聘来源 ，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - object_api_name = "pre_hire" - custom_api_name = "check_in_method"
+         * <p> 示例值：
+         */
         private Enum checkInMethod;
 
         /**
          * Offer id , 可以通过招聘【获取 Offer 列表】接口获取
          * <p> 示例值：7032210902531327521
+         *
          * @param offerId
          * @return
          */
         public Builder offerId(String offerId) {
-             this.offerId = offerId;
-             return this;
+            this.offerId = offerId;
+            return this;
         }
 
-    
 
         /**
          * Offer hr 的 雇佣 ID
          * <p> 示例值：7032210902531327521
+         *
          * @param offerHrId
          * @return
          */
         public Builder offerHrId(String offerHrId) {
-             this.offerHrId = offerHrId;
-             return this;
+            this.offerHrId = offerHrId;
+            return this;
         }
 
-    
+
+        /**
+         * Offer hr 的 雇佣 ID,ID可以根据user_id_type转换成对应ID
+         * <p> 示例值：7032210902531327521
+         *
+         * @param offerHrIdV2
+         * @return
+         */
+        public Builder offerHrIdV2(String offerHrIdV2) {
+            this.offerHrIdV2 = offerHrIdV2;
+            return this;
+        }
+
 
         /**
          * -| 入职方式，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - object_api_name = "pre_hire" - custom_api_name = "onboarding_method"
          * <p> 示例值：onsite
+         *
          * @param entryMode
          * @return
          */
         public Builder entryMode(String entryMode) {
-             this.entryMode = entryMode;
-             return this;
+            this.entryMode = entryMode;
+            return this;
         }
 
-    
 
         /**
          * 入职日期
          * <p> 示例值：2022-10-08
+         *
          * @param onboardingDate
          * @return
          */
         public Builder onboardingDate(String onboardingDate) {
-             this.onboardingDate = onboardingDate;
-             return this;
+            this.onboardingDate = onboardingDate;
+            return this;
         }
 
-    
 
         /**
          * 招聘投递 ID ，详细信息可以通过招聘【获取投递信息】接口查询获得
          * <p> 示例值：7140946969586010376
+         *
          * @param atsApplicationId
          * @return
          */
         public Builder atsApplicationId(String atsApplicationId) {
-             this.atsApplicationId = atsApplicationId;
-             return this;
+            this.atsApplicationId = atsApplicationId;
+            return this;
         }
 
-    
 
         /**
          * -| 招聘来源 ，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - object_api_name = "pre_hire" - custom_api_name = "recruitment_type"
          * <p> 示例值：recent_graduates
+         *
          * @param recruitmentType
          * @return
          */
         public Builder recruitmentType(String recruitmentType) {
-             this.recruitmentType = recruitmentType;
-             return this;
+            this.recruitmentType = recruitmentType;
+            return this;
         }
 
-    
 
         /**
          * -| 入职地点id , 详细信息可通过【批量查询地点】接口获得
          * <p> 示例值：6977976687350924832
+         *
          * @param onboardingLocationId
          * @return
          */
         public Builder onboardingLocationId(String onboardingLocationId) {
-             this.onboardingLocationId = onboardingLocationId;
-             return this;
+            this.onboardingLocationId = onboardingLocationId;
+            return this;
         }
 
-    
 
         /**
          * -| 需要公司办理签证
          * <p> 示例值：true
+         *
          * @param companySponsoredVisa
          * @return
          */
         public Builder companySponsoredVisa(Boolean companySponsoredVisa) {
-             this.companySponsoredVisa = companySponsoredVisa;
-             return this;
+            this.companySponsoredVisa = companySponsoredVisa;
+            return this;
         }
 
-    
 
         /**
          * -| 入职状态
          * <p> 示例值：
+         *
          * @param onboardingStatus
          * @return
          */
         public Builder onboardingStatus(String onboardingStatus) {
-             this.onboardingStatus = onboardingStatus;
-             return this;
+            this.onboardingStatus = onboardingStatus;
+            return this;
         }
 
-    
 
         /**
          * 入职任务列表
          * <p> 示例值：
+         *
          * @param onboardingTaskList
          * @return
          */
         public Builder onboardingTaskList(OnboardingTask[] onboardingTaskList) {
-             this.onboardingTaskList = onboardingTaskList;
-             return this;
+            this.onboardingTaskList = onboardingTaskList;
+            return this;
         }
 
-    
 
         /**
          * 入职地址
          * <p> 示例值：
+         *
          * @param onboardingAddress
          * @return
          */
         public Builder onboardingAddress(Address onboardingAddress) {
-             this.onboardingAddress = onboardingAddress;
-             return this;
+            this.onboardingAddress = onboardingAddress;
+            return this;
         }
 
-    
 
         /**
          * 入职流程
          * <p> 示例值：
+         *
          * @param flowName
          * @return
          */
         public Builder flowName(I18n[] flowName) {
-             this.flowName = flowName;
-             return this;
+            this.flowName = flowName;
+            return this;
         }
 
-    
 
         /**
          * 入职流程 ID
          * <p> 示例值：2342352325
+         *
          * @param flowId
          * @return
          */
         public Builder flowId(String flowId) {
-             this.flowId = flowId;
-             return this;
+            this.flowId = flowId;
+            return this;
         }
 
-    
 
         /**
          * 签到时间
          * <p> 示例值：2023-09-01 13:21:12
+         *
          * @param checkInTime
          * @return
          */
         public Builder checkInTime(String checkInTime) {
-             this.checkInTime = checkInTime;
-             return this;
+            this.checkInTime = checkInTime;
+            return this;
         }
 
-    
 
         /**
          * -| 招聘来源 ，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - object_api_name = "pre_hire" - custom_api_name = "check_in_method"
          * <p> 示例值：
+         *
          * @param checkInMethod
          * @return
          */
         public Builder checkInMethod(Enum checkInMethod) {
-             this.checkInMethod = checkInMethod;
-             return this;
+            this.checkInMethod = checkInMethod;
+            return this;
         }
 
-    
-    
-    public PreHireOnboardingInfo build(){
-        return new PreHireOnboardingInfo(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public PreHireOnboardingInfo build() {
+            return new PreHireOnboardingInfo(this);
+        }
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.wiki.v2.resource;
+
 import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.Transport;
 import com.lark.oapi.core.response.RawResponse;
@@ -20,12 +21,16 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import java.nio.charset.StandardCharsets;
 
 import com.lark.oapi.core.Config;
 import com.lark.oapi.core.request.RequestOptions;
+
 import java.io.ByteArrayOutputStream;
+
 import com.lark.oapi.service.wiki.v2.model.*;
+
 import java.io.*;
 import java.util.Map;
 import java.util.HashMap;
@@ -41,7 +46,7 @@ public class SpaceNode {
         this.config = config;
     }
 
-    
+
     /**
      * 创建知识空间节点副本，此接口用于在知识空间创建节点副本到指定位置。
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space-node/copy">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space-node/copy</a> ;
@@ -58,7 +63,7 @@ public class SpaceNode {
                 , "/open-apis/wiki/v2/spaces/:space_id/nodes/:node_token/copy"
                 , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                 , req);
-        
+
         // 反序列化
         CopySpaceNodeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CopySpaceNodeResp.class);
         if (resp == null) {
@@ -66,14 +71,14 @@ public class SpaceNode {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/wiki/v2/spaces/:space_id/nodes/:node_token/copy"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
-       resp.setRawResponse(httpResponse);
-       resp.setRequest(req);
-       
-       return resp;
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
     }
 
     /**
@@ -90,7 +95,7 @@ public class SpaceNode {
                 , "/open-apis/wiki/v2/spaces/:space_id/nodes/:node_token/copy"
                 , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                 , req);
-        
+
         // 反序列化
         CopySpaceNodeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CopySpaceNodeResp.class);
         if (resp == null) {
@@ -98,15 +103,16 @@ public class SpaceNode {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/wiki/v2/spaces/:space_id/nodes/:node_token/copy"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-        
+
         return resp;
     }
+
     /**
      * 创建知识空间节点，此接口用于在知识节点里创建[节点](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-overview)到指定位置。
      * <p> 知识空间权限要求，当前使用的 access token 所代表的应用或用户拥有：;- **父节点**容器编辑权限 ;
@@ -124,7 +130,7 @@ public class SpaceNode {
                 , "/open-apis/wiki/v2/spaces/:space_id/nodes"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-        
+
         // 反序列化
         CreateSpaceNodeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateSpaceNodeResp.class);
         if (resp == null) {
@@ -132,14 +138,14 @@ public class SpaceNode {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/wiki/v2/spaces/:space_id/nodes"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
-       resp.setRawResponse(httpResponse);
-       resp.setRequest(req);
-       
-       return resp;
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
     }
 
     /**
@@ -157,7 +163,7 @@ public class SpaceNode {
                 , "/open-apis/wiki/v2/spaces/:space_id/nodes"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-        
+
         // 反序列化
         CreateSpaceNodeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateSpaceNodeResp.class);
         if (resp == null) {
@@ -165,15 +171,16 @@ public class SpaceNode {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/wiki/v2/spaces/:space_id/nodes"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-        
+
         return resp;
     }
+
     /**
      * 获取知识空间子节点列表，此接口用于分页获取Wiki节点的子节点列表。;;此接口为分页接口。由于权限过滤，可能返回列表为空，但分页标记（has_more）为true，可以继续分页请求。
      * <p> 知识库权限要求，当前使用的 access token 所代表的应用或用户拥有：;- 父节点阅读权限 ;
@@ -191,7 +198,7 @@ public class SpaceNode {
                 , "/open-apis/wiki/v2/spaces/:space_id/nodes"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-        
+
         // 反序列化
         ListSpaceNodeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListSpaceNodeResp.class);
         if (resp == null) {
@@ -199,14 +206,14 @@ public class SpaceNode {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/wiki/v2/spaces/:space_id/nodes"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
-       resp.setRawResponse(httpResponse);
-       resp.setRequest(req);
-       
-       return resp;
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
     }
 
     /**
@@ -224,7 +231,7 @@ public class SpaceNode {
                 , "/open-apis/wiki/v2/spaces/:space_id/nodes"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-        
+
         // 反序列化
         ListSpaceNodeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListSpaceNodeResp.class);
         if (resp == null) {
@@ -232,15 +239,16 @@ public class SpaceNode {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/wiki/v2/spaces/:space_id/nodes"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-        
+
         return resp;
     }
+
     /**
      * 移动知识空间节点，此方法用于在Wiki内移动节点，支持跨知识空间移动。如果有子节点，会携带子节点一起移动。
      * <p> 知识库权限要求：;- 节点编辑权限;- 原父节点容器编辑权限;- 目的父节点容器编辑权限 ;
@@ -258,7 +266,7 @@ public class SpaceNode {
                 , "/open-apis/wiki/v2/spaces/:space_id/nodes/:node_token/move"
                 , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                 , req);
-        
+
         // 反序列化
         MoveSpaceNodeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, MoveSpaceNodeResp.class);
         if (resp == null) {
@@ -266,14 +274,14 @@ public class SpaceNode {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/wiki/v2/spaces/:space_id/nodes/:node_token/move"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
-       resp.setRawResponse(httpResponse);
-       resp.setRequest(req);
-       
-       return resp;
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
     }
 
     /**
@@ -291,7 +299,7 @@ public class SpaceNode {
                 , "/open-apis/wiki/v2/spaces/:space_id/nodes/:node_token/move"
                 , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                 , req);
-        
+
         // 反序列化
         MoveSpaceNodeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, MoveSpaceNodeResp.class);
         if (resp == null) {
@@ -299,15 +307,16 @@ public class SpaceNode {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/wiki/v2/spaces/:space_id/nodes/:node_token/move"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-        
+
         return resp;
     }
+
     /**
      * 移动云空间文档至知识空间，该接口允许移动云空间文档至知识空间，并挂载在指定位置
      * <p> ### 移动操作 ###;移动后，文档将从“我的空间”或“共享空间”转移至“知识库”后，无法从下列入口查看到文档：;- 云空间主页：快速访问;- 我的空间;- 共享空间;;### 权限变更 ###;移动后，文档会向所有可查看“页面树”的用户显示，默认继承父页面的权限设置。;</md-alert ;
@@ -326,7 +335,7 @@ public class SpaceNode {
                 , "/open-apis/wiki/v2/spaces/:space_id/nodes/move_docs_to_wiki"
                 , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                 , req);
-        
+
         // 反序列化
         MoveDocsToWikiSpaceNodeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, MoveDocsToWikiSpaceNodeResp.class);
         if (resp == null) {
@@ -334,14 +343,14 @@ public class SpaceNode {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/wiki/v2/spaces/:space_id/nodes/move_docs_to_wiki"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
-       resp.setRawResponse(httpResponse);
-       resp.setRequest(req);
-       
-       return resp;
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
     }
 
     /**
@@ -360,7 +369,7 @@ public class SpaceNode {
                 , "/open-apis/wiki/v2/spaces/:space_id/nodes/move_docs_to_wiki"
                 , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                 , req);
-        
+
         // 反序列化
         MoveDocsToWikiSpaceNodeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, MoveDocsToWikiSpaceNodeResp.class);
         if (resp == null) {
@@ -368,15 +377,16 @@ public class SpaceNode {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/wiki/v2/spaces/:space_id/nodes/move_docs_to_wiki"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-        
+
         return resp;
     }
+
     /**
      * 更新知识空间节点标题，此接口用于更新节点标题
      * <p> 此接口目前仅支持文档(doc)、新版文档(docx)和快捷方式。 ;
@@ -394,7 +404,7 @@ public class SpaceNode {
                 , "/open-apis/wiki/v2/spaces/:space_id/nodes/:node_token/update_title"
                 , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                 , req);
-        
+
         // 反序列化
         UpdateTitleSpaceNodeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateTitleSpaceNodeResp.class);
         if (resp == null) {
@@ -402,14 +412,14 @@ public class SpaceNode {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/wiki/v2/spaces/:space_id/nodes/:node_token/update_title"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
-       resp.setRawResponse(httpResponse);
-       resp.setRequest(req);
-       
-       return resp;
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
     }
 
     /**
@@ -427,7 +437,7 @@ public class SpaceNode {
                 , "/open-apis/wiki/v2/spaces/:space_id/nodes/:node_token/update_title"
                 , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                 , req);
-        
+
         // 反序列化
         UpdateTitleSpaceNodeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateTitleSpaceNodeResp.class);
         if (resp == null) {
@@ -435,13 +445,13 @@ public class SpaceNode {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/wiki/v2/spaces/:space_id/nodes/:node_token/update_title"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-        
+
         return resp;
     }
 }

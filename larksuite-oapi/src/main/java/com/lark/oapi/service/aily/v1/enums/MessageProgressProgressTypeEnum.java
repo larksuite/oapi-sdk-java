@@ -17,14 +17,15 @@ package com.lark.oapi.service.aily.v1.enums;
  * 进度条类型
  */
 public enum MessageProgressProgressTypeEnum {
-     LIST("LIST"), // 列表分项进度条
-  ;
-   private String value;
+    LIST("LIST"), // 列表分项进度条
+    ;
+    private String value;
+
     MessageProgressProgressTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

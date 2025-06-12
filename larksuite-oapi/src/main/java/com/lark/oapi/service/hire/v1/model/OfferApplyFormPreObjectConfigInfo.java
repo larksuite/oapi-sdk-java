@@ -12,36 +12,67 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class OfferApplyFormPreObjectConfigInfo {
-     /**
-      * 字段 ID
-      * <p> 示例值：687529575
-      */
+    /**
+     * 字段 ID
+     * <p> 示例值：687529575
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 运算符枚举
-      * <p> 示例值：1
-      */
+    /**
+     * 运算符枚举
+     * <p> 示例值：1
+     */
     @SerializedName("operator")
     private Integer operator;
-     /**
-      * 字段值
-      * <p> 示例值：
-      */
+    /**
+     * 字段值
+     * <p> 示例值：
+     */
     @SerializedName("value")
     private String[] value;
+
+    // builder 开始
+    public OfferApplyFormPreObjectConfigInfo() {
+    }
+
+    public OfferApplyFormPreObjectConfigInfo(Builder builder) {
+        /**
+         * 字段 ID
+         * <p> 示例值：687529575
+         */
+        this.id = builder.id;
+        /**
+         * 运算符枚举
+         * <p> 示例值：1
+         */
+        this.operator = builder.operator;
+        /**
+         * 字段值
+         * <p> 示例值：
+         */
+        this.value = builder.value;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -66,90 +97,64 @@ public class OfferApplyFormPreObjectConfigInfo {
         this.value = value;
     }
 
-
-// builder 开始
-  public OfferApplyFormPreObjectConfigInfo(){}
-
-  public OfferApplyFormPreObjectConfigInfo(Builder builder){
-         /**
-          * 字段 ID
-          * <p> 示例值：687529575
-          */
-      this.id = builder.id;
-         /**
-          * 运算符枚举
-          * <p> 示例值：1
-          */
-      this.operator = builder.operator;
-         /**
-          * 字段值
-          * <p> 示例值：
-          */
-      this.value = builder.value;
-  }
-
     public static class Builder {
-     /**
-      * 字段 ID
-      * <p> 示例值：687529575
-      */
+        /**
+         * 字段 ID
+         * <p> 示例值：687529575
+         */
         private String id;
-     /**
-      * 运算符枚举
-      * <p> 示例值：1
-      */
+        /**
+         * 运算符枚举
+         * <p> 示例值：1
+         */
         private Integer operator;
-     /**
-      * 字段值
-      * <p> 示例值：
-      */
+        /**
+         * 字段值
+         * <p> 示例值：
+         */
         private String[] value;
 
         /**
          * 字段 ID
          * <p> 示例值：687529575
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 运算符枚举
          * <p> 示例值：1
+         *
          * @param operator
          * @return
          */
         public Builder operator(Integer operator) {
-             this.operator = operator;
-             return this;
+            this.operator = operator;
+            return this;
         }
 
-    
 
         /**
          * 字段值
          * <p> 示例值：
+         *
          * @param value
          * @return
          */
         public Builder value(String[] value) {
-             this.value = value;
-             return this;
+            this.value = value;
+            return this;
         }
 
-    
-    
-    public OfferApplyFormPreObjectConfigInfo build(){
-        return new OfferApplyFormPreObjectConfigInfo(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public OfferApplyFormPreObjectConfigInfo build() {
+            return new OfferApplyFormPreObjectConfigInfo(this);
+        }
     }
 }

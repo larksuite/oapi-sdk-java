@@ -12,30 +12,56 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class TalentInterview {
-     /**
-      * 投递 ID
-      * <p> 示例值：6949805467799537964
-      */
+    /**
+     * 投递 ID
+     * <p> 示例值：6949805467799537964
+     */
     @SerializedName("application_id")
     private String applicationId;
-     /**
-      * 面试列表
-      * <p> 示例值：
-      */
+    /**
+     * 面试列表
+     * <p> 示例值：
+     */
     @SerializedName("interview_list")
     private InterviewExtend[] interviewList;
+
+    // builder 开始
+    public TalentInterview() {
+    }
+
+    public TalentInterview(Builder builder) {
+        /**
+         * 投递 ID
+         * <p> 示例值：6949805467799537964
+         */
+        this.applicationId = builder.applicationId;
+        /**
+         * 面试列表
+         * <p> 示例值：
+         */
+        this.interviewList = builder.interviewList;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getApplicationId() {
         return this.applicationId;
     }
@@ -52,67 +78,46 @@ public class TalentInterview {
         this.interviewList = interviewList;
     }
 
-
-// builder 开始
-  public TalentInterview(){}
-
-  public TalentInterview(Builder builder){
-         /**
-          * 投递 ID
-          * <p> 示例值：6949805467799537964
-          */
-      this.applicationId = builder.applicationId;
-         /**
-          * 面试列表
-          * <p> 示例值：
-          */
-      this.interviewList = builder.interviewList;
-  }
-
     public static class Builder {
-     /**
-      * 投递 ID
-      * <p> 示例值：6949805467799537964
-      */
+        /**
+         * 投递 ID
+         * <p> 示例值：6949805467799537964
+         */
         private String applicationId;
-     /**
-      * 面试列表
-      * <p> 示例值：
-      */
+        /**
+         * 面试列表
+         * <p> 示例值：
+         */
         private InterviewExtend[] interviewList;
 
         /**
          * 投递 ID
          * <p> 示例值：6949805467799537964
+         *
          * @param applicationId
          * @return
          */
         public Builder applicationId(String applicationId) {
-             this.applicationId = applicationId;
-             return this;
+            this.applicationId = applicationId;
+            return this;
         }
 
-    
 
         /**
          * 面试列表
          * <p> 示例值：
+         *
          * @param interviewList
          * @return
          */
         public Builder interviewList(InterviewExtend[] interviewList) {
-             this.interviewList = interviewList;
-             return this;
+            this.interviewList = interviewList;
+            return this;
         }
 
-    
-    
-    public TalentInterview build(){
-        return new TalentInterview(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public TalentInterview build() {
+            return new TalentInterview(this);
+        }
     }
 }

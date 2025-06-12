@@ -12,36 +12,67 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ChangeTalentBlockTalentBlocklistReqBody {
-     /**
-      * 人才 ID
-      * <p> 示例值：6930815272790114325
-      */
+    /**
+     * 人才 ID
+     * <p> 示例值：6930815272790114325
+     */
     @SerializedName("talent_id")
     private String talentId;
-     /**
-      * 操作类型
-      * <p> 示例值：
-      */
+    /**
+     * 操作类型
+     * <p> 示例值：
+     */
     @SerializedName("option")
     private Integer option;
-     /**
-      * 原因，当执行加入屏蔽名单操作时必填
-      * <p> 示例值：人才作弊
-      */
+    /**
+     * 原因，当执行加入屏蔽名单操作时必填
+     * <p> 示例值：人才作弊
+     */
     @SerializedName("reason")
     private String reason;
+
+    // builder 开始
+    public ChangeTalentBlockTalentBlocklistReqBody() {
+    }
+
+    public ChangeTalentBlockTalentBlocklistReqBody(Builder builder) {
+        /**
+         * 人才 ID
+         * <p> 示例值：6930815272790114325
+         */
+        this.talentId = builder.talentId;
+        /**
+         * 操作类型
+         * <p> 示例值：
+         */
+        this.option = builder.option;
+        /**
+         * 原因，当执行加入屏蔽名单操作时必填
+         * <p> 示例值：人才作弊
+         */
+        this.reason = builder.reason;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getTalentId() {
         return this.talentId;
     }
@@ -66,90 +97,64 @@ public class ChangeTalentBlockTalentBlocklistReqBody {
         this.reason = reason;
     }
 
-
-// builder 开始
-  public ChangeTalentBlockTalentBlocklistReqBody(){}
-
-  public ChangeTalentBlockTalentBlocklistReqBody(Builder builder){
-         /**
-          * 人才 ID
-          * <p> 示例值：6930815272790114325
-          */
-      this.talentId = builder.talentId;
-         /**
-          * 操作类型
-          * <p> 示例值：
-          */
-      this.option = builder.option;
-         /**
-          * 原因，当执行加入屏蔽名单操作时必填
-          * <p> 示例值：人才作弊
-          */
-      this.reason = builder.reason;
-  }
-
     public static class Builder {
-     /**
-      * 人才 ID
-      * <p> 示例值：6930815272790114325
-      */
+        /**
+         * 人才 ID
+         * <p> 示例值：6930815272790114325
+         */
         private String talentId;
-     /**
-      * 操作类型
-      * <p> 示例值：
-      */
+        /**
+         * 操作类型
+         * <p> 示例值：
+         */
         private Integer option;
-     /**
-      * 原因，当执行加入屏蔽名单操作时必填
-      * <p> 示例值：人才作弊
-      */
+        /**
+         * 原因，当执行加入屏蔽名单操作时必填
+         * <p> 示例值：人才作弊
+         */
         private String reason;
 
         /**
          * 人才 ID
          * <p> 示例值：6930815272790114325
+         *
          * @param talentId
          * @return
          */
         public Builder talentId(String talentId) {
-             this.talentId = talentId;
-             return this;
+            this.talentId = talentId;
+            return this;
         }
 
-    
 
         /**
          * 操作类型
          * <p> 示例值：
+         *
          * @param option
          * @return
          */
         public Builder option(Integer option) {
-             this.option = option;
-             return this;
+            this.option = option;
+            return this;
         }
 
-    
 
         /**
          * 原因，当执行加入屏蔽名单操作时必填
          * <p> 示例值：人才作弊
+         *
          * @param reason
          * @return
          */
         public Builder reason(String reason) {
-             this.reason = reason;
-             return this;
+            this.reason = reason;
+            return this;
         }
 
-    
-    
-    public ChangeTalentBlockTalentBlocklistReqBody build(){
-        return new ChangeTalentBlockTalentBlocklistReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ChangeTalentBlockTalentBlocklistReqBody build() {
+            return new ChangeTalentBlockTalentBlocklistReqBody(this);
+        }
     }
 }

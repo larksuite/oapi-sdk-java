@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class AppTableViewPropertyHierarchyConfig {
-     /**
-      * 层级结构的关联列id
-      * <p> 示例值：fldTca**hb
-      */
+    /**
+     * 层级结构的关联列id
+     * <p> 示例值：fldTca**hb
+     */
     @SerializedName("field_id")
     private String fieldId;
+
+    // builder 开始
+    public AppTableViewPropertyHierarchyConfig() {
+    }
+
+    public AppTableViewPropertyHierarchyConfig(Builder builder) {
+        /**
+         * 层级结构的关联列id
+         * <p> 示例值：fldTca**hb
+         */
+        this.fieldId = builder.fieldId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getFieldId() {
         return this.fieldId;
     }
@@ -39,44 +60,28 @@ public class AppTableViewPropertyHierarchyConfig {
         this.fieldId = fieldId;
     }
 
-
-// builder 开始
-  public AppTableViewPropertyHierarchyConfig(){}
-
-  public AppTableViewPropertyHierarchyConfig(Builder builder){
-         /**
-          * 层级结构的关联列id
-          * <p> 示例值：fldTca**hb
-          */
-      this.fieldId = builder.fieldId;
-  }
-
     public static class Builder {
-     /**
-      * 层级结构的关联列id
-      * <p> 示例值：fldTca**hb
-      */
+        /**
+         * 层级结构的关联列id
+         * <p> 示例值：fldTca**hb
+         */
         private String fieldId;
 
         /**
          * 层级结构的关联列id
          * <p> 示例值：fldTca**hb
+         *
          * @param fieldId
          * @return
          */
         public Builder fieldId(String fieldId) {
-             this.fieldId = fieldId;
-             return this;
+            this.fieldId = fieldId;
+            return this;
         }
 
-    
-    
-    public AppTableViewPropertyHierarchyConfig build(){
-        return new AppTableViewPropertyHierarchyConfig(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public AppTableViewPropertyHierarchyConfig build() {
+            return new AppTableViewPropertyHierarchyConfig(this);
+        }
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.aily.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.aily.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,54 +20,104 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Intent {
-     /**
-      * 意图 id
-      * <p> 示例值：7317093049367298068
-      */
+    /**
+     * 意图 id
+     * <p> 示例值：7317093049367298068
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 意图创建时间，毫秒时间戳
-      * <p> 示例值：1703658042000
-      */
+    /**
+     * 意图创建时间，毫秒时间戳
+     * <p> 示例值：1703658042000
+     */
     @SerializedName("created_at")
     private String createdAt;
-     /**
-      * 意图所属会话 id
-      * <p> 示例值：7317091019140972563
-      */
+    /**
+     * 意图所属会话 id
+     * <p> 示例值：7317091019140972563
+     */
     @SerializedName("session_id")
     private String sessionId;
-     /**
-      * 意图状态
-      * <p> 示例值：RUNNING
-      */
+    /**
+     * 意图状态
+     * <p> 示例值：RUNNING
+     */
     @SerializedName("status")
     private String status;
-     /**
-      * 意图子状态
-      * <p> 示例值：WAITING_USER_RESPOND
-      */
+    /**
+     * 意图子状态
+     * <p> 示例值：WAITING_USER_RESPOND
+     */
     @SerializedName("sub_status")
     private String subStatus;
-     /**
-      * 渠道类型
-      * <p> 示例值：LARK_OPEN_API
-      */
+    /**
+     * 渠道类型
+     * <p> 示例值：LARK_OPEN_API
+     */
     @SerializedName("channel_type")
     private String channelType;
-     /**
-      * 意图失败原因
-      * <p> 示例值：
-      */
+    /**
+     * 意图失败原因
+     * <p> 示例值：
+     */
     @SerializedName("error")
     private MessageError error;
+
+    // builder 开始
+    public Intent() {
+    }
+
+    public Intent(Builder builder) {
+        /**
+         * 意图 id
+         * <p> 示例值：7317093049367298068
+         */
+        this.id = builder.id;
+        /**
+         * 意图创建时间，毫秒时间戳
+         * <p> 示例值：1703658042000
+         */
+        this.createdAt = builder.createdAt;
+        /**
+         * 意图所属会话 id
+         * <p> 示例值：7317091019140972563
+         */
+        this.sessionId = builder.sessionId;
+        /**
+         * 意图状态
+         * <p> 示例值：RUNNING
+         */
+        this.status = builder.status;
+        /**
+         * 意图子状态
+         * <p> 示例值：WAITING_USER_RESPOND
+         */
+        this.subStatus = builder.subStatus;
+        /**
+         * 渠道类型
+         * <p> 示例值：LARK_OPEN_API
+         */
+        this.channelType = builder.channelType;
+        /**
+         * 意图失败原因
+         * <p> 示例值：
+         */
+        this.error = builder.error;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -123,212 +174,172 @@ public class Intent {
         this.error = error;
     }
 
-
-// builder 开始
-  public Intent(){}
-
-  public Intent(Builder builder){
-         /**
-          * 意图 id
-          * <p> 示例值：7317093049367298068
-          */
-      this.id = builder.id;
-         /**
-          * 意图创建时间，毫秒时间戳
-          * <p> 示例值：1703658042000
-          */
-      this.createdAt = builder.createdAt;
-         /**
-          * 意图所属会话 id
-          * <p> 示例值：7317091019140972563
-          */
-      this.sessionId = builder.sessionId;
-         /**
-          * 意图状态
-          * <p> 示例值：RUNNING
-          */
-      this.status = builder.status;
-         /**
-          * 意图子状态
-          * <p> 示例值：WAITING_USER_RESPOND
-          */
-      this.subStatus = builder.subStatus;
-         /**
-          * 渠道类型
-          * <p> 示例值：LARK_OPEN_API
-          */
-      this.channelType = builder.channelType;
-         /**
-          * 意图失败原因
-          * <p> 示例值：
-          */
-      this.error = builder.error;
-  }
-
     public static class Builder {
-     /**
-      * 意图 id
-      * <p> 示例值：7317093049367298068
-      */
+        /**
+         * 意图 id
+         * <p> 示例值：7317093049367298068
+         */
         private String id;
-     /**
-      * 意图创建时间，毫秒时间戳
-      * <p> 示例值：1703658042000
-      */
+        /**
+         * 意图创建时间，毫秒时间戳
+         * <p> 示例值：1703658042000
+         */
         private String createdAt;
-     /**
-      * 意图所属会话 id
-      * <p> 示例值：7317091019140972563
-      */
+        /**
+         * 意图所属会话 id
+         * <p> 示例值：7317091019140972563
+         */
         private String sessionId;
-     /**
-      * 意图状态
-      * <p> 示例值：RUNNING
-      */
+        /**
+         * 意图状态
+         * <p> 示例值：RUNNING
+         */
         private String status;
-     /**
-      * 意图子状态
-      * <p> 示例值：WAITING_USER_RESPOND
-      */
+        /**
+         * 意图子状态
+         * <p> 示例值：WAITING_USER_RESPOND
+         */
         private String subStatus;
-     /**
-      * 渠道类型
-      * <p> 示例值：LARK_OPEN_API
-      */
+        /**
+         * 渠道类型
+         * <p> 示例值：LARK_OPEN_API
+         */
         private String channelType;
-     /**
-      * 意图失败原因
-      * <p> 示例值：
-      */
+        /**
+         * 意图失败原因
+         * <p> 示例值：
+         */
         private MessageError error;
 
         /**
          * 意图 id
          * <p> 示例值：7317093049367298068
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 意图创建时间，毫秒时间戳
          * <p> 示例值：1703658042000
+         *
          * @param createdAt
          * @return
          */
         public Builder createdAt(String createdAt) {
-             this.createdAt = createdAt;
-             return this;
+            this.createdAt = createdAt;
+            return this;
         }
 
-    
 
         /**
          * 意图所属会话 id
          * <p> 示例值：7317091019140972563
+         *
          * @param sessionId
          * @return
          */
         public Builder sessionId(String sessionId) {
-             this.sessionId = sessionId;
-             return this;
+            this.sessionId = sessionId;
+            return this;
         }
 
-    
 
         /**
          * 意图状态
          * <p> 示例值：RUNNING
+         *
          * @param status
          * @return
          */
         public Builder status(String status) {
-             this.status = status;
-             return this;
+            this.status = status;
+            return this;
         }
+
         /**
          * 意图状态
          * <p> 示例值：RUNNING
+         *
          * @param status {@link com.lark.oapi.service.aily.v1.enums.IntentIntentStatusEnum}
          * @return
          */
         public Builder status(com.lark.oapi.service.aily.v1.enums.IntentIntentStatusEnum status) {
-             this.status = status.getValue();
-             return this;
+            this.status = status.getValue();
+            return this;
         }
 
-    
 
         /**
          * 意图子状态
          * <p> 示例值：WAITING_USER_RESPOND
+         *
          * @param subStatus
          * @return
          */
         public Builder subStatus(String subStatus) {
-             this.subStatus = subStatus;
-             return this;
+            this.subStatus = subStatus;
+            return this;
         }
+
         /**
          * 意图子状态
          * <p> 示例值：WAITING_USER_RESPOND
+         *
          * @param subStatus {@link com.lark.oapi.service.aily.v1.enums.IntentIntentSubStatusEnum}
          * @return
          */
         public Builder subStatus(com.lark.oapi.service.aily.v1.enums.IntentIntentSubStatusEnum subStatus) {
-             this.subStatus = subStatus.getValue();
-             return this;
+            this.subStatus = subStatus.getValue();
+            return this;
         }
 
-    
 
         /**
          * 渠道类型
          * <p> 示例值：LARK_OPEN_API
+         *
          * @param channelType
          * @return
          */
         public Builder channelType(String channelType) {
-             this.channelType = channelType;
-             return this;
+            this.channelType = channelType;
+            return this;
         }
+
         /**
          * 渠道类型
          * <p> 示例值：LARK_OPEN_API
+         *
          * @param channelType {@link com.lark.oapi.service.aily.v1.enums.IntentChannelTypeEnum}
          * @return
          */
         public Builder channelType(com.lark.oapi.service.aily.v1.enums.IntentChannelTypeEnum channelType) {
-             this.channelType = channelType.getValue();
-             return this;
+            this.channelType = channelType.getValue();
+            return this;
         }
 
-    
 
         /**
          * 意图失败原因
          * <p> 示例值：
+         *
          * @param error
          * @return
          */
         public Builder error(MessageError error) {
-             this.error = error;
-             return this;
+            this.error = error;
+            return this;
         }
 
-    
-    
-    public Intent build(){
-        return new Intent(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Intent build() {
+            return new Intent(this);
+        }
     }
 }

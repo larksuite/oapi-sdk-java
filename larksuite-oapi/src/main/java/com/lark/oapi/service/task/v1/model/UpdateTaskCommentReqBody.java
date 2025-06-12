@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.task.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.task.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class UpdateTaskCommentReqBody {
-     /**
-      * 新的评论内容
-      * <p> 示例值：飞流直下三千尺，疑是银河落九天
-      */
+    /**
+     * 新的评论内容
+     * <p> 示例值：飞流直下三千尺，疑是银河落九天
+     */
     @SerializedName("content")
     private String content;
-     /**
-      * 新的富文本评论内容（优先使用）
-      * <p> 示例值：飞流直下三千尺，疑是银河落九天<at id=7058204817822318612></at>
-      */
+    /**
+     * 新的富文本评论内容（优先使用）
+     * <p> 示例值：飞流直下三千尺，疑是银河落九天<at id=7058204817822318612></at>
+     */
     @SerializedName("rich_content")
     private String richContent;
+
+    // builder 开始
+    public UpdateTaskCommentReqBody() {
+    }
+
+    public UpdateTaskCommentReqBody(Builder builder) {
+        /**
+         * 新的评论内容
+         * <p> 示例值：飞流直下三千尺，疑是银河落九天
+         */
+        this.content = builder.content;
+        /**
+         * 新的富文本评论内容（优先使用）
+         * <p> 示例值：飞流直下三千尺，疑是银河落九天<at id=7058204817822318612></at>
+         */
+        this.richContent = builder.richContent;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getContent() {
         return this.content;
     }
@@ -53,67 +79,46 @@ public class UpdateTaskCommentReqBody {
         this.richContent = richContent;
     }
 
-
-// builder 开始
-  public UpdateTaskCommentReqBody(){}
-
-  public UpdateTaskCommentReqBody(Builder builder){
-         /**
-          * 新的评论内容
-          * <p> 示例值：飞流直下三千尺，疑是银河落九天
-          */
-      this.content = builder.content;
-         /**
-          * 新的富文本评论内容（优先使用）
-          * <p> 示例值：飞流直下三千尺，疑是银河落九天<at id=7058204817822318612></at>
-          */
-      this.richContent = builder.richContent;
-  }
-
     public static class Builder {
-     /**
-      * 新的评论内容
-      * <p> 示例值：飞流直下三千尺，疑是银河落九天
-      */
+        /**
+         * 新的评论内容
+         * <p> 示例值：飞流直下三千尺，疑是银河落九天
+         */
         private String content;
-     /**
-      * 新的富文本评论内容（优先使用）
-      * <p> 示例值：飞流直下三千尺，疑是银河落九天<at id=7058204817822318612></at>
-      */
+        /**
+         * 新的富文本评论内容（优先使用）
+         * <p> 示例值：飞流直下三千尺，疑是银河落九天<at id=7058204817822318612></at>
+         */
         private String richContent;
 
         /**
          * 新的评论内容
          * <p> 示例值：飞流直下三千尺，疑是银河落九天
+         *
          * @param content
          * @return
          */
         public Builder content(String content) {
-             this.content = content;
-             return this;
+            this.content = content;
+            return this;
         }
 
-    
 
         /**
          * 新的富文本评论内容（优先使用）
          * <p> 示例值：飞流直下三千尺，疑是银河落九天<at id=7058204817822318612></at>
+         *
          * @param richContent
          * @return
          */
         public Builder richContent(String richContent) {
-             this.richContent = richContent;
-             return this;
+            this.richContent = richContent;
+            return this;
         }
 
-    
-    
-    public UpdateTaskCommentReqBody build(){
-        return new UpdateTaskCommentReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public UpdateTaskCommentReqBody build() {
+            return new UpdateTaskCommentReqBody(this);
+        }
     }
 }

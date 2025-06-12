@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,55 +20,107 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
+
 import java.util.Map;
+
 import com.lark.oapi.core.response.BaseResponse;
+
 public class BasicInfo {
-     /**
-      * 日志类型：10000-全部类型；10001-企业管理；10002-登录日志；10003-应用管理
-      * <p> 示例值：10000
-      */
+    /**
+     * 日志类型：10000-全部类型；10001-企业管理；10002-登录日志；10003-应用管理
+     * <p> 示例值：10000
+     */
     @SerializedName("log_type")
     private String logType;
-     /**
-      * 审计域：15001-企业管理后台；15002-应用管理后台；15003-应用开发平台
-      * <p> 示例值：15001
-      */
+    /**
+     * 审计域：15001-企业管理后台；15002-应用管理后台；15003-应用开发平台
+     * <p> 示例值：15001
+     */
     @SerializedName("audit_scope")
     private String auditScope;
-     /**
-      * 环境类型：16001-沙箱环境；16003-线上环境
-      * <p> 示例值：16003
-      */
+    /**
+     * 环境类型：16001-沙箱环境；16003-线上环境
+     * <p> 示例值：16003
+     */
     @SerializedName("env_type")
     private String envType;
-     /**
-      * 应用id
-      * <p> 示例值：app123
-      */
+    /**
+     * 应用id
+     * <p> 示例值：app123
+     */
     @SerializedName("app_id")
     private String appId;
-     /**
-      * 审计日志功能模块
-      * <p> 示例值：17001
-      */
+    /**
+     * 审计日志功能模块
+     * <p> 示例值：17001
+     */
     @SerializedName("module")
     private String module;
-     /**
-      * 事件类型
-      * <p> 示例值：19001
-      */
+    /**
+     * 事件类型
+     * <p> 示例值：19001
+     */
     @SerializedName("op_type")
     private String opType;
-     /**
-      * 应用名称
-      * <p> 示例值：
-      */
+    /**
+     * 应用名称
+     * <p> 示例值：
+     */
     @SerializedName("app_name")
     private Map<String, String> appName;
+
+    // builder 开始
+    public BasicInfo() {
+    }
+
+    public BasicInfo(Builder builder) {
+        /**
+         * 日志类型：10000-全部类型；10001-企业管理；10002-登录日志；10003-应用管理
+         * <p> 示例值：10000
+         */
+        this.logType = builder.logType;
+        /**
+         * 审计域：15001-企业管理后台；15002-应用管理后台；15003-应用开发平台
+         * <p> 示例值：15001
+         */
+        this.auditScope = builder.auditScope;
+        /**
+         * 环境类型：16001-沙箱环境；16003-线上环境
+         * <p> 示例值：16003
+         */
+        this.envType = builder.envType;
+        /**
+         * 应用id
+         * <p> 示例值：app123
+         */
+        this.appId = builder.appId;
+        /**
+         * 审计日志功能模块
+         * <p> 示例值：17001
+         */
+        this.module = builder.module;
+        /**
+         * 事件类型
+         * <p> 示例值：19001
+         */
+        this.opType = builder.opType;
+        /**
+         * 应用名称
+         * <p> 示例值：
+         */
+        this.appName = builder.appName;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getLogType() {
         return this.logType;
     }
@@ -124,182 +177,136 @@ public class BasicInfo {
         this.appName = appName;
     }
 
-
-// builder 开始
-  public BasicInfo(){}
-
-  public BasicInfo(Builder builder){
-         /**
-          * 日志类型：10000-全部类型；10001-企业管理；10002-登录日志；10003-应用管理
-          * <p> 示例值：10000
-          */
-      this.logType = builder.logType;
-         /**
-          * 审计域：15001-企业管理后台；15002-应用管理后台；15003-应用开发平台
-          * <p> 示例值：15001
-          */
-      this.auditScope = builder.auditScope;
-         /**
-          * 环境类型：16001-沙箱环境；16003-线上环境
-          * <p> 示例值：16003
-          */
-      this.envType = builder.envType;
-         /**
-          * 应用id
-          * <p> 示例值：app123
-          */
-      this.appId = builder.appId;
-         /**
-          * 审计日志功能模块
-          * <p> 示例值：17001
-          */
-      this.module = builder.module;
-         /**
-          * 事件类型
-          * <p> 示例值：19001
-          */
-      this.opType = builder.opType;
-         /**
-          * 应用名称
-          * <p> 示例值：
-          */
-      this.appName = builder.appName;
-  }
-
     public static class Builder {
-     /**
-      * 日志类型：10000-全部类型；10001-企业管理；10002-登录日志；10003-应用管理
-      * <p> 示例值：10000
-      */
+        /**
+         * 日志类型：10000-全部类型；10001-企业管理；10002-登录日志；10003-应用管理
+         * <p> 示例值：10000
+         */
         private String logType;
-     /**
-      * 审计域：15001-企业管理后台；15002-应用管理后台；15003-应用开发平台
-      * <p> 示例值：15001
-      */
+        /**
+         * 审计域：15001-企业管理后台；15002-应用管理后台；15003-应用开发平台
+         * <p> 示例值：15001
+         */
         private String auditScope;
-     /**
-      * 环境类型：16001-沙箱环境；16003-线上环境
-      * <p> 示例值：16003
-      */
+        /**
+         * 环境类型：16001-沙箱环境；16003-线上环境
+         * <p> 示例值：16003
+         */
         private String envType;
-     /**
-      * 应用id
-      * <p> 示例值：app123
-      */
+        /**
+         * 应用id
+         * <p> 示例值：app123
+         */
         private String appId;
-     /**
-      * 审计日志功能模块
-      * <p> 示例值：17001
-      */
+        /**
+         * 审计日志功能模块
+         * <p> 示例值：17001
+         */
         private String module;
-     /**
-      * 事件类型
-      * <p> 示例值：19001
-      */
+        /**
+         * 事件类型
+         * <p> 示例值：19001
+         */
         private String opType;
-     /**
-      * 应用名称
-      * <p> 示例值：
-      */
+        /**
+         * 应用名称
+         * <p> 示例值：
+         */
         private Map<String, String> appName;
 
         /**
          * 日志类型：10000-全部类型；10001-企业管理；10002-登录日志；10003-应用管理
          * <p> 示例值：10000
+         *
          * @param logType
          * @return
          */
         public Builder logType(String logType) {
-             this.logType = logType;
-             return this;
+            this.logType = logType;
+            return this;
         }
 
-    
 
         /**
          * 审计域：15001-企业管理后台；15002-应用管理后台；15003-应用开发平台
          * <p> 示例值：15001
+         *
          * @param auditScope
          * @return
          */
         public Builder auditScope(String auditScope) {
-             this.auditScope = auditScope;
-             return this;
+            this.auditScope = auditScope;
+            return this;
         }
 
-    
 
         /**
          * 环境类型：16001-沙箱环境；16003-线上环境
          * <p> 示例值：16003
+         *
          * @param envType
          * @return
          */
         public Builder envType(String envType) {
-             this.envType = envType;
-             return this;
+            this.envType = envType;
+            return this;
         }
 
-    
 
         /**
          * 应用id
          * <p> 示例值：app123
+         *
          * @param appId
          * @return
          */
         public Builder appId(String appId) {
-             this.appId = appId;
-             return this;
+            this.appId = appId;
+            return this;
         }
 
-    
 
         /**
          * 审计日志功能模块
          * <p> 示例值：17001
+         *
          * @param module
          * @return
          */
         public Builder module(String module) {
-             this.module = module;
-             return this;
+            this.module = module;
+            return this;
         }
 
-    
 
         /**
          * 事件类型
          * <p> 示例值：19001
+         *
          * @param opType
          * @return
          */
         public Builder opType(String opType) {
-             this.opType = opType;
-             return this;
+            this.opType = opType;
+            return this;
         }
 
-    
 
         /**
          * 应用名称
          * <p> 示例值：
+         *
          * @param appName
          * @return
          */
         public Builder appName(Map<String, String> appName) {
-             this.appName = appName;
-             return this;
+            this.appName = appName;
+            return this;
         }
 
-    
-    
-    public BasicInfo build(){
-        return new BasicInfo(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public BasicInfo build() {
+            return new BasicInfo(this);
+        }
     }
 }

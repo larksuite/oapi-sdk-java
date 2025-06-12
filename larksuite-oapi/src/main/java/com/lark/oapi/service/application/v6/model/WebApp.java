@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class WebApp {
-     /**
-      * pc 端 url
-      * <p> 示例值：https://www.example.com
-      */
+    /**
+     * pc 端 url
+     * <p> 示例值：https://www.example.com
+     */
     @SerializedName("pc_url")
     private String pcUrl;
-     /**
-      * 移动端 url
-      * <p> 示例值：https://www.example.com
-      */
+    /**
+     * 移动端 url
+     * <p> 示例值：https://www.example.com
+     */
     @SerializedName("mobile_url")
     private String mobileUrl;
+
+    // builder 开始
+    public WebApp() {
+    }
+
+    public WebApp(Builder builder) {
+        /**
+         * pc 端 url
+         * <p> 示例值：https://www.example.com
+         */
+        this.pcUrl = builder.pcUrl;
+        /**
+         * 移动端 url
+         * <p> 示例值：https://www.example.com
+         */
+        this.mobileUrl = builder.mobileUrl;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getPcUrl() {
         return this.pcUrl;
     }
@@ -53,67 +79,46 @@ public class WebApp {
         this.mobileUrl = mobileUrl;
     }
 
-
-// builder 开始
-  public WebApp(){}
-
-  public WebApp(Builder builder){
-         /**
-          * pc 端 url
-          * <p> 示例值：https://www.example.com
-          */
-      this.pcUrl = builder.pcUrl;
-         /**
-          * 移动端 url
-          * <p> 示例值：https://www.example.com
-          */
-      this.mobileUrl = builder.mobileUrl;
-  }
-
     public static class Builder {
-     /**
-      * pc 端 url
-      * <p> 示例值：https://www.example.com
-      */
+        /**
+         * pc 端 url
+         * <p> 示例值：https://www.example.com
+         */
         private String pcUrl;
-     /**
-      * 移动端 url
-      * <p> 示例值：https://www.example.com
-      */
+        /**
+         * 移动端 url
+         * <p> 示例值：https://www.example.com
+         */
         private String mobileUrl;
 
         /**
          * pc 端 url
          * <p> 示例值：https://www.example.com
+         *
          * @param pcUrl
          * @return
          */
         public Builder pcUrl(String pcUrl) {
-             this.pcUrl = pcUrl;
-             return this;
+            this.pcUrl = pcUrl;
+            return this;
         }
 
-    
 
         /**
          * 移动端 url
          * <p> 示例值：https://www.example.com
+         *
          * @param mobileUrl
          * @return
          */
         public Builder mobileUrl(String mobileUrl) {
-             this.mobileUrl = mobileUrl;
-             return this;
+            this.mobileUrl = mobileUrl;
+            return this;
         }
 
-    
-    
-    public WebApp build(){
-        return new WebApp(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public WebApp build() {
+            return new WebApp(this);
+        }
     }
 }

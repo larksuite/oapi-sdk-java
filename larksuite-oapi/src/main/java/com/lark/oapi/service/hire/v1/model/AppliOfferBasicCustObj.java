@@ -12,48 +12,89 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class AppliOfferBasicCustObj {
-     /**
-      * id
-      * <p> 示例值：
-      */
+    /**
+     * id
+     * <p> 示例值：
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 名字
-      * <p> 示例值：
-      */
+    /**
+     * 名字
+     * <p> 示例值：
+     */
     @SerializedName("name")
     private OfferSchemaName name;
-     /**
-      * 自定义字段类型
-      * <p> 示例值：
-      */
+    /**
+     * 自定义字段类型
+     * <p> 示例值：
+     */
     @SerializedName("type")
     private String type;
-     /**
-      * 自定义字段的值
-      * <p> 示例值：
-      */
+    /**
+     * 自定义字段的值
+     * <p> 示例值：
+     */
     @SerializedName("value")
     private String value;
-     /**
-      * 单选/多选自定义字段的值
-      * <p> 示例值：
-      */
+    /**
+     * 单选/多选自定义字段的值
+     * <p> 示例值：
+     */
     @SerializedName("option_value_list")
     private AppliOfferBasicCustObjOpV[] optionValueList;
+
+    // builder 开始
+    public AppliOfferBasicCustObj() {
+    }
+
+    public AppliOfferBasicCustObj(Builder builder) {
+        /**
+         * id
+         * <p> 示例值：
+         */
+        this.id = builder.id;
+        /**
+         * 名字
+         * <p> 示例值：
+         */
+        this.name = builder.name;
+        /**
+         * 自定义字段类型
+         * <p> 示例值：
+         */
+        this.type = builder.type;
+        /**
+         * 自定义字段的值
+         * <p> 示例值：
+         */
+        this.value = builder.value;
+        /**
+         * 单选/多选自定义字段的值
+         * <p> 示例值：
+         */
+        this.optionValueList = builder.optionValueList;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -94,136 +135,100 @@ public class AppliOfferBasicCustObj {
         this.optionValueList = optionValueList;
     }
 
-
-// builder 开始
-  public AppliOfferBasicCustObj(){}
-
-  public AppliOfferBasicCustObj(Builder builder){
-         /**
-          * id
-          * <p> 示例值：
-          */
-      this.id = builder.id;
-         /**
-          * 名字
-          * <p> 示例值：
-          */
-      this.name = builder.name;
-         /**
-          * 自定义字段类型
-          * <p> 示例值：
-          */
-      this.type = builder.type;
-         /**
-          * 自定义字段的值
-          * <p> 示例值：
-          */
-      this.value = builder.value;
-         /**
-          * 单选/多选自定义字段的值
-          * <p> 示例值：
-          */
-      this.optionValueList = builder.optionValueList;
-  }
-
     public static class Builder {
-     /**
-      * id
-      * <p> 示例值：
-      */
+        /**
+         * id
+         * <p> 示例值：
+         */
         private String id;
-     /**
-      * 名字
-      * <p> 示例值：
-      */
+        /**
+         * 名字
+         * <p> 示例值：
+         */
         private OfferSchemaName name;
-     /**
-      * 自定义字段类型
-      * <p> 示例值：
-      */
+        /**
+         * 自定义字段类型
+         * <p> 示例值：
+         */
         private String type;
-     /**
-      * 自定义字段的值
-      * <p> 示例值：
-      */
+        /**
+         * 自定义字段的值
+         * <p> 示例值：
+         */
         private String value;
-     /**
-      * 单选/多选自定义字段的值
-      * <p> 示例值：
-      */
+        /**
+         * 单选/多选自定义字段的值
+         * <p> 示例值：
+         */
         private AppliOfferBasicCustObjOpV[] optionValueList;
 
         /**
          * id
          * <p> 示例值：
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 名字
          * <p> 示例值：
+         *
          * @param name
          * @return
          */
         public Builder name(OfferSchemaName name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 自定义字段类型
          * <p> 示例值：
+         *
          * @param type
          * @return
          */
         public Builder type(String type) {
-             this.type = type;
-             return this;
+            this.type = type;
+            return this;
         }
 
-    
 
         /**
          * 自定义字段的值
          * <p> 示例值：
+         *
          * @param value
          * @return
          */
         public Builder value(String value) {
-             this.value = value;
-             return this;
+            this.value = value;
+            return this;
         }
 
-    
 
         /**
          * 单选/多选自定义字段的值
          * <p> 示例值：
+         *
          * @param optionValueList
          * @return
          */
         public Builder optionValueList(AppliOfferBasicCustObjOpV[] optionValueList) {
-             this.optionValueList = optionValueList;
-             return this;
+            this.optionValueList = optionValueList;
+            return this;
         }
 
-    
-    
-    public AppliOfferBasicCustObj build(){
-        return new AppliOfferBasicCustObj(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public AppliOfferBasicCustObj build() {
+            return new AppliOfferBasicCustObj(this);
+        }
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.compensation.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.compensation.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,66 +20,126 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class LumpSumPaymentForUpdate {
-     /**
-      * 一次性支付记录id
-      * <p> 示例值：7397033607132351532
-      */
+    /**
+     * 一次性支付记录id
+     * <p> 示例值：7397033607132351532
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 总金额，字符串表达的数字
-      * <p> 示例值：2000.00
-      */
+    /**
+     * 总金额，字符串表达的数字
+     * <p> 示例值：2000.00
+     */
     @SerializedName("total_amount")
     private String totalAmount;
-     /**
-      * 绑定期，单位为月
-      * <p> 示例值：2
-      */
+    /**
+     * 绑定期，单位为月
+     * <p> 示例值：2
+     */
     @SerializedName("binding_period")
     private Integer bindingPeriod;
-     /**
-      * 币种id
-      * <p> 示例值：6863329932261459464
-      */
+    /**
+     * 币种id
+     * <p> 示例值：6863329932261459464
+     */
     @SerializedName("currency_id")
     private String currencyId;
-     /**
-      * 发放次数，必须与details的长度一致
-      * <p> 示例值：3
-      */
+    /**
+     * 发放次数，必须与details的长度一致
+     * <p> 示例值：3
+     */
     @SerializedName("issuance_frequency")
     private Integer issuanceFrequency;
-     /**
-      * 备注
-      * <p> 示例值：备注
-      */
+    /**
+     * 备注
+     * <p> 示例值：备注
+     */
     @SerializedName("remark")
     private String remark;
-     /**
-      * 所属期开始日期
-      * <p> 示例值：2024-08-01
-      */
+    /**
+     * 所属期开始日期
+     * <p> 示例值：2024-08-01
+     */
     @SerializedName("reference_period_start_date")
     private String referencePeriodStartDate;
-     /**
-      * 所属期结束日期
-      * <p> 示例值：2024-08-01
-      */
+    /**
+     * 所属期结束日期
+     * <p> 示例值：2024-08-01
+     */
     @SerializedName("reference_period_end_date")
     private String referencePeriodEndDate;
-     /**
-      * 发放明细列表
-      * <p> 示例值：
-      */
+    /**
+     * 发放明细列表
+     * <p> 示例值：
+     */
     @SerializedName("details")
     private LumpSumPaymentDetailForUpdate[] details;
+
+    // builder 开始
+    public LumpSumPaymentForUpdate() {
+    }
+
+    public LumpSumPaymentForUpdate(Builder builder) {
+        /**
+         * 一次性支付记录id
+         * <p> 示例值：7397033607132351532
+         */
+        this.id = builder.id;
+        /**
+         * 总金额，字符串表达的数字
+         * <p> 示例值：2000.00
+         */
+        this.totalAmount = builder.totalAmount;
+        /**
+         * 绑定期，单位为月
+         * <p> 示例值：2
+         */
+        this.bindingPeriod = builder.bindingPeriod;
+        /**
+         * 币种id
+         * <p> 示例值：6863329932261459464
+         */
+        this.currencyId = builder.currencyId;
+        /**
+         * 发放次数，必须与details的长度一致
+         * <p> 示例值：3
+         */
+        this.issuanceFrequency = builder.issuanceFrequency;
+        /**
+         * 备注
+         * <p> 示例值：备注
+         */
+        this.remark = builder.remark;
+        /**
+         * 所属期开始日期
+         * <p> 示例值：2024-08-01
+         */
+        this.referencePeriodStartDate = builder.referencePeriodStartDate;
+        /**
+         * 所属期结束日期
+         * <p> 示例值：2024-08-01
+         */
+        this.referencePeriodEndDate = builder.referencePeriodEndDate;
+        /**
+         * 发放明细列表
+         * <p> 示例值：
+         */
+        this.details = builder.details;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -151,228 +212,172 @@ public class LumpSumPaymentForUpdate {
         this.details = details;
     }
 
-
-// builder 开始
-  public LumpSumPaymentForUpdate(){}
-
-  public LumpSumPaymentForUpdate(Builder builder){
-         /**
-          * 一次性支付记录id
-          * <p> 示例值：7397033607132351532
-          */
-      this.id = builder.id;
-         /**
-          * 总金额，字符串表达的数字
-          * <p> 示例值：2000.00
-          */
-      this.totalAmount = builder.totalAmount;
-         /**
-          * 绑定期，单位为月
-          * <p> 示例值：2
-          */
-      this.bindingPeriod = builder.bindingPeriod;
-         /**
-          * 币种id
-          * <p> 示例值：6863329932261459464
-          */
-      this.currencyId = builder.currencyId;
-         /**
-          * 发放次数，必须与details的长度一致
-          * <p> 示例值：3
-          */
-      this.issuanceFrequency = builder.issuanceFrequency;
-         /**
-          * 备注
-          * <p> 示例值：备注
-          */
-      this.remark = builder.remark;
-         /**
-          * 所属期开始日期
-          * <p> 示例值：2024-08-01
-          */
-      this.referencePeriodStartDate = builder.referencePeriodStartDate;
-         /**
-          * 所属期结束日期
-          * <p> 示例值：2024-08-01
-          */
-      this.referencePeriodEndDate = builder.referencePeriodEndDate;
-         /**
-          * 发放明细列表
-          * <p> 示例值：
-          */
-      this.details = builder.details;
-  }
-
     public static class Builder {
-     /**
-      * 一次性支付记录id
-      * <p> 示例值：7397033607132351532
-      */
+        /**
+         * 一次性支付记录id
+         * <p> 示例值：7397033607132351532
+         */
         private String id;
-     /**
-      * 总金额，字符串表达的数字
-      * <p> 示例值：2000.00
-      */
+        /**
+         * 总金额，字符串表达的数字
+         * <p> 示例值：2000.00
+         */
         private String totalAmount;
-     /**
-      * 绑定期，单位为月
-      * <p> 示例值：2
-      */
+        /**
+         * 绑定期，单位为月
+         * <p> 示例值：2
+         */
         private Integer bindingPeriod;
-     /**
-      * 币种id
-      * <p> 示例值：6863329932261459464
-      */
+        /**
+         * 币种id
+         * <p> 示例值：6863329932261459464
+         */
         private String currencyId;
-     /**
-      * 发放次数，必须与details的长度一致
-      * <p> 示例值：3
-      */
+        /**
+         * 发放次数，必须与details的长度一致
+         * <p> 示例值：3
+         */
         private Integer issuanceFrequency;
-     /**
-      * 备注
-      * <p> 示例值：备注
-      */
+        /**
+         * 备注
+         * <p> 示例值：备注
+         */
         private String remark;
-     /**
-      * 所属期开始日期
-      * <p> 示例值：2024-08-01
-      */
+        /**
+         * 所属期开始日期
+         * <p> 示例值：2024-08-01
+         */
         private String referencePeriodStartDate;
-     /**
-      * 所属期结束日期
-      * <p> 示例值：2024-08-01
-      */
+        /**
+         * 所属期结束日期
+         * <p> 示例值：2024-08-01
+         */
         private String referencePeriodEndDate;
-     /**
-      * 发放明细列表
-      * <p> 示例值：
-      */
+        /**
+         * 发放明细列表
+         * <p> 示例值：
+         */
         private LumpSumPaymentDetailForUpdate[] details;
 
         /**
          * 一次性支付记录id
          * <p> 示例值：7397033607132351532
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 总金额，字符串表达的数字
          * <p> 示例值：2000.00
+         *
          * @param totalAmount
          * @return
          */
         public Builder totalAmount(String totalAmount) {
-             this.totalAmount = totalAmount;
-             return this;
+            this.totalAmount = totalAmount;
+            return this;
         }
 
-    
 
         /**
          * 绑定期，单位为月
          * <p> 示例值：2
+         *
          * @param bindingPeriod
          * @return
          */
         public Builder bindingPeriod(Integer bindingPeriod) {
-             this.bindingPeriod = bindingPeriod;
-             return this;
+            this.bindingPeriod = bindingPeriod;
+            return this;
         }
 
-    
 
         /**
          * 币种id
          * <p> 示例值：6863329932261459464
+         *
          * @param currencyId
          * @return
          */
         public Builder currencyId(String currencyId) {
-             this.currencyId = currencyId;
-             return this;
+            this.currencyId = currencyId;
+            return this;
         }
 
-    
 
         /**
          * 发放次数，必须与details的长度一致
          * <p> 示例值：3
+         *
          * @param issuanceFrequency
          * @return
          */
         public Builder issuanceFrequency(Integer issuanceFrequency) {
-             this.issuanceFrequency = issuanceFrequency;
-             return this;
+            this.issuanceFrequency = issuanceFrequency;
+            return this;
         }
 
-    
 
         /**
          * 备注
          * <p> 示例值：备注
+         *
          * @param remark
          * @return
          */
         public Builder remark(String remark) {
-             this.remark = remark;
-             return this;
+            this.remark = remark;
+            return this;
         }
 
-    
 
         /**
          * 所属期开始日期
          * <p> 示例值：2024-08-01
+         *
          * @param referencePeriodStartDate
          * @return
          */
         public Builder referencePeriodStartDate(String referencePeriodStartDate) {
-             this.referencePeriodStartDate = referencePeriodStartDate;
-             return this;
+            this.referencePeriodStartDate = referencePeriodStartDate;
+            return this;
         }
 
-    
 
         /**
          * 所属期结束日期
          * <p> 示例值：2024-08-01
+         *
          * @param referencePeriodEndDate
          * @return
          */
         public Builder referencePeriodEndDate(String referencePeriodEndDate) {
-             this.referencePeriodEndDate = referencePeriodEndDate;
-             return this;
+            this.referencePeriodEndDate = referencePeriodEndDate;
+            return this;
         }
 
-    
 
         /**
          * 发放明细列表
          * <p> 示例值：
+         *
          * @param details
          * @return
          */
         public Builder details(LumpSumPaymentDetailForUpdate[] details) {
-             this.details = details;
-             return this;
+            this.details = details;
+            return this;
         }
 
-    
-    
-    public LumpSumPaymentForUpdate build(){
-        return new LumpSumPaymentForUpdate(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public LumpSumPaymentForUpdate build() {
+            return new LumpSumPaymentForUpdate(this);
+        }
     }
 }

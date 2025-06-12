@@ -17,20 +17,21 @@ package com.lark.oapi.service.drive.v1.enums;
  * 协作者的类型
  */
 public enum MemberTypeEnum {
-     USER("user"), // 用户
-     CHAT("chat"), // 群组
-     DEPARTMENT("department"), // 组织架构
-     GROUP("group"), // 用户组
-     WIKI_SPACE_MEMBER("wiki_space_member"), // 知识库成员
-     WIKI_SPACE_VIEWER("wiki_space_viewer"), // 知识库可阅读成员
-     WIKI_SPACE_EDITOR("wiki_space_editor"), // 知识库可编辑成员
-  ;
-   private String value;
+    USER("user"), // 用户
+    CHAT("chat"), // 群组
+    DEPARTMENT("department"), // 组织架构
+    GROUP("group"), // 用户组
+    WIKI_SPACE_MEMBER("wiki_space_member"), // 知识库成员
+    WIKI_SPACE_VIEWER("wiki_space_viewer"), // 知识库可阅读成员
+    WIKI_SPACE_EDITOR("wiki_space_editor"), // 知识库可编辑成员
+    ;
+    private String value;
+
     MemberTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

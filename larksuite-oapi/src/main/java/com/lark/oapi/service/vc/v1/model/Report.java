@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,36 +20,71 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Report {
-     /**
-      * 总会议数量
-      * <p> 示例值：100
-      */
+    /**
+     * 总会议数量
+     * <p> 示例值：100
+     */
     @SerializedName("total_meeting_count")
     private String totalMeetingCount;
-     /**
-      * 总会议时长（单位sec）
-      * <p> 示例值：300000
-      */
+    /**
+     * 总会议时长（单位sec）
+     * <p> 示例值：300000
+     */
     @SerializedName("total_meeting_duration")
     private String totalMeetingDuration;
-     /**
-      * 总参会人数
-      * <p> 示例值：20000
-      */
+    /**
+     * 总参会人数
+     * <p> 示例值：20000
+     */
     @SerializedName("total_participant_count")
     private String totalParticipantCount;
-     /**
-      * 每日会议报告列表
-      * <p> 示例值：
-      */
+    /**
+     * 每日会议报告列表
+     * <p> 示例值：
+     */
     @SerializedName("daily_report")
     private ReportMeetingDaily[] dailyReport;
+
+    // builder 开始
+    public Report() {
+    }
+
+    public Report(Builder builder) {
+        /**
+         * 总会议数量
+         * <p> 示例值：100
+         */
+        this.totalMeetingCount = builder.totalMeetingCount;
+        /**
+         * 总会议时长（单位sec）
+         * <p> 示例值：300000
+         */
+        this.totalMeetingDuration = builder.totalMeetingDuration;
+        /**
+         * 总参会人数
+         * <p> 示例值：20000
+         */
+        this.totalParticipantCount = builder.totalParticipantCount;
+        /**
+         * 每日会议报告列表
+         * <p> 示例值：
+         */
+        this.dailyReport = builder.dailyReport;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getTotalMeetingCount() {
         return this.totalMeetingCount;
     }
@@ -81,113 +117,82 @@ public class Report {
         this.dailyReport = dailyReport;
     }
 
-
-// builder 开始
-  public Report(){}
-
-  public Report(Builder builder){
-         /**
-          * 总会议数量
-          * <p> 示例值：100
-          */
-      this.totalMeetingCount = builder.totalMeetingCount;
-         /**
-          * 总会议时长（单位sec）
-          * <p> 示例值：300000
-          */
-      this.totalMeetingDuration = builder.totalMeetingDuration;
-         /**
-          * 总参会人数
-          * <p> 示例值：20000
-          */
-      this.totalParticipantCount = builder.totalParticipantCount;
-         /**
-          * 每日会议报告列表
-          * <p> 示例值：
-          */
-      this.dailyReport = builder.dailyReport;
-  }
-
     public static class Builder {
-     /**
-      * 总会议数量
-      * <p> 示例值：100
-      */
+        /**
+         * 总会议数量
+         * <p> 示例值：100
+         */
         private String totalMeetingCount;
-     /**
-      * 总会议时长（单位sec）
-      * <p> 示例值：300000
-      */
+        /**
+         * 总会议时长（单位sec）
+         * <p> 示例值：300000
+         */
         private String totalMeetingDuration;
-     /**
-      * 总参会人数
-      * <p> 示例值：20000
-      */
+        /**
+         * 总参会人数
+         * <p> 示例值：20000
+         */
         private String totalParticipantCount;
-     /**
-      * 每日会议报告列表
-      * <p> 示例值：
-      */
+        /**
+         * 每日会议报告列表
+         * <p> 示例值：
+         */
         private ReportMeetingDaily[] dailyReport;
 
         /**
          * 总会议数量
          * <p> 示例值：100
+         *
          * @param totalMeetingCount
          * @return
          */
         public Builder totalMeetingCount(String totalMeetingCount) {
-             this.totalMeetingCount = totalMeetingCount;
-             return this;
+            this.totalMeetingCount = totalMeetingCount;
+            return this;
         }
 
-    
 
         /**
          * 总会议时长（单位sec）
          * <p> 示例值：300000
+         *
          * @param totalMeetingDuration
          * @return
          */
         public Builder totalMeetingDuration(String totalMeetingDuration) {
-             this.totalMeetingDuration = totalMeetingDuration;
-             return this;
+            this.totalMeetingDuration = totalMeetingDuration;
+            return this;
         }
 
-    
 
         /**
          * 总参会人数
          * <p> 示例值：20000
+         *
          * @param totalParticipantCount
          * @return
          */
         public Builder totalParticipantCount(String totalParticipantCount) {
-             this.totalParticipantCount = totalParticipantCount;
-             return this;
+            this.totalParticipantCount = totalParticipantCount;
+            return this;
         }
 
-    
 
         /**
          * 每日会议报告列表
          * <p> 示例值：
+         *
          * @param dailyReport
          * @return
          */
         public Builder dailyReport(ReportMeetingDaily[] dailyReport) {
-             this.dailyReport = dailyReport;
-             return this;
+            this.dailyReport = dailyReport;
+            return this;
         }
 
-    
-    
-    public Report build(){
-        return new Report(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Report build() {
+            return new Report(this);
+        }
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,36 +20,71 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CustomFieldData {
-     /**
-      * 自定义字段 apiname，即自定义字段的唯一标识
-      * <p> 示例值：name
-      */
+    /**
+     * 自定义字段 apiname，即自定义字段的唯一标识
+     * <p> 示例值：name
+     */
     @SerializedName("custom_api_name")
     private String customApiName;
-     /**
-      * 自定义字段名称
-      * <p> 示例值：
-      */
+    /**
+     * 自定义字段名称
+     * <p> 示例值：
+     */
     @SerializedName("name")
     private CustomName name;
-     /**
-      * 自定义字段类型
-      * <p> 示例值：1
-      */
+    /**
+     * 自定义字段类型
+     * <p> 示例值：1
+     */
     @SerializedName("type")
     private Integer type;
-     /**
-      * 字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同（如 123, 123.23, "true", ["id1","id2"], "2006-01-02 15:04:05"）
-      * <p> 示例值："231"
-      */
+    /**
+     * 字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同（如 123, 123.23, "true", ["id1","id2"], "2006-01-02 15:04:05"）
+     * <p> 示例值："231"
+     */
     @SerializedName("value")
     private String value;
+
+    // builder 开始
+    public CustomFieldData() {
+    }
+
+    public CustomFieldData(Builder builder) {
+        /**
+         * 自定义字段 apiname，即自定义字段的唯一标识
+         * <p> 示例值：name
+         */
+        this.customApiName = builder.customApiName;
+        /**
+         * 自定义字段名称
+         * <p> 示例值：
+         */
+        this.name = builder.name;
+        /**
+         * 自定义字段类型
+         * <p> 示例值：1
+         */
+        this.type = builder.type;
+        /**
+         * 字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同（如 123, 123.23, "true", ["id1","id2"], "2006-01-02 15:04:05"）
+         * <p> 示例值："231"
+         */
+        this.value = builder.value;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getCustomApiName() {
         return this.customApiName;
     }
@@ -81,113 +117,82 @@ public class CustomFieldData {
         this.value = value;
     }
 
-
-// builder 开始
-  public CustomFieldData(){}
-
-  public CustomFieldData(Builder builder){
-         /**
-          * 自定义字段 apiname，即自定义字段的唯一标识
-          * <p> 示例值：name
-          */
-      this.customApiName = builder.customApiName;
-         /**
-          * 自定义字段名称
-          * <p> 示例值：
-          */
-      this.name = builder.name;
-         /**
-          * 自定义字段类型
-          * <p> 示例值：1
-          */
-      this.type = builder.type;
-         /**
-          * 字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同（如 123, 123.23, "true", ["id1","id2"], "2006-01-02 15:04:05"）
-          * <p> 示例值："231"
-          */
-      this.value = builder.value;
-  }
-
     public static class Builder {
-     /**
-      * 自定义字段 apiname，即自定义字段的唯一标识
-      * <p> 示例值：name
-      */
+        /**
+         * 自定义字段 apiname，即自定义字段的唯一标识
+         * <p> 示例值：name
+         */
         private String customApiName;
-     /**
-      * 自定义字段名称
-      * <p> 示例值：
-      */
+        /**
+         * 自定义字段名称
+         * <p> 示例值：
+         */
         private CustomName name;
-     /**
-      * 自定义字段类型
-      * <p> 示例值：1
-      */
+        /**
+         * 自定义字段类型
+         * <p> 示例值：1
+         */
         private Integer type;
-     /**
-      * 字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同（如 123, 123.23, "true", ["id1","id2"], "2006-01-02 15:04:05"）
-      * <p> 示例值："231"
-      */
+        /**
+         * 字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同（如 123, 123.23, "true", ["id1","id2"], "2006-01-02 15:04:05"）
+         * <p> 示例值："231"
+         */
         private String value;
 
         /**
          * 自定义字段 apiname，即自定义字段的唯一标识
          * <p> 示例值：name
+         *
          * @param customApiName
          * @return
          */
         public Builder customApiName(String customApiName) {
-             this.customApiName = customApiName;
-             return this;
+            this.customApiName = customApiName;
+            return this;
         }
 
-    
 
         /**
          * 自定义字段名称
          * <p> 示例值：
+         *
          * @param name
          * @return
          */
         public Builder name(CustomName name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 自定义字段类型
          * <p> 示例值：1
+         *
          * @param type
          * @return
          */
         public Builder type(Integer type) {
-             this.type = type;
-             return this;
+            this.type = type;
+            return this;
         }
 
-    
 
         /**
          * 字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同（如 123, 123.23, "true", ["id1","id2"], "2006-01-02 15:04:05"）
          * <p> 示例值："231"
+         *
          * @param value
          * @return
          */
         public Builder value(String value) {
-             this.value = value;
-             return this;
+            this.value = value;
+            return this;
         }
 
-    
-    
-    public CustomFieldData build(){
-        return new CustomFieldData(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public CustomFieldData build() {
+            return new CustomFieldData(this);
+        }
     }
 }

@@ -12,30 +12,56 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ObjectIdName {
-     /**
-      * 内推职位 ID
-      * <p> 示例值：7410744543304468773
-      */
+    /**
+     * 内推职位 ID
+     * <p> 示例值：7410744543304468773
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 内推职位名称
-      * <p> 示例值：上海后端研发
-      */
+    /**
+     * 内推职位名称
+     * <p> 示例值：上海后端研发
+     */
     @SerializedName("name")
     private String name;
+
+    // builder 开始
+    public ObjectIdName() {
+    }
+
+    public ObjectIdName(Builder builder) {
+        /**
+         * 内推职位 ID
+         * <p> 示例值：7410744543304468773
+         */
+        this.id = builder.id;
+        /**
+         * 内推职位名称
+         * <p> 示例值：上海后端研发
+         */
+        this.name = builder.name;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -52,67 +78,46 @@ public class ObjectIdName {
         this.name = name;
     }
 
-
-// builder 开始
-  public ObjectIdName(){}
-
-  public ObjectIdName(Builder builder){
-         /**
-          * 内推职位 ID
-          * <p> 示例值：7410744543304468773
-          */
-      this.id = builder.id;
-         /**
-          * 内推职位名称
-          * <p> 示例值：上海后端研发
-          */
-      this.name = builder.name;
-  }
-
     public static class Builder {
-     /**
-      * 内推职位 ID
-      * <p> 示例值：7410744543304468773
-      */
+        /**
+         * 内推职位 ID
+         * <p> 示例值：7410744543304468773
+         */
         private String id;
-     /**
-      * 内推职位名称
-      * <p> 示例值：上海后端研发
-      */
+        /**
+         * 内推职位名称
+         * <p> 示例值：上海后端研发
+         */
         private String name;
 
         /**
          * 内推职位 ID
          * <p> 示例值：7410744543304468773
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 内推职位名称
          * <p> 示例值：上海后端研发
+         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
-    
-    public ObjectIdName build(){
-        return new ObjectIdName(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ObjectIdName build() {
+            return new ObjectIdName(this);
+        }
     }
 }

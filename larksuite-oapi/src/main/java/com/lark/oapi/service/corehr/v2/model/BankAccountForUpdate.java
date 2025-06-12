@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,60 +20,115 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class BankAccountForUpdate {
-     /**
-      * 银行名称：- 当填入 bank_id 时，自动填入 bank 的名称 - 未填入 bank_id ，取传入的银行名称
-      * <p> 示例值：中国农业银行
-      */
+    /**
+     * 银行名称：- 当填入 bank_id 时，自动填入 bank 的名称 - 未填入 bank_id ，取传入的银行名称
+     * <p> 示例值：中国农业银行
+     */
     @SerializedName("bank_name")
     private String bankName;
-     /**
-      * 支行名称，仅当支行为手动输入时该字段才需要填入
-      * <p> 示例值：中国农业银行支行
-      */
+    /**
+     * 支行名称，仅当支行为手动输入时该字段才需要填入
+     * <p> 示例值：中国农业银行支行
+     */
     @SerializedName("branch_name")
     private String branchName;
-     /**
-      * 银行账号
-      * <p> 示例值：6231200000001223
-      */
+    /**
+     * 银行账号
+     * <p> 示例值：6231200000001223
+     */
     @SerializedName("bank_account_number")
     private String bankAccountNumber;
-     /**
-      * 开户人姓名
-      * <p> 示例值：孟十五
-      */
+    /**
+     * 开户人姓名
+     * <p> 示例值：孟十五
+     */
     @SerializedName("account_holder")
     private String accountHolder;
-     /**
-      * 国家/地区 ID，详细信息可通过【查询国家/地区信息】接口查询获得
-      * <p> 示例值：6862995745889322510
-      */
+    /**
+     * 国家/地区 ID，详细信息可通过【查询国家/地区信息】接口查询获得
+     * <p> 示例值：6862995745889322510
+     */
     @SerializedName("country_region_id")
     private String countryRegionId;
-     /**
-      * 银行卡用途，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可：- object_api_name = "bank_account" - custom_api_name = "bank_account_usage"
-      * <p> 示例值：
-      */
+    /**
+     * 银行卡用途，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可：- object_api_name = "bank_account" - custom_api_name = "bank_account_usage"
+     * <p> 示例值：
+     */
     @SerializedName("bank_account_usages")
     private String[] bankAccountUsages;
-     /**
-      * 银行卡类型，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可：- object_api_name = "bank_account" - custom_api_name = "bank_account_type"
-      * <p> 示例值：checking
-      */
+    /**
+     * 银行卡类型，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可：- object_api_name = "bank_account" - custom_api_name = "bank_account_type"
+     * <p> 示例值：checking
+     */
     @SerializedName("bank_account_type")
     private String bankAccountType;
-     /**
-      * 自定义字段
-      * <p> 示例值：
-      */
+    /**
+     * 自定义字段
+     * <p> 示例值：
+     */
     @SerializedName("custom_fields")
     private ObjectFieldData[] customFields;
+
+    // builder 开始
+    public BankAccountForUpdate() {
+    }
+
+    public BankAccountForUpdate(Builder builder) {
+        /**
+         * 银行名称：- 当填入 bank_id 时，自动填入 bank 的名称 - 未填入 bank_id ，取传入的银行名称
+         * <p> 示例值：中国农业银行
+         */
+        this.bankName = builder.bankName;
+        /**
+         * 支行名称，仅当支行为手动输入时该字段才需要填入
+         * <p> 示例值：中国农业银行支行
+         */
+        this.branchName = builder.branchName;
+        /**
+         * 银行账号
+         * <p> 示例值：6231200000001223
+         */
+        this.bankAccountNumber = builder.bankAccountNumber;
+        /**
+         * 开户人姓名
+         * <p> 示例值：孟十五
+         */
+        this.accountHolder = builder.accountHolder;
+        /**
+         * 国家/地区 ID，详细信息可通过【查询国家/地区信息】接口查询获得
+         * <p> 示例值：6862995745889322510
+         */
+        this.countryRegionId = builder.countryRegionId;
+        /**
+         * 银行卡用途，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可：- object_api_name = "bank_account" - custom_api_name = "bank_account_usage"
+         * <p> 示例值：
+         */
+        this.bankAccountUsages = builder.bankAccountUsages;
+        /**
+         * 银行卡类型，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可：- object_api_name = "bank_account" - custom_api_name = "bank_account_type"
+         * <p> 示例值：checking
+         */
+        this.bankAccountType = builder.bankAccountType;
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
+        this.customFields = builder.customFields;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getBankName() {
         return this.bankName;
     }
@@ -137,205 +193,154 @@ public class BankAccountForUpdate {
         this.customFields = customFields;
     }
 
-
-// builder 开始
-  public BankAccountForUpdate(){}
-
-  public BankAccountForUpdate(Builder builder){
-         /**
-          * 银行名称：- 当填入 bank_id 时，自动填入 bank 的名称 - 未填入 bank_id ，取传入的银行名称
-          * <p> 示例值：中国农业银行
-          */
-      this.bankName = builder.bankName;
-         /**
-          * 支行名称，仅当支行为手动输入时该字段才需要填入
-          * <p> 示例值：中国农业银行支行
-          */
-      this.branchName = builder.branchName;
-         /**
-          * 银行账号
-          * <p> 示例值：6231200000001223
-          */
-      this.bankAccountNumber = builder.bankAccountNumber;
-         /**
-          * 开户人姓名
-          * <p> 示例值：孟十五
-          */
-      this.accountHolder = builder.accountHolder;
-         /**
-          * 国家/地区 ID，详细信息可通过【查询国家/地区信息】接口查询获得
-          * <p> 示例值：6862995745889322510
-          */
-      this.countryRegionId = builder.countryRegionId;
-         /**
-          * 银行卡用途，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可：- object_api_name = "bank_account" - custom_api_name = "bank_account_usage"
-          * <p> 示例值：
-          */
-      this.bankAccountUsages = builder.bankAccountUsages;
-         /**
-          * 银行卡类型，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可：- object_api_name = "bank_account" - custom_api_name = "bank_account_type"
-          * <p> 示例值：checking
-          */
-      this.bankAccountType = builder.bankAccountType;
-         /**
-          * 自定义字段
-          * <p> 示例值：
-          */
-      this.customFields = builder.customFields;
-  }
-
     public static class Builder {
-     /**
-      * 银行名称：- 当填入 bank_id 时，自动填入 bank 的名称 - 未填入 bank_id ，取传入的银行名称
-      * <p> 示例值：中国农业银行
-      */
+        /**
+         * 银行名称：- 当填入 bank_id 时，自动填入 bank 的名称 - 未填入 bank_id ，取传入的银行名称
+         * <p> 示例值：中国农业银行
+         */
         private String bankName;
-     /**
-      * 支行名称，仅当支行为手动输入时该字段才需要填入
-      * <p> 示例值：中国农业银行支行
-      */
+        /**
+         * 支行名称，仅当支行为手动输入时该字段才需要填入
+         * <p> 示例值：中国农业银行支行
+         */
         private String branchName;
-     /**
-      * 银行账号
-      * <p> 示例值：6231200000001223
-      */
+        /**
+         * 银行账号
+         * <p> 示例值：6231200000001223
+         */
         private String bankAccountNumber;
-     /**
-      * 开户人姓名
-      * <p> 示例值：孟十五
-      */
+        /**
+         * 开户人姓名
+         * <p> 示例值：孟十五
+         */
         private String accountHolder;
-     /**
-      * 国家/地区 ID，详细信息可通过【查询国家/地区信息】接口查询获得
-      * <p> 示例值：6862995745889322510
-      */
+        /**
+         * 国家/地区 ID，详细信息可通过【查询国家/地区信息】接口查询获得
+         * <p> 示例值：6862995745889322510
+         */
         private String countryRegionId;
-     /**
-      * 银行卡用途，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可：- object_api_name = "bank_account" - custom_api_name = "bank_account_usage"
-      * <p> 示例值：
-      */
+        /**
+         * 银行卡用途，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可：- object_api_name = "bank_account" - custom_api_name = "bank_account_usage"
+         * <p> 示例值：
+         */
         private String[] bankAccountUsages;
-     /**
-      * 银行卡类型，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可：- object_api_name = "bank_account" - custom_api_name = "bank_account_type"
-      * <p> 示例值：checking
-      */
+        /**
+         * 银行卡类型，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可：- object_api_name = "bank_account" - custom_api_name = "bank_account_type"
+         * <p> 示例值：checking
+         */
         private String bankAccountType;
-     /**
-      * 自定义字段
-      * <p> 示例值：
-      */
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
         private ObjectFieldData[] customFields;
 
         /**
          * 银行名称：- 当填入 bank_id 时，自动填入 bank 的名称 - 未填入 bank_id ，取传入的银行名称
          * <p> 示例值：中国农业银行
+         *
          * @param bankName
          * @return
          */
         public Builder bankName(String bankName) {
-             this.bankName = bankName;
-             return this;
+            this.bankName = bankName;
+            return this;
         }
 
-    
 
         /**
          * 支行名称，仅当支行为手动输入时该字段才需要填入
          * <p> 示例值：中国农业银行支行
+         *
          * @param branchName
          * @return
          */
         public Builder branchName(String branchName) {
-             this.branchName = branchName;
-             return this;
+            this.branchName = branchName;
+            return this;
         }
 
-    
 
         /**
          * 银行账号
          * <p> 示例值：6231200000001223
+         *
          * @param bankAccountNumber
          * @return
          */
         public Builder bankAccountNumber(String bankAccountNumber) {
-             this.bankAccountNumber = bankAccountNumber;
-             return this;
+            this.bankAccountNumber = bankAccountNumber;
+            return this;
         }
 
-    
 
         /**
          * 开户人姓名
          * <p> 示例值：孟十五
+         *
          * @param accountHolder
          * @return
          */
         public Builder accountHolder(String accountHolder) {
-             this.accountHolder = accountHolder;
-             return this;
+            this.accountHolder = accountHolder;
+            return this;
         }
 
-    
 
         /**
          * 国家/地区 ID，详细信息可通过【查询国家/地区信息】接口查询获得
          * <p> 示例值：6862995745889322510
+         *
          * @param countryRegionId
          * @return
          */
         public Builder countryRegionId(String countryRegionId) {
-             this.countryRegionId = countryRegionId;
-             return this;
+            this.countryRegionId = countryRegionId;
+            return this;
         }
 
-    
 
         /**
          * 银行卡用途，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可：- object_api_name = "bank_account" - custom_api_name = "bank_account_usage"
          * <p> 示例值：
+         *
          * @param bankAccountUsages
          * @return
          */
         public Builder bankAccountUsages(String[] bankAccountUsages) {
-             this.bankAccountUsages = bankAccountUsages;
-             return this;
+            this.bankAccountUsages = bankAccountUsages;
+            return this;
         }
 
-    
 
         /**
          * 银行卡类型，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可：- object_api_name = "bank_account" - custom_api_name = "bank_account_type"
          * <p> 示例值：checking
+         *
          * @param bankAccountType
          * @return
          */
         public Builder bankAccountType(String bankAccountType) {
-             this.bankAccountType = bankAccountType;
-             return this;
+            this.bankAccountType = bankAccountType;
+            return this;
         }
 
-    
 
         /**
          * 自定义字段
          * <p> 示例值：
+         *
          * @param customFields
          * @return
          */
         public Builder customFields(ObjectFieldData[] customFields) {
-             this.customFields = customFields;
-             return this;
+            this.customFields = customFields;
+            return this;
         }
 
-    
-    
-    public BankAccountForUpdate build(){
-        return new BankAccountForUpdate(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public BankAccountForUpdate build() {
+            return new BankAccountForUpdate(this);
+        }
     }
 }

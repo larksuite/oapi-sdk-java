@@ -12,72 +12,77 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class GetExternalApprovalRespBody {
-     /**
-      * 审批定义名称
-      * <p> 示例值：@i18n@1
-      */
+    /**
+     * 审批定义名称
+     * <p> 示例值：@i18n@1
+     */
     @SerializedName("approval_name")
     private String approvalName;
-     /**
-      * 审批定义code
-      * <p> 示例值：permission_test
-      */
+    /**
+     * 审批定义code
+     * <p> 示例值：permission_test
+     */
     @SerializedName("approval_code")
     private String approvalCode;
-     /**
-      * 审批定义所属分组
-      * <p> 示例值：work_group
-      */
+    /**
+     * 审批定义所属分组
+     * <p> 示例值：work_group
+     */
     @SerializedName("group_code")
     private String groupCode;
-     /**
-      * 分组名称
-      * <p> 示例值：@i18n@2
-      */
+    /**
+     * 分组名称
+     * <p> 示例值：@i18n@2
+     */
     @SerializedName("group_name")
     private String groupName;
-     /**
-      * 审批定义的说明
-      * <p> 示例值：@i18n@2
-      */
+    /**
+     * 审批定义的说明
+     * <p> 示例值：@i18n@2
+     */
     @SerializedName("description")
     private String description;
-     /**
-      * 三方审批定义相关
-      * <p> 示例值：
-      */
+    /**
+     * 三方审批定义相关
+     * <p> 示例值：
+     */
     @SerializedName("external")
     private ApprovalCreateExternal external;
-     /**
-      * 可见人列表
-      * <p> 示例值：
-      */
+    /**
+     * 可见人列表
+     * <p> 示例值：
+     */
     @SerializedName("viewers")
     private ApprovalCreateViewers[] viewers;
-     /**
-      * 国际化文案
-      * <p> 示例值：
-      */
+    /**
+     * 国际化文案
+     * <p> 示例值：
+     */
     @SerializedName("i18n_resources")
     private I18nResource[] i18nResources;
-     /**
-      * 流程管理员
-      * <p> 示例值：
-      */
+    /**
+     * 流程管理员
+     * <p> 示例值：
+     */
     @SerializedName("managers")
     private String[] managers;
+
     public String getApprovalName() {
         return this.approvalName;
     }

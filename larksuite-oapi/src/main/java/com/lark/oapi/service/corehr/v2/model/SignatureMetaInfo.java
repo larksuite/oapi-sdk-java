@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class SignatureMetaInfo {
-     /**
-      * 元数据api_name
-      * <p> 示例值：status
-      */
+    /**
+     * 元数据api_name
+     * <p> 示例值：status
+     */
     @SerializedName("api_name")
     private String apiName;
-     /**
-      * wukong id
-      * <p> 示例值：123124124124123
-      */
+    /**
+     * wukong id
+     * <p> 示例值：123124124124123
+     */
     @SerializedName("wk_id")
     private String wkId;
-     /**
-      * 多语描述
-      * <p> 示例值：
-      */
+    /**
+     * 多语描述
+     * <p> 示例值：
+     */
     @SerializedName("label")
     private I18n[] label;
+
+    // builder 开始
+    public SignatureMetaInfo() {
+    }
+
+    public SignatureMetaInfo(Builder builder) {
+        /**
+         * 元数据api_name
+         * <p> 示例值：status
+         */
+        this.apiName = builder.apiName;
+        /**
+         * wukong id
+         * <p> 示例值：123124124124123
+         */
+        this.wkId = builder.wkId;
+        /**
+         * 多语描述
+         * <p> 示例值：
+         */
+        this.label = builder.label;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getApiName() {
         return this.apiName;
     }
@@ -67,90 +98,64 @@ public class SignatureMetaInfo {
         this.label = label;
     }
 
-
-// builder 开始
-  public SignatureMetaInfo(){}
-
-  public SignatureMetaInfo(Builder builder){
-         /**
-          * 元数据api_name
-          * <p> 示例值：status
-          */
-      this.apiName = builder.apiName;
-         /**
-          * wukong id
-          * <p> 示例值：123124124124123
-          */
-      this.wkId = builder.wkId;
-         /**
-          * 多语描述
-          * <p> 示例值：
-          */
-      this.label = builder.label;
-  }
-
     public static class Builder {
-     /**
-      * 元数据api_name
-      * <p> 示例值：status
-      */
+        /**
+         * 元数据api_name
+         * <p> 示例值：status
+         */
         private String apiName;
-     /**
-      * wukong id
-      * <p> 示例值：123124124124123
-      */
+        /**
+         * wukong id
+         * <p> 示例值：123124124124123
+         */
         private String wkId;
-     /**
-      * 多语描述
-      * <p> 示例值：
-      */
+        /**
+         * 多语描述
+         * <p> 示例值：
+         */
         private I18n[] label;
 
         /**
          * 元数据api_name
          * <p> 示例值：status
+         *
          * @param apiName
          * @return
          */
         public Builder apiName(String apiName) {
-             this.apiName = apiName;
-             return this;
+            this.apiName = apiName;
+            return this;
         }
 
-    
 
         /**
          * wukong id
          * <p> 示例值：123124124124123
+         *
          * @param wkId
          * @return
          */
         public Builder wkId(String wkId) {
-             this.wkId = wkId;
-             return this;
+            this.wkId = wkId;
+            return this;
         }
 
-    
 
         /**
          * 多语描述
          * <p> 示例值：
+         *
          * @param label
          * @return
          */
         public Builder label(I18n[] label) {
-             this.label = label;
-             return this;
+            this.label = label;
+            return this;
         }
 
-    
-    
-    public SignatureMetaInfo build(){
-        return new SignatureMetaInfo(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public SignatureMetaInfo build() {
+            return new SignatureMetaInfo(this);
+        }
     }
 }

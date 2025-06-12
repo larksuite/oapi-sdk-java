@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.sheets.v3.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.sheets.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,78 +20,138 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CellValue {
-     /**
-      * 元素类型
-      * <p> 示例值：text
-      */
+    /**
+     * 元素类型
+     * <p> 示例值：text
+     */
     @SerializedName("type")
     private String type;
-     /**
-      * 
-      * <p> 示例值：
-      */
+    /**
+     * <p> 示例值：
+     */
     @SerializedName("text")
     private Text text;
-     /**
-      * 
-      * <p> 示例值：
-      */
+    /**
+     * <p> 示例值：
+     */
     @SerializedName("mention_user")
     private MentionUser mentionUser;
-     /**
-      * 
-      * <p> 示例值：
-      */
+    /**
+     * <p> 示例值：
+     */
     @SerializedName("mention_document")
     private MentionDocument mentionDocument;
-     /**
-      * 
-      * <p> 示例值：
-      */
+    /**
+     * <p> 示例值：
+     */
     @SerializedName("value")
     private ValueElement value;
-     /**
-      * 
-      * <p> 示例值：
-      */
+    /**
+     * <p> 示例值：
+     */
     @SerializedName("date_time")
     private DateTime dateTime;
-     /**
-      * 
-      * <p> 示例值：
-      */
+    /**
+     * <p> 示例值：
+     */
     @SerializedName("file")
     private File file;
-     /**
-      * 
-      * <p> 示例值：
-      */
+    /**
+     * <p> 示例值：
+     */
     @SerializedName("image")
     private Image image;
-     /**
-      * 
-      * <p> 示例值：
-      */
+    /**
+     * <p> 示例值：
+     */
     @SerializedName("link")
     private Link link;
-     /**
-      * 
-      * <p> 示例值：
-      */
+    /**
+     * <p> 示例值：
+     */
     @SerializedName("reminder")
     private Reminder reminder;
-     /**
-      * 
-      * <p> 示例值：
-      */
+    /**
+     * <p> 示例值：
+     */
     @SerializedName("formula")
     private Formula formula;
+
+    // builder 开始
+    public CellValue() {
+    }
+
+    public CellValue(Builder builder) {
+        /**
+         * 元素类型
+         * <p> 示例值：text
+         */
+        this.type = builder.type;
+        /**
+         *
+         * <p> 示例值：
+         */
+        this.text = builder.text;
+        /**
+         *
+         * <p> 示例值：
+         */
+        this.mentionUser = builder.mentionUser;
+        /**
+         *
+         * <p> 示例值：
+         */
+        this.mentionDocument = builder.mentionDocument;
+        /**
+         *
+         * <p> 示例值：
+         */
+        this.value = builder.value;
+        /**
+         *
+         * <p> 示例值：
+         */
+        this.dateTime = builder.dateTime;
+        /**
+         *
+         * <p> 示例值：
+         */
+        this.file = builder.file;
+        /**
+         *
+         * <p> 示例值：
+         */
+        this.image = builder.image;
+        /**
+         *
+         * <p> 示例值：
+         */
+        this.link = builder.link;
+        /**
+         *
+         * <p> 示例值：
+         */
+        this.reminder = builder.reminder;
+        /**
+         *
+         * <p> 示例值：
+         */
+        this.formula = builder.formula;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getType() {
         return this.type;
     }
@@ -179,274 +240,188 @@ public class CellValue {
         this.formula = formula;
     }
 
-
-// builder 开始
-  public CellValue(){}
-
-  public CellValue(Builder builder){
-         /**
-          * 元素类型
-          * <p> 示例值：text
-          */
-      this.type = builder.type;
-         /**
-          * 
-          * <p> 示例值：
-          */
-      this.text = builder.text;
-         /**
-          * 
-          * <p> 示例值：
-          */
-      this.mentionUser = builder.mentionUser;
-         /**
-          * 
-          * <p> 示例值：
-          */
-      this.mentionDocument = builder.mentionDocument;
-         /**
-          * 
-          * <p> 示例值：
-          */
-      this.value = builder.value;
-         /**
-          * 
-          * <p> 示例值：
-          */
-      this.dateTime = builder.dateTime;
-         /**
-          * 
-          * <p> 示例值：
-          */
-      this.file = builder.file;
-         /**
-          * 
-          * <p> 示例值：
-          */
-      this.image = builder.image;
-         /**
-          * 
-          * <p> 示例值：
-          */
-      this.link = builder.link;
-         /**
-          * 
-          * <p> 示例值：
-          */
-      this.reminder = builder.reminder;
-         /**
-          * 
-          * <p> 示例值：
-          */
-      this.formula = builder.formula;
-  }
-
     public static class Builder {
-     /**
-      * 元素类型
-      * <p> 示例值：text
-      */
+        /**
+         * 元素类型
+         * <p> 示例值：text
+         */
         private String type;
-     /**
-      * 
-      * <p> 示例值：
-      */
+        /**
+         * <p> 示例值：
+         */
         private Text text;
-     /**
-      * 
-      * <p> 示例值：
-      */
+        /**
+         * <p> 示例值：
+         */
         private MentionUser mentionUser;
-     /**
-      * 
-      * <p> 示例值：
-      */
+        /**
+         * <p> 示例值：
+         */
         private MentionDocument mentionDocument;
-     /**
-      * 
-      * <p> 示例值：
-      */
+        /**
+         * <p> 示例值：
+         */
         private ValueElement value;
-     /**
-      * 
-      * <p> 示例值：
-      */
+        /**
+         * <p> 示例值：
+         */
         private DateTime dateTime;
-     /**
-      * 
-      * <p> 示例值：
-      */
+        /**
+         * <p> 示例值：
+         */
         private File file;
-     /**
-      * 
-      * <p> 示例值：
-      */
+        /**
+         * <p> 示例值：
+         */
         private Image image;
-     /**
-      * 
-      * <p> 示例值：
-      */
+        /**
+         * <p> 示例值：
+         */
         private Link link;
-     /**
-      * 
-      * <p> 示例值：
-      */
+        /**
+         * <p> 示例值：
+         */
         private Reminder reminder;
-     /**
-      * 
-      * <p> 示例值：
-      */
+        /**
+         * <p> 示例值：
+         */
         private Formula formula;
 
         /**
          * 元素类型
          * <p> 示例值：text
+         *
          * @param type
          * @return
          */
         public Builder type(String type) {
-             this.type = type;
-             return this;
+            this.type = type;
+            return this;
         }
 
-    
 
         /**
-         * 
          * <p> 示例值：
+         *
          * @param text
          * @return
          */
         public Builder text(Text text) {
-             this.text = text;
-             return this;
+            this.text = text;
+            return this;
         }
 
-    
 
         /**
-         * 
          * <p> 示例值：
+         *
          * @param mentionUser
          * @return
          */
         public Builder mentionUser(MentionUser mentionUser) {
-             this.mentionUser = mentionUser;
-             return this;
+            this.mentionUser = mentionUser;
+            return this;
         }
 
-    
 
         /**
-         * 
          * <p> 示例值：
+         *
          * @param mentionDocument
          * @return
          */
         public Builder mentionDocument(MentionDocument mentionDocument) {
-             this.mentionDocument = mentionDocument;
-             return this;
+            this.mentionDocument = mentionDocument;
+            return this;
         }
 
-    
 
         /**
-         * 
          * <p> 示例值：
+         *
          * @param value
          * @return
          */
         public Builder value(ValueElement value) {
-             this.value = value;
-             return this;
+            this.value = value;
+            return this;
         }
 
-    
 
         /**
-         * 
          * <p> 示例值：
+         *
          * @param dateTime
          * @return
          */
         public Builder dateTime(DateTime dateTime) {
-             this.dateTime = dateTime;
-             return this;
+            this.dateTime = dateTime;
+            return this;
         }
 
-    
 
         /**
-         * 
          * <p> 示例值：
+         *
          * @param file
          * @return
          */
         public Builder file(File file) {
-             this.file = file;
-             return this;
+            this.file = file;
+            return this;
         }
 
-    
 
         /**
-         * 
          * <p> 示例值：
+         *
          * @param image
          * @return
          */
         public Builder image(Image image) {
-             this.image = image;
-             return this;
+            this.image = image;
+            return this;
         }
 
-    
 
         /**
-         * 
          * <p> 示例值：
+         *
          * @param link
          * @return
          */
         public Builder link(Link link) {
-             this.link = link;
-             return this;
+            this.link = link;
+            return this;
         }
 
-    
 
         /**
-         * 
          * <p> 示例值：
+         *
          * @param reminder
          * @return
          */
         public Builder reminder(Reminder reminder) {
-             this.reminder = reminder;
-             return this;
+            this.reminder = reminder;
+            return this;
         }
 
-    
 
         /**
-         * 
          * <p> 示例值：
+         *
          * @param formula
          * @return
          */
         public Builder formula(Formula formula) {
-             this.formula = formula;
-             return this;
+            this.formula = formula;
+            return this;
         }
 
-    
-    
-    public CellValue build(){
-        return new CellValue(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public CellValue build() {
+            return new CellValue(this);
+        }
     }
 }

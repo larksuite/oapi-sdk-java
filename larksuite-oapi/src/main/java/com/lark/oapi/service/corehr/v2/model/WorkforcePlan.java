@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,42 +20,82 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class WorkforcePlan {
-     /**
-      * 编制规划方案 ID
-      * <p> 示例值："123456"
-      */
+    /**
+     * 编制规划方案 ID
+     * <p> 示例值："123456"
+     */
     @SerializedName("workforce_plan_id")
     private String workforcePlanId;
-     /**
-      * 编制规划方案名称
-      * <p> 示例值：
-      */
+    /**
+     * 编制规划方案名称
+     * <p> 示例值：
+     */
     @SerializedName("workforce_plan_name")
     private I18n[] workforcePlanName;
-     /**
-      * 开始日期
-      * <p> 示例值："2020-10-01"
-      */
+    /**
+     * 开始日期
+     * <p> 示例值："2020-10-01"
+     */
     @SerializedName("start_date")
     private String startDate;
-     /**
-      * 结束日期
-      * <p> 示例值："2020-10-31"
-      */
+    /**
+     * 结束日期
+     * <p> 示例值："2020-10-31"
+     */
     @SerializedName("end_date")
     private String endDate;
-     /**
-      * 是否启用
-      * <p> 示例值：true
-      */
+    /**
+     * 是否启用
+     * <p> 示例值：true
+     */
     @SerializedName("active")
     private Boolean active;
+
+    // builder 开始
+    public WorkforcePlan() {
+    }
+
+    public WorkforcePlan(Builder builder) {
+        /**
+         * 编制规划方案 ID
+         * <p> 示例值："123456"
+         */
+        this.workforcePlanId = builder.workforcePlanId;
+        /**
+         * 编制规划方案名称
+         * <p> 示例值：
+         */
+        this.workforcePlanName = builder.workforcePlanName;
+        /**
+         * 开始日期
+         * <p> 示例值："2020-10-01"
+         */
+        this.startDate = builder.startDate;
+        /**
+         * 结束日期
+         * <p> 示例值："2020-10-31"
+         */
+        this.endDate = builder.endDate;
+        /**
+         * 是否启用
+         * <p> 示例值：true
+         */
+        this.active = builder.active;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getWorkforcePlanId() {
         return this.workforcePlanId;
     }
@@ -95,136 +136,100 @@ public class WorkforcePlan {
         this.active = active;
     }
 
-
-// builder 开始
-  public WorkforcePlan(){}
-
-  public WorkforcePlan(Builder builder){
-         /**
-          * 编制规划方案 ID
-          * <p> 示例值："123456"
-          */
-      this.workforcePlanId = builder.workforcePlanId;
-         /**
-          * 编制规划方案名称
-          * <p> 示例值：
-          */
-      this.workforcePlanName = builder.workforcePlanName;
-         /**
-          * 开始日期
-          * <p> 示例值："2020-10-01"
-          */
-      this.startDate = builder.startDate;
-         /**
-          * 结束日期
-          * <p> 示例值："2020-10-31"
-          */
-      this.endDate = builder.endDate;
-         /**
-          * 是否启用
-          * <p> 示例值：true
-          */
-      this.active = builder.active;
-  }
-
     public static class Builder {
-     /**
-      * 编制规划方案 ID
-      * <p> 示例值："123456"
-      */
+        /**
+         * 编制规划方案 ID
+         * <p> 示例值："123456"
+         */
         private String workforcePlanId;
-     /**
-      * 编制规划方案名称
-      * <p> 示例值：
-      */
+        /**
+         * 编制规划方案名称
+         * <p> 示例值：
+         */
         private I18n[] workforcePlanName;
-     /**
-      * 开始日期
-      * <p> 示例值："2020-10-01"
-      */
+        /**
+         * 开始日期
+         * <p> 示例值："2020-10-01"
+         */
         private String startDate;
-     /**
-      * 结束日期
-      * <p> 示例值："2020-10-31"
-      */
+        /**
+         * 结束日期
+         * <p> 示例值："2020-10-31"
+         */
         private String endDate;
-     /**
-      * 是否启用
-      * <p> 示例值：true
-      */
+        /**
+         * 是否启用
+         * <p> 示例值：true
+         */
         private Boolean active;
 
         /**
          * 编制规划方案 ID
          * <p> 示例值："123456"
+         *
          * @param workforcePlanId
          * @return
          */
         public Builder workforcePlanId(String workforcePlanId) {
-             this.workforcePlanId = workforcePlanId;
-             return this;
+            this.workforcePlanId = workforcePlanId;
+            return this;
         }
 
-    
 
         /**
          * 编制规划方案名称
          * <p> 示例值：
+         *
          * @param workforcePlanName
          * @return
          */
         public Builder workforcePlanName(I18n[] workforcePlanName) {
-             this.workforcePlanName = workforcePlanName;
-             return this;
+            this.workforcePlanName = workforcePlanName;
+            return this;
         }
 
-    
 
         /**
          * 开始日期
          * <p> 示例值："2020-10-01"
+         *
          * @param startDate
          * @return
          */
         public Builder startDate(String startDate) {
-             this.startDate = startDate;
-             return this;
+            this.startDate = startDate;
+            return this;
         }
 
-    
 
         /**
          * 结束日期
          * <p> 示例值："2020-10-31"
+         *
          * @param endDate
          * @return
          */
         public Builder endDate(String endDate) {
-             this.endDate = endDate;
-             return this;
+            this.endDate = endDate;
+            return this;
         }
 
-    
 
         /**
          * 是否启用
          * <p> 示例值：true
+         *
          * @param active
          * @return
          */
         public Builder active(Boolean active) {
-             this.active = active;
-             return this;
+            this.active = active;
+            return this;
         }
 
-    
-    
-    public WorkforcePlan build(){
-        return new WorkforcePlan(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public WorkforcePlan build() {
+            return new WorkforcePlan(this);
+        }
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class AppFieldPropertyAutoSerial {
-     /**
-      * 自动编号类型
-      * <p> 示例值：auto_increment_number
-      */
+    /**
+     * 自动编号类型
+     * <p> 示例值：auto_increment_number
+     */
     @SerializedName("type")
     private String type;
-     /**
-      * 自动编号规则列表
-      * <p> 示例值：
-      */
+    /**
+     * 自动编号规则列表
+     * <p> 示例值：
+     */
     @SerializedName("options")
     private AppFieldPropertyAutoSerialOptions[] options;
+
+    // builder 开始
+    public AppFieldPropertyAutoSerial() {
+    }
+
+    public AppFieldPropertyAutoSerial(Builder builder) {
+        /**
+         * 自动编号类型
+         * <p> 示例值：auto_increment_number
+         */
+        this.type = builder.type;
+        /**
+         * 自动编号规则列表
+         * <p> 示例值：
+         */
+        this.options = builder.options;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getType() {
         return this.type;
     }
@@ -53,77 +79,58 @@ public class AppFieldPropertyAutoSerial {
         this.options = options;
     }
 
-
-// builder 开始
-  public AppFieldPropertyAutoSerial(){}
-
-  public AppFieldPropertyAutoSerial(Builder builder){
-         /**
-          * 自动编号类型
-          * <p> 示例值：auto_increment_number
-          */
-      this.type = builder.type;
-         /**
-          * 自动编号规则列表
-          * <p> 示例值：
-          */
-      this.options = builder.options;
-  }
-
     public static class Builder {
-     /**
-      * 自动编号类型
-      * <p> 示例值：auto_increment_number
-      */
+        /**
+         * 自动编号类型
+         * <p> 示例值：auto_increment_number
+         */
         private String type;
-     /**
-      * 自动编号规则列表
-      * <p> 示例值：
-      */
+        /**
+         * 自动编号规则列表
+         * <p> 示例值：
+         */
         private AppFieldPropertyAutoSerialOptions[] options;
 
         /**
          * 自动编号类型
          * <p> 示例值：auto_increment_number
+         *
          * @param type
          * @return
          */
         public Builder type(String type) {
-             this.type = type;
-             return this;
+            this.type = type;
+            return this;
         }
+
         /**
          * 自动编号类型
          * <p> 示例值：auto_increment_number
+         *
          * @param type {@link com.lark.oapi.service.bitable.v1.enums.AppFieldPropertyAutoSerialTypeEnum}
          * @return
          */
         public Builder type(com.lark.oapi.service.bitable.v1.enums.AppFieldPropertyAutoSerialTypeEnum type) {
-             this.type = type.getValue();
-             return this;
+            this.type = type.getValue();
+            return this;
         }
 
-    
 
         /**
          * 自动编号规则列表
          * <p> 示例值：
+         *
          * @param options
          * @return
          */
         public Builder options(AppFieldPropertyAutoSerialOptions[] options) {
-             this.options = options;
-             return this;
+            this.options = options;
+            return this;
         }
 
-    
-    
-    public AppFieldPropertyAutoSerial build(){
-        return new AppFieldPropertyAutoSerial(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public AppFieldPropertyAutoSerial build() {
+            return new AppFieldPropertyAutoSerial(this);
+        }
     }
 }

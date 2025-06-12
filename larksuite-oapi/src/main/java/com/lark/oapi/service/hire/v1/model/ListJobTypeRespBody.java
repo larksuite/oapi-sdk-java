@@ -12,36 +12,39 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ListJobTypeRespBody {
-     /**
-      * 职位类别列表
-      * <p> 示例值：
-      */
+    /**
+     * 职位类别列表
+     * <p> 示例值：
+     */
     @SerializedName("items")
     private JobTypeInfo[] items;
-     /**
-      * 
-      * <p> 示例值：
-      */
+    /**
+     * <p> 示例值：
+     */
     @SerializedName("page_token")
     private String pageToken;
-     /**
-      * 
-      * <p> 示例值：
-      */
+    /**
+     * <p> 示例值：
+     */
     @SerializedName("has_more")
     private Boolean hasMore;
+
     public JobTypeInfo[] getItems() {
         return this.items;
     }

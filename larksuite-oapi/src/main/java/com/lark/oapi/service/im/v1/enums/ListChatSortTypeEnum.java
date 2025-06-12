@@ -17,15 +17,16 @@ package com.lark.oapi.service.im.v1.enums;
  * 群组排序方式
  */
 public enum ListChatSortTypeEnum {
-     BYCREATETIMEASC("ByCreateTimeAsc"), // 按群组创建时间升序排列
-     BYACTIVETIMEDESC("ByActiveTimeDesc"), // 按群组活跃时间降序排列
-  ;
-   private String value;
+    BYCREATETIMEASC("ByCreateTimeAsc"), // 按群组创建时间升序排列
+    BYACTIVETIMEDESC("ByActiveTimeDesc"), // 按群组活跃时间降序排列
+    ;
+    private String value;
+
     ListChatSortTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

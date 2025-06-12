@@ -12,32 +12,61 @@
  */
 
 package com.lark.oapi.service.wiki.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.wiki.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CopySpaceNodeReq {
-     /**
-      * 知识空间id
-      * <p> 示例值：6946843325487912356
-      */
+    /**
+     * 知识空间id
+     * <p> 示例值：6946843325487912356
+     */
     @Path
     @SerializedName("space_id")
     private String spaceId;
-     /**
-      * 节点token
-      * <p> 示例值：wikcnKQ1k3p******8Vabce
-      */
+    /**
+     * 节点token
+     * <p> 示例值：wikcnKQ1k3p******8Vabce
+     */
     @Path
     @SerializedName("node_token")
     private String nodeToken;
+    @Body
+    private CopySpaceNodeReqBody body;
+
+    // builder 开始
+    public CopySpaceNodeReq() {
+    }
+
+    public CopySpaceNodeReq(Builder builder) {
+        /**
+         * 知识空间id
+         * <p> 示例值：6946843325487912356
+         */
+        this.spaceId = builder.spaceId;
+        /**
+         * 节点token
+         * <p> 示例值：wikcnKQ1k3p******8Vabce
+         */
+        this.nodeToken = builder.nodeToken;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getSpaceId() {
         return this.spaceId;
     }
@@ -54,9 +83,6 @@ public class CopySpaceNodeReq {
         this.nodeToken = nodeToken;
     }
 
-    @Body
-    private CopySpaceNodeReqBody body;
-
     public CopySpaceNodeReqBody getCopySpaceNodeReqBody() {
         return this.body;
     }
@@ -65,72 +91,53 @@ public class CopySpaceNodeReq {
         this.body = body;
     }
 
-// builder 开始
-  public CopySpaceNodeReq(){}
-
-  public CopySpaceNodeReq(Builder builder){
-     /**
-      * 知识空间id
-      * <p> 示例值：6946843325487912356
-      */
-       this.spaceId = builder.spaceId;
-     /**
-      * 节点token
-      * <p> 示例值：wikcnKQ1k3p******8Vabce
-      */
-       this.nodeToken = builder.nodeToken;
-        this.body = builder.body;
-  }
-
     public static class Builder {
-    
+
         private String spaceId; // 知识空间id
         private String nodeToken; // 节点token
+        private CopySpaceNodeReqBody body;
+
         /**
          * 知识空间id
          * <p> 示例值：6946843325487912356
+         *
          * @param spaceId
          * @return
          */
-          public Builder spaceId(String spaceId) {
-               this.spaceId = spaceId;
-               return this;
-          }
+        public Builder spaceId(String spaceId) {
+            this.spaceId = spaceId;
+            return this;
+        }
 
-    
         /**
          * 节点token
          * <p> 示例值：wikcnKQ1k3p******8Vabce
+         *
          * @param nodeToken
          * @return
          */
-          public Builder nodeToken(String nodeToken) {
-               this.nodeToken = nodeToken;
-               return this;
-          }
+        public Builder nodeToken(String nodeToken) {
+            this.nodeToken = nodeToken;
+            return this;
+        }
 
-    
-        private CopySpaceNodeReqBody body;
-    
         public CopySpaceNodeReqBody getCopySpaceNodeReqBody() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder copySpaceNodeReqBody(CopySpaceNodeReqBody body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public CopySpaceNodeReq build(){
-        return new CopySpaceNodeReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public CopySpaceNodeReq build() {
+            return new CopySpaceNodeReq(this);
+        }
     }
 }

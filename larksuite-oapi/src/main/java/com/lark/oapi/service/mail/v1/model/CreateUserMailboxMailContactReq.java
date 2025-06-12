@@ -12,25 +12,49 @@
  */
 
 package com.lark.oapi.service.mail.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CreateUserMailboxMailContactReq {
-     /**
-      * 用户邮箱地址，使用 user_access_token 时可使用 me
-      * <p> 示例值：user@xxx.xx 或 me
-      */
+    /**
+     * 用户邮箱地址，使用 user_access_token 时可使用 me
+     * <p> 示例值：user@xxx.xx 或 me
+     */
     @Path
     @SerializedName("user_mailbox_id")
     private String userMailboxId;
+    @Body
+    private MailContact body;
+
+    // builder 开始
+    public CreateUserMailboxMailContactReq() {
+    }
+
+    public CreateUserMailboxMailContactReq(Builder builder) {
+        /**
+         * 用户邮箱地址，使用 user_access_token 时可使用 me
+         * <p> 示例值：user@xxx.xx 或 me
+         */
+        this.userMailboxId = builder.userMailboxId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getUserMailboxId() {
         return this.userMailboxId;
     }
@@ -38,9 +62,6 @@ public class CreateUserMailboxMailContactReq {
     public void setUserMailboxId(String userMailboxId) {
         this.userMailboxId = userMailboxId;
     }
-
-    @Body
-    private MailContact body;
 
     public MailContact getMailContact() {
         return this.body;
@@ -50,54 +71,40 @@ public class CreateUserMailboxMailContactReq {
         this.body = body;
     }
 
-// builder 开始
-  public CreateUserMailboxMailContactReq(){}
-
-  public CreateUserMailboxMailContactReq(Builder builder){
-     /**
-      * 用户邮箱地址，使用 user_access_token 时可使用 me
-      * <p> 示例值：user@xxx.xx 或 me
-      */
-       this.userMailboxId = builder.userMailboxId;
-        this.body = builder.body;
-  }
-
     public static class Builder {
-    
+
         private String userMailboxId; // 用户邮箱地址，使用 user_access_token 时可使用 me
+        private MailContact body;
+
         /**
          * 用户邮箱地址，使用 user_access_token 时可使用 me
          * <p> 示例值：user@xxx.xx 或 me
+         *
          * @param userMailboxId
          * @return
          */
-          public Builder userMailboxId(String userMailboxId) {
-               this.userMailboxId = userMailboxId;
-               return this;
-          }
+        public Builder userMailboxId(String userMailboxId) {
+            this.userMailboxId = userMailboxId;
+            return this;
+        }
 
-    
-        private MailContact body;
-    
         public MailContact getMailContact() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder mailContact(MailContact body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public CreateUserMailboxMailContactReq build(){
-        return new CreateUserMailboxMailContactReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public CreateUserMailboxMailContactReq build() {
+            return new CreateUserMailboxMailContactReq(this);
+        }
     }
 }

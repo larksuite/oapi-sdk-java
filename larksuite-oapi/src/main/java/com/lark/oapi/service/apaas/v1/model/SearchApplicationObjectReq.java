@@ -12,25 +12,49 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class SearchApplicationObjectReq {
-     /**
-      * 应用命名空间
-      * <p> 示例值：package_test__c
-      */
+    /**
+     * 应用命名空间
+     * <p> 示例值：package_test__c
+     */
     @Path
     @SerializedName("namespace")
     private String namespace;
+    @Body
+    private SearchApplicationObjectReqBody body;
+
+    // builder 开始
+    public SearchApplicationObjectReq() {
+    }
+
+    public SearchApplicationObjectReq(Builder builder) {
+        /**
+         * 应用命名空间
+         * <p> 示例值：package_test__c
+         */
+        this.namespace = builder.namespace;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getNamespace() {
         return this.namespace;
     }
@@ -38,9 +62,6 @@ public class SearchApplicationObjectReq {
     public void setNamespace(String namespace) {
         this.namespace = namespace;
     }
-
-    @Body
-    private SearchApplicationObjectReqBody body;
 
     public SearchApplicationObjectReqBody getSearchApplicationObjectReqBody() {
         return this.body;
@@ -50,54 +71,40 @@ public class SearchApplicationObjectReq {
         this.body = body;
     }
 
-// builder 开始
-  public SearchApplicationObjectReq(){}
-
-  public SearchApplicationObjectReq(Builder builder){
-     /**
-      * 应用命名空间
-      * <p> 示例值：package_test__c
-      */
-       this.namespace = builder.namespace;
-        this.body = builder.body;
-  }
-
     public static class Builder {
-    
+
         private String namespace; // 应用命名空间
+        private SearchApplicationObjectReqBody body;
+
         /**
          * 应用命名空间
          * <p> 示例值：package_test__c
+         *
          * @param namespace
          * @return
          */
-          public Builder namespace(String namespace) {
-               this.namespace = namespace;
-               return this;
-          }
+        public Builder namespace(String namespace) {
+            this.namespace = namespace;
+            return this;
+        }
 
-    
-        private SearchApplicationObjectReqBody body;
-    
         public SearchApplicationObjectReqBody getSearchApplicationObjectReqBody() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder searchApplicationObjectReqBody(SearchApplicationObjectReqBody body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public SearchApplicationObjectReq build(){
-        return new SearchApplicationObjectReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public SearchApplicationObjectReq build() {
+            return new SearchApplicationObjectReq(this);
+        }
     }
 }

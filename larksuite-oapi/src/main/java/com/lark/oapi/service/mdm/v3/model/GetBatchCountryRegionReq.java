@@ -12,38 +12,72 @@
  */
 
 package com.lark.oapi.service.mdm.v3.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class GetBatchCountryRegionReq {
-     /**
-      * 需要的查询字段集
-      * <p> 示例值：
-      */
+    /**
+     * 需要的查询字段集
+     * <p> 示例值：
+     */
     @Query
     @SerializedName("fields")
     private String[] fields;
-     /**
-      * 主数据编码集
-      * <p> 示例值：
-      */
+    /**
+     * 主数据编码集
+     * <p> 示例值：
+     */
     @Query
     @SerializedName("ids")
     private String[] ids;
-     /**
-      * 语言集
-      * <p> 示例值：
-      */
+    /**
+     * 语言集
+     * <p> 示例值：
+     */
     @Query
     @SerializedName("languages")
     private String[] languages;
+    @Body
+    private GetBatchCountryRegionReqBody body;
+
+    // builder 开始
+    public GetBatchCountryRegionReq() {
+    }
+
+    public GetBatchCountryRegionReq(Builder builder) {
+        /**
+         * 需要的查询字段集
+         * <p> 示例值：
+         */
+        this.fields = builder.fields;
+        /**
+         * 主数据编码集
+         * <p> 示例值：
+         */
+        this.ids = builder.ids;
+        /**
+         * 语言集
+         * <p> 示例值：
+         */
+        this.languages = builder.languages;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String[] getFields() {
         return this.fields;
     }
@@ -68,9 +102,6 @@ public class GetBatchCountryRegionReq {
         this.languages = languages;
     }
 
-    @Body
-    private GetBatchCountryRegionReqBody body;
-
     public GetBatchCountryRegionReqBody getGetBatchCountryRegionReqBody() {
         return this.body;
     }
@@ -79,90 +110,65 @@ public class GetBatchCountryRegionReq {
         this.body = body;
     }
 
-// builder 开始
-  public GetBatchCountryRegionReq(){}
-
-  public GetBatchCountryRegionReq(Builder builder){
-         /**
-          * 需要的查询字段集
-          * <p> 示例值：
-          */
-       this.fields = builder.fields;
-         /**
-          * 主数据编码集
-          * <p> 示例值：
-          */
-       this.ids = builder.ids;
-         /**
-          * 语言集
-          * <p> 示例值：
-          */
-       this.languages = builder.languages;
-        this.body = builder.body;
-  }
-
     public static class Builder {
         private String[] fields; // 需要的查询字段集
         private String[] ids; // 主数据编码集
         private String[] languages; // 语言集
-    
+        private GetBatchCountryRegionReqBody body;
+
         /**
          * 需要的查询字段集
          * <p> 示例值：
+         *
          * @param fields
          * @return
          */
-           public Builder fields(String[] fields) {
-                this.fields = fields;
-                return this;
-           }
+        public Builder fields(String[] fields) {
+            this.fields = fields;
+            return this;
+        }
 
-    
         /**
          * 主数据编码集
          * <p> 示例值：
+         *
          * @param ids
          * @return
          */
-           public Builder ids(String[] ids) {
-                this.ids = ids;
-                return this;
-           }
+        public Builder ids(String[] ids) {
+            this.ids = ids;
+            return this;
+        }
 
-    
         /**
          * 语言集
          * <p> 示例值：
+         *
          * @param languages
          * @return
          */
-           public Builder languages(String[] languages) {
-                this.languages = languages;
-                return this;
-           }
+        public Builder languages(String[] languages) {
+            this.languages = languages;
+            return this;
+        }
 
-    
-        private GetBatchCountryRegionReqBody body;
-    
         public GetBatchCountryRegionReqBody getGetBatchCountryRegionReqBody() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder getBatchCountryRegionReqBody(GetBatchCountryRegionReqBody body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public GetBatchCountryRegionReq build(){
-        return new GetBatchCountryRegionReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public GetBatchCountryRegionReq build() {
+            return new GetBatchCountryRegionReq(this);
+        }
     }
 }

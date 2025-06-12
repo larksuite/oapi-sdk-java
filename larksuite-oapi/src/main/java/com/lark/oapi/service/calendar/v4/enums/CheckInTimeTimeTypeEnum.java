@@ -17,16 +17,17 @@ package com.lark.oapi.service.calendar.v4.enums;
  * (分钟)偏移量相对于的日程时间节点类型
  */
 public enum CheckInTimeTimeTypeEnum {
-     BEFOREEVENTSTART("before_event_start"), // 日程开始前
-     AFTEREVENTSTART("after_event_start"), // 日程开始后
-     AFTEREVENTEND("after_event_end"), // 日程结束后
-  ;
-   private String value;
+    BEFOREEVENTSTART("before_event_start"), // 日程开始前
+    AFTEREVENTSTART("after_event_start"), // 日程开始后
+    AFTEREVENTEND("after_event_end"), // 日程结束后
+    ;
+    private String value;
+
     CheckInTimeTimeTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

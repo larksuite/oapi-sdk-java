@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class I18nResource {
-     /**
-      * 语言可选值有： zh-CN：中文 en-US：英文 ja-JP：日文
-      * <p> 示例值：zh-CN
-      */
+    /**
+     * 语言可选值有： zh-CN：中文 en-US：英文 ja-JP：日文
+     * <p> 示例值：zh-CN
+     */
     @SerializedName("locale")
     private String locale;
-     /**
-      * 文案 key, value, i18n key 以 @i18n@ 开头； 该字段主要用于做国际化，允许用户同时传多个语言的文案，审批中心会根据用户当前的语音环境使用对应的文案，如果没有传用户当前的语音环境文案，则会使用默认的语言文案。
-      * <p> 示例值：{ "@i18n@1": "权限申请", "@i18n@2": "OA审批", "@i18n@3": "Permission" }
-      */
+    /**
+     * 文案 key, value, i18n key 以 @i18n@ 开头； 该字段主要用于做国际化，允许用户同时传多个语言的文案，审批中心会根据用户当前的语音环境使用对应的文案，如果没有传用户当前的语音环境文案，则会使用默认的语言文案。
+     * <p> 示例值：{ "@i18n@1": "权限申请", "@i18n@2": "OA审批", "@i18n@3": "Permission" }
+     */
     @SerializedName("texts")
     private I18nResourceText[] texts;
-     /**
-      * 是否默认语言，默认语言需要包含所有key，非默认语言如果key不存在会使用默认语言代替
-      * <p> 示例值：true
-      */
+    /**
+     * 是否默认语言，默认语言需要包含所有key，非默认语言如果key不存在会使用默认语言代替
+     * <p> 示例值：true
+     */
     @SerializedName("is_default")
     private Boolean isDefault;
+
+    // builder 开始
+    public I18nResource() {
+    }
+
+    public I18nResource(Builder builder) {
+        /**
+         * 语言可选值有： zh-CN：中文 en-US：英文 ja-JP：日文
+         * <p> 示例值：zh-CN
+         */
+        this.locale = builder.locale;
+        /**
+         * 文案 key, value, i18n key 以 @i18n@ 开头； 该字段主要用于做国际化，允许用户同时传多个语言的文案，审批中心会根据用户当前的语音环境使用对应的文案，如果没有传用户当前的语音环境文案，则会使用默认的语言文案。
+         * <p> 示例值：{ "@i18n@1": "权限申请", "@i18n@2": "OA审批", "@i18n@3": "Permission" }
+         */
+        this.texts = builder.texts;
+        /**
+         * 是否默认语言，默认语言需要包含所有key，非默认语言如果key不存在会使用默认语言代替
+         * <p> 示例值：true
+         */
+        this.isDefault = builder.isDefault;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getLocale() {
         return this.locale;
     }
@@ -67,100 +98,76 @@ public class I18nResource {
         this.isDefault = isDefault;
     }
 
-
-// builder 开始
-  public I18nResource(){}
-
-  public I18nResource(Builder builder){
-         /**
-          * 语言可选值有： zh-CN：中文 en-US：英文 ja-JP：日文
-          * <p> 示例值：zh-CN
-          */
-      this.locale = builder.locale;
-         /**
-          * 文案 key, value, i18n key 以 @i18n@ 开头； 该字段主要用于做国际化，允许用户同时传多个语言的文案，审批中心会根据用户当前的语音环境使用对应的文案，如果没有传用户当前的语音环境文案，则会使用默认的语言文案。
-          * <p> 示例值：{ "@i18n@1": "权限申请", "@i18n@2": "OA审批", "@i18n@3": "Permission" }
-          */
-      this.texts = builder.texts;
-         /**
-          * 是否默认语言，默认语言需要包含所有key，非默认语言如果key不存在会使用默认语言代替
-          * <p> 示例值：true
-          */
-      this.isDefault = builder.isDefault;
-  }
-
     public static class Builder {
-     /**
-      * 语言可选值有： zh-CN：中文 en-US：英文 ja-JP：日文
-      * <p> 示例值：zh-CN
-      */
+        /**
+         * 语言可选值有： zh-CN：中文 en-US：英文 ja-JP：日文
+         * <p> 示例值：zh-CN
+         */
         private String locale;
-     /**
-      * 文案 key, value, i18n key 以 @i18n@ 开头； 该字段主要用于做国际化，允许用户同时传多个语言的文案，审批中心会根据用户当前的语音环境使用对应的文案，如果没有传用户当前的语音环境文案，则会使用默认的语言文案。
-      * <p> 示例值：{ "@i18n@1": "权限申请", "@i18n@2": "OA审批", "@i18n@3": "Permission" }
-      */
+        /**
+         * 文案 key, value, i18n key 以 @i18n@ 开头； 该字段主要用于做国际化，允许用户同时传多个语言的文案，审批中心会根据用户当前的语音环境使用对应的文案，如果没有传用户当前的语音环境文案，则会使用默认的语言文案。
+         * <p> 示例值：{ "@i18n@1": "权限申请", "@i18n@2": "OA审批", "@i18n@3": "Permission" }
+         */
         private I18nResourceText[] texts;
-     /**
-      * 是否默认语言，默认语言需要包含所有key，非默认语言如果key不存在会使用默认语言代替
-      * <p> 示例值：true
-      */
+        /**
+         * 是否默认语言，默认语言需要包含所有key，非默认语言如果key不存在会使用默认语言代替
+         * <p> 示例值：true
+         */
         private Boolean isDefault;
 
         /**
          * 语言可选值有： zh-CN：中文 en-US：英文 ja-JP：日文
          * <p> 示例值：zh-CN
+         *
          * @param locale
          * @return
          */
         public Builder locale(String locale) {
-             this.locale = locale;
-             return this;
+            this.locale = locale;
+            return this;
         }
+
         /**
          * 语言可选值有： zh-CN：中文 en-US：英文 ja-JP：日文
          * <p> 示例值：zh-CN
+         *
          * @param locale {@link com.lark.oapi.service.approval.v4.enums.I18nResourceLocaleEnum}
          * @return
          */
         public Builder locale(com.lark.oapi.service.approval.v4.enums.I18nResourceLocaleEnum locale) {
-             this.locale = locale.getValue();
-             return this;
+            this.locale = locale.getValue();
+            return this;
         }
 
-    
 
         /**
          * 文案 key, value, i18n key 以 @i18n@ 开头； 该字段主要用于做国际化，允许用户同时传多个语言的文案，审批中心会根据用户当前的语音环境使用对应的文案，如果没有传用户当前的语音环境文案，则会使用默认的语言文案。
          * <p> 示例值：{ "@i18n@1": "权限申请", "@i18n@2": "OA审批", "@i18n@3": "Permission" }
+         *
          * @param texts
          * @return
          */
         public Builder texts(I18nResourceText[] texts) {
-             this.texts = texts;
-             return this;
+            this.texts = texts;
+            return this;
         }
 
-    
 
         /**
          * 是否默认语言，默认语言需要包含所有key，非默认语言如果key不存在会使用默认语言代替
          * <p> 示例值：true
+         *
          * @param isDefault
          * @return
          */
         public Builder isDefault(Boolean isDefault) {
-             this.isDefault = isDefault;
-             return this;
+            this.isDefault = isDefault;
+            return this;
         }
 
-    
-    
-    public I18nResource build(){
-        return new I18nResource(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public I18nResource build() {
+            return new I18nResource(this);
+        }
     }
 }

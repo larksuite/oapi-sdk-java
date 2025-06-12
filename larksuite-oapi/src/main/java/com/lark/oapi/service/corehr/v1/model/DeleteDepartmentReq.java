@@ -12,25 +12,46 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class DeleteDepartmentReq {
-     /**
-      * 需要删除的部门 ID
-      * <p> 示例值：341143141
-      */
+    /**
+     * 需要删除的部门 ID
+     * <p> 示例值：341143141
+     */
     @Path
     @SerializedName("department_id")
     private String departmentId;
+
+    // builder 开始
+    public DeleteDepartmentReq() {
+    }
+
+    public DeleteDepartmentReq(Builder builder) {
+        /**
+         * 需要删除的部门 ID
+         * <p> 示例值：341143141
+         */
+        this.departmentId = builder.departmentId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getDepartmentId() {
         return this.departmentId;
     }
@@ -39,39 +60,25 @@ public class DeleteDepartmentReq {
         this.departmentId = departmentId;
     }
 
-
-// builder 开始
-  public DeleteDepartmentReq(){}
-
-  public DeleteDepartmentReq(Builder builder){
-     /**
-      * 需要删除的部门 ID
-      * <p> 示例值：341143141
-      */
-       this.departmentId = builder.departmentId;
-  }
-
     public static class Builder {
-    
+
         private String departmentId; // 需要删除的部门 ID
+
         /**
          * 需要删除的部门 ID
          * <p> 示例值：341143141
+         *
          * @param departmentId
          * @return
          */
-          public Builder departmentId(String departmentId) {
-               this.departmentId = departmentId;
-               return this;
-          }
+        public Builder departmentId(String departmentId) {
+            this.departmentId = departmentId;
+            return this;
+        }
 
-    
-    public DeleteDepartmentReq build(){
-        return new DeleteDepartmentReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public DeleteDepartmentReq build() {
+            return new DeleteDepartmentReq(this);
+        }
     }
 }

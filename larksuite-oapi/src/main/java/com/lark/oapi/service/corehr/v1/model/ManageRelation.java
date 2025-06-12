@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,48 +20,93 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ManageRelation {
-     /**
-      * 下级所在部门
-      * <p> 示例值：4719456877659520852
-      */
+    /**
+     * 下级所在部门
+     * <p> 示例值：4719456877659520852
+     */
     @SerializedName("subordinate_department_id")
     private String subordinateDepartmentId;
-     /**
-      * 下级员工
-      * <p> 示例值：6893010737371809287
-      */
+    /**
+     * 下级员工
+     * <p> 示例值：6893010737371809287
+     */
     @SerializedName("subordinate_employee_id")
     private String subordinateEmployeeId;
-     /**
-      * 汇报关系（实现汇报，虚线汇报，第二汇报线...）
-      * <p> 示例值：
-      */
+    /**
+     * 汇报关系（实现汇报，虚线汇报，第二汇报线...）
+     * <p> 示例值：
+     */
     @SerializedName("manager_type")
     private Enum managerType;
-     /**
-      * 汇报线类型 (按人汇报，按部门汇报...)
-      * <p> 示例值：
-      */
+    /**
+     * 汇报线类型 (按人汇报，按部门汇报...)
+     * <p> 示例值：
+     */
     @SerializedName("report_mode_type")
     private Enum reportModeType;
-     /**
-      * 上级员工
-      * <p> 示例值：6893013626584565256
-      */
+    /**
+     * 上级员工
+     * <p> 示例值：6893013626584565256
+     */
     @SerializedName("superior_employee_id")
     private String superiorEmployeeId;
-     /**
-      * 生效时间
-      * <p> 示例值：2021-06-06 00:00:00
-      */
+    /**
+     * 生效时间
+     * <p> 示例值：2021-06-06 00:00:00
+     */
     @SerializedName("effective_time")
     private String effectiveTime;
+
+    // builder 开始
+    public ManageRelation() {
+    }
+
+    public ManageRelation(Builder builder) {
+        /**
+         * 下级所在部门
+         * <p> 示例值：4719456877659520852
+         */
+        this.subordinateDepartmentId = builder.subordinateDepartmentId;
+        /**
+         * 下级员工
+         * <p> 示例值：6893010737371809287
+         */
+        this.subordinateEmployeeId = builder.subordinateEmployeeId;
+        /**
+         * 汇报关系（实现汇报，虚线汇报，第二汇报线...）
+         * <p> 示例值：
+         */
+        this.managerType = builder.managerType;
+        /**
+         * 汇报线类型 (按人汇报，按部门汇报...)
+         * <p> 示例值：
+         */
+        this.reportModeType = builder.reportModeType;
+        /**
+         * 上级员工
+         * <p> 示例值：6893013626584565256
+         */
+        this.superiorEmployeeId = builder.superiorEmployeeId;
+        /**
+         * 生效时间
+         * <p> 示例值：2021-06-06 00:00:00
+         */
+        this.effectiveTime = builder.effectiveTime;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getSubordinateDepartmentId() {
         return this.subordinateDepartmentId;
     }
@@ -109,159 +155,118 @@ public class ManageRelation {
         this.effectiveTime = effectiveTime;
     }
 
-
-// builder 开始
-  public ManageRelation(){}
-
-  public ManageRelation(Builder builder){
-         /**
-          * 下级所在部门
-          * <p> 示例值：4719456877659520852
-          */
-      this.subordinateDepartmentId = builder.subordinateDepartmentId;
-         /**
-          * 下级员工
-          * <p> 示例值：6893010737371809287
-          */
-      this.subordinateEmployeeId = builder.subordinateEmployeeId;
-         /**
-          * 汇报关系（实现汇报，虚线汇报，第二汇报线...）
-          * <p> 示例值：
-          */
-      this.managerType = builder.managerType;
-         /**
-          * 汇报线类型 (按人汇报，按部门汇报...)
-          * <p> 示例值：
-          */
-      this.reportModeType = builder.reportModeType;
-         /**
-          * 上级员工
-          * <p> 示例值：6893013626584565256
-          */
-      this.superiorEmployeeId = builder.superiorEmployeeId;
-         /**
-          * 生效时间
-          * <p> 示例值：2021-06-06 00:00:00
-          */
-      this.effectiveTime = builder.effectiveTime;
-  }
-
     public static class Builder {
-     /**
-      * 下级所在部门
-      * <p> 示例值：4719456877659520852
-      */
+        /**
+         * 下级所在部门
+         * <p> 示例值：4719456877659520852
+         */
         private String subordinateDepartmentId;
-     /**
-      * 下级员工
-      * <p> 示例值：6893010737371809287
-      */
+        /**
+         * 下级员工
+         * <p> 示例值：6893010737371809287
+         */
         private String subordinateEmployeeId;
-     /**
-      * 汇报关系（实现汇报，虚线汇报，第二汇报线...）
-      * <p> 示例值：
-      */
+        /**
+         * 汇报关系（实现汇报，虚线汇报，第二汇报线...）
+         * <p> 示例值：
+         */
         private Enum managerType;
-     /**
-      * 汇报线类型 (按人汇报，按部门汇报...)
-      * <p> 示例值：
-      */
+        /**
+         * 汇报线类型 (按人汇报，按部门汇报...)
+         * <p> 示例值：
+         */
         private Enum reportModeType;
-     /**
-      * 上级员工
-      * <p> 示例值：6893013626584565256
-      */
+        /**
+         * 上级员工
+         * <p> 示例值：6893013626584565256
+         */
         private String superiorEmployeeId;
-     /**
-      * 生效时间
-      * <p> 示例值：2021-06-06 00:00:00
-      */
+        /**
+         * 生效时间
+         * <p> 示例值：2021-06-06 00:00:00
+         */
         private String effectiveTime;
 
         /**
          * 下级所在部门
          * <p> 示例值：4719456877659520852
+         *
          * @param subordinateDepartmentId
          * @return
          */
         public Builder subordinateDepartmentId(String subordinateDepartmentId) {
-             this.subordinateDepartmentId = subordinateDepartmentId;
-             return this;
+            this.subordinateDepartmentId = subordinateDepartmentId;
+            return this;
         }
 
-    
 
         /**
          * 下级员工
          * <p> 示例值：6893010737371809287
+         *
          * @param subordinateEmployeeId
          * @return
          */
         public Builder subordinateEmployeeId(String subordinateEmployeeId) {
-             this.subordinateEmployeeId = subordinateEmployeeId;
-             return this;
+            this.subordinateEmployeeId = subordinateEmployeeId;
+            return this;
         }
 
-    
 
         /**
          * 汇报关系（实现汇报，虚线汇报，第二汇报线...）
          * <p> 示例值：
+         *
          * @param managerType
          * @return
          */
         public Builder managerType(Enum managerType) {
-             this.managerType = managerType;
-             return this;
+            this.managerType = managerType;
+            return this;
         }
 
-    
 
         /**
          * 汇报线类型 (按人汇报，按部门汇报...)
          * <p> 示例值：
+         *
          * @param reportModeType
          * @return
          */
         public Builder reportModeType(Enum reportModeType) {
-             this.reportModeType = reportModeType;
-             return this;
+            this.reportModeType = reportModeType;
+            return this;
         }
 
-    
 
         /**
          * 上级员工
          * <p> 示例值：6893013626584565256
+         *
          * @param superiorEmployeeId
          * @return
          */
         public Builder superiorEmployeeId(String superiorEmployeeId) {
-             this.superiorEmployeeId = superiorEmployeeId;
-             return this;
+            this.superiorEmployeeId = superiorEmployeeId;
+            return this;
         }
 
-    
 
         /**
          * 生效时间
          * <p> 示例值：2021-06-06 00:00:00
+         *
          * @param effectiveTime
          * @return
          */
         public Builder effectiveTime(String effectiveTime) {
-             this.effectiveTime = effectiveTime;
-             return this;
+            this.effectiveTime = effectiveTime;
+            return this;
         }
 
-    
-    
-    public ManageRelation build(){
-        return new ManageRelation(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ManageRelation build() {
+            return new ManageRelation(this);
+        }
     }
 }

@@ -12,20 +12,36 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ResourceReservationListExportReq {
     @Body
     private ResourceReservationListExportReqBody body;
+
+    // builder 开始
+    public ResourceReservationListExportReq() {
+    }
+
+    public ResourceReservationListExportReq(Builder builder) {
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 
     public ResourceReservationListExportReqBody getResourceReservationListExportReqBody() {
         return this.body;
@@ -35,36 +51,27 @@ public class ResourceReservationListExportReq {
         this.body = body;
     }
 
-// builder 开始
-  public ResourceReservationListExportReq(){}
-
-  public ResourceReservationListExportReq(Builder builder){
-        this.body = builder.body;
-  }
-
     public static class Builder {
-    
+
         private ResourceReservationListExportReqBody body;
-    
+
         public ResourceReservationListExportReqBody getResourceReservationListExportReqBody() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder resourceReservationListExportReqBody(ResourceReservationListExportReqBody body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public ResourceReservationListExportReq build(){
-        return new ResourceReservationListExportReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ResourceReservationListExportReq build() {
+            return new ResourceReservationListExportReq(this);
+        }
     }
 }

@@ -12,30 +12,56 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class TalentCustomizedTimeRange {
-     /**
-      * 开始时间
-      * <p> 示例值：1625456721
-      */
+    /**
+     * 开始时间
+     * <p> 示例值：1625456721
+     */
     @SerializedName("start_time")
     private String startTime;
-     /**
-      * 结束时间，当值为至今时，返回「-」
-      * <p> 示例值：1625656721
-      */
+    /**
+     * 结束时间，当值为至今时，返回「-」
+     * <p> 示例值：1625656721
+     */
     @SerializedName("end_time")
     private String endTime;
+
+    // builder 开始
+    public TalentCustomizedTimeRange() {
+    }
+
+    public TalentCustomizedTimeRange(Builder builder) {
+        /**
+         * 开始时间
+         * <p> 示例值：1625456721
+         */
+        this.startTime = builder.startTime;
+        /**
+         * 结束时间，当值为至今时，返回「-」
+         * <p> 示例值：1625656721
+         */
+        this.endTime = builder.endTime;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getStartTime() {
         return this.startTime;
     }
@@ -52,67 +78,46 @@ public class TalentCustomizedTimeRange {
         this.endTime = endTime;
     }
 
-
-// builder 开始
-  public TalentCustomizedTimeRange(){}
-
-  public TalentCustomizedTimeRange(Builder builder){
-         /**
-          * 开始时间
-          * <p> 示例值：1625456721
-          */
-      this.startTime = builder.startTime;
-         /**
-          * 结束时间，当值为至今时，返回「-」
-          * <p> 示例值：1625656721
-          */
-      this.endTime = builder.endTime;
-  }
-
     public static class Builder {
-     /**
-      * 开始时间
-      * <p> 示例值：1625456721
-      */
+        /**
+         * 开始时间
+         * <p> 示例值：1625456721
+         */
         private String startTime;
-     /**
-      * 结束时间，当值为至今时，返回「-」
-      * <p> 示例值：1625656721
-      */
+        /**
+         * 结束时间，当值为至今时，返回「-」
+         * <p> 示例值：1625656721
+         */
         private String endTime;
 
         /**
          * 开始时间
          * <p> 示例值：1625456721
+         *
          * @param startTime
          * @return
          */
         public Builder startTime(String startTime) {
-             this.startTime = startTime;
-             return this;
+            this.startTime = startTime;
+            return this;
         }
 
-    
 
         /**
          * 结束时间，当值为至今时，返回「-」
          * <p> 示例值：1625656721
+         *
          * @param endTime
          * @return
          */
         public Builder endTime(String endTime) {
-             this.endTime = endTime;
-             return this;
+            this.endTime = endTime;
+            return this;
         }
 
-    
-    
-    public TalentCustomizedTimeRange build(){
-        return new TalentCustomizedTimeRange(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public TalentCustomizedTimeRange build() {
+            return new TalentCustomizedTimeRange(this);
+        }
     }
 }

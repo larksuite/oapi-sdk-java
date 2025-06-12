@@ -35,36 +35,44 @@ public class AdminService {
     private final Password password; // 登录密码管理
 
     public AdminService(Config config) {
-    this.v1 = new V1(config);
-    this.adminDeptStat = new AdminDeptStat(config);
-    this.adminUserStat = new AdminUserStat(config);
-    this.auditInfo = new AuditInfo(config);
-    this.badge = new Badge(config);
-    this.badgeGrant = new BadgeGrant(config);
-    this.badgeImage = new BadgeImage(config);
-    this.password = new Password(config);
+        this.v1 = new V1(config);
+        this.adminDeptStat = new AdminDeptStat(config);
+        this.adminUserStat = new AdminUserStat(config);
+        this.auditInfo = new AuditInfo(config);
+        this.badge = new Badge(config);
+        this.badgeGrant = new BadgeGrant(config);
+        this.badgeImage = new BadgeImage(config);
+        this.password = new Password(config);
     }
+
     public V1 v1() {
         return v1;
     }
+
     public AdminDeptStat adminDeptStat() {
         return adminDeptStat;
     }
+
     public AdminUserStat adminUserStat() {
         return adminUserStat;
     }
+
     public AuditInfo auditInfo() {
         return auditInfo;
     }
+
     public Badge badge() {
         return badge;
     }
+
     public BadgeGrant badgeGrant() {
         return badgeGrant;
     }
+
     public BadgeImage badgeImage() {
         return badgeImage;
     }
+
     public Password password() {
         return password;
     }

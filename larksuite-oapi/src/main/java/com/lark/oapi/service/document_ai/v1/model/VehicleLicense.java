@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.document_ai.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.document_ai.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class VehicleLicense {
-     /**
-      * 识别出的实体类型
-      * <p> 示例值：
-      */
+    /**
+     * 识别出的实体类型
+     * <p> 示例值：
+     */
     @SerializedName("entities")
     private VehicleEntity[] entities;
+
+    // builder 开始
+    public VehicleLicense() {
+    }
+
+    public VehicleLicense(Builder builder) {
+        /**
+         * 识别出的实体类型
+         * <p> 示例值：
+         */
+        this.entities = builder.entities;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public VehicleEntity[] getEntities() {
         return this.entities;
     }
@@ -39,44 +60,28 @@ public class VehicleLicense {
         this.entities = entities;
     }
 
-
-// builder 开始
-  public VehicleLicense(){}
-
-  public VehicleLicense(Builder builder){
-         /**
-          * 识别出的实体类型
-          * <p> 示例值：
-          */
-      this.entities = builder.entities;
-  }
-
     public static class Builder {
-     /**
-      * 识别出的实体类型
-      * <p> 示例值：
-      */
+        /**
+         * 识别出的实体类型
+         * <p> 示例值：
+         */
         private VehicleEntity[] entities;
 
         /**
          * 识别出的实体类型
          * <p> 示例值：
+         *
          * @param entities
          * @return
          */
         public Builder entities(VehicleEntity[] entities) {
-             this.entities = entities;
-             return this;
+            this.entities = entities;
+            return this;
         }
 
-    
-    
-    public VehicleLicense build(){
-        return new VehicleLicense(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public VehicleLicense build() {
+            return new VehicleLicense(this);
+        }
     }
 }

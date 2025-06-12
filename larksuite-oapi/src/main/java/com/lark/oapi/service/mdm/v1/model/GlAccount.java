@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.mdm.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.mdm.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,48 +20,93 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class GlAccount {
-     /**
-      * 会计科目唯一ID
-      * <p> 示例值：U1404732463745343488
-      */
+    /**
+     * 会计科目唯一ID
+     * <p> 示例值：U1404732463745343488
+     */
     @SerializedName("gl_account_uid")
     private String glAccountUid;
-     /**
-      * 会计科目编码
-      * <p> 示例值：51012006
-      */
+    /**
+     * 会计科目编码
+     * <p> 示例值：51012006
+     */
     @SerializedName("gl_account")
     private String glAccount;
-     /**
-      * 会计科目名称
-      * <p> 示例值：管理费用-电力工程
-      */
+    /**
+     * 会计科目名称
+     * <p> 示例值：管理费用-电力工程
+     */
     @SerializedName("gl_account_name")
     private String glAccountName;
-     /**
-      * 会计科目名称多语言
-      * <p> 示例值：
-      */
+    /**
+     * 会计科目名称多语言
+     * <p> 示例值：
+     */
     @SerializedName("i18n_gl_account_name")
     private I18nStruct[] i18nGlAccountName;
-     /**
-      * 会计科目类型
-      * <p> 示例值：101
-      */
+    /**
+     * 会计科目类型
+     * <p> 示例值：101
+     */
     @SerializedName("type")
     private String type;
-     /**
-      * 有效期至，格式：yyyy-MM-dd
-      * <p> 示例值：9999-12-31
-      */
+    /**
+     * 有效期至，格式：yyyy-MM-dd
+     * <p> 示例值：9999-12-31
+     */
     @SerializedName("valid_to")
     private String validTo;
+
+    // builder 开始
+    public GlAccount() {
+    }
+
+    public GlAccount(Builder builder) {
+        /**
+         * 会计科目唯一ID
+         * <p> 示例值：U1404732463745343488
+         */
+        this.glAccountUid = builder.glAccountUid;
+        /**
+         * 会计科目编码
+         * <p> 示例值：51012006
+         */
+        this.glAccount = builder.glAccount;
+        /**
+         * 会计科目名称
+         * <p> 示例值：管理费用-电力工程
+         */
+        this.glAccountName = builder.glAccountName;
+        /**
+         * 会计科目名称多语言
+         * <p> 示例值：
+         */
+        this.i18nGlAccountName = builder.i18nGlAccountName;
+        /**
+         * 会计科目类型
+         * <p> 示例值：101
+         */
+        this.type = builder.type;
+        /**
+         * 有效期至，格式：yyyy-MM-dd
+         * <p> 示例值：9999-12-31
+         */
+        this.validTo = builder.validTo;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getGlAccountUid() {
         return this.glAccountUid;
     }
@@ -109,159 +155,118 @@ public class GlAccount {
         this.validTo = validTo;
     }
 
-
-// builder 开始
-  public GlAccount(){}
-
-  public GlAccount(Builder builder){
-         /**
-          * 会计科目唯一ID
-          * <p> 示例值：U1404732463745343488
-          */
-      this.glAccountUid = builder.glAccountUid;
-         /**
-          * 会计科目编码
-          * <p> 示例值：51012006
-          */
-      this.glAccount = builder.glAccount;
-         /**
-          * 会计科目名称
-          * <p> 示例值：管理费用-电力工程
-          */
-      this.glAccountName = builder.glAccountName;
-         /**
-          * 会计科目名称多语言
-          * <p> 示例值：
-          */
-      this.i18nGlAccountName = builder.i18nGlAccountName;
-         /**
-          * 会计科目类型
-          * <p> 示例值：101
-          */
-      this.type = builder.type;
-         /**
-          * 有效期至，格式：yyyy-MM-dd
-          * <p> 示例值：9999-12-31
-          */
-      this.validTo = builder.validTo;
-  }
-
     public static class Builder {
-     /**
-      * 会计科目唯一ID
-      * <p> 示例值：U1404732463745343488
-      */
+        /**
+         * 会计科目唯一ID
+         * <p> 示例值：U1404732463745343488
+         */
         private String glAccountUid;
-     /**
-      * 会计科目编码
-      * <p> 示例值：51012006
-      */
+        /**
+         * 会计科目编码
+         * <p> 示例值：51012006
+         */
         private String glAccount;
-     /**
-      * 会计科目名称
-      * <p> 示例值：管理费用-电力工程
-      */
+        /**
+         * 会计科目名称
+         * <p> 示例值：管理费用-电力工程
+         */
         private String glAccountName;
-     /**
-      * 会计科目名称多语言
-      * <p> 示例值：
-      */
+        /**
+         * 会计科目名称多语言
+         * <p> 示例值：
+         */
         private I18nStruct[] i18nGlAccountName;
-     /**
-      * 会计科目类型
-      * <p> 示例值：101
-      */
+        /**
+         * 会计科目类型
+         * <p> 示例值：101
+         */
         private String type;
-     /**
-      * 有效期至，格式：yyyy-MM-dd
-      * <p> 示例值：9999-12-31
-      */
+        /**
+         * 有效期至，格式：yyyy-MM-dd
+         * <p> 示例值：9999-12-31
+         */
         private String validTo;
 
         /**
          * 会计科目唯一ID
          * <p> 示例值：U1404732463745343488
+         *
          * @param glAccountUid
          * @return
          */
         public Builder glAccountUid(String glAccountUid) {
-             this.glAccountUid = glAccountUid;
-             return this;
+            this.glAccountUid = glAccountUid;
+            return this;
         }
 
-    
 
         /**
          * 会计科目编码
          * <p> 示例值：51012006
+         *
          * @param glAccount
          * @return
          */
         public Builder glAccount(String glAccount) {
-             this.glAccount = glAccount;
-             return this;
+            this.glAccount = glAccount;
+            return this;
         }
 
-    
 
         /**
          * 会计科目名称
          * <p> 示例值：管理费用-电力工程
+         *
          * @param glAccountName
          * @return
          */
         public Builder glAccountName(String glAccountName) {
-             this.glAccountName = glAccountName;
-             return this;
+            this.glAccountName = glAccountName;
+            return this;
         }
 
-    
 
         /**
          * 会计科目名称多语言
          * <p> 示例值：
+         *
          * @param i18nGlAccountName
          * @return
          */
         public Builder i18nGlAccountName(I18nStruct[] i18nGlAccountName) {
-             this.i18nGlAccountName = i18nGlAccountName;
-             return this;
+            this.i18nGlAccountName = i18nGlAccountName;
+            return this;
         }
 
-    
 
         /**
          * 会计科目类型
          * <p> 示例值：101
+         *
          * @param type
          * @return
          */
         public Builder type(String type) {
-             this.type = type;
-             return this;
+            this.type = type;
+            return this;
         }
 
-    
 
         /**
          * 有效期至，格式：yyyy-MM-dd
          * <p> 示例值：9999-12-31
+         *
          * @param validTo
          * @return
          */
         public Builder validTo(String validTo) {
-             this.validTo = validTo;
-             return this;
+            this.validTo = validTo;
+            return this;
         }
 
-    
-    
-    public GlAccount build(){
-        return new GlAccount(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public GlAccount build() {
+            return new GlAccount(this);
+        }
     }
 }

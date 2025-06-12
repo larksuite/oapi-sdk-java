@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class SignatureEnumInfoLabel {
-     /**
-      * zh-CN
-      * <p> 示例值：中文
-      */
+    /**
+     * zh-CN
+     * <p> 示例值：中文
+     */
     @SerializedName("zh")
     private String zh;
-     /**
-      * en-US
-      * <p> 示例值：英文
-      */
+    /**
+     * en-US
+     * <p> 示例值：英文
+     */
     @SerializedName("en")
     private String en;
+
+    // builder 开始
+    public SignatureEnumInfoLabel() {
+    }
+
+    public SignatureEnumInfoLabel(Builder builder) {
+        /**
+         * zh-CN
+         * <p> 示例值：中文
+         */
+        this.zh = builder.zh;
+        /**
+         * en-US
+         * <p> 示例值：英文
+         */
+        this.en = builder.en;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getZh() {
         return this.zh;
     }
@@ -53,67 +79,46 @@ public class SignatureEnumInfoLabel {
         this.en = en;
     }
 
-
-// builder 开始
-  public SignatureEnumInfoLabel(){}
-
-  public SignatureEnumInfoLabel(Builder builder){
-         /**
-          * zh-CN
-          * <p> 示例值：中文
-          */
-      this.zh = builder.zh;
-         /**
-          * en-US
-          * <p> 示例值：英文
-          */
-      this.en = builder.en;
-  }
-
     public static class Builder {
-     /**
-      * zh-CN
-      * <p> 示例值：中文
-      */
+        /**
+         * zh-CN
+         * <p> 示例值：中文
+         */
         private String zh;
-     /**
-      * en-US
-      * <p> 示例值：英文
-      */
+        /**
+         * en-US
+         * <p> 示例值：英文
+         */
         private String en;
 
         /**
          * zh-CN
          * <p> 示例值：中文
+         *
          * @param zh
          * @return
          */
         public Builder zh(String zh) {
-             this.zh = zh;
-             return this;
+            this.zh = zh;
+            return this;
         }
 
-    
 
         /**
          * en-US
          * <p> 示例值：英文
+         *
          * @param en
          * @return
          */
         public Builder en(String en) {
-             this.en = en;
-             return this;
+            this.en = en;
+            return this;
         }
 
-    
-    
-    public SignatureEnumInfoLabel build(){
-        return new SignatureEnumInfoLabel(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public SignatureEnumInfoLabel build() {
+            return new SignatureEnumInfoLabel(this);
+        }
     }
 }

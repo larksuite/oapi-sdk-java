@@ -17,15 +17,16 @@ package com.lark.oapi.service.sheets.v3.enums;
  * 边框样式
  */
 public enum TopBorderStyleBorderStyleEnum {
-     SOLID("Solid"), // 实线
-     NONE("None"), // 无边框
-  ;
-   private String value;
+    SOLID("Solid"), // 实线
+    NONE("None"), // 无边框
+    ;
+    private String value;
+
     TopBorderStyleBorderStyleEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

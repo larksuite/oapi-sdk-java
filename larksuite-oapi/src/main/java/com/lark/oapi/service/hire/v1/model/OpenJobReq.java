@@ -12,24 +12,48 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class OpenJobReq {
-     /**
-      * 职位 ID
-      * <p> 示例值：6960663240925956555
-      */
+    /**
+     * 职位 ID
+     * <p> 示例值：6960663240925956555
+     */
     @Path
     @SerializedName("job_id")
     private String jobId;
+    @Body
+    private OpenJobReqBody body;
+
+    // builder 开始
+    public OpenJobReq() {
+    }
+
+    public OpenJobReq(Builder builder) {
+        /**
+         * 职位 ID
+         * <p> 示例值：6960663240925956555
+         */
+        this.jobId = builder.jobId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getJobId() {
         return this.jobId;
     }
@@ -37,9 +61,6 @@ public class OpenJobReq {
     public void setJobId(String jobId) {
         this.jobId = jobId;
     }
-
-    @Body
-    private OpenJobReqBody body;
 
     public OpenJobReqBody getOpenJobReqBody() {
         return this.body;
@@ -49,54 +70,40 @@ public class OpenJobReq {
         this.body = body;
     }
 
-// builder 开始
-  public OpenJobReq(){}
-
-  public OpenJobReq(Builder builder){
-     /**
-      * 职位 ID
-      * <p> 示例值：6960663240925956555
-      */
-       this.jobId = builder.jobId;
-        this.body = builder.body;
-  }
-
     public static class Builder {
-    
+
         private String jobId; // 职位 ID
+        private OpenJobReqBody body;
+
         /**
          * 职位 ID
          * <p> 示例值：6960663240925956555
+         *
          * @param jobId
          * @return
          */
-          public Builder jobId(String jobId) {
-               this.jobId = jobId;
-               return this;
-          }
+        public Builder jobId(String jobId) {
+            this.jobId = jobId;
+            return this;
+        }
 
-    
-        private OpenJobReqBody body;
-    
         public OpenJobReqBody getOpenJobReqBody() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder openJobReqBody(OpenJobReqBody body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public OpenJobReq build(){
-        return new OpenJobReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public OpenJobReq build() {
+            return new OpenJobReq(this);
+        }
     }
 }

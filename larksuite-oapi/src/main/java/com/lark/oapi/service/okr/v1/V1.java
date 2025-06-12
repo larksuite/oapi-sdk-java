@@ -17,42 +17,49 @@ import com.lark.oapi.core.Config;
 import com.lark.oapi.service.okr.v1.resource.*;
 
 public class V1 {
-	private final Image image; // 图片
-	private final Okr okr; // OKR
-	private final Period period; // OKR周期
-	private final PeriodRule periodRule; // 周期规则
-	private final ProgressRecord progressRecord; // OKR进展记录
-	private final Review review; // 复盘（灰度租户可见）
-	private final UserOkr userOkr; // 用户OKR
+    private final Image image; // 图片
+    private final Okr okr; // OKR
+    private final Period period; // OKR周期
+    private final PeriodRule periodRule; // 周期规则
+    private final ProgressRecord progressRecord; // OKR进展记录
+    private final Review review; // 复盘（灰度租户可见）
+    private final UserOkr userOkr; // 用户OKR
 
-	public V1(Config config) {
-		this.image = new Image(config);
-		this.okr = new Okr(config);
-		this.period = new Period(config);
-		this.periodRule = new PeriodRule(config);
-		this.progressRecord = new ProgressRecord(config);
-		this.review = new Review(config);
-		this.userOkr = new UserOkr(config);
-	}
-	public Image image() {
-		return image;
-	}
-	public Okr okr() {
-		return okr;
-	}
-	public Period period() {
-		return period;
-	}
-	public PeriodRule periodRule() {
-		return periodRule;
-	}
-	public ProgressRecord progressRecord() {
-		return progressRecord;
-	}
-	public Review review() {
-		return review;
-	}
-	public UserOkr userOkr() {
-		return userOkr;
-	}
+    public V1(Config config) {
+        this.image = new Image(config);
+        this.okr = new Okr(config);
+        this.period = new Period(config);
+        this.periodRule = new PeriodRule(config);
+        this.progressRecord = new ProgressRecord(config);
+        this.review = new Review(config);
+        this.userOkr = new UserOkr(config);
+    }
+
+    public Image image() {
+        return image;
+    }
+
+    public Okr okr() {
+        return okr;
+    }
+
+    public Period period() {
+        return period;
+    }
+
+    public PeriodRule periodRule() {
+        return periodRule;
+    }
+
+    public ProgressRecord progressRecord() {
+        return progressRecord;
+    }
+
+    public Review review() {
+        return review;
+    }
+
+    public UserOkr userOkr() {
+        return userOkr;
+    }
 }

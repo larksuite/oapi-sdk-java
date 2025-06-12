@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.okr.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.okr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,42 +20,82 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class MetricItemRequest {
-     /**
-      * 指标表id
-      * <p> 示例值：635782378412311
-      */
+    /**
+     * 指标表id
+     * <p> 示例值：635782378412311
+     */
     @SerializedName("metric_item_id")
     private String metricItemId;
-     /**
-      * 指标起始值
-      * <p> 示例值：1.0
-      */
+    /**
+     * 指标起始值
+     * <p> 示例值：1.0
+     */
     @SerializedName("metric_initial_value")
     private Double metricInitialValue;
-     /**
-      * 指标目标值
-      * <p> 示例值：3.0
-      */
+    /**
+     * 指标目标值
+     * <p> 示例值：3.0
+     */
     @SerializedName("metric_target_value")
     private Double metricTargetValue;
-     /**
-      * 指标进度值
-      * <p> 示例值：2.0
-      */
+    /**
+     * 指标进度值
+     * <p> 示例值：2.0
+     */
     @SerializedName("metric_current_value")
     private Double metricCurrentValue;
-     /**
-      * 指标支撑的上级人员 id
-      * <p> 示例值：7041857032248410131
-      */
+    /**
+     * 指标支撑的上级人员 id
+     * <p> 示例值：7041857032248410131
+     */
     @SerializedName("supported_user_id")
     private String supportedUserId;
+
+    // builder 开始
+    public MetricItemRequest() {
+    }
+
+    public MetricItemRequest(Builder builder) {
+        /**
+         * 指标表id
+         * <p> 示例值：635782378412311
+         */
+        this.metricItemId = builder.metricItemId;
+        /**
+         * 指标起始值
+         * <p> 示例值：1.0
+         */
+        this.metricInitialValue = builder.metricInitialValue;
+        /**
+         * 指标目标值
+         * <p> 示例值：3.0
+         */
+        this.metricTargetValue = builder.metricTargetValue;
+        /**
+         * 指标进度值
+         * <p> 示例值：2.0
+         */
+        this.metricCurrentValue = builder.metricCurrentValue;
+        /**
+         * 指标支撑的上级人员 id
+         * <p> 示例值：7041857032248410131
+         */
+        this.supportedUserId = builder.supportedUserId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getMetricItemId() {
         return this.metricItemId;
     }
@@ -95,136 +136,100 @@ public class MetricItemRequest {
         this.supportedUserId = supportedUserId;
     }
 
-
-// builder 开始
-  public MetricItemRequest(){}
-
-  public MetricItemRequest(Builder builder){
-         /**
-          * 指标表id
-          * <p> 示例值：635782378412311
-          */
-      this.metricItemId = builder.metricItemId;
-         /**
-          * 指标起始值
-          * <p> 示例值：1.0
-          */
-      this.metricInitialValue = builder.metricInitialValue;
-         /**
-          * 指标目标值
-          * <p> 示例值：3.0
-          */
-      this.metricTargetValue = builder.metricTargetValue;
-         /**
-          * 指标进度值
-          * <p> 示例值：2.0
-          */
-      this.metricCurrentValue = builder.metricCurrentValue;
-         /**
-          * 指标支撑的上级人员 id
-          * <p> 示例值：7041857032248410131
-          */
-      this.supportedUserId = builder.supportedUserId;
-  }
-
     public static class Builder {
-     /**
-      * 指标表id
-      * <p> 示例值：635782378412311
-      */
+        /**
+         * 指标表id
+         * <p> 示例值：635782378412311
+         */
         private String metricItemId;
-     /**
-      * 指标起始值
-      * <p> 示例值：1.0
-      */
+        /**
+         * 指标起始值
+         * <p> 示例值：1.0
+         */
         private Double metricInitialValue;
-     /**
-      * 指标目标值
-      * <p> 示例值：3.0
-      */
+        /**
+         * 指标目标值
+         * <p> 示例值：3.0
+         */
         private Double metricTargetValue;
-     /**
-      * 指标进度值
-      * <p> 示例值：2.0
-      */
+        /**
+         * 指标进度值
+         * <p> 示例值：2.0
+         */
         private Double metricCurrentValue;
-     /**
-      * 指标支撑的上级人员 id
-      * <p> 示例值：7041857032248410131
-      */
+        /**
+         * 指标支撑的上级人员 id
+         * <p> 示例值：7041857032248410131
+         */
         private String supportedUserId;
 
         /**
          * 指标表id
          * <p> 示例值：635782378412311
+         *
          * @param metricItemId
          * @return
          */
         public Builder metricItemId(String metricItemId) {
-             this.metricItemId = metricItemId;
-             return this;
+            this.metricItemId = metricItemId;
+            return this;
         }
 
-    
 
         /**
          * 指标起始值
          * <p> 示例值：1.0
+         *
          * @param metricInitialValue
          * @return
          */
         public Builder metricInitialValue(Double metricInitialValue) {
-             this.metricInitialValue = metricInitialValue;
-             return this;
+            this.metricInitialValue = metricInitialValue;
+            return this;
         }
 
-    
 
         /**
          * 指标目标值
          * <p> 示例值：3.0
+         *
          * @param metricTargetValue
          * @return
          */
         public Builder metricTargetValue(Double metricTargetValue) {
-             this.metricTargetValue = metricTargetValue;
-             return this;
+            this.metricTargetValue = metricTargetValue;
+            return this;
         }
 
-    
 
         /**
          * 指标进度值
          * <p> 示例值：2.0
+         *
          * @param metricCurrentValue
          * @return
          */
         public Builder metricCurrentValue(Double metricCurrentValue) {
-             this.metricCurrentValue = metricCurrentValue;
-             return this;
+            this.metricCurrentValue = metricCurrentValue;
+            return this;
         }
 
-    
 
         /**
          * 指标支撑的上级人员 id
          * <p> 示例值：7041857032248410131
+         *
          * @param supportedUserId
          * @return
          */
         public Builder supportedUserId(String supportedUserId) {
-             this.supportedUserId = supportedUserId;
-             return this;
+            this.supportedUserId = supportedUserId;
+            return this;
         }
 
-    
-    
-    public MetricItemRequest build(){
-        return new MetricItemRequest(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public MetricItemRequest build() {
+            return new MetricItemRequest(this);
+        }
     }
 }

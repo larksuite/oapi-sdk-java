@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,54 +20,104 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class AssessmentForCreate {
-     /**
-      * 考核状态
-      * <p> 示例值：completed
-      */
+    /**
+     * 考核状态
+     * <p> 示例值：completed
+     */
     @SerializedName("assessment_status")
     private String assessmentStatus;
-     /**
-      * 试用期考核结果
-      * <p> 示例值：approved
-      */
+    /**
+     * 试用期考核结果
+     * <p> 示例值：approved
+     */
     @SerializedName("assessment_result")
     private String assessmentResult;
-     /**
-      * 考核得分
-      * <p> 示例值：99.9
-      */
+    /**
+     * 考核得分
+     * <p> 示例值：99.9
+     */
     @SerializedName("assessment_score")
     private Double assessmentScore;
-     /**
-      * 试用期考核等级
-      * <p> 示例值：grade_a
-      */
+    /**
+     * 试用期考核等级
+     * <p> 示例值：grade_a
+     */
     @SerializedName("assessment_grade")
     private String assessmentGrade;
-     /**
-      * 考核评语
-      * <p> 示例值：超出预期
-      */
+    /**
+     * 考核评语
+     * <p> 示例值：超出预期
+     */
     @SerializedName("assessment_comment")
     private String assessmentComment;
-     /**
-      * 考核结果页面超链接
-      * <p> 示例值：暂无示例
-      */
+    /**
+     * 考核结果页面超链接
+     * <p> 示例值：暂无示例
+     */
     @SerializedName("assessment_detail")
     private String assessmentDetail;
-     /**
-      * 是否为最终考核结果
-      * <p> 示例值：false
-      */
+    /**
+     * 是否为最终考核结果
+     * <p> 示例值：false
+     */
     @SerializedName("is_final_asssessment")
     private Boolean isFinalAsssessment;
+
+    // builder 开始
+    public AssessmentForCreate() {
+    }
+
+    public AssessmentForCreate(Builder builder) {
+        /**
+         * 考核状态
+         * <p> 示例值：completed
+         */
+        this.assessmentStatus = builder.assessmentStatus;
+        /**
+         * 试用期考核结果
+         * <p> 示例值：approved
+         */
+        this.assessmentResult = builder.assessmentResult;
+        /**
+         * 考核得分
+         * <p> 示例值：99.9
+         */
+        this.assessmentScore = builder.assessmentScore;
+        /**
+         * 试用期考核等级
+         * <p> 示例值：grade_a
+         */
+        this.assessmentGrade = builder.assessmentGrade;
+        /**
+         * 考核评语
+         * <p> 示例值：超出预期
+         */
+        this.assessmentComment = builder.assessmentComment;
+        /**
+         * 考核结果页面超链接
+         * <p> 示例值：暂无示例
+         */
+        this.assessmentDetail = builder.assessmentDetail;
+        /**
+         * 是否为最终考核结果
+         * <p> 示例值：false
+         */
+        this.isFinalAsssessment = builder.isFinalAsssessment;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getAssessmentStatus() {
         return this.assessmentStatus;
     }
@@ -123,202 +174,160 @@ public class AssessmentForCreate {
         this.isFinalAsssessment = isFinalAsssessment;
     }
 
-
-// builder 开始
-  public AssessmentForCreate(){}
-
-  public AssessmentForCreate(Builder builder){
-         /**
-          * 考核状态
-          * <p> 示例值：completed
-          */
-      this.assessmentStatus = builder.assessmentStatus;
-         /**
-          * 试用期考核结果
-          * <p> 示例值：approved
-          */
-      this.assessmentResult = builder.assessmentResult;
-         /**
-          * 考核得分
-          * <p> 示例值：99.9
-          */
-      this.assessmentScore = builder.assessmentScore;
-         /**
-          * 试用期考核等级
-          * <p> 示例值：grade_a
-          */
-      this.assessmentGrade = builder.assessmentGrade;
-         /**
-          * 考核评语
-          * <p> 示例值：超出预期
-          */
-      this.assessmentComment = builder.assessmentComment;
-         /**
-          * 考核结果页面超链接
-          * <p> 示例值：暂无示例
-          */
-      this.assessmentDetail = builder.assessmentDetail;
-         /**
-          * 是否为最终考核结果
-          * <p> 示例值：false
-          */
-      this.isFinalAsssessment = builder.isFinalAsssessment;
-  }
-
     public static class Builder {
-     /**
-      * 考核状态
-      * <p> 示例值：completed
-      */
+        /**
+         * 考核状态
+         * <p> 示例值：completed
+         */
         private String assessmentStatus;
-     /**
-      * 试用期考核结果
-      * <p> 示例值：approved
-      */
+        /**
+         * 试用期考核结果
+         * <p> 示例值：approved
+         */
         private String assessmentResult;
-     /**
-      * 考核得分
-      * <p> 示例值：99.9
-      */
+        /**
+         * 考核得分
+         * <p> 示例值：99.9
+         */
         private Double assessmentScore;
-     /**
-      * 试用期考核等级
-      * <p> 示例值：grade_a
-      */
+        /**
+         * 试用期考核等级
+         * <p> 示例值：grade_a
+         */
         private String assessmentGrade;
-     /**
-      * 考核评语
-      * <p> 示例值：超出预期
-      */
+        /**
+         * 考核评语
+         * <p> 示例值：超出预期
+         */
         private String assessmentComment;
-     /**
-      * 考核结果页面超链接
-      * <p> 示例值：暂无示例
-      */
+        /**
+         * 考核结果页面超链接
+         * <p> 示例值：暂无示例
+         */
         private String assessmentDetail;
-     /**
-      * 是否为最终考核结果
-      * <p> 示例值：false
-      */
+        /**
+         * 是否为最终考核结果
+         * <p> 示例值：false
+         */
         private Boolean isFinalAsssessment;
 
         /**
          * 考核状态
          * <p> 示例值：completed
+         *
          * @param assessmentStatus
          * @return
          */
         public Builder assessmentStatus(String assessmentStatus) {
-             this.assessmentStatus = assessmentStatus;
-             return this;
+            this.assessmentStatus = assessmentStatus;
+            return this;
         }
+
         /**
          * 考核状态
          * <p> 示例值：completed
+         *
          * @param assessmentStatus {@link com.lark.oapi.service.corehr.v2.enums.AssessmentForCreateAssessmentStatusEnum}
          * @return
          */
         public Builder assessmentStatus(com.lark.oapi.service.corehr.v2.enums.AssessmentForCreateAssessmentStatusEnum assessmentStatus) {
-             this.assessmentStatus = assessmentStatus.getValue();
-             return this;
+            this.assessmentStatus = assessmentStatus.getValue();
+            return this;
         }
 
-    
 
         /**
          * 试用期考核结果
          * <p> 示例值：approved
+         *
          * @param assessmentResult
          * @return
          */
         public Builder assessmentResult(String assessmentResult) {
-             this.assessmentResult = assessmentResult;
-             return this;
+            this.assessmentResult = assessmentResult;
+            return this;
         }
+
         /**
          * 试用期考核结果
          * <p> 示例值：approved
+         *
          * @param assessmentResult {@link com.lark.oapi.service.corehr.v2.enums.AssessmentForCreateAssessmentResultEnum}
          * @return
          */
         public Builder assessmentResult(com.lark.oapi.service.corehr.v2.enums.AssessmentForCreateAssessmentResultEnum assessmentResult) {
-             this.assessmentResult = assessmentResult.getValue();
-             return this;
+            this.assessmentResult = assessmentResult.getValue();
+            return this;
         }
 
-    
 
         /**
          * 考核得分
          * <p> 示例值：99.9
+         *
          * @param assessmentScore
          * @return
          */
         public Builder assessmentScore(Double assessmentScore) {
-             this.assessmentScore = assessmentScore;
-             return this;
+            this.assessmentScore = assessmentScore;
+            return this;
         }
 
-    
 
         /**
          * 试用期考核等级
          * <p> 示例值：grade_a
+         *
          * @param assessmentGrade
          * @return
          */
         public Builder assessmentGrade(String assessmentGrade) {
-             this.assessmentGrade = assessmentGrade;
-             return this;
+            this.assessmentGrade = assessmentGrade;
+            return this;
         }
 
-    
 
         /**
          * 考核评语
          * <p> 示例值：超出预期
+         *
          * @param assessmentComment
          * @return
          */
         public Builder assessmentComment(String assessmentComment) {
-             this.assessmentComment = assessmentComment;
-             return this;
+            this.assessmentComment = assessmentComment;
+            return this;
         }
 
-    
 
         /**
          * 考核结果页面超链接
          * <p> 示例值：暂无示例
+         *
          * @param assessmentDetail
          * @return
          */
         public Builder assessmentDetail(String assessmentDetail) {
-             this.assessmentDetail = assessmentDetail;
-             return this;
+            this.assessmentDetail = assessmentDetail;
+            return this;
         }
 
-    
 
         /**
          * 是否为最终考核结果
          * <p> 示例值：false
+         *
          * @param isFinalAsssessment
          * @return
          */
         public Builder isFinalAsssessment(Boolean isFinalAsssessment) {
-             this.isFinalAsssessment = isFinalAsssessment;
-             return this;
+            this.isFinalAsssessment = isFinalAsssessment;
+            return this;
         }
 
-    
-    
-    public AssessmentForCreate build(){
-        return new AssessmentForCreate(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public AssessmentForCreate build() {
+            return new AssessmentForCreate(this);
+        }
     }
 }

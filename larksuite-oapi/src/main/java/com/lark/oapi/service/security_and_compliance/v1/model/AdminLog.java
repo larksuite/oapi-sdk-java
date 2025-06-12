@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.security_and_compliance.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.security_and_compliance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,60 +20,115 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class AdminLog {
-     /**
-      * 唯一id
-      * <p> 示例值：1
-      */
+    /**
+     * 唯一id
+     * <p> 示例值：1
+     */
     @SerializedName("unique_id")
     private String uniqueId;
-     /**
-      * 管理员id
-      * <p> 示例值：1
-      */
+    /**
+     * 管理员id
+     * <p> 示例值：1
+     */
     @SerializedName("user_id")
     private String userId;
-     /**
-      * 一级类目
-      * <p> 示例值：1
-      */
+    /**
+     * 一级类目
+     * <p> 示例值：1
+     */
     @SerializedName("category_name")
     private String categoryName;
-     /**
-      * 事件名称
-      * <p> 示例值：1
-      */
+    /**
+     * 事件名称
+     * <p> 示例值：1
+     */
     @SerializedName("event_name")
     private String eventName;
-     /**
-      * ip地址
-      * <p> 示例值：1.0.0.127
-      */
+    /**
+     * ip地址
+     * <p> 示例值：1.0.0.127
+     */
     @SerializedName("ip_address")
     private String ipAddress;
-     /**
-      * 创建时间戳
-      * <p> 示例值：1692773562
-      */
+    /**
+     * 创建时间戳
+     * <p> 示例值：1692773562
+     */
     @SerializedName("create_time")
     private String createTime;
-     /**
-      * 事件详情
-      * <p> 示例值：content
-      */
+    /**
+     * 事件详情
+     * <p> 示例值：content
+     */
     @SerializedName("content")
     private String content;
-     /**
-      * 操作状态
-      * <p> 示例值：1
-      */
+    /**
+     * 操作状态
+     * <p> 示例值：1
+     */
     @SerializedName("operation_status")
     private Integer operationStatus;
+
+    // builder 开始
+    public AdminLog() {
+    }
+
+    public AdminLog(Builder builder) {
+        /**
+         * 唯一id
+         * <p> 示例值：1
+         */
+        this.uniqueId = builder.uniqueId;
+        /**
+         * 管理员id
+         * <p> 示例值：1
+         */
+        this.userId = builder.userId;
+        /**
+         * 一级类目
+         * <p> 示例值：1
+         */
+        this.categoryName = builder.categoryName;
+        /**
+         * 事件名称
+         * <p> 示例值：1
+         */
+        this.eventName = builder.eventName;
+        /**
+         * ip地址
+         * <p> 示例值：1.0.0.127
+         */
+        this.ipAddress = builder.ipAddress;
+        /**
+         * 创建时间戳
+         * <p> 示例值：1692773562
+         */
+        this.createTime = builder.createTime;
+        /**
+         * 事件详情
+         * <p> 示例值：content
+         */
+        this.content = builder.content;
+        /**
+         * 操作状态
+         * <p> 示例值：1
+         */
+        this.operationStatus = builder.operationStatus;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getUniqueId() {
         return this.uniqueId;
     }
@@ -137,205 +193,154 @@ public class AdminLog {
         this.operationStatus = operationStatus;
     }
 
-
-// builder 开始
-  public AdminLog(){}
-
-  public AdminLog(Builder builder){
-         /**
-          * 唯一id
-          * <p> 示例值：1
-          */
-      this.uniqueId = builder.uniqueId;
-         /**
-          * 管理员id
-          * <p> 示例值：1
-          */
-      this.userId = builder.userId;
-         /**
-          * 一级类目
-          * <p> 示例值：1
-          */
-      this.categoryName = builder.categoryName;
-         /**
-          * 事件名称
-          * <p> 示例值：1
-          */
-      this.eventName = builder.eventName;
-         /**
-          * ip地址
-          * <p> 示例值：1.0.0.127
-          */
-      this.ipAddress = builder.ipAddress;
-         /**
-          * 创建时间戳
-          * <p> 示例值：1692773562
-          */
-      this.createTime = builder.createTime;
-         /**
-          * 事件详情
-          * <p> 示例值：content
-          */
-      this.content = builder.content;
-         /**
-          * 操作状态
-          * <p> 示例值：1
-          */
-      this.operationStatus = builder.operationStatus;
-  }
-
     public static class Builder {
-     /**
-      * 唯一id
-      * <p> 示例值：1
-      */
+        /**
+         * 唯一id
+         * <p> 示例值：1
+         */
         private String uniqueId;
-     /**
-      * 管理员id
-      * <p> 示例值：1
-      */
+        /**
+         * 管理员id
+         * <p> 示例值：1
+         */
         private String userId;
-     /**
-      * 一级类目
-      * <p> 示例值：1
-      */
+        /**
+         * 一级类目
+         * <p> 示例值：1
+         */
         private String categoryName;
-     /**
-      * 事件名称
-      * <p> 示例值：1
-      */
+        /**
+         * 事件名称
+         * <p> 示例值：1
+         */
         private String eventName;
-     /**
-      * ip地址
-      * <p> 示例值：1.0.0.127
-      */
+        /**
+         * ip地址
+         * <p> 示例值：1.0.0.127
+         */
         private String ipAddress;
-     /**
-      * 创建时间戳
-      * <p> 示例值：1692773562
-      */
+        /**
+         * 创建时间戳
+         * <p> 示例值：1692773562
+         */
         private String createTime;
-     /**
-      * 事件详情
-      * <p> 示例值：content
-      */
+        /**
+         * 事件详情
+         * <p> 示例值：content
+         */
         private String content;
-     /**
-      * 操作状态
-      * <p> 示例值：1
-      */
+        /**
+         * 操作状态
+         * <p> 示例值：1
+         */
         private Integer operationStatus;
 
         /**
          * 唯一id
          * <p> 示例值：1
+         *
          * @param uniqueId
          * @return
          */
         public Builder uniqueId(String uniqueId) {
-             this.uniqueId = uniqueId;
-             return this;
+            this.uniqueId = uniqueId;
+            return this;
         }
 
-    
 
         /**
          * 管理员id
          * <p> 示例值：1
+         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-             this.userId = userId;
-             return this;
+            this.userId = userId;
+            return this;
         }
 
-    
 
         /**
          * 一级类目
          * <p> 示例值：1
+         *
          * @param categoryName
          * @return
          */
         public Builder categoryName(String categoryName) {
-             this.categoryName = categoryName;
-             return this;
+            this.categoryName = categoryName;
+            return this;
         }
 
-    
 
         /**
          * 事件名称
          * <p> 示例值：1
+         *
          * @param eventName
          * @return
          */
         public Builder eventName(String eventName) {
-             this.eventName = eventName;
-             return this;
+            this.eventName = eventName;
+            return this;
         }
 
-    
 
         /**
          * ip地址
          * <p> 示例值：1.0.0.127
+         *
          * @param ipAddress
          * @return
          */
         public Builder ipAddress(String ipAddress) {
-             this.ipAddress = ipAddress;
-             return this;
+            this.ipAddress = ipAddress;
+            return this;
         }
 
-    
 
         /**
          * 创建时间戳
          * <p> 示例值：1692773562
+         *
          * @param createTime
          * @return
          */
         public Builder createTime(String createTime) {
-             this.createTime = createTime;
-             return this;
+            this.createTime = createTime;
+            return this;
         }
 
-    
 
         /**
          * 事件详情
          * <p> 示例值：content
+         *
          * @param content
          * @return
          */
         public Builder content(String content) {
-             this.content = content;
-             return this;
+            this.content = content;
+            return this;
         }
 
-    
 
         /**
          * 操作状态
          * <p> 示例值：1
+         *
          * @param operationStatus
          * @return
          */
         public Builder operationStatus(Integer operationStatus) {
-             this.operationStatus = operationStatus;
-             return this;
+            this.operationStatus = operationStatus;
+            return this;
         }
 
-    
-    
-    public AdminLog build(){
-        return new AdminLog(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public AdminLog build() {
+            return new AdminLog(this);
+        }
     }
 }

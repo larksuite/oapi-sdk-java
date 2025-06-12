@@ -12,25 +12,46 @@
  */
 
 package com.lark.oapi.service.task.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.task.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class UncompleteTaskReq {
-     /**
-      * 任务 ID
-      * <p> 示例值：bb54ab99-d360-434f-bcaa-a4cc4c05840e
-      */
+    /**
+     * 任务 ID
+     * <p> 示例值：bb54ab99-d360-434f-bcaa-a4cc4c05840e
+     */
     @Path
     @SerializedName("task_id")
     private String taskId;
+
+    // builder 开始
+    public UncompleteTaskReq() {
+    }
+
+    public UncompleteTaskReq(Builder builder) {
+        /**
+         * 任务 ID
+         * <p> 示例值：bb54ab99-d360-434f-bcaa-a4cc4c05840e
+         */
+        this.taskId = builder.taskId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getTaskId() {
         return this.taskId;
     }
@@ -39,39 +60,25 @@ public class UncompleteTaskReq {
         this.taskId = taskId;
     }
 
-
-// builder 开始
-  public UncompleteTaskReq(){}
-
-  public UncompleteTaskReq(Builder builder){
-     /**
-      * 任务 ID
-      * <p> 示例值：bb54ab99-d360-434f-bcaa-a4cc4c05840e
-      */
-       this.taskId = builder.taskId;
-  }
-
     public static class Builder {
-    
+
         private String taskId; // 任务 ID
+
         /**
          * 任务 ID
          * <p> 示例值：bb54ab99-d360-434f-bcaa-a4cc4c05840e
+         *
          * @param taskId
          * @return
          */
-          public Builder taskId(String taskId) {
-               this.taskId = taskId;
-               return this;
-          }
+        public Builder taskId(String taskId) {
+            this.taskId = taskId;
+            return this;
+        }
 
-    
-    public UncompleteTaskReq build(){
-        return new UncompleteTaskReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public UncompleteTaskReq build() {
+            return new UncompleteTaskReq(this);
+        }
     }
 }

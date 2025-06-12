@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.lingo.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.lingo.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class MatchInfo {
-     /**
-      * 实体词 id
-      * <p> 示例值：enterprise_34809584
-      */
+    /**
+     * 实体词 id
+     * <p> 示例值：enterprise_34809584
+     */
     @SerializedName("entity_id")
     private String entityId;
-     /**
-      * 匹配中的字段
-      * <p> 示例值：0
-      */
+    /**
+     * 匹配中的字段
+     * <p> 示例值：0
+     */
     @SerializedName("type")
     private Integer type;
+
+    // builder 开始
+    public MatchInfo() {
+    }
+
+    public MatchInfo(Builder builder) {
+        /**
+         * 实体词 id
+         * <p> 示例值：enterprise_34809584
+         */
+        this.entityId = builder.entityId;
+        /**
+         * 匹配中的字段
+         * <p> 示例值：0
+         */
+        this.type = builder.type;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getEntityId() {
         return this.entityId;
     }
@@ -53,77 +79,58 @@ public class MatchInfo {
         this.type = type;
     }
 
-
-// builder 开始
-  public MatchInfo(){}
-
-  public MatchInfo(Builder builder){
-         /**
-          * 实体词 id
-          * <p> 示例值：enterprise_34809584
-          */
-      this.entityId = builder.entityId;
-         /**
-          * 匹配中的字段
-          * <p> 示例值：0
-          */
-      this.type = builder.type;
-  }
-
     public static class Builder {
-     /**
-      * 实体词 id
-      * <p> 示例值：enterprise_34809584
-      */
+        /**
+         * 实体词 id
+         * <p> 示例值：enterprise_34809584
+         */
         private String entityId;
-     /**
-      * 匹配中的字段
-      * <p> 示例值：0
-      */
+        /**
+         * 匹配中的字段
+         * <p> 示例值：0
+         */
         private Integer type;
 
         /**
          * 实体词 id
          * <p> 示例值：enterprise_34809584
+         *
          * @param entityId
          * @return
          */
         public Builder entityId(String entityId) {
-             this.entityId = entityId;
-             return this;
+            this.entityId = entityId;
+            return this;
         }
 
-    
 
         /**
          * 匹配中的字段
          * <p> 示例值：0
+         *
          * @param type
          * @return
          */
         public Builder type(Integer type) {
-             this.type = type;
-             return this;
+            this.type = type;
+            return this;
         }
+
         /**
          * 匹配中的字段
          * <p> 示例值：0
+         *
          * @param type {@link com.lark.oapi.service.lingo.v1.enums.MatchInfoTermTypeEnum}
          * @return
          */
         public Builder type(com.lark.oapi.service.lingo.v1.enums.MatchInfoTermTypeEnum type) {
-             this.type = type.getValue();
-             return this;
+            this.type = type.getValue();
+            return this;
         }
 
-    
-    
-    public MatchInfo build(){
-        return new MatchInfo(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public MatchInfo build() {
+            return new MatchInfo(this);
+        }
     }
 }

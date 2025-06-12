@@ -17,15 +17,16 @@ package com.lark.oapi.service.docx.v1.enums;
  * 状态计算类型
  */
 public enum OkrProgressRateOkrProgressStatusTypeEnum {
-     DEFAULT("default"), // 风险最高的Key Result状态
-     CUSTOM("custom"), // 自定义
-  ;
-   private String value;
+    DEFAULT("default"), // 风险最高的Key Result状态
+    CUSTOM("custom"), // 自定义
+    ;
+    private String value;
+
     OkrProgressRateOkrProgressStatusTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

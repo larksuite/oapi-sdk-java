@@ -12,66 +12,117 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ListInterviewerReq {
-     /**
-      * 分页大小
-      * <p> 示例值：
-      */
+    /**
+     * 分页大小
+     * <p> 示例值：
+     */
     @Query
     @SerializedName("page_size")
     private Integer pageSize;
-     /**
-      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-      * <p> 示例值：
-      */
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     * <p> 示例值：
+     */
     @Query
     @SerializedName("page_token")
     private String pageToken;
-     /**
-      * 面试官userID列表
-      * <p> 示例值：
-      */
+    /**
+     * 面试官userID列表
+     * <p> 示例值：
+     */
     @Query
     @SerializedName("user_ids")
     private String[] userIds;
-     /**
-      * 认证状态
-      * <p> 示例值：1
-      */
+    /**
+     * 认证状态
+     * <p> 示例值：1
+     */
     @Query
     @SerializedName("verify_status")
     private Integer verifyStatus;
-     /**
-      * 最早更新时间，毫秒时间戳
-      * <p> 示例值：1714374796615
-      */
+    /**
+     * 最早更新时间，毫秒时间戳
+     * <p> 示例值：1714374796615
+     */
     @Query
     @SerializedName("earliest_update_time")
     private String earliestUpdateTime;
-     /**
-      * 最晚更新时间，毫秒时间戳
-      * <p> 示例值：1714374796616
-      */
+    /**
+     * 最晚更新时间，毫秒时间戳
+     * <p> 示例值：1714374796616
+     */
     @Query
     @SerializedName("latest_update_time")
     private String latestUpdateTime;
-     /**
-      * 此次调用中使用的用户ID的类型
-      * <p> 示例值：
-      */
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
+
+    // builder 开始
+    public ListInterviewerReq() {
+    }
+
+    public ListInterviewerReq(Builder builder) {
+        /**
+         * 分页大小
+         * <p> 示例值：
+         */
+        this.pageSize = builder.pageSize;
+        /**
+         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+         * <p> 示例值：
+         */
+        this.pageToken = builder.pageToken;
+        /**
+         * 面试官userID列表
+         * <p> 示例值：
+         */
+        this.userIds = builder.userIds;
+        /**
+         * 认证状态
+         * <p> 示例值：1
+         */
+        this.verifyStatus = builder.verifyStatus;
+        /**
+         * 最早更新时间，毫秒时间戳
+         * <p> 示例值：1714374796615
+         */
+        this.earliestUpdateTime = builder.earliestUpdateTime;
+        /**
+         * 最晚更新时间，毫秒时间戳
+         * <p> 示例值：1714374796616
+         */
+        this.latestUpdateTime = builder.latestUpdateTime;
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         */
+        this.userIdType = builder.userIdType;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Integer getPageSize() {
         return this.pageSize;
     }
@@ -128,48 +179,6 @@ public class ListInterviewerReq {
         this.userIdType = userIdType;
     }
 
-
-// builder 开始
-  public ListInterviewerReq(){}
-
-  public ListInterviewerReq(Builder builder){
-         /**
-          * 分页大小
-          * <p> 示例值：
-          */
-       this.pageSize = builder.pageSize;
-         /**
-          * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-          * <p> 示例值：
-          */
-       this.pageToken = builder.pageToken;
-         /**
-          * 面试官userID列表
-          * <p> 示例值：
-          */
-       this.userIds = builder.userIds;
-         /**
-          * 认证状态
-          * <p> 示例值：1
-          */
-       this.verifyStatus = builder.verifyStatus;
-         /**
-          * 最早更新时间，毫秒时间戳
-          * <p> 示例值：1714374796615
-          */
-       this.earliestUpdateTime = builder.earliestUpdateTime;
-         /**
-          * 最晚更新时间，毫秒时间戳
-          * <p> 示例值：1714374796616
-          */
-       this.latestUpdateTime = builder.latestUpdateTime;
-         /**
-          * 此次调用中使用的用户ID的类型
-          * <p> 示例值：
-          */
-       this.userIdType = builder.userIdType;
-  }
-
     public static class Builder {
         private Integer pageSize; // 分页大小
         private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
@@ -178,97 +187,100 @@ public class ListInterviewerReq {
         private String earliestUpdateTime; // 最早更新时间，毫秒时间戳
         private String latestUpdateTime; // 最晚更新时间，毫秒时间戳
         private String userIdType; // 此次调用中使用的用户ID的类型
-    
+
         /**
          * 分页大小
          * <p> 示例值：
+         *
          * @param pageSize
          * @return
          */
-           public Builder pageSize(Integer pageSize) {
-                this.pageSize = pageSize;
-                return this;
-           }
+        public Builder pageSize(Integer pageSize) {
+            this.pageSize = pageSize;
+            return this;
+        }
 
-    
+
         /**
          * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
          * <p> 示例值：
+         *
          * @param pageToken
          * @return
          */
-           public Builder pageToken(String pageToken) {
-                this.pageToken = pageToken;
-                return this;
-           }
+        public Builder pageToken(String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+        }
 
-    
+
         /**
          * 面试官userID列表
          * <p> 示例值：
+         *
          * @param userIds
          * @return
          */
-           public Builder userIds(String[] userIds) {
-                this.userIds = userIds;
-                return this;
-           }
+        public Builder userIds(String[] userIds) {
+            this.userIds = userIds;
+            return this;
+        }
 
-    
+
         /**
          * 认证状态
          * <p> 示例值：1
+         *
          * @param verifyStatus
          * @return
          */
-           public Builder verifyStatus(Integer verifyStatus) {
-                this.verifyStatus = verifyStatus;
-                return this;
-           }
+        public Builder verifyStatus(Integer verifyStatus) {
+            this.verifyStatus = verifyStatus;
+            return this;
+        }
 
-    
+
         /**
          * 最早更新时间，毫秒时间戳
          * <p> 示例值：1714374796615
+         *
          * @param earliestUpdateTime
          * @return
          */
-           public Builder earliestUpdateTime(String earliestUpdateTime) {
-                this.earliestUpdateTime = earliestUpdateTime;
-                return this;
-           }
+        public Builder earliestUpdateTime(String earliestUpdateTime) {
+            this.earliestUpdateTime = earliestUpdateTime;
+            return this;
+        }
 
-    
+
         /**
          * 最晚更新时间，毫秒时间戳
          * <p> 示例值：1714374796616
+         *
          * @param latestUpdateTime
          * @return
          */
-           public Builder latestUpdateTime(String latestUpdateTime) {
-                this.latestUpdateTime = latestUpdateTime;
-                return this;
-           }
+        public Builder latestUpdateTime(String latestUpdateTime) {
+            this.latestUpdateTime = latestUpdateTime;
+            return this;
+        }
 
-    
+
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
+         *
          * @param userIdType
          * @return
          */
-           public Builder userIdType(String userIdType) {
-                this.userIdType = userIdType;
-                return this;
-           }
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
 
-    
-    public ListInterviewerReq build(){
-        return new ListInterviewerReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ListInterviewerReq build() {
+            return new ListInterviewerReq(this);
+        }
     }
 }

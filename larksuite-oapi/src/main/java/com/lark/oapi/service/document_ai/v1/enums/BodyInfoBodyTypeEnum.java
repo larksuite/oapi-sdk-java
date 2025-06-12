@@ -17,16 +17,17 @@ package com.lark.oapi.service.document_ai.v1.enums;
  * 主体类型
  */
 public enum BodyInfoBodyTypeEnum {
-     BUY("buy"), // 甲方主体
-     SELL("sell"), // 乙方主体
-     THIRD("third"), // 第三方、其他方主体
-  ;
-   private String value;
+    BUY("buy"), // 甲方主体
+    SELL("sell"), // 乙方主体
+    THIRD("third"), // 第三方、其他方主体
+    ;
+    private String value;
+
     BodyInfoBodyTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

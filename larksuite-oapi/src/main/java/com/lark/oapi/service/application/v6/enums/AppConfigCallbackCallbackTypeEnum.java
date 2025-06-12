@@ -17,15 +17,16 @@ package com.lark.oapi.service.application.v6.enums;
  * 回调类型
  */
 public enum AppConfigCallbackCallbackTypeEnum {
-     WEBHOOK("webhook"), // webhook
-     WEBSOCKET("websocket"), // websocket
-  ;
-   private String value;
+    WEBHOOK("webhook"), // webhook
+    WEBSOCKET("websocket"), // websocket
+    ;
+    private String value;
+
     AppConfigCallbackCallbackTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

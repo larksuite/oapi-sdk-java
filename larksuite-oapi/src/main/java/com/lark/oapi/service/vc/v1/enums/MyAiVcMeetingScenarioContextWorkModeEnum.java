@@ -17,15 +17,16 @@ package com.lark.oapi.service.vc.v1.enums;
  * 会话所处的业务模式
  */
 public enum MyAiVcMeetingScenarioContextWorkModeEnum {
-     CHAT(1), // 聊天模式
-     INLINE(2), // inline 模式
-  ;
-   private Integer value;
+    CHAT(1), // 聊天模式
+    INLINE(2), // inline 模式
+    ;
+    private Integer value;
+
     MyAiVcMeetingScenarioContextWorkModeEnum(Integer value) {
-      this.value = value;
+        this.value = value;
     }
 
     public Integer getValue() {
-      return this.value;
+        return this.value;
     }
 }

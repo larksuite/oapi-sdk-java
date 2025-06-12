@@ -17,16 +17,17 @@ package com.lark.oapi.service.attendance.v1.enums;
  * 加班日期类型
  */
 public enum ApprovalDailyDetailOvertimeDateTypeEnum {
-     WORK_DAY(1), // 工作日
-     REST_DAY(2), // 休息日
-     SPECIAL_DAY(3), // 节假日
-  ;
-   private Integer value;
+    WORK_DAY(1), // 工作日
+    REST_DAY(2), // 休息日
+    SPECIAL_DAY(3), // 节假日
+    ;
+    private Integer value;
+
     ApprovalDailyDetailOvertimeDateTypeEnum(Integer value) {
-      this.value = value;
+        this.value = value;
     }
 
     public Integer getValue() {
-      return this.value;
+        return this.value;
     }
 }

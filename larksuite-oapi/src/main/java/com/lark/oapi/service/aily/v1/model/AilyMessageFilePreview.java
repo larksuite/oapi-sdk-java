@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.aily.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.aily.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class AilyMessageFilePreview {
-     /**
-      * 文件的 URL
-      * <p> 示例值：http://path_to_file
-      */
+    /**
+     * 文件的 URL
+     * <p> 示例值：http://path_to_file
+     */
     @SerializedName("url")
     private String url;
-     /**
-      * url 过期时间，秒时间戳
-      * <p> 示例值：1719413169
-      */
+    /**
+     * url 过期时间，秒时间戳
+     * <p> 示例值：1719413169
+     */
     @SerializedName("expired_at")
     private String expiredAt;
+
+    // builder 开始
+    public AilyMessageFilePreview() {
+    }
+
+    public AilyMessageFilePreview(Builder builder) {
+        /**
+         * 文件的 URL
+         * <p> 示例值：http://path_to_file
+         */
+        this.url = builder.url;
+        /**
+         * url 过期时间，秒时间戳
+         * <p> 示例值：1719413169
+         */
+        this.expiredAt = builder.expiredAt;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getUrl() {
         return this.url;
     }
@@ -53,67 +79,46 @@ public class AilyMessageFilePreview {
         this.expiredAt = expiredAt;
     }
 
-
-// builder 开始
-  public AilyMessageFilePreview(){}
-
-  public AilyMessageFilePreview(Builder builder){
-         /**
-          * 文件的 URL
-          * <p> 示例值：http://path_to_file
-          */
-      this.url = builder.url;
-         /**
-          * url 过期时间，秒时间戳
-          * <p> 示例值：1719413169
-          */
-      this.expiredAt = builder.expiredAt;
-  }
-
     public static class Builder {
-     /**
-      * 文件的 URL
-      * <p> 示例值：http://path_to_file
-      */
+        /**
+         * 文件的 URL
+         * <p> 示例值：http://path_to_file
+         */
         private String url;
-     /**
-      * url 过期时间，秒时间戳
-      * <p> 示例值：1719413169
-      */
+        /**
+         * url 过期时间，秒时间戳
+         * <p> 示例值：1719413169
+         */
         private String expiredAt;
 
         /**
          * 文件的 URL
          * <p> 示例值：http://path_to_file
+         *
          * @param url
          * @return
          */
         public Builder url(String url) {
-             this.url = url;
-             return this;
+            this.url = url;
+            return this;
         }
 
-    
 
         /**
          * url 过期时间，秒时间戳
          * <p> 示例值：1719413169
+         *
          * @param expiredAt
          * @return
          */
         public Builder expiredAt(String expiredAt) {
-             this.expiredAt = expiredAt;
-             return this;
+            this.expiredAt = expiredAt;
+            return this;
         }
 
-    
-    
-    public AilyMessageFilePreview build(){
-        return new AilyMessageFilePreview(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public AilyMessageFilePreview build() {
+            return new AilyMessageFilePreview(this);
+        }
     }
 }

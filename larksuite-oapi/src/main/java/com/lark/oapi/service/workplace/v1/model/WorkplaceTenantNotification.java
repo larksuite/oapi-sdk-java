@@ -12,42 +12,78 @@
  */
 
 package com.lark.oapi.service.workplace.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class WorkplaceTenantNotification {
-     /**
-      * 通知id
-      * <p> 示例值：own_xxxxxxxxxxxxxxxx
-      */
+    /**
+     * 通知id
+     * <p> 示例值：own_xxxxxxxxxxxxxxxx
+     */
     @SerializedName("notification_id")
     private String notificationId;
-     /**
-      * 通知内容 json 格式
-      * <p> 示例值：{\"pc_notification\":{\"config\":{\"width\":500,\"height\":500},\"i18n_elements\":{\"zh_cn\":[{\"tag\":\"img\",\"url\":\"https://www.feishu.cn\",\"img_key\":\"test\"}]}}}
-      */
+    /**
+     * 通知内容 json 格式
+     * <p> 示例值：{\"pc_notification\":{\"config\":{\"width\":500,\"height\":500},\"i18n_elements\":{\"zh_cn\":[{\"tag\":\"img\",\"url\":\"https://www.feishu.cn\",\"img_key\":\"test\"}]}}}
+     */
     @SerializedName("content")
     private String content;
-     /**
-      * 自动过期删除的时间戳(秒)
-      * <p> 示例值：1739717852
-      */
+    /**
+     * 自动过期删除的时间戳(秒)
+     * <p> 示例值：1739717852
+     */
     @SerializedName("expire_time")
     private String expireTime;
-     /**
-      * 配置可接收到通知的规则
-      * <p> 示例值：
-      */
+    /**
+     * 配置可接收到通知的规则
+     * <p> 示例值：
+     */
     @SerializedName("rule")
     private Rule rule;
+
+    // builder 开始
+    public WorkplaceTenantNotification() {
+    }
+
+    public WorkplaceTenantNotification(Builder builder) {
+        /**
+         * 通知id
+         * <p> 示例值：own_xxxxxxxxxxxxxxxx
+         */
+        this.notificationId = builder.notificationId;
+        /**
+         * 通知内容 json 格式
+         * <p> 示例值：{\"pc_notification\":{\"config\":{\"width\":500,\"height\":500},\"i18n_elements\":{\"zh_cn\":[{\"tag\":\"img\",\"url\":\"https://www.feishu.cn\",\"img_key\":\"test\"}]}}}
+         */
+        this.content = builder.content;
+        /**
+         * 自动过期删除的时间戳(秒)
+         * <p> 示例值：1739717852
+         */
+        this.expireTime = builder.expireTime;
+        /**
+         * 配置可接收到通知的规则
+         * <p> 示例值：
+         */
+        this.rule = builder.rule;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getNotificationId() {
         return this.notificationId;
     }
@@ -80,113 +116,82 @@ public class WorkplaceTenantNotification {
         this.rule = rule;
     }
 
-
-// builder 开始
-  public WorkplaceTenantNotification(){}
-
-  public WorkplaceTenantNotification(Builder builder){
-         /**
-          * 通知id
-          * <p> 示例值：own_xxxxxxxxxxxxxxxx
-          */
-      this.notificationId = builder.notificationId;
-         /**
-          * 通知内容 json 格式
-          * <p> 示例值：{\"pc_notification\":{\"config\":{\"width\":500,\"height\":500},\"i18n_elements\":{\"zh_cn\":[{\"tag\":\"img\",\"url\":\"https://www.feishu.cn\",\"img_key\":\"test\"}]}}}
-          */
-      this.content = builder.content;
-         /**
-          * 自动过期删除的时间戳(秒)
-          * <p> 示例值：1739717852
-          */
-      this.expireTime = builder.expireTime;
-         /**
-          * 配置可接收到通知的规则
-          * <p> 示例值：
-          */
-      this.rule = builder.rule;
-  }
-
     public static class Builder {
-     /**
-      * 通知id
-      * <p> 示例值：own_xxxxxxxxxxxxxxxx
-      */
+        /**
+         * 通知id
+         * <p> 示例值：own_xxxxxxxxxxxxxxxx
+         */
         private String notificationId;
-     /**
-      * 通知内容 json 格式
-      * <p> 示例值：{\"pc_notification\":{\"config\":{\"width\":500,\"height\":500},\"i18n_elements\":{\"zh_cn\":[{\"tag\":\"img\",\"url\":\"https://www.feishu.cn\",\"img_key\":\"test\"}]}}}
-      */
+        /**
+         * 通知内容 json 格式
+         * <p> 示例值：{\"pc_notification\":{\"config\":{\"width\":500,\"height\":500},\"i18n_elements\":{\"zh_cn\":[{\"tag\":\"img\",\"url\":\"https://www.feishu.cn\",\"img_key\":\"test\"}]}}}
+         */
         private String content;
-     /**
-      * 自动过期删除的时间戳(秒)
-      * <p> 示例值：1739717852
-      */
+        /**
+         * 自动过期删除的时间戳(秒)
+         * <p> 示例值：1739717852
+         */
         private String expireTime;
-     /**
-      * 配置可接收到通知的规则
-      * <p> 示例值：
-      */
+        /**
+         * 配置可接收到通知的规则
+         * <p> 示例值：
+         */
         private Rule rule;
 
         /**
          * 通知id
          * <p> 示例值：own_xxxxxxxxxxxxxxxx
+         *
          * @param notificationId
          * @return
          */
         public Builder notificationId(String notificationId) {
-             this.notificationId = notificationId;
-             return this;
+            this.notificationId = notificationId;
+            return this;
         }
 
-    
 
         /**
          * 通知内容 json 格式
          * <p> 示例值：{\"pc_notification\":{\"config\":{\"width\":500,\"height\":500},\"i18n_elements\":{\"zh_cn\":[{\"tag\":\"img\",\"url\":\"https://www.feishu.cn\",\"img_key\":\"test\"}]}}}
+         *
          * @param content
          * @return
          */
         public Builder content(String content) {
-             this.content = content;
-             return this;
+            this.content = content;
+            return this;
         }
 
-    
 
         /**
          * 自动过期删除的时间戳(秒)
          * <p> 示例值：1739717852
+         *
          * @param expireTime
          * @return
          */
         public Builder expireTime(String expireTime) {
-             this.expireTime = expireTime;
-             return this;
+            this.expireTime = expireTime;
+            return this;
         }
 
-    
 
         /**
          * 配置可接收到通知的规则
          * <p> 示例值：
+         *
          * @param rule
          * @return
          */
         public Builder rule(Rule rule) {
-             this.rule = rule;
-             return this;
+            this.rule = rule;
+            return this;
         }
 
-    
-    
-    public WorkplaceTenantNotification build(){
-        return new WorkplaceTenantNotification(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public WorkplaceTenantNotification build() {
+            return new WorkplaceTenantNotification(this);
+        }
     }
 }

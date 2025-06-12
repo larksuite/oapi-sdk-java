@@ -12,78 +12,144 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class TransferOnboardApplicationReqBody {
-     /**
-      * 实际入职时间
-      * <p> 示例值：1616428800000
-      */
+    /**
+     * 实际入职时间
+     * <p> 示例值：1616428800000
+     */
     @SerializedName("actual_onboard_time")
     private Integer actualOnboardTime;
-     /**
-      * 预期转正时间
-      * <p> 示例值：1616428800000
-      */
+    /**
+     * 预期转正时间
+     * <p> 示例值：1616428800000
+     */
     @SerializedName("expected_conversion_time")
     private Integer expectedConversionTime;
-     /**
-      * 招聘需求 ID
-      * <p> 示例值：6960663240925956402
-      */
+    /**
+     * 招聘需求 ID
+     * <p> 示例值：6960663240925956402
+     */
     @SerializedName("job_requirement_id")
     private String jobRequirementId;
-     /**
-      * 操作人 UserID
-      * <p> 示例值：ou-xxx
-      */
+    /**
+     * 操作人 UserID
+     * <p> 示例值：ou-xxx
+     */
     @SerializedName("operator_id")
     private String operatorId;
-     /**
-      * 候选人办公地点 ID ，枚举可通过接口「获取地址列表」获取，将用于候选人内推奖规则判断
-      * <p> 示例值：CT_2
-      */
+    /**
+     * 候选人办公地点 ID ，枚举可通过接口「获取地址列表」获取，将用于候选人内推奖规则判断
+     * <p> 示例值：CT_2
+     */
     @SerializedName("onboard_city_code")
     private String onboardCityCode;
-     /**
-      * 候选人入职部门 ID ，枚举可通过接口「获取部门信息列表」获取，将用于候选人内推奖规则判断
-      * <p> 示例值：6966123381141866028
-      */
+    /**
+     * 候选人入职部门 ID ，枚举可通过接口「获取部门信息列表」获取，将用于候选人内推奖规则判断
+     * <p> 示例值：6966123381141866028
+     */
     @SerializedName("department")
     private String department;
-     /**
-      * 候选人直属上级 UserID ，将用于候选人内推奖规则判断
-      * <p> 示例值：ou-xxx
-      */
+    /**
+     * 候选人直属上级 UserID ，将用于候选人内推奖规则判断
+     * <p> 示例值：ou-xxx
+     */
     @SerializedName("leader")
     private String leader;
-     /**
-      * 候选人序列 ID ，枚举可通过接口「获取职务分类列表」获取，将用于候选人内推奖规则判断
-      * <p> 示例值：7006234385490345986
-      */
+    /**
+     * 候选人序列 ID ，枚举可通过接口「获取职务分类列表」获取，将用于候选人内推奖规则判断
+     * <p> 示例值：7006234385490345986
+     */
     @SerializedName("sequence")
     private String sequence;
-     /**
-      * 候选人职级 ID ，枚举可通过接口「获取职级列表」获取，将用于候选人内推奖规则判断
-      * <p> 示例值：6937934036379650311
-      */
+    /**
+     * 候选人职级 ID ，枚举可通过接口「获取职级列表」获取，将用于候选人内推奖规则判断
+     * <p> 示例值：6937934036379650311
+     */
     @SerializedName("level")
     private String level;
-     /**
-      * 候选人入职人员类型 ID，可通过接口人力资源管理平台「获取员工类型列表」获取，将用于候选人内推奖规则判断
-      * <p> 示例值：1
-      */
+    /**
+     * 候选人入职人员类型 ID，可通过接口人力资源管理平台「获取员工类型列表」获取，将用于候选人内推奖规则判断
+     * <p> 示例值：1
+     */
     @SerializedName("employee_type")
     private String employeeType;
+
+    // builder 开始
+    public TransferOnboardApplicationReqBody() {
+    }
+
+    public TransferOnboardApplicationReqBody(Builder builder) {
+        /**
+         * 实际入职时间
+         * <p> 示例值：1616428800000
+         */
+        this.actualOnboardTime = builder.actualOnboardTime;
+        /**
+         * 预期转正时间
+         * <p> 示例值：1616428800000
+         */
+        this.expectedConversionTime = builder.expectedConversionTime;
+        /**
+         * 招聘需求 ID
+         * <p> 示例值：6960663240925956402
+         */
+        this.jobRequirementId = builder.jobRequirementId;
+        /**
+         * 操作人 UserID
+         * <p> 示例值：ou-xxx
+         */
+        this.operatorId = builder.operatorId;
+        /**
+         * 候选人办公地点 ID ，枚举可通过接口「获取地址列表」获取，将用于候选人内推奖规则判断
+         * <p> 示例值：CT_2
+         */
+        this.onboardCityCode = builder.onboardCityCode;
+        /**
+         * 候选人入职部门 ID ，枚举可通过接口「获取部门信息列表」获取，将用于候选人内推奖规则判断
+         * <p> 示例值：6966123381141866028
+         */
+        this.department = builder.department;
+        /**
+         * 候选人直属上级 UserID ，将用于候选人内推奖规则判断
+         * <p> 示例值：ou-xxx
+         */
+        this.leader = builder.leader;
+        /**
+         * 候选人序列 ID ，枚举可通过接口「获取职务分类列表」获取，将用于候选人内推奖规则判断
+         * <p> 示例值：7006234385490345986
+         */
+        this.sequence = builder.sequence;
+        /**
+         * 候选人职级 ID ，枚举可通过接口「获取职级列表」获取，将用于候选人内推奖规则判断
+         * <p> 示例值：6937934036379650311
+         */
+        this.level = builder.level;
+        /**
+         * 候选人入职人员类型 ID，可通过接口人力资源管理平台「获取员工类型列表」获取，将用于候选人内推奖规则判断
+         * <p> 示例值：1
+         */
+        this.employeeType = builder.employeeType;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Integer getActualOnboardTime() {
         return this.actualOnboardTime;
     }
@@ -164,251 +230,190 @@ public class TransferOnboardApplicationReqBody {
         this.employeeType = employeeType;
     }
 
-
-// builder 开始
-  public TransferOnboardApplicationReqBody(){}
-
-  public TransferOnboardApplicationReqBody(Builder builder){
-         /**
-          * 实际入职时间
-          * <p> 示例值：1616428800000
-          */
-      this.actualOnboardTime = builder.actualOnboardTime;
-         /**
-          * 预期转正时间
-          * <p> 示例值：1616428800000
-          */
-      this.expectedConversionTime = builder.expectedConversionTime;
-         /**
-          * 招聘需求 ID
-          * <p> 示例值：6960663240925956402
-          */
-      this.jobRequirementId = builder.jobRequirementId;
-         /**
-          * 操作人 UserID
-          * <p> 示例值：ou-xxx
-          */
-      this.operatorId = builder.operatorId;
-         /**
-          * 候选人办公地点 ID ，枚举可通过接口「获取地址列表」获取，将用于候选人内推奖规则判断
-          * <p> 示例值：CT_2
-          */
-      this.onboardCityCode = builder.onboardCityCode;
-         /**
-          * 候选人入职部门 ID ，枚举可通过接口「获取部门信息列表」获取，将用于候选人内推奖规则判断
-          * <p> 示例值：6966123381141866028
-          */
-      this.department = builder.department;
-         /**
-          * 候选人直属上级 UserID ，将用于候选人内推奖规则判断
-          * <p> 示例值：ou-xxx
-          */
-      this.leader = builder.leader;
-         /**
-          * 候选人序列 ID ，枚举可通过接口「获取职务分类列表」获取，将用于候选人内推奖规则判断
-          * <p> 示例值：7006234385490345986
-          */
-      this.sequence = builder.sequence;
-         /**
-          * 候选人职级 ID ，枚举可通过接口「获取职级列表」获取，将用于候选人内推奖规则判断
-          * <p> 示例值：6937934036379650311
-          */
-      this.level = builder.level;
-         /**
-          * 候选人入职人员类型 ID，可通过接口人力资源管理平台「获取员工类型列表」获取，将用于候选人内推奖规则判断
-          * <p> 示例值：1
-          */
-      this.employeeType = builder.employeeType;
-  }
-
     public static class Builder {
-     /**
-      * 实际入职时间
-      * <p> 示例值：1616428800000
-      */
+        /**
+         * 实际入职时间
+         * <p> 示例值：1616428800000
+         */
         private Integer actualOnboardTime;
-     /**
-      * 预期转正时间
-      * <p> 示例值：1616428800000
-      */
+        /**
+         * 预期转正时间
+         * <p> 示例值：1616428800000
+         */
         private Integer expectedConversionTime;
-     /**
-      * 招聘需求 ID
-      * <p> 示例值：6960663240925956402
-      */
+        /**
+         * 招聘需求 ID
+         * <p> 示例值：6960663240925956402
+         */
         private String jobRequirementId;
-     /**
-      * 操作人 UserID
-      * <p> 示例值：ou-xxx
-      */
+        /**
+         * 操作人 UserID
+         * <p> 示例值：ou-xxx
+         */
         private String operatorId;
-     /**
-      * 候选人办公地点 ID ，枚举可通过接口「获取地址列表」获取，将用于候选人内推奖规则判断
-      * <p> 示例值：CT_2
-      */
+        /**
+         * 候选人办公地点 ID ，枚举可通过接口「获取地址列表」获取，将用于候选人内推奖规则判断
+         * <p> 示例值：CT_2
+         */
         private String onboardCityCode;
-     /**
-      * 候选人入职部门 ID ，枚举可通过接口「获取部门信息列表」获取，将用于候选人内推奖规则判断
-      * <p> 示例值：6966123381141866028
-      */
+        /**
+         * 候选人入职部门 ID ，枚举可通过接口「获取部门信息列表」获取，将用于候选人内推奖规则判断
+         * <p> 示例值：6966123381141866028
+         */
         private String department;
-     /**
-      * 候选人直属上级 UserID ，将用于候选人内推奖规则判断
-      * <p> 示例值：ou-xxx
-      */
+        /**
+         * 候选人直属上级 UserID ，将用于候选人内推奖规则判断
+         * <p> 示例值：ou-xxx
+         */
         private String leader;
-     /**
-      * 候选人序列 ID ，枚举可通过接口「获取职务分类列表」获取，将用于候选人内推奖规则判断
-      * <p> 示例值：7006234385490345986
-      */
+        /**
+         * 候选人序列 ID ，枚举可通过接口「获取职务分类列表」获取，将用于候选人内推奖规则判断
+         * <p> 示例值：7006234385490345986
+         */
         private String sequence;
-     /**
-      * 候选人职级 ID ，枚举可通过接口「获取职级列表」获取，将用于候选人内推奖规则判断
-      * <p> 示例值：6937934036379650311
-      */
+        /**
+         * 候选人职级 ID ，枚举可通过接口「获取职级列表」获取，将用于候选人内推奖规则判断
+         * <p> 示例值：6937934036379650311
+         */
         private String level;
-     /**
-      * 候选人入职人员类型 ID，可通过接口人力资源管理平台「获取员工类型列表」获取，将用于候选人内推奖规则判断
-      * <p> 示例值：1
-      */
+        /**
+         * 候选人入职人员类型 ID，可通过接口人力资源管理平台「获取员工类型列表」获取，将用于候选人内推奖规则判断
+         * <p> 示例值：1
+         */
         private String employeeType;
 
         /**
          * 实际入职时间
          * <p> 示例值：1616428800000
+         *
          * @param actualOnboardTime
          * @return
          */
         public Builder actualOnboardTime(Integer actualOnboardTime) {
-             this.actualOnboardTime = actualOnboardTime;
-             return this;
+            this.actualOnboardTime = actualOnboardTime;
+            return this;
         }
 
-    
 
         /**
          * 预期转正时间
          * <p> 示例值：1616428800000
+         *
          * @param expectedConversionTime
          * @return
          */
         public Builder expectedConversionTime(Integer expectedConversionTime) {
-             this.expectedConversionTime = expectedConversionTime;
-             return this;
+            this.expectedConversionTime = expectedConversionTime;
+            return this;
         }
 
-    
 
         /**
          * 招聘需求 ID
          * <p> 示例值：6960663240925956402
+         *
          * @param jobRequirementId
          * @return
          */
         public Builder jobRequirementId(String jobRequirementId) {
-             this.jobRequirementId = jobRequirementId;
-             return this;
+            this.jobRequirementId = jobRequirementId;
+            return this;
         }
 
-    
 
         /**
          * 操作人 UserID
          * <p> 示例值：ou-xxx
+         *
          * @param operatorId
          * @return
          */
         public Builder operatorId(String operatorId) {
-             this.operatorId = operatorId;
-             return this;
+            this.operatorId = operatorId;
+            return this;
         }
 
-    
 
         /**
          * 候选人办公地点 ID ，枚举可通过接口「获取地址列表」获取，将用于候选人内推奖规则判断
          * <p> 示例值：CT_2
+         *
          * @param onboardCityCode
          * @return
          */
         public Builder onboardCityCode(String onboardCityCode) {
-             this.onboardCityCode = onboardCityCode;
-             return this;
+            this.onboardCityCode = onboardCityCode;
+            return this;
         }
 
-    
 
         /**
          * 候选人入职部门 ID ，枚举可通过接口「获取部门信息列表」获取，将用于候选人内推奖规则判断
          * <p> 示例值：6966123381141866028
+         *
          * @param department
          * @return
          */
         public Builder department(String department) {
-             this.department = department;
-             return this;
+            this.department = department;
+            return this;
         }
 
-    
 
         /**
          * 候选人直属上级 UserID ，将用于候选人内推奖规则判断
          * <p> 示例值：ou-xxx
+         *
          * @param leader
          * @return
          */
         public Builder leader(String leader) {
-             this.leader = leader;
-             return this;
+            this.leader = leader;
+            return this;
         }
 
-    
 
         /**
          * 候选人序列 ID ，枚举可通过接口「获取职务分类列表」获取，将用于候选人内推奖规则判断
          * <p> 示例值：7006234385490345986
+         *
          * @param sequence
          * @return
          */
         public Builder sequence(String sequence) {
-             this.sequence = sequence;
-             return this;
+            this.sequence = sequence;
+            return this;
         }
 
-    
 
         /**
          * 候选人职级 ID ，枚举可通过接口「获取职级列表」获取，将用于候选人内推奖规则判断
          * <p> 示例值：6937934036379650311
+         *
          * @param level
          * @return
          */
         public Builder level(String level) {
-             this.level = level;
-             return this;
+            this.level = level;
+            return this;
         }
 
-    
 
         /**
          * 候选人入职人员类型 ID，可通过接口人力资源管理平台「获取员工类型列表」获取，将用于候选人内推奖规则判断
          * <p> 示例值：1
+         *
          * @param employeeType
          * @return
          */
         public Builder employeeType(String employeeType) {
-             this.employeeType = employeeType;
-             return this;
+            this.employeeType = employeeType;
+            return this;
         }
 
-    
-    
-    public TransferOnboardApplicationReqBody build(){
-        return new TransferOnboardApplicationReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public TransferOnboardApplicationReqBody build() {
+            return new TransferOnboardApplicationReqBody(this);
+        }
     }
 }

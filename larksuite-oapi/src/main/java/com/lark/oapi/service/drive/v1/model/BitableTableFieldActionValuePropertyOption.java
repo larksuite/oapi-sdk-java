@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class BitableTableFieldActionValuePropertyOption {
-     /**
-      * 选项名
-      * <p> 示例值：option name
-      */
+    /**
+     * 选项名
+     * <p> 示例值：option name
+     */
     @SerializedName("name")
     private String name;
-     /**
-      * 选项ID
-      * <p> 示例值：optabcef
-      */
+    /**
+     * 选项ID
+     * <p> 示例值：optabcef
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 选项颜色
-      * <p> 示例值：3
-      */
+    /**
+     * 选项颜色
+     * <p> 示例值：3
+     */
     @SerializedName("color")
     private Integer color;
+
+    // builder 开始
+    public BitableTableFieldActionValuePropertyOption() {
+    }
+
+    public BitableTableFieldActionValuePropertyOption(Builder builder) {
+        /**
+         * 选项名
+         * <p> 示例值：option name
+         */
+        this.name = builder.name;
+        /**
+         * 选项ID
+         * <p> 示例值：optabcef
+         */
+        this.id = builder.id;
+        /**
+         * 选项颜色
+         * <p> 示例值：3
+         */
+        this.color = builder.color;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getName() {
         return this.name;
     }
@@ -67,90 +98,64 @@ public class BitableTableFieldActionValuePropertyOption {
         this.color = color;
     }
 
-
-// builder 开始
-  public BitableTableFieldActionValuePropertyOption(){}
-
-  public BitableTableFieldActionValuePropertyOption(Builder builder){
-         /**
-          * 选项名
-          * <p> 示例值：option name
-          */
-      this.name = builder.name;
-         /**
-          * 选项ID
-          * <p> 示例值：optabcef
-          */
-      this.id = builder.id;
-         /**
-          * 选项颜色
-          * <p> 示例值：3
-          */
-      this.color = builder.color;
-  }
-
     public static class Builder {
-     /**
-      * 选项名
-      * <p> 示例值：option name
-      */
+        /**
+         * 选项名
+         * <p> 示例值：option name
+         */
         private String name;
-     /**
-      * 选项ID
-      * <p> 示例值：optabcef
-      */
+        /**
+         * 选项ID
+         * <p> 示例值：optabcef
+         */
         private String id;
-     /**
-      * 选项颜色
-      * <p> 示例值：3
-      */
+        /**
+         * 选项颜色
+         * <p> 示例值：3
+         */
         private Integer color;
 
         /**
          * 选项名
          * <p> 示例值：option name
+         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 选项ID
          * <p> 示例值：optabcef
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 选项颜色
          * <p> 示例值：3
+         *
          * @param color
          * @return
          */
         public Builder color(Integer color) {
-             this.color = color;
-             return this;
+            this.color = color;
+            return this;
         }
 
-    
-    
-    public BitableTableFieldActionValuePropertyOption build(){
-        return new BitableTableFieldActionValuePropertyOption(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public BitableTableFieldActionValuePropertyOption build() {
+            return new BitableTableFieldActionValuePropertyOption(this);
+        }
     }
 }

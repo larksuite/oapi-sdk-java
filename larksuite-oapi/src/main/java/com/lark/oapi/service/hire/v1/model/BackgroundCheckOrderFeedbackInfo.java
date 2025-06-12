@@ -12,60 +12,111 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class BackgroundCheckOrderFeedbackInfo {
-     /**
-      * 背调报告ID
-      * <p> 示例值：6930815272790114324
-      */
+    /**
+     * 背调报告ID
+     * <p> 示例值：6930815272790114324
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 背调信息附件下载链接
-      * <p> 示例值：https://feishucdn.com/staource/v1/2de04c10-5cda-4c50~?image_size=np&cutpe=&quity=&mat=g&stmat=.wp
-      */
+    /**
+     * 背调信息附件下载链接
+     * <p> 示例值：https://feishucdn.com/staource/v1/2de04c10-5cda-4c50~?image_size=np&cutpe=&quity=&mat=g&stmat=.wp
+     */
     @SerializedName("attachment_url")
     private String attachmentUrl;
-     /**
-      * 背调信息附件预览链接
-      * <p> 示例值：https://feishucdn.com/preview/file/6930815272790114324/
-      */
+    /**
+     * 背调信息附件预览链接
+     * <p> 示例值：https://feishucdn.com/preview/file/6930815272790114324/
+     */
     @SerializedName("report_preview_url")
     private String reportPreviewUrl;
-     /**
-      * 背调结果：红灯、黄灯、绿灯
-      * <p> 示例值：红灯
-      */
+    /**
+     * 背调结果：红灯、黄灯、绿灯
+     * <p> 示例值：红灯
+     */
     @SerializedName("result")
     private String result;
-     /**
-      * 报告类型
-      * <p> 示例值：1
-      */
+    /**
+     * 报告类型
+     * <p> 示例值：1
+     */
     @SerializedName("report_type")
     private Integer reportType;
-     /**
-      * 创建时间
-      * <p> 示例值：1686645425868
-      */
+    /**
+     * 创建时间
+     * <p> 示例值：1686645425868
+     */
     @SerializedName("create_time")
     private String createTime;
-     /**
-      * 报告名称
-      * <p> 示例值：张三的背调报告
-      */
+    /**
+     * 报告名称
+     * <p> 示例值：张三的背调报告
+     */
     @SerializedName("report_name")
     private String reportName;
+
+    // builder 开始
+    public BackgroundCheckOrderFeedbackInfo() {
+    }
+
+    public BackgroundCheckOrderFeedbackInfo(Builder builder) {
+        /**
+         * 背调报告ID
+         * <p> 示例值：6930815272790114324
+         */
+        this.id = builder.id;
+        /**
+         * 背调信息附件下载链接
+         * <p> 示例值：https://feishucdn.com/staource/v1/2de04c10-5cda-4c50~?image_size=np&cutpe=&quity=&mat=g&stmat=.wp
+         */
+        this.attachmentUrl = builder.attachmentUrl;
+        /**
+         * 背调信息附件预览链接
+         * <p> 示例值：https://feishucdn.com/preview/file/6930815272790114324/
+         */
+        this.reportPreviewUrl = builder.reportPreviewUrl;
+        /**
+         * 背调结果：红灯、黄灯、绿灯
+         * <p> 示例值：红灯
+         */
+        this.result = builder.result;
+        /**
+         * 报告类型
+         * <p> 示例值：1
+         */
+        this.reportType = builder.reportType;
+        /**
+         * 创建时间
+         * <p> 示例值：1686645425868
+         */
+        this.createTime = builder.createTime;
+        /**
+         * 报告名称
+         * <p> 示例值：张三的背调报告
+         */
+        this.reportName = builder.reportName;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -122,182 +173,136 @@ public class BackgroundCheckOrderFeedbackInfo {
         this.reportName = reportName;
     }
 
-
-// builder 开始
-  public BackgroundCheckOrderFeedbackInfo(){}
-
-  public BackgroundCheckOrderFeedbackInfo(Builder builder){
-         /**
-          * 背调报告ID
-          * <p> 示例值：6930815272790114324
-          */
-      this.id = builder.id;
-         /**
-          * 背调信息附件下载链接
-          * <p> 示例值：https://feishucdn.com/staource/v1/2de04c10-5cda-4c50~?image_size=np&cutpe=&quity=&mat=g&stmat=.wp
-          */
-      this.attachmentUrl = builder.attachmentUrl;
-         /**
-          * 背调信息附件预览链接
-          * <p> 示例值：https://feishucdn.com/preview/file/6930815272790114324/
-          */
-      this.reportPreviewUrl = builder.reportPreviewUrl;
-         /**
-          * 背调结果：红灯、黄灯、绿灯
-          * <p> 示例值：红灯
-          */
-      this.result = builder.result;
-         /**
-          * 报告类型
-          * <p> 示例值：1
-          */
-      this.reportType = builder.reportType;
-         /**
-          * 创建时间
-          * <p> 示例值：1686645425868
-          */
-      this.createTime = builder.createTime;
-         /**
-          * 报告名称
-          * <p> 示例值：张三的背调报告
-          */
-      this.reportName = builder.reportName;
-  }
-
     public static class Builder {
-     /**
-      * 背调报告ID
-      * <p> 示例值：6930815272790114324
-      */
+        /**
+         * 背调报告ID
+         * <p> 示例值：6930815272790114324
+         */
         private String id;
-     /**
-      * 背调信息附件下载链接
-      * <p> 示例值：https://feishucdn.com/staource/v1/2de04c10-5cda-4c50~?image_size=np&cutpe=&quity=&mat=g&stmat=.wp
-      */
+        /**
+         * 背调信息附件下载链接
+         * <p> 示例值：https://feishucdn.com/staource/v1/2de04c10-5cda-4c50~?image_size=np&cutpe=&quity=&mat=g&stmat=.wp
+         */
         private String attachmentUrl;
-     /**
-      * 背调信息附件预览链接
-      * <p> 示例值：https://feishucdn.com/preview/file/6930815272790114324/
-      */
+        /**
+         * 背调信息附件预览链接
+         * <p> 示例值：https://feishucdn.com/preview/file/6930815272790114324/
+         */
         private String reportPreviewUrl;
-     /**
-      * 背调结果：红灯、黄灯、绿灯
-      * <p> 示例值：红灯
-      */
+        /**
+         * 背调结果：红灯、黄灯、绿灯
+         * <p> 示例值：红灯
+         */
         private String result;
-     /**
-      * 报告类型
-      * <p> 示例值：1
-      */
+        /**
+         * 报告类型
+         * <p> 示例值：1
+         */
         private Integer reportType;
-     /**
-      * 创建时间
-      * <p> 示例值：1686645425868
-      */
+        /**
+         * 创建时间
+         * <p> 示例值：1686645425868
+         */
         private String createTime;
-     /**
-      * 报告名称
-      * <p> 示例值：张三的背调报告
-      */
+        /**
+         * 报告名称
+         * <p> 示例值：张三的背调报告
+         */
         private String reportName;
 
         /**
          * 背调报告ID
          * <p> 示例值：6930815272790114324
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 背调信息附件下载链接
          * <p> 示例值：https://feishucdn.com/staource/v1/2de04c10-5cda-4c50~?image_size=np&cutpe=&quity=&mat=g&stmat=.wp
+         *
          * @param attachmentUrl
          * @return
          */
         public Builder attachmentUrl(String attachmentUrl) {
-             this.attachmentUrl = attachmentUrl;
-             return this;
+            this.attachmentUrl = attachmentUrl;
+            return this;
         }
 
-    
 
         /**
          * 背调信息附件预览链接
          * <p> 示例值：https://feishucdn.com/preview/file/6930815272790114324/
+         *
          * @param reportPreviewUrl
          * @return
          */
         public Builder reportPreviewUrl(String reportPreviewUrl) {
-             this.reportPreviewUrl = reportPreviewUrl;
-             return this;
+            this.reportPreviewUrl = reportPreviewUrl;
+            return this;
         }
 
-    
 
         /**
          * 背调结果：红灯、黄灯、绿灯
          * <p> 示例值：红灯
+         *
          * @param result
          * @return
          */
         public Builder result(String result) {
-             this.result = result;
-             return this;
+            this.result = result;
+            return this;
         }
 
-    
 
         /**
          * 报告类型
          * <p> 示例值：1
+         *
          * @param reportType
          * @return
          */
         public Builder reportType(Integer reportType) {
-             this.reportType = reportType;
-             return this;
+            this.reportType = reportType;
+            return this;
         }
 
-    
 
         /**
          * 创建时间
          * <p> 示例值：1686645425868
+         *
          * @param createTime
          * @return
          */
         public Builder createTime(String createTime) {
-             this.createTime = createTime;
-             return this;
+            this.createTime = createTime;
+            return this;
         }
 
-    
 
         /**
          * 报告名称
          * <p> 示例值：张三的背调报告
+         *
          * @param reportName
          * @return
          */
         public Builder reportName(String reportName) {
-             this.reportName = reportName;
-             return this;
+            this.reportName = reportName;
+            return this;
         }
 
-    
-    
-    public BackgroundCheckOrderFeedbackInfo build(){
-        return new BackgroundCheckOrderFeedbackInfo(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public BackgroundCheckOrderFeedbackInfo build() {
+            return new BackgroundCheckOrderFeedbackInfo(this);
+        }
     }
 }

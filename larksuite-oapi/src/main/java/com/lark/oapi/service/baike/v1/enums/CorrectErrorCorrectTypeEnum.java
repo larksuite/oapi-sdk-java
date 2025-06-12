@@ -14,20 +14,21 @@
 package com.lark.oapi.service.baike.v1.enums;
 
 /**
- * 
+ *
  */
 public enum CorrectErrorCorrectTypeEnum {
-     GRAMMAR(1), // 语法错误
-     SPELL(2), // 拼写错误
-     NOUN(3), // 单复数错误
-     VERBTENSE(4), // 时态错误
-  ;
-   private Integer value;
+    GRAMMAR(1), // 语法错误
+    SPELL(2), // 拼写错误
+    NOUN(3), // 单复数错误
+    VERBTENSE(4), // 时态错误
+    ;
+    private Integer value;
+
     CorrectErrorCorrectTypeEnum(Integer value) {
-      this.value = value;
+        this.value = value;
     }
 
     public Integer getValue() {
-      return this.value;
+        return this.value;
     }
 }

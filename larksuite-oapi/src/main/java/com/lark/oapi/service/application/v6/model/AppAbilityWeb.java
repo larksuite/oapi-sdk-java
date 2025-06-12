@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,36 +20,71 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class AppAbilityWeb {
-     /**
-      * 是否开启网页应用能力
-      * <p> 示例值：true
-      */
+    /**
+     * 是否开启网页应用能力
+     * <p> 示例值：true
+     */
     @SerializedName("enable")
     private Boolean enable;
-     /**
-      * PC端链接
-      * <p> 示例值：https://open.feishu.cn/
-      */
+    /**
+     * PC端链接
+     * <p> 示例值：https://open.feishu.cn/
+     */
     @SerializedName("pc_url")
     private String pcUrl;
-     /**
-      * PC端新页面打开方式
-      * <p> 示例值：new_tab
-      */
+    /**
+     * PC端新页面打开方式
+     * <p> 示例值：new_tab
+     */
     @SerializedName("pc_new_page_open_mode")
     private String pcNewPageOpenMode;
-     /**
-      * 移动端链接
-      * <p> 示例值：https://open.feishu.cn/
-      */
+    /**
+     * 移动端链接
+     * <p> 示例值：https://open.feishu.cn/
+     */
     @SerializedName("mobile_url")
     private String mobileUrl;
+
+    // builder 开始
+    public AppAbilityWeb() {
+    }
+
+    public AppAbilityWeb(Builder builder) {
+        /**
+         * 是否开启网页应用能力
+         * <p> 示例值：true
+         */
+        this.enable = builder.enable;
+        /**
+         * PC端链接
+         * <p> 示例值：https://open.feishu.cn/
+         */
+        this.pcUrl = builder.pcUrl;
+        /**
+         * PC端新页面打开方式
+         * <p> 示例值：new_tab
+         */
+        this.pcNewPageOpenMode = builder.pcNewPageOpenMode;
+        /**
+         * 移动端链接
+         * <p> 示例值：https://open.feishu.cn/
+         */
+        this.mobileUrl = builder.mobileUrl;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Boolean getEnable() {
         return this.enable;
     }
@@ -81,123 +117,94 @@ public class AppAbilityWeb {
         this.mobileUrl = mobileUrl;
     }
 
-
-// builder 开始
-  public AppAbilityWeb(){}
-
-  public AppAbilityWeb(Builder builder){
-         /**
-          * 是否开启网页应用能力
-          * <p> 示例值：true
-          */
-      this.enable = builder.enable;
-         /**
-          * PC端链接
-          * <p> 示例值：https://open.feishu.cn/
-          */
-      this.pcUrl = builder.pcUrl;
-         /**
-          * PC端新页面打开方式
-          * <p> 示例值：new_tab
-          */
-      this.pcNewPageOpenMode = builder.pcNewPageOpenMode;
-         /**
-          * 移动端链接
-          * <p> 示例值：https://open.feishu.cn/
-          */
-      this.mobileUrl = builder.mobileUrl;
-  }
-
     public static class Builder {
-     /**
-      * 是否开启网页应用能力
-      * <p> 示例值：true
-      */
+        /**
+         * 是否开启网页应用能力
+         * <p> 示例值：true
+         */
         private Boolean enable;
-     /**
-      * PC端链接
-      * <p> 示例值：https://open.feishu.cn/
-      */
+        /**
+         * PC端链接
+         * <p> 示例值：https://open.feishu.cn/
+         */
         private String pcUrl;
-     /**
-      * PC端新页面打开方式
-      * <p> 示例值：new_tab
-      */
+        /**
+         * PC端新页面打开方式
+         * <p> 示例值：new_tab
+         */
         private String pcNewPageOpenMode;
-     /**
-      * 移动端链接
-      * <p> 示例值：https://open.feishu.cn/
-      */
+        /**
+         * 移动端链接
+         * <p> 示例值：https://open.feishu.cn/
+         */
         private String mobileUrl;
 
         /**
          * 是否开启网页应用能力
          * <p> 示例值：true
+         *
          * @param enable
          * @return
          */
         public Builder enable(Boolean enable) {
-             this.enable = enable;
-             return this;
+            this.enable = enable;
+            return this;
         }
 
-    
 
         /**
          * PC端链接
          * <p> 示例值：https://open.feishu.cn/
+         *
          * @param pcUrl
          * @return
          */
         public Builder pcUrl(String pcUrl) {
-             this.pcUrl = pcUrl;
-             return this;
+            this.pcUrl = pcUrl;
+            return this;
         }
 
-    
 
         /**
          * PC端新页面打开方式
          * <p> 示例值：new_tab
+         *
          * @param pcNewPageOpenMode
          * @return
          */
         public Builder pcNewPageOpenMode(String pcNewPageOpenMode) {
-             this.pcNewPageOpenMode = pcNewPageOpenMode;
-             return this;
+            this.pcNewPageOpenMode = pcNewPageOpenMode;
+            return this;
         }
+
         /**
          * PC端新页面打开方式
          * <p> 示例值：new_tab
+         *
          * @param pcNewPageOpenMode {@link com.lark.oapi.service.application.v6.enums.AppAbilityWebPcNewPageOpenModeEnum}
          * @return
          */
         public Builder pcNewPageOpenMode(com.lark.oapi.service.application.v6.enums.AppAbilityWebPcNewPageOpenModeEnum pcNewPageOpenMode) {
-             this.pcNewPageOpenMode = pcNewPageOpenMode.getValue();
-             return this;
+            this.pcNewPageOpenMode = pcNewPageOpenMode.getValue();
+            return this;
         }
 
-    
 
         /**
          * 移动端链接
          * <p> 示例值：https://open.feishu.cn/
+         *
          * @param mobileUrl
          * @return
          */
         public Builder mobileUrl(String mobileUrl) {
-             this.mobileUrl = mobileUrl;
-             return this;
+            this.mobileUrl = mobileUrl;
+            return this;
         }
 
-    
-    
-    public AppAbilityWeb build(){
-        return new AppAbilityWeb(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public AppAbilityWeb build() {
+            return new AppAbilityWeb(this);
+        }
     }
 }

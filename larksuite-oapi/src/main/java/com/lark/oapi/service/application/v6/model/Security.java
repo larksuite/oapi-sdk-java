@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Security {
-     /**
-      * ip白名单
-      * <p> 示例值：
-      */
+    /**
+     * ip白名单
+     * <p> 示例值：
+     */
     @SerializedName("allowed_ips")
     private String[] allowedIps;
-     /**
-      * H5可信域名
-      * <p> 示例值：
-      */
+    /**
+     * H5可信域名
+     * <p> 示例值：
+     */
     @SerializedName("h5_trusted_domains")
     private String[] h5TrustedDomains;
+
+    // builder 开始
+    public Security() {
+    }
+
+    public Security(Builder builder) {
+        /**
+         * ip白名单
+         * <p> 示例值：
+         */
+        this.allowedIps = builder.allowedIps;
+        /**
+         * H5可信域名
+         * <p> 示例值：
+         */
+        this.h5TrustedDomains = builder.h5TrustedDomains;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String[] getAllowedIps() {
         return this.allowedIps;
     }
@@ -53,67 +79,46 @@ public class Security {
         this.h5TrustedDomains = h5TrustedDomains;
     }
 
-
-// builder 开始
-  public Security(){}
-
-  public Security(Builder builder){
-         /**
-          * ip白名单
-          * <p> 示例值：
-          */
-      this.allowedIps = builder.allowedIps;
-         /**
-          * H5可信域名
-          * <p> 示例值：
-          */
-      this.h5TrustedDomains = builder.h5TrustedDomains;
-  }
-
     public static class Builder {
-     /**
-      * ip白名单
-      * <p> 示例值：
-      */
+        /**
+         * ip白名单
+         * <p> 示例值：
+         */
         private String[] allowedIps;
-     /**
-      * H5可信域名
-      * <p> 示例值：
-      */
+        /**
+         * H5可信域名
+         * <p> 示例值：
+         */
         private String[] h5TrustedDomains;
 
         /**
          * ip白名单
          * <p> 示例值：
+         *
          * @param allowedIps
          * @return
          */
         public Builder allowedIps(String[] allowedIps) {
-             this.allowedIps = allowedIps;
-             return this;
+            this.allowedIps = allowedIps;
+            return this;
         }
 
-    
 
         /**
          * H5可信域名
          * <p> 示例值：
+         *
          * @param h5TrustedDomains
          * @return
          */
         public Builder h5TrustedDomains(String[] h5TrustedDomains) {
-             this.h5TrustedDomains = h5TrustedDomains;
-             return this;
+            this.h5TrustedDomains = h5TrustedDomains;
+            return this;
         }
 
-    
-    
-    public Security build(){
-        return new Security(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Security build() {
+            return new Security(this);
+        }
     }
 }

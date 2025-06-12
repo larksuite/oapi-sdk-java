@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class DateTimeFieldSetting {
-     /**
-      * 时间类型枚举，枚举值如下：;1. Date 日期，如 2020-01-01;2. Time  时间，如 11:52:00;3. Datetime 日期时间，如 2020-01-01 11:52:00;4. CusDatetime // timestamp 时间戳
-      * <p> 示例值：1
-      */
+    /**
+     * 时间类型枚举，枚举值如下：;1. Date 日期，如 2020-01-01;2. Time  时间，如 11:52:00;3. Datetime 日期时间，如 2020-01-01 11:52:00;4. CusDatetime // timestamp 时间戳
+     * <p> 示例值：1
+     */
     @SerializedName("date_time_type")
     private Integer dateTimeType;
+
+    // builder 开始
+    public DateTimeFieldSetting() {
+    }
+
+    public DateTimeFieldSetting(Builder builder) {
+        /**
+         * 时间类型枚举，枚举值如下：;1. Date 日期，如 2020-01-01;2. Time  时间，如 11:52:00;3. Datetime 日期时间，如 2020-01-01 11:52:00;4. CusDatetime // timestamp 时间戳
+         * <p> 示例值：1
+         */
+        this.dateTimeType = builder.dateTimeType;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Integer getDateTimeType() {
         return this.dateTimeType;
     }
@@ -39,44 +60,28 @@ public class DateTimeFieldSetting {
         this.dateTimeType = dateTimeType;
     }
 
-
-// builder 开始
-  public DateTimeFieldSetting(){}
-
-  public DateTimeFieldSetting(Builder builder){
-         /**
-          * 时间类型枚举，枚举值如下：;1. Date 日期，如 2020-01-01;2. Time  时间，如 11:52:00;3. Datetime 日期时间，如 2020-01-01 11:52:00;4. CusDatetime // timestamp 时间戳
-          * <p> 示例值：1
-          */
-      this.dateTimeType = builder.dateTimeType;
-  }
-
     public static class Builder {
-     /**
-      * 时间类型枚举，枚举值如下：;1. Date 日期，如 2020-01-01;2. Time  时间，如 11:52:00;3. Datetime 日期时间，如 2020-01-01 11:52:00;4. CusDatetime // timestamp 时间戳
-      * <p> 示例值：1
-      */
+        /**
+         * 时间类型枚举，枚举值如下：;1. Date 日期，如 2020-01-01;2. Time  时间，如 11:52:00;3. Datetime 日期时间，如 2020-01-01 11:52:00;4. CusDatetime // timestamp 时间戳
+         * <p> 示例值：1
+         */
         private Integer dateTimeType;
 
         /**
          * 时间类型枚举，枚举值如下：;1. Date 日期，如 2020-01-01;2. Time  时间，如 11:52:00;3. Datetime 日期时间，如 2020-01-01 11:52:00;4. CusDatetime // timestamp 时间戳
          * <p> 示例值：1
+         *
          * @param dateTimeType
          * @return
          */
         public Builder dateTimeType(Integer dateTimeType) {
-             this.dateTimeType = dateTimeType;
-             return this;
+            this.dateTimeType = dateTimeType;
+            return this;
         }
 
-    
-    
-    public DateTimeFieldSetting build(){
-        return new DateTimeFieldSetting(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public DateTimeFieldSetting build() {
+            return new DateTimeFieldSetting(this);
+        }
     }
 }

@@ -23,12 +23,14 @@ public class TranslationService {
     private final Text text; // 文本
 
     public TranslationService(Config config) {
-    this.v1 = new V1(config);
-    this.text = new Text(config);
+        this.v1 = new V1(config);
+        this.text = new Text(config);
     }
+
     public V1 v1() {
         return v1;
     }
+
     public Text text() {
         return text;
     }

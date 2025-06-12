@@ -12,84 +12,155 @@
  */
 
 package com.lark.oapi.service.mdm.v3.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class TimeZone {
-     /**
-      * 更新人
-      * <p> 示例值：-
-      */
+    /**
+     * 更新人
+     * <p> 示例值：-
+     */
     @SerializedName("update_by")
     private String updateBy;
-     /**
-      * 创建人
-      * <p> 示例值：-
-      */
+    /**
+     * 创建人
+     * <p> 示例值：-
+     */
     @SerializedName("create_by")
     private String createBy;
-     /**
-      * 更新时间
-      * <p> 示例值：-
-      */
+    /**
+     * 更新时间
+     * <p> 示例值：-
+     */
     @SerializedName("update_time")
     private String updateTime;
-     /**
-      * 创建时间
-      * <p> 示例值：-
-      */
+    /**
+     * 创建时间
+     * <p> 示例值：-
+     */
     @SerializedName("create_time")
     private String createTime;
-     /**
-      * 编码
-      * <p> 示例值：-
-      */
+    /**
+     * 编码
+     * <p> 示例值：-
+     */
     @SerializedName("time_zone_id")
     private String timeZoneId;
-     /**
-      * 名称
-      * <p> 示例值：
-      */
+    /**
+     * 名称
+     * <p> 示例值：
+     */
     @SerializedName("name")
     private Common name;
-     /**
-      * UTC 时区偏移量
-      * <p> 示例值：-
-      */
+    /**
+     * UTC 时区偏移量
+     * <p> 示例值：-
+     */
     @SerializedName("utc_offset")
     private String utcOffset;
-     /**
-      * 主数据编码（系统生成的唯一永久代码，格式为“MDTZ+8位数字”）
-      * <p> 示例值：-
-      */
+    /**
+     * 主数据编码（系统生成的唯一永久代码，格式为“MDTZ+8位数字”）
+     * <p> 示例值：-
+     */
     @SerializedName("mdm_code")
     private String mdmCode;
-     /**
-      * 备注
-      * <p> 示例值：-
-      */
+    /**
+     * 备注
+     * <p> 示例值：-
+     */
     @SerializedName("remark")
     private String remark;
-     /**
-      * 更新原因
-      * <p> 示例值：-
-      */
+    /**
+     * 更新原因
+     * <p> 示例值：-
+     */
     @SerializedName("update_reason")
     private String updateReason;
-     /**
-      * 是否生效
-      * <p> 示例值：-
-      */
+    /**
+     * 是否生效
+     * <p> 示例值：-
+     */
     @SerializedName("status")
     private String status;
+
+    // builder 开始
+    public TimeZone() {
+    }
+
+    public TimeZone(Builder builder) {
+        /**
+         * 更新人
+         * <p> 示例值：-
+         */
+        this.updateBy = builder.updateBy;
+        /**
+         * 创建人
+         * <p> 示例值：-
+         */
+        this.createBy = builder.createBy;
+        /**
+         * 更新时间
+         * <p> 示例值：-
+         */
+        this.updateTime = builder.updateTime;
+        /**
+         * 创建时间
+         * <p> 示例值：-
+         */
+        this.createTime = builder.createTime;
+        /**
+         * 编码
+         * <p> 示例值：-
+         */
+        this.timeZoneId = builder.timeZoneId;
+        /**
+         * 名称
+         * <p> 示例值：
+         */
+        this.name = builder.name;
+        /**
+         * UTC 时区偏移量
+         * <p> 示例值：-
+         */
+        this.utcOffset = builder.utcOffset;
+        /**
+         * 主数据编码（系统生成的唯一永久代码，格式为“MDTZ+8位数字”）
+         * <p> 示例值：-
+         */
+        this.mdmCode = builder.mdmCode;
+        /**
+         * 备注
+         * <p> 示例值：-
+         */
+        this.remark = builder.remark;
+        /**
+         * 更新原因
+         * <p> 示例值：-
+         */
+        this.updateReason = builder.updateReason;
+        /**
+         * 是否生效
+         * <p> 示例值：-
+         */
+        this.status = builder.status;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getUpdateBy() {
         return this.updateBy;
     }
@@ -178,274 +249,208 @@ public class TimeZone {
         this.status = status;
     }
 
-
-// builder 开始
-  public TimeZone(){}
-
-  public TimeZone(Builder builder){
-         /**
-          * 更新人
-          * <p> 示例值：-
-          */
-      this.updateBy = builder.updateBy;
-         /**
-          * 创建人
-          * <p> 示例值：-
-          */
-      this.createBy = builder.createBy;
-         /**
-          * 更新时间
-          * <p> 示例值：-
-          */
-      this.updateTime = builder.updateTime;
-         /**
-          * 创建时间
-          * <p> 示例值：-
-          */
-      this.createTime = builder.createTime;
-         /**
-          * 编码
-          * <p> 示例值：-
-          */
-      this.timeZoneId = builder.timeZoneId;
-         /**
-          * 名称
-          * <p> 示例值：
-          */
-      this.name = builder.name;
-         /**
-          * UTC 时区偏移量
-          * <p> 示例值：-
-          */
-      this.utcOffset = builder.utcOffset;
-         /**
-          * 主数据编码（系统生成的唯一永久代码，格式为“MDTZ+8位数字”）
-          * <p> 示例值：-
-          */
-      this.mdmCode = builder.mdmCode;
-         /**
-          * 备注
-          * <p> 示例值：-
-          */
-      this.remark = builder.remark;
-         /**
-          * 更新原因
-          * <p> 示例值：-
-          */
-      this.updateReason = builder.updateReason;
-         /**
-          * 是否生效
-          * <p> 示例值：-
-          */
-      this.status = builder.status;
-  }
-
     public static class Builder {
-     /**
-      * 更新人
-      * <p> 示例值：-
-      */
+        /**
+         * 更新人
+         * <p> 示例值：-
+         */
         private String updateBy;
-     /**
-      * 创建人
-      * <p> 示例值：-
-      */
+        /**
+         * 创建人
+         * <p> 示例值：-
+         */
         private String createBy;
-     /**
-      * 更新时间
-      * <p> 示例值：-
-      */
+        /**
+         * 更新时间
+         * <p> 示例值：-
+         */
         private String updateTime;
-     /**
-      * 创建时间
-      * <p> 示例值：-
-      */
+        /**
+         * 创建时间
+         * <p> 示例值：-
+         */
         private String createTime;
-     /**
-      * 编码
-      * <p> 示例值：-
-      */
+        /**
+         * 编码
+         * <p> 示例值：-
+         */
         private String timeZoneId;
-     /**
-      * 名称
-      * <p> 示例值：
-      */
+        /**
+         * 名称
+         * <p> 示例值：
+         */
         private Common name;
-     /**
-      * UTC 时区偏移量
-      * <p> 示例值：-
-      */
+        /**
+         * UTC 时区偏移量
+         * <p> 示例值：-
+         */
         private String utcOffset;
-     /**
-      * 主数据编码（系统生成的唯一永久代码，格式为“MDTZ+8位数字”）
-      * <p> 示例值：-
-      */
+        /**
+         * 主数据编码（系统生成的唯一永久代码，格式为“MDTZ+8位数字”）
+         * <p> 示例值：-
+         */
         private String mdmCode;
-     /**
-      * 备注
-      * <p> 示例值：-
-      */
+        /**
+         * 备注
+         * <p> 示例值：-
+         */
         private String remark;
-     /**
-      * 更新原因
-      * <p> 示例值：-
-      */
+        /**
+         * 更新原因
+         * <p> 示例值：-
+         */
         private String updateReason;
-     /**
-      * 是否生效
-      * <p> 示例值：-
-      */
+        /**
+         * 是否生效
+         * <p> 示例值：-
+         */
         private String status;
 
         /**
          * 更新人
          * <p> 示例值：-
+         *
          * @param updateBy
          * @return
          */
         public Builder updateBy(String updateBy) {
-             this.updateBy = updateBy;
-             return this;
+            this.updateBy = updateBy;
+            return this;
         }
 
-    
 
         /**
          * 创建人
          * <p> 示例值：-
+         *
          * @param createBy
          * @return
          */
         public Builder createBy(String createBy) {
-             this.createBy = createBy;
-             return this;
+            this.createBy = createBy;
+            return this;
         }
 
-    
 
         /**
          * 更新时间
          * <p> 示例值：-
+         *
          * @param updateTime
          * @return
          */
         public Builder updateTime(String updateTime) {
-             this.updateTime = updateTime;
-             return this;
+            this.updateTime = updateTime;
+            return this;
         }
 
-    
 
         /**
          * 创建时间
          * <p> 示例值：-
+         *
          * @param createTime
          * @return
          */
         public Builder createTime(String createTime) {
-             this.createTime = createTime;
-             return this;
+            this.createTime = createTime;
+            return this;
         }
 
-    
 
         /**
          * 编码
          * <p> 示例值：-
+         *
          * @param timeZoneId
          * @return
          */
         public Builder timeZoneId(String timeZoneId) {
-             this.timeZoneId = timeZoneId;
-             return this;
+            this.timeZoneId = timeZoneId;
+            return this;
         }
 
-    
 
         /**
          * 名称
          * <p> 示例值：
+         *
          * @param name
          * @return
          */
         public Builder name(Common name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * UTC 时区偏移量
          * <p> 示例值：-
+         *
          * @param utcOffset
          * @return
          */
         public Builder utcOffset(String utcOffset) {
-             this.utcOffset = utcOffset;
-             return this;
+            this.utcOffset = utcOffset;
+            return this;
         }
 
-    
 
         /**
          * 主数据编码（系统生成的唯一永久代码，格式为“MDTZ+8位数字”）
          * <p> 示例值：-
+         *
          * @param mdmCode
          * @return
          */
         public Builder mdmCode(String mdmCode) {
-             this.mdmCode = mdmCode;
-             return this;
+            this.mdmCode = mdmCode;
+            return this;
         }
 
-    
 
         /**
          * 备注
          * <p> 示例值：-
+         *
          * @param remark
          * @return
          */
         public Builder remark(String remark) {
-             this.remark = remark;
-             return this;
+            this.remark = remark;
+            return this;
         }
 
-    
 
         /**
          * 更新原因
          * <p> 示例值：-
+         *
          * @param updateReason
          * @return
          */
         public Builder updateReason(String updateReason) {
-             this.updateReason = updateReason;
-             return this;
+            this.updateReason = updateReason;
+            return this;
         }
 
-    
 
         /**
          * 是否生效
          * <p> 示例值：-
+         *
          * @param status
          * @return
          */
         public Builder status(String status) {
-             this.status = status;
-             return this;
+            this.status = status;
+            return this;
         }
 
-    
-    
-    public TimeZone build(){
-        return new TimeZone(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public TimeZone build() {
+            return new TimeZone(this);
+        }
     }
 }

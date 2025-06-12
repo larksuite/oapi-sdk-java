@@ -12,30 +12,56 @@
  */
 
 package com.lark.oapi.service.workplace.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class TemplateWorkplaceAccessData {
-     /**
-      * 定制工作台ID
-      * <p> 示例值：tpl_645b003aaa40001435b2ddw
-      */
+    /**
+     * 定制工作台ID
+     * <p> 示例值：tpl_645b003aaa40001435b2ddw
+     */
     @SerializedName("tpl_id")
     private String tplId;
-     /**
-      * 访问数据
-      * <p> 示例值：
-      */
+    /**
+     * 访问数据
+     * <p> 示例值：
+     */
     @SerializedName("access_data")
     private AccessData accessData;
+
+    // builder 开始
+    public TemplateWorkplaceAccessData() {
+    }
+
+    public TemplateWorkplaceAccessData(Builder builder) {
+        /**
+         * 定制工作台ID
+         * <p> 示例值：tpl_645b003aaa40001435b2ddw
+         */
+        this.tplId = builder.tplId;
+        /**
+         * 访问数据
+         * <p> 示例值：
+         */
+        this.accessData = builder.accessData;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getTplId() {
         return this.tplId;
     }
@@ -52,67 +78,46 @@ public class TemplateWorkplaceAccessData {
         this.accessData = accessData;
     }
 
-
-// builder 开始
-  public TemplateWorkplaceAccessData(){}
-
-  public TemplateWorkplaceAccessData(Builder builder){
-         /**
-          * 定制工作台ID
-          * <p> 示例值：tpl_645b003aaa40001435b2ddw
-          */
-      this.tplId = builder.tplId;
-         /**
-          * 访问数据
-          * <p> 示例值：
-          */
-      this.accessData = builder.accessData;
-  }
-
     public static class Builder {
-     /**
-      * 定制工作台ID
-      * <p> 示例值：tpl_645b003aaa40001435b2ddw
-      */
+        /**
+         * 定制工作台ID
+         * <p> 示例值：tpl_645b003aaa40001435b2ddw
+         */
         private String tplId;
-     /**
-      * 访问数据
-      * <p> 示例值：
-      */
+        /**
+         * 访问数据
+         * <p> 示例值：
+         */
         private AccessData accessData;
 
         /**
          * 定制工作台ID
          * <p> 示例值：tpl_645b003aaa40001435b2ddw
+         *
          * @param tplId
          * @return
          */
         public Builder tplId(String tplId) {
-             this.tplId = tplId;
-             return this;
+            this.tplId = tplId;
+            return this;
         }
 
-    
 
         /**
          * 访问数据
          * <p> 示例值：
+         *
          * @param accessData
          * @return
          */
         public Builder accessData(AccessData accessData) {
-             this.accessData = accessData;
-             return this;
+            this.accessData = accessData;
+            return this;
         }
 
-    
-    
-    public TemplateWorkplaceAccessData build(){
-        return new TemplateWorkplaceAccessData(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public TemplateWorkplaceAccessData build() {
+            return new TemplateWorkplaceAccessData(this);
+        }
     }
 }

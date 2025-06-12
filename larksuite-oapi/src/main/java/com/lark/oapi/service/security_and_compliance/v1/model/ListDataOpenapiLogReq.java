@@ -12,20 +12,36 @@
  */
 
 package com.lark.oapi.service.security_and_compliance.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.security_and_compliance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ListDataOpenapiLogReq {
     @Body
     private ListOpenapiLogRequest body;
+
+    // builder 开始
+    public ListDataOpenapiLogReq() {
+    }
+
+    public ListDataOpenapiLogReq(Builder builder) {
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 
     public ListOpenapiLogRequest getListOpenapiLogRequest() {
         return this.body;
@@ -35,36 +51,27 @@ public class ListDataOpenapiLogReq {
         this.body = body;
     }
 
-// builder 开始
-  public ListDataOpenapiLogReq(){}
-
-  public ListDataOpenapiLogReq(Builder builder){
-        this.body = builder.body;
-  }
-
     public static class Builder {
-    
+
         private ListOpenapiLogRequest body;
-    
+
         public ListOpenapiLogRequest getListOpenapiLogRequest() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder listOpenapiLogRequest(ListOpenapiLogRequest body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public ListDataOpenapiLogReq build(){
-        return new ListDataOpenapiLogReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ListDataOpenapiLogReq build() {
+            return new ListDataOpenapiLogReq(this);
+        }
     }
 }

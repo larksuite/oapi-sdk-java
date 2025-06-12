@@ -12,25 +12,49 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ModifyUserSettingReq {
-     /**
-      * 请求体和响应体中的 user_id 的员工工号类型
-      * <p> 示例值：employee_id
-      */
+    /**
+     * 请求体和响应体中的 user_id 的员工工号类型
+     * <p> 示例值：employee_id
+     */
     @Query
     @SerializedName("employee_type")
     private String employeeType;
+    @Body
+    private ModifyUserSettingReqBody body;
+
+    // builder 开始
+    public ModifyUserSettingReq() {
+    }
+
+    public ModifyUserSettingReq(Builder builder) {
+        /**
+         * 请求体和响应体中的 user_id 的员工工号类型
+         * <p> 示例值：employee_id
+         */
+        this.employeeType = builder.employeeType;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getEmployeeType() {
         return this.employeeType;
     }
@@ -38,9 +62,6 @@ public class ModifyUserSettingReq {
     public void setEmployeeType(String employeeType) {
         this.employeeType = employeeType;
     }
-
-    @Body
-    private ModifyUserSettingReqBody body;
 
     public ModifyUserSettingReqBody getModifyUserSettingReqBody() {
         return this.body;
@@ -50,65 +71,51 @@ public class ModifyUserSettingReq {
         this.body = body;
     }
 
-// builder 开始
-  public ModifyUserSettingReq(){}
-
-  public ModifyUserSettingReq(Builder builder){
-         /**
-          * 请求体和响应体中的 user_id 的员工工号类型
-          * <p> 示例值：employee_id
-          */
-       this.employeeType = builder.employeeType;
-        this.body = builder.body;
-  }
-
     public static class Builder {
         private String employeeType; // 请求体和响应体中的 user_id 的员工工号类型
-    
+        private ModifyUserSettingReqBody body;
+
         /**
          * 请求体和响应体中的 user_id 的员工工号类型
          * <p> 示例值：employee_id
+         *
          * @param employeeType
          * @return
          */
-           public Builder employeeType(String employeeType) {
-                this.employeeType = employeeType;
-                return this;
-           }
+        public Builder employeeType(String employeeType) {
+            this.employeeType = employeeType;
+            return this;
+        }
 
         /**
          * 请求体和响应体中的 user_id 的员工工号类型
          * <p> 示例值：employee_id
+         *
          * @param employeeType {@link com.lark.oapi.service.attendance.v1.enums.ModifyUserSettingEmployeeTypeEnum}
          * @return
          */
-          public Builder employeeType(com.lark.oapi.service.attendance.v1.enums.ModifyUserSettingEmployeeTypeEnum employeeType) {
-               this.employeeType = employeeType.getValue();
-               return this;
-          }
+        public Builder employeeType(com.lark.oapi.service.attendance.v1.enums.ModifyUserSettingEmployeeTypeEnum employeeType) {
+            this.employeeType = employeeType.getValue();
+            return this;
+        }
 
-    
-        private ModifyUserSettingReqBody body;
-    
         public ModifyUserSettingReqBody getModifyUserSettingReqBody() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder modifyUserSettingReqBody(ModifyUserSettingReqBody body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public ModifyUserSettingReq build(){
-        return new ModifyUserSettingReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ModifyUserSettingReq build() {
+            return new ModifyUserSettingReq(this);
+        }
     }
 }

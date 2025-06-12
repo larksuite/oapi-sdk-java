@@ -12,19 +12,35 @@
  */
 
 package com.lark.oapi.service.optical_char_recognition.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class BasicRecognizeImageReq {
     @Body
     private BasicRecognizeImageReqBody body;
+
+    // builder 开始
+    public BasicRecognizeImageReq() {
+    }
+
+    public BasicRecognizeImageReq(Builder builder) {
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 
     public BasicRecognizeImageReqBody getBasicRecognizeImageReqBody() {
         return this.body;
@@ -34,36 +50,27 @@ public class BasicRecognizeImageReq {
         this.body = body;
     }
 
-// builder 开始
-  public BasicRecognizeImageReq(){}
-
-  public BasicRecognizeImageReq(Builder builder){
-        this.body = builder.body;
-  }
-
     public static class Builder {
-    
+
         private BasicRecognizeImageReqBody body;
-    
+
         public BasicRecognizeImageReqBody getBasicRecognizeImageReqBody() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder basicRecognizeImageReqBody(BasicRecognizeImageReqBody body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public BasicRecognizeImageReq build(){
-        return new BasicRecognizeImageReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public BasicRecognizeImageReq build() {
+            return new BasicRecognizeImageReq(this);
+        }
     }
 }

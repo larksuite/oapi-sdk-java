@@ -12,24 +12,45 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class SearchJobPublishRecordReqBody {
-     /**
-      * 渠道 ID
-      * <p> 示例值：7047318856652261676
-      */
+    /**
+     * 渠道 ID
+     * <p> 示例值：7047318856652261676
+     */
     @SerializedName("job_channel_id")
     private String jobChannelId;
+
+    // builder 开始
+    public SearchJobPublishRecordReqBody() {
+    }
+
+    public SearchJobPublishRecordReqBody(Builder builder) {
+        /**
+         * 渠道 ID
+         * <p> 示例值：7047318856652261676
+         */
+        this.jobChannelId = builder.jobChannelId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getJobChannelId() {
         return this.jobChannelId;
     }
@@ -38,44 +59,28 @@ public class SearchJobPublishRecordReqBody {
         this.jobChannelId = jobChannelId;
     }
 
-
-// builder 开始
-  public SearchJobPublishRecordReqBody(){}
-
-  public SearchJobPublishRecordReqBody(Builder builder){
-         /**
-          * 渠道 ID
-          * <p> 示例值：7047318856652261676
-          */
-      this.jobChannelId = builder.jobChannelId;
-  }
-
     public static class Builder {
-     /**
-      * 渠道 ID
-      * <p> 示例值：7047318856652261676
-      */
+        /**
+         * 渠道 ID
+         * <p> 示例值：7047318856652261676
+         */
         private String jobChannelId;
 
         /**
          * 渠道 ID
          * <p> 示例值：7047318856652261676
+         *
          * @param jobChannelId
          * @return
          */
         public Builder jobChannelId(String jobChannelId) {
-             this.jobChannelId = jobChannelId;
-             return this;
+            this.jobChannelId = jobChannelId;
+            return this;
         }
 
-    
-    
-    public SearchJobPublishRecordReqBody build(){
-        return new SearchJobPublishRecordReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public SearchJobPublishRecordReqBody build() {
+            return new SearchJobPublishRecordReqBody(this);
+        }
     }
 }

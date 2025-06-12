@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.docx.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.docx.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ReplaceFileRequest {
-     /**
-      * 附件 token
-      * <p> 示例值：boxbckbfvfcqEg22hAzN8Dh9gJd
-      */
+    /**
+     * 附件 token
+     * <p> 示例值：boxbckbfvfcqEg22hAzN8Dh9gJd
+     */
     @SerializedName("token")
     private String token;
+
+    // builder 开始
+    public ReplaceFileRequest() {
+    }
+
+    public ReplaceFileRequest(Builder builder) {
+        /**
+         * 附件 token
+         * <p> 示例值：boxbckbfvfcqEg22hAzN8Dh9gJd
+         */
+        this.token = builder.token;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getToken() {
         return this.token;
     }
@@ -39,44 +60,28 @@ public class ReplaceFileRequest {
         this.token = token;
     }
 
-
-// builder 开始
-  public ReplaceFileRequest(){}
-
-  public ReplaceFileRequest(Builder builder){
-         /**
-          * 附件 token
-          * <p> 示例值：boxbckbfvfcqEg22hAzN8Dh9gJd
-          */
-      this.token = builder.token;
-  }
-
     public static class Builder {
-     /**
-      * 附件 token
-      * <p> 示例值：boxbckbfvfcqEg22hAzN8Dh9gJd
-      */
+        /**
+         * 附件 token
+         * <p> 示例值：boxbckbfvfcqEg22hAzN8Dh9gJd
+         */
         private String token;
 
         /**
          * 附件 token
          * <p> 示例值：boxbckbfvfcqEg22hAzN8Dh9gJd
+         *
          * @param token
          * @return
          */
         public Builder token(String token) {
-             this.token = token;
-             return this;
+            this.token = token;
+            return this;
         }
 
-    
-    
-    public ReplaceFileRequest build(){
-        return new ReplaceFileRequest(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ReplaceFileRequest build() {
+            return new ReplaceFileRequest(this);
+        }
     }
 }

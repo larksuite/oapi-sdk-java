@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.security_and_compliance.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.security_and_compliance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,36 +20,71 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class KeyPerson {
-     /**
-      * 高管的用户ID
-      * <p> 示例值：u28c128c
-      */
+    /**
+     * 高管的用户ID
+     * <p> 示例值：u28c128c
+     */
     @SerializedName("key_person_id")
     private String keyPersonId;
-     /**
-      * 用户姓名
-      * <p> 示例值：某人
-      */
+    /**
+     * 用户姓名
+     * <p> 示例值：某人
+     */
     @SerializedName("name")
     private String name;
-     /**
-      * 邮箱地址
-      * <p> 示例值：xxx@xxx.com
-      */
+    /**
+     * 邮箱地址
+     * <p> 示例值：xxx@xxx.com
+     */
     @SerializedName("email")
     private String email;
-     /**
-      * 头像图片链接
-      * <p> 示例值：https://xxx.com/xxx.jpg
-      */
+    /**
+     * 头像图片链接
+     * <p> 示例值：https://xxx.com/xxx.jpg
+     */
     @SerializedName("avatar_url")
     private String avatarUrl;
+
+    // builder 开始
+    public KeyPerson() {
+    }
+
+    public KeyPerson(Builder builder) {
+        /**
+         * 高管的用户ID
+         * <p> 示例值：u28c128c
+         */
+        this.keyPersonId = builder.keyPersonId;
+        /**
+         * 用户姓名
+         * <p> 示例值：某人
+         */
+        this.name = builder.name;
+        /**
+         * 邮箱地址
+         * <p> 示例值：xxx@xxx.com
+         */
+        this.email = builder.email;
+        /**
+         * 头像图片链接
+         * <p> 示例值：https://xxx.com/xxx.jpg
+         */
+        this.avatarUrl = builder.avatarUrl;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getKeyPersonId() {
         return this.keyPersonId;
     }
@@ -81,113 +117,82 @@ public class KeyPerson {
         this.avatarUrl = avatarUrl;
     }
 
-
-// builder 开始
-  public KeyPerson(){}
-
-  public KeyPerson(Builder builder){
-         /**
-          * 高管的用户ID
-          * <p> 示例值：u28c128c
-          */
-      this.keyPersonId = builder.keyPersonId;
-         /**
-          * 用户姓名
-          * <p> 示例值：某人
-          */
-      this.name = builder.name;
-         /**
-          * 邮箱地址
-          * <p> 示例值：xxx@xxx.com
-          */
-      this.email = builder.email;
-         /**
-          * 头像图片链接
-          * <p> 示例值：https://xxx.com/xxx.jpg
-          */
-      this.avatarUrl = builder.avatarUrl;
-  }
-
     public static class Builder {
-     /**
-      * 高管的用户ID
-      * <p> 示例值：u28c128c
-      */
+        /**
+         * 高管的用户ID
+         * <p> 示例值：u28c128c
+         */
         private String keyPersonId;
-     /**
-      * 用户姓名
-      * <p> 示例值：某人
-      */
+        /**
+         * 用户姓名
+         * <p> 示例值：某人
+         */
         private String name;
-     /**
-      * 邮箱地址
-      * <p> 示例值：xxx@xxx.com
-      */
+        /**
+         * 邮箱地址
+         * <p> 示例值：xxx@xxx.com
+         */
         private String email;
-     /**
-      * 头像图片链接
-      * <p> 示例值：https://xxx.com/xxx.jpg
-      */
+        /**
+         * 头像图片链接
+         * <p> 示例值：https://xxx.com/xxx.jpg
+         */
         private String avatarUrl;
 
         /**
          * 高管的用户ID
          * <p> 示例值：u28c128c
+         *
          * @param keyPersonId
          * @return
          */
         public Builder keyPersonId(String keyPersonId) {
-             this.keyPersonId = keyPersonId;
-             return this;
+            this.keyPersonId = keyPersonId;
+            return this;
         }
 
-    
 
         /**
          * 用户姓名
          * <p> 示例值：某人
+         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 邮箱地址
          * <p> 示例值：xxx@xxx.com
+         *
          * @param email
          * @return
          */
         public Builder email(String email) {
-             this.email = email;
-             return this;
+            this.email = email;
+            return this;
         }
 
-    
 
         /**
          * 头像图片链接
          * <p> 示例值：https://xxx.com/xxx.jpg
+         *
          * @param avatarUrl
          * @return
          */
         public Builder avatarUrl(String avatarUrl) {
-             this.avatarUrl = avatarUrl;
-             return this;
+            this.avatarUrl = avatarUrl;
+            return this;
         }
 
-    
-    
-    public KeyPerson build(){
-        return new KeyPerson(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public KeyPerson build() {
+            return new KeyPerson(this);
+        }
     }
 }

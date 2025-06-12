@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,48 +20,93 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class EventSubscribeRule {
-     /**
-      * 应用的命名空间
-      * <p> 示例值：package_ba55ff__c
-      */
+    /**
+     * 应用的命名空间
+     * <p> 示例值：package_ba55ff__c
+     */
     @SerializedName("namespace")
     private String namespace;
-     /**
-      * 订阅事件类型
-      * <p> 示例值：sandbox_publish
-      */
+    /**
+     * 订阅事件类型
+     * <p> 示例值：sandbox_publish
+     */
     @SerializedName("event_type")
     private String eventType;
-     /**
-      * 创建人
-      * <p> 示例值：1768491480010814
-      */
+    /**
+     * 创建人
+     * <p> 示例值：1768491480010814
+     */
     @SerializedName("creator")
     private String creator;
-     /**
-      * 创建时间
-      * <p> 示例值：1699930800
-      */
+    /**
+     * 创建时间
+     * <p> 示例值：1699930800
+     */
     @SerializedName("create_time")
     private String createTime;
-     /**
-      * 事件规则ID
-      * <p> 示例值：123
-      */
+    /**
+     * 事件规则ID
+     * <p> 示例值：123
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 事件规则的创建者
-      * <p> 示例值：
-      */
+    /**
+     * 事件规则的创建者
+     * <p> 示例值：
+     */
     @SerializedName("created_by")
     private LookupWithAvatar createdBy;
+
+    // builder 开始
+    public EventSubscribeRule() {
+    }
+
+    public EventSubscribeRule(Builder builder) {
+        /**
+         * 应用的命名空间
+         * <p> 示例值：package_ba55ff__c
+         */
+        this.namespace = builder.namespace;
+        /**
+         * 订阅事件类型
+         * <p> 示例值：sandbox_publish
+         */
+        this.eventType = builder.eventType;
+        /**
+         * 创建人
+         * <p> 示例值：1768491480010814
+         */
+        this.creator = builder.creator;
+        /**
+         * 创建时间
+         * <p> 示例值：1699930800
+         */
+        this.createTime = builder.createTime;
+        /**
+         * 事件规则ID
+         * <p> 示例值：123
+         */
+        this.id = builder.id;
+        /**
+         * 事件规则的创建者
+         * <p> 示例值：
+         */
+        this.createdBy = builder.createdBy;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getNamespace() {
         return this.namespace;
     }
@@ -109,159 +155,118 @@ public class EventSubscribeRule {
         this.createdBy = createdBy;
     }
 
-
-// builder 开始
-  public EventSubscribeRule(){}
-
-  public EventSubscribeRule(Builder builder){
-         /**
-          * 应用的命名空间
-          * <p> 示例值：package_ba55ff__c
-          */
-      this.namespace = builder.namespace;
-         /**
-          * 订阅事件类型
-          * <p> 示例值：sandbox_publish
-          */
-      this.eventType = builder.eventType;
-         /**
-          * 创建人
-          * <p> 示例值：1768491480010814
-          */
-      this.creator = builder.creator;
-         /**
-          * 创建时间
-          * <p> 示例值：1699930800
-          */
-      this.createTime = builder.createTime;
-         /**
-          * 事件规则ID
-          * <p> 示例值：123
-          */
-      this.id = builder.id;
-         /**
-          * 事件规则的创建者
-          * <p> 示例值：
-          */
-      this.createdBy = builder.createdBy;
-  }
-
     public static class Builder {
-     /**
-      * 应用的命名空间
-      * <p> 示例值：package_ba55ff__c
-      */
+        /**
+         * 应用的命名空间
+         * <p> 示例值：package_ba55ff__c
+         */
         private String namespace;
-     /**
-      * 订阅事件类型
-      * <p> 示例值：sandbox_publish
-      */
+        /**
+         * 订阅事件类型
+         * <p> 示例值：sandbox_publish
+         */
         private String eventType;
-     /**
-      * 创建人
-      * <p> 示例值：1768491480010814
-      */
+        /**
+         * 创建人
+         * <p> 示例值：1768491480010814
+         */
         private String creator;
-     /**
-      * 创建时间
-      * <p> 示例值：1699930800
-      */
+        /**
+         * 创建时间
+         * <p> 示例值：1699930800
+         */
         private String createTime;
-     /**
-      * 事件规则ID
-      * <p> 示例值：123
-      */
+        /**
+         * 事件规则ID
+         * <p> 示例值：123
+         */
         private String id;
-     /**
-      * 事件规则的创建者
-      * <p> 示例值：
-      */
+        /**
+         * 事件规则的创建者
+         * <p> 示例值：
+         */
         private LookupWithAvatar createdBy;
 
         /**
          * 应用的命名空间
          * <p> 示例值：package_ba55ff__c
+         *
          * @param namespace
          * @return
          */
         public Builder namespace(String namespace) {
-             this.namespace = namespace;
-             return this;
+            this.namespace = namespace;
+            return this;
         }
 
-    
 
         /**
          * 订阅事件类型
          * <p> 示例值：sandbox_publish
+         *
          * @param eventType
          * @return
          */
         public Builder eventType(String eventType) {
-             this.eventType = eventType;
-             return this;
+            this.eventType = eventType;
+            return this;
         }
 
-    
 
         /**
          * 创建人
          * <p> 示例值：1768491480010814
+         *
          * @param creator
          * @return
          */
         public Builder creator(String creator) {
-             this.creator = creator;
-             return this;
+            this.creator = creator;
+            return this;
         }
 
-    
 
         /**
          * 创建时间
          * <p> 示例值：1699930800
+         *
          * @param createTime
          * @return
          */
         public Builder createTime(String createTime) {
-             this.createTime = createTime;
-             return this;
+            this.createTime = createTime;
+            return this;
         }
 
-    
 
         /**
          * 事件规则ID
          * <p> 示例值：123
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 事件规则的创建者
          * <p> 示例值：
+         *
          * @param createdBy
          * @return
          */
         public Builder createdBy(LookupWithAvatar createdBy) {
-             this.createdBy = createdBy;
-             return this;
+            this.createdBy = createdBy;
+            return this;
         }
 
-    
-    
-    public EventSubscribeRule build(){
-        return new EventSubscribeRule(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public EventSubscribeRule build() {
+            return new EventSubscribeRule(this);
+        }
     }
 }

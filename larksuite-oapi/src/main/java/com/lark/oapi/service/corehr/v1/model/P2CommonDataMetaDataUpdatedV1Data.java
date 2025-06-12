@@ -12,42 +12,47 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class P2CommonDataMetaDataUpdatedV1Data {
-     /**
-      * 对象 API Name
-      * <p> 示例值：person
-      */
+    /**
+     * 对象 API Name
+     * <p> 示例值：person
+     */
     @SerializedName("api_name")
     private String apiName;
-     /**
-      * 变更的字段
-      * <p> 示例值：
-      */
+    /**
+     * 变更的字段
+     * <p> 示例值：
+     */
     @SerializedName("field_changes")
     private String[] fieldChanges;
-     /**
-      * 变更的元数据类型
-      * <p> 示例值：Enum
-      */
+    /**
+     * 变更的元数据类型
+     * <p> 示例值：Enum
+     */
     @SerializedName("metadata_type")
     private String metadataType;
-     /**
-      * 变更的枚举
-      * <p> 示例值：
-      */
+    /**
+     * 变更的枚举
+     * <p> 示例值：
+     */
     @SerializedName("enum_value_changes")
     private String[] enumValueChanges;
+
     public String getApiName() {
         return this.apiName;
     }

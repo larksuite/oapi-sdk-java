@@ -12,42 +12,78 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class JobSchema {
-     /**
-      * 职位模板 ID
-      * <p> 示例值：6949805467799537964
-      */
+    /**
+     * 职位模板 ID
+     * <p> 示例值：6949805467799537964
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 职位模板名称
-      * <p> 示例值：
-      */
+    /**
+     * 职位模板名称
+     * <p> 示例值：
+     */
     @SerializedName("name")
     private I18n name;
-     /**
-      * 职位模板类型
-      * <p> 示例值：1
-      */
+    /**
+     * 职位模板类型
+     * <p> 示例值：1
+     */
     @SerializedName("scenario_type")
     private Integer scenarioType;
-     /**
-      * 模块列表
-      * <p> 示例值：
-      */
+    /**
+     * 模块列表
+     * <p> 示例值：
+     */
     @SerializedName("object_list")
     private CommonSchema[] objectList;
+
+    // builder 开始
+    public JobSchema() {
+    }
+
+    public JobSchema(Builder builder) {
+        /**
+         * 职位模板 ID
+         * <p> 示例值：6949805467799537964
+         */
+        this.id = builder.id;
+        /**
+         * 职位模板名称
+         * <p> 示例值：
+         */
+        this.name = builder.name;
+        /**
+         * 职位模板类型
+         * <p> 示例值：1
+         */
+        this.scenarioType = builder.scenarioType;
+        /**
+         * 模块列表
+         * <p> 示例值：
+         */
+        this.objectList = builder.objectList;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -80,113 +116,82 @@ public class JobSchema {
         this.objectList = objectList;
     }
 
-
-// builder 开始
-  public JobSchema(){}
-
-  public JobSchema(Builder builder){
-         /**
-          * 职位模板 ID
-          * <p> 示例值：6949805467799537964
-          */
-      this.id = builder.id;
-         /**
-          * 职位模板名称
-          * <p> 示例值：
-          */
-      this.name = builder.name;
-         /**
-          * 职位模板类型
-          * <p> 示例值：1
-          */
-      this.scenarioType = builder.scenarioType;
-         /**
-          * 模块列表
-          * <p> 示例值：
-          */
-      this.objectList = builder.objectList;
-  }
-
     public static class Builder {
-     /**
-      * 职位模板 ID
-      * <p> 示例值：6949805467799537964
-      */
+        /**
+         * 职位模板 ID
+         * <p> 示例值：6949805467799537964
+         */
         private String id;
-     /**
-      * 职位模板名称
-      * <p> 示例值：
-      */
+        /**
+         * 职位模板名称
+         * <p> 示例值：
+         */
         private I18n name;
-     /**
-      * 职位模板类型
-      * <p> 示例值：1
-      */
+        /**
+         * 职位模板类型
+         * <p> 示例值：1
+         */
         private Integer scenarioType;
-     /**
-      * 模块列表
-      * <p> 示例值：
-      */
+        /**
+         * 模块列表
+         * <p> 示例值：
+         */
         private CommonSchema[] objectList;
 
         /**
          * 职位模板 ID
          * <p> 示例值：6949805467799537964
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 职位模板名称
          * <p> 示例值：
+         *
          * @param name
          * @return
          */
         public Builder name(I18n name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 职位模板类型
          * <p> 示例值：1
+         *
          * @param scenarioType
          * @return
          */
         public Builder scenarioType(Integer scenarioType) {
-             this.scenarioType = scenarioType;
-             return this;
+            this.scenarioType = scenarioType;
+            return this;
         }
 
-    
 
         /**
          * 模块列表
          * <p> 示例值：
+         *
          * @param objectList
          * @return
          */
         public Builder objectList(CommonSchema[] objectList) {
-             this.objectList = objectList;
-             return this;
+            this.objectList = objectList;
+            return this;
         }
 
-    
-    
-    public JobSchema build(){
-        return new JobSchema(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public JobSchema build() {
+            return new JobSchema(this);
+        }
     }
 }

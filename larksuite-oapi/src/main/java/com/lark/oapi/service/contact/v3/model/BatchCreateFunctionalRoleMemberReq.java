@@ -12,25 +12,61 @@
  */
 
 package com.lark.oapi.service.contact.v3.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class BatchCreateFunctionalRoleMemberReq {
-     /**
-      * 成员ID类型
-      * <p> 示例值：open_id
-      */
+    /**
+     * 成员ID类型
+     * <p> 示例值：open_id
+     */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
+    /**
+     * 角色的唯一标识，单租户下唯一
+     * <p> 示例值：7vrj3vk70xk7v5r
+     */
+    @Path
+    @SerializedName("role_id")
+    private String roleId;
+    @Body
+    private BatchCreateFunctionalRoleMemberReqBody body;
+
+    // builder 开始
+    public BatchCreateFunctionalRoleMemberReq() {
+    }
+
+    public BatchCreateFunctionalRoleMemberReq(Builder builder) {
+        /**
+         * 成员ID类型
+         * <p> 示例值：open_id
+         */
+        this.userIdType = builder.userIdType;
+        /**
+         * 角色的唯一标识，单租户下唯一
+         * <p> 示例值：7vrj3vk70xk7v5r
+         */
+        this.roleId = builder.roleId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getUserIdType() {
         return this.userIdType;
     }
@@ -39,13 +75,6 @@ public class BatchCreateFunctionalRoleMemberReq {
         this.userIdType = userIdType;
     }
 
-     /**
-      * 角色的唯一标识，单租户下唯一
-      * <p> 示例值：7vrj3vk70xk7v5r
-      */
-    @Path
-    @SerializedName("role_id")
-    private String roleId;
     public String getRoleId() {
         return this.roleId;
     }
@@ -53,9 +82,6 @@ public class BatchCreateFunctionalRoleMemberReq {
     public void setRoleId(String roleId) {
         this.roleId = roleId;
     }
-
-    @Body
-    private BatchCreateFunctionalRoleMemberReqBody body;
 
     public BatchCreateFunctionalRoleMemberReqBody getBatchCreateFunctionalRoleMemberReqBody() {
         return this.body;
@@ -65,83 +91,64 @@ public class BatchCreateFunctionalRoleMemberReq {
         this.body = body;
     }
 
-// builder 开始
-  public BatchCreateFunctionalRoleMemberReq(){}
-
-  public BatchCreateFunctionalRoleMemberReq(Builder builder){
-         /**
-          * 成员ID类型
-          * <p> 示例值：open_id
-          */
-       this.userIdType = builder.userIdType;
-     /**
-      * 角色的唯一标识，单租户下唯一
-      * <p> 示例值：7vrj3vk70xk7v5r
-      */
-       this.roleId = builder.roleId;
-        this.body = builder.body;
-  }
-
     public static class Builder {
         private String userIdType; // 成员ID类型
-    
+        private String roleId; // 角色的唯一标识，单租户下唯一
+        private BatchCreateFunctionalRoleMemberReqBody body;
+
         /**
          * 成员ID类型
          * <p> 示例值：open_id
+         *
          * @param userIdType
          * @return
          */
-           public Builder userIdType(String userIdType) {
-                this.userIdType = userIdType;
-                return this;
-           }
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
 
         /**
          * 成员ID类型
          * <p> 示例值：open_id
+         *
          * @param userIdType {@link com.lark.oapi.service.contact.v3.enums.BatchCreateFunctionalRoleMemberRoleMemberIDTypeEnum}
          * @return
          */
-          public Builder userIdType(com.lark.oapi.service.contact.v3.enums.BatchCreateFunctionalRoleMemberRoleMemberIDTypeEnum userIdType) {
-               this.userIdType = userIdType.getValue();
-               return this;
-          }
+        public Builder userIdType(com.lark.oapi.service.contact.v3.enums.BatchCreateFunctionalRoleMemberRoleMemberIDTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
+            return this;
+        }
 
-    
-        private String roleId; // 角色的唯一标识，单租户下唯一
         /**
          * 角色的唯一标识，单租户下唯一
          * <p> 示例值：7vrj3vk70xk7v5r
+         *
          * @param roleId
          * @return
          */
-          public Builder roleId(String roleId) {
-               this.roleId = roleId;
-               return this;
-          }
+        public Builder roleId(String roleId) {
+            this.roleId = roleId;
+            return this;
+        }
 
-    
-        private BatchCreateFunctionalRoleMemberReqBody body;
-    
         public BatchCreateFunctionalRoleMemberReqBody getBatchCreateFunctionalRoleMemberReqBody() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder batchCreateFunctionalRoleMemberReqBody(BatchCreateFunctionalRoleMemberReqBody body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public BatchCreateFunctionalRoleMemberReq build(){
-        return new BatchCreateFunctionalRoleMemberReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public BatchCreateFunctionalRoleMemberReq build() {
+            return new BatchCreateFunctionalRoleMemberReq(this);
+        }
     }
 }

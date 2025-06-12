@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class RestTimeFlexibleConfig {
-     /**
-      * 是否有弹性
-      * <p> 示例值：false
-      */
+    /**
+     * 是否有弹性
+     * <p> 示例值：false
+     */
     @SerializedName("need_flexible")
     private Boolean needFlexible;
-     /**
-      * 向后弹的时间
-      * <p> 示例值：0
-      */
+    /**
+     * 向后弹的时间
+     * <p> 示例值：0
+     */
     @SerializedName("late_mins")
     private Integer lateMins;
+
+    // builder 开始
+    public RestTimeFlexibleConfig() {
+    }
+
+    public RestTimeFlexibleConfig(Builder builder) {
+        /**
+         * 是否有弹性
+         * <p> 示例值：false
+         */
+        this.needFlexible = builder.needFlexible;
+        /**
+         * 向后弹的时间
+         * <p> 示例值：0
+         */
+        this.lateMins = builder.lateMins;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Boolean getNeedFlexible() {
         return this.needFlexible;
     }
@@ -53,67 +79,46 @@ public class RestTimeFlexibleConfig {
         this.lateMins = lateMins;
     }
 
-
-// builder 开始
-  public RestTimeFlexibleConfig(){}
-
-  public RestTimeFlexibleConfig(Builder builder){
-         /**
-          * 是否有弹性
-          * <p> 示例值：false
-          */
-      this.needFlexible = builder.needFlexible;
-         /**
-          * 向后弹的时间
-          * <p> 示例值：0
-          */
-      this.lateMins = builder.lateMins;
-  }
-
     public static class Builder {
-     /**
-      * 是否有弹性
-      * <p> 示例值：false
-      */
+        /**
+         * 是否有弹性
+         * <p> 示例值：false
+         */
         private Boolean needFlexible;
-     /**
-      * 向后弹的时间
-      * <p> 示例值：0
-      */
+        /**
+         * 向后弹的时间
+         * <p> 示例值：0
+         */
         private Integer lateMins;
 
         /**
          * 是否有弹性
          * <p> 示例值：false
+         *
          * @param needFlexible
          * @return
          */
         public Builder needFlexible(Boolean needFlexible) {
-             this.needFlexible = needFlexible;
-             return this;
+            this.needFlexible = needFlexible;
+            return this;
         }
 
-    
 
         /**
          * 向后弹的时间
          * <p> 示例值：0
+         *
          * @param lateMins
          * @return
          */
         public Builder lateMins(Integer lateMins) {
-             this.lateMins = lateMins;
-             return this;
+            this.lateMins = lateMins;
+            return this;
         }
 
-    
-    
-    public RestTimeFlexibleConfig build(){
-        return new RestTimeFlexibleConfig(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public RestTimeFlexibleConfig build() {
+            return new RestTimeFlexibleConfig(this);
+        }
     }
 }

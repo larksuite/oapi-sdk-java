@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class I18nV2 {
-     /**
-      * zh-CN
-      * <p> 示例值：王冰
-      */
+    /**
+     * zh-CN
+     * <p> 示例值：王冰
+     */
     @SerializedName("zh_cn")
     private String zhCn;
-     /**
-      * en-US
-      * <p> 示例值：Bob
-      */
+    /**
+     * en-US
+     * <p> 示例值：Bob
+     */
     @SerializedName("en_us")
     private String enUs;
+
+    // builder 开始
+    public I18nV2() {
+    }
+
+    public I18nV2(Builder builder) {
+        /**
+         * zh-CN
+         * <p> 示例值：王冰
+         */
+        this.zhCn = builder.zhCn;
+        /**
+         * en-US
+         * <p> 示例值：Bob
+         */
+        this.enUs = builder.enUs;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getZhCn() {
         return this.zhCn;
     }
@@ -53,67 +79,46 @@ public class I18nV2 {
         this.enUs = enUs;
     }
 
-
-// builder 开始
-  public I18nV2(){}
-
-  public I18nV2(Builder builder){
-         /**
-          * zh-CN
-          * <p> 示例值：王冰
-          */
-      this.zhCn = builder.zhCn;
-         /**
-          * en-US
-          * <p> 示例值：Bob
-          */
-      this.enUs = builder.enUs;
-  }
-
     public static class Builder {
-     /**
-      * zh-CN
-      * <p> 示例值：王冰
-      */
+        /**
+         * zh-CN
+         * <p> 示例值：王冰
+         */
         private String zhCn;
-     /**
-      * en-US
-      * <p> 示例值：Bob
-      */
+        /**
+         * en-US
+         * <p> 示例值：Bob
+         */
         private String enUs;
 
         /**
          * zh-CN
          * <p> 示例值：王冰
+         *
          * @param zhCn
          * @return
          */
         public Builder zhCn(String zhCn) {
-             this.zhCn = zhCn;
-             return this;
+            this.zhCn = zhCn;
+            return this;
         }
 
-    
 
         /**
          * en-US
          * <p> 示例值：Bob
+         *
          * @param enUs
          * @return
          */
         public Builder enUs(String enUs) {
-             this.enUs = enUs;
-             return this;
+            this.enUs = enUs;
+            return this;
         }
 
-    
-    
-    public I18nV2 build(){
-        return new I18nV2(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public I18nV2 build() {
+            return new I18nV2(this);
+        }
     }
 }

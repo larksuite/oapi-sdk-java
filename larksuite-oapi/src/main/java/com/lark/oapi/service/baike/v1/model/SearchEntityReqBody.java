@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.baike.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.baike.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,36 +20,71 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class SearchEntityReqBody {
-     /**
-      * 搜索关键词
-      * <p> 示例值：百科
-      */
+    /**
+     * 搜索关键词
+     * <p> 示例值：百科
+     */
     @SerializedName("query")
     private String query;
-     /**
-      * 分类筛选
-      * <p> 示例值：
-      */
+    /**
+     * 分类筛选
+     * <p> 示例值：
+     */
     @SerializedName("classification_filter")
     private ClassificationFilter classificationFilter;
-     /**
-      * 词条的创建来源，1：用户主动创建，2：批量导入，3：官方词，4：OpenAPI 创建
-      * <p> 示例值：
-      */
+    /**
+     * 词条的创建来源，1：用户主动创建，2：批量导入，3：官方词，4：OpenAPI 创建
+     * <p> 示例值：
+     */
     @SerializedName("sources")
     private Integer[] sources;
-     /**
-      * 创建者
-      * <p> 示例值：ou_30b07b63089ea46518789914dac63d36
-      */
+    /**
+     * 创建者
+     * <p> 示例值：ou_30b07b63089ea46518789914dac63d36
+     */
     @SerializedName("creators")
     private String[] creators;
+
+    // builder 开始
+    public SearchEntityReqBody() {
+    }
+
+    public SearchEntityReqBody(Builder builder) {
+        /**
+         * 搜索关键词
+         * <p> 示例值：百科
+         */
+        this.query = builder.query;
+        /**
+         * 分类筛选
+         * <p> 示例值：
+         */
+        this.classificationFilter = builder.classificationFilter;
+        /**
+         * 词条的创建来源，1：用户主动创建，2：批量导入，3：官方词，4：OpenAPI 创建
+         * <p> 示例值：
+         */
+        this.sources = builder.sources;
+        /**
+         * 创建者
+         * <p> 示例值：ou_30b07b63089ea46518789914dac63d36
+         */
+        this.creators = builder.creators;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getQuery() {
         return this.query;
     }
@@ -81,113 +117,82 @@ public class SearchEntityReqBody {
         this.creators = creators;
     }
 
-
-// builder 开始
-  public SearchEntityReqBody(){}
-
-  public SearchEntityReqBody(Builder builder){
-         /**
-          * 搜索关键词
-          * <p> 示例值：百科
-          */
-      this.query = builder.query;
-         /**
-          * 分类筛选
-          * <p> 示例值：
-          */
-      this.classificationFilter = builder.classificationFilter;
-         /**
-          * 词条的创建来源，1：用户主动创建，2：批量导入，3：官方词，4：OpenAPI 创建
-          * <p> 示例值：
-          */
-      this.sources = builder.sources;
-         /**
-          * 创建者
-          * <p> 示例值：ou_30b07b63089ea46518789914dac63d36
-          */
-      this.creators = builder.creators;
-  }
-
     public static class Builder {
-     /**
-      * 搜索关键词
-      * <p> 示例值：百科
-      */
+        /**
+         * 搜索关键词
+         * <p> 示例值：百科
+         */
         private String query;
-     /**
-      * 分类筛选
-      * <p> 示例值：
-      */
+        /**
+         * 分类筛选
+         * <p> 示例值：
+         */
         private ClassificationFilter classificationFilter;
-     /**
-      * 词条的创建来源，1：用户主动创建，2：批量导入，3：官方词，4：OpenAPI 创建
-      * <p> 示例值：
-      */
+        /**
+         * 词条的创建来源，1：用户主动创建，2：批量导入，3：官方词，4：OpenAPI 创建
+         * <p> 示例值：
+         */
         private Integer[] sources;
-     /**
-      * 创建者
-      * <p> 示例值：ou_30b07b63089ea46518789914dac63d36
-      */
+        /**
+         * 创建者
+         * <p> 示例值：ou_30b07b63089ea46518789914dac63d36
+         */
         private String[] creators;
 
         /**
          * 搜索关键词
          * <p> 示例值：百科
+         *
          * @param query
          * @return
          */
         public Builder query(String query) {
-             this.query = query;
-             return this;
+            this.query = query;
+            return this;
         }
 
-    
 
         /**
          * 分类筛选
          * <p> 示例值：
+         *
          * @param classificationFilter
          * @return
          */
         public Builder classificationFilter(ClassificationFilter classificationFilter) {
-             this.classificationFilter = classificationFilter;
-             return this;
+            this.classificationFilter = classificationFilter;
+            return this;
         }
 
-    
 
         /**
          * 词条的创建来源，1：用户主动创建，2：批量导入，3：官方词，4：OpenAPI 创建
          * <p> 示例值：
+         *
          * @param sources
          * @return
          */
         public Builder sources(Integer[] sources) {
-             this.sources = sources;
-             return this;
+            this.sources = sources;
+            return this;
         }
 
-    
 
         /**
          * 创建者
          * <p> 示例值：ou_30b07b63089ea46518789914dac63d36
+         *
          * @param creators
          * @return
          */
         public Builder creators(String[] creators) {
-             this.creators = creators;
-             return this;
+            this.creators = creators;
+            return this;
         }
 
-    
-    
-    public SearchEntityReqBody build(){
-        return new SearchEntityReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public SearchEntityReqBody build() {
+            return new SearchEntityReqBody(this);
+        }
     }
 }

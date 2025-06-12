@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CreateApplicationObjectRecordReqBody {
-     /**
-      * 创建对象使用的数据，键为字段 API 名称，值为字段值，格式可参考字段值格式
-      * <p> 示例值：{\"book_name\":\"test\"}
-      */
+    /**
+     * 创建对象使用的数据，键为字段 API 名称，值为字段值，格式可参考字段值格式
+     * <p> 示例值：{\"book_name\":\"test\"}
+     */
     @SerializedName("record")
     private String record;
+
+    // builder 开始
+    public CreateApplicationObjectRecordReqBody() {
+    }
+
+    public CreateApplicationObjectRecordReqBody(Builder builder) {
+        /**
+         * 创建对象使用的数据，键为字段 API 名称，值为字段值，格式可参考字段值格式
+         * <p> 示例值：{\"book_name\":\"test\"}
+         */
+        this.record = builder.record;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getRecord() {
         return this.record;
     }
@@ -39,44 +60,28 @@ public class CreateApplicationObjectRecordReqBody {
         this.record = record;
     }
 
-
-// builder 开始
-  public CreateApplicationObjectRecordReqBody(){}
-
-  public CreateApplicationObjectRecordReqBody(Builder builder){
-         /**
-          * 创建对象使用的数据，键为字段 API 名称，值为字段值，格式可参考字段值格式
-          * <p> 示例值：{\"book_name\":\"test\"}
-          */
-      this.record = builder.record;
-  }
-
     public static class Builder {
-     /**
-      * 创建对象使用的数据，键为字段 API 名称，值为字段值，格式可参考字段值格式
-      * <p> 示例值：{\"book_name\":\"test\"}
-      */
+        /**
+         * 创建对象使用的数据，键为字段 API 名称，值为字段值，格式可参考字段值格式
+         * <p> 示例值：{\"book_name\":\"test\"}
+         */
         private String record;
 
         /**
          * 创建对象使用的数据，键为字段 API 名称，值为字段值，格式可参考字段值格式
          * <p> 示例值：{\"book_name\":\"test\"}
+         *
          * @param record
          * @return
          */
         public Builder record(String record) {
-             this.record = record;
-             return this;
+            this.record = record;
+            return this;
         }
 
-    
-    
-    public CreateApplicationObjectRecordReqBody build(){
-        return new CreateApplicationObjectRecordReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public CreateApplicationObjectRecordReqBody build() {
+            return new CreateApplicationObjectRecordReqBody(this);
+        }
     }
 }

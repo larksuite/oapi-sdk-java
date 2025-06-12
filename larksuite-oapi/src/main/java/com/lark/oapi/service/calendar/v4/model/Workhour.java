@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.calendar.v4.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.calendar.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Workhour {
-     /**
-      * 工作日，定义每周的星期几为工作日.枚举值 0-6 代表 周日-周六
-      * <p> 示例值：1
-      */
+    /**
+     * 工作日，定义每周的星期几为工作日.枚举值 0-6 代表 周日-周六
+     * <p> 示例值：1
+     */
     @SerializedName("day_of_week")
     private Integer dayOfWeek;
-     /**
-      * 工作时间的开始时间，单位为分钟，取值 0 - 1440
-      * <p> 示例值：480
-      */
+    /**
+     * 工作时间的开始时间，单位为分钟，取值 0 - 1440
+     * <p> 示例值：480
+     */
     @SerializedName("start_time")
     private Integer startTime;
-     /**
-      * 工作时间的结束时间，单位为分钟，取值 start_time - 1440
-      * <p> 示例值：1020
-      */
+    /**
+     * 工作时间的结束时间，单位为分钟，取值 start_time - 1440
+     * <p> 示例值：1020
+     */
     @SerializedName("end_time")
     private Integer endTime;
+
+    // builder 开始
+    public Workhour() {
+    }
+
+    public Workhour(Builder builder) {
+        /**
+         * 工作日，定义每周的星期几为工作日.枚举值 0-6 代表 周日-周六
+         * <p> 示例值：1
+         */
+        this.dayOfWeek = builder.dayOfWeek;
+        /**
+         * 工作时间的开始时间，单位为分钟，取值 0 - 1440
+         * <p> 示例值：480
+         */
+        this.startTime = builder.startTime;
+        /**
+         * 工作时间的结束时间，单位为分钟，取值 start_time - 1440
+         * <p> 示例值：1020
+         */
+        this.endTime = builder.endTime;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Integer getDayOfWeek() {
         return this.dayOfWeek;
     }
@@ -67,90 +98,64 @@ public class Workhour {
         this.endTime = endTime;
     }
 
-
-// builder 开始
-  public Workhour(){}
-
-  public Workhour(Builder builder){
-         /**
-          * 工作日，定义每周的星期几为工作日.枚举值 0-6 代表 周日-周六
-          * <p> 示例值：1
-          */
-      this.dayOfWeek = builder.dayOfWeek;
-         /**
-          * 工作时间的开始时间，单位为分钟，取值 0 - 1440
-          * <p> 示例值：480
-          */
-      this.startTime = builder.startTime;
-         /**
-          * 工作时间的结束时间，单位为分钟，取值 start_time - 1440
-          * <p> 示例值：1020
-          */
-      this.endTime = builder.endTime;
-  }
-
     public static class Builder {
-     /**
-      * 工作日，定义每周的星期几为工作日.枚举值 0-6 代表 周日-周六
-      * <p> 示例值：1
-      */
+        /**
+         * 工作日，定义每周的星期几为工作日.枚举值 0-6 代表 周日-周六
+         * <p> 示例值：1
+         */
         private Integer dayOfWeek;
-     /**
-      * 工作时间的开始时间，单位为分钟，取值 0 - 1440
-      * <p> 示例值：480
-      */
+        /**
+         * 工作时间的开始时间，单位为分钟，取值 0 - 1440
+         * <p> 示例值：480
+         */
         private Integer startTime;
-     /**
-      * 工作时间的结束时间，单位为分钟，取值 start_time - 1440
-      * <p> 示例值：1020
-      */
+        /**
+         * 工作时间的结束时间，单位为分钟，取值 start_time - 1440
+         * <p> 示例值：1020
+         */
         private Integer endTime;
 
         /**
          * 工作日，定义每周的星期几为工作日.枚举值 0-6 代表 周日-周六
          * <p> 示例值：1
+         *
          * @param dayOfWeek
          * @return
          */
         public Builder dayOfWeek(Integer dayOfWeek) {
-             this.dayOfWeek = dayOfWeek;
-             return this;
+            this.dayOfWeek = dayOfWeek;
+            return this;
         }
 
-    
 
         /**
          * 工作时间的开始时间，单位为分钟，取值 0 - 1440
          * <p> 示例值：480
+         *
          * @param startTime
          * @return
          */
         public Builder startTime(Integer startTime) {
-             this.startTime = startTime;
-             return this;
+            this.startTime = startTime;
+            return this;
         }
 
-    
 
         /**
          * 工作时间的结束时间，单位为分钟，取值 start_time - 1440
          * <p> 示例值：1020
+         *
          * @param endTime
          * @return
          */
         public Builder endTime(Integer endTime) {
-             this.endTime = endTime;
-             return this;
+            this.endTime = endTime;
+            return this;
         }
 
-    
-    
-    public Workhour build(){
-        return new Workhour(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Workhour build() {
+            return new Workhour(this);
+        }
     }
 }

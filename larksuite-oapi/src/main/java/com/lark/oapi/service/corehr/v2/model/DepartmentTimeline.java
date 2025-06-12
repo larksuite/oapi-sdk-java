@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,78 +20,148 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class DepartmentTimeline {
-     /**
-      * 部门 ID
-      * <p> 示例值：4719456877659520852
-      */
+    /**
+     * 部门 ID
+     * <p> 示例值：4719456877659520852
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 部门版本 ID
-      * <p> 示例值：7238516215202170412
-      */
+    /**
+     * 部门版本 ID
+     * <p> 示例值：7238516215202170412
+     */
     @SerializedName("version_id")
     private String versionId;
-     /**
-      * 部门名称
-      * <p> 示例值：
-      */
+    /**
+     * 部门名称
+     * <p> 示例值：
+     */
     @SerializedName("names")
     private I18n[] names;
-     /**
-      * 部门类型，枚举值可通过文档【飞书人事枚举常量】部门子类型（department_sub_type）枚举定义部分获得
-      * <p> 示例值：
-      */
+    /**
+     * 部门类型，枚举值可通过文档【飞书人事枚举常量】部门子类型（department_sub_type）枚举定义部分获得
+     * <p> 示例值：
+     */
     @SerializedName("sub_type")
     private Enum subType;
-     /**
-      * 上级部门 ID
-      * <p> 示例值：4719456877659520111
-      */
+    /**
+     * 上级部门 ID
+     * <p> 示例值：4719456877659520111
+     */
     @SerializedName("parent_department_id")
     private String parentDepartmentId;
-     /**
-      * 部门负责人雇佣 ID，枚举值及详细信息可通过【查询员工信息】接口查询获得
-      * <p> 示例值：6893013238632416777
-      */
+    /**
+     * 部门负责人雇佣 ID，枚举值及详细信息可通过【查询员工信息】接口查询获得
+     * <p> 示例值：6893013238632416777
+     */
     @SerializedName("manager")
     private String manager;
-     /**
-      * 编码
-      * <p> 示例值：D00000456
-      */
+    /**
+     * 编码
+     * <p> 示例值：D00000456
+     */
     @SerializedName("code")
     private String code;
-     /**
-      * 生效日期
-      * <p> 示例值：2020-05-01
-      */
+    /**
+     * 生效日期
+     * <p> 示例值：2020-05-01
+     */
     @SerializedName("effective_date")
     private String effectiveDate;
-     /**
-      * 是否启用
-      * <p> 示例值：true
-      */
+    /**
+     * 是否启用
+     * <p> 示例值：true
+     */
     @SerializedName("active")
     private Boolean active;
-     /**
-      * 描述
-      * <p> 示例值：
-      */
+    /**
+     * 描述
+     * <p> 示例值：
+     */
     @SerializedName("descriptions")
     private I18n[] descriptions;
-     /**
-      * 自定义字段
-      * <p> 示例值：
-      */
+    /**
+     * 自定义字段
+     * <p> 示例值：
+     */
     @SerializedName("custom_fields")
     private CustomFieldData[] customFields;
+
+    // builder 开始
+    public DepartmentTimeline() {
+    }
+
+    public DepartmentTimeline(Builder builder) {
+        /**
+         * 部门 ID
+         * <p> 示例值：4719456877659520852
+         */
+        this.id = builder.id;
+        /**
+         * 部门版本 ID
+         * <p> 示例值：7238516215202170412
+         */
+        this.versionId = builder.versionId;
+        /**
+         * 部门名称
+         * <p> 示例值：
+         */
+        this.names = builder.names;
+        /**
+         * 部门类型，枚举值可通过文档【飞书人事枚举常量】部门子类型（department_sub_type）枚举定义部分获得
+         * <p> 示例值：
+         */
+        this.subType = builder.subType;
+        /**
+         * 上级部门 ID
+         * <p> 示例值：4719456877659520111
+         */
+        this.parentDepartmentId = builder.parentDepartmentId;
+        /**
+         * 部门负责人雇佣 ID，枚举值及详细信息可通过【查询员工信息】接口查询获得
+         * <p> 示例值：6893013238632416777
+         */
+        this.manager = builder.manager;
+        /**
+         * 编码
+         * <p> 示例值：D00000456
+         */
+        this.code = builder.code;
+        /**
+         * 生效日期
+         * <p> 示例值：2020-05-01
+         */
+        this.effectiveDate = builder.effectiveDate;
+        /**
+         * 是否启用
+         * <p> 示例值：true
+         */
+        this.active = builder.active;
+        /**
+         * 描述
+         * <p> 示例值：
+         */
+        this.descriptions = builder.descriptions;
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
+        this.customFields = builder.customFields;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -179,274 +250,208 @@ public class DepartmentTimeline {
         this.customFields = customFields;
     }
 
-
-// builder 开始
-  public DepartmentTimeline(){}
-
-  public DepartmentTimeline(Builder builder){
-         /**
-          * 部门 ID
-          * <p> 示例值：4719456877659520852
-          */
-      this.id = builder.id;
-         /**
-          * 部门版本 ID
-          * <p> 示例值：7238516215202170412
-          */
-      this.versionId = builder.versionId;
-         /**
-          * 部门名称
-          * <p> 示例值：
-          */
-      this.names = builder.names;
-         /**
-          * 部门类型，枚举值可通过文档【飞书人事枚举常量】部门子类型（department_sub_type）枚举定义部分获得
-          * <p> 示例值：
-          */
-      this.subType = builder.subType;
-         /**
-          * 上级部门 ID
-          * <p> 示例值：4719456877659520111
-          */
-      this.parentDepartmentId = builder.parentDepartmentId;
-         /**
-          * 部门负责人雇佣 ID，枚举值及详细信息可通过【查询员工信息】接口查询获得
-          * <p> 示例值：6893013238632416777
-          */
-      this.manager = builder.manager;
-         /**
-          * 编码
-          * <p> 示例值：D00000456
-          */
-      this.code = builder.code;
-         /**
-          * 生效日期
-          * <p> 示例值：2020-05-01
-          */
-      this.effectiveDate = builder.effectiveDate;
-         /**
-          * 是否启用
-          * <p> 示例值：true
-          */
-      this.active = builder.active;
-         /**
-          * 描述
-          * <p> 示例值：
-          */
-      this.descriptions = builder.descriptions;
-         /**
-          * 自定义字段
-          * <p> 示例值：
-          */
-      this.customFields = builder.customFields;
-  }
-
     public static class Builder {
-     /**
-      * 部门 ID
-      * <p> 示例值：4719456877659520852
-      */
+        /**
+         * 部门 ID
+         * <p> 示例值：4719456877659520852
+         */
         private String id;
-     /**
-      * 部门版本 ID
-      * <p> 示例值：7238516215202170412
-      */
+        /**
+         * 部门版本 ID
+         * <p> 示例值：7238516215202170412
+         */
         private String versionId;
-     /**
-      * 部门名称
-      * <p> 示例值：
-      */
+        /**
+         * 部门名称
+         * <p> 示例值：
+         */
         private I18n[] names;
-     /**
-      * 部门类型，枚举值可通过文档【飞书人事枚举常量】部门子类型（department_sub_type）枚举定义部分获得
-      * <p> 示例值：
-      */
+        /**
+         * 部门类型，枚举值可通过文档【飞书人事枚举常量】部门子类型（department_sub_type）枚举定义部分获得
+         * <p> 示例值：
+         */
         private Enum subType;
-     /**
-      * 上级部门 ID
-      * <p> 示例值：4719456877659520111
-      */
+        /**
+         * 上级部门 ID
+         * <p> 示例值：4719456877659520111
+         */
         private String parentDepartmentId;
-     /**
-      * 部门负责人雇佣 ID，枚举值及详细信息可通过【查询员工信息】接口查询获得
-      * <p> 示例值：6893013238632416777
-      */
+        /**
+         * 部门负责人雇佣 ID，枚举值及详细信息可通过【查询员工信息】接口查询获得
+         * <p> 示例值：6893013238632416777
+         */
         private String manager;
-     /**
-      * 编码
-      * <p> 示例值：D00000456
-      */
+        /**
+         * 编码
+         * <p> 示例值：D00000456
+         */
         private String code;
-     /**
-      * 生效日期
-      * <p> 示例值：2020-05-01
-      */
+        /**
+         * 生效日期
+         * <p> 示例值：2020-05-01
+         */
         private String effectiveDate;
-     /**
-      * 是否启用
-      * <p> 示例值：true
-      */
+        /**
+         * 是否启用
+         * <p> 示例值：true
+         */
         private Boolean active;
-     /**
-      * 描述
-      * <p> 示例值：
-      */
+        /**
+         * 描述
+         * <p> 示例值：
+         */
         private I18n[] descriptions;
-     /**
-      * 自定义字段
-      * <p> 示例值：
-      */
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
         private CustomFieldData[] customFields;
 
         /**
          * 部门 ID
          * <p> 示例值：4719456877659520852
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 部门版本 ID
          * <p> 示例值：7238516215202170412
+         *
          * @param versionId
          * @return
          */
         public Builder versionId(String versionId) {
-             this.versionId = versionId;
-             return this;
+            this.versionId = versionId;
+            return this;
         }
 
-    
 
         /**
          * 部门名称
          * <p> 示例值：
+         *
          * @param names
          * @return
          */
         public Builder names(I18n[] names) {
-             this.names = names;
-             return this;
+            this.names = names;
+            return this;
         }
 
-    
 
         /**
          * 部门类型，枚举值可通过文档【飞书人事枚举常量】部门子类型（department_sub_type）枚举定义部分获得
          * <p> 示例值：
+         *
          * @param subType
          * @return
          */
         public Builder subType(Enum subType) {
-             this.subType = subType;
-             return this;
+            this.subType = subType;
+            return this;
         }
 
-    
 
         /**
          * 上级部门 ID
          * <p> 示例值：4719456877659520111
+         *
          * @param parentDepartmentId
          * @return
          */
         public Builder parentDepartmentId(String parentDepartmentId) {
-             this.parentDepartmentId = parentDepartmentId;
-             return this;
+            this.parentDepartmentId = parentDepartmentId;
+            return this;
         }
 
-    
 
         /**
          * 部门负责人雇佣 ID，枚举值及详细信息可通过【查询员工信息】接口查询获得
          * <p> 示例值：6893013238632416777
+         *
          * @param manager
          * @return
          */
         public Builder manager(String manager) {
-             this.manager = manager;
-             return this;
+            this.manager = manager;
+            return this;
         }
 
-    
 
         /**
          * 编码
          * <p> 示例值：D00000456
+         *
          * @param code
          * @return
          */
         public Builder code(String code) {
-             this.code = code;
-             return this;
+            this.code = code;
+            return this;
         }
 
-    
 
         /**
          * 生效日期
          * <p> 示例值：2020-05-01
+         *
          * @param effectiveDate
          * @return
          */
         public Builder effectiveDate(String effectiveDate) {
-             this.effectiveDate = effectiveDate;
-             return this;
+            this.effectiveDate = effectiveDate;
+            return this;
         }
 
-    
 
         /**
          * 是否启用
          * <p> 示例值：true
+         *
          * @param active
          * @return
          */
         public Builder active(Boolean active) {
-             this.active = active;
-             return this;
+            this.active = active;
+            return this;
         }
 
-    
 
         /**
          * 描述
          * <p> 示例值：
+         *
          * @param descriptions
          * @return
          */
         public Builder descriptions(I18n[] descriptions) {
-             this.descriptions = descriptions;
-             return this;
+            this.descriptions = descriptions;
+            return this;
         }
 
-    
 
         /**
          * 自定义字段
          * <p> 示例值：
+         *
          * @param customFields
          * @return
          */
         public Builder customFields(CustomFieldData[] customFields) {
-             this.customFields = customFields;
-             return this;
+            this.customFields = customFields;
+            return this;
         }
 
-    
-    
-    public DepartmentTimeline build(){
-        return new DepartmentTimeline(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public DepartmentTimeline build() {
+            return new DepartmentTimeline(this);
+        }
     }
 }

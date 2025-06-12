@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class BatchMessageReadUser {
-     /**
-      * 已读的人数
-      * <p> 示例值：
-      */
+    /**
+     * 已读的人数
+     * <p> 示例值：
+     */
     @SerializedName("read_count")
     private String readCount;
-     /**
-      * 推送的总人数
-      * <p> 示例值：
-      */
+    /**
+     * 推送的总人数
+     * <p> 示例值：
+     */
     @SerializedName("total_count")
     private String totalCount;
+
+    // builder 开始
+    public BatchMessageReadUser() {
+    }
+
+    public BatchMessageReadUser(Builder builder) {
+        /**
+         * 已读的人数
+         * <p> 示例值：
+         */
+        this.readCount = builder.readCount;
+        /**
+         * 推送的总人数
+         * <p> 示例值：
+         */
+        this.totalCount = builder.totalCount;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getReadCount() {
         return this.readCount;
     }
@@ -53,67 +79,46 @@ public class BatchMessageReadUser {
         this.totalCount = totalCount;
     }
 
-
-// builder 开始
-  public BatchMessageReadUser(){}
-
-  public BatchMessageReadUser(Builder builder){
-         /**
-          * 已读的人数
-          * <p> 示例值：
-          */
-      this.readCount = builder.readCount;
-         /**
-          * 推送的总人数
-          * <p> 示例值：
-          */
-      this.totalCount = builder.totalCount;
-  }
-
     public static class Builder {
-     /**
-      * 已读的人数
-      * <p> 示例值：
-      */
+        /**
+         * 已读的人数
+         * <p> 示例值：
+         */
         private String readCount;
-     /**
-      * 推送的总人数
-      * <p> 示例值：
-      */
+        /**
+         * 推送的总人数
+         * <p> 示例值：
+         */
         private String totalCount;
 
         /**
          * 已读的人数
          * <p> 示例值：
+         *
          * @param readCount
          * @return
          */
         public Builder readCount(String readCount) {
-             this.readCount = readCount;
-             return this;
+            this.readCount = readCount;
+            return this;
         }
 
-    
 
         /**
          * 推送的总人数
          * <p> 示例值：
+         *
          * @param totalCount
          * @return
          */
         public Builder totalCount(String totalCount) {
-             this.totalCount = totalCount;
-             return this;
+            this.totalCount = totalCount;
+            return this;
         }
 
-    
-    
-    public BatchMessageReadUser build(){
-        return new BatchMessageReadUser(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public BatchMessageReadUser build() {
+            return new BatchMessageReadUser(this);
+        }
     }
 }

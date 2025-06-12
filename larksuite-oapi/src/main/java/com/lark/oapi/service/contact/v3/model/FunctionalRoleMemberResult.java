@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.contact.v3.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class FunctionalRoleMemberResult {
-     /**
-      * 用户ID
-      * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
-      */
+    /**
+     * 用户ID
+     * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
+     */
     @SerializedName("user_id")
     private String userId;
-     /**
-      * 成员处理结果
-      * <p> 示例值：1
-      */
+    /**
+     * 成员处理结果
+     * <p> 示例值：1
+     */
     @SerializedName("reason")
     private Integer reason;
+
+    // builder 开始
+    public FunctionalRoleMemberResult() {
+    }
+
+    public FunctionalRoleMemberResult(Builder builder) {
+        /**
+         * 用户ID
+         * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
+         */
+        this.userId = builder.userId;
+        /**
+         * 成员处理结果
+         * <p> 示例值：1
+         */
+        this.reason = builder.reason;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getUserId() {
         return this.userId;
     }
@@ -53,77 +79,58 @@ public class FunctionalRoleMemberResult {
         this.reason = reason;
     }
 
-
-// builder 开始
-  public FunctionalRoleMemberResult(){}
-
-  public FunctionalRoleMemberResult(Builder builder){
-         /**
-          * 用户ID
-          * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
-          */
-      this.userId = builder.userId;
-         /**
-          * 成员处理结果
-          * <p> 示例值：1
-          */
-      this.reason = builder.reason;
-  }
-
     public static class Builder {
-     /**
-      * 用户ID
-      * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
-      */
+        /**
+         * 用户ID
+         * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
+         */
         private String userId;
-     /**
-      * 成员处理结果
-      * <p> 示例值：1
-      */
+        /**
+         * 成员处理结果
+         * <p> 示例值：1
+         */
         private Integer reason;
 
         /**
          * 用户ID
          * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
+         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-             this.userId = userId;
-             return this;
+            this.userId = userId;
+            return this;
         }
 
-    
 
         /**
          * 成员处理结果
          * <p> 示例值：1
+         *
          * @param reason
          * @return
          */
         public Builder reason(Integer reason) {
-             this.reason = reason;
-             return this;
+            this.reason = reason;
+            return this;
         }
+
         /**
          * 成员处理结果
          * <p> 示例值：1
+         *
          * @param reason {@link com.lark.oapi.service.contact.v3.enums.FunctionalRoleMemberResultReasonEnum}
          * @return
          */
         public Builder reason(com.lark.oapi.service.contact.v3.enums.FunctionalRoleMemberResultReasonEnum reason) {
-             this.reason = reason.getValue();
-             return this;
+            this.reason = reason.getValue();
+            return this;
         }
 
-    
-    
-    public FunctionalRoleMemberResult build(){
-        return new FunctionalRoleMemberResult(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public FunctionalRoleMemberResult build() {
+            return new FunctionalRoleMemberResult(this);
+        }
     }
 }

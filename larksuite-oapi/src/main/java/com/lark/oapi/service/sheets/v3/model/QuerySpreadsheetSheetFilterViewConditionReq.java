@@ -12,39 +12,70 @@
  */
 
 package com.lark.oapi.service.sheets.v3.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.sheets.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class QuerySpreadsheetSheetFilterViewConditionReq {
-     /**
-      * 表格 token
-      * <p> 示例值：shtcnmBA*****yGehy8
-      */
+    /**
+     * 表格 token
+     * <p> 示例值：shtcnmBA*****yGehy8
+     */
     @Path
     @SerializedName("spreadsheet_token")
     private String spreadsheetToken;
-     /**
-      * 子表 id
-      * <p> 示例值：0b**12
-      */
+    /**
+     * 子表 id
+     * <p> 示例值：0b**12
+     */
     @Path
     @SerializedName("sheet_id")
     private String sheetId;
-     /**
-      * 筛选视图 id
-      * <p> 示例值：pH9hbVcCXA
-      */
+    /**
+     * 筛选视图 id
+     * <p> 示例值：pH9hbVcCXA
+     */
     @Path
     @SerializedName("filter_view_id")
     private String filterViewId;
+
+    // builder 开始
+    public QuerySpreadsheetSheetFilterViewConditionReq() {
+    }
+
+    public QuerySpreadsheetSheetFilterViewConditionReq(Builder builder) {
+        /**
+         * 表格 token
+         * <p> 示例值：shtcnmBA*****yGehy8
+         */
+        this.spreadsheetToken = builder.spreadsheetToken;
+        /**
+         * 子表 id
+         * <p> 示例值：0b**12
+         */
+        this.sheetId = builder.sheetId;
+        /**
+         * 筛选视图 id
+         * <p> 示例值：pH9hbVcCXA
+         */
+        this.filterViewId = builder.filterViewId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getSpreadsheetToken() {
         return this.spreadsheetToken;
     }
@@ -69,75 +100,53 @@ public class QuerySpreadsheetSheetFilterViewConditionReq {
         this.filterViewId = filterViewId;
     }
 
-
-// builder 开始
-  public QuerySpreadsheetSheetFilterViewConditionReq(){}
-
-  public QuerySpreadsheetSheetFilterViewConditionReq(Builder builder){
-     /**
-      * 表格 token
-      * <p> 示例值：shtcnmBA*****yGehy8
-      */
-       this.spreadsheetToken = builder.spreadsheetToken;
-     /**
-      * 子表 id
-      * <p> 示例值：0b**12
-      */
-       this.sheetId = builder.sheetId;
-     /**
-      * 筛选视图 id
-      * <p> 示例值：pH9hbVcCXA
-      */
-       this.filterViewId = builder.filterViewId;
-  }
-
     public static class Builder {
-    
+
         private String spreadsheetToken; // 表格 token
         private String sheetId; // 子表 id
         private String filterViewId; // 筛选视图 id
+
         /**
          * 表格 token
          * <p> 示例值：shtcnmBA*****yGehy8
+         *
          * @param spreadsheetToken
          * @return
          */
-          public Builder spreadsheetToken(String spreadsheetToken) {
-               this.spreadsheetToken = spreadsheetToken;
-               return this;
-          }
+        public Builder spreadsheetToken(String spreadsheetToken) {
+            this.spreadsheetToken = spreadsheetToken;
+            return this;
+        }
 
-    
+
         /**
          * 子表 id
          * <p> 示例值：0b**12
+         *
          * @param sheetId
          * @return
          */
-          public Builder sheetId(String sheetId) {
-               this.sheetId = sheetId;
-               return this;
-          }
+        public Builder sheetId(String sheetId) {
+            this.sheetId = sheetId;
+            return this;
+        }
 
-    
+
         /**
          * 筛选视图 id
          * <p> 示例值：pH9hbVcCXA
+         *
          * @param filterViewId
          * @return
          */
-          public Builder filterViewId(String filterViewId) {
-               this.filterViewId = filterViewId;
-               return this;
-          }
+        public Builder filterViewId(String filterViewId) {
+            this.filterViewId = filterViewId;
+            return this;
+        }
 
-    
-    public QuerySpreadsheetSheetFilterViewConditionReq build(){
-        return new QuerySpreadsheetSheetFilterViewConditionReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public QuerySpreadsheetSheetFilterViewConditionReq build() {
+            return new QuerySpreadsheetSheetFilterViewConditionReq(this);
+        }
     }
 }

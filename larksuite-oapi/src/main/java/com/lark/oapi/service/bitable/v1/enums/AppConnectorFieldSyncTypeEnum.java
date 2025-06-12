@@ -17,15 +17,16 @@ package com.lark.oapi.service.bitable.v1.enums;
  * 字段同步方式
  */
 public enum AppConnectorFieldSyncTypeEnum {
-     ALL(1), // 同步全字段
-     SPECIFIC(2), // 同步指定字段
-  ;
-   private Integer value;
+    ALL(1), // 同步全字段
+    SPECIFIC(2), // 同步指定字段
+    ;
+    private Integer value;
+
     AppConnectorFieldSyncTypeEnum(Integer value) {
-      this.value = value;
+        this.value = value;
     }
 
     public Integer getValue() {
-      return this.value;
+        return this.value;
     }
 }

@@ -17,16 +17,17 @@ package com.lark.oapi.service.attendance.v1.enums;
  * 外出时间单位，枚举值hour,half_day,day
  */
 public enum OutRecordDurationUnitEnum {
-     HOUR("hour"), // 小时
-     HALF_DAY("half_day"), // 半天
-     DAY("day"), // 天
-  ;
-   private String value;
+    HOUR("hour"), // 小时
+    HALF_DAY("half_day"), // 半天
+    DAY("day"), // 天
+    ;
+    private String value;
+
     OutRecordDurationUnitEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

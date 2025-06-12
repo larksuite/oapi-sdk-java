@@ -12,36 +12,67 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class AgencySupplierAdmin {
-     /**
-      * 管理员 ID
-      * <p> 示例值：7398493486516799788
-      */
+    /**
+     * 管理员 ID
+     * <p> 示例值：7398493486516799788
+     */
     @SerializedName("user_id")
     private String userId;
-     /**
-      * 管理员名称
-      * <p> 示例值：
-      */
+    /**
+     * 管理员名称
+     * <p> 示例值：
+     */
     @SerializedName("name")
     private I18n name;
-     /**
-      * 管理员邮箱
-      * <p> 示例值：283xxxx2171813@qq.com
-      */
+    /**
+     * 管理员邮箱
+     * <p> 示例值：283xxxx2171813@qq.com
+     */
     @SerializedName("email")
     private String email;
+
+    // builder 开始
+    public AgencySupplierAdmin() {
+    }
+
+    public AgencySupplierAdmin(Builder builder) {
+        /**
+         * 管理员 ID
+         * <p> 示例值：7398493486516799788
+         */
+        this.userId = builder.userId;
+        /**
+         * 管理员名称
+         * <p> 示例值：
+         */
+        this.name = builder.name;
+        /**
+         * 管理员邮箱
+         * <p> 示例值：283xxxx2171813@qq.com
+         */
+        this.email = builder.email;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getUserId() {
         return this.userId;
     }
@@ -66,90 +97,64 @@ public class AgencySupplierAdmin {
         this.email = email;
     }
 
-
-// builder 开始
-  public AgencySupplierAdmin(){}
-
-  public AgencySupplierAdmin(Builder builder){
-         /**
-          * 管理员 ID
-          * <p> 示例值：7398493486516799788
-          */
-      this.userId = builder.userId;
-         /**
-          * 管理员名称
-          * <p> 示例值：
-          */
-      this.name = builder.name;
-         /**
-          * 管理员邮箱
-          * <p> 示例值：283xxxx2171813@qq.com
-          */
-      this.email = builder.email;
-  }
-
     public static class Builder {
-     /**
-      * 管理员 ID
-      * <p> 示例值：7398493486516799788
-      */
+        /**
+         * 管理员 ID
+         * <p> 示例值：7398493486516799788
+         */
         private String userId;
-     /**
-      * 管理员名称
-      * <p> 示例值：
-      */
+        /**
+         * 管理员名称
+         * <p> 示例值：
+         */
         private I18n name;
-     /**
-      * 管理员邮箱
-      * <p> 示例值：283xxxx2171813@qq.com
-      */
+        /**
+         * 管理员邮箱
+         * <p> 示例值：283xxxx2171813@qq.com
+         */
         private String email;
 
         /**
          * 管理员 ID
          * <p> 示例值：7398493486516799788
+         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-             this.userId = userId;
-             return this;
+            this.userId = userId;
+            return this;
         }
 
-    
 
         /**
          * 管理员名称
          * <p> 示例值：
+         *
          * @param name
          * @return
          */
         public Builder name(I18n name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 管理员邮箱
          * <p> 示例值：283xxxx2171813@qq.com
+         *
          * @param email
          * @return
          */
         public Builder email(String email) {
-             this.email = email;
-             return this;
+            this.email = email;
+            return this;
         }
 
-    
-    
-    public AgencySupplierAdmin build(){
-        return new AgencySupplierAdmin(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public AgencySupplierAdmin build() {
+            return new AgencySupplierAdmin(this);
+        }
     }
 }

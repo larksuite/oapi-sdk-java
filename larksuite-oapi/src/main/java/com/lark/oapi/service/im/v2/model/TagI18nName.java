@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.im.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class TagI18nName {
-     /**
-      * 语言
-      * <p> 示例值：zh-CN
-      */
+    /**
+     * 语言
+     * <p> 示例值：zh-CN
+     */
     @SerializedName("locale")
     private String locale;
-     /**
-      * 名称
-      * <p> 示例值：tagName1
-      */
+    /**
+     * 名称
+     * <p> 示例值：tagName1
+     */
     @SerializedName("name")
     private String name;
+
+    // builder 开始
+    public TagI18nName() {
+    }
+
+    public TagI18nName(Builder builder) {
+        /**
+         * 语言
+         * <p> 示例值：zh-CN
+         */
+        this.locale = builder.locale;
+        /**
+         * 名称
+         * <p> 示例值：tagName1
+         */
+        this.name = builder.name;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getLocale() {
         return this.locale;
     }
@@ -53,67 +79,46 @@ public class TagI18nName {
         this.name = name;
     }
 
-
-// builder 开始
-  public TagI18nName(){}
-
-  public TagI18nName(Builder builder){
-         /**
-          * 语言
-          * <p> 示例值：zh-CN
-          */
-      this.locale = builder.locale;
-         /**
-          * 名称
-          * <p> 示例值：tagName1
-          */
-      this.name = builder.name;
-  }
-
     public static class Builder {
-     /**
-      * 语言
-      * <p> 示例值：zh-CN
-      */
+        /**
+         * 语言
+         * <p> 示例值：zh-CN
+         */
         private String locale;
-     /**
-      * 名称
-      * <p> 示例值：tagName1
-      */
+        /**
+         * 名称
+         * <p> 示例值：tagName1
+         */
         private String name;
 
         /**
          * 语言
          * <p> 示例值：zh-CN
+         *
          * @param locale
          * @return
          */
         public Builder locale(String locale) {
-             this.locale = locale;
-             return this;
+            this.locale = locale;
+            return this;
         }
 
-    
 
         /**
          * 名称
          * <p> 示例值：tagName1
+         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
-    
-    public TagI18nName build(){
-        return new TagI18nName(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public TagI18nName build() {
+            return new TagI18nName(this);
+        }
     }
 }

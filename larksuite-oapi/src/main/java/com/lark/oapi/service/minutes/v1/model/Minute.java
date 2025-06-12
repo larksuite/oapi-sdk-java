@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.minutes.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.minutes.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,54 +20,104 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Minute {
-     /**
-      * 妙记token
-      * <p> 示例值：obcnq3b9jl72l83w4f149w9c
-      */
+    /**
+     * 妙记token
+     * <p> 示例值：obcnq3b9jl72l83w4f149w9c
+     */
     @SerializedName("token")
     private String token;
-     /**
-      * 所有者ID
-      * <p> 示例值：ou_612b787ccd3259fb3c816b3f678d0426
-      */
+    /**
+     * 所有者ID
+     * <p> 示例值：ou_612b787ccd3259fb3c816b3f678d0426
+     */
     @SerializedName("owner_id")
     private String ownerId;
-     /**
-      * 妙记创建时间timestamp（ms级别）
-      * <p> 示例值：1669098360477
-      */
+    /**
+     * 妙记创建时间timestamp（ms级别）
+     * <p> 示例值：1669098360477
+     */
     @SerializedName("create_time")
     private String createTime;
-     /**
-      * 妙记标题
-      * <p> 示例值：xxx的视频会议
-      */
+    /**
+     * 妙记标题
+     * <p> 示例值：xxx的视频会议
+     */
     @SerializedName("title")
     private String title;
-     /**
-      * 妙记封面链接
-      * <p> 示例值：https://internal-api-drive-stream.feishu-pre.cn/space/api/box/stream/download/all/boxcncsI4EIhCSA1RLDsXDpCoQd
-      */
+    /**
+     * 妙记封面链接
+     * <p> 示例值：https://internal-api-drive-stream.feishu-pre.cn/space/api/box/stream/download/all/boxcncsI4EIhCSA1RLDsXDpCoQd
+     */
     @SerializedName("cover")
     private String cover;
-     /**
-      * 妙记时长（ms级别）
-      * <p> 示例值：314000
-      */
+    /**
+     * 妙记时长（ms级别）
+     * <p> 示例值：314000
+     */
     @SerializedName("duration")
     private String duration;
-     /**
-      * 妙记链接
-      * <p> 示例值：https://bytedance.feishu-pre.cn/minutes/obcnq3b9jl72l83w4f149w9c
-      */
+    /**
+     * 妙记链接
+     * <p> 示例值：https://bytedance.feishu-pre.cn/minutes/obcnq3b9jl72l83w4f149w9c
+     */
     @SerializedName("url")
     private String url;
+
+    // builder 开始
+    public Minute() {
+    }
+
+    public Minute(Builder builder) {
+        /**
+         * 妙记token
+         * <p> 示例值：obcnq3b9jl72l83w4f149w9c
+         */
+        this.token = builder.token;
+        /**
+         * 所有者ID
+         * <p> 示例值：ou_612b787ccd3259fb3c816b3f678d0426
+         */
+        this.ownerId = builder.ownerId;
+        /**
+         * 妙记创建时间timestamp（ms级别）
+         * <p> 示例值：1669098360477
+         */
+        this.createTime = builder.createTime;
+        /**
+         * 妙记标题
+         * <p> 示例值：xxx的视频会议
+         */
+        this.title = builder.title;
+        /**
+         * 妙记封面链接
+         * <p> 示例值：https://internal-api-drive-stream.feishu-pre.cn/space/api/box/stream/download/all/boxcncsI4EIhCSA1RLDsXDpCoQd
+         */
+        this.cover = builder.cover;
+        /**
+         * 妙记时长（ms级别）
+         * <p> 示例值：314000
+         */
+        this.duration = builder.duration;
+        /**
+         * 妙记链接
+         * <p> 示例值：https://bytedance.feishu-pre.cn/minutes/obcnq3b9jl72l83w4f149w9c
+         */
+        this.url = builder.url;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getToken() {
         return this.token;
     }
@@ -123,182 +174,136 @@ public class Minute {
         this.url = url;
     }
 
-
-// builder 开始
-  public Minute(){}
-
-  public Minute(Builder builder){
-         /**
-          * 妙记token
-          * <p> 示例值：obcnq3b9jl72l83w4f149w9c
-          */
-      this.token = builder.token;
-         /**
-          * 所有者ID
-          * <p> 示例值：ou_612b787ccd3259fb3c816b3f678d0426
-          */
-      this.ownerId = builder.ownerId;
-         /**
-          * 妙记创建时间timestamp（ms级别）
-          * <p> 示例值：1669098360477
-          */
-      this.createTime = builder.createTime;
-         /**
-          * 妙记标题
-          * <p> 示例值：xxx的视频会议
-          */
-      this.title = builder.title;
-         /**
-          * 妙记封面链接
-          * <p> 示例值：https://internal-api-drive-stream.feishu-pre.cn/space/api/box/stream/download/all/boxcncsI4EIhCSA1RLDsXDpCoQd
-          */
-      this.cover = builder.cover;
-         /**
-          * 妙记时长（ms级别）
-          * <p> 示例值：314000
-          */
-      this.duration = builder.duration;
-         /**
-          * 妙记链接
-          * <p> 示例值：https://bytedance.feishu-pre.cn/minutes/obcnq3b9jl72l83w4f149w9c
-          */
-      this.url = builder.url;
-  }
-
     public static class Builder {
-     /**
-      * 妙记token
-      * <p> 示例值：obcnq3b9jl72l83w4f149w9c
-      */
+        /**
+         * 妙记token
+         * <p> 示例值：obcnq3b9jl72l83w4f149w9c
+         */
         private String token;
-     /**
-      * 所有者ID
-      * <p> 示例值：ou_612b787ccd3259fb3c816b3f678d0426
-      */
+        /**
+         * 所有者ID
+         * <p> 示例值：ou_612b787ccd3259fb3c816b3f678d0426
+         */
         private String ownerId;
-     /**
-      * 妙记创建时间timestamp（ms级别）
-      * <p> 示例值：1669098360477
-      */
+        /**
+         * 妙记创建时间timestamp（ms级别）
+         * <p> 示例值：1669098360477
+         */
         private String createTime;
-     /**
-      * 妙记标题
-      * <p> 示例值：xxx的视频会议
-      */
+        /**
+         * 妙记标题
+         * <p> 示例值：xxx的视频会议
+         */
         private String title;
-     /**
-      * 妙记封面链接
-      * <p> 示例值：https://internal-api-drive-stream.feishu-pre.cn/space/api/box/stream/download/all/boxcncsI4EIhCSA1RLDsXDpCoQd
-      */
+        /**
+         * 妙记封面链接
+         * <p> 示例值：https://internal-api-drive-stream.feishu-pre.cn/space/api/box/stream/download/all/boxcncsI4EIhCSA1RLDsXDpCoQd
+         */
         private String cover;
-     /**
-      * 妙记时长（ms级别）
-      * <p> 示例值：314000
-      */
+        /**
+         * 妙记时长（ms级别）
+         * <p> 示例值：314000
+         */
         private String duration;
-     /**
-      * 妙记链接
-      * <p> 示例值：https://bytedance.feishu-pre.cn/minutes/obcnq3b9jl72l83w4f149w9c
-      */
+        /**
+         * 妙记链接
+         * <p> 示例值：https://bytedance.feishu-pre.cn/minutes/obcnq3b9jl72l83w4f149w9c
+         */
         private String url;
 
         /**
          * 妙记token
          * <p> 示例值：obcnq3b9jl72l83w4f149w9c
+         *
          * @param token
          * @return
          */
         public Builder token(String token) {
-             this.token = token;
-             return this;
+            this.token = token;
+            return this;
         }
 
-    
 
         /**
          * 所有者ID
          * <p> 示例值：ou_612b787ccd3259fb3c816b3f678d0426
+         *
          * @param ownerId
          * @return
          */
         public Builder ownerId(String ownerId) {
-             this.ownerId = ownerId;
-             return this;
+            this.ownerId = ownerId;
+            return this;
         }
 
-    
 
         /**
          * 妙记创建时间timestamp（ms级别）
          * <p> 示例值：1669098360477
+         *
          * @param createTime
          * @return
          */
         public Builder createTime(String createTime) {
-             this.createTime = createTime;
-             return this;
+            this.createTime = createTime;
+            return this;
         }
 
-    
 
         /**
          * 妙记标题
          * <p> 示例值：xxx的视频会议
+         *
          * @param title
          * @return
          */
         public Builder title(String title) {
-             this.title = title;
-             return this;
+            this.title = title;
+            return this;
         }
 
-    
 
         /**
          * 妙记封面链接
          * <p> 示例值：https://internal-api-drive-stream.feishu-pre.cn/space/api/box/stream/download/all/boxcncsI4EIhCSA1RLDsXDpCoQd
+         *
          * @param cover
          * @return
          */
         public Builder cover(String cover) {
-             this.cover = cover;
-             return this;
+            this.cover = cover;
+            return this;
         }
 
-    
 
         /**
          * 妙记时长（ms级别）
          * <p> 示例值：314000
+         *
          * @param duration
          * @return
          */
         public Builder duration(String duration) {
-             this.duration = duration;
-             return this;
+            this.duration = duration;
+            return this;
         }
 
-    
 
         /**
          * 妙记链接
          * <p> 示例值：https://bytedance.feishu-pre.cn/minutes/obcnq3b9jl72l83w4f149w9c
+         *
          * @param url
          * @return
          */
         public Builder url(String url) {
-             this.url = url;
-             return this;
+            this.url = url;
+            return this;
         }
 
-    
-    
-    public Minute build(){
-        return new Minute(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Minute build() {
+            return new Minute(this);
+        }
     }
 }

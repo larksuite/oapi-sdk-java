@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.board.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.board.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class MindMap {
-     /**
-      * 思维导图父节点 id ，为空表示是思维导图的根节点
-      * <p> 示例值：z1:1
-      */
+    /**
+     * 思维导图父节点 id ，为空表示是思维导图的根节点
+     * <p> 示例值：z1:1
+     */
     @SerializedName("parent_id")
     private String parentId;
+
+    // builder 开始
+    public MindMap() {
+    }
+
+    public MindMap(Builder builder) {
+        /**
+         * 思维导图父节点 id ，为空表示是思维导图的根节点
+         * <p> 示例值：z1:1
+         */
+        this.parentId = builder.parentId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getParentId() {
         return this.parentId;
     }
@@ -39,44 +60,28 @@ public class MindMap {
         this.parentId = parentId;
     }
 
-
-// builder 开始
-  public MindMap(){}
-
-  public MindMap(Builder builder){
-         /**
-          * 思维导图父节点 id ，为空表示是思维导图的根节点
-          * <p> 示例值：z1:1
-          */
-      this.parentId = builder.parentId;
-  }
-
     public static class Builder {
-     /**
-      * 思维导图父节点 id ，为空表示是思维导图的根节点
-      * <p> 示例值：z1:1
-      */
+        /**
+         * 思维导图父节点 id ，为空表示是思维导图的根节点
+         * <p> 示例值：z1:1
+         */
         private String parentId;
 
         /**
          * 思维导图父节点 id ，为空表示是思维导图的根节点
          * <p> 示例值：z1:1
+         *
          * @param parentId
          * @return
          */
         public Builder parentId(String parentId) {
-             this.parentId = parentId;
-             return this;
+            this.parentId = parentId;
+            return this;
         }
 
-    
-    
-    public MindMap build(){
-        return new MindMap(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public MindMap build() {
+            return new MindMap(this);
+        }
     }
 }

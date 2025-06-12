@@ -12,32 +12,70 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ListAppRoleReq {
-     /**
-      * 分页大小
-      * <p> 示例值：10
-      */
+    /**
+     * 分页大小
+     * <p> 示例值：10
+     */
     @Query
     @SerializedName("page_size")
     private Integer pageSize;
-     /**
-      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-      * <p> 示例值：roljRpwIUt
-      */
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     * <p> 示例值：roljRpwIUt
+     */
     @Query
     @SerializedName("page_token")
     private String pageToken;
+    /**
+     * bitable app token
+     * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+     */
+    @Path
+    @SerializedName("app_token")
+    private String appToken;
+
+    // builder 开始
+    public ListAppRoleReq() {
+    }
+
+    public ListAppRoleReq(Builder builder) {
+        /**
+         * 分页大小
+         * <p> 示例值：10
+         */
+        this.pageSize = builder.pageSize;
+        /**
+         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+         * <p> 示例值：roljRpwIUt
+         */
+        this.pageToken = builder.pageToken;
+        /**
+         * bitable app token
+         * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+         */
+        this.appToken = builder.appToken;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Integer getPageSize() {
         return this.pageSize;
     }
@@ -54,13 +92,6 @@ public class ListAppRoleReq {
         this.pageToken = pageToken;
     }
 
-     /**
-      * bitable app token
-      * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
-      */
-    @Path
-    @SerializedName("app_token")
-    private String appToken;
     public String getAppToken() {
         return this.appToken;
     }
@@ -69,75 +100,50 @@ public class ListAppRoleReq {
         this.appToken = appToken;
     }
 
-
-// builder 开始
-  public ListAppRoleReq(){}
-
-  public ListAppRoleReq(Builder builder){
-         /**
-          * 分页大小
-          * <p> 示例值：10
-          */
-       this.pageSize = builder.pageSize;
-         /**
-          * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-          * <p> 示例值：roljRpwIUt
-          */
-       this.pageToken = builder.pageToken;
-     /**
-      * bitable app token
-      * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
-      */
-       this.appToken = builder.appToken;
-  }
-
     public static class Builder {
         private Integer pageSize; // 分页大小
         private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-    
+        private String appToken; // bitable app token
+
         /**
          * 分页大小
          * <p> 示例值：10
+         *
          * @param pageSize
          * @return
          */
-           public Builder pageSize(Integer pageSize) {
-                this.pageSize = pageSize;
-                return this;
-           }
+        public Builder pageSize(Integer pageSize) {
+            this.pageSize = pageSize;
+            return this;
+        }
 
-    
         /**
          * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
          * <p> 示例值：roljRpwIUt
+         *
          * @param pageToken
          * @return
          */
-           public Builder pageToken(String pageToken) {
-                this.pageToken = pageToken;
-                return this;
-           }
+        public Builder pageToken(String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+        }
 
-    
-        private String appToken; // bitable app token
         /**
          * bitable app token
          * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+         *
          * @param appToken
          * @return
          */
-          public Builder appToken(String appToken) {
-               this.appToken = appToken;
-               return this;
-          }
+        public Builder appToken(String appToken) {
+            this.appToken = appToken;
+            return this;
+        }
 
-    
-    public ListAppRoleReq build(){
-        return new ListAppRoleReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ListAppRoleReq build() {
+            return new ListAppRoleReq(this);
+        }
     }
 }

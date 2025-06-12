@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Criterion {
-     /**
-      * 查询条件
-      * <p> 示例值：
-      */
+    /**
+     * 查询条件
+     * <p> 示例值：
+     */
     @SerializedName("conditions")
     private Condition[] conditions;
-     /**
-      * 逻辑关系
-      * <p> 示例值：1 and 2
-      */
+    /**
+     * 逻辑关系
+     * <p> 示例值：1 and 2
+     */
     @SerializedName("logic_expression")
     private String logicExpression;
+
+    // builder 开始
+    public Criterion() {
+    }
+
+    public Criterion(Builder builder) {
+        /**
+         * 查询条件
+         * <p> 示例值：
+         */
+        this.conditions = builder.conditions;
+        /**
+         * 逻辑关系
+         * <p> 示例值：1 and 2
+         */
+        this.logicExpression = builder.logicExpression;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Condition[] getConditions() {
         return this.conditions;
     }
@@ -53,67 +79,46 @@ public class Criterion {
         this.logicExpression = logicExpression;
     }
 
-
-// builder 开始
-  public Criterion(){}
-
-  public Criterion(Builder builder){
-         /**
-          * 查询条件
-          * <p> 示例值：
-          */
-      this.conditions = builder.conditions;
-         /**
-          * 逻辑关系
-          * <p> 示例值：1 and 2
-          */
-      this.logicExpression = builder.logicExpression;
-  }
-
     public static class Builder {
-     /**
-      * 查询条件
-      * <p> 示例值：
-      */
+        /**
+         * 查询条件
+         * <p> 示例值：
+         */
         private Condition[] conditions;
-     /**
-      * 逻辑关系
-      * <p> 示例值：1 and 2
-      */
+        /**
+         * 逻辑关系
+         * <p> 示例值：1 and 2
+         */
         private String logicExpression;
 
         /**
          * 查询条件
          * <p> 示例值：
+         *
          * @param conditions
          * @return
          */
         public Builder conditions(Condition[] conditions) {
-             this.conditions = conditions;
-             return this;
+            this.conditions = conditions;
+            return this;
         }
 
-    
 
         /**
          * 逻辑关系
          * <p> 示例值：1 and 2
+         *
          * @param logicExpression
          * @return
          */
         public Builder logicExpression(String logicExpression) {
-             this.logicExpression = logicExpression;
-             return this;
+            this.logicExpression = logicExpression;
+            return this;
         }
 
-    
-    
-    public Criterion build(){
-        return new Criterion(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Criterion build() {
+            return new Criterion(this);
+        }
     }
 }

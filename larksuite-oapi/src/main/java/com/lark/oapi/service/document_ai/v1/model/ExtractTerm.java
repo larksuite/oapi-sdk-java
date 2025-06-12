@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.document_ai.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.document_ai.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ExtractTerm {
-     /**
-      * 合同持续时长
-      * <p> 示例值：2
-      */
+    /**
+     * 合同持续时长
+     * <p> 示例值：2
+     */
     @SerializedName("initial_time")
     private String initialTime;
-     /**
-      * 持续时长单位
-      * <p> 示例值：年
-      */
+    /**
+     * 持续时长单位
+     * <p> 示例值：年
+     */
     @SerializedName("initial_unit")
     private String initialUnit;
+
+    // builder 开始
+    public ExtractTerm() {
+    }
+
+    public ExtractTerm(Builder builder) {
+        /**
+         * 合同持续时长
+         * <p> 示例值：2
+         */
+        this.initialTime = builder.initialTime;
+        /**
+         * 持续时长单位
+         * <p> 示例值：年
+         */
+        this.initialUnit = builder.initialUnit;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getInitialTime() {
         return this.initialTime;
     }
@@ -53,67 +79,46 @@ public class ExtractTerm {
         this.initialUnit = initialUnit;
     }
 
-
-// builder 开始
-  public ExtractTerm(){}
-
-  public ExtractTerm(Builder builder){
-         /**
-          * 合同持续时长
-          * <p> 示例值：2
-          */
-      this.initialTime = builder.initialTime;
-         /**
-          * 持续时长单位
-          * <p> 示例值：年
-          */
-      this.initialUnit = builder.initialUnit;
-  }
-
     public static class Builder {
-     /**
-      * 合同持续时长
-      * <p> 示例值：2
-      */
+        /**
+         * 合同持续时长
+         * <p> 示例值：2
+         */
         private String initialTime;
-     /**
-      * 持续时长单位
-      * <p> 示例值：年
-      */
+        /**
+         * 持续时长单位
+         * <p> 示例值：年
+         */
         private String initialUnit;
 
         /**
          * 合同持续时长
          * <p> 示例值：2
+         *
          * @param initialTime
          * @return
          */
         public Builder initialTime(String initialTime) {
-             this.initialTime = initialTime;
-             return this;
+            this.initialTime = initialTime;
+            return this;
         }
 
-    
 
         /**
          * 持续时长单位
          * <p> 示例值：年
+         *
          * @param initialUnit
          * @return
          */
         public Builder initialUnit(String initialUnit) {
-             this.initialUnit = initialUnit;
-             return this;
+            this.initialUnit = initialUnit;
+            return this;
         }
 
-    
-    
-    public ExtractTerm build(){
-        return new ExtractTerm(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ExtractTerm build() {
+            return new ExtractTerm(this);
+        }
     }
 }

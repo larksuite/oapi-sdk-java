@@ -12,60 +12,111 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class OfferListInfo {
-     /**
-      * Offer ID
-      * <p> 示例值：7096320678581242123
-      */
+    /**
+     * Offer ID
+     * <p> 示例值：7096320678581242123
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * Offer 职位
-      * <p> 示例值：
-      */
+    /**
+     * Offer 职位
+     * <p> 示例值：
+     */
     @SerializedName("job_info")
     private OfferJobInfo jobInfo;
-     /**
-      * 创建时间
-      * <p> 示例值：1628512038000
-      */
+    /**
+     * 创建时间
+     * <p> 示例值：1628512038000
+     */
     @SerializedName("create_time")
-    private String createTime;
-     /**
-      * Offer 状态
-      * <p> 示例值：1
-      */
+    private Long createTime;
+    /**
+     * Offer 状态
+     * <p> 示例值：1
+     */
     @SerializedName("offer_status")
     private Integer offerStatus;
-     /**
-      * Offer 类型
-      * <p> 示例值：Offer 类型
-      */
+    /**
+     * Offer 类型
+     * <p> 示例值：Offer 类型
+     */
     @SerializedName("offer_type")
     private Integer offerType;
-     /**
-      * Offer 人员类型
-      * <p> 示例值：
-      */
+    /**
+     * Offer 人员类型
+     * <p> 示例值：
+     */
     @SerializedName("employee_type")
     private BaseBilingualWithId employeeType;
-     /**
-      * Offer 投递 ID
-      * <p> 示例值：7096358713330272526
-      */
+    /**
+     * Offer 投递 ID
+     * <p> 示例值：7096358713330272526
+     */
     @SerializedName("application_id")
     private String applicationId;
+
+    // builder 开始
+    public OfferListInfo() {
+    }
+
+    public OfferListInfo(Builder builder) {
+        /**
+         * Offer ID
+         * <p> 示例值：7096320678581242123
+         */
+        this.id = builder.id;
+        /**
+         * Offer 职位
+         * <p> 示例值：
+         */
+        this.jobInfo = builder.jobInfo;
+        /**
+         * 创建时间
+         * <p> 示例值：1628512038000
+         */
+        this.createTime = builder.createTime;
+        /**
+         * Offer 状态
+         * <p> 示例值：1
+         */
+        this.offerStatus = builder.offerStatus;
+        /**
+         * Offer 类型
+         * <p> 示例值：Offer 类型
+         */
+        this.offerType = builder.offerType;
+        /**
+         * Offer 人员类型
+         * <p> 示例值：
+         */
+        this.employeeType = builder.employeeType;
+        /**
+         * Offer 投递 ID
+         * <p> 示例值：7096358713330272526
+         */
+        this.applicationId = builder.applicationId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -82,11 +133,11 @@ public class OfferListInfo {
         this.jobInfo = jobInfo;
     }
 
-    public String getCreateTime() {
+    public Long getCreateTime() {
         return this.createTime;
     }
 
-    public void setCreateTime(String createTime) {
+    public void setCreateTime(Long createTime) {
         this.createTime = createTime;
     }
 
@@ -122,182 +173,136 @@ public class OfferListInfo {
         this.applicationId = applicationId;
     }
 
-
-// builder 开始
-  public OfferListInfo(){}
-
-  public OfferListInfo(Builder builder){
-         /**
-          * Offer ID
-          * <p> 示例值：7096320678581242123
-          */
-      this.id = builder.id;
-         /**
-          * Offer 职位
-          * <p> 示例值：
-          */
-      this.jobInfo = builder.jobInfo;
-         /**
-          * 创建时间
-          * <p> 示例值：1628512038000
-          */
-      this.createTime = builder.createTime;
-         /**
-          * Offer 状态
-          * <p> 示例值：1
-          */
-      this.offerStatus = builder.offerStatus;
-         /**
-          * Offer 类型
-          * <p> 示例值：Offer 类型
-          */
-      this.offerType = builder.offerType;
-         /**
-          * Offer 人员类型
-          * <p> 示例值：
-          */
-      this.employeeType = builder.employeeType;
-         /**
-          * Offer 投递 ID
-          * <p> 示例值：7096358713330272526
-          */
-      this.applicationId = builder.applicationId;
-  }
-
     public static class Builder {
-     /**
-      * Offer ID
-      * <p> 示例值：7096320678581242123
-      */
+        /**
+         * Offer ID
+         * <p> 示例值：7096320678581242123
+         */
         private String id;
-     /**
-      * Offer 职位
-      * <p> 示例值：
-      */
+        /**
+         * Offer 职位
+         * <p> 示例值：
+         */
         private OfferJobInfo jobInfo;
-     /**
-      * 创建时间
-      * <p> 示例值：1628512038000
-      */
-        private String createTime;
-     /**
-      * Offer 状态
-      * <p> 示例值：1
-      */
+        /**
+         * 创建时间
+         * <p> 示例值：1628512038000
+         */
+        private Long createTime;
+        /**
+         * Offer 状态
+         * <p> 示例值：1
+         */
         private Integer offerStatus;
-     /**
-      * Offer 类型
-      * <p> 示例值：Offer 类型
-      */
+        /**
+         * Offer 类型
+         * <p> 示例值：Offer 类型
+         */
         private Integer offerType;
-     /**
-      * Offer 人员类型
-      * <p> 示例值：
-      */
+        /**
+         * Offer 人员类型
+         * <p> 示例值：
+         */
         private BaseBilingualWithId employeeType;
-     /**
-      * Offer 投递 ID
-      * <p> 示例值：7096358713330272526
-      */
+        /**
+         * Offer 投递 ID
+         * <p> 示例值：7096358713330272526
+         */
         private String applicationId;
 
         /**
          * Offer ID
          * <p> 示例值：7096320678581242123
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * Offer 职位
          * <p> 示例值：
+         *
          * @param jobInfo
          * @return
          */
         public Builder jobInfo(OfferJobInfo jobInfo) {
-             this.jobInfo = jobInfo;
-             return this;
+            this.jobInfo = jobInfo;
+            return this;
         }
 
-    
 
         /**
          * 创建时间
          * <p> 示例值：1628512038000
+         *
          * @param createTime
          * @return
          */
-        public Builder createTime(String createTime) {
-             this.createTime = createTime;
-             return this;
+        public Builder createTime(Long createTime) {
+            this.createTime = createTime;
+            return this;
         }
 
-    
 
         /**
          * Offer 状态
          * <p> 示例值：1
+         *
          * @param offerStatus
          * @return
          */
         public Builder offerStatus(Integer offerStatus) {
-             this.offerStatus = offerStatus;
-             return this;
+            this.offerStatus = offerStatus;
+            return this;
         }
 
-    
 
         /**
          * Offer 类型
          * <p> 示例值：Offer 类型
+         *
          * @param offerType
          * @return
          */
         public Builder offerType(Integer offerType) {
-             this.offerType = offerType;
-             return this;
+            this.offerType = offerType;
+            return this;
         }
 
-    
 
         /**
          * Offer 人员类型
          * <p> 示例值：
+         *
          * @param employeeType
          * @return
          */
         public Builder employeeType(BaseBilingualWithId employeeType) {
-             this.employeeType = employeeType;
-             return this;
+            this.employeeType = employeeType;
+            return this;
         }
 
-    
 
         /**
          * Offer 投递 ID
          * <p> 示例值：7096358713330272526
+         *
          * @param applicationId
          * @return
          */
         public Builder applicationId(String applicationId) {
-             this.applicationId = applicationId;
-             return this;
+            this.applicationId = applicationId;
+            return this;
         }
 
-    
-    
-    public OfferListInfo build(){
-        return new OfferListInfo(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public OfferListInfo build() {
+            return new OfferListInfo(this);
+        }
     }
 }

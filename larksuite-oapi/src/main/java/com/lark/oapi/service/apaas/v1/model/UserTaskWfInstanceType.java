@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class UserTaskWfInstanceType {
-     /**
-      * 流程实例ID
-      * <p> 示例值：1234
-      */
+    /**
+     * 流程实例ID
+     * <p> 示例值：1234
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 流程对应的任务名称
-      * <p> 示例值：
-      */
+    /**
+     * 流程对应的任务名称
+     * <p> 示例值：
+     */
     @SerializedName("label")
     private I18n[] label;
-     /**
-      * 流程状态
-      * <p> 示例值：in_process
-      */
+    /**
+     * 流程状态
+     * <p> 示例值：in_process
+     */
     @SerializedName("status")
     private String status;
+
+    // builder 开始
+    public UserTaskWfInstanceType() {
+    }
+
+    public UserTaskWfInstanceType(Builder builder) {
+        /**
+         * 流程实例ID
+         * <p> 示例值：1234
+         */
+        this.id = builder.id;
+        /**
+         * 流程对应的任务名称
+         * <p> 示例值：
+         */
+        this.label = builder.label;
+        /**
+         * 流程状态
+         * <p> 示例值：in_process
+         */
+        this.status = builder.status;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -67,90 +98,64 @@ public class UserTaskWfInstanceType {
         this.status = status;
     }
 
-
-// builder 开始
-  public UserTaskWfInstanceType(){}
-
-  public UserTaskWfInstanceType(Builder builder){
-         /**
-          * 流程实例ID
-          * <p> 示例值：1234
-          */
-      this.id = builder.id;
-         /**
-          * 流程对应的任务名称
-          * <p> 示例值：
-          */
-      this.label = builder.label;
-         /**
-          * 流程状态
-          * <p> 示例值：in_process
-          */
-      this.status = builder.status;
-  }
-
     public static class Builder {
-     /**
-      * 流程实例ID
-      * <p> 示例值：1234
-      */
+        /**
+         * 流程实例ID
+         * <p> 示例值：1234
+         */
         private String id;
-     /**
-      * 流程对应的任务名称
-      * <p> 示例值：
-      */
+        /**
+         * 流程对应的任务名称
+         * <p> 示例值：
+         */
         private I18n[] label;
-     /**
-      * 流程状态
-      * <p> 示例值：in_process
-      */
+        /**
+         * 流程状态
+         * <p> 示例值：in_process
+         */
         private String status;
 
         /**
          * 流程实例ID
          * <p> 示例值：1234
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 流程对应的任务名称
          * <p> 示例值：
+         *
          * @param label
          * @return
          */
         public Builder label(I18n[] label) {
-             this.label = label;
-             return this;
+            this.label = label;
+            return this;
         }
 
-    
 
         /**
          * 流程状态
          * <p> 示例值：in_process
+         *
          * @param status
          * @return
          */
         public Builder status(String status) {
-             this.status = status;
-             return this;
+            this.status = status;
+            return this;
         }
 
-    
-    
-    public UserTaskWfInstanceType build(){
-        return new UserTaskWfInstanceType(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public UserTaskWfInstanceType build() {
+            return new UserTaskWfInstanceType(this);
+        }
     }
 }

@@ -12,25 +12,61 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class PatchJobGradeReq {
-     /**
-      * 根据client_token是否一致来判断是否为同一请求
-      * <p> 示例值：1245464678
-      */
+    /**
+     * 根据client_token是否一致来判断是否为同一请求
+     * <p> 示例值：1245464678
+     */
     @Query
     @SerializedName("client_token")
     private String clientToken;
+    /**
+     * 职等ID
+     * <p> 示例值：6862995757234914824
+     */
+    @Path
+    @SerializedName("job_grade_id")
+    private String jobGradeId;
+    @Body
+    private JobGradeUpdate body;
+
+    // builder 开始
+    public PatchJobGradeReq() {
+    }
+
+    public PatchJobGradeReq(Builder builder) {
+        /**
+         * 根据client_token是否一致来判断是否为同一请求
+         * <p> 示例值：1245464678
+         */
+        this.clientToken = builder.clientToken;
+        /**
+         * 职等ID
+         * <p> 示例值：6862995757234914824
+         */
+        this.jobGradeId = builder.jobGradeId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getClientToken() {
         return this.clientToken;
     }
@@ -39,13 +75,6 @@ public class PatchJobGradeReq {
         this.clientToken = clientToken;
     }
 
-     /**
-      * 职等ID
-      * <p> 示例值：6862995757234914824
-      */
-    @Path
-    @SerializedName("job_grade_id")
-    private String jobGradeId;
     public String getJobGradeId() {
         return this.jobGradeId;
     }
@@ -53,9 +82,6 @@ public class PatchJobGradeReq {
     public void setJobGradeId(String jobGradeId) {
         this.jobGradeId = jobGradeId;
     }
-
-    @Body
-    private JobGradeUpdate body;
 
     public JobGradeUpdate getJobGradeUpdate() {
         return this.body;
@@ -65,72 +91,52 @@ public class PatchJobGradeReq {
         this.body = body;
     }
 
-// builder 开始
-  public PatchJobGradeReq(){}
-
-  public PatchJobGradeReq(Builder builder){
-         /**
-          * 根据client_token是否一致来判断是否为同一请求
-          * <p> 示例值：1245464678
-          */
-       this.clientToken = builder.clientToken;
-     /**
-      * 职等ID
-      * <p> 示例值：6862995757234914824
-      */
-       this.jobGradeId = builder.jobGradeId;
-        this.body = builder.body;
-  }
-
     public static class Builder {
         private String clientToken; // 根据client_token是否一致来判断是否为同一请求
-    
+        private String jobGradeId; // 职等ID
+        private JobGradeUpdate body;
+
         /**
          * 根据client_token是否一致来判断是否为同一请求
          * <p> 示例值：1245464678
+         *
          * @param clientToken
          * @return
          */
-           public Builder clientToken(String clientToken) {
-                this.clientToken = clientToken;
-                return this;
-           }
+        public Builder clientToken(String clientToken) {
+            this.clientToken = clientToken;
+            return this;
+        }
 
-    
-        private String jobGradeId; // 职等ID
         /**
          * 职等ID
          * <p> 示例值：6862995757234914824
+         *
          * @param jobGradeId
          * @return
          */
-          public Builder jobGradeId(String jobGradeId) {
-               this.jobGradeId = jobGradeId;
-               return this;
-          }
+        public Builder jobGradeId(String jobGradeId) {
+            this.jobGradeId = jobGradeId;
+            return this;
+        }
 
-    
-        private JobGradeUpdate body;
-    
         public JobGradeUpdate getJobGradeUpdate() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder jobGradeUpdate(JobGradeUpdate body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public PatchJobGradeReq build(){
-        return new PatchJobGradeReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public PatchJobGradeReq build() {
+            return new PatchJobGradeReq(this);
+        }
     }
 }

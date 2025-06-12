@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class UserTaskSummaryType {
-     /**
-      * 摘要名称（多语）
-      * <p> 示例值：
-      */
+    /**
+     * 摘要名称（多语）
+     * <p> 示例值：
+     */
     @SerializedName("file_key")
     private I18n fileKey;
-     /**
-      * 摘要值（多语）
-      * <p> 示例值：
-      */
+    /**
+     * 摘要值（多语）
+     * <p> 示例值：
+     */
     @SerializedName("file_value")
     private I18n[] fileValue;
+
+    // builder 开始
+    public UserTaskSummaryType() {
+    }
+
+    public UserTaskSummaryType(Builder builder) {
+        /**
+         * 摘要名称（多语）
+         * <p> 示例值：
+         */
+        this.fileKey = builder.fileKey;
+        /**
+         * 摘要值（多语）
+         * <p> 示例值：
+         */
+        this.fileValue = builder.fileValue;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public I18n getFileKey() {
         return this.fileKey;
     }
@@ -53,67 +79,46 @@ public class UserTaskSummaryType {
         this.fileValue = fileValue;
     }
 
-
-// builder 开始
-  public UserTaskSummaryType(){}
-
-  public UserTaskSummaryType(Builder builder){
-         /**
-          * 摘要名称（多语）
-          * <p> 示例值：
-          */
-      this.fileKey = builder.fileKey;
-         /**
-          * 摘要值（多语）
-          * <p> 示例值：
-          */
-      this.fileValue = builder.fileValue;
-  }
-
     public static class Builder {
-     /**
-      * 摘要名称（多语）
-      * <p> 示例值：
-      */
+        /**
+         * 摘要名称（多语）
+         * <p> 示例值：
+         */
         private I18n fileKey;
-     /**
-      * 摘要值（多语）
-      * <p> 示例值：
-      */
+        /**
+         * 摘要值（多语）
+         * <p> 示例值：
+         */
         private I18n[] fileValue;
 
         /**
          * 摘要名称（多语）
          * <p> 示例值：
+         *
          * @param fileKey
          * @return
          */
         public Builder fileKey(I18n fileKey) {
-             this.fileKey = fileKey;
-             return this;
+            this.fileKey = fileKey;
+            return this;
         }
 
-    
 
         /**
          * 摘要值（多语）
          * <p> 示例值：
+         *
          * @param fileValue
          * @return
          */
         public Builder fileValue(I18n[] fileValue) {
-             this.fileValue = fileValue;
-             return this;
+            this.fileValue = fileValue;
+            return this;
         }
 
-    
-    
-    public UserTaskSummaryType build(){
-        return new UserTaskSummaryType(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public UserTaskSummaryType build() {
+            return new UserTaskSummaryType(this);
+        }
     }
 }

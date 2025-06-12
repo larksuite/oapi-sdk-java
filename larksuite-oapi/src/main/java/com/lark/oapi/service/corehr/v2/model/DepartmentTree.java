@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class DepartmentTree {
-     /**
-      * 部门 ID
-      * <p> 示例值：4719456877659520852
-      */
+    /**
+     * 部门 ID
+     * <p> 示例值：4719456877659520852
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 部门层级
-      * <p> 示例值：1
-      */
+    /**
+     * 部门层级
+     * <p> 示例值：1
+     */
     @SerializedName("level")
     private Integer level;
-     /**
-      * 下级部门 ID 列表
-      * <p> 示例值：
-      */
+    /**
+     * 下级部门 ID 列表
+     * <p> 示例值：
+     */
     @SerializedName("children")
     private String[] children;
+
+    // builder 开始
+    public DepartmentTree() {
+    }
+
+    public DepartmentTree(Builder builder) {
+        /**
+         * 部门 ID
+         * <p> 示例值：4719456877659520852
+         */
+        this.id = builder.id;
+        /**
+         * 部门层级
+         * <p> 示例值：1
+         */
+        this.level = builder.level;
+        /**
+         * 下级部门 ID 列表
+         * <p> 示例值：
+         */
+        this.children = builder.children;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -67,90 +98,64 @@ public class DepartmentTree {
         this.children = children;
     }
 
-
-// builder 开始
-  public DepartmentTree(){}
-
-  public DepartmentTree(Builder builder){
-         /**
-          * 部门 ID
-          * <p> 示例值：4719456877659520852
-          */
-      this.id = builder.id;
-         /**
-          * 部门层级
-          * <p> 示例值：1
-          */
-      this.level = builder.level;
-         /**
-          * 下级部门 ID 列表
-          * <p> 示例值：
-          */
-      this.children = builder.children;
-  }
-
     public static class Builder {
-     /**
-      * 部门 ID
-      * <p> 示例值：4719456877659520852
-      */
+        /**
+         * 部门 ID
+         * <p> 示例值：4719456877659520852
+         */
         private String id;
-     /**
-      * 部门层级
-      * <p> 示例值：1
-      */
+        /**
+         * 部门层级
+         * <p> 示例值：1
+         */
         private Integer level;
-     /**
-      * 下级部门 ID 列表
-      * <p> 示例值：
-      */
+        /**
+         * 下级部门 ID 列表
+         * <p> 示例值：
+         */
         private String[] children;
 
         /**
          * 部门 ID
          * <p> 示例值：4719456877659520852
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 部门层级
          * <p> 示例值：1
+         *
          * @param level
          * @return
          */
         public Builder level(Integer level) {
-             this.level = level;
-             return this;
+            this.level = level;
+            return this;
         }
 
-    
 
         /**
          * 下级部门 ID 列表
          * <p> 示例值：
+         *
          * @param children
          * @return
          */
         public Builder children(String[] children) {
-             this.children = children;
-             return this;
+            this.children = children;
+            return this;
         }
 
-    
-    
-    public DepartmentTree build(){
-        return new DepartmentTree(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public DepartmentTree build() {
+            return new DepartmentTree(this);
+        }
     }
 }

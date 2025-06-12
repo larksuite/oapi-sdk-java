@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class MeetingInviteStatus {
-     /**
-      * 用户ID
-      * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
-      */
+    /**
+     * 用户ID
+     * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 用户类型
-      * <p> 示例值：1
-      */
+    /**
+     * 用户类型
+     * <p> 示例值：1
+     */
     @SerializedName("user_type")
     private Integer userType;
-     /**
-      * 邀请结果
-      * <p> 示例值：1
-      */
+    /**
+     * 邀请结果
+     * <p> 示例值：1
+     */
     @SerializedName("status")
     private Integer status;
+
+    // builder 开始
+    public MeetingInviteStatus() {
+    }
+
+    public MeetingInviteStatus(Builder builder) {
+        /**
+         * 用户ID
+         * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
+         */
+        this.id = builder.id;
+        /**
+         * 用户类型
+         * <p> 示例值：1
+         */
+        this.userType = builder.userType;
+        /**
+         * 邀请结果
+         * <p> 示例值：1
+         */
+        this.status = builder.status;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -67,110 +98,88 @@ public class MeetingInviteStatus {
         this.status = status;
     }
 
-
-// builder 开始
-  public MeetingInviteStatus(){}
-
-  public MeetingInviteStatus(Builder builder){
-         /**
-          * 用户ID
-          * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
-          */
-      this.id = builder.id;
-         /**
-          * 用户类型
-          * <p> 示例值：1
-          */
-      this.userType = builder.userType;
-         /**
-          * 邀请结果
-          * <p> 示例值：1
-          */
-      this.status = builder.status;
-  }
-
     public static class Builder {
-     /**
-      * 用户ID
-      * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
-      */
+        /**
+         * 用户ID
+         * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
+         */
         private String id;
-     /**
-      * 用户类型
-      * <p> 示例值：1
-      */
+        /**
+         * 用户类型
+         * <p> 示例值：1
+         */
         private Integer userType;
-     /**
-      * 邀请结果
-      * <p> 示例值：1
-      */
+        /**
+         * 邀请结果
+         * <p> 示例值：1
+         */
         private Integer status;
 
         /**
          * 用户ID
          * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 用户类型
          * <p> 示例值：1
+         *
          * @param userType
          * @return
          */
         public Builder userType(Integer userType) {
-             this.userType = userType;
-             return this;
+            this.userType = userType;
+            return this;
         }
+
         /**
          * 用户类型
          * <p> 示例值：1
+         *
          * @param userType {@link com.lark.oapi.service.vc.v1.enums.MeetingInviteStatusUserTypeEnum}
          * @return
          */
         public Builder userType(com.lark.oapi.service.vc.v1.enums.MeetingInviteStatusUserTypeEnum userType) {
-             this.userType = userType.getValue();
-             return this;
+            this.userType = userType.getValue();
+            return this;
         }
 
-    
 
         /**
          * 邀请结果
          * <p> 示例值：1
+         *
          * @param status
          * @return
          */
         public Builder status(Integer status) {
-             this.status = status;
-             return this;
+            this.status = status;
+            return this;
         }
+
         /**
          * 邀请结果
          * <p> 示例值：1
+         *
          * @param status {@link com.lark.oapi.service.vc.v1.enums.MeetingInviteStatusInviteStatusEnum}
          * @return
          */
         public Builder status(com.lark.oapi.service.vc.v1.enums.MeetingInviteStatusInviteStatusEnum status) {
-             this.status = status.getValue();
-             return this;
+            this.status = status.getValue();
+            return this;
         }
 
-    
-    
-    public MeetingInviteStatus build(){
-        return new MeetingInviteStatus(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public MeetingInviteStatus build() {
+            return new MeetingInviteStatus(this);
+        }
     }
 }

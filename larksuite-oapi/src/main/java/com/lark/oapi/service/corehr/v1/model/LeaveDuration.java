@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class LeaveDuration {
-     /**
-      * 休假时长
-      * <p> 示例值：1
-      */
+    /**
+     * 休假时长
+     * <p> 示例值：1
+     */
     @SerializedName("duration")
     private String duration;
-     /**
-      * 休假时长单位
-      * <p> 示例值：hour
-      */
+    /**
+     * 休假时长单位
+     * <p> 示例值：hour
+     */
     @SerializedName("unit")
     private String unit;
-     /**
-      * 每日休假时长
-      * <p> 示例值：1
-      */
+    /**
+     * 每日休假时长
+     * <p> 示例值：1
+     */
     @SerializedName("duration_per_day")
     private String durationPerDay;
+
+    // builder 开始
+    public LeaveDuration() {
+    }
+
+    public LeaveDuration(Builder builder) {
+        /**
+         * 休假时长
+         * <p> 示例值：1
+         */
+        this.duration = builder.duration;
+        /**
+         * 休假时长单位
+         * <p> 示例值：hour
+         */
+        this.unit = builder.unit;
+        /**
+         * 每日休假时长
+         * <p> 示例值：1
+         */
+        this.durationPerDay = builder.durationPerDay;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getDuration() {
         return this.duration;
     }
@@ -67,90 +98,64 @@ public class LeaveDuration {
         this.durationPerDay = durationPerDay;
     }
 
-
-// builder 开始
-  public LeaveDuration(){}
-
-  public LeaveDuration(Builder builder){
-         /**
-          * 休假时长
-          * <p> 示例值：1
-          */
-      this.duration = builder.duration;
-         /**
-          * 休假时长单位
-          * <p> 示例值：hour
-          */
-      this.unit = builder.unit;
-         /**
-          * 每日休假时长
-          * <p> 示例值：1
-          */
-      this.durationPerDay = builder.durationPerDay;
-  }
-
     public static class Builder {
-     /**
-      * 休假时长
-      * <p> 示例值：1
-      */
+        /**
+         * 休假时长
+         * <p> 示例值：1
+         */
         private String duration;
-     /**
-      * 休假时长单位
-      * <p> 示例值：hour
-      */
+        /**
+         * 休假时长单位
+         * <p> 示例值：hour
+         */
         private String unit;
-     /**
-      * 每日休假时长
-      * <p> 示例值：1
-      */
+        /**
+         * 每日休假时长
+         * <p> 示例值：1
+         */
         private String durationPerDay;
 
         /**
          * 休假时长
          * <p> 示例值：1
+         *
          * @param duration
          * @return
          */
         public Builder duration(String duration) {
-             this.duration = duration;
-             return this;
+            this.duration = duration;
+            return this;
         }
 
-    
 
         /**
          * 休假时长单位
          * <p> 示例值：hour
+         *
          * @param unit
          * @return
          */
         public Builder unit(String unit) {
-             this.unit = unit;
-             return this;
+            this.unit = unit;
+            return this;
         }
 
-    
 
         /**
          * 每日休假时长
          * <p> 示例值：1
+         *
          * @param durationPerDay
          * @return
          */
         public Builder durationPerDay(String durationPerDay) {
-             this.durationPerDay = durationPerDay;
-             return this;
+            this.durationPerDay = durationPerDay;
+            return this;
         }
 
-    
-    
-    public LeaveDuration build(){
-        return new LeaveDuration(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public LeaveDuration build() {
+            return new LeaveDuration(this);
+        }
     }
 }

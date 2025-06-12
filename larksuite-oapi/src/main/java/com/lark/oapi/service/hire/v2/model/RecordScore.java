@@ -12,30 +12,56 @@
  */
 
 package com.lark.oapi.service.hire.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class RecordScore {
-     /**
-      * 分数，即面试评价得分，精确到小数点后两位
-      * <p> 示例值：100
-      */
+    /**
+     * 分数，即面试评价得分，精确到小数点后两位
+     * <p> 示例值：100
+     */
     @SerializedName("score")
     private Double score;
-     /**
-      * 满分，即面试评价的总分
-      * <p> 示例值：100
-      */
+    /**
+     * 满分，即面试评价的总分
+     * <p> 示例值：100
+     */
     @SerializedName("total_score")
     private Double totalScore;
+
+    // builder 开始
+    public RecordScore() {
+    }
+
+    public RecordScore(Builder builder) {
+        /**
+         * 分数，即面试评价得分，精确到小数点后两位
+         * <p> 示例值：100
+         */
+        this.score = builder.score;
+        /**
+         * 满分，即面试评价的总分
+         * <p> 示例值：100
+         */
+        this.totalScore = builder.totalScore;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Double getScore() {
         return this.score;
     }
@@ -52,67 +78,46 @@ public class RecordScore {
         this.totalScore = totalScore;
     }
 
-
-// builder 开始
-  public RecordScore(){}
-
-  public RecordScore(Builder builder){
-         /**
-          * 分数，即面试评价得分，精确到小数点后两位
-          * <p> 示例值：100
-          */
-      this.score = builder.score;
-         /**
-          * 满分，即面试评价的总分
-          * <p> 示例值：100
-          */
-      this.totalScore = builder.totalScore;
-  }
-
     public static class Builder {
-     /**
-      * 分数，即面试评价得分，精确到小数点后两位
-      * <p> 示例值：100
-      */
+        /**
+         * 分数，即面试评价得分，精确到小数点后两位
+         * <p> 示例值：100
+         */
         private Double score;
-     /**
-      * 满分，即面试评价的总分
-      * <p> 示例值：100
-      */
+        /**
+         * 满分，即面试评价的总分
+         * <p> 示例值：100
+         */
         private Double totalScore;
 
         /**
          * 分数，即面试评价得分，精确到小数点后两位
          * <p> 示例值：100
+         *
          * @param score
          * @return
          */
         public Builder score(Double score) {
-             this.score = score;
-             return this;
+            this.score = score;
+            return this;
         }
 
-    
 
         /**
          * 满分，即面试评价的总分
          * <p> 示例值：100
+         *
          * @param totalScore
          * @return
          */
         public Builder totalScore(Double totalScore) {
-             this.totalScore = totalScore;
-             return this;
+            this.totalScore = totalScore;
+            return this;
         }
 
-    
-    
-    public RecordScore build(){
-        return new RecordScore(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public RecordScore build() {
+            return new RecordScore(this);
+        }
     }
 }

@@ -12,31 +12,69 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ListWebsiteChannelReq {
-     /**
-      * 每页获取记录最大数量，最大100
-      * <p> 示例值：100
-      */
+    /**
+     * 每页获取记录最大数量，最大100
+     * <p> 示例值：100
+     */
     @Query
     @SerializedName("page_size")
     private String pageSize;
-     /**
-      * 页码标识，获取第一页传空，每次查询会返回下一页的 page_token
-      * <p> 示例值：eyJvZmZzZXQiOjEwLCJ0aW1NTUyMjM2NzIsImlkIjpudWxsfQ
-      */
+    /**
+     * 页码标识，获取第一页传空，每次查询会返回下一页的 page_token
+     * <p> 示例值：eyJvZmZzZXQiOjEwLCJ0aW1NTUyMjM2NzIsImlkIjpudWxsfQ
+     */
     @Query
     @SerializedName("page_token")
     private String pageToken;
+    /**
+     * 官网 ID
+     * <p> 示例值：1618209327096
+     */
+    @Path
+    @SerializedName("website_id")
+    private String websiteId;
+
+    // builder 开始
+    public ListWebsiteChannelReq() {
+    }
+
+    public ListWebsiteChannelReq(Builder builder) {
+        /**
+         * 每页获取记录最大数量，最大100
+         * <p> 示例值：100
+         */
+        this.pageSize = builder.pageSize;
+        /**
+         * 页码标识，获取第一页传空，每次查询会返回下一页的 page_token
+         * <p> 示例值：eyJvZmZzZXQiOjEwLCJ0aW1NTUyMjM2NzIsImlkIjpudWxsfQ
+         */
+        this.pageToken = builder.pageToken;
+        /**
+         * 官网 ID
+         * <p> 示例值：1618209327096
+         */
+        this.websiteId = builder.websiteId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getPageSize() {
         return this.pageSize;
     }
@@ -53,13 +91,6 @@ public class ListWebsiteChannelReq {
         this.pageToken = pageToken;
     }
 
-     /**
-      * 官网 ID
-      * <p> 示例值：1618209327096
-      */
-    @Path
-    @SerializedName("website_id")
-    private String websiteId;
     public String getWebsiteId() {
         return this.websiteId;
     }
@@ -68,75 +99,50 @@ public class ListWebsiteChannelReq {
         this.websiteId = websiteId;
     }
 
-
-// builder 开始
-  public ListWebsiteChannelReq(){}
-
-  public ListWebsiteChannelReq(Builder builder){
-         /**
-          * 每页获取记录最大数量，最大100
-          * <p> 示例值：100
-          */
-       this.pageSize = builder.pageSize;
-         /**
-          * 页码标识，获取第一页传空，每次查询会返回下一页的 page_token
-          * <p> 示例值：eyJvZmZzZXQiOjEwLCJ0aW1NTUyMjM2NzIsImlkIjpudWxsfQ
-          */
-       this.pageToken = builder.pageToken;
-     /**
-      * 官网 ID
-      * <p> 示例值：1618209327096
-      */
-       this.websiteId = builder.websiteId;
-  }
-
     public static class Builder {
         private String pageSize; // 每页获取记录最大数量，最大100
         private String pageToken; // 页码标识，获取第一页传空，每次查询会返回下一页的 page_token
-    
+        private String websiteId; // 官网 ID
+
         /**
          * 每页获取记录最大数量，最大100
          * <p> 示例值：100
+         *
          * @param pageSize
          * @return
          */
-           public Builder pageSize(String pageSize) {
-                this.pageSize = pageSize;
-                return this;
-           }
+        public Builder pageSize(String pageSize) {
+            this.pageSize = pageSize;
+            return this;
+        }
 
-    
         /**
          * 页码标识，获取第一页传空，每次查询会返回下一页的 page_token
          * <p> 示例值：eyJvZmZzZXQiOjEwLCJ0aW1NTUyMjM2NzIsImlkIjpudWxsfQ
+         *
          * @param pageToken
          * @return
          */
-           public Builder pageToken(String pageToken) {
-                this.pageToken = pageToken;
-                return this;
-           }
+        public Builder pageToken(String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+        }
 
-    
-        private String websiteId; // 官网 ID
         /**
          * 官网 ID
          * <p> 示例值：1618209327096
+         *
          * @param websiteId
          * @return
          */
-          public Builder websiteId(String websiteId) {
-               this.websiteId = websiteId;
-               return this;
-          }
+        public Builder websiteId(String websiteId) {
+            this.websiteId = websiteId;
+            return this;
+        }
 
-    
-    public ListWebsiteChannelReq build(){
-        return new ListWebsiteChannelReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ListWebsiteChannelReq build() {
+            return new ListWebsiteChannelReq(this);
+        }
     }
 }

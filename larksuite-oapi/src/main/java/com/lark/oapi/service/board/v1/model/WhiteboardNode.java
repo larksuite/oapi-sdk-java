@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.board.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.board.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,114 +20,214 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class WhiteboardNode {
-     /**
-      * 节点 id
-      * <p> 示例值：o1:1
-      */
+    /**
+     * 节点 id
+     * <p> 示例值：o1:1
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 节点图形类型，目前创建节点仅支持创建图片、文本、基础图形等类型，读取到不支持创建的图形时只返回一些基础信息，如 id、type、text、style 等
-      * <p> 示例值：
-      */
+    /**
+     * 节点图形类型，目前创建节点仅支持创建图片、文本、基础图形等类型，读取到不支持创建的图形时只返回一些基础信息，如 id、type、text、style 等
+     * <p> 示例值：
+     */
     @SerializedName("type")
     private String type;
-     /**
-      * 父节点 id
-      * <p> 示例值：o1:1
-      */
+    /**
+     * 父节点 id
+     * <p> 示例值：o1:1
+     */
     @SerializedName("parent_id")
     private String parentId;
-     /**
-      * 子节点
-      * <p> 示例值：
-      */
+    /**
+     * 子节点
+     * <p> 示例值：
+     */
     @SerializedName("children")
     private String[] children;
-     /**
-      * 图形相对画布的 x 轴位置信息（存在父容器时为相对父容器的坐标，父容器为组合图形 group 时，坐标是穿透的），单位为 px
-      * <p> 示例值：100
-      */
+    /**
+     * 图形相对画布的 x 轴位置信息（存在父容器时为相对父容器的坐标，父容器为组合图形 group 时，坐标是穿透的），单位为 px
+     * <p> 示例值：100
+     */
     @SerializedName("x")
     private Double x;
-     /**
-      * 图形相对画布的 y 轴位置信息（存在父容器时为相对父容器的坐标，父容器为组合图形 group 时，坐标是穿透的），单位为 px
-      * <p> 示例值：100
-      */
+    /**
+     * 图形相对画布的 y 轴位置信息（存在父容器时为相对父容器的坐标，父容器为组合图形 group 时，坐标是穿透的），单位为 px
+     * <p> 示例值：100
+     */
     @SerializedName("y")
     private Double y;
-     /**
-      * 图形旋转角度
-      * <p> 示例值：100
-      */
+    /**
+     * 图形旋转角度
+     * <p> 示例值：100
+     */
     @SerializedName("angle")
     private Double angle;
-     /**
-      * 图形宽度，单位为 px
-      * <p> 示例值：100
-      */
+    /**
+     * 图形宽度，单位为 px
+     * <p> 示例值：100
+     */
     @SerializedName("width")
     private Double width;
-     /**
-      * 图形高度，单位为 px
-      * <p> 示例值：100
-      */
+    /**
+     * 图形高度，单位为 px
+     * <p> 示例值：100
+     */
     @SerializedName("height")
     private Double height;
-     /**
-      * 图形内文字
-      * <p> 示例值：
-      */
+    /**
+     * 图形内文字
+     * <p> 示例值：
+     */
     @SerializedName("text")
     private Text text;
-     /**
-      * 图形样式
-      * <p> 示例值：
-      */
+    /**
+     * 图形样式
+     * <p> 示例值：
+     */
     @SerializedName("style")
     private Style style;
-     /**
-      * 图片
-      * <p> 示例值：
-      */
+    /**
+     * 图片
+     * <p> 示例值：
+     */
     @SerializedName("image")
     private Image image;
-     /**
-      * 基础图形属性
-      * <p> 示例值：
-      */
+    /**
+     * 基础图形属性
+     * <p> 示例值：
+     */
     @SerializedName("composite_shape")
     private CompositeShape compositeShape;
-     /**
-      * 连线属性
-      * <p> 示例值：
-      */
+    /**
+     * 连线属性
+     * <p> 示例值：
+     */
     @SerializedName("connector")
     private Connector connector;
-     /**
-      * 分区属性
-      * <p> 示例值：
-      */
+    /**
+     * 分区属性
+     * <p> 示例值：
+     */
     @SerializedName("section")
     private Section section;
-     /**
-      * 表格属性
-      * <p> 示例值：
-      */
+    /**
+     * 表格属性
+     * <p> 示例值：
+     */
     @SerializedName("table")
     private Table table;
-     /**
-      * 思维导图属性
-      * <p> 示例值：
-      */
+    /**
+     * 思维导图属性
+     * <p> 示例值：
+     */
     @SerializedName("mind_map")
     private MindMap mindMap;
+
+    // builder 开始
+    public WhiteboardNode() {
+    }
+
+    public WhiteboardNode(Builder builder) {
+        /**
+         * 节点 id
+         * <p> 示例值：o1:1
+         */
+        this.id = builder.id;
+        /**
+         * 节点图形类型，目前创建节点仅支持创建图片、文本、基础图形等类型，读取到不支持创建的图形时只返回一些基础信息，如 id、type、text、style 等
+         * <p> 示例值：
+         */
+        this.type = builder.type;
+        /**
+         * 父节点 id
+         * <p> 示例值：o1:1
+         */
+        this.parentId = builder.parentId;
+        /**
+         * 子节点
+         * <p> 示例值：
+         */
+        this.children = builder.children;
+        /**
+         * 图形相对画布的 x 轴位置信息（存在父容器时为相对父容器的坐标，父容器为组合图形 group 时，坐标是穿透的），单位为 px
+         * <p> 示例值：100
+         */
+        this.x = builder.x;
+        /**
+         * 图形相对画布的 y 轴位置信息（存在父容器时为相对父容器的坐标，父容器为组合图形 group 时，坐标是穿透的），单位为 px
+         * <p> 示例值：100
+         */
+        this.y = builder.y;
+        /**
+         * 图形旋转角度
+         * <p> 示例值：100
+         */
+        this.angle = builder.angle;
+        /**
+         * 图形宽度，单位为 px
+         * <p> 示例值：100
+         */
+        this.width = builder.width;
+        /**
+         * 图形高度，单位为 px
+         * <p> 示例值：100
+         */
+        this.height = builder.height;
+        /**
+         * 图形内文字
+         * <p> 示例值：
+         */
+        this.text = builder.text;
+        /**
+         * 图形样式
+         * <p> 示例值：
+         */
+        this.style = builder.style;
+        /**
+         * 图片
+         * <p> 示例值：
+         */
+        this.image = builder.image;
+        /**
+         * 基础图形属性
+         * <p> 示例值：
+         */
+        this.compositeShape = builder.compositeShape;
+        /**
+         * 连线属性
+         * <p> 示例值：
+         */
+        this.connector = builder.connector;
+        /**
+         * 分区属性
+         * <p> 示例值：
+         */
+        this.section = builder.section;
+        /**
+         * 表格属性
+         * <p> 示例值：
+         */
+        this.table = builder.table;
+        /**
+         * 思维导图属性
+         * <p> 示例值：
+         */
+        this.mindMap = builder.mindMap;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -263,422 +364,328 @@ public class WhiteboardNode {
         this.mindMap = mindMap;
     }
 
-
-// builder 开始
-  public WhiteboardNode(){}
-
-  public WhiteboardNode(Builder builder){
-         /**
-          * 节点 id
-          * <p> 示例值：o1:1
-          */
-      this.id = builder.id;
-         /**
-          * 节点图形类型，目前创建节点仅支持创建图片、文本、基础图形等类型，读取到不支持创建的图形时只返回一些基础信息，如 id、type、text、style 等
-          * <p> 示例值：
-          */
-      this.type = builder.type;
-         /**
-          * 父节点 id
-          * <p> 示例值：o1:1
-          */
-      this.parentId = builder.parentId;
-         /**
-          * 子节点
-          * <p> 示例值：
-          */
-      this.children = builder.children;
-         /**
-          * 图形相对画布的 x 轴位置信息（存在父容器时为相对父容器的坐标，父容器为组合图形 group 时，坐标是穿透的），单位为 px
-          * <p> 示例值：100
-          */
-      this.x = builder.x;
-         /**
-          * 图形相对画布的 y 轴位置信息（存在父容器时为相对父容器的坐标，父容器为组合图形 group 时，坐标是穿透的），单位为 px
-          * <p> 示例值：100
-          */
-      this.y = builder.y;
-         /**
-          * 图形旋转角度
-          * <p> 示例值：100
-          */
-      this.angle = builder.angle;
-         /**
-          * 图形宽度，单位为 px
-          * <p> 示例值：100
-          */
-      this.width = builder.width;
-         /**
-          * 图形高度，单位为 px
-          * <p> 示例值：100
-          */
-      this.height = builder.height;
-         /**
-          * 图形内文字
-          * <p> 示例值：
-          */
-      this.text = builder.text;
-         /**
-          * 图形样式
-          * <p> 示例值：
-          */
-      this.style = builder.style;
-         /**
-          * 图片
-          * <p> 示例值：
-          */
-      this.image = builder.image;
-         /**
-          * 基础图形属性
-          * <p> 示例值：
-          */
-      this.compositeShape = builder.compositeShape;
-         /**
-          * 连线属性
-          * <p> 示例值：
-          */
-      this.connector = builder.connector;
-         /**
-          * 分区属性
-          * <p> 示例值：
-          */
-      this.section = builder.section;
-         /**
-          * 表格属性
-          * <p> 示例值：
-          */
-      this.table = builder.table;
-         /**
-          * 思维导图属性
-          * <p> 示例值：
-          */
-      this.mindMap = builder.mindMap;
-  }
-
     public static class Builder {
-     /**
-      * 节点 id
-      * <p> 示例值：o1:1
-      */
+        /**
+         * 节点 id
+         * <p> 示例值：o1:1
+         */
         private String id;
-     /**
-      * 节点图形类型，目前创建节点仅支持创建图片、文本、基础图形等类型，读取到不支持创建的图形时只返回一些基础信息，如 id、type、text、style 等
-      * <p> 示例值：
-      */
+        /**
+         * 节点图形类型，目前创建节点仅支持创建图片、文本、基础图形等类型，读取到不支持创建的图形时只返回一些基础信息，如 id、type、text、style 等
+         * <p> 示例值：
+         */
         private String type;
-     /**
-      * 父节点 id
-      * <p> 示例值：o1:1
-      */
+        /**
+         * 父节点 id
+         * <p> 示例值：o1:1
+         */
         private String parentId;
-     /**
-      * 子节点
-      * <p> 示例值：
-      */
+        /**
+         * 子节点
+         * <p> 示例值：
+         */
         private String[] children;
-     /**
-      * 图形相对画布的 x 轴位置信息（存在父容器时为相对父容器的坐标，父容器为组合图形 group 时，坐标是穿透的），单位为 px
-      * <p> 示例值：100
-      */
+        /**
+         * 图形相对画布的 x 轴位置信息（存在父容器时为相对父容器的坐标，父容器为组合图形 group 时，坐标是穿透的），单位为 px
+         * <p> 示例值：100
+         */
         private Double x;
-     /**
-      * 图形相对画布的 y 轴位置信息（存在父容器时为相对父容器的坐标，父容器为组合图形 group 时，坐标是穿透的），单位为 px
-      * <p> 示例值：100
-      */
+        /**
+         * 图形相对画布的 y 轴位置信息（存在父容器时为相对父容器的坐标，父容器为组合图形 group 时，坐标是穿透的），单位为 px
+         * <p> 示例值：100
+         */
         private Double y;
-     /**
-      * 图形旋转角度
-      * <p> 示例值：100
-      */
+        /**
+         * 图形旋转角度
+         * <p> 示例值：100
+         */
         private Double angle;
-     /**
-      * 图形宽度，单位为 px
-      * <p> 示例值：100
-      */
+        /**
+         * 图形宽度，单位为 px
+         * <p> 示例值：100
+         */
         private Double width;
-     /**
-      * 图形高度，单位为 px
-      * <p> 示例值：100
-      */
+        /**
+         * 图形高度，单位为 px
+         * <p> 示例值：100
+         */
         private Double height;
-     /**
-      * 图形内文字
-      * <p> 示例值：
-      */
+        /**
+         * 图形内文字
+         * <p> 示例值：
+         */
         private Text text;
-     /**
-      * 图形样式
-      * <p> 示例值：
-      */
+        /**
+         * 图形样式
+         * <p> 示例值：
+         */
         private Style style;
-     /**
-      * 图片
-      * <p> 示例值：
-      */
+        /**
+         * 图片
+         * <p> 示例值：
+         */
         private Image image;
-     /**
-      * 基础图形属性
-      * <p> 示例值：
-      */
+        /**
+         * 基础图形属性
+         * <p> 示例值：
+         */
         private CompositeShape compositeShape;
-     /**
-      * 连线属性
-      * <p> 示例值：
-      */
+        /**
+         * 连线属性
+         * <p> 示例值：
+         */
         private Connector connector;
-     /**
-      * 分区属性
-      * <p> 示例值：
-      */
+        /**
+         * 分区属性
+         * <p> 示例值：
+         */
         private Section section;
-     /**
-      * 表格属性
-      * <p> 示例值：
-      */
+        /**
+         * 表格属性
+         * <p> 示例值：
+         */
         private Table table;
-     /**
-      * 思维导图属性
-      * <p> 示例值：
-      */
+        /**
+         * 思维导图属性
+         * <p> 示例值：
+         */
         private MindMap mindMap;
 
         /**
          * 节点 id
          * <p> 示例值：o1:1
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 节点图形类型，目前创建节点仅支持创建图片、文本、基础图形等类型，读取到不支持创建的图形时只返回一些基础信息，如 id、type、text、style 等
          * <p> 示例值：
+         *
          * @param type
          * @return
          */
         public Builder type(String type) {
-             this.type = type;
-             return this;
+            this.type = type;
+            return this;
         }
+
         /**
          * 节点图形类型，目前创建节点仅支持创建图片、文本、基础图形等类型，读取到不支持创建的图形时只返回一些基础信息，如 id、type、text、style 等
          * <p> 示例值：
+         *
          * @param type {@link com.lark.oapi.service.board.v1.enums.WhiteboardNodeNodeTypeEnum}
          * @return
          */
         public Builder type(com.lark.oapi.service.board.v1.enums.WhiteboardNodeNodeTypeEnum type) {
-             this.type = type.getValue();
-             return this;
+            this.type = type.getValue();
+            return this;
         }
 
-    
 
         /**
          * 父节点 id
          * <p> 示例值：o1:1
+         *
          * @param parentId
          * @return
          */
         public Builder parentId(String parentId) {
-             this.parentId = parentId;
-             return this;
+            this.parentId = parentId;
+            return this;
         }
 
-    
 
         /**
          * 子节点
          * <p> 示例值：
+         *
          * @param children
          * @return
          */
         public Builder children(String[] children) {
-             this.children = children;
-             return this;
+            this.children = children;
+            return this;
         }
 
-    
 
         /**
          * 图形相对画布的 x 轴位置信息（存在父容器时为相对父容器的坐标，父容器为组合图形 group 时，坐标是穿透的），单位为 px
          * <p> 示例值：100
+         *
          * @param x
          * @return
          */
         public Builder x(Double x) {
-             this.x = x;
-             return this;
+            this.x = x;
+            return this;
         }
 
-    
 
         /**
          * 图形相对画布的 y 轴位置信息（存在父容器时为相对父容器的坐标，父容器为组合图形 group 时，坐标是穿透的），单位为 px
          * <p> 示例值：100
+         *
          * @param y
          * @return
          */
         public Builder y(Double y) {
-             this.y = y;
-             return this;
+            this.y = y;
+            return this;
         }
 
-    
 
         /**
          * 图形旋转角度
          * <p> 示例值：100
+         *
          * @param angle
          * @return
          */
         public Builder angle(Double angle) {
-             this.angle = angle;
-             return this;
+            this.angle = angle;
+            return this;
         }
 
-    
 
         /**
          * 图形宽度，单位为 px
          * <p> 示例值：100
+         *
          * @param width
          * @return
          */
         public Builder width(Double width) {
-             this.width = width;
-             return this;
+            this.width = width;
+            return this;
         }
 
-    
 
         /**
          * 图形高度，单位为 px
          * <p> 示例值：100
+         *
          * @param height
          * @return
          */
         public Builder height(Double height) {
-             this.height = height;
-             return this;
+            this.height = height;
+            return this;
         }
 
-    
 
         /**
          * 图形内文字
          * <p> 示例值：
+         *
          * @param text
          * @return
          */
         public Builder text(Text text) {
-             this.text = text;
-             return this;
+            this.text = text;
+            return this;
         }
 
-    
 
         /**
          * 图形样式
          * <p> 示例值：
+         *
          * @param style
          * @return
          */
         public Builder style(Style style) {
-             this.style = style;
-             return this;
+            this.style = style;
+            return this;
         }
 
-    
 
         /**
          * 图片
          * <p> 示例值：
+         *
          * @param image
          * @return
          */
         public Builder image(Image image) {
-             this.image = image;
-             return this;
+            this.image = image;
+            return this;
         }
 
-    
 
         /**
          * 基础图形属性
          * <p> 示例值：
+         *
          * @param compositeShape
          * @return
          */
         public Builder compositeShape(CompositeShape compositeShape) {
-             this.compositeShape = compositeShape;
-             return this;
+            this.compositeShape = compositeShape;
+            return this;
         }
 
-    
 
         /**
          * 连线属性
          * <p> 示例值：
+         *
          * @param connector
          * @return
          */
         public Builder connector(Connector connector) {
-             this.connector = connector;
-             return this;
+            this.connector = connector;
+            return this;
         }
 
-    
 
         /**
          * 分区属性
          * <p> 示例值：
+         *
          * @param section
          * @return
          */
         public Builder section(Section section) {
-             this.section = section;
-             return this;
+            this.section = section;
+            return this;
         }
 
-    
 
         /**
          * 表格属性
          * <p> 示例值：
+         *
          * @param table
          * @return
          */
         public Builder table(Table table) {
-             this.table = table;
-             return this;
+            this.table = table;
+            return this;
         }
 
-    
 
         /**
          * 思维导图属性
          * <p> 示例值：
+         *
          * @param mindMap
          * @return
          */
         public Builder mindMap(MindMap mindMap) {
-             this.mindMap = mindMap;
-             return this;
+            this.mindMap = mindMap;
+            return this;
         }
 
-    
-    
-    public WhiteboardNode build(){
-        return new WhiteboardNode(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public WhiteboardNode build() {
+            return new WhiteboardNode(this);
+        }
     }
 }

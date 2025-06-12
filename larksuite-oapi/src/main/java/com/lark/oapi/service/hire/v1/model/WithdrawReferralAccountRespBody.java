@@ -12,36 +12,41 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class WithdrawReferralAccountRespBody {
-     /**
-      * 请求时传入的提现单ID
-      * <p> 示例值：6942778198054125570
-      */
+    /**
+     * 请求时传入的提现单ID
+     * <p> 示例值：6942778198054125570
+     */
     @SerializedName("external_order_id")
     private String externalOrderId;
-     /**
-      * 交易时间戳，需要保存，用于统一交易时间，方便对账
-      * <p> 示例值：1683634459543
-      */
+    /**
+     * 交易时间戳，需要保存，用于统一交易时间，方便对账
+     * <p> 示例值：1683634459543
+     */
     @SerializedName("trans_time")
     private String transTime;
-     /**
-      * 本次提现金额明细
-      * <p> 示例值：
-      */
+    /**
+     * 本次提现金额明细
+     * <p> 示例值：
+     */
     @SerializedName("withdrawal_details")
     private BonusAmount withdrawalDetails;
+
     public String getExternalOrderId() {
         return this.externalOrderId;
     }

@@ -12,32 +12,58 @@
  */
 
 package com.lark.oapi.service.aily.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.aily.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CancelAilySessionRunReq {
-     /**
-      * 会话 ID
-      * <p> 示例值：session_4dfunz7sp1g8m
-      */
+    /**
+     * 会话 ID
+     * <p> 示例值：session_4dfunz7sp1g8m
+     */
     @Path
     @SerializedName("aily_session_id")
     private String ailySessionId;
-     /**
-      * 运行 ID
-      * <p> 示例值：run_4dfrxvctjqzzj
-      */
+    /**
+     * 运行 ID
+     * <p> 示例值：run_4dfrxvctjqzzj
+     */
     @Path
     @SerializedName("run_id")
     private String runId;
+
+    // builder 开始
+    public CancelAilySessionRunReq() {
+    }
+
+    public CancelAilySessionRunReq(Builder builder) {
+        /**
+         * 会话 ID
+         * <p> 示例值：session_4dfunz7sp1g8m
+         */
+        this.ailySessionId = builder.ailySessionId;
+        /**
+         * 运行 ID
+         * <p> 示例值：run_4dfrxvctjqzzj
+         */
+        this.runId = builder.runId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getAilySessionId() {
         return this.ailySessionId;
     }
@@ -54,57 +80,39 @@ public class CancelAilySessionRunReq {
         this.runId = runId;
     }
 
-
-// builder 开始
-  public CancelAilySessionRunReq(){}
-
-  public CancelAilySessionRunReq(Builder builder){
-     /**
-      * 会话 ID
-      * <p> 示例值：session_4dfunz7sp1g8m
-      */
-       this.ailySessionId = builder.ailySessionId;
-     /**
-      * 运行 ID
-      * <p> 示例值：run_4dfrxvctjqzzj
-      */
-       this.runId = builder.runId;
-  }
-
     public static class Builder {
-    
+
         private String ailySessionId; // 会话 ID
         private String runId; // 运行 ID
+
         /**
          * 会话 ID
          * <p> 示例值：session_4dfunz7sp1g8m
+         *
          * @param ailySessionId
          * @return
          */
-          public Builder ailySessionId(String ailySessionId) {
-               this.ailySessionId = ailySessionId;
-               return this;
-          }
+        public Builder ailySessionId(String ailySessionId) {
+            this.ailySessionId = ailySessionId;
+            return this;
+        }
 
-    
+
         /**
          * 运行 ID
          * <p> 示例值：run_4dfrxvctjqzzj
+         *
          * @param runId
          * @return
          */
-          public Builder runId(String runId) {
-               this.runId = runId;
-               return this;
-          }
+        public Builder runId(String runId) {
+            this.runId = runId;
+            return this;
+        }
 
-    
-    public CancelAilySessionRunReq build(){
-        return new CancelAilySessionRunReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public CancelAilySessionRunReq build() {
+            return new CancelAilySessionRunReq(this);
+        }
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.mail.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,60 +20,115 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Mailgroup {
-     /**
-      * 邮件组ID
-      * <p> 示例值：xxxxxxxxxxxxxxx
-      */
+    /**
+     * 邮件组ID
+     * <p> 示例值：xxxxxxxxxxxxxxx
+     */
     @SerializedName("mailgroup_id")
     private String mailgroupId;
-     /**
-      * 邮件组地址
-      * <p> 示例值：test_mail_group@xxx.xx
-      */
+    /**
+     * 邮件组地址
+     * <p> 示例值：test_mail_group@xxx.xx
+     */
     @SerializedName("email")
     private String email;
-     /**
-      * 邮件组名称
-      * <p> 示例值：test mail group
-      */
+    /**
+     * 邮件组名称
+     * <p> 示例值：test mail group
+     */
     @SerializedName("name")
     private String name;
-     /**
-      * 邮件组描述
-      * <p> 示例值：mail group for testing
-      */
+    /**
+     * 邮件组描述
+     * <p> 示例值：mail group for testing
+     */
     @SerializedName("description")
     private String description;
-     /**
-      * 邮件组成员数量
-      * <p> 示例值：10
-      */
+    /**
+     * 邮件组成员数量
+     * <p> 示例值：10
+     */
     @SerializedName("direct_members_count")
     private String directMembersCount;
-     /**
-      * 是否包含外部成员
-      * <p> 示例值：true
-      */
+    /**
+     * 是否包含外部成员
+     * <p> 示例值：true
+     */
     @SerializedName("include_external_member")
     private Boolean includeExternalMember;
-     /**
-      * 是否是全员邮件组
-      * <p> 示例值：false
-      */
+    /**
+     * 是否是全员邮件组
+     * <p> 示例值：false
+     */
     @SerializedName("include_all_company_member")
     private Boolean includeAllCompanyMember;
-     /**
-      * 谁可发送邮件到此邮件组
-      * <p> 示例值：ALL_INTERNAL_USERS
-      */
+    /**
+     * 谁可发送邮件到此邮件组
+     * <p> 示例值：ALL_INTERNAL_USERS
+     */
     @SerializedName("who_can_send_mail")
     private String whoCanSendMail;
+
+    // builder 开始
+    public Mailgroup() {
+    }
+
+    public Mailgroup(Builder builder) {
+        /**
+         * 邮件组ID
+         * <p> 示例值：xxxxxxxxxxxxxxx
+         */
+        this.mailgroupId = builder.mailgroupId;
+        /**
+         * 邮件组地址
+         * <p> 示例值：test_mail_group@xxx.xx
+         */
+        this.email = builder.email;
+        /**
+         * 邮件组名称
+         * <p> 示例值：test mail group
+         */
+        this.name = builder.name;
+        /**
+         * 邮件组描述
+         * <p> 示例值：mail group for testing
+         */
+        this.description = builder.description;
+        /**
+         * 邮件组成员数量
+         * <p> 示例值：10
+         */
+        this.directMembersCount = builder.directMembersCount;
+        /**
+         * 是否包含外部成员
+         * <p> 示例值：true
+         */
+        this.includeExternalMember = builder.includeExternalMember;
+        /**
+         * 是否是全员邮件组
+         * <p> 示例值：false
+         */
+        this.includeAllCompanyMember = builder.includeAllCompanyMember;
+        /**
+         * 谁可发送邮件到此邮件组
+         * <p> 示例值：ALL_INTERNAL_USERS
+         */
+        this.whoCanSendMail = builder.whoCanSendMail;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getMailgroupId() {
         return this.mailgroupId;
     }
@@ -137,215 +193,166 @@ public class Mailgroup {
         this.whoCanSendMail = whoCanSendMail;
     }
 
-
-// builder 开始
-  public Mailgroup(){}
-
-  public Mailgroup(Builder builder){
-         /**
-          * 邮件组ID
-          * <p> 示例值：xxxxxxxxxxxxxxx
-          */
-      this.mailgroupId = builder.mailgroupId;
-         /**
-          * 邮件组地址
-          * <p> 示例值：test_mail_group@xxx.xx
-          */
-      this.email = builder.email;
-         /**
-          * 邮件组名称
-          * <p> 示例值：test mail group
-          */
-      this.name = builder.name;
-         /**
-          * 邮件组描述
-          * <p> 示例值：mail group for testing
-          */
-      this.description = builder.description;
-         /**
-          * 邮件组成员数量
-          * <p> 示例值：10
-          */
-      this.directMembersCount = builder.directMembersCount;
-         /**
-          * 是否包含外部成员
-          * <p> 示例值：true
-          */
-      this.includeExternalMember = builder.includeExternalMember;
-         /**
-          * 是否是全员邮件组
-          * <p> 示例值：false
-          */
-      this.includeAllCompanyMember = builder.includeAllCompanyMember;
-         /**
-          * 谁可发送邮件到此邮件组
-          * <p> 示例值：ALL_INTERNAL_USERS
-          */
-      this.whoCanSendMail = builder.whoCanSendMail;
-  }
-
     public static class Builder {
-     /**
-      * 邮件组ID
-      * <p> 示例值：xxxxxxxxxxxxxxx
-      */
+        /**
+         * 邮件组ID
+         * <p> 示例值：xxxxxxxxxxxxxxx
+         */
         private String mailgroupId;
-     /**
-      * 邮件组地址
-      * <p> 示例值：test_mail_group@xxx.xx
-      */
+        /**
+         * 邮件组地址
+         * <p> 示例值：test_mail_group@xxx.xx
+         */
         private String email;
-     /**
-      * 邮件组名称
-      * <p> 示例值：test mail group
-      */
+        /**
+         * 邮件组名称
+         * <p> 示例值：test mail group
+         */
         private String name;
-     /**
-      * 邮件组描述
-      * <p> 示例值：mail group for testing
-      */
+        /**
+         * 邮件组描述
+         * <p> 示例值：mail group for testing
+         */
         private String description;
-     /**
-      * 邮件组成员数量
-      * <p> 示例值：10
-      */
+        /**
+         * 邮件组成员数量
+         * <p> 示例值：10
+         */
         private String directMembersCount;
-     /**
-      * 是否包含外部成员
-      * <p> 示例值：true
-      */
+        /**
+         * 是否包含外部成员
+         * <p> 示例值：true
+         */
         private Boolean includeExternalMember;
-     /**
-      * 是否是全员邮件组
-      * <p> 示例值：false
-      */
+        /**
+         * 是否是全员邮件组
+         * <p> 示例值：false
+         */
         private Boolean includeAllCompanyMember;
-     /**
-      * 谁可发送邮件到此邮件组
-      * <p> 示例值：ALL_INTERNAL_USERS
-      */
+        /**
+         * 谁可发送邮件到此邮件组
+         * <p> 示例值：ALL_INTERNAL_USERS
+         */
         private String whoCanSendMail;
 
         /**
          * 邮件组ID
          * <p> 示例值：xxxxxxxxxxxxxxx
+         *
          * @param mailgroupId
          * @return
          */
         public Builder mailgroupId(String mailgroupId) {
-             this.mailgroupId = mailgroupId;
-             return this;
+            this.mailgroupId = mailgroupId;
+            return this;
         }
 
-    
 
         /**
          * 邮件组地址
          * <p> 示例值：test_mail_group@xxx.xx
+         *
          * @param email
          * @return
          */
         public Builder email(String email) {
-             this.email = email;
-             return this;
+            this.email = email;
+            return this;
         }
 
-    
 
         /**
          * 邮件组名称
          * <p> 示例值：test mail group
+         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 邮件组描述
          * <p> 示例值：mail group for testing
+         *
          * @param description
          * @return
          */
         public Builder description(String description) {
-             this.description = description;
-             return this;
+            this.description = description;
+            return this;
         }
 
-    
 
         /**
          * 邮件组成员数量
          * <p> 示例值：10
+         *
          * @param directMembersCount
          * @return
          */
         public Builder directMembersCount(String directMembersCount) {
-             this.directMembersCount = directMembersCount;
-             return this;
+            this.directMembersCount = directMembersCount;
+            return this;
         }
 
-    
 
         /**
          * 是否包含外部成员
          * <p> 示例值：true
+         *
          * @param includeExternalMember
          * @return
          */
         public Builder includeExternalMember(Boolean includeExternalMember) {
-             this.includeExternalMember = includeExternalMember;
-             return this;
+            this.includeExternalMember = includeExternalMember;
+            return this;
         }
 
-    
 
         /**
          * 是否是全员邮件组
          * <p> 示例值：false
+         *
          * @param includeAllCompanyMember
          * @return
          */
         public Builder includeAllCompanyMember(Boolean includeAllCompanyMember) {
-             this.includeAllCompanyMember = includeAllCompanyMember;
-             return this;
+            this.includeAllCompanyMember = includeAllCompanyMember;
+            return this;
         }
 
-    
 
         /**
          * 谁可发送邮件到此邮件组
          * <p> 示例值：ALL_INTERNAL_USERS
+         *
          * @param whoCanSendMail
          * @return
          */
         public Builder whoCanSendMail(String whoCanSendMail) {
-             this.whoCanSendMail = whoCanSendMail;
-             return this;
+            this.whoCanSendMail = whoCanSendMail;
+            return this;
         }
+
         /**
          * 谁可发送邮件到此邮件组
          * <p> 示例值：ALL_INTERNAL_USERS
+         *
          * @param whoCanSendMail {@link com.lark.oapi.service.mail.v1.enums.MailgroupMailgroupWhoCanSendMailEnum}
          * @return
          */
         public Builder whoCanSendMail(com.lark.oapi.service.mail.v1.enums.MailgroupMailgroupWhoCanSendMailEnum whoCanSendMail) {
-             this.whoCanSendMail = whoCanSendMail.getValue();
-             return this;
+            this.whoCanSendMail = whoCanSendMail.getValue();
+            return this;
         }
 
-    
-    
-    public Mailgroup build(){
-        return new Mailgroup(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Mailgroup build() {
+            return new Mailgroup(this);
+        }
     }
 }

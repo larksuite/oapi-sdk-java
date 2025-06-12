@@ -12,25 +12,49 @@
  */
 
 package com.lark.oapi.service.search.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.search.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CreateDataSourceItemReq {
-     /**
-      * 数据源的ID
-      * <p> 示例值：service_ticket
-      */
+    /**
+     * 数据源的ID
+     * <p> 示例值：service_ticket
+     */
     @Path
     @SerializedName("data_source_id")
     private String dataSourceId;
+    @Body
+    private Item body;
+
+    // builder 开始
+    public CreateDataSourceItemReq() {
+    }
+
+    public CreateDataSourceItemReq(Builder builder) {
+        /**
+         * 数据源的ID
+         * <p> 示例值：service_ticket
+         */
+        this.dataSourceId = builder.dataSourceId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getDataSourceId() {
         return this.dataSourceId;
     }
@@ -38,9 +62,6 @@ public class CreateDataSourceItemReq {
     public void setDataSourceId(String dataSourceId) {
         this.dataSourceId = dataSourceId;
     }
-
-    @Body
-    private Item body;
 
     public Item getItem() {
         return this.body;
@@ -50,54 +71,40 @@ public class CreateDataSourceItemReq {
         this.body = body;
     }
 
-// builder 开始
-  public CreateDataSourceItemReq(){}
-
-  public CreateDataSourceItemReq(Builder builder){
-     /**
-      * 数据源的ID
-      * <p> 示例值：service_ticket
-      */
-       this.dataSourceId = builder.dataSourceId;
-        this.body = builder.body;
-  }
-
     public static class Builder {
-    
+
         private String dataSourceId; // 数据源的ID
+        private Item body;
+
         /**
          * 数据源的ID
          * <p> 示例值：service_ticket
+         *
          * @param dataSourceId
          * @return
          */
-          public Builder dataSourceId(String dataSourceId) {
-               this.dataSourceId = dataSourceId;
-               return this;
-          }
+        public Builder dataSourceId(String dataSourceId) {
+            this.dataSourceId = dataSourceId;
+            return this;
+        }
 
-    
-        private Item body;
-    
         public Item getItem() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder item(Item body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public CreateDataSourceItemReq build(){
-        return new CreateDataSourceItemReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public CreateDataSourceItemReq build() {
+            return new CreateDataSourceItemReq(this);
+        }
     }
 }

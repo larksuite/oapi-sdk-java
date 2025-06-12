@@ -17,24 +17,25 @@ package com.lark.oapi.service.mail.v1.enums;
  * 操作类型
  */
 public enum RuleActionItemRuleActionItemTypeEnum {
-     ARCHIVEMESSAGE(1), // 归档
-     DELETEMESSAGE(2), // 删除邮件
-     MARKASREAD(3), // 标记为已读
-     MARKASSPAM(4), // 移至垃圾邮件
-     NEVERMARKASSPAM(5), // 不移至垃圾邮件
-     APPLYLABEL(8), // 添加用户标签（暂不支持）
-     FLAG(9), // 添加旗标
-     NEVERPUSHNOTIFICATION(10), // 不弹出通知
-     MOVETOFOLDER(11), // 移至用户文件夹
-     AUTOTRANSFER(12), // 自动转发（暂不支持）
-     SENDTOCHAT(13), // 分享到会话（暂不支持）
-  ;
-   private Integer value;
+    ARCHIVEMESSAGE(1), // 归档
+    DELETEMESSAGE(2), // 删除邮件
+    MARKASREAD(3), // 标记为已读
+    MARKASSPAM(4), // 移至垃圾邮件
+    NEVERMARKASSPAM(5), // 不移至垃圾邮件
+    APPLYLABEL(8), // 添加用户标签（暂不支持）
+    FLAG(9), // 添加旗标
+    NEVERPUSHNOTIFICATION(10), // 不弹出通知
+    MOVETOFOLDER(11), // 移至用户文件夹
+    AUTOTRANSFER(12), // 自动转发（暂不支持）
+    SENDTOCHAT(13), // 分享到会话（暂不支持）
+    ;
+    private Integer value;
+
     RuleActionItemRuleActionItemTypeEnum(Integer value) {
-      this.value = value;
+        this.value = value;
     }
 
     public Integer getValue() {
-      return this.value;
+        return this.value;
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.task.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.task.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class RemoveMembersTaskReqBody {
-     /**
-      * 要移除的member列表
-      * <p> 示例值：
-      */
+    /**
+     * 要移除的member列表
+     * <p> 示例值：
+     */
     @SerializedName("members")
     private Member[] members;
+
+    // builder 开始
+    public RemoveMembersTaskReqBody() {
+    }
+
+    public RemoveMembersTaskReqBody(Builder builder) {
+        /**
+         * 要移除的member列表
+         * <p> 示例值：
+         */
+        this.members = builder.members;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Member[] getMembers() {
         return this.members;
     }
@@ -39,44 +60,28 @@ public class RemoveMembersTaskReqBody {
         this.members = members;
     }
 
-
-// builder 开始
-  public RemoveMembersTaskReqBody(){}
-
-  public RemoveMembersTaskReqBody(Builder builder){
-         /**
-          * 要移除的member列表
-          * <p> 示例值：
-          */
-      this.members = builder.members;
-  }
-
     public static class Builder {
-     /**
-      * 要移除的member列表
-      * <p> 示例值：
-      */
+        /**
+         * 要移除的member列表
+         * <p> 示例值：
+         */
         private Member[] members;
 
         /**
          * 要移除的member列表
          * <p> 示例值：
+         *
          * @param members
          * @return
          */
         public Builder members(Member[] members) {
-             this.members = members;
-             return this;
+            this.members = members;
+            return this;
         }
 
-    
-    
-    public RemoveMembersTaskReqBody build(){
-        return new RemoveMembersTaskReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public RemoveMembersTaskReqBody build() {
+            return new RemoveMembersTaskReqBody(this);
+        }
     }
 }

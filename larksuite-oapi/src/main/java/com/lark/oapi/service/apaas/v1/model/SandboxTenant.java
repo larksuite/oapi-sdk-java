@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class SandboxTenant {
-     /**
-      * 租户ID
-      * <p> 示例值：74894
-      */
+    /**
+     * 租户ID
+     * <p> 示例值：74894
+     */
     @SerializedName("tenant_id")
     private String tenantId;
-     /**
-      * 租户名称
-      * <p> 示例值：apaas
-      */
+    /**
+     * 租户名称
+     * <p> 示例值：apaas
+     */
     @SerializedName("tenant_name")
     private String tenantName;
+
+    // builder 开始
+    public SandboxTenant() {
+    }
+
+    public SandboxTenant(Builder builder) {
+        /**
+         * 租户ID
+         * <p> 示例值：74894
+         */
+        this.tenantId = builder.tenantId;
+        /**
+         * 租户名称
+         * <p> 示例值：apaas
+         */
+        this.tenantName = builder.tenantName;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getTenantId() {
         return this.tenantId;
     }
@@ -53,67 +79,46 @@ public class SandboxTenant {
         this.tenantName = tenantName;
     }
 
-
-// builder 开始
-  public SandboxTenant(){}
-
-  public SandboxTenant(Builder builder){
-         /**
-          * 租户ID
-          * <p> 示例值：74894
-          */
-      this.tenantId = builder.tenantId;
-         /**
-          * 租户名称
-          * <p> 示例值：apaas
-          */
-      this.tenantName = builder.tenantName;
-  }
-
     public static class Builder {
-     /**
-      * 租户ID
-      * <p> 示例值：74894
-      */
+        /**
+         * 租户ID
+         * <p> 示例值：74894
+         */
         private String tenantId;
-     /**
-      * 租户名称
-      * <p> 示例值：apaas
-      */
+        /**
+         * 租户名称
+         * <p> 示例值：apaas
+         */
         private String tenantName;
 
         /**
          * 租户ID
          * <p> 示例值：74894
+         *
          * @param tenantId
          * @return
          */
         public Builder tenantId(String tenantId) {
-             this.tenantId = tenantId;
-             return this;
+            this.tenantId = tenantId;
+            return this;
         }
 
-    
 
         /**
          * 租户名称
          * <p> 示例值：apaas
+         *
          * @param tenantName
          * @return
          */
         public Builder tenantName(String tenantName) {
-             this.tenantName = tenantName;
-             return this;
+            this.tenantName = tenantName;
+            return this;
         }
 
-    
-    
-    public SandboxTenant build(){
-        return new SandboxTenant(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public SandboxTenant build() {
+            return new SandboxTenant(this);
+        }
     }
 }

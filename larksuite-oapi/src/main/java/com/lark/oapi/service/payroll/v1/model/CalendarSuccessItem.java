@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.payroll.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.payroll.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CalendarSuccessItem {
-     /**
-      * 日历ID
-      * <p> 示例值：6823630319749580302
-      */
+    /**
+     * 日历ID
+     * <p> 示例值：6823630319749580302
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 期间列表
-      * <p> 示例值：
-      */
+    /**
+     * 期间列表
+     * <p> 示例值：
+     */
     @SerializedName("periods")
     private CalendarPeriod[] periods;
+
+    // builder 开始
+    public CalendarSuccessItem() {
+    }
+
+    public CalendarSuccessItem(Builder builder) {
+        /**
+         * 日历ID
+         * <p> 示例值：6823630319749580302
+         */
+        this.id = builder.id;
+        /**
+         * 期间列表
+         * <p> 示例值：
+         */
+        this.periods = builder.periods;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -53,67 +79,46 @@ public class CalendarSuccessItem {
         this.periods = periods;
     }
 
-
-// builder 开始
-  public CalendarSuccessItem(){}
-
-  public CalendarSuccessItem(Builder builder){
-         /**
-          * 日历ID
-          * <p> 示例值：6823630319749580302
-          */
-      this.id = builder.id;
-         /**
-          * 期间列表
-          * <p> 示例值：
-          */
-      this.periods = builder.periods;
-  }
-
     public static class Builder {
-     /**
-      * 日历ID
-      * <p> 示例值：6823630319749580302
-      */
+        /**
+         * 日历ID
+         * <p> 示例值：6823630319749580302
+         */
         private String id;
-     /**
-      * 期间列表
-      * <p> 示例值：
-      */
+        /**
+         * 期间列表
+         * <p> 示例值：
+         */
         private CalendarPeriod[] periods;
 
         /**
          * 日历ID
          * <p> 示例值：6823630319749580302
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 期间列表
          * <p> 示例值：
+         *
          * @param periods
          * @return
          */
         public Builder periods(CalendarPeriod[] periods) {
-             this.periods = periods;
-             return this;
+            this.periods = periods;
+            return this;
         }
 
-    
-    
-    public CalendarSuccessItem build(){
-        return new CalendarSuccessItem(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public CalendarSuccessItem build() {
+            return new CalendarSuccessItem(this);
+        }
     }
 }

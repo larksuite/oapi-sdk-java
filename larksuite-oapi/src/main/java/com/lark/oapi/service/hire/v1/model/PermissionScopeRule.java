@@ -12,24 +12,45 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class PermissionScopeRule {
-     /**
-      * 管理范围
-      * <p> 示例值：
-      */
+    /**
+     * 管理范围
+     * <p> 示例值：
+     */
     @SerializedName("rule_type")
     private Integer ruleType;
+
+    // builder 开始
+    public PermissionScopeRule() {
+    }
+
+    public PermissionScopeRule(Builder builder) {
+        /**
+         * 管理范围
+         * <p> 示例值：
+         */
+        this.ruleType = builder.ruleType;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Integer getRuleType() {
         return this.ruleType;
     }
@@ -38,44 +59,28 @@ public class PermissionScopeRule {
         this.ruleType = ruleType;
     }
 
-
-// builder 开始
-  public PermissionScopeRule(){}
-
-  public PermissionScopeRule(Builder builder){
-         /**
-          * 管理范围
-          * <p> 示例值：
-          */
-      this.ruleType = builder.ruleType;
-  }
-
     public static class Builder {
-     /**
-      * 管理范围
-      * <p> 示例值：
-      */
+        /**
+         * 管理范围
+         * <p> 示例值：
+         */
         private Integer ruleType;
 
         /**
          * 管理范围
          * <p> 示例值：
+         *
          * @param ruleType
          * @return
          */
         public Builder ruleType(Integer ruleType) {
-             this.ruleType = ruleType;
-             return this;
+            this.ruleType = ruleType;
+            return this;
         }
 
-    
-    
-    public PermissionScopeRule build(){
-        return new PermissionScopeRule(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public PermissionScopeRule build() {
+            return new PermissionScopeRule(this);
+        }
     }
 }

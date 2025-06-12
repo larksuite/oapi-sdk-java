@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,54 +20,104 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class AppTableFieldPropertyTypeUiProperty {
-     /**
-      * 货币币种
-      * <p> 示例值：CNY
-      */
+    /**
+     * 货币币种
+     * <p> 示例值：CNY
+     */
     @SerializedName("currency_code")
     private String currencyCode;
-     /**
-      * 数字、公式字段的显示格式
-      * <p> 示例值：0
-      */
+    /**
+     * 数字、公式字段的显示格式
+     * <p> 示例值：0
+     */
     @SerializedName("formatter")
     private String formatter;
-     /**
-      * 进度等字段是否支持自定义范围
-      * <p> 示例值：true
-      */
+    /**
+     * 进度等字段是否支持自定义范围
+     * <p> 示例值：true
+     */
     @SerializedName("range_customize")
     private Boolean rangeCustomize;
-     /**
-      * 进度、评分等字段的数据范围最小值
-      * <p> 示例值：1
-      */
+    /**
+     * 进度、评分等字段的数据范围最小值
+     * <p> 示例值：1
+     */
     @SerializedName("min")
     private Double min;
-     /**
-      * 进度、评分等字段的数据范围最大值
-      * <p> 示例值：100
-      */
+    /**
+     * 进度、评分等字段的数据范围最大值
+     * <p> 示例值：100
+     */
     @SerializedName("max")
     private Double max;
-     /**
-      * 日期、创建时间、最后更新时间字段的显示格式
-      * <p> 示例值：yyyy/MM/dd
-      */
+    /**
+     * 日期、创建时间、最后更新时间字段的显示格式
+     * <p> 示例值：yyyy/MM/dd
+     */
     @SerializedName("date_formatter")
     private String dateFormatter;
-     /**
-      * 评分字段的相关设置
-      * <p> 示例值：
-      */
+    /**
+     * 评分字段的相关设置
+     * <p> 示例值：
+     */
     @SerializedName("rating")
     private Rating rating;
+
+    // builder 开始
+    public AppTableFieldPropertyTypeUiProperty() {
+    }
+
+    public AppTableFieldPropertyTypeUiProperty(Builder builder) {
+        /**
+         * 货币币种
+         * <p> 示例值：CNY
+         */
+        this.currencyCode = builder.currencyCode;
+        /**
+         * 数字、公式字段的显示格式
+         * <p> 示例值：0
+         */
+        this.formatter = builder.formatter;
+        /**
+         * 进度等字段是否支持自定义范围
+         * <p> 示例值：true
+         */
+        this.rangeCustomize = builder.rangeCustomize;
+        /**
+         * 进度、评分等字段的数据范围最小值
+         * <p> 示例值：1
+         */
+        this.min = builder.min;
+        /**
+         * 进度、评分等字段的数据范围最大值
+         * <p> 示例值：100
+         */
+        this.max = builder.max;
+        /**
+         * 日期、创建时间、最后更新时间字段的显示格式
+         * <p> 示例值：yyyy/MM/dd
+         */
+        this.dateFormatter = builder.dateFormatter;
+        /**
+         * 评分字段的相关设置
+         * <p> 示例值：
+         */
+        this.rating = builder.rating;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getCurrencyCode() {
         return this.currencyCode;
     }
@@ -123,182 +174,136 @@ public class AppTableFieldPropertyTypeUiProperty {
         this.rating = rating;
     }
 
-
-// builder 开始
-  public AppTableFieldPropertyTypeUiProperty(){}
-
-  public AppTableFieldPropertyTypeUiProperty(Builder builder){
-         /**
-          * 货币币种
-          * <p> 示例值：CNY
-          */
-      this.currencyCode = builder.currencyCode;
-         /**
-          * 数字、公式字段的显示格式
-          * <p> 示例值：0
-          */
-      this.formatter = builder.formatter;
-         /**
-          * 进度等字段是否支持自定义范围
-          * <p> 示例值：true
-          */
-      this.rangeCustomize = builder.rangeCustomize;
-         /**
-          * 进度、评分等字段的数据范围最小值
-          * <p> 示例值：1
-          */
-      this.min = builder.min;
-         /**
-          * 进度、评分等字段的数据范围最大值
-          * <p> 示例值：100
-          */
-      this.max = builder.max;
-         /**
-          * 日期、创建时间、最后更新时间字段的显示格式
-          * <p> 示例值：yyyy/MM/dd
-          */
-      this.dateFormatter = builder.dateFormatter;
-         /**
-          * 评分字段的相关设置
-          * <p> 示例值：
-          */
-      this.rating = builder.rating;
-  }
-
     public static class Builder {
-     /**
-      * 货币币种
-      * <p> 示例值：CNY
-      */
+        /**
+         * 货币币种
+         * <p> 示例值：CNY
+         */
         private String currencyCode;
-     /**
-      * 数字、公式字段的显示格式
-      * <p> 示例值：0
-      */
+        /**
+         * 数字、公式字段的显示格式
+         * <p> 示例值：0
+         */
         private String formatter;
-     /**
-      * 进度等字段是否支持自定义范围
-      * <p> 示例值：true
-      */
+        /**
+         * 进度等字段是否支持自定义范围
+         * <p> 示例值：true
+         */
         private Boolean rangeCustomize;
-     /**
-      * 进度、评分等字段的数据范围最小值
-      * <p> 示例值：1
-      */
+        /**
+         * 进度、评分等字段的数据范围最小值
+         * <p> 示例值：1
+         */
         private Double min;
-     /**
-      * 进度、评分等字段的数据范围最大值
-      * <p> 示例值：100
-      */
+        /**
+         * 进度、评分等字段的数据范围最大值
+         * <p> 示例值：100
+         */
         private Double max;
-     /**
-      * 日期、创建时间、最后更新时间字段的显示格式
-      * <p> 示例值：yyyy/MM/dd
-      */
+        /**
+         * 日期、创建时间、最后更新时间字段的显示格式
+         * <p> 示例值：yyyy/MM/dd
+         */
         private String dateFormatter;
-     /**
-      * 评分字段的相关设置
-      * <p> 示例值：
-      */
+        /**
+         * 评分字段的相关设置
+         * <p> 示例值：
+         */
         private Rating rating;
 
         /**
          * 货币币种
          * <p> 示例值：CNY
+         *
          * @param currencyCode
          * @return
          */
         public Builder currencyCode(String currencyCode) {
-             this.currencyCode = currencyCode;
-             return this;
+            this.currencyCode = currencyCode;
+            return this;
         }
 
-    
 
         /**
          * 数字、公式字段的显示格式
          * <p> 示例值：0
+         *
          * @param formatter
          * @return
          */
         public Builder formatter(String formatter) {
-             this.formatter = formatter;
-             return this;
+            this.formatter = formatter;
+            return this;
         }
 
-    
 
         /**
          * 进度等字段是否支持自定义范围
          * <p> 示例值：true
+         *
          * @param rangeCustomize
          * @return
          */
         public Builder rangeCustomize(Boolean rangeCustomize) {
-             this.rangeCustomize = rangeCustomize;
-             return this;
+            this.rangeCustomize = rangeCustomize;
+            return this;
         }
 
-    
 
         /**
          * 进度、评分等字段的数据范围最小值
          * <p> 示例值：1
+         *
          * @param min
          * @return
          */
         public Builder min(Double min) {
-             this.min = min;
-             return this;
+            this.min = min;
+            return this;
         }
 
-    
 
         /**
          * 进度、评分等字段的数据范围最大值
          * <p> 示例值：100
+         *
          * @param max
          * @return
          */
         public Builder max(Double max) {
-             this.max = max;
-             return this;
+            this.max = max;
+            return this;
         }
 
-    
 
         /**
          * 日期、创建时间、最后更新时间字段的显示格式
          * <p> 示例值：yyyy/MM/dd
+         *
          * @param dateFormatter
          * @return
          */
         public Builder dateFormatter(String dateFormatter) {
-             this.dateFormatter = dateFormatter;
-             return this;
+            this.dateFormatter = dateFormatter;
+            return this;
         }
 
-    
 
         /**
          * 评分字段的相关设置
          * <p> 示例值：
+         *
          * @param rating
          * @return
          */
         public Builder rating(Rating rating) {
-             this.rating = rating;
-             return this;
+            this.rating = rating;
+            return this;
         }
 
-    
-    
-    public AppTableFieldPropertyTypeUiProperty build(){
-        return new AppTableFieldPropertyTypeUiProperty(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public AppTableFieldPropertyTypeUiProperty build() {
+            return new AppTableFieldPropertyTypeUiProperty(this);
+        }
     }
 }

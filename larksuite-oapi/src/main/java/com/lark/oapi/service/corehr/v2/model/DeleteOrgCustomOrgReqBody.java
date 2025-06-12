@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class DeleteOrgCustomOrgReqBody {
-     /**
-      * 组织ID
-      * <p> 示例值：6862995757234914824
-      */
+    /**
+     * 组织ID
+     * <p> 示例值：6862995757234914824
+     */
     @SerializedName("org_id")
     private String orgId;
-     /**
-      * 组织类型编码
-      * <p> 示例值：apiname__c
-      */
+    /**
+     * 组织类型编码
+     * <p> 示例值：apiname__c
+     */
     @SerializedName("object_api_name")
     private String objectApiName;
+
+    // builder 开始
+    public DeleteOrgCustomOrgReqBody() {
+    }
+
+    public DeleteOrgCustomOrgReqBody(Builder builder) {
+        /**
+         * 组织ID
+         * <p> 示例值：6862995757234914824
+         */
+        this.orgId = builder.orgId;
+        /**
+         * 组织类型编码
+         * <p> 示例值：apiname__c
+         */
+        this.objectApiName = builder.objectApiName;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getOrgId() {
         return this.orgId;
     }
@@ -53,67 +79,46 @@ public class DeleteOrgCustomOrgReqBody {
         this.objectApiName = objectApiName;
     }
 
-
-// builder 开始
-  public DeleteOrgCustomOrgReqBody(){}
-
-  public DeleteOrgCustomOrgReqBody(Builder builder){
-         /**
-          * 组织ID
-          * <p> 示例值：6862995757234914824
-          */
-      this.orgId = builder.orgId;
-         /**
-          * 组织类型编码
-          * <p> 示例值：apiname__c
-          */
-      this.objectApiName = builder.objectApiName;
-  }
-
     public static class Builder {
-     /**
-      * 组织ID
-      * <p> 示例值：6862995757234914824
-      */
+        /**
+         * 组织ID
+         * <p> 示例值：6862995757234914824
+         */
         private String orgId;
-     /**
-      * 组织类型编码
-      * <p> 示例值：apiname__c
-      */
+        /**
+         * 组织类型编码
+         * <p> 示例值：apiname__c
+         */
         private String objectApiName;
 
         /**
          * 组织ID
          * <p> 示例值：6862995757234914824
+         *
          * @param orgId
          * @return
          */
         public Builder orgId(String orgId) {
-             this.orgId = orgId;
-             return this;
+            this.orgId = orgId;
+            return this;
         }
 
-    
 
         /**
          * 组织类型编码
          * <p> 示例值：apiname__c
+         *
          * @param objectApiName
          * @return
          */
         public Builder objectApiName(String objectApiName) {
-             this.objectApiName = objectApiName;
-             return this;
+            this.objectApiName = objectApiName;
+            return this;
         }
 
-    
-    
-    public DeleteOrgCustomOrgReqBody build(){
-        return new DeleteOrgCustomOrgReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public DeleteOrgCustomOrgReqBody build() {
+            return new DeleteOrgCustomOrgReqBody(this);
+        }
     }
 }

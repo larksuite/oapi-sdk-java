@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.calendar.v4.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.calendar.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class GenerateCaldavConfSettingReqBody {
-     /**
-      * 需要同步日历的设备名，在日历中展示用来管理密码
-      * <p> 示例值：iPhone
-      */
+    /**
+     * 需要同步日历的设备名，在日历中展示用来管理密码
+     * <p> 示例值：iPhone
+     */
     @SerializedName("device_name")
     private String deviceName;
+
+    // builder 开始
+    public GenerateCaldavConfSettingReqBody() {
+    }
+
+    public GenerateCaldavConfSettingReqBody(Builder builder) {
+        /**
+         * 需要同步日历的设备名，在日历中展示用来管理密码
+         * <p> 示例值：iPhone
+         */
+        this.deviceName = builder.deviceName;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getDeviceName() {
         return this.deviceName;
     }
@@ -39,44 +60,28 @@ public class GenerateCaldavConfSettingReqBody {
         this.deviceName = deviceName;
     }
 
-
-// builder 开始
-  public GenerateCaldavConfSettingReqBody(){}
-
-  public GenerateCaldavConfSettingReqBody(Builder builder){
-         /**
-          * 需要同步日历的设备名，在日历中展示用来管理密码
-          * <p> 示例值：iPhone
-          */
-      this.deviceName = builder.deviceName;
-  }
-
     public static class Builder {
-     /**
-      * 需要同步日历的设备名，在日历中展示用来管理密码
-      * <p> 示例值：iPhone
-      */
+        /**
+         * 需要同步日历的设备名，在日历中展示用来管理密码
+         * <p> 示例值：iPhone
+         */
         private String deviceName;
 
         /**
          * 需要同步日历的设备名，在日历中展示用来管理密码
          * <p> 示例值：iPhone
+         *
          * @param deviceName
          * @return
          */
         public Builder deviceName(String deviceName) {
-             this.deviceName = deviceName;
-             return this;
+            this.deviceName = deviceName;
+            return this;
         }
 
-    
-    
-    public GenerateCaldavConfSettingReqBody build(){
-        return new GenerateCaldavConfSettingReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public GenerateCaldavConfSettingReqBody build() {
+            return new GenerateCaldavConfSettingReqBody(this);
+        }
     }
 }

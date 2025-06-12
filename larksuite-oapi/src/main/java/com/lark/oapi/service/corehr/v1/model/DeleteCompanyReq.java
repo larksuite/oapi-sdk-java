@@ -12,25 +12,46 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class DeleteCompanyReq {
-     /**
-      * 需要删除的公司ID
-      * <p> 示例值：341432424
-      */
+    /**
+     * 需要删除的公司ID
+     * <p> 示例值：341432424
+     */
     @Path
     @SerializedName("company_id")
     private String companyId;
+
+    // builder 开始
+    public DeleteCompanyReq() {
+    }
+
+    public DeleteCompanyReq(Builder builder) {
+        /**
+         * 需要删除的公司ID
+         * <p> 示例值：341432424
+         */
+        this.companyId = builder.companyId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getCompanyId() {
         return this.companyId;
     }
@@ -39,39 +60,25 @@ public class DeleteCompanyReq {
         this.companyId = companyId;
     }
 
-
-// builder 开始
-  public DeleteCompanyReq(){}
-
-  public DeleteCompanyReq(Builder builder){
-     /**
-      * 需要删除的公司ID
-      * <p> 示例值：341432424
-      */
-       this.companyId = builder.companyId;
-  }
-
     public static class Builder {
-    
+
         private String companyId; // 需要删除的公司ID
+
         /**
          * 需要删除的公司ID
          * <p> 示例值：341432424
+         *
          * @param companyId
          * @return
          */
-          public Builder companyId(String companyId) {
-               this.companyId = companyId;
-               return this;
-          }
+        public Builder companyId(String companyId) {
+            this.companyId = companyId;
+            return this;
+        }
 
-    
-    public DeleteCompanyReq build(){
-        return new DeleteCompanyReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public DeleteCompanyReq build() {
+            return new DeleteCompanyReq(this);
+        }
     }
 }

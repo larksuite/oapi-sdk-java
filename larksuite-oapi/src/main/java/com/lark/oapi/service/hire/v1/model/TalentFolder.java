@@ -12,54 +12,100 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class TalentFolder {
-     /**
-      * 外部ID
-      * <p> 示例值：
-      */
+    /**
+     * 外部ID
+     * <p> 示例值：
+     */
     @SerializedName("external_id")
     private String externalId;
-     /**
-      * 名字
-      * <p> 示例值：人才文件夹A1
-      */
+    /**
+     * 名字
+     * <p> 示例值：人才文件夹A1
+     */
     @SerializedName("name")
     private String name;
-     /**
-      * 父ID
-      * <p> 示例值：
-      */
+    /**
+     * 父ID
+     * <p> 示例值：
+     */
     @SerializedName("parent_id")
     private String parentId;
-     /**
-      * 创建人 ID
-      * <p> 示例值：
-      */
+    /**
+     * 创建人 ID
+     * <p> 示例值：
+     */
     @SerializedName("creator_id")
     private String creatorId;
-     /**
-      * 文件夹ID
-      * <p> 示例值：7041806543797995820
-      */
+    /**
+     * 文件夹ID
+     * <p> 示例值：7041806543797995820
+     */
     @SerializedName("folder_id")
     private String folderId;
-     /**
-      * 所有者ID
-      * <p> 示例值：ou_85bb308c57f597471cd2bb5b4f580245
-      */
+    /**
+     * 所有者ID
+     * <p> 示例值：ou_85bb308c57f597471cd2bb5b4f580245
+     */
     @SerializedName("owner_id")
     private String ownerId;
+
+    // builder 开始
+    public TalentFolder() {
+    }
+
+    public TalentFolder(Builder builder) {
+        /**
+         * 外部ID
+         * <p> 示例值：
+         */
+        this.externalId = builder.externalId;
+        /**
+         * 名字
+         * <p> 示例值：人才文件夹A1
+         */
+        this.name = builder.name;
+        /**
+         * 父ID
+         * <p> 示例值：
+         */
+        this.parentId = builder.parentId;
+        /**
+         * 创建人 ID
+         * <p> 示例值：
+         */
+        this.creatorId = builder.creatorId;
+        /**
+         * 文件夹ID
+         * <p> 示例值：7041806543797995820
+         */
+        this.folderId = builder.folderId;
+        /**
+         * 所有者ID
+         * <p> 示例值：ou_85bb308c57f597471cd2bb5b4f580245
+         */
+        this.ownerId = builder.ownerId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getExternalId() {
         return this.externalId;
     }
@@ -108,159 +154,118 @@ public class TalentFolder {
         this.ownerId = ownerId;
     }
 
-
-// builder 开始
-  public TalentFolder(){}
-
-  public TalentFolder(Builder builder){
-         /**
-          * 外部ID
-          * <p> 示例值：
-          */
-      this.externalId = builder.externalId;
-         /**
-          * 名字
-          * <p> 示例值：人才文件夹A1
-          */
-      this.name = builder.name;
-         /**
-          * 父ID
-          * <p> 示例值：
-          */
-      this.parentId = builder.parentId;
-         /**
-          * 创建人 ID
-          * <p> 示例值：
-          */
-      this.creatorId = builder.creatorId;
-         /**
-          * 文件夹ID
-          * <p> 示例值：7041806543797995820
-          */
-      this.folderId = builder.folderId;
-         /**
-          * 所有者ID
-          * <p> 示例值：ou_85bb308c57f597471cd2bb5b4f580245
-          */
-      this.ownerId = builder.ownerId;
-  }
-
     public static class Builder {
-     /**
-      * 外部ID
-      * <p> 示例值：
-      */
+        /**
+         * 外部ID
+         * <p> 示例值：
+         */
         private String externalId;
-     /**
-      * 名字
-      * <p> 示例值：人才文件夹A1
-      */
+        /**
+         * 名字
+         * <p> 示例值：人才文件夹A1
+         */
         private String name;
-     /**
-      * 父ID
-      * <p> 示例值：
-      */
+        /**
+         * 父ID
+         * <p> 示例值：
+         */
         private String parentId;
-     /**
-      * 创建人 ID
-      * <p> 示例值：
-      */
+        /**
+         * 创建人 ID
+         * <p> 示例值：
+         */
         private String creatorId;
-     /**
-      * 文件夹ID
-      * <p> 示例值：7041806543797995820
-      */
+        /**
+         * 文件夹ID
+         * <p> 示例值：7041806543797995820
+         */
         private String folderId;
-     /**
-      * 所有者ID
-      * <p> 示例值：ou_85bb308c57f597471cd2bb5b4f580245
-      */
+        /**
+         * 所有者ID
+         * <p> 示例值：ou_85bb308c57f597471cd2bb5b4f580245
+         */
         private String ownerId;
 
         /**
          * 外部ID
          * <p> 示例值：
+         *
          * @param externalId
          * @return
          */
         public Builder externalId(String externalId) {
-             this.externalId = externalId;
-             return this;
+            this.externalId = externalId;
+            return this;
         }
 
-    
 
         /**
          * 名字
          * <p> 示例值：人才文件夹A1
+         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 父ID
          * <p> 示例值：
+         *
          * @param parentId
          * @return
          */
         public Builder parentId(String parentId) {
-             this.parentId = parentId;
-             return this;
+            this.parentId = parentId;
+            return this;
         }
 
-    
 
         /**
          * 创建人 ID
          * <p> 示例值：
+         *
          * @param creatorId
          * @return
          */
         public Builder creatorId(String creatorId) {
-             this.creatorId = creatorId;
-             return this;
+            this.creatorId = creatorId;
+            return this;
         }
 
-    
 
         /**
          * 文件夹ID
          * <p> 示例值：7041806543797995820
+         *
          * @param folderId
          * @return
          */
         public Builder folderId(String folderId) {
-             this.folderId = folderId;
-             return this;
+            this.folderId = folderId;
+            return this;
         }
 
-    
 
         /**
          * 所有者ID
          * <p> 示例值：ou_85bb308c57f597471cd2bb5b4f580245
+         *
          * @param ownerId
          * @return
          */
         public Builder ownerId(String ownerId) {
-             this.ownerId = ownerId;
-             return this;
+            this.ownerId = ownerId;
+            return this;
         }
 
-    
-    
-    public TalentFolder build(){
-        return new TalentFolder(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public TalentFolder build() {
+            return new TalentFolder(this);
+        }
     }
 }

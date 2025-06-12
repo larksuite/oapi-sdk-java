@@ -17,17 +17,18 @@ package com.lark.oapi.service.im.v2.enums;
  * 标签类型
  */
 public enum OpenFeedStatusLabelTypeEnum {
-     PRIMARY("primary"), // 主类型
-     SECONDARY("secondary"), // 次要类型
-     SUCCESS("success"), // 成功类型
-     DANGER("danger"), // 危险类型
-  ;
-   private String value;
+    PRIMARY("primary"), // 主类型
+    SECONDARY("secondary"), // 次要类型
+    SUCCESS("success"), // 成功类型
+    DANGER("danger"), // 危险类型
+    ;
+    private String value;
+
     OpenFeedStatusLabelTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

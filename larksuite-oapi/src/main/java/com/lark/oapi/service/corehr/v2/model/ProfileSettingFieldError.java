@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ProfileSettingFieldError {
-     /**
-      * 字段路径
-      * <p> 示例值：emp_contract_record.0.effective_time
-      */
+    /**
+     * 字段路径
+     * <p> 示例值：emp_contract_record.0.effective_time
+     */
     @SerializedName("field_name")
     private String fieldName;
-     /**
-      * 报错信息
-      * <p> 示例值：填写过程中新增以下必填信息 effective_time 等，请填写后重试
-      */
+    /**
+     * 报错信息
+     * <p> 示例值：填写过程中新增以下必填信息 effective_time 等，请填写后重试
+     */
     @SerializedName("error_msg")
     private String errorMsg;
+
+    // builder 开始
+    public ProfileSettingFieldError() {
+    }
+
+    public ProfileSettingFieldError(Builder builder) {
+        /**
+         * 字段路径
+         * <p> 示例值：emp_contract_record.0.effective_time
+         */
+        this.fieldName = builder.fieldName;
+        /**
+         * 报错信息
+         * <p> 示例值：填写过程中新增以下必填信息 effective_time 等，请填写后重试
+         */
+        this.errorMsg = builder.errorMsg;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getFieldName() {
         return this.fieldName;
     }
@@ -53,67 +79,46 @@ public class ProfileSettingFieldError {
         this.errorMsg = errorMsg;
     }
 
-
-// builder 开始
-  public ProfileSettingFieldError(){}
-
-  public ProfileSettingFieldError(Builder builder){
-         /**
-          * 字段路径
-          * <p> 示例值：emp_contract_record.0.effective_time
-          */
-      this.fieldName = builder.fieldName;
-         /**
-          * 报错信息
-          * <p> 示例值：填写过程中新增以下必填信息 effective_time 等，请填写后重试
-          */
-      this.errorMsg = builder.errorMsg;
-  }
-
     public static class Builder {
-     /**
-      * 字段路径
-      * <p> 示例值：emp_contract_record.0.effective_time
-      */
+        /**
+         * 字段路径
+         * <p> 示例值：emp_contract_record.0.effective_time
+         */
         private String fieldName;
-     /**
-      * 报错信息
-      * <p> 示例值：填写过程中新增以下必填信息 effective_time 等，请填写后重试
-      */
+        /**
+         * 报错信息
+         * <p> 示例值：填写过程中新增以下必填信息 effective_time 等，请填写后重试
+         */
         private String errorMsg;
 
         /**
          * 字段路径
          * <p> 示例值：emp_contract_record.0.effective_time
+         *
          * @param fieldName
          * @return
          */
         public Builder fieldName(String fieldName) {
-             this.fieldName = fieldName;
-             return this;
+            this.fieldName = fieldName;
+            return this;
         }
 
-    
 
         /**
          * 报错信息
          * <p> 示例值：填写过程中新增以下必填信息 effective_time 等，请填写后重试
+         *
          * @param errorMsg
          * @return
          */
         public Builder errorMsg(String errorMsg) {
-             this.errorMsg = errorMsg;
-             return this;
+            this.errorMsg = errorMsg;
+            return this;
         }
 
-    
-    
-    public ProfileSettingFieldError build(){
-        return new ProfileSettingFieldError(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ProfileSettingFieldError build() {
+            return new ProfileSettingFieldError(this);
+        }
     }
 }

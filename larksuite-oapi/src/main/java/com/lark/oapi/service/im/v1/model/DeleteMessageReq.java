@@ -12,25 +12,46 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class DeleteMessageReq {
-     /**
-      * 待撤回的消息的ID
-      * <p> 示例值：om_dc13264520392913993dd051dba21dcf
-      */
+    /**
+     * 待撤回的消息的ID
+     * <p> 示例值：om_dc13264520392913993dd051dba21dcf
+     */
     @Path
     @SerializedName("message_id")
     private String messageId;
+
+    // builder 开始
+    public DeleteMessageReq() {
+    }
+
+    public DeleteMessageReq(Builder builder) {
+        /**
+         * 待撤回的消息的ID
+         * <p> 示例值：om_dc13264520392913993dd051dba21dcf
+         */
+        this.messageId = builder.messageId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getMessageId() {
         return this.messageId;
     }
@@ -39,39 +60,25 @@ public class DeleteMessageReq {
         this.messageId = messageId;
     }
 
-
-// builder 开始
-  public DeleteMessageReq(){}
-
-  public DeleteMessageReq(Builder builder){
-     /**
-      * 待撤回的消息的ID
-      * <p> 示例值：om_dc13264520392913993dd051dba21dcf
-      */
-       this.messageId = builder.messageId;
-  }
-
     public static class Builder {
-    
+
         private String messageId; // 待撤回的消息的ID
+
         /**
          * 待撤回的消息的ID
          * <p> 示例值：om_dc13264520392913993dd051dba21dcf
+         *
          * @param messageId
          * @return
          */
-          public Builder messageId(String messageId) {
-               this.messageId = messageId;
-               return this;
-          }
+        public Builder messageId(String messageId) {
+            this.messageId = messageId;
+            return this;
+        }
 
-    
-    public DeleteMessageReq build(){
-        return new DeleteMessageReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public DeleteMessageReq build() {
+            return new DeleteMessageReq(this);
+        }
     }
 }

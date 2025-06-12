@@ -12,36 +12,39 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class SearchBasicInfoCountryRegionRespBody {
-     /**
-      * 查询到的国家/地区列表
-      * <p> 示例值：
-      */
+    /**
+     * 查询到的国家/地区列表
+     * <p> 示例值：
+     */
     @SerializedName("items")
     private CountryRegion[] items;
-     /**
-      * 
-      * <p> 示例值：6862995772275688974
-      */
+    /**
+     * <p> 示例值：6862995772275688974
+     */
     @SerializedName("page_token")
     private String pageToken;
-     /**
-      * 
-      * <p> 示例值：
-      */
+    /**
+     * <p> 示例值：
+     */
     @SerializedName("has_more")
     private Boolean hasMore;
+
     public CountryRegion[] getItems() {
         return this.items;
     }

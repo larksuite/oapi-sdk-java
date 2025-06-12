@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class UpdateAppWorkflowReqBody {
-     /**
-      * 自动化状态
-      * <p> 示例值：Enable
-      */
+    /**
+     * 自动化状态
+     * <p> 示例值：Enable
+     */
     @SerializedName("status")
     private String status;
+
+    // builder 开始
+    public UpdateAppWorkflowReqBody() {
+    }
+
+    public UpdateAppWorkflowReqBody(Builder builder) {
+        /**
+         * 自动化状态
+         * <p> 示例值：Enable
+         */
+        this.status = builder.status;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getStatus() {
         return this.status;
     }
@@ -39,44 +60,28 @@ public class UpdateAppWorkflowReqBody {
         this.status = status;
     }
 
-
-// builder 开始
-  public UpdateAppWorkflowReqBody(){}
-
-  public UpdateAppWorkflowReqBody(Builder builder){
-         /**
-          * 自动化状态
-          * <p> 示例值：Enable
-          */
-      this.status = builder.status;
-  }
-
     public static class Builder {
-     /**
-      * 自动化状态
-      * <p> 示例值：Enable
-      */
+        /**
+         * 自动化状态
+         * <p> 示例值：Enable
+         */
         private String status;
 
         /**
          * 自动化状态
          * <p> 示例值：Enable
+         *
          * @param status
          * @return
          */
         public Builder status(String status) {
-             this.status = status;
-             return this;
+            this.status = status;
+            return this;
         }
 
-    
-    
-    public UpdateAppWorkflowReqBody build(){
-        return new UpdateAppWorkflowReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public UpdateAppWorkflowReqBody build() {
+            return new UpdateAppWorkflowReqBody(this);
+        }
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.payroll.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.payroll.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,78 +20,148 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Calendar {
-     /**
-      * 唯一标识
-      * <p> 示例值：6823630319749580302
-      */
+    /**
+     * 唯一标识
+     * <p> 示例值：6823630319749580302
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 名称
-      * <p> 示例值：
-      */
+    /**
+     * 名称
+     * <p> 示例值：
+     */
     @SerializedName("names")
     private I18nContent[] names;
-     /**
-      * 国家地区ID
-      * <p> 示例值：6823630319749580302
-      */
+    /**
+     * 国家地区ID
+     * <p> 示例值：6823630319749580302
+     */
     @SerializedName("region")
     private String region;
-     /**
-      * 工作日历ID
-      * <p> 示例值：6823630319749580303
-      */
+    /**
+     * 工作日历ID
+     * <p> 示例值：6823630319749580303
+     */
     @SerializedName("work_calendar")
     private String workCalendar;
-     /**
-      * 时区ID
-      * <p> 示例值：6823630319749580303
-      */
+    /**
+     * 时区ID
+     * <p> 示例值：6823630319749580303
+     */
     @SerializedName("time_zone")
     private String timeZone;
-     /**
-      * 算薪周期： 1-周，2-双周，3-月，4-双月，5-季度，6-年
-      * <p> 示例值：1
-      */
+    /**
+     * 算薪周期： 1-周，2-双周，3-月，4-双月，5-季度，6-年
+     * <p> 示例值：1
+     */
     @SerializedName("payroll_cycle")
     private Integer payrollCycle;
-     /**
-      * 状态：1-启用，2-停用
-      * <p> 示例值：1
-      */
+    /**
+     * 状态：1-启用，2-停用
+     * <p> 示例值：1
+     */
     @SerializedName("status")
     private Integer status;
-     /**
-      * 创建者saas_user_id
-      * <p> 示例值：6823630319749580303
-      */
+    /**
+     * 创建者saas_user_id
+     * <p> 示例值：6823630319749580303
+     */
     @SerializedName("creator_id")
     private String creatorId;
-     /**
-      * 创建时间，格式：yyyy-MM-dd HH:mm:ss utc+8
-      * <p> 示例值：2022-11-23 12:33:09
-      */
+    /**
+     * 创建时间，格式：yyyy-MM-dd HH:mm:ss utc+8
+     * <p> 示例值：2022-11-23 12:33:09
+     */
     @SerializedName("create_time")
     private String createTime;
-     /**
-      * 生效时间，格式：yyyy-MM-dd
-      * <p> 示例值：2022-01-01
-      */
+    /**
+     * 生效时间，格式：yyyy-MM-dd
+     * <p> 示例值：2022-01-01
+     */
     @SerializedName("effective_date")
     private String effectiveDate;
-     /**
-      * 日历期间年份列表
-      * <p> 示例值：
-      */
+    /**
+     * 日历期间年份列表
+     * <p> 示例值：
+     */
     @SerializedName("period_years")
     private String[] periodYears;
+
+    // builder 开始
+    public Calendar() {
+    }
+
+    public Calendar(Builder builder) {
+        /**
+         * 唯一标识
+         * <p> 示例值：6823630319749580302
+         */
+        this.id = builder.id;
+        /**
+         * 名称
+         * <p> 示例值：
+         */
+        this.names = builder.names;
+        /**
+         * 国家地区ID
+         * <p> 示例值：6823630319749580302
+         */
+        this.region = builder.region;
+        /**
+         * 工作日历ID
+         * <p> 示例值：6823630319749580303
+         */
+        this.workCalendar = builder.workCalendar;
+        /**
+         * 时区ID
+         * <p> 示例值：6823630319749580303
+         */
+        this.timeZone = builder.timeZone;
+        /**
+         * 算薪周期： 1-周，2-双周，3-月，4-双月，5-季度，6-年
+         * <p> 示例值：1
+         */
+        this.payrollCycle = builder.payrollCycle;
+        /**
+         * 状态：1-启用，2-停用
+         * <p> 示例值：1
+         */
+        this.status = builder.status;
+        /**
+         * 创建者saas_user_id
+         * <p> 示例值：6823630319749580303
+         */
+        this.creatorId = builder.creatorId;
+        /**
+         * 创建时间，格式：yyyy-MM-dd HH:mm:ss utc+8
+         * <p> 示例值：2022-11-23 12:33:09
+         */
+        this.createTime = builder.createTime;
+        /**
+         * 生效时间，格式：yyyy-MM-dd
+         * <p> 示例值：2022-01-01
+         */
+        this.effectiveDate = builder.effectiveDate;
+        /**
+         * 日历期间年份列表
+         * <p> 示例值：
+         */
+        this.periodYears = builder.periodYears;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -179,274 +250,208 @@ public class Calendar {
         this.periodYears = periodYears;
     }
 
-
-// builder 开始
-  public Calendar(){}
-
-  public Calendar(Builder builder){
-         /**
-          * 唯一标识
-          * <p> 示例值：6823630319749580302
-          */
-      this.id = builder.id;
-         /**
-          * 名称
-          * <p> 示例值：
-          */
-      this.names = builder.names;
-         /**
-          * 国家地区ID
-          * <p> 示例值：6823630319749580302
-          */
-      this.region = builder.region;
-         /**
-          * 工作日历ID
-          * <p> 示例值：6823630319749580303
-          */
-      this.workCalendar = builder.workCalendar;
-         /**
-          * 时区ID
-          * <p> 示例值：6823630319749580303
-          */
-      this.timeZone = builder.timeZone;
-         /**
-          * 算薪周期： 1-周，2-双周，3-月，4-双月，5-季度，6-年
-          * <p> 示例值：1
-          */
-      this.payrollCycle = builder.payrollCycle;
-         /**
-          * 状态：1-启用，2-停用
-          * <p> 示例值：1
-          */
-      this.status = builder.status;
-         /**
-          * 创建者saas_user_id
-          * <p> 示例值：6823630319749580303
-          */
-      this.creatorId = builder.creatorId;
-         /**
-          * 创建时间，格式：yyyy-MM-dd HH:mm:ss utc+8
-          * <p> 示例值：2022-11-23 12:33:09
-          */
-      this.createTime = builder.createTime;
-         /**
-          * 生效时间，格式：yyyy-MM-dd
-          * <p> 示例值：2022-01-01
-          */
-      this.effectiveDate = builder.effectiveDate;
-         /**
-          * 日历期间年份列表
-          * <p> 示例值：
-          */
-      this.periodYears = builder.periodYears;
-  }
-
     public static class Builder {
-     /**
-      * 唯一标识
-      * <p> 示例值：6823630319749580302
-      */
+        /**
+         * 唯一标识
+         * <p> 示例值：6823630319749580302
+         */
         private String id;
-     /**
-      * 名称
-      * <p> 示例值：
-      */
+        /**
+         * 名称
+         * <p> 示例值：
+         */
         private I18nContent[] names;
-     /**
-      * 国家地区ID
-      * <p> 示例值：6823630319749580302
-      */
+        /**
+         * 国家地区ID
+         * <p> 示例值：6823630319749580302
+         */
         private String region;
-     /**
-      * 工作日历ID
-      * <p> 示例值：6823630319749580303
-      */
+        /**
+         * 工作日历ID
+         * <p> 示例值：6823630319749580303
+         */
         private String workCalendar;
-     /**
-      * 时区ID
-      * <p> 示例值：6823630319749580303
-      */
+        /**
+         * 时区ID
+         * <p> 示例值：6823630319749580303
+         */
         private String timeZone;
-     /**
-      * 算薪周期： 1-周，2-双周，3-月，4-双月，5-季度，6-年
-      * <p> 示例值：1
-      */
+        /**
+         * 算薪周期： 1-周，2-双周，3-月，4-双月，5-季度，6-年
+         * <p> 示例值：1
+         */
         private Integer payrollCycle;
-     /**
-      * 状态：1-启用，2-停用
-      * <p> 示例值：1
-      */
+        /**
+         * 状态：1-启用，2-停用
+         * <p> 示例值：1
+         */
         private Integer status;
-     /**
-      * 创建者saas_user_id
-      * <p> 示例值：6823630319749580303
-      */
+        /**
+         * 创建者saas_user_id
+         * <p> 示例值：6823630319749580303
+         */
         private String creatorId;
-     /**
-      * 创建时间，格式：yyyy-MM-dd HH:mm:ss utc+8
-      * <p> 示例值：2022-11-23 12:33:09
-      */
+        /**
+         * 创建时间，格式：yyyy-MM-dd HH:mm:ss utc+8
+         * <p> 示例值：2022-11-23 12:33:09
+         */
         private String createTime;
-     /**
-      * 生效时间，格式：yyyy-MM-dd
-      * <p> 示例值：2022-01-01
-      */
+        /**
+         * 生效时间，格式：yyyy-MM-dd
+         * <p> 示例值：2022-01-01
+         */
         private String effectiveDate;
-     /**
-      * 日历期间年份列表
-      * <p> 示例值：
-      */
+        /**
+         * 日历期间年份列表
+         * <p> 示例值：
+         */
         private String[] periodYears;
 
         /**
          * 唯一标识
          * <p> 示例值：6823630319749580302
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 名称
          * <p> 示例值：
+         *
          * @param names
          * @return
          */
         public Builder names(I18nContent[] names) {
-             this.names = names;
-             return this;
+            this.names = names;
+            return this;
         }
 
-    
 
         /**
          * 国家地区ID
          * <p> 示例值：6823630319749580302
+         *
          * @param region
          * @return
          */
         public Builder region(String region) {
-             this.region = region;
-             return this;
+            this.region = region;
+            return this;
         }
 
-    
 
         /**
          * 工作日历ID
          * <p> 示例值：6823630319749580303
+         *
          * @param workCalendar
          * @return
          */
         public Builder workCalendar(String workCalendar) {
-             this.workCalendar = workCalendar;
-             return this;
+            this.workCalendar = workCalendar;
+            return this;
         }
 
-    
 
         /**
          * 时区ID
          * <p> 示例值：6823630319749580303
+         *
          * @param timeZone
          * @return
          */
         public Builder timeZone(String timeZone) {
-             this.timeZone = timeZone;
-             return this;
+            this.timeZone = timeZone;
+            return this;
         }
 
-    
 
         /**
          * 算薪周期： 1-周，2-双周，3-月，4-双月，5-季度，6-年
          * <p> 示例值：1
+         *
          * @param payrollCycle
          * @return
          */
         public Builder payrollCycle(Integer payrollCycle) {
-             this.payrollCycle = payrollCycle;
-             return this;
+            this.payrollCycle = payrollCycle;
+            return this;
         }
 
-    
 
         /**
          * 状态：1-启用，2-停用
          * <p> 示例值：1
+         *
          * @param status
          * @return
          */
         public Builder status(Integer status) {
-             this.status = status;
-             return this;
+            this.status = status;
+            return this;
         }
 
-    
 
         /**
          * 创建者saas_user_id
          * <p> 示例值：6823630319749580303
+         *
          * @param creatorId
          * @return
          */
         public Builder creatorId(String creatorId) {
-             this.creatorId = creatorId;
-             return this;
+            this.creatorId = creatorId;
+            return this;
         }
 
-    
 
         /**
          * 创建时间，格式：yyyy-MM-dd HH:mm:ss utc+8
          * <p> 示例值：2022-11-23 12:33:09
+         *
          * @param createTime
          * @return
          */
         public Builder createTime(String createTime) {
-             this.createTime = createTime;
-             return this;
+            this.createTime = createTime;
+            return this;
         }
 
-    
 
         /**
          * 生效时间，格式：yyyy-MM-dd
          * <p> 示例值：2022-01-01
+         *
          * @param effectiveDate
          * @return
          */
         public Builder effectiveDate(String effectiveDate) {
-             this.effectiveDate = effectiveDate;
-             return this;
+            this.effectiveDate = effectiveDate;
+            return this;
         }
 
-    
 
         /**
          * 日历期间年份列表
          * <p> 示例值：
+         *
          * @param periodYears
          * @return
          */
         public Builder periodYears(String[] periodYears) {
-             this.periodYears = periodYears;
-             return this;
+            this.periodYears = periodYears;
+            return this;
         }
 
-    
-    
-    public Calendar build(){
-        return new Calendar(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Calendar build() {
+            return new Calendar(this);
+        }
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.im.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class TagInfoWithBindVersion {
-     /**
-      * 标签内容
-      * <p> 示例值：
-      */
+    /**
+     * 标签内容
+     * <p> 示例值：
+     */
     @SerializedName("tag_info")
     private TagInfo tagInfo;
-     /**
-      * 绑定时间
-      * <p> 示例值：1710401562336
-      */
+    /**
+     * 绑定时间
+     * <p> 示例值：1710401562336
+     */
     @SerializedName("bind_version")
     private String bindVersion;
+
+    // builder 开始
+    public TagInfoWithBindVersion() {
+    }
+
+    public TagInfoWithBindVersion(Builder builder) {
+        /**
+         * 标签内容
+         * <p> 示例值：
+         */
+        this.tagInfo = builder.tagInfo;
+        /**
+         * 绑定时间
+         * <p> 示例值：1710401562336
+         */
+        this.bindVersion = builder.bindVersion;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public TagInfo getTagInfo() {
         return this.tagInfo;
     }
@@ -53,67 +79,46 @@ public class TagInfoWithBindVersion {
         this.bindVersion = bindVersion;
     }
 
-
-// builder 开始
-  public TagInfoWithBindVersion(){}
-
-  public TagInfoWithBindVersion(Builder builder){
-         /**
-          * 标签内容
-          * <p> 示例值：
-          */
-      this.tagInfo = builder.tagInfo;
-         /**
-          * 绑定时间
-          * <p> 示例值：1710401562336
-          */
-      this.bindVersion = builder.bindVersion;
-  }
-
     public static class Builder {
-     /**
-      * 标签内容
-      * <p> 示例值：
-      */
+        /**
+         * 标签内容
+         * <p> 示例值：
+         */
         private TagInfo tagInfo;
-     /**
-      * 绑定时间
-      * <p> 示例值：1710401562336
-      */
+        /**
+         * 绑定时间
+         * <p> 示例值：1710401562336
+         */
         private String bindVersion;
 
         /**
          * 标签内容
          * <p> 示例值：
+         *
          * @param tagInfo
          * @return
          */
         public Builder tagInfo(TagInfo tagInfo) {
-             this.tagInfo = tagInfo;
-             return this;
+            this.tagInfo = tagInfo;
+            return this;
         }
 
-    
 
         /**
          * 绑定时间
          * <p> 示例值：1710401562336
+         *
          * @param bindVersion
          * @return
          */
         public Builder bindVersion(String bindVersion) {
-             this.bindVersion = bindVersion;
-             return this;
+            this.bindVersion = bindVersion;
+            return this;
         }
 
-    
-    
-    public TagInfoWithBindVersion build(){
-        return new TagInfoWithBindVersion(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public TagInfoWithBindVersion build() {
+            return new TagInfoWithBindVersion(this);
+        }
     }
 }

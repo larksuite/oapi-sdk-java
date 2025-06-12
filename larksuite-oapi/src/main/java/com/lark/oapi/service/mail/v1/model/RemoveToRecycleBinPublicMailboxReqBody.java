@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.mail.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class RemoveToRecycleBinPublicMailboxReqBody {
-     /**
-      * 接收删除邮件的邮箱地址，不填则删除该公共邮箱的邮件
-      * <p> 示例值：user@xxx.xx
-      */
+    /**
+     * 接收删除邮件的邮箱地址，不填则删除该公共邮箱的邮件
+     * <p> 示例值：user@xxx.xx
+     */
     @SerializedName("to_mail_address")
     private String toMailAddress;
+
+    // builder 开始
+    public RemoveToRecycleBinPublicMailboxReqBody() {
+    }
+
+    public RemoveToRecycleBinPublicMailboxReqBody(Builder builder) {
+        /**
+         * 接收删除邮件的邮箱地址，不填则删除该公共邮箱的邮件
+         * <p> 示例值：user@xxx.xx
+         */
+        this.toMailAddress = builder.toMailAddress;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getToMailAddress() {
         return this.toMailAddress;
     }
@@ -39,44 +60,28 @@ public class RemoveToRecycleBinPublicMailboxReqBody {
         this.toMailAddress = toMailAddress;
     }
 
-
-// builder 开始
-  public RemoveToRecycleBinPublicMailboxReqBody(){}
-
-  public RemoveToRecycleBinPublicMailboxReqBody(Builder builder){
-         /**
-          * 接收删除邮件的邮箱地址，不填则删除该公共邮箱的邮件
-          * <p> 示例值：user@xxx.xx
-          */
-      this.toMailAddress = builder.toMailAddress;
-  }
-
     public static class Builder {
-     /**
-      * 接收删除邮件的邮箱地址，不填则删除该公共邮箱的邮件
-      * <p> 示例值：user@xxx.xx
-      */
+        /**
+         * 接收删除邮件的邮箱地址，不填则删除该公共邮箱的邮件
+         * <p> 示例值：user@xxx.xx
+         */
         private String toMailAddress;
 
         /**
          * 接收删除邮件的邮箱地址，不填则删除该公共邮箱的邮件
          * <p> 示例值：user@xxx.xx
+         *
          * @param toMailAddress
          * @return
          */
         public Builder toMailAddress(String toMailAddress) {
-             this.toMailAddress = toMailAddress;
-             return this;
+            this.toMailAddress = toMailAddress;
+            return this;
         }
 
-    
-    
-    public RemoveToRecycleBinPublicMailboxReqBody build(){
-        return new RemoveToRecycleBinPublicMailboxReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public RemoveToRecycleBinPublicMailboxReqBody build() {
+            return new RemoveToRecycleBinPublicMailboxReqBody(this);
+        }
     }
 }

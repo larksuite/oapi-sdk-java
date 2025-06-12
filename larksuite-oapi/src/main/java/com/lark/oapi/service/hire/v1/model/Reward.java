@@ -12,132 +12,242 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Reward {
-     /**
-      * 内推奖励 ID
-      * <p> 示例值：7410744543304468773
-      */
+    /**
+     * 内推奖励 ID
+     * <p> 示例值：7410744543304468773
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 内推人
-      * <p> 示例值：
-      */
+    /**
+     * 内推人
+     * <p> 示例值：
+     */
     @SerializedName("referrer")
     private RewardUser referrer;
-     /**
-      * 候选人
-      * <p> 示例值：
-      */
+    /**
+     * 候选人
+     * <p> 示例值：
+     */
     @SerializedName("candidate")
     private RewardCandidate candidate;
-     /**
-      * 内推职位
-      * <p> 示例值：
-      */
+    /**
+     * 内推职位
+     * <p> 示例值：
+     */
     @SerializedName("referral_job")
     private ObjectIdName referralJob;
-     /**
-      * 
-      * <p> 示例值：
-      */
+    /**
+     * <p> 示例值：
+     */
     @SerializedName("reason")
     private I18n reason;
-     /**
-      * 奖励额度
-      * <p> 示例值：
-      */
+    /**
+     * 奖励额度
+     * <p> 示例值：
+     */
     @SerializedName("bonus")
     private BonusAmount bonus;
-     /**
-      * 奖励产生时间，毫秒时间戳
-      * <p> 示例值：1704720275000
-      */
+    /**
+     * 奖励产生时间，毫秒时间戳
+     * <p> 示例值：1704720275000
+     */
     @SerializedName("create_time")
     private String createTime;
-     /**
-      * 奖励规则
-      * <p> 示例值：
-      */
+    /**
+     * 奖励规则
+     * <p> 示例值：
+     */
     @SerializedName("rule")
     private ObjectIdName rule;
-     /**
-      * 奖励类型
-      * <p> 示例值：1
-      */
+    /**
+     * 奖励类型
+     * <p> 示例值：1
+     */
     @SerializedName("reward_type")
     private Integer rewardType;
-     /**
-      * 职位负责人
-      * <p> 示例值：
-      */
+    /**
+     * 职位负责人
+     * <p> 示例值：
+     */
     @SerializedName("job_manager")
     private RewardUser jobManager;
-     /**
-      * Offer 负责人
-      * <p> 示例值：
-      */
+    /**
+     * Offer 负责人
+     * <p> 示例值：
+     */
     @SerializedName("offer_manager")
     private RewardUser offerManager;
-     /**
-      * 入职时间，毫秒时间戳
-      * <p> 示例值：
-      */
+    /**
+     * 入职时间，毫秒时间戳
+     * <p> 示例值：
+     */
     @SerializedName("onborad_time")
     private String onboradTime;
-     /**
-      * 转正时间，毫秒时间戳
-      * <p> 示例值：
-      */
+    /**
+     * 转正时间，毫秒时间戳
+     * <p> 示例值：
+     */
     @SerializedName("conversion_time")
     private String conversionTime;
-     /**
-      * 确认人
-      * <p> 示例值：
-      */
+    /**
+     * 确认人
+     * <p> 示例值：
+     */
     @SerializedName("confirm_user")
     private RewardUser confirmUser;
-     /**
-      * 确认时间，毫秒时间戳
-      * <p> 示例值：
-      */
+    /**
+     * 确认时间，毫秒时间戳
+     * <p> 示例值：
+     */
     @SerializedName("confirm_time")
     private String confirmTime;
-     /**
-      * 发放人
-      * <p> 示例值：
-      */
+    /**
+     * 发放人
+     * <p> 示例值：
+     */
     @SerializedName("pay_user")
     private RewardUser payUser;
-     /**
-      * 发放时间，毫秒时间戳
-      * <p> 示例值：
-      */
+    /**
+     * 发放时间，毫秒时间戳
+     * <p> 示例值：
+     */
     @SerializedName("pay_time")
     private String payTime;
-     /**
-      * 奖励阶段
-      * <p> 示例值：1
-      */
+    /**
+     * 奖励阶段
+     * <p> 示例值：1
+     */
     @SerializedName("stage")
     private Integer stage;
-     /**
-      * 是否导入
-      * <p> 示例值：true
-      */
+    /**
+     * 是否导入
+     * <p> 示例值：true
+     */
     @SerializedName("is_import")
     private Boolean isImport;
+
+    // builder 开始
+    public Reward() {
+    }
+
+    public Reward(Builder builder) {
+        /**
+         * 内推奖励 ID
+         * <p> 示例值：7410744543304468773
+         */
+        this.id = builder.id;
+        /**
+         * 内推人
+         * <p> 示例值：
+         */
+        this.referrer = builder.referrer;
+        /**
+         * 候选人
+         * <p> 示例值：
+         */
+        this.candidate = builder.candidate;
+        /**
+         * 内推职位
+         * <p> 示例值：
+         */
+        this.referralJob = builder.referralJob;
+        /**
+         *
+         * <p> 示例值：
+         */
+        this.reason = builder.reason;
+        /**
+         * 奖励额度
+         * <p> 示例值：
+         */
+        this.bonus = builder.bonus;
+        /**
+         * 奖励产生时间，毫秒时间戳
+         * <p> 示例值：1704720275000
+         */
+        this.createTime = builder.createTime;
+        /**
+         * 奖励规则
+         * <p> 示例值：
+         */
+        this.rule = builder.rule;
+        /**
+         * 奖励类型
+         * <p> 示例值：1
+         */
+        this.rewardType = builder.rewardType;
+        /**
+         * 职位负责人
+         * <p> 示例值：
+         */
+        this.jobManager = builder.jobManager;
+        /**
+         * Offer 负责人
+         * <p> 示例值：
+         */
+        this.offerManager = builder.offerManager;
+        /**
+         * 入职时间，毫秒时间戳
+         * <p> 示例值：
+         */
+        this.onboradTime = builder.onboradTime;
+        /**
+         * 转正时间，毫秒时间戳
+         * <p> 示例值：
+         */
+        this.conversionTime = builder.conversionTime;
+        /**
+         * 确认人
+         * <p> 示例值：
+         */
+        this.confirmUser = builder.confirmUser;
+        /**
+         * 确认时间，毫秒时间戳
+         * <p> 示例值：
+         */
+        this.confirmTime = builder.confirmTime;
+        /**
+         * 发放人
+         * <p> 示例值：
+         */
+        this.payUser = builder.payUser;
+        /**
+         * 发放时间，毫秒时间戳
+         * <p> 示例值：
+         */
+        this.payTime = builder.payTime;
+        /**
+         * 奖励阶段
+         * <p> 示例值：1
+         */
+        this.stage = builder.stage;
+        /**
+         * 是否导入
+         * <p> 示例值：true
+         */
+        this.isImport = builder.isImport;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -290,458 +400,350 @@ public class Reward {
         this.isImport = isImport;
     }
 
-
-// builder 开始
-  public Reward(){}
-
-  public Reward(Builder builder){
-         /**
-          * 内推奖励 ID
-          * <p> 示例值：7410744543304468773
-          */
-      this.id = builder.id;
-         /**
-          * 内推人
-          * <p> 示例值：
-          */
-      this.referrer = builder.referrer;
-         /**
-          * 候选人
-          * <p> 示例值：
-          */
-      this.candidate = builder.candidate;
-         /**
-          * 内推职位
-          * <p> 示例值：
-          */
-      this.referralJob = builder.referralJob;
-         /**
-          * 
-          * <p> 示例值：
-          */
-      this.reason = builder.reason;
-         /**
-          * 奖励额度
-          * <p> 示例值：
-          */
-      this.bonus = builder.bonus;
-         /**
-          * 奖励产生时间，毫秒时间戳
-          * <p> 示例值：1704720275000
-          */
-      this.createTime = builder.createTime;
-         /**
-          * 奖励规则
-          * <p> 示例值：
-          */
-      this.rule = builder.rule;
-         /**
-          * 奖励类型
-          * <p> 示例值：1
-          */
-      this.rewardType = builder.rewardType;
-         /**
-          * 职位负责人
-          * <p> 示例值：
-          */
-      this.jobManager = builder.jobManager;
-         /**
-          * Offer 负责人
-          * <p> 示例值：
-          */
-      this.offerManager = builder.offerManager;
-         /**
-          * 入职时间，毫秒时间戳
-          * <p> 示例值：
-          */
-      this.onboradTime = builder.onboradTime;
-         /**
-          * 转正时间，毫秒时间戳
-          * <p> 示例值：
-          */
-      this.conversionTime = builder.conversionTime;
-         /**
-          * 确认人
-          * <p> 示例值：
-          */
-      this.confirmUser = builder.confirmUser;
-         /**
-          * 确认时间，毫秒时间戳
-          * <p> 示例值：
-          */
-      this.confirmTime = builder.confirmTime;
-         /**
-          * 发放人
-          * <p> 示例值：
-          */
-      this.payUser = builder.payUser;
-         /**
-          * 发放时间，毫秒时间戳
-          * <p> 示例值：
-          */
-      this.payTime = builder.payTime;
-         /**
-          * 奖励阶段
-          * <p> 示例值：1
-          */
-      this.stage = builder.stage;
-         /**
-          * 是否导入
-          * <p> 示例值：true
-          */
-      this.isImport = builder.isImport;
-  }
-
     public static class Builder {
-     /**
-      * 内推奖励 ID
-      * <p> 示例值：7410744543304468773
-      */
+        /**
+         * 内推奖励 ID
+         * <p> 示例值：7410744543304468773
+         */
         private String id;
-     /**
-      * 内推人
-      * <p> 示例值：
-      */
+        /**
+         * 内推人
+         * <p> 示例值：
+         */
         private RewardUser referrer;
-     /**
-      * 候选人
-      * <p> 示例值：
-      */
+        /**
+         * 候选人
+         * <p> 示例值：
+         */
         private RewardCandidate candidate;
-     /**
-      * 内推职位
-      * <p> 示例值：
-      */
+        /**
+         * 内推职位
+         * <p> 示例值：
+         */
         private ObjectIdName referralJob;
-     /**
-      * 
-      * <p> 示例值：
-      */
+        /**
+         * <p> 示例值：
+         */
         private I18n reason;
-     /**
-      * 奖励额度
-      * <p> 示例值：
-      */
+        /**
+         * 奖励额度
+         * <p> 示例值：
+         */
         private BonusAmount bonus;
-     /**
-      * 奖励产生时间，毫秒时间戳
-      * <p> 示例值：1704720275000
-      */
+        /**
+         * 奖励产生时间，毫秒时间戳
+         * <p> 示例值：1704720275000
+         */
         private String createTime;
-     /**
-      * 奖励规则
-      * <p> 示例值：
-      */
+        /**
+         * 奖励规则
+         * <p> 示例值：
+         */
         private ObjectIdName rule;
-     /**
-      * 奖励类型
-      * <p> 示例值：1
-      */
+        /**
+         * 奖励类型
+         * <p> 示例值：1
+         */
         private Integer rewardType;
-     /**
-      * 职位负责人
-      * <p> 示例值：
-      */
+        /**
+         * 职位负责人
+         * <p> 示例值：
+         */
         private RewardUser jobManager;
-     /**
-      * Offer 负责人
-      * <p> 示例值：
-      */
+        /**
+         * Offer 负责人
+         * <p> 示例值：
+         */
         private RewardUser offerManager;
-     /**
-      * 入职时间，毫秒时间戳
-      * <p> 示例值：
-      */
+        /**
+         * 入职时间，毫秒时间戳
+         * <p> 示例值：
+         */
         private String onboradTime;
-     /**
-      * 转正时间，毫秒时间戳
-      * <p> 示例值：
-      */
+        /**
+         * 转正时间，毫秒时间戳
+         * <p> 示例值：
+         */
         private String conversionTime;
-     /**
-      * 确认人
-      * <p> 示例值：
-      */
+        /**
+         * 确认人
+         * <p> 示例值：
+         */
         private RewardUser confirmUser;
-     /**
-      * 确认时间，毫秒时间戳
-      * <p> 示例值：
-      */
+        /**
+         * 确认时间，毫秒时间戳
+         * <p> 示例值：
+         */
         private String confirmTime;
-     /**
-      * 发放人
-      * <p> 示例值：
-      */
+        /**
+         * 发放人
+         * <p> 示例值：
+         */
         private RewardUser payUser;
-     /**
-      * 发放时间，毫秒时间戳
-      * <p> 示例值：
-      */
+        /**
+         * 发放时间，毫秒时间戳
+         * <p> 示例值：
+         */
         private String payTime;
-     /**
-      * 奖励阶段
-      * <p> 示例值：1
-      */
+        /**
+         * 奖励阶段
+         * <p> 示例值：1
+         */
         private Integer stage;
-     /**
-      * 是否导入
-      * <p> 示例值：true
-      */
+        /**
+         * 是否导入
+         * <p> 示例值：true
+         */
         private Boolean isImport;
 
         /**
          * 内推奖励 ID
          * <p> 示例值：7410744543304468773
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 内推人
          * <p> 示例值：
+         *
          * @param referrer
          * @return
          */
         public Builder referrer(RewardUser referrer) {
-             this.referrer = referrer;
-             return this;
+            this.referrer = referrer;
+            return this;
         }
 
-    
 
         /**
          * 候选人
          * <p> 示例值：
+         *
          * @param candidate
          * @return
          */
         public Builder candidate(RewardCandidate candidate) {
-             this.candidate = candidate;
-             return this;
+            this.candidate = candidate;
+            return this;
         }
 
-    
 
         /**
          * 内推职位
          * <p> 示例值：
+         *
          * @param referralJob
          * @return
          */
         public Builder referralJob(ObjectIdName referralJob) {
-             this.referralJob = referralJob;
-             return this;
+            this.referralJob = referralJob;
+            return this;
         }
 
-    
 
         /**
-         * 
          * <p> 示例值：
+         *
          * @param reason
          * @return
          */
         public Builder reason(I18n reason) {
-             this.reason = reason;
-             return this;
+            this.reason = reason;
+            return this;
         }
 
-    
 
         /**
          * 奖励额度
          * <p> 示例值：
+         *
          * @param bonus
          * @return
          */
         public Builder bonus(BonusAmount bonus) {
-             this.bonus = bonus;
-             return this;
+            this.bonus = bonus;
+            return this;
         }
 
-    
 
         /**
          * 奖励产生时间，毫秒时间戳
          * <p> 示例值：1704720275000
+         *
          * @param createTime
          * @return
          */
         public Builder createTime(String createTime) {
-             this.createTime = createTime;
-             return this;
+            this.createTime = createTime;
+            return this;
         }
 
-    
 
         /**
          * 奖励规则
          * <p> 示例值：
+         *
          * @param rule
          * @return
          */
         public Builder rule(ObjectIdName rule) {
-             this.rule = rule;
-             return this;
+            this.rule = rule;
+            return this;
         }
 
-    
 
         /**
          * 奖励类型
          * <p> 示例值：1
+         *
          * @param rewardType
          * @return
          */
         public Builder rewardType(Integer rewardType) {
-             this.rewardType = rewardType;
-             return this;
+            this.rewardType = rewardType;
+            return this;
         }
 
-    
 
         /**
          * 职位负责人
          * <p> 示例值：
+         *
          * @param jobManager
          * @return
          */
         public Builder jobManager(RewardUser jobManager) {
-             this.jobManager = jobManager;
-             return this;
+            this.jobManager = jobManager;
+            return this;
         }
 
-    
 
         /**
          * Offer 负责人
          * <p> 示例值：
+         *
          * @param offerManager
          * @return
          */
         public Builder offerManager(RewardUser offerManager) {
-             this.offerManager = offerManager;
-             return this;
+            this.offerManager = offerManager;
+            return this;
         }
 
-    
 
         /**
          * 入职时间，毫秒时间戳
          * <p> 示例值：
+         *
          * @param onboradTime
          * @return
          */
         public Builder onboradTime(String onboradTime) {
-             this.onboradTime = onboradTime;
-             return this;
+            this.onboradTime = onboradTime;
+            return this;
         }
 
-    
 
         /**
          * 转正时间，毫秒时间戳
          * <p> 示例值：
+         *
          * @param conversionTime
          * @return
          */
         public Builder conversionTime(String conversionTime) {
-             this.conversionTime = conversionTime;
-             return this;
+            this.conversionTime = conversionTime;
+            return this;
         }
 
-    
 
         /**
          * 确认人
          * <p> 示例值：
+         *
          * @param confirmUser
          * @return
          */
         public Builder confirmUser(RewardUser confirmUser) {
-             this.confirmUser = confirmUser;
-             return this;
+            this.confirmUser = confirmUser;
+            return this;
         }
 
-    
 
         /**
          * 确认时间，毫秒时间戳
          * <p> 示例值：
+         *
          * @param confirmTime
          * @return
          */
         public Builder confirmTime(String confirmTime) {
-             this.confirmTime = confirmTime;
-             return this;
+            this.confirmTime = confirmTime;
+            return this;
         }
 
-    
 
         /**
          * 发放人
          * <p> 示例值：
+         *
          * @param payUser
          * @return
          */
         public Builder payUser(RewardUser payUser) {
-             this.payUser = payUser;
-             return this;
+            this.payUser = payUser;
+            return this;
         }
 
-    
 
         /**
          * 发放时间，毫秒时间戳
          * <p> 示例值：
+         *
          * @param payTime
          * @return
          */
         public Builder payTime(String payTime) {
-             this.payTime = payTime;
-             return this;
+            this.payTime = payTime;
+            return this;
         }
 
-    
 
         /**
          * 奖励阶段
          * <p> 示例值：1
+         *
          * @param stage
          * @return
          */
         public Builder stage(Integer stage) {
-             this.stage = stage;
-             return this;
+            this.stage = stage;
+            return this;
         }
 
-    
 
         /**
          * 是否导入
          * <p> 示例值：true
+         *
          * @param isImport
          * @return
          */
         public Builder isImport(Boolean isImport) {
-             this.isImport = isImport;
-             return this;
+            this.isImport = isImport;
+            return this;
         }
 
-    
-    
-    public Reward build(){
-        return new Reward(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Reward build() {
+            return new Reward(this);
+        }
     }
 }

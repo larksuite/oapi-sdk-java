@@ -12,30 +12,56 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class SiteResumeIdentification {
-     /**
-      * 身份类型
-      * <p> 示例值：
-      */
+    /**
+     * 身份类型
+     * <p> 示例值：
+     */
     @SerializedName("identification_type")
     private String identificationType;
-     /**
-      * 身份号码
-      * <p> 示例值：
-      */
+    /**
+     * 身份号码
+     * <p> 示例值：
+     */
     @SerializedName("code")
     private String code;
+
+    // builder 开始
+    public SiteResumeIdentification() {
+    }
+
+    public SiteResumeIdentification(Builder builder) {
+        /**
+         * 身份类型
+         * <p> 示例值：
+         */
+        this.identificationType = builder.identificationType;
+        /**
+         * 身份号码
+         * <p> 示例值：
+         */
+        this.code = builder.code;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getIdentificationType() {
         return this.identificationType;
     }
@@ -52,67 +78,46 @@ public class SiteResumeIdentification {
         this.code = code;
     }
 
-
-// builder 开始
-  public SiteResumeIdentification(){}
-
-  public SiteResumeIdentification(Builder builder){
-         /**
-          * 身份类型
-          * <p> 示例值：
-          */
-      this.identificationType = builder.identificationType;
-         /**
-          * 身份号码
-          * <p> 示例值：
-          */
-      this.code = builder.code;
-  }
-
     public static class Builder {
-     /**
-      * 身份类型
-      * <p> 示例值：
-      */
+        /**
+         * 身份类型
+         * <p> 示例值：
+         */
         private String identificationType;
-     /**
-      * 身份号码
-      * <p> 示例值：
-      */
+        /**
+         * 身份号码
+         * <p> 示例值：
+         */
         private String code;
 
         /**
          * 身份类型
          * <p> 示例值：
+         *
          * @param identificationType
          * @return
          */
         public Builder identificationType(String identificationType) {
-             this.identificationType = identificationType;
-             return this;
+            this.identificationType = identificationType;
+            return this;
         }
 
-    
 
         /**
          * 身份号码
          * <p> 示例值：
+         *
          * @param code
          * @return
          */
         public Builder code(String code) {
-             this.code = code;
-             return this;
+            this.code = code;
+            return this;
         }
 
-    
-    
-    public SiteResumeIdentification build(){
-        return new SiteResumeIdentification(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public SiteResumeIdentification build() {
+            return new SiteResumeIdentification(this);
+        }
     }
 }

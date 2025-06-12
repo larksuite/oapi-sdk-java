@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.sheets.v3.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.sheets.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,36 +20,71 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ConditionalFormat {
-     /**
-      * 条件格式ID
-      * <p> 示例值：hKc9HDZhrJ
-      */
+    /**
+     * 条件格式ID
+     * <p> 示例值：hKc9HDZhrJ
+     */
     @SerializedName("conditional_format_id")
     private String conditionalFormatId;
-     /**
-      * 条件格式
-      * <p> 示例值：
-      */
+    /**
+     * 条件格式
+     * <p> 示例值：
+     */
     @SerializedName("conditional_format_rule")
     private ConditionalFormatRule conditionalFormatRule;
-     /**
-      * 规则索引位置，默认为最后一个
-      * <p> 示例值：
-      */
+    /**
+     * 规则索引位置，默认为最后一个
+     * <p> 示例值：
+     */
     @SerializedName("index")
     private Integer index;
-     /**
-      * 条件格式应用范围
-      * <p> 示例值：
-      */
+    /**
+     * 条件格式应用范围
+     * <p> 示例值：
+     */
     @SerializedName("ranges")
     private ConditionalFormatRange ranges;
+
+    // builder 开始
+    public ConditionalFormat() {
+    }
+
+    public ConditionalFormat(Builder builder) {
+        /**
+         * 条件格式ID
+         * <p> 示例值：hKc9HDZhrJ
+         */
+        this.conditionalFormatId = builder.conditionalFormatId;
+        /**
+         * 条件格式
+         * <p> 示例值：
+         */
+        this.conditionalFormatRule = builder.conditionalFormatRule;
+        /**
+         * 规则索引位置，默认为最后一个
+         * <p> 示例值：
+         */
+        this.index = builder.index;
+        /**
+         * 条件格式应用范围
+         * <p> 示例值：
+         */
+        this.ranges = builder.ranges;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getConditionalFormatId() {
         return this.conditionalFormatId;
     }
@@ -81,113 +117,82 @@ public class ConditionalFormat {
         this.ranges = ranges;
     }
 
-
-// builder 开始
-  public ConditionalFormat(){}
-
-  public ConditionalFormat(Builder builder){
-         /**
-          * 条件格式ID
-          * <p> 示例值：hKc9HDZhrJ
-          */
-      this.conditionalFormatId = builder.conditionalFormatId;
-         /**
-          * 条件格式
-          * <p> 示例值：
-          */
-      this.conditionalFormatRule = builder.conditionalFormatRule;
-         /**
-          * 规则索引位置，默认为最后一个
-          * <p> 示例值：
-          */
-      this.index = builder.index;
-         /**
-          * 条件格式应用范围
-          * <p> 示例值：
-          */
-      this.ranges = builder.ranges;
-  }
-
     public static class Builder {
-     /**
-      * 条件格式ID
-      * <p> 示例值：hKc9HDZhrJ
-      */
+        /**
+         * 条件格式ID
+         * <p> 示例值：hKc9HDZhrJ
+         */
         private String conditionalFormatId;
-     /**
-      * 条件格式
-      * <p> 示例值：
-      */
+        /**
+         * 条件格式
+         * <p> 示例值：
+         */
         private ConditionalFormatRule conditionalFormatRule;
-     /**
-      * 规则索引位置，默认为最后一个
-      * <p> 示例值：
-      */
+        /**
+         * 规则索引位置，默认为最后一个
+         * <p> 示例值：
+         */
         private Integer index;
-     /**
-      * 条件格式应用范围
-      * <p> 示例值：
-      */
+        /**
+         * 条件格式应用范围
+         * <p> 示例值：
+         */
         private ConditionalFormatRange ranges;
 
         /**
          * 条件格式ID
          * <p> 示例值：hKc9HDZhrJ
+         *
          * @param conditionalFormatId
          * @return
          */
         public Builder conditionalFormatId(String conditionalFormatId) {
-             this.conditionalFormatId = conditionalFormatId;
-             return this;
+            this.conditionalFormatId = conditionalFormatId;
+            return this;
         }
 
-    
 
         /**
          * 条件格式
          * <p> 示例值：
+         *
          * @param conditionalFormatRule
          * @return
          */
         public Builder conditionalFormatRule(ConditionalFormatRule conditionalFormatRule) {
-             this.conditionalFormatRule = conditionalFormatRule;
-             return this;
+            this.conditionalFormatRule = conditionalFormatRule;
+            return this;
         }
 
-    
 
         /**
          * 规则索引位置，默认为最后一个
          * <p> 示例值：
+         *
          * @param index
          * @return
          */
         public Builder index(Integer index) {
-             this.index = index;
-             return this;
+            this.index = index;
+            return this;
         }
 
-    
 
         /**
          * 条件格式应用范围
          * <p> 示例值：
+         *
          * @param ranges
          * @return
          */
         public Builder ranges(ConditionalFormatRange ranges) {
-             this.ranges = ranges;
-             return this;
+            this.ranges = ranges;
+            return this;
         }
 
-    
-    
-    public ConditionalFormat build(){
-        return new ConditionalFormat(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ConditionalFormat build() {
+            return new ConditionalFormat(this);
+        }
     }
 }

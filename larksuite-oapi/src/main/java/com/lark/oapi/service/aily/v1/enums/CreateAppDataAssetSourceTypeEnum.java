@@ -17,17 +17,18 @@ package com.lark.oapi.service.aily.v1.enums;
  * 数据源类型
  */
 public enum CreateAppDataAssetSourceTypeEnum {
-     FILE("file"), // 文件，只支持导入模式
-     LARK_WIKI_SPACE("lark_wiki_space"), // 飞书知识空间，只支持直连模式
-     LARK_DOC("lark_doc"), // 飞书云文档，导入模式只支持docx
-     LARK_HELPDESK("lark_helpdesk"), // 飞书服务台，只支持直连模式
-  ;
-   private String value;
+    FILE("file"), // 文件，只支持导入模式
+    LARK_WIKI_SPACE("lark_wiki_space"), // 飞书知识空间，只支持直连模式
+    LARK_DOC("lark_doc"), // 飞书云文档，导入模式只支持docx
+    LARK_HELPDESK("lark_helpdesk"), // 飞书服务台，只支持直连模式
+    ;
+    private String value;
+
     CreateAppDataAssetSourceTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

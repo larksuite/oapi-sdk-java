@@ -12,24 +12,45 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class InterviewAggregation {
-     /**
-      * 面试信息列表
-      * <p> 示例值：
-      */
+    /**
+     * 面试信息列表
+     * <p> 示例值：
+     */
     @SerializedName("interviews")
     private InterviewExtendV2[] interviews;
+
+    // builder 开始
+    public InterviewAggregation() {
+    }
+
+    public InterviewAggregation(Builder builder) {
+        /**
+         * 面试信息列表
+         * <p> 示例值：
+         */
+        this.interviews = builder.interviews;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public InterviewExtendV2[] getInterviews() {
         return this.interviews;
     }
@@ -38,44 +59,28 @@ public class InterviewAggregation {
         this.interviews = interviews;
     }
 
-
-// builder 开始
-  public InterviewAggregation(){}
-
-  public InterviewAggregation(Builder builder){
-         /**
-          * 面试信息列表
-          * <p> 示例值：
-          */
-      this.interviews = builder.interviews;
-  }
-
     public static class Builder {
-     /**
-      * 面试信息列表
-      * <p> 示例值：
-      */
+        /**
+         * 面试信息列表
+         * <p> 示例值：
+         */
         private InterviewExtendV2[] interviews;
 
         /**
          * 面试信息列表
          * <p> 示例值：
+         *
          * @param interviews
          * @return
          */
         public Builder interviews(InterviewExtendV2[] interviews) {
-             this.interviews = interviews;
-             return this;
+            this.interviews = interviews;
+            return this;
         }
 
-    
-    
-    public InterviewAggregation build(){
-        return new InterviewAggregation(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public InterviewAggregation build() {
+            return new InterviewAggregation(this);
+        }
     }
 }

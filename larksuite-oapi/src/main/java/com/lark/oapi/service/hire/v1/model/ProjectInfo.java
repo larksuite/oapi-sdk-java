@@ -12,54 +12,100 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ProjectInfo {
-     /**
-      * 描述
-      * <p> 示例值：6949805467799537964
-      */
+    /**
+     * 描述
+     * <p> 示例值：6949805467799537964
+     */
     @SerializedName("desc")
     private String desc;
-     /**
-      * 结束时间
-      * <p> 示例值：1735664461000
-      */
+    /**
+     * 结束时间
+     * <p> 示例值：1735664461000
+     */
     @SerializedName("end_time")
     private Long endTime;
-     /**
-      * 项目链接
-      * <p> 示例值：www.feishu.bytedance.com
-      */
+    /**
+     * 项目链接
+     * <p> 示例值：www.feishu.bytedance.com
+     */
     @SerializedName("link")
     private String link;
-     /**
-      * 项目名称
-      * <p> 示例值：项目名称
-      */
+    /**
+     * 项目名称
+     * <p> 示例值：项目名称
+     */
     @SerializedName("name")
     private String name;
-     /**
-      * 项目角色
-      * <p> 示例值：项目角色
-      */
+    /**
+     * 项目角色
+     * <p> 示例值：项目角色
+     */
     @SerializedName("role")
     private String role;
-     /**
-      * 开始时间
-      * <p> 示例值：1735664461000
-      */
+    /**
+     * 开始时间
+     * <p> 示例值：1735664461000
+     */
     @SerializedName("start_time")
     private Long startTime;
+
+    // builder 开始
+    public ProjectInfo() {
+    }
+
+    public ProjectInfo(Builder builder) {
+        /**
+         * 描述
+         * <p> 示例值：6949805467799537964
+         */
+        this.desc = builder.desc;
+        /**
+         * 结束时间
+         * <p> 示例值：1735664461000
+         */
+        this.endTime = builder.endTime;
+        /**
+         * 项目链接
+         * <p> 示例值：www.feishu.bytedance.com
+         */
+        this.link = builder.link;
+        /**
+         * 项目名称
+         * <p> 示例值：项目名称
+         */
+        this.name = builder.name;
+        /**
+         * 项目角色
+         * <p> 示例值：项目角色
+         */
+        this.role = builder.role;
+        /**
+         * 开始时间
+         * <p> 示例值：1735664461000
+         */
+        this.startTime = builder.startTime;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getDesc() {
         return this.desc;
     }
@@ -108,159 +154,118 @@ public class ProjectInfo {
         this.startTime = startTime;
     }
 
-
-// builder 开始
-  public ProjectInfo(){}
-
-  public ProjectInfo(Builder builder){
-         /**
-          * 描述
-          * <p> 示例值：6949805467799537964
-          */
-      this.desc = builder.desc;
-         /**
-          * 结束时间
-          * <p> 示例值：1735664461000
-          */
-      this.endTime = builder.endTime;
-         /**
-          * 项目链接
-          * <p> 示例值：www.feishu.bytedance.com
-          */
-      this.link = builder.link;
-         /**
-          * 项目名称
-          * <p> 示例值：项目名称
-          */
-      this.name = builder.name;
-         /**
-          * 项目角色
-          * <p> 示例值：项目角色
-          */
-      this.role = builder.role;
-         /**
-          * 开始时间
-          * <p> 示例值：1735664461000
-          */
-      this.startTime = builder.startTime;
-  }
-
     public static class Builder {
-     /**
-      * 描述
-      * <p> 示例值：6949805467799537964
-      */
+        /**
+         * 描述
+         * <p> 示例值：6949805467799537964
+         */
         private String desc;
-     /**
-      * 结束时间
-      * <p> 示例值：1735664461000
-      */
+        /**
+         * 结束时间
+         * <p> 示例值：1735664461000
+         */
         private Long endTime;
-     /**
-      * 项目链接
-      * <p> 示例值：www.feishu.bytedance.com
-      */
+        /**
+         * 项目链接
+         * <p> 示例值：www.feishu.bytedance.com
+         */
         private String link;
-     /**
-      * 项目名称
-      * <p> 示例值：项目名称
-      */
+        /**
+         * 项目名称
+         * <p> 示例值：项目名称
+         */
         private String name;
-     /**
-      * 项目角色
-      * <p> 示例值：项目角色
-      */
+        /**
+         * 项目角色
+         * <p> 示例值：项目角色
+         */
         private String role;
-     /**
-      * 开始时间
-      * <p> 示例值：1735664461000
-      */
+        /**
+         * 开始时间
+         * <p> 示例值：1735664461000
+         */
         private Long startTime;
 
         /**
          * 描述
          * <p> 示例值：6949805467799537964
+         *
          * @param desc
          * @return
          */
         public Builder desc(String desc) {
-             this.desc = desc;
-             return this;
+            this.desc = desc;
+            return this;
         }
 
-    
 
         /**
          * 结束时间
          * <p> 示例值：1735664461000
+         *
          * @param endTime
          * @return
          */
         public Builder endTime(Long endTime) {
-             this.endTime = endTime;
-             return this;
+            this.endTime = endTime;
+            return this;
         }
 
-    
 
         /**
          * 项目链接
          * <p> 示例值：www.feishu.bytedance.com
+         *
          * @param link
          * @return
          */
         public Builder link(String link) {
-             this.link = link;
-             return this;
+            this.link = link;
+            return this;
         }
 
-    
 
         /**
          * 项目名称
          * <p> 示例值：项目名称
+         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 项目角色
          * <p> 示例值：项目角色
+         *
          * @param role
          * @return
          */
         public Builder role(String role) {
-             this.role = role;
-             return this;
+            this.role = role;
+            return this;
         }
 
-    
 
         /**
          * 开始时间
          * <p> 示例值：1735664461000
+         *
          * @param startTime
          * @return
          */
         public Builder startTime(Long startTime) {
-             this.startTime = startTime;
-             return this;
+            this.startTime = startTime;
+            return this;
         }
 
-    
-    
-    public ProjectInfo build(){
-        return new ProjectInfo(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ProjectInfo build() {
+            return new ProjectInfo(this);
+        }
     }
 }

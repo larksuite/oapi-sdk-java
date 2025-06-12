@@ -17,34 +17,35 @@ package com.lark.oapi.service.sheets.v3.enums;
  * 条件格式类型
  */
 public enum BooleanRuleConditionBooleanRuleConditionTypeEnum {
-     CELLEQUAL("CellEqual"), // 单元格值等于
-     CELLNOTEQUAL("CellNotEqual"), // 单元格值不等于
-     CELLGREATERTHAN("CellGreaterThan"), // 单元格值大于
-     CELLGREATERTHANOREQUAL("CellGreaterThanOrEqual"), // 单元格大于等于
-     CELLLESSTHEN("CellLessThen"), // 单元格值小于
-     CELLLESSTHANOREQUAL("CellLessThanOrEqual"), // 单元格值小于等于
-     CELLBETWEEN("CellBetween"), // 单元格值介于
-     CELLNOTBETWEEN("CellNotBetween"), // 单元格值不介于
-     TEXTBEGINSWITH("TextBeginsWith"), // 文本以...开头
-     TEXTENDSWITH("TextEndsWith"), // 文本以...结尾
-     TEXTCONTAINS("TextContains"), // 文本包含
-     TEXTNOTCONTAINS("TextNotContains"), // 文本不包含
-     TEXTIS("TextIs"), // 文本为
-     DATEBEFORE("DateBefore"), // 日期在...之前
-     DATEIS("DateIs"), // 日期为
-     DATEAFTER("DateAfter"), // 日期在...之后
-     TOP("Top"), // 最前
-     BOTTOM("Bottom"), // 最后
-     ABOVEAVERAGE("AboveAverage"), // 高于平均
-     BELOWAVERAGE("BelowAverage"), // 低于平均
-     CUSTOMFORMULA("CustomFormula"), // 自定义公式
-  ;
-   private String value;
+    CELLEQUAL("CellEqual"), // 单元格值等于
+    CELLNOTEQUAL("CellNotEqual"), // 单元格值不等于
+    CELLGREATERTHAN("CellGreaterThan"), // 单元格值大于
+    CELLGREATERTHANOREQUAL("CellGreaterThanOrEqual"), // 单元格大于等于
+    CELLLESSTHEN("CellLessThen"), // 单元格值小于
+    CELLLESSTHANOREQUAL("CellLessThanOrEqual"), // 单元格值小于等于
+    CELLBETWEEN("CellBetween"), // 单元格值介于
+    CELLNOTBETWEEN("CellNotBetween"), // 单元格值不介于
+    TEXTBEGINSWITH("TextBeginsWith"), // 文本以...开头
+    TEXTENDSWITH("TextEndsWith"), // 文本以...结尾
+    TEXTCONTAINS("TextContains"), // 文本包含
+    TEXTNOTCONTAINS("TextNotContains"), // 文本不包含
+    TEXTIS("TextIs"), // 文本为
+    DATEBEFORE("DateBefore"), // 日期在...之前
+    DATEIS("DateIs"), // 日期为
+    DATEAFTER("DateAfter"), // 日期在...之后
+    TOP("Top"), // 最前
+    BOTTOM("Bottom"), // 最后
+    ABOVEAVERAGE("AboveAverage"), // 高于平均
+    BELOWAVERAGE("BelowAverage"), // 低于平均
+    CUSTOMFORMULA("CustomFormula"), // 自定义公式
+    ;
+    private String value;
+
     BooleanRuleConditionBooleanRuleConditionTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

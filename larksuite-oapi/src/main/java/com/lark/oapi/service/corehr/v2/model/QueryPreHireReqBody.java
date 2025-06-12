@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class QueryPreHireReqBody {
-     /**
-      * 待入职人员 ID 列表；如果该字段非空，则不按照page_size、page_token分页方式查询
-      * <p> 示例值：
-      */
+    /**
+     * 待入职人员 ID 列表；如果该字段非空，则不按照page_size、page_token分页方式查询
+     * <p> 示例值：
+     */
     @SerializedName("pre_hire_ids")
     private String[] preHireIds;
-     /**
-      * 返回数据的字段列表，填写方式：;- 为空时只返回 pre_hire_id;- 不为空时按照传入的字段返回数据，格式如下：;    - person_info 字段：person_info.gender，person_info.age;    - employment_info 字段：employment_info.department;    - onboarding_info 字段：onboarding_info.onboarding_date;    - probation_info 字段：probation_info.probation_period;    - contract_info 字段：contract_info.contract_type;- 如果要返回所有下级，只用传上级结构体名称，例如 person_info;- 返回数据越多，查询接口性能越慢，请按需填写返回字段
-      * <p> 示例值：\["person_info","employment_info.department","probation_info.probation_period"\]
-      */
+    /**
+     * 返回数据的字段列表，填写方式：;- 为空时只返回 pre_hire_id;- 不为空时按照传入的字段返回数据，格式如下：;    - person_info 字段：person_info.gender，person_info.age;    - employment_info 字段：employment_info.department;    - onboarding_info 字段：onboarding_info.onboarding_date;    - probation_info 字段：probation_info.probation_period;    - contract_info 字段：contract_info.contract_type;- 如果要返回所有下级，只用传上级结构体名称，例如 person_info;- 返回数据越多，查询接口性能越慢，请按需填写返回字段
+     * <p> 示例值：\["person_info","employment_info.department","probation_info.probation_period"\]
+     */
     @SerializedName("fields")
     private String[] fields;
+
+    // builder 开始
+    public QueryPreHireReqBody() {
+    }
+
+    public QueryPreHireReqBody(Builder builder) {
+        /**
+         * 待入职人员 ID 列表；如果该字段非空，则不按照page_size、page_token分页方式查询
+         * <p> 示例值：
+         */
+        this.preHireIds = builder.preHireIds;
+        /**
+         * 返回数据的字段列表，填写方式：;- 为空时只返回 pre_hire_id;- 不为空时按照传入的字段返回数据，格式如下：;    - person_info 字段：person_info.gender，person_info.age;    - employment_info 字段：employment_info.department;    - onboarding_info 字段：onboarding_info.onboarding_date;    - probation_info 字段：probation_info.probation_period;    - contract_info 字段：contract_info.contract_type;- 如果要返回所有下级，只用传上级结构体名称，例如 person_info;- 返回数据越多，查询接口性能越慢，请按需填写返回字段
+         * <p> 示例值：\["person_info","employment_info.department","probation_info.probation_period"\]
+         */
+        this.fields = builder.fields;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String[] getPreHireIds() {
         return this.preHireIds;
     }
@@ -53,67 +79,46 @@ public class QueryPreHireReqBody {
         this.fields = fields;
     }
 
-
-// builder 开始
-  public QueryPreHireReqBody(){}
-
-  public QueryPreHireReqBody(Builder builder){
-         /**
-          * 待入职人员 ID 列表；如果该字段非空，则不按照page_size、page_token分页方式查询
-          * <p> 示例值：
-          */
-      this.preHireIds = builder.preHireIds;
-         /**
-          * 返回数据的字段列表，填写方式：;- 为空时只返回 pre_hire_id;- 不为空时按照传入的字段返回数据，格式如下：;    - person_info 字段：person_info.gender，person_info.age;    - employment_info 字段：employment_info.department;    - onboarding_info 字段：onboarding_info.onboarding_date;    - probation_info 字段：probation_info.probation_period;    - contract_info 字段：contract_info.contract_type;- 如果要返回所有下级，只用传上级结构体名称，例如 person_info;- 返回数据越多，查询接口性能越慢，请按需填写返回字段
-          * <p> 示例值：\["person_info","employment_info.department","probation_info.probation_period"\]
-          */
-      this.fields = builder.fields;
-  }
-
     public static class Builder {
-     /**
-      * 待入职人员 ID 列表；如果该字段非空，则不按照page_size、page_token分页方式查询
-      * <p> 示例值：
-      */
+        /**
+         * 待入职人员 ID 列表；如果该字段非空，则不按照page_size、page_token分页方式查询
+         * <p> 示例值：
+         */
         private String[] preHireIds;
-     /**
-      * 返回数据的字段列表，填写方式：;- 为空时只返回 pre_hire_id;- 不为空时按照传入的字段返回数据，格式如下：;    - person_info 字段：person_info.gender，person_info.age;    - employment_info 字段：employment_info.department;    - onboarding_info 字段：onboarding_info.onboarding_date;    - probation_info 字段：probation_info.probation_period;    - contract_info 字段：contract_info.contract_type;- 如果要返回所有下级，只用传上级结构体名称，例如 person_info;- 返回数据越多，查询接口性能越慢，请按需填写返回字段
-      * <p> 示例值：\["person_info","employment_info.department","probation_info.probation_period"\]
-      */
+        /**
+         * 返回数据的字段列表，填写方式：;- 为空时只返回 pre_hire_id;- 不为空时按照传入的字段返回数据，格式如下：;    - person_info 字段：person_info.gender，person_info.age;    - employment_info 字段：employment_info.department;    - onboarding_info 字段：onboarding_info.onboarding_date;    - probation_info 字段：probation_info.probation_period;    - contract_info 字段：contract_info.contract_type;- 如果要返回所有下级，只用传上级结构体名称，例如 person_info;- 返回数据越多，查询接口性能越慢，请按需填写返回字段
+         * <p> 示例值：\["person_info","employment_info.department","probation_info.probation_period"\]
+         */
         private String[] fields;
 
         /**
          * 待入职人员 ID 列表；如果该字段非空，则不按照page_size、page_token分页方式查询
          * <p> 示例值：
+         *
          * @param preHireIds
          * @return
          */
         public Builder preHireIds(String[] preHireIds) {
-             this.preHireIds = preHireIds;
-             return this;
+            this.preHireIds = preHireIds;
+            return this;
         }
 
-    
 
         /**
          * 返回数据的字段列表，填写方式：;- 为空时只返回 pre_hire_id;- 不为空时按照传入的字段返回数据，格式如下：;    - person_info 字段：person_info.gender，person_info.age;    - employment_info 字段：employment_info.department;    - onboarding_info 字段：onboarding_info.onboarding_date;    - probation_info 字段：probation_info.probation_period;    - contract_info 字段：contract_info.contract_type;- 如果要返回所有下级，只用传上级结构体名称，例如 person_info;- 返回数据越多，查询接口性能越慢，请按需填写返回字段
          * <p> 示例值：\["person_info","employment_info.department","probation_info.probation_period"\]
+         *
          * @param fields
          * @return
          */
         public Builder fields(String[] fields) {
-             this.fields = fields;
-             return this;
+            this.fields = fields;
+            return this;
         }
 
-    
-    
-    public QueryPreHireReqBody build(){
-        return new QueryPreHireReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public QueryPreHireReqBody build() {
+            return new QueryPreHireReqBody(this);
+        }
     }
 }

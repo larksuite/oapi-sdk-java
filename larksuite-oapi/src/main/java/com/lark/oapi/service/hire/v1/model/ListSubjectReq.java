@@ -12,45 +12,81 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ListSubjectReq {
-     /**
-      * 用户 ID 类型
-      * <p> 示例值：open_id
-      */
+    /**
+     * 用户 ID 类型
+     * <p> 示例值：open_id
+     */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
-     /**
-      * 项目ID列表
-      * <p> 示例值：
-      */
+    /**
+     * 项目ID列表
+     * <p> 示例值：
+     */
     @Query
     @SerializedName("subject_ids")
     private String[] subjectIds;
-     /**
-      * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
-      * <p> 示例值：1231231987
-      */
+    /**
+     * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
+     * <p> 示例值：1231231987
+     */
     @Query
     @SerializedName("page_token")
     private String pageToken;
-     /**
-      * 每页获取记录数量，最大100
-      * <p> 示例值：100
-      */
+    /**
+     * 每页获取记录数量，最大100
+     * <p> 示例值：100
+     */
     @Query
     @SerializedName("page_size")
     private Integer pageSize;
+
+    // builder 开始
+    public ListSubjectReq() {
+    }
+
+    public ListSubjectReq(Builder builder) {
+        /**
+         * 用户 ID 类型
+         * <p> 示例值：open_id
+         */
+        this.userIdType = builder.userIdType;
+        /**
+         * 项目ID列表
+         * <p> 示例值：
+         */
+        this.subjectIds = builder.subjectIds;
+        /**
+         * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
+         * <p> 示例值：1231231987
+         */
+        this.pageToken = builder.pageToken;
+        /**
+         * 每页获取记录数量，最大100
+         * <p> 示例值：100
+         */
+        this.pageSize = builder.pageSize;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getUserIdType() {
         return this.userIdType;
     }
@@ -83,93 +119,66 @@ public class ListSubjectReq {
         this.pageSize = pageSize;
     }
 
-
-// builder 开始
-  public ListSubjectReq(){}
-
-  public ListSubjectReq(Builder builder){
-         /**
-          * 用户 ID 类型
-          * <p> 示例值：open_id
-          */
-       this.userIdType = builder.userIdType;
-         /**
-          * 项目ID列表
-          * <p> 示例值：
-          */
-       this.subjectIds = builder.subjectIds;
-         /**
-          * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
-          * <p> 示例值：1231231987
-          */
-       this.pageToken = builder.pageToken;
-         /**
-          * 每页获取记录数量，最大100
-          * <p> 示例值：100
-          */
-       this.pageSize = builder.pageSize;
-  }
-
     public static class Builder {
         private String userIdType; // 用户 ID 类型
         private String[] subjectIds; // 项目ID列表
         private String pageToken; // 页码标识，获取第一页传空，每次查询会返回下一页的page_token
         private Integer pageSize; // 每页获取记录数量，最大100
-    
+
         /**
          * 用户 ID 类型
          * <p> 示例值：open_id
+         *
          * @param userIdType
          * @return
          */
-           public Builder userIdType(String userIdType) {
-                this.userIdType = userIdType;
-                return this;
-           }
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
 
-    
+
         /**
          * 项目ID列表
          * <p> 示例值：
+         *
          * @param subjectIds
          * @return
          */
-           public Builder subjectIds(String[] subjectIds) {
-                this.subjectIds = subjectIds;
-                return this;
-           }
+        public Builder subjectIds(String[] subjectIds) {
+            this.subjectIds = subjectIds;
+            return this;
+        }
 
-    
+
         /**
          * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
          * <p> 示例值：1231231987
+         *
          * @param pageToken
          * @return
          */
-           public Builder pageToken(String pageToken) {
-                this.pageToken = pageToken;
-                return this;
-           }
+        public Builder pageToken(String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+        }
 
-    
+
         /**
          * 每页获取记录数量，最大100
          * <p> 示例值：100
+         *
          * @param pageSize
          * @return
          */
-           public Builder pageSize(Integer pageSize) {
-                this.pageSize = pageSize;
-                return this;
-           }
+        public Builder pageSize(Integer pageSize) {
+            this.pageSize = pageSize;
+            return this;
+        }
 
-    
-    public ListSubjectReq build(){
-        return new ListSubjectReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ListSubjectReq build() {
+            return new ListSubjectReq(this);
+        }
     }
 }

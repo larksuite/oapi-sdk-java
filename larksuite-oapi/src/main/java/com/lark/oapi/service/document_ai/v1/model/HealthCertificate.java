@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.document_ai.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.document_ai.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class HealthCertificate {
-     /**
-      * 识别出的实体类型
-      * <p> 示例值：
-      */
+    /**
+     * 识别出的实体类型
+     * <p> 示例值：
+     */
     @SerializedName("entities")
     private HealthCertificateEntity[] entities;
+
+    // builder 开始
+    public HealthCertificate() {
+    }
+
+    public HealthCertificate(Builder builder) {
+        /**
+         * 识别出的实体类型
+         * <p> 示例值：
+         */
+        this.entities = builder.entities;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public HealthCertificateEntity[] getEntities() {
         return this.entities;
     }
@@ -39,44 +60,28 @@ public class HealthCertificate {
         this.entities = entities;
     }
 
-
-// builder 开始
-  public HealthCertificate(){}
-
-  public HealthCertificate(Builder builder){
-         /**
-          * 识别出的实体类型
-          * <p> 示例值：
-          */
-      this.entities = builder.entities;
-  }
-
     public static class Builder {
-     /**
-      * 识别出的实体类型
-      * <p> 示例值：
-      */
+        /**
+         * 识别出的实体类型
+         * <p> 示例值：
+         */
         private HealthCertificateEntity[] entities;
 
         /**
          * 识别出的实体类型
          * <p> 示例值：
+         *
          * @param entities
          * @return
          */
         public Builder entities(HealthCertificateEntity[] entities) {
-             this.entities = entities;
-             return this;
+            this.entities = entities;
+            return this;
         }
 
-    
-    
-    public HealthCertificate build(){
-        return new HealthCertificate(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public HealthCertificate build() {
+            return new HealthCertificate(this);
+        }
     }
 }

@@ -17,14 +17,15 @@ package com.lark.oapi.service.im.v2.enums;
  * 标签类型
  */
 public enum CreateTagTagTypeEnum {
-     TENANT("tenant"), // tenant类型标签
-  ;
-   private String value;
+    TENANT("tenant"), // tenant类型标签
+    ;
+    private String value;
+
     CreateTagTagTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

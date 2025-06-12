@@ -12,25 +12,61 @@
  */
 
 package com.lark.oapi.service.acs.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.acs.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class UpdateUserFaceReq {
-     /**
-      * 此次调用中使用的用户ID的类型
-      * <p> 示例值：
-      */
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
+    /**
+     * 用户 ID
+     * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+     */
+    @Path
+    @SerializedName("user_id")
+    private String userId;
+    @Body
+    private File body;
+
+    // builder 开始
+    public UpdateUserFaceReq() {
+    }
+
+    public UpdateUserFaceReq(Builder builder) {
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         */
+        this.userIdType = builder.userIdType;
+        /**
+         * 用户 ID
+         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+         */
+        this.userId = builder.userId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getUserIdType() {
         return this.userIdType;
     }
@@ -39,13 +75,6 @@ public class UpdateUserFaceReq {
         this.userIdType = userIdType;
     }
 
-     /**
-      * 用户 ID
-      * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-      */
-    @Path
-    @SerializedName("user_id")
-    private String userId;
     public String getUserId() {
         return this.userId;
     }
@@ -53,9 +82,6 @@ public class UpdateUserFaceReq {
     public void setUserId(String userId) {
         this.userId = userId;
     }
-
-    @Body
-    private File body;
 
     public File getFile() {
         return this.body;
@@ -65,83 +91,64 @@ public class UpdateUserFaceReq {
         this.body = body;
     }
 
-// builder 开始
-  public UpdateUserFaceReq(){}
-
-  public UpdateUserFaceReq(Builder builder){
-         /**
-          * 此次调用中使用的用户ID的类型
-          * <p> 示例值：
-          */
-       this.userIdType = builder.userIdType;
-     /**
-      * 用户 ID
-      * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-      */
-       this.userId = builder.userId;
-        this.body = builder.body;
-  }
-
     public static class Builder {
         private String userIdType; // 此次调用中使用的用户ID的类型
-    
+        private String userId; // 用户 ID
+        private File body;
+
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
+         *
          * @param userIdType
          * @return
          */
-           public Builder userIdType(String userIdType) {
-                this.userIdType = userIdType;
-                return this;
-           }
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
 
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
+         *
          * @param userIdType {@link com.lark.oapi.service.acs.v1.enums.UpdateUserFaceUserIdTypeEnum}
          * @return
          */
-          public Builder userIdType(com.lark.oapi.service.acs.v1.enums.UpdateUserFaceUserIdTypeEnum userIdType) {
-               this.userIdType = userIdType.getValue();
-               return this;
-          }
+        public Builder userIdType(com.lark.oapi.service.acs.v1.enums.UpdateUserFaceUserIdTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
+            return this;
+        }
 
-    
-        private String userId; // 用户 ID
         /**
          * 用户 ID
          * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+         *
          * @param userId
          * @return
          */
-          public Builder userId(String userId) {
-               this.userId = userId;
-               return this;
-          }
+        public Builder userId(String userId) {
+            this.userId = userId;
+            return this;
+        }
 
-    
-        private File body;
-    
         public File getFile() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder file(File body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public UpdateUserFaceReq build(){
-        return new UpdateUserFaceReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public UpdateUserFaceReq build() {
+            return new UpdateUserFaceReq(this);
+        }
     }
 }

@@ -12,24 +12,44 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class DeleteTripartiteAgreementReq {
-     /**
-      * 
-      * <p> 示例值：
-      */
+    /**
+     * <p> 示例值：
+     */
     @Path
     @SerializedName("tripartite_agreement_id")
     private String tripartiteAgreementId;
+
+    // builder 开始
+    public DeleteTripartiteAgreementReq() {
+    }
+
+    public DeleteTripartiteAgreementReq(Builder builder) {
+        /**
+         *
+         * <p> 示例值：
+         */
+        this.tripartiteAgreementId = builder.tripartiteAgreementId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getTripartiteAgreementId() {
         return this.tripartiteAgreementId;
     }
@@ -38,39 +58,24 @@ public class DeleteTripartiteAgreementReq {
         this.tripartiteAgreementId = tripartiteAgreementId;
     }
 
-
-// builder 开始
-  public DeleteTripartiteAgreementReq(){}
-
-  public DeleteTripartiteAgreementReq(Builder builder){
-     /**
-      * 
-      * <p> 示例值：
-      */
-       this.tripartiteAgreementId = builder.tripartiteAgreementId;
-  }
-
     public static class Builder {
-    
-        private String tripartiteAgreementId; // 
+
+        private String tripartiteAgreementId; //
+
         /**
-         * 
          * <p> 示例值：
+         *
          * @param tripartiteAgreementId
          * @return
          */
-          public Builder tripartiteAgreementId(String tripartiteAgreementId) {
-               this.tripartiteAgreementId = tripartiteAgreementId;
-               return this;
-          }
+        public Builder tripartiteAgreementId(String tripartiteAgreementId) {
+            this.tripartiteAgreementId = tripartiteAgreementId;
+            return this;
+        }
 
-    
-    public DeleteTripartiteAgreementReq build(){
-        return new DeleteTripartiteAgreementReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public DeleteTripartiteAgreementReq build() {
+            return new DeleteTripartiteAgreementReq(this);
+        }
     }
 }

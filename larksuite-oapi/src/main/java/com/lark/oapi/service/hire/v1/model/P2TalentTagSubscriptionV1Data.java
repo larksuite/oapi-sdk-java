@@ -12,54 +12,59 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class P2TalentTagSubscriptionV1Data {
-     /**
-      * 人才 ID
-      * <p> 示例值：6890840517010000141
-      */
+    /**
+     * 人才 ID
+     * <p> 示例值：6890840517010000141
+     */
     @SerializedName("talent_id")
     private String talentId;
-     /**
-      * 投递 ID
-      * <p> 示例值：6890840517010000141
-      */
+    /**
+     * 投递 ID
+     * <p> 示例值：6890840517010000141
+     */
     @SerializedName("application_id")
     private String applicationId;
-     /**
-      * 变更类型
-      * <p> 示例值：1
-      */
+    /**
+     * 变更类型
+     * <p> 示例值：1
+     */
     @SerializedName("type")
     private Integer type;
-     /**
-      * 标签
-      * <p> 示例值：
-      */
+    /**
+     * 标签
+     * <p> 示例值：
+     */
     @SerializedName("tag")
     private TalentTag tag;
-     /**
-      * 锁定状态
-      * <p> 示例值：1
-      */
+    /**
+     * 锁定状态
+     * <p> 示例值：1
+     */
     @SerializedName("lock_status")
     private Integer lockStatus;
-     /**
-      * 投递阶段
-      * <p> 示例值：1
-      */
+    /**
+     * 投递阶段
+     * <p> 示例值：1
+     */
     @SerializedName("application_stage")
     private ApplicationStageInfo applicationStage;
+
     public String getTalentId() {
         return this.talentId;
     }

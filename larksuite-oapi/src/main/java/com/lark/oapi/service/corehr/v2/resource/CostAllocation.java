@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.resource;
+
 import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.Transport;
 import com.lark.oapi.core.response.RawResponse;
@@ -20,12 +21,16 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import java.nio.charset.StandardCharsets;
 
 import com.lark.oapi.core.Config;
 import com.lark.oapi.core.request.RequestOptions;
+
 import java.io.ByteArrayOutputStream;
+
 import com.lark.oapi.service.corehr.v2.model.*;
+
 import java.io.*;
 import java.util.Map;
 import java.util.HashMap;
@@ -41,7 +46,7 @@ public class CostAllocation {
         this.config = config;
     }
 
-    
+
     /**
      * ，通过员工ID批量获取通道信息
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch_query&project=corehr&resource=cost_allocation&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch_query&project=corehr&resource=cost_allocation&version=v2</a> ;
@@ -58,7 +63,7 @@ public class CostAllocation {
                 , "/open-apis/corehr/v2/cost_allocations/batch_query"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-        
+
         // 反序列化
         BatchQueryCostAllocationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchQueryCostAllocationResp.class);
         if (resp == null) {
@@ -66,14 +71,14 @@ public class CostAllocation {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v2/cost_allocations/batch_query"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
-       resp.setRawResponse(httpResponse);
-       resp.setRequest(req);
-       
-       return resp;
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
     }
 
     /**
@@ -90,7 +95,7 @@ public class CostAllocation {
                 , "/open-apis/corehr/v2/cost_allocations/batch_query"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-        
+
         // 反序列化
         BatchQueryCostAllocationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchQueryCostAllocationResp.class);
         if (resp == null) {
@@ -98,15 +103,16 @@ public class CostAllocation {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v2/cost_allocations/batch_query"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-        
+
         return resp;
     }
+
     /**
      * ，创建成本分摊
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create_version&project=corehr&resource=cost_allocation&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create_version&project=corehr&resource=cost_allocation&version=v2</a> ;
@@ -123,7 +129,7 @@ public class CostAllocation {
                 , "/open-apis/corehr/v2/cost_allocations/create_version"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-        
+
         // 反序列化
         CreateVersionCostAllocationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateVersionCostAllocationResp.class);
         if (resp == null) {
@@ -131,14 +137,14 @@ public class CostAllocation {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v2/cost_allocations/create_version"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
-       resp.setRawResponse(httpResponse);
-       resp.setRequest(req);
-       
-       return resp;
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
     }
 
     /**
@@ -155,7 +161,7 @@ public class CostAllocation {
                 , "/open-apis/corehr/v2/cost_allocations/create_version"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-        
+
         // 反序列化
         CreateVersionCostAllocationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateVersionCostAllocationResp.class);
         if (resp == null) {
@@ -163,15 +169,16 @@ public class CostAllocation {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v2/cost_allocations/create_version"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-        
+
         return resp;
     }
+
     /**
      * ，删除成本分摊
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=remove_version&project=corehr&resource=cost_allocation&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=remove_version&project=corehr&resource=cost_allocation&version=v2</a> ;
@@ -188,7 +195,7 @@ public class CostAllocation {
                 , "/open-apis/corehr/v2/cost_allocations/remove_version"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-        
+
         // 反序列化
         RemoveVersionCostAllocationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, RemoveVersionCostAllocationResp.class);
         if (resp == null) {
@@ -196,14 +203,14 @@ public class CostAllocation {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v2/cost_allocations/remove_version"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
-       resp.setRawResponse(httpResponse);
-       resp.setRequest(req);
-       
-       return resp;
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
     }
 
     /**
@@ -220,7 +227,7 @@ public class CostAllocation {
                 , "/open-apis/corehr/v2/cost_allocations/remove_version"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-        
+
         // 反序列化
         RemoveVersionCostAllocationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, RemoveVersionCostAllocationResp.class);
         if (resp == null) {
@@ -228,15 +235,16 @@ public class CostAllocation {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v2/cost_allocations/remove_version"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-        
+
         return resp;
     }
+
     /**
      * ，更新成本分摊
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=update_version&project=corehr&resource=cost_allocation&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=update_version&project=corehr&resource=cost_allocation&version=v2</a> ;
@@ -253,7 +261,7 @@ public class CostAllocation {
                 , "/open-apis/corehr/v2/cost_allocations/update_version"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-        
+
         // 反序列化
         UpdateVersionCostAllocationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateVersionCostAllocationResp.class);
         if (resp == null) {
@@ -261,14 +269,14 @@ public class CostAllocation {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v2/cost_allocations/update_version"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
-       resp.setRawResponse(httpResponse);
-       resp.setRequest(req);
-       
-       return resp;
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
     }
 
     /**
@@ -285,7 +293,7 @@ public class CostAllocation {
                 , "/open-apis/corehr/v2/cost_allocations/update_version"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-        
+
         // 反序列化
         UpdateVersionCostAllocationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateVersionCostAllocationResp.class);
         if (resp == null) {
@@ -293,13 +301,13 @@ public class CostAllocation {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v2/cost_allocations/update_version"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-        
+
         return resp;
     }
 }

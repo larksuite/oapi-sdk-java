@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.mdm.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.mdm.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,228 +20,423 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Vendor {
-     /**
-      * 交易方id，创建交易方时不填，修改交易方时必填
-      * <p> 示例值：7023646046559404327
-      */
+    /**
+     * 交易方id，创建交易方时不填，修改交易方时必填
+     * <p> 示例值：7023646046559404327
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 交易方注册国家
-      * <p> 示例值：CN
-      */
+    /**
+     * 交易方注册国家
+     * <p> 示例值：CN
+     */
     @SerializedName("ad_country")
     private String adCountry;
-     /**
-      * 交易方注册省份
-      * <p> 示例值：MDPS00000001
-      */
+    /**
+     * 交易方注册省份
+     * <p> 示例值：MDPS00000001
+     */
     @SerializedName("ad_province")
     private String adProvince;
-     /**
-      * 交易方注册城市
-      * <p> 示例值：MDCY00001226
-      */
+    /**
+     * 交易方注册城市
+     * <p> 示例值：MDCY00001226
+     */
     @SerializedName("ad_city")
     private String adCity;
-     /**
-      * 详细地址
-      * <p> 示例值：上海市浦东新区世纪大道1000号
-      */
+    /**
+     * 详细地址
+     * <p> 示例值：上海市浦东新区世纪大道1000号
+     */
     @SerializedName("address")
     private String address;
-     /**
-      * 交易方注册地址邮编
-      * <p> 示例值：100100
-      */
+    /**
+     * 交易方注册地址邮编
+     * <p> 示例值：100100
+     */
     @SerializedName("ad_postcode")
     private String adPostcode;
-     /**
-      * 法人名称
-      * <p> 示例值：张三
-      */
+    /**
+     * 法人名称
+     * <p> 示例值：张三
+     */
     @SerializedName("legal_person")
     private String legalPerson;
-     /**
-      * 证件类型
-      * <p> 示例值：0
-      */
+    /**
+     * 证件类型
+     * <p> 示例值：0
+     */
     @SerializedName("certification_type")
     private String certificationType;
-     /**
-      * 证件ID
-      * <p> 示例值：913100xxxxx555781R
-      */
+    /**
+     * 证件ID
+     * <p> 示例值：913100xxxxx555781R
+     */
     @SerializedName("certification_id")
     private String certificationId;
-     /**
-      * 联系人
-      * <p> 示例值：李四
-      */
+    /**
+     * 联系人
+     * <p> 示例值：李四
+     */
     @SerializedName("contact_person")
     private String contactPerson;
-     /**
-      * 联系电话
-      * <p> 示例值：021-87853200
-      */
+    /**
+     * 联系电话
+     * <p> 示例值：021-87853200
+     */
     @SerializedName("contact_telephone")
     private String contactTelephone;
-     /**
-      * 联系移动电话
-      * <p> 示例值：+8617621685955
-      */
+    /**
+     * 联系移动电话
+     * <p> 示例值：+8617621685955
+     */
     @SerializedName("contact_mobile_phone")
     private String contactMobilePhone;
-     /**
-      * 传真
-      * <p> 示例值：021-87853200
-      */
+    /**
+     * 传真
+     * <p> 示例值：021-87853200
+     */
     @SerializedName("fax")
     private String fax;
-     /**
-      * 邮箱
-      * <p> 示例值：shunxing@xxx.com
-      */
+    /**
+     * 邮箱
+     * <p> 示例值：shunxing@xxx.com
+     */
     @SerializedName("e_mail")
     private String eMail;
-     /**
-      * 状态
-      * <p> 示例值：1
-      */
+    /**
+     * 状态
+     * <p> 示例值：1
+     */
     @SerializedName("status")
     private Integer status;
-     /**
-      * 交易方编码
-      * <p> 示例值：V00108006
-      */
+    /**
+     * 交易方编码
+     * <p> 示例值：V00108006
+     */
     @SerializedName("vendor")
     private String vendor;
-     /**
-      * 交易方名称
-      * <p> 示例值：张三样例
-      */
+    /**
+     * 交易方名称
+     * <p> 示例值：张三样例
+     */
     @SerializedName("vendor_text")
     private String vendorText;
-     /**
-      * 交易方简称
-      * <p> 示例值：王五
-      */
+    /**
+     * 交易方简称
+     * <p> 示例值：王五
+     */
     @SerializedName("short_text")
     private String shortText;
-     /**
-      * 交易方类型（多个枚举时，采用逗号分隔）
-      * <p> 示例值：1
-      */
+    /**
+     * 交易方类型（多个枚举时，采用逗号分隔）
+     * <p> 示例值：1
+     */
     @SerializedName("vendor_type")
     private String vendorType;
-     /**
-      * 交易方类别
-      * <p> 示例值：11
-      */
+    /**
+     * 交易方类别
+     * <p> 示例值：11
+     */
     @SerializedName("vendor_category")
     private String vendorCategory;
-     /**
-      * 交易方性质
-      * <p> 示例值：0
-      */
+    /**
+     * 交易方性质
+     * <p> 示例值：0
+     */
     @SerializedName("vendor_nature")
     private String vendorNature;
-     /**
-      * 关联员工
-      * <p> 示例值：6959513973725069601
-      */
+    /**
+     * 关联员工
+     * <p> 示例值：6959513973725069601
+     */
     @SerializedName("linked_employee")
     private String linkedEmployee;
-     /**
-      * 关联客户
-      * <p> 示例值：客户
-      */
+    /**
+     * 关联客户
+     * <p> 示例值：客户
+     */
     @SerializedName("linked_customer")
     private String linkedCustomer;
-     /**
-      * 是否关联法人主体
-      * <p> 示例值：true
-      */
+    /**
+     * 是否关联法人主体
+     * <p> 示例值：true
+     */
     @SerializedName("associated_with_legal_entity")
     private Boolean associatedWithLegalEntity;
-     /**
-      * 扩展字段相关信息列表,每个扩展字段需要填入【field_code】、【field_type】、【field_value】三个信息，其中【field_code】和【field_type】需要与用户【字段配置】(获取配置字段的开放平台接口：https://open.feishu.cn/open-apis/mdm/v1/config/config_list)中扩展字段（sys = 1）相关联（目前不支持附件类型的扩展信息）
-      * <p> 示例值：
-      */
+    /**
+     * 扩展字段相关信息列表,每个扩展字段需要填入【field_code】、【field_type】、【field_value】三个信息，其中【field_code】和【field_type】需要与用户【字段配置】(获取配置字段的开放平台接口：https://open.feishu.cn/open-apis/mdm/v1/config/config_list)中扩展字段（sys = 1）相关联（目前不支持附件类型的扩展信息）
+     * <p> 示例值：
+     */
     @SerializedName("extend_info")
     private ExtendField[] extendInfo;
-     /**
-      * 银行账户列表
-      * <p> 示例值：
-      */
+    /**
+     * 银行账户列表
+     * <p> 示例值：
+     */
     @SerializedName("vendor_accounts")
     private VendorAccount[] vendorAccounts;
-     /**
-      * 地址列表
-      * <p> 示例值：
-      */
+    /**
+     * 地址列表
+     * <p> 示例值：
+     */
     @SerializedName("vendor_addresses")
     private VendorAddress[] vendorAddresses;
-     /**
-      * 公司视图列表
-      * <p> 示例值：
-      */
+    /**
+     * 公司视图列表
+     * <p> 示例值：
+     */
     @SerializedName("vendor_company_views")
     private VendorCompanyView[] vendorCompanyViews;
-     /**
-      * 联系人列表
-      * <p> 示例值：
-      */
+    /**
+     * 联系人列表
+     * <p> 示例值：
+     */
     @SerializedName("vendor_contacts")
     private VendorContact[] vendorContacts;
-     /**
-      * 总账科目
-      * <p> 示例值：22020101
-      */
+    /**
+     * 总账科目
+     * <p> 示例值：22020101
+     */
     @SerializedName("gl_account")
     private String glAccount;
-     /**
-      * 预付条件
-      * <p> 示例值：PT09
-      */
+    /**
+     * 预付条件
+     * <p> 示例值：PT09
+     */
     @SerializedName("down_payment_term")
     private String downPaymentTerm;
-     /**
-      * 付款条件
-      * <p> 示例值：PT08
-      */
+    /**
+     * 付款条件
+     * <p> 示例值：PT08
+     */
     @SerializedName("payment_term")
     private String paymentTerm;
-     /**
-      * 交易方site code
-      * <p> 示例值：999999
-      */
+    /**
+     * 交易方site code
+     * <p> 示例值：999999
+     */
     @SerializedName("vendor_site_code")
     private String vendorSiteCode;
-     /**
-      * 附件列表
-      * <p> 示例值：
-      */
+    /**
+     * 附件列表
+     * <p> 示例值：
+     */
     @SerializedName("appendix")
     private Appendix[] appendix;
-     /**
-      * 是否标记风险
-      * <p> 示例值：false
-      */
+    /**
+     * 是否标记风险
+     * <p> 示例值：false
+     */
     @SerializedName("is_risked")
     private Boolean isRisked;
-     /**
-      * 所属部门
-      * <p> 示例值：["7098978978848833836"]
-      */
+    /**
+     * 所属部门
+     * <p> 示例值：["7098978978848833836"]
+     */
     @SerializedName("owner_depts")
     private String[] ownerDepts;
+
+    // builder 开始
+    public Vendor() {
+    }
+
+    public Vendor(Builder builder) {
+        /**
+         * 交易方id，创建交易方时不填，修改交易方时必填
+         * <p> 示例值：7023646046559404327
+         */
+        this.id = builder.id;
+        /**
+         * 交易方注册国家
+         * <p> 示例值：CN
+         */
+        this.adCountry = builder.adCountry;
+        /**
+         * 交易方注册省份
+         * <p> 示例值：MDPS00000001
+         */
+        this.adProvince = builder.adProvince;
+        /**
+         * 交易方注册城市
+         * <p> 示例值：MDCY00001226
+         */
+        this.adCity = builder.adCity;
+        /**
+         * 详细地址
+         * <p> 示例值：上海市浦东新区世纪大道1000号
+         */
+        this.address = builder.address;
+        /**
+         * 交易方注册地址邮编
+         * <p> 示例值：100100
+         */
+        this.adPostcode = builder.adPostcode;
+        /**
+         * 法人名称
+         * <p> 示例值：张三
+         */
+        this.legalPerson = builder.legalPerson;
+        /**
+         * 证件类型
+         * <p> 示例值：0
+         */
+        this.certificationType = builder.certificationType;
+        /**
+         * 证件ID
+         * <p> 示例值：913100xxxxx555781R
+         */
+        this.certificationId = builder.certificationId;
+        /**
+         * 联系人
+         * <p> 示例值：李四
+         */
+        this.contactPerson = builder.contactPerson;
+        /**
+         * 联系电话
+         * <p> 示例值：021-87853200
+         */
+        this.contactTelephone = builder.contactTelephone;
+        /**
+         * 联系移动电话
+         * <p> 示例值：+8617621685955
+         */
+        this.contactMobilePhone = builder.contactMobilePhone;
+        /**
+         * 传真
+         * <p> 示例值：021-87853200
+         */
+        this.fax = builder.fax;
+        /**
+         * 邮箱
+         * <p> 示例值：shunxing@xxx.com
+         */
+        this.eMail = builder.eMail;
+        /**
+         * 状态
+         * <p> 示例值：1
+         */
+        this.status = builder.status;
+        /**
+         * 交易方编码
+         * <p> 示例值：V00108006
+         */
+        this.vendor = builder.vendor;
+        /**
+         * 交易方名称
+         * <p> 示例值：张三样例
+         */
+        this.vendorText = builder.vendorText;
+        /**
+         * 交易方简称
+         * <p> 示例值：王五
+         */
+        this.shortText = builder.shortText;
+        /**
+         * 交易方类型（多个枚举时，采用逗号分隔）
+         * <p> 示例值：1
+         */
+        this.vendorType = builder.vendorType;
+        /**
+         * 交易方类别
+         * <p> 示例值：11
+         */
+        this.vendorCategory = builder.vendorCategory;
+        /**
+         * 交易方性质
+         * <p> 示例值：0
+         */
+        this.vendorNature = builder.vendorNature;
+        /**
+         * 关联员工
+         * <p> 示例值：6959513973725069601
+         */
+        this.linkedEmployee = builder.linkedEmployee;
+        /**
+         * 关联客户
+         * <p> 示例值：客户
+         */
+        this.linkedCustomer = builder.linkedCustomer;
+        /**
+         * 是否关联法人主体
+         * <p> 示例值：true
+         */
+        this.associatedWithLegalEntity = builder.associatedWithLegalEntity;
+        /**
+         * 扩展字段相关信息列表,每个扩展字段需要填入【field_code】、【field_type】、【field_value】三个信息，其中【field_code】和【field_type】需要与用户【字段配置】(获取配置字段的开放平台接口：https://open.feishu.cn/open-apis/mdm/v1/config/config_list)中扩展字段（sys = 1）相关联（目前不支持附件类型的扩展信息）
+         * <p> 示例值：
+         */
+        this.extendInfo = builder.extendInfo;
+        /**
+         * 银行账户列表
+         * <p> 示例值：
+         */
+        this.vendorAccounts = builder.vendorAccounts;
+        /**
+         * 地址列表
+         * <p> 示例值：
+         */
+        this.vendorAddresses = builder.vendorAddresses;
+        /**
+         * 公司视图列表
+         * <p> 示例值：
+         */
+        this.vendorCompanyViews = builder.vendorCompanyViews;
+        /**
+         * 联系人列表
+         * <p> 示例值：
+         */
+        this.vendorContacts = builder.vendorContacts;
+        /**
+         * 总账科目
+         * <p> 示例值：22020101
+         */
+        this.glAccount = builder.glAccount;
+        /**
+         * 预付条件
+         * <p> 示例值：PT09
+         */
+        this.downPaymentTerm = builder.downPaymentTerm;
+        /**
+         * 付款条件
+         * <p> 示例值：PT08
+         */
+        this.paymentTerm = builder.paymentTerm;
+        /**
+         * 交易方site code
+         * <p> 示例值：999999
+         */
+        this.vendorSiteCode = builder.vendorSiteCode;
+        /**
+         * 附件列表
+         * <p> 示例值：
+         */
+        this.appendix = builder.appendix;
+        /**
+         * 是否标记风险
+         * <p> 示例值：false
+         */
+        this.isRisked = builder.isRisked;
+        /**
+         * 所属部门
+         * <p> 示例值：["7098978978848833836"]
+         */
+        this.ownerDepts = builder.ownerDepts;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -529,899 +725,718 @@ public class Vendor {
         this.ownerDepts = ownerDepts;
     }
 
-
-// builder 开始
-  public Vendor(){}
-
-  public Vendor(Builder builder){
-         /**
-          * 交易方id，创建交易方时不填，修改交易方时必填
-          * <p> 示例值：7023646046559404327
-          */
-      this.id = builder.id;
-         /**
-          * 交易方注册国家
-          * <p> 示例值：CN
-          */
-      this.adCountry = builder.adCountry;
-         /**
-          * 交易方注册省份
-          * <p> 示例值：MDPS00000001
-          */
-      this.adProvince = builder.adProvince;
-         /**
-          * 交易方注册城市
-          * <p> 示例值：MDCY00001226
-          */
-      this.adCity = builder.adCity;
-         /**
-          * 详细地址
-          * <p> 示例值：上海市浦东新区世纪大道1000号
-          */
-      this.address = builder.address;
-         /**
-          * 交易方注册地址邮编
-          * <p> 示例值：100100
-          */
-      this.adPostcode = builder.adPostcode;
-         /**
-          * 法人名称
-          * <p> 示例值：张三
-          */
-      this.legalPerson = builder.legalPerson;
-         /**
-          * 证件类型
-          * <p> 示例值：0
-          */
-      this.certificationType = builder.certificationType;
-         /**
-          * 证件ID
-          * <p> 示例值：913100xxxxx555781R
-          */
-      this.certificationId = builder.certificationId;
-         /**
-          * 联系人
-          * <p> 示例值：李四
-          */
-      this.contactPerson = builder.contactPerson;
-         /**
-          * 联系电话
-          * <p> 示例值：021-87853200
-          */
-      this.contactTelephone = builder.contactTelephone;
-         /**
-          * 联系移动电话
-          * <p> 示例值：+8617621685955
-          */
-      this.contactMobilePhone = builder.contactMobilePhone;
-         /**
-          * 传真
-          * <p> 示例值：021-87853200
-          */
-      this.fax = builder.fax;
-         /**
-          * 邮箱
-          * <p> 示例值：shunxing@xxx.com
-          */
-      this.eMail = builder.eMail;
-         /**
-          * 状态
-          * <p> 示例值：1
-          */
-      this.status = builder.status;
-         /**
-          * 交易方编码
-          * <p> 示例值：V00108006
-          */
-      this.vendor = builder.vendor;
-         /**
-          * 交易方名称
-          * <p> 示例值：张三样例
-          */
-      this.vendorText = builder.vendorText;
-         /**
-          * 交易方简称
-          * <p> 示例值：王五
-          */
-      this.shortText = builder.shortText;
-         /**
-          * 交易方类型（多个枚举时，采用逗号分隔）
-          * <p> 示例值：1
-          */
-      this.vendorType = builder.vendorType;
-         /**
-          * 交易方类别
-          * <p> 示例值：11
-          */
-      this.vendorCategory = builder.vendorCategory;
-         /**
-          * 交易方性质
-          * <p> 示例值：0
-          */
-      this.vendorNature = builder.vendorNature;
-         /**
-          * 关联员工
-          * <p> 示例值：6959513973725069601
-          */
-      this.linkedEmployee = builder.linkedEmployee;
-         /**
-          * 关联客户
-          * <p> 示例值：客户
-          */
-      this.linkedCustomer = builder.linkedCustomer;
-         /**
-          * 是否关联法人主体
-          * <p> 示例值：true
-          */
-      this.associatedWithLegalEntity = builder.associatedWithLegalEntity;
-         /**
-          * 扩展字段相关信息列表,每个扩展字段需要填入【field_code】、【field_type】、【field_value】三个信息，其中【field_code】和【field_type】需要与用户【字段配置】(获取配置字段的开放平台接口：https://open.feishu.cn/open-apis/mdm/v1/config/config_list)中扩展字段（sys = 1）相关联（目前不支持附件类型的扩展信息）
-          * <p> 示例值：
-          */
-      this.extendInfo = builder.extendInfo;
-         /**
-          * 银行账户列表
-          * <p> 示例值：
-          */
-      this.vendorAccounts = builder.vendorAccounts;
-         /**
-          * 地址列表
-          * <p> 示例值：
-          */
-      this.vendorAddresses = builder.vendorAddresses;
-         /**
-          * 公司视图列表
-          * <p> 示例值：
-          */
-      this.vendorCompanyViews = builder.vendorCompanyViews;
-         /**
-          * 联系人列表
-          * <p> 示例值：
-          */
-      this.vendorContacts = builder.vendorContacts;
-         /**
-          * 总账科目
-          * <p> 示例值：22020101
-          */
-      this.glAccount = builder.glAccount;
-         /**
-          * 预付条件
-          * <p> 示例值：PT09
-          */
-      this.downPaymentTerm = builder.downPaymentTerm;
-         /**
-          * 付款条件
-          * <p> 示例值：PT08
-          */
-      this.paymentTerm = builder.paymentTerm;
-         /**
-          * 交易方site code
-          * <p> 示例值：999999
-          */
-      this.vendorSiteCode = builder.vendorSiteCode;
-         /**
-          * 附件列表
-          * <p> 示例值：
-          */
-      this.appendix = builder.appendix;
-         /**
-          * 是否标记风险
-          * <p> 示例值：false
-          */
-      this.isRisked = builder.isRisked;
-         /**
-          * 所属部门
-          * <p> 示例值：["7098978978848833836"]
-          */
-      this.ownerDepts = builder.ownerDepts;
-  }
-
     public static class Builder {
-     /**
-      * 交易方id，创建交易方时不填，修改交易方时必填
-      * <p> 示例值：7023646046559404327
-      */
+        /**
+         * 交易方id，创建交易方时不填，修改交易方时必填
+         * <p> 示例值：7023646046559404327
+         */
         private String id;
-     /**
-      * 交易方注册国家
-      * <p> 示例值：CN
-      */
+        /**
+         * 交易方注册国家
+         * <p> 示例值：CN
+         */
         private String adCountry;
-     /**
-      * 交易方注册省份
-      * <p> 示例值：MDPS00000001
-      */
+        /**
+         * 交易方注册省份
+         * <p> 示例值：MDPS00000001
+         */
         private String adProvince;
-     /**
-      * 交易方注册城市
-      * <p> 示例值：MDCY00001226
-      */
+        /**
+         * 交易方注册城市
+         * <p> 示例值：MDCY00001226
+         */
         private String adCity;
-     /**
-      * 详细地址
-      * <p> 示例值：上海市浦东新区世纪大道1000号
-      */
+        /**
+         * 详细地址
+         * <p> 示例值：上海市浦东新区世纪大道1000号
+         */
         private String address;
-     /**
-      * 交易方注册地址邮编
-      * <p> 示例值：100100
-      */
+        /**
+         * 交易方注册地址邮编
+         * <p> 示例值：100100
+         */
         private String adPostcode;
-     /**
-      * 法人名称
-      * <p> 示例值：张三
-      */
+        /**
+         * 法人名称
+         * <p> 示例值：张三
+         */
         private String legalPerson;
-     /**
-      * 证件类型
-      * <p> 示例值：0
-      */
+        /**
+         * 证件类型
+         * <p> 示例值：0
+         */
         private String certificationType;
-     /**
-      * 证件ID
-      * <p> 示例值：913100xxxxx555781R
-      */
+        /**
+         * 证件ID
+         * <p> 示例值：913100xxxxx555781R
+         */
         private String certificationId;
-     /**
-      * 联系人
-      * <p> 示例值：李四
-      */
+        /**
+         * 联系人
+         * <p> 示例值：李四
+         */
         private String contactPerson;
-     /**
-      * 联系电话
-      * <p> 示例值：021-87853200
-      */
+        /**
+         * 联系电话
+         * <p> 示例值：021-87853200
+         */
         private String contactTelephone;
-     /**
-      * 联系移动电话
-      * <p> 示例值：+8617621685955
-      */
+        /**
+         * 联系移动电话
+         * <p> 示例值：+8617621685955
+         */
         private String contactMobilePhone;
-     /**
-      * 传真
-      * <p> 示例值：021-87853200
-      */
+        /**
+         * 传真
+         * <p> 示例值：021-87853200
+         */
         private String fax;
-     /**
-      * 邮箱
-      * <p> 示例值：shunxing@xxx.com
-      */
+        /**
+         * 邮箱
+         * <p> 示例值：shunxing@xxx.com
+         */
         private String eMail;
-     /**
-      * 状态
-      * <p> 示例值：1
-      */
+        /**
+         * 状态
+         * <p> 示例值：1
+         */
         private Integer status;
-     /**
-      * 交易方编码
-      * <p> 示例值：V00108006
-      */
+        /**
+         * 交易方编码
+         * <p> 示例值：V00108006
+         */
         private String vendor;
-     /**
-      * 交易方名称
-      * <p> 示例值：张三样例
-      */
+        /**
+         * 交易方名称
+         * <p> 示例值：张三样例
+         */
         private String vendorText;
-     /**
-      * 交易方简称
-      * <p> 示例值：王五
-      */
+        /**
+         * 交易方简称
+         * <p> 示例值：王五
+         */
         private String shortText;
-     /**
-      * 交易方类型（多个枚举时，采用逗号分隔）
-      * <p> 示例值：1
-      */
+        /**
+         * 交易方类型（多个枚举时，采用逗号分隔）
+         * <p> 示例值：1
+         */
         private String vendorType;
-     /**
-      * 交易方类别
-      * <p> 示例值：11
-      */
+        /**
+         * 交易方类别
+         * <p> 示例值：11
+         */
         private String vendorCategory;
-     /**
-      * 交易方性质
-      * <p> 示例值：0
-      */
+        /**
+         * 交易方性质
+         * <p> 示例值：0
+         */
         private String vendorNature;
-     /**
-      * 关联员工
-      * <p> 示例值：6959513973725069601
-      */
+        /**
+         * 关联员工
+         * <p> 示例值：6959513973725069601
+         */
         private String linkedEmployee;
-     /**
-      * 关联客户
-      * <p> 示例值：客户
-      */
+        /**
+         * 关联客户
+         * <p> 示例值：客户
+         */
         private String linkedCustomer;
-     /**
-      * 是否关联法人主体
-      * <p> 示例值：true
-      */
+        /**
+         * 是否关联法人主体
+         * <p> 示例值：true
+         */
         private Boolean associatedWithLegalEntity;
-     /**
-      * 扩展字段相关信息列表,每个扩展字段需要填入【field_code】、【field_type】、【field_value】三个信息，其中【field_code】和【field_type】需要与用户【字段配置】(获取配置字段的开放平台接口：https://open.feishu.cn/open-apis/mdm/v1/config/config_list)中扩展字段（sys = 1）相关联（目前不支持附件类型的扩展信息）
-      * <p> 示例值：
-      */
+        /**
+         * 扩展字段相关信息列表,每个扩展字段需要填入【field_code】、【field_type】、【field_value】三个信息，其中【field_code】和【field_type】需要与用户【字段配置】(获取配置字段的开放平台接口：https://open.feishu.cn/open-apis/mdm/v1/config/config_list)中扩展字段（sys = 1）相关联（目前不支持附件类型的扩展信息）
+         * <p> 示例值：
+         */
         private ExtendField[] extendInfo;
-     /**
-      * 银行账户列表
-      * <p> 示例值：
-      */
+        /**
+         * 银行账户列表
+         * <p> 示例值：
+         */
         private VendorAccount[] vendorAccounts;
-     /**
-      * 地址列表
-      * <p> 示例值：
-      */
+        /**
+         * 地址列表
+         * <p> 示例值：
+         */
         private VendorAddress[] vendorAddresses;
-     /**
-      * 公司视图列表
-      * <p> 示例值：
-      */
+        /**
+         * 公司视图列表
+         * <p> 示例值：
+         */
         private VendorCompanyView[] vendorCompanyViews;
-     /**
-      * 联系人列表
-      * <p> 示例值：
-      */
+        /**
+         * 联系人列表
+         * <p> 示例值：
+         */
         private VendorContact[] vendorContacts;
-     /**
-      * 总账科目
-      * <p> 示例值：22020101
-      */
+        /**
+         * 总账科目
+         * <p> 示例值：22020101
+         */
         private String glAccount;
-     /**
-      * 预付条件
-      * <p> 示例值：PT09
-      */
+        /**
+         * 预付条件
+         * <p> 示例值：PT09
+         */
         private String downPaymentTerm;
-     /**
-      * 付款条件
-      * <p> 示例值：PT08
-      */
+        /**
+         * 付款条件
+         * <p> 示例值：PT08
+         */
         private String paymentTerm;
-     /**
-      * 交易方site code
-      * <p> 示例值：999999
-      */
+        /**
+         * 交易方site code
+         * <p> 示例值：999999
+         */
         private String vendorSiteCode;
-     /**
-      * 附件列表
-      * <p> 示例值：
-      */
+        /**
+         * 附件列表
+         * <p> 示例值：
+         */
         private Appendix[] appendix;
-     /**
-      * 是否标记风险
-      * <p> 示例值：false
-      */
+        /**
+         * 是否标记风险
+         * <p> 示例值：false
+         */
         private Boolean isRisked;
-     /**
-      * 所属部门
-      * <p> 示例值：["7098978978848833836"]
-      */
+        /**
+         * 所属部门
+         * <p> 示例值：["7098978978848833836"]
+         */
         private String[] ownerDepts;
 
         /**
          * 交易方id，创建交易方时不填，修改交易方时必填
          * <p> 示例值：7023646046559404327
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 交易方注册国家
          * <p> 示例值：CN
+         *
          * @param adCountry
          * @return
          */
         public Builder adCountry(String adCountry) {
-             this.adCountry = adCountry;
-             return this;
+            this.adCountry = adCountry;
+            return this;
         }
 
-    
 
         /**
          * 交易方注册省份
          * <p> 示例值：MDPS00000001
+         *
          * @param adProvince
          * @return
          */
         public Builder adProvince(String adProvince) {
-             this.adProvince = adProvince;
-             return this;
+            this.adProvince = adProvince;
+            return this;
         }
 
-    
 
         /**
          * 交易方注册城市
          * <p> 示例值：MDCY00001226
+         *
          * @param adCity
          * @return
          */
         public Builder adCity(String adCity) {
-             this.adCity = adCity;
-             return this;
+            this.adCity = adCity;
+            return this;
         }
 
-    
 
         /**
          * 详细地址
          * <p> 示例值：上海市浦东新区世纪大道1000号
+         *
          * @param address
          * @return
          */
         public Builder address(String address) {
-             this.address = address;
-             return this;
+            this.address = address;
+            return this;
         }
 
-    
 
         /**
          * 交易方注册地址邮编
          * <p> 示例值：100100
+         *
          * @param adPostcode
          * @return
          */
         public Builder adPostcode(String adPostcode) {
-             this.adPostcode = adPostcode;
-             return this;
+            this.adPostcode = adPostcode;
+            return this;
         }
 
-    
 
         /**
          * 法人名称
          * <p> 示例值：张三
+         *
          * @param legalPerson
          * @return
          */
         public Builder legalPerson(String legalPerson) {
-             this.legalPerson = legalPerson;
-             return this;
+            this.legalPerson = legalPerson;
+            return this;
         }
 
-    
 
         /**
          * 证件类型
          * <p> 示例值：0
+         *
          * @param certificationType
          * @return
          */
         public Builder certificationType(String certificationType) {
-             this.certificationType = certificationType;
-             return this;
+            this.certificationType = certificationType;
+            return this;
         }
+
         /**
          * 证件类型
          * <p> 示例值：0
+         *
          * @param certificationType {@link com.lark.oapi.service.mdm.v1.enums.VendorCertificationTypeEnum}
          * @return
          */
         public Builder certificationType(com.lark.oapi.service.mdm.v1.enums.VendorCertificationTypeEnum certificationType) {
-             this.certificationType = certificationType.getValue();
-             return this;
+            this.certificationType = certificationType.getValue();
+            return this;
         }
 
-    
 
         /**
          * 证件ID
          * <p> 示例值：913100xxxxx555781R
+         *
          * @param certificationId
          * @return
          */
         public Builder certificationId(String certificationId) {
-             this.certificationId = certificationId;
-             return this;
+            this.certificationId = certificationId;
+            return this;
         }
 
-    
 
         /**
          * 联系人
          * <p> 示例值：李四
+         *
          * @param contactPerson
          * @return
          */
         public Builder contactPerson(String contactPerson) {
-             this.contactPerson = contactPerson;
-             return this;
+            this.contactPerson = contactPerson;
+            return this;
         }
 
-    
 
         /**
          * 联系电话
          * <p> 示例值：021-87853200
+         *
          * @param contactTelephone
          * @return
          */
         public Builder contactTelephone(String contactTelephone) {
-             this.contactTelephone = contactTelephone;
-             return this;
+            this.contactTelephone = contactTelephone;
+            return this;
         }
 
-    
 
         /**
          * 联系移动电话
          * <p> 示例值：+8617621685955
+         *
          * @param contactMobilePhone
          * @return
          */
         public Builder contactMobilePhone(String contactMobilePhone) {
-             this.contactMobilePhone = contactMobilePhone;
-             return this;
+            this.contactMobilePhone = contactMobilePhone;
+            return this;
         }
 
-    
 
         /**
          * 传真
          * <p> 示例值：021-87853200
+         *
          * @param fax
          * @return
          */
         public Builder fax(String fax) {
-             this.fax = fax;
-             return this;
+            this.fax = fax;
+            return this;
         }
 
-    
 
         /**
          * 邮箱
          * <p> 示例值：shunxing@xxx.com
+         *
          * @param eMail
          * @return
          */
         public Builder eMail(String eMail) {
-             this.eMail = eMail;
-             return this;
+            this.eMail = eMail;
+            return this;
         }
 
-    
 
         /**
          * 状态
          * <p> 示例值：1
+         *
          * @param status
          * @return
          */
         public Builder status(Integer status) {
-             this.status = status;
-             return this;
+            this.status = status;
+            return this;
         }
+
         /**
          * 状态
          * <p> 示例值：1
+         *
          * @param status {@link com.lark.oapi.service.mdm.v1.enums.VendorStatusEnum}
          * @return
          */
         public Builder status(com.lark.oapi.service.mdm.v1.enums.VendorStatusEnum status) {
-             this.status = status.getValue();
-             return this;
+            this.status = status.getValue();
+            return this;
         }
 
-    
 
         /**
          * 交易方编码
          * <p> 示例值：V00108006
+         *
          * @param vendor
          * @return
          */
         public Builder vendor(String vendor) {
-             this.vendor = vendor;
-             return this;
+            this.vendor = vendor;
+            return this;
         }
 
-    
 
         /**
          * 交易方名称
          * <p> 示例值：张三样例
+         *
          * @param vendorText
          * @return
          */
         public Builder vendorText(String vendorText) {
-             this.vendorText = vendorText;
-             return this;
+            this.vendorText = vendorText;
+            return this;
         }
 
-    
 
         /**
          * 交易方简称
          * <p> 示例值：王五
+         *
          * @param shortText
          * @return
          */
         public Builder shortText(String shortText) {
-             this.shortText = shortText;
-             return this;
+            this.shortText = shortText;
+            return this;
         }
 
-    
 
         /**
          * 交易方类型（多个枚举时，采用逗号分隔）
          * <p> 示例值：1
+         *
          * @param vendorType
          * @return
          */
         public Builder vendorType(String vendorType) {
-             this.vendorType = vendorType;
-             return this;
+            this.vendorType = vendorType;
+            return this;
         }
+
         /**
          * 交易方类型（多个枚举时，采用逗号分隔）
          * <p> 示例值：1
+         *
          * @param vendorType {@link com.lark.oapi.service.mdm.v1.enums.VendorVendorTypeEnum}
          * @return
          */
         public Builder vendorType(com.lark.oapi.service.mdm.v1.enums.VendorVendorTypeEnum vendorType) {
-             this.vendorType = vendorType.getValue();
-             return this;
+            this.vendorType = vendorType.getValue();
+            return this;
         }
 
-    
 
         /**
          * 交易方类别
          * <p> 示例值：11
+         *
          * @param vendorCategory
          * @return
          */
         public Builder vendorCategory(String vendorCategory) {
-             this.vendorCategory = vendorCategory;
-             return this;
+            this.vendorCategory = vendorCategory;
+            return this;
         }
+
         /**
          * 交易方类别
          * <p> 示例值：11
+         *
          * @param vendorCategory {@link com.lark.oapi.service.mdm.v1.enums.VendorVendorCategoryEnum}
          * @return
          */
         public Builder vendorCategory(com.lark.oapi.service.mdm.v1.enums.VendorVendorCategoryEnum vendorCategory) {
-             this.vendorCategory = vendorCategory.getValue();
-             return this;
+            this.vendorCategory = vendorCategory.getValue();
+            return this;
         }
 
-    
 
         /**
          * 交易方性质
          * <p> 示例值：0
+         *
          * @param vendorNature
          * @return
          */
         public Builder vendorNature(String vendorNature) {
-             this.vendorNature = vendorNature;
-             return this;
+            this.vendorNature = vendorNature;
+            return this;
         }
+
         /**
          * 交易方性质
          * <p> 示例值：0
+         *
          * @param vendorNature {@link com.lark.oapi.service.mdm.v1.enums.VendorVendorNatureEnum}
          * @return
          */
         public Builder vendorNature(com.lark.oapi.service.mdm.v1.enums.VendorVendorNatureEnum vendorNature) {
-             this.vendorNature = vendorNature.getValue();
-             return this;
+            this.vendorNature = vendorNature.getValue();
+            return this;
         }
 
-    
 
         /**
          * 关联员工
          * <p> 示例值：6959513973725069601
+         *
          * @param linkedEmployee
          * @return
          */
         public Builder linkedEmployee(String linkedEmployee) {
-             this.linkedEmployee = linkedEmployee;
-             return this;
+            this.linkedEmployee = linkedEmployee;
+            return this;
         }
 
-    
 
         /**
          * 关联客户
          * <p> 示例值：客户
+         *
          * @param linkedCustomer
          * @return
          */
         public Builder linkedCustomer(String linkedCustomer) {
-             this.linkedCustomer = linkedCustomer;
-             return this;
+            this.linkedCustomer = linkedCustomer;
+            return this;
         }
 
-    
 
         /**
          * 是否关联法人主体
          * <p> 示例值：true
+         *
          * @param associatedWithLegalEntity
          * @return
          */
         public Builder associatedWithLegalEntity(Boolean associatedWithLegalEntity) {
-             this.associatedWithLegalEntity = associatedWithLegalEntity;
-             return this;
+            this.associatedWithLegalEntity = associatedWithLegalEntity;
+            return this;
         }
 
-    
 
         /**
          * 扩展字段相关信息列表,每个扩展字段需要填入【field_code】、【field_type】、【field_value】三个信息，其中【field_code】和【field_type】需要与用户【字段配置】(获取配置字段的开放平台接口：https://open.feishu.cn/open-apis/mdm/v1/config/config_list)中扩展字段（sys = 1）相关联（目前不支持附件类型的扩展信息）
          * <p> 示例值：
+         *
          * @param extendInfo
          * @return
          */
         public Builder extendInfo(ExtendField[] extendInfo) {
-             this.extendInfo = extendInfo;
-             return this;
+            this.extendInfo = extendInfo;
+            return this;
         }
 
-    
 
         /**
          * 银行账户列表
          * <p> 示例值：
+         *
          * @param vendorAccounts
          * @return
          */
         public Builder vendorAccounts(VendorAccount[] vendorAccounts) {
-             this.vendorAccounts = vendorAccounts;
-             return this;
+            this.vendorAccounts = vendorAccounts;
+            return this;
         }
 
-    
 
         /**
          * 地址列表
          * <p> 示例值：
+         *
          * @param vendorAddresses
          * @return
          */
         public Builder vendorAddresses(VendorAddress[] vendorAddresses) {
-             this.vendorAddresses = vendorAddresses;
-             return this;
+            this.vendorAddresses = vendorAddresses;
+            return this;
         }
 
-    
 
         /**
          * 公司视图列表
          * <p> 示例值：
+         *
          * @param vendorCompanyViews
          * @return
          */
         public Builder vendorCompanyViews(VendorCompanyView[] vendorCompanyViews) {
-             this.vendorCompanyViews = vendorCompanyViews;
-             return this;
+            this.vendorCompanyViews = vendorCompanyViews;
+            return this;
         }
 
-    
 
         /**
          * 联系人列表
          * <p> 示例值：
+         *
          * @param vendorContacts
          * @return
          */
         public Builder vendorContacts(VendorContact[] vendorContacts) {
-             this.vendorContacts = vendorContacts;
-             return this;
+            this.vendorContacts = vendorContacts;
+            return this;
         }
 
-    
 
         /**
          * 总账科目
          * <p> 示例值：22020101
+         *
          * @param glAccount
          * @return
          */
         public Builder glAccount(String glAccount) {
-             this.glAccount = glAccount;
-             return this;
+            this.glAccount = glAccount;
+            return this;
         }
 
-    
 
         /**
          * 预付条件
          * <p> 示例值：PT09
+         *
          * @param downPaymentTerm
          * @return
          */
         public Builder downPaymentTerm(String downPaymentTerm) {
-             this.downPaymentTerm = downPaymentTerm;
-             return this;
+            this.downPaymentTerm = downPaymentTerm;
+            return this;
         }
 
-    
 
         /**
          * 付款条件
          * <p> 示例值：PT08
+         *
          * @param paymentTerm
          * @return
          */
         public Builder paymentTerm(String paymentTerm) {
-             this.paymentTerm = paymentTerm;
-             return this;
+            this.paymentTerm = paymentTerm;
+            return this;
         }
 
-    
 
         /**
          * 交易方site code
          * <p> 示例值：999999
+         *
          * @param vendorSiteCode
          * @return
          */
         public Builder vendorSiteCode(String vendorSiteCode) {
-             this.vendorSiteCode = vendorSiteCode;
-             return this;
+            this.vendorSiteCode = vendorSiteCode;
+            return this;
         }
 
-    
 
         /**
          * 附件列表
          * <p> 示例值：
+         *
          * @param appendix
          * @return
          */
         public Builder appendix(Appendix[] appendix) {
-             this.appendix = appendix;
-             return this;
+            this.appendix = appendix;
+            return this;
         }
 
-    
 
         /**
          * 是否标记风险
          * <p> 示例值：false
+         *
          * @param isRisked
          * @return
          */
         public Builder isRisked(Boolean isRisked) {
-             this.isRisked = isRisked;
-             return this;
+            this.isRisked = isRisked;
+            return this;
         }
 
-    
 
         /**
          * 所属部门
          * <p> 示例值：["7098978978848833836"]
+         *
          * @param ownerDepts
          * @return
          */
         public Builder ownerDepts(String[] ownerDepts) {
-             this.ownerDepts = ownerDepts;
-             return this;
+            this.ownerDepts = ownerDepts;
+            return this;
         }
 
-    
-    
-    public Vendor build(){
-        return new Vendor(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Vendor build() {
+            return new Vendor(this);
+        }
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class User {
-     /**
-      * 用户id
-      * <p> 示例值：
-      */
+    /**
+     * 用户id
+     * <p> 示例值：
+     */
     @SerializedName("id")
     private UserId id;
-     /**
-      * 用户名
-      * <p> 示例值：
-      */
+    /**
+     * 用户名
+     * <p> 示例值：
+     */
     @SerializedName("name")
     private String name;
+
+    // builder 开始
+    public User() {
+    }
+
+    public User(Builder builder) {
+        /**
+         * 用户id
+         * <p> 示例值：
+         */
+        this.id = builder.id;
+        /**
+         * 用户名
+         * <p> 示例值：
+         */
+        this.name = builder.name;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public UserId getId() {
         return this.id;
     }
@@ -53,67 +79,46 @@ public class User {
         this.name = name;
     }
 
-
-// builder 开始
-  public User(){}
-
-  public User(Builder builder){
-         /**
-          * 用户id
-          * <p> 示例值：
-          */
-      this.id = builder.id;
-         /**
-          * 用户名
-          * <p> 示例值：
-          */
-      this.name = builder.name;
-  }
-
     public static class Builder {
-     /**
-      * 用户id
-      * <p> 示例值：
-      */
+        /**
+         * 用户id
+         * <p> 示例值：
+         */
         private UserId id;
-     /**
-      * 用户名
-      * <p> 示例值：
-      */
+        /**
+         * 用户名
+         * <p> 示例值：
+         */
         private String name;
 
         /**
          * 用户id
          * <p> 示例值：
+         *
          * @param id
          * @return
          */
         public Builder id(UserId id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 用户名
          * <p> 示例值：
+         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
-    
-    public User build(){
-        return new User(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public User build() {
+            return new User(this);
+        }
     }
 }

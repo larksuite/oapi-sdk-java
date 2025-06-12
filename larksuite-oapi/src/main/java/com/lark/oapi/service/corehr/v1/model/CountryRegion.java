@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,36 +20,71 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CountryRegion {
-     /**
-      * 国家/地区id
-      * <p> 示例值：1
-      */
+    /**
+     * 国家/地区id
+     * <p> 示例值：1
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 国家/地区名称
-      * <p> 示例值：
-      */
+    /**
+     * 国家/地区名称
+     * <p> 示例值：
+     */
     @SerializedName("name")
     private I18n[] name;
-     /**
-      * 国家地区三字码
-      * <p> 示例值：12
-      */
+    /**
+     * 国家地区三字码
+     * <p> 示例值：12
+     */
     @SerializedName("alpha_3_code")
     private String alpha3Code;
-     /**
-      * 国家地区二字码
-      * <p> 示例值：12
-      */
+    /**
+     * 国家地区二字码
+     * <p> 示例值：12
+     */
     @SerializedName("alpha_2_code")
     private String alpha2Code;
+
+    // builder 开始
+    public CountryRegion() {
+    }
+
+    public CountryRegion(Builder builder) {
+        /**
+         * 国家/地区id
+         * <p> 示例值：1
+         */
+        this.id = builder.id;
+        /**
+         * 国家/地区名称
+         * <p> 示例值：
+         */
+        this.name = builder.name;
+        /**
+         * 国家地区三字码
+         * <p> 示例值：12
+         */
+        this.alpha3Code = builder.alpha3Code;
+        /**
+         * 国家地区二字码
+         * <p> 示例值：12
+         */
+        this.alpha2Code = builder.alpha2Code;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -81,113 +117,82 @@ public class CountryRegion {
         this.alpha2Code = alpha2Code;
     }
 
-
-// builder 开始
-  public CountryRegion(){}
-
-  public CountryRegion(Builder builder){
-         /**
-          * 国家/地区id
-          * <p> 示例值：1
-          */
-      this.id = builder.id;
-         /**
-          * 国家/地区名称
-          * <p> 示例值：
-          */
-      this.name = builder.name;
-         /**
-          * 国家地区三字码
-          * <p> 示例值：12
-          */
-      this.alpha3Code = builder.alpha3Code;
-         /**
-          * 国家地区二字码
-          * <p> 示例值：12
-          */
-      this.alpha2Code = builder.alpha2Code;
-  }
-
     public static class Builder {
-     /**
-      * 国家/地区id
-      * <p> 示例值：1
-      */
+        /**
+         * 国家/地区id
+         * <p> 示例值：1
+         */
         private String id;
-     /**
-      * 国家/地区名称
-      * <p> 示例值：
-      */
+        /**
+         * 国家/地区名称
+         * <p> 示例值：
+         */
         private I18n[] name;
-     /**
-      * 国家地区三字码
-      * <p> 示例值：12
-      */
+        /**
+         * 国家地区三字码
+         * <p> 示例值：12
+         */
         private String alpha3Code;
-     /**
-      * 国家地区二字码
-      * <p> 示例值：12
-      */
+        /**
+         * 国家地区二字码
+         * <p> 示例值：12
+         */
         private String alpha2Code;
 
         /**
          * 国家/地区id
          * <p> 示例值：1
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 国家/地区名称
          * <p> 示例值：
+         *
          * @param name
          * @return
          */
         public Builder name(I18n[] name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 国家地区三字码
          * <p> 示例值：12
+         *
          * @param alpha3Code
          * @return
          */
         public Builder alpha3Code(String alpha3Code) {
-             this.alpha3Code = alpha3Code;
-             return this;
+            this.alpha3Code = alpha3Code;
+            return this;
         }
 
-    
 
         /**
          * 国家地区二字码
          * <p> 示例值：12
+         *
          * @param alpha2Code
          * @return
          */
         public Builder alpha2Code(String alpha2Code) {
-             this.alpha2Code = alpha2Code;
-             return this;
+            this.alpha2Code = alpha2Code;
+            return this;
         }
 
-    
-    
-    public CountryRegion build(){
-        return new CountryRegion(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public CountryRegion build() {
+            return new CountryRegion(this);
+        }
     }
 }

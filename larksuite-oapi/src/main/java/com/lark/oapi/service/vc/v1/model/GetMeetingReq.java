@@ -12,39 +12,82 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class GetMeetingReq {
-     /**
-      * 是否需要参会人列表
-      * <p> 示例值：false
-      */
+    /**
+     * 是否需要参会人列表
+     * <p> 示例值：false
+     */
     @Query
     @SerializedName("with_participants")
     private Boolean withParticipants;
-     /**
-      * 是否需要会中使用能力统计（仅限tenant_access_token）
-      * <p> 示例值：false
-      */
+    /**
+     * 是否需要会中使用能力统计（仅限tenant_access_token）
+     * <p> 示例值：false
+     */
     @Query
     @SerializedName("with_meeting_ability")
     private Boolean withMeetingAbility;
-     /**
-      * 此次调用中使用的用户ID的类型，默认使用open_id可不填
-      * <p> 示例值：
-      */
+    /**
+     * 此次调用中使用的用户ID的类型，默认使用open_id可不填
+     * <p> 示例值：
+     */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
+    /**
+     * 会议ID（视频会议的唯一标识，视频会议开始后才会产生）
+     * <p> 示例值：6911188411932033028
+     */
+    @Path
+    @SerializedName("meeting_id")
+    private String meetingId;
+
+    // builder 开始
+    public GetMeetingReq() {
+    }
+
+    public GetMeetingReq(Builder builder) {
+        /**
+         * 是否需要参会人列表
+         * <p> 示例值：false
+         */
+        this.withParticipants = builder.withParticipants;
+        /**
+         * 是否需要会中使用能力统计（仅限tenant_access_token）
+         * <p> 示例值：false
+         */
+        this.withMeetingAbility = builder.withMeetingAbility;
+        /**
+         * 此次调用中使用的用户ID的类型，默认使用open_id可不填
+         * <p> 示例值：
+         */
+        this.userIdType = builder.userIdType;
+        /**
+         * 会议ID（视频会议的唯一标识，视频会议开始后才会产生）
+         * <p> 示例值：6911188411932033028
+         */
+        this.meetingId = builder.meetingId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Boolean getWithParticipants() {
         return this.withParticipants;
     }
@@ -69,13 +112,6 @@ public class GetMeetingReq {
         this.userIdType = userIdType;
     }
 
-     /**
-      * 会议ID（视频会议的唯一标识，视频会议开始后才会产生）
-      * <p> 示例值：6911188411932033028
-      */
-    @Path
-    @SerializedName("meeting_id")
-    private String meetingId;
     public String getMeetingId() {
         return this.meetingId;
     }
@@ -84,104 +120,75 @@ public class GetMeetingReq {
         this.meetingId = meetingId;
     }
 
-
-// builder 开始
-  public GetMeetingReq(){}
-
-  public GetMeetingReq(Builder builder){
-         /**
-          * 是否需要参会人列表
-          * <p> 示例值：false
-          */
-       this.withParticipants = builder.withParticipants;
-         /**
-          * 是否需要会中使用能力统计（仅限tenant_access_token）
-          * <p> 示例值：false
-          */
-       this.withMeetingAbility = builder.withMeetingAbility;
-         /**
-          * 此次调用中使用的用户ID的类型，默认使用open_id可不填
-          * <p> 示例值：
-          */
-       this.userIdType = builder.userIdType;
-     /**
-      * 会议ID（视频会议的唯一标识，视频会议开始后才会产生）
-      * <p> 示例值：6911188411932033028
-      */
-       this.meetingId = builder.meetingId;
-  }
-
     public static class Builder {
         private Boolean withParticipants; // 是否需要参会人列表
         private Boolean withMeetingAbility; // 是否需要会中使用能力统计（仅限tenant_access_token）
         private String userIdType; // 此次调用中使用的用户ID的类型，默认使用open_id可不填
-    
+        private String meetingId; // 会议ID（视频会议的唯一标识，视频会议开始后才会产生）
+
         /**
          * 是否需要参会人列表
          * <p> 示例值：false
+         *
          * @param withParticipants
          * @return
          */
-           public Builder withParticipants(Boolean withParticipants) {
-                this.withParticipants = withParticipants;
-                return this;
-           }
+        public Builder withParticipants(Boolean withParticipants) {
+            this.withParticipants = withParticipants;
+            return this;
+        }
 
-    
         /**
          * 是否需要会中使用能力统计（仅限tenant_access_token）
          * <p> 示例值：false
+         *
          * @param withMeetingAbility
          * @return
          */
-           public Builder withMeetingAbility(Boolean withMeetingAbility) {
-                this.withMeetingAbility = withMeetingAbility;
-                return this;
-           }
+        public Builder withMeetingAbility(Boolean withMeetingAbility) {
+            this.withMeetingAbility = withMeetingAbility;
+            return this;
+        }
 
-    
         /**
          * 此次调用中使用的用户ID的类型，默认使用open_id可不填
          * <p> 示例值：
+         *
          * @param userIdType
          * @return
          */
-           public Builder userIdType(String userIdType) {
-                this.userIdType = userIdType;
-                return this;
-           }
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
 
         /**
          * 此次调用中使用的用户ID的类型，默认使用open_id可不填
          * <p> 示例值：
+         *
          * @param userIdType {@link com.lark.oapi.service.vc.v1.enums.GetMeetingUserIdTypeEnum}
          * @return
          */
-          public Builder userIdType(com.lark.oapi.service.vc.v1.enums.GetMeetingUserIdTypeEnum userIdType) {
-               this.userIdType = userIdType.getValue();
-               return this;
-          }
+        public Builder userIdType(com.lark.oapi.service.vc.v1.enums.GetMeetingUserIdTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
+            return this;
+        }
 
-    
-        private String meetingId; // 会议ID（视频会议的唯一标识，视频会议开始后才会产生）
         /**
          * 会议ID（视频会议的唯一标识，视频会议开始后才会产生）
          * <p> 示例值：6911188411932033028
+         *
          * @param meetingId
          * @return
          */
-          public Builder meetingId(String meetingId) {
-               this.meetingId = meetingId;
-               return this;
-          }
+        public Builder meetingId(String meetingId) {
+            this.meetingId = meetingId;
+            return this;
+        }
 
-    
-    public GetMeetingReq build(){
-        return new GetMeetingReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public GetMeetingReq build() {
+            return new GetMeetingReq(this);
+        }
     }
 }

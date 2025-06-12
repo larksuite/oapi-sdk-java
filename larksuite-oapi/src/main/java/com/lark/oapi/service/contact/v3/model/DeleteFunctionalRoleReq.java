@@ -12,25 +12,46 @@
  */
 
 package com.lark.oapi.service.contact.v3.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class DeleteFunctionalRoleReq {
-     /**
-      * 角色的唯一标识，单租户下唯一
-      * <p> 示例值：7vrj3vk70xk7v5r
-      */
+    /**
+     * 角色的唯一标识，单租户下唯一
+     * <p> 示例值：7vrj3vk70xk7v5r
+     */
     @Path
     @SerializedName("role_id")
     private String roleId;
+
+    // builder 开始
+    public DeleteFunctionalRoleReq() {
+    }
+
+    public DeleteFunctionalRoleReq(Builder builder) {
+        /**
+         * 角色的唯一标识，单租户下唯一
+         * <p> 示例值：7vrj3vk70xk7v5r
+         */
+        this.roleId = builder.roleId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getRoleId() {
         return this.roleId;
     }
@@ -39,39 +60,25 @@ public class DeleteFunctionalRoleReq {
         this.roleId = roleId;
     }
 
-
-// builder 开始
-  public DeleteFunctionalRoleReq(){}
-
-  public DeleteFunctionalRoleReq(Builder builder){
-     /**
-      * 角色的唯一标识，单租户下唯一
-      * <p> 示例值：7vrj3vk70xk7v5r
-      */
-       this.roleId = builder.roleId;
-  }
-
     public static class Builder {
-    
+
         private String roleId; // 角色的唯一标识，单租户下唯一
+
         /**
          * 角色的唯一标识，单租户下唯一
          * <p> 示例值：7vrj3vk70xk7v5r
+         *
          * @param roleId
          * @return
          */
-          public Builder roleId(String roleId) {
-               this.roleId = roleId;
-               return this;
-          }
+        public Builder roleId(String roleId) {
+            this.roleId = roleId;
+            return this;
+        }
 
-    
-    public DeleteFunctionalRoleReq build(){
-        return new DeleteFunctionalRoleReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public DeleteFunctionalRoleReq build() {
+            return new DeleteFunctionalRoleReq(this);
+        }
     }
 }

@@ -17,15 +17,16 @@ package com.lark.oapi.service.compensation.v1.enums;
  * 资源名，薪资项目："cpst_item"，薪资指标: "cpst_indicator"
  */
 public enum StandardReferenceObjectApiNameEnum {
-     CPST_ITEM("cpst_item"), // 薪资项目
-     CPST_INDICATOR("cpst_indicator"), // 薪资指标
-  ;
-   private String value;
+    CPST_ITEM("cpst_item"), // 薪资项目
+    CPST_INDICATOR("cpst_indicator"), // 薪资指标
+    ;
+    private String value;
+
     StandardReferenceObjectApiNameEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

@@ -12,25 +12,49 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CreateScopeConfigReq {
-     /**
-      * 此次调用中使用的用户ID的类型，默认使用open_id可不填
-      * <p> 示例值：open_id
-      */
+    /**
+     * 此次调用中使用的用户ID的类型，默认使用open_id可不填
+     * <p> 示例值：open_id
+     */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
+    @Body
+    private ScopeConfig body;
+
+    // builder 开始
+    public CreateScopeConfigReq() {
+    }
+
+    public CreateScopeConfigReq(Builder builder) {
+        /**
+         * 此次调用中使用的用户ID的类型，默认使用open_id可不填
+         * <p> 示例值：open_id
+         */
+        this.userIdType = builder.userIdType;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getUserIdType() {
         return this.userIdType;
     }
@@ -38,9 +62,6 @@ public class CreateScopeConfigReq {
     public void setUserIdType(String userIdType) {
         this.userIdType = userIdType;
     }
-
-    @Body
-    private ScopeConfig body;
 
     public ScopeConfig getScopeConfig() {
         return this.body;
@@ -50,65 +71,51 @@ public class CreateScopeConfigReq {
         this.body = body;
     }
 
-// builder 开始
-  public CreateScopeConfigReq(){}
-
-  public CreateScopeConfigReq(Builder builder){
-         /**
-          * 此次调用中使用的用户ID的类型，默认使用open_id可不填
-          * <p> 示例值：open_id
-          */
-       this.userIdType = builder.userIdType;
-        this.body = builder.body;
-  }
-
     public static class Builder {
         private String userIdType; // 此次调用中使用的用户ID的类型，默认使用open_id可不填
-    
+        private ScopeConfig body;
+
         /**
          * 此次调用中使用的用户ID的类型，默认使用open_id可不填
          * <p> 示例值：open_id
+         *
          * @param userIdType
          * @return
          */
-           public Builder userIdType(String userIdType) {
-                this.userIdType = userIdType;
-                return this;
-           }
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
 
         /**
          * 此次调用中使用的用户ID的类型，默认使用open_id可不填
          * <p> 示例值：open_id
+         *
          * @param userIdType {@link com.lark.oapi.service.vc.v1.enums.CreateScopeConfigUserIdTypeEnum}
          * @return
          */
-          public Builder userIdType(com.lark.oapi.service.vc.v1.enums.CreateScopeConfigUserIdTypeEnum userIdType) {
-               this.userIdType = userIdType.getValue();
-               return this;
-          }
+        public Builder userIdType(com.lark.oapi.service.vc.v1.enums.CreateScopeConfigUserIdTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
+            return this;
+        }
 
-    
-        private ScopeConfig body;
-    
         public ScopeConfig getScopeConfig() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder scopeConfig(ScopeConfig body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public CreateScopeConfigReq build(){
-        return new CreateScopeConfigReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public CreateScopeConfigReq build() {
+            return new CreateScopeConfigReq(this);
+        }
     }
 }

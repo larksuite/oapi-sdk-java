@@ -12,36 +12,41 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ListGroupRespBody {
-     /**
-      * 考勤组列表
-      * <p> 示例值：
-      */
+    /**
+     * 考勤组列表
+     * <p> 示例值：
+     */
     @SerializedName("group_list")
     private GroupMeta[] groupList;
-     /**
-      * 分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token
-      * <p> 示例值：wgNOR1rmxogRvAsGl6CXlQ==
-      */
+    /**
+     * 分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token
+     * <p> 示例值：wgNOR1rmxogRvAsGl6CXlQ==
+     */
     @SerializedName("page_token")
     private String pageToken;
-     /**
-      * 是否还有更多项
-      * <p> 示例值：true
-      */
+    /**
+     * 是否还有更多项
+     * <p> 示例值：true
+     */
     @SerializedName("has_more")
     private Boolean hasMore;
+
     public GroupMeta[] getGroupList() {
         return this.groupList;
     }

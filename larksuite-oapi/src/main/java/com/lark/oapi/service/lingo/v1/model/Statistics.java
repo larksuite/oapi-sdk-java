@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.lingo.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.lingo.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Statistics {
-     /**
-      * 点赞数量
-      * <p> 示例值：55
-      */
+    /**
+     * 点赞数量
+     * <p> 示例值：55
+     */
     @SerializedName("like_count")
     private Integer likeCount;
-     /**
-      * 点踩数量
-      * <p> 示例值：3
-      */
+    /**
+     * 点踩数量
+     * <p> 示例值：3
+     */
     @SerializedName("dislike_count")
     private Integer dislikeCount;
+
+    // builder 开始
+    public Statistics() {
+    }
+
+    public Statistics(Builder builder) {
+        /**
+         * 点赞数量
+         * <p> 示例值：55
+         */
+        this.likeCount = builder.likeCount;
+        /**
+         * 点踩数量
+         * <p> 示例值：3
+         */
+        this.dislikeCount = builder.dislikeCount;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Integer getLikeCount() {
         return this.likeCount;
     }
@@ -53,67 +79,46 @@ public class Statistics {
         this.dislikeCount = dislikeCount;
     }
 
-
-// builder 开始
-  public Statistics(){}
-
-  public Statistics(Builder builder){
-         /**
-          * 点赞数量
-          * <p> 示例值：55
-          */
-      this.likeCount = builder.likeCount;
-         /**
-          * 点踩数量
-          * <p> 示例值：3
-          */
-      this.dislikeCount = builder.dislikeCount;
-  }
-
     public static class Builder {
-     /**
-      * 点赞数量
-      * <p> 示例值：55
-      */
+        /**
+         * 点赞数量
+         * <p> 示例值：55
+         */
         private Integer likeCount;
-     /**
-      * 点踩数量
-      * <p> 示例值：3
-      */
+        /**
+         * 点踩数量
+         * <p> 示例值：3
+         */
         private Integer dislikeCount;
 
         /**
          * 点赞数量
          * <p> 示例值：55
+         *
          * @param likeCount
          * @return
          */
         public Builder likeCount(Integer likeCount) {
-             this.likeCount = likeCount;
-             return this;
+            this.likeCount = likeCount;
+            return this;
         }
 
-    
 
         /**
          * 点踩数量
          * <p> 示例值：3
+         *
          * @param dislikeCount
          * @return
          */
         public Builder dislikeCount(Integer dislikeCount) {
-             this.dislikeCount = dislikeCount;
-             return this;
+            this.dislikeCount = dislikeCount;
+            return this;
         }
 
-    
-    
-    public Statistics build(){
-        return new Statistics(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Statistics build() {
+            return new Statistics(this);
+        }
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,66 +20,126 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class MyAiPresent {
-     /**
-      * present type
-      * <p> 示例值：rich_text
-      */
+    /**
+     * present type
+     * <p> 示例值：rich_text
+     */
     @SerializedName("type")
     private String type;
-     /**
-      * response body
-      * <p> 示例值：{}
-      */
+    /**
+     * response body
+     * <p> 示例值：{}
+     */
     @SerializedName("body")
     private String body;
-     /**
-      * msg callback url
-      * <p> 示例值：https://open......./myai/message_callback
-      */
+    /**
+     * msg callback url
+     * <p> 示例值：https://open......./myai/message_callback
+     */
     @SerializedName("callback_url")
     private String callbackUrl;
-     /**
-      * approval context
-      * <p> 示例值："{\"session_id\":\"11111\"}"
-      */
+    /**
+     * approval context
+     * <p> 示例值："{\"session_id\":\"11111\"}"
+     */
     @SerializedName("callback_info")
     private String callbackInfo;
-     /**
-      * template ID
-      * <p> 示例值：default
-      */
+    /**
+     * template ID
+     * <p> 示例值：default
+     */
     @SerializedName("card_template_id")
     private String cardTemplateId;
-     /**
-      * 卡片变量
-      * <p> 示例值：
-      */
+    /**
+     * 卡片变量
+     * <p> 示例值：
+     */
     @SerializedName("card_variables")
     private MyAiPresentCardVariables cardVariables;
-     /**
-      * interactable
-      * <p> 示例值：true false
-      */
+    /**
+     * interactable
+     * <p> 示例值：true false
+     */
     @SerializedName("interactable")
     private Boolean interactable;
-     /**
-      * operation_type
-      * <p> 示例值：operation_type
-      */
+    /**
+     * operation_type
+     * <p> 示例值：operation_type
+     */
     @SerializedName("operation_type")
     private String operationType;
-     /**
-      * operation_url
-      * <p> 示例值：https://open-boe.feichu.com
-      */
+    /**
+     * operation_url
+     * <p> 示例值：https://open-boe.feichu.com
+     */
     @SerializedName("operation_url")
     private String operationUrl;
+
+    // builder 开始
+    public MyAiPresent() {
+    }
+
+    public MyAiPresent(Builder builder) {
+        /**
+         * present type
+         * <p> 示例值：rich_text
+         */
+        this.type = builder.type;
+        /**
+         * response body
+         * <p> 示例值：{}
+         */
+        this.body = builder.body;
+        /**
+         * msg callback url
+         * <p> 示例值：https://open......./myai/message_callback
+         */
+        this.callbackUrl = builder.callbackUrl;
+        /**
+         * approval context
+         * <p> 示例值："{\"session_id\":\"11111\"}"
+         */
+        this.callbackInfo = builder.callbackInfo;
+        /**
+         * template ID
+         * <p> 示例值：default
+         */
+        this.cardTemplateId = builder.cardTemplateId;
+        /**
+         * 卡片变量
+         * <p> 示例值：
+         */
+        this.cardVariables = builder.cardVariables;
+        /**
+         * interactable
+         * <p> 示例值：true false
+         */
+        this.interactable = builder.interactable;
+        /**
+         * operation_type
+         * <p> 示例值：operation_type
+         */
+        this.operationType = builder.operationType;
+        /**
+         * operation_url
+         * <p> 示例值：https://open-boe.feichu.com
+         */
+        this.operationUrl = builder.operationUrl;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getType() {
         return this.type;
     }
@@ -151,228 +212,172 @@ public class MyAiPresent {
         this.operationUrl = operationUrl;
     }
 
-
-// builder 开始
-  public MyAiPresent(){}
-
-  public MyAiPresent(Builder builder){
-         /**
-          * present type
-          * <p> 示例值：rich_text
-          */
-      this.type = builder.type;
-         /**
-          * response body
-          * <p> 示例值：{}
-          */
-      this.body = builder.body;
-         /**
-          * msg callback url
-          * <p> 示例值：https://open......./myai/message_callback
-          */
-      this.callbackUrl = builder.callbackUrl;
-         /**
-          * approval context
-          * <p> 示例值："{\"session_id\":\"11111\"}"
-          */
-      this.callbackInfo = builder.callbackInfo;
-         /**
-          * template ID
-          * <p> 示例值：default
-          */
-      this.cardTemplateId = builder.cardTemplateId;
-         /**
-          * 卡片变量
-          * <p> 示例值：
-          */
-      this.cardVariables = builder.cardVariables;
-         /**
-          * interactable
-          * <p> 示例值：true false
-          */
-      this.interactable = builder.interactable;
-         /**
-          * operation_type
-          * <p> 示例值：operation_type
-          */
-      this.operationType = builder.operationType;
-         /**
-          * operation_url
-          * <p> 示例值：https://open-boe.feichu.com
-          */
-      this.operationUrl = builder.operationUrl;
-  }
-
     public static class Builder {
-     /**
-      * present type
-      * <p> 示例值：rich_text
-      */
+        /**
+         * present type
+         * <p> 示例值：rich_text
+         */
         private String type;
-     /**
-      * response body
-      * <p> 示例值：{}
-      */
+        /**
+         * response body
+         * <p> 示例值：{}
+         */
         private String body;
-     /**
-      * msg callback url
-      * <p> 示例值：https://open......./myai/message_callback
-      */
+        /**
+         * msg callback url
+         * <p> 示例值：https://open......./myai/message_callback
+         */
         private String callbackUrl;
-     /**
-      * approval context
-      * <p> 示例值："{\"session_id\":\"11111\"}"
-      */
+        /**
+         * approval context
+         * <p> 示例值："{\"session_id\":\"11111\"}"
+         */
         private String callbackInfo;
-     /**
-      * template ID
-      * <p> 示例值：default
-      */
+        /**
+         * template ID
+         * <p> 示例值：default
+         */
         private String cardTemplateId;
-     /**
-      * 卡片变量
-      * <p> 示例值：
-      */
+        /**
+         * 卡片变量
+         * <p> 示例值：
+         */
         private MyAiPresentCardVariables cardVariables;
-     /**
-      * interactable
-      * <p> 示例值：true false
-      */
+        /**
+         * interactable
+         * <p> 示例值：true false
+         */
         private Boolean interactable;
-     /**
-      * operation_type
-      * <p> 示例值：operation_type
-      */
+        /**
+         * operation_type
+         * <p> 示例值：operation_type
+         */
         private String operationType;
-     /**
-      * operation_url
-      * <p> 示例值：https://open-boe.feichu.com
-      */
+        /**
+         * operation_url
+         * <p> 示例值：https://open-boe.feichu.com
+         */
         private String operationUrl;
 
         /**
          * present type
          * <p> 示例值：rich_text
+         *
          * @param type
          * @return
          */
         public Builder type(String type) {
-             this.type = type;
-             return this;
+            this.type = type;
+            return this;
         }
 
-    
 
         /**
          * response body
          * <p> 示例值：{}
+         *
          * @param body
          * @return
          */
         public Builder body(String body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
 
-    
 
         /**
          * msg callback url
          * <p> 示例值：https://open......./myai/message_callback
+         *
          * @param callbackUrl
          * @return
          */
         public Builder callbackUrl(String callbackUrl) {
-             this.callbackUrl = callbackUrl;
-             return this;
+            this.callbackUrl = callbackUrl;
+            return this;
         }
 
-    
 
         /**
          * approval context
          * <p> 示例值："{\"session_id\":\"11111\"}"
+         *
          * @param callbackInfo
          * @return
          */
         public Builder callbackInfo(String callbackInfo) {
-             this.callbackInfo = callbackInfo;
-             return this;
+            this.callbackInfo = callbackInfo;
+            return this;
         }
 
-    
 
         /**
          * template ID
          * <p> 示例值：default
+         *
          * @param cardTemplateId
          * @return
          */
         public Builder cardTemplateId(String cardTemplateId) {
-             this.cardTemplateId = cardTemplateId;
-             return this;
+            this.cardTemplateId = cardTemplateId;
+            return this;
         }
 
-    
 
         /**
          * 卡片变量
          * <p> 示例值：
+         *
          * @param cardVariables
          * @return
          */
         public Builder cardVariables(MyAiPresentCardVariables cardVariables) {
-             this.cardVariables = cardVariables;
-             return this;
+            this.cardVariables = cardVariables;
+            return this;
         }
 
-    
 
         /**
          * interactable
          * <p> 示例值：true false
+         *
          * @param interactable
          * @return
          */
         public Builder interactable(Boolean interactable) {
-             this.interactable = interactable;
-             return this;
+            this.interactable = interactable;
+            return this;
         }
 
-    
 
         /**
          * operation_type
          * <p> 示例值：operation_type
+         *
          * @param operationType
          * @return
          */
         public Builder operationType(String operationType) {
-             this.operationType = operationType;
-             return this;
+            this.operationType = operationType;
+            return this;
         }
 
-    
 
         /**
          * operation_url
          * <p> 示例值：https://open-boe.feichu.com
+         *
          * @param operationUrl
          * @return
          */
         public Builder operationUrl(String operationUrl) {
-             this.operationUrl = operationUrl;
-             return this;
+            this.operationUrl = operationUrl;
+            return this;
         }
 
-    
-    
-    public MyAiPresent build(){
-        return new MyAiPresent(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public MyAiPresent build() {
+            return new MyAiPresent(this);
+        }
     }
 }

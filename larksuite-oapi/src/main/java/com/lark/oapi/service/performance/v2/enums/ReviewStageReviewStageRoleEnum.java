@@ -17,21 +17,22 @@ package com.lark.oapi.service.performance.v2.enums;
  * 评估型环节的执行人角色
  */
 public enum ReviewStageReviewStageRoleEnum {
-     REVIEWEE("reviewee"), // 被评估人
-     INVITED_REVIEWER("invited_reviewer"), // 360°评估人
-     SOLID_LINE_LEADER("solid_line_leader"), // 实线上级
-     DOTTED_LINE_LEADER("dotted_line_leader"), // 虚线上级
-     SECONDARY_SOLID_LINE_LEADER("secondary_solid_line_leader"), // 第二实线上级
-     DIRECT_PROJECT_LEADER("direct_project_leader"), // 项目直属上级
-     CUSTOM_REVIEW_ROLE("custom_review_role"), // 自定义评估角色
-     METRIC_REVIEWER("metric_reviewer"), // 指标评价人角色
-  ;
-   private String value;
+    REVIEWEE("reviewee"), // 被评估人
+    INVITED_REVIEWER("invited_reviewer"), // 360°评估人
+    SOLID_LINE_LEADER("solid_line_leader"), // 实线上级
+    DOTTED_LINE_LEADER("dotted_line_leader"), // 虚线上级
+    SECONDARY_SOLID_LINE_LEADER("secondary_solid_line_leader"), // 第二实线上级
+    DIRECT_PROJECT_LEADER("direct_project_leader"), // 项目直属上级
+    CUSTOM_REVIEW_ROLE("custom_review_role"), // 自定义评估角色
+    METRIC_REVIEWER("metric_reviewer"), // 指标评价人角色
+    ;
+    private String value;
+
     ReviewStageReviewStageRoleEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

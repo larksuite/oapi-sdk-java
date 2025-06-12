@@ -17,15 +17,16 @@ package com.lark.oapi.service.search.v2.enums;
  * 关联的综合筛选器。只有 filter_type 为"user"和"time"时可以关联。"user" -> "from"；"time" -> "date"。
  */
 public enum SchemaFilterOptionsSmartFilterEnum {
-     FROM("from"), // 映射到综合“来自用户”筛选器
-     DATE("date"), // 映射到综合“时间”筛选器
-  ;
-   private String value;
+    FROM("from"), // 映射到综合“来自用户”筛选器
+    DATE("date"), // 映射到综合“时间”筛选器
+    ;
+    private String value;
+
     SchemaFilterOptionsSmartFilterEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

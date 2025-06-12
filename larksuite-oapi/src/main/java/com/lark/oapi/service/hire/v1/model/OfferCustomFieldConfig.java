@@ -12,24 +12,45 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class OfferCustomFieldConfig {
-     /**
-      * 选项信息
-      * <p> 示例值：
-      */
+    /**
+     * 选项信息
+     * <p> 示例值：
+     */
     @SerializedName("options")
     private OfferCustomFieldConfigOption[] options;
+
+    // builder 开始
+    public OfferCustomFieldConfig() {
+    }
+
+    public OfferCustomFieldConfig(Builder builder) {
+        /**
+         * 选项信息
+         * <p> 示例值：
+         */
+        this.options = builder.options;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public OfferCustomFieldConfigOption[] getOptions() {
         return this.options;
     }
@@ -38,44 +59,28 @@ public class OfferCustomFieldConfig {
         this.options = options;
     }
 
-
-// builder 开始
-  public OfferCustomFieldConfig(){}
-
-  public OfferCustomFieldConfig(Builder builder){
-         /**
-          * 选项信息
-          * <p> 示例值：
-          */
-      this.options = builder.options;
-  }
-
     public static class Builder {
-     /**
-      * 选项信息
-      * <p> 示例值：
-      */
+        /**
+         * 选项信息
+         * <p> 示例值：
+         */
         private OfferCustomFieldConfigOption[] options;
 
         /**
          * 选项信息
          * <p> 示例值：
+         *
          * @param options
          * @return
          */
         public Builder options(OfferCustomFieldConfigOption[] options) {
-             this.options = options;
-             return this;
+            this.options = options;
+            return this;
         }
 
-    
-    
-    public OfferCustomFieldConfig build(){
-        return new OfferCustomFieldConfig(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public OfferCustomFieldConfig build() {
+            return new OfferCustomFieldConfig(this);
+        }
     }
 }

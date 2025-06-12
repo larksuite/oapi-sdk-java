@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,78 +20,148 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class PunchTimeRule {
-     /**
-      * 上班时间
-      * <p> 示例值：9:00
-      */
+    /**
+     * 上班时间
+     * <p> 示例值：9:00
+     */
     @SerializedName("on_time")
     private String onTime;
-     /**
-      * 下班时间
-      * <p> 示例值：18:00， 第二天凌晨2点， 26:00
-      */
+    /**
+     * 下班时间
+     * <p> 示例值：18:00， 第二天凌晨2点， 26:00
+     */
     @SerializedName("off_time")
     private String offTime;
-     /**
-      * 晚到多久记为迟到
-      * <p> 示例值：30
-      */
+    /**
+     * 晚到多久记为迟到
+     * <p> 示例值：30
+     */
     @SerializedName("late_minutes_as_late")
     private Integer lateMinutesAsLate;
-     /**
-      * 晚到多久记为缺卡
-      * <p> 示例值：60
-      */
+    /**
+     * 晚到多久记为缺卡
+     * <p> 示例值：60
+     */
     @SerializedName("late_minutes_as_lack")
     private Integer lateMinutesAsLack;
-     /**
-      * 最早多久可打上班卡
-      * <p> 示例值：60
-      */
+    /**
+     * 最早多久可打上班卡
+     * <p> 示例值：60
+     */
     @SerializedName("on_advance_minutes")
     private Integer onAdvanceMinutes;
-     /**
-      * 早退多久记为早退
-      * <p> 示例值：30
-      */
+    /**
+     * 早退多久记为早退
+     * <p> 示例值：30
+     */
     @SerializedName("early_minutes_as_early")
     private Integer earlyMinutesAsEarly;
-     /**
-      * 早退多久记为缺卡
-      * <p> 示例值：60
-      */
+    /**
+     * 早退多久记为缺卡
+     * <p> 示例值：60
+     */
     @SerializedName("early_minutes_as_lack")
     private Integer earlyMinutesAsLack;
-     /**
-      * 最晚多久可打下班卡
-      * <p> 示例值：60
-      */
+    /**
+     * 最晚多久可打下班卡
+     * <p> 示例值：60
+     */
     @SerializedName("off_delay_minutes")
     private Integer offDelayMinutes;
-     /**
-      * 晚到多久记为严重迟到
-      * <p> 示例值：40
-      */
+    /**
+     * 晚到多久记为严重迟到
+     * <p> 示例值：40
+     */
     @SerializedName("late_minutes_as_serious_late")
     private Integer lateMinutesAsSeriousLate;
-     /**
-      * 不需要打上班卡
-      * <p> 示例值：true
-      */
+    /**
+     * 不需要打上班卡
+     * <p> 示例值：true
+     */
     @SerializedName("no_need_on")
     private Boolean noNeedOn;
-     /**
-      * 不需要打下班卡
-      * <p> 示例值：true
-      */
+    /**
+     * 不需要打下班卡
+     * <p> 示例值：true
+     */
     @SerializedName("no_need_off")
     private Boolean noNeedOff;
+
+    // builder 开始
+    public PunchTimeRule() {
+    }
+
+    public PunchTimeRule(Builder builder) {
+        /**
+         * 上班时间
+         * <p> 示例值：9:00
+         */
+        this.onTime = builder.onTime;
+        /**
+         * 下班时间
+         * <p> 示例值：18:00， 第二天凌晨2点， 26:00
+         */
+        this.offTime = builder.offTime;
+        /**
+         * 晚到多久记为迟到
+         * <p> 示例值：30
+         */
+        this.lateMinutesAsLate = builder.lateMinutesAsLate;
+        /**
+         * 晚到多久记为缺卡
+         * <p> 示例值：60
+         */
+        this.lateMinutesAsLack = builder.lateMinutesAsLack;
+        /**
+         * 最早多久可打上班卡
+         * <p> 示例值：60
+         */
+        this.onAdvanceMinutes = builder.onAdvanceMinutes;
+        /**
+         * 早退多久记为早退
+         * <p> 示例值：30
+         */
+        this.earlyMinutesAsEarly = builder.earlyMinutesAsEarly;
+        /**
+         * 早退多久记为缺卡
+         * <p> 示例值：60
+         */
+        this.earlyMinutesAsLack = builder.earlyMinutesAsLack;
+        /**
+         * 最晚多久可打下班卡
+         * <p> 示例值：60
+         */
+        this.offDelayMinutes = builder.offDelayMinutes;
+        /**
+         * 晚到多久记为严重迟到
+         * <p> 示例值：40
+         */
+        this.lateMinutesAsSeriousLate = builder.lateMinutesAsSeriousLate;
+        /**
+         * 不需要打上班卡
+         * <p> 示例值：true
+         */
+        this.noNeedOn = builder.noNeedOn;
+        /**
+         * 不需要打下班卡
+         * <p> 示例值：true
+         */
+        this.noNeedOff = builder.noNeedOff;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getOnTime() {
         return this.onTime;
     }
@@ -179,274 +250,208 @@ public class PunchTimeRule {
         this.noNeedOff = noNeedOff;
     }
 
-
-// builder 开始
-  public PunchTimeRule(){}
-
-  public PunchTimeRule(Builder builder){
-         /**
-          * 上班时间
-          * <p> 示例值：9:00
-          */
-      this.onTime = builder.onTime;
-         /**
-          * 下班时间
-          * <p> 示例值：18:00， 第二天凌晨2点， 26:00
-          */
-      this.offTime = builder.offTime;
-         /**
-          * 晚到多久记为迟到
-          * <p> 示例值：30
-          */
-      this.lateMinutesAsLate = builder.lateMinutesAsLate;
-         /**
-          * 晚到多久记为缺卡
-          * <p> 示例值：60
-          */
-      this.lateMinutesAsLack = builder.lateMinutesAsLack;
-         /**
-          * 最早多久可打上班卡
-          * <p> 示例值：60
-          */
-      this.onAdvanceMinutes = builder.onAdvanceMinutes;
-         /**
-          * 早退多久记为早退
-          * <p> 示例值：30
-          */
-      this.earlyMinutesAsEarly = builder.earlyMinutesAsEarly;
-         /**
-          * 早退多久记为缺卡
-          * <p> 示例值：60
-          */
-      this.earlyMinutesAsLack = builder.earlyMinutesAsLack;
-         /**
-          * 最晚多久可打下班卡
-          * <p> 示例值：60
-          */
-      this.offDelayMinutes = builder.offDelayMinutes;
-         /**
-          * 晚到多久记为严重迟到
-          * <p> 示例值：40
-          */
-      this.lateMinutesAsSeriousLate = builder.lateMinutesAsSeriousLate;
-         /**
-          * 不需要打上班卡
-          * <p> 示例值：true
-          */
-      this.noNeedOn = builder.noNeedOn;
-         /**
-          * 不需要打下班卡
-          * <p> 示例值：true
-          */
-      this.noNeedOff = builder.noNeedOff;
-  }
-
     public static class Builder {
-     /**
-      * 上班时间
-      * <p> 示例值：9:00
-      */
+        /**
+         * 上班时间
+         * <p> 示例值：9:00
+         */
         private String onTime;
-     /**
-      * 下班时间
-      * <p> 示例值：18:00， 第二天凌晨2点， 26:00
-      */
+        /**
+         * 下班时间
+         * <p> 示例值：18:00， 第二天凌晨2点， 26:00
+         */
         private String offTime;
-     /**
-      * 晚到多久记为迟到
-      * <p> 示例值：30
-      */
+        /**
+         * 晚到多久记为迟到
+         * <p> 示例值：30
+         */
         private Integer lateMinutesAsLate;
-     /**
-      * 晚到多久记为缺卡
-      * <p> 示例值：60
-      */
+        /**
+         * 晚到多久记为缺卡
+         * <p> 示例值：60
+         */
         private Integer lateMinutesAsLack;
-     /**
-      * 最早多久可打上班卡
-      * <p> 示例值：60
-      */
+        /**
+         * 最早多久可打上班卡
+         * <p> 示例值：60
+         */
         private Integer onAdvanceMinutes;
-     /**
-      * 早退多久记为早退
-      * <p> 示例值：30
-      */
+        /**
+         * 早退多久记为早退
+         * <p> 示例值：30
+         */
         private Integer earlyMinutesAsEarly;
-     /**
-      * 早退多久记为缺卡
-      * <p> 示例值：60
-      */
+        /**
+         * 早退多久记为缺卡
+         * <p> 示例值：60
+         */
         private Integer earlyMinutesAsLack;
-     /**
-      * 最晚多久可打下班卡
-      * <p> 示例值：60
-      */
+        /**
+         * 最晚多久可打下班卡
+         * <p> 示例值：60
+         */
         private Integer offDelayMinutes;
-     /**
-      * 晚到多久记为严重迟到
-      * <p> 示例值：40
-      */
+        /**
+         * 晚到多久记为严重迟到
+         * <p> 示例值：40
+         */
         private Integer lateMinutesAsSeriousLate;
-     /**
-      * 不需要打上班卡
-      * <p> 示例值：true
-      */
+        /**
+         * 不需要打上班卡
+         * <p> 示例值：true
+         */
         private Boolean noNeedOn;
-     /**
-      * 不需要打下班卡
-      * <p> 示例值：true
-      */
+        /**
+         * 不需要打下班卡
+         * <p> 示例值：true
+         */
         private Boolean noNeedOff;
 
         /**
          * 上班时间
          * <p> 示例值：9:00
+         *
          * @param onTime
          * @return
          */
         public Builder onTime(String onTime) {
-             this.onTime = onTime;
-             return this;
+            this.onTime = onTime;
+            return this;
         }
 
-    
 
         /**
          * 下班时间
          * <p> 示例值：18:00， 第二天凌晨2点， 26:00
+         *
          * @param offTime
          * @return
          */
         public Builder offTime(String offTime) {
-             this.offTime = offTime;
-             return this;
+            this.offTime = offTime;
+            return this;
         }
 
-    
 
         /**
          * 晚到多久记为迟到
          * <p> 示例值：30
+         *
          * @param lateMinutesAsLate
          * @return
          */
         public Builder lateMinutesAsLate(Integer lateMinutesAsLate) {
-             this.lateMinutesAsLate = lateMinutesAsLate;
-             return this;
+            this.lateMinutesAsLate = lateMinutesAsLate;
+            return this;
         }
 
-    
 
         /**
          * 晚到多久记为缺卡
          * <p> 示例值：60
+         *
          * @param lateMinutesAsLack
          * @return
          */
         public Builder lateMinutesAsLack(Integer lateMinutesAsLack) {
-             this.lateMinutesAsLack = lateMinutesAsLack;
-             return this;
+            this.lateMinutesAsLack = lateMinutesAsLack;
+            return this;
         }
 
-    
 
         /**
          * 最早多久可打上班卡
          * <p> 示例值：60
+         *
          * @param onAdvanceMinutes
          * @return
          */
         public Builder onAdvanceMinutes(Integer onAdvanceMinutes) {
-             this.onAdvanceMinutes = onAdvanceMinutes;
-             return this;
+            this.onAdvanceMinutes = onAdvanceMinutes;
+            return this;
         }
 
-    
 
         /**
          * 早退多久记为早退
          * <p> 示例值：30
+         *
          * @param earlyMinutesAsEarly
          * @return
          */
         public Builder earlyMinutesAsEarly(Integer earlyMinutesAsEarly) {
-             this.earlyMinutesAsEarly = earlyMinutesAsEarly;
-             return this;
+            this.earlyMinutesAsEarly = earlyMinutesAsEarly;
+            return this;
         }
 
-    
 
         /**
          * 早退多久记为缺卡
          * <p> 示例值：60
+         *
          * @param earlyMinutesAsLack
          * @return
          */
         public Builder earlyMinutesAsLack(Integer earlyMinutesAsLack) {
-             this.earlyMinutesAsLack = earlyMinutesAsLack;
-             return this;
+            this.earlyMinutesAsLack = earlyMinutesAsLack;
+            return this;
         }
 
-    
 
         /**
          * 最晚多久可打下班卡
          * <p> 示例值：60
+         *
          * @param offDelayMinutes
          * @return
          */
         public Builder offDelayMinutes(Integer offDelayMinutes) {
-             this.offDelayMinutes = offDelayMinutes;
-             return this;
+            this.offDelayMinutes = offDelayMinutes;
+            return this;
         }
 
-    
 
         /**
          * 晚到多久记为严重迟到
          * <p> 示例值：40
+         *
          * @param lateMinutesAsSeriousLate
          * @return
          */
         public Builder lateMinutesAsSeriousLate(Integer lateMinutesAsSeriousLate) {
-             this.lateMinutesAsSeriousLate = lateMinutesAsSeriousLate;
-             return this;
+            this.lateMinutesAsSeriousLate = lateMinutesAsSeriousLate;
+            return this;
         }
 
-    
 
         /**
          * 不需要打上班卡
          * <p> 示例值：true
+         *
          * @param noNeedOn
          * @return
          */
         public Builder noNeedOn(Boolean noNeedOn) {
-             this.noNeedOn = noNeedOn;
-             return this;
+            this.noNeedOn = noNeedOn;
+            return this;
         }
 
-    
 
         /**
          * 不需要打下班卡
          * <p> 示例值：true
+         *
          * @param noNeedOff
          * @return
          */
         public Builder noNeedOff(Boolean noNeedOff) {
-             this.noNeedOff = noNeedOff;
-             return this;
+            this.noNeedOff = noNeedOff;
+            return this;
         }
 
-    
-    
-    public PunchTimeRule build(){
-        return new PunchTimeRule(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public PunchTimeRule build() {
+            return new PunchTimeRule(this);
+        }
     }
 }

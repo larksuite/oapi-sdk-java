@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,36 +20,71 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class RemedyRecord {
-     /**
-      * 补卡日期，示例20250202
-      * <p> 示例值：20250202
-      */
+    /**
+     * 补卡日期，示例20250202
+     * <p> 示例值：20250202
+     */
     @SerializedName("remedy_date")
     private String remedyDate;
-     /**
-      * 第几次上下班，0：第 1 次上下班，1：第 2 次上下班，2：第 3 次上下班，3：第 4 次上下班，4：第 5 次上下班，5：第 6 次上下班
-      * <p> 示例值：0
-      */
+    /**
+     * 第几次上下班，0：第 1 次上下班，1：第 2 次上下班，2：第 3 次上下班，3：第 4 次上下班，4：第 5 次上下班，5：第 6 次上下班
+     * <p> 示例值：0
+     */
     @SerializedName("punch_no")
     private Integer punchNo;
-     /**
-      * 上班 / 下班，1：上班，2：下班
-      * <p> 示例值：1
-      */
+    /**
+     * 上班 / 下班，1：上班，2：下班
+     * <p> 示例值：1
+     */
     @SerializedName("work_type")
     private Integer workType;
-     /**
-      * 补卡时间，时间格式为yyyy-MM-dd HH:mm
-      * <p> 示例值：2025-03-10 09:00
-      */
+    /**
+     * 补卡时间，时间格式为yyyy-MM-dd HH:mm
+     * <p> 示例值：2025-03-10 09:00
+     */
     @SerializedName("remedy_time")
     private String remedyTime;
+
+    // builder 开始
+    public RemedyRecord() {
+    }
+
+    public RemedyRecord(Builder builder) {
+        /**
+         * 补卡日期，示例20250202
+         * <p> 示例值：20250202
+         */
+        this.remedyDate = builder.remedyDate;
+        /**
+         * 第几次上下班，0：第 1 次上下班，1：第 2 次上下班，2：第 3 次上下班，3：第 4 次上下班，4：第 5 次上下班，5：第 6 次上下班
+         * <p> 示例值：0
+         */
+        this.punchNo = builder.punchNo;
+        /**
+         * 上班 / 下班，1：上班，2：下班
+         * <p> 示例值：1
+         */
+        this.workType = builder.workType;
+        /**
+         * 补卡时间，时间格式为yyyy-MM-dd HH:mm
+         * <p> 示例值：2025-03-10 09:00
+         */
+        this.remedyTime = builder.remedyTime;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getRemedyDate() {
         return this.remedyDate;
     }
@@ -81,113 +117,82 @@ public class RemedyRecord {
         this.remedyTime = remedyTime;
     }
 
-
-// builder 开始
-  public RemedyRecord(){}
-
-  public RemedyRecord(Builder builder){
-         /**
-          * 补卡日期，示例20250202
-          * <p> 示例值：20250202
-          */
-      this.remedyDate = builder.remedyDate;
-         /**
-          * 第几次上下班，0：第 1 次上下班，1：第 2 次上下班，2：第 3 次上下班，3：第 4 次上下班，4：第 5 次上下班，5：第 6 次上下班
-          * <p> 示例值：0
-          */
-      this.punchNo = builder.punchNo;
-         /**
-          * 上班 / 下班，1：上班，2：下班
-          * <p> 示例值：1
-          */
-      this.workType = builder.workType;
-         /**
-          * 补卡时间，时间格式为yyyy-MM-dd HH:mm
-          * <p> 示例值：2025-03-10 09:00
-          */
-      this.remedyTime = builder.remedyTime;
-  }
-
     public static class Builder {
-     /**
-      * 补卡日期，示例20250202
-      * <p> 示例值：20250202
-      */
+        /**
+         * 补卡日期，示例20250202
+         * <p> 示例值：20250202
+         */
         private String remedyDate;
-     /**
-      * 第几次上下班，0：第 1 次上下班，1：第 2 次上下班，2：第 3 次上下班，3：第 4 次上下班，4：第 5 次上下班，5：第 6 次上下班
-      * <p> 示例值：0
-      */
+        /**
+         * 第几次上下班，0：第 1 次上下班，1：第 2 次上下班，2：第 3 次上下班，3：第 4 次上下班，4：第 5 次上下班，5：第 6 次上下班
+         * <p> 示例值：0
+         */
         private Integer punchNo;
-     /**
-      * 上班 / 下班，1：上班，2：下班
-      * <p> 示例值：1
-      */
+        /**
+         * 上班 / 下班，1：上班，2：下班
+         * <p> 示例值：1
+         */
         private Integer workType;
-     /**
-      * 补卡时间，时间格式为yyyy-MM-dd HH:mm
-      * <p> 示例值：2025-03-10 09:00
-      */
+        /**
+         * 补卡时间，时间格式为yyyy-MM-dd HH:mm
+         * <p> 示例值：2025-03-10 09:00
+         */
         private String remedyTime;
 
         /**
          * 补卡日期，示例20250202
          * <p> 示例值：20250202
+         *
          * @param remedyDate
          * @return
          */
         public Builder remedyDate(String remedyDate) {
-             this.remedyDate = remedyDate;
-             return this;
+            this.remedyDate = remedyDate;
+            return this;
         }
 
-    
 
         /**
          * 第几次上下班，0：第 1 次上下班，1：第 2 次上下班，2：第 3 次上下班，3：第 4 次上下班，4：第 5 次上下班，5：第 6 次上下班
          * <p> 示例值：0
+         *
          * @param punchNo
          * @return
          */
         public Builder punchNo(Integer punchNo) {
-             this.punchNo = punchNo;
-             return this;
+            this.punchNo = punchNo;
+            return this;
         }
 
-    
 
         /**
          * 上班 / 下班，1：上班，2：下班
          * <p> 示例值：1
+         *
          * @param workType
          * @return
          */
         public Builder workType(Integer workType) {
-             this.workType = workType;
-             return this;
+            this.workType = workType;
+            return this;
         }
 
-    
 
         /**
          * 补卡时间，时间格式为yyyy-MM-dd HH:mm
          * <p> 示例值：2025-03-10 09:00
+         *
          * @param remedyTime
          * @return
          */
         public Builder remedyTime(String remedyTime) {
-             this.remedyTime = remedyTime;
-             return this;
+            this.remedyTime = remedyTime;
+            return this;
         }
 
-    
-    
-    public RemedyRecord build(){
-        return new RemedyRecord(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public RemedyRecord build() {
+            return new RemedyRecord(this);
+        }
     }
 }

@@ -17,16 +17,17 @@ package com.lark.oapi.service.search.v2.enums;
  * 发送消息的角色
  */
 public enum MemoryMessageRoleEnum {
-     HUMAN("human"), // 用户消息
-     AI("ai"), // AI 回复消息
-     SYSTEM("system"), // 系统消息
-  ;
-   private String value;
+    HUMAN("human"), // 用户消息
+    AI("ai"), // AI 回复消息
+    SYSTEM("system"), // 系统消息
+    ;
+    private String value;
+
     MemoryMessageRoleEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

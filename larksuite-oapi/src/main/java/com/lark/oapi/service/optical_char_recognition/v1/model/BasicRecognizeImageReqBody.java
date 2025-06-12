@@ -12,24 +12,45 @@
  */
 
 package com.lark.oapi.service.optical_char_recognition.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class BasicRecognizeImageReqBody {
-     /**
-      * base64 后的图片数据
-      * <p> 示例值：base64后的图片二进制数据
-      */
+    /**
+     * base64 后的图片数据
+     * <p> 示例值：base64后的图片二进制数据
+     */
     @SerializedName("image")
     private String image;
+
+    // builder 开始
+    public BasicRecognizeImageReqBody() {
+    }
+
+    public BasicRecognizeImageReqBody(Builder builder) {
+        /**
+         * base64 后的图片数据
+         * <p> 示例值：base64后的图片二进制数据
+         */
+        this.image = builder.image;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getImage() {
         return this.image;
     }
@@ -38,44 +59,28 @@ public class BasicRecognizeImageReqBody {
         this.image = image;
     }
 
-
-// builder 开始
-  public BasicRecognizeImageReqBody(){}
-
-  public BasicRecognizeImageReqBody(Builder builder){
-         /**
-          * base64 后的图片数据
-          * <p> 示例值：base64后的图片二进制数据
-          */
-      this.image = builder.image;
-  }
-
     public static class Builder {
-     /**
-      * base64 后的图片数据
-      * <p> 示例值：base64后的图片二进制数据
-      */
+        /**
+         * base64 后的图片数据
+         * <p> 示例值：base64后的图片二进制数据
+         */
         private String image;
 
         /**
          * base64 后的图片数据
          * <p> 示例值：base64后的图片二进制数据
+         *
          * @param image
          * @return
          */
         public Builder image(String image) {
-             this.image = image;
-             return this;
+            this.image = image;
+            return this;
         }
 
-    
-    
-    public BasicRecognizeImageReqBody build(){
-        return new BasicRecognizeImageReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public BasicRecognizeImageReqBody build() {
+            return new BasicRecognizeImageReqBody(this);
+        }
     }
 }

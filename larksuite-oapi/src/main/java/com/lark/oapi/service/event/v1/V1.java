@@ -17,12 +17,13 @@ import com.lark.oapi.core.Config;
 import com.lark.oapi.service.event.v1.resource.*;
 
 public class V1 {
-	private final OutboundIp outboundIp; // 事件订阅
+    private final OutboundIp outboundIp; // 事件订阅
 
-	public V1(Config config) {
-		this.outboundIp = new OutboundIp(config);
-	}
-	public OutboundIp outboundIp() {
-		return outboundIp;
-	}
+    public V1(Config config) {
+        this.outboundIp = new OutboundIp(config);
+    }
+
+    public OutboundIp outboundIp() {
+        return outboundIp;
+    }
 }

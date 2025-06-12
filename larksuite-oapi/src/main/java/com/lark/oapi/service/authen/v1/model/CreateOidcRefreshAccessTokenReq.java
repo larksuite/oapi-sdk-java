@@ -12,19 +12,35 @@
  */
 
 package com.lark.oapi.service.authen.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CreateOidcRefreshAccessTokenReq {
     @Body
     private CreateOidcRefreshAccessTokenReqBody body;
+
+    // builder 开始
+    public CreateOidcRefreshAccessTokenReq() {
+    }
+
+    public CreateOidcRefreshAccessTokenReq(Builder builder) {
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 
     public CreateOidcRefreshAccessTokenReqBody getCreateOidcRefreshAccessTokenReqBody() {
         return this.body;
@@ -34,36 +50,27 @@ public class CreateOidcRefreshAccessTokenReq {
         this.body = body;
     }
 
-// builder 开始
-  public CreateOidcRefreshAccessTokenReq(){}
-
-  public CreateOidcRefreshAccessTokenReq(Builder builder){
-        this.body = builder.body;
-  }
-
     public static class Builder {
-    
+
         private CreateOidcRefreshAccessTokenReqBody body;
-    
+
         public CreateOidcRefreshAccessTokenReqBody getCreateOidcRefreshAccessTokenReqBody() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder createOidcRefreshAccessTokenReqBody(CreateOidcRefreshAccessTokenReqBody body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public CreateOidcRefreshAccessTokenReq build(){
-        return new CreateOidcRefreshAccessTokenReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public CreateOidcRefreshAccessTokenReq build() {
+            return new CreateOidcRefreshAccessTokenReq(this);
+        }
     }
 }

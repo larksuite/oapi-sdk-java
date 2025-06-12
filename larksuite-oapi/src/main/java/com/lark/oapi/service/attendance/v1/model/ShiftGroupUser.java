@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ShiftGroupUser {
-     /**
-      * 班组ID
-      * <p> 示例值：7275180303583281171
-      */
+    /**
+     * 班组ID
+     * <p> 示例值：7275180303583281171
+     */
     @SerializedName("shift_group_id")
     private String shiftGroupId;
-     /**
-      * 用户ID，根据传参user_id_type确定
-      * <p> 示例值：52aa1fa1
-      */
+    /**
+     * 用户ID，根据传参user_id_type确定
+     * <p> 示例值：52aa1fa1
+     */
     @SerializedName("user_id")
     private String userId;
+
+    // builder 开始
+    public ShiftGroupUser() {
+    }
+
+    public ShiftGroupUser(Builder builder) {
+        /**
+         * 班组ID
+         * <p> 示例值：7275180303583281171
+         */
+        this.shiftGroupId = builder.shiftGroupId;
+        /**
+         * 用户ID，根据传参user_id_type确定
+         * <p> 示例值：52aa1fa1
+         */
+        this.userId = builder.userId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getShiftGroupId() {
         return this.shiftGroupId;
     }
@@ -53,67 +79,46 @@ public class ShiftGroupUser {
         this.userId = userId;
     }
 
-
-// builder 开始
-  public ShiftGroupUser(){}
-
-  public ShiftGroupUser(Builder builder){
-         /**
-          * 班组ID
-          * <p> 示例值：7275180303583281171
-          */
-      this.shiftGroupId = builder.shiftGroupId;
-         /**
-          * 用户ID，根据传参user_id_type确定
-          * <p> 示例值：52aa1fa1
-          */
-      this.userId = builder.userId;
-  }
-
     public static class Builder {
-     /**
-      * 班组ID
-      * <p> 示例值：7275180303583281171
-      */
+        /**
+         * 班组ID
+         * <p> 示例值：7275180303583281171
+         */
         private String shiftGroupId;
-     /**
-      * 用户ID，根据传参user_id_type确定
-      * <p> 示例值：52aa1fa1
-      */
+        /**
+         * 用户ID，根据传参user_id_type确定
+         * <p> 示例值：52aa1fa1
+         */
         private String userId;
 
         /**
          * 班组ID
          * <p> 示例值：7275180303583281171
+         *
          * @param shiftGroupId
          * @return
          */
         public Builder shiftGroupId(String shiftGroupId) {
-             this.shiftGroupId = shiftGroupId;
-             return this;
+            this.shiftGroupId = shiftGroupId;
+            return this;
         }
 
-    
 
         /**
          * 用户ID，根据传参user_id_type确定
          * <p> 示例值：52aa1fa1
+         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-             this.userId = userId;
-             return this;
+            this.userId = userId;
+            return this;
         }
 
-    
-    
-    public ShiftGroupUser build(){
-        return new ShiftGroupUser(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ShiftGroupUser build() {
+            return new ShiftGroupUser(this);
+        }
     }
 }

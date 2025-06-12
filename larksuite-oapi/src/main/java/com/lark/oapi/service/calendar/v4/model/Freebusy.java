@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.calendar.v4.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.calendar.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Freebusy {
-     /**
-      * 忙闲信息开始时间，RFC3339 date_time 格式
-      * <p> 示例值：2020-10-28T22:30:00+08:00
-      */
+    /**
+     * 忙闲信息开始时间，RFC3339 date_time 格式
+     * <p> 示例值：2020-10-28T22:30:00+08:00
+     */
     @SerializedName("start_time")
     private String startTime;
-     /**
-      * 忙闲信息结束时间，RFC3339 date_time 格式
-      * <p> 示例值：2020-10-28T22:45:00+08:00
-      */
+    /**
+     * 忙闲信息结束时间，RFC3339 date_time 格式
+     * <p> 示例值：2020-10-28T22:45:00+08:00
+     */
     @SerializedName("end_time")
     private String endTime;
+
+    // builder 开始
+    public Freebusy() {
+    }
+
+    public Freebusy(Builder builder) {
+        /**
+         * 忙闲信息开始时间，RFC3339 date_time 格式
+         * <p> 示例值：2020-10-28T22:30:00+08:00
+         */
+        this.startTime = builder.startTime;
+        /**
+         * 忙闲信息结束时间，RFC3339 date_time 格式
+         * <p> 示例值：2020-10-28T22:45:00+08:00
+         */
+        this.endTime = builder.endTime;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getStartTime() {
         return this.startTime;
     }
@@ -53,67 +79,46 @@ public class Freebusy {
         this.endTime = endTime;
     }
 
-
-// builder 开始
-  public Freebusy(){}
-
-  public Freebusy(Builder builder){
-         /**
-          * 忙闲信息开始时间，RFC3339 date_time 格式
-          * <p> 示例值：2020-10-28T22:30:00+08:00
-          */
-      this.startTime = builder.startTime;
-         /**
-          * 忙闲信息结束时间，RFC3339 date_time 格式
-          * <p> 示例值：2020-10-28T22:45:00+08:00
-          */
-      this.endTime = builder.endTime;
-  }
-
     public static class Builder {
-     /**
-      * 忙闲信息开始时间，RFC3339 date_time 格式
-      * <p> 示例值：2020-10-28T22:30:00+08:00
-      */
+        /**
+         * 忙闲信息开始时间，RFC3339 date_time 格式
+         * <p> 示例值：2020-10-28T22:30:00+08:00
+         */
         private String startTime;
-     /**
-      * 忙闲信息结束时间，RFC3339 date_time 格式
-      * <p> 示例值：2020-10-28T22:45:00+08:00
-      */
+        /**
+         * 忙闲信息结束时间，RFC3339 date_time 格式
+         * <p> 示例值：2020-10-28T22:45:00+08:00
+         */
         private String endTime;
 
         /**
          * 忙闲信息开始时间，RFC3339 date_time 格式
          * <p> 示例值：2020-10-28T22:30:00+08:00
+         *
          * @param startTime
          * @return
          */
         public Builder startTime(String startTime) {
-             this.startTime = startTime;
-             return this;
+            this.startTime = startTime;
+            return this;
         }
 
-    
 
         /**
          * 忙闲信息结束时间，RFC3339 date_time 格式
          * <p> 示例值：2020-10-28T22:45:00+08:00
+         *
          * @param endTime
          * @return
          */
         public Builder endTime(String endTime) {
-             this.endTime = endTime;
-             return this;
+            this.endTime = endTime;
+            return this;
         }
 
-    
-    
-    public Freebusy build(){
-        return new Freebusy(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Freebusy build() {
+            return new Freebusy(this);
+        }
     }
 }

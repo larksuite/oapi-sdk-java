@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.document_ai.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.document_ai.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class TrainInvoice {
-     /**
-      * 识别出的实体列表
-      * <p> 示例值：
-      */
+    /**
+     * 识别出的实体列表
+     * <p> 示例值：
+     */
     @SerializedName("entities")
     private TrainEntity[] entities;
+
+    // builder 开始
+    public TrainInvoice() {
+    }
+
+    public TrainInvoice(Builder builder) {
+        /**
+         * 识别出的实体列表
+         * <p> 示例值：
+         */
+        this.entities = builder.entities;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public TrainEntity[] getEntities() {
         return this.entities;
     }
@@ -39,44 +60,28 @@ public class TrainInvoice {
         this.entities = entities;
     }
 
-
-// builder 开始
-  public TrainInvoice(){}
-
-  public TrainInvoice(Builder builder){
-         /**
-          * 识别出的实体列表
-          * <p> 示例值：
-          */
-      this.entities = builder.entities;
-  }
-
     public static class Builder {
-     /**
-      * 识别出的实体列表
-      * <p> 示例值：
-      */
+        /**
+         * 识别出的实体列表
+         * <p> 示例值：
+         */
         private TrainEntity[] entities;
 
         /**
          * 识别出的实体列表
          * <p> 示例值：
+         *
          * @param entities
          * @return
          */
         public Builder entities(TrainEntity[] entities) {
-             this.entities = entities;
-             return this;
+            this.entities = entities;
+            return this;
         }
 
-    
-    
-    public TrainInvoice build(){
-        return new TrainInvoice(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public TrainInvoice build() {
+            return new TrainInvoice(this);
+        }
     }
 }

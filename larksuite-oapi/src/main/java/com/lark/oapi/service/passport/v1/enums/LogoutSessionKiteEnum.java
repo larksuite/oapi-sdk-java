@@ -17,16 +17,17 @@ package com.lark.oapi.service.passport.v1.enums;
  * 登出的方式
  */
 public enum LogoutSessionKiteEnum {
-     USERID(1), // UserID
-     IDPCREDENTIALID(2), // IdpCredentialID
-     SESSIONUUID(3), // Session 标识符
-  ;
-   private Integer value;
+    USERID(1), // UserID
+    IDPCREDENTIALID(2), // IdpCredentialID
+    SESSIONUUID(3), // Session 标识符
+    ;
+    private Integer value;
+
     LogoutSessionKiteEnum(Integer value) {
-      this.value = value;
+        this.value = value;
     }
 
     public Integer getValue() {
-      return this.value;
+        return this.value;
     }
 }

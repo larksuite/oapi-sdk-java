@@ -17,14 +17,15 @@ package com.lark.oapi.service.document_ai.v1.enums;
  * 消息类型
  */
 public enum LlmConfigMessageTypeEnum {
-     SINGLE_ROUND("single-round"), // 单轮对话
-  ;
-   private String value;
+    SINGLE_ROUND("single-round"), // 单轮对话
+    ;
+    private String value;
+
     LlmConfigMessageTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

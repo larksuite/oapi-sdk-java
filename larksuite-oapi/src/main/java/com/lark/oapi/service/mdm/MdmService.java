@@ -26,16 +26,19 @@ public class MdmService {
     private final V3 v3;
 
     public MdmService(Config config) {
-    this.v1 = new V1(config);
-    this.userAuthDataRelation = new UserAuthDataRelation(config);
-    this.v3 = new V3(config);
+        this.v1 = new V1(config);
+        this.userAuthDataRelation = new UserAuthDataRelation(config);
+        this.v3 = new V3(config);
     }
+
     public V1 v1() {
         return v1;
     }
+
     public UserAuthDataRelation userAuthDataRelation() {
         return userAuthDataRelation;
     }
+
     public V3 v3() {
         return v3;
     }

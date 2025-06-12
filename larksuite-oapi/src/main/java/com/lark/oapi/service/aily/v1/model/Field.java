@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.aily.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.aily.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,49 +20,96 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
+
 import java.util.Map;
+
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Field {
-     /**
-      * 字段标识
-      * <p> 示例值：object_a
-      */
+    /**
+     * 字段标识
+     * <p> 示例值：object_a
+     */
     @SerializedName("api_name")
     private String apiName;
-     /**
-      * 字段名称
-      * <p> 示例值：
-      */
+    /**
+     * 字段名称
+     * <p> 示例值：
+     */
     @SerializedName("label")
     private Map<String, String> label;
-     /**
-      * 字段描述信息
-      * <p> 示例值：这是一个商品的数据表
-      */
+    /**
+     * 字段描述信息
+     * <p> 示例值：这是一个商品的数据表
+     */
     @SerializedName("ai_description")
     private String aiDescription;
-     /**
-      * 字段值读写权限
-      * <p> 示例值：
-      */
+    /**
+     * 字段值读写权限
+     * <p> 示例值：
+     */
     @SerializedName("access_items")
     private String[] accessItems;
-     /**
-      * 字段的类型
-      * <p> 示例值：bool
-      */
+    /**
+     * 字段的类型
+     * <p> 示例值：bool
+     */
     @SerializedName("type_name")
     private String typeName;
-     /**
-      * 字段的属性
-      * <p> 示例值：
-      */
+    /**
+     * 字段的属性
+     * <p> 示例值：
+     */
     @SerializedName("field_setting")
     private FieldSetting fieldSetting;
+
+    // builder 开始
+    public Field() {
+    }
+
+    public Field(Builder builder) {
+        /**
+         * 字段标识
+         * <p> 示例值：object_a
+         */
+        this.apiName = builder.apiName;
+        /**
+         * 字段名称
+         * <p> 示例值：
+         */
+        this.label = builder.label;
+        /**
+         * 字段描述信息
+         * <p> 示例值：这是一个商品的数据表
+         */
+        this.aiDescription = builder.aiDescription;
+        /**
+         * 字段值读写权限
+         * <p> 示例值：
+         */
+        this.accessItems = builder.accessItems;
+        /**
+         * 字段的类型
+         * <p> 示例值：bool
+         */
+        this.typeName = builder.typeName;
+        /**
+         * 字段的属性
+         * <p> 示例值：
+         */
+        this.fieldSetting = builder.fieldSetting;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getApiName() {
         return this.apiName;
     }
@@ -110,159 +158,118 @@ public class Field {
         this.fieldSetting = fieldSetting;
     }
 
-
-// builder 开始
-  public Field(){}
-
-  public Field(Builder builder){
-         /**
-          * 字段标识
-          * <p> 示例值：object_a
-          */
-      this.apiName = builder.apiName;
-         /**
-          * 字段名称
-          * <p> 示例值：
-          */
-      this.label = builder.label;
-         /**
-          * 字段描述信息
-          * <p> 示例值：这是一个商品的数据表
-          */
-      this.aiDescription = builder.aiDescription;
-         /**
-          * 字段值读写权限
-          * <p> 示例值：
-          */
-      this.accessItems = builder.accessItems;
-         /**
-          * 字段的类型
-          * <p> 示例值：bool
-          */
-      this.typeName = builder.typeName;
-         /**
-          * 字段的属性
-          * <p> 示例值：
-          */
-      this.fieldSetting = builder.fieldSetting;
-  }
-
     public static class Builder {
-     /**
-      * 字段标识
-      * <p> 示例值：object_a
-      */
+        /**
+         * 字段标识
+         * <p> 示例值：object_a
+         */
         private String apiName;
-     /**
-      * 字段名称
-      * <p> 示例值：
-      */
+        /**
+         * 字段名称
+         * <p> 示例值：
+         */
         private Map<String, String> label;
-     /**
-      * 字段描述信息
-      * <p> 示例值：这是一个商品的数据表
-      */
+        /**
+         * 字段描述信息
+         * <p> 示例值：这是一个商品的数据表
+         */
         private String aiDescription;
-     /**
-      * 字段值读写权限
-      * <p> 示例值：
-      */
+        /**
+         * 字段值读写权限
+         * <p> 示例值：
+         */
         private String[] accessItems;
-     /**
-      * 字段的类型
-      * <p> 示例值：bool
-      */
+        /**
+         * 字段的类型
+         * <p> 示例值：bool
+         */
         private String typeName;
-     /**
-      * 字段的属性
-      * <p> 示例值：
-      */
+        /**
+         * 字段的属性
+         * <p> 示例值：
+         */
         private FieldSetting fieldSetting;
 
         /**
          * 字段标识
          * <p> 示例值：object_a
+         *
          * @param apiName
          * @return
          */
         public Builder apiName(String apiName) {
-             this.apiName = apiName;
-             return this;
+            this.apiName = apiName;
+            return this;
         }
 
-    
 
         /**
          * 字段名称
          * <p> 示例值：
+         *
          * @param label
          * @return
          */
         public Builder label(Map<String, String> label) {
-             this.label = label;
-             return this;
+            this.label = label;
+            return this;
         }
 
-    
 
         /**
          * 字段描述信息
          * <p> 示例值：这是一个商品的数据表
+         *
          * @param aiDescription
          * @return
          */
         public Builder aiDescription(String aiDescription) {
-             this.aiDescription = aiDescription;
-             return this;
+            this.aiDescription = aiDescription;
+            return this;
         }
 
-    
 
         /**
          * 字段值读写权限
          * <p> 示例值：
+         *
          * @param accessItems
          * @return
          */
         public Builder accessItems(String[] accessItems) {
-             this.accessItems = accessItems;
-             return this;
+            this.accessItems = accessItems;
+            return this;
         }
 
-    
 
         /**
          * 字段的类型
          * <p> 示例值：bool
+         *
          * @param typeName
          * @return
          */
         public Builder typeName(String typeName) {
-             this.typeName = typeName;
-             return this;
+            this.typeName = typeName;
+            return this;
         }
 
-    
 
         /**
          * 字段的属性
          * <p> 示例值：
+         *
          * @param fieldSetting
          * @return
          */
         public Builder fieldSetting(FieldSetting fieldSetting) {
-             this.fieldSetting = fieldSetting;
-             return this;
+            this.fieldSetting = fieldSetting;
+            return this;
         }
 
-    
-    
-    public Field build(){
-        return new Field(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Field build() {
+            return new Field(this);
+        }
     }
 }

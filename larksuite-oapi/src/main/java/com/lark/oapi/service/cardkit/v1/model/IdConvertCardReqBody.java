@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.cardkit.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.cardkit.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class IdConvertCardReqBody {
-     /**
-      * 消息ID
-      * <p> 示例值：om_fbdf6ed2e17f1d98e78fb26c1370186e
-      */
+    /**
+     * 消息ID
+     * <p> 示例值：om_fbdf6ed2e17f1d98e78fb26c1370186e
+     */
     @SerializedName("message_id")
     private String messageId;
+
+    // builder 开始
+    public IdConvertCardReqBody() {
+    }
+
+    public IdConvertCardReqBody(Builder builder) {
+        /**
+         * 消息ID
+         * <p> 示例值：om_fbdf6ed2e17f1d98e78fb26c1370186e
+         */
+        this.messageId = builder.messageId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getMessageId() {
         return this.messageId;
     }
@@ -39,44 +60,28 @@ public class IdConvertCardReqBody {
         this.messageId = messageId;
     }
 
-
-// builder 开始
-  public IdConvertCardReqBody(){}
-
-  public IdConvertCardReqBody(Builder builder){
-         /**
-          * 消息ID
-          * <p> 示例值：om_fbdf6ed2e17f1d98e78fb26c1370186e
-          */
-      this.messageId = builder.messageId;
-  }
-
     public static class Builder {
-     /**
-      * 消息ID
-      * <p> 示例值：om_fbdf6ed2e17f1d98e78fb26c1370186e
-      */
+        /**
+         * 消息ID
+         * <p> 示例值：om_fbdf6ed2e17f1d98e78fb26c1370186e
+         */
         private String messageId;
 
         /**
          * 消息ID
          * <p> 示例值：om_fbdf6ed2e17f1d98e78fb26c1370186e
+         *
          * @param messageId
          * @return
          */
         public Builder messageId(String messageId) {
-             this.messageId = messageId;
-             return this;
+            this.messageId = messageId;
+            return this;
         }
 
-    
-    
-    public IdConvertCardReqBody build(){
-        return new IdConvertCardReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public IdConvertCardReqBody build() {
+            return new IdConvertCardReqBody(this);
+        }
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,84 +20,159 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ApprovalTask {
-     /**
-      * 审批任务ID
-      * <p> 示例值：1642460701966344
-      */
+    /**
+     * 审批任务ID
+     * <p> 示例值：1642460701966344
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 审批任务状态
-      * <p> 示例值：agreed
-      */
+    /**
+     * 审批任务状态
+     * <p> 示例值：agreed
+     */
     @SerializedName("task_status")
     private String taskStatus;
-     /**
-      * 任务开始时间
-      * <p> 示例值：1566378665835
-      */
+    /**
+     * 任务开始时间
+     * <p> 示例值：1566378665835
+     */
     @SerializedName("task_start_time")
     private String taskStartTime;
-     /**
-      * 任务结束时间
-      * <p> 示例值：1566379388905
-      */
+    /**
+     * 任务结束时间
+     * <p> 示例值：1566379388905
+     */
     @SerializedName("task_end_time")
     private String taskEndTime;
-     /**
-      * 任务表单数据，默认不传递，除非请求的 include 参数中包含 ApprovalTask_FormData
-      * <p> 示例值：{"_initialRecord":{"data1":"2019-08-27","dateTime1":1566921600000,"lookup1":null}}
-      */
+    /**
+     * 任务表单数据，默认不传递，除非请求的 include 参数中包含 ApprovalTask_FormData
+     * <p> 示例值：{"_initialRecord":{"data1":"2019-08-27","dateTime1":1566921600000,"lookup1":null}}
+     */
     @SerializedName("form_data")
     private String formData;
-     /**
-      * 任务类型
-      * <p> 示例值：all
-      */
+    /**
+     * 任务类型
+     * <p> 示例值：all
+     */
     @SerializedName("approval_logic")
     private String approvalLogic;
-     /**
-      * 任务已办人
-      * <p> 示例值：
-      */
+    /**
+     * 任务已办人
+     * <p> 示例值：
+     */
     @SerializedName("approvers")
     private String[] approvers;
-     /**
-      * 任务指派人
-      * <p> 示例值：
-      */
+    /**
+     * 任务指派人
+     * <p> 示例值：
+     */
     @SerializedName("assigners")
     private String[] assigners;
-     /**
-      * 审批任务链接
-      * <p> 示例值：https://xuzhaoning-dev702.aedev.feishuapp.bytedance.net/ae/automation/inbox?taskId=1783249953599668
-      */
+    /**
+     * 审批任务链接
+     * <p> 示例值：https://xuzhaoning-dev702.aedev.feishuapp.bytedance.net/ae/automation/inbox?taskId=1783249953599668
+     */
     @SerializedName("task_url")
     private String taskUrl;
-     /**
-      * 任务类型
-      * <p> 示例值：approval
-      */
+    /**
+     * 任务类型
+     * <p> 示例值：approval
+     */
     @SerializedName("task_type")
     private String taskType;
-     /**
-      * 自由抄送记录
-      * <p> 示例值：[{"assignees":[1807760353382444],"operator":1805479940407305,"addCCTime":1731294960855}]
-      */
+    /**
+     * 自由抄送记录
+     * <p> 示例值：[{"assignees":[1807760353382444],"operator":1805479940407305,"addCCTime":1731294960855}]
+     */
     @SerializedName("free_cc_record")
     private String freeCcRecord;
-     /**
-      * 加签记录
-      * <p> 示例值：{"fromTaskId":0,"addAssignee":[{"approvers":[1807760353382444],"operator":1805479940407305,"addAssigneeType":"currentAndAddAssign","addAssigneeTime":1731295024203,"reason":null,"inherit":false},{"approvers":[1815350297373803],"operator":1805479940407305,"addAssigneeType":"afterAndAddAssign","addAssigneeTime":1731295066066,"reason":[{"language_code":2052,"text":"ddd"}],"inherit":false}]}
-      */
+    /**
+     * 加签记录
+     * <p> 示例值：{"fromTaskId":0,"addAssignee":[{"approvers":[1807760353382444],"operator":1805479940407305,"addAssigneeType":"currentAndAddAssign","addAssigneeTime":1731295024203,"reason":null,"inherit":false},{"approvers":[1815350297373803],"operator":1805479940407305,"addAssigneeType":"afterAndAddAssign","addAssigneeTime":1731295066066,"reason":[{"language_code":2052,"text":"ddd"}],"inherit":false}]}
+     */
     @SerializedName("add_assignee_record")
     private String addAssigneeRecord;
+
+    // builder 开始
+    public ApprovalTask() {
+    }
+
+    public ApprovalTask(Builder builder) {
+        /**
+         * 审批任务ID
+         * <p> 示例值：1642460701966344
+         */
+        this.id = builder.id;
+        /**
+         * 审批任务状态
+         * <p> 示例值：agreed
+         */
+        this.taskStatus = builder.taskStatus;
+        /**
+         * 任务开始时间
+         * <p> 示例值：1566378665835
+         */
+        this.taskStartTime = builder.taskStartTime;
+        /**
+         * 任务结束时间
+         * <p> 示例值：1566379388905
+         */
+        this.taskEndTime = builder.taskEndTime;
+        /**
+         * 任务表单数据，默认不传递，除非请求的 include 参数中包含 ApprovalTask_FormData
+         * <p> 示例值：{"_initialRecord":{"data1":"2019-08-27","dateTime1":1566921600000,"lookup1":null}}
+         */
+        this.formData = builder.formData;
+        /**
+         * 任务类型
+         * <p> 示例值：all
+         */
+        this.approvalLogic = builder.approvalLogic;
+        /**
+         * 任务已办人
+         * <p> 示例值：
+         */
+        this.approvers = builder.approvers;
+        /**
+         * 任务指派人
+         * <p> 示例值：
+         */
+        this.assigners = builder.assigners;
+        /**
+         * 审批任务链接
+         * <p> 示例值：https://xuzhaoning-dev702.aedev.feishuapp.bytedance.net/ae/automation/inbox?taskId=1783249953599668
+         */
+        this.taskUrl = builder.taskUrl;
+        /**
+         * 任务类型
+         * <p> 示例值：approval
+         */
+        this.taskType = builder.taskType;
+        /**
+         * 自由抄送记录
+         * <p> 示例值：[{"assignees":[1807760353382444],"operator":1805479940407305,"addCCTime":1731294960855}]
+         */
+        this.freeCcRecord = builder.freeCcRecord;
+        /**
+         * 加签记录
+         * <p> 示例值：{"fromTaskId":0,"addAssignee":[{"approvers":[1807760353382444],"operator":1805479940407305,"addAssigneeType":"currentAndAddAssign","addAssigneeTime":1731295024203,"reason":null,"inherit":false},{"approvers":[1815350297373803],"operator":1805479940407305,"addAssigneeType":"afterAndAddAssign","addAssigneeTime":1731295066066,"reason":[{"language_code":2052,"text":"ddd"}],"inherit":false}]}
+         */
+        this.addAssigneeRecord = builder.addAssigneeRecord;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -193,297 +269,226 @@ public class ApprovalTask {
         this.addAssigneeRecord = addAssigneeRecord;
     }
 
-
-// builder 开始
-  public ApprovalTask(){}
-
-  public ApprovalTask(Builder builder){
-         /**
-          * 审批任务ID
-          * <p> 示例值：1642460701966344
-          */
-      this.id = builder.id;
-         /**
-          * 审批任务状态
-          * <p> 示例值：agreed
-          */
-      this.taskStatus = builder.taskStatus;
-         /**
-          * 任务开始时间
-          * <p> 示例值：1566378665835
-          */
-      this.taskStartTime = builder.taskStartTime;
-         /**
-          * 任务结束时间
-          * <p> 示例值：1566379388905
-          */
-      this.taskEndTime = builder.taskEndTime;
-         /**
-          * 任务表单数据，默认不传递，除非请求的 include 参数中包含 ApprovalTask_FormData
-          * <p> 示例值：{"_initialRecord":{"data1":"2019-08-27","dateTime1":1566921600000,"lookup1":null}}
-          */
-      this.formData = builder.formData;
-         /**
-          * 任务类型
-          * <p> 示例值：all
-          */
-      this.approvalLogic = builder.approvalLogic;
-         /**
-          * 任务已办人
-          * <p> 示例值：
-          */
-      this.approvers = builder.approvers;
-         /**
-          * 任务指派人
-          * <p> 示例值：
-          */
-      this.assigners = builder.assigners;
-         /**
-          * 审批任务链接
-          * <p> 示例值：https://xuzhaoning-dev702.aedev.feishuapp.bytedance.net/ae/automation/inbox?taskId=1783249953599668
-          */
-      this.taskUrl = builder.taskUrl;
-         /**
-          * 任务类型
-          * <p> 示例值：approval
-          */
-      this.taskType = builder.taskType;
-         /**
-          * 自由抄送记录
-          * <p> 示例值：[{"assignees":[1807760353382444],"operator":1805479940407305,"addCCTime":1731294960855}]
-          */
-      this.freeCcRecord = builder.freeCcRecord;
-         /**
-          * 加签记录
-          * <p> 示例值：{"fromTaskId":0,"addAssignee":[{"approvers":[1807760353382444],"operator":1805479940407305,"addAssigneeType":"currentAndAddAssign","addAssigneeTime":1731295024203,"reason":null,"inherit":false},{"approvers":[1815350297373803],"operator":1805479940407305,"addAssigneeType":"afterAndAddAssign","addAssigneeTime":1731295066066,"reason":[{"language_code":2052,"text":"ddd"}],"inherit":false}]}
-          */
-      this.addAssigneeRecord = builder.addAssigneeRecord;
-  }
-
     public static class Builder {
-     /**
-      * 审批任务ID
-      * <p> 示例值：1642460701966344
-      */
+        /**
+         * 审批任务ID
+         * <p> 示例值：1642460701966344
+         */
         private String id;
-     /**
-      * 审批任务状态
-      * <p> 示例值：agreed
-      */
+        /**
+         * 审批任务状态
+         * <p> 示例值：agreed
+         */
         private String taskStatus;
-     /**
-      * 任务开始时间
-      * <p> 示例值：1566378665835
-      */
+        /**
+         * 任务开始时间
+         * <p> 示例值：1566378665835
+         */
         private String taskStartTime;
-     /**
-      * 任务结束时间
-      * <p> 示例值：1566379388905
-      */
+        /**
+         * 任务结束时间
+         * <p> 示例值：1566379388905
+         */
         private String taskEndTime;
-     /**
-      * 任务表单数据，默认不传递，除非请求的 include 参数中包含 ApprovalTask_FormData
-      * <p> 示例值：{"_initialRecord":{"data1":"2019-08-27","dateTime1":1566921600000,"lookup1":null}}
-      */
+        /**
+         * 任务表单数据，默认不传递，除非请求的 include 参数中包含 ApprovalTask_FormData
+         * <p> 示例值：{"_initialRecord":{"data1":"2019-08-27","dateTime1":1566921600000,"lookup1":null}}
+         */
         private String formData;
-     /**
-      * 任务类型
-      * <p> 示例值：all
-      */
+        /**
+         * 任务类型
+         * <p> 示例值：all
+         */
         private String approvalLogic;
-     /**
-      * 任务已办人
-      * <p> 示例值：
-      */
+        /**
+         * 任务已办人
+         * <p> 示例值：
+         */
         private String[] approvers;
-     /**
-      * 任务指派人
-      * <p> 示例值：
-      */
+        /**
+         * 任务指派人
+         * <p> 示例值：
+         */
         private String[] assigners;
-     /**
-      * 审批任务链接
-      * <p> 示例值：https://xuzhaoning-dev702.aedev.feishuapp.bytedance.net/ae/automation/inbox?taskId=1783249953599668
-      */
+        /**
+         * 审批任务链接
+         * <p> 示例值：https://xuzhaoning-dev702.aedev.feishuapp.bytedance.net/ae/automation/inbox?taskId=1783249953599668
+         */
         private String taskUrl;
-     /**
-      * 任务类型
-      * <p> 示例值：approval
-      */
+        /**
+         * 任务类型
+         * <p> 示例值：approval
+         */
         private String taskType;
-     /**
-      * 自由抄送记录
-      * <p> 示例值：[{"assignees":[1807760353382444],"operator":1805479940407305,"addCCTime":1731294960855}]
-      */
+        /**
+         * 自由抄送记录
+         * <p> 示例值：[{"assignees":[1807760353382444],"operator":1805479940407305,"addCCTime":1731294960855}]
+         */
         private String freeCcRecord;
-     /**
-      * 加签记录
-      * <p> 示例值：{"fromTaskId":0,"addAssignee":[{"approvers":[1807760353382444],"operator":1805479940407305,"addAssigneeType":"currentAndAddAssign","addAssigneeTime":1731295024203,"reason":null,"inherit":false},{"approvers":[1815350297373803],"operator":1805479940407305,"addAssigneeType":"afterAndAddAssign","addAssigneeTime":1731295066066,"reason":[{"language_code":2052,"text":"ddd"}],"inherit":false}]}
-      */
+        /**
+         * 加签记录
+         * <p> 示例值：{"fromTaskId":0,"addAssignee":[{"approvers":[1807760353382444],"operator":1805479940407305,"addAssigneeType":"currentAndAddAssign","addAssigneeTime":1731295024203,"reason":null,"inherit":false},{"approvers":[1815350297373803],"operator":1805479940407305,"addAssigneeType":"afterAndAddAssign","addAssigneeTime":1731295066066,"reason":[{"language_code":2052,"text":"ddd"}],"inherit":false}]}
+         */
         private String addAssigneeRecord;
 
         /**
          * 审批任务ID
          * <p> 示例值：1642460701966344
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 审批任务状态
          * <p> 示例值：agreed
+         *
          * @param taskStatus
          * @return
          */
         public Builder taskStatus(String taskStatus) {
-             this.taskStatus = taskStatus;
-             return this;
+            this.taskStatus = taskStatus;
+            return this;
         }
 
-    
 
         /**
          * 任务开始时间
          * <p> 示例值：1566378665835
+         *
          * @param taskStartTime
          * @return
          */
         public Builder taskStartTime(String taskStartTime) {
-             this.taskStartTime = taskStartTime;
-             return this;
+            this.taskStartTime = taskStartTime;
+            return this;
         }
 
-    
 
         /**
          * 任务结束时间
          * <p> 示例值：1566379388905
+         *
          * @param taskEndTime
          * @return
          */
         public Builder taskEndTime(String taskEndTime) {
-             this.taskEndTime = taskEndTime;
-             return this;
+            this.taskEndTime = taskEndTime;
+            return this;
         }
 
-    
 
         /**
          * 任务表单数据，默认不传递，除非请求的 include 参数中包含 ApprovalTask_FormData
          * <p> 示例值：{"_initialRecord":{"data1":"2019-08-27","dateTime1":1566921600000,"lookup1":null}}
+         *
          * @param formData
          * @return
          */
         public Builder formData(String formData) {
-             this.formData = formData;
-             return this;
+            this.formData = formData;
+            return this;
         }
 
-    
 
         /**
          * 任务类型
          * <p> 示例值：all
+         *
          * @param approvalLogic
          * @return
          */
         public Builder approvalLogic(String approvalLogic) {
-             this.approvalLogic = approvalLogic;
-             return this;
+            this.approvalLogic = approvalLogic;
+            return this;
         }
 
-    
 
         /**
          * 任务已办人
          * <p> 示例值：
+         *
          * @param approvers
          * @return
          */
         public Builder approvers(String[] approvers) {
-             this.approvers = approvers;
-             return this;
+            this.approvers = approvers;
+            return this;
         }
 
-    
 
         /**
          * 任务指派人
          * <p> 示例值：
+         *
          * @param assigners
          * @return
          */
         public Builder assigners(String[] assigners) {
-             this.assigners = assigners;
-             return this;
+            this.assigners = assigners;
+            return this;
         }
 
-    
 
         /**
          * 审批任务链接
          * <p> 示例值：https://xuzhaoning-dev702.aedev.feishuapp.bytedance.net/ae/automation/inbox?taskId=1783249953599668
+         *
          * @param taskUrl
          * @return
          */
         public Builder taskUrl(String taskUrl) {
-             this.taskUrl = taskUrl;
-             return this;
+            this.taskUrl = taskUrl;
+            return this;
         }
 
-    
 
         /**
          * 任务类型
          * <p> 示例值：approval
+         *
          * @param taskType
          * @return
          */
         public Builder taskType(String taskType) {
-             this.taskType = taskType;
-             return this;
+            this.taskType = taskType;
+            return this;
         }
 
-    
 
         /**
          * 自由抄送记录
          * <p> 示例值：[{"assignees":[1807760353382444],"operator":1805479940407305,"addCCTime":1731294960855}]
+         *
          * @param freeCcRecord
          * @return
          */
         public Builder freeCcRecord(String freeCcRecord) {
-             this.freeCcRecord = freeCcRecord;
-             return this;
+            this.freeCcRecord = freeCcRecord;
+            return this;
         }
 
-    
 
         /**
          * 加签记录
          * <p> 示例值：{"fromTaskId":0,"addAssignee":[{"approvers":[1807760353382444],"operator":1805479940407305,"addAssigneeType":"currentAndAddAssign","addAssigneeTime":1731295024203,"reason":null,"inherit":false},{"approvers":[1815350297373803],"operator":1805479940407305,"addAssigneeType":"afterAndAddAssign","addAssigneeTime":1731295066066,"reason":[{"language_code":2052,"text":"ddd"}],"inherit":false}]}
+         *
          * @param addAssigneeRecord
          * @return
          */
         public Builder addAssigneeRecord(String addAssigneeRecord) {
-             this.addAssigneeRecord = addAssigneeRecord;
-             return this;
+            this.addAssigneeRecord = addAssigneeRecord;
+            return this;
         }
 
-    
-    
-    public ApprovalTask build(){
-        return new ApprovalTask(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ApprovalTask build() {
+            return new ApprovalTask(this);
+        }
     }
 }

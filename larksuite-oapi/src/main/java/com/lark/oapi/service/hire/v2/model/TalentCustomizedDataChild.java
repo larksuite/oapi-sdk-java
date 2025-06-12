@@ -12,42 +12,78 @@
  */
 
 package com.lark.oapi.service.hire.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class TalentCustomizedDataChild {
-     /**
-      * 自定义字段 ID
-      * <p> 示例值：xxxx
-      */
+    /**
+     * 自定义字段 ID
+     * <p> 示例值：xxxx
+     */
     @SerializedName("object_id")
     private String objectId;
-     /**
-      * 字段名称
-      * <p> 示例值：
-      */
+    /**
+     * 字段名称
+     * <p> 示例值：
+     */
     @SerializedName("name")
     private I18n name;
-     /**
-      * 字段类型
-      * <p> 示例值：1
-      */
+    /**
+     * 字段类型
+     * <p> 示例值：1
+     */
     @SerializedName("object_type")
     private Integer objectType;
-     /**
-      * 自定义字段值
-      * <p> 示例值：
-      */
+    /**
+     * 自定义字段值
+     * <p> 示例值：
+     */
     @SerializedName("value")
     private TalentCustomizedValue value;
+
+    // builder 开始
+    public TalentCustomizedDataChild() {
+    }
+
+    public TalentCustomizedDataChild(Builder builder) {
+        /**
+         * 自定义字段 ID
+         * <p> 示例值：xxxx
+         */
+        this.objectId = builder.objectId;
+        /**
+         * 字段名称
+         * <p> 示例值：
+         */
+        this.name = builder.name;
+        /**
+         * 字段类型
+         * <p> 示例值：1
+         */
+        this.objectType = builder.objectType;
+        /**
+         * 自定义字段值
+         * <p> 示例值：
+         */
+        this.value = builder.value;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getObjectId() {
         return this.objectId;
     }
@@ -80,113 +116,82 @@ public class TalentCustomizedDataChild {
         this.value = value;
     }
 
-
-// builder 开始
-  public TalentCustomizedDataChild(){}
-
-  public TalentCustomizedDataChild(Builder builder){
-         /**
-          * 自定义字段 ID
-          * <p> 示例值：xxxx
-          */
-      this.objectId = builder.objectId;
-         /**
-          * 字段名称
-          * <p> 示例值：
-          */
-      this.name = builder.name;
-         /**
-          * 字段类型
-          * <p> 示例值：1
-          */
-      this.objectType = builder.objectType;
-         /**
-          * 自定义字段值
-          * <p> 示例值：
-          */
-      this.value = builder.value;
-  }
-
     public static class Builder {
-     /**
-      * 自定义字段 ID
-      * <p> 示例值：xxxx
-      */
+        /**
+         * 自定义字段 ID
+         * <p> 示例值：xxxx
+         */
         private String objectId;
-     /**
-      * 字段名称
-      * <p> 示例值：
-      */
+        /**
+         * 字段名称
+         * <p> 示例值：
+         */
         private I18n name;
-     /**
-      * 字段类型
-      * <p> 示例值：1
-      */
+        /**
+         * 字段类型
+         * <p> 示例值：1
+         */
         private Integer objectType;
-     /**
-      * 自定义字段值
-      * <p> 示例值：
-      */
+        /**
+         * 自定义字段值
+         * <p> 示例值：
+         */
         private TalentCustomizedValue value;
 
         /**
          * 自定义字段 ID
          * <p> 示例值：xxxx
+         *
          * @param objectId
          * @return
          */
         public Builder objectId(String objectId) {
-             this.objectId = objectId;
-             return this;
+            this.objectId = objectId;
+            return this;
         }
 
-    
 
         /**
          * 字段名称
          * <p> 示例值：
+         *
          * @param name
          * @return
          */
         public Builder name(I18n name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 字段类型
          * <p> 示例值：1
+         *
          * @param objectType
          * @return
          */
         public Builder objectType(Integer objectType) {
-             this.objectType = objectType;
-             return this;
+            this.objectType = objectType;
+            return this;
         }
 
-    
 
         /**
          * 自定义字段值
          * <p> 示例值：
+         *
          * @param value
          * @return
          */
         public Builder value(TalentCustomizedValue value) {
-             this.value = value;
-             return this;
+            this.value = value;
+            return this;
         }
 
-    
-    
-    public TalentCustomizedDataChild build(){
-        return new TalentCustomizedDataChild(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public TalentCustomizedDataChild build() {
+            return new TalentCustomizedDataChild(this);
+        }
     }
 }

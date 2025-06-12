@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.im.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class OpenAppFeedCardText {
-     /**
-      * 文本
-      * <p> 示例值：文本
-      */
+    /**
+     * 文本
+     * <p> 示例值：文本
+     */
     @SerializedName("text")
     private String text;
+
+    // builder 开始
+    public OpenAppFeedCardText() {
+    }
+
+    public OpenAppFeedCardText(Builder builder) {
+        /**
+         * 文本
+         * <p> 示例值：文本
+         */
+        this.text = builder.text;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getText() {
         return this.text;
     }
@@ -39,44 +60,28 @@ public class OpenAppFeedCardText {
         this.text = text;
     }
 
-
-// builder 开始
-  public OpenAppFeedCardText(){}
-
-  public OpenAppFeedCardText(Builder builder){
-         /**
-          * 文本
-          * <p> 示例值：文本
-          */
-      this.text = builder.text;
-  }
-
     public static class Builder {
-     /**
-      * 文本
-      * <p> 示例值：文本
-      */
+        /**
+         * 文本
+         * <p> 示例值：文本
+         */
         private String text;
 
         /**
          * 文本
          * <p> 示例值：文本
+         *
          * @param text
          * @return
          */
         public Builder text(String text) {
-             this.text = text;
-             return this;
+            this.text = text;
+            return this;
         }
 
-    
-    
-    public OpenAppFeedCardText build(){
-        return new OpenAppFeedCardText(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public OpenAppFeedCardText build() {
+            return new OpenAppFeedCardText(this);
+        }
     }
 }

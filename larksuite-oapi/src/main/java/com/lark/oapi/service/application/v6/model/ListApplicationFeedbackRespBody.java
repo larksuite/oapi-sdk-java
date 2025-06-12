@@ -12,36 +12,41 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ListApplicationFeedbackRespBody {
-     /**
-      * 应用的反馈列表
-      * <p> 示例值：
-      */
+    /**
+     * 应用的反馈列表
+     * <p> 示例值：
+     */
     @SerializedName("feedback_list")
     private ApplicationFeedback[] feedbackList;
-     /**
-      * 是否还有更多用户反馈列表，true：是，false：否
-      * <p> 示例值：true
-      */
+    /**
+     * 是否还有更多用户反馈列表，true：是，false：否
+     * <p> 示例值：true
+     */
     @SerializedName("has_more")
     private Boolean hasMore;
-     /**
-      * 拉取下一页应用反馈列表时使用的 page_token
-      * <p> 示例值：7064688334618378259
-      */
+    /**
+     * 拉取下一页应用反馈列表时使用的 page_token
+     * <p> 示例值：7064688334618378259
+     */
     @SerializedName("page_token")
     private String pageToken;
+
     public ApplicationFeedback[] getFeedbackList() {
         return this.feedbackList;
     }

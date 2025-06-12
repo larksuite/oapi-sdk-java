@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.drive.v1.resource;
+
 import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.Transport;
 import com.lark.oapi.core.response.RawResponse;
@@ -20,12 +21,16 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import java.nio.charset.StandardCharsets;
 
 import com.lark.oapi.core.Config;
 import com.lark.oapi.core.request.RequestOptions;
+
 import java.io.ByteArrayOutputStream;
+
 import com.lark.oapi.service.drive.v1.model.*;
+
 import java.io.*;
 import java.util.Map;
 import java.util.HashMap;
@@ -41,7 +46,7 @@ public class FileSubscription {
         this.config = config;
     }
 
-    
+
     /**
      * 创建订阅，订阅文档中的变更事件，当前支持文档评论订阅，订阅后文档评论更新会有“云文档助手”推送给订阅的用户
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-subscription/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-subscription/create</a> ;
@@ -58,7 +63,7 @@ public class FileSubscription {
                 , "/open-apis/drive/v1/files/:file_token/subscriptions"
                 , Sets.newHashSet(AccessTokenType.User)
                 , req);
-        
+
         // 反序列化
         CreateFileSubscriptionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateFileSubscriptionResp.class);
         if (resp == null) {
@@ -66,14 +71,14 @@ public class FileSubscription {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/files/:file_token/subscriptions"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
-       resp.setRawResponse(httpResponse);
-       resp.setRequest(req);
-       
-       return resp;
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
     }
 
     /**
@@ -90,7 +95,7 @@ public class FileSubscription {
                 , "/open-apis/drive/v1/files/:file_token/subscriptions"
                 , Sets.newHashSet(AccessTokenType.User)
                 , req);
-        
+
         // 反序列化
         CreateFileSubscriptionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateFileSubscriptionResp.class);
         if (resp == null) {
@@ -98,15 +103,16 @@ public class FileSubscription {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/files/:file_token/subscriptions"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-        
+
         return resp;
     }
+
     /**
      * 获取订阅状态，根据订阅ID获取该订阅的状态
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-subscription/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-subscription/get</a> ;
@@ -123,7 +129,7 @@ public class FileSubscription {
                 , "/open-apis/drive/v1/files/:file_token/subscriptions/:subscription_id"
                 , Sets.newHashSet(AccessTokenType.User)
                 , req);
-        
+
         // 反序列化
         GetFileSubscriptionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetFileSubscriptionResp.class);
         if (resp == null) {
@@ -131,14 +137,14 @@ public class FileSubscription {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/files/:file_token/subscriptions/:subscription_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
-       resp.setRawResponse(httpResponse);
-       resp.setRequest(req);
-       
-       return resp;
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
     }
 
     /**
@@ -155,7 +161,7 @@ public class FileSubscription {
                 , "/open-apis/drive/v1/files/:file_token/subscriptions/:subscription_id"
                 , Sets.newHashSet(AccessTokenType.User)
                 , req);
-        
+
         // 反序列化
         GetFileSubscriptionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetFileSubscriptionResp.class);
         if (resp == null) {
@@ -163,15 +169,16 @@ public class FileSubscription {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/files/:file_token/subscriptions/:subscription_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-        
+
         return resp;
     }
+
     /**
      * 更新订阅状态，根据订阅ID更新订阅状态
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-subscription/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-subscription/patch</a> ;
@@ -188,7 +195,7 @@ public class FileSubscription {
                 , "/open-apis/drive/v1/files/:file_token/subscriptions/:subscription_id"
                 , Sets.newHashSet(AccessTokenType.User)
                 , req);
-        
+
         // 反序列化
         PatchFileSubscriptionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchFileSubscriptionResp.class);
         if (resp == null) {
@@ -196,14 +203,14 @@ public class FileSubscription {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/files/:file_token/subscriptions/:subscription_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
-       resp.setRawResponse(httpResponse);
-       resp.setRequest(req);
-       
-       return resp;
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
     }
 
     /**
@@ -220,7 +227,7 @@ public class FileSubscription {
                 , "/open-apis/drive/v1/files/:file_token/subscriptions/:subscription_id"
                 , Sets.newHashSet(AccessTokenType.User)
                 , req);
-        
+
         // 反序列化
         PatchFileSubscriptionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchFileSubscriptionResp.class);
         if (resp == null) {
@@ -228,13 +235,13 @@ public class FileSubscription {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/files/:file_token/subscriptions/:subscription_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-        
+
         return resp;
     }
 }

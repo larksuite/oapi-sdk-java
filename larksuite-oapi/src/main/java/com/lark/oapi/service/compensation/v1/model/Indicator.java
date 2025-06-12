@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.compensation.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.compensation.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,42 +20,82 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Indicator {
-     /**
-      * 薪资统计指标ID
-      * <p> 示例值：7196951947228589113
-      */
+    /**
+     * 薪资统计指标ID
+     * <p> 示例值：7196951947228589113
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 薪资统计指标名称
-      * <p> 示例值：年度现金总和
-      */
+    /**
+     * 薪资统计指标名称
+     * <p> 示例值：年度现金总和
+     */
     @SerializedName("name")
     private String name;
-     /**
-      * 薪资统计指标数值类型
-      * <p> 示例值：money
-      */
+    /**
+     * 薪资统计指标数值类型
+     * <p> 示例值：money
+     */
     @SerializedName("value_type")
     private String valueType;
-     /**
-      * 启用状态
-      * <p> 示例值：1
-      */
+    /**
+     * 启用状态
+     * <p> 示例值：1
+     */
     @SerializedName("active_status")
     private Integer activeStatus;
-     /**
-      * 多语言名称
-      * <p> 示例值：
-      */
+    /**
+     * 多语言名称
+     * <p> 示例值：
+     */
     @SerializedName("i18n_names")
     private I18nContent[] i18nNames;
+
+    // builder 开始
+    public Indicator() {
+    }
+
+    public Indicator(Builder builder) {
+        /**
+         * 薪资统计指标ID
+         * <p> 示例值：7196951947228589113
+         */
+        this.id = builder.id;
+        /**
+         * 薪资统计指标名称
+         * <p> 示例值：年度现金总和
+         */
+        this.name = builder.name;
+        /**
+         * 薪资统计指标数值类型
+         * <p> 示例值：money
+         */
+        this.valueType = builder.valueType;
+        /**
+         * 启用状态
+         * <p> 示例值：1
+         */
+        this.activeStatus = builder.activeStatus;
+        /**
+         * 多语言名称
+         * <p> 示例值：
+         */
+        this.i18nNames = builder.i18nNames;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -95,156 +136,124 @@ public class Indicator {
         this.i18nNames = i18nNames;
     }
 
-
-// builder 开始
-  public Indicator(){}
-
-  public Indicator(Builder builder){
-         /**
-          * 薪资统计指标ID
-          * <p> 示例值：7196951947228589113
-          */
-      this.id = builder.id;
-         /**
-          * 薪资统计指标名称
-          * <p> 示例值：年度现金总和
-          */
-      this.name = builder.name;
-         /**
-          * 薪资统计指标数值类型
-          * <p> 示例值：money
-          */
-      this.valueType = builder.valueType;
-         /**
-          * 启用状态
-          * <p> 示例值：1
-          */
-      this.activeStatus = builder.activeStatus;
-         /**
-          * 多语言名称
-          * <p> 示例值：
-          */
-      this.i18nNames = builder.i18nNames;
-  }
-
     public static class Builder {
-     /**
-      * 薪资统计指标ID
-      * <p> 示例值：7196951947228589113
-      */
+        /**
+         * 薪资统计指标ID
+         * <p> 示例值：7196951947228589113
+         */
         private String id;
-     /**
-      * 薪资统计指标名称
-      * <p> 示例值：年度现金总和
-      */
+        /**
+         * 薪资统计指标名称
+         * <p> 示例值：年度现金总和
+         */
         private String name;
-     /**
-      * 薪资统计指标数值类型
-      * <p> 示例值：money
-      */
+        /**
+         * 薪资统计指标数值类型
+         * <p> 示例值：money
+         */
         private String valueType;
-     /**
-      * 启用状态
-      * <p> 示例值：1
-      */
+        /**
+         * 启用状态
+         * <p> 示例值：1
+         */
         private Integer activeStatus;
-     /**
-      * 多语言名称
-      * <p> 示例值：
-      */
+        /**
+         * 多语言名称
+         * <p> 示例值：
+         */
         private I18nContent[] i18nNames;
 
         /**
          * 薪资统计指标ID
          * <p> 示例值：7196951947228589113
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 薪资统计指标名称
          * <p> 示例值：年度现金总和
+         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 薪资统计指标数值类型
          * <p> 示例值：money
+         *
          * @param valueType
          * @return
          */
         public Builder valueType(String valueType) {
-             this.valueType = valueType;
-             return this;
+            this.valueType = valueType;
+            return this;
         }
+
         /**
          * 薪资统计指标数值类型
          * <p> 示例值：money
+         *
          * @param valueType {@link com.lark.oapi.service.compensation.v1.enums.IndicatorValueTypeEnum}
          * @return
          */
         public Builder valueType(com.lark.oapi.service.compensation.v1.enums.IndicatorValueTypeEnum valueType) {
-             this.valueType = valueType.getValue();
-             return this;
+            this.valueType = valueType.getValue();
+            return this;
         }
 
-    
 
         /**
          * 启用状态
          * <p> 示例值：1
+         *
          * @param activeStatus
          * @return
          */
         public Builder activeStatus(Integer activeStatus) {
-             this.activeStatus = activeStatus;
-             return this;
+            this.activeStatus = activeStatus;
+            return this;
         }
+
         /**
          * 启用状态
          * <p> 示例值：1
+         *
          * @param activeStatus {@link com.lark.oapi.service.compensation.v1.enums.IndicatorActiveStatusEnum}
          * @return
          */
         public Builder activeStatus(com.lark.oapi.service.compensation.v1.enums.IndicatorActiveStatusEnum activeStatus) {
-             this.activeStatus = activeStatus.getValue();
-             return this;
+            this.activeStatus = activeStatus.getValue();
+            return this;
         }
 
-    
 
         /**
          * 多语言名称
          * <p> 示例值：
+         *
          * @param i18nNames
          * @return
          */
         public Builder i18nNames(I18nContent[] i18nNames) {
-             this.i18nNames = i18nNames;
-             return this;
+            this.i18nNames = i18nNames;
+            return this;
         }
 
-    
-    
-    public Indicator build(){
-        return new Indicator(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Indicator build() {
+            return new Indicator(this);
+        }
     }
 }

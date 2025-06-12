@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class MyAiObjectScenarioContext {
-     /**
-      * object
-      * <p> 示例值：
-      */
+    /**
+     * object
+     * <p> 示例值：
+     */
     @SerializedName("object")
     private ObjectContext object;
+
+    // builder 开始
+    public MyAiObjectScenarioContext() {
+    }
+
+    public MyAiObjectScenarioContext(Builder builder) {
+        /**
+         * object
+         * <p> 示例值：
+         */
+        this.object = builder.object;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public ObjectContext getObject() {
         return this.object;
     }
@@ -39,44 +60,28 @@ public class MyAiObjectScenarioContext {
         this.object = object;
     }
 
-
-// builder 开始
-  public MyAiObjectScenarioContext(){}
-
-  public MyAiObjectScenarioContext(Builder builder){
-         /**
-          * object
-          * <p> 示例值：
-          */
-      this.object = builder.object;
-  }
-
     public static class Builder {
-     /**
-      * object
-      * <p> 示例值：
-      */
+        /**
+         * object
+         * <p> 示例值：
+         */
         private ObjectContext object;
 
         /**
          * object
          * <p> 示例值：
+         *
          * @param object
          * @return
          */
         public Builder object(ObjectContext object) {
-             this.object = object;
-             return this;
+            this.object = object;
+            return this;
         }
 
-    
-    
-    public MyAiObjectScenarioContext build(){
-        return new MyAiObjectScenarioContext(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public MyAiObjectScenarioContext build() {
+            return new MyAiObjectScenarioContext(this);
+        }
     }
 }

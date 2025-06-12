@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.mail.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class RuleAction {
-     /**
-      * 匹配中规则后的操作列表
-      * <p> 示例值：
-      */
+    /**
+     * 匹配中规则后的操作列表
+     * <p> 示例值：
+     */
     @SerializedName("items")
     private RuleActionItem[] items;
+
+    // builder 开始
+    public RuleAction() {
+    }
+
+    public RuleAction(Builder builder) {
+        /**
+         * 匹配中规则后的操作列表
+         * <p> 示例值：
+         */
+        this.items = builder.items;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public RuleActionItem[] getItems() {
         return this.items;
     }
@@ -39,44 +60,28 @@ public class RuleAction {
         this.items = items;
     }
 
-
-// builder 开始
-  public RuleAction(){}
-
-  public RuleAction(Builder builder){
-         /**
-          * 匹配中规则后的操作列表
-          * <p> 示例值：
-          */
-      this.items = builder.items;
-  }
-
     public static class Builder {
-     /**
-      * 匹配中规则后的操作列表
-      * <p> 示例值：
-      */
+        /**
+         * 匹配中规则后的操作列表
+         * <p> 示例值：
+         */
         private RuleActionItem[] items;
 
         /**
          * 匹配中规则后的操作列表
          * <p> 示例值：
+         *
          * @param items
          * @return
          */
         public Builder items(RuleActionItem[] items) {
-             this.items = items;
-             return this;
+            this.items = items;
+            return this;
         }
 
-    
-    
-    public RuleAction build(){
-        return new RuleAction(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public RuleAction build() {
+            return new RuleAction(this);
+        }
     }
 }

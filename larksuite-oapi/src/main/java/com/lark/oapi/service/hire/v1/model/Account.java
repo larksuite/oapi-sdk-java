@@ -12,42 +12,78 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Account {
-     /**
-      * 账户ID
-      * <p> 示例值：6942778198054125570
-      */
+    /**
+     * 账户ID
+     * <p> 示例值：6942778198054125570
+     */
     @SerializedName("account_id")
     private String accountId;
-     /**
-      * 账户资产
-      * <p> 示例值：
-      */
+    /**
+     * 账户资产
+     * <p> 示例值：
+     */
     @SerializedName("assets")
     private Assets assets;
-     /**
-      * 账号状态
-      * <p> 示例值：1
-      */
+    /**
+     * 账号状态
+     * <p> 示例值：1
+     */
     @SerializedName("status")
     private Integer status;
-     /**
-      * 账号绑定的内推人信息
-      * <p> 示例值：
-      */
+    /**
+     * 账号绑定的内推人信息
+     * <p> 示例值：
+     */
     @SerializedName("referrer")
     private AccountReferrer referrer;
+
+    // builder 开始
+    public Account() {
+    }
+
+    public Account(Builder builder) {
+        /**
+         * 账户ID
+         * <p> 示例值：6942778198054125570
+         */
+        this.accountId = builder.accountId;
+        /**
+         * 账户资产
+         * <p> 示例值：
+         */
+        this.assets = builder.assets;
+        /**
+         * 账号状态
+         * <p> 示例值：1
+         */
+        this.status = builder.status;
+        /**
+         * 账号绑定的内推人信息
+         * <p> 示例值：
+         */
+        this.referrer = builder.referrer;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getAccountId() {
         return this.accountId;
     }
@@ -80,113 +116,82 @@ public class Account {
         this.referrer = referrer;
     }
 
-
-// builder 开始
-  public Account(){}
-
-  public Account(Builder builder){
-         /**
-          * 账户ID
-          * <p> 示例值：6942778198054125570
-          */
-      this.accountId = builder.accountId;
-         /**
-          * 账户资产
-          * <p> 示例值：
-          */
-      this.assets = builder.assets;
-         /**
-          * 账号状态
-          * <p> 示例值：1
-          */
-      this.status = builder.status;
-         /**
-          * 账号绑定的内推人信息
-          * <p> 示例值：
-          */
-      this.referrer = builder.referrer;
-  }
-
     public static class Builder {
-     /**
-      * 账户ID
-      * <p> 示例值：6942778198054125570
-      */
+        /**
+         * 账户ID
+         * <p> 示例值：6942778198054125570
+         */
         private String accountId;
-     /**
-      * 账户资产
-      * <p> 示例值：
-      */
+        /**
+         * 账户资产
+         * <p> 示例值：
+         */
         private Assets assets;
-     /**
-      * 账号状态
-      * <p> 示例值：1
-      */
+        /**
+         * 账号状态
+         * <p> 示例值：1
+         */
         private Integer status;
-     /**
-      * 账号绑定的内推人信息
-      * <p> 示例值：
-      */
+        /**
+         * 账号绑定的内推人信息
+         * <p> 示例值：
+         */
         private AccountReferrer referrer;
 
         /**
          * 账户ID
          * <p> 示例值：6942778198054125570
+         *
          * @param accountId
          * @return
          */
         public Builder accountId(String accountId) {
-             this.accountId = accountId;
-             return this;
+            this.accountId = accountId;
+            return this;
         }
 
-    
 
         /**
          * 账户资产
          * <p> 示例值：
+         *
          * @param assets
          * @return
          */
         public Builder assets(Assets assets) {
-             this.assets = assets;
-             return this;
+            this.assets = assets;
+            return this;
         }
 
-    
 
         /**
          * 账号状态
          * <p> 示例值：1
+         *
          * @param status
          * @return
          */
         public Builder status(Integer status) {
-             this.status = status;
-             return this;
+            this.status = status;
+            return this;
         }
 
-    
 
         /**
          * 账号绑定的内推人信息
          * <p> 示例值：
+         *
          * @param referrer
          * @return
          */
         public Builder referrer(AccountReferrer referrer) {
-             this.referrer = referrer;
-             return this;
+            this.referrer = referrer;
+            return this;
         }
 
-    
-    
-    public Account build(){
-        return new Account(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Account build() {
+            return new Account(this);
+        }
     }
 }

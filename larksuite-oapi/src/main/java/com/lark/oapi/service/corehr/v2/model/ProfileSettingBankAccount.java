@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,90 +20,170 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ProfileSettingBankAccount {
-     /**
-      * 国家 / 地区ID
-      * <p> 示例值：6862995757234914824
-      */
+    /**
+     * 国家 / 地区ID
+     * <p> 示例值：6862995757234914824
+     */
     @SerializedName("country_region")
     private String countryRegion;
-     /**
-      * 银行名称
-      * <p> 示例值：中国农业银行
-      */
+    /**
+     * 银行名称
+     * <p> 示例值：中国农业银行
+     */
     @SerializedName("bank_name")
     private String bankName;
-     /**
-      * 支行名称
-      * <p> 示例值：中国农业银行支行
-      */
+    /**
+     * 支行名称
+     * <p> 示例值：中国农业银行支行
+     */
     @SerializedName("branch_name")
     private String branchName;
-     /**
-      * 开户人姓名
-      * <p> 示例值：孟十五
-      */
+    /**
+     * 开户人姓名
+     * <p> 示例值：孟十五
+     */
     @SerializedName("account_holder")
     private String accountHolder;
-     /**
-      * 银行账号
-      * <p> 示例值：6231200000001223
-      */
+    /**
+     * 银行账号
+     * <p> 示例值：6231200000001223
+     */
     @SerializedName("bank_account_number")
     private String bankAccountNumber;
-     /**
-      * 银行卡用途，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "bank_account" custom_api_name = "bank_account_usage"
-      * <p> 示例值：payment
-      */
+    /**
+     * 银行卡用途，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "bank_account" custom_api_name = "bank_account_usage"
+     * <p> 示例值：payment
+     */
     @SerializedName("bank_account_usages")
     private String[] bankAccountUsages;
-     /**
-      * 银行卡类型，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "bank_account" custom_api_name = "bank_account_type"
-      * <p> 示例值：savings
-      */
+    /**
+     * 银行卡类型，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "bank_account" custom_api_name = "bank_account_type"
+     * <p> 示例值：savings
+     */
     @SerializedName("bank_account_type")
     private String bankAccountType;
-     /**
-      * 银行ID
-      * <p> 示例值：6862995757234914832
-      */
+    /**
+     * 银行ID
+     * <p> 示例值：6862995757234914832
+     */
     @SerializedName("bank_id")
     private String bankId;
-     /**
-      * 银行支行ID
-      * <p> 示例值：6862995757234914833
-      */
+    /**
+     * 银行支行ID
+     * <p> 示例值：6862995757234914833
+     */
     @SerializedName("branch_id")
     private String branchId;
-     /**
-      * 分配方式，枚举值
-      * <p> 示例值：percent,balance,amount
-      */
+    /**
+     * 分配方式，枚举值
+     * <p> 示例值：percent,balance,amount
+     */
     @SerializedName("payment_type")
     private String paymentType;
-     /**
-      * 分配比例，0～100，保留两位小数
-      * <p> 示例值：80.28
-      */
+    /**
+     * 分配比例，0～100，保留两位小数
+     * <p> 示例值：80.28
+     */
     @SerializedName("payment_rate")
     private String paymentRate;
-     /**
-      * 分配金额，保留两位小数
-      * <p> 示例值：5000
-      */
+    /**
+     * 分配金额，保留两位小数
+     * <p> 示例值：5000
+     */
     @SerializedName("payment_amount")
     private String paymentAmount;
-     /**
-      * 优先级，不能低于0
-      * <p> 示例值：1
-      */
+    /**
+     * 优先级，不能低于0
+     * <p> 示例值：1
+     */
     @SerializedName("priority")
     private String priority;
+
+    // builder 开始
+    public ProfileSettingBankAccount() {
+    }
+
+    public ProfileSettingBankAccount(Builder builder) {
+        /**
+         * 国家 / 地区ID
+         * <p> 示例值：6862995757234914824
+         */
+        this.countryRegion = builder.countryRegion;
+        /**
+         * 银行名称
+         * <p> 示例值：中国农业银行
+         */
+        this.bankName = builder.bankName;
+        /**
+         * 支行名称
+         * <p> 示例值：中国农业银行支行
+         */
+        this.branchName = builder.branchName;
+        /**
+         * 开户人姓名
+         * <p> 示例值：孟十五
+         */
+        this.accountHolder = builder.accountHolder;
+        /**
+         * 银行账号
+         * <p> 示例值：6231200000001223
+         */
+        this.bankAccountNumber = builder.bankAccountNumber;
+        /**
+         * 银行卡用途，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "bank_account" custom_api_name = "bank_account_usage"
+         * <p> 示例值：payment
+         */
+        this.bankAccountUsages = builder.bankAccountUsages;
+        /**
+         * 银行卡类型，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "bank_account" custom_api_name = "bank_account_type"
+         * <p> 示例值：savings
+         */
+        this.bankAccountType = builder.bankAccountType;
+        /**
+         * 银行ID
+         * <p> 示例值：6862995757234914832
+         */
+        this.bankId = builder.bankId;
+        /**
+         * 银行支行ID
+         * <p> 示例值：6862995757234914833
+         */
+        this.branchId = builder.branchId;
+        /**
+         * 分配方式，枚举值
+         * <p> 示例值：percent,balance,amount
+         */
+        this.paymentType = builder.paymentType;
+        /**
+         * 分配比例，0～100，保留两位小数
+         * <p> 示例值：80.28
+         */
+        this.paymentRate = builder.paymentRate;
+        /**
+         * 分配金额，保留两位小数
+         * <p> 示例值：5000
+         */
+        this.paymentAmount = builder.paymentAmount;
+        /**
+         * 优先级，不能低于0
+         * <p> 示例值：1
+         */
+        this.priority = builder.priority;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getCountryRegion() {
         return this.countryRegion;
     }
@@ -207,330 +288,256 @@ public class ProfileSettingBankAccount {
         this.priority = priority;
     }
 
-
-// builder 开始
-  public ProfileSettingBankAccount(){}
-
-  public ProfileSettingBankAccount(Builder builder){
-         /**
-          * 国家 / 地区ID
-          * <p> 示例值：6862995757234914824
-          */
-      this.countryRegion = builder.countryRegion;
-         /**
-          * 银行名称
-          * <p> 示例值：中国农业银行
-          */
-      this.bankName = builder.bankName;
-         /**
-          * 支行名称
-          * <p> 示例值：中国农业银行支行
-          */
-      this.branchName = builder.branchName;
-         /**
-          * 开户人姓名
-          * <p> 示例值：孟十五
-          */
-      this.accountHolder = builder.accountHolder;
-         /**
-          * 银行账号
-          * <p> 示例值：6231200000001223
-          */
-      this.bankAccountNumber = builder.bankAccountNumber;
-         /**
-          * 银行卡用途，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "bank_account" custom_api_name = "bank_account_usage"
-          * <p> 示例值：payment
-          */
-      this.bankAccountUsages = builder.bankAccountUsages;
-         /**
-          * 银行卡类型，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "bank_account" custom_api_name = "bank_account_type"
-          * <p> 示例值：savings
-          */
-      this.bankAccountType = builder.bankAccountType;
-         /**
-          * 银行ID
-          * <p> 示例值：6862995757234914832
-          */
-      this.bankId = builder.bankId;
-         /**
-          * 银行支行ID
-          * <p> 示例值：6862995757234914833
-          */
-      this.branchId = builder.branchId;
-         /**
-          * 分配方式，枚举值
-          * <p> 示例值：percent,balance,amount
-          */
-      this.paymentType = builder.paymentType;
-         /**
-          * 分配比例，0～100，保留两位小数
-          * <p> 示例值：80.28
-          */
-      this.paymentRate = builder.paymentRate;
-         /**
-          * 分配金额，保留两位小数
-          * <p> 示例值：5000
-          */
-      this.paymentAmount = builder.paymentAmount;
-         /**
-          * 优先级，不能低于0
-          * <p> 示例值：1
-          */
-      this.priority = builder.priority;
-  }
-
     public static class Builder {
-     /**
-      * 国家 / 地区ID
-      * <p> 示例值：6862995757234914824
-      */
+        /**
+         * 国家 / 地区ID
+         * <p> 示例值：6862995757234914824
+         */
         private String countryRegion;
-     /**
-      * 银行名称
-      * <p> 示例值：中国农业银行
-      */
+        /**
+         * 银行名称
+         * <p> 示例值：中国农业银行
+         */
         private String bankName;
-     /**
-      * 支行名称
-      * <p> 示例值：中国农业银行支行
-      */
+        /**
+         * 支行名称
+         * <p> 示例值：中国农业银行支行
+         */
         private String branchName;
-     /**
-      * 开户人姓名
-      * <p> 示例值：孟十五
-      */
+        /**
+         * 开户人姓名
+         * <p> 示例值：孟十五
+         */
         private String accountHolder;
-     /**
-      * 银行账号
-      * <p> 示例值：6231200000001223
-      */
+        /**
+         * 银行账号
+         * <p> 示例值：6231200000001223
+         */
         private String bankAccountNumber;
-     /**
-      * 银行卡用途，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "bank_account" custom_api_name = "bank_account_usage"
-      * <p> 示例值：payment
-      */
+        /**
+         * 银行卡用途，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "bank_account" custom_api_name = "bank_account_usage"
+         * <p> 示例值：payment
+         */
         private String[] bankAccountUsages;
-     /**
-      * 银行卡类型，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "bank_account" custom_api_name = "bank_account_type"
-      * <p> 示例值：savings
-      */
+        /**
+         * 银行卡类型，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "bank_account" custom_api_name = "bank_account_type"
+         * <p> 示例值：savings
+         */
         private String bankAccountType;
-     /**
-      * 银行ID
-      * <p> 示例值：6862995757234914832
-      */
+        /**
+         * 银行ID
+         * <p> 示例值：6862995757234914832
+         */
         private String bankId;
-     /**
-      * 银行支行ID
-      * <p> 示例值：6862995757234914833
-      */
+        /**
+         * 银行支行ID
+         * <p> 示例值：6862995757234914833
+         */
         private String branchId;
-     /**
-      * 分配方式，枚举值
-      * <p> 示例值：percent,balance,amount
-      */
+        /**
+         * 分配方式，枚举值
+         * <p> 示例值：percent,balance,amount
+         */
         private String paymentType;
-     /**
-      * 分配比例，0～100，保留两位小数
-      * <p> 示例值：80.28
-      */
+        /**
+         * 分配比例，0～100，保留两位小数
+         * <p> 示例值：80.28
+         */
         private String paymentRate;
-     /**
-      * 分配金额，保留两位小数
-      * <p> 示例值：5000
-      */
+        /**
+         * 分配金额，保留两位小数
+         * <p> 示例值：5000
+         */
         private String paymentAmount;
-     /**
-      * 优先级，不能低于0
-      * <p> 示例值：1
-      */
+        /**
+         * 优先级，不能低于0
+         * <p> 示例值：1
+         */
         private String priority;
 
         /**
          * 国家 / 地区ID
          * <p> 示例值：6862995757234914824
+         *
          * @param countryRegion
          * @return
          */
         public Builder countryRegion(String countryRegion) {
-             this.countryRegion = countryRegion;
-             return this;
+            this.countryRegion = countryRegion;
+            return this;
         }
 
-    
 
         /**
          * 银行名称
          * <p> 示例值：中国农业银行
+         *
          * @param bankName
          * @return
          */
         public Builder bankName(String bankName) {
-             this.bankName = bankName;
-             return this;
+            this.bankName = bankName;
+            return this;
         }
 
-    
 
         /**
          * 支行名称
          * <p> 示例值：中国农业银行支行
+         *
          * @param branchName
          * @return
          */
         public Builder branchName(String branchName) {
-             this.branchName = branchName;
-             return this;
+            this.branchName = branchName;
+            return this;
         }
 
-    
 
         /**
          * 开户人姓名
          * <p> 示例值：孟十五
+         *
          * @param accountHolder
          * @return
          */
         public Builder accountHolder(String accountHolder) {
-             this.accountHolder = accountHolder;
-             return this;
+            this.accountHolder = accountHolder;
+            return this;
         }
 
-    
 
         /**
          * 银行账号
          * <p> 示例值：6231200000001223
+         *
          * @param bankAccountNumber
          * @return
          */
         public Builder bankAccountNumber(String bankAccountNumber) {
-             this.bankAccountNumber = bankAccountNumber;
-             return this;
+            this.bankAccountNumber = bankAccountNumber;
+            return this;
         }
 
-    
 
         /**
          * 银行卡用途，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "bank_account" custom_api_name = "bank_account_usage"
          * <p> 示例值：payment
+         *
          * @param bankAccountUsages
          * @return
          */
         public Builder bankAccountUsages(String[] bankAccountUsages) {
-             this.bankAccountUsages = bankAccountUsages;
-             return this;
+            this.bankAccountUsages = bankAccountUsages;
+            return this;
         }
 
-    
 
         /**
          * 银行卡类型，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "bank_account" custom_api_name = "bank_account_type"
          * <p> 示例值：savings
+         *
          * @param bankAccountType
          * @return
          */
         public Builder bankAccountType(String bankAccountType) {
-             this.bankAccountType = bankAccountType;
-             return this;
+            this.bankAccountType = bankAccountType;
+            return this;
         }
 
-    
 
         /**
          * 银行ID
          * <p> 示例值：6862995757234914832
+         *
          * @param bankId
          * @return
          */
         public Builder bankId(String bankId) {
-             this.bankId = bankId;
-             return this;
+            this.bankId = bankId;
+            return this;
         }
 
-    
 
         /**
          * 银行支行ID
          * <p> 示例值：6862995757234914833
+         *
          * @param branchId
          * @return
          */
         public Builder branchId(String branchId) {
-             this.branchId = branchId;
-             return this;
+            this.branchId = branchId;
+            return this;
         }
 
-    
 
         /**
          * 分配方式，枚举值
          * <p> 示例值：percent,balance,amount
+         *
          * @param paymentType
          * @return
          */
         public Builder paymentType(String paymentType) {
-             this.paymentType = paymentType;
-             return this;
+            this.paymentType = paymentType;
+            return this;
         }
+
         /**
          * 分配方式，枚举值
          * <p> 示例值：percent,balance,amount
+         *
          * @param paymentType {@link com.lark.oapi.service.corehr.v2.enums.ProfileSettingBankAccountPaymentTypeEnum}
          * @return
          */
         public Builder paymentType(com.lark.oapi.service.corehr.v2.enums.ProfileSettingBankAccountPaymentTypeEnum paymentType) {
-             this.paymentType = paymentType.getValue();
-             return this;
+            this.paymentType = paymentType.getValue();
+            return this;
         }
 
-    
 
         /**
          * 分配比例，0～100，保留两位小数
          * <p> 示例值：80.28
+         *
          * @param paymentRate
          * @return
          */
         public Builder paymentRate(String paymentRate) {
-             this.paymentRate = paymentRate;
-             return this;
+            this.paymentRate = paymentRate;
+            return this;
         }
 
-    
 
         /**
          * 分配金额，保留两位小数
          * <p> 示例值：5000
+         *
          * @param paymentAmount
          * @return
          */
         public Builder paymentAmount(String paymentAmount) {
-             this.paymentAmount = paymentAmount;
-             return this;
+            this.paymentAmount = paymentAmount;
+            return this;
         }
 
-    
 
         /**
          * 优先级，不能低于0
          * <p> 示例值：1
+         *
          * @param priority
          * @return
          */
         public Builder priority(String priority) {
-             this.priority = priority;
-             return this;
+            this.priority = priority;
+            return this;
         }
 
-    
-    
-    public ProfileSettingBankAccount build(){
-        return new ProfileSettingBankAccount(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ProfileSettingBankAccount build() {
+            return new ProfileSettingBankAccount(this);
+        }
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.performance.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.performance.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class UserOkr {
-     /**
-      * 被评估人 ID
-      * <p> 示例值：
-      */
+    /**
+     * 被评估人 ID
+     * <p> 示例值：
+     */
     @SerializedName("reviewee_user_id")
     private User revieweeUserId;
-     /**
-      * OKR快照数据
-      * <p> 示例值：
-      */
+    /**
+     * OKR快照数据
+     * <p> 示例值：
+     */
     @SerializedName("okrs")
     private Okr[] okrs;
+
+    // builder 开始
+    public UserOkr() {
+    }
+
+    public UserOkr(Builder builder) {
+        /**
+         * 被评估人 ID
+         * <p> 示例值：
+         */
+        this.revieweeUserId = builder.revieweeUserId;
+        /**
+         * OKR快照数据
+         * <p> 示例值：
+         */
+        this.okrs = builder.okrs;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public User getRevieweeUserId() {
         return this.revieweeUserId;
     }
@@ -53,67 +79,46 @@ public class UserOkr {
         this.okrs = okrs;
     }
 
-
-// builder 开始
-  public UserOkr(){}
-
-  public UserOkr(Builder builder){
-         /**
-          * 被评估人 ID
-          * <p> 示例值：
-          */
-      this.revieweeUserId = builder.revieweeUserId;
-         /**
-          * OKR快照数据
-          * <p> 示例值：
-          */
-      this.okrs = builder.okrs;
-  }
-
     public static class Builder {
-     /**
-      * 被评估人 ID
-      * <p> 示例值：
-      */
+        /**
+         * 被评估人 ID
+         * <p> 示例值：
+         */
         private User revieweeUserId;
-     /**
-      * OKR快照数据
-      * <p> 示例值：
-      */
+        /**
+         * OKR快照数据
+         * <p> 示例值：
+         */
         private Okr[] okrs;
 
         /**
          * 被评估人 ID
          * <p> 示例值：
+         *
          * @param revieweeUserId
          * @return
          */
         public Builder revieweeUserId(User revieweeUserId) {
-             this.revieweeUserId = revieweeUserId;
-             return this;
+            this.revieweeUserId = revieweeUserId;
+            return this;
         }
 
-    
 
         /**
          * OKR快照数据
          * <p> 示例值：
+         *
          * @param okrs
          * @return
          */
         public Builder okrs(Okr[] okrs) {
-             this.okrs = okrs;
-             return this;
+            this.okrs = okrs;
+            return this;
         }
 
-    
-    
-    public UserOkr build(){
-        return new UserOkr(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public UserOkr build() {
+            return new UserOkr(this);
+        }
     }
 }

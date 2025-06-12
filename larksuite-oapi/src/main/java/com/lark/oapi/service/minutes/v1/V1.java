@@ -17,27 +17,31 @@ import com.lark.oapi.core.Config;
 import com.lark.oapi.service.minutes.v1.resource.*;
 
 public class V1 {
-	private final Minute minute; // minute
-	private final MinuteMedia minuteMedia; // minute.media
-	private final MinuteStatistics minuteStatistics; // minute.statistics
-	private final MinuteTranscript minuteTranscript; // minute.transcript
+    private final Minute minute; // minute
+    private final MinuteMedia minuteMedia; // minute.media
+    private final MinuteStatistics minuteStatistics; // minute.statistics
+    private final MinuteTranscript minuteTranscript; // minute.transcript
 
-	public V1(Config config) {
-		this.minute = new Minute(config);
-		this.minuteMedia = new MinuteMedia(config);
-		this.minuteStatistics = new MinuteStatistics(config);
-		this.minuteTranscript = new MinuteTranscript(config);
-	}
-	public Minute minute() {
-		return minute;
-	}
-	public MinuteMedia minuteMedia() {
-		return minuteMedia;
-	}
-	public MinuteStatistics minuteStatistics() {
-		return minuteStatistics;
-	}
-	public MinuteTranscript minuteTranscript() {
-		return minuteTranscript;
-	}
+    public V1(Config config) {
+        this.minute = new Minute(config);
+        this.minuteMedia = new MinuteMedia(config);
+        this.minuteStatistics = new MinuteStatistics(config);
+        this.minuteTranscript = new MinuteTranscript(config);
+    }
+
+    public Minute minute() {
+        return minute;
+    }
+
+    public MinuteMedia minuteMedia() {
+        return minuteMedia;
+    }
+
+    public MinuteStatistics minuteStatistics() {
+        return minuteStatistics;
+    }
+
+    public MinuteTranscript minuteTranscript() {
+        return minuteTranscript;
+    }
 }

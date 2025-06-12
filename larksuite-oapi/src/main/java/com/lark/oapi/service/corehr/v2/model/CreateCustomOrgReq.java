@@ -12,32 +12,61 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CreateCustomOrgReq {
-     /**
-      * 根据client_token是否一致来判断是否为同一请求
-      * <p> 示例值：1245464678
-      */
+    /**
+     * 根据client_token是否一致来判断是否为同一请求
+     * <p> 示例值：1245464678
+     */
     @Query
     @SerializedName("client_token")
     private String clientToken;
-     /**
-      * 用户 ID 类型
-      * <p> 示例值：people_corehr_id
-      */
+    /**
+     * 用户 ID 类型
+     * <p> 示例值：people_corehr_id
+     */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
+    @Body
+    private CustomOrgCreate body;
+
+    // builder 开始
+    public CreateCustomOrgReq() {
+    }
+
+    public CreateCustomOrgReq(Builder builder) {
+        /**
+         * 根据client_token是否一致来判断是否为同一请求
+         * <p> 示例值：1245464678
+         */
+        this.clientToken = builder.clientToken;
+        /**
+         * 用户 ID 类型
+         * <p> 示例值：people_corehr_id
+         */
+        this.userIdType = builder.userIdType;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getClientToken() {
         return this.clientToken;
     }
@@ -54,9 +83,6 @@ public class CreateCustomOrgReq {
         this.userIdType = userIdType;
     }
 
-    @Body
-    private CustomOrgCreate body;
-
     public CustomOrgCreate getCustomOrgCreate() {
         return this.body;
     }
@@ -65,83 +91,64 @@ public class CreateCustomOrgReq {
         this.body = body;
     }
 
-// builder 开始
-  public CreateCustomOrgReq(){}
-
-  public CreateCustomOrgReq(Builder builder){
-         /**
-          * 根据client_token是否一致来判断是否为同一请求
-          * <p> 示例值：1245464678
-          */
-       this.clientToken = builder.clientToken;
-         /**
-          * 用户 ID 类型
-          * <p> 示例值：people_corehr_id
-          */
-       this.userIdType = builder.userIdType;
-        this.body = builder.body;
-  }
-
     public static class Builder {
         private String clientToken; // 根据client_token是否一致来判断是否为同一请求
         private String userIdType; // 用户 ID 类型
-    
+        private CustomOrgCreate body;
+
         /**
          * 根据client_token是否一致来判断是否为同一请求
          * <p> 示例值：1245464678
+         *
          * @param clientToken
          * @return
          */
-           public Builder clientToken(String clientToken) {
-                this.clientToken = clientToken;
-                return this;
-           }
+        public Builder clientToken(String clientToken) {
+            this.clientToken = clientToken;
+            return this;
+        }
 
-    
         /**
          * 用户 ID 类型
          * <p> 示例值：people_corehr_id
+         *
          * @param userIdType
          * @return
          */
-           public Builder userIdType(String userIdType) {
-                this.userIdType = userIdType;
-                return this;
-           }
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
 
         /**
          * 用户 ID 类型
          * <p> 示例值：people_corehr_id
+         *
          * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.CreateCustomOrgUserIdTypeEnum}
          * @return
          */
-          public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.CreateCustomOrgUserIdTypeEnum userIdType) {
-               this.userIdType = userIdType.getValue();
-               return this;
-          }
+        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.CreateCustomOrgUserIdTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
+            return this;
+        }
 
-    
-        private CustomOrgCreate body;
-    
         public CustomOrgCreate getCustomOrgCreate() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder customOrgCreate(CustomOrgCreate body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public CreateCustomOrgReq build(){
-        return new CreateCustomOrgReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public CreateCustomOrgReq build() {
+            return new CreateCustomOrgReq(this);
+        }
     }
 }

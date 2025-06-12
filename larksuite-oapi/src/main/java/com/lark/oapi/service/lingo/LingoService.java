@@ -31,28 +31,34 @@ public class LingoService {
     private final Repo repo; // repo
 
     public LingoService(Config config) {
-    this.v1 = new V1(config);
-    this.classification = new Classification(config);
-    this.draft = new Draft(config);
-    this.entity = new Entity(config);
-    this.file = new File(config);
-    this.repo = new Repo(config);
+        this.v1 = new V1(config);
+        this.classification = new Classification(config);
+        this.draft = new Draft(config);
+        this.entity = new Entity(config);
+        this.file = new File(config);
+        this.repo = new Repo(config);
     }
+
     public V1 v1() {
         return v1;
     }
+
     public Classification classification() {
         return classification;
     }
+
     public Draft draft() {
         return draft;
     }
+
     public Entity entity() {
         return entity;
     }
+
     public File file() {
         return file;
     }
+
     public Repo repo() {
         return repo;
     }

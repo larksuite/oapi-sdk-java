@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class RevokeOffboardingReqBody {
-     /**
-      * 离职记录 ID
-      * <p> 示例值：7095671727698478604
-      */
+    /**
+     * 离职记录 ID
+     * <p> 示例值：7095671727698478604
+     */
     @SerializedName("offboarding_id")
     private String offboardingId;
-     /**
-      * 操作人雇佣 ID（employment_id），为空默认为系统操作。
-      * <p> 示例值：6982509313466189341
-      */
+    /**
+     * 操作人雇佣 ID（employment_id），为空默认为系统操作。
+     * <p> 示例值：6982509313466189341
+     */
     @SerializedName("operator_id")
     private String operatorId;
+
+    // builder 开始
+    public RevokeOffboardingReqBody() {
+    }
+
+    public RevokeOffboardingReqBody(Builder builder) {
+        /**
+         * 离职记录 ID
+         * <p> 示例值：7095671727698478604
+         */
+        this.offboardingId = builder.offboardingId;
+        /**
+         * 操作人雇佣 ID（employment_id），为空默认为系统操作。
+         * <p> 示例值：6982509313466189341
+         */
+        this.operatorId = builder.operatorId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getOffboardingId() {
         return this.offboardingId;
     }
@@ -53,67 +79,46 @@ public class RevokeOffboardingReqBody {
         this.operatorId = operatorId;
     }
 
-
-// builder 开始
-  public RevokeOffboardingReqBody(){}
-
-  public RevokeOffboardingReqBody(Builder builder){
-         /**
-          * 离职记录 ID
-          * <p> 示例值：7095671727698478604
-          */
-      this.offboardingId = builder.offboardingId;
-         /**
-          * 操作人雇佣 ID（employment_id），为空默认为系统操作。
-          * <p> 示例值：6982509313466189341
-          */
-      this.operatorId = builder.operatorId;
-  }
-
     public static class Builder {
-     /**
-      * 离职记录 ID
-      * <p> 示例值：7095671727698478604
-      */
+        /**
+         * 离职记录 ID
+         * <p> 示例值：7095671727698478604
+         */
         private String offboardingId;
-     /**
-      * 操作人雇佣 ID（employment_id），为空默认为系统操作。
-      * <p> 示例值：6982509313466189341
-      */
+        /**
+         * 操作人雇佣 ID（employment_id），为空默认为系统操作。
+         * <p> 示例值：6982509313466189341
+         */
         private String operatorId;
 
         /**
          * 离职记录 ID
          * <p> 示例值：7095671727698478604
+         *
          * @param offboardingId
          * @return
          */
         public Builder offboardingId(String offboardingId) {
-             this.offboardingId = offboardingId;
-             return this;
+            this.offboardingId = offboardingId;
+            return this;
         }
 
-    
 
         /**
          * 操作人雇佣 ID（employment_id），为空默认为系统操作。
          * <p> 示例值：6982509313466189341
+         *
          * @param operatorId
          * @return
          */
         public Builder operatorId(String operatorId) {
-             this.operatorId = operatorId;
-             return this;
+            this.operatorId = operatorId;
+            return this;
         }
 
-    
-    
-    public RevokeOffboardingReqBody build(){
-        return new RevokeOffboardingReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public RevokeOffboardingReqBody build() {
+            return new RevokeOffboardingReqBody(this);
+        }
     }
 }

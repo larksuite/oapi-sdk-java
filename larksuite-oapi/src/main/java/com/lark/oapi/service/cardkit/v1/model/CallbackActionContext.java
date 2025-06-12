@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.cardkit.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.cardkit.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CallbackActionContext {
-     /**
-      * 卡片所在的消息 ID
-      * <p> 示例值：om_574d639e4a44e4dd646eaf628e2*****
-      */
+    /**
+     * 卡片所在的消息 ID
+     * <p> 示例值：om_574d639e4a44e4dd646eaf628e2*****
+     */
     @SerializedName("open_message_id")
     private String openMessageId;
-     /**
-      * 卡片所在的会话 ID
-      * <p> 示例值：oc_e4d2605ca917e695f54f11aaf56*****
-      */
+    /**
+     * 卡片所在的会话 ID
+     * <p> 示例值：oc_e4d2605ca917e695f54f11aaf56*****
+     */
     @SerializedName("open_chat_id")
     private String openChatId;
+
+    // builder 开始
+    public CallbackActionContext() {
+    }
+
+    public CallbackActionContext(Builder builder) {
+        /**
+         * 卡片所在的消息 ID
+         * <p> 示例值：om_574d639e4a44e4dd646eaf628e2*****
+         */
+        this.openMessageId = builder.openMessageId;
+        /**
+         * 卡片所在的会话 ID
+         * <p> 示例值：oc_e4d2605ca917e695f54f11aaf56*****
+         */
+        this.openChatId = builder.openChatId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getOpenMessageId() {
         return this.openMessageId;
     }
@@ -53,67 +79,46 @@ public class CallbackActionContext {
         this.openChatId = openChatId;
     }
 
-
-// builder 开始
-  public CallbackActionContext(){}
-
-  public CallbackActionContext(Builder builder){
-         /**
-          * 卡片所在的消息 ID
-          * <p> 示例值：om_574d639e4a44e4dd646eaf628e2*****
-          */
-      this.openMessageId = builder.openMessageId;
-         /**
-          * 卡片所在的会话 ID
-          * <p> 示例值：oc_e4d2605ca917e695f54f11aaf56*****
-          */
-      this.openChatId = builder.openChatId;
-  }
-
     public static class Builder {
-     /**
-      * 卡片所在的消息 ID
-      * <p> 示例值：om_574d639e4a44e4dd646eaf628e2*****
-      */
+        /**
+         * 卡片所在的消息 ID
+         * <p> 示例值：om_574d639e4a44e4dd646eaf628e2*****
+         */
         private String openMessageId;
-     /**
-      * 卡片所在的会话 ID
-      * <p> 示例值：oc_e4d2605ca917e695f54f11aaf56*****
-      */
+        /**
+         * 卡片所在的会话 ID
+         * <p> 示例值：oc_e4d2605ca917e695f54f11aaf56*****
+         */
         private String openChatId;
 
         /**
          * 卡片所在的消息 ID
          * <p> 示例值：om_574d639e4a44e4dd646eaf628e2*****
+         *
          * @param openMessageId
          * @return
          */
         public Builder openMessageId(String openMessageId) {
-             this.openMessageId = openMessageId;
-             return this;
+            this.openMessageId = openMessageId;
+            return this;
         }
 
-    
 
         /**
          * 卡片所在的会话 ID
          * <p> 示例值：oc_e4d2605ca917e695f54f11aaf56*****
+         *
          * @param openChatId
          * @return
          */
         public Builder openChatId(String openChatId) {
-             this.openChatId = openChatId;
-             return this;
+            this.openChatId = openChatId;
+            return this;
         }
 
-    
-    
-    public CallbackActionContext build(){
-        return new CallbackActionContext(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public CallbackActionContext build() {
+            return new CallbackActionContext(this);
+        }
     }
 }

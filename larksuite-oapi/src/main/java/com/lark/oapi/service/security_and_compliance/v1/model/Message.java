@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.security_and_compliance.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.security_and_compliance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,54 +20,104 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Message {
-     /**
-      * 消息ID(open_message_id)
-      * <p> 示例值：om_xxx
-      */
+    /**
+     * 消息ID(open_message_id)
+     * <p> 示例值：om_xxx
+     */
     @SerializedName("open_message_id")
     private String openMessageId;
-     /**
-      * 文本内容
-      * <p> 示例值：聊天记录
-      */
+    /**
+     * 文本内容
+     * <p> 示例值：聊天记录
+     */
     @SerializedName("text")
     private String text;
-     /**
-      * 会话ID(open_chat_id)
-      * <p> 示例值：oc_xxx
-      */
+    /**
+     * 会话ID(open_chat_id)
+     * <p> 示例值：oc_xxx
+     */
     @SerializedName("open_chat_id")
     private String openChatId;
-     /**
-      * 会话名称
-      * <p> 示例值：xx与xx的聊天
-      */
+    /**
+     * 会话名称
+     * <p> 示例值：xx与xx的聊天
+     */
     @SerializedName("chat_name")
     private String chatName;
-     /**
-      * 会话类型
-      * <p> 示例值：1
-      */
+    /**
+     * 会话类型
+     * <p> 示例值：1
+     */
     @SerializedName("chat_type")
     private Integer chatType;
-     /**
-      * 消息发送人
-      * <p> 示例值：
-      */
+    /**
+     * 消息发送人
+     * <p> 示例值：
+     */
     @SerializedName("owner")
     private User owner;
-     /**
-      * 创建时间(秒级时间戳)
-      * <p> 示例值：
-      */
+    /**
+     * 创建时间(秒级时间戳)
+     * <p> 示例值：
+     */
     @SerializedName("create_time")
     private String createTime;
+
+    // builder 开始
+    public Message() {
+    }
+
+    public Message(Builder builder) {
+        /**
+         * 消息ID(open_message_id)
+         * <p> 示例值：om_xxx
+         */
+        this.openMessageId = builder.openMessageId;
+        /**
+         * 文本内容
+         * <p> 示例值：聊天记录
+         */
+        this.text = builder.text;
+        /**
+         * 会话ID(open_chat_id)
+         * <p> 示例值：oc_xxx
+         */
+        this.openChatId = builder.openChatId;
+        /**
+         * 会话名称
+         * <p> 示例值：xx与xx的聊天
+         */
+        this.chatName = builder.chatName;
+        /**
+         * 会话类型
+         * <p> 示例值：1
+         */
+        this.chatType = builder.chatType;
+        /**
+         * 消息发送人
+         * <p> 示例值：
+         */
+        this.owner = builder.owner;
+        /**
+         * 创建时间(秒级时间戳)
+         * <p> 示例值：
+         */
+        this.createTime = builder.createTime;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getOpenMessageId() {
         return this.openMessageId;
     }
@@ -123,192 +174,148 @@ public class Message {
         this.createTime = createTime;
     }
 
-
-// builder 开始
-  public Message(){}
-
-  public Message(Builder builder){
-         /**
-          * 消息ID(open_message_id)
-          * <p> 示例值：om_xxx
-          */
-      this.openMessageId = builder.openMessageId;
-         /**
-          * 文本内容
-          * <p> 示例值：聊天记录
-          */
-      this.text = builder.text;
-         /**
-          * 会话ID(open_chat_id)
-          * <p> 示例值：oc_xxx
-          */
-      this.openChatId = builder.openChatId;
-         /**
-          * 会话名称
-          * <p> 示例值：xx与xx的聊天
-          */
-      this.chatName = builder.chatName;
-         /**
-          * 会话类型
-          * <p> 示例值：1
-          */
-      this.chatType = builder.chatType;
-         /**
-          * 消息发送人
-          * <p> 示例值：
-          */
-      this.owner = builder.owner;
-         /**
-          * 创建时间(秒级时间戳)
-          * <p> 示例值：
-          */
-      this.createTime = builder.createTime;
-  }
-
     public static class Builder {
-     /**
-      * 消息ID(open_message_id)
-      * <p> 示例值：om_xxx
-      */
+        /**
+         * 消息ID(open_message_id)
+         * <p> 示例值：om_xxx
+         */
         private String openMessageId;
-     /**
-      * 文本内容
-      * <p> 示例值：聊天记录
-      */
+        /**
+         * 文本内容
+         * <p> 示例值：聊天记录
+         */
         private String text;
-     /**
-      * 会话ID(open_chat_id)
-      * <p> 示例值：oc_xxx
-      */
+        /**
+         * 会话ID(open_chat_id)
+         * <p> 示例值：oc_xxx
+         */
         private String openChatId;
-     /**
-      * 会话名称
-      * <p> 示例值：xx与xx的聊天
-      */
+        /**
+         * 会话名称
+         * <p> 示例值：xx与xx的聊天
+         */
         private String chatName;
-     /**
-      * 会话类型
-      * <p> 示例值：1
-      */
+        /**
+         * 会话类型
+         * <p> 示例值：1
+         */
         private Integer chatType;
-     /**
-      * 消息发送人
-      * <p> 示例值：
-      */
+        /**
+         * 消息发送人
+         * <p> 示例值：
+         */
         private User owner;
-     /**
-      * 创建时间(秒级时间戳)
-      * <p> 示例值：
-      */
+        /**
+         * 创建时间(秒级时间戳)
+         * <p> 示例值：
+         */
         private String createTime;
 
         /**
          * 消息ID(open_message_id)
          * <p> 示例值：om_xxx
+         *
          * @param openMessageId
          * @return
          */
         public Builder openMessageId(String openMessageId) {
-             this.openMessageId = openMessageId;
-             return this;
+            this.openMessageId = openMessageId;
+            return this;
         }
 
-    
 
         /**
          * 文本内容
          * <p> 示例值：聊天记录
+         *
          * @param text
          * @return
          */
         public Builder text(String text) {
-             this.text = text;
-             return this;
+            this.text = text;
+            return this;
         }
 
-    
 
         /**
          * 会话ID(open_chat_id)
          * <p> 示例值：oc_xxx
+         *
          * @param openChatId
          * @return
          */
         public Builder openChatId(String openChatId) {
-             this.openChatId = openChatId;
-             return this;
+            this.openChatId = openChatId;
+            return this;
         }
 
-    
 
         /**
          * 会话名称
          * <p> 示例值：xx与xx的聊天
+         *
          * @param chatName
          * @return
          */
         public Builder chatName(String chatName) {
-             this.chatName = chatName;
-             return this;
+            this.chatName = chatName;
+            return this;
         }
 
-    
 
         /**
          * 会话类型
          * <p> 示例值：1
+         *
          * @param chatType
          * @return
          */
         public Builder chatType(Integer chatType) {
-             this.chatType = chatType;
-             return this;
+            this.chatType = chatType;
+            return this;
         }
+
         /**
          * 会话类型
          * <p> 示例值：1
+         *
          * @param chatType {@link com.lark.oapi.service.security_and_compliance.v1.enums.MessageIMChatTypeEnum}
          * @return
          */
         public Builder chatType(com.lark.oapi.service.security_and_compliance.v1.enums.MessageIMChatTypeEnum chatType) {
-             this.chatType = chatType.getValue();
-             return this;
+            this.chatType = chatType.getValue();
+            return this;
         }
 
-    
 
         /**
          * 消息发送人
          * <p> 示例值：
+         *
          * @param owner
          * @return
          */
         public Builder owner(User owner) {
-             this.owner = owner;
-             return this;
+            this.owner = owner;
+            return this;
         }
 
-    
 
         /**
          * 创建时间(秒级时间戳)
          * <p> 示例值：
+         *
          * @param createTime
          * @return
          */
         public Builder createTime(String createTime) {
-             this.createTime = createTime;
-             return this;
+            this.createTime = createTime;
+            return this;
         }
 
-    
-    
-    public Message build(){
-        return new Message(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Message build() {
+            return new Message(this);
+        }
     }
 }

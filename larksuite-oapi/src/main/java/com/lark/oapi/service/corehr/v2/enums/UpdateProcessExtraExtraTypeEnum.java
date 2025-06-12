@@ -17,16 +17,17 @@ package com.lark.oapi.service.corehr.v2.enums;
  * 加签方式
  */
 public enum UpdateProcessExtraExtraTypeEnum {
-     PREEXTRA(0), // 前加签
-     CURRENTEXTRA(1), // 并加签
-     POSTEXTRA(2), // 后加签
-  ;
-   private Integer value;
+    PREEXTRA(0), // 前加签
+    CURRENTEXTRA(1), // 并加签
+    POSTEXTRA(2), // 后加签
+    ;
+    private Integer value;
+
     UpdateProcessExtraExtraTypeEnum(Integer value) {
-      this.value = value;
+        this.value = value;
     }
 
     public Integer getValue() {
-      return this.value;
+        return this.value;
     }
 }

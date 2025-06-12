@@ -17,15 +17,16 @@ package com.lark.oapi.service.aily.v1.enums;
  * session 状态
  */
 public enum SessionSessionStatusEnum {
-     VALID("VALID"), // 有效
-     INVALID("INVALID"), // 无效
-  ;
-   private String value;
+    VALID("VALID"), // 有效
+    INVALID("INVALID"), // 无效
+    ;
+    private String value;
+
     SessionSessionStatusEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

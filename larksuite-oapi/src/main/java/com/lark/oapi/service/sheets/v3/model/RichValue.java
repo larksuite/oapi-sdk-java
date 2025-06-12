@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.sheets.v3.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.sheets.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class RichValue {
-     /**
-      * 数据，数据结构参见[单元格数据结构](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-value/cell-data-structure)
-      * <p> 示例值：数据
-      */
+    /**
+     * 数据，数据结构参见[单元格数据结构](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-value/cell-data-structure)
+     * <p> 示例值：数据
+     */
     @SerializedName("values")
     private CellValue[][][] values;
+
+    // builder 开始
+    public RichValue() {
+    }
+
+    public RichValue(Builder builder) {
+        /**
+         * 数据，数据结构参见[单元格数据结构](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-value/cell-data-structure)
+         * <p> 示例值：数据
+         */
+        this.values = builder.values;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public CellValue[][][] getValues() {
         return this.values;
     }
@@ -39,44 +60,28 @@ public class RichValue {
         this.values = values;
     }
 
-
-// builder 开始
-  public RichValue(){}
-
-  public RichValue(Builder builder){
-         /**
-          * 数据，数据结构参见[单元格数据结构](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-value/cell-data-structure)
-          * <p> 示例值：数据
-          */
-      this.values = builder.values;
-  }
-
     public static class Builder {
-     /**
-      * 数据，数据结构参见[单元格数据结构](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-value/cell-data-structure)
-      * <p> 示例值：数据
-      */
+        /**
+         * 数据，数据结构参见[单元格数据结构](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-value/cell-data-structure)
+         * <p> 示例值：数据
+         */
         private CellValue[][][] values;
 
         /**
          * 数据，数据结构参见[单元格数据结构](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-value/cell-data-structure)
          * <p> 示例值：数据
+         *
          * @param values
          * @return
          */
         public Builder values(CellValue[][][] values) {
-             this.values = values;
-             return this;
+            this.values = values;
+            return this;
         }
 
-    
-    
-    public RichValue build(){
-        return new RichValue(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public RichValue build() {
+            return new RichValue(this);
+        }
     }
 }

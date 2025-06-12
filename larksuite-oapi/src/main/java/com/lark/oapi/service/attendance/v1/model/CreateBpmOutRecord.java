@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,36 +20,71 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CreateBpmOutRecord {
-     /**
-      * 发起外出审批的用户ID
-      * <p> 示例值：
-      */
+    /**
+     * 发起外出审批的用户ID
+     * <p> 示例值：
+     */
     @SerializedName("user_id")
     private String userId;
-     /**
-      * 外出数据
-      * <p> 示例值：
-      */
+    /**
+     * 外出数据
+     * <p> 示例值：
+     */
     @SerializedName("out_record")
     private OutRecord outRecord;
-     /**
-      * 外出事由
-      * <p> 示例值：临时外出
-      */
+    /**
+     * 外出事由
+     * <p> 示例值：临时外出
+     */
     @SerializedName("out_reason")
     private String outReason;
-     /**
-      * json string，BPM流程中自定义新增控件
-      * <p> 示例值："{\"attachments\":{\"null_value\":{}}}"
-      */
+    /**
+     * json string，BPM流程中自定义新增控件
+     * <p> 示例值："{\"attachments\":{\"null_value\":{}}}"
+     */
     @SerializedName("custom_form_data")
     private String customFormData;
+
+    // builder 开始
+    public CreateBpmOutRecord() {
+    }
+
+    public CreateBpmOutRecord(Builder builder) {
+        /**
+         * 发起外出审批的用户ID
+         * <p> 示例值：
+         */
+        this.userId = builder.userId;
+        /**
+         * 外出数据
+         * <p> 示例值：
+         */
+        this.outRecord = builder.outRecord;
+        /**
+         * 外出事由
+         * <p> 示例值：临时外出
+         */
+        this.outReason = builder.outReason;
+        /**
+         * json string，BPM流程中自定义新增控件
+         * <p> 示例值："{\"attachments\":{\"null_value\":{}}}"
+         */
+        this.customFormData = builder.customFormData;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getUserId() {
         return this.userId;
     }
@@ -81,113 +117,82 @@ public class CreateBpmOutRecord {
         this.customFormData = customFormData;
     }
 
-
-// builder 开始
-  public CreateBpmOutRecord(){}
-
-  public CreateBpmOutRecord(Builder builder){
-         /**
-          * 发起外出审批的用户ID
-          * <p> 示例值：
-          */
-      this.userId = builder.userId;
-         /**
-          * 外出数据
-          * <p> 示例值：
-          */
-      this.outRecord = builder.outRecord;
-         /**
-          * 外出事由
-          * <p> 示例值：临时外出
-          */
-      this.outReason = builder.outReason;
-         /**
-          * json string，BPM流程中自定义新增控件
-          * <p> 示例值："{\"attachments\":{\"null_value\":{}}}"
-          */
-      this.customFormData = builder.customFormData;
-  }
-
     public static class Builder {
-     /**
-      * 发起外出审批的用户ID
-      * <p> 示例值：
-      */
+        /**
+         * 发起外出审批的用户ID
+         * <p> 示例值：
+         */
         private String userId;
-     /**
-      * 外出数据
-      * <p> 示例值：
-      */
+        /**
+         * 外出数据
+         * <p> 示例值：
+         */
         private OutRecord outRecord;
-     /**
-      * 外出事由
-      * <p> 示例值：临时外出
-      */
+        /**
+         * 外出事由
+         * <p> 示例值：临时外出
+         */
         private String outReason;
-     /**
-      * json string，BPM流程中自定义新增控件
-      * <p> 示例值："{\"attachments\":{\"null_value\":{}}}"
-      */
+        /**
+         * json string，BPM流程中自定义新增控件
+         * <p> 示例值："{\"attachments\":{\"null_value\":{}}}"
+         */
         private String customFormData;
 
         /**
          * 发起外出审批的用户ID
          * <p> 示例值：
+         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-             this.userId = userId;
-             return this;
+            this.userId = userId;
+            return this;
         }
 
-    
 
         /**
          * 外出数据
          * <p> 示例值：
+         *
          * @param outRecord
          * @return
          */
         public Builder outRecord(OutRecord outRecord) {
-             this.outRecord = outRecord;
-             return this;
+            this.outRecord = outRecord;
+            return this;
         }
 
-    
 
         /**
          * 外出事由
          * <p> 示例值：临时外出
+         *
          * @param outReason
          * @return
          */
         public Builder outReason(String outReason) {
-             this.outReason = outReason;
-             return this;
+            this.outReason = outReason;
+            return this;
         }
 
-    
 
         /**
          * json string，BPM流程中自定义新增控件
          * <p> 示例值："{\"attachments\":{\"null_value\":{}}}"
+         *
          * @param customFormData
          * @return
          */
         public Builder customFormData(String customFormData) {
-             this.customFormData = customFormData;
-             return this;
+            this.customFormData = customFormData;
+            return this;
         }
 
-    
-    
-    public CreateBpmOutRecord build(){
-        return new CreateBpmOutRecord(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public CreateBpmOutRecord build() {
+            return new CreateBpmOutRecord(this);
+        }
     }
 }

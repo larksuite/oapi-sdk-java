@@ -12,25 +12,46 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class GetCompanyReq {
-     /**
-      * 公司 ID
-      * <p> 示例值：151515
-      */
+    /**
+     * 公司 ID
+     * <p> 示例值：151515
+     */
     @Path
     @SerializedName("company_id")
     private String companyId;
+
+    // builder 开始
+    public GetCompanyReq() {
+    }
+
+    public GetCompanyReq(Builder builder) {
+        /**
+         * 公司 ID
+         * <p> 示例值：151515
+         */
+        this.companyId = builder.companyId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getCompanyId() {
         return this.companyId;
     }
@@ -39,39 +60,25 @@ public class GetCompanyReq {
         this.companyId = companyId;
     }
 
-
-// builder 开始
-  public GetCompanyReq(){}
-
-  public GetCompanyReq(Builder builder){
-     /**
-      * 公司 ID
-      * <p> 示例值：151515
-      */
-       this.companyId = builder.companyId;
-  }
-
     public static class Builder {
-    
+
         private String companyId; // 公司 ID
+
         /**
          * 公司 ID
          * <p> 示例值：151515
+         *
          * @param companyId
          * @return
          */
-          public Builder companyId(String companyId) {
-               this.companyId = companyId;
-               return this;
-          }
+        public Builder companyId(String companyId) {
+            this.companyId = companyId;
+            return this;
+        }
 
-    
-    public GetCompanyReq build(){
-        return new GetCompanyReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public GetCompanyReq build() {
+            return new GetCompanyReq(this);
+        }
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.contact.v3.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class DepartmentStatus {
-     /**
-      * 是否被删除
-      * <p> 示例值：false
-      */
+    /**
+     * 是否被删除
+     * <p> 示例值：false
+     */
     @SerializedName("is_deleted")
     private Boolean isDeleted;
+
+    // builder 开始
+    public DepartmentStatus() {
+    }
+
+    public DepartmentStatus(Builder builder) {
+        /**
+         * 是否被删除
+         * <p> 示例值：false
+         */
+        this.isDeleted = builder.isDeleted;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Boolean getIsDeleted() {
         return this.isDeleted;
     }
@@ -39,44 +60,28 @@ public class DepartmentStatus {
         this.isDeleted = isDeleted;
     }
 
-
-// builder 开始
-  public DepartmentStatus(){}
-
-  public DepartmentStatus(Builder builder){
-         /**
-          * 是否被删除
-          * <p> 示例值：false
-          */
-      this.isDeleted = builder.isDeleted;
-  }
-
     public static class Builder {
-     /**
-      * 是否被删除
-      * <p> 示例值：false
-      */
+        /**
+         * 是否被删除
+         * <p> 示例值：false
+         */
         private Boolean isDeleted;
 
         /**
          * 是否被删除
          * <p> 示例值：false
+         *
          * @param isDeleted
          * @return
          */
         public Builder isDeleted(Boolean isDeleted) {
-             this.isDeleted = isDeleted;
-             return this;
+            this.isDeleted = isDeleted;
+            return this;
         }
 
-    
-    
-    public DepartmentStatus build(){
-        return new DepartmentStatus(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public DepartmentStatus build() {
+            return new DepartmentStatus(this);
+        }
     }
 }

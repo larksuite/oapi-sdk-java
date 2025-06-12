@@ -22,6 +22,7 @@ public class CreateApplicationSample {
                         .userId("6930815272790114324")
                         .resumeSourceId("7115289562569591070")
                         .applicationPreferredCityCodeList(new String[]{})
+                        .deliveryType(1)
                         .build())
                 .build();
 

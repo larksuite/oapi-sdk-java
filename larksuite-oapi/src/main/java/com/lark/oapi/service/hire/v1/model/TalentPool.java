@@ -12,60 +12,111 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class TalentPool {
-     /**
-      * 人才库ID
-      * <p> 示例值：6930815272790114324
-      */
+    /**
+     * 人才库ID
+     * <p> 示例值：6930815272790114324
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 人才库名称
-      * <p> 示例值：
-      */
+    /**
+     * 人才库名称
+     * <p> 示例值：
+     */
     @SerializedName("i18n_name")
     private I18n i18nName;
-     /**
-      * 人才库描述
-      * <p> 示例值：
-      */
+    /**
+     * 人才库描述
+     * <p> 示例值：
+     */
     @SerializedName("i18n_description")
     private I18n i18nDescription;
-     /**
-      * 父级人才库ID
-      * <p> 示例值：6930815272790114324
-      */
+    /**
+     * 父级人才库ID
+     * <p> 示例值：6930815272790114324
+     */
     @SerializedName("parent_id")
     private String parentId;
-     /**
-      * 是否「仅部分用户可见」
-      * <p> 示例值：1
-      */
+    /**
+     * 是否「仅部分用户可见」
+     * <p> 示例值：1
+     */
     @SerializedName("is_private")
     private Integer isPrivate;
-     /**
-      * 创建时间，毫秒时间戳
-      * <p> 示例值：1679300424000
-      */
+    /**
+     * 创建时间，毫秒时间戳
+     * <p> 示例值：1679300424000
+     */
     @SerializedName("create_time")
     private String createTime;
-     /**
-      * 修改时间，毫秒时间戳
-      * <p> 示例值：1679300424000
-      */
+    /**
+     * 修改时间，毫秒时间戳
+     * <p> 示例值：1679300424000
+     */
     @SerializedName("modify_time")
     private String modifyTime;
+
+    // builder 开始
+    public TalentPool() {
+    }
+
+    public TalentPool(Builder builder) {
+        /**
+         * 人才库ID
+         * <p> 示例值：6930815272790114324
+         */
+        this.id = builder.id;
+        /**
+         * 人才库名称
+         * <p> 示例值：
+         */
+        this.i18nName = builder.i18nName;
+        /**
+         * 人才库描述
+         * <p> 示例值：
+         */
+        this.i18nDescription = builder.i18nDescription;
+        /**
+         * 父级人才库ID
+         * <p> 示例值：6930815272790114324
+         */
+        this.parentId = builder.parentId;
+        /**
+         * 是否「仅部分用户可见」
+         * <p> 示例值：1
+         */
+        this.isPrivate = builder.isPrivate;
+        /**
+         * 创建时间，毫秒时间戳
+         * <p> 示例值：1679300424000
+         */
+        this.createTime = builder.createTime;
+        /**
+         * 修改时间，毫秒时间戳
+         * <p> 示例值：1679300424000
+         */
+        this.modifyTime = builder.modifyTime;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -122,182 +173,136 @@ public class TalentPool {
         this.modifyTime = modifyTime;
     }
 
-
-// builder 开始
-  public TalentPool(){}
-
-  public TalentPool(Builder builder){
-         /**
-          * 人才库ID
-          * <p> 示例值：6930815272790114324
-          */
-      this.id = builder.id;
-         /**
-          * 人才库名称
-          * <p> 示例值：
-          */
-      this.i18nName = builder.i18nName;
-         /**
-          * 人才库描述
-          * <p> 示例值：
-          */
-      this.i18nDescription = builder.i18nDescription;
-         /**
-          * 父级人才库ID
-          * <p> 示例值：6930815272790114324
-          */
-      this.parentId = builder.parentId;
-         /**
-          * 是否「仅部分用户可见」
-          * <p> 示例值：1
-          */
-      this.isPrivate = builder.isPrivate;
-         /**
-          * 创建时间，毫秒时间戳
-          * <p> 示例值：1679300424000
-          */
-      this.createTime = builder.createTime;
-         /**
-          * 修改时间，毫秒时间戳
-          * <p> 示例值：1679300424000
-          */
-      this.modifyTime = builder.modifyTime;
-  }
-
     public static class Builder {
-     /**
-      * 人才库ID
-      * <p> 示例值：6930815272790114324
-      */
+        /**
+         * 人才库ID
+         * <p> 示例值：6930815272790114324
+         */
         private String id;
-     /**
-      * 人才库名称
-      * <p> 示例值：
-      */
+        /**
+         * 人才库名称
+         * <p> 示例值：
+         */
         private I18n i18nName;
-     /**
-      * 人才库描述
-      * <p> 示例值：
-      */
+        /**
+         * 人才库描述
+         * <p> 示例值：
+         */
         private I18n i18nDescription;
-     /**
-      * 父级人才库ID
-      * <p> 示例值：6930815272790114324
-      */
+        /**
+         * 父级人才库ID
+         * <p> 示例值：6930815272790114324
+         */
         private String parentId;
-     /**
-      * 是否「仅部分用户可见」
-      * <p> 示例值：1
-      */
+        /**
+         * 是否「仅部分用户可见」
+         * <p> 示例值：1
+         */
         private Integer isPrivate;
-     /**
-      * 创建时间，毫秒时间戳
-      * <p> 示例值：1679300424000
-      */
+        /**
+         * 创建时间，毫秒时间戳
+         * <p> 示例值：1679300424000
+         */
         private String createTime;
-     /**
-      * 修改时间，毫秒时间戳
-      * <p> 示例值：1679300424000
-      */
+        /**
+         * 修改时间，毫秒时间戳
+         * <p> 示例值：1679300424000
+         */
         private String modifyTime;
 
         /**
          * 人才库ID
          * <p> 示例值：6930815272790114324
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 人才库名称
          * <p> 示例值：
+         *
          * @param i18nName
          * @return
          */
         public Builder i18nName(I18n i18nName) {
-             this.i18nName = i18nName;
-             return this;
+            this.i18nName = i18nName;
+            return this;
         }
 
-    
 
         /**
          * 人才库描述
          * <p> 示例值：
+         *
          * @param i18nDescription
          * @return
          */
         public Builder i18nDescription(I18n i18nDescription) {
-             this.i18nDescription = i18nDescription;
-             return this;
+            this.i18nDescription = i18nDescription;
+            return this;
         }
 
-    
 
         /**
          * 父级人才库ID
          * <p> 示例值：6930815272790114324
+         *
          * @param parentId
          * @return
          */
         public Builder parentId(String parentId) {
-             this.parentId = parentId;
-             return this;
+            this.parentId = parentId;
+            return this;
         }
 
-    
 
         /**
          * 是否「仅部分用户可见」
          * <p> 示例值：1
+         *
          * @param isPrivate
          * @return
          */
         public Builder isPrivate(Integer isPrivate) {
-             this.isPrivate = isPrivate;
-             return this;
+            this.isPrivate = isPrivate;
+            return this;
         }
 
-    
 
         /**
          * 创建时间，毫秒时间戳
          * <p> 示例值：1679300424000
+         *
          * @param createTime
          * @return
          */
         public Builder createTime(String createTime) {
-             this.createTime = createTime;
-             return this;
+            this.createTime = createTime;
+            return this;
         }
 
-    
 
         /**
          * 修改时间，毫秒时间戳
          * <p> 示例值：1679300424000
+         *
          * @param modifyTime
          * @return
          */
         public Builder modifyTime(String modifyTime) {
-             this.modifyTime = modifyTime;
-             return this;
+            this.modifyTime = modifyTime;
+            return this;
         }
 
-    
-    
-    public TalentPool build(){
-        return new TalentPool(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public TalentPool build() {
+            return new TalentPool(this);
+        }
     }
 }

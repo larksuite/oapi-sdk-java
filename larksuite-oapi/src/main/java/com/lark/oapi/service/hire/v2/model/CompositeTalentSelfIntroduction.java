@@ -12,30 +12,56 @@
  */
 
 package com.lark.oapi.service.hire.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CompositeTalentSelfIntroduction {
-     /**
-      * 自我评价
-      * <p> 示例值：
-      */
+    /**
+     * 自我评价
+     * <p> 示例值：
+     */
     @SerializedName("self_introduction")
     private String selfIntroduction;
-     /**
-      * 自定义字段
-      * <p> 示例值：
-      */
+    /**
+     * 自定义字段
+     * <p> 示例值：
+     */
     @SerializedName("customized_data_list")
     private TalentCustomizedDataChild[] customizedDataList;
+
+    // builder 开始
+    public CompositeTalentSelfIntroduction() {
+    }
+
+    public CompositeTalentSelfIntroduction(Builder builder) {
+        /**
+         * 自我评价
+         * <p> 示例值：
+         */
+        this.selfIntroduction = builder.selfIntroduction;
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
+        this.customizedDataList = builder.customizedDataList;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getSelfIntroduction() {
         return this.selfIntroduction;
     }
@@ -52,67 +78,46 @@ public class CompositeTalentSelfIntroduction {
         this.customizedDataList = customizedDataList;
     }
 
-
-// builder 开始
-  public CompositeTalentSelfIntroduction(){}
-
-  public CompositeTalentSelfIntroduction(Builder builder){
-         /**
-          * 自我评价
-          * <p> 示例值：
-          */
-      this.selfIntroduction = builder.selfIntroduction;
-         /**
-          * 自定义字段
-          * <p> 示例值：
-          */
-      this.customizedDataList = builder.customizedDataList;
-  }
-
     public static class Builder {
-     /**
-      * 自我评价
-      * <p> 示例值：
-      */
+        /**
+         * 自我评价
+         * <p> 示例值：
+         */
         private String selfIntroduction;
-     /**
-      * 自定义字段
-      * <p> 示例值：
-      */
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
         private TalentCustomizedDataChild[] customizedDataList;
 
         /**
          * 自我评价
          * <p> 示例值：
+         *
          * @param selfIntroduction
          * @return
          */
         public Builder selfIntroduction(String selfIntroduction) {
-             this.selfIntroduction = selfIntroduction;
-             return this;
+            this.selfIntroduction = selfIntroduction;
+            return this;
         }
 
-    
 
         /**
          * 自定义字段
          * <p> 示例值：
+         *
          * @param customizedDataList
          * @return
          */
         public Builder customizedDataList(TalentCustomizedDataChild[] customizedDataList) {
-             this.customizedDataList = customizedDataList;
-             return this;
+            this.customizedDataList = customizedDataList;
+            return this;
         }
 
-    
-    
-    public CompositeTalentSelfIntroduction build(){
-        return new CompositeTalentSelfIntroduction(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public CompositeTalentSelfIntroduction build() {
+            return new CompositeTalentSelfIntroduction(this);
+        }
     }
 }

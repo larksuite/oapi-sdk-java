@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.task.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.task.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class DatetimeSetting {
-     /**
-      * 日期显示格式
-      * <p> 示例值：yyyy/mm/dd
-      */
+    /**
+     * 日期显示格式
+     * <p> 示例值：yyyy/mm/dd
+     */
     @SerializedName("format")
     private String format;
+
+    // builder 开始
+    public DatetimeSetting() {
+    }
+
+    public DatetimeSetting(Builder builder) {
+        /**
+         * 日期显示格式
+         * <p> 示例值：yyyy/mm/dd
+         */
+        this.format = builder.format;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getFormat() {
         return this.format;
     }
@@ -39,44 +60,28 @@ public class DatetimeSetting {
         this.format = format;
     }
 
-
-// builder 开始
-  public DatetimeSetting(){}
-
-  public DatetimeSetting(Builder builder){
-         /**
-          * 日期显示格式
-          * <p> 示例值：yyyy/mm/dd
-          */
-      this.format = builder.format;
-  }
-
     public static class Builder {
-     /**
-      * 日期显示格式
-      * <p> 示例值：yyyy/mm/dd
-      */
+        /**
+         * 日期显示格式
+         * <p> 示例值：yyyy/mm/dd
+         */
         private String format;
 
         /**
          * 日期显示格式
          * <p> 示例值：yyyy/mm/dd
+         *
          * @param format
          * @return
          */
         public Builder format(String format) {
-             this.format = format;
-             return this;
+            this.format = format;
+            return this;
         }
 
-    
-    
-    public DatetimeSetting build(){
-        return new DatetimeSetting(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public DatetimeSetting build() {
+            return new DatetimeSetting(this);
+        }
     }
 }

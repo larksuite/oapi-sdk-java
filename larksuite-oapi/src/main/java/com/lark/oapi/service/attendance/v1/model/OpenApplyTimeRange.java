@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class OpenApplyTimeRange {
-     /**
-      * 加班所属日期
-      * <p> 示例值：2023-09-25
-      */
+    /**
+     * 加班所属日期
+     * <p> 示例值：2023-09-25
+     */
     @SerializedName("overtime_attribution_date")
     private String overtimeAttributionDate;
-     /**
-      * 时段信息
-      * <p> 示例值：
-      */
+    /**
+     * 时段信息
+     * <p> 示例值：
+     */
     @SerializedName("time_range")
     private OvertimeTimeRange timeRange;
+
+    // builder 开始
+    public OpenApplyTimeRange() {
+    }
+
+    public OpenApplyTimeRange(Builder builder) {
+        /**
+         * 加班所属日期
+         * <p> 示例值：2023-09-25
+         */
+        this.overtimeAttributionDate = builder.overtimeAttributionDate;
+        /**
+         * 时段信息
+         * <p> 示例值：
+         */
+        this.timeRange = builder.timeRange;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getOvertimeAttributionDate() {
         return this.overtimeAttributionDate;
     }
@@ -53,67 +79,46 @@ public class OpenApplyTimeRange {
         this.timeRange = timeRange;
     }
 
-
-// builder 开始
-  public OpenApplyTimeRange(){}
-
-  public OpenApplyTimeRange(Builder builder){
-         /**
-          * 加班所属日期
-          * <p> 示例值：2023-09-25
-          */
-      this.overtimeAttributionDate = builder.overtimeAttributionDate;
-         /**
-          * 时段信息
-          * <p> 示例值：
-          */
-      this.timeRange = builder.timeRange;
-  }
-
     public static class Builder {
-     /**
-      * 加班所属日期
-      * <p> 示例值：2023-09-25
-      */
+        /**
+         * 加班所属日期
+         * <p> 示例值：2023-09-25
+         */
         private String overtimeAttributionDate;
-     /**
-      * 时段信息
-      * <p> 示例值：
-      */
+        /**
+         * 时段信息
+         * <p> 示例值：
+         */
         private OvertimeTimeRange timeRange;
 
         /**
          * 加班所属日期
          * <p> 示例值：2023-09-25
+         *
          * @param overtimeAttributionDate
          * @return
          */
         public Builder overtimeAttributionDate(String overtimeAttributionDate) {
-             this.overtimeAttributionDate = overtimeAttributionDate;
-             return this;
+            this.overtimeAttributionDate = overtimeAttributionDate;
+            return this;
         }
 
-    
 
         /**
          * 时段信息
          * <p> 示例值：
+         *
          * @param timeRange
          * @return
          */
         public Builder timeRange(OvertimeTimeRange timeRange) {
-             this.timeRange = timeRange;
-             return this;
+            this.timeRange = timeRange;
+            return this;
         }
 
-    
-    
-    public OpenApplyTimeRange build(){
-        return new OpenApplyTimeRange(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public OpenApplyTimeRange build() {
+            return new OpenApplyTimeRange(this);
+        }
     }
 }

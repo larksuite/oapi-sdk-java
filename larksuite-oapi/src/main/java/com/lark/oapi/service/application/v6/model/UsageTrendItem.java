@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class UsageTrendItem {
-     /**
-      * 时间戳
-      * <p> 示例值：
-      */
+    /**
+     * 时间戳
+     * <p> 示例值：
+     */
     @SerializedName("timestamp")
     private String timestamp;
-     /**
-      * 应用使用pv
-      * <p> 示例值：
-      */
+    /**
+     * 应用使用pv
+     * <p> 示例值：
+     */
     @SerializedName("page_view")
     private String pageView;
-     /**
-      * 应用使用uv
-      * <p> 示例值：
-      */
+    /**
+     * 应用使用uv
+     * <p> 示例值：
+     */
     @SerializedName("unique_visitor")
     private String uniqueVisitor;
+
+    // builder 开始
+    public UsageTrendItem() {
+    }
+
+    public UsageTrendItem(Builder builder) {
+        /**
+         * 时间戳
+         * <p> 示例值：
+         */
+        this.timestamp = builder.timestamp;
+        /**
+         * 应用使用pv
+         * <p> 示例值：
+         */
+        this.pageView = builder.pageView;
+        /**
+         * 应用使用uv
+         * <p> 示例值：
+         */
+        this.uniqueVisitor = builder.uniqueVisitor;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getTimestamp() {
         return this.timestamp;
     }
@@ -67,90 +98,64 @@ public class UsageTrendItem {
         this.uniqueVisitor = uniqueVisitor;
     }
 
-
-// builder 开始
-  public UsageTrendItem(){}
-
-  public UsageTrendItem(Builder builder){
-         /**
-          * 时间戳
-          * <p> 示例值：
-          */
-      this.timestamp = builder.timestamp;
-         /**
-          * 应用使用pv
-          * <p> 示例值：
-          */
-      this.pageView = builder.pageView;
-         /**
-          * 应用使用uv
-          * <p> 示例值：
-          */
-      this.uniqueVisitor = builder.uniqueVisitor;
-  }
-
     public static class Builder {
-     /**
-      * 时间戳
-      * <p> 示例值：
-      */
+        /**
+         * 时间戳
+         * <p> 示例值：
+         */
         private String timestamp;
-     /**
-      * 应用使用pv
-      * <p> 示例值：
-      */
+        /**
+         * 应用使用pv
+         * <p> 示例值：
+         */
         private String pageView;
-     /**
-      * 应用使用uv
-      * <p> 示例值：
-      */
+        /**
+         * 应用使用uv
+         * <p> 示例值：
+         */
         private String uniqueVisitor;
 
         /**
          * 时间戳
          * <p> 示例值：
+         *
          * @param timestamp
          * @return
          */
         public Builder timestamp(String timestamp) {
-             this.timestamp = timestamp;
-             return this;
+            this.timestamp = timestamp;
+            return this;
         }
 
-    
 
         /**
          * 应用使用pv
          * <p> 示例值：
+         *
          * @param pageView
          * @return
          */
         public Builder pageView(String pageView) {
-             this.pageView = pageView;
-             return this;
+            this.pageView = pageView;
+            return this;
         }
 
-    
 
         /**
          * 应用使用uv
          * <p> 示例值：
+         *
          * @param uniqueVisitor
          * @return
          */
         public Builder uniqueVisitor(String uniqueVisitor) {
-             this.uniqueVisitor = uniqueVisitor;
-             return this;
+            this.uniqueVisitor = uniqueVisitor;
+            return this;
         }
 
-    
-    
-    public UsageTrendItem build(){
-        return new UsageTrendItem(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public UsageTrendItem build() {
+            return new UsageTrendItem(this);
+        }
     }
 }

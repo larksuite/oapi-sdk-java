@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class OrgroleAssignmentOrg {
-     /**
-      * 组织ID
-      * <p> 示例值：6967286856077673993
-      */
+    /**
+     * 组织ID
+     * <p> 示例值：6967286856077673993
+     */
     @SerializedName("org_id")
     private String orgId;
-     /**
-      * 组织类型
-      * <p> 示例值：department
-      */
+    /**
+     * 组织类型
+     * <p> 示例值：department
+     */
     @SerializedName("org_type")
     private String orgType;
-     /**
-      * 组织名称
-      * <p> 示例值：people
-      */
+    /**
+     * 组织名称
+     * <p> 示例值：people
+     */
     @SerializedName("org_name")
     private String orgName;
+
+    // builder 开始
+    public OrgroleAssignmentOrg() {
+    }
+
+    public OrgroleAssignmentOrg(Builder builder) {
+        /**
+         * 组织ID
+         * <p> 示例值：6967286856077673993
+         */
+        this.orgId = builder.orgId;
+        /**
+         * 组织类型
+         * <p> 示例值：department
+         */
+        this.orgType = builder.orgType;
+        /**
+         * 组织名称
+         * <p> 示例值：people
+         */
+        this.orgName = builder.orgName;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getOrgId() {
         return this.orgId;
     }
@@ -67,100 +98,76 @@ public class OrgroleAssignmentOrg {
         this.orgName = orgName;
     }
 
-
-// builder 开始
-  public OrgroleAssignmentOrg(){}
-
-  public OrgroleAssignmentOrg(Builder builder){
-         /**
-          * 组织ID
-          * <p> 示例值：6967286856077673993
-          */
-      this.orgId = builder.orgId;
-         /**
-          * 组织类型
-          * <p> 示例值：department
-          */
-      this.orgType = builder.orgType;
-         /**
-          * 组织名称
-          * <p> 示例值：people
-          */
-      this.orgName = builder.orgName;
-  }
-
     public static class Builder {
-     /**
-      * 组织ID
-      * <p> 示例值：6967286856077673993
-      */
+        /**
+         * 组织ID
+         * <p> 示例值：6967286856077673993
+         */
         private String orgId;
-     /**
-      * 组织类型
-      * <p> 示例值：department
-      */
+        /**
+         * 组织类型
+         * <p> 示例值：department
+         */
         private String orgType;
-     /**
-      * 组织名称
-      * <p> 示例值：people
-      */
+        /**
+         * 组织名称
+         * <p> 示例值：people
+         */
         private String orgName;
 
         /**
          * 组织ID
          * <p> 示例值：6967286856077673993
+         *
          * @param orgId
          * @return
          */
         public Builder orgId(String orgId) {
-             this.orgId = orgId;
-             return this;
+            this.orgId = orgId;
+            return this;
         }
 
-    
 
         /**
          * 组织类型
          * <p> 示例值：department
+         *
          * @param orgType
          * @return
          */
         public Builder orgType(String orgType) {
-             this.orgType = orgType;
-             return this;
+            this.orgType = orgType;
+            return this;
         }
+
         /**
          * 组织类型
          * <p> 示例值：department
+         *
          * @param orgType {@link com.lark.oapi.service.corehr.v2.enums.OrgroleAssignmentOrgOrgTypeEnum}
          * @return
          */
         public Builder orgType(com.lark.oapi.service.corehr.v2.enums.OrgroleAssignmentOrgOrgTypeEnum orgType) {
-             this.orgType = orgType.getValue();
-             return this;
+            this.orgType = orgType.getValue();
+            return this;
         }
 
-    
 
         /**
          * 组织名称
          * <p> 示例值：people
+         *
          * @param orgName
          * @return
          */
         public Builder orgName(String orgName) {
-             this.orgName = orgName;
-             return this;
+            this.orgName = orgName;
+            return this;
         }
 
-    
-    
-    public OrgroleAssignmentOrg build(){
-        return new OrgroleAssignmentOrg(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public OrgroleAssignmentOrg build() {
+            return new OrgroleAssignmentOrg(this);
+        }
     }
 }

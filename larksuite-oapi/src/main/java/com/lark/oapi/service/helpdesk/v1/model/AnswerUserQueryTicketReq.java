@@ -12,25 +12,49 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class AnswerUserQueryTicketReq {
-     /**
-      * 工单ID
-      * <p> 示例值：6945345902185807891
-      */
+    /**
+     * 工单ID
+     * <p> 示例值：6945345902185807891
+     */
     @Path
     @SerializedName("ticket_id")
     private String ticketId;
+    @Body
+    private AnswerUserQueryTicketReqBody body;
+
+    // builder 开始
+    public AnswerUserQueryTicketReq() {
+    }
+
+    public AnswerUserQueryTicketReq(Builder builder) {
+        /**
+         * 工单ID
+         * <p> 示例值：6945345902185807891
+         */
+        this.ticketId = builder.ticketId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getTicketId() {
         return this.ticketId;
     }
@@ -38,9 +62,6 @@ public class AnswerUserQueryTicketReq {
     public void setTicketId(String ticketId) {
         this.ticketId = ticketId;
     }
-
-    @Body
-    private AnswerUserQueryTicketReqBody body;
 
     public AnswerUserQueryTicketReqBody getAnswerUserQueryTicketReqBody() {
         return this.body;
@@ -50,54 +71,40 @@ public class AnswerUserQueryTicketReq {
         this.body = body;
     }
 
-// builder 开始
-  public AnswerUserQueryTicketReq(){}
-
-  public AnswerUserQueryTicketReq(Builder builder){
-     /**
-      * 工单ID
-      * <p> 示例值：6945345902185807891
-      */
-       this.ticketId = builder.ticketId;
-        this.body = builder.body;
-  }
-
     public static class Builder {
-    
+
         private String ticketId; // 工单ID
+        private AnswerUserQueryTicketReqBody body;
+
         /**
          * 工单ID
          * <p> 示例值：6945345902185807891
+         *
          * @param ticketId
          * @return
          */
-          public Builder ticketId(String ticketId) {
-               this.ticketId = ticketId;
-               return this;
-          }
+        public Builder ticketId(String ticketId) {
+            this.ticketId = ticketId;
+            return this;
+        }
 
-    
-        private AnswerUserQueryTicketReqBody body;
-    
         public AnswerUserQueryTicketReqBody getAnswerUserQueryTicketReqBody() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder answerUserQueryTicketReqBody(AnswerUserQueryTicketReqBody body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public AnswerUserQueryTicketReq build(){
-        return new AnswerUserQueryTicketReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public AnswerUserQueryTicketReq build() {
+            return new AnswerUserQueryTicketReq(this);
+        }
     }
 }

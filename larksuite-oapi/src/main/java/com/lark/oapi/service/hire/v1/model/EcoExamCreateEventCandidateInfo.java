@@ -12,36 +12,67 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class EcoExamCreateEventCandidateInfo {
-     /**
-      * 候选人姓名
-      * <p> 示例值：王二
-      */
+    /**
+     * 候选人姓名
+     * <p> 示例值：王二
+     */
     @SerializedName("name")
     private String name;
-     /**
-      * 候选人手机号
-      * <p> 示例值：
-      */
+    /**
+     * 候选人手机号
+     * <p> 示例值：
+     */
     @SerializedName("mobile")
     private EcoExamCreateEventMobile mobile;
-     /**
-      * 候选人邮箱
-      * <p> 示例值：xxx@abc.vom
-      */
+    /**
+     * 候选人邮箱
+     * <p> 示例值：xxx@abc.vom
+     */
     @SerializedName("email")
     private String email;
+
+    // builder 开始
+    public EcoExamCreateEventCandidateInfo() {
+    }
+
+    public EcoExamCreateEventCandidateInfo(Builder builder) {
+        /**
+         * 候选人姓名
+         * <p> 示例值：王二
+         */
+        this.name = builder.name;
+        /**
+         * 候选人手机号
+         * <p> 示例值：
+         */
+        this.mobile = builder.mobile;
+        /**
+         * 候选人邮箱
+         * <p> 示例值：xxx@abc.vom
+         */
+        this.email = builder.email;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getName() {
         return this.name;
     }
@@ -66,90 +97,64 @@ public class EcoExamCreateEventCandidateInfo {
         this.email = email;
     }
 
-
-// builder 开始
-  public EcoExamCreateEventCandidateInfo(){}
-
-  public EcoExamCreateEventCandidateInfo(Builder builder){
-         /**
-          * 候选人姓名
-          * <p> 示例值：王二
-          */
-      this.name = builder.name;
-         /**
-          * 候选人手机号
-          * <p> 示例值：
-          */
-      this.mobile = builder.mobile;
-         /**
-          * 候选人邮箱
-          * <p> 示例值：xxx@abc.vom
-          */
-      this.email = builder.email;
-  }
-
     public static class Builder {
-     /**
-      * 候选人姓名
-      * <p> 示例值：王二
-      */
+        /**
+         * 候选人姓名
+         * <p> 示例值：王二
+         */
         private String name;
-     /**
-      * 候选人手机号
-      * <p> 示例值：
-      */
+        /**
+         * 候选人手机号
+         * <p> 示例值：
+         */
         private EcoExamCreateEventMobile mobile;
-     /**
-      * 候选人邮箱
-      * <p> 示例值：xxx@abc.vom
-      */
+        /**
+         * 候选人邮箱
+         * <p> 示例值：xxx@abc.vom
+         */
         private String email;
 
         /**
          * 候选人姓名
          * <p> 示例值：王二
+         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 候选人手机号
          * <p> 示例值：
+         *
          * @param mobile
          * @return
          */
         public Builder mobile(EcoExamCreateEventMobile mobile) {
-             this.mobile = mobile;
-             return this;
+            this.mobile = mobile;
+            return this;
         }
 
-    
 
         /**
          * 候选人邮箱
          * <p> 示例值：xxx@abc.vom
+         *
          * @param email
          * @return
          */
         public Builder email(String email) {
-             this.email = email;
-             return this;
+            this.email = email;
+            return this;
         }
 
-    
-    
-    public EcoExamCreateEventCandidateInfo build(){
-        return new EcoExamCreateEventCandidateInfo(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public EcoExamCreateEventCandidateInfo build() {
+            return new EcoExamCreateEventCandidateInfo(this);
+        }
     }
 }

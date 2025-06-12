@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class WkCalendarI18n {
-     /**
-      * 中文值
-      * <p> 示例值：日历1
-      */
+    /**
+     * 中文值
+     * <p> 示例值：日历1
+     */
     @SerializedName("zh_cn")
     private String zhCn;
-     /**
-      * 英文值
-      * <p> 示例值：calendar1
-      */
+    /**
+     * 英文值
+     * <p> 示例值：calendar1
+     */
     @SerializedName("en_us")
     private String enUs;
+
+    // builder 开始
+    public WkCalendarI18n() {
+    }
+
+    public WkCalendarI18n(Builder builder) {
+        /**
+         * 中文值
+         * <p> 示例值：日历1
+         */
+        this.zhCn = builder.zhCn;
+        /**
+         * 英文值
+         * <p> 示例值：calendar1
+         */
+        this.enUs = builder.enUs;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getZhCn() {
         return this.zhCn;
     }
@@ -53,67 +79,46 @@ public class WkCalendarI18n {
         this.enUs = enUs;
     }
 
-
-// builder 开始
-  public WkCalendarI18n(){}
-
-  public WkCalendarI18n(Builder builder){
-         /**
-          * 中文值
-          * <p> 示例值：日历1
-          */
-      this.zhCn = builder.zhCn;
-         /**
-          * 英文值
-          * <p> 示例值：calendar1
-          */
-      this.enUs = builder.enUs;
-  }
-
     public static class Builder {
-     /**
-      * 中文值
-      * <p> 示例值：日历1
-      */
+        /**
+         * 中文值
+         * <p> 示例值：日历1
+         */
         private String zhCn;
-     /**
-      * 英文值
-      * <p> 示例值：calendar1
-      */
+        /**
+         * 英文值
+         * <p> 示例值：calendar1
+         */
         private String enUs;
 
         /**
          * 中文值
          * <p> 示例值：日历1
+         *
          * @param zhCn
          * @return
          */
         public Builder zhCn(String zhCn) {
-             this.zhCn = zhCn;
-             return this;
+            this.zhCn = zhCn;
+            return this;
         }
 
-    
 
         /**
          * 英文值
          * <p> 示例值：calendar1
+         *
          * @param enUs
          * @return
          */
         public Builder enUs(String enUs) {
-             this.enUs = enUs;
-             return this;
+            this.enUs = enUs;
+            return this;
         }
 
-    
-    
-    public WkCalendarI18n build(){
-        return new WkCalendarI18n(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public WkCalendarI18n build() {
+            return new WkCalendarI18n(this);
+        }
     }
 }

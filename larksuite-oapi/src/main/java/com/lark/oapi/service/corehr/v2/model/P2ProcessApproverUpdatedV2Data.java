@@ -12,66 +12,71 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class P2ProcessApproverUpdatedV2Data {
-     /**
-      * 流程实例ID
-      * <p> 示例值：7072306364927985196
-      */
+    /**
+     * 流程实例ID
+     * <p> 示例值：7072306364927985196
+     */
     @SerializedName("process_id")
     private String processId;
-     /**
-      * 单据ID
-      * <p> 示例值：7072306364927985187
-      */
+    /**
+     * 单据ID
+     * <p> 示例值：7072306364927985187
+     */
     @SerializedName("approver_id")
     private String approverId;
-     /**
-      * 单据类型
-      * <p> 示例值：1
-      */
+    /**
+     * 单据类型
+     * <p> 示例值：1
+     */
     @SerializedName("type")
     private Integer type;
-     /**
-      * 单据状态
-      * <p> 示例值：1
-      */
+    /**
+     * 单据状态
+     * <p> 示例值：1
+     */
     @SerializedName("status")
     private Integer status;
-     /**
-      * 业务类型
-      * <p> 示例值：renewal_record
-      */
+    /**
+     * 业务类型
+     * <p> 示例值：renewal_record
+     */
     @SerializedName("biz_type")
     private String bizType;
-     /**
-      * 流程定义id
-      * <p> 示例值：people_7182520625066475540_7222929439175839532
-      */
+    /**
+     * 流程定义id
+     * <p> 示例值：people_7182520625066475540_7222929439175839532
+     */
     @SerializedName("flow_definition_id")
     private String flowDefinitionId;
-     /**
-      * 节点定义id
-      * <p> 示例值：approval_7c7d9c4d25b
-      */
+    /**
+     * 节点定义id
+     * <p> 示例值：approval_7c7d9c4d25b
+     */
     @SerializedName("node_definition_id")
     private String nodeDefinitionId;
-     /**
-      * 节点id
-      * <p> 示例值：7369419552616089132
-      */
+    /**
+     * 节点id
+     * <p> 示例值：7369419552616089132
+     */
     @SerializedName("node_id")
     private String nodeId;
+
     public String getProcessId() {
         return this.processId;
     }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.search.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.search.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class PatchSchemaProperty {
-     /**
-      * 属性名
-      * <p> 示例值：title
-      */
+    /**
+     * 属性名
+     * <p> 示例值：title
+     */
     @SerializedName("name")
     private String name;
-     /**
-      * 属性描述
-      * <p> 示例值：desc
-      */
+    /**
+     * 属性描述
+     * <p> 示例值：desc
+     */
     @SerializedName("desc")
     private String desc;
-     /**
-      * 问答产品设置，仅在datasource中use_answer为true时生效
-      * <p> 示例值：
-      */
+    /**
+     * 问答产品设置，仅在datasource中use_answer为true时生效
+     * <p> 示例值：
+     */
     @SerializedName("answer_option")
     private SchemaFieldAnswerOption answerOption;
+
+    // builder 开始
+    public PatchSchemaProperty() {
+    }
+
+    public PatchSchemaProperty(Builder builder) {
+        /**
+         * 属性名
+         * <p> 示例值：title
+         */
+        this.name = builder.name;
+        /**
+         * 属性描述
+         * <p> 示例值：desc
+         */
+        this.desc = builder.desc;
+        /**
+         * 问答产品设置，仅在datasource中use_answer为true时生效
+         * <p> 示例值：
+         */
+        this.answerOption = builder.answerOption;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getName() {
         return this.name;
     }
@@ -67,90 +98,64 @@ public class PatchSchemaProperty {
         this.answerOption = answerOption;
     }
 
-
-// builder 开始
-  public PatchSchemaProperty(){}
-
-  public PatchSchemaProperty(Builder builder){
-         /**
-          * 属性名
-          * <p> 示例值：title
-          */
-      this.name = builder.name;
-         /**
-          * 属性描述
-          * <p> 示例值：desc
-          */
-      this.desc = builder.desc;
-         /**
-          * 问答产品设置，仅在datasource中use_answer为true时生效
-          * <p> 示例值：
-          */
-      this.answerOption = builder.answerOption;
-  }
-
     public static class Builder {
-     /**
-      * 属性名
-      * <p> 示例值：title
-      */
+        /**
+         * 属性名
+         * <p> 示例值：title
+         */
         private String name;
-     /**
-      * 属性描述
-      * <p> 示例值：desc
-      */
+        /**
+         * 属性描述
+         * <p> 示例值：desc
+         */
         private String desc;
-     /**
-      * 问答产品设置，仅在datasource中use_answer为true时生效
-      * <p> 示例值：
-      */
+        /**
+         * 问答产品设置，仅在datasource中use_answer为true时生效
+         * <p> 示例值：
+         */
         private SchemaFieldAnswerOption answerOption;
 
         /**
          * 属性名
          * <p> 示例值：title
+         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 属性描述
          * <p> 示例值：desc
+         *
          * @param desc
          * @return
          */
         public Builder desc(String desc) {
-             this.desc = desc;
-             return this;
+            this.desc = desc;
+            return this;
         }
 
-    
 
         /**
          * 问答产品设置，仅在datasource中use_answer为true时生效
          * <p> 示例值：
+         *
          * @param answerOption
          * @return
          */
         public Builder answerOption(SchemaFieldAnswerOption answerOption) {
-             this.answerOption = answerOption;
-             return this;
+            this.answerOption = answerOption;
+            return this;
         }
 
-    
-    
-    public PatchSchemaProperty build(){
-        return new PatchSchemaProperty(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public PatchSchemaProperty build() {
+            return new PatchSchemaProperty(this);
+        }
     }
 }

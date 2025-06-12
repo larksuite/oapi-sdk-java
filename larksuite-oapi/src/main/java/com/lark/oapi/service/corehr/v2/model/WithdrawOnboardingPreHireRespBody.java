@@ -12,24 +12,29 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class WithdrawOnboardingPreHireRespBody {
-     /**
-      * 是否成功撤销入职
-      * <p> 示例值：
-      */
+    /**
+     * 是否成功撤销入职
+     * <p> 示例值：
+     */
     @SerializedName("success")
     private Boolean success;
+
     public Boolean getSuccess() {
         return this.success;
     }

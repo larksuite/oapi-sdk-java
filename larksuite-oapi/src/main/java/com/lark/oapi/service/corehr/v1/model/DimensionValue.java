@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class DimensionValue {
-     /**
-      * 管理维度名称 eg. department（部门）、job_family(序列) 更多可以去元数据平台搜索cpst_management_dimension
-      * <p> 示例值：department
-      */
+    /**
+     * 管理维度名称 eg. department（部门）、job_family(序列) 更多可以去元数据平台搜索cpst_management_dimension
+     * <p> 示例值：department
+     */
     @SerializedName("api_name")
     private String apiName;
-     /**
-      * 值列表 例如部门ID
-      * <p> 示例值：
-      */
+    /**
+     * 值列表 例如部门ID
+     * <p> 示例值：
+     */
     @SerializedName("value_list")
     private String[] valueList;
+
+    // builder 开始
+    public DimensionValue() {
+    }
+
+    public DimensionValue(Builder builder) {
+        /**
+         * 管理维度名称 eg. department（部门）、job_family(序列) 更多可以去元数据平台搜索cpst_management_dimension
+         * <p> 示例值：department
+         */
+        this.apiName = builder.apiName;
+        /**
+         * 值列表 例如部门ID
+         * <p> 示例值：
+         */
+        this.valueList = builder.valueList;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getApiName() {
         return this.apiName;
     }
@@ -53,67 +79,46 @@ public class DimensionValue {
         this.valueList = valueList;
     }
 
-
-// builder 开始
-  public DimensionValue(){}
-
-  public DimensionValue(Builder builder){
-         /**
-          * 管理维度名称 eg. department（部门）、job_family(序列) 更多可以去元数据平台搜索cpst_management_dimension
-          * <p> 示例值：department
-          */
-      this.apiName = builder.apiName;
-         /**
-          * 值列表 例如部门ID
-          * <p> 示例值：
-          */
-      this.valueList = builder.valueList;
-  }
-
     public static class Builder {
-     /**
-      * 管理维度名称 eg. department（部门）、job_family(序列) 更多可以去元数据平台搜索cpst_management_dimension
-      * <p> 示例值：department
-      */
+        /**
+         * 管理维度名称 eg. department（部门）、job_family(序列) 更多可以去元数据平台搜索cpst_management_dimension
+         * <p> 示例值：department
+         */
         private String apiName;
-     /**
-      * 值列表 例如部门ID
-      * <p> 示例值：
-      */
+        /**
+         * 值列表 例如部门ID
+         * <p> 示例值：
+         */
         private String[] valueList;
 
         /**
          * 管理维度名称 eg. department（部门）、job_family(序列) 更多可以去元数据平台搜索cpst_management_dimension
          * <p> 示例值：department
+         *
          * @param apiName
          * @return
          */
         public Builder apiName(String apiName) {
-             this.apiName = apiName;
-             return this;
+            this.apiName = apiName;
+            return this;
         }
 
-    
 
         /**
          * 值列表 例如部门ID
          * <p> 示例值：
+         *
          * @param valueList
          * @return
          */
         public Builder valueList(String[] valueList) {
-             this.valueList = valueList;
-             return this;
+            this.valueList = valueList;
+            return this;
         }
 
-    
-    
-    public DimensionValue build(){
-        return new DimensionValue(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public DimensionValue build() {
+            return new DimensionValue(this);
+        }
     }
 }

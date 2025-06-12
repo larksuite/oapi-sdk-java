@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.payroll.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.payroll.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class DmpField {
-     /**
-      * 字段名称
-      * <p> 示例值：Employee Number
-      */
+    /**
+     * 字段名称
+     * <p> 示例值：Employee Number
+     */
     @SerializedName("key")
     private String key;
-     /**
-      * 字段值
-      * <p> 示例值：12345
-      */
+    /**
+     * 字段值
+     * <p> 示例值：12345
+     */
     @SerializedName("value")
     private String value;
-     /**
-      * 字段类型
-      * <p> 示例值：0
-      */
+    /**
+     * 字段类型
+     * <p> 示例值：0
+     */
     @SerializedName("type")
     private Integer type;
+
+    // builder 开始
+    public DmpField() {
+    }
+
+    public DmpField(Builder builder) {
+        /**
+         * 字段名称
+         * <p> 示例值：Employee Number
+         */
+        this.key = builder.key;
+        /**
+         * 字段值
+         * <p> 示例值：12345
+         */
+        this.value = builder.value;
+        /**
+         * 字段类型
+         * <p> 示例值：0
+         */
+        this.type = builder.type;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getKey() {
         return this.key;
     }
@@ -67,100 +98,76 @@ public class DmpField {
         this.type = type;
     }
 
-
-// builder 开始
-  public DmpField(){}
-
-  public DmpField(Builder builder){
-         /**
-          * 字段名称
-          * <p> 示例值：Employee Number
-          */
-      this.key = builder.key;
-         /**
-          * 字段值
-          * <p> 示例值：12345
-          */
-      this.value = builder.value;
-         /**
-          * 字段类型
-          * <p> 示例值：0
-          */
-      this.type = builder.type;
-  }
-
     public static class Builder {
-     /**
-      * 字段名称
-      * <p> 示例值：Employee Number
-      */
+        /**
+         * 字段名称
+         * <p> 示例值：Employee Number
+         */
         private String key;
-     /**
-      * 字段值
-      * <p> 示例值：12345
-      */
+        /**
+         * 字段值
+         * <p> 示例值：12345
+         */
         private String value;
-     /**
-      * 字段类型
-      * <p> 示例值：0
-      */
+        /**
+         * 字段类型
+         * <p> 示例值：0
+         */
         private Integer type;
 
         /**
          * 字段名称
          * <p> 示例值：Employee Number
+         *
          * @param key
          * @return
          */
         public Builder key(String key) {
-             this.key = key;
-             return this;
+            this.key = key;
+            return this;
         }
 
-    
 
         /**
          * 字段值
          * <p> 示例值：12345
+         *
          * @param value
          * @return
          */
         public Builder value(String value) {
-             this.value = value;
-             return this;
+            this.value = value;
+            return this;
         }
 
-    
 
         /**
          * 字段类型
          * <p> 示例值：0
+         *
          * @param type
          * @return
          */
         public Builder type(Integer type) {
-             this.type = type;
-             return this;
+            this.type = type;
+            return this;
         }
+
         /**
          * 字段类型
          * <p> 示例值：0
+         *
          * @param type {@link com.lark.oapi.service.payroll.v1.enums.DmpFieldDMPTypeEnum}
          * @return
          */
         public Builder type(com.lark.oapi.service.payroll.v1.enums.DmpFieldDMPTypeEnum type) {
-             this.type = type.getValue();
-             return this;
+            this.type = type.getValue();
+            return this;
         }
 
-    
-    
-    public DmpField build(){
-        return new DmpField(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public DmpField build() {
+            return new DmpField(this);
+        }
     }
 }

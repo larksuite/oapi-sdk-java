@@ -14,18 +14,19 @@
 package com.lark.oapi.service.base.v2.enums;
 
 /**
- * 
+ *
  */
 public enum MetaMixStateEnum {
-     SAAS(0), // SaaS 机房
-     THIRDPARTY(1), // 第三方存储
-  ;
-   private Integer value;
+    SAAS(0), // SaaS 机房
+    THIRDPARTY(1), // 第三方存储
+    ;
+    private Integer value;
+
     MetaMixStateEnum(Integer value) {
-      this.value = value;
+        this.value = value;
     }
 
     public Integer getValue() {
-      return this.value;
+        return this.value;
     }
 }

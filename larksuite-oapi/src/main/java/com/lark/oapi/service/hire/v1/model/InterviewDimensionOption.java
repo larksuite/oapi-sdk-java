@@ -12,42 +12,76 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class InterviewDimensionOption {
-     /**
-      * 选项ID
-      * <p> 示例值：6930815272790114324
-      */
+    /**
+     * 选项ID
+     * <p> 示例值：6930815272790114324
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 
-      * <p> 示例值：
-      */
+    /**
+     * <p> 示例值：
+     */
     @SerializedName("name")
     private I18n name;
-     /**
-      * 
-      * <p> 示例值：
-      */
+    /**
+     * <p> 示例值：
+     */
     @SerializedName("description")
     private I18n description;
-     /**
-      * 选项分数值
-      * <p> 示例值：1
-      */
+    /**
+     * 选项分数值
+     * <p> 示例值：1
+     */
     @SerializedName("score_val")
     private Integer scoreVal;
+
+    // builder 开始
+    public InterviewDimensionOption() {
+    }
+
+    public InterviewDimensionOption(Builder builder) {
+        /**
+         * 选项ID
+         * <p> 示例值：6930815272790114324
+         */
+        this.id = builder.id;
+        /**
+         *
+         * <p> 示例值：
+         */
+        this.name = builder.name;
+        /**
+         *
+         * <p> 示例值：
+         */
+        this.description = builder.description;
+        /**
+         * 选项分数值
+         * <p> 示例值：1
+         */
+        this.scoreVal = builder.scoreVal;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -80,113 +114,78 @@ public class InterviewDimensionOption {
         this.scoreVal = scoreVal;
     }
 
-
-// builder 开始
-  public InterviewDimensionOption(){}
-
-  public InterviewDimensionOption(Builder builder){
-         /**
-          * 选项ID
-          * <p> 示例值：6930815272790114324
-          */
-      this.id = builder.id;
-         /**
-          * 
-          * <p> 示例值：
-          */
-      this.name = builder.name;
-         /**
-          * 
-          * <p> 示例值：
-          */
-      this.description = builder.description;
-         /**
-          * 选项分数值
-          * <p> 示例值：1
-          */
-      this.scoreVal = builder.scoreVal;
-  }
-
     public static class Builder {
-     /**
-      * 选项ID
-      * <p> 示例值：6930815272790114324
-      */
+        /**
+         * 选项ID
+         * <p> 示例值：6930815272790114324
+         */
         private String id;
-     /**
-      * 
-      * <p> 示例值：
-      */
+        /**
+         * <p> 示例值：
+         */
         private I18n name;
-     /**
-      * 
-      * <p> 示例值：
-      */
+        /**
+         * <p> 示例值：
+         */
         private I18n description;
-     /**
-      * 选项分数值
-      * <p> 示例值：1
-      */
+        /**
+         * 选项分数值
+         * <p> 示例值：1
+         */
         private Integer scoreVal;
 
         /**
          * 选项ID
          * <p> 示例值：6930815272790114324
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
-         * 
          * <p> 示例值：
+         *
          * @param name
          * @return
          */
         public Builder name(I18n name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
-         * 
          * <p> 示例值：
+         *
          * @param description
          * @return
          */
         public Builder description(I18n description) {
-             this.description = description;
-             return this;
+            this.description = description;
+            return this;
         }
 
-    
 
         /**
          * 选项分数值
          * <p> 示例值：1
+         *
          * @param scoreVal
          * @return
          */
         public Builder scoreVal(Integer scoreVal) {
-             this.scoreVal = scoreVal;
-             return this;
+            this.scoreVal = scoreVal;
+            return this;
         }
 
-    
-    
-    public InterviewDimensionOption build(){
-        return new InterviewDimensionOption(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public InterviewDimensionOption build() {
+            return new InterviewDimensionOption(this);
+        }
     }
 }

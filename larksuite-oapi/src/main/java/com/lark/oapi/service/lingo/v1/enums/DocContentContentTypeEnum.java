@@ -17,23 +17,24 @@ package com.lark.oapi.service.lingo.v1.enums;
  * 内容类型
  */
 public enum DocContentContentTypeEnum {
-     TEXT(1), // 纯文本
-     HEADING(2), // 标题
-     BULLET(3), // 无序列表
-     ORDERED(4), // 有序列表
-     CODE(5), // 代码块
-     LINK(6), // 链接
-     IMAGE(7), // 图片
-     USER(8), // 用户
-     DIVIDER(9), // 分割线
-     CONTAINER(999), // 容器
-  ;
-   private Integer value;
+    TEXT(1), // 纯文本
+    HEADING(2), // 标题
+    BULLET(3), // 无序列表
+    ORDERED(4), // 有序列表
+    CODE(5), // 代码块
+    LINK(6), // 链接
+    IMAGE(7), // 图片
+    USER(8), // 用户
+    DIVIDER(9), // 分割线
+    CONTAINER(999), // 容器
+    ;
+    private Integer value;
+
     DocContentContentTypeEnum(Integer value) {
-      this.value = value;
+        this.value = value;
     }
 
     public Integer getValue() {
-      return this.value;
+        return this.value;
     }
 }

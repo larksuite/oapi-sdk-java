@@ -17,14 +17,15 @@ package com.lark.oapi.service.moments.v1.enums;
  * 点踩所属实体类型
  */
 public enum DislikeEntityTypeEnum {
-     POST(1), // 帖子
-  ;
-   private Integer value;
+    POST(1), // 帖子
+    ;
+    private Integer value;
+
     DislikeEntityTypeEnum(Integer value) {
-      this.value = value;
+        this.value = value;
     }
 
     public Integer getValue() {
-      return this.value;
+        return this.value;
     }
 }

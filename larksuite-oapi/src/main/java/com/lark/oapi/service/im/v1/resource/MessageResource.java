@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.im.v1.resource;
+
 import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.Transport;
 import com.lark.oapi.core.response.RawResponse;
@@ -20,12 +21,16 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import java.nio.charset.StandardCharsets;
 
 import com.lark.oapi.core.Config;
 import com.lark.oapi.core.request.RequestOptions;
+
 import java.io.ByteArrayOutputStream;
+
 import com.lark.oapi.service.im.v1.model.*;
+
 import java.io.*;
 import java.util.Map;
 import java.util.HashMap;
@@ -41,7 +46,7 @@ public class MessageResource {
         this.config = config;
     }
 
-    
+
     /**
      * 获取消息中的资源文件，获取消息中的资源文件，包括音频，视频，图片和文件，**暂不支持表情包资源下载**。当前仅支持 100M 以内的资源文件的下载。
      * <p> 注意事项:;- 需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability);- 机器人和消息需要在同一会话中;- 暂不支持获取合并转发消息中的子消息的资源文件 ;
@@ -60,7 +65,7 @@ public class MessageResource {
                 , "/open-apis/im/v1/messages/:message_id/resources/:file_key"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-        
+
         if (httpResponse.getStatusCode() == 200) {
             GetMessageResourceResp resp = new GetMessageResourceResp();
             resp.setRawResponse(httpResponse);
@@ -68,7 +73,7 @@ public class MessageResource {
             outputStream.write(httpResponse.getBody());
             resp.setData(outputStream);
             resp.setFileName(httpResponse.getFileName());
-            return  resp;
+            return resp;
         }
         // 反序列化
         GetMessageResourceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetMessageResourceResp.class);
@@ -77,14 +82,14 @@ public class MessageResource {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/im/v1/messages/:message_id/resources/:file_key"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
-       resp.setRawResponse(httpResponse);
-       resp.setRequest(req);
-       
-       return resp;
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
     }
 
     /**
@@ -103,7 +108,7 @@ public class MessageResource {
                 , "/open-apis/im/v1/messages/:message_id/resources/:file_key"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-        
+
         // 下载请求，返回流
         if (httpResponse.getStatusCode() == 200) {
             GetMessageResourceResp resp = new GetMessageResourceResp();
@@ -112,7 +117,7 @@ public class MessageResource {
             outputStream.write(httpResponse.getBody());
             resp.setData(outputStream);
             resp.setFileName(httpResponse.getFileName());
-            return  resp;
+            return resp;
         }
         // 反序列化
         GetMessageResourceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetMessageResourceResp.class);
@@ -121,13 +126,13 @@ public class MessageResource {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/im/v1/messages/:message_id/resources/:file_key"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-        
+
         return resp;
     }
 }

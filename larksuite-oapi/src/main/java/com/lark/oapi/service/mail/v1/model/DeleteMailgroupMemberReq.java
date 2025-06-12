@@ -12,32 +12,58 @@
  */
 
 package com.lark.oapi.service.mail.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class DeleteMailgroupMemberReq {
-     /**
-      * The unique ID or email address of a mail group
-      * <p> 示例值：xxxxxxxxxxxxxxx or test_mail_group@xxx.xx
-      */
+    /**
+     * The unique ID or email address of a mail group
+     * <p> 示例值：xxxxxxxxxxxxxxx or test_mail_group@xxx.xx
+     */
     @Path
     @SerializedName("mailgroup_id")
     private String mailgroupId;
-     /**
-      * The unique ID of a member in this mail group
-      * <p> 示例值：xxxxxxxxxxxxxxx
-      */
+    /**
+     * The unique ID of a member in this mail group
+     * <p> 示例值：xxxxxxxxxxxxxxx
+     */
     @Path
     @SerializedName("member_id")
     private String memberId;
+
+    // builder 开始
+    public DeleteMailgroupMemberReq() {
+    }
+
+    public DeleteMailgroupMemberReq(Builder builder) {
+        /**
+         * The unique ID or email address of a mail group
+         * <p> 示例值：xxxxxxxxxxxxxxx or test_mail_group@xxx.xx
+         */
+        this.mailgroupId = builder.mailgroupId;
+        /**
+         * The unique ID of a member in this mail group
+         * <p> 示例值：xxxxxxxxxxxxxxx
+         */
+        this.memberId = builder.memberId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getMailgroupId() {
         return this.mailgroupId;
     }
@@ -54,57 +80,39 @@ public class DeleteMailgroupMemberReq {
         this.memberId = memberId;
     }
 
-
-// builder 开始
-  public DeleteMailgroupMemberReq(){}
-
-  public DeleteMailgroupMemberReq(Builder builder){
-     /**
-      * The unique ID or email address of a mail group
-      * <p> 示例值：xxxxxxxxxxxxxxx or test_mail_group@xxx.xx
-      */
-       this.mailgroupId = builder.mailgroupId;
-     /**
-      * The unique ID of a member in this mail group
-      * <p> 示例值：xxxxxxxxxxxxxxx
-      */
-       this.memberId = builder.memberId;
-  }
-
     public static class Builder {
-    
+
         private String mailgroupId; // The unique ID or email address of a mail group
         private String memberId; // The unique ID of a member in this mail group
+
         /**
          * The unique ID or email address of a mail group
          * <p> 示例值：xxxxxxxxxxxxxxx or test_mail_group@xxx.xx
+         *
          * @param mailgroupId
          * @return
          */
-          public Builder mailgroupId(String mailgroupId) {
-               this.mailgroupId = mailgroupId;
-               return this;
-          }
+        public Builder mailgroupId(String mailgroupId) {
+            this.mailgroupId = mailgroupId;
+            return this;
+        }
 
-    
+
         /**
          * The unique ID of a member in this mail group
          * <p> 示例值：xxxxxxxxxxxxxxx
+         *
          * @param memberId
          * @return
          */
-          public Builder memberId(String memberId) {
-               this.memberId = memberId;
-               return this;
-          }
+        public Builder memberId(String memberId) {
+            this.memberId = memberId;
+            return this;
+        }
 
-    
-    public DeleteMailgroupMemberReq build(){
-        return new DeleteMailgroupMemberReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public DeleteMailgroupMemberReq build() {
+            return new DeleteMailgroupMemberReq(this);
+        }
     }
 }

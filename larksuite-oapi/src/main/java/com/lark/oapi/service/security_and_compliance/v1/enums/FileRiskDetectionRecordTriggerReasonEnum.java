@@ -17,16 +17,17 @@ package com.lark.oapi.service.security_and_compliance.v1.enums;
  * 触发送检原因
  */
 public enum FileRiskDetectionRecordTriggerReasonEnum {
-     UPLOAD(1), // 上传触发
-     DOWNLOAD(2), // 下载触发
-     APPEAL(3), // 申诉触发
-  ;
-   private Integer value;
+    UPLOAD(1), // 上传触发
+    DOWNLOAD(2), // 下载触发
+    APPEAL(3), // 申诉触发
+    ;
+    private Integer value;
+
     FileRiskDetectionRecordTriggerReasonEnum(Integer value) {
-      this.value = value;
+        this.value = value;
     }
 
     public Integer getValue() {
-      return this.value;
+        return this.value;
     }
 }

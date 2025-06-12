@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class OrgroleInfo {
-     /**
-      * 角色ID
-      * <p> 示例值：hrbp
-      */
+    /**
+     * 角色ID
+     * <p> 示例值：hrbp
+     */
     @SerializedName("role_id")
     private String roleId;
-     /**
-      * 原组织角色
-      * <p> 示例值：
-      */
+    /**
+     * 原组织角色
+     * <p> 示例值：
+     */
     @SerializedName("origin_orgroles")
     private OrgdraftOrgroleAssignment[] originOrgroles;
-     /**
-      * 新组织角色
-      * <p> 示例值：
-      */
+    /**
+     * 新组织角色
+     * <p> 示例值：
+     */
     @SerializedName("target_orgroles")
     private OrgdraftOrgroleAssignment[] targetOrgroles;
+
+    // builder 开始
+    public OrgroleInfo() {
+    }
+
+    public OrgroleInfo(Builder builder) {
+        /**
+         * 角色ID
+         * <p> 示例值：hrbp
+         */
+        this.roleId = builder.roleId;
+        /**
+         * 原组织角色
+         * <p> 示例值：
+         */
+        this.originOrgroles = builder.originOrgroles;
+        /**
+         * 新组织角色
+         * <p> 示例值：
+         */
+        this.targetOrgroles = builder.targetOrgroles;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getRoleId() {
         return this.roleId;
     }
@@ -67,90 +98,64 @@ public class OrgroleInfo {
         this.targetOrgroles = targetOrgroles;
     }
 
-
-// builder 开始
-  public OrgroleInfo(){}
-
-  public OrgroleInfo(Builder builder){
-         /**
-          * 角色ID
-          * <p> 示例值：hrbp
-          */
-      this.roleId = builder.roleId;
-         /**
-          * 原组织角色
-          * <p> 示例值：
-          */
-      this.originOrgroles = builder.originOrgroles;
-         /**
-          * 新组织角色
-          * <p> 示例值：
-          */
-      this.targetOrgroles = builder.targetOrgroles;
-  }
-
     public static class Builder {
-     /**
-      * 角色ID
-      * <p> 示例值：hrbp
-      */
+        /**
+         * 角色ID
+         * <p> 示例值：hrbp
+         */
         private String roleId;
-     /**
-      * 原组织角色
-      * <p> 示例值：
-      */
+        /**
+         * 原组织角色
+         * <p> 示例值：
+         */
         private OrgdraftOrgroleAssignment[] originOrgroles;
-     /**
-      * 新组织角色
-      * <p> 示例值：
-      */
+        /**
+         * 新组织角色
+         * <p> 示例值：
+         */
         private OrgdraftOrgroleAssignment[] targetOrgroles;
 
         /**
          * 角色ID
          * <p> 示例值：hrbp
+         *
          * @param roleId
          * @return
          */
         public Builder roleId(String roleId) {
-             this.roleId = roleId;
-             return this;
+            this.roleId = roleId;
+            return this;
         }
 
-    
 
         /**
          * 原组织角色
          * <p> 示例值：
+         *
          * @param originOrgroles
          * @return
          */
         public Builder originOrgroles(OrgdraftOrgroleAssignment[] originOrgroles) {
-             this.originOrgroles = originOrgroles;
-             return this;
+            this.originOrgroles = originOrgroles;
+            return this;
         }
 
-    
 
         /**
          * 新组织角色
          * <p> 示例值：
+         *
          * @param targetOrgroles
          * @return
          */
         public Builder targetOrgroles(OrgdraftOrgroleAssignment[] targetOrgroles) {
-             this.targetOrgroles = targetOrgroles;
-             return this;
+            this.targetOrgroles = targetOrgroles;
+            return this;
         }
 
-    
-    
-    public OrgroleInfo build(){
-        return new OrgroleInfo(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public OrgroleInfo build() {
+            return new OrgroleInfo(this);
+        }
     }
 }

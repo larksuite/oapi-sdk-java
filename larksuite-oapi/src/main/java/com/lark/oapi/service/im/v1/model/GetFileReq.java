@@ -12,25 +12,46 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class GetFileReq {
-     /**
-      * 文件的key，通过[上传文件](	https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/file/create)接口上传图片后获得
-      * <p> 示例值：file_456a92d6-c6ea-4de4-ac3f-7afcf44ac78g
-      */
+    /**
+     * 文件的key，通过[上传文件](	https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/file/create)接口上传图片后获得
+     * <p> 示例值：file_456a92d6-c6ea-4de4-ac3f-7afcf44ac78g
+     */
     @Path
     @SerializedName("file_key")
     private String fileKey;
+
+    // builder 开始
+    public GetFileReq() {
+    }
+
+    public GetFileReq(Builder builder) {
+        /**
+         * 文件的key，通过[上传文件](	https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/file/create)接口上传图片后获得
+         * <p> 示例值：file_456a92d6-c6ea-4de4-ac3f-7afcf44ac78g
+         */
+        this.fileKey = builder.fileKey;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getFileKey() {
         return this.fileKey;
     }
@@ -39,39 +60,25 @@ public class GetFileReq {
         this.fileKey = fileKey;
     }
 
-
-// builder 开始
-  public GetFileReq(){}
-
-  public GetFileReq(Builder builder){
-     /**
-      * 文件的key，通过[上传文件](	https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/file/create)接口上传图片后获得
-      * <p> 示例值：file_456a92d6-c6ea-4de4-ac3f-7afcf44ac78g
-      */
-       this.fileKey = builder.fileKey;
-  }
-
     public static class Builder {
-    
+
         private String fileKey; // 文件的key，通过[上传文件](	https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/file/create)接口上传图片后获得
+
         /**
          * 文件的key，通过[上传文件](	https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/file/create)接口上传图片后获得
          * <p> 示例值：file_456a92d6-c6ea-4de4-ac3f-7afcf44ac78g
+         *
          * @param fileKey
          * @return
          */
-          public Builder fileKey(String fileKey) {
-               this.fileKey = fileKey;
-               return this;
-          }
+        public Builder fileKey(String fileKey) {
+            this.fileKey = fileKey;
+            return this;
+        }
 
-    
-    public GetFileReq build(){
-        return new GetFileReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public GetFileReq build() {
+            return new GetFileReq(this);
+        }
     }
 }

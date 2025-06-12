@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.mail.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Subscriber {
-     /**
-      * 收到邮件的用户 id 列表
-      * <p> 示例值：
-      */
+    /**
+     * 收到邮件的用户 id 列表
+     * <p> 示例值：
+     */
     @SerializedName("user_ids")
     private UserId[] userIds;
+
+    // builder 开始
+    public Subscriber() {
+    }
+
+    public Subscriber(Builder builder) {
+        /**
+         * 收到邮件的用户 id 列表
+         * <p> 示例值：
+         */
+        this.userIds = builder.userIds;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public UserId[] getUserIds() {
         return this.userIds;
     }
@@ -39,44 +60,28 @@ public class Subscriber {
         this.userIds = userIds;
     }
 
-
-// builder 开始
-  public Subscriber(){}
-
-  public Subscriber(Builder builder){
-         /**
-          * 收到邮件的用户 id 列表
-          * <p> 示例值：
-          */
-      this.userIds = builder.userIds;
-  }
-
     public static class Builder {
-     /**
-      * 收到邮件的用户 id 列表
-      * <p> 示例值：
-      */
+        /**
+         * 收到邮件的用户 id 列表
+         * <p> 示例值：
+         */
         private UserId[] userIds;
 
         /**
          * 收到邮件的用户 id 列表
          * <p> 示例值：
+         *
          * @param userIds
          * @return
          */
         public Builder userIds(UserId[] userIds) {
-             this.userIds = userIds;
-             return this;
+            this.userIds = userIds;
+            return this;
         }
 
-    
-    
-    public Subscriber build(){
-        return new Subscriber(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Subscriber build() {
+            return new Subscriber(this);
+        }
     }
 }

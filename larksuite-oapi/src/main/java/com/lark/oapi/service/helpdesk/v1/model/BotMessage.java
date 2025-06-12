@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,36 +20,71 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class BotMessage {
-     /**
-      * 消息类型
-      * <p> 示例值：post
-      */
+    /**
+     * 消息类型
+     * <p> 示例值：post
+     */
     @SerializedName("msg_type")
     private String msgType;
-     /**
-      * 消息内容，json格式结构序列化成string。格式说明参考: [发送消息content说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)
-      * <p> 示例值：{\"post\":{\"zh_cn\":{\"title\":\"some title\",\"content\":[[{\"tag\":\"text\",\"text\":\"some content\"}]]}}}
-      */
+    /**
+     * 消息内容，json格式结构序列化成string。格式说明参考: [发送消息content说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)
+     * <p> 示例值：{\"post\":{\"zh_cn\":{\"title\":\"some title\",\"content\":[[{\"tag\":\"text\",\"text\":\"some content\"}]]}}}
+     */
     @SerializedName("content")
     private String content;
-     /**
-      * 接收消息用户id
-      * <p> 示例值：ou_7346484524
-      */
+    /**
+     * 接收消息用户id
+     * <p> 示例值：ou_7346484524
+     */
     @SerializedName("receiver_id")
     private String receiverId;
-     /**
-      * 接收消息方式，chat(服务台专属服务群)或user(服务台机器人私聊)。若选择专属服务群，用户有正在处理的工单将会发送失败。默认以chat方式发送。
-      * <p> 示例值：chat
-      */
+    /**
+     * 接收消息方式，chat(服务台专属服务群)或user(服务台机器人私聊)。若选择专属服务群，用户有正在处理的工单将会发送失败。默认以chat方式发送。
+     * <p> 示例值：chat
+     */
     @SerializedName("receive_type")
     private String receiveType;
+
+    // builder 开始
+    public BotMessage() {
+    }
+
+    public BotMessage(Builder builder) {
+        /**
+         * 消息类型
+         * <p> 示例值：post
+         */
+        this.msgType = builder.msgType;
+        /**
+         * 消息内容，json格式结构序列化成string。格式说明参考: [发送消息content说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)
+         * <p> 示例值：{\"post\":{\"zh_cn\":{\"title\":\"some title\",\"content\":[[{\"tag\":\"text\",\"text\":\"some content\"}]]}}}
+         */
+        this.content = builder.content;
+        /**
+         * 接收消息用户id
+         * <p> 示例值：ou_7346484524
+         */
+        this.receiverId = builder.receiverId;
+        /**
+         * 接收消息方式，chat(服务台专属服务群)或user(服务台机器人私聊)。若选择专属服务群，用户有正在处理的工单将会发送失败。默认以chat方式发送。
+         * <p> 示例值：chat
+         */
+        this.receiveType = builder.receiveType;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getMsgType() {
         return this.msgType;
     }
@@ -81,133 +117,106 @@ public class BotMessage {
         this.receiveType = receiveType;
     }
 
-
-// builder 开始
-  public BotMessage(){}
-
-  public BotMessage(Builder builder){
-         /**
-          * 消息类型
-          * <p> 示例值：post
-          */
-      this.msgType = builder.msgType;
-         /**
-          * 消息内容，json格式结构序列化成string。格式说明参考: [发送消息content说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)
-          * <p> 示例值：{\"post\":{\"zh_cn\":{\"title\":\"some title\",\"content\":[[{\"tag\":\"text\",\"text\":\"some content\"}]]}}}
-          */
-      this.content = builder.content;
-         /**
-          * 接收消息用户id
-          * <p> 示例值：ou_7346484524
-          */
-      this.receiverId = builder.receiverId;
-         /**
-          * 接收消息方式，chat(服务台专属服务群)或user(服务台机器人私聊)。若选择专属服务群，用户有正在处理的工单将会发送失败。默认以chat方式发送。
-          * <p> 示例值：chat
-          */
-      this.receiveType = builder.receiveType;
-  }
-
     public static class Builder {
-     /**
-      * 消息类型
-      * <p> 示例值：post
-      */
+        /**
+         * 消息类型
+         * <p> 示例值：post
+         */
         private String msgType;
-     /**
-      * 消息内容，json格式结构序列化成string。格式说明参考: [发送消息content说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)
-      * <p> 示例值：{\"post\":{\"zh_cn\":{\"title\":\"some title\",\"content\":[[{\"tag\":\"text\",\"text\":\"some content\"}]]}}}
-      */
+        /**
+         * 消息内容，json格式结构序列化成string。格式说明参考: [发送消息content说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)
+         * <p> 示例值：{\"post\":{\"zh_cn\":{\"title\":\"some title\",\"content\":[[{\"tag\":\"text\",\"text\":\"some content\"}]]}}}
+         */
         private String content;
-     /**
-      * 接收消息用户id
-      * <p> 示例值：ou_7346484524
-      */
+        /**
+         * 接收消息用户id
+         * <p> 示例值：ou_7346484524
+         */
         private String receiverId;
-     /**
-      * 接收消息方式，chat(服务台专属服务群)或user(服务台机器人私聊)。若选择专属服务群，用户有正在处理的工单将会发送失败。默认以chat方式发送。
-      * <p> 示例值：chat
-      */
+        /**
+         * 接收消息方式，chat(服务台专属服务群)或user(服务台机器人私聊)。若选择专属服务群，用户有正在处理的工单将会发送失败。默认以chat方式发送。
+         * <p> 示例值：chat
+         */
         private String receiveType;
 
         /**
          * 消息类型
          * <p> 示例值：post
+         *
          * @param msgType
          * @return
          */
         public Builder msgType(String msgType) {
-             this.msgType = msgType;
-             return this;
+            this.msgType = msgType;
+            return this;
         }
+
         /**
          * 消息类型
          * <p> 示例值：post
+         *
          * @param msgType {@link com.lark.oapi.service.helpdesk.v1.enums.BotMessageMsgTypeEnum}
          * @return
          */
         public Builder msgType(com.lark.oapi.service.helpdesk.v1.enums.BotMessageMsgTypeEnum msgType) {
-             this.msgType = msgType.getValue();
-             return this;
+            this.msgType = msgType.getValue();
+            return this;
         }
 
-    
 
         /**
          * 消息内容，json格式结构序列化成string。格式说明参考: [发送消息content说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)
          * <p> 示例值：{\"post\":{\"zh_cn\":{\"title\":\"some title\",\"content\":[[{\"tag\":\"text\",\"text\":\"some content\"}]]}}}
+         *
          * @param content
          * @return
          */
         public Builder content(String content) {
-             this.content = content;
-             return this;
+            this.content = content;
+            return this;
         }
 
-    
 
         /**
          * 接收消息用户id
          * <p> 示例值：ou_7346484524
+         *
          * @param receiverId
          * @return
          */
         public Builder receiverId(String receiverId) {
-             this.receiverId = receiverId;
-             return this;
+            this.receiverId = receiverId;
+            return this;
         }
 
-    
 
         /**
          * 接收消息方式，chat(服务台专属服务群)或user(服务台机器人私聊)。若选择专属服务群，用户有正在处理的工单将会发送失败。默认以chat方式发送。
          * <p> 示例值：chat
+         *
          * @param receiveType
          * @return
          */
         public Builder receiveType(String receiveType) {
-             this.receiveType = receiveType;
-             return this;
+            this.receiveType = receiveType;
+            return this;
         }
+
         /**
          * 接收消息方式，chat(服务台专属服务群)或user(服务台机器人私聊)。若选择专属服务群，用户有正在处理的工单将会发送失败。默认以chat方式发送。
          * <p> 示例值：chat
+         *
          * @param receiveType {@link com.lark.oapi.service.helpdesk.v1.enums.BotMessageReceiveTypeEnum}
          * @return
          */
         public Builder receiveType(com.lark.oapi.service.helpdesk.v1.enums.BotMessageReceiveTypeEnum receiveType) {
-             this.receiveType = receiveType.getValue();
-             return this;
+            this.receiveType = receiveType.getValue();
+            return this;
         }
 
-    
-    
-    public BotMessage build(){
-        return new BotMessage(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public BotMessage build() {
+            return new BotMessage(this);
+        }
     }
 }

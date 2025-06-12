@@ -12,42 +12,47 @@
  */
 
 package com.lark.oapi.service.calendar.v4.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class GenerateCaldavConfSettingRespBody {
-     /**
-      * caldav密码
-      * <p> 示例值：A67h23sd8
-      */
+    /**
+     * caldav密码
+     * <p> 示例值：A67h23sd8
+     */
     @SerializedName("password")
     private String password;
-     /**
-      * caldav用户名
-      * <p> 示例值：ZhangSan
-      */
+    /**
+     * caldav用户名
+     * <p> 示例值：ZhangSan
+     */
     @SerializedName("user_name")
     private String userName;
-     /**
-      * 服务器地址
-      * <p> 示例值：caldav.domain.com
-      */
+    /**
+     * 服务器地址
+     * <p> 示例值：caldav.domain.com
+     */
     @SerializedName("server_address")
     private String serverAddress;
-     /**
-      * 设备名
-      * <p> 示例值：iPhone
-      */
+    /**
+     * 设备名
+     * <p> 示例值：iPhone
+     */
     @SerializedName("device_name")
     private String deviceName;
+
     public String getPassword() {
         return this.password;
     }

@@ -12,33 +12,38 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class FormFieldVariableNullValue {
 
-// builder 开始
-  public FormFieldVariableNullValue(){}
+    // builder 开始
+    public FormFieldVariableNullValue() {
+    }
 
-  public FormFieldVariableNullValue(Builder builder){
-  }
-
-    public static class Builder {
-    
-    public FormFieldVariableNullValue build(){
-        return new FormFieldVariableNullValue(this);
-      }
+    public FormFieldVariableNullValue(Builder builder) {
     }
 
     public static Builder newBuilder() {
         return new Builder();
+    }
+
+    public static class Builder {
+
+        public FormFieldVariableNullValue build() {
+            return new FormFieldVariableNullValue(this);
+        }
     }
 }

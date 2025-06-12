@@ -17,18 +17,19 @@ package com.lark.oapi.service.personal_settings.v1.enums;
  * 关闭结果
  */
 public enum SystemStatusUserCloseResultEntitySystemStatusUserCloseResultEnum {
-     SUCCESS("success"), // 成功
-     FAIL("fail"), // 失败可重试
-     INVISIBLE_USER_ID("invisible_user_id"), // 用户ID不可见
-     INVALID_USER_ID("invalid_user_id"), // 用户ID无效
-     RESIGN_USER_ID("resign_user_id"), // 用户离职
-  ;
-   private String value;
+    SUCCESS("success"), // 成功
+    FAIL("fail"), // 失败可重试
+    INVISIBLE_USER_ID("invisible_user_id"), // 用户ID不可见
+    INVALID_USER_ID("invalid_user_id"), // 用户ID无效
+    RESIGN_USER_ID("resign_user_id"), // 用户离职
+    ;
+    private String value;
+
     SystemStatusUserCloseResultEntitySystemStatusUserCloseResultEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

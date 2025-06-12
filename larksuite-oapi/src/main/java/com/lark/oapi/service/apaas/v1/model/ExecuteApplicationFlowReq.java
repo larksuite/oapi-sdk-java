@@ -12,32 +12,61 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ExecuteApplicationFlowReq {
-     /**
-      * 应用id
-      * <p> 示例值：123
-      */
+    /**
+     * 应用id
+     * <p> 示例值：123
+     */
     @Path
     @SerializedName("namespace")
     private String namespace;
-     /**
-      * 流程api name
-      * <p> 示例值：deleteObject_99c0b74799f
-      */
+    /**
+     * 流程api name
+     * <p> 示例值：deleteObject_99c0b74799f
+     */
     @Path
     @SerializedName("flow_id")
     private String flowId;
+    @Body
+    private ExecuteApplicationFlowReqBody body;
+
+    // builder 开始
+    public ExecuteApplicationFlowReq() {
+    }
+
+    public ExecuteApplicationFlowReq(Builder builder) {
+        /**
+         * 应用id
+         * <p> 示例值：123
+         */
+        this.namespace = builder.namespace;
+        /**
+         * 流程api name
+         * <p> 示例值：deleteObject_99c0b74799f
+         */
+        this.flowId = builder.flowId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getNamespace() {
         return this.namespace;
     }
@@ -54,9 +83,6 @@ public class ExecuteApplicationFlowReq {
         this.flowId = flowId;
     }
 
-    @Body
-    private ExecuteApplicationFlowReqBody body;
-
     public ExecuteApplicationFlowReqBody getExecuteApplicationFlowReqBody() {
         return this.body;
     }
@@ -65,72 +91,53 @@ public class ExecuteApplicationFlowReq {
         this.body = body;
     }
 
-// builder 开始
-  public ExecuteApplicationFlowReq(){}
-
-  public ExecuteApplicationFlowReq(Builder builder){
-     /**
-      * 应用id
-      * <p> 示例值：123
-      */
-       this.namespace = builder.namespace;
-     /**
-      * 流程api name
-      * <p> 示例值：deleteObject_99c0b74799f
-      */
-       this.flowId = builder.flowId;
-        this.body = builder.body;
-  }
-
     public static class Builder {
-    
+
         private String namespace; // 应用id
         private String flowId; // 流程api name
+        private ExecuteApplicationFlowReqBody body;
+
         /**
          * 应用id
          * <p> 示例值：123
+         *
          * @param namespace
          * @return
          */
-          public Builder namespace(String namespace) {
-               this.namespace = namespace;
-               return this;
-          }
+        public Builder namespace(String namespace) {
+            this.namespace = namespace;
+            return this;
+        }
 
-    
         /**
          * 流程api name
          * <p> 示例值：deleteObject_99c0b74799f
+         *
          * @param flowId
          * @return
          */
-          public Builder flowId(String flowId) {
-               this.flowId = flowId;
-               return this;
-          }
+        public Builder flowId(String flowId) {
+            this.flowId = flowId;
+            return this;
+        }
 
-    
-        private ExecuteApplicationFlowReqBody body;
-    
         public ExecuteApplicationFlowReqBody getExecuteApplicationFlowReqBody() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder executeApplicationFlowReqBody(ExecuteApplicationFlowReqBody body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public ExecuteApplicationFlowReq build(){
-        return new ExecuteApplicationFlowReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ExecuteApplicationFlowReq build() {
+            return new ExecuteApplicationFlowReq(this);
+        }
     }
 }

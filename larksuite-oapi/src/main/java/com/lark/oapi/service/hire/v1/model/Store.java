@@ -12,72 +12,133 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Store {
-     /**
-      * 门店ID
-      * <p> 示例值：7244461012524337452
-      */
+    /**
+     * 门店ID
+     * <p> 示例值：7244461012524337452
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 门店名称
-      * <p> 示例值：门店名称
-      */
+    /**
+     * 门店名称
+     * <p> 示例值：门店名称
+     */
     @SerializedName("name")
     private String name;
-     /**
-      * 门店名称（英文）
-      * <p> 示例值：Store Name
-      */
+    /**
+     * 门店名称（英文）
+     * <p> 示例值：Store Name
+     */
     @SerializedName("name_en")
     private String nameEn;
-     /**
-      * 部门ID
-      * <p> 示例值：od-b2fafdce6fc5800b574ba5b0e2798b36
-      */
+    /**
+     * 部门ID
+     * <p> 示例值：od-b2fafdce6fc5800b574ba5b0e2798b36
+     */
     @SerializedName("department_id")
     private String departmentId;
-     /**
-      * 启用状态
-      * <p> 示例值：1
-      */
+    /**
+     * 启用状态
+     * <p> 示例值：1
+     */
     @SerializedName("active_status")
     private Integer activeStatus;
-     /**
-      * 地理位置
-      * <p> 示例值：6936011864347134239
-      */
+    /**
+     * 地理位置
+     * <p> 示例值：6936011864347134239
+     */
     @SerializedName("address_id")
     private String addressId;
-     /**
-      * 门店负责人ID
-      * <p> 示例值：ou_efk39117c300506837def50545420c6a
-      */
+    /**
+     * 门店负责人ID
+     * <p> 示例值：ou_efk39117c300506837def50545420c6a
+     */
     @SerializedName("manager_id")
     private String managerId;
-     /**
-      * 备注
-      * <p> 示例值：备注
-      */
+    /**
+     * 备注
+     * <p> 示例值：备注
+     */
     @SerializedName("remark")
     private String remark;
-     /**
-      * 备注（英文）
-      * <p> 示例值：Remark
-      */
+    /**
+     * 备注（英文）
+     * <p> 示例值：Remark
+     */
     @SerializedName("remark_en")
     private String remarkEn;
+
+    // builder 开始
+    public Store() {
+    }
+
+    public Store(Builder builder) {
+        /**
+         * 门店ID
+         * <p> 示例值：7244461012524337452
+         */
+        this.id = builder.id;
+        /**
+         * 门店名称
+         * <p> 示例值：门店名称
+         */
+        this.name = builder.name;
+        /**
+         * 门店名称（英文）
+         * <p> 示例值：Store Name
+         */
+        this.nameEn = builder.nameEn;
+        /**
+         * 部门ID
+         * <p> 示例值：od-b2fafdce6fc5800b574ba5b0e2798b36
+         */
+        this.departmentId = builder.departmentId;
+        /**
+         * 启用状态
+         * <p> 示例值：1
+         */
+        this.activeStatus = builder.activeStatus;
+        /**
+         * 地理位置
+         * <p> 示例值：6936011864347134239
+         */
+        this.addressId = builder.addressId;
+        /**
+         * 门店负责人ID
+         * <p> 示例值：ou_efk39117c300506837def50545420c6a
+         */
+        this.managerId = builder.managerId;
+        /**
+         * 备注
+         * <p> 示例值：备注
+         */
+        this.remark = builder.remark;
+        /**
+         * 备注（英文）
+         * <p> 示例值：Remark
+         */
+        this.remarkEn = builder.remarkEn;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -150,228 +211,172 @@ public class Store {
         this.remarkEn = remarkEn;
     }
 
-
-// builder 开始
-  public Store(){}
-
-  public Store(Builder builder){
-         /**
-          * 门店ID
-          * <p> 示例值：7244461012524337452
-          */
-      this.id = builder.id;
-         /**
-          * 门店名称
-          * <p> 示例值：门店名称
-          */
-      this.name = builder.name;
-         /**
-          * 门店名称（英文）
-          * <p> 示例值：Store Name
-          */
-      this.nameEn = builder.nameEn;
-         /**
-          * 部门ID
-          * <p> 示例值：od-b2fafdce6fc5800b574ba5b0e2798b36
-          */
-      this.departmentId = builder.departmentId;
-         /**
-          * 启用状态
-          * <p> 示例值：1
-          */
-      this.activeStatus = builder.activeStatus;
-         /**
-          * 地理位置
-          * <p> 示例值：6936011864347134239
-          */
-      this.addressId = builder.addressId;
-         /**
-          * 门店负责人ID
-          * <p> 示例值：ou_efk39117c300506837def50545420c6a
-          */
-      this.managerId = builder.managerId;
-         /**
-          * 备注
-          * <p> 示例值：备注
-          */
-      this.remark = builder.remark;
-         /**
-          * 备注（英文）
-          * <p> 示例值：Remark
-          */
-      this.remarkEn = builder.remarkEn;
-  }
-
     public static class Builder {
-     /**
-      * 门店ID
-      * <p> 示例值：7244461012524337452
-      */
+        /**
+         * 门店ID
+         * <p> 示例值：7244461012524337452
+         */
         private String id;
-     /**
-      * 门店名称
-      * <p> 示例值：门店名称
-      */
+        /**
+         * 门店名称
+         * <p> 示例值：门店名称
+         */
         private String name;
-     /**
-      * 门店名称（英文）
-      * <p> 示例值：Store Name
-      */
+        /**
+         * 门店名称（英文）
+         * <p> 示例值：Store Name
+         */
         private String nameEn;
-     /**
-      * 部门ID
-      * <p> 示例值：od-b2fafdce6fc5800b574ba5b0e2798b36
-      */
+        /**
+         * 部门ID
+         * <p> 示例值：od-b2fafdce6fc5800b574ba5b0e2798b36
+         */
         private String departmentId;
-     /**
-      * 启用状态
-      * <p> 示例值：1
-      */
+        /**
+         * 启用状态
+         * <p> 示例值：1
+         */
         private Integer activeStatus;
-     /**
-      * 地理位置
-      * <p> 示例值：6936011864347134239
-      */
+        /**
+         * 地理位置
+         * <p> 示例值：6936011864347134239
+         */
         private String addressId;
-     /**
-      * 门店负责人ID
-      * <p> 示例值：ou_efk39117c300506837def50545420c6a
-      */
+        /**
+         * 门店负责人ID
+         * <p> 示例值：ou_efk39117c300506837def50545420c6a
+         */
         private String managerId;
-     /**
-      * 备注
-      * <p> 示例值：备注
-      */
+        /**
+         * 备注
+         * <p> 示例值：备注
+         */
         private String remark;
-     /**
-      * 备注（英文）
-      * <p> 示例值：Remark
-      */
+        /**
+         * 备注（英文）
+         * <p> 示例值：Remark
+         */
         private String remarkEn;
 
         /**
          * 门店ID
          * <p> 示例值：7244461012524337452
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 门店名称
          * <p> 示例值：门店名称
+         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 门店名称（英文）
          * <p> 示例值：Store Name
+         *
          * @param nameEn
          * @return
          */
         public Builder nameEn(String nameEn) {
-             this.nameEn = nameEn;
-             return this;
+            this.nameEn = nameEn;
+            return this;
         }
 
-    
 
         /**
          * 部门ID
          * <p> 示例值：od-b2fafdce6fc5800b574ba5b0e2798b36
+         *
          * @param departmentId
          * @return
          */
         public Builder departmentId(String departmentId) {
-             this.departmentId = departmentId;
-             return this;
+            this.departmentId = departmentId;
+            return this;
         }
 
-    
 
         /**
          * 启用状态
          * <p> 示例值：1
+         *
          * @param activeStatus
          * @return
          */
         public Builder activeStatus(Integer activeStatus) {
-             this.activeStatus = activeStatus;
-             return this;
+            this.activeStatus = activeStatus;
+            return this;
         }
 
-    
 
         /**
          * 地理位置
          * <p> 示例值：6936011864347134239
+         *
          * @param addressId
          * @return
          */
         public Builder addressId(String addressId) {
-             this.addressId = addressId;
-             return this;
+            this.addressId = addressId;
+            return this;
         }
 
-    
 
         /**
          * 门店负责人ID
          * <p> 示例值：ou_efk39117c300506837def50545420c6a
+         *
          * @param managerId
          * @return
          */
         public Builder managerId(String managerId) {
-             this.managerId = managerId;
-             return this;
+            this.managerId = managerId;
+            return this;
         }
 
-    
 
         /**
          * 备注
          * <p> 示例值：备注
+         *
          * @param remark
          * @return
          */
         public Builder remark(String remark) {
-             this.remark = remark;
-             return this;
+            this.remark = remark;
+            return this;
         }
 
-    
 
         /**
          * 备注（英文）
          * <p> 示例值：Remark
+         *
          * @param remarkEn
          * @return
          */
         public Builder remarkEn(String remarkEn) {
-             this.remarkEn = remarkEn;
-             return this;
+            this.remarkEn = remarkEn;
+            return this;
         }
 
-    
-    
-    public Store build(){
-        return new Store(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Store build() {
+            return new Store(this);
+        }
     }
 }

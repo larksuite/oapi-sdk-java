@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,96 +20,181 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class LocationVersionData {
-     /**
-      * 地点ID
-      * <p> 示例值：4719456877659520852
-      */
+    /**
+     * 地点ID
+     * <p> 示例值：4719456877659520852
+     */
     @SerializedName("location_id")
     private String locationId;
-     /**
-      * 地点版本ID
-      * <p> 示例值：7238516215202170412
-      */
+    /**
+     * 地点版本ID
+     * <p> 示例值：7238516215202170412
+     */
     @SerializedName("location_version_id")
     private String locationVersionId;
-     /**
-      * 地点名称
-      * <p> 示例值：
-      */
+    /**
+     * 地点名称
+     * <p> 示例值：
+     */
     @SerializedName("location_names")
     private I18n[] locationNames;
-     /**
-      * 上级地点ID
-      * <p> 示例值：8961456877659520953
-      */
+    /**
+     * 上级地点ID
+     * <p> 示例值：8961456877659520953
+     */
     @SerializedName("parent_location_id")
     private String parentLocationId;
-     /**
-      * 生效日期
-      * <p> 示例值：2020-05-01
-      */
+    /**
+     * 生效日期
+     * <p> 示例值：2020-05-01
+     */
     @SerializedName("effective_date")
     private String effectiveDate;
-     /**
-      * 失效时间
-      * <p> 示例值：2020-05-02
-      */
+    /**
+     * 失效时间
+     * <p> 示例值：2020-05-02
+     */
     @SerializedName("expiration_date")
     private String expirationDate;
-     /**
-      * 是否启用
-      * <p> 示例值：true
-      */
+    /**
+     * 是否启用
+     * <p> 示例值：true
+     */
     @SerializedName("active")
     private Boolean active;
-     /**
-      * 描述
-      * <p> 示例值：
-      */
+    /**
+     * 描述
+     * <p> 示例值：
+     */
     @SerializedName("descriptions")
     private I18n[] descriptions;
-     /**
-      * 编码
-      * <p> 示例值：BD38591
-      */
+    /**
+     * 编码
+     * <p> 示例值：BD38591
+     */
     @SerializedName("code")
     private String code;
-     /**
-      * 地点用途
-      * <p> 示例值：
-      */
+    /**
+     * 地点用途
+     * <p> 示例值：
+     */
     @SerializedName("location_usages")
     private Enum[] locationUsages;
-     /**
-      * 区域设置
-      * <p> 示例值：zh_cn
-      */
+    /**
+     * 区域设置
+     * <p> 示例值：zh_cn
+     */
     @SerializedName("locale")
     private Enum locale;
-     /**
-      * 时区
-      * <p> 示例值：4690238309151997779
-      */
+    /**
+     * 时区
+     * <p> 示例值：4690238309151997779
+     */
     @SerializedName("time_zone_id")
     private String timeZoneId;
-     /**
-      * 默认语言
-      * <p> 示例值：4690238309151997779
-      */
+    /**
+     * 默认语言
+     * <p> 示例值：4690238309151997779
+     */
     @SerializedName("display_language_id")
     private String displayLanguageId;
-     /**
-      * 工时制度
-      * <p> 示例值：4690238309151997779
-      */
+    /**
+     * 工时制度
+     * <p> 示例值：4690238309151997779
+     */
     @SerializedName("working_hours_type_id")
     private String workingHoursTypeId;
+
+    // builder 开始
+    public LocationVersionData() {
+    }
+
+    public LocationVersionData(Builder builder) {
+        /**
+         * 地点ID
+         * <p> 示例值：4719456877659520852
+         */
+        this.locationId = builder.locationId;
+        /**
+         * 地点版本ID
+         * <p> 示例值：7238516215202170412
+         */
+        this.locationVersionId = builder.locationVersionId;
+        /**
+         * 地点名称
+         * <p> 示例值：
+         */
+        this.locationNames = builder.locationNames;
+        /**
+         * 上级地点ID
+         * <p> 示例值：8961456877659520953
+         */
+        this.parentLocationId = builder.parentLocationId;
+        /**
+         * 生效日期
+         * <p> 示例值：2020-05-01
+         */
+        this.effectiveDate = builder.effectiveDate;
+        /**
+         * 失效时间
+         * <p> 示例值：2020-05-02
+         */
+        this.expirationDate = builder.expirationDate;
+        /**
+         * 是否启用
+         * <p> 示例值：true
+         */
+        this.active = builder.active;
+        /**
+         * 描述
+         * <p> 示例值：
+         */
+        this.descriptions = builder.descriptions;
+        /**
+         * 编码
+         * <p> 示例值：BD38591
+         */
+        this.code = builder.code;
+        /**
+         * 地点用途
+         * <p> 示例值：
+         */
+        this.locationUsages = builder.locationUsages;
+        /**
+         * 区域设置
+         * <p> 示例值：zh_cn
+         */
+        this.locale = builder.locale;
+        /**
+         * 时区
+         * <p> 示例值：4690238309151997779
+         */
+        this.timeZoneId = builder.timeZoneId;
+        /**
+         * 默认语言
+         * <p> 示例值：4690238309151997779
+         */
+        this.displayLanguageId = builder.displayLanguageId;
+        /**
+         * 工时制度
+         * <p> 示例值：4690238309151997779
+         */
+        this.workingHoursTypeId = builder.workingHoursTypeId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getLocationId() {
         return this.locationId;
     }
@@ -221,343 +307,262 @@ public class LocationVersionData {
         this.workingHoursTypeId = workingHoursTypeId;
     }
 
-
-// builder 开始
-  public LocationVersionData(){}
-
-  public LocationVersionData(Builder builder){
-         /**
-          * 地点ID
-          * <p> 示例值：4719456877659520852
-          */
-      this.locationId = builder.locationId;
-         /**
-          * 地点版本ID
-          * <p> 示例值：7238516215202170412
-          */
-      this.locationVersionId = builder.locationVersionId;
-         /**
-          * 地点名称
-          * <p> 示例值：
-          */
-      this.locationNames = builder.locationNames;
-         /**
-          * 上级地点ID
-          * <p> 示例值：8961456877659520953
-          */
-      this.parentLocationId = builder.parentLocationId;
-         /**
-          * 生效日期
-          * <p> 示例值：2020-05-01
-          */
-      this.effectiveDate = builder.effectiveDate;
-         /**
-          * 失效时间
-          * <p> 示例值：2020-05-02
-          */
-      this.expirationDate = builder.expirationDate;
-         /**
-          * 是否启用
-          * <p> 示例值：true
-          */
-      this.active = builder.active;
-         /**
-          * 描述
-          * <p> 示例值：
-          */
-      this.descriptions = builder.descriptions;
-         /**
-          * 编码
-          * <p> 示例值：BD38591
-          */
-      this.code = builder.code;
-         /**
-          * 地点用途
-          * <p> 示例值：
-          */
-      this.locationUsages = builder.locationUsages;
-         /**
-          * 区域设置
-          * <p> 示例值：zh_cn
-          */
-      this.locale = builder.locale;
-         /**
-          * 时区
-          * <p> 示例值：4690238309151997779
-          */
-      this.timeZoneId = builder.timeZoneId;
-         /**
-          * 默认语言
-          * <p> 示例值：4690238309151997779
-          */
-      this.displayLanguageId = builder.displayLanguageId;
-         /**
-          * 工时制度
-          * <p> 示例值：4690238309151997779
-          */
-      this.workingHoursTypeId = builder.workingHoursTypeId;
-  }
-
     public static class Builder {
-     /**
-      * 地点ID
-      * <p> 示例值：4719456877659520852
-      */
+        /**
+         * 地点ID
+         * <p> 示例值：4719456877659520852
+         */
         private String locationId;
-     /**
-      * 地点版本ID
-      * <p> 示例值：7238516215202170412
-      */
+        /**
+         * 地点版本ID
+         * <p> 示例值：7238516215202170412
+         */
         private String locationVersionId;
-     /**
-      * 地点名称
-      * <p> 示例值：
-      */
+        /**
+         * 地点名称
+         * <p> 示例值：
+         */
         private I18n[] locationNames;
-     /**
-      * 上级地点ID
-      * <p> 示例值：8961456877659520953
-      */
+        /**
+         * 上级地点ID
+         * <p> 示例值：8961456877659520953
+         */
         private String parentLocationId;
-     /**
-      * 生效日期
-      * <p> 示例值：2020-05-01
-      */
+        /**
+         * 生效日期
+         * <p> 示例值：2020-05-01
+         */
         private String effectiveDate;
-     /**
-      * 失效时间
-      * <p> 示例值：2020-05-02
-      */
+        /**
+         * 失效时间
+         * <p> 示例值：2020-05-02
+         */
         private String expirationDate;
-     /**
-      * 是否启用
-      * <p> 示例值：true
-      */
+        /**
+         * 是否启用
+         * <p> 示例值：true
+         */
         private Boolean active;
-     /**
-      * 描述
-      * <p> 示例值：
-      */
+        /**
+         * 描述
+         * <p> 示例值：
+         */
         private I18n[] descriptions;
-     /**
-      * 编码
-      * <p> 示例值：BD38591
-      */
+        /**
+         * 编码
+         * <p> 示例值：BD38591
+         */
         private String code;
-     /**
-      * 地点用途
-      * <p> 示例值：
-      */
+        /**
+         * 地点用途
+         * <p> 示例值：
+         */
         private Enum[] locationUsages;
-     /**
-      * 区域设置
-      * <p> 示例值：zh_cn
-      */
+        /**
+         * 区域设置
+         * <p> 示例值：zh_cn
+         */
         private Enum locale;
-     /**
-      * 时区
-      * <p> 示例值：4690238309151997779
-      */
+        /**
+         * 时区
+         * <p> 示例值：4690238309151997779
+         */
         private String timeZoneId;
-     /**
-      * 默认语言
-      * <p> 示例值：4690238309151997779
-      */
+        /**
+         * 默认语言
+         * <p> 示例值：4690238309151997779
+         */
         private String displayLanguageId;
-     /**
-      * 工时制度
-      * <p> 示例值：4690238309151997779
-      */
+        /**
+         * 工时制度
+         * <p> 示例值：4690238309151997779
+         */
         private String workingHoursTypeId;
 
         /**
          * 地点ID
          * <p> 示例值：4719456877659520852
+         *
          * @param locationId
          * @return
          */
         public Builder locationId(String locationId) {
-             this.locationId = locationId;
-             return this;
+            this.locationId = locationId;
+            return this;
         }
 
-    
 
         /**
          * 地点版本ID
          * <p> 示例值：7238516215202170412
+         *
          * @param locationVersionId
          * @return
          */
         public Builder locationVersionId(String locationVersionId) {
-             this.locationVersionId = locationVersionId;
-             return this;
+            this.locationVersionId = locationVersionId;
+            return this;
         }
 
-    
 
         /**
          * 地点名称
          * <p> 示例值：
+         *
          * @param locationNames
          * @return
          */
         public Builder locationNames(I18n[] locationNames) {
-             this.locationNames = locationNames;
-             return this;
+            this.locationNames = locationNames;
+            return this;
         }
 
-    
 
         /**
          * 上级地点ID
          * <p> 示例值：8961456877659520953
+         *
          * @param parentLocationId
          * @return
          */
         public Builder parentLocationId(String parentLocationId) {
-             this.parentLocationId = parentLocationId;
-             return this;
+            this.parentLocationId = parentLocationId;
+            return this;
         }
 
-    
 
         /**
          * 生效日期
          * <p> 示例值：2020-05-01
+         *
          * @param effectiveDate
          * @return
          */
         public Builder effectiveDate(String effectiveDate) {
-             this.effectiveDate = effectiveDate;
-             return this;
+            this.effectiveDate = effectiveDate;
+            return this;
         }
 
-    
 
         /**
          * 失效时间
          * <p> 示例值：2020-05-02
+         *
          * @param expirationDate
          * @return
          */
         public Builder expirationDate(String expirationDate) {
-             this.expirationDate = expirationDate;
-             return this;
+            this.expirationDate = expirationDate;
+            return this;
         }
 
-    
 
         /**
          * 是否启用
          * <p> 示例值：true
+         *
          * @param active
          * @return
          */
         public Builder active(Boolean active) {
-             this.active = active;
-             return this;
+            this.active = active;
+            return this;
         }
 
-    
 
         /**
          * 描述
          * <p> 示例值：
+         *
          * @param descriptions
          * @return
          */
         public Builder descriptions(I18n[] descriptions) {
-             this.descriptions = descriptions;
-             return this;
+            this.descriptions = descriptions;
+            return this;
         }
 
-    
 
         /**
          * 编码
          * <p> 示例值：BD38591
+         *
          * @param code
          * @return
          */
         public Builder code(String code) {
-             this.code = code;
-             return this;
+            this.code = code;
+            return this;
         }
 
-    
 
         /**
          * 地点用途
          * <p> 示例值：
+         *
          * @param locationUsages
          * @return
          */
         public Builder locationUsages(Enum[] locationUsages) {
-             this.locationUsages = locationUsages;
-             return this;
+            this.locationUsages = locationUsages;
+            return this;
         }
 
-    
 
         /**
          * 区域设置
          * <p> 示例值：zh_cn
+         *
          * @param locale
          * @return
          */
         public Builder locale(Enum locale) {
-             this.locale = locale;
-             return this;
+            this.locale = locale;
+            return this;
         }
 
-    
 
         /**
          * 时区
          * <p> 示例值：4690238309151997779
+         *
          * @param timeZoneId
          * @return
          */
         public Builder timeZoneId(String timeZoneId) {
-             this.timeZoneId = timeZoneId;
-             return this;
+            this.timeZoneId = timeZoneId;
+            return this;
         }
 
-    
 
         /**
          * 默认语言
          * <p> 示例值：4690238309151997779
+         *
          * @param displayLanguageId
          * @return
          */
         public Builder displayLanguageId(String displayLanguageId) {
-             this.displayLanguageId = displayLanguageId;
-             return this;
+            this.displayLanguageId = displayLanguageId;
+            return this;
         }
 
-    
 
         /**
          * 工时制度
          * <p> 示例值：4690238309151997779
+         *
          * @param workingHoursTypeId
          * @return
          */
         public Builder workingHoursTypeId(String workingHoursTypeId) {
-             this.workingHoursTypeId = workingHoursTypeId;
-             return this;
+            this.workingHoursTypeId = workingHoursTypeId;
+            return this;
         }
 
-    
-    
-    public LocationVersionData build(){
-        return new LocationVersionData(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public LocationVersionData build() {
+            return new LocationVersionData(this);
+        }
     }
 }

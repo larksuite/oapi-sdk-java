@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.aily.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.aily.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class AilyMessageFileFilter {
-     /**
-      * 返回文件的预览链接
-      * <p> 示例值：false
-      */
+    /**
+     * 返回文件的预览链接
+     * <p> 示例值：false
+     */
     @SerializedName("with_preview_url")
     private Boolean withPreviewUrl;
+
+    // builder 开始
+    public AilyMessageFileFilter() {
+    }
+
+    public AilyMessageFileFilter(Builder builder) {
+        /**
+         * 返回文件的预览链接
+         * <p> 示例值：false
+         */
+        this.withPreviewUrl = builder.withPreviewUrl;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Boolean getWithPreviewUrl() {
         return this.withPreviewUrl;
     }
@@ -39,44 +60,28 @@ public class AilyMessageFileFilter {
         this.withPreviewUrl = withPreviewUrl;
     }
 
-
-// builder 开始
-  public AilyMessageFileFilter(){}
-
-  public AilyMessageFileFilter(Builder builder){
-         /**
-          * 返回文件的预览链接
-          * <p> 示例值：false
-          */
-      this.withPreviewUrl = builder.withPreviewUrl;
-  }
-
     public static class Builder {
-     /**
-      * 返回文件的预览链接
-      * <p> 示例值：false
-      */
+        /**
+         * 返回文件的预览链接
+         * <p> 示例值：false
+         */
         private Boolean withPreviewUrl;
 
         /**
          * 返回文件的预览链接
          * <p> 示例值：false
+         *
          * @param withPreviewUrl
          * @return
          */
         public Builder withPreviewUrl(Boolean withPreviewUrl) {
-             this.withPreviewUrl = withPreviewUrl;
-             return this;
+            this.withPreviewUrl = withPreviewUrl;
+            return this;
         }
 
-    
-    
-    public AilyMessageFileFilter build(){
-        return new AilyMessageFileFilter(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public AilyMessageFileFilter build() {
+            return new AilyMessageFileFilter(this);
+        }
     }
 }

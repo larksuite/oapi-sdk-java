@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.calendar.v4.resource;
+
 import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.Transport;
 import com.lark.oapi.core.response.RawResponse;
@@ -20,12 +21,16 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import java.nio.charset.StandardCharsets;
 
 import com.lark.oapi.core.Config;
 import com.lark.oapi.core.request.RequestOptions;
+
 import java.io.ByteArrayOutputStream;
+
 import com.lark.oapi.service.calendar.v4.model.*;
+
 import java.io.*;
 import java.util.Map;
 import java.util.HashMap;
@@ -41,7 +46,7 @@ public class ExchangeBinding {
         this.config = config;
     }
 
-    
+
     /**
      * 创建Exchange绑定关系，本接口将Exchange账户绑定到飞书账户，进而支持Exchange日历的导入
      * <p> 操作用户需要是企业超级管理员 ;
@@ -59,7 +64,7 @@ public class ExchangeBinding {
                 , "/open-apis/calendar/v4/exchange_bindings"
                 , Sets.newHashSet(AccessTokenType.User)
                 , req);
-        
+
         // 反序列化
         CreateExchangeBindingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateExchangeBindingResp.class);
         if (resp == null) {
@@ -67,14 +72,14 @@ public class ExchangeBinding {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/exchange_bindings"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
-       resp.setRawResponse(httpResponse);
-       resp.setRequest(req);
-       
-       return resp;
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
     }
 
     /**
@@ -92,7 +97,7 @@ public class ExchangeBinding {
                 , "/open-apis/calendar/v4/exchange_bindings"
                 , Sets.newHashSet(AccessTokenType.User)
                 , req);
-        
+
         // 反序列化
         CreateExchangeBindingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateExchangeBindingResp.class);
         if (resp == null) {
@@ -100,15 +105,16 @@ public class ExchangeBinding {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/exchange_bindings"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-        
+
         return resp;
     }
+
     /**
      * 解除Exchange绑定关系，本接口解除Exchange账户和飞书账户的绑定关系，Exchange账户解除绑定后才能绑定其他飞书账户
      * <p> 操作用户需要是企业超级管理员 ;
@@ -126,7 +132,7 @@ public class ExchangeBinding {
                 , "/open-apis/calendar/v4/exchange_bindings/:exchange_binding_id"
                 , Sets.newHashSet(AccessTokenType.User)
                 , req);
-        
+
         // 反序列化
         DeleteExchangeBindingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteExchangeBindingResp.class);
         if (resp == null) {
@@ -134,14 +140,14 @@ public class ExchangeBinding {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/exchange_bindings/:exchange_binding_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
-       resp.setRawResponse(httpResponse);
-       resp.setRequest(req);
-       
-       return resp;
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
     }
 
     /**
@@ -159,7 +165,7 @@ public class ExchangeBinding {
                 , "/open-apis/calendar/v4/exchange_bindings/:exchange_binding_id"
                 , Sets.newHashSet(AccessTokenType.User)
                 , req);
-        
+
         // 反序列化
         DeleteExchangeBindingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteExchangeBindingResp.class);
         if (resp == null) {
@@ -167,15 +173,16 @@ public class ExchangeBinding {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/exchange_bindings/:exchange_binding_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-        
+
         return resp;
     }
+
     /**
      * 获取绑定状态，本接口获取Exchange账户的绑定状态，包括exchange日历是否同步完成。
      * <p> 操作用户需要是企业超级管理员 ;
@@ -193,7 +200,7 @@ public class ExchangeBinding {
                 , "/open-apis/calendar/v4/exchange_bindings/:exchange_binding_id"
                 , Sets.newHashSet(AccessTokenType.User)
                 , req);
-        
+
         // 反序列化
         GetExchangeBindingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetExchangeBindingResp.class);
         if (resp == null) {
@@ -201,14 +208,14 @@ public class ExchangeBinding {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/exchange_bindings/:exchange_binding_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
-       resp.setRawResponse(httpResponse);
-       resp.setRequest(req);
-       
-       return resp;
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
     }
 
     /**
@@ -226,7 +233,7 @@ public class ExchangeBinding {
                 , "/open-apis/calendar/v4/exchange_bindings/:exchange_binding_id"
                 , Sets.newHashSet(AccessTokenType.User)
                 , req);
-        
+
         // 反序列化
         GetExchangeBindingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetExchangeBindingResp.class);
         if (resp == null) {
@@ -234,13 +241,13 @@ public class ExchangeBinding {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/exchange_bindings/:exchange_binding_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-        
+
         return resp;
     }
 }

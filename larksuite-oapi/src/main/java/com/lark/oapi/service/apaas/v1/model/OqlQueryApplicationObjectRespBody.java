@@ -12,30 +12,35 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class OqlQueryApplicationObjectRespBody {
-     /**
-      * 每一列的标题
-      * <p> 示例值：
-      */
+    /**
+     * 每一列的标题
+     * <p> 示例值：
+     */
     @SerializedName("columns")
     private String[] columns;
-     /**
-      * 每一行的值，以「key-value」的形式返回
-      * <p> 示例值：[       {         "_name": "Sample Text",         "_id": 1234567890       }     ]
-      */
+    /**
+     * 每一行的值，以「key-value」的形式返回
+     * <p> 示例值：[       {         "_name": "Sample Text",         "_id": 1234567890       }     ]
+     */
     @SerializedName("rows")
     private String rows;
+
     public String[] getColumns() {
         return this.columns;
     }

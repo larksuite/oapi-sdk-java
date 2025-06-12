@@ -12,72 +12,133 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class WebsiteDeliveryEducation {
-     /**
-      * 学历类型
-      * <p> 示例值：1
-      */
+    /**
+     * 学历类型
+     * <p> 示例值：1
+     */
     @SerializedName("education_type")
     private Integer educationType;
-     /**
-      * 结束时间 ,如果是至今传值 -1
-      * <p> 示例值：1618500278663
-      */
+    /**
+     * 结束时间 ,如果是至今传值 -1
+     * <p> 示例值：1618500278663
+     */
     @SerializedName("end_time")
     private Long endTime;
-     /**
-      * 结束时间-新，无「至今」传值。建议使用此字段，避免模糊的毕业时间影响候选人筛选
-      * <p> 示例值：1618500278663
-      */
+    /**
+     * 结束时间-新，无「至今」传值。建议使用此字段，避免模糊的毕业时间影响候选人筛选
+     * <p> 示例值：1618500278663
+     */
     @SerializedName("end_time_v2")
     private Long endTimeV2;
-     /**
-      * 专业
-      * <p> 示例值：汉语言文学
-      */
+    /**
+     * 专业
+     * <p> 示例值：汉语言文学
+     */
     @SerializedName("field_of_study")
     private String fieldOfStudy;
-     /**
-      * 学校
-      * <p> 示例值：香港中文大学
-      */
+    /**
+     * 学校
+     * <p> 示例值：香港中文大学
+     */
     @SerializedName("school")
     private String school;
-     /**
-      * 开始时间
-      * <p> 示例值：1609430400
-      */
+    /**
+     * 开始时间
+     * <p> 示例值：1609430400
+     */
     @SerializedName("start_time")
     private Long startTime;
-     /**
-      * 专业排名
-      * <p> 示例值：5
-      */
+    /**
+     * 专业排名
+     * <p> 示例值：5
+     */
     @SerializedName("academic_ranking")
     private Integer academicRanking;
-     /**
-      * 自定义字段
-      * <p> 示例值：
-      */
+    /**
+     * 自定义字段
+     * <p> 示例值：
+     */
     @SerializedName("customized_data")
     private WebsiteDeliveryCustomizedData[] customizedData;
-     /**
-      * 学位
-      * <p> 示例值：1
-      */
+    /**
+     * 学位
+     * <p> 示例值：1
+     */
     @SerializedName("degree")
     private Integer degree;
+
+    // builder 开始
+    public WebsiteDeliveryEducation() {
+    }
+
+    public WebsiteDeliveryEducation(Builder builder) {
+        /**
+         * 学历类型
+         * <p> 示例值：1
+         */
+        this.educationType = builder.educationType;
+        /**
+         * 结束时间 ,如果是至今传值 -1
+         * <p> 示例值：1618500278663
+         */
+        this.endTime = builder.endTime;
+        /**
+         * 结束时间-新，无「至今」传值。建议使用此字段，避免模糊的毕业时间影响候选人筛选
+         * <p> 示例值：1618500278663
+         */
+        this.endTimeV2 = builder.endTimeV2;
+        /**
+         * 专业
+         * <p> 示例值：汉语言文学
+         */
+        this.fieldOfStudy = builder.fieldOfStudy;
+        /**
+         * 学校
+         * <p> 示例值：香港中文大学
+         */
+        this.school = builder.school;
+        /**
+         * 开始时间
+         * <p> 示例值：1609430400
+         */
+        this.startTime = builder.startTime;
+        /**
+         * 专业排名
+         * <p> 示例值：5
+         */
+        this.academicRanking = builder.academicRanking;
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
+        this.customizedData = builder.customizedData;
+        /**
+         * 学位
+         * <p> 示例值：1
+         */
+        this.degree = builder.degree;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Integer getEducationType() {
         return this.educationType;
     }
@@ -150,228 +211,172 @@ public class WebsiteDeliveryEducation {
         this.degree = degree;
     }
 
-
-// builder 开始
-  public WebsiteDeliveryEducation(){}
-
-  public WebsiteDeliveryEducation(Builder builder){
-         /**
-          * 学历类型
-          * <p> 示例值：1
-          */
-      this.educationType = builder.educationType;
-         /**
-          * 结束时间 ,如果是至今传值 -1
-          * <p> 示例值：1618500278663
-          */
-      this.endTime = builder.endTime;
-         /**
-          * 结束时间-新，无「至今」传值。建议使用此字段，避免模糊的毕业时间影响候选人筛选
-          * <p> 示例值：1618500278663
-          */
-      this.endTimeV2 = builder.endTimeV2;
-         /**
-          * 专业
-          * <p> 示例值：汉语言文学
-          */
-      this.fieldOfStudy = builder.fieldOfStudy;
-         /**
-          * 学校
-          * <p> 示例值：香港中文大学
-          */
-      this.school = builder.school;
-         /**
-          * 开始时间
-          * <p> 示例值：1609430400
-          */
-      this.startTime = builder.startTime;
-         /**
-          * 专业排名
-          * <p> 示例值：5
-          */
-      this.academicRanking = builder.academicRanking;
-         /**
-          * 自定义字段
-          * <p> 示例值：
-          */
-      this.customizedData = builder.customizedData;
-         /**
-          * 学位
-          * <p> 示例值：1
-          */
-      this.degree = builder.degree;
-  }
-
     public static class Builder {
-     /**
-      * 学历类型
-      * <p> 示例值：1
-      */
+        /**
+         * 学历类型
+         * <p> 示例值：1
+         */
         private Integer educationType;
-     /**
-      * 结束时间 ,如果是至今传值 -1
-      * <p> 示例值：1618500278663
-      */
+        /**
+         * 结束时间 ,如果是至今传值 -1
+         * <p> 示例值：1618500278663
+         */
         private Long endTime;
-     /**
-      * 结束时间-新，无「至今」传值。建议使用此字段，避免模糊的毕业时间影响候选人筛选
-      * <p> 示例值：1618500278663
-      */
+        /**
+         * 结束时间-新，无「至今」传值。建议使用此字段，避免模糊的毕业时间影响候选人筛选
+         * <p> 示例值：1618500278663
+         */
         private Long endTimeV2;
-     /**
-      * 专业
-      * <p> 示例值：汉语言文学
-      */
+        /**
+         * 专业
+         * <p> 示例值：汉语言文学
+         */
         private String fieldOfStudy;
-     /**
-      * 学校
-      * <p> 示例值：香港中文大学
-      */
+        /**
+         * 学校
+         * <p> 示例值：香港中文大学
+         */
         private String school;
-     /**
-      * 开始时间
-      * <p> 示例值：1609430400
-      */
+        /**
+         * 开始时间
+         * <p> 示例值：1609430400
+         */
         private Long startTime;
-     /**
-      * 专业排名
-      * <p> 示例值：5
-      */
+        /**
+         * 专业排名
+         * <p> 示例值：5
+         */
         private Integer academicRanking;
-     /**
-      * 自定义字段
-      * <p> 示例值：
-      */
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
         private WebsiteDeliveryCustomizedData[] customizedData;
-     /**
-      * 学位
-      * <p> 示例值：1
-      */
+        /**
+         * 学位
+         * <p> 示例值：1
+         */
         private Integer degree;
 
         /**
          * 学历类型
          * <p> 示例值：1
+         *
          * @param educationType
          * @return
          */
         public Builder educationType(Integer educationType) {
-             this.educationType = educationType;
-             return this;
+            this.educationType = educationType;
+            return this;
         }
 
-    
 
         /**
          * 结束时间 ,如果是至今传值 -1
          * <p> 示例值：1618500278663
+         *
          * @param endTime
          * @return
          */
         public Builder endTime(Long endTime) {
-             this.endTime = endTime;
-             return this;
+            this.endTime = endTime;
+            return this;
         }
 
-    
 
         /**
          * 结束时间-新，无「至今」传值。建议使用此字段，避免模糊的毕业时间影响候选人筛选
          * <p> 示例值：1618500278663
+         *
          * @param endTimeV2
          * @return
          */
         public Builder endTimeV2(Long endTimeV2) {
-             this.endTimeV2 = endTimeV2;
-             return this;
+            this.endTimeV2 = endTimeV2;
+            return this;
         }
 
-    
 
         /**
          * 专业
          * <p> 示例值：汉语言文学
+         *
          * @param fieldOfStudy
          * @return
          */
         public Builder fieldOfStudy(String fieldOfStudy) {
-             this.fieldOfStudy = fieldOfStudy;
-             return this;
+            this.fieldOfStudy = fieldOfStudy;
+            return this;
         }
 
-    
 
         /**
          * 学校
          * <p> 示例值：香港中文大学
+         *
          * @param school
          * @return
          */
         public Builder school(String school) {
-             this.school = school;
-             return this;
+            this.school = school;
+            return this;
         }
 
-    
 
         /**
          * 开始时间
          * <p> 示例值：1609430400
+         *
          * @param startTime
          * @return
          */
         public Builder startTime(Long startTime) {
-             this.startTime = startTime;
-             return this;
+            this.startTime = startTime;
+            return this;
         }
 
-    
 
         /**
          * 专业排名
          * <p> 示例值：5
+         *
          * @param academicRanking
          * @return
          */
         public Builder academicRanking(Integer academicRanking) {
-             this.academicRanking = academicRanking;
-             return this;
+            this.academicRanking = academicRanking;
+            return this;
         }
 
-    
 
         /**
          * 自定义字段
          * <p> 示例值：
+         *
          * @param customizedData
          * @return
          */
         public Builder customizedData(WebsiteDeliveryCustomizedData[] customizedData) {
-             this.customizedData = customizedData;
-             return this;
+            this.customizedData = customizedData;
+            return this;
         }
 
-    
 
         /**
          * 学位
          * <p> 示例值：1
+         *
          * @param degree
          * @return
          */
         public Builder degree(Integer degree) {
-             this.degree = degree;
-             return this;
+            this.degree = degree;
+            return this;
         }
 
-    
-    
-    public WebsiteDeliveryEducation build(){
-        return new WebsiteDeliveryEducation(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public WebsiteDeliveryEducation build() {
+            return new WebsiteDeliveryEducation(this);
+        }
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.sheets.v3.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.sheets.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,36 +20,71 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class BorderStyle {
-     /**
-      * 上边框样式
-      * <p> 示例值：
-      */
+    /**
+     * 上边框样式
+     * <p> 示例值：
+     */
     @SerializedName("top")
     private TopBorderStyle top;
-     /**
-      * 左边框样式
-      * <p> 示例值：
-      */
+    /**
+     * 左边框样式
+     * <p> 示例值：
+     */
     @SerializedName("left")
     private LeftBorderStyle left;
-     /**
-      * 右边框样式
-      * <p> 示例值：
-      */
+    /**
+     * 右边框样式
+     * <p> 示例值：
+     */
     @SerializedName("right")
     private RightBorderStyle right;
-     /**
-      * 下边框样式
-      * <p> 示例值：
-      */
+    /**
+     * 下边框样式
+     * <p> 示例值：
+     */
     @SerializedName("bottom")
     private BottomBorderStyle bottom;
+
+    // builder 开始
+    public BorderStyle() {
+    }
+
+    public BorderStyle(Builder builder) {
+        /**
+         * 上边框样式
+         * <p> 示例值：
+         */
+        this.top = builder.top;
+        /**
+         * 左边框样式
+         * <p> 示例值：
+         */
+        this.left = builder.left;
+        /**
+         * 右边框样式
+         * <p> 示例值：
+         */
+        this.right = builder.right;
+        /**
+         * 下边框样式
+         * <p> 示例值：
+         */
+        this.bottom = builder.bottom;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public TopBorderStyle getTop() {
         return this.top;
     }
@@ -81,113 +117,82 @@ public class BorderStyle {
         this.bottom = bottom;
     }
 
-
-// builder 开始
-  public BorderStyle(){}
-
-  public BorderStyle(Builder builder){
-         /**
-          * 上边框样式
-          * <p> 示例值：
-          */
-      this.top = builder.top;
-         /**
-          * 左边框样式
-          * <p> 示例值：
-          */
-      this.left = builder.left;
-         /**
-          * 右边框样式
-          * <p> 示例值：
-          */
-      this.right = builder.right;
-         /**
-          * 下边框样式
-          * <p> 示例值：
-          */
-      this.bottom = builder.bottom;
-  }
-
     public static class Builder {
-     /**
-      * 上边框样式
-      * <p> 示例值：
-      */
+        /**
+         * 上边框样式
+         * <p> 示例值：
+         */
         private TopBorderStyle top;
-     /**
-      * 左边框样式
-      * <p> 示例值：
-      */
+        /**
+         * 左边框样式
+         * <p> 示例值：
+         */
         private LeftBorderStyle left;
-     /**
-      * 右边框样式
-      * <p> 示例值：
-      */
+        /**
+         * 右边框样式
+         * <p> 示例值：
+         */
         private RightBorderStyle right;
-     /**
-      * 下边框样式
-      * <p> 示例值：
-      */
+        /**
+         * 下边框样式
+         * <p> 示例值：
+         */
         private BottomBorderStyle bottom;
 
         /**
          * 上边框样式
          * <p> 示例值：
+         *
          * @param top
          * @return
          */
         public Builder top(TopBorderStyle top) {
-             this.top = top;
-             return this;
+            this.top = top;
+            return this;
         }
 
-    
 
         /**
          * 左边框样式
          * <p> 示例值：
+         *
          * @param left
          * @return
          */
         public Builder left(LeftBorderStyle left) {
-             this.left = left;
-             return this;
+            this.left = left;
+            return this;
         }
 
-    
 
         /**
          * 右边框样式
          * <p> 示例值：
+         *
          * @param right
          * @return
          */
         public Builder right(RightBorderStyle right) {
-             this.right = right;
-             return this;
+            this.right = right;
+            return this;
         }
 
-    
 
         /**
          * 下边框样式
          * <p> 示例值：
+         *
          * @param bottom
          * @return
          */
         public Builder bottom(BottomBorderStyle bottom) {
-             this.bottom = bottom;
-             return this;
+            this.bottom = bottom;
+            return this;
         }
 
-    
-    
-    public BorderStyle build(){
-        return new BorderStyle(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public BorderStyle build() {
+            return new BorderStyle(this);
+        }
     }
 }

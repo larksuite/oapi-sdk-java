@@ -12,32 +12,61 @@
  */
 
 package com.lark.oapi.service.sheets.v3.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.sheets.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class FindSpreadsheetSheetReq {
-     /**
-      * 表格的token，获取方式见[如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)
-      * <p> 示例值：shtcnmBA*****yGehy8
-      */
+    /**
+     * 表格的token，获取方式见[如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)
+     * <p> 示例值：shtcnmBA*****yGehy8
+     */
     @Path
     @SerializedName("spreadsheet_token")
     private String spreadsheetToken;
-     /**
-      * 工作表的id，获取方式见[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query)
-      * <p> 示例值：0b**12
-      */
+    /**
+     * 工作表的id，获取方式见[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query)
+     * <p> 示例值：0b**12
+     */
     @Path
     @SerializedName("sheet_id")
     private String sheetId;
+    @Body
+    private Find body;
+
+    // builder 开始
+    public FindSpreadsheetSheetReq() {
+    }
+
+    public FindSpreadsheetSheetReq(Builder builder) {
+        /**
+         * 表格的token，获取方式见[如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)
+         * <p> 示例值：shtcnmBA*****yGehy8
+         */
+        this.spreadsheetToken = builder.spreadsheetToken;
+        /**
+         * 工作表的id，获取方式见[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query)
+         * <p> 示例值：0b**12
+         */
+        this.sheetId = builder.sheetId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getSpreadsheetToken() {
         return this.spreadsheetToken;
     }
@@ -54,9 +83,6 @@ public class FindSpreadsheetSheetReq {
         this.sheetId = sheetId;
     }
 
-    @Body
-    private Find body;
-
     public Find getFind() {
         return this.body;
     }
@@ -65,72 +91,53 @@ public class FindSpreadsheetSheetReq {
         this.body = body;
     }
 
-// builder 开始
-  public FindSpreadsheetSheetReq(){}
-
-  public FindSpreadsheetSheetReq(Builder builder){
-     /**
-      * 表格的token，获取方式见[如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)
-      * <p> 示例值：shtcnmBA*****yGehy8
-      */
-       this.spreadsheetToken = builder.spreadsheetToken;
-     /**
-      * 工作表的id，获取方式见[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query)
-      * <p> 示例值：0b**12
-      */
-       this.sheetId = builder.sheetId;
-        this.body = builder.body;
-  }
-
     public static class Builder {
-    
+
         private String spreadsheetToken; // 表格的token，获取方式见[如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)
         private String sheetId; // 工作表的id，获取方式见[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query)
+        private Find body;
+
         /**
          * 表格的token，获取方式见[如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)
          * <p> 示例值：shtcnmBA*****yGehy8
+         *
          * @param spreadsheetToken
          * @return
          */
-          public Builder spreadsheetToken(String spreadsheetToken) {
-               this.spreadsheetToken = spreadsheetToken;
-               return this;
-          }
+        public Builder spreadsheetToken(String spreadsheetToken) {
+            this.spreadsheetToken = spreadsheetToken;
+            return this;
+        }
 
-    
         /**
          * 工作表的id，获取方式见[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query)
          * <p> 示例值：0b**12
+         *
          * @param sheetId
          * @return
          */
-          public Builder sheetId(String sheetId) {
-               this.sheetId = sheetId;
-               return this;
-          }
+        public Builder sheetId(String sheetId) {
+            this.sheetId = sheetId;
+            return this;
+        }
 
-    
-        private Find body;
-    
         public Find getFind() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder find(Find body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public FindSpreadsheetSheetReq build(){
-        return new FindSpreadsheetSheetReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public FindSpreadsheetSheetReq build() {
+            return new FindSpreadsheetSheetReq(this);
+        }
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,78 +20,148 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class SignatureFile {
-     /**
-      * 电子签文件ID
-      * <p> 示例值：7147527056140813828
-      */
+    /**
+     * 电子签文件ID
+     * <p> 示例值：7147527056140813828
+     */
     @SerializedName("signature_file_id")
     private String signatureFileId;
-     /**
-      * 名称
-      * <p> 示例值：
-      */
+    /**
+     * 名称
+     * <p> 示例值：
+     */
     @SerializedName("names")
     private I18n[] names;
-     /**
-      * 创建时间
-      * <p> 示例值：2023-01-01 00:00:00
-      */
+    /**
+     * 创建时间
+     * <p> 示例值：2023-01-01 00:00:00
+     */
     @SerializedName("create_time")
     private String createTime;
-     /**
-      * 更新时间
-      * <p> 示例值：2023-01-01 00:00:00
-      */
+    /**
+     * 更新时间
+     * <p> 示例值：2023-01-01 00:00:00
+     */
     @SerializedName("update_time")
     private String updateTime;
-     /**
-      * 雇员 id
-      * <p> 示例值：7123132668099919891
-      */
+    /**
+     * 雇员 id
+     * <p> 示例值：7123132668099919891
+     */
     @SerializedName("employment_id")
     private String employmentId;
-     /**
-      * 待入职 id
-      * <p> 示例值：7123132668099919891
-      */
+    /**
+     * 待入职 id
+     * <p> 示例值：7123132668099919891
+     */
     @SerializedName("pre_hire_id")
     private String preHireId;
-     /**
-      * 电子签文件状态，枚举值可通过文档【飞书人事枚举常量】电子签文件状态（signature_file_state）枚举定义部分获得
-      * <p> 示例值：
-      */
+    /**
+     * 电子签文件状态，枚举值可通过文档【飞书人事枚举常量】电子签文件状态（signature_file_state）枚举定义部分获得
+     * <p> 示例值：
+     */
     @SerializedName("signature_file_state")
     private Enum signatureFileState;
-     /**
-      * 供应商侧的合同编号，作为幂等key
-      * <p> 示例值：48793beea04f4e2583d50732e481d507
-      */
+    /**
+     * 供应商侧的合同编号，作为幂等key
+     * <p> 示例值：48793beea04f4e2583d50732e481d507
+     */
     @SerializedName("contract_code")
     private String contractCode;
-     /**
-      * 电子签文件生效日期
-      * <p> 示例值：2024-12-01
-      */
+    /**
+     * 电子签文件生效日期
+     * <p> 示例值：2024-12-01
+     */
     @SerializedName("effective_date")
     private String effectiveDate;
-     /**
-      * 电子签模板ID
-      * <p> 示例值：7147527056140813828
-      */
+    /**
+     * 电子签模板ID
+     * <p> 示例值：7147527056140813828
+     */
     @SerializedName("template_id")
     private String templateId;
-     /**
-      * 签署链接
-      * <p> 示例值：123213
-      */
+    /**
+     * 签署链接
+     * <p> 示例值：123213
+     */
     @SerializedName("sign_url")
     private String signUrl;
+
+    // builder 开始
+    public SignatureFile() {
+    }
+
+    public SignatureFile(Builder builder) {
+        /**
+         * 电子签文件ID
+         * <p> 示例值：7147527056140813828
+         */
+        this.signatureFileId = builder.signatureFileId;
+        /**
+         * 名称
+         * <p> 示例值：
+         */
+        this.names = builder.names;
+        /**
+         * 创建时间
+         * <p> 示例值：2023-01-01 00:00:00
+         */
+        this.createTime = builder.createTime;
+        /**
+         * 更新时间
+         * <p> 示例值：2023-01-01 00:00:00
+         */
+        this.updateTime = builder.updateTime;
+        /**
+         * 雇员 id
+         * <p> 示例值：7123132668099919891
+         */
+        this.employmentId = builder.employmentId;
+        /**
+         * 待入职 id
+         * <p> 示例值：7123132668099919891
+         */
+        this.preHireId = builder.preHireId;
+        /**
+         * 电子签文件状态，枚举值可通过文档【飞书人事枚举常量】电子签文件状态（signature_file_state）枚举定义部分获得
+         * <p> 示例值：
+         */
+        this.signatureFileState = builder.signatureFileState;
+        /**
+         * 供应商侧的合同编号，作为幂等key
+         * <p> 示例值：48793beea04f4e2583d50732e481d507
+         */
+        this.contractCode = builder.contractCode;
+        /**
+         * 电子签文件生效日期
+         * <p> 示例值：2024-12-01
+         */
+        this.effectiveDate = builder.effectiveDate;
+        /**
+         * 电子签模板ID
+         * <p> 示例值：7147527056140813828
+         */
+        this.templateId = builder.templateId;
+        /**
+         * 签署链接
+         * <p> 示例值：123213
+         */
+        this.signUrl = builder.signUrl;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getSignatureFileId() {
         return this.signatureFileId;
     }
@@ -179,274 +250,208 @@ public class SignatureFile {
         this.signUrl = signUrl;
     }
 
-
-// builder 开始
-  public SignatureFile(){}
-
-  public SignatureFile(Builder builder){
-         /**
-          * 电子签文件ID
-          * <p> 示例值：7147527056140813828
-          */
-      this.signatureFileId = builder.signatureFileId;
-         /**
-          * 名称
-          * <p> 示例值：
-          */
-      this.names = builder.names;
-         /**
-          * 创建时间
-          * <p> 示例值：2023-01-01 00:00:00
-          */
-      this.createTime = builder.createTime;
-         /**
-          * 更新时间
-          * <p> 示例值：2023-01-01 00:00:00
-          */
-      this.updateTime = builder.updateTime;
-         /**
-          * 雇员 id
-          * <p> 示例值：7123132668099919891
-          */
-      this.employmentId = builder.employmentId;
-         /**
-          * 待入职 id
-          * <p> 示例值：7123132668099919891
-          */
-      this.preHireId = builder.preHireId;
-         /**
-          * 电子签文件状态，枚举值可通过文档【飞书人事枚举常量】电子签文件状态（signature_file_state）枚举定义部分获得
-          * <p> 示例值：
-          */
-      this.signatureFileState = builder.signatureFileState;
-         /**
-          * 供应商侧的合同编号，作为幂等key
-          * <p> 示例值：48793beea04f4e2583d50732e481d507
-          */
-      this.contractCode = builder.contractCode;
-         /**
-          * 电子签文件生效日期
-          * <p> 示例值：2024-12-01
-          */
-      this.effectiveDate = builder.effectiveDate;
-         /**
-          * 电子签模板ID
-          * <p> 示例值：7147527056140813828
-          */
-      this.templateId = builder.templateId;
-         /**
-          * 签署链接
-          * <p> 示例值：123213
-          */
-      this.signUrl = builder.signUrl;
-  }
-
     public static class Builder {
-     /**
-      * 电子签文件ID
-      * <p> 示例值：7147527056140813828
-      */
+        /**
+         * 电子签文件ID
+         * <p> 示例值：7147527056140813828
+         */
         private String signatureFileId;
-     /**
-      * 名称
-      * <p> 示例值：
-      */
+        /**
+         * 名称
+         * <p> 示例值：
+         */
         private I18n[] names;
-     /**
-      * 创建时间
-      * <p> 示例值：2023-01-01 00:00:00
-      */
+        /**
+         * 创建时间
+         * <p> 示例值：2023-01-01 00:00:00
+         */
         private String createTime;
-     /**
-      * 更新时间
-      * <p> 示例值：2023-01-01 00:00:00
-      */
+        /**
+         * 更新时间
+         * <p> 示例值：2023-01-01 00:00:00
+         */
         private String updateTime;
-     /**
-      * 雇员 id
-      * <p> 示例值：7123132668099919891
-      */
+        /**
+         * 雇员 id
+         * <p> 示例值：7123132668099919891
+         */
         private String employmentId;
-     /**
-      * 待入职 id
-      * <p> 示例值：7123132668099919891
-      */
+        /**
+         * 待入职 id
+         * <p> 示例值：7123132668099919891
+         */
         private String preHireId;
-     /**
-      * 电子签文件状态，枚举值可通过文档【飞书人事枚举常量】电子签文件状态（signature_file_state）枚举定义部分获得
-      * <p> 示例值：
-      */
+        /**
+         * 电子签文件状态，枚举值可通过文档【飞书人事枚举常量】电子签文件状态（signature_file_state）枚举定义部分获得
+         * <p> 示例值：
+         */
         private Enum signatureFileState;
-     /**
-      * 供应商侧的合同编号，作为幂等key
-      * <p> 示例值：48793beea04f4e2583d50732e481d507
-      */
+        /**
+         * 供应商侧的合同编号，作为幂等key
+         * <p> 示例值：48793beea04f4e2583d50732e481d507
+         */
         private String contractCode;
-     /**
-      * 电子签文件生效日期
-      * <p> 示例值：2024-12-01
-      */
+        /**
+         * 电子签文件生效日期
+         * <p> 示例值：2024-12-01
+         */
         private String effectiveDate;
-     /**
-      * 电子签模板ID
-      * <p> 示例值：7147527056140813828
-      */
+        /**
+         * 电子签模板ID
+         * <p> 示例值：7147527056140813828
+         */
         private String templateId;
-     /**
-      * 签署链接
-      * <p> 示例值：123213
-      */
+        /**
+         * 签署链接
+         * <p> 示例值：123213
+         */
         private String signUrl;
 
         /**
          * 电子签文件ID
          * <p> 示例值：7147527056140813828
+         *
          * @param signatureFileId
          * @return
          */
         public Builder signatureFileId(String signatureFileId) {
-             this.signatureFileId = signatureFileId;
-             return this;
+            this.signatureFileId = signatureFileId;
+            return this;
         }
 
-    
 
         /**
          * 名称
          * <p> 示例值：
+         *
          * @param names
          * @return
          */
         public Builder names(I18n[] names) {
-             this.names = names;
-             return this;
+            this.names = names;
+            return this;
         }
 
-    
 
         /**
          * 创建时间
          * <p> 示例值：2023-01-01 00:00:00
+         *
          * @param createTime
          * @return
          */
         public Builder createTime(String createTime) {
-             this.createTime = createTime;
-             return this;
+            this.createTime = createTime;
+            return this;
         }
 
-    
 
         /**
          * 更新时间
          * <p> 示例值：2023-01-01 00:00:00
+         *
          * @param updateTime
          * @return
          */
         public Builder updateTime(String updateTime) {
-             this.updateTime = updateTime;
-             return this;
+            this.updateTime = updateTime;
+            return this;
         }
 
-    
 
         /**
          * 雇员 id
          * <p> 示例值：7123132668099919891
+         *
          * @param employmentId
          * @return
          */
         public Builder employmentId(String employmentId) {
-             this.employmentId = employmentId;
-             return this;
+            this.employmentId = employmentId;
+            return this;
         }
 
-    
 
         /**
          * 待入职 id
          * <p> 示例值：7123132668099919891
+         *
          * @param preHireId
          * @return
          */
         public Builder preHireId(String preHireId) {
-             this.preHireId = preHireId;
-             return this;
+            this.preHireId = preHireId;
+            return this;
         }
 
-    
 
         /**
          * 电子签文件状态，枚举值可通过文档【飞书人事枚举常量】电子签文件状态（signature_file_state）枚举定义部分获得
          * <p> 示例值：
+         *
          * @param signatureFileState
          * @return
          */
         public Builder signatureFileState(Enum signatureFileState) {
-             this.signatureFileState = signatureFileState;
-             return this;
+            this.signatureFileState = signatureFileState;
+            return this;
         }
 
-    
 
         /**
          * 供应商侧的合同编号，作为幂等key
          * <p> 示例值：48793beea04f4e2583d50732e481d507
+         *
          * @param contractCode
          * @return
          */
         public Builder contractCode(String contractCode) {
-             this.contractCode = contractCode;
-             return this;
+            this.contractCode = contractCode;
+            return this;
         }
 
-    
 
         /**
          * 电子签文件生效日期
          * <p> 示例值：2024-12-01
+         *
          * @param effectiveDate
          * @return
          */
         public Builder effectiveDate(String effectiveDate) {
-             this.effectiveDate = effectiveDate;
-             return this;
+            this.effectiveDate = effectiveDate;
+            return this;
         }
 
-    
 
         /**
          * 电子签模板ID
          * <p> 示例值：7147527056140813828
+         *
          * @param templateId
          * @return
          */
         public Builder templateId(String templateId) {
-             this.templateId = templateId;
-             return this;
+            this.templateId = templateId;
+            return this;
         }
 
-    
 
         /**
          * 签署链接
          * <p> 示例值：123213
+         *
          * @param signUrl
          * @return
          */
         public Builder signUrl(String signUrl) {
-             this.signUrl = signUrl;
-             return this;
+            this.signUrl = signUrl;
+            return this;
         }
 
-    
-    
-    public SignatureFile build(){
-        return new SignatureFile(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public SignatureFile build() {
+            return new SignatureFile(this);
+        }
     }
 }

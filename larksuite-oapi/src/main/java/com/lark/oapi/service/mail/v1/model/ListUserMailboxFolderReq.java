@@ -12,25 +12,58 @@
  */
 
 package com.lark.oapi.service.mail.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ListUserMailboxFolderReq {
-     /**
-      * 文件夹类型
-      * <p> 示例值：1
-      */
+    /**
+     * 文件夹类型
+     * <p> 示例值：1
+     */
     @Query
     @SerializedName("folder_type")
     private Integer folderType;
+    /**
+     * 用户邮箱地址 或 输入me代表当前调用接口用户
+     * <p> 示例值：user@xxx.xx 或 me
+     */
+    @Path
+    @SerializedName("user_mailbox_id")
+    private String userMailboxId;
+
+    // builder 开始
+    public ListUserMailboxFolderReq() {
+    }
+
+    public ListUserMailboxFolderReq(Builder builder) {
+        /**
+         * 文件夹类型
+         * <p> 示例值：1
+         */
+        this.folderType = builder.folderType;
+        /**
+         * 用户邮箱地址 或 输入me代表当前调用接口用户
+         * <p> 示例值：user@xxx.xx 或 me
+         */
+        this.userMailboxId = builder.userMailboxId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Integer getFolderType() {
         return this.folderType;
     }
@@ -39,13 +72,6 @@ public class ListUserMailboxFolderReq {
         this.folderType = folderType;
     }
 
-     /**
-      * 用户邮箱地址 或 输入me代表当前调用接口用户
-      * <p> 示例值：user@xxx.xx 或 me
-      */
-    @Path
-    @SerializedName("user_mailbox_id")
-    private String userMailboxId;
     public String getUserMailboxId() {
         return this.userMailboxId;
     }
@@ -54,68 +80,49 @@ public class ListUserMailboxFolderReq {
         this.userMailboxId = userMailboxId;
     }
 
-
-// builder 开始
-  public ListUserMailboxFolderReq(){}
-
-  public ListUserMailboxFolderReq(Builder builder){
-         /**
-          * 文件夹类型
-          * <p> 示例值：1
-          */
-       this.folderType = builder.folderType;
-     /**
-      * 用户邮箱地址 或 输入me代表当前调用接口用户
-      * <p> 示例值：user@xxx.xx 或 me
-      */
-       this.userMailboxId = builder.userMailboxId;
-  }
-
     public static class Builder {
         private Integer folderType; // 文件夹类型
-    
+        private String userMailboxId; // 用户邮箱地址 或 输入me代表当前调用接口用户
+
         /**
          * 文件夹类型
          * <p> 示例值：1
+         *
          * @param folderType
          * @return
          */
-           public Builder folderType(Integer folderType) {
-                this.folderType = folderType;
-                return this;
-           }
+        public Builder folderType(Integer folderType) {
+            this.folderType = folderType;
+            return this;
+        }
 
         /**
          * 文件夹类型
          * <p> 示例值：1
+         *
          * @param folderType {@link com.lark.oapi.service.mail.v1.enums.ListUserMailboxFolderFolderTypeEnum}
          * @return
          */
-          public Builder folderType(com.lark.oapi.service.mail.v1.enums.ListUserMailboxFolderFolderTypeEnum folderType) {
-               this.folderType = folderType.getValue();
-               return this;
-          }
+        public Builder folderType(com.lark.oapi.service.mail.v1.enums.ListUserMailboxFolderFolderTypeEnum folderType) {
+            this.folderType = folderType.getValue();
+            return this;
+        }
 
-    
-        private String userMailboxId; // 用户邮箱地址 或 输入me代表当前调用接口用户
         /**
          * 用户邮箱地址 或 输入me代表当前调用接口用户
          * <p> 示例值：user@xxx.xx 或 me
+         *
          * @param userMailboxId
          * @return
          */
-          public Builder userMailboxId(String userMailboxId) {
-               this.userMailboxId = userMailboxId;
-               return this;
-          }
+        public Builder userMailboxId(String userMailboxId) {
+            this.userMailboxId = userMailboxId;
+            return this;
+        }
 
-    
-    public ListUserMailboxFolderReq build(){
-        return new ListUserMailboxFolderReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ListUserMailboxFolderReq build() {
+            return new ListUserMailboxFolderReq(this);
+        }
     }
 }

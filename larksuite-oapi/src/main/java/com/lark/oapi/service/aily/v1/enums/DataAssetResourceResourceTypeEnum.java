@@ -17,15 +17,16 @@ package com.lark.oapi.service.aily.v1.enums;
  * 数据知识资源类型
  */
 public enum DataAssetResourceResourceTypeEnum {
-     DATASET("dataset"), // 数据视图
-     VECTOR("vector"), // 知识视图
-  ;
-   private String value;
+    DATASET("dataset"), // 数据视图
+    VECTOR("vector"), // 知识视图
+    ;
+    private String value;
+
     DataAssetResourceResourceTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

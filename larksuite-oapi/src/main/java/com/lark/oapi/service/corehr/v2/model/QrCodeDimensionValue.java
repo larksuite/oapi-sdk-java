@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class QrCodeDimensionValue {
-     /**
-      * 维度类型
-      * <p> 示例值：
-      */
+    /**
+     * 维度类型
+     * <p> 示例值：
+     */
     @SerializedName("dimension")
     private QrCodeDimension dimension;
-     /**
-      * 维度数据
-      * <p> 示例值：
-      */
+    /**
+     * 维度数据
+     * <p> 示例值：
+     */
     @SerializedName("value")
     private QrCodeValue value;
+
+    // builder 开始
+    public QrCodeDimensionValue() {
+    }
+
+    public QrCodeDimensionValue(Builder builder) {
+        /**
+         * 维度类型
+         * <p> 示例值：
+         */
+        this.dimension = builder.dimension;
+        /**
+         * 维度数据
+         * <p> 示例值：
+         */
+        this.value = builder.value;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public QrCodeDimension getDimension() {
         return this.dimension;
     }
@@ -53,67 +79,46 @@ public class QrCodeDimensionValue {
         this.value = value;
     }
 
-
-// builder 开始
-  public QrCodeDimensionValue(){}
-
-  public QrCodeDimensionValue(Builder builder){
-         /**
-          * 维度类型
-          * <p> 示例值：
-          */
-      this.dimension = builder.dimension;
-         /**
-          * 维度数据
-          * <p> 示例值：
-          */
-      this.value = builder.value;
-  }
-
     public static class Builder {
-     /**
-      * 维度类型
-      * <p> 示例值：
-      */
+        /**
+         * 维度类型
+         * <p> 示例值：
+         */
         private QrCodeDimension dimension;
-     /**
-      * 维度数据
-      * <p> 示例值：
-      */
+        /**
+         * 维度数据
+         * <p> 示例值：
+         */
         private QrCodeValue value;
 
         /**
          * 维度类型
          * <p> 示例值：
+         *
          * @param dimension
          * @return
          */
         public Builder dimension(QrCodeDimension dimension) {
-             this.dimension = dimension;
-             return this;
+            this.dimension = dimension;
+            return this;
         }
 
-    
 
         /**
          * 维度数据
          * <p> 示例值：
+         *
          * @param value
          * @return
          */
         public Builder value(QrCodeValue value) {
-             this.value = value;
-             return this;
+            this.value = value;
+            return this;
         }
 
-    
-    
-    public QrCodeDimensionValue build(){
-        return new QrCodeDimensionValue(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public QrCodeDimensionValue build() {
+            return new QrCodeDimensionValue(this);
+        }
     }
 }

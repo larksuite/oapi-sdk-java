@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,54 +20,104 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class SignatureNode {
-     /**
-      * 电子签节点列表
-      * <p> 示例值：
-      */
+    /**
+     * 电子签节点列表
+     * <p> 示例值：
+     */
     @SerializedName("user_infos")
     private SignatureUserInfo[] userInfos;
-     /**
-      * 电子签文件节点状态
-      * <p> 示例值：Initiated
-      */
+    /**
+     * 电子签文件节点状态
+     * <p> 示例值：Initiated
+     */
     @SerializedName("state")
     private String state;
-     /**
-      * 节点完成时间
-      * <p> 示例值：2021-12-31 12:21:10
-      */
+    /**
+     * 节点完成时间
+     * <p> 示例值：2021-12-31 12:21:10
+     */
     @SerializedName("finish_time")
     private String finishTime;
-     /**
-      * 节点最近更新时间
-      * <p> 示例值：2021-12-31 12:21:10
-      */
+    /**
+     * 节点最近更新时间
+     * <p> 示例值：2021-12-31 12:21:10
+     */
     @SerializedName("updated_time")
     private String updatedTime;
-     /**
-      * 当前节点是否为正在处理的节点
-      * <p> 示例值：
-      */
+    /**
+     * 当前节点是否为正在处理的节点
+     * <p> 示例值：
+     */
     @SerializedName("is_ongoing")
     private Boolean isOngoing;
-     /**
-      * 当前操作节点的角色名称
-      * <p> 示例值：
-      */
+    /**
+     * 当前操作节点的角色名称
+     * <p> 示例值：
+     */
     @SerializedName("role_label")
     private SignatureEnumInfoLabel roleLabel;
-     /**
-      * 签署角色
-      * <p> 示例值：Initiator,发起人
-      */
+    /**
+     * 签署角色
+     * <p> 示例值：Initiator,发起人
+     */
     @SerializedName("sign_role")
     private String signRole;
+
+    // builder 开始
+    public SignatureNode() {
+    }
+
+    public SignatureNode(Builder builder) {
+        /**
+         * 电子签节点列表
+         * <p> 示例值：
+         */
+        this.userInfos = builder.userInfos;
+        /**
+         * 电子签文件节点状态
+         * <p> 示例值：Initiated
+         */
+        this.state = builder.state;
+        /**
+         * 节点完成时间
+         * <p> 示例值：2021-12-31 12:21:10
+         */
+        this.finishTime = builder.finishTime;
+        /**
+         * 节点最近更新时间
+         * <p> 示例值：2021-12-31 12:21:10
+         */
+        this.updatedTime = builder.updatedTime;
+        /**
+         * 当前节点是否为正在处理的节点
+         * <p> 示例值：
+         */
+        this.isOngoing = builder.isOngoing;
+        /**
+         * 当前操作节点的角色名称
+         * <p> 示例值：
+         */
+        this.roleLabel = builder.roleLabel;
+        /**
+         * 签署角色
+         * <p> 示例值：Initiator,发起人
+         */
+        this.signRole = builder.signRole;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public SignatureUserInfo[] getUserInfos() {
         return this.userInfos;
     }
@@ -123,182 +174,136 @@ public class SignatureNode {
         this.signRole = signRole;
     }
 
-
-// builder 开始
-  public SignatureNode(){}
-
-  public SignatureNode(Builder builder){
-         /**
-          * 电子签节点列表
-          * <p> 示例值：
-          */
-      this.userInfos = builder.userInfos;
-         /**
-          * 电子签文件节点状态
-          * <p> 示例值：Initiated
-          */
-      this.state = builder.state;
-         /**
-          * 节点完成时间
-          * <p> 示例值：2021-12-31 12:21:10
-          */
-      this.finishTime = builder.finishTime;
-         /**
-          * 节点最近更新时间
-          * <p> 示例值：2021-12-31 12:21:10
-          */
-      this.updatedTime = builder.updatedTime;
-         /**
-          * 当前节点是否为正在处理的节点
-          * <p> 示例值：
-          */
-      this.isOngoing = builder.isOngoing;
-         /**
-          * 当前操作节点的角色名称
-          * <p> 示例值：
-          */
-      this.roleLabel = builder.roleLabel;
-         /**
-          * 签署角色
-          * <p> 示例值：Initiator,发起人
-          */
-      this.signRole = builder.signRole;
-  }
-
     public static class Builder {
-     /**
-      * 电子签节点列表
-      * <p> 示例值：
-      */
+        /**
+         * 电子签节点列表
+         * <p> 示例值：
+         */
         private SignatureUserInfo[] userInfos;
-     /**
-      * 电子签文件节点状态
-      * <p> 示例值：Initiated
-      */
+        /**
+         * 电子签文件节点状态
+         * <p> 示例值：Initiated
+         */
         private String state;
-     /**
-      * 节点完成时间
-      * <p> 示例值：2021-12-31 12:21:10
-      */
+        /**
+         * 节点完成时间
+         * <p> 示例值：2021-12-31 12:21:10
+         */
         private String finishTime;
-     /**
-      * 节点最近更新时间
-      * <p> 示例值：2021-12-31 12:21:10
-      */
+        /**
+         * 节点最近更新时间
+         * <p> 示例值：2021-12-31 12:21:10
+         */
         private String updatedTime;
-     /**
-      * 当前节点是否为正在处理的节点
-      * <p> 示例值：
-      */
+        /**
+         * 当前节点是否为正在处理的节点
+         * <p> 示例值：
+         */
         private Boolean isOngoing;
-     /**
-      * 当前操作节点的角色名称
-      * <p> 示例值：
-      */
+        /**
+         * 当前操作节点的角色名称
+         * <p> 示例值：
+         */
         private SignatureEnumInfoLabel roleLabel;
-     /**
-      * 签署角色
-      * <p> 示例值：Initiator,发起人
-      */
+        /**
+         * 签署角色
+         * <p> 示例值：Initiator,发起人
+         */
         private String signRole;
 
         /**
          * 电子签节点列表
          * <p> 示例值：
+         *
          * @param userInfos
          * @return
          */
         public Builder userInfos(SignatureUserInfo[] userInfos) {
-             this.userInfos = userInfos;
-             return this;
+            this.userInfos = userInfos;
+            return this;
         }
 
-    
 
         /**
          * 电子签文件节点状态
          * <p> 示例值：Initiated
+         *
          * @param state
          * @return
          */
         public Builder state(String state) {
-             this.state = state;
-             return this;
+            this.state = state;
+            return this;
         }
 
-    
 
         /**
          * 节点完成时间
          * <p> 示例值：2021-12-31 12:21:10
+         *
          * @param finishTime
          * @return
          */
         public Builder finishTime(String finishTime) {
-             this.finishTime = finishTime;
-             return this;
+            this.finishTime = finishTime;
+            return this;
         }
 
-    
 
         /**
          * 节点最近更新时间
          * <p> 示例值：2021-12-31 12:21:10
+         *
          * @param updatedTime
          * @return
          */
         public Builder updatedTime(String updatedTime) {
-             this.updatedTime = updatedTime;
-             return this;
+            this.updatedTime = updatedTime;
+            return this;
         }
 
-    
 
         /**
          * 当前节点是否为正在处理的节点
          * <p> 示例值：
+         *
          * @param isOngoing
          * @return
          */
         public Builder isOngoing(Boolean isOngoing) {
-             this.isOngoing = isOngoing;
-             return this;
+            this.isOngoing = isOngoing;
+            return this;
         }
 
-    
 
         /**
          * 当前操作节点的角色名称
          * <p> 示例值：
+         *
          * @param roleLabel
          * @return
          */
         public Builder roleLabel(SignatureEnumInfoLabel roleLabel) {
-             this.roleLabel = roleLabel;
-             return this;
+            this.roleLabel = roleLabel;
+            return this;
         }
 
-    
 
         /**
          * 签署角色
          * <p> 示例值：Initiator,发起人
+         *
          * @param signRole
          * @return
          */
         public Builder signRole(String signRole) {
-             this.signRole = signRole;
-             return this;
+            this.signRole = signRole;
+            return this;
         }
 
-    
-    
-    public SignatureNode build(){
-        return new SignatureNode(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public SignatureNode build() {
+            return new SignatureNode(this);
+        }
     }
 }

@@ -12,32 +12,61 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class SubmitProbationReq {
-     /**
-      * 根据 client_token 是否一致来判断是否为同一请求
-      * <p> 示例值：6822122262122064111
-      */
+    /**
+     * 根据 client_token 是否一致来判断是否为同一请求
+     * <p> 示例值：6822122262122064111
+     */
     @Query
     @SerializedName("client_token")
     private String clientToken;
-     /**
-      * 用户 ID 类型
-      * <p> 示例值：open_id
-      */
+    /**
+     * 用户 ID 类型
+     * <p> 示例值：open_id
+     */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
+    @Body
+    private SubmitProbationReqBody body;
+
+    // builder 开始
+    public SubmitProbationReq() {
+    }
+
+    public SubmitProbationReq(Builder builder) {
+        /**
+         * 根据 client_token 是否一致来判断是否为同一请求
+         * <p> 示例值：6822122262122064111
+         */
+        this.clientToken = builder.clientToken;
+        /**
+         * 用户 ID 类型
+         * <p> 示例值：open_id
+         */
+        this.userIdType = builder.userIdType;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getClientToken() {
         return this.clientToken;
     }
@@ -54,9 +83,6 @@ public class SubmitProbationReq {
         this.userIdType = userIdType;
     }
 
-    @Body
-    private SubmitProbationReqBody body;
-
     public SubmitProbationReqBody getSubmitProbationReqBody() {
         return this.body;
     }
@@ -65,83 +91,64 @@ public class SubmitProbationReq {
         this.body = body;
     }
 
-// builder 开始
-  public SubmitProbationReq(){}
-
-  public SubmitProbationReq(Builder builder){
-         /**
-          * 根据 client_token 是否一致来判断是否为同一请求
-          * <p> 示例值：6822122262122064111
-          */
-       this.clientToken = builder.clientToken;
-         /**
-          * 用户 ID 类型
-          * <p> 示例值：open_id
-          */
-       this.userIdType = builder.userIdType;
-        this.body = builder.body;
-  }
-
     public static class Builder {
         private String clientToken; // 根据 client_token 是否一致来判断是否为同一请求
         private String userIdType; // 用户 ID 类型
-    
+        private SubmitProbationReqBody body;
+
         /**
          * 根据 client_token 是否一致来判断是否为同一请求
          * <p> 示例值：6822122262122064111
+         *
          * @param clientToken
          * @return
          */
-           public Builder clientToken(String clientToken) {
-                this.clientToken = clientToken;
-                return this;
-           }
+        public Builder clientToken(String clientToken) {
+            this.clientToken = clientToken;
+            return this;
+        }
 
-    
         /**
          * 用户 ID 类型
          * <p> 示例值：open_id
+         *
          * @param userIdType
          * @return
          */
-           public Builder userIdType(String userIdType) {
-                this.userIdType = userIdType;
-                return this;
-           }
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
 
         /**
          * 用户 ID 类型
          * <p> 示例值：open_id
+         *
          * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.SubmitProbationUserIdTypeEnum}
          * @return
          */
-          public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.SubmitProbationUserIdTypeEnum userIdType) {
-               this.userIdType = userIdType.getValue();
-               return this;
-          }
+        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.SubmitProbationUserIdTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
+            return this;
+        }
 
-    
-        private SubmitProbationReqBody body;
-    
         public SubmitProbationReqBody getSubmitProbationReqBody() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder submitProbationReqBody(SubmitProbationReqBody body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public SubmitProbationReq build(){
-        return new SubmitProbationReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public SubmitProbationReq build() {
+            return new SubmitProbationReq(this);
+        }
     }
 }

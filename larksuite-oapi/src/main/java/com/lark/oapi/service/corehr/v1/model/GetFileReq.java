@@ -12,25 +12,46 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class GetFileReq {
-     /**
-      * 上传文件ID
-      * <p> 示例值：150018109586e8ea745e47ae8feb3722dbe1d03a181336393633393133303431393831343930373235150100
-      */
+    /**
+     * 上传文件ID
+     * <p> 示例值：150018109586e8ea745e47ae8feb3722dbe1d03a181336393633393133303431393831343930373235150100
+     */
     @Path
     @SerializedName("id")
     private String id;
+
+    // builder 开始
+    public GetFileReq() {
+    }
+
+    public GetFileReq(Builder builder) {
+        /**
+         * 上传文件ID
+         * <p> 示例值：150018109586e8ea745e47ae8feb3722dbe1d03a181336393633393133303431393831343930373235150100
+         */
+        this.id = builder.id;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -39,39 +60,25 @@ public class GetFileReq {
         this.id = id;
     }
 
-
-// builder 开始
-  public GetFileReq(){}
-
-  public GetFileReq(Builder builder){
-     /**
-      * 上传文件ID
-      * <p> 示例值：150018109586e8ea745e47ae8feb3722dbe1d03a181336393633393133303431393831343930373235150100
-      */
-       this.id = builder.id;
-  }
-
     public static class Builder {
-    
+
         private String id; // 上传文件ID
+
         /**
          * 上传文件ID
          * <p> 示例值：150018109586e8ea745e47ae8feb3722dbe1d03a181336393633393133303431393831343930373235150100
+         *
          * @param id
          * @return
          */
-          public Builder id(String id) {
-               this.id = id;
-               return this;
-          }
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
 
-    
-    public GetFileReq build(){
-        return new GetFileReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public GetFileReq build() {
+            return new GetFileReq(this);
+        }
     }
 }

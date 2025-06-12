@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class BatchGetJobLevelReqBody {
-     /**
-      * 职级 ID 列表
-      * <p> 示例值：
-      */
+    /**
+     * 职级 ID 列表
+     * <p> 示例值：
+     */
     @SerializedName("job_level_ids")
     private String[] jobLevelIds;
+
+    // builder 开始
+    public BatchGetJobLevelReqBody() {
+    }
+
+    public BatchGetJobLevelReqBody(Builder builder) {
+        /**
+         * 职级 ID 列表
+         * <p> 示例值：
+         */
+        this.jobLevelIds = builder.jobLevelIds;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String[] getJobLevelIds() {
         return this.jobLevelIds;
     }
@@ -39,44 +60,28 @@ public class BatchGetJobLevelReqBody {
         this.jobLevelIds = jobLevelIds;
     }
 
-
-// builder 开始
-  public BatchGetJobLevelReqBody(){}
-
-  public BatchGetJobLevelReqBody(Builder builder){
-         /**
-          * 职级 ID 列表
-          * <p> 示例值：
-          */
-      this.jobLevelIds = builder.jobLevelIds;
-  }
-
     public static class Builder {
-     /**
-      * 职级 ID 列表
-      * <p> 示例值：
-      */
+        /**
+         * 职级 ID 列表
+         * <p> 示例值：
+         */
         private String[] jobLevelIds;
 
         /**
          * 职级 ID 列表
          * <p> 示例值：
+         *
          * @param jobLevelIds
          * @return
          */
         public Builder jobLevelIds(String[] jobLevelIds) {
-             this.jobLevelIds = jobLevelIds;
-             return this;
+            this.jobLevelIds = jobLevelIds;
+            return this;
         }
 
-    
-    
-    public BatchGetJobLevelReqBody build(){
-        return new BatchGetJobLevelReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public BatchGetJobLevelReqBody build() {
+            return new BatchGetJobLevelReqBody(this);
+        }
     }
 }

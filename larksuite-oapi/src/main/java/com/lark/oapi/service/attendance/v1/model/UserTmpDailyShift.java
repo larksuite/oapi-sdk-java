@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,42 +20,82 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class UserTmpDailyShift {
-     /**
-      * 考勤组 ID
-      * <p> 示例值：6737202939523236110
-      */
+    /**
+     * 考勤组 ID
+     * <p> 示例值：6737202939523236110
+     */
     @SerializedName("group_id")
     private String groupId;
-     /**
-      * 用户 ID
-      * <p> 示例值：abd754f7
-      */
+    /**
+     * 用户 ID
+     * <p> 示例值：abd754f7
+     */
     @SerializedName("user_id")
     private String userId;
-     /**
-      * 日期
-      * <p> 示例值：20240120
-      */
+    /**
+     * 日期
+     * <p> 示例值：20240120
+     */
     @SerializedName("date")
     private Integer date;
-     /**
-      * 班次名称
-      * <p> 示例值：临时早班
-      */
+    /**
+     * 班次名称
+     * <p> 示例值：临时早班
+     */
     @SerializedName("shift_name")
     private String shiftName;
-     /**
-      * 打卡规则
-      * <p> 示例值：
-      */
+    /**
+     * 打卡规则
+     * <p> 示例值：
+     */
     @SerializedName("punch_time_simple_rules")
     private PunchTimeSimpleRule[] punchTimeSimpleRules;
+
+    // builder 开始
+    public UserTmpDailyShift() {
+    }
+
+    public UserTmpDailyShift(Builder builder) {
+        /**
+         * 考勤组 ID
+         * <p> 示例值：6737202939523236110
+         */
+        this.groupId = builder.groupId;
+        /**
+         * 用户 ID
+         * <p> 示例值：abd754f7
+         */
+        this.userId = builder.userId;
+        /**
+         * 日期
+         * <p> 示例值：20240120
+         */
+        this.date = builder.date;
+        /**
+         * 班次名称
+         * <p> 示例值：临时早班
+         */
+        this.shiftName = builder.shiftName;
+        /**
+         * 打卡规则
+         * <p> 示例值：
+         */
+        this.punchTimeSimpleRules = builder.punchTimeSimpleRules;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getGroupId() {
         return this.groupId;
     }
@@ -95,136 +136,100 @@ public class UserTmpDailyShift {
         this.punchTimeSimpleRules = punchTimeSimpleRules;
     }
 
-
-// builder 开始
-  public UserTmpDailyShift(){}
-
-  public UserTmpDailyShift(Builder builder){
-         /**
-          * 考勤组 ID
-          * <p> 示例值：6737202939523236110
-          */
-      this.groupId = builder.groupId;
-         /**
-          * 用户 ID
-          * <p> 示例值：abd754f7
-          */
-      this.userId = builder.userId;
-         /**
-          * 日期
-          * <p> 示例值：20240120
-          */
-      this.date = builder.date;
-         /**
-          * 班次名称
-          * <p> 示例值：临时早班
-          */
-      this.shiftName = builder.shiftName;
-         /**
-          * 打卡规则
-          * <p> 示例值：
-          */
-      this.punchTimeSimpleRules = builder.punchTimeSimpleRules;
-  }
-
     public static class Builder {
-     /**
-      * 考勤组 ID
-      * <p> 示例值：6737202939523236110
-      */
+        /**
+         * 考勤组 ID
+         * <p> 示例值：6737202939523236110
+         */
         private String groupId;
-     /**
-      * 用户 ID
-      * <p> 示例值：abd754f7
-      */
+        /**
+         * 用户 ID
+         * <p> 示例值：abd754f7
+         */
         private String userId;
-     /**
-      * 日期
-      * <p> 示例值：20240120
-      */
+        /**
+         * 日期
+         * <p> 示例值：20240120
+         */
         private Integer date;
-     /**
-      * 班次名称
-      * <p> 示例值：临时早班
-      */
+        /**
+         * 班次名称
+         * <p> 示例值：临时早班
+         */
         private String shiftName;
-     /**
-      * 打卡规则
-      * <p> 示例值：
-      */
+        /**
+         * 打卡规则
+         * <p> 示例值：
+         */
         private PunchTimeSimpleRule[] punchTimeSimpleRules;
 
         /**
          * 考勤组 ID
          * <p> 示例值：6737202939523236110
+         *
          * @param groupId
          * @return
          */
         public Builder groupId(String groupId) {
-             this.groupId = groupId;
-             return this;
+            this.groupId = groupId;
+            return this;
         }
 
-    
 
         /**
          * 用户 ID
          * <p> 示例值：abd754f7
+         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-             this.userId = userId;
-             return this;
+            this.userId = userId;
+            return this;
         }
 
-    
 
         /**
          * 日期
          * <p> 示例值：20240120
+         *
          * @param date
          * @return
          */
         public Builder date(Integer date) {
-             this.date = date;
-             return this;
+            this.date = date;
+            return this;
         }
 
-    
 
         /**
          * 班次名称
          * <p> 示例值：临时早班
+         *
          * @param shiftName
          * @return
          */
         public Builder shiftName(String shiftName) {
-             this.shiftName = shiftName;
-             return this;
+            this.shiftName = shiftName;
+            return this;
         }
 
-    
 
         /**
          * 打卡规则
          * <p> 示例值：
+         *
          * @param punchTimeSimpleRules
          * @return
          */
         public Builder punchTimeSimpleRules(PunchTimeSimpleRule[] punchTimeSimpleRules) {
-             this.punchTimeSimpleRules = punchTimeSimpleRules;
-             return this;
+            this.punchTimeSimpleRules = punchTimeSimpleRules;
+            return this;
         }
 
-    
-    
-    public UserTmpDailyShift build(){
-        return new UserTmpDailyShift(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public UserTmpDailyShift build() {
+            return new UserTmpDailyShift(this);
+        }
     }
 }

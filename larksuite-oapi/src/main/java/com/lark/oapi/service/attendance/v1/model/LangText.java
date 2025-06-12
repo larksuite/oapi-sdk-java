@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class LangText {
-     /**
-      * 语言码
-      * <p> 示例值：cn_zh
-      */
+    /**
+     * 语言码
+     * <p> 示例值：cn_zh
+     */
     @SerializedName("lang")
     private String lang;
-     /**
-      * 语言码对应的文本
-      * <p> 示例值：test
-      */
+    /**
+     * 语言码对应的文本
+     * <p> 示例值：test
+     */
     @SerializedName("value")
     private String value;
+
+    // builder 开始
+    public LangText() {
+    }
+
+    public LangText(Builder builder) {
+        /**
+         * 语言码
+         * <p> 示例值：cn_zh
+         */
+        this.lang = builder.lang;
+        /**
+         * 语言码对应的文本
+         * <p> 示例值：test
+         */
+        this.value = builder.value;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getLang() {
         return this.lang;
     }
@@ -53,67 +79,46 @@ public class LangText {
         this.value = value;
     }
 
-
-// builder 开始
-  public LangText(){}
-
-  public LangText(Builder builder){
-         /**
-          * 语言码
-          * <p> 示例值：cn_zh
-          */
-      this.lang = builder.lang;
-         /**
-          * 语言码对应的文本
-          * <p> 示例值：test
-          */
-      this.value = builder.value;
-  }
-
     public static class Builder {
-     /**
-      * 语言码
-      * <p> 示例值：cn_zh
-      */
+        /**
+         * 语言码
+         * <p> 示例值：cn_zh
+         */
         private String lang;
-     /**
-      * 语言码对应的文本
-      * <p> 示例值：test
-      */
+        /**
+         * 语言码对应的文本
+         * <p> 示例值：test
+         */
         private String value;
 
         /**
          * 语言码
          * <p> 示例值：cn_zh
+         *
          * @param lang
          * @return
          */
         public Builder lang(String lang) {
-             this.lang = lang;
-             return this;
+            this.lang = lang;
+            return this;
         }
 
-    
 
         /**
          * 语言码对应的文本
          * <p> 示例值：test
+         *
          * @param value
          * @return
          */
         public Builder value(String value) {
-             this.value = value;
-             return this;
+            this.value = value;
+            return this;
         }
 
-    
-    
-    public LangText build(){
-        return new LangText(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public LangText build() {
+            return new LangText(this);
+        }
     }
 }

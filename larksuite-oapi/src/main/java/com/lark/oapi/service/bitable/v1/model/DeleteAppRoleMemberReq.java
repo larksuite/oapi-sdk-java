@@ -56,11 +56,9 @@ public class DeleteAppRoleMemberReq {
     @Path
     @SerializedName("member_id")
     private String memberId;
-
     // builder 开始
     public DeleteAppRoleMemberReq() {
     }
-
     public DeleteAppRoleMemberReq(Builder builder) {
         /**
          * 协作者id类型，与请求体中的member_id要对应

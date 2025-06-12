@@ -17,16 +17,17 @@ package com.lark.oapi.service.security_and_compliance.v1.enums;
  * 风险类型
  */
 public enum FileRiskDetectionRecordResultRiskTagEnum {
-     RISK("RISK"), // 有风险
-     NONRISK("NON_RISK"), // 无风险
-     NOTDETECT("NOT_DETECT"), // 未检测（因为文件格式/大小等原因不支持检测）
-  ;
-   private String value;
+    RISK("RISK"), // 有风险
+    NONRISK("NON_RISK"), // 无风险
+    NOTDETECT("NOT_DETECT"), // 未检测（因为文件格式/大小等原因不支持检测）
+    ;
+    private String value;
+
     FileRiskDetectionRecordResultRiskTagEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

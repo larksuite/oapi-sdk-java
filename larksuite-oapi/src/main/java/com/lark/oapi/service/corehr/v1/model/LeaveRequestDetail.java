@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,42 +20,82 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class LeaveRequestDetail {
-     /**
-      * 请假记录id
-      * <p> 示例值：4718803945687580505
-      */
+    /**
+     * 请假记录id
+     * <p> 示例值：4718803945687580505
+     */
     @SerializedName("leave_request_id")
     private String leaveRequestId;
-     /**
-      * 假期发生日期
-      * <p> 示例值：2022-07-07
-      */
+    /**
+     * 假期发生日期
+     * <p> 示例值：2022-07-07
+     */
     @SerializedName("leave_date")
     private String leaveDate;
-     /**
-      * 假期时长
-      * <p> 示例值：1
-      */
+    /**
+     * 假期时长
+     * <p> 示例值：1
+     */
     @SerializedName("leave_duration")
     private String leaveDuration;
-     /**
-      * 假期时长单位，1：天，2：小时
-      * <p> 示例值：1
-      */
+    /**
+     * 假期时长单位，1：天，2：小时
+     * <p> 示例值：1
+     */
     @SerializedName("leave_duration_unit")
     private Integer leaveDurationUnit;
-     /**
-      * 是否影响算薪，1：不参与算薪计算, 非对应的日期类型或者无对应的假期计划，2：影响算薪，3：不影响算薪
-      * <p> 示例值：1
-      */
+    /**
+     * 是否影响算薪，1：不参与算薪计算, 非对应的日期类型或者无对应的假期计划，2：影响算薪，3：不影响算薪
+     * <p> 示例值：1
+     */
     @SerializedName("paid_type")
     private Integer paidType;
+
+    // builder 开始
+    public LeaveRequestDetail() {
+    }
+
+    public LeaveRequestDetail(Builder builder) {
+        /**
+         * 请假记录id
+         * <p> 示例值：4718803945687580505
+         */
+        this.leaveRequestId = builder.leaveRequestId;
+        /**
+         * 假期发生日期
+         * <p> 示例值：2022-07-07
+         */
+        this.leaveDate = builder.leaveDate;
+        /**
+         * 假期时长
+         * <p> 示例值：1
+         */
+        this.leaveDuration = builder.leaveDuration;
+        /**
+         * 假期时长单位，1：天，2：小时
+         * <p> 示例值：1
+         */
+        this.leaveDurationUnit = builder.leaveDurationUnit;
+        /**
+         * 是否影响算薪，1：不参与算薪计算, 非对应的日期类型或者无对应的假期计划，2：影响算薪，3：不影响算薪
+         * <p> 示例值：1
+         */
+        this.paidType = builder.paidType;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getLeaveRequestId() {
         return this.leaveRequestId;
     }
@@ -95,136 +136,100 @@ public class LeaveRequestDetail {
         this.paidType = paidType;
     }
 
-
-// builder 开始
-  public LeaveRequestDetail(){}
-
-  public LeaveRequestDetail(Builder builder){
-         /**
-          * 请假记录id
-          * <p> 示例值：4718803945687580505
-          */
-      this.leaveRequestId = builder.leaveRequestId;
-         /**
-          * 假期发生日期
-          * <p> 示例值：2022-07-07
-          */
-      this.leaveDate = builder.leaveDate;
-         /**
-          * 假期时长
-          * <p> 示例值：1
-          */
-      this.leaveDuration = builder.leaveDuration;
-         /**
-          * 假期时长单位，1：天，2：小时
-          * <p> 示例值：1
-          */
-      this.leaveDurationUnit = builder.leaveDurationUnit;
-         /**
-          * 是否影响算薪，1：不参与算薪计算, 非对应的日期类型或者无对应的假期计划，2：影响算薪，3：不影响算薪
-          * <p> 示例值：1
-          */
-      this.paidType = builder.paidType;
-  }
-
     public static class Builder {
-     /**
-      * 请假记录id
-      * <p> 示例值：4718803945687580505
-      */
+        /**
+         * 请假记录id
+         * <p> 示例值：4718803945687580505
+         */
         private String leaveRequestId;
-     /**
-      * 假期发生日期
-      * <p> 示例值：2022-07-07
-      */
+        /**
+         * 假期发生日期
+         * <p> 示例值：2022-07-07
+         */
         private String leaveDate;
-     /**
-      * 假期时长
-      * <p> 示例值：1
-      */
+        /**
+         * 假期时长
+         * <p> 示例值：1
+         */
         private String leaveDuration;
-     /**
-      * 假期时长单位，1：天，2：小时
-      * <p> 示例值：1
-      */
+        /**
+         * 假期时长单位，1：天，2：小时
+         * <p> 示例值：1
+         */
         private Integer leaveDurationUnit;
-     /**
-      * 是否影响算薪，1：不参与算薪计算, 非对应的日期类型或者无对应的假期计划，2：影响算薪，3：不影响算薪
-      * <p> 示例值：1
-      */
+        /**
+         * 是否影响算薪，1：不参与算薪计算, 非对应的日期类型或者无对应的假期计划，2：影响算薪，3：不影响算薪
+         * <p> 示例值：1
+         */
         private Integer paidType;
 
         /**
          * 请假记录id
          * <p> 示例值：4718803945687580505
+         *
          * @param leaveRequestId
          * @return
          */
         public Builder leaveRequestId(String leaveRequestId) {
-             this.leaveRequestId = leaveRequestId;
-             return this;
+            this.leaveRequestId = leaveRequestId;
+            return this;
         }
 
-    
 
         /**
          * 假期发生日期
          * <p> 示例值：2022-07-07
+         *
          * @param leaveDate
          * @return
          */
         public Builder leaveDate(String leaveDate) {
-             this.leaveDate = leaveDate;
-             return this;
+            this.leaveDate = leaveDate;
+            return this;
         }
 
-    
 
         /**
          * 假期时长
          * <p> 示例值：1
+         *
          * @param leaveDuration
          * @return
          */
         public Builder leaveDuration(String leaveDuration) {
-             this.leaveDuration = leaveDuration;
-             return this;
+            this.leaveDuration = leaveDuration;
+            return this;
         }
 
-    
 
         /**
          * 假期时长单位，1：天，2：小时
          * <p> 示例值：1
+         *
          * @param leaveDurationUnit
          * @return
          */
         public Builder leaveDurationUnit(Integer leaveDurationUnit) {
-             this.leaveDurationUnit = leaveDurationUnit;
-             return this;
+            this.leaveDurationUnit = leaveDurationUnit;
+            return this;
         }
 
-    
 
         /**
          * 是否影响算薪，1：不参与算薪计算, 非对应的日期类型或者无对应的假期计划，2：影响算薪，3：不影响算薪
          * <p> 示例值：1
+         *
          * @param paidType
          * @return
          */
         public Builder paidType(Integer paidType) {
-             this.paidType = paidType;
-             return this;
+            this.paidType = paidType;
+            return this;
         }
 
-    
-    
-    public LeaveRequestDetail build(){
-        return new LeaveRequestDetail(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public LeaveRequestDetail build() {
+            return new LeaveRequestDetail(this);
+        }
     }
 }

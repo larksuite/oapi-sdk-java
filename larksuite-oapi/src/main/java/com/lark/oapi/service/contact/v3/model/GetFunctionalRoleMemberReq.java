@@ -12,32 +12,82 @@
  */
 
 package com.lark.oapi.service.contact.v3.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class GetFunctionalRoleMemberReq {
-     /**
-      * 用户 ID 类型
-      * <p> 示例值：open_id
-      */
+    /**
+     * 用户 ID 类型
+     * <p> 示例值：open_id
+     */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
-     /**
-      * 此次调用中使用的部门ID的类型
-      * <p> 示例值：open_department_id
-      */
+    /**
+     * 此次调用中使用的部门ID的类型
+     * <p> 示例值：open_department_id
+     */
     @Query
     @SerializedName("department_id_type")
     private String departmentIdType;
+    /**
+     * 角色的唯一标识，单租户下唯一
+     * <p> 示例值：7vrj3vk70xk7v5r
+     */
+    @Path
+    @SerializedName("role_id")
+    private String roleId;
+    /**
+     * 要查询的角色内成员ID
+     * <p> 示例值：od-123456
+     */
+    @Path
+    @SerializedName("member_id")
+    private String memberId;
+
+    // builder 开始
+    public GetFunctionalRoleMemberReq() {
+    }
+
+    public GetFunctionalRoleMemberReq(Builder builder) {
+        /**
+         * 用户 ID 类型
+         * <p> 示例值：open_id
+         */
+        this.userIdType = builder.userIdType;
+        /**
+         * 此次调用中使用的部门ID的类型
+         * <p> 示例值：open_department_id
+         */
+        this.departmentIdType = builder.departmentIdType;
+        /**
+         * 角色的唯一标识，单租户下唯一
+         * <p> 示例值：7vrj3vk70xk7v5r
+         */
+        this.roleId = builder.roleId;
+        /**
+         * 要查询的角色内成员ID
+         * <p> 示例值：od-123456
+         */
+        this.memberId = builder.memberId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getUserIdType() {
         return this.userIdType;
     }
@@ -54,20 +104,6 @@ public class GetFunctionalRoleMemberReq {
         this.departmentIdType = departmentIdType;
     }
 
-     /**
-      * 角色的唯一标识，单租户下唯一
-      * <p> 示例值：7vrj3vk70xk7v5r
-      */
-    @Path
-    @SerializedName("role_id")
-    private String roleId;
-     /**
-      * 要查询的角色内成员ID
-      * <p> 示例值：od-123456
-      */
-    @Path
-    @SerializedName("member_id")
-    private String memberId;
     public String getRoleId() {
         return this.roleId;
     }
@@ -84,115 +120,88 @@ public class GetFunctionalRoleMemberReq {
         this.memberId = memberId;
     }
 
-
-// builder 开始
-  public GetFunctionalRoleMemberReq(){}
-
-  public GetFunctionalRoleMemberReq(Builder builder){
-         /**
-          * 用户 ID 类型
-          * <p> 示例值：open_id
-          */
-       this.userIdType = builder.userIdType;
-         /**
-          * 此次调用中使用的部门ID的类型
-          * <p> 示例值：open_department_id
-          */
-       this.departmentIdType = builder.departmentIdType;
-     /**
-      * 角色的唯一标识，单租户下唯一
-      * <p> 示例值：7vrj3vk70xk7v5r
-      */
-       this.roleId = builder.roleId;
-     /**
-      * 要查询的角色内成员ID
-      * <p> 示例值：od-123456
-      */
-       this.memberId = builder.memberId;
-  }
-
     public static class Builder {
         private String userIdType; // 用户 ID 类型
         private String departmentIdType; // 此次调用中使用的部门ID的类型
-    
+        private String roleId; // 角色的唯一标识，单租户下唯一
+        private String memberId; // 要查询的角色内成员ID
+
         /**
          * 用户 ID 类型
          * <p> 示例值：open_id
+         *
          * @param userIdType
          * @return
          */
-           public Builder userIdType(String userIdType) {
-                this.userIdType = userIdType;
-                return this;
-           }
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
 
         /**
          * 用户 ID 类型
          * <p> 示例值：open_id
+         *
          * @param userIdType {@link com.lark.oapi.service.contact.v3.enums.GetFunctionalRoleMemberRoleMemberIDTypeEnum}
          * @return
          */
-          public Builder userIdType(com.lark.oapi.service.contact.v3.enums.GetFunctionalRoleMemberRoleMemberIDTypeEnum userIdType) {
-               this.userIdType = userIdType.getValue();
-               return this;
-          }
+        public Builder userIdType(com.lark.oapi.service.contact.v3.enums.GetFunctionalRoleMemberRoleMemberIDTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
+            return this;
+        }
 
-    
         /**
          * 此次调用中使用的部门ID的类型
          * <p> 示例值：open_department_id
+         *
          * @param departmentIdType
          * @return
          */
-           public Builder departmentIdType(String departmentIdType) {
-                this.departmentIdType = departmentIdType;
-                return this;
-           }
+        public Builder departmentIdType(String departmentIdType) {
+            this.departmentIdType = departmentIdType;
+            return this;
+        }
 
         /**
          * 此次调用中使用的部门ID的类型
          * <p> 示例值：open_department_id
+         *
          * @param departmentIdType {@link com.lark.oapi.service.contact.v3.enums.GetFunctionalRoleMemberRoleMemberScopeIDTypeEnum}
          * @return
          */
-          public Builder departmentIdType(com.lark.oapi.service.contact.v3.enums.GetFunctionalRoleMemberRoleMemberScopeIDTypeEnum departmentIdType) {
-               this.departmentIdType = departmentIdType.getValue();
-               return this;
-          }
+        public Builder departmentIdType(com.lark.oapi.service.contact.v3.enums.GetFunctionalRoleMemberRoleMemberScopeIDTypeEnum departmentIdType) {
+            this.departmentIdType = departmentIdType.getValue();
+            return this;
+        }
 
-    
-        private String roleId; // 角色的唯一标识，单租户下唯一
-        private String memberId; // 要查询的角色内成员ID
         /**
          * 角色的唯一标识，单租户下唯一
          * <p> 示例值：7vrj3vk70xk7v5r
+         *
          * @param roleId
          * @return
          */
-          public Builder roleId(String roleId) {
-               this.roleId = roleId;
-               return this;
-          }
+        public Builder roleId(String roleId) {
+            this.roleId = roleId;
+            return this;
+        }
 
-    
+
         /**
          * 要查询的角色内成员ID
          * <p> 示例值：od-123456
+         *
          * @param memberId
          * @return
          */
-          public Builder memberId(String memberId) {
-               this.memberId = memberId;
-               return this;
-          }
+        public Builder memberId(String memberId) {
+            this.memberId = memberId;
+            return this;
+        }
 
-    
-    public GetFunctionalRoleMemberReq build(){
-        return new GetFunctionalRoleMemberReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public GetFunctionalRoleMemberReq build() {
+            return new GetFunctionalRoleMemberReq(this);
+        }
     }
 }

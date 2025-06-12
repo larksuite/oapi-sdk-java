@@ -12,25 +12,49 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CancelSendNotificationReq {
-     /**
-      * 唯一ID
-      * <p> 示例值：6981801914270744596
-      */
+    /**
+     * 唯一ID
+     * <p> 示例值：6981801914270744596
+     */
     @Path
     @SerializedName("notification_id")
     private String notificationId;
+    @Body
+    private CancelSendNotificationReqBody body;
+
+    // builder 开始
+    public CancelSendNotificationReq() {
+    }
+
+    public CancelSendNotificationReq(Builder builder) {
+        /**
+         * 唯一ID
+         * <p> 示例值：6981801914270744596
+         */
+        this.notificationId = builder.notificationId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getNotificationId() {
         return this.notificationId;
     }
@@ -38,9 +62,6 @@ public class CancelSendNotificationReq {
     public void setNotificationId(String notificationId) {
         this.notificationId = notificationId;
     }
-
-    @Body
-    private CancelSendNotificationReqBody body;
 
     public CancelSendNotificationReqBody getCancelSendNotificationReqBody() {
         return this.body;
@@ -50,54 +71,40 @@ public class CancelSendNotificationReq {
         this.body = body;
     }
 
-// builder 开始
-  public CancelSendNotificationReq(){}
-
-  public CancelSendNotificationReq(Builder builder){
-     /**
-      * 唯一ID
-      * <p> 示例值：6981801914270744596
-      */
-       this.notificationId = builder.notificationId;
-        this.body = builder.body;
-  }
-
     public static class Builder {
-    
+
         private String notificationId; // 唯一ID
+        private CancelSendNotificationReqBody body;
+
         /**
          * 唯一ID
          * <p> 示例值：6981801914270744596
+         *
          * @param notificationId
          * @return
          */
-          public Builder notificationId(String notificationId) {
-               this.notificationId = notificationId;
-               return this;
-          }
+        public Builder notificationId(String notificationId) {
+            this.notificationId = notificationId;
+            return this;
+        }
 
-    
-        private CancelSendNotificationReqBody body;
-    
         public CancelSendNotificationReqBody getCancelSendNotificationReqBody() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder cancelSendNotificationReqBody(CancelSendNotificationReqBody body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public CancelSendNotificationReq build(){
-        return new CancelSendNotificationReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public CancelSendNotificationReq build() {
+            return new CancelSendNotificationReq(this);
+        }
     }
 }

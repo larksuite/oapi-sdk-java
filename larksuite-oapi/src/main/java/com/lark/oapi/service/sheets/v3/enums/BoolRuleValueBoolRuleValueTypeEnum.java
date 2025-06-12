@@ -17,17 +17,18 @@ package com.lark.oapi.service.sheets.v3.enums;
  * 条件值类型
  */
 public enum BoolRuleValueBoolRuleValueTypeEnum {
-     NUMBER("Number"), // 数值
-     TEXT("Text"), // 文本
-     TIMEPERIOD("TimePeriod"), // 时间段
-     PERCENTAGE("Percentage"), // 百分值
-  ;
-   private String value;
+    NUMBER("Number"), // 数值
+    TEXT("Text"), // 文本
+    TIMEPERIOD("TimePeriod"), // 时间段
+    PERCENTAGE("Percentage"), // 百分值
+    ;
+    private String value;
+
     BoolRuleValueBoolRuleValueTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

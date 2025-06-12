@@ -12,25 +12,61 @@
  */
 
 package com.lark.oapi.service.task.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.task.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class AddMembersTaskReq {
-     /**
-      * 表示user的ID的类型，支持open_id, user_id, union_id
-      * <p> 示例值：open_id
-      */
+    /**
+     * 表示user的ID的类型，支持open_id, user_id, union_id
+     * <p> 示例值：open_id
+     */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
+    /**
+     * 要添加负责人的任务全局唯一ID
+     * <p> 示例值：d300a75f-c56a-4be9-80d1-e47653028ceb
+     */
+    @Path
+    @SerializedName("task_guid")
+    private String taskGuid;
+    @Body
+    private AddMembersTaskReqBody body;
+
+    // builder 开始
+    public AddMembersTaskReq() {
+    }
+
+    public AddMembersTaskReq(Builder builder) {
+        /**
+         * 表示user的ID的类型，支持open_id, user_id, union_id
+         * <p> 示例值：open_id
+         */
+        this.userIdType = builder.userIdType;
+        /**
+         * 要添加负责人的任务全局唯一ID
+         * <p> 示例值：d300a75f-c56a-4be9-80d1-e47653028ceb
+         */
+        this.taskGuid = builder.taskGuid;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getUserIdType() {
         return this.userIdType;
     }
@@ -39,13 +75,6 @@ public class AddMembersTaskReq {
         this.userIdType = userIdType;
     }
 
-     /**
-      * 要添加负责人的任务全局唯一ID
-      * <p> 示例值：d300a75f-c56a-4be9-80d1-e47653028ceb
-      */
-    @Path
-    @SerializedName("task_guid")
-    private String taskGuid;
     public String getTaskGuid() {
         return this.taskGuid;
     }
@@ -53,9 +82,6 @@ public class AddMembersTaskReq {
     public void setTaskGuid(String taskGuid) {
         this.taskGuid = taskGuid;
     }
-
-    @Body
-    private AddMembersTaskReqBody body;
 
     public AddMembersTaskReqBody getAddMembersTaskReqBody() {
         return this.body;
@@ -65,72 +91,52 @@ public class AddMembersTaskReq {
         this.body = body;
     }
 
-// builder 开始
-  public AddMembersTaskReq(){}
-
-  public AddMembersTaskReq(Builder builder){
-         /**
-          * 表示user的ID的类型，支持open_id, user_id, union_id
-          * <p> 示例值：open_id
-          */
-       this.userIdType = builder.userIdType;
-     /**
-      * 要添加负责人的任务全局唯一ID
-      * <p> 示例值：d300a75f-c56a-4be9-80d1-e47653028ceb
-      */
-       this.taskGuid = builder.taskGuid;
-        this.body = builder.body;
-  }
-
     public static class Builder {
         private String userIdType; // 表示user的ID的类型，支持open_id, user_id, union_id
-    
+        private String taskGuid; // 要添加负责人的任务全局唯一ID
+        private AddMembersTaskReqBody body;
+
         /**
          * 表示user的ID的类型，支持open_id, user_id, union_id
          * <p> 示例值：open_id
+         *
          * @param userIdType
          * @return
          */
-           public Builder userIdType(String userIdType) {
-                this.userIdType = userIdType;
-                return this;
-           }
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
 
-    
-        private String taskGuid; // 要添加负责人的任务全局唯一ID
         /**
          * 要添加负责人的任务全局唯一ID
          * <p> 示例值：d300a75f-c56a-4be9-80d1-e47653028ceb
+         *
          * @param taskGuid
          * @return
          */
-          public Builder taskGuid(String taskGuid) {
-               this.taskGuid = taskGuid;
-               return this;
-          }
+        public Builder taskGuid(String taskGuid) {
+            this.taskGuid = taskGuid;
+            return this;
+        }
 
-    
-        private AddMembersTaskReqBody body;
-    
         public AddMembersTaskReqBody getAddMembersTaskReqBody() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder addMembersTaskReqBody(AddMembersTaskReqBody body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public AddMembersTaskReq build(){
-        return new AddMembersTaskReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public AddMembersTaskReq build() {
+            return new AddMembersTaskReq(this);
+        }
     }
 }

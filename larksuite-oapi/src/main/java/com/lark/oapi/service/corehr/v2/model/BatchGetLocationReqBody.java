@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class BatchGetLocationReqBody {
-     /**
-      * 地点 ID 列表
-      * <p> 示例值：
-      */
+    /**
+     * 地点 ID 列表
+     * <p> 示例值：
+     */
     @SerializedName("location_ids")
     private String[] locationIds;
+
+    // builder 开始
+    public BatchGetLocationReqBody() {
+    }
+
+    public BatchGetLocationReqBody(Builder builder) {
+        /**
+         * 地点 ID 列表
+         * <p> 示例值：
+         */
+        this.locationIds = builder.locationIds;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String[] getLocationIds() {
         return this.locationIds;
     }
@@ -39,44 +60,28 @@ public class BatchGetLocationReqBody {
         this.locationIds = locationIds;
     }
 
-
-// builder 开始
-  public BatchGetLocationReqBody(){}
-
-  public BatchGetLocationReqBody(Builder builder){
-         /**
-          * 地点 ID 列表
-          * <p> 示例值：
-          */
-      this.locationIds = builder.locationIds;
-  }
-
     public static class Builder {
-     /**
-      * 地点 ID 列表
-      * <p> 示例值：
-      */
+        /**
+         * 地点 ID 列表
+         * <p> 示例值：
+         */
         private String[] locationIds;
 
         /**
          * 地点 ID 列表
          * <p> 示例值：
+         *
          * @param locationIds
          * @return
          */
         public Builder locationIds(String[] locationIds) {
-             this.locationIds = locationIds;
-             return this;
+            this.locationIds = locationIds;
+            return this;
         }
 
-    
-    
-    public BatchGetLocationReqBody build(){
-        return new BatchGetLocationReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public BatchGetLocationReqBody build() {
+            return new BatchGetLocationReqBody(this);
+        }
     }
 }

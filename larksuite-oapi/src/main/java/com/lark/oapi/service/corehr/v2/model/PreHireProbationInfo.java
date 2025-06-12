@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class PreHireProbationInfo {
-     /**
-      * 试用期开始日期
-      * <p> 示例值：2022-07-29
-      */
+    /**
+     * 试用期开始日期
+     * <p> 示例值：2022-07-29
+     */
     @SerializedName("probation_start_date")
     private String probationStartDate;
-     /**
-      * 试用期结束日期
-      * <p> 示例值：2023-04-07
-      */
+    /**
+     * 试用期结束日期
+     * <p> 示例值：2023-04-07
+     */
     @SerializedName("probation_end_date")
     private String probationEndDate;
-     /**
-      * 试用期时长（单位：天）
-      * <p> 示例值：6
-      */
+    /**
+     * 试用期时长（单位：天）
+     * <p> 示例值：6
+     */
     @SerializedName("probation_period")
     private Integer probationPeriod;
+
+    // builder 开始
+    public PreHireProbationInfo() {
+    }
+
+    public PreHireProbationInfo(Builder builder) {
+        /**
+         * 试用期开始日期
+         * <p> 示例值：2022-07-29
+         */
+        this.probationStartDate = builder.probationStartDate;
+        /**
+         * 试用期结束日期
+         * <p> 示例值：2023-04-07
+         */
+        this.probationEndDate = builder.probationEndDate;
+        /**
+         * 试用期时长（单位：天）
+         * <p> 示例值：6
+         */
+        this.probationPeriod = builder.probationPeriod;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getProbationStartDate() {
         return this.probationStartDate;
     }
@@ -67,90 +98,64 @@ public class PreHireProbationInfo {
         this.probationPeriod = probationPeriod;
     }
 
-
-// builder 开始
-  public PreHireProbationInfo(){}
-
-  public PreHireProbationInfo(Builder builder){
-         /**
-          * 试用期开始日期
-          * <p> 示例值：2022-07-29
-          */
-      this.probationStartDate = builder.probationStartDate;
-         /**
-          * 试用期结束日期
-          * <p> 示例值：2023-04-07
-          */
-      this.probationEndDate = builder.probationEndDate;
-         /**
-          * 试用期时长（单位：天）
-          * <p> 示例值：6
-          */
-      this.probationPeriod = builder.probationPeriod;
-  }
-
     public static class Builder {
-     /**
-      * 试用期开始日期
-      * <p> 示例值：2022-07-29
-      */
+        /**
+         * 试用期开始日期
+         * <p> 示例值：2022-07-29
+         */
         private String probationStartDate;
-     /**
-      * 试用期结束日期
-      * <p> 示例值：2023-04-07
-      */
+        /**
+         * 试用期结束日期
+         * <p> 示例值：2023-04-07
+         */
         private String probationEndDate;
-     /**
-      * 试用期时长（单位：天）
-      * <p> 示例值：6
-      */
+        /**
+         * 试用期时长（单位：天）
+         * <p> 示例值：6
+         */
         private Integer probationPeriod;
 
         /**
          * 试用期开始日期
          * <p> 示例值：2022-07-29
+         *
          * @param probationStartDate
          * @return
          */
         public Builder probationStartDate(String probationStartDate) {
-             this.probationStartDate = probationStartDate;
-             return this;
+            this.probationStartDate = probationStartDate;
+            return this;
         }
 
-    
 
         /**
          * 试用期结束日期
          * <p> 示例值：2023-04-07
+         *
          * @param probationEndDate
          * @return
          */
         public Builder probationEndDate(String probationEndDate) {
-             this.probationEndDate = probationEndDate;
-             return this;
+            this.probationEndDate = probationEndDate;
+            return this;
         }
 
-    
 
         /**
          * 试用期时长（单位：天）
          * <p> 示例值：6
+         *
          * @param probationPeriod
          * @return
          */
         public Builder probationPeriod(Integer probationPeriod) {
-             this.probationPeriod = probationPeriod;
-             return this;
+            this.probationPeriod = probationPeriod;
+            return this;
         }
 
-    
-    
-    public PreHireProbationInfo build(){
-        return new PreHireProbationInfo(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public PreHireProbationInfo build() {
+            return new PreHireProbationInfo(this);
+        }
     }
 }

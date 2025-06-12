@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,42 +20,82 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class LeaveNeedPunchCfg {
-     /**
-      * 晚到超过多久记为迟到
-      * <p> 示例值：0
-      */
+    /**
+     * 晚到超过多久记为迟到
+     * <p> 示例值：0
+     */
     @SerializedName("late_minutes_as_late")
     private Integer lateMinutesAsLate;
-     /**
-      * 晚到超过多久记为缺卡
-      * <p> 示例值：0
-      */
+    /**
+     * 晚到超过多久记为缺卡
+     * <p> 示例值：0
+     */
     @SerializedName("late_minutes_as_lack")
     private Integer lateMinutesAsLack;
-     /**
-      * 早走超过多久记为早退
-      * <p> 示例值：0
-      */
+    /**
+     * 早走超过多久记为早退
+     * <p> 示例值：0
+     */
     @SerializedName("early_minutes_as_early")
     private Integer earlyMinutesAsEarly;
-     /**
-      * 早走超过多久记为缺卡
-      * <p> 示例值：0
-      */
+    /**
+     * 早走超过多久记为缺卡
+     * <p> 示例值：0
+     */
     @SerializedName("early_minutes_as_lack")
     private Integer earlyMinutesAsLack;
-     /**
-      * 非班中离返岗。为true时，不产生班中离返岗
-      * <p> 示例值：false
-      */
+    /**
+     * 非班中离返岗。为true时，不产生班中离返岗
+     * <p> 示例值：false
+     */
     @SerializedName("not_during_shift")
     private Boolean notDuringShift;
+
+    // builder 开始
+    public LeaveNeedPunchCfg() {
+    }
+
+    public LeaveNeedPunchCfg(Builder builder) {
+        /**
+         * 晚到超过多久记为迟到
+         * <p> 示例值：0
+         */
+        this.lateMinutesAsLate = builder.lateMinutesAsLate;
+        /**
+         * 晚到超过多久记为缺卡
+         * <p> 示例值：0
+         */
+        this.lateMinutesAsLack = builder.lateMinutesAsLack;
+        /**
+         * 早走超过多久记为早退
+         * <p> 示例值：0
+         */
+        this.earlyMinutesAsEarly = builder.earlyMinutesAsEarly;
+        /**
+         * 早走超过多久记为缺卡
+         * <p> 示例值：0
+         */
+        this.earlyMinutesAsLack = builder.earlyMinutesAsLack;
+        /**
+         * 非班中离返岗。为true时，不产生班中离返岗
+         * <p> 示例值：false
+         */
+        this.notDuringShift = builder.notDuringShift;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Integer getLateMinutesAsLate() {
         return this.lateMinutesAsLate;
     }
@@ -95,136 +136,100 @@ public class LeaveNeedPunchCfg {
         this.notDuringShift = notDuringShift;
     }
 
-
-// builder 开始
-  public LeaveNeedPunchCfg(){}
-
-  public LeaveNeedPunchCfg(Builder builder){
-         /**
-          * 晚到超过多久记为迟到
-          * <p> 示例值：0
-          */
-      this.lateMinutesAsLate = builder.lateMinutesAsLate;
-         /**
-          * 晚到超过多久记为缺卡
-          * <p> 示例值：0
-          */
-      this.lateMinutesAsLack = builder.lateMinutesAsLack;
-         /**
-          * 早走超过多久记为早退
-          * <p> 示例值：0
-          */
-      this.earlyMinutesAsEarly = builder.earlyMinutesAsEarly;
-         /**
-          * 早走超过多久记为缺卡
-          * <p> 示例值：0
-          */
-      this.earlyMinutesAsLack = builder.earlyMinutesAsLack;
-         /**
-          * 非班中离返岗。为true时，不产生班中离返岗
-          * <p> 示例值：false
-          */
-      this.notDuringShift = builder.notDuringShift;
-  }
-
     public static class Builder {
-     /**
-      * 晚到超过多久记为迟到
-      * <p> 示例值：0
-      */
+        /**
+         * 晚到超过多久记为迟到
+         * <p> 示例值：0
+         */
         private Integer lateMinutesAsLate;
-     /**
-      * 晚到超过多久记为缺卡
-      * <p> 示例值：0
-      */
+        /**
+         * 晚到超过多久记为缺卡
+         * <p> 示例值：0
+         */
         private Integer lateMinutesAsLack;
-     /**
-      * 早走超过多久记为早退
-      * <p> 示例值：0
-      */
+        /**
+         * 早走超过多久记为早退
+         * <p> 示例值：0
+         */
         private Integer earlyMinutesAsEarly;
-     /**
-      * 早走超过多久记为缺卡
-      * <p> 示例值：0
-      */
+        /**
+         * 早走超过多久记为缺卡
+         * <p> 示例值：0
+         */
         private Integer earlyMinutesAsLack;
-     /**
-      * 非班中离返岗。为true时，不产生班中离返岗
-      * <p> 示例值：false
-      */
+        /**
+         * 非班中离返岗。为true时，不产生班中离返岗
+         * <p> 示例值：false
+         */
         private Boolean notDuringShift;
 
         /**
          * 晚到超过多久记为迟到
          * <p> 示例值：0
+         *
          * @param lateMinutesAsLate
          * @return
          */
         public Builder lateMinutesAsLate(Integer lateMinutesAsLate) {
-             this.lateMinutesAsLate = lateMinutesAsLate;
-             return this;
+            this.lateMinutesAsLate = lateMinutesAsLate;
+            return this;
         }
 
-    
 
         /**
          * 晚到超过多久记为缺卡
          * <p> 示例值：0
+         *
          * @param lateMinutesAsLack
          * @return
          */
         public Builder lateMinutesAsLack(Integer lateMinutesAsLack) {
-             this.lateMinutesAsLack = lateMinutesAsLack;
-             return this;
+            this.lateMinutesAsLack = lateMinutesAsLack;
+            return this;
         }
 
-    
 
         /**
          * 早走超过多久记为早退
          * <p> 示例值：0
+         *
          * @param earlyMinutesAsEarly
          * @return
          */
         public Builder earlyMinutesAsEarly(Integer earlyMinutesAsEarly) {
-             this.earlyMinutesAsEarly = earlyMinutesAsEarly;
-             return this;
+            this.earlyMinutesAsEarly = earlyMinutesAsEarly;
+            return this;
         }
 
-    
 
         /**
          * 早走超过多久记为缺卡
          * <p> 示例值：0
+         *
          * @param earlyMinutesAsLack
          * @return
          */
         public Builder earlyMinutesAsLack(Integer earlyMinutesAsLack) {
-             this.earlyMinutesAsLack = earlyMinutesAsLack;
-             return this;
+            this.earlyMinutesAsLack = earlyMinutesAsLack;
+            return this;
         }
 
-    
 
         /**
          * 非班中离返岗。为true时，不产生班中离返岗
          * <p> 示例值：false
+         *
          * @param notDuringShift
          * @return
          */
         public Builder notDuringShift(Boolean notDuringShift) {
-             this.notDuringShift = notDuringShift;
-             return this;
+            this.notDuringShift = notDuringShift;
+            return this;
         }
 
-    
-    
-    public LeaveNeedPunchCfg build(){
-        return new LeaveNeedPunchCfg(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public LeaveNeedPunchCfg build() {
+            return new LeaveNeedPunchCfg(this);
+        }
     }
 }

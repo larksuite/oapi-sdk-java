@@ -12,54 +12,59 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class P2MessageReactionDeletedV1Data {
-     /**
-      * 消息的 open_message_id
-      * <p> 示例值：om_dc1326***************51dba21dcf
-      */
+    /**
+     * 消息的 open_message_id
+     * <p> 示例值：om_dc1326***************51dba21dcf
+     */
     @SerializedName("message_id")
     private String messageId;
-     /**
-      * 表情回复的资源类型
-      * <p> 示例值：
-      */
+    /**
+     * 表情回复的资源类型
+     * <p> 示例值：
+     */
     @SerializedName("reaction_type")
     private Emoji reactionType;
-     /**
-      * 操作人类型;;注意事项：;- 如果操作人类型是"user"，则会返回 ==user_id==;- 如果操作人类型是"app"，则会返回 ==app_id==
-      * <p> 示例值：app/user
-      */
+    /**
+     * 操作人类型;;注意事项：;- 如果操作人类型是"user"，则会返回 ==user_id==;- 如果操作人类型是"app"，则会返回 ==app_id==
+     * <p> 示例值：app/user
+     */
     @SerializedName("operator_type")
     private String operatorType;
-     /**
-      * 用户 ID
-      * <p> 示例值：ou_155184d1e73cbfb8973e5a9e698e74f2
-      */
+    /**
+     * 用户 ID
+     * <p> 示例值：ou_155184d1e73cbfb8973e5a9e698e74f2
+     */
     @SerializedName("user_id")
     private UserId userId;
-     /**
-      * 应用 ID
-      * <p> 示例值：cli_9f53******712544
-      */
+    /**
+     * 应用 ID
+     * <p> 示例值：cli_9f53******712544
+     */
     @SerializedName("app_id")
     private String appId;
-     /**
-      * 表情回复被添加时的时间戳（单位：ms）
-      * <p> 示例值：1627641418803
-      */
+    /**
+     * 表情回复被添加时的时间戳（单位：ms）
+     * <p> 示例值：1627641418803
+     */
     @SerializedName("action_time")
     private String actionTime;
+
     public String getMessageId() {
         return this.messageId;
     }

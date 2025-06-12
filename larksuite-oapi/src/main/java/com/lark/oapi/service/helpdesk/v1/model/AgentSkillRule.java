@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,48 +20,93 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class AgentSkillRule {
-     /**
-      * rule id, 参考[获取客服技能rules](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/agent_skill_rule/list) 用于获取rules options
-      * <p> 示例值：test-skill-id
-      */
+    /**
+     * rule id, 参考[获取客服技能rules](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/agent_skill_rule/list) 用于获取rules options
+     * <p> 示例值：test-skill-id
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 运算符比较, 参考[客服技能运算符选项](https://open.feishu.cn/document/ukTMukTMukTM/ucDOyYjL3gjM24yN4IjN/operator-options)
-      * <p> 示例值：8
-      */
+    /**
+     * 运算符比较, 参考[客服技能运算符选项](https://open.feishu.cn/document/ukTMukTMukTM/ucDOyYjL3gjM24yN4IjN/operator-options)
+     * <p> 示例值：8
+     */
     @SerializedName("selected_operator")
     private Integer selectedOperator;
-     /**
-      * rule操作数value，[客服技能及运算符](https://open.feishu.cn/document/ukTMukTMukTM/ucDOyYjL3gjM24yN4IjN/operator-options)
-      * <p> 示例值：[3]
-      */
+    /**
+     * rule操作数value，[客服技能及运算符](https://open.feishu.cn/document/ukTMukTMukTM/ucDOyYjL3gjM24yN4IjN/operator-options)
+     * <p> 示例值：[3]
+     */
     @SerializedName("operator_options")
     private Integer[] operatorOptions;
-     /**
-      * rule 操作数的值
-      * <p> 示例值：{;                "selected_departments": [;                    {;                        "id": "部门ID",;                        "name": "IT";                    };                ];            }
-      */
+    /**
+     * rule 操作数的值
+     * <p> 示例值：{;                "selected_departments": [;                    {;                        "id": "部门ID",;                        "name": "IT";                    };                ];            }
+     */
     @SerializedName("operand")
     private String operand;
-     /**
-      * rule 类型，1-知识库，2-工单信息，3-用户飞书信息
-      * <p> 示例值：3
-      */
+    /**
+     * rule 类型，1-知识库，2-工单信息，3-用户飞书信息
+     * <p> 示例值：3
+     */
     @SerializedName("category")
     private Integer category;
-     /**
-      * rule 名
-      * <p> 示例值：中文知识库分类
-      */
+    /**
+     * rule 名
+     * <p> 示例值：中文知识库分类
+     */
     @SerializedName("display_name")
     private String displayName;
+
+    // builder 开始
+    public AgentSkillRule() {
+    }
+
+    public AgentSkillRule(Builder builder) {
+        /**
+         * rule id, 参考[获取客服技能rules](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/agent_skill_rule/list) 用于获取rules options
+         * <p> 示例值：test-skill-id
+         */
+        this.id = builder.id;
+        /**
+         * 运算符比较, 参考[客服技能运算符选项](https://open.feishu.cn/document/ukTMukTMukTM/ucDOyYjL3gjM24yN4IjN/operator-options)
+         * <p> 示例值：8
+         */
+        this.selectedOperator = builder.selectedOperator;
+        /**
+         * rule操作数value，[客服技能及运算符](https://open.feishu.cn/document/ukTMukTMukTM/ucDOyYjL3gjM24yN4IjN/operator-options)
+         * <p> 示例值：[3]
+         */
+        this.operatorOptions = builder.operatorOptions;
+        /**
+         * rule 操作数的值
+         * <p> 示例值：{;                "selected_departments": [;                    {;                        "id": "部门ID",;                        "name": "IT";                    };                ];            }
+         */
+        this.operand = builder.operand;
+        /**
+         * rule 类型，1-知识库，2-工单信息，3-用户飞书信息
+         * <p> 示例值：3
+         */
+        this.category = builder.category;
+        /**
+         * rule 名
+         * <p> 示例值：中文知识库分类
+         */
+        this.displayName = builder.displayName;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -109,159 +155,118 @@ public class AgentSkillRule {
         this.displayName = displayName;
     }
 
-
-// builder 开始
-  public AgentSkillRule(){}
-
-  public AgentSkillRule(Builder builder){
-         /**
-          * rule id, 参考[获取客服技能rules](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/agent_skill_rule/list) 用于获取rules options
-          * <p> 示例值：test-skill-id
-          */
-      this.id = builder.id;
-         /**
-          * 运算符比较, 参考[客服技能运算符选项](https://open.feishu.cn/document/ukTMukTMukTM/ucDOyYjL3gjM24yN4IjN/operator-options)
-          * <p> 示例值：8
-          */
-      this.selectedOperator = builder.selectedOperator;
-         /**
-          * rule操作数value，[客服技能及运算符](https://open.feishu.cn/document/ukTMukTMukTM/ucDOyYjL3gjM24yN4IjN/operator-options)
-          * <p> 示例值：[3]
-          */
-      this.operatorOptions = builder.operatorOptions;
-         /**
-          * rule 操作数的值
-          * <p> 示例值：{;                "selected_departments": [;                    {;                        "id": "部门ID",;                        "name": "IT";                    };                ];            }
-          */
-      this.operand = builder.operand;
-         /**
-          * rule 类型，1-知识库，2-工单信息，3-用户飞书信息
-          * <p> 示例值：3
-          */
-      this.category = builder.category;
-         /**
-          * rule 名
-          * <p> 示例值：中文知识库分类
-          */
-      this.displayName = builder.displayName;
-  }
-
     public static class Builder {
-     /**
-      * rule id, 参考[获取客服技能rules](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/agent_skill_rule/list) 用于获取rules options
-      * <p> 示例值：test-skill-id
-      */
+        /**
+         * rule id, 参考[获取客服技能rules](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/agent_skill_rule/list) 用于获取rules options
+         * <p> 示例值：test-skill-id
+         */
         private String id;
-     /**
-      * 运算符比较, 参考[客服技能运算符选项](https://open.feishu.cn/document/ukTMukTMukTM/ucDOyYjL3gjM24yN4IjN/operator-options)
-      * <p> 示例值：8
-      */
+        /**
+         * 运算符比较, 参考[客服技能运算符选项](https://open.feishu.cn/document/ukTMukTMukTM/ucDOyYjL3gjM24yN4IjN/operator-options)
+         * <p> 示例值：8
+         */
         private Integer selectedOperator;
-     /**
-      * rule操作数value，[客服技能及运算符](https://open.feishu.cn/document/ukTMukTMukTM/ucDOyYjL3gjM24yN4IjN/operator-options)
-      * <p> 示例值：[3]
-      */
+        /**
+         * rule操作数value，[客服技能及运算符](https://open.feishu.cn/document/ukTMukTMukTM/ucDOyYjL3gjM24yN4IjN/operator-options)
+         * <p> 示例值：[3]
+         */
         private Integer[] operatorOptions;
-     /**
-      * rule 操作数的值
-      * <p> 示例值：{;                "selected_departments": [;                    {;                        "id": "部门ID",;                        "name": "IT";                    };                ];            }
-      */
+        /**
+         * rule 操作数的值
+         * <p> 示例值：{;                "selected_departments": [;                    {;                        "id": "部门ID",;                        "name": "IT";                    };                ];            }
+         */
         private String operand;
-     /**
-      * rule 类型，1-知识库，2-工单信息，3-用户飞书信息
-      * <p> 示例值：3
-      */
+        /**
+         * rule 类型，1-知识库，2-工单信息，3-用户飞书信息
+         * <p> 示例值：3
+         */
         private Integer category;
-     /**
-      * rule 名
-      * <p> 示例值：中文知识库分类
-      */
+        /**
+         * rule 名
+         * <p> 示例值：中文知识库分类
+         */
         private String displayName;
 
         /**
          * rule id, 参考[获取客服技能rules](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/agent_skill_rule/list) 用于获取rules options
          * <p> 示例值：test-skill-id
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 运算符比较, 参考[客服技能运算符选项](https://open.feishu.cn/document/ukTMukTMukTM/ucDOyYjL3gjM24yN4IjN/operator-options)
          * <p> 示例值：8
+         *
          * @param selectedOperator
          * @return
          */
         public Builder selectedOperator(Integer selectedOperator) {
-             this.selectedOperator = selectedOperator;
-             return this;
+            this.selectedOperator = selectedOperator;
+            return this;
         }
 
-    
 
         /**
          * rule操作数value，[客服技能及运算符](https://open.feishu.cn/document/ukTMukTMukTM/ucDOyYjL3gjM24yN4IjN/operator-options)
          * <p> 示例值：[3]
+         *
          * @param operatorOptions
          * @return
          */
         public Builder operatorOptions(Integer[] operatorOptions) {
-             this.operatorOptions = operatorOptions;
-             return this;
+            this.operatorOptions = operatorOptions;
+            return this;
         }
 
-    
 
         /**
          * rule 操作数的值
          * <p> 示例值：{;                "selected_departments": [;                    {;                        "id": "部门ID",;                        "name": "IT";                    };                ];            }
+         *
          * @param operand
          * @return
          */
         public Builder operand(String operand) {
-             this.operand = operand;
-             return this;
+            this.operand = operand;
+            return this;
         }
 
-    
 
         /**
          * rule 类型，1-知识库，2-工单信息，3-用户飞书信息
          * <p> 示例值：3
+         *
          * @param category
          * @return
          */
         public Builder category(Integer category) {
-             this.category = category;
-             return this;
+            this.category = category;
+            return this;
         }
 
-    
 
         /**
          * rule 名
          * <p> 示例值：中文知识库分类
+         *
          * @param displayName
          * @return
          */
         public Builder displayName(String displayName) {
-             this.displayName = displayName;
-             return this;
+            this.displayName = displayName;
+            return this;
         }
 
-    
-    
-    public AgentSkillRule build(){
-        return new AgentSkillRule(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public AgentSkillRule build() {
+            return new AgentSkillRule(this);
+        }
     }
 }

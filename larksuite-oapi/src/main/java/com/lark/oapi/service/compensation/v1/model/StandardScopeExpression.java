@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.compensation.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.compensation.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,42 +20,82 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class StandardScopeExpression {
-     /**
-      * 范围API
-      * <p> 示例值："cpst_plan"
-      */
+    /**
+     * 范围API
+     * <p> 示例值："cpst_plan"
+     */
     @SerializedName("api_name")
     private String apiName;
-     /**
-      * 操作类型
-      * <p> 示例值：1
-      */
+    /**
+     * 操作类型
+     * <p> 示例值：1
+     */
     @SerializedName("operator_type")
     private Integer operatorType;
-     /**
-      * 是否包含下级
-      * <p> 示例值：true
-      */
+    /**
+     * 是否包含下级
+     * <p> 示例值：true
+     */
     @SerializedName("contain_sub")
     private Boolean containSub;
-     /**
-      * 适用范围明细值列表
-      * <p> 示例值：
-      */
+    /**
+     * 适用范围明细值列表
+     * <p> 示例值：
+     */
     @SerializedName("values")
     private String[] values;
-     /**
-      * 范围名称
-      * <p> 示例值：
-      */
+    /**
+     * 范围名称
+     * <p> 示例值：
+     */
     @SerializedName("scope_name")
     private I18n scopeName;
+
+    // builder 开始
+    public StandardScopeExpression() {
+    }
+
+    public StandardScopeExpression(Builder builder) {
+        /**
+         * 范围API
+         * <p> 示例值："cpst_plan"
+         */
+        this.apiName = builder.apiName;
+        /**
+         * 操作类型
+         * <p> 示例值：1
+         */
+        this.operatorType = builder.operatorType;
+        /**
+         * 是否包含下级
+         * <p> 示例值：true
+         */
+        this.containSub = builder.containSub;
+        /**
+         * 适用范围明细值列表
+         * <p> 示例值：
+         */
+        this.values = builder.values;
+        /**
+         * 范围名称
+         * <p> 示例值：
+         */
+        this.scopeName = builder.scopeName;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getApiName() {
         return this.apiName;
     }
@@ -95,146 +136,112 @@ public class StandardScopeExpression {
         this.scopeName = scopeName;
     }
 
-
-// builder 开始
-  public StandardScopeExpression(){}
-
-  public StandardScopeExpression(Builder builder){
-         /**
-          * 范围API
-          * <p> 示例值："cpst_plan"
-          */
-      this.apiName = builder.apiName;
-         /**
-          * 操作类型
-          * <p> 示例值：1
-          */
-      this.operatorType = builder.operatorType;
-         /**
-          * 是否包含下级
-          * <p> 示例值：true
-          */
-      this.containSub = builder.containSub;
-         /**
-          * 适用范围明细值列表
-          * <p> 示例值：
-          */
-      this.values = builder.values;
-         /**
-          * 范围名称
-          * <p> 示例值：
-          */
-      this.scopeName = builder.scopeName;
-  }
-
     public static class Builder {
-     /**
-      * 范围API
-      * <p> 示例值："cpst_plan"
-      */
+        /**
+         * 范围API
+         * <p> 示例值："cpst_plan"
+         */
         private String apiName;
-     /**
-      * 操作类型
-      * <p> 示例值：1
-      */
+        /**
+         * 操作类型
+         * <p> 示例值：1
+         */
         private Integer operatorType;
-     /**
-      * 是否包含下级
-      * <p> 示例值：true
-      */
+        /**
+         * 是否包含下级
+         * <p> 示例值：true
+         */
         private Boolean containSub;
-     /**
-      * 适用范围明细值列表
-      * <p> 示例值：
-      */
+        /**
+         * 适用范围明细值列表
+         * <p> 示例值：
+         */
         private String[] values;
-     /**
-      * 范围名称
-      * <p> 示例值：
-      */
+        /**
+         * 范围名称
+         * <p> 示例值：
+         */
         private I18n scopeName;
 
         /**
          * 范围API
          * <p> 示例值："cpst_plan"
+         *
          * @param apiName
          * @return
          */
         public Builder apiName(String apiName) {
-             this.apiName = apiName;
-             return this;
+            this.apiName = apiName;
+            return this;
         }
+
         /**
          * 范围API
          * <p> 示例值："cpst_plan"
+         *
          * @param apiName {@link com.lark.oapi.service.compensation.v1.enums.StandardScopeExpressionApiNameEnum}
          * @return
          */
         public Builder apiName(com.lark.oapi.service.compensation.v1.enums.StandardScopeExpressionApiNameEnum apiName) {
-             this.apiName = apiName.getValue();
-             return this;
+            this.apiName = apiName.getValue();
+            return this;
         }
 
-    
 
         /**
          * 操作类型
          * <p> 示例值：1
+         *
          * @param operatorType
          * @return
          */
         public Builder operatorType(Integer operatorType) {
-             this.operatorType = operatorType;
-             return this;
+            this.operatorType = operatorType;
+            return this;
         }
 
-    
 
         /**
          * 是否包含下级
          * <p> 示例值：true
+         *
          * @param containSub
          * @return
          */
         public Builder containSub(Boolean containSub) {
-             this.containSub = containSub;
-             return this;
+            this.containSub = containSub;
+            return this;
         }
 
-    
 
         /**
          * 适用范围明细值列表
          * <p> 示例值：
+         *
          * @param values
          * @return
          */
         public Builder values(String[] values) {
-             this.values = values;
-             return this;
+            this.values = values;
+            return this;
         }
 
-    
 
         /**
          * 范围名称
          * <p> 示例值：
+         *
          * @param scopeName
          * @return
          */
         public Builder scopeName(I18n scopeName) {
-             this.scopeName = scopeName;
-             return this;
+            this.scopeName = scopeName;
+            return this;
         }
 
-    
-    
-    public StandardScopeExpression build(){
-        return new StandardScopeExpression(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public StandardScopeExpression build() {
+            return new StandardScopeExpression(this);
+        }
     }
 }

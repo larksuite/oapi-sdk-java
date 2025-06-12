@@ -12,24 +12,45 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Dummy {
-     /**
-      * id
-      * <p> 示例值：
-      */
+    /**
+     * id
+     * <p> 示例值：
+     */
     @SerializedName("id")
     private String id;
+
+    // builder 开始
+    public Dummy() {
+    }
+
+    public Dummy(Builder builder) {
+        /**
+         * id
+         * <p> 示例值：
+         */
+        this.id = builder.id;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -38,44 +59,28 @@ public class Dummy {
         this.id = id;
     }
 
-
-// builder 开始
-  public Dummy(){}
-
-  public Dummy(Builder builder){
-         /**
-          * id
-          * <p> 示例值：
-          */
-      this.id = builder.id;
-  }
-
     public static class Builder {
-     /**
-      * id
-      * <p> 示例值：
-      */
+        /**
+         * id
+         * <p> 示例值：
+         */
         private String id;
 
         /**
          * id
          * <p> 示例值：
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
-    
-    public Dummy build(){
-        return new Dummy(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Dummy build() {
+            return new Dummy(this);
+        }
     }
 }

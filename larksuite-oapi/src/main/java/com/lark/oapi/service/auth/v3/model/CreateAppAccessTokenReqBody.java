@@ -12,36 +12,67 @@
  */
 
 package com.lark.oapi.service.auth.v3.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CreateAppAccessTokenReqBody {
-     /**
-      * 应用唯一标识，创建应用后获得。有关app_id 的详细介绍。
-      * <p> 示例值：cli_ddfgkk38emd38
-      */
+    /**
+     * 应用唯一标识，创建应用后获得。有关app_id 的详细介绍。
+     * <p> 示例值：cli_ddfgkk38emd38
+     */
     @SerializedName("app_id")
     private String appId;
-     /**
-      * 应用秘钥，创建应用后获得。
-      * <p> 示例值：clkfgkfdjes384kjdf9830d3k
-      */
+    /**
+     * 应用秘钥，创建应用后获得。
+     * <p> 示例值：clkfgkfdjes384kjdf9830d3k
+     */
     @SerializedName("app_secret")
     private String appSecret;
-     /**
-      * 平台定时推送给应用的临时凭证，通过事件监听机制获得。
-      * <p> 示例值：jdjlsd03jk34hj3kldjflcmkel
-      */
+    /**
+     * 平台定时推送给应用的临时凭证，通过事件监听机制获得。
+     * <p> 示例值：jdjlsd03jk34hj3kldjflcmkel
+     */
     @SerializedName("app_ticket")
     private String appTicket;
+
+    // builder 开始
+    public CreateAppAccessTokenReqBody() {
+    }
+
+    public CreateAppAccessTokenReqBody(Builder builder) {
+        /**
+         * 应用唯一标识，创建应用后获得。有关app_id 的详细介绍。
+         * <p> 示例值：cli_ddfgkk38emd38
+         */
+        this.appId = builder.appId;
+        /**
+         * 应用秘钥，创建应用后获得。
+         * <p> 示例值：clkfgkfdjes384kjdf9830d3k
+         */
+        this.appSecret = builder.appSecret;
+        /**
+         * 平台定时推送给应用的临时凭证，通过事件监听机制获得。
+         * <p> 示例值：jdjlsd03jk34hj3kldjflcmkel
+         */
+        this.appTicket = builder.appTicket;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getAppId() {
         return this.appId;
     }
@@ -66,90 +97,64 @@ public class CreateAppAccessTokenReqBody {
         this.appTicket = appTicket;
     }
 
-
-// builder 开始
-  public CreateAppAccessTokenReqBody(){}
-
-  public CreateAppAccessTokenReqBody(Builder builder){
-         /**
-          * 应用唯一标识，创建应用后获得。有关app_id 的详细介绍。
-          * <p> 示例值：cli_ddfgkk38emd38
-          */
-      this.appId = builder.appId;
-         /**
-          * 应用秘钥，创建应用后获得。
-          * <p> 示例值：clkfgkfdjes384kjdf9830d3k
-          */
-      this.appSecret = builder.appSecret;
-         /**
-          * 平台定时推送给应用的临时凭证，通过事件监听机制获得。
-          * <p> 示例值：jdjlsd03jk34hj3kldjflcmkel
-          */
-      this.appTicket = builder.appTicket;
-  }
-
     public static class Builder {
-     /**
-      * 应用唯一标识，创建应用后获得。有关app_id 的详细介绍。
-      * <p> 示例值：cli_ddfgkk38emd38
-      */
+        /**
+         * 应用唯一标识，创建应用后获得。有关app_id 的详细介绍。
+         * <p> 示例值：cli_ddfgkk38emd38
+         */
         private String appId;
-     /**
-      * 应用秘钥，创建应用后获得。
-      * <p> 示例值：clkfgkfdjes384kjdf9830d3k
-      */
+        /**
+         * 应用秘钥，创建应用后获得。
+         * <p> 示例值：clkfgkfdjes384kjdf9830d3k
+         */
         private String appSecret;
-     /**
-      * 平台定时推送给应用的临时凭证，通过事件监听机制获得。
-      * <p> 示例值：jdjlsd03jk34hj3kldjflcmkel
-      */
+        /**
+         * 平台定时推送给应用的临时凭证，通过事件监听机制获得。
+         * <p> 示例值：jdjlsd03jk34hj3kldjflcmkel
+         */
         private String appTicket;
 
         /**
          * 应用唯一标识，创建应用后获得。有关app_id 的详细介绍。
          * <p> 示例值：cli_ddfgkk38emd38
+         *
          * @param appId
          * @return
          */
         public Builder appId(String appId) {
-             this.appId = appId;
-             return this;
+            this.appId = appId;
+            return this;
         }
 
-    
 
         /**
          * 应用秘钥，创建应用后获得。
          * <p> 示例值：clkfgkfdjes384kjdf9830d3k
+         *
          * @param appSecret
          * @return
          */
         public Builder appSecret(String appSecret) {
-             this.appSecret = appSecret;
-             return this;
+            this.appSecret = appSecret;
+            return this;
         }
 
-    
 
         /**
          * 平台定时推送给应用的临时凭证，通过事件监听机制获得。
          * <p> 示例值：jdjlsd03jk34hj3kldjflcmkel
+         *
          * @param appTicket
          * @return
          */
         public Builder appTicket(String appTicket) {
-             this.appTicket = appTicket;
-             return this;
+            this.appTicket = appTicket;
+            return this;
         }
 
-    
-    
-    public CreateAppAccessTokenReqBody build(){
-        return new CreateAppAccessTokenReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public CreateAppAccessTokenReqBody build() {
+            return new CreateAppAccessTokenReqBody(this);
+        }
     }
 }

@@ -17,15 +17,16 @@ package com.lark.oapi.service.vc.v1.enums;
  * 查询节点范围
  */
 public enum ScopeConfigScopeTypeEnum {
-     ROOMLEVEL(1), // 会议室层级
-     ROOM(2), // 会议室
-  ;
-   private Integer value;
+    ROOMLEVEL(1), // 会议室层级
+    ROOM(2), // 会议室
+    ;
+    private Integer value;
+
     ScopeConfigScopeTypeEnum(Integer value) {
-      this.value = value;
+        this.value = value;
     }
 
     public Integer getValue() {
-      return this.value;
+        return this.value;
     }
 }

@@ -12,36 +12,67 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class OfferSchemaDetailOption {
-     /**
-      * 名字
-      * <p> 示例值：
-      */
+    /**
+     * 名字
+     * <p> 示例值：
+     */
     @SerializedName("name")
     private OfferSchemaName name;
-     /**
-      * 选项序号
-      * <p> 示例值：121
-      */
+    /**
+     * 选项序号
+     * <p> 示例值：121
+     */
     @SerializedName("index")
     private Integer index;
-     /**
-      * 选项当前是否启用
-      * <p> 示例值：1
-      */
+    /**
+     * 选项当前是否启用
+     * <p> 示例值：1
+     */
     @SerializedName("active_status")
     private Integer activeStatus;
+
+    // builder 开始
+    public OfferSchemaDetailOption() {
+    }
+
+    public OfferSchemaDetailOption(Builder builder) {
+        /**
+         * 名字
+         * <p> 示例值：
+         */
+        this.name = builder.name;
+        /**
+         * 选项序号
+         * <p> 示例值：121
+         */
+        this.index = builder.index;
+        /**
+         * 选项当前是否启用
+         * <p> 示例值：1
+         */
+        this.activeStatus = builder.activeStatus;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public OfferSchemaName getName() {
         return this.name;
     }
@@ -66,90 +97,64 @@ public class OfferSchemaDetailOption {
         this.activeStatus = activeStatus;
     }
 
-
-// builder 开始
-  public OfferSchemaDetailOption(){}
-
-  public OfferSchemaDetailOption(Builder builder){
-         /**
-          * 名字
-          * <p> 示例值：
-          */
-      this.name = builder.name;
-         /**
-          * 选项序号
-          * <p> 示例值：121
-          */
-      this.index = builder.index;
-         /**
-          * 选项当前是否启用
-          * <p> 示例值：1
-          */
-      this.activeStatus = builder.activeStatus;
-  }
-
     public static class Builder {
-     /**
-      * 名字
-      * <p> 示例值：
-      */
+        /**
+         * 名字
+         * <p> 示例值：
+         */
         private OfferSchemaName name;
-     /**
-      * 选项序号
-      * <p> 示例值：121
-      */
+        /**
+         * 选项序号
+         * <p> 示例值：121
+         */
         private Integer index;
-     /**
-      * 选项当前是否启用
-      * <p> 示例值：1
-      */
+        /**
+         * 选项当前是否启用
+         * <p> 示例值：1
+         */
         private Integer activeStatus;
 
         /**
          * 名字
          * <p> 示例值：
+         *
          * @param name
          * @return
          */
         public Builder name(OfferSchemaName name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 选项序号
          * <p> 示例值：121
+         *
          * @param index
          * @return
          */
         public Builder index(Integer index) {
-             this.index = index;
-             return this;
+            this.index = index;
+            return this;
         }
 
-    
 
         /**
          * 选项当前是否启用
          * <p> 示例值：1
+         *
          * @param activeStatus
          * @return
          */
         public Builder activeStatus(Integer activeStatus) {
-             this.activeStatus = activeStatus;
-             return this;
+            this.activeStatus = activeStatus;
+            return this;
         }
 
-    
-    
-    public OfferSchemaDetailOption build(){
-        return new OfferSchemaDetailOption(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public OfferSchemaDetailOption build() {
+            return new OfferSchemaDetailOption(this);
+        }
     }
 }

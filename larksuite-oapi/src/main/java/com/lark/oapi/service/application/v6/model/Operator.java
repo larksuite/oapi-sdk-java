@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Operator {
-     /**
-      * 用户名称
-      * <p> 示例值：张三
-      */
+    /**
+     * 用户名称
+     * <p> 示例值：张三
+     */
     @SerializedName("operator_name")
     private String operatorName;
-     /**
-      * 用户 ID
-      * <p> 示例值：ou_ff0b7ba35fb********67dfc8b885136
-      */
+    /**
+     * 用户 ID
+     * <p> 示例值：ou_ff0b7ba35fb********67dfc8b885136
+     */
     @SerializedName("operator_id")
     private UserId operatorId;
+
+    // builder 开始
+    public Operator() {
+    }
+
+    public Operator(Builder builder) {
+        /**
+         * 用户名称
+         * <p> 示例值：张三
+         */
+        this.operatorName = builder.operatorName;
+        /**
+         * 用户 ID
+         * <p> 示例值：ou_ff0b7ba35fb********67dfc8b885136
+         */
+        this.operatorId = builder.operatorId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getOperatorName() {
         return this.operatorName;
     }
@@ -53,67 +79,46 @@ public class Operator {
         this.operatorId = operatorId;
     }
 
-
-// builder 开始
-  public Operator(){}
-
-  public Operator(Builder builder){
-         /**
-          * 用户名称
-          * <p> 示例值：张三
-          */
-      this.operatorName = builder.operatorName;
-         /**
-          * 用户 ID
-          * <p> 示例值：ou_ff0b7ba35fb********67dfc8b885136
-          */
-      this.operatorId = builder.operatorId;
-  }
-
     public static class Builder {
-     /**
-      * 用户名称
-      * <p> 示例值：张三
-      */
+        /**
+         * 用户名称
+         * <p> 示例值：张三
+         */
         private String operatorName;
-     /**
-      * 用户 ID
-      * <p> 示例值：ou_ff0b7ba35fb********67dfc8b885136
-      */
+        /**
+         * 用户 ID
+         * <p> 示例值：ou_ff0b7ba35fb********67dfc8b885136
+         */
         private UserId operatorId;
 
         /**
          * 用户名称
          * <p> 示例值：张三
+         *
          * @param operatorName
          * @return
          */
         public Builder operatorName(String operatorName) {
-             this.operatorName = operatorName;
-             return this;
+            this.operatorName = operatorName;
+            return this;
         }
 
-    
 
         /**
          * 用户 ID
          * <p> 示例值：ou_ff0b7ba35fb********67dfc8b885136
+         *
          * @param operatorId
          * @return
          */
         public Builder operatorId(UserId operatorId) {
-             this.operatorId = operatorId;
-             return this;
+            this.operatorId = operatorId;
+            return this;
         }
 
-    
-    
-    public Operator build(){
-        return new Operator(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Operator build() {
+            return new Operator(this);
+        }
     }
 }

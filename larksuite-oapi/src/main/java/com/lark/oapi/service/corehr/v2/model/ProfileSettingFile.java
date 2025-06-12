@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,42 +20,82 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ProfileSettingFile {
-     /**
-      * 文件ID
-      * <p> 示例值：150018109586e8ea745e47ae8feb3722dbe1d03a181336393633393133303431393831343930373235150200
-      */
+    /**
+     * 文件ID
+     * <p> 示例值：150018109586e8ea745e47ae8feb3722dbe1d03a181336393633393133303431393831343930373235150200
+     */
     @SerializedName("file_id")
     private String fileId;
-     /**
-      * 文件MIME类型
-      * <p> 示例值：zip
-      */
+    /**
+     * 文件MIME类型
+     * <p> 示例值：zip
+     */
     @SerializedName("mime_type")
     private String mimeType;
-     /**
-      * 文件名
-      * <p> 示例值：附件.zip
-      */
+    /**
+     * 文件名
+     * <p> 示例值：附件.zip
+     */
     @SerializedName("name")
     private String name;
-     /**
-      * 文件大小(KB)
-      * <p> 示例值：1000
-      */
+    /**
+     * 文件大小(KB)
+     * <p> 示例值：1000
+     */
     @SerializedName("size")
     private String size;
-     /**
-      * 文件token
-      * <p> 示例值：0a423bc7ea7c4a439d066bf070616782
-      */
+    /**
+     * 文件token
+     * <p> 示例值：0a423bc7ea7c4a439d066bf070616782
+     */
     @SerializedName("token")
     private String token;
+
+    // builder 开始
+    public ProfileSettingFile() {
+    }
+
+    public ProfileSettingFile(Builder builder) {
+        /**
+         * 文件ID
+         * <p> 示例值：150018109586e8ea745e47ae8feb3722dbe1d03a181336393633393133303431393831343930373235150200
+         */
+        this.fileId = builder.fileId;
+        /**
+         * 文件MIME类型
+         * <p> 示例值：zip
+         */
+        this.mimeType = builder.mimeType;
+        /**
+         * 文件名
+         * <p> 示例值：附件.zip
+         */
+        this.name = builder.name;
+        /**
+         * 文件大小(KB)
+         * <p> 示例值：1000
+         */
+        this.size = builder.size;
+        /**
+         * 文件token
+         * <p> 示例值：0a423bc7ea7c4a439d066bf070616782
+         */
+        this.token = builder.token;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getFileId() {
         return this.fileId;
     }
@@ -95,136 +136,100 @@ public class ProfileSettingFile {
         this.token = token;
     }
 
-
-// builder 开始
-  public ProfileSettingFile(){}
-
-  public ProfileSettingFile(Builder builder){
-         /**
-          * 文件ID
-          * <p> 示例值：150018109586e8ea745e47ae8feb3722dbe1d03a181336393633393133303431393831343930373235150200
-          */
-      this.fileId = builder.fileId;
-         /**
-          * 文件MIME类型
-          * <p> 示例值：zip
-          */
-      this.mimeType = builder.mimeType;
-         /**
-          * 文件名
-          * <p> 示例值：附件.zip
-          */
-      this.name = builder.name;
-         /**
-          * 文件大小(KB)
-          * <p> 示例值：1000
-          */
-      this.size = builder.size;
-         /**
-          * 文件token
-          * <p> 示例值：0a423bc7ea7c4a439d066bf070616782
-          */
-      this.token = builder.token;
-  }
-
     public static class Builder {
-     /**
-      * 文件ID
-      * <p> 示例值：150018109586e8ea745e47ae8feb3722dbe1d03a181336393633393133303431393831343930373235150200
-      */
+        /**
+         * 文件ID
+         * <p> 示例值：150018109586e8ea745e47ae8feb3722dbe1d03a181336393633393133303431393831343930373235150200
+         */
         private String fileId;
-     /**
-      * 文件MIME类型
-      * <p> 示例值：zip
-      */
+        /**
+         * 文件MIME类型
+         * <p> 示例值：zip
+         */
         private String mimeType;
-     /**
-      * 文件名
-      * <p> 示例值：附件.zip
-      */
+        /**
+         * 文件名
+         * <p> 示例值：附件.zip
+         */
         private String name;
-     /**
-      * 文件大小(KB)
-      * <p> 示例值：1000
-      */
+        /**
+         * 文件大小(KB)
+         * <p> 示例值：1000
+         */
         private String size;
-     /**
-      * 文件token
-      * <p> 示例值：0a423bc7ea7c4a439d066bf070616782
-      */
+        /**
+         * 文件token
+         * <p> 示例值：0a423bc7ea7c4a439d066bf070616782
+         */
         private String token;
 
         /**
          * 文件ID
          * <p> 示例值：150018109586e8ea745e47ae8feb3722dbe1d03a181336393633393133303431393831343930373235150200
+         *
          * @param fileId
          * @return
          */
         public Builder fileId(String fileId) {
-             this.fileId = fileId;
-             return this;
+            this.fileId = fileId;
+            return this;
         }
 
-    
 
         /**
          * 文件MIME类型
          * <p> 示例值：zip
+         *
          * @param mimeType
          * @return
          */
         public Builder mimeType(String mimeType) {
-             this.mimeType = mimeType;
-             return this;
+            this.mimeType = mimeType;
+            return this;
         }
 
-    
 
         /**
          * 文件名
          * <p> 示例值：附件.zip
+         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 文件大小(KB)
          * <p> 示例值：1000
+         *
          * @param size
          * @return
          */
         public Builder size(String size) {
-             this.size = size;
-             return this;
+            this.size = size;
+            return this;
         }
 
-    
 
         /**
          * 文件token
          * <p> 示例值：0a423bc7ea7c4a439d066bf070616782
+         *
          * @param token
          * @return
          */
         public Builder token(String token) {
-             this.token = token;
-             return this;
+            this.token = token;
+            return this;
         }
 
-    
-    
-    public ProfileSettingFile build(){
-        return new ProfileSettingFile(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ProfileSettingFile build() {
+            return new ProfileSettingFile(this);
+        }
     }
 }

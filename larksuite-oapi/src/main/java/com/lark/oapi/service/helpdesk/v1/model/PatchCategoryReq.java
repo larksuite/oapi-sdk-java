@@ -12,25 +12,49 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class PatchCategoryReq {
-     /**
-      * category id
-      * <p> 示例值：6948728206392295444
-      */
+    /**
+     * category id
+     * <p> 示例值：6948728206392295444
+     */
     @Path
     @SerializedName("id")
     private String id;
+    @Body
+    private Category body;
+
+    // builder 开始
+    public PatchCategoryReq() {
+    }
+
+    public PatchCategoryReq(Builder builder) {
+        /**
+         * category id
+         * <p> 示例值：6948728206392295444
+         */
+        this.id = builder.id;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -38,9 +62,6 @@ public class PatchCategoryReq {
     public void setId(String id) {
         this.id = id;
     }
-
-    @Body
-    private Category body;
 
     public Category getCategory() {
         return this.body;
@@ -50,54 +71,40 @@ public class PatchCategoryReq {
         this.body = body;
     }
 
-// builder 开始
-  public PatchCategoryReq(){}
-
-  public PatchCategoryReq(Builder builder){
-     /**
-      * category id
-      * <p> 示例值：6948728206392295444
-      */
-       this.id = builder.id;
-        this.body = builder.body;
-  }
-
     public static class Builder {
-    
+
         private String id; // category id
+        private Category body;
+
         /**
          * category id
          * <p> 示例值：6948728206392295444
+         *
          * @param id
          * @return
          */
-          public Builder id(String id) {
-               this.id = id;
-               return this;
-          }
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
 
-    
-        private Category body;
-    
         public Category getCategory() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder category(Category body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public PatchCategoryReq build(){
-        return new PatchCategoryReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public PatchCategoryReq build() {
+            return new PatchCategoryReq(this);
+        }
     }
 }

@@ -17,25 +17,26 @@ package com.lark.oapi.service.security_and_compliance.v1.enums;
  * 实体的类型
  */
 public enum MigrationEntityTypeEnum {
-     DOCS("docs"), // 旧版文档
-     DOCX("docx"), // 新版文档
-     SHEETS("sheets"), // 表格
-     BASE("base"), // 多维表格
-     MINDNOTES("mindnotes"), // 思维笔记
-     FILE("file"), // 文件
-     SLIDES("slides"), // 幻灯片
-     CHAT("chat"), // 会话
-     MAILBOX("mailbox"), // 邮箱
-     CALENDAR("calendar"), // 日历
-     MINUTES("minutes"), // 妙记
-     TASK("task"), // 任务
-  ;
-   private String value;
+    DOCS("docs"), // 旧版文档
+    DOCX("docx"), // 新版文档
+    SHEETS("sheets"), // 表格
+    BASE("base"), // 多维表格
+    MINDNOTES("mindnotes"), // 思维笔记
+    FILE("file"), // 文件
+    SLIDES("slides"), // 幻灯片
+    CHAT("chat"), // 会话
+    MAILBOX("mailbox"), // 邮箱
+    CALENDAR("calendar"), // 日历
+    MINUTES("minutes"), // 妙记
+    TASK("task"), // 任务
+    ;
+    private String value;
+
     MigrationEntityTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

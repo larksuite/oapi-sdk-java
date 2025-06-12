@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.search.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.search.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,36 +20,71 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class SimpleGetRelatedUsersRequest {
-     /**
-      * 用户id
-      * <p> 示例值：fdsfds2
-      */
+    /**
+     * 用户id
+     * <p> 示例值：fdsfds2
+     */
     @SerializedName("user_id")
     private String userId;
-     /**
-      * 获取相关用户的最大人数
-      * <p> 示例值：100
-      */
+    /**
+     * 获取相关用户的最大人数
+     * <p> 示例值：100
+     */
     @SerializedName("top_k")
     private Integer topK;
-     /**
-      * 方式一：传入时间范围枚举值，“1”代表近一个月，“2”代表近两个月，“3”代表近三个月，“4”代表近六个月，“5”代表近一年，推荐采取该方式。若采用方式一，则end_time_filter无需传入。若start_time_filter和end_time_filter都不传入，则默认搜索范围为半年。 方式二：传入最早的交互时间，毫秒级时间戳。若采用方式二，建议start_time_filter和end_time_filter都传入，若不传入，则默认搜索范围为半年。
-      * <p> 示例值：5
-      */
+    /**
+     * 方式一：传入时间范围枚举值，“1”代表近一个月，“2”代表近两个月，“3”代表近三个月，“4”代表近六个月，“5”代表近一年，推荐采取该方式。若采用方式一，则end_time_filter无需传入。若start_time_filter和end_time_filter都不传入，则默认搜索范围为半年。 方式二：传入最早的交互时间，毫秒级时间戳。若采用方式二，建议start_time_filter和end_time_filter都传入，若不传入，则默认搜索范围为半年。
+     * <p> 示例值：5
+     */
     @SerializedName("start_time_filter")
     private String startTimeFilter;
-     /**
-      * 最晚交互时间，毫秒级时间戳。
-      * <p> 示例值：1736390718000
-      */
+    /**
+     * 最晚交互时间，毫秒级时间戳。
+     * <p> 示例值：1736390718000
+     */
     @SerializedName("end_time_filter")
     private String endTimeFilter;
+
+    // builder 开始
+    public SimpleGetRelatedUsersRequest() {
+    }
+
+    public SimpleGetRelatedUsersRequest(Builder builder) {
+        /**
+         * 用户id
+         * <p> 示例值：fdsfds2
+         */
+        this.userId = builder.userId;
+        /**
+         * 获取相关用户的最大人数
+         * <p> 示例值：100
+         */
+        this.topK = builder.topK;
+        /**
+         * 方式一：传入时间范围枚举值，“1”代表近一个月，“2”代表近两个月，“3”代表近三个月，“4”代表近六个月，“5”代表近一年，推荐采取该方式。若采用方式一，则end_time_filter无需传入。若start_time_filter和end_time_filter都不传入，则默认搜索范围为半年。 方式二：传入最早的交互时间，毫秒级时间戳。若采用方式二，建议start_time_filter和end_time_filter都传入，若不传入，则默认搜索范围为半年。
+         * <p> 示例值：5
+         */
+        this.startTimeFilter = builder.startTimeFilter;
+        /**
+         * 最晚交互时间，毫秒级时间戳。
+         * <p> 示例值：1736390718000
+         */
+        this.endTimeFilter = builder.endTimeFilter;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getUserId() {
         return this.userId;
     }
@@ -81,113 +117,82 @@ public class SimpleGetRelatedUsersRequest {
         this.endTimeFilter = endTimeFilter;
     }
 
-
-// builder 开始
-  public SimpleGetRelatedUsersRequest(){}
-
-  public SimpleGetRelatedUsersRequest(Builder builder){
-         /**
-          * 用户id
-          * <p> 示例值：fdsfds2
-          */
-      this.userId = builder.userId;
-         /**
-          * 获取相关用户的最大人数
-          * <p> 示例值：100
-          */
-      this.topK = builder.topK;
-         /**
-          * 方式一：传入时间范围枚举值，“1”代表近一个月，“2”代表近两个月，“3”代表近三个月，“4”代表近六个月，“5”代表近一年，推荐采取该方式。若采用方式一，则end_time_filter无需传入。若start_time_filter和end_time_filter都不传入，则默认搜索范围为半年。 方式二：传入最早的交互时间，毫秒级时间戳。若采用方式二，建议start_time_filter和end_time_filter都传入，若不传入，则默认搜索范围为半年。
-          * <p> 示例值：5
-          */
-      this.startTimeFilter = builder.startTimeFilter;
-         /**
-          * 最晚交互时间，毫秒级时间戳。
-          * <p> 示例值：1736390718000
-          */
-      this.endTimeFilter = builder.endTimeFilter;
-  }
-
     public static class Builder {
-     /**
-      * 用户id
-      * <p> 示例值：fdsfds2
-      */
+        /**
+         * 用户id
+         * <p> 示例值：fdsfds2
+         */
         private String userId;
-     /**
-      * 获取相关用户的最大人数
-      * <p> 示例值：100
-      */
+        /**
+         * 获取相关用户的最大人数
+         * <p> 示例值：100
+         */
         private Integer topK;
-     /**
-      * 方式一：传入时间范围枚举值，“1”代表近一个月，“2”代表近两个月，“3”代表近三个月，“4”代表近六个月，“5”代表近一年，推荐采取该方式。若采用方式一，则end_time_filter无需传入。若start_time_filter和end_time_filter都不传入，则默认搜索范围为半年。 方式二：传入最早的交互时间，毫秒级时间戳。若采用方式二，建议start_time_filter和end_time_filter都传入，若不传入，则默认搜索范围为半年。
-      * <p> 示例值：5
-      */
+        /**
+         * 方式一：传入时间范围枚举值，“1”代表近一个月，“2”代表近两个月，“3”代表近三个月，“4”代表近六个月，“5”代表近一年，推荐采取该方式。若采用方式一，则end_time_filter无需传入。若start_time_filter和end_time_filter都不传入，则默认搜索范围为半年。 方式二：传入最早的交互时间，毫秒级时间戳。若采用方式二，建议start_time_filter和end_time_filter都传入，若不传入，则默认搜索范围为半年。
+         * <p> 示例值：5
+         */
         private String startTimeFilter;
-     /**
-      * 最晚交互时间，毫秒级时间戳。
-      * <p> 示例值：1736390718000
-      */
+        /**
+         * 最晚交互时间，毫秒级时间戳。
+         * <p> 示例值：1736390718000
+         */
         private String endTimeFilter;
 
         /**
          * 用户id
          * <p> 示例值：fdsfds2
+         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-             this.userId = userId;
-             return this;
+            this.userId = userId;
+            return this;
         }
 
-    
 
         /**
          * 获取相关用户的最大人数
          * <p> 示例值：100
+         *
          * @param topK
          * @return
          */
         public Builder topK(Integer topK) {
-             this.topK = topK;
-             return this;
+            this.topK = topK;
+            return this;
         }
 
-    
 
         /**
          * 方式一：传入时间范围枚举值，“1”代表近一个月，“2”代表近两个月，“3”代表近三个月，“4”代表近六个月，“5”代表近一年，推荐采取该方式。若采用方式一，则end_time_filter无需传入。若start_time_filter和end_time_filter都不传入，则默认搜索范围为半年。 方式二：传入最早的交互时间，毫秒级时间戳。若采用方式二，建议start_time_filter和end_time_filter都传入，若不传入，则默认搜索范围为半年。
          * <p> 示例值：5
+         *
          * @param startTimeFilter
          * @return
          */
         public Builder startTimeFilter(String startTimeFilter) {
-             this.startTimeFilter = startTimeFilter;
-             return this;
+            this.startTimeFilter = startTimeFilter;
+            return this;
         }
 
-    
 
         /**
          * 最晚交互时间，毫秒级时间戳。
          * <p> 示例值：1736390718000
+         *
          * @param endTimeFilter
          * @return
          */
         public Builder endTimeFilter(String endTimeFilter) {
-             this.endTimeFilter = endTimeFilter;
-             return this;
+            this.endTimeFilter = endTimeFilter;
+            return this;
         }
 
-    
-    
-    public SimpleGetRelatedUsersRequest build(){
-        return new SimpleGetRelatedUsersRequest(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public SimpleGetRelatedUsersRequest build() {
+            return new SimpleGetRelatedUsersRequest(this);
+        }
     }
 }

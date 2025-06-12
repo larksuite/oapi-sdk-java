@@ -12,24 +12,29 @@
  */
 
 package com.lark.oapi.service.okr.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ListPeriodRuleRespBody {
-     /**
-      * 周期规则列表
-      * <p> 示例值：
-      */
+    /**
+     * 周期规则列表
+     * <p> 示例值：
+     */
     @SerializedName("period_rules")
     private PeriodRule[] periodRules;
+
     public PeriodRule[] getPeriodRules() {
         return this.periodRules;
     }

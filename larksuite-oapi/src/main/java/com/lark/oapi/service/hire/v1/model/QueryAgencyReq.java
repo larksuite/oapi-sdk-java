@@ -12,31 +12,57 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class QueryAgencyReq {
-     /**
-      * 猎头供应商名称
-      * <p> 示例值：超越猎头公司
-      */
+    /**
+     * 猎头供应商名称
+     * <p> 示例值：超越猎头公司
+     */
     @Query
     @SerializedName("name")
     private String name;
-     /**
-      * 此次调用中使用的用户ID的类型
-      * <p> 示例值：
-      */
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
+
+    // builder 开始
+    public QueryAgencyReq() {
+    }
+
+    public QueryAgencyReq(Builder builder) {
+        /**
+         * 猎头供应商名称
+         * <p> 示例值：超越猎头公司
+         */
+        this.name = builder.name;
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         */
+        this.userIdType = builder.userIdType;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getName() {
         return this.name;
     }
@@ -53,57 +79,38 @@ public class QueryAgencyReq {
         this.userIdType = userIdType;
     }
 
-
-// builder 开始
-  public QueryAgencyReq(){}
-
-  public QueryAgencyReq(Builder builder){
-         /**
-          * 猎头供应商名称
-          * <p> 示例值：超越猎头公司
-          */
-       this.name = builder.name;
-         /**
-          * 此次调用中使用的用户ID的类型
-          * <p> 示例值：
-          */
-       this.userIdType = builder.userIdType;
-  }
-
     public static class Builder {
         private String name; // 猎头供应商名称
         private String userIdType; // 此次调用中使用的用户ID的类型
-    
+
         /**
          * 猎头供应商名称
          * <p> 示例值：超越猎头公司
+         *
          * @param name
          * @return
          */
-           public Builder name(String name) {
-                this.name = name;
-                return this;
-           }
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
 
-    
+
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
+         *
          * @param userIdType
          * @return
          */
-           public Builder userIdType(String userIdType) {
-                this.userIdType = userIdType;
-                return this;
-           }
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
 
-    
-    public QueryAgencyReq build(){
-        return new QueryAgencyReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public QueryAgencyReq build() {
+            return new QueryAgencyReq(this);
+        }
     }
 }

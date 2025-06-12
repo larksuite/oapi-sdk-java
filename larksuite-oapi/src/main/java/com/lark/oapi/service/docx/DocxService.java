@@ -35,36 +35,44 @@ public class DocxService {
     private final DocumentBlockDescendant documentBlockDescendant; // document.block.descendant
 
     public DocxService(Config config) {
-    this.v1 = new V1(config);
-    this.chatAnnouncement = new ChatAnnouncement(config);
-    this.chatAnnouncementBlock = new ChatAnnouncementBlock(config);
-    this.chatAnnouncementBlockChildren = new ChatAnnouncementBlockChildren(config);
-    this.document = new Document(config);
-    this.documentBlock = new DocumentBlock(config);
-    this.documentBlockChildren = new DocumentBlockChildren(config);
-    this.documentBlockDescendant = new DocumentBlockDescendant(config);
+        this.v1 = new V1(config);
+        this.chatAnnouncement = new ChatAnnouncement(config);
+        this.chatAnnouncementBlock = new ChatAnnouncementBlock(config);
+        this.chatAnnouncementBlockChildren = new ChatAnnouncementBlockChildren(config);
+        this.document = new Document(config);
+        this.documentBlock = new DocumentBlock(config);
+        this.documentBlockChildren = new DocumentBlockChildren(config);
+        this.documentBlockDescendant = new DocumentBlockDescendant(config);
     }
+
     public V1 v1() {
         return v1;
     }
+
     public ChatAnnouncement chatAnnouncement() {
         return chatAnnouncement;
     }
+
     public ChatAnnouncementBlock chatAnnouncementBlock() {
         return chatAnnouncementBlock;
     }
+
     public ChatAnnouncementBlockChildren chatAnnouncementBlockChildren() {
         return chatAnnouncementBlockChildren;
     }
+
     public Document document() {
         return document;
     }
+
     public DocumentBlock documentBlock() {
         return documentBlock;
     }
+
     public DocumentBlockChildren documentBlockChildren() {
         return documentBlockChildren;
     }
+
     public DocumentBlockDescendant documentBlockDescendant() {
         return documentBlockDescendant;
     }

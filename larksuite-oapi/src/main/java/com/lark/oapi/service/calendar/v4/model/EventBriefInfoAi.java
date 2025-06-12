@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.calendar.v4.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.calendar.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,48 +20,93 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class EventBriefInfoAi {
-     /**
-      * 日程ID
-      * <p> 示例值：00592a0e-7edf-4678-bc9d-1b77383ef08e_0
-      */
+    /**
+     * 日程ID
+     * <p> 示例值：00592a0e-7edf-4678-bc9d-1b77383ef08e_0
+     */
     @SerializedName("event_id")
     private String eventId;
-     /**
-      * 日程名称
-      * <p> 示例值：会议
-      */
+    /**
+     * 日程名称
+     * <p> 示例值：会议
+     */
     @SerializedName("summary")
     private String summary;
-     /**
-      * 日程开始时间
-      * <p> 示例值：2022-10-01 10:00:00
-      */
+    /**
+     * 日程开始时间
+     * <p> 示例值：2022-10-01 10:00:00
+     */
     @SerializedName("start_time")
     private String startTime;
-     /**
-      * 日程结束时间
-      * <p> 示例值：2022-10-01 11:00:00
-      */
+    /**
+     * 日程结束时间
+     * <p> 示例值：2022-10-01 11:00:00
+     */
     @SerializedName("end_time")
     private String endTime;
-     /**
-      * 日程链接
-      * <p> 示例值：https://applink.feishu.cn/client/calendar/event/detail?calendarId=xxxxxx&key=xxxxxx&originalTime=xxxxxx&startTime=xxxxxx
-      */
+    /**
+     * 日程链接
+     * <p> 示例值：https://applink.feishu.cn/client/calendar/event/detail?calendarId=xxxxxx&key=xxxxxx&originalTime=xxxxxx&startTime=xxxxxx
+     */
     @SerializedName("app_link")
     private String appLink;
-     /**
-      * 日程组织者
-      * <p> 示例值：
-      */
+    /**
+     * 日程组织者
+     * <p> 示例值：
+     */
     @SerializedName("organizer")
     private EventOrganizer organizer;
+
+    // builder 开始
+    public EventBriefInfoAi() {
+    }
+
+    public EventBriefInfoAi(Builder builder) {
+        /**
+         * 日程ID
+         * <p> 示例值：00592a0e-7edf-4678-bc9d-1b77383ef08e_0
+         */
+        this.eventId = builder.eventId;
+        /**
+         * 日程名称
+         * <p> 示例值：会议
+         */
+        this.summary = builder.summary;
+        /**
+         * 日程开始时间
+         * <p> 示例值：2022-10-01 10:00:00
+         */
+        this.startTime = builder.startTime;
+        /**
+         * 日程结束时间
+         * <p> 示例值：2022-10-01 11:00:00
+         */
+        this.endTime = builder.endTime;
+        /**
+         * 日程链接
+         * <p> 示例值：https://applink.feishu.cn/client/calendar/event/detail?calendarId=xxxxxx&key=xxxxxx&originalTime=xxxxxx&startTime=xxxxxx
+         */
+        this.appLink = builder.appLink;
+        /**
+         * 日程组织者
+         * <p> 示例值：
+         */
+        this.organizer = builder.organizer;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getEventId() {
         return this.eventId;
     }
@@ -109,159 +155,118 @@ public class EventBriefInfoAi {
         this.organizer = organizer;
     }
 
-
-// builder 开始
-  public EventBriefInfoAi(){}
-
-  public EventBriefInfoAi(Builder builder){
-         /**
-          * 日程ID
-          * <p> 示例值：00592a0e-7edf-4678-bc9d-1b77383ef08e_0
-          */
-      this.eventId = builder.eventId;
-         /**
-          * 日程名称
-          * <p> 示例值：会议
-          */
-      this.summary = builder.summary;
-         /**
-          * 日程开始时间
-          * <p> 示例值：2022-10-01 10:00:00
-          */
-      this.startTime = builder.startTime;
-         /**
-          * 日程结束时间
-          * <p> 示例值：2022-10-01 11:00:00
-          */
-      this.endTime = builder.endTime;
-         /**
-          * 日程链接
-          * <p> 示例值：https://applink.feishu.cn/client/calendar/event/detail?calendarId=xxxxxx&key=xxxxxx&originalTime=xxxxxx&startTime=xxxxxx
-          */
-      this.appLink = builder.appLink;
-         /**
-          * 日程组织者
-          * <p> 示例值：
-          */
-      this.organizer = builder.organizer;
-  }
-
     public static class Builder {
-     /**
-      * 日程ID
-      * <p> 示例值：00592a0e-7edf-4678-bc9d-1b77383ef08e_0
-      */
+        /**
+         * 日程ID
+         * <p> 示例值：00592a0e-7edf-4678-bc9d-1b77383ef08e_0
+         */
         private String eventId;
-     /**
-      * 日程名称
-      * <p> 示例值：会议
-      */
+        /**
+         * 日程名称
+         * <p> 示例值：会议
+         */
         private String summary;
-     /**
-      * 日程开始时间
-      * <p> 示例值：2022-10-01 10:00:00
-      */
+        /**
+         * 日程开始时间
+         * <p> 示例值：2022-10-01 10:00:00
+         */
         private String startTime;
-     /**
-      * 日程结束时间
-      * <p> 示例值：2022-10-01 11:00:00
-      */
+        /**
+         * 日程结束时间
+         * <p> 示例值：2022-10-01 11:00:00
+         */
         private String endTime;
-     /**
-      * 日程链接
-      * <p> 示例值：https://applink.feishu.cn/client/calendar/event/detail?calendarId=xxxxxx&key=xxxxxx&originalTime=xxxxxx&startTime=xxxxxx
-      */
+        /**
+         * 日程链接
+         * <p> 示例值：https://applink.feishu.cn/client/calendar/event/detail?calendarId=xxxxxx&key=xxxxxx&originalTime=xxxxxx&startTime=xxxxxx
+         */
         private String appLink;
-     /**
-      * 日程组织者
-      * <p> 示例值：
-      */
+        /**
+         * 日程组织者
+         * <p> 示例值：
+         */
         private EventOrganizer organizer;
 
         /**
          * 日程ID
          * <p> 示例值：00592a0e-7edf-4678-bc9d-1b77383ef08e_0
+         *
          * @param eventId
          * @return
          */
         public Builder eventId(String eventId) {
-             this.eventId = eventId;
-             return this;
+            this.eventId = eventId;
+            return this;
         }
 
-    
 
         /**
          * 日程名称
          * <p> 示例值：会议
+         *
          * @param summary
          * @return
          */
         public Builder summary(String summary) {
-             this.summary = summary;
-             return this;
+            this.summary = summary;
+            return this;
         }
 
-    
 
         /**
          * 日程开始时间
          * <p> 示例值：2022-10-01 10:00:00
+         *
          * @param startTime
          * @return
          */
         public Builder startTime(String startTime) {
-             this.startTime = startTime;
-             return this;
+            this.startTime = startTime;
+            return this;
         }
 
-    
 
         /**
          * 日程结束时间
          * <p> 示例值：2022-10-01 11:00:00
+         *
          * @param endTime
          * @return
          */
         public Builder endTime(String endTime) {
-             this.endTime = endTime;
-             return this;
+            this.endTime = endTime;
+            return this;
         }
 
-    
 
         /**
          * 日程链接
          * <p> 示例值：https://applink.feishu.cn/client/calendar/event/detail?calendarId=xxxxxx&key=xxxxxx&originalTime=xxxxxx&startTime=xxxxxx
+         *
          * @param appLink
          * @return
          */
         public Builder appLink(String appLink) {
-             this.appLink = appLink;
-             return this;
+            this.appLink = appLink;
+            return this;
         }
 
-    
 
         /**
          * 日程组织者
          * <p> 示例值：
+         *
          * @param organizer
          * @return
          */
         public Builder organizer(EventOrganizer organizer) {
-             this.organizer = organizer;
-             return this;
+            this.organizer = organizer;
+            return this;
         }
 
-    
-    
-    public EventBriefInfoAi build(){
-        return new EventBriefInfoAi(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public EventBriefInfoAi build() {
+            return new EventBriefInfoAi(this);
+        }
     }
 }

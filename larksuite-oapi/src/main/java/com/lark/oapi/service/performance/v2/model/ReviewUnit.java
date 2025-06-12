@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.performance.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.performance.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ReviewUnit {
-     /**
-      * 评估内容 ID
-      * <p> 示例值：7343513161666707459
-      */
+    /**
+     * 评估内容 ID
+     * <p> 示例值：7343513161666707459
+     */
     @SerializedName("unit_id")
     private String unitId;
-     /**
-      * 是否为不了解。当评估人选不了解时，会返回为 true，其他时候不返回。
-      * <p> 示例值：
-      */
+    /**
+     * 是否为不了解。当评估人选不了解时，会返回为 true，其他时候不返回。
+     * <p> 示例值：
+     */
     @SerializedName("is_unknown")
     private Boolean isUnknown;
-     /**
-      * 评估题列表，指评估内容中的每个题，可能是评估项或者填写项
-      * <p> 示例值：
-      */
+    /**
+     * 评估题列表，指评估内容中的每个题，可能是评估项或者填写项
+     * <p> 示例值：
+     */
     @SerializedName("data")
     private ReviewDetail[] data;
+
+    // builder 开始
+    public ReviewUnit() {
+    }
+
+    public ReviewUnit(Builder builder) {
+        /**
+         * 评估内容 ID
+         * <p> 示例值：7343513161666707459
+         */
+        this.unitId = builder.unitId;
+        /**
+         * 是否为不了解。当评估人选不了解时，会返回为 true，其他时候不返回。
+         * <p> 示例值：
+         */
+        this.isUnknown = builder.isUnknown;
+        /**
+         * 评估题列表，指评估内容中的每个题，可能是评估项或者填写项
+         * <p> 示例值：
+         */
+        this.data = builder.data;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getUnitId() {
         return this.unitId;
     }
@@ -67,90 +98,64 @@ public class ReviewUnit {
         this.data = data;
     }
 
-
-// builder 开始
-  public ReviewUnit(){}
-
-  public ReviewUnit(Builder builder){
-         /**
-          * 评估内容 ID
-          * <p> 示例值：7343513161666707459
-          */
-      this.unitId = builder.unitId;
-         /**
-          * 是否为不了解。当评估人选不了解时，会返回为 true，其他时候不返回。
-          * <p> 示例值：
-          */
-      this.isUnknown = builder.isUnknown;
-         /**
-          * 评估题列表，指评估内容中的每个题，可能是评估项或者填写项
-          * <p> 示例值：
-          */
-      this.data = builder.data;
-  }
-
     public static class Builder {
-     /**
-      * 评估内容 ID
-      * <p> 示例值：7343513161666707459
-      */
+        /**
+         * 评估内容 ID
+         * <p> 示例值：7343513161666707459
+         */
         private String unitId;
-     /**
-      * 是否为不了解。当评估人选不了解时，会返回为 true，其他时候不返回。
-      * <p> 示例值：
-      */
+        /**
+         * 是否为不了解。当评估人选不了解时，会返回为 true，其他时候不返回。
+         * <p> 示例值：
+         */
         private Boolean isUnknown;
-     /**
-      * 评估题列表，指评估内容中的每个题，可能是评估项或者填写项
-      * <p> 示例值：
-      */
+        /**
+         * 评估题列表，指评估内容中的每个题，可能是评估项或者填写项
+         * <p> 示例值：
+         */
         private ReviewDetail[] data;
 
         /**
          * 评估内容 ID
          * <p> 示例值：7343513161666707459
+         *
          * @param unitId
          * @return
          */
         public Builder unitId(String unitId) {
-             this.unitId = unitId;
-             return this;
+            this.unitId = unitId;
+            return this;
         }
 
-    
 
         /**
          * 是否为不了解。当评估人选不了解时，会返回为 true，其他时候不返回。
          * <p> 示例值：
+         *
          * @param isUnknown
          * @return
          */
         public Builder isUnknown(Boolean isUnknown) {
-             this.isUnknown = isUnknown;
-             return this;
+            this.isUnknown = isUnknown;
+            return this;
         }
 
-    
 
         /**
          * 评估题列表，指评估内容中的每个题，可能是评估项或者填写项
          * <p> 示例值：
+         *
          * @param data
          * @return
          */
         public Builder data(ReviewDetail[] data) {
-             this.data = data;
-             return this;
+            this.data = data;
+            return this;
         }
 
-    
-    
-    public ReviewUnit build(){
-        return new ReviewUnit(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ReviewUnit build() {
+            return new ReviewUnit(this);
+        }
     }
 }

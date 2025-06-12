@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class DimensionIdInData {
-     /**
-      * 维度 key
-      * <p> 示例值：department
-      */
+    /**
+     * 维度 key
+     * <p> 示例值：department
+     */
     @SerializedName("dimension_key")
     private String dimensionKey;
-     /**
-      * 维度 ids
-      * <p> 示例值：
-      */
+    /**
+     * 维度 ids
+     * <p> 示例值：
+     */
     @SerializedName("dimension_ids")
     private String[] dimensionIds;
+
+    // builder 开始
+    public DimensionIdInData() {
+    }
+
+    public DimensionIdInData(Builder builder) {
+        /**
+         * 维度 key
+         * <p> 示例值：department
+         */
+        this.dimensionKey = builder.dimensionKey;
+        /**
+         * 维度 ids
+         * <p> 示例值：
+         */
+        this.dimensionIds = builder.dimensionIds;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getDimensionKey() {
         return this.dimensionKey;
     }
@@ -53,67 +79,46 @@ public class DimensionIdInData {
         this.dimensionIds = dimensionIds;
     }
 
-
-// builder 开始
-  public DimensionIdInData(){}
-
-  public DimensionIdInData(Builder builder){
-         /**
-          * 维度 key
-          * <p> 示例值：department
-          */
-      this.dimensionKey = builder.dimensionKey;
-         /**
-          * 维度 ids
-          * <p> 示例值：
-          */
-      this.dimensionIds = builder.dimensionIds;
-  }
-
     public static class Builder {
-     /**
-      * 维度 key
-      * <p> 示例值：department
-      */
+        /**
+         * 维度 key
+         * <p> 示例值：department
+         */
         private String dimensionKey;
-     /**
-      * 维度 ids
-      * <p> 示例值：
-      */
+        /**
+         * 维度 ids
+         * <p> 示例值：
+         */
         private String[] dimensionIds;
 
         /**
          * 维度 key
          * <p> 示例值：department
+         *
          * @param dimensionKey
          * @return
          */
         public Builder dimensionKey(String dimensionKey) {
-             this.dimensionKey = dimensionKey;
-             return this;
+            this.dimensionKey = dimensionKey;
+            return this;
         }
 
-    
 
         /**
          * 维度 ids
          * <p> 示例值：
+         *
          * @param dimensionIds
          * @return
          */
         public Builder dimensionIds(String[] dimensionIds) {
-             this.dimensionIds = dimensionIds;
-             return this;
+            this.dimensionIds = dimensionIds;
+            return this;
         }
 
-    
-    
-    public DimensionIdInData build(){
-        return new DimensionIdInData(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public DimensionIdInData build() {
+            return new DimensionIdInData(this);
+        }
     }
 }

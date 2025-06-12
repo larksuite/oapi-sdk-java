@@ -17,24 +17,25 @@ package com.lark.oapi.service.document_ai.v1.enums;
  * 该chunk属于哪一种文档元素
  */
 public enum DocChunkResultDocChunkResultTypeEnum {
-     TITLE("title"), // 全文大标题
-     SECTIONTITLE("section-title"), // 章节标题
-     SECTIONTEXT("section-text"), // 章节内容
-     IMAGE("image"), // 图片
-     TABLE("table"), // 表格
-     HEADER("header"), // 页眉
-     FOOTER("footer"), // 页脚
-     FOOTNOTE("footnote"), // 脚注
-     CAPTION("caption"), // 图/表描述
-     TOC("toc"), // 目录
-     OTHERS("others"), // 其他
-  ;
-   private String value;
+    TITLE("title"), // 全文大标题
+    SECTIONTITLE("section-title"), // 章节标题
+    SECTIONTEXT("section-text"), // 章节内容
+    IMAGE("image"), // 图片
+    TABLE("table"), // 表格
+    HEADER("header"), // 页眉
+    FOOTER("footer"), // 页脚
+    FOOTNOTE("footnote"), // 脚注
+    CAPTION("caption"), // 图/表描述
+    TOC("toc"), // 目录
+    OTHERS("others"), // 其他
+    ;
+    private String value;
+
     DocChunkResultDocChunkResultTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

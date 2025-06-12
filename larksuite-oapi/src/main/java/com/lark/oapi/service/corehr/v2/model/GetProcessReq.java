@@ -12,25 +12,58 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class GetProcessReq {
-     /**
-      * 用户 ID 类型
-      * <p> 示例值：open_id
-      */
+    /**
+     * 用户 ID 类型
+     * <p> 示例值：open_id
+     */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
+    /**
+     * 流程ID
+     * <p> 示例值：7278949005675988535
+     */
+    @Path
+    @SerializedName("process_id")
+    private String processId;
+
+    // builder 开始
+    public GetProcessReq() {
+    }
+
+    public GetProcessReq(Builder builder) {
+        /**
+         * 用户 ID 类型
+         * <p> 示例值：open_id
+         */
+        this.userIdType = builder.userIdType;
+        /**
+         * 流程ID
+         * <p> 示例值：7278949005675988535
+         */
+        this.processId = builder.processId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getUserIdType() {
         return this.userIdType;
     }
@@ -39,13 +72,6 @@ public class GetProcessReq {
         this.userIdType = userIdType;
     }
 
-     /**
-      * 流程ID
-      * <p> 示例值：7278949005675988535
-      */
-    @Path
-    @SerializedName("process_id")
-    private String processId;
     public String getProcessId() {
         return this.processId;
     }
@@ -54,68 +80,49 @@ public class GetProcessReq {
         this.processId = processId;
     }
 
-
-// builder 开始
-  public GetProcessReq(){}
-
-  public GetProcessReq(Builder builder){
-         /**
-          * 用户 ID 类型
-          * <p> 示例值：open_id
-          */
-       this.userIdType = builder.userIdType;
-     /**
-      * 流程ID
-      * <p> 示例值：7278949005675988535
-      */
-       this.processId = builder.processId;
-  }
-
     public static class Builder {
         private String userIdType; // 用户 ID 类型
-    
+        private String processId; // 流程ID
+
         /**
          * 用户 ID 类型
          * <p> 示例值：open_id
+         *
          * @param userIdType
          * @return
          */
-           public Builder userIdType(String userIdType) {
-                this.userIdType = userIdType;
-                return this;
-           }
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
 
         /**
          * 用户 ID 类型
          * <p> 示例值：open_id
+         *
          * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.GetProcessUserIdTypeEnum}
          * @return
          */
-          public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.GetProcessUserIdTypeEnum userIdType) {
-               this.userIdType = userIdType.getValue();
-               return this;
-          }
+        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.GetProcessUserIdTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
+            return this;
+        }
 
-    
-        private String processId; // 流程ID
         /**
          * 流程ID
          * <p> 示例值：7278949005675988535
+         *
          * @param processId
          * @return
          */
-          public Builder processId(String processId) {
-               this.processId = processId;
-               return this;
-          }
+        public Builder processId(String processId) {
+            this.processId = processId;
+            return this;
+        }
 
-    
-    public GetProcessReq build(){
-        return new GetProcessReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public GetProcessReq build() {
+            return new GetProcessReq(this);
+        }
     }
 }

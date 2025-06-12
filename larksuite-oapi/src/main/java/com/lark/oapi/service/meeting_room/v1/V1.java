@@ -17,12 +17,13 @@ import com.lark.oapi.core.Config;
 import com.lark.oapi.service.meeting_room.v1.resource.*;
 
 public class V1 {
-	private final MeetingRoom meetingRoom; // 事件
+    private final MeetingRoom meetingRoom; // 事件
 
-	public V1(Config config) {
-		this.meetingRoom = new MeetingRoom(config);
-	}
-	public MeetingRoom meetingRoom() {
-		return meetingRoom;
-	}
+    public V1(Config config) {
+        this.meetingRoom = new MeetingRoom(config);
+    }
+
+    public MeetingRoom meetingRoom() {
+        return meetingRoom;
+    }
 }

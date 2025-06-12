@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.search.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.search.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,48 +20,93 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class PassageParam {
-     /**
-      * 搜doc的相关参数
-      * <p> 示例值：
-      */
+    /**
+     * 搜doc的相关参数
+     * <p> 示例值：
+     */
     @SerializedName("doc_param")
     private DocPassageParam docParam;
-     /**
-      * 搜wiki的相关参数
-      * <p> 示例值：
-      */
+    /**
+     * 搜wiki的相关参数
+     * <p> 示例值：
+     */
     @SerializedName("wiki_param")
     private WikiPassageParam wikiParam;
-     /**
-      * 搜web的相关参数
-      * <p> 示例值：
-      */
+    /**
+     * 搜web的相关参数
+     * <p> 示例值：
+     */
     @SerializedName("web_param")
     private WebPassageParam webParam;
-     /**
-      * 搜helpdesk的相关参数
-      * <p> 示例值：
-      */
+    /**
+     * 搜helpdesk的相关参数
+     * <p> 示例值：
+     */
     @SerializedName("helpdesk_param")
     private HelpdeskPassageParam helpdeskParam;
-     /**
-      * lingo_param
-      * <p> 示例值：
-      */
+    /**
+     * lingo_param
+     * <p> 示例值：
+     */
     @SerializedName("lingo_param")
     private LingoPassageParam lingoParam;
-     /**
-      * message_param
-      * <p> 示例值：
-      */
+    /**
+     * message_param
+     * <p> 示例值：
+     */
     @SerializedName("message_param")
     private MessagePassageParam messageParam;
+
+    // builder 开始
+    public PassageParam() {
+    }
+
+    public PassageParam(Builder builder) {
+        /**
+         * 搜doc的相关参数
+         * <p> 示例值：
+         */
+        this.docParam = builder.docParam;
+        /**
+         * 搜wiki的相关参数
+         * <p> 示例值：
+         */
+        this.wikiParam = builder.wikiParam;
+        /**
+         * 搜web的相关参数
+         * <p> 示例值：
+         */
+        this.webParam = builder.webParam;
+        /**
+         * 搜helpdesk的相关参数
+         * <p> 示例值：
+         */
+        this.helpdeskParam = builder.helpdeskParam;
+        /**
+         * lingo_param
+         * <p> 示例值：
+         */
+        this.lingoParam = builder.lingoParam;
+        /**
+         * message_param
+         * <p> 示例值：
+         */
+        this.messageParam = builder.messageParam;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public DocPassageParam getDocParam() {
         return this.docParam;
     }
@@ -109,159 +155,118 @@ public class PassageParam {
         this.messageParam = messageParam;
     }
 
-
-// builder 开始
-  public PassageParam(){}
-
-  public PassageParam(Builder builder){
-         /**
-          * 搜doc的相关参数
-          * <p> 示例值：
-          */
-      this.docParam = builder.docParam;
-         /**
-          * 搜wiki的相关参数
-          * <p> 示例值：
-          */
-      this.wikiParam = builder.wikiParam;
-         /**
-          * 搜web的相关参数
-          * <p> 示例值：
-          */
-      this.webParam = builder.webParam;
-         /**
-          * 搜helpdesk的相关参数
-          * <p> 示例值：
-          */
-      this.helpdeskParam = builder.helpdeskParam;
-         /**
-          * lingo_param
-          * <p> 示例值：
-          */
-      this.lingoParam = builder.lingoParam;
-         /**
-          * message_param
-          * <p> 示例值：
-          */
-      this.messageParam = builder.messageParam;
-  }
-
     public static class Builder {
-     /**
-      * 搜doc的相关参数
-      * <p> 示例值：
-      */
+        /**
+         * 搜doc的相关参数
+         * <p> 示例值：
+         */
         private DocPassageParam docParam;
-     /**
-      * 搜wiki的相关参数
-      * <p> 示例值：
-      */
+        /**
+         * 搜wiki的相关参数
+         * <p> 示例值：
+         */
         private WikiPassageParam wikiParam;
-     /**
-      * 搜web的相关参数
-      * <p> 示例值：
-      */
+        /**
+         * 搜web的相关参数
+         * <p> 示例值：
+         */
         private WebPassageParam webParam;
-     /**
-      * 搜helpdesk的相关参数
-      * <p> 示例值：
-      */
+        /**
+         * 搜helpdesk的相关参数
+         * <p> 示例值：
+         */
         private HelpdeskPassageParam helpdeskParam;
-     /**
-      * lingo_param
-      * <p> 示例值：
-      */
+        /**
+         * lingo_param
+         * <p> 示例值：
+         */
         private LingoPassageParam lingoParam;
-     /**
-      * message_param
-      * <p> 示例值：
-      */
+        /**
+         * message_param
+         * <p> 示例值：
+         */
         private MessagePassageParam messageParam;
 
         /**
          * 搜doc的相关参数
          * <p> 示例值：
+         *
          * @param docParam
          * @return
          */
         public Builder docParam(DocPassageParam docParam) {
-             this.docParam = docParam;
-             return this;
+            this.docParam = docParam;
+            return this;
         }
 
-    
 
         /**
          * 搜wiki的相关参数
          * <p> 示例值：
+         *
          * @param wikiParam
          * @return
          */
         public Builder wikiParam(WikiPassageParam wikiParam) {
-             this.wikiParam = wikiParam;
-             return this;
+            this.wikiParam = wikiParam;
+            return this;
         }
 
-    
 
         /**
          * 搜web的相关参数
          * <p> 示例值：
+         *
          * @param webParam
          * @return
          */
         public Builder webParam(WebPassageParam webParam) {
-             this.webParam = webParam;
-             return this;
+            this.webParam = webParam;
+            return this;
         }
 
-    
 
         /**
          * 搜helpdesk的相关参数
          * <p> 示例值：
+         *
          * @param helpdeskParam
          * @return
          */
         public Builder helpdeskParam(HelpdeskPassageParam helpdeskParam) {
-             this.helpdeskParam = helpdeskParam;
-             return this;
+            this.helpdeskParam = helpdeskParam;
+            return this;
         }
 
-    
 
         /**
          * lingo_param
          * <p> 示例值：
+         *
          * @param lingoParam
          * @return
          */
         public Builder lingoParam(LingoPassageParam lingoParam) {
-             this.lingoParam = lingoParam;
-             return this;
+            this.lingoParam = lingoParam;
+            return this;
         }
 
-    
 
         /**
          * message_param
          * <p> 示例值：
+         *
          * @param messageParam
          * @return
          */
         public Builder messageParam(MessagePassageParam messageParam) {
-             this.messageParam = messageParam;
-             return this;
+            this.messageParam = messageParam;
+            return this;
         }
 
-    
-    
-    public PassageParam build(){
-        return new PassageParam(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public PassageParam build() {
+            return new PassageParam(this);
+        }
     }
 }

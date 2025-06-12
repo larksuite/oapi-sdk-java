@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class LookupFieldSetting {
-     /**
-      * 查找字段指向对象的 API name。例如人员单选、人员多选字段均指向 employment 系统对象，而自定义分组字段指向用户创建的自定义对象。可通过[获取自定义字段列表](https://open.feishu.cn/document/server-docs/corehr-v1/basic-infomation/custom_field/query)接口传入此属性，以获取自定义分组中的字段。
-      * <p> 示例值：employment
-      */
+    /**
+     * 查找字段指向对象的 API name。例如人员单选、人员多选字段均指向 employment 系统对象，而自定义分组字段指向用户创建的自定义对象。可通过[获取自定义字段列表](https://open.feishu.cn/document/server-docs/corehr-v1/basic-infomation/custom_field/query)接口传入此属性，以获取自定义分组中的字段。
+     * <p> 示例值：employment
+     */
     @SerializedName("lookup_obj_api_name")
     private String lookupObjApiName;
-     /**
-      * 是否为多值。例如人员单选字段此属性为 false，而人员多选字段此属性为 true。
-      * <p> 示例值：false
-      */
+    /**
+     * 是否为多值。例如人员单选字段此属性为 false，而人员多选字段此属性为 true。
+     * <p> 示例值：false
+     */
     @SerializedName("is_multiple")
     private Boolean isMultiple;
+
+    // builder 开始
+    public LookupFieldSetting() {
+    }
+
+    public LookupFieldSetting(Builder builder) {
+        /**
+         * 查找字段指向对象的 API name。例如人员单选、人员多选字段均指向 employment 系统对象，而自定义分组字段指向用户创建的自定义对象。可通过[获取自定义字段列表](https://open.feishu.cn/document/server-docs/corehr-v1/basic-infomation/custom_field/query)接口传入此属性，以获取自定义分组中的字段。
+         * <p> 示例值：employment
+         */
+        this.lookupObjApiName = builder.lookupObjApiName;
+        /**
+         * 是否为多值。例如人员单选字段此属性为 false，而人员多选字段此属性为 true。
+         * <p> 示例值：false
+         */
+        this.isMultiple = builder.isMultiple;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getLookupObjApiName() {
         return this.lookupObjApiName;
     }
@@ -53,67 +79,46 @@ public class LookupFieldSetting {
         this.isMultiple = isMultiple;
     }
 
-
-// builder 开始
-  public LookupFieldSetting(){}
-
-  public LookupFieldSetting(Builder builder){
-         /**
-          * 查找字段指向对象的 API name。例如人员单选、人员多选字段均指向 employment 系统对象，而自定义分组字段指向用户创建的自定义对象。可通过[获取自定义字段列表](https://open.feishu.cn/document/server-docs/corehr-v1/basic-infomation/custom_field/query)接口传入此属性，以获取自定义分组中的字段。
-          * <p> 示例值：employment
-          */
-      this.lookupObjApiName = builder.lookupObjApiName;
-         /**
-          * 是否为多值。例如人员单选字段此属性为 false，而人员多选字段此属性为 true。
-          * <p> 示例值：false
-          */
-      this.isMultiple = builder.isMultiple;
-  }
-
     public static class Builder {
-     /**
-      * 查找字段指向对象的 API name。例如人员单选、人员多选字段均指向 employment 系统对象，而自定义分组字段指向用户创建的自定义对象。可通过[获取自定义字段列表](https://open.feishu.cn/document/server-docs/corehr-v1/basic-infomation/custom_field/query)接口传入此属性，以获取自定义分组中的字段。
-      * <p> 示例值：employment
-      */
+        /**
+         * 查找字段指向对象的 API name。例如人员单选、人员多选字段均指向 employment 系统对象，而自定义分组字段指向用户创建的自定义对象。可通过[获取自定义字段列表](https://open.feishu.cn/document/server-docs/corehr-v1/basic-infomation/custom_field/query)接口传入此属性，以获取自定义分组中的字段。
+         * <p> 示例值：employment
+         */
         private String lookupObjApiName;
-     /**
-      * 是否为多值。例如人员单选字段此属性为 false，而人员多选字段此属性为 true。
-      * <p> 示例值：false
-      */
+        /**
+         * 是否为多值。例如人员单选字段此属性为 false，而人员多选字段此属性为 true。
+         * <p> 示例值：false
+         */
         private Boolean isMultiple;
 
         /**
          * 查找字段指向对象的 API name。例如人员单选、人员多选字段均指向 employment 系统对象，而自定义分组字段指向用户创建的自定义对象。可通过[获取自定义字段列表](https://open.feishu.cn/document/server-docs/corehr-v1/basic-infomation/custom_field/query)接口传入此属性，以获取自定义分组中的字段。
          * <p> 示例值：employment
+         *
          * @param lookupObjApiName
          * @return
          */
         public Builder lookupObjApiName(String lookupObjApiName) {
-             this.lookupObjApiName = lookupObjApiName;
-             return this;
+            this.lookupObjApiName = lookupObjApiName;
+            return this;
         }
 
-    
 
         /**
          * 是否为多值。例如人员单选字段此属性为 false，而人员多选字段此属性为 true。
          * <p> 示例值：false
+         *
          * @param isMultiple
          * @return
          */
         public Builder isMultiple(Boolean isMultiple) {
-             this.isMultiple = isMultiple;
-             return this;
+            this.isMultiple = isMultiple;
+            return this;
         }
 
-    
-    
-    public LookupFieldSetting build(){
-        return new LookupFieldSetting(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public LookupFieldSetting build() {
+            return new LookupFieldSetting(this);
+        }
     }
 }

@@ -12,60 +12,111 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class BaseAddress {
-     /**
-      * ID
-      * <p> 示例值：6932753007915206919
-      */
+    /**
+     * ID
+     * <p> 示例值：6932753007915206919
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 中文名称
-      * <p> 示例值：名字
-      */
+    /**
+     * 中文名称
+     * <p> 示例值：名字
+     */
     @SerializedName("zh_name")
     private String zhName;
-     /**
-      * 英文名称
-      * <p> 示例值：name
-      */
+    /**
+     * 英文名称
+     * <p> 示例值：name
+     */
     @SerializedName("en_name")
     private String enName;
-     /**
-      * 区域信息
-      * <p> 示例值：
-      */
+    /**
+     * 区域信息
+     * <p> 示例值：
+     */
     @SerializedName("district")
     private BaseDistrict district;
-     /**
-      * 城市信息
-      * <p> 示例值：
-      */
+    /**
+     * 城市信息
+     * <p> 示例值：
+     */
     @SerializedName("city")
     private BaseCity city;
-     /**
-      * 省信息
-      * <p> 示例值：
-      */
+    /**
+     * 省信息
+     * <p> 示例值：
+     */
     @SerializedName("state")
     private BaseCity state;
-     /**
-      * 国家信息
-      * <p> 示例值：
-      */
+    /**
+     * 国家信息
+     * <p> 示例值：
+     */
     @SerializedName("country")
     private BaseCountry country;
+
+    // builder 开始
+    public BaseAddress() {
+    }
+
+    public BaseAddress(Builder builder) {
+        /**
+         * ID
+         * <p> 示例值：6932753007915206919
+         */
+        this.id = builder.id;
+        /**
+         * 中文名称
+         * <p> 示例值：名字
+         */
+        this.zhName = builder.zhName;
+        /**
+         * 英文名称
+         * <p> 示例值：name
+         */
+        this.enName = builder.enName;
+        /**
+         * 区域信息
+         * <p> 示例值：
+         */
+        this.district = builder.district;
+        /**
+         * 城市信息
+         * <p> 示例值：
+         */
+        this.city = builder.city;
+        /**
+         * 省信息
+         * <p> 示例值：
+         */
+        this.state = builder.state;
+        /**
+         * 国家信息
+         * <p> 示例值：
+         */
+        this.country = builder.country;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -122,182 +173,136 @@ public class BaseAddress {
         this.country = country;
     }
 
-
-// builder 开始
-  public BaseAddress(){}
-
-  public BaseAddress(Builder builder){
-         /**
-          * ID
-          * <p> 示例值：6932753007915206919
-          */
-      this.id = builder.id;
-         /**
-          * 中文名称
-          * <p> 示例值：名字
-          */
-      this.zhName = builder.zhName;
-         /**
-          * 英文名称
-          * <p> 示例值：name
-          */
-      this.enName = builder.enName;
-         /**
-          * 区域信息
-          * <p> 示例值：
-          */
-      this.district = builder.district;
-         /**
-          * 城市信息
-          * <p> 示例值：
-          */
-      this.city = builder.city;
-         /**
-          * 省信息
-          * <p> 示例值：
-          */
-      this.state = builder.state;
-         /**
-          * 国家信息
-          * <p> 示例值：
-          */
-      this.country = builder.country;
-  }
-
     public static class Builder {
-     /**
-      * ID
-      * <p> 示例值：6932753007915206919
-      */
+        /**
+         * ID
+         * <p> 示例值：6932753007915206919
+         */
         private String id;
-     /**
-      * 中文名称
-      * <p> 示例值：名字
-      */
+        /**
+         * 中文名称
+         * <p> 示例值：名字
+         */
         private String zhName;
-     /**
-      * 英文名称
-      * <p> 示例值：name
-      */
+        /**
+         * 英文名称
+         * <p> 示例值：name
+         */
         private String enName;
-     /**
-      * 区域信息
-      * <p> 示例值：
-      */
+        /**
+         * 区域信息
+         * <p> 示例值：
+         */
         private BaseDistrict district;
-     /**
-      * 城市信息
-      * <p> 示例值：
-      */
+        /**
+         * 城市信息
+         * <p> 示例值：
+         */
         private BaseCity city;
-     /**
-      * 省信息
-      * <p> 示例值：
-      */
+        /**
+         * 省信息
+         * <p> 示例值：
+         */
         private BaseCity state;
-     /**
-      * 国家信息
-      * <p> 示例值：
-      */
+        /**
+         * 国家信息
+         * <p> 示例值：
+         */
         private BaseCountry country;
 
         /**
          * ID
          * <p> 示例值：6932753007915206919
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 中文名称
          * <p> 示例值：名字
+         *
          * @param zhName
          * @return
          */
         public Builder zhName(String zhName) {
-             this.zhName = zhName;
-             return this;
+            this.zhName = zhName;
+            return this;
         }
 
-    
 
         /**
          * 英文名称
          * <p> 示例值：name
+         *
          * @param enName
          * @return
          */
         public Builder enName(String enName) {
-             this.enName = enName;
-             return this;
+            this.enName = enName;
+            return this;
         }
 
-    
 
         /**
          * 区域信息
          * <p> 示例值：
+         *
          * @param district
          * @return
          */
         public Builder district(BaseDistrict district) {
-             this.district = district;
-             return this;
+            this.district = district;
+            return this;
         }
 
-    
 
         /**
          * 城市信息
          * <p> 示例值：
+         *
          * @param city
          * @return
          */
         public Builder city(BaseCity city) {
-             this.city = city;
-             return this;
+            this.city = city;
+            return this;
         }
 
-    
 
         /**
          * 省信息
          * <p> 示例值：
+         *
          * @param state
          * @return
          */
         public Builder state(BaseCity state) {
-             this.state = state;
-             return this;
+            this.state = state;
+            return this;
         }
 
-    
 
         /**
          * 国家信息
          * <p> 示例值：
+         *
          * @param country
          * @return
          */
         public Builder country(BaseCountry country) {
-             this.country = country;
-             return this;
+            this.country = country;
+            return this;
         }
 
-    
-    
-    public BaseAddress build(){
-        return new BaseAddress(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public BaseAddress build() {
+            return new BaseAddress(this);
+        }
     }
 }

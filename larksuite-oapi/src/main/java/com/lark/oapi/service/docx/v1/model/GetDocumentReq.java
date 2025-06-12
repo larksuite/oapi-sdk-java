@@ -12,25 +12,46 @@
  */
 
 package com.lark.oapi.service.docx.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.docx.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class GetDocumentReq {
-     /**
-      * 文档的唯一标识
-      * <p> 示例值：doxcnePuYufKa49ISjhD8Ih0ikh
-      */
+    /**
+     * 文档的唯一标识
+     * <p> 示例值：doxcnePuYufKa49ISjhD8Ih0ikh
+     */
     @Path
     @SerializedName("document_id")
     private String documentId;
+
+    // builder 开始
+    public GetDocumentReq() {
+    }
+
+    public GetDocumentReq(Builder builder) {
+        /**
+         * 文档的唯一标识
+         * <p> 示例值：doxcnePuYufKa49ISjhD8Ih0ikh
+         */
+        this.documentId = builder.documentId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getDocumentId() {
         return this.documentId;
     }
@@ -39,39 +60,25 @@ public class GetDocumentReq {
         this.documentId = documentId;
     }
 
-
-// builder 开始
-  public GetDocumentReq(){}
-
-  public GetDocumentReq(Builder builder){
-     /**
-      * 文档的唯一标识
-      * <p> 示例值：doxcnePuYufKa49ISjhD8Ih0ikh
-      */
-       this.documentId = builder.documentId;
-  }
-
     public static class Builder {
-    
+
         private String documentId; // 文档的唯一标识
+
         /**
          * 文档的唯一标识
          * <p> 示例值：doxcnePuYufKa49ISjhD8Ih0ikh
+         *
          * @param documentId
          * @return
          */
-          public Builder documentId(String documentId) {
-               this.documentId = documentId;
-               return this;
-          }
+        public Builder documentId(String documentId) {
+            this.documentId = documentId;
+            return this;
+        }
 
-    
-    public GetDocumentReq build(){
-        return new GetDocumentReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public GetDocumentReq build() {
+            return new GetDocumentReq(this);
+        }
     }
 }

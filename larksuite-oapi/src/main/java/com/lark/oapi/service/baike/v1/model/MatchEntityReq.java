@@ -12,20 +12,36 @@
  */
 
 package com.lark.oapi.service.baike.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.baike.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class MatchEntityReq {
     @Body
     private MatchEntityReqBody body;
+
+    // builder 开始
+    public MatchEntityReq() {
+    }
+
+    public MatchEntityReq(Builder builder) {
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 
     public MatchEntityReqBody getMatchEntityReqBody() {
         return this.body;
@@ -35,36 +51,27 @@ public class MatchEntityReq {
         this.body = body;
     }
 
-// builder 开始
-  public MatchEntityReq(){}
-
-  public MatchEntityReq(Builder builder){
-        this.body = builder.body;
-  }
-
     public static class Builder {
-    
+
         private MatchEntityReqBody body;
-    
+
         public MatchEntityReqBody getMatchEntityReqBody() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder matchEntityReqBody(MatchEntityReqBody body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public MatchEntityReq build(){
-        return new MatchEntityReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public MatchEntityReq build() {
+            return new MatchEntityReq(this);
+        }
     }
 }

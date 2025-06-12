@@ -12,39 +12,70 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class RemoveRoleAssignAuthorizationReq {
-     /**
-      * 雇员 ID
-      * <p> 示例值：67489937334909845
-      */
+    /**
+     * 雇员 ID
+     * <p> 示例值：67489937334909845
+     */
     @Query
     @SerializedName("employment_id")
     private String employmentId;
-     /**
-      * 用户 ID 类型
-      * <p> 示例值：people_corehr_id
-      */
+    /**
+     * 用户 ID 类型
+     * <p> 示例值：people_corehr_id
+     */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
-     /**
-      * 角色 ID
-      * <p> 示例值：67489937334909845
-      */
+    /**
+     * 角色 ID
+     * <p> 示例值：67489937334909845
+     */
     @Query
     @SerializedName("role_id")
     private String roleId;
+
+    // builder 开始
+    public RemoveRoleAssignAuthorizationReq() {
+    }
+
+    public RemoveRoleAssignAuthorizationReq(Builder builder) {
+        /**
+         * 雇员 ID
+         * <p> 示例值：67489937334909845
+         */
+        this.employmentId = builder.employmentId;
+        /**
+         * 用户 ID 类型
+         * <p> 示例值：people_corehr_id
+         */
+        this.userIdType = builder.userIdType;
+        /**
+         * 角色 ID
+         * <p> 示例值：67489937334909845
+         */
+        this.roleId = builder.roleId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getEmploymentId() {
         return this.employmentId;
     }
@@ -69,86 +100,64 @@ public class RemoveRoleAssignAuthorizationReq {
         this.roleId = roleId;
     }
 
-
-// builder 开始
-  public RemoveRoleAssignAuthorizationReq(){}
-
-  public RemoveRoleAssignAuthorizationReq(Builder builder){
-         /**
-          * 雇员 ID
-          * <p> 示例值：67489937334909845
-          */
-       this.employmentId = builder.employmentId;
-         /**
-          * 用户 ID 类型
-          * <p> 示例值：people_corehr_id
-          */
-       this.userIdType = builder.userIdType;
-         /**
-          * 角色 ID
-          * <p> 示例值：67489937334909845
-          */
-       this.roleId = builder.roleId;
-  }
-
     public static class Builder {
         private String employmentId; // 雇员 ID
         private String userIdType; // 用户 ID 类型
         private String roleId; // 角色 ID
-    
+
         /**
          * 雇员 ID
          * <p> 示例值：67489937334909845
+         *
          * @param employmentId
          * @return
          */
-           public Builder employmentId(String employmentId) {
-                this.employmentId = employmentId;
-                return this;
-           }
+        public Builder employmentId(String employmentId) {
+            this.employmentId = employmentId;
+            return this;
+        }
 
-    
+
         /**
          * 用户 ID 类型
          * <p> 示例值：people_corehr_id
+         *
          * @param userIdType
          * @return
          */
-           public Builder userIdType(String userIdType) {
-                this.userIdType = userIdType;
-                return this;
-           }
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
 
         /**
          * 用户 ID 类型
          * <p> 示例值：people_corehr_id
+         *
          * @param userIdType {@link com.lark.oapi.service.corehr.v1.enums.RemoveRoleAssignAuthorizationUserIdTypeEnum}
          * @return
          */
-          public Builder userIdType(com.lark.oapi.service.corehr.v1.enums.RemoveRoleAssignAuthorizationUserIdTypeEnum userIdType) {
-               this.userIdType = userIdType.getValue();
-               return this;
-          }
+        public Builder userIdType(com.lark.oapi.service.corehr.v1.enums.RemoveRoleAssignAuthorizationUserIdTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
+            return this;
+        }
 
-    
+
         /**
          * 角色 ID
          * <p> 示例值：67489937334909845
+         *
          * @param roleId
          * @return
          */
-           public Builder roleId(String roleId) {
-                this.roleId = roleId;
-                return this;
-           }
+        public Builder roleId(String roleId) {
+            this.roleId = roleId;
+            return this;
+        }
 
-    
-    public RemoveRoleAssignAuthorizationReq build(){
-        return new RemoveRoleAssignAuthorizationReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public RemoveRoleAssignAuthorizationReq build() {
+            return new RemoveRoleAssignAuthorizationReq(this);
+        }
     }
 }

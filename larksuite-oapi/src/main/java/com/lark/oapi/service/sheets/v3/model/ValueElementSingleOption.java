@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.sheets.v3.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.sheets.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ValueElementSingleOption {
-     /**
-      * 数据校验ID
-      * <p> 示例值：1
-      */
+    /**
+     * 数据校验ID
+     * <p> 示例值：1
+     */
     @SerializedName("data_validation_id")
     private Integer dataValidationId;
-     /**
-      * 选项值
-      * <p> 示例值：option1
-      */
+    /**
+     * 选项值
+     * <p> 示例值：option1
+     */
     @SerializedName("data_validiton_value")
     private String dataValiditonValue;
+
+    // builder 开始
+    public ValueElementSingleOption() {
+    }
+
+    public ValueElementSingleOption(Builder builder) {
+        /**
+         * 数据校验ID
+         * <p> 示例值：1
+         */
+        this.dataValidationId = builder.dataValidationId;
+        /**
+         * 选项值
+         * <p> 示例值：option1
+         */
+        this.dataValiditonValue = builder.dataValiditonValue;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Integer getDataValidationId() {
         return this.dataValidationId;
     }
@@ -53,67 +79,46 @@ public class ValueElementSingleOption {
         this.dataValiditonValue = dataValiditonValue;
     }
 
-
-// builder 开始
-  public ValueElementSingleOption(){}
-
-  public ValueElementSingleOption(Builder builder){
-         /**
-          * 数据校验ID
-          * <p> 示例值：1
-          */
-      this.dataValidationId = builder.dataValidationId;
-         /**
-          * 选项值
-          * <p> 示例值：option1
-          */
-      this.dataValiditonValue = builder.dataValiditonValue;
-  }
-
     public static class Builder {
-     /**
-      * 数据校验ID
-      * <p> 示例值：1
-      */
+        /**
+         * 数据校验ID
+         * <p> 示例值：1
+         */
         private Integer dataValidationId;
-     /**
-      * 选项值
-      * <p> 示例值：option1
-      */
+        /**
+         * 选项值
+         * <p> 示例值：option1
+         */
         private String dataValiditonValue;
 
         /**
          * 数据校验ID
          * <p> 示例值：1
+         *
          * @param dataValidationId
          * @return
          */
         public Builder dataValidationId(Integer dataValidationId) {
-             this.dataValidationId = dataValidationId;
-             return this;
+            this.dataValidationId = dataValidationId;
+            return this;
         }
 
-    
 
         /**
          * 选项值
          * <p> 示例值：option1
+         *
          * @param dataValiditonValue
          * @return
          */
         public Builder dataValiditonValue(String dataValiditonValue) {
-             this.dataValiditonValue = dataValiditonValue;
-             return this;
+            this.dataValiditonValue = dataValiditonValue;
+            return this;
         }
 
-    
-    
-    public ValueElementSingleOption build(){
-        return new ValueElementSingleOption(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ValueElementSingleOption build() {
+            return new ValueElementSingleOption(this);
+        }
     }
 }

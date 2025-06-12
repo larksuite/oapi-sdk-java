@@ -12,25 +12,46 @@
  */
 
 package com.lark.oapi.service.mail.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class DeleteMailgroupReq {
-     /**
-      * 邮件组ID或者邮件组地址
-      * <p> 示例值：xxxxxxxxxxxxxxx 或 test_mail_group@xxx.xx
-      */
+    /**
+     * 邮件组ID或者邮件组地址
+     * <p> 示例值：xxxxxxxxxxxxxxx 或 test_mail_group@xxx.xx
+     */
     @Path
     @SerializedName("mailgroup_id")
     private String mailgroupId;
+
+    // builder 开始
+    public DeleteMailgroupReq() {
+    }
+
+    public DeleteMailgroupReq(Builder builder) {
+        /**
+         * 邮件组ID或者邮件组地址
+         * <p> 示例值：xxxxxxxxxxxxxxx 或 test_mail_group@xxx.xx
+         */
+        this.mailgroupId = builder.mailgroupId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getMailgroupId() {
         return this.mailgroupId;
     }
@@ -39,39 +60,25 @@ public class DeleteMailgroupReq {
         this.mailgroupId = mailgroupId;
     }
 
-
-// builder 开始
-  public DeleteMailgroupReq(){}
-
-  public DeleteMailgroupReq(Builder builder){
-     /**
-      * 邮件组ID或者邮件组地址
-      * <p> 示例值：xxxxxxxxxxxxxxx 或 test_mail_group@xxx.xx
-      */
-       this.mailgroupId = builder.mailgroupId;
-  }
-
     public static class Builder {
-    
+
         private String mailgroupId; // 邮件组ID或者邮件组地址
+
         /**
          * 邮件组ID或者邮件组地址
          * <p> 示例值：xxxxxxxxxxxxxxx 或 test_mail_group@xxx.xx
+         *
          * @param mailgroupId
          * @return
          */
-          public Builder mailgroupId(String mailgroupId) {
-               this.mailgroupId = mailgroupId;
-               return this;
-          }
+        public Builder mailgroupId(String mailgroupId) {
+            this.mailgroupId = mailgroupId;
+            return this;
+        }
 
-    
-    public DeleteMailgroupReq build(){
-        return new DeleteMailgroupReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public DeleteMailgroupReq build() {
+            return new DeleteMailgroupReq(this);
+        }
     }
 }

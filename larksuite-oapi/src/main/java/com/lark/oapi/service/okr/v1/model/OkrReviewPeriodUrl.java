@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.okr.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.okr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class OkrReviewPeriodUrl {
-     /**
-      * 文档链接
-      * <p> 示例值：https://bytedance.feishu.cn/drive/home/
-      */
+    /**
+     * 文档链接
+     * <p> 示例值：https://bytedance.feishu.cn/drive/home/
+     */
     @SerializedName("url")
     private String url;
-     /**
-      * 创建时间 毫秒
-      * <p> 示例值：1618500278663
-      */
+    /**
+     * 创建时间 毫秒
+     * <p> 示例值：1618500278663
+     */
     @SerializedName("create_time")
     private String createTime;
+
+    // builder 开始
+    public OkrReviewPeriodUrl() {
+    }
+
+    public OkrReviewPeriodUrl(Builder builder) {
+        /**
+         * 文档链接
+         * <p> 示例值：https://bytedance.feishu.cn/drive/home/
+         */
+        this.url = builder.url;
+        /**
+         * 创建时间 毫秒
+         * <p> 示例值：1618500278663
+         */
+        this.createTime = builder.createTime;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getUrl() {
         return this.url;
     }
@@ -53,67 +79,46 @@ public class OkrReviewPeriodUrl {
         this.createTime = createTime;
     }
 
-
-// builder 开始
-  public OkrReviewPeriodUrl(){}
-
-  public OkrReviewPeriodUrl(Builder builder){
-         /**
-          * 文档链接
-          * <p> 示例值：https://bytedance.feishu.cn/drive/home/
-          */
-      this.url = builder.url;
-         /**
-          * 创建时间 毫秒
-          * <p> 示例值：1618500278663
-          */
-      this.createTime = builder.createTime;
-  }
-
     public static class Builder {
-     /**
-      * 文档链接
-      * <p> 示例值：https://bytedance.feishu.cn/drive/home/
-      */
+        /**
+         * 文档链接
+         * <p> 示例值：https://bytedance.feishu.cn/drive/home/
+         */
         private String url;
-     /**
-      * 创建时间 毫秒
-      * <p> 示例值：1618500278663
-      */
+        /**
+         * 创建时间 毫秒
+         * <p> 示例值：1618500278663
+         */
         private String createTime;
 
         /**
          * 文档链接
          * <p> 示例值：https://bytedance.feishu.cn/drive/home/
+         *
          * @param url
          * @return
          */
         public Builder url(String url) {
-             this.url = url;
-             return this;
+            this.url = url;
+            return this;
         }
 
-    
 
         /**
          * 创建时间 毫秒
          * <p> 示例值：1618500278663
+         *
          * @param createTime
          * @return
          */
         public Builder createTime(String createTime) {
-             this.createTime = createTime;
-             return this;
+            this.createTime = createTime;
+            return this;
         }
 
-    
-    
-    public OkrReviewPeriodUrl build(){
-        return new OkrReviewPeriodUrl(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public OkrReviewPeriodUrl build() {
+            return new OkrReviewPeriodUrl(this);
+        }
     }
 }

@@ -12,27 +12,29 @@
  */
 
 package com.lark.oapi.service.payroll.v1.model;
+
 import com.google.gson.annotations.SerializedName;
 
 public class ListPaygroupRespBody {
-     /**
-      * 薪资组列表
-      * <p> 示例值：
-      */
+    /**
+     * 薪资组列表
+     * <p> 示例值：
+     */
     @SerializedName("items")
     private PayGroup[] items;
-     /**
-      * 分页标识符
-      * <p> 示例值：6862995757234914824
-      */
+    /**
+     * 分页标识符
+     * <p> 示例值：6862995757234914824
+     */
     @SerializedName("page_token")
     private String pageToken;
-     /**
-      * 是否还有更多数据
-      * <p> 示例值：true
-      */
+    /**
+     * 是否还有更多数据
+     * <p> 示例值：true
+     */
     @SerializedName("has_more")
     private Boolean hasMore;
+
     public PayGroup[] getItems() {
         return this.items;
     }

@@ -12,72 +12,133 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class AppliOfferBasicInfoUser {
-     /**
-      * ID
-      * <p> 示例值：
-      */
+    /**
+     * ID
+     * <p> 示例值：
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 名字
-      * <p> 示例值：
-      */
+    /**
+     * 名字
+     * <p> 示例值：
+     */
     @SerializedName("name")
     private String name;
-     /**
-      * 英文名
-      * <p> 示例值：
-      */
+    /**
+     * 英文名
+     * <p> 示例值：
+     */
     @SerializedName("en_name")
     private String enName;
-     /**
-      * 头像
-      * <p> 示例值：
-      */
+    /**
+     * 头像
+     * <p> 示例值：
+     */
     @SerializedName("avatar")
     private String avatar;
-     /**
-      * 部门
-      * <p> 示例值：
-      */
+    /**
+     * 部门
+     * <p> 示例值：
+     */
     @SerializedName("department")
     private Department department;
-     /**
-      * 时区
-      * <p> 示例值：
-      */
+    /**
+     * 时区
+     * <p> 示例值：
+     */
     @SerializedName("timezone")
     private String timezone;
-     /**
-      * 手机
-      * <p> 示例值：
-      */
+    /**
+     * 手机
+     * <p> 示例值：
+     */
     @SerializedName("phone")
     private String phone;
-     /**
-      * 邮箱
-      * <p> 示例值：
-      */
+    /**
+     * 邮箱
+     * <p> 示例值：
+     */
     @SerializedName("email")
     private String email;
-     /**
-      * 是否拥有app权限
-      * <p> 示例值：
-      */
+    /**
+     * 是否拥有app权限
+     * <p> 示例值：
+     */
     @SerializedName("in_app_scope")
     private Boolean inAppScope;
+
+    // builder 开始
+    public AppliOfferBasicInfoUser() {
+    }
+
+    public AppliOfferBasicInfoUser(Builder builder) {
+        /**
+         * ID
+         * <p> 示例值：
+         */
+        this.id = builder.id;
+        /**
+         * 名字
+         * <p> 示例值：
+         */
+        this.name = builder.name;
+        /**
+         * 英文名
+         * <p> 示例值：
+         */
+        this.enName = builder.enName;
+        /**
+         * 头像
+         * <p> 示例值：
+         */
+        this.avatar = builder.avatar;
+        /**
+         * 部门
+         * <p> 示例值：
+         */
+        this.department = builder.department;
+        /**
+         * 时区
+         * <p> 示例值：
+         */
+        this.timezone = builder.timezone;
+        /**
+         * 手机
+         * <p> 示例值：
+         */
+        this.phone = builder.phone;
+        /**
+         * 邮箱
+         * <p> 示例值：
+         */
+        this.email = builder.email;
+        /**
+         * 是否拥有app权限
+         * <p> 示例值：
+         */
+        this.inAppScope = builder.inAppScope;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -150,228 +211,172 @@ public class AppliOfferBasicInfoUser {
         this.inAppScope = inAppScope;
     }
 
-
-// builder 开始
-  public AppliOfferBasicInfoUser(){}
-
-  public AppliOfferBasicInfoUser(Builder builder){
-         /**
-          * ID
-          * <p> 示例值：
-          */
-      this.id = builder.id;
-         /**
-          * 名字
-          * <p> 示例值：
-          */
-      this.name = builder.name;
-         /**
-          * 英文名
-          * <p> 示例值：
-          */
-      this.enName = builder.enName;
-         /**
-          * 头像
-          * <p> 示例值：
-          */
-      this.avatar = builder.avatar;
-         /**
-          * 部门
-          * <p> 示例值：
-          */
-      this.department = builder.department;
-         /**
-          * 时区
-          * <p> 示例值：
-          */
-      this.timezone = builder.timezone;
-         /**
-          * 手机
-          * <p> 示例值：
-          */
-      this.phone = builder.phone;
-         /**
-          * 邮箱
-          * <p> 示例值：
-          */
-      this.email = builder.email;
-         /**
-          * 是否拥有app权限
-          * <p> 示例值：
-          */
-      this.inAppScope = builder.inAppScope;
-  }
-
     public static class Builder {
-     /**
-      * ID
-      * <p> 示例值：
-      */
+        /**
+         * ID
+         * <p> 示例值：
+         */
         private String id;
-     /**
-      * 名字
-      * <p> 示例值：
-      */
+        /**
+         * 名字
+         * <p> 示例值：
+         */
         private String name;
-     /**
-      * 英文名
-      * <p> 示例值：
-      */
+        /**
+         * 英文名
+         * <p> 示例值：
+         */
         private String enName;
-     /**
-      * 头像
-      * <p> 示例值：
-      */
+        /**
+         * 头像
+         * <p> 示例值：
+         */
         private String avatar;
-     /**
-      * 部门
-      * <p> 示例值：
-      */
+        /**
+         * 部门
+         * <p> 示例值：
+         */
         private Department department;
-     /**
-      * 时区
-      * <p> 示例值：
-      */
+        /**
+         * 时区
+         * <p> 示例值：
+         */
         private String timezone;
-     /**
-      * 手机
-      * <p> 示例值：
-      */
+        /**
+         * 手机
+         * <p> 示例值：
+         */
         private String phone;
-     /**
-      * 邮箱
-      * <p> 示例值：
-      */
+        /**
+         * 邮箱
+         * <p> 示例值：
+         */
         private String email;
-     /**
-      * 是否拥有app权限
-      * <p> 示例值：
-      */
+        /**
+         * 是否拥有app权限
+         * <p> 示例值：
+         */
         private Boolean inAppScope;
 
         /**
          * ID
          * <p> 示例值：
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 名字
          * <p> 示例值：
+         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 英文名
          * <p> 示例值：
+         *
          * @param enName
          * @return
          */
         public Builder enName(String enName) {
-             this.enName = enName;
-             return this;
+            this.enName = enName;
+            return this;
         }
 
-    
 
         /**
          * 头像
          * <p> 示例值：
+         *
          * @param avatar
          * @return
          */
         public Builder avatar(String avatar) {
-             this.avatar = avatar;
-             return this;
+            this.avatar = avatar;
+            return this;
         }
 
-    
 
         /**
          * 部门
          * <p> 示例值：
+         *
          * @param department
          * @return
          */
         public Builder department(Department department) {
-             this.department = department;
-             return this;
+            this.department = department;
+            return this;
         }
 
-    
 
         /**
          * 时区
          * <p> 示例值：
+         *
          * @param timezone
          * @return
          */
         public Builder timezone(String timezone) {
-             this.timezone = timezone;
-             return this;
+            this.timezone = timezone;
+            return this;
         }
 
-    
 
         /**
          * 手机
          * <p> 示例值：
+         *
          * @param phone
          * @return
          */
         public Builder phone(String phone) {
-             this.phone = phone;
-             return this;
+            this.phone = phone;
+            return this;
         }
 
-    
 
         /**
          * 邮箱
          * <p> 示例值：
+         *
          * @param email
          * @return
          */
         public Builder email(String email) {
-             this.email = email;
-             return this;
+            this.email = email;
+            return this;
         }
 
-    
 
         /**
          * 是否拥有app权限
          * <p> 示例值：
+         *
          * @param inAppScope
          * @return
          */
         public Builder inAppScope(Boolean inAppScope) {
-             this.inAppScope = inAppScope;
-             return this;
+            this.inAppScope = inAppScope;
+            return this;
         }
 
-    
-    
-    public AppliOfferBasicInfoUser build(){
-        return new AppliOfferBasicInfoUser(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public AppliOfferBasicInfoUser build() {
+            return new AppliOfferBasicInfoUser(this);
+        }
     }
 }

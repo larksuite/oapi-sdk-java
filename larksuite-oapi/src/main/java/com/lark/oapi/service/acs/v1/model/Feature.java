@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.acs.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.acs.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Feature {
-     /**
-      * 卡号
-      * <p> 示例值：123456
-      */
+    /**
+     * 卡号
+     * <p> 示例值：123456
+     */
     @SerializedName("card")
     private Integer card;
-     /**
-      * 是否已上传人脸图片
-      * <p> 示例值：true
-      */
+    /**
+     * 是否已上传人脸图片
+     * <p> 示例值：true
+     */
     @SerializedName("face_uploaded")
     private Boolean faceUploaded;
+
+    // builder 开始
+    public Feature() {
+    }
+
+    public Feature(Builder builder) {
+        /**
+         * 卡号
+         * <p> 示例值：123456
+         */
+        this.card = builder.card;
+        /**
+         * 是否已上传人脸图片
+         * <p> 示例值：true
+         */
+        this.faceUploaded = builder.faceUploaded;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Integer getCard() {
         return this.card;
     }
@@ -53,67 +79,46 @@ public class Feature {
         this.faceUploaded = faceUploaded;
     }
 
-
-// builder 开始
-  public Feature(){}
-
-  public Feature(Builder builder){
-         /**
-          * 卡号
-          * <p> 示例值：123456
-          */
-      this.card = builder.card;
-         /**
-          * 是否已上传人脸图片
-          * <p> 示例值：true
-          */
-      this.faceUploaded = builder.faceUploaded;
-  }
-
     public static class Builder {
-     /**
-      * 卡号
-      * <p> 示例值：123456
-      */
+        /**
+         * 卡号
+         * <p> 示例值：123456
+         */
         private Integer card;
-     /**
-      * 是否已上传人脸图片
-      * <p> 示例值：true
-      */
+        /**
+         * 是否已上传人脸图片
+         * <p> 示例值：true
+         */
         private Boolean faceUploaded;
 
         /**
          * 卡号
          * <p> 示例值：123456
+         *
          * @param card
          * @return
          */
         public Builder card(Integer card) {
-             this.card = card;
-             return this;
+            this.card = card;
+            return this;
         }
 
-    
 
         /**
          * 是否已上传人脸图片
          * <p> 示例值：true
+         *
          * @param faceUploaded
          * @return
          */
         public Builder faceUploaded(Boolean faceUploaded) {
-             this.faceUploaded = faceUploaded;
-             return this;
+            this.faceUploaded = faceUploaded;
+            return this;
         }
 
-    
-    
-    public Feature build(){
-        return new Feature(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Feature build() {
+            return new Feature(this);
+        }
     }
 }

@@ -12,25 +12,46 @@
  */
 
 package com.lark.oapi.service.mail.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ListMailgroupAliasReq {
-     /**
-      * 邮件组id或邮件组邮箱地址
-      * <p> 示例值：xxxxxxxxxxxxxxx 或 test_mail_group@xxx.xx
-      */
+    /**
+     * 邮件组id或邮件组邮箱地址
+     * <p> 示例值：xxxxxxxxxxxxxxx 或 test_mail_group@xxx.xx
+     */
     @Path
     @SerializedName("mailgroup_id")
     private String mailgroupId;
+
+    // builder 开始
+    public ListMailgroupAliasReq() {
+    }
+
+    public ListMailgroupAliasReq(Builder builder) {
+        /**
+         * 邮件组id或邮件组邮箱地址
+         * <p> 示例值：xxxxxxxxxxxxxxx 或 test_mail_group@xxx.xx
+         */
+        this.mailgroupId = builder.mailgroupId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getMailgroupId() {
         return this.mailgroupId;
     }
@@ -39,39 +60,25 @@ public class ListMailgroupAliasReq {
         this.mailgroupId = mailgroupId;
     }
 
-
-// builder 开始
-  public ListMailgroupAliasReq(){}
-
-  public ListMailgroupAliasReq(Builder builder){
-     /**
-      * 邮件组id或邮件组邮箱地址
-      * <p> 示例值：xxxxxxxxxxxxxxx 或 test_mail_group@xxx.xx
-      */
-       this.mailgroupId = builder.mailgroupId;
-  }
-
     public static class Builder {
-    
+
         private String mailgroupId; // 邮件组id或邮件组邮箱地址
+
         /**
          * 邮件组id或邮件组邮箱地址
          * <p> 示例值：xxxxxxxxxxxxxxx 或 test_mail_group@xxx.xx
+         *
          * @param mailgroupId
          * @return
          */
-          public Builder mailgroupId(String mailgroupId) {
-               this.mailgroupId = mailgroupId;
-               return this;
-          }
+        public Builder mailgroupId(String mailgroupId) {
+            this.mailgroupId = mailgroupId;
+            return this;
+        }
 
-    
-    public ListMailgroupAliasReq build(){
-        return new ListMailgroupAliasReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ListMailgroupAliasReq build() {
+            return new ListMailgroupAliasReq(this);
+        }
     }
 }

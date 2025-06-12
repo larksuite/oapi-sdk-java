@@ -12,54 +12,59 @@
  */
 
 package com.lark.oapi.service.moments.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class P2PostCreatedV1Data {
-     /**
-      * 帖子ID
-      * <p> 示例值："248381241"
-      */
+    /**
+     * 帖子ID
+     * <p> 示例值："248381241"
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 发帖用户ID
-      * <p> 示例值："ou_xxxxx"
-      */
+    /**
+     * 发帖用户ID
+     * <p> 示例值："ou_xxxxx"
+     */
     @SerializedName("user_id")
     private UserId userId;
-     /**
-      * 帖子创建时间
-      * <p> 示例值："2022-05-23T00:00:00+08:00"
-      */
+    /**
+     * 帖子创建时间
+     * <p> 示例值："2022-05-23T00:00:00+08:00"
+     */
     @SerializedName("create_time")
     private String createTime;
-     /**
-      * 帖子所属板块
-      * <p> 示例值：
-      */
+    /**
+     * 帖子所属板块
+     * <p> 示例值：
+     */
     @SerializedName("category_ids")
     private String[] categoryIds;
-     /**
-      * 帖子链接
-      * <p> 示例值："https://applink.feishu.cn/client/moments/detail?postId=7254"
-      */
+    /**
+     * 帖子链接
+     * <p> 示例值："https://applink.feishu.cn/client/moments/detail?postId=7254"
+     */
     @SerializedName("link")
     private String link;
-     /**
-      * 发帖人类型
-      * <p> 示例值：1
-      */
+    /**
+     * 发帖人类型
+     * <p> 示例值：1
+     */
     @SerializedName("user_type")
     private Integer userType;
+
     public String getId() {
         return this.id;
     }

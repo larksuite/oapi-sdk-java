@@ -12,48 +12,89 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class TripartiteAgreementInfo {
-     /**
-      * 三方协议 ID
-      * <p> 示例值：6930815272790114324
-      */
+    /**
+     * 三方协议 ID
+     * <p> 示例值：6930815272790114324
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 投递ID
-      * <p> 示例值：6930815272790114325
-      */
+    /**
+     * 投递ID
+     * <p> 示例值：6930815272790114325
+     */
     @SerializedName("application_id")
     private String applicationId;
-     /**
-      * 三方协议状态
-      * <p> 示例值：1
-      */
+    /**
+     * 三方协议状态
+     * <p> 示例值：1
+     */
     @SerializedName("state")
     private Integer state;
-     /**
-      * 三方协议创建时间，毫秒时间戳
-      * <p> 示例值：1698292282660
-      */
+    /**
+     * 三方协议创建时间，毫秒时间戳
+     * <p> 示例值：1698292282660
+     */
     @SerializedName("create_time")
     private String createTime;
-     /**
-      * 三方协议修改时间，毫秒时间戳
-      * <p> 示例值：1698292282661
-      */
+    /**
+     * 三方协议修改时间，毫秒时间戳
+     * <p> 示例值：1698292282661
+     */
     @SerializedName("modify_time")
     private String modifyTime;
+
+    // builder 开始
+    public TripartiteAgreementInfo() {
+    }
+
+    public TripartiteAgreementInfo(Builder builder) {
+        /**
+         * 三方协议 ID
+         * <p> 示例值：6930815272790114324
+         */
+        this.id = builder.id;
+        /**
+         * 投递ID
+         * <p> 示例值：6930815272790114325
+         */
+        this.applicationId = builder.applicationId;
+        /**
+         * 三方协议状态
+         * <p> 示例值：1
+         */
+        this.state = builder.state;
+        /**
+         * 三方协议创建时间，毫秒时间戳
+         * <p> 示例值：1698292282660
+         */
+        this.createTime = builder.createTime;
+        /**
+         * 三方协议修改时间，毫秒时间戳
+         * <p> 示例值：1698292282661
+         */
+        this.modifyTime = builder.modifyTime;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -94,136 +135,100 @@ public class TripartiteAgreementInfo {
         this.modifyTime = modifyTime;
     }
 
-
-// builder 开始
-  public TripartiteAgreementInfo(){}
-
-  public TripartiteAgreementInfo(Builder builder){
-         /**
-          * 三方协议 ID
-          * <p> 示例值：6930815272790114324
-          */
-      this.id = builder.id;
-         /**
-          * 投递ID
-          * <p> 示例值：6930815272790114325
-          */
-      this.applicationId = builder.applicationId;
-         /**
-          * 三方协议状态
-          * <p> 示例值：1
-          */
-      this.state = builder.state;
-         /**
-          * 三方协议创建时间，毫秒时间戳
-          * <p> 示例值：1698292282660
-          */
-      this.createTime = builder.createTime;
-         /**
-          * 三方协议修改时间，毫秒时间戳
-          * <p> 示例值：1698292282661
-          */
-      this.modifyTime = builder.modifyTime;
-  }
-
     public static class Builder {
-     /**
-      * 三方协议 ID
-      * <p> 示例值：6930815272790114324
-      */
+        /**
+         * 三方协议 ID
+         * <p> 示例值：6930815272790114324
+         */
         private String id;
-     /**
-      * 投递ID
-      * <p> 示例值：6930815272790114325
-      */
+        /**
+         * 投递ID
+         * <p> 示例值：6930815272790114325
+         */
         private String applicationId;
-     /**
-      * 三方协议状态
-      * <p> 示例值：1
-      */
+        /**
+         * 三方协议状态
+         * <p> 示例值：1
+         */
         private Integer state;
-     /**
-      * 三方协议创建时间，毫秒时间戳
-      * <p> 示例值：1698292282660
-      */
+        /**
+         * 三方协议创建时间，毫秒时间戳
+         * <p> 示例值：1698292282660
+         */
         private String createTime;
-     /**
-      * 三方协议修改时间，毫秒时间戳
-      * <p> 示例值：1698292282661
-      */
+        /**
+         * 三方协议修改时间，毫秒时间戳
+         * <p> 示例值：1698292282661
+         */
         private String modifyTime;
 
         /**
          * 三方协议 ID
          * <p> 示例值：6930815272790114324
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 投递ID
          * <p> 示例值：6930815272790114325
+         *
          * @param applicationId
          * @return
          */
         public Builder applicationId(String applicationId) {
-             this.applicationId = applicationId;
-             return this;
+            this.applicationId = applicationId;
+            return this;
         }
 
-    
 
         /**
          * 三方协议状态
          * <p> 示例值：1
+         *
          * @param state
          * @return
          */
         public Builder state(Integer state) {
-             this.state = state;
-             return this;
+            this.state = state;
+            return this;
         }
 
-    
 
         /**
          * 三方协议创建时间，毫秒时间戳
          * <p> 示例值：1698292282660
+         *
          * @param createTime
          * @return
          */
         public Builder createTime(String createTime) {
-             this.createTime = createTime;
-             return this;
+            this.createTime = createTime;
+            return this;
         }
 
-    
 
         /**
          * 三方协议修改时间，毫秒时间戳
          * <p> 示例值：1698292282661
+         *
          * @param modifyTime
          * @return
          */
         public Builder modifyTime(String modifyTime) {
-             this.modifyTime = modifyTime;
-             return this;
+            this.modifyTime = modifyTime;
+            return this;
         }
 
-    
-    
-    public TripartiteAgreementInfo build(){
-        return new TripartiteAgreementInfo(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public TripartiteAgreementInfo build() {
+            return new TripartiteAgreementInfo(this);
+        }
     }
 }

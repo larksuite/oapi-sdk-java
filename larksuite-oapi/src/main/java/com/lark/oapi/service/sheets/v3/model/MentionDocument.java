@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.sheets.v3.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.sheets.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,42 +20,82 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class MentionDocument {
-     /**
-      * 文档标题
-      * <p> 示例值：abc
-      */
+    /**
+     * 文档标题
+     * <p> 示例值：abc
+     */
     @SerializedName("title")
     private String title;
-     /**
-      * 文档类型
-      * <p> 示例值：sheet
-      */
+    /**
+     * 文档类型
+     * <p> 示例值：sheet
+     */
     @SerializedName("object_type")
     private String objectType;
-     /**
-      * 文档token
-      * <p> 示例值：shtxxxxxxxxx
-      */
+    /**
+     * 文档token
+     * <p> 示例值：shtxxxxxxxxx
+     */
     @SerializedName("token")
     private String token;
-     /**
-      * 局部样式
-      * <p> 示例值：
-      */
+    /**
+     * 局部样式
+     * <p> 示例值：
+     */
     @SerializedName("segment_style")
     private SegmentStyle segmentStyle;
-     /**
-      * mention 链接
-      * <p> 示例值：https://example.feishu.cn/sheets/TLLKdcpDro9ijQxA33ycNMabcef
-      */
+    /**
+     * mention 链接
+     * <p> 示例值：https://example.feishu.cn/sheets/TLLKdcpDro9ijQxA33ycNMabcef
+     */
     @SerializedName("link")
     private String link;
+
+    // builder 开始
+    public MentionDocument() {
+    }
+
+    public MentionDocument(Builder builder) {
+        /**
+         * 文档标题
+         * <p> 示例值：abc
+         */
+        this.title = builder.title;
+        /**
+         * 文档类型
+         * <p> 示例值：sheet
+         */
+        this.objectType = builder.objectType;
+        /**
+         * 文档token
+         * <p> 示例值：shtxxxxxxxxx
+         */
+        this.token = builder.token;
+        /**
+         * 局部样式
+         * <p> 示例值：
+         */
+        this.segmentStyle = builder.segmentStyle;
+        /**
+         * mention 链接
+         * <p> 示例值：https://example.feishu.cn/sheets/TLLKdcpDro9ijQxA33ycNMabcef
+         */
+        this.link = builder.link;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getTitle() {
         return this.title;
     }
@@ -95,136 +136,100 @@ public class MentionDocument {
         this.link = link;
     }
 
-
-// builder 开始
-  public MentionDocument(){}
-
-  public MentionDocument(Builder builder){
-         /**
-          * 文档标题
-          * <p> 示例值：abc
-          */
-      this.title = builder.title;
-         /**
-          * 文档类型
-          * <p> 示例值：sheet
-          */
-      this.objectType = builder.objectType;
-         /**
-          * 文档token
-          * <p> 示例值：shtxxxxxxxxx
-          */
-      this.token = builder.token;
-         /**
-          * 局部样式
-          * <p> 示例值：
-          */
-      this.segmentStyle = builder.segmentStyle;
-         /**
-          * mention 链接
-          * <p> 示例值：https://example.feishu.cn/sheets/TLLKdcpDro9ijQxA33ycNMabcef
-          */
-      this.link = builder.link;
-  }
-
     public static class Builder {
-     /**
-      * 文档标题
-      * <p> 示例值：abc
-      */
+        /**
+         * 文档标题
+         * <p> 示例值：abc
+         */
         private String title;
-     /**
-      * 文档类型
-      * <p> 示例值：sheet
-      */
+        /**
+         * 文档类型
+         * <p> 示例值：sheet
+         */
         private String objectType;
-     /**
-      * 文档token
-      * <p> 示例值：shtxxxxxxxxx
-      */
+        /**
+         * 文档token
+         * <p> 示例值：shtxxxxxxxxx
+         */
         private String token;
-     /**
-      * 局部样式
-      * <p> 示例值：
-      */
+        /**
+         * 局部样式
+         * <p> 示例值：
+         */
         private SegmentStyle segmentStyle;
-     /**
-      * mention 链接
-      * <p> 示例值：https://example.feishu.cn/sheets/TLLKdcpDro9ijQxA33ycNMabcef
-      */
+        /**
+         * mention 链接
+         * <p> 示例值：https://example.feishu.cn/sheets/TLLKdcpDro9ijQxA33ycNMabcef
+         */
         private String link;
 
         /**
          * 文档标题
          * <p> 示例值：abc
+         *
          * @param title
          * @return
          */
         public Builder title(String title) {
-             this.title = title;
-             return this;
+            this.title = title;
+            return this;
         }
 
-    
 
         /**
          * 文档类型
          * <p> 示例值：sheet
+         *
          * @param objectType
          * @return
          */
         public Builder objectType(String objectType) {
-             this.objectType = objectType;
-             return this;
+            this.objectType = objectType;
+            return this;
         }
 
-    
 
         /**
          * 文档token
          * <p> 示例值：shtxxxxxxxxx
+         *
          * @param token
          * @return
          */
         public Builder token(String token) {
-             this.token = token;
-             return this;
+            this.token = token;
+            return this;
         }
 
-    
 
         /**
          * 局部样式
          * <p> 示例值：
+         *
          * @param segmentStyle
          * @return
          */
         public Builder segmentStyle(SegmentStyle segmentStyle) {
-             this.segmentStyle = segmentStyle;
-             return this;
+            this.segmentStyle = segmentStyle;
+            return this;
         }
 
-    
 
         /**
          * mention 链接
          * <p> 示例值：https://example.feishu.cn/sheets/TLLKdcpDro9ijQxA33ycNMabcef
+         *
          * @param link
          * @return
          */
         public Builder link(String link) {
-             this.link = link;
-             return this;
+            this.link = link;
+            return this;
         }
 
-    
-    
-    public MentionDocument build(){
-        return new MentionDocument(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public MentionDocument build() {
+            return new MentionDocument(this);
+        }
     }
 }

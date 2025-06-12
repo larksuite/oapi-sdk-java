@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,360 +20,665 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class OfferInfoUpdate {
-     /**
-      * 入职日期
-      * <p> 示例值：2022-10-08
-      */
+    /**
+     * 入职日期
+     * <p> 示例值：2022-10-08
+     */
     @SerializedName("onboarding_date")
     private String onboardingDate;
-     /**
-      * 招聘应用ID
-      * <p> 示例值：7140946969586010375
-      */
+    /**
+     * 招聘应用ID
+     * <p> 示例值：7140946969586010375
+     */
     @SerializedName("ats_application_id")
     private String atsApplicationId;
-     /**
-      * 入职地点ID，详细信息可通过【批量查询地点】接口获得
-      * <p> 示例值：6977976687350924832
-      */
+    /**
+     * 入职地点ID，详细信息可通过【批量查询地点】接口获得
+     * <p> 示例值：6977976687350924832
+     */
     @SerializedName("onboarding_location_id")
     private String onboardingLocationId;
-     /**
-      * 入职地址ID，详细信息可通过【批量查询地址】接口获得
-      * <p> 示例值：6977976687350924832
-      */
+    /**
+     * 入职地址ID，详细信息可通过【批量查询地址】接口获得
+     * <p> 示例值：6977976687350924832
+     */
     @SerializedName("onboarding_address_id")
     private String onboardingAddressId;
-     /**
-      * 办公地点ID，详细信息可通过【批量查询地点】接口获得
-      * <p> 示例值：6977976687350924833
-      */
+    /**
+     * 办公地点ID，详细信息可通过【批量查询地点】接口获得
+     * <p> 示例值：6977976687350924833
+     */
     @SerializedName("office_location_id")
     private String officeLocationId;
-     /**
-      * 办公地址ID，详细信息可通过【批量查询地址】接口获得
-      * <p> 示例值：6977976687350924832
-      */
+    /**
+     * 办公地址ID，详细信息可通过【批量查询地址】接口获得
+     * <p> 示例值：6977976687350924832
+     */
     @SerializedName("office_address_id")
     private String officeAddressId;
-     /**
-      * 雇佣类型，通过查询枚举集【employment_type】获得枚举apiName
-      * <p> 示例值：employee(员工);contingent_worker(临时工)
-      */
+    /**
+     * 雇佣类型，通过查询枚举集【employment_type】获得枚举apiName
+     * <p> 示例值：employee(员工);contingent_worker(临时工)
+     */
     @SerializedName("employment_type")
     private String employmentType;
-     /**
-      * 入职方式，通过查询枚举集【onboarding_method】获得枚举apiName
-      * <p> 示例值：onsite(现场入职);remote(远程入职)
-      */
+    /**
+     * 入职方式，通过查询枚举集【onboarding_method】获得枚举apiName
+     * <p> 示例值：onsite(现场入职);remote(远程入职)
+     */
     @SerializedName("onboarding_method")
     private String onboardingMethod;
-     /**
-      * 工作邮箱
-      * <p> 示例值：
-      */
+    /**
+     * 工作邮箱
+     * <p> 示例值：
+     */
     @SerializedName("work_emails")
     private EmailForUpdate[] workEmails;
-     /**
-      * 成本中心分摊信息,只支持商业化租户
-      * <p> 示例值：
-      */
+    /**
+     * 成本中心分摊信息,只支持商业化租户
+     * <p> 示例值：
+     */
     @SerializedName("cost_center_rates")
     private JobDataCostCenter[] costCenterRates;
-     /**
-      * 自定义字段
-      * <p> 示例值：
-      */
+    /**
+     * 自定义字段
+     * <p> 示例值：
+     */
     @SerializedName("custom_fields")
     private ObjectFieldData[] customFields;
-     /**
-      * 岗位 ID,
-      * <p> 示例值：697797668735092768
-      */
+    /**
+     * 岗位 ID,
+     * <p> 示例值：697797668735092768
+     */
     @SerializedName("position_id")
     private String positionId;
-     /**
-      * 试用期时长
-      * <p> 示例值：697797668735092768
-      */
+    /**
+     * 试用期时长
+     * <p> 示例值：697797668735092768
+     */
     @SerializedName("probation_period")
     private Integer probationPeriod;
-     /**
-      * 试用期开始日期
-      * <p> 示例值：xxx
-      */
+    /**
+     * 试用期开始日期
+     * <p> 示例值：xxx
+     */
     @SerializedName("probation_start_date")
     private String probationStartDate;
-     /**
-      * 试用期结束日期
-      * <p> 示例值：xxx
-      */
+    /**
+     * 试用期结束日期
+     * <p> 示例值：xxx
+     */
     @SerializedName("probation_end_date")
     private String probationEndDate;
-     /**
-      * 合同开始日期
-      * <p> 示例值：xxx
-      */
+    /**
+     * 合同开始日期
+     * <p> 示例值：xxx
+     */
     @SerializedName("contract_start_date")
     private String contractStartDate;
-     /**
-      * 合同结束日期
-      * <p> 示例值：xxx
-      */
+    /**
+     * 合同结束日期
+     * <p> 示例值：xxx
+     */
     @SerializedName("contract_end_date")
     private String contractEndDate;
-     /**
-      * 合同类型
-      * <p> 示例值：xxx
-      */
+    /**
+     * 合同类型
+     * <p> 示例值：xxx
+     */
     @SerializedName("contract_type")
     private String contractType;
-     /**
-      * 期限类型
-      * <p> 示例值：xxx
-      */
+    /**
+     * 期限类型
+     * <p> 示例值：xxx
+     */
     @SerializedName("duration_type_id")
     private String durationTypeId;
-     /**
-      * 签订类型
-      * <p> 示例值：xxx
-      */
+    /**
+     * 签订类型
+     * <p> 示例值：xxx
+     */
     @SerializedName("signing_type_id")
     private String signingTypeId;
-     /**
-      * 工号
-      * <p> 示例值：xxx
-      */
+    /**
+     * 工号
+     * <p> 示例值：xxx
+     */
     @SerializedName("worker_id")
     private String workerId;
-     /**
-      * 签到时间
-      * <p> 示例值：xxx
-      */
+    /**
+     * 签到时间
+     * <p> 示例值：xxx
+     */
     @SerializedName("check_in_time")
     private String checkInTime;
-     /**
-      * 签到方式
-      * <p> 示例值：xxx
-      */
+    /**
+     * 签到方式
+     * <p> 示例值：xxx
+     */
     @SerializedName("check_in_method")
     private String checkInMethod;
-     /**
-      * 公司主体
-      * <p> 示例值：xxx
-      */
+    /**
+     * 公司主体
+     * <p> 示例值：xxx
+     */
     @SerializedName("company")
     private String company;
-     /**
-      * 排班
-      * <p> 示例值：xxx
-      */
+    /**
+     * 排班
+     * <p> 示例值：xxx
+     */
     @SerializedName("work_shift")
     private String workShift;
-     /**
-      * 招聘类型
-      * <p> 示例值：xxx
-      */
+    /**
+     * 招聘类型
+     * <p> 示例值：xxx
+     */
     @SerializedName("recruitment_type_id")
     private String recruitmentTypeId;
-     /**
-      * 薪资类型
-      * <p> 示例值：xxx
-      */
+    /**
+     * 薪资类型
+     * <p> 示例值：xxx
+     */
     @SerializedName("compensation_type")
     private String compensationType;
-     /**
-      * 薪资组
-      * <p> 示例值：xxx
-      */
+    /**
+     * 薪资组
+     * <p> 示例值：xxx
+     */
     @SerializedName("pay_group_id")
     private String payGroupId;
-     /**
-      * offer HR
-      * <p> 示例值：xxx
-      */
+    /**
+     * offer HR
+     * <p> 示例值：xxx
+     */
     @SerializedName("offer_hr_id")
     private String offerHrId;
-     /**
-      * 职务
-      * <p> 示例值：xxx
-      */
+    /**
+     * 职务
+     * <p> 示例值：xxx
+     */
     @SerializedName("job_id")
     private String jobId;
-     /**
-      * 序列
-      * <p> 示例值：xxx
-      */
+    /**
+     * 序列
+     * <p> 示例值：xxx
+     */
     @SerializedName("job_family_id")
     private String jobFamilyId;
-     /**
-      * 职级
-      * <p> 示例值：xxx
-      */
+    /**
+     * 职级
+     * <p> 示例值：xxx
+     */
     @SerializedName("job_level_id")
     private String jobLevelId;
-     /**
-      * 职等
-      * <p> 示例值：xxx
-      */
+    /**
+     * 职等
+     * <p> 示例值：xxx
+     */
     @SerializedName("job_grade_id")
     private String jobGradeId;
-     /**
-      * 人员类型
-      * <p> 示例值：xxx
-      */
+    /**
+     * 人员类型
+     * <p> 示例值：xxx
+     */
     @SerializedName("employee_type_id")
     private String employeeTypeId;
-     /**
-      * 人员子类型
-      * <p> 示例值：xxx
-      */
+    /**
+     * 人员子类型
+     * <p> 示例值：xxx
+     */
     @SerializedName("employee_subtype_id")
     private String employeeSubtypeId;
-     /**
-      * 直属上级
-      * <p> 示例值：xxx
-      */
+    /**
+     * 直属上级
+     * <p> 示例值：xxx
+     */
     @SerializedName("direct_leader_id")
     private String directLeaderId;
-     /**
-      * 虚线上级
-      * <p> 示例值：xxx
-      */
+    /**
+     * 虚线上级
+     * <p> 示例值：xxx
+     */
     @SerializedName("dotted_line_manager_id")
     private String dottedLineManagerId;
-     /**
-      * 部门
-      * <p> 示例值：xxx
-      */
+    /**
+     * 部门
+     * <p> 示例值：xxx
+     */
     @SerializedName("department_id")
     private String departmentId;
-     /**
-      * 社保城市
-      * <p> 示例值：xxx
-      */
+    /**
+     * 社保城市
+     * <p> 示例值：xxx
+     */
     @SerializedName("social_security_city")
     private String socialSecurityCity;
-     /**
-      * 工作城市
-      * <p> 示例值：xxx
-      */
+    /**
+     * 工作城市
+     * <p> 示例值：xxx
+     */
     @SerializedName("work_location_id")
     private String workLocationId;
-     /**
-      * 工作日历
-      * <p> 示例值：xxx
-      */
+    /**
+     * 工作日历
+     * <p> 示例值：xxx
+     */
     @SerializedName("working_calendar")
     private String workingCalendar;
-     /**
-      * 工时制度
-      * <p> 示例值：xxx
-      */
+    /**
+     * 工时制度
+     * <p> 示例值：xxx
+     */
     @SerializedName("working_hours_type")
     private String workingHoursType;
-     /**
-      * 司龄起算日期
-      * <p> 示例值：2022-10-08
-      */
+    /**
+     * 司龄起算日期
+     * <p> 示例值：2022-10-08
+     */
     @SerializedName("seniority_date")
     private String seniorityDate;
-     /**
-      * 司龄调整信息
-      * <p> 示例值：
-      */
+    /**
+     * 司龄调整信息
+     * <p> 示例值：
+     */
     @SerializedName("seniority_adjust_information_list")
     private PrehireSeniorityAdjustInformationUpdate[] seniorityAdjustInformationList;
-     /**
-      * 试用期内通知期（主动离职)
-      * <p> 示例值：xxx
-      */
+    /**
+     * 试用期内通知期（主动离职)
+     * <p> 示例值：xxx
+     */
     @SerializedName("notice_period_probation_voluntary")
     private NoticePeriodDetail noticePeriodProbationVoluntary;
-     /**
-      * 试用期内通知期（被动离职）
-      * <p> 示例值：xxx
-      */
+    /**
+     * 试用期内通知期（被动离职）
+     * <p> 示例值：xxx
+     */
     @SerializedName("notice_period_probation_involuntary")
     private NoticePeriodDetail noticePeriodProbationInvoluntary;
-     /**
-      * 转正后通知期（主动离职）
-      * <p> 示例值：xxx
-      */
+    /**
+     * 转正后通知期（主动离职）
+     * <p> 示例值：xxx
+     */
     @SerializedName("notice_period_positive_voluntary")
     private NoticePeriodDetail noticePeriodPositiveVoluntary;
-     /**
-      * 转正后通知期（被动离职）
-      * <p> 示例值：xxx
-      */
+    /**
+     * 转正后通知期（被动离职）
+     * <p> 示例值：xxx
+     */
     @SerializedName("notice_period_positive_involuntary")
     private NoticePeriodDetail noticePeriodPositiveInvoluntary;
-     /**
-      * 是否外部人员
-      * <p> 示例值：true
-      */
+    /**
+     * 是否外部人员
+     * <p> 示例值：true
+     */
     @SerializedName("condition_worker")
     private Boolean conditionWorker;
-     /**
-      * 需要公司办理签证
-      * <p> 示例值：true
-      */
+    /**
+     * 需要公司办理签证
+     * <p> 示例值：true
+     */
     @SerializedName("company_sponsored_visa")
     private Boolean companySponsoredVisa;
-     /**
-      * 周工作时长（单位：小时）
-      * <p> 示例值：8.5
-      */
+    /**
+     * 周工作时长（单位：小时）
+     * <p> 示例值：8.5
+     */
     @SerializedName("weekly_working_hours_v2")
     private Double weeklyWorkingHoursV2;
-     /**
-      * 工位
-      * <p> 示例值：5-1-2
-      */
+    /**
+     * 工位
+     * <p> 示例值：5-1-2
+     */
     @SerializedName("work_station")
     private String workStation;
-     /**
-      * 是否有 Offer 薪酬
-      * <p> 示例值：true
-      */
+    /**
+     * 是否有 Offer 薪酬
+     * <p> 示例值：true
+     */
     @SerializedName("has_offer_salary")
     private Boolean hasOfferSalary;
-     /**
-      * 任职公司
-      * <p> 示例值：6738317738688661772
-      */
+    /**
+     * 任职公司
+     * <p> 示例值：6738317738688661772
+     */
     @SerializedName("service_company")
     private String serviceCompany;
-     /**
-      * 是否包含竞业条款
-      * <p> 示例值：true
-      */
+    /**
+     * 是否包含竞业条款
+     * <p> 示例值：true
+     */
     @SerializedName("non_compete_covenant")
     private Boolean nonCompeteCovenant;
-     /**
-      * 通道
-      * <p> 示例值：7460865381179115052
-      */
+    /**
+     * 通道
+     * <p> 示例值：7460865381179115052
+     */
     @SerializedName("pathway")
     private String pathway;
-     /**
-      * 默认成本中心
-      * <p> 示例值：
-      */
+    /**
+     * 默认成本中心
+     * <p> 示例值：
+     */
     @SerializedName("default_cost_center")
     private PrehireDefaultCostCenterUpdate defaultCostCenter;
-     /**
-      * 成本分摊
-      * <p> 示例值：
-      */
+    /**
+     * 成本分摊
+     * <p> 示例值：
+     */
     @SerializedName("cost_allocation")
     private CostAllocation costAllocation;
+
+    // builder 开始
+    public OfferInfoUpdate() {
+    }
+
+    public OfferInfoUpdate(Builder builder) {
+        /**
+         * 入职日期
+         * <p> 示例值：2022-10-08
+         */
+        this.onboardingDate = builder.onboardingDate;
+        /**
+         * 招聘应用ID
+         * <p> 示例值：7140946969586010375
+         */
+        this.atsApplicationId = builder.atsApplicationId;
+        /**
+         * 入职地点ID，详细信息可通过【批量查询地点】接口获得
+         * <p> 示例值：6977976687350924832
+         */
+        this.onboardingLocationId = builder.onboardingLocationId;
+        /**
+         * 入职地址ID，详细信息可通过【批量查询地址】接口获得
+         * <p> 示例值：6977976687350924832
+         */
+        this.onboardingAddressId = builder.onboardingAddressId;
+        /**
+         * 办公地点ID，详细信息可通过【批量查询地点】接口获得
+         * <p> 示例值：6977976687350924833
+         */
+        this.officeLocationId = builder.officeLocationId;
+        /**
+         * 办公地址ID，详细信息可通过【批量查询地址】接口获得
+         * <p> 示例值：6977976687350924832
+         */
+        this.officeAddressId = builder.officeAddressId;
+        /**
+         * 雇佣类型，通过查询枚举集【employment_type】获得枚举apiName
+         * <p> 示例值：employee(员工);contingent_worker(临时工)
+         */
+        this.employmentType = builder.employmentType;
+        /**
+         * 入职方式，通过查询枚举集【onboarding_method】获得枚举apiName
+         * <p> 示例值：onsite(现场入职);remote(远程入职)
+         */
+        this.onboardingMethod = builder.onboardingMethod;
+        /**
+         * 工作邮箱
+         * <p> 示例值：
+         */
+        this.workEmails = builder.workEmails;
+        /**
+         * 成本中心分摊信息,只支持商业化租户
+         * <p> 示例值：
+         */
+        this.costCenterRates = builder.costCenterRates;
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
+        this.customFields = builder.customFields;
+        /**
+         * 岗位 ID,
+         * <p> 示例值：697797668735092768
+         */
+        this.positionId = builder.positionId;
+        /**
+         * 试用期时长
+         * <p> 示例值：697797668735092768
+         */
+        this.probationPeriod = builder.probationPeriod;
+        /**
+         * 试用期开始日期
+         * <p> 示例值：xxx
+         */
+        this.probationStartDate = builder.probationStartDate;
+        /**
+         * 试用期结束日期
+         * <p> 示例值：xxx
+         */
+        this.probationEndDate = builder.probationEndDate;
+        /**
+         * 合同开始日期
+         * <p> 示例值：xxx
+         */
+        this.contractStartDate = builder.contractStartDate;
+        /**
+         * 合同结束日期
+         * <p> 示例值：xxx
+         */
+        this.contractEndDate = builder.contractEndDate;
+        /**
+         * 合同类型
+         * <p> 示例值：xxx
+         */
+        this.contractType = builder.contractType;
+        /**
+         * 期限类型
+         * <p> 示例值：xxx
+         */
+        this.durationTypeId = builder.durationTypeId;
+        /**
+         * 签订类型
+         * <p> 示例值：xxx
+         */
+        this.signingTypeId = builder.signingTypeId;
+        /**
+         * 工号
+         * <p> 示例值：xxx
+         */
+        this.workerId = builder.workerId;
+        /**
+         * 签到时间
+         * <p> 示例值：xxx
+         */
+        this.checkInTime = builder.checkInTime;
+        /**
+         * 签到方式
+         * <p> 示例值：xxx
+         */
+        this.checkInMethod = builder.checkInMethod;
+        /**
+         * 公司主体
+         * <p> 示例值：xxx
+         */
+        this.company = builder.company;
+        /**
+         * 排班
+         * <p> 示例值：xxx
+         */
+        this.workShift = builder.workShift;
+        /**
+         * 招聘类型
+         * <p> 示例值：xxx
+         */
+        this.recruitmentTypeId = builder.recruitmentTypeId;
+        /**
+         * 薪资类型
+         * <p> 示例值：xxx
+         */
+        this.compensationType = builder.compensationType;
+        /**
+         * 薪资组
+         * <p> 示例值：xxx
+         */
+        this.payGroupId = builder.payGroupId;
+        /**
+         * offer HR
+         * <p> 示例值：xxx
+         */
+        this.offerHrId = builder.offerHrId;
+        /**
+         * 职务
+         * <p> 示例值：xxx
+         */
+        this.jobId = builder.jobId;
+        /**
+         * 序列
+         * <p> 示例值：xxx
+         */
+        this.jobFamilyId = builder.jobFamilyId;
+        /**
+         * 职级
+         * <p> 示例值：xxx
+         */
+        this.jobLevelId = builder.jobLevelId;
+        /**
+         * 职等
+         * <p> 示例值：xxx
+         */
+        this.jobGradeId = builder.jobGradeId;
+        /**
+         * 人员类型
+         * <p> 示例值：xxx
+         */
+        this.employeeTypeId = builder.employeeTypeId;
+        /**
+         * 人员子类型
+         * <p> 示例值：xxx
+         */
+        this.employeeSubtypeId = builder.employeeSubtypeId;
+        /**
+         * 直属上级
+         * <p> 示例值：xxx
+         */
+        this.directLeaderId = builder.directLeaderId;
+        /**
+         * 虚线上级
+         * <p> 示例值：xxx
+         */
+        this.dottedLineManagerId = builder.dottedLineManagerId;
+        /**
+         * 部门
+         * <p> 示例值：xxx
+         */
+        this.departmentId = builder.departmentId;
+        /**
+         * 社保城市
+         * <p> 示例值：xxx
+         */
+        this.socialSecurityCity = builder.socialSecurityCity;
+        /**
+         * 工作城市
+         * <p> 示例值：xxx
+         */
+        this.workLocationId = builder.workLocationId;
+        /**
+         * 工作日历
+         * <p> 示例值：xxx
+         */
+        this.workingCalendar = builder.workingCalendar;
+        /**
+         * 工时制度
+         * <p> 示例值：xxx
+         */
+        this.workingHoursType = builder.workingHoursType;
+        /**
+         * 司龄起算日期
+         * <p> 示例值：2022-10-08
+         */
+        this.seniorityDate = builder.seniorityDate;
+        /**
+         * 司龄调整信息
+         * <p> 示例值：
+         */
+        this.seniorityAdjustInformationList = builder.seniorityAdjustInformationList;
+        /**
+         * 试用期内通知期（主动离职)
+         * <p> 示例值：xxx
+         */
+        this.noticePeriodProbationVoluntary = builder.noticePeriodProbationVoluntary;
+        /**
+         * 试用期内通知期（被动离职）
+         * <p> 示例值：xxx
+         */
+        this.noticePeriodProbationInvoluntary = builder.noticePeriodProbationInvoluntary;
+        /**
+         * 转正后通知期（主动离职）
+         * <p> 示例值：xxx
+         */
+        this.noticePeriodPositiveVoluntary = builder.noticePeriodPositiveVoluntary;
+        /**
+         * 转正后通知期（被动离职）
+         * <p> 示例值：xxx
+         */
+        this.noticePeriodPositiveInvoluntary = builder.noticePeriodPositiveInvoluntary;
+        /**
+         * 是否外部人员
+         * <p> 示例值：true
+         */
+        this.conditionWorker = builder.conditionWorker;
+        /**
+         * 需要公司办理签证
+         * <p> 示例值：true
+         */
+        this.companySponsoredVisa = builder.companySponsoredVisa;
+        /**
+         * 周工作时长（单位：小时）
+         * <p> 示例值：8.5
+         */
+        this.weeklyWorkingHoursV2 = builder.weeklyWorkingHoursV2;
+        /**
+         * 工位
+         * <p> 示例值：5-1-2
+         */
+        this.workStation = builder.workStation;
+        /**
+         * 是否有 Offer 薪酬
+         * <p> 示例值：true
+         */
+        this.hasOfferSalary = builder.hasOfferSalary;
+        /**
+         * 任职公司
+         * <p> 示例值：6738317738688661772
+         */
+        this.serviceCompany = builder.serviceCompany;
+        /**
+         * 是否包含竞业条款
+         * <p> 示例值：true
+         */
+        this.nonCompeteCovenant = builder.nonCompeteCovenant;
+        /**
+         * 通道
+         * <p> 示例值：7460865381179115052
+         */
+        this.pathway = builder.pathway;
+        /**
+         * 默认成本中心
+         * <p> 示例值：
+         */
+        this.defaultCostCenter = builder.defaultCostCenter;
+        /**
+         * 成本分摊
+         * <p> 示例值：
+         */
+        this.costAllocation = builder.costAllocation;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getOnboardingDate() {
         return this.onboardingDate;
     }
@@ -837,1355 +1143,1054 @@ public class OfferInfoUpdate {
         this.costAllocation = costAllocation;
     }
 
-
-// builder 开始
-  public OfferInfoUpdate(){}
-
-  public OfferInfoUpdate(Builder builder){
-         /**
-          * 入职日期
-          * <p> 示例值：2022-10-08
-          */
-      this.onboardingDate = builder.onboardingDate;
-         /**
-          * 招聘应用ID
-          * <p> 示例值：7140946969586010375
-          */
-      this.atsApplicationId = builder.atsApplicationId;
-         /**
-          * 入职地点ID，详细信息可通过【批量查询地点】接口获得
-          * <p> 示例值：6977976687350924832
-          */
-      this.onboardingLocationId = builder.onboardingLocationId;
-         /**
-          * 入职地址ID，详细信息可通过【批量查询地址】接口获得
-          * <p> 示例值：6977976687350924832
-          */
-      this.onboardingAddressId = builder.onboardingAddressId;
-         /**
-          * 办公地点ID，详细信息可通过【批量查询地点】接口获得
-          * <p> 示例值：6977976687350924833
-          */
-      this.officeLocationId = builder.officeLocationId;
-         /**
-          * 办公地址ID，详细信息可通过【批量查询地址】接口获得
-          * <p> 示例值：6977976687350924832
-          */
-      this.officeAddressId = builder.officeAddressId;
-         /**
-          * 雇佣类型，通过查询枚举集【employment_type】获得枚举apiName
-          * <p> 示例值：employee(员工);contingent_worker(临时工)
-          */
-      this.employmentType = builder.employmentType;
-         /**
-          * 入职方式，通过查询枚举集【onboarding_method】获得枚举apiName
-          * <p> 示例值：onsite(现场入职);remote(远程入职)
-          */
-      this.onboardingMethod = builder.onboardingMethod;
-         /**
-          * 工作邮箱
-          * <p> 示例值：
-          */
-      this.workEmails = builder.workEmails;
-         /**
-          * 成本中心分摊信息,只支持商业化租户
-          * <p> 示例值：
-          */
-      this.costCenterRates = builder.costCenterRates;
-         /**
-          * 自定义字段
-          * <p> 示例值：
-          */
-      this.customFields = builder.customFields;
-         /**
-          * 岗位 ID,
-          * <p> 示例值：697797668735092768
-          */
-      this.positionId = builder.positionId;
-         /**
-          * 试用期时长
-          * <p> 示例值：697797668735092768
-          */
-      this.probationPeriod = builder.probationPeriod;
-         /**
-          * 试用期开始日期
-          * <p> 示例值：xxx
-          */
-      this.probationStartDate = builder.probationStartDate;
-         /**
-          * 试用期结束日期
-          * <p> 示例值：xxx
-          */
-      this.probationEndDate = builder.probationEndDate;
-         /**
-          * 合同开始日期
-          * <p> 示例值：xxx
-          */
-      this.contractStartDate = builder.contractStartDate;
-         /**
-          * 合同结束日期
-          * <p> 示例值：xxx
-          */
-      this.contractEndDate = builder.contractEndDate;
-         /**
-          * 合同类型
-          * <p> 示例值：xxx
-          */
-      this.contractType = builder.contractType;
-         /**
-          * 期限类型
-          * <p> 示例值：xxx
-          */
-      this.durationTypeId = builder.durationTypeId;
-         /**
-          * 签订类型
-          * <p> 示例值：xxx
-          */
-      this.signingTypeId = builder.signingTypeId;
-         /**
-          * 工号
-          * <p> 示例值：xxx
-          */
-      this.workerId = builder.workerId;
-         /**
-          * 签到时间
-          * <p> 示例值：xxx
-          */
-      this.checkInTime = builder.checkInTime;
-         /**
-          * 签到方式
-          * <p> 示例值：xxx
-          */
-      this.checkInMethod = builder.checkInMethod;
-         /**
-          * 公司主体
-          * <p> 示例值：xxx
-          */
-      this.company = builder.company;
-         /**
-          * 排班
-          * <p> 示例值：xxx
-          */
-      this.workShift = builder.workShift;
-         /**
-          * 招聘类型
-          * <p> 示例值：xxx
-          */
-      this.recruitmentTypeId = builder.recruitmentTypeId;
-         /**
-          * 薪资类型
-          * <p> 示例值：xxx
-          */
-      this.compensationType = builder.compensationType;
-         /**
-          * 薪资组
-          * <p> 示例值：xxx
-          */
-      this.payGroupId = builder.payGroupId;
-         /**
-          * offer HR
-          * <p> 示例值：xxx
-          */
-      this.offerHrId = builder.offerHrId;
-         /**
-          * 职务
-          * <p> 示例值：xxx
-          */
-      this.jobId = builder.jobId;
-         /**
-          * 序列
-          * <p> 示例值：xxx
-          */
-      this.jobFamilyId = builder.jobFamilyId;
-         /**
-          * 职级
-          * <p> 示例值：xxx
-          */
-      this.jobLevelId = builder.jobLevelId;
-         /**
-          * 职等
-          * <p> 示例值：xxx
-          */
-      this.jobGradeId = builder.jobGradeId;
-         /**
-          * 人员类型
-          * <p> 示例值：xxx
-          */
-      this.employeeTypeId = builder.employeeTypeId;
-         /**
-          * 人员子类型
-          * <p> 示例值：xxx
-          */
-      this.employeeSubtypeId = builder.employeeSubtypeId;
-         /**
-          * 直属上级
-          * <p> 示例值：xxx
-          */
-      this.directLeaderId = builder.directLeaderId;
-         /**
-          * 虚线上级
-          * <p> 示例值：xxx
-          */
-      this.dottedLineManagerId = builder.dottedLineManagerId;
-         /**
-          * 部门
-          * <p> 示例值：xxx
-          */
-      this.departmentId = builder.departmentId;
-         /**
-          * 社保城市
-          * <p> 示例值：xxx
-          */
-      this.socialSecurityCity = builder.socialSecurityCity;
-         /**
-          * 工作城市
-          * <p> 示例值：xxx
-          */
-      this.workLocationId = builder.workLocationId;
-         /**
-          * 工作日历
-          * <p> 示例值：xxx
-          */
-      this.workingCalendar = builder.workingCalendar;
-         /**
-          * 工时制度
-          * <p> 示例值：xxx
-          */
-      this.workingHoursType = builder.workingHoursType;
-         /**
-          * 司龄起算日期
-          * <p> 示例值：2022-10-08
-          */
-      this.seniorityDate = builder.seniorityDate;
-         /**
-          * 司龄调整信息
-          * <p> 示例值：
-          */
-      this.seniorityAdjustInformationList = builder.seniorityAdjustInformationList;
-         /**
-          * 试用期内通知期（主动离职)
-          * <p> 示例值：xxx
-          */
-      this.noticePeriodProbationVoluntary = builder.noticePeriodProbationVoluntary;
-         /**
-          * 试用期内通知期（被动离职）
-          * <p> 示例值：xxx
-          */
-      this.noticePeriodProbationInvoluntary = builder.noticePeriodProbationInvoluntary;
-         /**
-          * 转正后通知期（主动离职）
-          * <p> 示例值：xxx
-          */
-      this.noticePeriodPositiveVoluntary = builder.noticePeriodPositiveVoluntary;
-         /**
-          * 转正后通知期（被动离职）
-          * <p> 示例值：xxx
-          */
-      this.noticePeriodPositiveInvoluntary = builder.noticePeriodPositiveInvoluntary;
-         /**
-          * 是否外部人员
-          * <p> 示例值：true
-          */
-      this.conditionWorker = builder.conditionWorker;
-         /**
-          * 需要公司办理签证
-          * <p> 示例值：true
-          */
-      this.companySponsoredVisa = builder.companySponsoredVisa;
-         /**
-          * 周工作时长（单位：小时）
-          * <p> 示例值：8.5
-          */
-      this.weeklyWorkingHoursV2 = builder.weeklyWorkingHoursV2;
-         /**
-          * 工位
-          * <p> 示例值：5-1-2
-          */
-      this.workStation = builder.workStation;
-         /**
-          * 是否有 Offer 薪酬
-          * <p> 示例值：true
-          */
-      this.hasOfferSalary = builder.hasOfferSalary;
-         /**
-          * 任职公司
-          * <p> 示例值：6738317738688661772
-          */
-      this.serviceCompany = builder.serviceCompany;
-         /**
-          * 是否包含竞业条款
-          * <p> 示例值：true
-          */
-      this.nonCompeteCovenant = builder.nonCompeteCovenant;
-         /**
-          * 通道
-          * <p> 示例值：7460865381179115052
-          */
-      this.pathway = builder.pathway;
-         /**
-          * 默认成本中心
-          * <p> 示例值：
-          */
-      this.defaultCostCenter = builder.defaultCostCenter;
-         /**
-          * 成本分摊
-          * <p> 示例值：
-          */
-      this.costAllocation = builder.costAllocation;
-  }
-
     public static class Builder {
-     /**
-      * 入职日期
-      * <p> 示例值：2022-10-08
-      */
+        /**
+         * 入职日期
+         * <p> 示例值：2022-10-08
+         */
         private String onboardingDate;
-     /**
-      * 招聘应用ID
-      * <p> 示例值：7140946969586010375
-      */
+        /**
+         * 招聘应用ID
+         * <p> 示例值：7140946969586010375
+         */
         private String atsApplicationId;
-     /**
-      * 入职地点ID，详细信息可通过【批量查询地点】接口获得
-      * <p> 示例值：6977976687350924832
-      */
+        /**
+         * 入职地点ID，详细信息可通过【批量查询地点】接口获得
+         * <p> 示例值：6977976687350924832
+         */
         private String onboardingLocationId;
-     /**
-      * 入职地址ID，详细信息可通过【批量查询地址】接口获得
-      * <p> 示例值：6977976687350924832
-      */
+        /**
+         * 入职地址ID，详细信息可通过【批量查询地址】接口获得
+         * <p> 示例值：6977976687350924832
+         */
         private String onboardingAddressId;
-     /**
-      * 办公地点ID，详细信息可通过【批量查询地点】接口获得
-      * <p> 示例值：6977976687350924833
-      */
+        /**
+         * 办公地点ID，详细信息可通过【批量查询地点】接口获得
+         * <p> 示例值：6977976687350924833
+         */
         private String officeLocationId;
-     /**
-      * 办公地址ID，详细信息可通过【批量查询地址】接口获得
-      * <p> 示例值：6977976687350924832
-      */
+        /**
+         * 办公地址ID，详细信息可通过【批量查询地址】接口获得
+         * <p> 示例值：6977976687350924832
+         */
         private String officeAddressId;
-     /**
-      * 雇佣类型，通过查询枚举集【employment_type】获得枚举apiName
-      * <p> 示例值：employee(员工);contingent_worker(临时工)
-      */
+        /**
+         * 雇佣类型，通过查询枚举集【employment_type】获得枚举apiName
+         * <p> 示例值：employee(员工);contingent_worker(临时工)
+         */
         private String employmentType;
-     /**
-      * 入职方式，通过查询枚举集【onboarding_method】获得枚举apiName
-      * <p> 示例值：onsite(现场入职);remote(远程入职)
-      */
+        /**
+         * 入职方式，通过查询枚举集【onboarding_method】获得枚举apiName
+         * <p> 示例值：onsite(现场入职);remote(远程入职)
+         */
         private String onboardingMethod;
-     /**
-      * 工作邮箱
-      * <p> 示例值：
-      */
+        /**
+         * 工作邮箱
+         * <p> 示例值：
+         */
         private EmailForUpdate[] workEmails;
-     /**
-      * 成本中心分摊信息,只支持商业化租户
-      * <p> 示例值：
-      */
+        /**
+         * 成本中心分摊信息,只支持商业化租户
+         * <p> 示例值：
+         */
         private JobDataCostCenter[] costCenterRates;
-     /**
-      * 自定义字段
-      * <p> 示例值：
-      */
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
         private ObjectFieldData[] customFields;
-     /**
-      * 岗位 ID,
-      * <p> 示例值：697797668735092768
-      */
+        /**
+         * 岗位 ID,
+         * <p> 示例值：697797668735092768
+         */
         private String positionId;
-     /**
-      * 试用期时长
-      * <p> 示例值：697797668735092768
-      */
+        /**
+         * 试用期时长
+         * <p> 示例值：697797668735092768
+         */
         private Integer probationPeriod;
-     /**
-      * 试用期开始日期
-      * <p> 示例值：xxx
-      */
+        /**
+         * 试用期开始日期
+         * <p> 示例值：xxx
+         */
         private String probationStartDate;
-     /**
-      * 试用期结束日期
-      * <p> 示例值：xxx
-      */
+        /**
+         * 试用期结束日期
+         * <p> 示例值：xxx
+         */
         private String probationEndDate;
-     /**
-      * 合同开始日期
-      * <p> 示例值：xxx
-      */
+        /**
+         * 合同开始日期
+         * <p> 示例值：xxx
+         */
         private String contractStartDate;
-     /**
-      * 合同结束日期
-      * <p> 示例值：xxx
-      */
+        /**
+         * 合同结束日期
+         * <p> 示例值：xxx
+         */
         private String contractEndDate;
-     /**
-      * 合同类型
-      * <p> 示例值：xxx
-      */
+        /**
+         * 合同类型
+         * <p> 示例值：xxx
+         */
         private String contractType;
-     /**
-      * 期限类型
-      * <p> 示例值：xxx
-      */
+        /**
+         * 期限类型
+         * <p> 示例值：xxx
+         */
         private String durationTypeId;
-     /**
-      * 签订类型
-      * <p> 示例值：xxx
-      */
+        /**
+         * 签订类型
+         * <p> 示例值：xxx
+         */
         private String signingTypeId;
-     /**
-      * 工号
-      * <p> 示例值：xxx
-      */
+        /**
+         * 工号
+         * <p> 示例值：xxx
+         */
         private String workerId;
-     /**
-      * 签到时间
-      * <p> 示例值：xxx
-      */
+        /**
+         * 签到时间
+         * <p> 示例值：xxx
+         */
         private String checkInTime;
-     /**
-      * 签到方式
-      * <p> 示例值：xxx
-      */
+        /**
+         * 签到方式
+         * <p> 示例值：xxx
+         */
         private String checkInMethod;
-     /**
-      * 公司主体
-      * <p> 示例值：xxx
-      */
+        /**
+         * 公司主体
+         * <p> 示例值：xxx
+         */
         private String company;
-     /**
-      * 排班
-      * <p> 示例值：xxx
-      */
+        /**
+         * 排班
+         * <p> 示例值：xxx
+         */
         private String workShift;
-     /**
-      * 招聘类型
-      * <p> 示例值：xxx
-      */
+        /**
+         * 招聘类型
+         * <p> 示例值：xxx
+         */
         private String recruitmentTypeId;
-     /**
-      * 薪资类型
-      * <p> 示例值：xxx
-      */
+        /**
+         * 薪资类型
+         * <p> 示例值：xxx
+         */
         private String compensationType;
-     /**
-      * 薪资组
-      * <p> 示例值：xxx
-      */
+        /**
+         * 薪资组
+         * <p> 示例值：xxx
+         */
         private String payGroupId;
-     /**
-      * offer HR
-      * <p> 示例值：xxx
-      */
+        /**
+         * offer HR
+         * <p> 示例值：xxx
+         */
         private String offerHrId;
-     /**
-      * 职务
-      * <p> 示例值：xxx
-      */
+        /**
+         * 职务
+         * <p> 示例值：xxx
+         */
         private String jobId;
-     /**
-      * 序列
-      * <p> 示例值：xxx
-      */
+        /**
+         * 序列
+         * <p> 示例值：xxx
+         */
         private String jobFamilyId;
-     /**
-      * 职级
-      * <p> 示例值：xxx
-      */
+        /**
+         * 职级
+         * <p> 示例值：xxx
+         */
         private String jobLevelId;
-     /**
-      * 职等
-      * <p> 示例值：xxx
-      */
+        /**
+         * 职等
+         * <p> 示例值：xxx
+         */
         private String jobGradeId;
-     /**
-      * 人员类型
-      * <p> 示例值：xxx
-      */
+        /**
+         * 人员类型
+         * <p> 示例值：xxx
+         */
         private String employeeTypeId;
-     /**
-      * 人员子类型
-      * <p> 示例值：xxx
-      */
+        /**
+         * 人员子类型
+         * <p> 示例值：xxx
+         */
         private String employeeSubtypeId;
-     /**
-      * 直属上级
-      * <p> 示例值：xxx
-      */
+        /**
+         * 直属上级
+         * <p> 示例值：xxx
+         */
         private String directLeaderId;
-     /**
-      * 虚线上级
-      * <p> 示例值：xxx
-      */
+        /**
+         * 虚线上级
+         * <p> 示例值：xxx
+         */
         private String dottedLineManagerId;
-     /**
-      * 部门
-      * <p> 示例值：xxx
-      */
+        /**
+         * 部门
+         * <p> 示例值：xxx
+         */
         private String departmentId;
-     /**
-      * 社保城市
-      * <p> 示例值：xxx
-      */
+        /**
+         * 社保城市
+         * <p> 示例值：xxx
+         */
         private String socialSecurityCity;
-     /**
-      * 工作城市
-      * <p> 示例值：xxx
-      */
+        /**
+         * 工作城市
+         * <p> 示例值：xxx
+         */
         private String workLocationId;
-     /**
-      * 工作日历
-      * <p> 示例值：xxx
-      */
+        /**
+         * 工作日历
+         * <p> 示例值：xxx
+         */
         private String workingCalendar;
-     /**
-      * 工时制度
-      * <p> 示例值：xxx
-      */
+        /**
+         * 工时制度
+         * <p> 示例值：xxx
+         */
         private String workingHoursType;
-     /**
-      * 司龄起算日期
-      * <p> 示例值：2022-10-08
-      */
+        /**
+         * 司龄起算日期
+         * <p> 示例值：2022-10-08
+         */
         private String seniorityDate;
-     /**
-      * 司龄调整信息
-      * <p> 示例值：
-      */
+        /**
+         * 司龄调整信息
+         * <p> 示例值：
+         */
         private PrehireSeniorityAdjustInformationUpdate[] seniorityAdjustInformationList;
-     /**
-      * 试用期内通知期（主动离职)
-      * <p> 示例值：xxx
-      */
+        /**
+         * 试用期内通知期（主动离职)
+         * <p> 示例值：xxx
+         */
         private NoticePeriodDetail noticePeriodProbationVoluntary;
-     /**
-      * 试用期内通知期（被动离职）
-      * <p> 示例值：xxx
-      */
+        /**
+         * 试用期内通知期（被动离职）
+         * <p> 示例值：xxx
+         */
         private NoticePeriodDetail noticePeriodProbationInvoluntary;
-     /**
-      * 转正后通知期（主动离职）
-      * <p> 示例值：xxx
-      */
+        /**
+         * 转正后通知期（主动离职）
+         * <p> 示例值：xxx
+         */
         private NoticePeriodDetail noticePeriodPositiveVoluntary;
-     /**
-      * 转正后通知期（被动离职）
-      * <p> 示例值：xxx
-      */
+        /**
+         * 转正后通知期（被动离职）
+         * <p> 示例值：xxx
+         */
         private NoticePeriodDetail noticePeriodPositiveInvoluntary;
-     /**
-      * 是否外部人员
-      * <p> 示例值：true
-      */
+        /**
+         * 是否外部人员
+         * <p> 示例值：true
+         */
         private Boolean conditionWorker;
-     /**
-      * 需要公司办理签证
-      * <p> 示例值：true
-      */
+        /**
+         * 需要公司办理签证
+         * <p> 示例值：true
+         */
         private Boolean companySponsoredVisa;
-     /**
-      * 周工作时长（单位：小时）
-      * <p> 示例值：8.5
-      */
+        /**
+         * 周工作时长（单位：小时）
+         * <p> 示例值：8.5
+         */
         private Double weeklyWorkingHoursV2;
-     /**
-      * 工位
-      * <p> 示例值：5-1-2
-      */
+        /**
+         * 工位
+         * <p> 示例值：5-1-2
+         */
         private String workStation;
-     /**
-      * 是否有 Offer 薪酬
-      * <p> 示例值：true
-      */
+        /**
+         * 是否有 Offer 薪酬
+         * <p> 示例值：true
+         */
         private Boolean hasOfferSalary;
-     /**
-      * 任职公司
-      * <p> 示例值：6738317738688661772
-      */
+        /**
+         * 任职公司
+         * <p> 示例值：6738317738688661772
+         */
         private String serviceCompany;
-     /**
-      * 是否包含竞业条款
-      * <p> 示例值：true
-      */
+        /**
+         * 是否包含竞业条款
+         * <p> 示例值：true
+         */
         private Boolean nonCompeteCovenant;
-     /**
-      * 通道
-      * <p> 示例值：7460865381179115052
-      */
+        /**
+         * 通道
+         * <p> 示例值：7460865381179115052
+         */
         private String pathway;
-     /**
-      * 默认成本中心
-      * <p> 示例值：
-      */
+        /**
+         * 默认成本中心
+         * <p> 示例值：
+         */
         private PrehireDefaultCostCenterUpdate defaultCostCenter;
-     /**
-      * 成本分摊
-      * <p> 示例值：
-      */
+        /**
+         * 成本分摊
+         * <p> 示例值：
+         */
         private CostAllocation costAllocation;
 
         /**
          * 入职日期
          * <p> 示例值：2022-10-08
+         *
          * @param onboardingDate
          * @return
          */
         public Builder onboardingDate(String onboardingDate) {
-             this.onboardingDate = onboardingDate;
-             return this;
+            this.onboardingDate = onboardingDate;
+            return this;
         }
 
-    
 
         /**
          * 招聘应用ID
          * <p> 示例值：7140946969586010375
+         *
          * @param atsApplicationId
          * @return
          */
         public Builder atsApplicationId(String atsApplicationId) {
-             this.atsApplicationId = atsApplicationId;
-             return this;
+            this.atsApplicationId = atsApplicationId;
+            return this;
         }
 
-    
 
         /**
          * 入职地点ID，详细信息可通过【批量查询地点】接口获得
          * <p> 示例值：6977976687350924832
+         *
          * @param onboardingLocationId
          * @return
          */
         public Builder onboardingLocationId(String onboardingLocationId) {
-             this.onboardingLocationId = onboardingLocationId;
-             return this;
+            this.onboardingLocationId = onboardingLocationId;
+            return this;
         }
 
-    
 
         /**
          * 入职地址ID，详细信息可通过【批量查询地址】接口获得
          * <p> 示例值：6977976687350924832
+         *
          * @param onboardingAddressId
          * @return
          */
         public Builder onboardingAddressId(String onboardingAddressId) {
-             this.onboardingAddressId = onboardingAddressId;
-             return this;
+            this.onboardingAddressId = onboardingAddressId;
+            return this;
         }
 
-    
 
         /**
          * 办公地点ID，详细信息可通过【批量查询地点】接口获得
          * <p> 示例值：6977976687350924833
+         *
          * @param officeLocationId
          * @return
          */
         public Builder officeLocationId(String officeLocationId) {
-             this.officeLocationId = officeLocationId;
-             return this;
+            this.officeLocationId = officeLocationId;
+            return this;
         }
 
-    
 
         /**
          * 办公地址ID，详细信息可通过【批量查询地址】接口获得
          * <p> 示例值：6977976687350924832
+         *
          * @param officeAddressId
          * @return
          */
         public Builder officeAddressId(String officeAddressId) {
-             this.officeAddressId = officeAddressId;
-             return this;
+            this.officeAddressId = officeAddressId;
+            return this;
         }
 
-    
 
         /**
          * 雇佣类型，通过查询枚举集【employment_type】获得枚举apiName
          * <p> 示例值：employee(员工);contingent_worker(临时工)
+         *
          * @param employmentType
          * @return
          */
         public Builder employmentType(String employmentType) {
-             this.employmentType = employmentType;
-             return this;
+            this.employmentType = employmentType;
+            return this;
         }
 
-    
 
         /**
          * 入职方式，通过查询枚举集【onboarding_method】获得枚举apiName
          * <p> 示例值：onsite(现场入职);remote(远程入职)
+         *
          * @param onboardingMethod
          * @return
          */
         public Builder onboardingMethod(String onboardingMethod) {
-             this.onboardingMethod = onboardingMethod;
-             return this;
+            this.onboardingMethod = onboardingMethod;
+            return this;
         }
 
-    
 
         /**
          * 工作邮箱
          * <p> 示例值：
+         *
          * @param workEmails
          * @return
          */
         public Builder workEmails(EmailForUpdate[] workEmails) {
-             this.workEmails = workEmails;
-             return this;
+            this.workEmails = workEmails;
+            return this;
         }
 
-    
 
         /**
          * 成本中心分摊信息,只支持商业化租户
          * <p> 示例值：
+         *
          * @param costCenterRates
          * @return
          */
         public Builder costCenterRates(JobDataCostCenter[] costCenterRates) {
-             this.costCenterRates = costCenterRates;
-             return this;
+            this.costCenterRates = costCenterRates;
+            return this;
         }
 
-    
 
         /**
          * 自定义字段
          * <p> 示例值：
+         *
          * @param customFields
          * @return
          */
         public Builder customFields(ObjectFieldData[] customFields) {
-             this.customFields = customFields;
-             return this;
+            this.customFields = customFields;
+            return this;
         }
 
-    
 
         /**
          * 岗位 ID,
          * <p> 示例值：697797668735092768
+         *
          * @param positionId
          * @return
          */
         public Builder positionId(String positionId) {
-             this.positionId = positionId;
-             return this;
+            this.positionId = positionId;
+            return this;
         }
 
-    
 
         /**
          * 试用期时长
          * <p> 示例值：697797668735092768
+         *
          * @param probationPeriod
          * @return
          */
         public Builder probationPeriod(Integer probationPeriod) {
-             this.probationPeriod = probationPeriod;
-             return this;
+            this.probationPeriod = probationPeriod;
+            return this;
         }
 
-    
 
         /**
          * 试用期开始日期
          * <p> 示例值：xxx
+         *
          * @param probationStartDate
          * @return
          */
         public Builder probationStartDate(String probationStartDate) {
-             this.probationStartDate = probationStartDate;
-             return this;
+            this.probationStartDate = probationStartDate;
+            return this;
         }
 
-    
 
         /**
          * 试用期结束日期
          * <p> 示例值：xxx
+         *
          * @param probationEndDate
          * @return
          */
         public Builder probationEndDate(String probationEndDate) {
-             this.probationEndDate = probationEndDate;
-             return this;
+            this.probationEndDate = probationEndDate;
+            return this;
         }
 
-    
 
         /**
          * 合同开始日期
          * <p> 示例值：xxx
+         *
          * @param contractStartDate
          * @return
          */
         public Builder contractStartDate(String contractStartDate) {
-             this.contractStartDate = contractStartDate;
-             return this;
+            this.contractStartDate = contractStartDate;
+            return this;
         }
 
-    
 
         /**
          * 合同结束日期
          * <p> 示例值：xxx
+         *
          * @param contractEndDate
          * @return
          */
         public Builder contractEndDate(String contractEndDate) {
-             this.contractEndDate = contractEndDate;
-             return this;
+            this.contractEndDate = contractEndDate;
+            return this;
         }
 
-    
 
         /**
          * 合同类型
          * <p> 示例值：xxx
+         *
          * @param contractType
          * @return
          */
         public Builder contractType(String contractType) {
-             this.contractType = contractType;
-             return this;
+            this.contractType = contractType;
+            return this;
         }
 
-    
 
         /**
          * 期限类型
          * <p> 示例值：xxx
+         *
          * @param durationTypeId
          * @return
          */
         public Builder durationTypeId(String durationTypeId) {
-             this.durationTypeId = durationTypeId;
-             return this;
+            this.durationTypeId = durationTypeId;
+            return this;
         }
 
-    
 
         /**
          * 签订类型
          * <p> 示例值：xxx
+         *
          * @param signingTypeId
          * @return
          */
         public Builder signingTypeId(String signingTypeId) {
-             this.signingTypeId = signingTypeId;
-             return this;
+            this.signingTypeId = signingTypeId;
+            return this;
         }
 
-    
 
         /**
          * 工号
          * <p> 示例值：xxx
+         *
          * @param workerId
          * @return
          */
         public Builder workerId(String workerId) {
-             this.workerId = workerId;
-             return this;
+            this.workerId = workerId;
+            return this;
         }
 
-    
 
         /**
          * 签到时间
          * <p> 示例值：xxx
+         *
          * @param checkInTime
          * @return
          */
         public Builder checkInTime(String checkInTime) {
-             this.checkInTime = checkInTime;
-             return this;
+            this.checkInTime = checkInTime;
+            return this;
         }
 
-    
 
         /**
          * 签到方式
          * <p> 示例值：xxx
+         *
          * @param checkInMethod
          * @return
          */
         public Builder checkInMethod(String checkInMethod) {
-             this.checkInMethod = checkInMethod;
-             return this;
+            this.checkInMethod = checkInMethod;
+            return this;
         }
 
-    
 
         /**
          * 公司主体
          * <p> 示例值：xxx
+         *
          * @param company
          * @return
          */
         public Builder company(String company) {
-             this.company = company;
-             return this;
+            this.company = company;
+            return this;
         }
 
-    
 
         /**
          * 排班
          * <p> 示例值：xxx
+         *
          * @param workShift
          * @return
          */
         public Builder workShift(String workShift) {
-             this.workShift = workShift;
-             return this;
+            this.workShift = workShift;
+            return this;
         }
 
-    
 
         /**
          * 招聘类型
          * <p> 示例值：xxx
+         *
          * @param recruitmentTypeId
          * @return
          */
         public Builder recruitmentTypeId(String recruitmentTypeId) {
-             this.recruitmentTypeId = recruitmentTypeId;
-             return this;
+            this.recruitmentTypeId = recruitmentTypeId;
+            return this;
         }
 
-    
 
         /**
          * 薪资类型
          * <p> 示例值：xxx
+         *
          * @param compensationType
          * @return
          */
         public Builder compensationType(String compensationType) {
-             this.compensationType = compensationType;
-             return this;
+            this.compensationType = compensationType;
+            return this;
         }
 
-    
 
         /**
          * 薪资组
          * <p> 示例值：xxx
+         *
          * @param payGroupId
          * @return
          */
         public Builder payGroupId(String payGroupId) {
-             this.payGroupId = payGroupId;
-             return this;
+            this.payGroupId = payGroupId;
+            return this;
         }
 
-    
 
         /**
          * offer HR
          * <p> 示例值：xxx
+         *
          * @param offerHrId
          * @return
          */
         public Builder offerHrId(String offerHrId) {
-             this.offerHrId = offerHrId;
-             return this;
+            this.offerHrId = offerHrId;
+            return this;
         }
 
-    
 
         /**
          * 职务
          * <p> 示例值：xxx
+         *
          * @param jobId
          * @return
          */
         public Builder jobId(String jobId) {
-             this.jobId = jobId;
-             return this;
+            this.jobId = jobId;
+            return this;
         }
 
-    
 
         /**
          * 序列
          * <p> 示例值：xxx
+         *
          * @param jobFamilyId
          * @return
          */
         public Builder jobFamilyId(String jobFamilyId) {
-             this.jobFamilyId = jobFamilyId;
-             return this;
+            this.jobFamilyId = jobFamilyId;
+            return this;
         }
 
-    
 
         /**
          * 职级
          * <p> 示例值：xxx
+         *
          * @param jobLevelId
          * @return
          */
         public Builder jobLevelId(String jobLevelId) {
-             this.jobLevelId = jobLevelId;
-             return this;
+            this.jobLevelId = jobLevelId;
+            return this;
         }
 
-    
 
         /**
          * 职等
          * <p> 示例值：xxx
+         *
          * @param jobGradeId
          * @return
          */
         public Builder jobGradeId(String jobGradeId) {
-             this.jobGradeId = jobGradeId;
-             return this;
+            this.jobGradeId = jobGradeId;
+            return this;
         }
 
-    
 
         /**
          * 人员类型
          * <p> 示例值：xxx
+         *
          * @param employeeTypeId
          * @return
          */
         public Builder employeeTypeId(String employeeTypeId) {
-             this.employeeTypeId = employeeTypeId;
-             return this;
+            this.employeeTypeId = employeeTypeId;
+            return this;
         }
 
-    
 
         /**
          * 人员子类型
          * <p> 示例值：xxx
+         *
          * @param employeeSubtypeId
          * @return
          */
         public Builder employeeSubtypeId(String employeeSubtypeId) {
-             this.employeeSubtypeId = employeeSubtypeId;
-             return this;
+            this.employeeSubtypeId = employeeSubtypeId;
+            return this;
         }
 
-    
 
         /**
          * 直属上级
          * <p> 示例值：xxx
+         *
          * @param directLeaderId
          * @return
          */
         public Builder directLeaderId(String directLeaderId) {
-             this.directLeaderId = directLeaderId;
-             return this;
+            this.directLeaderId = directLeaderId;
+            return this;
         }
 
-    
 
         /**
          * 虚线上级
          * <p> 示例值：xxx
+         *
          * @param dottedLineManagerId
          * @return
          */
         public Builder dottedLineManagerId(String dottedLineManagerId) {
-             this.dottedLineManagerId = dottedLineManagerId;
-             return this;
+            this.dottedLineManagerId = dottedLineManagerId;
+            return this;
         }
 
-    
 
         /**
          * 部门
          * <p> 示例值：xxx
+         *
          * @param departmentId
          * @return
          */
         public Builder departmentId(String departmentId) {
-             this.departmentId = departmentId;
-             return this;
+            this.departmentId = departmentId;
+            return this;
         }
 
-    
 
         /**
          * 社保城市
          * <p> 示例值：xxx
+         *
          * @param socialSecurityCity
          * @return
          */
         public Builder socialSecurityCity(String socialSecurityCity) {
-             this.socialSecurityCity = socialSecurityCity;
-             return this;
+            this.socialSecurityCity = socialSecurityCity;
+            return this;
         }
 
-    
 
         /**
          * 工作城市
          * <p> 示例值：xxx
+         *
          * @param workLocationId
          * @return
          */
         public Builder workLocationId(String workLocationId) {
-             this.workLocationId = workLocationId;
-             return this;
+            this.workLocationId = workLocationId;
+            return this;
         }
 
-    
 
         /**
          * 工作日历
          * <p> 示例值：xxx
+         *
          * @param workingCalendar
          * @return
          */
         public Builder workingCalendar(String workingCalendar) {
-             this.workingCalendar = workingCalendar;
-             return this;
+            this.workingCalendar = workingCalendar;
+            return this;
         }
 
-    
 
         /**
          * 工时制度
          * <p> 示例值：xxx
+         *
          * @param workingHoursType
          * @return
          */
         public Builder workingHoursType(String workingHoursType) {
-             this.workingHoursType = workingHoursType;
-             return this;
+            this.workingHoursType = workingHoursType;
+            return this;
         }
 
-    
 
         /**
          * 司龄起算日期
          * <p> 示例值：2022-10-08
+         *
          * @param seniorityDate
          * @return
          */
         public Builder seniorityDate(String seniorityDate) {
-             this.seniorityDate = seniorityDate;
-             return this;
+            this.seniorityDate = seniorityDate;
+            return this;
         }
 
-    
 
         /**
          * 司龄调整信息
          * <p> 示例值：
+         *
          * @param seniorityAdjustInformationList
          * @return
          */
         public Builder seniorityAdjustInformationList(PrehireSeniorityAdjustInformationUpdate[] seniorityAdjustInformationList) {
-             this.seniorityAdjustInformationList = seniorityAdjustInformationList;
-             return this;
+            this.seniorityAdjustInformationList = seniorityAdjustInformationList;
+            return this;
         }
 
-    
 
         /**
          * 试用期内通知期（主动离职)
          * <p> 示例值：xxx
+         *
          * @param noticePeriodProbationVoluntary
          * @return
          */
         public Builder noticePeriodProbationVoluntary(NoticePeriodDetail noticePeriodProbationVoluntary) {
-             this.noticePeriodProbationVoluntary = noticePeriodProbationVoluntary;
-             return this;
+            this.noticePeriodProbationVoluntary = noticePeriodProbationVoluntary;
+            return this;
         }
 
-    
 
         /**
          * 试用期内通知期（被动离职）
          * <p> 示例值：xxx
+         *
          * @param noticePeriodProbationInvoluntary
          * @return
          */
         public Builder noticePeriodProbationInvoluntary(NoticePeriodDetail noticePeriodProbationInvoluntary) {
-             this.noticePeriodProbationInvoluntary = noticePeriodProbationInvoluntary;
-             return this;
+            this.noticePeriodProbationInvoluntary = noticePeriodProbationInvoluntary;
+            return this;
         }
 
-    
 
         /**
          * 转正后通知期（主动离职）
          * <p> 示例值：xxx
+         *
          * @param noticePeriodPositiveVoluntary
          * @return
          */
         public Builder noticePeriodPositiveVoluntary(NoticePeriodDetail noticePeriodPositiveVoluntary) {
-             this.noticePeriodPositiveVoluntary = noticePeriodPositiveVoluntary;
-             return this;
+            this.noticePeriodPositiveVoluntary = noticePeriodPositiveVoluntary;
+            return this;
         }
 
-    
 
         /**
          * 转正后通知期（被动离职）
          * <p> 示例值：xxx
+         *
          * @param noticePeriodPositiveInvoluntary
          * @return
          */
         public Builder noticePeriodPositiveInvoluntary(NoticePeriodDetail noticePeriodPositiveInvoluntary) {
-             this.noticePeriodPositiveInvoluntary = noticePeriodPositiveInvoluntary;
-             return this;
+            this.noticePeriodPositiveInvoluntary = noticePeriodPositiveInvoluntary;
+            return this;
         }
 
-    
 
         /**
          * 是否外部人员
          * <p> 示例值：true
+         *
          * @param conditionWorker
          * @return
          */
         public Builder conditionWorker(Boolean conditionWorker) {
-             this.conditionWorker = conditionWorker;
-             return this;
+            this.conditionWorker = conditionWorker;
+            return this;
         }
 
-    
 
         /**
          * 需要公司办理签证
          * <p> 示例值：true
+         *
          * @param companySponsoredVisa
          * @return
          */
         public Builder companySponsoredVisa(Boolean companySponsoredVisa) {
-             this.companySponsoredVisa = companySponsoredVisa;
-             return this;
+            this.companySponsoredVisa = companySponsoredVisa;
+            return this;
         }
 
-    
 
         /**
          * 周工作时长（单位：小时）
          * <p> 示例值：8.5
+         *
          * @param weeklyWorkingHoursV2
          * @return
          */
         public Builder weeklyWorkingHoursV2(Double weeklyWorkingHoursV2) {
-             this.weeklyWorkingHoursV2 = weeklyWorkingHoursV2;
-             return this;
+            this.weeklyWorkingHoursV2 = weeklyWorkingHoursV2;
+            return this;
         }
 
-    
 
         /**
          * 工位
          * <p> 示例值：5-1-2
+         *
          * @param workStation
          * @return
          */
         public Builder workStation(String workStation) {
-             this.workStation = workStation;
-             return this;
+            this.workStation = workStation;
+            return this;
         }
 
-    
 
         /**
          * 是否有 Offer 薪酬
          * <p> 示例值：true
+         *
          * @param hasOfferSalary
          * @return
          */
         public Builder hasOfferSalary(Boolean hasOfferSalary) {
-             this.hasOfferSalary = hasOfferSalary;
-             return this;
+            this.hasOfferSalary = hasOfferSalary;
+            return this;
         }
 
-    
 
         /**
          * 任职公司
          * <p> 示例值：6738317738688661772
+         *
          * @param serviceCompany
          * @return
          */
         public Builder serviceCompany(String serviceCompany) {
-             this.serviceCompany = serviceCompany;
-             return this;
+            this.serviceCompany = serviceCompany;
+            return this;
         }
 
-    
 
         /**
          * 是否包含竞业条款
          * <p> 示例值：true
+         *
          * @param nonCompeteCovenant
          * @return
          */
         public Builder nonCompeteCovenant(Boolean nonCompeteCovenant) {
-             this.nonCompeteCovenant = nonCompeteCovenant;
-             return this;
+            this.nonCompeteCovenant = nonCompeteCovenant;
+            return this;
         }
 
-    
 
         /**
          * 通道
          * <p> 示例值：7460865381179115052
+         *
          * @param pathway
          * @return
          */
         public Builder pathway(String pathway) {
-             this.pathway = pathway;
-             return this;
+            this.pathway = pathway;
+            return this;
         }
 
-    
 
         /**
          * 默认成本中心
          * <p> 示例值：
+         *
          * @param defaultCostCenter
          * @return
          */
         public Builder defaultCostCenter(PrehireDefaultCostCenterUpdate defaultCostCenter) {
-             this.defaultCostCenter = defaultCostCenter;
-             return this;
+            this.defaultCostCenter = defaultCostCenter;
+            return this;
         }
 
-    
 
         /**
          * 成本分摊
          * <p> 示例值：
+         *
          * @param costAllocation
          * @return
          */
         public Builder costAllocation(CostAllocation costAllocation) {
-             this.costAllocation = costAllocation;
-             return this;
+            this.costAllocation = costAllocation;
+            return this;
         }
 
-    
-    
-    public OfferInfoUpdate build(){
-        return new OfferInfoUpdate(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public OfferInfoUpdate build() {
+            return new OfferInfoUpdate(this);
+        }
     }
 }

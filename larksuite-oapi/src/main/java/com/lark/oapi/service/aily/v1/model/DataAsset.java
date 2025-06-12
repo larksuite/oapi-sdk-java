@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.aily.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.aily.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,85 +20,162 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
+
 import java.util.Map;
+
 import com.lark.oapi.core.response.BaseResponse;
+
 public class DataAsset {
-     /**
-      * 数据知识ID
-      * <p> 示例值：asset_aadg3mcgvpybu
-      */
+    /**
+     * 数据知识ID
+     * <p> 示例值：asset_aadg3mcgvpybu
+     */
     @SerializedName("data_asset_id")
     private String dataAssetId;
-     /**
-      * 数据知识标题
-      * <p> 示例值：
-      */
+    /**
+     * 数据知识标题
+     * <p> 示例值：
+     */
     @SerializedName("label")
     private Map<String, String> label;
-     /**
-      * 数据知识描述
-      * <p> 示例值：
-      */
+    /**
+     * 数据知识描述
+     * <p> 示例值：
+     */
     @SerializedName("description")
     private Map<String, String> description;
-     /**
-      * 数据资源类型
-      * <p> 示例值：excel
-      */
+    /**
+     * 数据资源类型
+     * <p> 示例值：excel
+     */
     @SerializedName("data_source_type")
     private String dataSourceType;
-     /**
-      * 数据连接状态
-      * <p> 示例值：successful
-      */
+    /**
+     * 数据连接状态
+     * <p> 示例值：successful
+     */
     @SerializedName("connect_status")
     private String connectStatus;
-     /**
-      * 数据知识分类列表
-      * <p> 示例值：
-      */
+    /**
+     * 数据知识分类列表
+     * <p> 示例值：
+     */
     @SerializedName("tags")
     private DataAssetTag[] tags;
-     /**
-      * 数据知识项列表
-      * <p> 示例值：
-      */
+    /**
+     * 数据知识项列表
+     * <p> 示例值：
+     */
     @SerializedName("items")
     private DataAssetItem[] items;
-     /**
-      * 连接状态失败信息
-      * <p> 示例值：连接超时
-      */
+    /**
+     * 连接状态失败信息
+     * <p> 示例值：连接超时
+     */
     @SerializedName("connect_failed_reason")
     private String connectFailedReason;
-     /**
-      * 知识导入配置
-      * <p> 示例值：
-      */
+    /**
+     * 知识导入配置
+     * <p> 示例值：
+     */
     @SerializedName("import_knowledge_setting")
     private DataAssetImportKnowledgeSetting importKnowledgeSetting;
-     /**
-      * 数据连接类型
-      * <p> 示例值：direct
-      */
+    /**
+     * 数据连接类型
+     * <p> 示例值：direct
+     */
     @SerializedName("connect_type")
     private String connectType;
-     /**
-      * 创建时间，毫秒时间戳
-      * <p> 示例值：1711975665710
-      */
+    /**
+     * 创建时间，毫秒时间戳
+     * <p> 示例值：1711975665710
+     */
     @SerializedName("created_time")
     private String createdTime;
-     /**
-      * 更新时间，毫秒时间戳
-      * <p> 示例值：1711975665710
-      */
+    /**
+     * 更新时间，毫秒时间戳
+     * <p> 示例值：1711975665710
+     */
     @SerializedName("updated_time")
     private String updatedTime;
+
+    // builder 开始
+    public DataAsset() {
+    }
+
+    public DataAsset(Builder builder) {
+        /**
+         * 数据知识ID
+         * <p> 示例值：asset_aadg3mcgvpybu
+         */
+        this.dataAssetId = builder.dataAssetId;
+        /**
+         * 数据知识标题
+         * <p> 示例值：
+         */
+        this.label = builder.label;
+        /**
+         * 数据知识描述
+         * <p> 示例值：
+         */
+        this.description = builder.description;
+        /**
+         * 数据资源类型
+         * <p> 示例值：excel
+         */
+        this.dataSourceType = builder.dataSourceType;
+        /**
+         * 数据连接状态
+         * <p> 示例值：successful
+         */
+        this.connectStatus = builder.connectStatus;
+        /**
+         * 数据知识分类列表
+         * <p> 示例值：
+         */
+        this.tags = builder.tags;
+        /**
+         * 数据知识项列表
+         * <p> 示例值：
+         */
+        this.items = builder.items;
+        /**
+         * 连接状态失败信息
+         * <p> 示例值：连接超时
+         */
+        this.connectFailedReason = builder.connectFailedReason;
+        /**
+         * 知识导入配置
+         * <p> 示例值：
+         */
+        this.importKnowledgeSetting = builder.importKnowledgeSetting;
+        /**
+         * 数据连接类型
+         * <p> 示例值：direct
+         */
+        this.connectType = builder.connectType;
+        /**
+         * 创建时间，毫秒时间戳
+         * <p> 示例值：1711975665710
+         */
+        this.createdTime = builder.createdTime;
+        /**
+         * 更新时间，毫秒时间戳
+         * <p> 示例值：1711975665710
+         */
+        this.updatedTime = builder.updatedTime;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getDataAssetId() {
         return this.dataAssetId;
     }
@@ -194,327 +272,262 @@ public class DataAsset {
         this.updatedTime = updatedTime;
     }
 
-
-// builder 开始
-  public DataAsset(){}
-
-  public DataAsset(Builder builder){
-         /**
-          * 数据知识ID
-          * <p> 示例值：asset_aadg3mcgvpybu
-          */
-      this.dataAssetId = builder.dataAssetId;
-         /**
-          * 数据知识标题
-          * <p> 示例值：
-          */
-      this.label = builder.label;
-         /**
-          * 数据知识描述
-          * <p> 示例值：
-          */
-      this.description = builder.description;
-         /**
-          * 数据资源类型
-          * <p> 示例值：excel
-          */
-      this.dataSourceType = builder.dataSourceType;
-         /**
-          * 数据连接状态
-          * <p> 示例值：successful
-          */
-      this.connectStatus = builder.connectStatus;
-         /**
-          * 数据知识分类列表
-          * <p> 示例值：
-          */
-      this.tags = builder.tags;
-         /**
-          * 数据知识项列表
-          * <p> 示例值：
-          */
-      this.items = builder.items;
-         /**
-          * 连接状态失败信息
-          * <p> 示例值：连接超时
-          */
-      this.connectFailedReason = builder.connectFailedReason;
-         /**
-          * 知识导入配置
-          * <p> 示例值：
-          */
-      this.importKnowledgeSetting = builder.importKnowledgeSetting;
-         /**
-          * 数据连接类型
-          * <p> 示例值：direct
-          */
-      this.connectType = builder.connectType;
-         /**
-          * 创建时间，毫秒时间戳
-          * <p> 示例值：1711975665710
-          */
-      this.createdTime = builder.createdTime;
-         /**
-          * 更新时间，毫秒时间戳
-          * <p> 示例值：1711975665710
-          */
-      this.updatedTime = builder.updatedTime;
-  }
-
     public static class Builder {
-     /**
-      * 数据知识ID
-      * <p> 示例值：asset_aadg3mcgvpybu
-      */
+        /**
+         * 数据知识ID
+         * <p> 示例值：asset_aadg3mcgvpybu
+         */
         private String dataAssetId;
-     /**
-      * 数据知识标题
-      * <p> 示例值：
-      */
+        /**
+         * 数据知识标题
+         * <p> 示例值：
+         */
         private Map<String, String> label;
-     /**
-      * 数据知识描述
-      * <p> 示例值：
-      */
+        /**
+         * 数据知识描述
+         * <p> 示例值：
+         */
         private Map<String, String> description;
-     /**
-      * 数据资源类型
-      * <p> 示例值：excel
-      */
+        /**
+         * 数据资源类型
+         * <p> 示例值：excel
+         */
         private String dataSourceType;
-     /**
-      * 数据连接状态
-      * <p> 示例值：successful
-      */
+        /**
+         * 数据连接状态
+         * <p> 示例值：successful
+         */
         private String connectStatus;
-     /**
-      * 数据知识分类列表
-      * <p> 示例值：
-      */
+        /**
+         * 数据知识分类列表
+         * <p> 示例值：
+         */
         private DataAssetTag[] tags;
-     /**
-      * 数据知识项列表
-      * <p> 示例值：
-      */
+        /**
+         * 数据知识项列表
+         * <p> 示例值：
+         */
         private DataAssetItem[] items;
-     /**
-      * 连接状态失败信息
-      * <p> 示例值：连接超时
-      */
+        /**
+         * 连接状态失败信息
+         * <p> 示例值：连接超时
+         */
         private String connectFailedReason;
-     /**
-      * 知识导入配置
-      * <p> 示例值：
-      */
+        /**
+         * 知识导入配置
+         * <p> 示例值：
+         */
         private DataAssetImportKnowledgeSetting importKnowledgeSetting;
-     /**
-      * 数据连接类型
-      * <p> 示例值：direct
-      */
+        /**
+         * 数据连接类型
+         * <p> 示例值：direct
+         */
         private String connectType;
-     /**
-      * 创建时间，毫秒时间戳
-      * <p> 示例值：1711975665710
-      */
+        /**
+         * 创建时间，毫秒时间戳
+         * <p> 示例值：1711975665710
+         */
         private String createdTime;
-     /**
-      * 更新时间，毫秒时间戳
-      * <p> 示例值：1711975665710
-      */
+        /**
+         * 更新时间，毫秒时间戳
+         * <p> 示例值：1711975665710
+         */
         private String updatedTime;
 
         /**
          * 数据知识ID
          * <p> 示例值：asset_aadg3mcgvpybu
+         *
          * @param dataAssetId
          * @return
          */
         public Builder dataAssetId(String dataAssetId) {
-             this.dataAssetId = dataAssetId;
-             return this;
+            this.dataAssetId = dataAssetId;
+            return this;
         }
 
-    
 
         /**
          * 数据知识标题
          * <p> 示例值：
+         *
          * @param label
          * @return
          */
         public Builder label(Map<String, String> label) {
-             this.label = label;
-             return this;
+            this.label = label;
+            return this;
         }
 
-    
 
         /**
          * 数据知识描述
          * <p> 示例值：
+         *
          * @param description
          * @return
          */
         public Builder description(Map<String, String> description) {
-             this.description = description;
-             return this;
+            this.description = description;
+            return this;
         }
 
-    
 
         /**
          * 数据资源类型
          * <p> 示例值：excel
+         *
          * @param dataSourceType
          * @return
          */
         public Builder dataSourceType(String dataSourceType) {
-             this.dataSourceType = dataSourceType;
-             return this;
+            this.dataSourceType = dataSourceType;
+            return this;
         }
+
         /**
          * 数据资源类型
          * <p> 示例值：excel
+         *
          * @param dataSourceType {@link com.lark.oapi.service.aily.v1.enums.DataAssetDataSourceTypeEnum}
          * @return
          */
         public Builder dataSourceType(com.lark.oapi.service.aily.v1.enums.DataAssetDataSourceTypeEnum dataSourceType) {
-             this.dataSourceType = dataSourceType.getValue();
-             return this;
+            this.dataSourceType = dataSourceType.getValue();
+            return this;
         }
 
-    
 
         /**
          * 数据连接状态
          * <p> 示例值：successful
+         *
          * @param connectStatus
          * @return
          */
         public Builder connectStatus(String connectStatus) {
-             this.connectStatus = connectStatus;
-             return this;
+            this.connectStatus = connectStatus;
+            return this;
         }
+
         /**
          * 数据连接状态
          * <p> 示例值：successful
+         *
          * @param connectStatus {@link com.lark.oapi.service.aily.v1.enums.DataAssetConnectStatusEnum}
          * @return
          */
         public Builder connectStatus(com.lark.oapi.service.aily.v1.enums.DataAssetConnectStatusEnum connectStatus) {
-             this.connectStatus = connectStatus.getValue();
-             return this;
+            this.connectStatus = connectStatus.getValue();
+            return this;
         }
 
-    
 
         /**
          * 数据知识分类列表
          * <p> 示例值：
+         *
          * @param tags
          * @return
          */
         public Builder tags(DataAssetTag[] tags) {
-             this.tags = tags;
-             return this;
+            this.tags = tags;
+            return this;
         }
 
-    
 
         /**
          * 数据知识项列表
          * <p> 示例值：
+         *
          * @param items
          * @return
          */
         public Builder items(DataAssetItem[] items) {
-             this.items = items;
-             return this;
+            this.items = items;
+            return this;
         }
 
-    
 
         /**
          * 连接状态失败信息
          * <p> 示例值：连接超时
+         *
          * @param connectFailedReason
          * @return
          */
         public Builder connectFailedReason(String connectFailedReason) {
-             this.connectFailedReason = connectFailedReason;
-             return this;
+            this.connectFailedReason = connectFailedReason;
+            return this;
         }
 
-    
 
         /**
          * 知识导入配置
          * <p> 示例值：
+         *
          * @param importKnowledgeSetting
          * @return
          */
         public Builder importKnowledgeSetting(DataAssetImportKnowledgeSetting importKnowledgeSetting) {
-             this.importKnowledgeSetting = importKnowledgeSetting;
-             return this;
+            this.importKnowledgeSetting = importKnowledgeSetting;
+            return this;
         }
 
-    
 
         /**
          * 数据连接类型
          * <p> 示例值：direct
+         *
          * @param connectType
          * @return
          */
         public Builder connectType(String connectType) {
-             this.connectType = connectType;
-             return this;
+            this.connectType = connectType;
+            return this;
         }
+
         /**
          * 数据连接类型
          * <p> 示例值：direct
+         *
          * @param connectType {@link com.lark.oapi.service.aily.v1.enums.DataAssetConnectTypeEnum}
          * @return
          */
         public Builder connectType(com.lark.oapi.service.aily.v1.enums.DataAssetConnectTypeEnum connectType) {
-             this.connectType = connectType.getValue();
-             return this;
+            this.connectType = connectType.getValue();
+            return this;
         }
 
-    
 
         /**
          * 创建时间，毫秒时间戳
          * <p> 示例值：1711975665710
+         *
          * @param createdTime
          * @return
          */
         public Builder createdTime(String createdTime) {
-             this.createdTime = createdTime;
-             return this;
+            this.createdTime = createdTime;
+            return this;
         }
 
-    
 
         /**
          * 更新时间，毫秒时间戳
          * <p> 示例值：1711975665710
+         *
          * @param updatedTime
          * @return
          */
         public Builder updatedTime(String updatedTime) {
-             this.updatedTime = updatedTime;
-             return this;
+            this.updatedTime = updatedTime;
+            return this;
         }
 
-    
-    
-    public DataAsset build(){
-        return new DataAsset(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public DataAsset build() {
+            return new DataAsset(this);
+        }
     }
 }

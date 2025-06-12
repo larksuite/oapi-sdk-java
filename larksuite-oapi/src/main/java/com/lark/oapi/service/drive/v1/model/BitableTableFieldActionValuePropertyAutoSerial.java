@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class BitableTableFieldActionValuePropertyAutoSerial {
-     /**
-      * 自动编号类型
-      * <p> 示例值：custom
-      */
+    /**
+     * 自动编号类型
+     * <p> 示例值：custom
+     */
     @SerializedName("type")
     private String type;
-     /**
-      * 自动编号规则列表
-      * <p> 示例值：
-      */
+    /**
+     * 自动编号规则列表
+     * <p> 示例值：
+     */
     @SerializedName("options")
     private BitableTableFieldActionValuePropertyAutoSerialOptions[] options;
+
+    // builder 开始
+    public BitableTableFieldActionValuePropertyAutoSerial() {
+    }
+
+    public BitableTableFieldActionValuePropertyAutoSerial(Builder builder) {
+        /**
+         * 自动编号类型
+         * <p> 示例值：custom
+         */
+        this.type = builder.type;
+        /**
+         * 自动编号规则列表
+         * <p> 示例值：
+         */
+        this.options = builder.options;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getType() {
         return this.type;
     }
@@ -53,67 +79,46 @@ public class BitableTableFieldActionValuePropertyAutoSerial {
         this.options = options;
     }
 
-
-// builder 开始
-  public BitableTableFieldActionValuePropertyAutoSerial(){}
-
-  public BitableTableFieldActionValuePropertyAutoSerial(Builder builder){
-         /**
-          * 自动编号类型
-          * <p> 示例值：custom
-          */
-      this.type = builder.type;
-         /**
-          * 自动编号规则列表
-          * <p> 示例值：
-          */
-      this.options = builder.options;
-  }
-
     public static class Builder {
-     /**
-      * 自动编号类型
-      * <p> 示例值：custom
-      */
+        /**
+         * 自动编号类型
+         * <p> 示例值：custom
+         */
         private String type;
-     /**
-      * 自动编号规则列表
-      * <p> 示例值：
-      */
+        /**
+         * 自动编号规则列表
+         * <p> 示例值：
+         */
         private BitableTableFieldActionValuePropertyAutoSerialOptions[] options;
 
         /**
          * 自动编号类型
          * <p> 示例值：custom
+         *
          * @param type
          * @return
          */
         public Builder type(String type) {
-             this.type = type;
-             return this;
+            this.type = type;
+            return this;
         }
 
-    
 
         /**
          * 自动编号规则列表
          * <p> 示例值：
+         *
          * @param options
          * @return
          */
         public Builder options(BitableTableFieldActionValuePropertyAutoSerialOptions[] options) {
-             this.options = options;
-             return this;
+            this.options = options;
+            return this;
         }
 
-    
-    
-    public BitableTableFieldActionValuePropertyAutoSerial build(){
-        return new BitableTableFieldActionValuePropertyAutoSerial(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public BitableTableFieldActionValuePropertyAutoSerial build() {
+            return new BitableTableFieldActionValuePropertyAutoSerial(this);
+        }
     }
 }

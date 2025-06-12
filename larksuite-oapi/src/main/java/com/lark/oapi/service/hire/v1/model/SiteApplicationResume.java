@@ -12,132 +12,243 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class SiteApplicationResume {
-     /**
-      * 姓名
-      * <p> 示例值：
-      */
+    /**
+     * 姓名
+     * <p> 示例值：
+     */
     @SerializedName("name")
     private String name;
-     /**
-      * 手机号
-      * <p> 示例值：
-      */
+    /**
+     * 手机号
+     * <p> 示例值：
+     */
     @SerializedName("mobile_number")
     private String mobileNumber;
-     /**
-      * 手机区号
-      * <p> 示例值：
-      */
+    /**
+     * 手机区号
+     * <p> 示例值：
+     */
     @SerializedName("moblie_code")
     private String moblieCode;
-     /**
-      * 邮箱
-      * <p> 示例值：
-      */
+    /**
+     * 邮箱
+     * <p> 示例值：
+     */
     @SerializedName("email")
     private String email;
-     /**
-      * 简历附件id
-      * <p> 示例值：
-      */
+    /**
+     * 简历附件id
+     * <p> 示例值：
+     */
     @SerializedName("site_attachment_id")
     private String siteAttachmentId;
-     /**
-      * 自我评价
-      * <p> 示例值：
-      */
+    /**
+     * 自我评价
+     * <p> 示例值：
+     */
     @SerializedName("self_evaluation")
     private String selfEvaluation;
-     /**
-      * 年龄
-      * <p> 示例值：
-      */
+    /**
+     * 年龄
+     * <p> 示例值：
+     */
     @SerializedName("age")
     private String age;
-     /**
-      * 工作年限
-      * <p> 示例值：
-      */
+    /**
+     * 工作年限
+     * <p> 示例值：
+     */
     @SerializedName("working_year")
     private String workingYear;
-     /**
-      * 教育经历列表
-      * <p> 示例值：
-      */
+    /**
+     * 教育经历列表
+     * <p> 示例值：
+     */
     @SerializedName("education_list")
     private SiteResumeEducation[] educationList;
-     /**
-      * 工作经历列表
-      * <p> 示例值：
-      */
+    /**
+     * 工作经历列表
+     * <p> 示例值：
+     */
     @SerializedName("career_list")
     private SiteResumeCareer[] careerList;
-     /**
-      * 项目经历列表
-      * <p> 示例值：
-      */
+    /**
+     * 项目经历列表
+     * <p> 示例值：
+     */
     @SerializedName("project_list")
     private SiteResumeProject[] projectList;
-     /**
-      * 实习经历列表
-      * <p> 示例值：
-      */
+    /**
+     * 实习经历列表
+     * <p> 示例值：
+     */
     @SerializedName("internship_list")
     private SiteResumeInternship[] internshipList;
-     /**
-      * 作品集列表
-      * <p> 示例值：
-      */
+    /**
+     * 作品集列表
+     * <p> 示例值：
+     */
     @SerializedName("work_list")
     private SiteResumeWork[] workList;
-     /**
-      * 获奖经历列表
-      * <p> 示例值：
-      */
+    /**
+     * 获奖经历列表
+     * <p> 示例值：
+     */
     @SerializedName("award_list")
     private SiteResumeAward[] awardList;
-     /**
-      * 语言技能列表
-      * <p> 示例值：
-      */
+    /**
+     * 语言技能列表
+     * <p> 示例值：
+     */
     @SerializedName("language_skill_list")
     private SiteResumeLanguageSkill[] languageSkillList;
-     /**
-      * 社交账号列表
-      * <p> 示例值：
-      */
+    /**
+     * 社交账号列表
+     * <p> 示例值：
+     */
     @SerializedName("sns_list")
     private SiteResumeSns[] snsList;
-     /**
-      * 身份信息
-      * <p> 示例值：
-      */
+    /**
+     * 身份信息
+     * <p> 示例值：
+     */
     @SerializedName("identification")
     private SiteResumeIdentification identification;
-     /**
-      * 竞赛经历列表
-      * <p> 示例值：
-      */
+    /**
+     * 竞赛经历列表
+     * <p> 示例值：
+     */
     @SerializedName("competition_list")
     private SiteResumeCompetition[] competitionList;
-     /**
-      * 证书列表
-      * <p> 示例值：
-      */
+    /**
+     * 证书列表
+     * <p> 示例值：
+     */
     @SerializedName("certificate_list")
     private SiteResumeCertificate[] certificateList;
+
+    // builder 开始
+    public SiteApplicationResume() {
+    }
+
+    public SiteApplicationResume(Builder builder) {
+        /**
+         * 姓名
+         * <p> 示例值：
+         */
+        this.name = builder.name;
+        /**
+         * 手机号
+         * <p> 示例值：
+         */
+        this.mobileNumber = builder.mobileNumber;
+        /**
+         * 手机区号
+         * <p> 示例值：
+         */
+        this.moblieCode = builder.moblieCode;
+        /**
+         * 邮箱
+         * <p> 示例值：
+         */
+        this.email = builder.email;
+        /**
+         * 简历附件id
+         * <p> 示例值：
+         */
+        this.siteAttachmentId = builder.siteAttachmentId;
+        /**
+         * 自我评价
+         * <p> 示例值：
+         */
+        this.selfEvaluation = builder.selfEvaluation;
+        /**
+         * 年龄
+         * <p> 示例值：
+         */
+        this.age = builder.age;
+        /**
+         * 工作年限
+         * <p> 示例值：
+         */
+        this.workingYear = builder.workingYear;
+        /**
+         * 教育经历列表
+         * <p> 示例值：
+         */
+        this.educationList = builder.educationList;
+        /**
+         * 工作经历列表
+         * <p> 示例值：
+         */
+        this.careerList = builder.careerList;
+        /**
+         * 项目经历列表
+         * <p> 示例值：
+         */
+        this.projectList = builder.projectList;
+        /**
+         * 实习经历列表
+         * <p> 示例值：
+         */
+        this.internshipList = builder.internshipList;
+        /**
+         * 作品集列表
+         * <p> 示例值：
+         */
+        this.workList = builder.workList;
+        /**
+         * 获奖经历列表
+         * <p> 示例值：
+         */
+        this.awardList = builder.awardList;
+        /**
+         * 语言技能列表
+         * <p> 示例值：
+         */
+        this.languageSkillList = builder.languageSkillList;
+        /**
+         * 社交账号列表
+         * <p> 示例值：
+         */
+        this.snsList = builder.snsList;
+        /**
+         * 身份信息
+         * <p> 示例值：
+         */
+        this.identification = builder.identification;
+        /**
+         * 竞赛经历列表
+         * <p> 示例值：
+         */
+        this.competitionList = builder.competitionList;
+        /**
+         * 证书列表
+         * <p> 示例值：
+         */
+        this.certificateList = builder.certificateList;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getName() {
         return this.name;
     }
@@ -290,458 +401,352 @@ public class SiteApplicationResume {
         this.certificateList = certificateList;
     }
 
-
-// builder 开始
-  public SiteApplicationResume(){}
-
-  public SiteApplicationResume(Builder builder){
-         /**
-          * 姓名
-          * <p> 示例值：
-          */
-      this.name = builder.name;
-         /**
-          * 手机号
-          * <p> 示例值：
-          */
-      this.mobileNumber = builder.mobileNumber;
-         /**
-          * 手机区号
-          * <p> 示例值：
-          */
-      this.moblieCode = builder.moblieCode;
-         /**
-          * 邮箱
-          * <p> 示例值：
-          */
-      this.email = builder.email;
-         /**
-          * 简历附件id
-          * <p> 示例值：
-          */
-      this.siteAttachmentId = builder.siteAttachmentId;
-         /**
-          * 自我评价
-          * <p> 示例值：
-          */
-      this.selfEvaluation = builder.selfEvaluation;
-         /**
-          * 年龄
-          * <p> 示例值：
-          */
-      this.age = builder.age;
-         /**
-          * 工作年限
-          * <p> 示例值：
-          */
-      this.workingYear = builder.workingYear;
-         /**
-          * 教育经历列表
-          * <p> 示例值：
-          */
-      this.educationList = builder.educationList;
-         /**
-          * 工作经历列表
-          * <p> 示例值：
-          */
-      this.careerList = builder.careerList;
-         /**
-          * 项目经历列表
-          * <p> 示例值：
-          */
-      this.projectList = builder.projectList;
-         /**
-          * 实习经历列表
-          * <p> 示例值：
-          */
-      this.internshipList = builder.internshipList;
-         /**
-          * 作品集列表
-          * <p> 示例值：
-          */
-      this.workList = builder.workList;
-         /**
-          * 获奖经历列表
-          * <p> 示例值：
-          */
-      this.awardList = builder.awardList;
-         /**
-          * 语言技能列表
-          * <p> 示例值：
-          */
-      this.languageSkillList = builder.languageSkillList;
-         /**
-          * 社交账号列表
-          * <p> 示例值：
-          */
-      this.snsList = builder.snsList;
-         /**
-          * 身份信息
-          * <p> 示例值：
-          */
-      this.identification = builder.identification;
-         /**
-          * 竞赛经历列表
-          * <p> 示例值：
-          */
-      this.competitionList = builder.competitionList;
-         /**
-          * 证书列表
-          * <p> 示例值：
-          */
-      this.certificateList = builder.certificateList;
-  }
-
     public static class Builder {
-     /**
-      * 姓名
-      * <p> 示例值：
-      */
+        /**
+         * 姓名
+         * <p> 示例值：
+         */
         private String name;
-     /**
-      * 手机号
-      * <p> 示例值：
-      */
+        /**
+         * 手机号
+         * <p> 示例值：
+         */
         private String mobileNumber;
-     /**
-      * 手机区号
-      * <p> 示例值：
-      */
+        /**
+         * 手机区号
+         * <p> 示例值：
+         */
         private String moblieCode;
-     /**
-      * 邮箱
-      * <p> 示例值：
-      */
+        /**
+         * 邮箱
+         * <p> 示例值：
+         */
         private String email;
-     /**
-      * 简历附件id
-      * <p> 示例值：
-      */
+        /**
+         * 简历附件id
+         * <p> 示例值：
+         */
         private String siteAttachmentId;
-     /**
-      * 自我评价
-      * <p> 示例值：
-      */
+        /**
+         * 自我评价
+         * <p> 示例值：
+         */
         private String selfEvaluation;
-     /**
-      * 年龄
-      * <p> 示例值：
-      */
+        /**
+         * 年龄
+         * <p> 示例值：
+         */
         private String age;
-     /**
-      * 工作年限
-      * <p> 示例值：
-      */
+        /**
+         * 工作年限
+         * <p> 示例值：
+         */
         private String workingYear;
-     /**
-      * 教育经历列表
-      * <p> 示例值：
-      */
+        /**
+         * 教育经历列表
+         * <p> 示例值：
+         */
         private SiteResumeEducation[] educationList;
-     /**
-      * 工作经历列表
-      * <p> 示例值：
-      */
+        /**
+         * 工作经历列表
+         * <p> 示例值：
+         */
         private SiteResumeCareer[] careerList;
-     /**
-      * 项目经历列表
-      * <p> 示例值：
-      */
+        /**
+         * 项目经历列表
+         * <p> 示例值：
+         */
         private SiteResumeProject[] projectList;
-     /**
-      * 实习经历列表
-      * <p> 示例值：
-      */
+        /**
+         * 实习经历列表
+         * <p> 示例值：
+         */
         private SiteResumeInternship[] internshipList;
-     /**
-      * 作品集列表
-      * <p> 示例值：
-      */
+        /**
+         * 作品集列表
+         * <p> 示例值：
+         */
         private SiteResumeWork[] workList;
-     /**
-      * 获奖经历列表
-      * <p> 示例值：
-      */
+        /**
+         * 获奖经历列表
+         * <p> 示例值：
+         */
         private SiteResumeAward[] awardList;
-     /**
-      * 语言技能列表
-      * <p> 示例值：
-      */
+        /**
+         * 语言技能列表
+         * <p> 示例值：
+         */
         private SiteResumeLanguageSkill[] languageSkillList;
-     /**
-      * 社交账号列表
-      * <p> 示例值：
-      */
+        /**
+         * 社交账号列表
+         * <p> 示例值：
+         */
         private SiteResumeSns[] snsList;
-     /**
-      * 身份信息
-      * <p> 示例值：
-      */
+        /**
+         * 身份信息
+         * <p> 示例值：
+         */
         private SiteResumeIdentification identification;
-     /**
-      * 竞赛经历列表
-      * <p> 示例值：
-      */
+        /**
+         * 竞赛经历列表
+         * <p> 示例值：
+         */
         private SiteResumeCompetition[] competitionList;
-     /**
-      * 证书列表
-      * <p> 示例值：
-      */
+        /**
+         * 证书列表
+         * <p> 示例值：
+         */
         private SiteResumeCertificate[] certificateList;
 
         /**
          * 姓名
          * <p> 示例值：
+         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 手机号
          * <p> 示例值：
+         *
          * @param mobileNumber
          * @return
          */
         public Builder mobileNumber(String mobileNumber) {
-             this.mobileNumber = mobileNumber;
-             return this;
+            this.mobileNumber = mobileNumber;
+            return this;
         }
 
-    
 
         /**
          * 手机区号
          * <p> 示例值：
+         *
          * @param moblieCode
          * @return
          */
         public Builder moblieCode(String moblieCode) {
-             this.moblieCode = moblieCode;
-             return this;
+            this.moblieCode = moblieCode;
+            return this;
         }
 
-    
 
         /**
          * 邮箱
          * <p> 示例值：
+         *
          * @param email
          * @return
          */
         public Builder email(String email) {
-             this.email = email;
-             return this;
+            this.email = email;
+            return this;
         }
 
-    
 
         /**
          * 简历附件id
          * <p> 示例值：
+         *
          * @param siteAttachmentId
          * @return
          */
         public Builder siteAttachmentId(String siteAttachmentId) {
-             this.siteAttachmentId = siteAttachmentId;
-             return this;
+            this.siteAttachmentId = siteAttachmentId;
+            return this;
         }
 
-    
 
         /**
          * 自我评价
          * <p> 示例值：
+         *
          * @param selfEvaluation
          * @return
          */
         public Builder selfEvaluation(String selfEvaluation) {
-             this.selfEvaluation = selfEvaluation;
-             return this;
+            this.selfEvaluation = selfEvaluation;
+            return this;
         }
 
-    
 
         /**
          * 年龄
          * <p> 示例值：
+         *
          * @param age
          * @return
          */
         public Builder age(String age) {
-             this.age = age;
-             return this;
+            this.age = age;
+            return this;
         }
 
-    
 
         /**
          * 工作年限
          * <p> 示例值：
+         *
          * @param workingYear
          * @return
          */
         public Builder workingYear(String workingYear) {
-             this.workingYear = workingYear;
-             return this;
+            this.workingYear = workingYear;
+            return this;
         }
 
-    
 
         /**
          * 教育经历列表
          * <p> 示例值：
+         *
          * @param educationList
          * @return
          */
         public Builder educationList(SiteResumeEducation[] educationList) {
-             this.educationList = educationList;
-             return this;
+            this.educationList = educationList;
+            return this;
         }
 
-    
 
         /**
          * 工作经历列表
          * <p> 示例值：
+         *
          * @param careerList
          * @return
          */
         public Builder careerList(SiteResumeCareer[] careerList) {
-             this.careerList = careerList;
-             return this;
+            this.careerList = careerList;
+            return this;
         }
 
-    
 
         /**
          * 项目经历列表
          * <p> 示例值：
+         *
          * @param projectList
          * @return
          */
         public Builder projectList(SiteResumeProject[] projectList) {
-             this.projectList = projectList;
-             return this;
+            this.projectList = projectList;
+            return this;
         }
 
-    
 
         /**
          * 实习经历列表
          * <p> 示例值：
+         *
          * @param internshipList
          * @return
          */
         public Builder internshipList(SiteResumeInternship[] internshipList) {
-             this.internshipList = internshipList;
-             return this;
+            this.internshipList = internshipList;
+            return this;
         }
 
-    
 
         /**
          * 作品集列表
          * <p> 示例值：
+         *
          * @param workList
          * @return
          */
         public Builder workList(SiteResumeWork[] workList) {
-             this.workList = workList;
-             return this;
+            this.workList = workList;
+            return this;
         }
 
-    
 
         /**
          * 获奖经历列表
          * <p> 示例值：
+         *
          * @param awardList
          * @return
          */
         public Builder awardList(SiteResumeAward[] awardList) {
-             this.awardList = awardList;
-             return this;
+            this.awardList = awardList;
+            return this;
         }
 
-    
 
         /**
          * 语言技能列表
          * <p> 示例值：
+         *
          * @param languageSkillList
          * @return
          */
         public Builder languageSkillList(SiteResumeLanguageSkill[] languageSkillList) {
-             this.languageSkillList = languageSkillList;
-             return this;
+            this.languageSkillList = languageSkillList;
+            return this;
         }
 
-    
 
         /**
          * 社交账号列表
          * <p> 示例值：
+         *
          * @param snsList
          * @return
          */
         public Builder snsList(SiteResumeSns[] snsList) {
-             this.snsList = snsList;
-             return this;
+            this.snsList = snsList;
+            return this;
         }
 
-    
 
         /**
          * 身份信息
          * <p> 示例值：
+         *
          * @param identification
          * @return
          */
         public Builder identification(SiteResumeIdentification identification) {
-             this.identification = identification;
-             return this;
+            this.identification = identification;
+            return this;
         }
 
-    
 
         /**
          * 竞赛经历列表
          * <p> 示例值：
+         *
          * @param competitionList
          * @return
          */
         public Builder competitionList(SiteResumeCompetition[] competitionList) {
-             this.competitionList = competitionList;
-             return this;
+            this.competitionList = competitionList;
+            return this;
         }
 
-    
 
         /**
          * 证书列表
          * <p> 示例值：
+         *
          * @param certificateList
          * @return
          */
         public Builder certificateList(SiteResumeCertificate[] certificateList) {
-             this.certificateList = certificateList;
-             return this;
+            this.certificateList = certificateList;
+            return this;
         }
 
-    
-    
-    public SiteApplicationResume build(){
-        return new SiteApplicationResume(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public SiteApplicationResume build() {
+            return new SiteApplicationResume(this);
+        }
     }
 }

@@ -12,25 +12,49 @@
  */
 
 package com.lark.oapi.service.mail.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class PatchMailgroupReq {
-     /**
-      * 邮件组ID或者邮件组地址
-      * <p> 示例值：xxxxxxxxxxxxxxx 或 test_mail_group@xxx.xx
-      */
+    /**
+     * 邮件组ID或者邮件组地址
+     * <p> 示例值：xxxxxxxxxxxxxxx 或 test_mail_group@xxx.xx
+     */
     @Path
     @SerializedName("mailgroup_id")
     private String mailgroupId;
+    @Body
+    private Mailgroup body;
+
+    // builder 开始
+    public PatchMailgroupReq() {
+    }
+
+    public PatchMailgroupReq(Builder builder) {
+        /**
+         * 邮件组ID或者邮件组地址
+         * <p> 示例值：xxxxxxxxxxxxxxx 或 test_mail_group@xxx.xx
+         */
+        this.mailgroupId = builder.mailgroupId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getMailgroupId() {
         return this.mailgroupId;
     }
@@ -38,9 +62,6 @@ public class PatchMailgroupReq {
     public void setMailgroupId(String mailgroupId) {
         this.mailgroupId = mailgroupId;
     }
-
-    @Body
-    private Mailgroup body;
 
     public Mailgroup getMailgroup() {
         return this.body;
@@ -50,54 +71,40 @@ public class PatchMailgroupReq {
         this.body = body;
     }
 
-// builder 开始
-  public PatchMailgroupReq(){}
-
-  public PatchMailgroupReq(Builder builder){
-     /**
-      * 邮件组ID或者邮件组地址
-      * <p> 示例值：xxxxxxxxxxxxxxx 或 test_mail_group@xxx.xx
-      */
-       this.mailgroupId = builder.mailgroupId;
-        this.body = builder.body;
-  }
-
     public static class Builder {
-    
+
         private String mailgroupId; // 邮件组ID或者邮件组地址
+        private Mailgroup body;
+
         /**
          * 邮件组ID或者邮件组地址
          * <p> 示例值：xxxxxxxxxxxxxxx 或 test_mail_group@xxx.xx
+         *
          * @param mailgroupId
          * @return
          */
-          public Builder mailgroupId(String mailgroupId) {
-               this.mailgroupId = mailgroupId;
-               return this;
-          }
+        public Builder mailgroupId(String mailgroupId) {
+            this.mailgroupId = mailgroupId;
+            return this;
+        }
 
-    
-        private Mailgroup body;
-    
         public Mailgroup getMailgroup() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder mailgroup(Mailgroup body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public PatchMailgroupReq build(){
-        return new PatchMailgroupReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public PatchMailgroupReq build() {
+            return new PatchMailgroupReq(this);
+        }
     }
 }

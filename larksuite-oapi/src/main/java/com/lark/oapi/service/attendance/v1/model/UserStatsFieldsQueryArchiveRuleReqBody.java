@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,36 +20,71 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class UserStatsFieldsQueryArchiveRuleReqBody {
-     /**
-      * 语言类型
-      * <p> 示例值：zh
-      */
+    /**
+     * 语言类型
+     * <p> 示例值：zh
+     */
     @SerializedName("locale")
     private String locale;
-     /**
-      * 月份
-      * <p> 示例值：202409
-      */
+    /**
+     * 月份
+     * <p> 示例值：202409
+     */
     @SerializedName("month")
     private String month;
-     /**
-      * 归档规则id
-      * <p> 示例值：1
-      */
+    /**
+     * 归档规则id
+     * <p> 示例值：1
+     */
     @SerializedName("archive_rule_id")
     private String archiveRuleId;
-     /**
-      * 操作者id
-      * <p> 示例值：ax8ud
-      */
+    /**
+     * 操作者id
+     * <p> 示例值：ax8ud
+     */
     @SerializedName("operator_id")
     private String operatorId;
+
+    // builder 开始
+    public UserStatsFieldsQueryArchiveRuleReqBody() {
+    }
+
+    public UserStatsFieldsQueryArchiveRuleReqBody(Builder builder) {
+        /**
+         * 语言类型
+         * <p> 示例值：zh
+         */
+        this.locale = builder.locale;
+        /**
+         * 月份
+         * <p> 示例值：202409
+         */
+        this.month = builder.month;
+        /**
+         * 归档规则id
+         * <p> 示例值：1
+         */
+        this.archiveRuleId = builder.archiveRuleId;
+        /**
+         * 操作者id
+         * <p> 示例值：ax8ud
+         */
+        this.operatorId = builder.operatorId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getLocale() {
         return this.locale;
     }
@@ -81,113 +117,82 @@ public class UserStatsFieldsQueryArchiveRuleReqBody {
         this.operatorId = operatorId;
     }
 
-
-// builder 开始
-  public UserStatsFieldsQueryArchiveRuleReqBody(){}
-
-  public UserStatsFieldsQueryArchiveRuleReqBody(Builder builder){
-         /**
-          * 语言类型
-          * <p> 示例值：zh
-          */
-      this.locale = builder.locale;
-         /**
-          * 月份
-          * <p> 示例值：202409
-          */
-      this.month = builder.month;
-         /**
-          * 归档规则id
-          * <p> 示例值：1
-          */
-      this.archiveRuleId = builder.archiveRuleId;
-         /**
-          * 操作者id
-          * <p> 示例值：ax8ud
-          */
-      this.operatorId = builder.operatorId;
-  }
-
     public static class Builder {
-     /**
-      * 语言类型
-      * <p> 示例值：zh
-      */
+        /**
+         * 语言类型
+         * <p> 示例值：zh
+         */
         private String locale;
-     /**
-      * 月份
-      * <p> 示例值：202409
-      */
+        /**
+         * 月份
+         * <p> 示例值：202409
+         */
         private String month;
-     /**
-      * 归档规则id
-      * <p> 示例值：1
-      */
+        /**
+         * 归档规则id
+         * <p> 示例值：1
+         */
         private String archiveRuleId;
-     /**
-      * 操作者id
-      * <p> 示例值：ax8ud
-      */
+        /**
+         * 操作者id
+         * <p> 示例值：ax8ud
+         */
         private String operatorId;
 
         /**
          * 语言类型
          * <p> 示例值：zh
+         *
          * @param locale
          * @return
          */
         public Builder locale(String locale) {
-             this.locale = locale;
-             return this;
+            this.locale = locale;
+            return this;
         }
 
-    
 
         /**
          * 月份
          * <p> 示例值：202409
+         *
          * @param month
          * @return
          */
         public Builder month(String month) {
-             this.month = month;
-             return this;
+            this.month = month;
+            return this;
         }
 
-    
 
         /**
          * 归档规则id
          * <p> 示例值：1
+         *
          * @param archiveRuleId
          * @return
          */
         public Builder archiveRuleId(String archiveRuleId) {
-             this.archiveRuleId = archiveRuleId;
-             return this;
+            this.archiveRuleId = archiveRuleId;
+            return this;
         }
 
-    
 
         /**
          * 操作者id
          * <p> 示例值：ax8ud
+         *
          * @param operatorId
          * @return
          */
         public Builder operatorId(String operatorId) {
-             this.operatorId = operatorId;
-             return this;
+            this.operatorId = operatorId;
+            return this;
         }
 
-    
-    
-    public UserStatsFieldsQueryArchiveRuleReqBody build(){
-        return new UserStatsFieldsQueryArchiveRuleReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public UserStatsFieldsQueryArchiveRuleReqBody build() {
+            return new UserStatsFieldsQueryArchiveRuleReqBody(this);
+        }
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.moments.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.moments.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,48 +20,93 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Category {
-     /**
-      * 板块的ID
-      * <p> 示例值：6560906191909683220
-      */
+    /**
+     * 板块的ID
+     * <p> 示例值：6560906191909683220
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 板块名
-      * <p> 示例值：示例板块
-      */
+    /**
+     * 板块名
+     * <p> 示例值：示例板块
+     */
     @SerializedName("name")
     private String name;
-     /**
-      * 板块描述
-      * <p> 示例值：一个有趣的板块描述
-      */
+    /**
+     * 板块描述
+     * <p> 示例值：一个有趣的板块描述
+     */
     @SerializedName("description")
     private String description;
-     /**
-      * 板块创建时间
-      * <p> 示例值：2022-05-23T00:00:00+08:00
-      */
+    /**
+     * 板块创建时间
+     * <p> 示例值：2022-05-23T00:00:00+08:00
+     */
     @SerializedName("create_time")
     private String createTime;
-     /**
-      * 板块下帖子总数
-      * <p> 示例值：5
-      */
+    /**
+     * 板块下帖子总数
+     * <p> 示例值：5
+     */
     @SerializedName("post_count")
     private Integer postCount;
-     /**
-      * 板块参与人数
-      * <p> 示例值：10
-      */
+    /**
+     * 板块参与人数
+     * <p> 示例值：10
+     */
     @SerializedName("participant_count")
     private Integer participantCount;
+
+    // builder 开始
+    public Category() {
+    }
+
+    public Category(Builder builder) {
+        /**
+         * 板块的ID
+         * <p> 示例值：6560906191909683220
+         */
+        this.id = builder.id;
+        /**
+         * 板块名
+         * <p> 示例值：示例板块
+         */
+        this.name = builder.name;
+        /**
+         * 板块描述
+         * <p> 示例值：一个有趣的板块描述
+         */
+        this.description = builder.description;
+        /**
+         * 板块创建时间
+         * <p> 示例值：2022-05-23T00:00:00+08:00
+         */
+        this.createTime = builder.createTime;
+        /**
+         * 板块下帖子总数
+         * <p> 示例值：5
+         */
+        this.postCount = builder.postCount;
+        /**
+         * 板块参与人数
+         * <p> 示例值：10
+         */
+        this.participantCount = builder.participantCount;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -109,159 +155,118 @@ public class Category {
         this.participantCount = participantCount;
     }
 
-
-// builder 开始
-  public Category(){}
-
-  public Category(Builder builder){
-         /**
-          * 板块的ID
-          * <p> 示例值：6560906191909683220
-          */
-      this.id = builder.id;
-         /**
-          * 板块名
-          * <p> 示例值：示例板块
-          */
-      this.name = builder.name;
-         /**
-          * 板块描述
-          * <p> 示例值：一个有趣的板块描述
-          */
-      this.description = builder.description;
-         /**
-          * 板块创建时间
-          * <p> 示例值：2022-05-23T00:00:00+08:00
-          */
-      this.createTime = builder.createTime;
-         /**
-          * 板块下帖子总数
-          * <p> 示例值：5
-          */
-      this.postCount = builder.postCount;
-         /**
-          * 板块参与人数
-          * <p> 示例值：10
-          */
-      this.participantCount = builder.participantCount;
-  }
-
     public static class Builder {
-     /**
-      * 板块的ID
-      * <p> 示例值：6560906191909683220
-      */
+        /**
+         * 板块的ID
+         * <p> 示例值：6560906191909683220
+         */
         private String id;
-     /**
-      * 板块名
-      * <p> 示例值：示例板块
-      */
+        /**
+         * 板块名
+         * <p> 示例值：示例板块
+         */
         private String name;
-     /**
-      * 板块描述
-      * <p> 示例值：一个有趣的板块描述
-      */
+        /**
+         * 板块描述
+         * <p> 示例值：一个有趣的板块描述
+         */
         private String description;
-     /**
-      * 板块创建时间
-      * <p> 示例值：2022-05-23T00:00:00+08:00
-      */
+        /**
+         * 板块创建时间
+         * <p> 示例值：2022-05-23T00:00:00+08:00
+         */
         private String createTime;
-     /**
-      * 板块下帖子总数
-      * <p> 示例值：5
-      */
+        /**
+         * 板块下帖子总数
+         * <p> 示例值：5
+         */
         private Integer postCount;
-     /**
-      * 板块参与人数
-      * <p> 示例值：10
-      */
+        /**
+         * 板块参与人数
+         * <p> 示例值：10
+         */
         private Integer participantCount;
 
         /**
          * 板块的ID
          * <p> 示例值：6560906191909683220
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 板块名
          * <p> 示例值：示例板块
+         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 板块描述
          * <p> 示例值：一个有趣的板块描述
+         *
          * @param description
          * @return
          */
         public Builder description(String description) {
-             this.description = description;
-             return this;
+            this.description = description;
+            return this;
         }
 
-    
 
         /**
          * 板块创建时间
          * <p> 示例值：2022-05-23T00:00:00+08:00
+         *
          * @param createTime
          * @return
          */
         public Builder createTime(String createTime) {
-             this.createTime = createTime;
-             return this;
+            this.createTime = createTime;
+            return this;
         }
 
-    
 
         /**
          * 板块下帖子总数
          * <p> 示例值：5
+         *
          * @param postCount
          * @return
          */
         public Builder postCount(Integer postCount) {
-             this.postCount = postCount;
-             return this;
+            this.postCount = postCount;
+            return this;
         }
 
-    
 
         /**
          * 板块参与人数
          * <p> 示例值：10
+         *
          * @param participantCount
          * @return
          */
         public Builder participantCount(Integer participantCount) {
-             this.participantCount = participantCount;
-             return this;
+            this.participantCount = participantCount;
+            return this;
         }
 
-    
-    
-    public Category build(){
-        return new Category(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Category build() {
+            return new Category(this);
+        }
     }
 }

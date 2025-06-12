@@ -17,14 +17,15 @@ package com.lark.oapi.service.im.v2.enums;
  * 消息卡片类型
  */
 public enum FeedGroupItemFeedTypeEnum {
-     CHAT("3"), // 会话
-  ;
-   private String value;
+    CHAT("3"), // 会话
+    ;
+    private String value;
+
     FeedGroupItemFeedTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

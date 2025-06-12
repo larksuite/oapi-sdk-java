@@ -12,25 +12,61 @@
  */
 
 package com.lark.oapi.service.task.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.task.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class PatchTaskReq {
-     /**
-      * 此次调用中使用的用户ID的类型
-      * <p> 示例值：
-      */
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
+    /**
+     * 任务 ID
+     * <p> 示例值：83912691-2e43-47fc-94a4-d512e03984fa
+     */
+    @Path
+    @SerializedName("task_id")
+    private String taskId;
+    @Body
+    private PatchTaskReqBody body;
+
+    // builder 开始
+    public PatchTaskReq() {
+    }
+
+    public PatchTaskReq(Builder builder) {
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         */
+        this.userIdType = builder.userIdType;
+        /**
+         * 任务 ID
+         * <p> 示例值：83912691-2e43-47fc-94a4-d512e03984fa
+         */
+        this.taskId = builder.taskId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getUserIdType() {
         return this.userIdType;
     }
@@ -39,13 +75,6 @@ public class PatchTaskReq {
         this.userIdType = userIdType;
     }
 
-     /**
-      * 任务 ID
-      * <p> 示例值：83912691-2e43-47fc-94a4-d512e03984fa
-      */
-    @Path
-    @SerializedName("task_id")
-    private String taskId;
     public String getTaskId() {
         return this.taskId;
     }
@@ -53,9 +82,6 @@ public class PatchTaskReq {
     public void setTaskId(String taskId) {
         this.taskId = taskId;
     }
-
-    @Body
-    private PatchTaskReqBody body;
 
     public PatchTaskReqBody getPatchTaskReqBody() {
         return this.body;
@@ -65,83 +91,64 @@ public class PatchTaskReq {
         this.body = body;
     }
 
-// builder 开始
-  public PatchTaskReq(){}
-
-  public PatchTaskReq(Builder builder){
-         /**
-          * 此次调用中使用的用户ID的类型
-          * <p> 示例值：
-          */
-       this.userIdType = builder.userIdType;
-     /**
-      * 任务 ID
-      * <p> 示例值：83912691-2e43-47fc-94a4-d512e03984fa
-      */
-       this.taskId = builder.taskId;
-        this.body = builder.body;
-  }
-
     public static class Builder {
         private String userIdType; // 此次调用中使用的用户ID的类型
-    
+        private String taskId; // 任务 ID
+        private PatchTaskReqBody body;
+
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
+         *
          * @param userIdType
          * @return
          */
-           public Builder userIdType(String userIdType) {
-                this.userIdType = userIdType;
-                return this;
-           }
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
 
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
+         *
          * @param userIdType {@link com.lark.oapi.service.task.v1.enums.PatchTaskUserIdTypeEnum}
          * @return
          */
-          public Builder userIdType(com.lark.oapi.service.task.v1.enums.PatchTaskUserIdTypeEnum userIdType) {
-               this.userIdType = userIdType.getValue();
-               return this;
-          }
+        public Builder userIdType(com.lark.oapi.service.task.v1.enums.PatchTaskUserIdTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
+            return this;
+        }
 
-    
-        private String taskId; // 任务 ID
         /**
          * 任务 ID
          * <p> 示例值：83912691-2e43-47fc-94a4-d512e03984fa
+         *
          * @param taskId
          * @return
          */
-          public Builder taskId(String taskId) {
-               this.taskId = taskId;
-               return this;
-          }
+        public Builder taskId(String taskId) {
+            this.taskId = taskId;
+            return this;
+        }
 
-    
-        private PatchTaskReqBody body;
-    
         public PatchTaskReqBody getPatchTaskReqBody() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder patchTaskReqBody(PatchTaskReqBody body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public PatchTaskReq build(){
-        return new PatchTaskReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public PatchTaskReq build() {
+            return new PatchTaskReq(this);
+        }
     }
 }

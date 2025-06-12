@@ -17,16 +17,17 @@ package com.lark.oapi.service.corehr.v2.enums;
  * 发起方
  */
 public enum SubmitProbationSubmissionTypeEnum {
-     SELF_SUBMISSION("self_submission"), // 员工
-     SYSTEM("system"), // 系统
-     HR_SUBMISSION("hr_submission"), // HR
-  ;
-   private String value;
+    SELF_SUBMISSION("self_submission"), // 员工
+    SYSTEM("system"), // 系统
+    HR_SUBMISSION("hr_submission"), // HR
+    ;
+    private String value;
+
     SubmitProbationSubmissionTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

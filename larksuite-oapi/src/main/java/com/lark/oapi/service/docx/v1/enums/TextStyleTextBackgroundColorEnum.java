@@ -17,28 +17,29 @@ package com.lark.oapi.service.docx.v1.enums;
  * 块背景色
  */
 public enum TextStyleTextBackgroundColorEnum {
-     LIGHTGRAYBACKGROUND("LightGrayBackground"), // 浅灰色
-     LIGHTREDBACKGROUND("LightRedBackground"), // 浅红色
-     LIGHTORANGEBACKGROUND("LightOrangeBackground"), // 浅橙色
-     LIGHTYELLOWBACKGROUND("LightYellowBackground"), // 浅黄色
-     LIGHTGREENBACKGROUND("LightGreenBackground"), // 浅绿色
-     LIGHTBLUEBACKGROUND("LightBlueBackground"), // 浅蓝色
-     LIGHTPURPLEBACKGROUND("LightPurpleBackground"), // 浅紫色
-     PALEGRAYBACKGROUND("PaleGrayBackground"), // 淡灰色
-     DARKGRAYBACKGROUND("DarkGrayBackground"), // 深灰色
-     DARKREDBACKGROUND("DarkRedBackground"), // 深红色
-     DARKORANGEBACKGROUND("DarkOrangeBackground"), // 深橙色
-     DARKYELLOWBACKGROUND("DarkYellowBackground"), // 深黄色
-     DARKGREENBACKGROUND("DarkGreenBackground"), // 深绿色
-     DARKBLUEBACKGROUND("DarkBlueBackground"), // 深蓝色
-     DARKPURPLEBACKGROUND("DarkPurpleBackground"), // 深紫色
-  ;
-   private String value;
+    LIGHTGRAYBACKGROUND("LightGrayBackground"), // 浅灰色
+    LIGHTREDBACKGROUND("LightRedBackground"), // 浅红色
+    LIGHTORANGEBACKGROUND("LightOrangeBackground"), // 浅橙色
+    LIGHTYELLOWBACKGROUND("LightYellowBackground"), // 浅黄色
+    LIGHTGREENBACKGROUND("LightGreenBackground"), // 浅绿色
+    LIGHTBLUEBACKGROUND("LightBlueBackground"), // 浅蓝色
+    LIGHTPURPLEBACKGROUND("LightPurpleBackground"), // 浅紫色
+    PALEGRAYBACKGROUND("PaleGrayBackground"), // 淡灰色
+    DARKGRAYBACKGROUND("DarkGrayBackground"), // 深灰色
+    DARKREDBACKGROUND("DarkRedBackground"), // 深红色
+    DARKORANGEBACKGROUND("DarkOrangeBackground"), // 深橙色
+    DARKYELLOWBACKGROUND("DarkYellowBackground"), // 深黄色
+    DARKGREENBACKGROUND("DarkGreenBackground"), // 深绿色
+    DARKBLUEBACKGROUND("DarkBlueBackground"), // 深蓝色
+    DARKPURPLEBACKGROUND("DarkPurpleBackground"), // 深紫色
+    ;
+    private String value;
+
     TextStyleTextBackgroundColorEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

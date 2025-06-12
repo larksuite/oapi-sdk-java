@@ -12,25 +12,49 @@
  */
 
 package com.lark.oapi.service.cardkit.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.cardkit.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class SettingsCardReq {
-     /**
-      * 卡片ID
-      * <p> 示例值：7355372766134157313
-      */
+    /**
+     * 卡片ID
+     * <p> 示例值：7355372766134157313
+     */
     @Path
     @SerializedName("card_id")
     private String cardId;
+    @Body
+    private SettingsCardReqBody body;
+
+    // builder 开始
+    public SettingsCardReq() {
+    }
+
+    public SettingsCardReq(Builder builder) {
+        /**
+         * 卡片ID
+         * <p> 示例值：7355372766134157313
+         */
+        this.cardId = builder.cardId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getCardId() {
         return this.cardId;
     }
@@ -38,9 +62,6 @@ public class SettingsCardReq {
     public void setCardId(String cardId) {
         this.cardId = cardId;
     }
-
-    @Body
-    private SettingsCardReqBody body;
 
     public SettingsCardReqBody getSettingsCardReqBody() {
         return this.body;
@@ -50,54 +71,40 @@ public class SettingsCardReq {
         this.body = body;
     }
 
-// builder 开始
-  public SettingsCardReq(){}
-
-  public SettingsCardReq(Builder builder){
-     /**
-      * 卡片ID
-      * <p> 示例值：7355372766134157313
-      */
-       this.cardId = builder.cardId;
-        this.body = builder.body;
-  }
-
     public static class Builder {
-    
+
         private String cardId; // 卡片ID
+        private SettingsCardReqBody body;
+
         /**
          * 卡片ID
          * <p> 示例值：7355372766134157313
+         *
          * @param cardId
          * @return
          */
-          public Builder cardId(String cardId) {
-               this.cardId = cardId;
-               return this;
-          }
+        public Builder cardId(String cardId) {
+            this.cardId = cardId;
+            return this;
+        }
 
-    
-        private SettingsCardReqBody body;
-    
         public SettingsCardReqBody getSettingsCardReqBody() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder settingsCardReqBody(SettingsCardReqBody body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public SettingsCardReq build(){
-        return new SettingsCardReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public SettingsCardReq build() {
+            return new SettingsCardReq(this);
+        }
     }
 }

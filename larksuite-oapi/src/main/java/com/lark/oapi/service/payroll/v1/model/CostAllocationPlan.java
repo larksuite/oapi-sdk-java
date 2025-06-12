@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.payroll.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.payroll.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,42 +20,82 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CostAllocationPlan {
-     /**
-      * 唯一标识
-      * <p> 示例值：6823630319749580301
-      */
+    /**
+     * 唯一标识
+     * <p> 示例值：6823630319749580301
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 方案名称
-      * <p> 示例值：
-      */
+    /**
+     * 方案名称
+     * <p> 示例值：
+     */
     @SerializedName("names")
     private I18nContent[] names;
-     /**
-      * 适用国家
-      * <p> 示例值：6823630319749580302
-      */
+    /**
+     * 适用国家
+     * <p> 示例值：6823630319749580302
+     */
     @SerializedName("applicable_country_region")
     private String applicableCountryRegion;
-     /**
-      * 成本分摊方案对应的汇总维度列表
-      * <p> 示例值：
-      */
+    /**
+     * 成本分摊方案对应的汇总维度列表
+     * <p> 示例值：
+     */
     @SerializedName("dimensions")
     private Dimension[] dimensions;
-     /**
-      * 成本分摊方案对应的成本项列表
-      * <p> 示例值：
-      */
+    /**
+     * 成本分摊方案对应的成本项列表
+     * <p> 示例值：
+     */
     @SerializedName("cost_items")
     private CostItem[] costItems;
+
+    // builder 开始
+    public CostAllocationPlan() {
+    }
+
+    public CostAllocationPlan(Builder builder) {
+        /**
+         * 唯一标识
+         * <p> 示例值：6823630319749580301
+         */
+        this.id = builder.id;
+        /**
+         * 方案名称
+         * <p> 示例值：
+         */
+        this.names = builder.names;
+        /**
+         * 适用国家
+         * <p> 示例值：6823630319749580302
+         */
+        this.applicableCountryRegion = builder.applicableCountryRegion;
+        /**
+         * 成本分摊方案对应的汇总维度列表
+         * <p> 示例值：
+         */
+        this.dimensions = builder.dimensions;
+        /**
+         * 成本分摊方案对应的成本项列表
+         * <p> 示例值：
+         */
+        this.costItems = builder.costItems;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -95,136 +136,100 @@ public class CostAllocationPlan {
         this.costItems = costItems;
     }
 
-
-// builder 开始
-  public CostAllocationPlan(){}
-
-  public CostAllocationPlan(Builder builder){
-         /**
-          * 唯一标识
-          * <p> 示例值：6823630319749580301
-          */
-      this.id = builder.id;
-         /**
-          * 方案名称
-          * <p> 示例值：
-          */
-      this.names = builder.names;
-         /**
-          * 适用国家
-          * <p> 示例值：6823630319749580302
-          */
-      this.applicableCountryRegion = builder.applicableCountryRegion;
-         /**
-          * 成本分摊方案对应的汇总维度列表
-          * <p> 示例值：
-          */
-      this.dimensions = builder.dimensions;
-         /**
-          * 成本分摊方案对应的成本项列表
-          * <p> 示例值：
-          */
-      this.costItems = builder.costItems;
-  }
-
     public static class Builder {
-     /**
-      * 唯一标识
-      * <p> 示例值：6823630319749580301
-      */
+        /**
+         * 唯一标识
+         * <p> 示例值：6823630319749580301
+         */
         private String id;
-     /**
-      * 方案名称
-      * <p> 示例值：
-      */
+        /**
+         * 方案名称
+         * <p> 示例值：
+         */
         private I18nContent[] names;
-     /**
-      * 适用国家
-      * <p> 示例值：6823630319749580302
-      */
+        /**
+         * 适用国家
+         * <p> 示例值：6823630319749580302
+         */
         private String applicableCountryRegion;
-     /**
-      * 成本分摊方案对应的汇总维度列表
-      * <p> 示例值：
-      */
+        /**
+         * 成本分摊方案对应的汇总维度列表
+         * <p> 示例值：
+         */
         private Dimension[] dimensions;
-     /**
-      * 成本分摊方案对应的成本项列表
-      * <p> 示例值：
-      */
+        /**
+         * 成本分摊方案对应的成本项列表
+         * <p> 示例值：
+         */
         private CostItem[] costItems;
 
         /**
          * 唯一标识
          * <p> 示例值：6823630319749580301
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 方案名称
          * <p> 示例值：
+         *
          * @param names
          * @return
          */
         public Builder names(I18nContent[] names) {
-             this.names = names;
-             return this;
+            this.names = names;
+            return this;
         }
 
-    
 
         /**
          * 适用国家
          * <p> 示例值：6823630319749580302
+         *
          * @param applicableCountryRegion
          * @return
          */
         public Builder applicableCountryRegion(String applicableCountryRegion) {
-             this.applicableCountryRegion = applicableCountryRegion;
-             return this;
+            this.applicableCountryRegion = applicableCountryRegion;
+            return this;
         }
 
-    
 
         /**
          * 成本分摊方案对应的汇总维度列表
          * <p> 示例值：
+         *
          * @param dimensions
          * @return
          */
         public Builder dimensions(Dimension[] dimensions) {
-             this.dimensions = dimensions;
-             return this;
+            this.dimensions = dimensions;
+            return this;
         }
 
-    
 
         /**
          * 成本分摊方案对应的成本项列表
          * <p> 示例值：
+         *
          * @param costItems
          * @return
          */
         public Builder costItems(CostItem[] costItems) {
-             this.costItems = costItems;
-             return this;
+            this.costItems = costItems;
+            return this;
         }
 
-    
-    
-    public CostAllocationPlan build(){
-        return new CostAllocationPlan(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public CostAllocationPlan build() {
+            return new CostAllocationPlan(this);
+        }
     }
 }

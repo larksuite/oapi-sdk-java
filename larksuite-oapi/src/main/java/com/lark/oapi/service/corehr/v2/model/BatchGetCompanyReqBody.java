@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class BatchGetCompanyReqBody {
-     /**
-      * 公司 ID 列表
-      * <p> 示例值：
-      */
+    /**
+     * 公司 ID 列表
+     * <p> 示例值：
+     */
     @SerializedName("company_ids")
     private String[] companyIds;
+
+    // builder 开始
+    public BatchGetCompanyReqBody() {
+    }
+
+    public BatchGetCompanyReqBody(Builder builder) {
+        /**
+         * 公司 ID 列表
+         * <p> 示例值：
+         */
+        this.companyIds = builder.companyIds;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String[] getCompanyIds() {
         return this.companyIds;
     }
@@ -39,44 +60,28 @@ public class BatchGetCompanyReqBody {
         this.companyIds = companyIds;
     }
 
-
-// builder 开始
-  public BatchGetCompanyReqBody(){}
-
-  public BatchGetCompanyReqBody(Builder builder){
-         /**
-          * 公司 ID 列表
-          * <p> 示例值：
-          */
-      this.companyIds = builder.companyIds;
-  }
-
     public static class Builder {
-     /**
-      * 公司 ID 列表
-      * <p> 示例值：
-      */
+        /**
+         * 公司 ID 列表
+         * <p> 示例值：
+         */
         private String[] companyIds;
 
         /**
          * 公司 ID 列表
          * <p> 示例值：
+         *
          * @param companyIds
          * @return
          */
         public Builder companyIds(String[] companyIds) {
-             this.companyIds = companyIds;
-             return this;
+            this.companyIds = companyIds;
+            return this;
         }
 
-    
-    
-    public BatchGetCompanyReqBody build(){
-        return new BatchGetCompanyReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public BatchGetCompanyReqBody build() {
+            return new BatchGetCompanyReqBody(this);
+        }
     }
 }

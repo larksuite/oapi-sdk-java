@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class BatchCreatePermissionMemberReqBody {
-     /**
-      * 协作者列表
-      * <p> 示例值：
-      */
+    /**
+     * 协作者列表
+     * <p> 示例值：
+     */
     @SerializedName("members")
     private BaseMember[] members;
+
+    // builder 开始
+    public BatchCreatePermissionMemberReqBody() {
+    }
+
+    public BatchCreatePermissionMemberReqBody(Builder builder) {
+        /**
+         * 协作者列表
+         * <p> 示例值：
+         */
+        this.members = builder.members;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public BaseMember[] getMembers() {
         return this.members;
     }
@@ -39,44 +60,28 @@ public class BatchCreatePermissionMemberReqBody {
         this.members = members;
     }
 
-
-// builder 开始
-  public BatchCreatePermissionMemberReqBody(){}
-
-  public BatchCreatePermissionMemberReqBody(Builder builder){
-         /**
-          * 协作者列表
-          * <p> 示例值：
-          */
-      this.members = builder.members;
-  }
-
     public static class Builder {
-     /**
-      * 协作者列表
-      * <p> 示例值：
-      */
+        /**
+         * 协作者列表
+         * <p> 示例值：
+         */
         private BaseMember[] members;
 
         /**
          * 协作者列表
          * <p> 示例值：
+         *
          * @param members
          * @return
          */
         public Builder members(BaseMember[] members) {
-             this.members = members;
-             return this;
+            this.members = members;
+            return this;
         }
 
-    
-    
-    public BatchCreatePermissionMemberReqBody build(){
-        return new BatchCreatePermissionMemberReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public BatchCreatePermissionMemberReqBody build() {
+            return new BatchCreatePermissionMemberReqBody(this);
+        }
     }
 }

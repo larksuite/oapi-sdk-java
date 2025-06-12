@@ -17,16 +17,17 @@ package com.lark.oapi.service.task.v2.enums;
  * 用户ID类型
  */
 public enum PatchTasklistActivitySubscriptionUserIdTypeEnum {
-     OPEN_ID("open_id"), // open_id
-     UNION_ID("union_id"), // union_id
-     USER_ID("user_id"), // user_id
-  ;
-   private String value;
+    OPEN_ID("open_id"), // open_id
+    UNION_ID("union_id"), // union_id
+    USER_ID("user_id"), // user_id
+    ;
+    private String value;
+
     PatchTasklistActivitySubscriptionUserIdTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

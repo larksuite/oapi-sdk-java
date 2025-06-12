@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.performance.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.performance.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,60 +20,115 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class MetricDimension {
-     /**
-      * 所属人群分组 ID，模板分人群设置指标时，指标维度按照人群分组；未分人群设置时该值为空
-      * <p> 示例值：7296753366268215316
-      */
+    /**
+     * 所属人群分组 ID，模板分人群设置指标时，指标维度按照人群分组；未分人群设置时该值为空
+     * <p> 示例值：7296753366268215316
+     */
     @SerializedName("group_id")
     private String groupId;
-     /**
-      * 指标维度 ID
-      * <p> 示例值：7296753366268215316
-      */
+    /**
+     * 指标维度 ID
+     * <p> 示例值：7296753366268215316
+     */
     @SerializedName("metric_dimension_id")
     private String metricDimensionId;
-     /**
-      * 指标维度名称
-      * <p> 示例值：
-      */
+    /**
+     * 指标维度名称
+     * <p> 示例值：
+     */
     @SerializedName("name")
     private I18n name;
-     /**
-      * 每条指标的评估规则 ID
-      * <p> 示例值：7296701873237786643
-      */
+    /**
+     * 每条指标的评估规则 ID
+     * <p> 示例值：7296701873237786643
+     */
     @SerializedName("evaluation_rule_id_for_each_metric")
     private String evaluationRuleIdForEachMetric;
-     /**
-      * 维度权重，如果没有设置则返回为空（备注：和 0 区分）
-      * <p> 示例值：90
-      */
+    /**
+     * 维度权重，如果没有设置则返回为空（备注：和 0 区分）
+     * <p> 示例值：90
+     */
     @SerializedName("dimension_weight")
     private String dimensionWeight;
-     /**
-      * 维度描述
-      * <p> 示例值：
-      */
+    /**
+     * 维度描述
+     * <p> 示例值：
+     */
     @SerializedName("description")
     private I18n description;
-     /**
-      * 指标评分规则设置
-      * <p> 示例值：0
-      */
+    /**
+     * 指标评分规则设置
+     * <p> 示例值：0
+     */
     @SerializedName("review_rule_option")
     private Integer reviewRuleOption;
-     /**
-      * 自定义指标设置
-      * <p> 示例值：
-      */
+    /**
+     * 自定义指标设置
+     * <p> 示例值：
+     */
     @SerializedName("custom_metric_config")
     private CustomMetricConfig customMetricConfig;
+
+    // builder 开始
+    public MetricDimension() {
+    }
+
+    public MetricDimension(Builder builder) {
+        /**
+         * 所属人群分组 ID，模板分人群设置指标时，指标维度按照人群分组；未分人群设置时该值为空
+         * <p> 示例值：7296753366268215316
+         */
+        this.groupId = builder.groupId;
+        /**
+         * 指标维度 ID
+         * <p> 示例值：7296753366268215316
+         */
+        this.metricDimensionId = builder.metricDimensionId;
+        /**
+         * 指标维度名称
+         * <p> 示例值：
+         */
+        this.name = builder.name;
+        /**
+         * 每条指标的评估规则 ID
+         * <p> 示例值：7296701873237786643
+         */
+        this.evaluationRuleIdForEachMetric = builder.evaluationRuleIdForEachMetric;
+        /**
+         * 维度权重，如果没有设置则返回为空（备注：和 0 区分）
+         * <p> 示例值：90
+         */
+        this.dimensionWeight = builder.dimensionWeight;
+        /**
+         * 维度描述
+         * <p> 示例值：
+         */
+        this.description = builder.description;
+        /**
+         * 指标评分规则设置
+         * <p> 示例值：0
+         */
+        this.reviewRuleOption = builder.reviewRuleOption;
+        /**
+         * 自定义指标设置
+         * <p> 示例值：
+         */
+        this.customMetricConfig = builder.customMetricConfig;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getGroupId() {
         return this.groupId;
     }
@@ -137,215 +193,166 @@ public class MetricDimension {
         this.customMetricConfig = customMetricConfig;
     }
 
-
-// builder 开始
-  public MetricDimension(){}
-
-  public MetricDimension(Builder builder){
-         /**
-          * 所属人群分组 ID，模板分人群设置指标时，指标维度按照人群分组；未分人群设置时该值为空
-          * <p> 示例值：7296753366268215316
-          */
-      this.groupId = builder.groupId;
-         /**
-          * 指标维度 ID
-          * <p> 示例值：7296753366268215316
-          */
-      this.metricDimensionId = builder.metricDimensionId;
-         /**
-          * 指标维度名称
-          * <p> 示例值：
-          */
-      this.name = builder.name;
-         /**
-          * 每条指标的评估规则 ID
-          * <p> 示例值：7296701873237786643
-          */
-      this.evaluationRuleIdForEachMetric = builder.evaluationRuleIdForEachMetric;
-         /**
-          * 维度权重，如果没有设置则返回为空（备注：和 0 区分）
-          * <p> 示例值：90
-          */
-      this.dimensionWeight = builder.dimensionWeight;
-         /**
-          * 维度描述
-          * <p> 示例值：
-          */
-      this.description = builder.description;
-         /**
-          * 指标评分规则设置
-          * <p> 示例值：0
-          */
-      this.reviewRuleOption = builder.reviewRuleOption;
-         /**
-          * 自定义指标设置
-          * <p> 示例值：
-          */
-      this.customMetricConfig = builder.customMetricConfig;
-  }
-
     public static class Builder {
-     /**
-      * 所属人群分组 ID，模板分人群设置指标时，指标维度按照人群分组；未分人群设置时该值为空
-      * <p> 示例值：7296753366268215316
-      */
+        /**
+         * 所属人群分组 ID，模板分人群设置指标时，指标维度按照人群分组；未分人群设置时该值为空
+         * <p> 示例值：7296753366268215316
+         */
         private String groupId;
-     /**
-      * 指标维度 ID
-      * <p> 示例值：7296753366268215316
-      */
+        /**
+         * 指标维度 ID
+         * <p> 示例值：7296753366268215316
+         */
         private String metricDimensionId;
-     /**
-      * 指标维度名称
-      * <p> 示例值：
-      */
+        /**
+         * 指标维度名称
+         * <p> 示例值：
+         */
         private I18n name;
-     /**
-      * 每条指标的评估规则 ID
-      * <p> 示例值：7296701873237786643
-      */
+        /**
+         * 每条指标的评估规则 ID
+         * <p> 示例值：7296701873237786643
+         */
         private String evaluationRuleIdForEachMetric;
-     /**
-      * 维度权重，如果没有设置则返回为空（备注：和 0 区分）
-      * <p> 示例值：90
-      */
+        /**
+         * 维度权重，如果没有设置则返回为空（备注：和 0 区分）
+         * <p> 示例值：90
+         */
         private String dimensionWeight;
-     /**
-      * 维度描述
-      * <p> 示例值：
-      */
+        /**
+         * 维度描述
+         * <p> 示例值：
+         */
         private I18n description;
-     /**
-      * 指标评分规则设置
-      * <p> 示例值：0
-      */
+        /**
+         * 指标评分规则设置
+         * <p> 示例值：0
+         */
         private Integer reviewRuleOption;
-     /**
-      * 自定义指标设置
-      * <p> 示例值：
-      */
+        /**
+         * 自定义指标设置
+         * <p> 示例值：
+         */
         private CustomMetricConfig customMetricConfig;
 
         /**
          * 所属人群分组 ID，模板分人群设置指标时，指标维度按照人群分组；未分人群设置时该值为空
          * <p> 示例值：7296753366268215316
+         *
          * @param groupId
          * @return
          */
         public Builder groupId(String groupId) {
-             this.groupId = groupId;
-             return this;
+            this.groupId = groupId;
+            return this;
         }
 
-    
 
         /**
          * 指标维度 ID
          * <p> 示例值：7296753366268215316
+         *
          * @param metricDimensionId
          * @return
          */
         public Builder metricDimensionId(String metricDimensionId) {
-             this.metricDimensionId = metricDimensionId;
-             return this;
+            this.metricDimensionId = metricDimensionId;
+            return this;
         }
 
-    
 
         /**
          * 指标维度名称
          * <p> 示例值：
+         *
          * @param name
          * @return
          */
         public Builder name(I18n name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 每条指标的评估规则 ID
          * <p> 示例值：7296701873237786643
+         *
          * @param evaluationRuleIdForEachMetric
          * @return
          */
         public Builder evaluationRuleIdForEachMetric(String evaluationRuleIdForEachMetric) {
-             this.evaluationRuleIdForEachMetric = evaluationRuleIdForEachMetric;
-             return this;
+            this.evaluationRuleIdForEachMetric = evaluationRuleIdForEachMetric;
+            return this;
         }
 
-    
 
         /**
          * 维度权重，如果没有设置则返回为空（备注：和 0 区分）
          * <p> 示例值：90
+         *
          * @param dimensionWeight
          * @return
          */
         public Builder dimensionWeight(String dimensionWeight) {
-             this.dimensionWeight = dimensionWeight;
-             return this;
+            this.dimensionWeight = dimensionWeight;
+            return this;
         }
 
-    
 
         /**
          * 维度描述
          * <p> 示例值：
+         *
          * @param description
          * @return
          */
         public Builder description(I18n description) {
-             this.description = description;
-             return this;
+            this.description = description;
+            return this;
         }
 
-    
 
         /**
          * 指标评分规则设置
          * <p> 示例值：0
+         *
          * @param reviewRuleOption
          * @return
          */
         public Builder reviewRuleOption(Integer reviewRuleOption) {
-             this.reviewRuleOption = reviewRuleOption;
-             return this;
+            this.reviewRuleOption = reviewRuleOption;
+            return this;
         }
+
         /**
          * 指标评分规则设置
          * <p> 示例值：0
+         *
          * @param reviewRuleOption {@link com.lark.oapi.service.performance.v2.enums.MetricDimensionReviewRuleOptionEnum}
          * @return
          */
         public Builder reviewRuleOption(com.lark.oapi.service.performance.v2.enums.MetricDimensionReviewRuleOptionEnum reviewRuleOption) {
-             this.reviewRuleOption = reviewRuleOption.getValue();
-             return this;
+            this.reviewRuleOption = reviewRuleOption.getValue();
+            return this;
         }
 
-    
 
         /**
          * 自定义指标设置
          * <p> 示例值：
+         *
          * @param customMetricConfig
          * @return
          */
         public Builder customMetricConfig(CustomMetricConfig customMetricConfig) {
-             this.customMetricConfig = customMetricConfig;
-             return this;
+            this.customMetricConfig = customMetricConfig;
+            return this;
         }
 
-    
-    
-    public MetricDimension build(){
-        return new MetricDimension(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public MetricDimension build() {
+            return new MetricDimension(this);
+        }
     }
 }

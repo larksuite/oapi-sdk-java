@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class BatchGetJobFamilyReqBody {
-     /**
-      * 序列 ID 列表
-      * <p> 示例值：
-      */
+    /**
+     * 序列 ID 列表
+     * <p> 示例值：
+     */
     @SerializedName("job_family_ids")
     private String[] jobFamilyIds;
+
+    // builder 开始
+    public BatchGetJobFamilyReqBody() {
+    }
+
+    public BatchGetJobFamilyReqBody(Builder builder) {
+        /**
+         * 序列 ID 列表
+         * <p> 示例值：
+         */
+        this.jobFamilyIds = builder.jobFamilyIds;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String[] getJobFamilyIds() {
         return this.jobFamilyIds;
     }
@@ -39,44 +60,28 @@ public class BatchGetJobFamilyReqBody {
         this.jobFamilyIds = jobFamilyIds;
     }
 
-
-// builder 开始
-  public BatchGetJobFamilyReqBody(){}
-
-  public BatchGetJobFamilyReqBody(Builder builder){
-         /**
-          * 序列 ID 列表
-          * <p> 示例值：
-          */
-      this.jobFamilyIds = builder.jobFamilyIds;
-  }
-
     public static class Builder {
-     /**
-      * 序列 ID 列表
-      * <p> 示例值：
-      */
+        /**
+         * 序列 ID 列表
+         * <p> 示例值：
+         */
         private String[] jobFamilyIds;
 
         /**
          * 序列 ID 列表
          * <p> 示例值：
+         *
          * @param jobFamilyIds
          * @return
          */
         public Builder jobFamilyIds(String[] jobFamilyIds) {
-             this.jobFamilyIds = jobFamilyIds;
-             return this;
+            this.jobFamilyIds = jobFamilyIds;
+            return this;
         }
 
-    
-    
-    public BatchGetJobFamilyReqBody build(){
-        return new BatchGetJobFamilyReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public BatchGetJobFamilyReqBody build() {
+            return new BatchGetJobFamilyReqBody(this);
+        }
     }
 }

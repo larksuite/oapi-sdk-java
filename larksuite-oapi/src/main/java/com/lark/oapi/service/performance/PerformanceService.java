@@ -21,17 +21,20 @@ public class PerformanceService {
     private final V2 v2;
 
     public PerformanceService(Config config) {
-    this.v2 = new V2(config);
+        this.v2 = new V2(config);
     }
+
     public V2 v2() {
         return v2;
     }
+
     public abstract static class P2ReviewDataChangedV2Handler implements IEventHandler<P2ReviewDataChangedV2> {
         @Override
         public P2ReviewDataChangedV2 getEvent() {
             return new P2ReviewDataChangedV2();
         }
     }
+
     public abstract static class P2StageTaskOpenResultV2Handler implements IEventHandler<P2StageTaskOpenResultV2> {
         @Override
         public P2StageTaskOpenResultV2 getEvent() {

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.payroll.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.payroll.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,48 +20,93 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class DatasourceField {
-     /**
-      * 数据源字段编码
-      * <p> 示例值：test__c
-      */
+    /**
+     * 数据源字段编码
+     * <p> 示例值：test__c
+     */
     @SerializedName("code")
     private String code;
-     /**
-      * 数据源字段名称
-      * <p> 示例值：
-      */
+    /**
+     * 数据源字段名称
+     * <p> 示例值：
+     */
     @SerializedName("i18n_names")
     private I18nContent[] i18nNames;
-     /**
-      * 字段类型
-      * <p> 示例值：1
-      */
+    /**
+     * 字段类型
+     * <p> 示例值：1
+     */
     @SerializedName("field_type")
     private Integer fieldType;
-     /**
-      * 字段启停用状态
-      * <p> 示例值：1
-      */
+    /**
+     * 字段启停用状态
+     * <p> 示例值：1
+     */
     @SerializedName("active_status")
     private Integer activeStatus;
-     /**
-      * 数据源字段描述
-      * <p> 示例值：
-      */
+    /**
+     * 数据源字段描述
+     * <p> 示例值：
+     */
     @SerializedName("i18n_description")
     private I18nContent[] i18nDescription;
-     /**
-      * 保留小数位数。目前只有number、money类型字段需要设置保留小数
-      * <p> 示例值：1
-      */
+    /**
+     * 保留小数位数。目前只有number、money类型字段需要设置保留小数
+     * <p> 示例值：1
+     */
     @SerializedName("decimal_places")
     private Integer decimalPlaces;
+
+    // builder 开始
+    public DatasourceField() {
+    }
+
+    public DatasourceField(Builder builder) {
+        /**
+         * 数据源字段编码
+         * <p> 示例值：test__c
+         */
+        this.code = builder.code;
+        /**
+         * 数据源字段名称
+         * <p> 示例值：
+         */
+        this.i18nNames = builder.i18nNames;
+        /**
+         * 字段类型
+         * <p> 示例值：1
+         */
+        this.fieldType = builder.fieldType;
+        /**
+         * 字段启停用状态
+         * <p> 示例值：1
+         */
+        this.activeStatus = builder.activeStatus;
+        /**
+         * 数据源字段描述
+         * <p> 示例值：
+         */
+        this.i18nDescription = builder.i18nDescription;
+        /**
+         * 保留小数位数。目前只有number、money类型字段需要设置保留小数
+         * <p> 示例值：1
+         */
+        this.decimalPlaces = builder.decimalPlaces;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getCode() {
         return this.code;
     }
@@ -109,179 +155,142 @@ public class DatasourceField {
         this.decimalPlaces = decimalPlaces;
     }
 
-
-// builder 开始
-  public DatasourceField(){}
-
-  public DatasourceField(Builder builder){
-         /**
-          * 数据源字段编码
-          * <p> 示例值：test__c
-          */
-      this.code = builder.code;
-         /**
-          * 数据源字段名称
-          * <p> 示例值：
-          */
-      this.i18nNames = builder.i18nNames;
-         /**
-          * 字段类型
-          * <p> 示例值：1
-          */
-      this.fieldType = builder.fieldType;
-         /**
-          * 字段启停用状态
-          * <p> 示例值：1
-          */
-      this.activeStatus = builder.activeStatus;
-         /**
-          * 数据源字段描述
-          * <p> 示例值：
-          */
-      this.i18nDescription = builder.i18nDescription;
-         /**
-          * 保留小数位数。目前只有number、money类型字段需要设置保留小数
-          * <p> 示例值：1
-          */
-      this.decimalPlaces = builder.decimalPlaces;
-  }
-
     public static class Builder {
-     /**
-      * 数据源字段编码
-      * <p> 示例值：test__c
-      */
+        /**
+         * 数据源字段编码
+         * <p> 示例值：test__c
+         */
         private String code;
-     /**
-      * 数据源字段名称
-      * <p> 示例值：
-      */
+        /**
+         * 数据源字段名称
+         * <p> 示例值：
+         */
         private I18nContent[] i18nNames;
-     /**
-      * 字段类型
-      * <p> 示例值：1
-      */
+        /**
+         * 字段类型
+         * <p> 示例值：1
+         */
         private Integer fieldType;
-     /**
-      * 字段启停用状态
-      * <p> 示例值：1
-      */
+        /**
+         * 字段启停用状态
+         * <p> 示例值：1
+         */
         private Integer activeStatus;
-     /**
-      * 数据源字段描述
-      * <p> 示例值：
-      */
+        /**
+         * 数据源字段描述
+         * <p> 示例值：
+         */
         private I18nContent[] i18nDescription;
-     /**
-      * 保留小数位数。目前只有number、money类型字段需要设置保留小数
-      * <p> 示例值：1
-      */
+        /**
+         * 保留小数位数。目前只有number、money类型字段需要设置保留小数
+         * <p> 示例值：1
+         */
         private Integer decimalPlaces;
 
         /**
          * 数据源字段编码
          * <p> 示例值：test__c
+         *
          * @param code
          * @return
          */
         public Builder code(String code) {
-             this.code = code;
-             return this;
+            this.code = code;
+            return this;
         }
 
-    
 
         /**
          * 数据源字段名称
          * <p> 示例值：
+         *
          * @param i18nNames
          * @return
          */
         public Builder i18nNames(I18nContent[] i18nNames) {
-             this.i18nNames = i18nNames;
-             return this;
+            this.i18nNames = i18nNames;
+            return this;
         }
 
-    
 
         /**
          * 字段类型
          * <p> 示例值：1
+         *
          * @param fieldType
          * @return
          */
         public Builder fieldType(Integer fieldType) {
-             this.fieldType = fieldType;
-             return this;
+            this.fieldType = fieldType;
+            return this;
         }
+
         /**
          * 字段类型
          * <p> 示例值：1
+         *
          * @param fieldType {@link com.lark.oapi.service.payroll.v1.enums.DatasourceFieldFieldTypeEnum}
          * @return
          */
         public Builder fieldType(com.lark.oapi.service.payroll.v1.enums.DatasourceFieldFieldTypeEnum fieldType) {
-             this.fieldType = fieldType.getValue();
-             return this;
+            this.fieldType = fieldType.getValue();
+            return this;
         }
 
-    
 
         /**
          * 字段启停用状态
          * <p> 示例值：1
+         *
          * @param activeStatus
          * @return
          */
         public Builder activeStatus(Integer activeStatus) {
-             this.activeStatus = activeStatus;
-             return this;
+            this.activeStatus = activeStatus;
+            return this;
         }
+
         /**
          * 字段启停用状态
          * <p> 示例值：1
+         *
          * @param activeStatus {@link com.lark.oapi.service.payroll.v1.enums.DatasourceFieldActiveStatusEnum}
          * @return
          */
         public Builder activeStatus(com.lark.oapi.service.payroll.v1.enums.DatasourceFieldActiveStatusEnum activeStatus) {
-             this.activeStatus = activeStatus.getValue();
-             return this;
+            this.activeStatus = activeStatus.getValue();
+            return this;
         }
 
-    
 
         /**
          * 数据源字段描述
          * <p> 示例值：
+         *
          * @param i18nDescription
          * @return
          */
         public Builder i18nDescription(I18nContent[] i18nDescription) {
-             this.i18nDescription = i18nDescription;
-             return this;
+            this.i18nDescription = i18nDescription;
+            return this;
         }
 
-    
 
         /**
          * 保留小数位数。目前只有number、money类型字段需要设置保留小数
          * <p> 示例值：1
+         *
          * @param decimalPlaces
          * @return
          */
         public Builder decimalPlaces(Integer decimalPlaces) {
-             this.decimalPlaces = decimalPlaces;
-             return this;
+            this.decimalPlaces = decimalPlaces;
+            return this;
         }
 
-    
-    
-    public DatasourceField build(){
-        return new DatasourceField(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public DatasourceField build() {
+            return new DatasourceField(this);
+        }
     }
 }

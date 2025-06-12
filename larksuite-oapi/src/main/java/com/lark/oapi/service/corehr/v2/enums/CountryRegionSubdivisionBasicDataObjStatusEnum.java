@@ -17,15 +17,16 @@ package com.lark.oapi.service.corehr.v2.enums;
  * 状态
  */
 public enum CountryRegionSubdivisionBasicDataObjStatusEnum {
-     ACTIVE(1), // 生效
-     INACTIVE(0), // 失效
-  ;
-   private Integer value;
+    ACTIVE(1), // 生效
+    INACTIVE(0), // 失效
+    ;
+    private Integer value;
+
     CountryRegionSubdivisionBasicDataObjStatusEnum(Integer value) {
-      this.value = value;
+        this.value = value;
     }
 
     public Integer getValue() {
-      return this.value;
+        return this.value;
     }
 }

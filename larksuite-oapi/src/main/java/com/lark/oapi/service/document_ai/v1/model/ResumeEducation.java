@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.document_ai.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.document_ai.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,60 +20,115 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ResumeEducation {
-     /**
-      * 学校名称
-      * <p> 示例值：A大学
-      */
+    /**
+     * 学校名称
+     * <p> 示例值：A大学
+     */
     @SerializedName("school")
     private String school;
-     /**
-      * 开始时间,格式：YYYY-MM-DD
-      * <p> 示例值：2020-01-03
-      */
+    /**
+     * 开始时间,格式：YYYY-MM-DD
+     * <p> 示例值：2020-01-03
+     */
     @SerializedName("start_date")
     private String startDate;
-     /**
-      * 开始时间,格式：YYYY-MM-DD,跟start_date值一样
-      * <p> 示例值：2020-01-03
-      */
+    /**
+     * 开始时间,格式：YYYY-MM-DD,跟start_date值一样
+     * <p> 示例值：2020-01-03
+     */
     @SerializedName("start_time")
     private String startTime;
-     /**
-      * 结束时间,格式：YYYY-MM-DD
-      * <p> 示例值：2021-01-03
-      */
+    /**
+     * 结束时间,格式：YYYY-MM-DD
+     * <p> 示例值：2021-01-03
+     */
     @SerializedName("end_date")
     private String endDate;
-     /**
-      * 结束时间,格式：YYYY-MM-DD 或 “至今”，当值为“至今”时，end_date=="",值为其他时，end_date==end_time
-      * <p> 示例值：至今
-      */
+    /**
+     * 结束时间,格式：YYYY-MM-DD 或 “至今”，当值为“至今”时，end_date=="",值为其他时，end_date==end_time
+     * <p> 示例值：至今
+     */
     @SerializedName("end_time")
     private String endTime;
-     /**
-      * 专业
-      * <p> 示例值：XX工程
-      */
+    /**
+     * 专业
+     * <p> 示例值：XX工程
+     */
     @SerializedName("major")
     private String major;
-     /**
-      * 学历——小学、初中、中职、高中、专科、本科、硕士、博士、其他
-      * <p> 示例值：本科
-      */
+    /**
+     * 学历——小学、初中、中职、高中、专科、本科、硕士、博士、其他
+     * <p> 示例值：本科
+     */
     @SerializedName("degree")
     private String degree;
-     /**
-      * 学历对应ID
-      * <p> 示例值：6
-      */
+    /**
+     * 学历对应ID
+     * <p> 示例值：6
+     */
     @SerializedName("qualification")
     private Integer qualification;
+
+    // builder 开始
+    public ResumeEducation() {
+    }
+
+    public ResumeEducation(Builder builder) {
+        /**
+         * 学校名称
+         * <p> 示例值：A大学
+         */
+        this.school = builder.school;
+        /**
+         * 开始时间,格式：YYYY-MM-DD
+         * <p> 示例值：2020-01-03
+         */
+        this.startDate = builder.startDate;
+        /**
+         * 开始时间,格式：YYYY-MM-DD,跟start_date值一样
+         * <p> 示例值：2020-01-03
+         */
+        this.startTime = builder.startTime;
+        /**
+         * 结束时间,格式：YYYY-MM-DD
+         * <p> 示例值：2021-01-03
+         */
+        this.endDate = builder.endDate;
+        /**
+         * 结束时间,格式：YYYY-MM-DD 或 “至今”，当值为“至今”时，end_date=="",值为其他时，end_date==end_time
+         * <p> 示例值：至今
+         */
+        this.endTime = builder.endTime;
+        /**
+         * 专业
+         * <p> 示例值：XX工程
+         */
+        this.major = builder.major;
+        /**
+         * 学历——小学、初中、中职、高中、专科、本科、硕士、博士、其他
+         * <p> 示例值：本科
+         */
+        this.degree = builder.degree;
+        /**
+         * 学历对应ID
+         * <p> 示例值：6
+         */
+        this.qualification = builder.qualification;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getSchool() {
         return this.school;
     }
@@ -137,215 +193,166 @@ public class ResumeEducation {
         this.qualification = qualification;
     }
 
-
-// builder 开始
-  public ResumeEducation(){}
-
-  public ResumeEducation(Builder builder){
-         /**
-          * 学校名称
-          * <p> 示例值：A大学
-          */
-      this.school = builder.school;
-         /**
-          * 开始时间,格式：YYYY-MM-DD
-          * <p> 示例值：2020-01-03
-          */
-      this.startDate = builder.startDate;
-         /**
-          * 开始时间,格式：YYYY-MM-DD,跟start_date值一样
-          * <p> 示例值：2020-01-03
-          */
-      this.startTime = builder.startTime;
-         /**
-          * 结束时间,格式：YYYY-MM-DD
-          * <p> 示例值：2021-01-03
-          */
-      this.endDate = builder.endDate;
-         /**
-          * 结束时间,格式：YYYY-MM-DD 或 “至今”，当值为“至今”时，end_date=="",值为其他时，end_date==end_time
-          * <p> 示例值：至今
-          */
-      this.endTime = builder.endTime;
-         /**
-          * 专业
-          * <p> 示例值：XX工程
-          */
-      this.major = builder.major;
-         /**
-          * 学历——小学、初中、中职、高中、专科、本科、硕士、博士、其他
-          * <p> 示例值：本科
-          */
-      this.degree = builder.degree;
-         /**
-          * 学历对应ID
-          * <p> 示例值：6
-          */
-      this.qualification = builder.qualification;
-  }
-
     public static class Builder {
-     /**
-      * 学校名称
-      * <p> 示例值：A大学
-      */
+        /**
+         * 学校名称
+         * <p> 示例值：A大学
+         */
         private String school;
-     /**
-      * 开始时间,格式：YYYY-MM-DD
-      * <p> 示例值：2020-01-03
-      */
+        /**
+         * 开始时间,格式：YYYY-MM-DD
+         * <p> 示例值：2020-01-03
+         */
         private String startDate;
-     /**
-      * 开始时间,格式：YYYY-MM-DD,跟start_date值一样
-      * <p> 示例值：2020-01-03
-      */
+        /**
+         * 开始时间,格式：YYYY-MM-DD,跟start_date值一样
+         * <p> 示例值：2020-01-03
+         */
         private String startTime;
-     /**
-      * 结束时间,格式：YYYY-MM-DD
-      * <p> 示例值：2021-01-03
-      */
+        /**
+         * 结束时间,格式：YYYY-MM-DD
+         * <p> 示例值：2021-01-03
+         */
         private String endDate;
-     /**
-      * 结束时间,格式：YYYY-MM-DD 或 “至今”，当值为“至今”时，end_date=="",值为其他时，end_date==end_time
-      * <p> 示例值：至今
-      */
+        /**
+         * 结束时间,格式：YYYY-MM-DD 或 “至今”，当值为“至今”时，end_date=="",值为其他时，end_date==end_time
+         * <p> 示例值：至今
+         */
         private String endTime;
-     /**
-      * 专业
-      * <p> 示例值：XX工程
-      */
+        /**
+         * 专业
+         * <p> 示例值：XX工程
+         */
         private String major;
-     /**
-      * 学历——小学、初中、中职、高中、专科、本科、硕士、博士、其他
-      * <p> 示例值：本科
-      */
+        /**
+         * 学历——小学、初中、中职、高中、专科、本科、硕士、博士、其他
+         * <p> 示例值：本科
+         */
         private String degree;
-     /**
-      * 学历对应ID
-      * <p> 示例值：6
-      */
+        /**
+         * 学历对应ID
+         * <p> 示例值：6
+         */
         private Integer qualification;
 
         /**
          * 学校名称
          * <p> 示例值：A大学
+         *
          * @param school
          * @return
          */
         public Builder school(String school) {
-             this.school = school;
-             return this;
+            this.school = school;
+            return this;
         }
 
-    
 
         /**
          * 开始时间,格式：YYYY-MM-DD
          * <p> 示例值：2020-01-03
+         *
          * @param startDate
          * @return
          */
         public Builder startDate(String startDate) {
-             this.startDate = startDate;
-             return this;
+            this.startDate = startDate;
+            return this;
         }
 
-    
 
         /**
          * 开始时间,格式：YYYY-MM-DD,跟start_date值一样
          * <p> 示例值：2020-01-03
+         *
          * @param startTime
          * @return
          */
         public Builder startTime(String startTime) {
-             this.startTime = startTime;
-             return this;
+            this.startTime = startTime;
+            return this;
         }
 
-    
 
         /**
          * 结束时间,格式：YYYY-MM-DD
          * <p> 示例值：2021-01-03
+         *
          * @param endDate
          * @return
          */
         public Builder endDate(String endDate) {
-             this.endDate = endDate;
-             return this;
+            this.endDate = endDate;
+            return this;
         }
 
-    
 
         /**
          * 结束时间,格式：YYYY-MM-DD 或 “至今”，当值为“至今”时，end_date=="",值为其他时，end_date==end_time
          * <p> 示例值：至今
+         *
          * @param endTime
          * @return
          */
         public Builder endTime(String endTime) {
-             this.endTime = endTime;
-             return this;
+            this.endTime = endTime;
+            return this;
         }
 
-    
 
         /**
          * 专业
          * <p> 示例值：XX工程
+         *
          * @param major
          * @return
          */
         public Builder major(String major) {
-             this.major = major;
-             return this;
+            this.major = major;
+            return this;
         }
 
-    
 
         /**
          * 学历——小学、初中、中职、高中、专科、本科、硕士、博士、其他
          * <p> 示例值：本科
+         *
          * @param degree
          * @return
          */
         public Builder degree(String degree) {
-             this.degree = degree;
-             return this;
+            this.degree = degree;
+            return this;
         }
 
-    
 
         /**
          * 学历对应ID
          * <p> 示例值：6
+         *
          * @param qualification
          * @return
          */
         public Builder qualification(Integer qualification) {
-             this.qualification = qualification;
-             return this;
+            this.qualification = qualification;
+            return this;
         }
+
         /**
          * 学历对应ID
          * <p> 示例值：6
+         *
          * @param qualification {@link com.lark.oapi.service.document_ai.v1.enums.ResumeEducationResumeEducationQualificationTypeEnum}
          * @return
          */
         public Builder qualification(com.lark.oapi.service.document_ai.v1.enums.ResumeEducationResumeEducationQualificationTypeEnum qualification) {
-             this.qualification = qualification.getValue();
-             return this;
+            this.qualification = qualification.getValue();
+            return this;
         }
 
-    
-    
-    public ResumeEducation build(){
-        return new ResumeEducation(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ResumeEducation build() {
+            return new ResumeEducation(this);
+        }
     }
 }

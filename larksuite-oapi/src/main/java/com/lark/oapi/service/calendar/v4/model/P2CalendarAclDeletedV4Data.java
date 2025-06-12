@@ -12,42 +12,47 @@
  */
 
 package com.lark.oapi.service.calendar.v4.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class P2CalendarAclDeletedV4Data {
-     /**
-      * acl资源ID
-      * <p> 示例值：user_6843287928157667331
-      */
+    /**
+     * acl资源ID
+     * <p> 示例值：user_6843287928157667331
+     */
     @SerializedName("acl_id")
     private String aclId;
-     /**
-      * 对日历的访问权限
-      * <p> 示例值：
-      */
+    /**
+     * 对日历的访问权限
+     * <p> 示例值：
+     */
     @SerializedName("role")
     private String role;
-     /**
-      * 权限范围
-      * <p> 示例值：
-      */
+    /**
+     * 权限范围
+     * <p> 示例值：
+     */
     @SerializedName("scope")
     private AclScopeEvent scope;
-     /**
-      * 需要推送事件的用户列表
-      * <p> 示例值：
-      */
+    /**
+     * 需要推送事件的用户列表
+     * <p> 示例值：
+     */
     @SerializedName("user_id_list")
     private UserId[] userIdList;
+
     public String getAclId() {
         return this.aclId;
     }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,48 +20,93 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Category {
-     /**
-      * 知识库分类ID
-      * <p> 示例值：6948728206392295444
-      */
+    /**
+     * 知识库分类ID
+     * <p> 示例值：6948728206392295444
+     */
     @SerializedName("category_id")
     private String categoryId;
-     /**
-      * 知识库分类ID，（旧版，请使用category_id）
-      * <p> 示例值：6948728206392295444
-      */
+    /**
+     * 知识库分类ID，（旧版，请使用category_id）
+     * <p> 示例值：6948728206392295444
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 名称
-      * <p> 示例值：创建团队和邀请成员
-      */
+    /**
+     * 名称
+     * <p> 示例值：创建团队和邀请成员
+     */
     @SerializedName("name")
     private String name;
-     /**
-      * 父知识库分类ID
-      * <p> 示例值：0
-      */
+    /**
+     * 父知识库分类ID
+     * <p> 示例值：0
+     */
     @SerializedName("parent_id")
     private String parentId;
-     /**
-      * 服务台ID
-      * <p> 示例值：6939771743531696147
-      */
+    /**
+     * 服务台ID
+     * <p> 示例值：6939771743531696147
+     */
     @SerializedName("helpdesk_id")
     private String helpdeskId;
-     /**
-      * 语言
-      * <p> 示例值：zh_cn
-      */
+    /**
+     * 语言
+     * <p> 示例值：zh_cn
+     */
     @SerializedName("language")
     private String language;
+
+    // builder 开始
+    public Category() {
+    }
+
+    public Category(Builder builder) {
+        /**
+         * 知识库分类ID
+         * <p> 示例值：6948728206392295444
+         */
+        this.categoryId = builder.categoryId;
+        /**
+         * 知识库分类ID，（旧版，请使用category_id）
+         * <p> 示例值：6948728206392295444
+         */
+        this.id = builder.id;
+        /**
+         * 名称
+         * <p> 示例值：创建团队和邀请成员
+         */
+        this.name = builder.name;
+        /**
+         * 父知识库分类ID
+         * <p> 示例值：0
+         */
+        this.parentId = builder.parentId;
+        /**
+         * 服务台ID
+         * <p> 示例值：6939771743531696147
+         */
+        this.helpdeskId = builder.helpdeskId;
+        /**
+         * 语言
+         * <p> 示例值：zh_cn
+         */
+        this.language = builder.language;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getCategoryId() {
         return this.categoryId;
     }
@@ -109,159 +155,118 @@ public class Category {
         this.language = language;
     }
 
-
-// builder 开始
-  public Category(){}
-
-  public Category(Builder builder){
-         /**
-          * 知识库分类ID
-          * <p> 示例值：6948728206392295444
-          */
-      this.categoryId = builder.categoryId;
-         /**
-          * 知识库分类ID，（旧版，请使用category_id）
-          * <p> 示例值：6948728206392295444
-          */
-      this.id = builder.id;
-         /**
-          * 名称
-          * <p> 示例值：创建团队和邀请成员
-          */
-      this.name = builder.name;
-         /**
-          * 父知识库分类ID
-          * <p> 示例值：0
-          */
-      this.parentId = builder.parentId;
-         /**
-          * 服务台ID
-          * <p> 示例值：6939771743531696147
-          */
-      this.helpdeskId = builder.helpdeskId;
-         /**
-          * 语言
-          * <p> 示例值：zh_cn
-          */
-      this.language = builder.language;
-  }
-
     public static class Builder {
-     /**
-      * 知识库分类ID
-      * <p> 示例值：6948728206392295444
-      */
+        /**
+         * 知识库分类ID
+         * <p> 示例值：6948728206392295444
+         */
         private String categoryId;
-     /**
-      * 知识库分类ID，（旧版，请使用category_id）
-      * <p> 示例值：6948728206392295444
-      */
+        /**
+         * 知识库分类ID，（旧版，请使用category_id）
+         * <p> 示例值：6948728206392295444
+         */
         private String id;
-     /**
-      * 名称
-      * <p> 示例值：创建团队和邀请成员
-      */
+        /**
+         * 名称
+         * <p> 示例值：创建团队和邀请成员
+         */
         private String name;
-     /**
-      * 父知识库分类ID
-      * <p> 示例值：0
-      */
+        /**
+         * 父知识库分类ID
+         * <p> 示例值：0
+         */
         private String parentId;
-     /**
-      * 服务台ID
-      * <p> 示例值：6939771743531696147
-      */
+        /**
+         * 服务台ID
+         * <p> 示例值：6939771743531696147
+         */
         private String helpdeskId;
-     /**
-      * 语言
-      * <p> 示例值：zh_cn
-      */
+        /**
+         * 语言
+         * <p> 示例值：zh_cn
+         */
         private String language;
 
         /**
          * 知识库分类ID
          * <p> 示例值：6948728206392295444
+         *
          * @param categoryId
          * @return
          */
         public Builder categoryId(String categoryId) {
-             this.categoryId = categoryId;
-             return this;
+            this.categoryId = categoryId;
+            return this;
         }
 
-    
 
         /**
          * 知识库分类ID，（旧版，请使用category_id）
          * <p> 示例值：6948728206392295444
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 名称
          * <p> 示例值：创建团队和邀请成员
+         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 父知识库分类ID
          * <p> 示例值：0
+         *
          * @param parentId
          * @return
          */
         public Builder parentId(String parentId) {
-             this.parentId = parentId;
-             return this;
+            this.parentId = parentId;
+            return this;
         }
 
-    
 
         /**
          * 服务台ID
          * <p> 示例值：6939771743531696147
+         *
          * @param helpdeskId
          * @return
          */
         public Builder helpdeskId(String helpdeskId) {
-             this.helpdeskId = helpdeskId;
-             return this;
+            this.helpdeskId = helpdeskId;
+            return this;
         }
 
-    
 
         /**
          * 语言
          * <p> 示例值：zh_cn
+         *
          * @param language
          * @return
          */
         public Builder language(String language) {
-             this.language = language;
-             return this;
+            this.language = language;
+            return this;
         }
 
-    
-    
-    public Category build(){
-        return new Category(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Category build() {
+            return new Category(this);
+        }
     }
 }

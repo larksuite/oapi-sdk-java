@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.mdm.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.mdm.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,42 +20,82 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class FixedExchangeRate {
-     /**
-      * 原始币种代码
-      * <p> 示例值：USD
-      */
+    /**
+     * 原始币种代码
+     * <p> 示例值：USD
+     */
     @SerializedName("source_currency")
     private String sourceCurrency;
-     /**
-      * 目标币种代码
-      * <p> 示例值：CNY
-      */
+    /**
+     * 目标币种代码
+     * <p> 示例值：CNY
+     */
     @SerializedName("target_currency")
     private String targetCurrency;
-     /**
-      * 换算日期
-      * <p> 示例值：2022-02-13
-      */
+    /**
+     * 换算日期
+     * <p> 示例值：2022-02-13
+     */
     @SerializedName("effective_date")
     private String effectiveDate;
-     /**
-      * 汇率值，保留10位小数
-      * <p> 示例值：0.1720000000
-      */
+    /**
+     * 汇率值，保留10位小数
+     * <p> 示例值：0.1720000000
+     */
     @SerializedName("exchange_rate")
     private String exchangeRate;
-     /**
-      * 状态，枚举值：1_生效，0_失效
-      * <p> 示例值：1
-      */
+    /**
+     * 状态，枚举值：1_生效，0_失效
+     * <p> 示例值：1
+     */
     @SerializedName("status")
     private Integer status;
+
+    // builder 开始
+    public FixedExchangeRate() {
+    }
+
+    public FixedExchangeRate(Builder builder) {
+        /**
+         * 原始币种代码
+         * <p> 示例值：USD
+         */
+        this.sourceCurrency = builder.sourceCurrency;
+        /**
+         * 目标币种代码
+         * <p> 示例值：CNY
+         */
+        this.targetCurrency = builder.targetCurrency;
+        /**
+         * 换算日期
+         * <p> 示例值：2022-02-13
+         */
+        this.effectiveDate = builder.effectiveDate;
+        /**
+         * 汇率值，保留10位小数
+         * <p> 示例值：0.1720000000
+         */
+        this.exchangeRate = builder.exchangeRate;
+        /**
+         * 状态，枚举值：1_生效，0_失效
+         * <p> 示例值：1
+         */
+        this.status = builder.status;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getSourceCurrency() {
         return this.sourceCurrency;
     }
@@ -95,136 +136,100 @@ public class FixedExchangeRate {
         this.status = status;
     }
 
-
-// builder 开始
-  public FixedExchangeRate(){}
-
-  public FixedExchangeRate(Builder builder){
-         /**
-          * 原始币种代码
-          * <p> 示例值：USD
-          */
-      this.sourceCurrency = builder.sourceCurrency;
-         /**
-          * 目标币种代码
-          * <p> 示例值：CNY
-          */
-      this.targetCurrency = builder.targetCurrency;
-         /**
-          * 换算日期
-          * <p> 示例值：2022-02-13
-          */
-      this.effectiveDate = builder.effectiveDate;
-         /**
-          * 汇率值，保留10位小数
-          * <p> 示例值：0.1720000000
-          */
-      this.exchangeRate = builder.exchangeRate;
-         /**
-          * 状态，枚举值：1_生效，0_失效
-          * <p> 示例值：1
-          */
-      this.status = builder.status;
-  }
-
     public static class Builder {
-     /**
-      * 原始币种代码
-      * <p> 示例值：USD
-      */
+        /**
+         * 原始币种代码
+         * <p> 示例值：USD
+         */
         private String sourceCurrency;
-     /**
-      * 目标币种代码
-      * <p> 示例值：CNY
-      */
+        /**
+         * 目标币种代码
+         * <p> 示例值：CNY
+         */
         private String targetCurrency;
-     /**
-      * 换算日期
-      * <p> 示例值：2022-02-13
-      */
+        /**
+         * 换算日期
+         * <p> 示例值：2022-02-13
+         */
         private String effectiveDate;
-     /**
-      * 汇率值，保留10位小数
-      * <p> 示例值：0.1720000000
-      */
+        /**
+         * 汇率值，保留10位小数
+         * <p> 示例值：0.1720000000
+         */
         private String exchangeRate;
-     /**
-      * 状态，枚举值：1_生效，0_失效
-      * <p> 示例值：1
-      */
+        /**
+         * 状态，枚举值：1_生效，0_失效
+         * <p> 示例值：1
+         */
         private Integer status;
 
         /**
          * 原始币种代码
          * <p> 示例值：USD
+         *
          * @param sourceCurrency
          * @return
          */
         public Builder sourceCurrency(String sourceCurrency) {
-             this.sourceCurrency = sourceCurrency;
-             return this;
+            this.sourceCurrency = sourceCurrency;
+            return this;
         }
 
-    
 
         /**
          * 目标币种代码
          * <p> 示例值：CNY
+         *
          * @param targetCurrency
          * @return
          */
         public Builder targetCurrency(String targetCurrency) {
-             this.targetCurrency = targetCurrency;
-             return this;
+            this.targetCurrency = targetCurrency;
+            return this;
         }
 
-    
 
         /**
          * 换算日期
          * <p> 示例值：2022-02-13
+         *
          * @param effectiveDate
          * @return
          */
         public Builder effectiveDate(String effectiveDate) {
-             this.effectiveDate = effectiveDate;
-             return this;
+            this.effectiveDate = effectiveDate;
+            return this;
         }
 
-    
 
         /**
          * 汇率值，保留10位小数
          * <p> 示例值：0.1720000000
+         *
          * @param exchangeRate
          * @return
          */
         public Builder exchangeRate(String exchangeRate) {
-             this.exchangeRate = exchangeRate;
-             return this;
+            this.exchangeRate = exchangeRate;
+            return this;
         }
 
-    
 
         /**
          * 状态，枚举值：1_生效，0_失效
          * <p> 示例值：1
+         *
          * @param status
          * @return
          */
         public Builder status(Integer status) {
-             this.status = status;
-             return this;
+            this.status = status;
+            return this;
         }
 
-    
-    
-    public FixedExchangeRate build(){
-        return new FixedExchangeRate(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public FixedExchangeRate build() {
+            return new FixedExchangeRate(this);
+        }
     }
 }

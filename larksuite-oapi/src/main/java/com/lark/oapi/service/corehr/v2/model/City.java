@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,48 +20,93 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class City {
-     /**
-      * 城市 ID
-      * <p> 示例值：6863333352603125255
-      */
+    /**
+     * 城市 ID
+     * <p> 示例值：6863333352603125255
+     */
     @SerializedName("city_id")
     private String cityId;
-     /**
-      * 城市名称
-      * <p> 示例值：
-      */
+    /**
+     * 城市名称
+     * <p> 示例值：
+     */
     @SerializedName("name")
     private I18n[] name;
-     /**
-      * 所属省份/主要行政区 ID，详细信息可通过[查询省份/主要行政区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region_subdivision/search)接口获得
-      * <p> 示例值：6863326262757164551
-      */
+    /**
+     * 所属省份/主要行政区 ID，详细信息可通过[查询省份/主要行政区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region_subdivision/search)接口获得
+     * <p> 示例值：6863326262757164551
+     */
     @SerializedName("country_region_subdivision_id")
     private String countryRegionSubdivisionId;
-     /**
-      * 城市三位字母代码
-      * <p> 示例值：HRB
-      */
+    /**
+     * 城市三位字母代码
+     * <p> 示例值：HRB
+     */
     @SerializedName("code")
     private String code;
-     /**
-      * 行政区划代码
-      * <p> 示例值：230100
-      */
+    /**
+     * 行政区划代码
+     * <p> 示例值：230100
+     */
     @SerializedName("subregion_code")
     private String subregionCode;
-     /**
-      * 状态
-      * <p> 示例值：1
-      */
+    /**
+     * 状态
+     * <p> 示例值：1
+     */
     @SerializedName("status")
     private Integer status;
+
+    // builder 开始
+    public City() {
+    }
+
+    public City(Builder builder) {
+        /**
+         * 城市 ID
+         * <p> 示例值：6863333352603125255
+         */
+        this.cityId = builder.cityId;
+        /**
+         * 城市名称
+         * <p> 示例值：
+         */
+        this.name = builder.name;
+        /**
+         * 所属省份/主要行政区 ID，详细信息可通过[查询省份/主要行政区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region_subdivision/search)接口获得
+         * <p> 示例值：6863326262757164551
+         */
+        this.countryRegionSubdivisionId = builder.countryRegionSubdivisionId;
+        /**
+         * 城市三位字母代码
+         * <p> 示例值：HRB
+         */
+        this.code = builder.code;
+        /**
+         * 行政区划代码
+         * <p> 示例值：230100
+         */
+        this.subregionCode = builder.subregionCode;
+        /**
+         * 状态
+         * <p> 示例值：1
+         */
+        this.status = builder.status;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getCityId() {
         return this.cityId;
     }
@@ -109,169 +155,130 @@ public class City {
         this.status = status;
     }
 
-
-// builder 开始
-  public City(){}
-
-  public City(Builder builder){
-         /**
-          * 城市 ID
-          * <p> 示例值：6863333352603125255
-          */
-      this.cityId = builder.cityId;
-         /**
-          * 城市名称
-          * <p> 示例值：
-          */
-      this.name = builder.name;
-         /**
-          * 所属省份/主要行政区 ID，详细信息可通过[查询省份/主要行政区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region_subdivision/search)接口获得
-          * <p> 示例值：6863326262757164551
-          */
-      this.countryRegionSubdivisionId = builder.countryRegionSubdivisionId;
-         /**
-          * 城市三位字母代码
-          * <p> 示例值：HRB
-          */
-      this.code = builder.code;
-         /**
-          * 行政区划代码
-          * <p> 示例值：230100
-          */
-      this.subregionCode = builder.subregionCode;
-         /**
-          * 状态
-          * <p> 示例值：1
-          */
-      this.status = builder.status;
-  }
-
     public static class Builder {
-     /**
-      * 城市 ID
-      * <p> 示例值：6863333352603125255
-      */
+        /**
+         * 城市 ID
+         * <p> 示例值：6863333352603125255
+         */
         private String cityId;
-     /**
-      * 城市名称
-      * <p> 示例值：
-      */
+        /**
+         * 城市名称
+         * <p> 示例值：
+         */
         private I18n[] name;
-     /**
-      * 所属省份/主要行政区 ID，详细信息可通过[查询省份/主要行政区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region_subdivision/search)接口获得
-      * <p> 示例值：6863326262757164551
-      */
+        /**
+         * 所属省份/主要行政区 ID，详细信息可通过[查询省份/主要行政区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region_subdivision/search)接口获得
+         * <p> 示例值：6863326262757164551
+         */
         private String countryRegionSubdivisionId;
-     /**
-      * 城市三位字母代码
-      * <p> 示例值：HRB
-      */
+        /**
+         * 城市三位字母代码
+         * <p> 示例值：HRB
+         */
         private String code;
-     /**
-      * 行政区划代码
-      * <p> 示例值：230100
-      */
+        /**
+         * 行政区划代码
+         * <p> 示例值：230100
+         */
         private String subregionCode;
-     /**
-      * 状态
-      * <p> 示例值：1
-      */
+        /**
+         * 状态
+         * <p> 示例值：1
+         */
         private Integer status;
 
         /**
          * 城市 ID
          * <p> 示例值：6863333352603125255
+         *
          * @param cityId
          * @return
          */
         public Builder cityId(String cityId) {
-             this.cityId = cityId;
-             return this;
+            this.cityId = cityId;
+            return this;
         }
 
-    
 
         /**
          * 城市名称
          * <p> 示例值：
+         *
          * @param name
          * @return
          */
         public Builder name(I18n[] name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 所属省份/主要行政区 ID，详细信息可通过[查询省份/主要行政区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region_subdivision/search)接口获得
          * <p> 示例值：6863326262757164551
+         *
          * @param countryRegionSubdivisionId
          * @return
          */
         public Builder countryRegionSubdivisionId(String countryRegionSubdivisionId) {
-             this.countryRegionSubdivisionId = countryRegionSubdivisionId;
-             return this;
+            this.countryRegionSubdivisionId = countryRegionSubdivisionId;
+            return this;
         }
 
-    
 
         /**
          * 城市三位字母代码
          * <p> 示例值：HRB
+         *
          * @param code
          * @return
          */
         public Builder code(String code) {
-             this.code = code;
-             return this;
+            this.code = code;
+            return this;
         }
 
-    
 
         /**
          * 行政区划代码
          * <p> 示例值：230100
+         *
          * @param subregionCode
          * @return
          */
         public Builder subregionCode(String subregionCode) {
-             this.subregionCode = subregionCode;
-             return this;
+            this.subregionCode = subregionCode;
+            return this;
         }
 
-    
 
         /**
          * 状态
          * <p> 示例值：1
+         *
          * @param status
          * @return
          */
         public Builder status(Integer status) {
-             this.status = status;
-             return this;
+            this.status = status;
+            return this;
         }
+
         /**
          * 状态
          * <p> 示例值：1
+         *
          * @param status {@link com.lark.oapi.service.corehr.v2.enums.CityBasicDataObjStatusEnum}
          * @return
          */
         public Builder status(com.lark.oapi.service.corehr.v2.enums.CityBasicDataObjStatusEnum status) {
-             this.status = status.getValue();
-             return this;
+            this.status = status.getValue();
+            return this;
         }
 
-    
-    
-    public City build(){
-        return new City(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public City build() {
+            return new City(this);
+        }
     }
 }

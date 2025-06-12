@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class MetaFailed {
-     /**
-      * 获取元数据失败的文档token
-      * <p> 示例值：boxcnrHpsg1QDqXAAAyachabcef
-      */
+    /**
+     * 获取元数据失败的文档token
+     * <p> 示例值：boxcnrHpsg1QDqXAAAyachabcef
+     */
     @SerializedName("token")
     private String token;
-     /**
-      * 获取元数据失败的错误码
-      * <p> 示例值：970005
-      */
+    /**
+     * 获取元数据失败的错误码
+     * <p> 示例值：970005
+     */
     @SerializedName("code")
     private Integer code;
+
+    // builder 开始
+    public MetaFailed() {
+    }
+
+    public MetaFailed(Builder builder) {
+        /**
+         * 获取元数据失败的文档token
+         * <p> 示例值：boxcnrHpsg1QDqXAAAyachabcef
+         */
+        this.token = builder.token;
+        /**
+         * 获取元数据失败的错误码
+         * <p> 示例值：970005
+         */
+        this.code = builder.code;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getToken() {
         return this.token;
     }
@@ -53,77 +79,58 @@ public class MetaFailed {
         this.code = code;
     }
 
-
-// builder 开始
-  public MetaFailed(){}
-
-  public MetaFailed(Builder builder){
-         /**
-          * 获取元数据失败的文档token
-          * <p> 示例值：boxcnrHpsg1QDqXAAAyachabcef
-          */
-      this.token = builder.token;
-         /**
-          * 获取元数据失败的错误码
-          * <p> 示例值：970005
-          */
-      this.code = builder.code;
-  }
-
     public static class Builder {
-     /**
-      * 获取元数据失败的文档token
-      * <p> 示例值：boxcnrHpsg1QDqXAAAyachabcef
-      */
+        /**
+         * 获取元数据失败的文档token
+         * <p> 示例值：boxcnrHpsg1QDqXAAAyachabcef
+         */
         private String token;
-     /**
-      * 获取元数据失败的错误码
-      * <p> 示例值：970005
-      */
+        /**
+         * 获取元数据失败的错误码
+         * <p> 示例值：970005
+         */
         private Integer code;
 
         /**
          * 获取元数据失败的文档token
          * <p> 示例值：boxcnrHpsg1QDqXAAAyachabcef
+         *
          * @param token
          * @return
          */
         public Builder token(String token) {
-             this.token = token;
-             return this;
+            this.token = token;
+            return this;
         }
 
-    
 
         /**
          * 获取元数据失败的错误码
          * <p> 示例值：970005
+         *
          * @param code
          * @return
          */
         public Builder code(Integer code) {
-             this.code = code;
-             return this;
+            this.code = code;
+            return this;
         }
+
         /**
          * 获取元数据失败的错误码
          * <p> 示例值：970005
+         *
          * @param code {@link com.lark.oapi.service.drive.v1.enums.MetaFailedCodeEnum}
          * @return
          */
         public Builder code(com.lark.oapi.service.drive.v1.enums.MetaFailedCodeEnum code) {
-             this.code = code.getValue();
-             return this;
+            this.code = code.getValue();
+            return this;
         }
 
-    
-    
-    public MetaFailed build(){
-        return new MetaFailed(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public MetaFailed build() {
+            return new MetaFailed(this);
+        }
     }
 }

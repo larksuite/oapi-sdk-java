@@ -12,84 +12,89 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class P2OffboardingUpdatedV2Data {
-     /**
-      * Saas租户ID
-      * <p> 示例值：7072306364927985196
-      */
+    /**
+     * Saas租户ID
+     * <p> 示例值：7072306364927985196
+     */
     @SerializedName("tenant_id")
     private String tenantId;
-     /**
-      * 离职记录ID
-      * <p> 示例值：7072306364927985196
-      */
+    /**
+     * 离职记录ID
+     * <p> 示例值：7072306364927985196
+     */
     @SerializedName("offboarding_info_id")
     private String offboardingInfoId;
-     /**
-      * 离职流程ID
-      * <p> 示例值：7072306364927985196
-      */
+    /**
+     * 离职流程ID
+     * <p> 示例值：7072306364927985196
+     */
     @SerializedName("process_id")
     private String processId;
-     /**
-      * 离职手续办了流程ID
-      * <p> 示例值：7072306364927985196
-      */
+    /**
+     * 离职手续办了流程ID
+     * <p> 示例值：7072306364927985196
+     */
     @SerializedName("checklist_process_id")
     private String checklistProcessId;
-     /**
-      * 离职员工雇佣ID
-      * <p> 示例值：7072306364927985196
-      */
+    /**
+     * 离职员工雇佣ID
+     * <p> 示例值：7072306364927985196
+     */
     @SerializedName("employment_id")
     private String employmentId;
-     /**
-      * 操作人雇佣ID
-      * <p> 示例值：7072306364927985196
-      */
+    /**
+     * 操作人雇佣ID
+     * <p> 示例值：7072306364927985196
+     */
     @SerializedName("operator")
     private String operator;
-     /**
-      * 变更后的离职状态
-      * <p> 示例值：1
-      */
+    /**
+     * 变更后的离职状态
+     * <p> 示例值：1
+     */
     @SerializedName("status")
     private Integer status;
-     /**
-      * 变更后的离职手续办理状态
-      * <p> 示例值：1
-      */
+    /**
+     * 变更后的离职手续办理状态
+     * <p> 示例值：1
+     */
     @SerializedName("checklist_status")
     private Integer checklistStatus;
-     /**
-      * 更新时间毫秒时间戳
-      * <p> 示例值：1714985958000
-      */
+    /**
+     * 更新时间毫秒时间戳
+     * <p> 示例值：1714985958000
+     */
     @SerializedName("updated_time")
     private String updatedTime;
-     /**
-      * 所有变更的离职信息字段
-      * <p> 示例值：
-      */
+    /**
+     * 所有变更的离职信息字段
+     * <p> 示例值：
+     */
     @SerializedName("updated_fields")
     private String[] updatedFields;
-     /**
-      * 员工的飞书用户 ID
-      * <p> 示例值：
-      */
+    /**
+     * 员工的飞书用户 ID
+     * <p> 示例值：
+     */
     @SerializedName("target_user_id")
     private UserId targetUserId;
+
     public String getTenantId() {
         return this.tenantId;
     }

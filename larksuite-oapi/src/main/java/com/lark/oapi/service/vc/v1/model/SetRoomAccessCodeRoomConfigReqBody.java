@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,54 +20,104 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class SetRoomAccessCodeRoomConfigReqBody {
-     /**
-      * 设置节点范围
-      * <p> 示例值：5
-      */
+    /**
+     * 设置节点范围
+     * <p> 示例值：5
+     */
     @SerializedName("scope")
     private Integer scope;
-     /**
-      * 国家/地区ID scope为2，3时需要此参数
-      * <p> 示例值：1
-      */
+    /**
+     * 国家/地区ID scope为2，3时需要此参数
+     * <p> 示例值：1
+     */
     @SerializedName("country_id")
     private String countryId;
-     /**
-      * 城市ID scope为3时需要此参数
-      * <p> 示例值：2
-      */
+    /**
+     * 城市ID scope为3时需要此参数
+     * <p> 示例值：2
+     */
     @SerializedName("district_id")
     private String districtId;
-     /**
-      * 建筑ID scope为4，5时需要此参数
-      * <p> 示例值：3
-      */
+    /**
+     * 建筑ID scope为4，5时需要此参数
+     * <p> 示例值：3
+     */
     @SerializedName("building_id")
     private String buildingId;
-     /**
-      * 楼层 scope为5时需要此参数
-      * <p> 示例值：4
-      */
+    /**
+     * 楼层 scope为5时需要此参数
+     * <p> 示例值：4
+     */
     @SerializedName("floor_name")
     private String floorName;
-     /**
-      * 会议室ID scope为6时需要此参数
-      * <p> 示例值：67687262867363
-      */
+    /**
+     * 会议室ID scope为6时需要此参数
+     * <p> 示例值：67687262867363
+     */
     @SerializedName("room_id")
     private String roomId;
-     /**
-      * 有效天数
-      * <p> 示例值：1
-      */
+    /**
+     * 有效天数
+     * <p> 示例值：1
+     */
     @SerializedName("valid_day")
     private Integer validDay;
+
+    // builder 开始
+    public SetRoomAccessCodeRoomConfigReqBody() {
+    }
+
+    public SetRoomAccessCodeRoomConfigReqBody(Builder builder) {
+        /**
+         * 设置节点范围
+         * <p> 示例值：5
+         */
+        this.scope = builder.scope;
+        /**
+         * 国家/地区ID scope为2，3时需要此参数
+         * <p> 示例值：1
+         */
+        this.countryId = builder.countryId;
+        /**
+         * 城市ID scope为3时需要此参数
+         * <p> 示例值：2
+         */
+        this.districtId = builder.districtId;
+        /**
+         * 建筑ID scope为4，5时需要此参数
+         * <p> 示例值：3
+         */
+        this.buildingId = builder.buildingId;
+        /**
+         * 楼层 scope为5时需要此参数
+         * <p> 示例值：4
+         */
+        this.floorName = builder.floorName;
+        /**
+         * 会议室ID scope为6时需要此参数
+         * <p> 示例值：67687262867363
+         */
+        this.roomId = builder.roomId;
+        /**
+         * 有效天数
+         * <p> 示例值：1
+         */
+        this.validDay = builder.validDay;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Integer getScope() {
         return this.scope;
     }
@@ -123,202 +174,160 @@ public class SetRoomAccessCodeRoomConfigReqBody {
         this.validDay = validDay;
     }
 
-
-// builder 开始
-  public SetRoomAccessCodeRoomConfigReqBody(){}
-
-  public SetRoomAccessCodeRoomConfigReqBody(Builder builder){
-         /**
-          * 设置节点范围
-          * <p> 示例值：5
-          */
-      this.scope = builder.scope;
-         /**
-          * 国家/地区ID scope为2，3时需要此参数
-          * <p> 示例值：1
-          */
-      this.countryId = builder.countryId;
-         /**
-          * 城市ID scope为3时需要此参数
-          * <p> 示例值：2
-          */
-      this.districtId = builder.districtId;
-         /**
-          * 建筑ID scope为4，5时需要此参数
-          * <p> 示例值：3
-          */
-      this.buildingId = builder.buildingId;
-         /**
-          * 楼层 scope为5时需要此参数
-          * <p> 示例值：4
-          */
-      this.floorName = builder.floorName;
-         /**
-          * 会议室ID scope为6时需要此参数
-          * <p> 示例值：67687262867363
-          */
-      this.roomId = builder.roomId;
-         /**
-          * 有效天数
-          * <p> 示例值：1
-          */
-      this.validDay = builder.validDay;
-  }
-
     public static class Builder {
-     /**
-      * 设置节点范围
-      * <p> 示例值：5
-      */
+        /**
+         * 设置节点范围
+         * <p> 示例值：5
+         */
         private Integer scope;
-     /**
-      * 国家/地区ID scope为2，3时需要此参数
-      * <p> 示例值：1
-      */
+        /**
+         * 国家/地区ID scope为2，3时需要此参数
+         * <p> 示例值：1
+         */
         private String countryId;
-     /**
-      * 城市ID scope为3时需要此参数
-      * <p> 示例值：2
-      */
+        /**
+         * 城市ID scope为3时需要此参数
+         * <p> 示例值：2
+         */
         private String districtId;
-     /**
-      * 建筑ID scope为4，5时需要此参数
-      * <p> 示例值：3
-      */
+        /**
+         * 建筑ID scope为4，5时需要此参数
+         * <p> 示例值：3
+         */
         private String buildingId;
-     /**
-      * 楼层 scope为5时需要此参数
-      * <p> 示例值：4
-      */
+        /**
+         * 楼层 scope为5时需要此参数
+         * <p> 示例值：4
+         */
         private String floorName;
-     /**
-      * 会议室ID scope为6时需要此参数
-      * <p> 示例值：67687262867363
-      */
+        /**
+         * 会议室ID scope为6时需要此参数
+         * <p> 示例值：67687262867363
+         */
         private String roomId;
-     /**
-      * 有效天数
-      * <p> 示例值：1
-      */
+        /**
+         * 有效天数
+         * <p> 示例值：1
+         */
         private Integer validDay;
 
         /**
          * 设置节点范围
          * <p> 示例值：5
+         *
          * @param scope
          * @return
          */
         public Builder scope(Integer scope) {
-             this.scope = scope;
-             return this;
+            this.scope = scope;
+            return this;
         }
+
         /**
          * 设置节点范围
          * <p> 示例值：5
+         *
          * @param scope {@link com.lark.oapi.service.vc.v1.enums.SetRoomAccessCodeRoomConfigNodeScopeEnum}
          * @return
          */
         public Builder scope(com.lark.oapi.service.vc.v1.enums.SetRoomAccessCodeRoomConfigNodeScopeEnum scope) {
-             this.scope = scope.getValue();
-             return this;
+            this.scope = scope.getValue();
+            return this;
         }
 
-    
 
         /**
          * 国家/地区ID scope为2，3时需要此参数
          * <p> 示例值：1
+         *
          * @param countryId
          * @return
          */
         public Builder countryId(String countryId) {
-             this.countryId = countryId;
-             return this;
+            this.countryId = countryId;
+            return this;
         }
 
-    
 
         /**
          * 城市ID scope为3时需要此参数
          * <p> 示例值：2
+         *
          * @param districtId
          * @return
          */
         public Builder districtId(String districtId) {
-             this.districtId = districtId;
-             return this;
+            this.districtId = districtId;
+            return this;
         }
 
-    
 
         /**
          * 建筑ID scope为4，5时需要此参数
          * <p> 示例值：3
+         *
          * @param buildingId
          * @return
          */
         public Builder buildingId(String buildingId) {
-             this.buildingId = buildingId;
-             return this;
+            this.buildingId = buildingId;
+            return this;
         }
 
-    
 
         /**
          * 楼层 scope为5时需要此参数
          * <p> 示例值：4
+         *
          * @param floorName
          * @return
          */
         public Builder floorName(String floorName) {
-             this.floorName = floorName;
-             return this;
+            this.floorName = floorName;
+            return this;
         }
 
-    
 
         /**
          * 会议室ID scope为6时需要此参数
          * <p> 示例值：67687262867363
+         *
          * @param roomId
          * @return
          */
         public Builder roomId(String roomId) {
-             this.roomId = roomId;
-             return this;
+            this.roomId = roomId;
+            return this;
         }
 
-    
 
         /**
          * 有效天数
          * <p> 示例值：1
+         *
          * @param validDay
          * @return
          */
         public Builder validDay(Integer validDay) {
-             this.validDay = validDay;
-             return this;
+            this.validDay = validDay;
+            return this;
         }
+
         /**
          * 有效天数
          * <p> 示例值：1
+         *
          * @param validDay {@link com.lark.oapi.service.vc.v1.enums.SetRoomAccessCodeRoomConfigValidDayTypeEnum}
          * @return
          */
         public Builder validDay(com.lark.oapi.service.vc.v1.enums.SetRoomAccessCodeRoomConfigValidDayTypeEnum validDay) {
-             this.validDay = validDay.getValue();
-             return this;
+            this.validDay = validDay.getValue();
+            return this;
         }
 
-    
-    
-    public SetRoomAccessCodeRoomConfigReqBody build(){
-        return new SetRoomAccessCodeRoomConfigReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public SetRoomAccessCodeRoomConfigReqBody build() {
+            return new SetRoomAccessCodeRoomConfigReqBody(this);
+        }
     }
 }

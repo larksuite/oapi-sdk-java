@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ProfileSettingCareer {
-     /**
-      * 教育经历
-      * <p> 示例值：
-      */
+    /**
+     * 教育经历
+     * <p> 示例值：
+     */
     @SerializedName("educations")
     private ProfileSettingEducation[] educations;
-     /**
-      * 工作经历
-      * <p> 示例值：
-      */
+    /**
+     * 工作经历
+     * <p> 示例值：
+     */
     @SerializedName("work_experiences")
     private ProfileSettingWorkExperience[] workExperiences;
-     /**
-      * 自定义分组
-      * <p> 示例值：
-      */
+    /**
+     * 自定义分组
+     * <p> 示例值：
+     */
     @SerializedName("custom_groups")
     private ProfileSettingCustomGroup[] customGroups;
+
+    // builder 开始
+    public ProfileSettingCareer() {
+    }
+
+    public ProfileSettingCareer(Builder builder) {
+        /**
+         * 教育经历
+         * <p> 示例值：
+         */
+        this.educations = builder.educations;
+        /**
+         * 工作经历
+         * <p> 示例值：
+         */
+        this.workExperiences = builder.workExperiences;
+        /**
+         * 自定义分组
+         * <p> 示例值：
+         */
+        this.customGroups = builder.customGroups;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public ProfileSettingEducation[] getEducations() {
         return this.educations;
     }
@@ -67,90 +98,64 @@ public class ProfileSettingCareer {
         this.customGroups = customGroups;
     }
 
-
-// builder 开始
-  public ProfileSettingCareer(){}
-
-  public ProfileSettingCareer(Builder builder){
-         /**
-          * 教育经历
-          * <p> 示例值：
-          */
-      this.educations = builder.educations;
-         /**
-          * 工作经历
-          * <p> 示例值：
-          */
-      this.workExperiences = builder.workExperiences;
-         /**
-          * 自定义分组
-          * <p> 示例值：
-          */
-      this.customGroups = builder.customGroups;
-  }
-
     public static class Builder {
-     /**
-      * 教育经历
-      * <p> 示例值：
-      */
+        /**
+         * 教育经历
+         * <p> 示例值：
+         */
         private ProfileSettingEducation[] educations;
-     /**
-      * 工作经历
-      * <p> 示例值：
-      */
+        /**
+         * 工作经历
+         * <p> 示例值：
+         */
         private ProfileSettingWorkExperience[] workExperiences;
-     /**
-      * 自定义分组
-      * <p> 示例值：
-      */
+        /**
+         * 自定义分组
+         * <p> 示例值：
+         */
         private ProfileSettingCustomGroup[] customGroups;
 
         /**
          * 教育经历
          * <p> 示例值：
+         *
          * @param educations
          * @return
          */
         public Builder educations(ProfileSettingEducation[] educations) {
-             this.educations = educations;
-             return this;
+            this.educations = educations;
+            return this;
         }
 
-    
 
         /**
          * 工作经历
          * <p> 示例值：
+         *
          * @param workExperiences
          * @return
          */
         public Builder workExperiences(ProfileSettingWorkExperience[] workExperiences) {
-             this.workExperiences = workExperiences;
-             return this;
+            this.workExperiences = workExperiences;
+            return this;
         }
 
-    
 
         /**
          * 自定义分组
          * <p> 示例值：
+         *
          * @param customGroups
          * @return
          */
         public Builder customGroups(ProfileSettingCustomGroup[] customGroups) {
-             this.customGroups = customGroups;
-             return this;
+            this.customGroups = customGroups;
+            return this;
         }
 
-    
-    
-    public ProfileSettingCareer build(){
-        return new ProfileSettingCareer(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ProfileSettingCareer build() {
+            return new ProfileSettingCareer(this);
+        }
     }
 }

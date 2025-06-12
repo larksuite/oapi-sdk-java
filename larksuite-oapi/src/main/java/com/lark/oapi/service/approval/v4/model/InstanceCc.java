@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,42 +20,82 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class InstanceCc {
-     /**
-      * 审批定义 code
-      * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
-      */
+    /**
+     * 审批定义 code
+     * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+     */
     @SerializedName("approval_code")
     private String approvalCode;
-     /**
-      * 审批实例 code
-      * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
-      */
+    /**
+     * 审批实例 code
+     * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+     */
     @SerializedName("instance_code")
     private String instanceCode;
-     /**
-      * 根据user_id_type填写发起抄送的人的用户id
-      * <p> 示例值：f7cb567e
-      */
+    /**
+     * 根据user_id_type填写发起抄送的人的用户id
+     * <p> 示例值：f7cb567e
+     */
     @SerializedName("user_id")
     private String userId;
-     /**
-      * 根据user_id_type填写被抄送人的 用户id 列表
-      * <p> 示例值：f7cb567e
-      */
+    /**
+     * 根据user_id_type填写被抄送人的 用户id 列表
+     * <p> 示例值：f7cb567e
+     */
     @SerializedName("cc_user_ids")
     private String[] ccUserIds;
-     /**
-      * 抄送留言
-      * <p> 示例值：ok
-      */
+    /**
+     * 抄送留言
+     * <p> 示例值：ok
+     */
     @SerializedName("comment")
     private String comment;
+
+    // builder 开始
+    public InstanceCc() {
+    }
+
+    public InstanceCc(Builder builder) {
+        /**
+         * 审批定义 code
+         * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+         */
+        this.approvalCode = builder.approvalCode;
+        /**
+         * 审批实例 code
+         * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+         */
+        this.instanceCode = builder.instanceCode;
+        /**
+         * 根据user_id_type填写发起抄送的人的用户id
+         * <p> 示例值：f7cb567e
+         */
+        this.userId = builder.userId;
+        /**
+         * 根据user_id_type填写被抄送人的 用户id 列表
+         * <p> 示例值：f7cb567e
+         */
+        this.ccUserIds = builder.ccUserIds;
+        /**
+         * 抄送留言
+         * <p> 示例值：ok
+         */
+        this.comment = builder.comment;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getApprovalCode() {
         return this.approvalCode;
     }
@@ -95,136 +136,100 @@ public class InstanceCc {
         this.comment = comment;
     }
 
-
-// builder 开始
-  public InstanceCc(){}
-
-  public InstanceCc(Builder builder){
-         /**
-          * 审批定义 code
-          * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
-          */
-      this.approvalCode = builder.approvalCode;
-         /**
-          * 审批实例 code
-          * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
-          */
-      this.instanceCode = builder.instanceCode;
-         /**
-          * 根据user_id_type填写发起抄送的人的用户id
-          * <p> 示例值：f7cb567e
-          */
-      this.userId = builder.userId;
-         /**
-          * 根据user_id_type填写被抄送人的 用户id 列表
-          * <p> 示例值：f7cb567e
-          */
-      this.ccUserIds = builder.ccUserIds;
-         /**
-          * 抄送留言
-          * <p> 示例值：ok
-          */
-      this.comment = builder.comment;
-  }
-
     public static class Builder {
-     /**
-      * 审批定义 code
-      * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
-      */
+        /**
+         * 审批定义 code
+         * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+         */
         private String approvalCode;
-     /**
-      * 审批实例 code
-      * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
-      */
+        /**
+         * 审批实例 code
+         * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+         */
         private String instanceCode;
-     /**
-      * 根据user_id_type填写发起抄送的人的用户id
-      * <p> 示例值：f7cb567e
-      */
+        /**
+         * 根据user_id_type填写发起抄送的人的用户id
+         * <p> 示例值：f7cb567e
+         */
         private String userId;
-     /**
-      * 根据user_id_type填写被抄送人的 用户id 列表
-      * <p> 示例值：f7cb567e
-      */
+        /**
+         * 根据user_id_type填写被抄送人的 用户id 列表
+         * <p> 示例值：f7cb567e
+         */
         private String[] ccUserIds;
-     /**
-      * 抄送留言
-      * <p> 示例值：ok
-      */
+        /**
+         * 抄送留言
+         * <p> 示例值：ok
+         */
         private String comment;
 
         /**
          * 审批定义 code
          * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+         *
          * @param approvalCode
          * @return
          */
         public Builder approvalCode(String approvalCode) {
-             this.approvalCode = approvalCode;
-             return this;
+            this.approvalCode = approvalCode;
+            return this;
         }
 
-    
 
         /**
          * 审批实例 code
          * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+         *
          * @param instanceCode
          * @return
          */
         public Builder instanceCode(String instanceCode) {
-             this.instanceCode = instanceCode;
-             return this;
+            this.instanceCode = instanceCode;
+            return this;
         }
 
-    
 
         /**
          * 根据user_id_type填写发起抄送的人的用户id
          * <p> 示例值：f7cb567e
+         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-             this.userId = userId;
-             return this;
+            this.userId = userId;
+            return this;
         }
 
-    
 
         /**
          * 根据user_id_type填写被抄送人的 用户id 列表
          * <p> 示例值：f7cb567e
+         *
          * @param ccUserIds
          * @return
          */
         public Builder ccUserIds(String[] ccUserIds) {
-             this.ccUserIds = ccUserIds;
-             return this;
+            this.ccUserIds = ccUserIds;
+            return this;
         }
 
-    
 
         /**
          * 抄送留言
          * <p> 示例值：ok
+         *
          * @param comment
          * @return
          */
         public Builder comment(String comment) {
-             this.comment = comment;
-             return this;
+            this.comment = comment;
+            return this;
         }
 
-    
-    
-    public InstanceCc build(){
-        return new InstanceCc(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public InstanceCc build() {
+            return new InstanceCc(this);
+        }
     }
 }

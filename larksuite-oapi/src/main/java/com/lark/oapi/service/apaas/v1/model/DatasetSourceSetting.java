@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,31 +20,63 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
+
 import java.util.Map;
+
 import com.lark.oapi.core.response.BaseResponse;
+
 public class DatasetSourceSetting {
-     /**
-      * 数据流的 API ID
-      * <p> 示例值：package_test__c_dataflow_aaaf
-      */
+    /**
+     * 数据流的 API ID
+     * <p> 示例值：package_test__c_dataflow_aaaf
+     */
     @SerializedName("api_id")
     private String apiId;
-     /**
-      * 数据流的 API 名称
-      * <p> 示例值：myDataflow
-      */
+    /**
+     * 数据流的 API 名称
+     * <p> 示例值：myDataflow
+     */
     @SerializedName("api_name")
     private String apiName;
-     /**
-      * 数据流的名称
-      * <p> 示例值：
-      */
+    /**
+     * 数据流的名称
+     * <p> 示例值：
+     */
     @SerializedName("label")
     private Map<String, String> label;
+
+    // builder 开始
+    public DatasetSourceSetting() {
+    }
+
+    public DatasetSourceSetting(Builder builder) {
+        /**
+         * 数据流的 API ID
+         * <p> 示例值：package_test__c_dataflow_aaaf
+         */
+        this.apiId = builder.apiId;
+        /**
+         * 数据流的 API 名称
+         * <p> 示例值：myDataflow
+         */
+        this.apiName = builder.apiName;
+        /**
+         * 数据流的名称
+         * <p> 示例值：
+         */
+        this.label = builder.label;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getApiId() {
         return this.apiId;
     }
@@ -68,90 +101,64 @@ public class DatasetSourceSetting {
         this.label = label;
     }
 
-
-// builder 开始
-  public DatasetSourceSetting(){}
-
-  public DatasetSourceSetting(Builder builder){
-         /**
-          * 数据流的 API ID
-          * <p> 示例值：package_test__c_dataflow_aaaf
-          */
-      this.apiId = builder.apiId;
-         /**
-          * 数据流的 API 名称
-          * <p> 示例值：myDataflow
-          */
-      this.apiName = builder.apiName;
-         /**
-          * 数据流的名称
-          * <p> 示例值：
-          */
-      this.label = builder.label;
-  }
-
     public static class Builder {
-     /**
-      * 数据流的 API ID
-      * <p> 示例值：package_test__c_dataflow_aaaf
-      */
+        /**
+         * 数据流的 API ID
+         * <p> 示例值：package_test__c_dataflow_aaaf
+         */
         private String apiId;
-     /**
-      * 数据流的 API 名称
-      * <p> 示例值：myDataflow
-      */
+        /**
+         * 数据流的 API 名称
+         * <p> 示例值：myDataflow
+         */
         private String apiName;
-     /**
-      * 数据流的名称
-      * <p> 示例值：
-      */
+        /**
+         * 数据流的名称
+         * <p> 示例值：
+         */
         private Map<String, String> label;
 
         /**
          * 数据流的 API ID
          * <p> 示例值：package_test__c_dataflow_aaaf
+         *
          * @param apiId
          * @return
          */
         public Builder apiId(String apiId) {
-             this.apiId = apiId;
-             return this;
+            this.apiId = apiId;
+            return this;
         }
 
-    
 
         /**
          * 数据流的 API 名称
          * <p> 示例值：myDataflow
+         *
          * @param apiName
          * @return
          */
         public Builder apiName(String apiName) {
-             this.apiName = apiName;
-             return this;
+            this.apiName = apiName;
+            return this;
         }
 
-    
 
         /**
          * 数据流的名称
          * <p> 示例值：
+         *
          * @param label
          * @return
          */
         public Builder label(Map<String, String> label) {
-             this.label = label;
-             return this;
+            this.label = label;
+            return this;
         }
 
-    
-    
-    public DatasetSourceSetting build(){
-        return new DatasetSourceSetting(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public DatasetSourceSetting build() {
+            return new DatasetSourceSetting(this);
+        }
     }
 }

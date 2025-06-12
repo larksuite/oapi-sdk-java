@@ -12,32 +12,70 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class GetProcessFormVariableDataReq {
-     /**
-      * 用户 ID 类型
-      * <p> 示例值：people_corehr_id
-      */
+    /**
+     * 用户 ID 类型
+     * <p> 示例值：people_corehr_id
+     */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
-     /**
-      * 此次调用中使用的部门 ID 类型
-      * <p> 示例值：people_corehr_department_id
-      */
+    /**
+     * 此次调用中使用的部门 ID 类型
+     * <p> 示例值：people_corehr_department_id
+     */
     @Query
     @SerializedName("department_id_type")
     private String departmentIdType;
+    /**
+     * 流程实例id
+     * <p> 示例值：7341373094948242956
+     */
+    @Path
+    @SerializedName("process_id")
+    private String processId;
+
+    // builder 开始
+    public GetProcessFormVariableDataReq() {
+    }
+
+    public GetProcessFormVariableDataReq(Builder builder) {
+        /**
+         * 用户 ID 类型
+         * <p> 示例值：people_corehr_id
+         */
+        this.userIdType = builder.userIdType;
+        /**
+         * 此次调用中使用的部门 ID 类型
+         * <p> 示例值：people_corehr_department_id
+         */
+        this.departmentIdType = builder.departmentIdType;
+        /**
+         * 流程实例id
+         * <p> 示例值：7341373094948242956
+         */
+        this.processId = builder.processId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getUserIdType() {
         return this.userIdType;
     }
@@ -54,13 +92,6 @@ public class GetProcessFormVariableDataReq {
         this.departmentIdType = departmentIdType;
     }
 
-     /**
-      * 流程实例id
-      * <p> 示例值：7341373094948242956
-      */
-    @Path
-    @SerializedName("process_id")
-    private String processId;
     public String getProcessId() {
         return this.processId;
     }
@@ -69,97 +100,74 @@ public class GetProcessFormVariableDataReq {
         this.processId = processId;
     }
 
-
-// builder 开始
-  public GetProcessFormVariableDataReq(){}
-
-  public GetProcessFormVariableDataReq(Builder builder){
-         /**
-          * 用户 ID 类型
-          * <p> 示例值：people_corehr_id
-          */
-       this.userIdType = builder.userIdType;
-         /**
-          * 此次调用中使用的部门 ID 类型
-          * <p> 示例值：people_corehr_department_id
-          */
-       this.departmentIdType = builder.departmentIdType;
-     /**
-      * 流程实例id
-      * <p> 示例值：7341373094948242956
-      */
-       this.processId = builder.processId;
-  }
-
     public static class Builder {
         private String userIdType; // 用户 ID 类型
         private String departmentIdType; // 此次调用中使用的部门 ID 类型
-    
+        private String processId; // 流程实例id
+
         /**
          * 用户 ID 类型
          * <p> 示例值：people_corehr_id
+         *
          * @param userIdType
          * @return
          */
-           public Builder userIdType(String userIdType) {
-                this.userIdType = userIdType;
-                return this;
-           }
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
 
         /**
          * 用户 ID 类型
          * <p> 示例值：people_corehr_id
+         *
          * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.GetProcessFormVariableDataUserIdTypeEnum}
          * @return
          */
-          public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.GetProcessFormVariableDataUserIdTypeEnum userIdType) {
-               this.userIdType = userIdType.getValue();
-               return this;
-          }
+        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.GetProcessFormVariableDataUserIdTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
+            return this;
+        }
 
-    
         /**
          * 此次调用中使用的部门 ID 类型
          * <p> 示例值：people_corehr_department_id
+         *
          * @param departmentIdType
          * @return
          */
-           public Builder departmentIdType(String departmentIdType) {
-                this.departmentIdType = departmentIdType;
-                return this;
-           }
+        public Builder departmentIdType(String departmentIdType) {
+            this.departmentIdType = departmentIdType;
+            return this;
+        }
 
         /**
          * 此次调用中使用的部门 ID 类型
          * <p> 示例值：people_corehr_department_id
+         *
          * @param departmentIdType {@link com.lark.oapi.service.corehr.v2.enums.GetProcessFormVariableDataDepartmentIdTypeEnum}
          * @return
          */
-          public Builder departmentIdType(com.lark.oapi.service.corehr.v2.enums.GetProcessFormVariableDataDepartmentIdTypeEnum departmentIdType) {
-               this.departmentIdType = departmentIdType.getValue();
-               return this;
-          }
+        public Builder departmentIdType(com.lark.oapi.service.corehr.v2.enums.GetProcessFormVariableDataDepartmentIdTypeEnum departmentIdType) {
+            this.departmentIdType = departmentIdType.getValue();
+            return this;
+        }
 
-    
-        private String processId; // 流程实例id
         /**
          * 流程实例id
          * <p> 示例值：7341373094948242956
+         *
          * @param processId
          * @return
          */
-          public Builder processId(String processId) {
-               this.processId = processId;
-               return this;
-          }
+        public Builder processId(String processId) {
+            this.processId = processId;
+            return this;
+        }
 
-    
-    public GetProcessFormVariableDataReq build(){
-        return new GetProcessFormVariableDataReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public GetProcessFormVariableDataReq build() {
+            return new GetProcessFormVariableDataReq(this);
+        }
     }
 }

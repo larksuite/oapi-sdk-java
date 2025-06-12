@@ -12,20 +12,36 @@
  */
 
 package com.lark.oapi.service.document_ai.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.document_ai.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class RecognizeIdCardReq {
     @Body
     private RecognizeIdCardReqBody body;
+
+    // builder 开始
+    public RecognizeIdCardReq() {
+    }
+
+    public RecognizeIdCardReq(Builder builder) {
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 
     public RecognizeIdCardReqBody getRecognizeIdCardReqBody() {
         return this.body;
@@ -35,36 +51,27 @@ public class RecognizeIdCardReq {
         this.body = body;
     }
 
-// builder 开始
-  public RecognizeIdCardReq(){}
-
-  public RecognizeIdCardReq(Builder builder){
-        this.body = builder.body;
-  }
-
     public static class Builder {
-    
+
         private RecognizeIdCardReqBody body;
-    
+
         public RecognizeIdCardReqBody getRecognizeIdCardReqBody() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder recognizeIdCardReqBody(RecognizeIdCardReqBody body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public RecognizeIdCardReq build(){
-        return new RecognizeIdCardReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public RecognizeIdCardReq build() {
+            return new RecognizeIdCardReq(this);
+        }
     }
 }

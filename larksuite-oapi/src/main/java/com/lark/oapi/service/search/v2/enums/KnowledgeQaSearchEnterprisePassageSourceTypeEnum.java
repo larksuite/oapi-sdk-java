@@ -17,18 +17,19 @@ package com.lark.oapi.service.search.v2.enums;
  * source_type
  */
 public enum KnowledgeQaSearchEnterprisePassageSourceTypeEnum {
-     HELPDESK(1), // 服务台
-     WIKI(2), // wiki
-     DOC(3), // doc
-     LINGO(5), // lingo
-     MESSAGE(6), // message
-  ;
-   private Integer value;
+    HELPDESK(1), // 服务台
+    WIKI(2), // wiki
+    DOC(3), // doc
+    LINGO(5), // lingo
+    MESSAGE(6), // message
+    ;
+    private Integer value;
+
     KnowledgeQaSearchEnterprisePassageSourceTypeEnum(Integer value) {
-      this.value = value;
+        this.value = value;
     }
 
     public Integer getValue() {
-      return this.value;
+        return this.value;
     }
 }

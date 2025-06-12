@@ -12,25 +12,58 @@
  */
 
 package com.lark.oapi.service.task.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.task.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class GetAttachmentReq {
-     /**
-      * 表示user的ID的类型，支持open_id, user_id, union_id
-      * <p> 示例值：open_id
-      */
+    /**
+     * 表示user的ID的类型，支持open_id, user_id, union_id
+     * <p> 示例值：open_id
+     */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
+    /**
+     * 要获取附件详情的guid
+     * <p> 示例值：b59aa7a3-e98c-4830-8273-cbb29f89b837
+     */
+    @Path
+    @SerializedName("attachment_guid")
+    private String attachmentGuid;
+
+    // builder 开始
+    public GetAttachmentReq() {
+    }
+
+    public GetAttachmentReq(Builder builder) {
+        /**
+         * 表示user的ID的类型，支持open_id, user_id, union_id
+         * <p> 示例值：open_id
+         */
+        this.userIdType = builder.userIdType;
+        /**
+         * 要获取附件详情的guid
+         * <p> 示例值：b59aa7a3-e98c-4830-8273-cbb29f89b837
+         */
+        this.attachmentGuid = builder.attachmentGuid;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getUserIdType() {
         return this.userIdType;
     }
@@ -39,13 +72,6 @@ public class GetAttachmentReq {
         this.userIdType = userIdType;
     }
 
-     /**
-      * 要获取附件详情的guid
-      * <p> 示例值：b59aa7a3-e98c-4830-8273-cbb29f89b837
-      */
-    @Path
-    @SerializedName("attachment_guid")
-    private String attachmentGuid;
     public String getAttachmentGuid() {
         return this.attachmentGuid;
     }
@@ -54,57 +80,37 @@ public class GetAttachmentReq {
         this.attachmentGuid = attachmentGuid;
     }
 
-
-// builder 开始
-  public GetAttachmentReq(){}
-
-  public GetAttachmentReq(Builder builder){
-         /**
-          * 表示user的ID的类型，支持open_id, user_id, union_id
-          * <p> 示例值：open_id
-          */
-       this.userIdType = builder.userIdType;
-     /**
-      * 要获取附件详情的guid
-      * <p> 示例值：b59aa7a3-e98c-4830-8273-cbb29f89b837
-      */
-       this.attachmentGuid = builder.attachmentGuid;
-  }
-
     public static class Builder {
         private String userIdType; // 表示user的ID的类型，支持open_id, user_id, union_id
-    
+        private String attachmentGuid; // 要获取附件详情的guid
+
         /**
          * 表示user的ID的类型，支持open_id, user_id, union_id
          * <p> 示例值：open_id
+         *
          * @param userIdType
          * @return
          */
-           public Builder userIdType(String userIdType) {
-                this.userIdType = userIdType;
-                return this;
-           }
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
 
-    
-        private String attachmentGuid; // 要获取附件详情的guid
         /**
          * 要获取附件详情的guid
          * <p> 示例值：b59aa7a3-e98c-4830-8273-cbb29f89b837
+         *
          * @param attachmentGuid
          * @return
          */
-          public Builder attachmentGuid(String attachmentGuid) {
-               this.attachmentGuid = attachmentGuid;
-               return this;
-          }
+        public Builder attachmentGuid(String attachmentGuid) {
+            this.attachmentGuid = attachmentGuid;
+            return this;
+        }
 
-    
-    public GetAttachmentReq build(){
-        return new GetAttachmentReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public GetAttachmentReq build() {
+            return new GetAttachmentReq(this);
+        }
     }
 }

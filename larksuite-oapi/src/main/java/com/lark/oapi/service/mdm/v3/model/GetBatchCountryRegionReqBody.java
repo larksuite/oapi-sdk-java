@@ -12,24 +12,45 @@
  */
 
 package com.lark.oapi.service.mdm.v3.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class GetBatchCountryRegionReqBody {
-     /**
-      * common
-      * <p> 示例值：
-      */
+    /**
+     * common
+     * <p> 示例值：
+     */
     @SerializedName("common")
     private Common common;
+
+    // builder 开始
+    public GetBatchCountryRegionReqBody() {
+    }
+
+    public GetBatchCountryRegionReqBody(Builder builder) {
+        /**
+         * common
+         * <p> 示例值：
+         */
+        this.common = builder.common;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Common getCommon() {
         return this.common;
     }
@@ -38,44 +59,28 @@ public class GetBatchCountryRegionReqBody {
         this.common = common;
     }
 
-
-// builder 开始
-  public GetBatchCountryRegionReqBody(){}
-
-  public GetBatchCountryRegionReqBody(Builder builder){
-         /**
-          * common
-          * <p> 示例值：
-          */
-      this.common = builder.common;
-  }
-
     public static class Builder {
-     /**
-      * common
-      * <p> 示例值：
-      */
+        /**
+         * common
+         * <p> 示例值：
+         */
         private Common common;
 
         /**
          * common
          * <p> 示例值：
+         *
          * @param common
          * @return
          */
         public Builder common(Common common) {
-             this.common = common;
-             return this;
+            this.common = common;
+            return this;
         }
 
-    
-    
-    public GetBatchCountryRegionReqBody build(){
-        return new GetBatchCountryRegionReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public GetBatchCountryRegionReqBody build() {
+            return new GetBatchCountryRegionReqBody(this);
+        }
     }
 }

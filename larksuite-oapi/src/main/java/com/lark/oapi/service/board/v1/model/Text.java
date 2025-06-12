@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.board.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.board.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,42 +20,82 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Text {
-     /**
-      * 文字内容
-      * <p> 示例值：文字内容
-      */
+    /**
+     * 文字内容
+     * <p> 示例值：文字内容
+     */
     @SerializedName("text")
     private String text;
-     /**
-      * 文字字重
-      * <p> 示例值：regular
-      */
+    /**
+     * 文字字重
+     * <p> 示例值：regular
+     */
     @SerializedName("font_weight")
     private String fontWeight;
-     /**
-      * 文字大小
-      * <p> 示例值：14
-      */
+    /**
+     * 文字大小
+     * <p> 示例值：14
+     */
     @SerializedName("font_size")
     private Integer fontSize;
-     /**
-      * 水平对齐
-      * <p> 示例值：
-      */
+    /**
+     * 水平对齐
+     * <p> 示例值：
+     */
     @SerializedName("horizontal_align")
     private String horizontalAlign;
-     /**
-      * 垂直对齐
-      * <p> 示例值：
-      */
+    /**
+     * 垂直对齐
+     * <p> 示例值：
+     */
     @SerializedName("vertical_align")
     private String verticalAlign;
+
+    // builder 开始
+    public Text() {
+    }
+
+    public Text(Builder builder) {
+        /**
+         * 文字内容
+         * <p> 示例值：文字内容
+         */
+        this.text = builder.text;
+        /**
+         * 文字字重
+         * <p> 示例值：regular
+         */
+        this.fontWeight = builder.fontWeight;
+        /**
+         * 文字大小
+         * <p> 示例值：14
+         */
+        this.fontSize = builder.fontSize;
+        /**
+         * 水平对齐
+         * <p> 示例值：
+         */
+        this.horizontalAlign = builder.horizontalAlign;
+        /**
+         * 垂直对齐
+         * <p> 示例值：
+         */
+        this.verticalAlign = builder.verticalAlign;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getText() {
         return this.text;
     }
@@ -95,166 +136,136 @@ public class Text {
         this.verticalAlign = verticalAlign;
     }
 
-
-// builder 开始
-  public Text(){}
-
-  public Text(Builder builder){
-         /**
-          * 文字内容
-          * <p> 示例值：文字内容
-          */
-      this.text = builder.text;
-         /**
-          * 文字字重
-          * <p> 示例值：regular
-          */
-      this.fontWeight = builder.fontWeight;
-         /**
-          * 文字大小
-          * <p> 示例值：14
-          */
-      this.fontSize = builder.fontSize;
-         /**
-          * 水平对齐
-          * <p> 示例值：
-          */
-      this.horizontalAlign = builder.horizontalAlign;
-         /**
-          * 垂直对齐
-          * <p> 示例值：
-          */
-      this.verticalAlign = builder.verticalAlign;
-  }
-
     public static class Builder {
-     /**
-      * 文字内容
-      * <p> 示例值：文字内容
-      */
+        /**
+         * 文字内容
+         * <p> 示例值：文字内容
+         */
         private String text;
-     /**
-      * 文字字重
-      * <p> 示例值：regular
-      */
+        /**
+         * 文字字重
+         * <p> 示例值：regular
+         */
         private String fontWeight;
-     /**
-      * 文字大小
-      * <p> 示例值：14
-      */
+        /**
+         * 文字大小
+         * <p> 示例值：14
+         */
         private Integer fontSize;
-     /**
-      * 水平对齐
-      * <p> 示例值：
-      */
+        /**
+         * 水平对齐
+         * <p> 示例值：
+         */
         private String horizontalAlign;
-     /**
-      * 垂直对齐
-      * <p> 示例值：
-      */
+        /**
+         * 垂直对齐
+         * <p> 示例值：
+         */
         private String verticalAlign;
 
         /**
          * 文字内容
          * <p> 示例值：文字内容
+         *
          * @param text
          * @return
          */
         public Builder text(String text) {
-             this.text = text;
-             return this;
+            this.text = text;
+            return this;
         }
 
-    
 
         /**
          * 文字字重
          * <p> 示例值：regular
+         *
          * @param fontWeight
          * @return
          */
         public Builder fontWeight(String fontWeight) {
-             this.fontWeight = fontWeight;
-             return this;
+            this.fontWeight = fontWeight;
+            return this;
         }
+
         /**
          * 文字字重
          * <p> 示例值：regular
+         *
          * @param fontWeight {@link com.lark.oapi.service.board.v1.enums.TextFontWeightEnum}
          * @return
          */
         public Builder fontWeight(com.lark.oapi.service.board.v1.enums.TextFontWeightEnum fontWeight) {
-             this.fontWeight = fontWeight.getValue();
-             return this;
+            this.fontWeight = fontWeight.getValue();
+            return this;
         }
 
-    
 
         /**
          * 文字大小
          * <p> 示例值：14
+         *
          * @param fontSize
          * @return
          */
         public Builder fontSize(Integer fontSize) {
-             this.fontSize = fontSize;
-             return this;
+            this.fontSize = fontSize;
+            return this;
         }
 
-    
 
         /**
          * 水平对齐
          * <p> 示例值：
+         *
          * @param horizontalAlign
          * @return
          */
         public Builder horizontalAlign(String horizontalAlign) {
-             this.horizontalAlign = horizontalAlign;
-             return this;
+            this.horizontalAlign = horizontalAlign;
+            return this;
         }
+
         /**
          * 水平对齐
          * <p> 示例值：
+         *
          * @param horizontalAlign {@link com.lark.oapi.service.board.v1.enums.TextHorizontalAlignEnum}
          * @return
          */
         public Builder horizontalAlign(com.lark.oapi.service.board.v1.enums.TextHorizontalAlignEnum horizontalAlign) {
-             this.horizontalAlign = horizontalAlign.getValue();
-             return this;
+            this.horizontalAlign = horizontalAlign.getValue();
+            return this;
         }
 
-    
 
         /**
          * 垂直对齐
          * <p> 示例值：
+         *
          * @param verticalAlign
          * @return
          */
         public Builder verticalAlign(String verticalAlign) {
-             this.verticalAlign = verticalAlign;
-             return this;
+            this.verticalAlign = verticalAlign;
+            return this;
         }
+
         /**
          * 垂直对齐
          * <p> 示例值：
+         *
          * @param verticalAlign {@link com.lark.oapi.service.board.v1.enums.TextVerticalAlignEnum}
          * @return
          */
         public Builder verticalAlign(com.lark.oapi.service.board.v1.enums.TextVerticalAlignEnum verticalAlign) {
-             this.verticalAlign = verticalAlign.getValue();
-             return this;
+            this.verticalAlign = verticalAlign.getValue();
+            return this;
         }
 
-    
-    
-    public Text build(){
-        return new Text(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Text build() {
+            return new Text(this);
+        }
     }
 }

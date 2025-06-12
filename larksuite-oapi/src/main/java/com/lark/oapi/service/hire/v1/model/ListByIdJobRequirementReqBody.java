@@ -12,30 +12,56 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ListByIdJobRequirementReqBody {
-     /**
-      * 招聘需求ID列表
-      * <p> 示例值：
-      */
+    /**
+     * 招聘需求ID列表
+     * <p> 示例值：
+     */
     @SerializedName("id_list")
     private String[] idList;
-     /**
-      * 招聘需求编号列表
-      * <p> 示例值：
-      */
+    /**
+     * 招聘需求编号列表
+     * <p> 示例值：
+     */
     @SerializedName("short_code_list")
     private String[] shortCodeList;
+
+    // builder 开始
+    public ListByIdJobRequirementReqBody() {
+    }
+
+    public ListByIdJobRequirementReqBody(Builder builder) {
+        /**
+         * 招聘需求ID列表
+         * <p> 示例值：
+         */
+        this.idList = builder.idList;
+        /**
+         * 招聘需求编号列表
+         * <p> 示例值：
+         */
+        this.shortCodeList = builder.shortCodeList;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String[] getIdList() {
         return this.idList;
     }
@@ -52,67 +78,46 @@ public class ListByIdJobRequirementReqBody {
         this.shortCodeList = shortCodeList;
     }
 
-
-// builder 开始
-  public ListByIdJobRequirementReqBody(){}
-
-  public ListByIdJobRequirementReqBody(Builder builder){
-         /**
-          * 招聘需求ID列表
-          * <p> 示例值：
-          */
-      this.idList = builder.idList;
-         /**
-          * 招聘需求编号列表
-          * <p> 示例值：
-          */
-      this.shortCodeList = builder.shortCodeList;
-  }
-
     public static class Builder {
-     /**
-      * 招聘需求ID列表
-      * <p> 示例值：
-      */
+        /**
+         * 招聘需求ID列表
+         * <p> 示例值：
+         */
         private String[] idList;
-     /**
-      * 招聘需求编号列表
-      * <p> 示例值：
-      */
+        /**
+         * 招聘需求编号列表
+         * <p> 示例值：
+         */
         private String[] shortCodeList;
 
         /**
          * 招聘需求ID列表
          * <p> 示例值：
+         *
          * @param idList
          * @return
          */
         public Builder idList(String[] idList) {
-             this.idList = idList;
-             return this;
+            this.idList = idList;
+            return this;
         }
 
-    
 
         /**
          * 招聘需求编号列表
          * <p> 示例值：
+         *
          * @param shortCodeList
          * @return
          */
         public Builder shortCodeList(String[] shortCodeList) {
-             this.shortCodeList = shortCodeList;
-             return this;
+            this.shortCodeList = shortCodeList;
+            return this;
         }
 
-    
-    
-    public ListByIdJobRequirementReqBody build(){
-        return new ListByIdJobRequirementReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ListByIdJobRequirementReqBody build() {
+            return new ListByIdJobRequirementReqBody(this);
+        }
     }
 }

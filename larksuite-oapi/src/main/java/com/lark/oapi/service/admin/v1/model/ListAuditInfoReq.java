@@ -12,109 +12,190 @@
  */
 
 package com.lark.oapi.service.admin.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.admin.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ListAuditInfoReq {
-     /**
-      * 此次调用中使用的用户ID的类型
-      * <p> 示例值：user_id
-      */
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：user_id
+     */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
-     /**
-      * 日志时间范围: 结束时间. 格式: 秒级时间戳. 默认值: 此刻
-      * <p> 示例值：1668700799
-      */
+    /**
+     * 日志时间范围: 结束时间. 格式: 秒级时间戳. 默认值: 此刻
+     * <p> 示例值：1668700799
+     */
     @Query
     @SerializedName("latest")
     private Integer latest;
-     /**
-      * 日志时间范围: 起始时间. 格式: 秒级时间戳. 默认值:  30日前此刻
-      * <p> 示例值：1668528000
-      */
+    /**
+     * 日志时间范围: 起始时间. 格式: 秒级时间戳. 默认值:  30日前此刻
+     * <p> 示例值：1668528000
+     */
     @Query
     @SerializedName("oldest")
     private Integer oldest;
-     /**
-      * 事件名称
-      * <p> 示例值：space_create_doc
-      */
+    /**
+     * 事件名称
+     * <p> 示例值：space_create_doc
+     */
     @Query
     @SerializedName("event_name")
     private String eventName;
-     /**
-      * 过滤操作者: 操作者类型. 与 operator_value 配合使用
-      * <p> 示例值：
-      */
+    /**
+     * 过滤操作者: 操作者类型. 与 operator_value 配合使用
+     * <p> 示例值：
+     */
     @Query
     @SerializedName("operator_type")
     private String operatorType;
-     /**
-      * 过滤操作者: 操作者ID. 与 operator_type 配合使用
-      * <p> 示例值：55ed16fe
-      */
+    /**
+     * 过滤操作者: 操作者ID. 与 operator_type 配合使用
+     * <p> 示例值：55ed16fe
+     */
     @Query
     @SerializedName("operator_value")
     private String operatorValue;
-     /**
-      * 过滤模块
-      * <p> 示例值：1
-      */
+    /**
+     * 过滤模块
+     * <p> 示例值：1
+     */
     @Query
     @SerializedName("event_module")
     private Integer eventModule;
-     /**
-      * 下一页分页的token
-      * <p> 示例值：LC39/f1%2B/Sz9Uv39Gf39/ew/cd5WY0gfGYFdixOW9cVk4bC79ituO/gx0qpPn1bYf92nz/kI0nNJOG3wCwDJKoNU%2BtyaXbpI8pV/9UNDMZT0BNeyanFH17Wv711Qh9anR3l2GjQfc2fUqXtxg1YPp63XyhYY4iRMv54ySRG7r%2BI89iS3zAoPzFuuU1MUJKsf
-      */
+    /**
+     * 下一页分页的token
+     * <p> 示例值：LC39/f1%2B/Sz9Uv39Gf39/ew/cd5WY0gfGYFdixOW9cVk4bC79ituO/gx0qpPn1bYf92nz/kI0nNJOG3wCwDJKoNU%2BtyaXbpI8pV/9UNDMZT0BNeyanFH17Wv711Qh9anR3l2GjQfc2fUqXtxg1YPp63XyhYY4iRMv54ySRG7r%2BI89iS3zAoPzFuuU1MUJKsf
+     */
     @Query
     @SerializedName("page_token")
     private String pageToken;
-     /**
-      * 分页参数
-      * <p> 示例值：20
-      */
+    /**
+     * 分页参数
+     * <p> 示例值：20
+     */
     @Query
     @SerializedName("page_size")
     private Integer pageSize;
-     /**
-      * 过滤用户类型. 仅当 operator_type=user 时生效
-      * <p> 示例值：
-      */
+    /**
+     * 过滤用户类型. 仅当 operator_type=user 时生效
+     * <p> 示例值：
+     */
     @Query
     @SerializedName("user_type")
     private Integer userType;
-     /**
-      * 过滤操作对象: 操作对象类型. 与object_value配合使用
-      * <p> 示例值：1
-      */
+    /**
+     * 过滤操作对象: 操作对象类型. 与object_value配合使用
+     * <p> 示例值：1
+     */
     @Query
     @SerializedName("object_type")
     private Integer objectType;
-     /**
-      * 过滤操作对象: 操作对象ID. 与object_type配合使用
-      * <p> 示例值：55ed16fe
-      */
+    /**
+     * 过滤操作对象: 操作对象ID. 与object_type配合使用
+     * <p> 示例值：55ed16fe
+     */
     @Query
     @SerializedName("object_value")
     private String objectValue;
-     /**
-      * 增强过滤操作对象: 操作对象ID，支持云文档侧泛token过滤。会覆盖object_type和object_value查询条件
-      * <p> 示例值：55ed16fe
-      */
+    /**
+     * 增强过滤操作对象: 操作对象ID，支持云文档侧泛token过滤。会覆盖object_type和object_value查询条件
+     * <p> 示例值：55ed16fe
+     */
     @Query
     @SerializedName("ext_filter_object_by_ccm_token")
     private String extFilterObjectByCcmToken;
+
+    // builder 开始
+    public ListAuditInfoReq() {
+    }
+
+    public ListAuditInfoReq(Builder builder) {
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：user_id
+         */
+        this.userIdType = builder.userIdType;
+        /**
+         * 日志时间范围: 结束时间. 格式: 秒级时间戳. 默认值: 此刻
+         * <p> 示例值：1668700799
+         */
+        this.latest = builder.latest;
+        /**
+         * 日志时间范围: 起始时间. 格式: 秒级时间戳. 默认值:  30日前此刻
+         * <p> 示例值：1668528000
+         */
+        this.oldest = builder.oldest;
+        /**
+         * 事件名称
+         * <p> 示例值：space_create_doc
+         */
+        this.eventName = builder.eventName;
+        /**
+         * 过滤操作者: 操作者类型. 与 operator_value 配合使用
+         * <p> 示例值：
+         */
+        this.operatorType = builder.operatorType;
+        /**
+         * 过滤操作者: 操作者ID. 与 operator_type 配合使用
+         * <p> 示例值：55ed16fe
+         */
+        this.operatorValue = builder.operatorValue;
+        /**
+         * 过滤模块
+         * <p> 示例值：1
+         */
+        this.eventModule = builder.eventModule;
+        /**
+         * 下一页分页的token
+         * <p> 示例值：LC39/f1%2B/Sz9Uv39Gf39/ew/cd5WY0gfGYFdixOW9cVk4bC79ituO/gx0qpPn1bYf92nz/kI0nNJOG3wCwDJKoNU%2BtyaXbpI8pV/9UNDMZT0BNeyanFH17Wv711Qh9anR3l2GjQfc2fUqXtxg1YPp63XyhYY4iRMv54ySRG7r%2BI89iS3zAoPzFuuU1MUJKsf
+         */
+        this.pageToken = builder.pageToken;
+        /**
+         * 分页参数
+         * <p> 示例值：20
+         */
+        this.pageSize = builder.pageSize;
+        /**
+         * 过滤用户类型. 仅当 operator_type=user 时生效
+         * <p> 示例值：
+         */
+        this.userType = builder.userType;
+        /**
+         * 过滤操作对象: 操作对象类型. 与object_value配合使用
+         * <p> 示例值：1
+         */
+        this.objectType = builder.objectType;
+        /**
+         * 过滤操作对象: 操作对象ID. 与object_type配合使用
+         * <p> 示例值：55ed16fe
+         */
+        this.objectValue = builder.objectValue;
+        /**
+         * 增强过滤操作对象: 操作对象ID，支持云文档侧泛token过滤。会覆盖object_type和object_value查询条件
+         * <p> 示例值：55ed16fe
+         */
+        this.extFilterObjectByCcmToken = builder.extFilterObjectByCcmToken;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getUserIdType() {
         return this.userIdType;
     }
@@ -219,78 +300,6 @@ public class ListAuditInfoReq {
         this.extFilterObjectByCcmToken = extFilterObjectByCcmToken;
     }
 
-
-// builder 开始
-  public ListAuditInfoReq(){}
-
-  public ListAuditInfoReq(Builder builder){
-         /**
-          * 此次调用中使用的用户ID的类型
-          * <p> 示例值：user_id
-          */
-       this.userIdType = builder.userIdType;
-         /**
-          * 日志时间范围: 结束时间. 格式: 秒级时间戳. 默认值: 此刻
-          * <p> 示例值：1668700799
-          */
-       this.latest = builder.latest;
-         /**
-          * 日志时间范围: 起始时间. 格式: 秒级时间戳. 默认值:  30日前此刻
-          * <p> 示例值：1668528000
-          */
-       this.oldest = builder.oldest;
-         /**
-          * 事件名称
-          * <p> 示例值：space_create_doc
-          */
-       this.eventName = builder.eventName;
-         /**
-          * 过滤操作者: 操作者类型. 与 operator_value 配合使用
-          * <p> 示例值：
-          */
-       this.operatorType = builder.operatorType;
-         /**
-          * 过滤操作者: 操作者ID. 与 operator_type 配合使用
-          * <p> 示例值：55ed16fe
-          */
-       this.operatorValue = builder.operatorValue;
-         /**
-          * 过滤模块
-          * <p> 示例值：1
-          */
-       this.eventModule = builder.eventModule;
-         /**
-          * 下一页分页的token
-          * <p> 示例值：LC39/f1%2B/Sz9Uv39Gf39/ew/cd5WY0gfGYFdixOW9cVk4bC79ituO/gx0qpPn1bYf92nz/kI0nNJOG3wCwDJKoNU%2BtyaXbpI8pV/9UNDMZT0BNeyanFH17Wv711Qh9anR3l2GjQfc2fUqXtxg1YPp63XyhYY4iRMv54ySRG7r%2BI89iS3zAoPzFuuU1MUJKsf
-          */
-       this.pageToken = builder.pageToken;
-         /**
-          * 分页参数
-          * <p> 示例值：20
-          */
-       this.pageSize = builder.pageSize;
-         /**
-          * 过滤用户类型. 仅当 operator_type=user 时生效
-          * <p> 示例值：
-          */
-       this.userType = builder.userType;
-         /**
-          * 过滤操作对象: 操作对象类型. 与object_value配合使用
-          * <p> 示例值：1
-          */
-       this.objectType = builder.objectType;
-         /**
-          * 过滤操作对象: 操作对象ID. 与object_type配合使用
-          * <p> 示例值：55ed16fe
-          */
-       this.objectValue = builder.objectValue;
-         /**
-          * 增强过滤操作对象: 操作对象ID，支持云文档侧泛token过滤。会覆盖object_type和object_value查询条件
-          * <p> 示例值：55ed16fe
-          */
-       this.extFilterObjectByCcmToken = builder.extFilterObjectByCcmToken;
-  }
-
     public static class Builder {
         private String userIdType; // 此次调用中使用的用户ID的类型
         private Integer latest; // 日志时间范围: 结束时间. 格式: 秒级时间戳. 默认值: 此刻
@@ -305,202 +314,214 @@ public class ListAuditInfoReq {
         private Integer objectType; // 过滤操作对象: 操作对象类型. 与object_value配合使用
         private String objectValue; // 过滤操作对象: 操作对象ID. 与object_type配合使用
         private String extFilterObjectByCcmToken; // 增强过滤操作对象: 操作对象ID，支持云文档侧泛token过滤。会覆盖object_type和object_value查询条件
-    
+
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：user_id
+         *
          * @param userIdType
          * @return
          */
-           public Builder userIdType(String userIdType) {
-                this.userIdType = userIdType;
-                return this;
-           }
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
 
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：user_id
+         *
          * @param userIdType {@link com.lark.oapi.service.admin.v1.enums.ListAuditInfoUserIdTypeEnum}
          * @return
          */
-          public Builder userIdType(com.lark.oapi.service.admin.v1.enums.ListAuditInfoUserIdTypeEnum userIdType) {
-               this.userIdType = userIdType.getValue();
-               return this;
-          }
+        public Builder userIdType(com.lark.oapi.service.admin.v1.enums.ListAuditInfoUserIdTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
+            return this;
+        }
 
-    
+
         /**
          * 日志时间范围: 结束时间. 格式: 秒级时间戳. 默认值: 此刻
          * <p> 示例值：1668700799
+         *
          * @param latest
          * @return
          */
-           public Builder latest(Integer latest) {
-                this.latest = latest;
-                return this;
-           }
+        public Builder latest(Integer latest) {
+            this.latest = latest;
+            return this;
+        }
 
-    
+
         /**
          * 日志时间范围: 起始时间. 格式: 秒级时间戳. 默认值:  30日前此刻
          * <p> 示例值：1668528000
+         *
          * @param oldest
          * @return
          */
-           public Builder oldest(Integer oldest) {
-                this.oldest = oldest;
-                return this;
-           }
+        public Builder oldest(Integer oldest) {
+            this.oldest = oldest;
+            return this;
+        }
 
-    
+
         /**
          * 事件名称
          * <p> 示例值：space_create_doc
+         *
          * @param eventName
          * @return
          */
-           public Builder eventName(String eventName) {
-                this.eventName = eventName;
-                return this;
-           }
+        public Builder eventName(String eventName) {
+            this.eventName = eventName;
+            return this;
+        }
 
-    
+
         /**
          * 过滤操作者: 操作者类型. 与 operator_value 配合使用
          * <p> 示例值：
+         *
          * @param operatorType
          * @return
          */
-           public Builder operatorType(String operatorType) {
-                this.operatorType = operatorType;
-                return this;
-           }
+        public Builder operatorType(String operatorType) {
+            this.operatorType = operatorType;
+            return this;
+        }
 
         /**
          * 过滤操作者: 操作者类型. 与 operator_value 配合使用
          * <p> 示例值：
+         *
          * @param operatorType {@link com.lark.oapi.service.admin.v1.enums.ListAuditInfoOperatorTypeEnum}
          * @return
          */
-          public Builder operatorType(com.lark.oapi.service.admin.v1.enums.ListAuditInfoOperatorTypeEnum operatorType) {
-               this.operatorType = operatorType.getValue();
-               return this;
-          }
+        public Builder operatorType(com.lark.oapi.service.admin.v1.enums.ListAuditInfoOperatorTypeEnum operatorType) {
+            this.operatorType = operatorType.getValue();
+            return this;
+        }
 
-    
+
         /**
          * 过滤操作者: 操作者ID. 与 operator_type 配合使用
          * <p> 示例值：55ed16fe
+         *
          * @param operatorValue
          * @return
          */
-           public Builder operatorValue(String operatorValue) {
-                this.operatorValue = operatorValue;
-                return this;
-           }
+        public Builder operatorValue(String operatorValue) {
+            this.operatorValue = operatorValue;
+            return this;
+        }
 
-    
+
         /**
          * 过滤模块
          * <p> 示例值：1
+         *
          * @param eventModule
          * @return
          */
-           public Builder eventModule(Integer eventModule) {
-                this.eventModule = eventModule;
-                return this;
-           }
+        public Builder eventModule(Integer eventModule) {
+            this.eventModule = eventModule;
+            return this;
+        }
 
-    
+
         /**
          * 下一页分页的token
          * <p> 示例值：LC39/f1%2B/Sz9Uv39Gf39/ew/cd5WY0gfGYFdixOW9cVk4bC79ituO/gx0qpPn1bYf92nz/kI0nNJOG3wCwDJKoNU%2BtyaXbpI8pV/9UNDMZT0BNeyanFH17Wv711Qh9anR3l2GjQfc2fUqXtxg1YPp63XyhYY4iRMv54ySRG7r%2BI89iS3zAoPzFuuU1MUJKsf
+         *
          * @param pageToken
          * @return
          */
-           public Builder pageToken(String pageToken) {
-                this.pageToken = pageToken;
-                return this;
-           }
+        public Builder pageToken(String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+        }
 
-    
+
         /**
          * 分页参数
          * <p> 示例值：20
+         *
          * @param pageSize
          * @return
          */
-           public Builder pageSize(Integer pageSize) {
-                this.pageSize = pageSize;
-                return this;
-           }
+        public Builder pageSize(Integer pageSize) {
+            this.pageSize = pageSize;
+            return this;
+        }
 
-    
+
         /**
          * 过滤用户类型. 仅当 operator_type=user 时生效
          * <p> 示例值：
+         *
          * @param userType
          * @return
          */
-           public Builder userType(Integer userType) {
-                this.userType = userType;
-                return this;
-           }
+        public Builder userType(Integer userType) {
+            this.userType = userType;
+            return this;
+        }
 
         /**
          * 过滤用户类型. 仅当 operator_type=user 时生效
          * <p> 示例值：
+         *
          * @param userType {@link com.lark.oapi.service.admin.v1.enums.ListAuditInfoUserTypeEnum}
          * @return
          */
-          public Builder userType(com.lark.oapi.service.admin.v1.enums.ListAuditInfoUserTypeEnum userType) {
-               this.userType = userType.getValue();
-               return this;
-          }
+        public Builder userType(com.lark.oapi.service.admin.v1.enums.ListAuditInfoUserTypeEnum userType) {
+            this.userType = userType.getValue();
+            return this;
+        }
 
-    
+
         /**
          * 过滤操作对象: 操作对象类型. 与object_value配合使用
          * <p> 示例值：1
+         *
          * @param objectType
          * @return
          */
-           public Builder objectType(Integer objectType) {
-                this.objectType = objectType;
-                return this;
-           }
+        public Builder objectType(Integer objectType) {
+            this.objectType = objectType;
+            return this;
+        }
 
-    
+
         /**
          * 过滤操作对象: 操作对象ID. 与object_type配合使用
          * <p> 示例值：55ed16fe
+         *
          * @param objectValue
          * @return
          */
-           public Builder objectValue(String objectValue) {
-                this.objectValue = objectValue;
-                return this;
-           }
+        public Builder objectValue(String objectValue) {
+            this.objectValue = objectValue;
+            return this;
+        }
 
-    
+
         /**
          * 增强过滤操作对象: 操作对象ID，支持云文档侧泛token过滤。会覆盖object_type和object_value查询条件
          * <p> 示例值：55ed16fe
+         *
          * @param extFilterObjectByCcmToken
          * @return
          */
-           public Builder extFilterObjectByCcmToken(String extFilterObjectByCcmToken) {
-                this.extFilterObjectByCcmToken = extFilterObjectByCcmToken;
-                return this;
-           }
+        public Builder extFilterObjectByCcmToken(String extFilterObjectByCcmToken) {
+            this.extFilterObjectByCcmToken = extFilterObjectByCcmToken;
+            return this;
+        }
 
-    
-    public ListAuditInfoReq build(){
-        return new ListAuditInfoReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ListAuditInfoReq build() {
+            return new ListAuditInfoReq(this);
+        }
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class AppConfigVisibility {
-     /**
-      * 是否全员可见,false:否;true:是;不填:继续当前状态不改变.如果可见范围为全员后添加的可用人员则无效,禁用人员仍然有效
-      * <p> 示例值：false
-      */
+    /**
+     * 是否全员可见,false:否;true:是;不填:继续当前状态不改变.如果可见范围为全员后添加的可用人员则无效,禁用人员仍然有效
+     * <p> 示例值：false
+     */
     @SerializedName("is_visible_to_all")
     private Boolean isVisibleToAll;
-     /**
-      * 可用人员列表
-      * <p> 示例值：
-      */
+    /**
+     * 可用人员列表
+     * <p> 示例值：
+     */
     @SerializedName("visible_list")
     private AppVisibilityIdList visibleList;
+
+    // builder 开始
+    public AppConfigVisibility() {
+    }
+
+    public AppConfigVisibility(Builder builder) {
+        /**
+         * 是否全员可见,false:否;true:是;不填:继续当前状态不改变.如果可见范围为全员后添加的可用人员则无效,禁用人员仍然有效
+         * <p> 示例值：false
+         */
+        this.isVisibleToAll = builder.isVisibleToAll;
+        /**
+         * 可用人员列表
+         * <p> 示例值：
+         */
+        this.visibleList = builder.visibleList;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Boolean getIsVisibleToAll() {
         return this.isVisibleToAll;
     }
@@ -53,67 +79,46 @@ public class AppConfigVisibility {
         this.visibleList = visibleList;
     }
 
-
-// builder 开始
-  public AppConfigVisibility(){}
-
-  public AppConfigVisibility(Builder builder){
-         /**
-          * 是否全员可见,false:否;true:是;不填:继续当前状态不改变.如果可见范围为全员后添加的可用人员则无效,禁用人员仍然有效
-          * <p> 示例值：false
-          */
-      this.isVisibleToAll = builder.isVisibleToAll;
-         /**
-          * 可用人员列表
-          * <p> 示例值：
-          */
-      this.visibleList = builder.visibleList;
-  }
-
     public static class Builder {
-     /**
-      * 是否全员可见,false:否;true:是;不填:继续当前状态不改变.如果可见范围为全员后添加的可用人员则无效,禁用人员仍然有效
-      * <p> 示例值：false
-      */
+        /**
+         * 是否全员可见,false:否;true:是;不填:继续当前状态不改变.如果可见范围为全员后添加的可用人员则无效,禁用人员仍然有效
+         * <p> 示例值：false
+         */
         private Boolean isVisibleToAll;
-     /**
-      * 可用人员列表
-      * <p> 示例值：
-      */
+        /**
+         * 可用人员列表
+         * <p> 示例值：
+         */
         private AppVisibilityIdList visibleList;
 
         /**
          * 是否全员可见,false:否;true:是;不填:继续当前状态不改变.如果可见范围为全员后添加的可用人员则无效,禁用人员仍然有效
          * <p> 示例值：false
+         *
          * @param isVisibleToAll
          * @return
          */
         public Builder isVisibleToAll(Boolean isVisibleToAll) {
-             this.isVisibleToAll = isVisibleToAll;
-             return this;
+            this.isVisibleToAll = isVisibleToAll;
+            return this;
         }
 
-    
 
         /**
          * 可用人员列表
          * <p> 示例值：
+         *
          * @param visibleList
          * @return
          */
         public Builder visibleList(AppVisibilityIdList visibleList) {
-             this.visibleList = visibleList;
-             return this;
+            this.visibleList = visibleList;
+            return this;
         }
 
-    
-    
-    public AppConfigVisibility build(){
-        return new AppConfigVisibility(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public AppConfigVisibility build() {
+            return new AppConfigVisibility(this);
+        }
     }
 }

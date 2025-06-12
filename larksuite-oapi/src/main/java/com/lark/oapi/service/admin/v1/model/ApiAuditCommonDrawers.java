@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.admin.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.admin.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ApiAuditCommonDrawers {
-     /**
-      * 扩展字段信息
-      * <p> 示例值：
-      */
+    /**
+     * 扩展字段信息
+     * <p> 示例值：
+     */
     @SerializedName("common_draw_info_list")
     private ApiAuditDrawerInfo[] commonDrawInfoList;
+
+    // builder 开始
+    public ApiAuditCommonDrawers() {
+    }
+
+    public ApiAuditCommonDrawers(Builder builder) {
+        /**
+         * 扩展字段信息
+         * <p> 示例值：
+         */
+        this.commonDrawInfoList = builder.commonDrawInfoList;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public ApiAuditDrawerInfo[] getCommonDrawInfoList() {
         return this.commonDrawInfoList;
     }
@@ -39,44 +60,28 @@ public class ApiAuditCommonDrawers {
         this.commonDrawInfoList = commonDrawInfoList;
     }
 
-
-// builder 开始
-  public ApiAuditCommonDrawers(){}
-
-  public ApiAuditCommonDrawers(Builder builder){
-         /**
-          * 扩展字段信息
-          * <p> 示例值：
-          */
-      this.commonDrawInfoList = builder.commonDrawInfoList;
-  }
-
     public static class Builder {
-     /**
-      * 扩展字段信息
-      * <p> 示例值：
-      */
+        /**
+         * 扩展字段信息
+         * <p> 示例值：
+         */
         private ApiAuditDrawerInfo[] commonDrawInfoList;
 
         /**
          * 扩展字段信息
          * <p> 示例值：
+         *
          * @param commonDrawInfoList
          * @return
          */
         public Builder commonDrawInfoList(ApiAuditDrawerInfo[] commonDrawInfoList) {
-             this.commonDrawInfoList = commonDrawInfoList;
-             return this;
+            this.commonDrawInfoList = commonDrawInfoList;
+            return this;
         }
 
-    
-    
-    public ApiAuditCommonDrawers build(){
-        return new ApiAuditCommonDrawers(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ApiAuditCommonDrawers build() {
+            return new ApiAuditCommonDrawers(this);
+        }
     }
 }

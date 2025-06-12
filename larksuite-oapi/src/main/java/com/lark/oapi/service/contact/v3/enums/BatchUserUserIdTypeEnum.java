@@ -17,16 +17,17 @@ package com.lark.oapi.service.contact.v3.enums;
  * 指定请求中用户ID类型
  */
 public enum BatchUserUserIdTypeEnum {
-     OPEN_ID("open_id"), // 以open_id来识别用户
-     UNION_ID("union_id"), // 以union_id来识别用户
-     USER_ID("user_id"), // 以user_id来识别用户
-  ;
-   private String value;
+    OPEN_ID("open_id"), // 以open_id来识别用户
+    UNION_ID("union_id"), // 以union_id来识别用户
+    USER_ID("user_id"), // 以user_id来识别用户
+    ;
+    private String value;
+
     BatchUserUserIdTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

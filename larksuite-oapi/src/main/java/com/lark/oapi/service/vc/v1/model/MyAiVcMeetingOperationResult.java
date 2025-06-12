@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class MyAiVcMeetingOperationResult {
-     /**
-      * 会议操作回复
-      * <p> 示例值：已成功执行
-      */
+    /**
+     * 会议操作回复
+     * <p> 示例值：已成功执行
+     */
     @SerializedName("meeting_operation_reply")
     private String meetingOperationReply;
+
+    // builder 开始
+    public MyAiVcMeetingOperationResult() {
+    }
+
+    public MyAiVcMeetingOperationResult(Builder builder) {
+        /**
+         * 会议操作回复
+         * <p> 示例值：已成功执行
+         */
+        this.meetingOperationReply = builder.meetingOperationReply;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getMeetingOperationReply() {
         return this.meetingOperationReply;
     }
@@ -39,44 +60,28 @@ public class MyAiVcMeetingOperationResult {
         this.meetingOperationReply = meetingOperationReply;
     }
 
-
-// builder 开始
-  public MyAiVcMeetingOperationResult(){}
-
-  public MyAiVcMeetingOperationResult(Builder builder){
-         /**
-          * 会议操作回复
-          * <p> 示例值：已成功执行
-          */
-      this.meetingOperationReply = builder.meetingOperationReply;
-  }
-
     public static class Builder {
-     /**
-      * 会议操作回复
-      * <p> 示例值：已成功执行
-      */
+        /**
+         * 会议操作回复
+         * <p> 示例值：已成功执行
+         */
         private String meetingOperationReply;
 
         /**
          * 会议操作回复
          * <p> 示例值：已成功执行
+         *
          * @param meetingOperationReply
          * @return
          */
         public Builder meetingOperationReply(String meetingOperationReply) {
-             this.meetingOperationReply = meetingOperationReply;
-             return this;
+            this.meetingOperationReply = meetingOperationReply;
+            return this;
         }
 
-    
-    
-    public MyAiVcMeetingOperationResult build(){
-        return new MyAiVcMeetingOperationResult(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public MyAiVcMeetingOperationResult build() {
+            return new MyAiVcMeetingOperationResult(this);
+        }
     }
 }

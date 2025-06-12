@@ -12,32 +12,70 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class GetDepartmentReq {
-     /**
-      * 用户 ID 类型
-      * <p> 示例值：people_corehr_id
-      */
+    /**
+     * 用户 ID 类型
+     * <p> 示例值：people_corehr_id
+     */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
-     /**
-      * 此次调用中使用的部门 ID 类型
-      * <p> 示例值：people_corehr_department_id
-      */
+    /**
+     * 此次调用中使用的部门 ID 类型
+     * <p> 示例值：people_corehr_department_id
+     */
     @Query
     @SerializedName("department_id_type")
     private String departmentIdType;
+    /**
+     * 部门 ID
+     * <p> 示例值：45456564
+     */
+    @Path
+    @SerializedName("department_id")
+    private String departmentId;
+
+    // builder 开始
+    public GetDepartmentReq() {
+    }
+
+    public GetDepartmentReq(Builder builder) {
+        /**
+         * 用户 ID 类型
+         * <p> 示例值：people_corehr_id
+         */
+        this.userIdType = builder.userIdType;
+        /**
+         * 此次调用中使用的部门 ID 类型
+         * <p> 示例值：people_corehr_department_id
+         */
+        this.departmentIdType = builder.departmentIdType;
+        /**
+         * 部门 ID
+         * <p> 示例值：45456564
+         */
+        this.departmentId = builder.departmentId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getUserIdType() {
         return this.userIdType;
     }
@@ -54,13 +92,6 @@ public class GetDepartmentReq {
         this.departmentIdType = departmentIdType;
     }
 
-     /**
-      * 部门 ID
-      * <p> 示例值：45456564
-      */
-    @Path
-    @SerializedName("department_id")
-    private String departmentId;
     public String getDepartmentId() {
         return this.departmentId;
     }
@@ -69,97 +100,74 @@ public class GetDepartmentReq {
         this.departmentId = departmentId;
     }
 
-
-// builder 开始
-  public GetDepartmentReq(){}
-
-  public GetDepartmentReq(Builder builder){
-         /**
-          * 用户 ID 类型
-          * <p> 示例值：people_corehr_id
-          */
-       this.userIdType = builder.userIdType;
-         /**
-          * 此次调用中使用的部门 ID 类型
-          * <p> 示例值：people_corehr_department_id
-          */
-       this.departmentIdType = builder.departmentIdType;
-     /**
-      * 部门 ID
-      * <p> 示例值：45456564
-      */
-       this.departmentId = builder.departmentId;
-  }
-
     public static class Builder {
         private String userIdType; // 用户 ID 类型
         private String departmentIdType; // 此次调用中使用的部门 ID 类型
-    
+        private String departmentId; // 部门 ID
+
         /**
          * 用户 ID 类型
          * <p> 示例值：people_corehr_id
+         *
          * @param userIdType
          * @return
          */
-           public Builder userIdType(String userIdType) {
-                this.userIdType = userIdType;
-                return this;
-           }
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
 
         /**
          * 用户 ID 类型
          * <p> 示例值：people_corehr_id
+         *
          * @param userIdType {@link com.lark.oapi.service.corehr.v1.enums.GetDepartmentUserIdTypeEnum}
          * @return
          */
-          public Builder userIdType(com.lark.oapi.service.corehr.v1.enums.GetDepartmentUserIdTypeEnum userIdType) {
-               this.userIdType = userIdType.getValue();
-               return this;
-          }
+        public Builder userIdType(com.lark.oapi.service.corehr.v1.enums.GetDepartmentUserIdTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
+            return this;
+        }
 
-    
         /**
          * 此次调用中使用的部门 ID 类型
          * <p> 示例值：people_corehr_department_id
+         *
          * @param departmentIdType
          * @return
          */
-           public Builder departmentIdType(String departmentIdType) {
-                this.departmentIdType = departmentIdType;
-                return this;
-           }
+        public Builder departmentIdType(String departmentIdType) {
+            this.departmentIdType = departmentIdType;
+            return this;
+        }
 
         /**
          * 此次调用中使用的部门 ID 类型
          * <p> 示例值：people_corehr_department_id
+         *
          * @param departmentIdType {@link com.lark.oapi.service.corehr.v1.enums.GetDepartmentDepartmentIdTypeEnum}
          * @return
          */
-          public Builder departmentIdType(com.lark.oapi.service.corehr.v1.enums.GetDepartmentDepartmentIdTypeEnum departmentIdType) {
-               this.departmentIdType = departmentIdType.getValue();
-               return this;
-          }
+        public Builder departmentIdType(com.lark.oapi.service.corehr.v1.enums.GetDepartmentDepartmentIdTypeEnum departmentIdType) {
+            this.departmentIdType = departmentIdType.getValue();
+            return this;
+        }
 
-    
-        private String departmentId; // 部门 ID
         /**
          * 部门 ID
          * <p> 示例值：45456564
+         *
          * @param departmentId
          * @return
          */
-          public Builder departmentId(String departmentId) {
-               this.departmentId = departmentId;
-               return this;
-          }
+        public Builder departmentId(String departmentId) {
+            this.departmentId = departmentId;
+            return this;
+        }
 
-    
-    public GetDepartmentReq build(){
-        return new GetDepartmentReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public GetDepartmentReq build() {
+            return new GetDepartmentReq(this);
+        }
     }
 }

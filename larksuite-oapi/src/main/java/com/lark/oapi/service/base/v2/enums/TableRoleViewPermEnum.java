@@ -17,15 +17,16 @@ package com.lark.oapi.service.base.v2.enums;
  * 视图权限
  */
 public enum TableRoleViewPermEnum {
-     READ(1), // 可阅读
-     EDIT(2), // 可编辑
-  ;
-   private Integer value;
+    READ(1), // 可阅读
+    EDIT(2), // 可编辑
+    ;
+    private Integer value;
+
     TableRoleViewPermEnum(Integer value) {
-      this.value = value;
+        this.value = value;
     }
 
     public Integer getValue() {
-      return this.value;
+        return this.value;
     }
 }

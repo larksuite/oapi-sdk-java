@@ -12,25 +12,46 @@
  */
 
 package com.lark.oapi.service.contact.v3.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class DeleteEmployeeTypeEnumReq {
-     /**
-      * 枚举值id
-      * <p> 示例值：exGeIjow7zIqWMy+ONkFxA==
-      */
+    /**
+     * 枚举值id
+     * <p> 示例值：exGeIjow7zIqWMy+ONkFxA==
+     */
     @Path
     @SerializedName("enum_id")
     private String enumId;
+
+    // builder 开始
+    public DeleteEmployeeTypeEnumReq() {
+    }
+
+    public DeleteEmployeeTypeEnumReq(Builder builder) {
+        /**
+         * 枚举值id
+         * <p> 示例值：exGeIjow7zIqWMy+ONkFxA==
+         */
+        this.enumId = builder.enumId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getEnumId() {
         return this.enumId;
     }
@@ -39,39 +60,25 @@ public class DeleteEmployeeTypeEnumReq {
         this.enumId = enumId;
     }
 
-
-// builder 开始
-  public DeleteEmployeeTypeEnumReq(){}
-
-  public DeleteEmployeeTypeEnumReq(Builder builder){
-     /**
-      * 枚举值id
-      * <p> 示例值：exGeIjow7zIqWMy+ONkFxA==
-      */
-       this.enumId = builder.enumId;
-  }
-
     public static class Builder {
-    
+
         private String enumId; // 枚举值id
+
         /**
          * 枚举值id
          * <p> 示例值：exGeIjow7zIqWMy+ONkFxA==
+         *
          * @param enumId
          * @return
          */
-          public Builder enumId(String enumId) {
-               this.enumId = enumId;
-               return this;
-          }
+        public Builder enumId(String enumId) {
+            this.enumId = enumId;
+            return this;
+        }
 
-    
-    public DeleteEmployeeTypeEnumReq build(){
-        return new DeleteEmployeeTypeEnumReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public DeleteEmployeeTypeEnumReq build() {
+            return new DeleteEmployeeTypeEnumReq(this);
+        }
     }
 }

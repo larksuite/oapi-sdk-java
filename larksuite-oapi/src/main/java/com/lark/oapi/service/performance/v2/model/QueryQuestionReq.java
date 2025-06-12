@@ -12,32 +12,61 @@
  */
 
 package com.lark.oapi.service.performance.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.performance.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class QueryQuestionReq {
-     /**
-      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-      * <p> 示例值：
-      */
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     * <p> 示例值：
+     */
     @Query
     @SerializedName("page_token")
     private String pageToken;
-     /**
-      * 分页大小
-      * <p> 示例值：30
-      */
+    /**
+     * 分页大小
+     * <p> 示例值：30
+     */
     @Query
     @SerializedName("page_size")
     private Integer pageSize;
+    @Body
+    private QueryQuestionReqBody body;
+
+    // builder 开始
+    public QueryQuestionReq() {
+    }
+
+    public QueryQuestionReq(Builder builder) {
+        /**
+         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+         * <p> 示例值：
+         */
+        this.pageToken = builder.pageToken;
+        /**
+         * 分页大小
+         * <p> 示例值：30
+         */
+        this.pageSize = builder.pageSize;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getPageToken() {
         return this.pageToken;
     }
@@ -54,9 +83,6 @@ public class QueryQuestionReq {
         this.pageSize = pageSize;
     }
 
-    @Body
-    private QueryQuestionReqBody body;
-
     public QueryQuestionReqBody getQueryQuestionReqBody() {
         return this.body;
     }
@@ -65,72 +91,52 @@ public class QueryQuestionReq {
         this.body = body;
     }
 
-// builder 开始
-  public QueryQuestionReq(){}
-
-  public QueryQuestionReq(Builder builder){
-         /**
-          * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-          * <p> 示例值：
-          */
-       this.pageToken = builder.pageToken;
-         /**
-          * 分页大小
-          * <p> 示例值：30
-          */
-       this.pageSize = builder.pageSize;
-        this.body = builder.body;
-  }
-
     public static class Builder {
         private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
         private Integer pageSize; // 分页大小
-    
+        private QueryQuestionReqBody body;
+
         /**
          * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
          * <p> 示例值：
+         *
          * @param pageToken
          * @return
          */
-           public Builder pageToken(String pageToken) {
-                this.pageToken = pageToken;
-                return this;
-           }
+        public Builder pageToken(String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+        }
 
-    
         /**
          * 分页大小
          * <p> 示例值：30
+         *
          * @param pageSize
          * @return
          */
-           public Builder pageSize(Integer pageSize) {
-                this.pageSize = pageSize;
-                return this;
-           }
+        public Builder pageSize(Integer pageSize) {
+            this.pageSize = pageSize;
+            return this;
+        }
 
-    
-        private QueryQuestionReqBody body;
-    
         public QueryQuestionReqBody getQueryQuestionReqBody() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder queryQuestionReqBody(QueryQuestionReqBody body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public QueryQuestionReq build(){
-        return new QueryQuestionReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public QueryQuestionReq build() {
+            return new QueryQuestionReq(this);
+        }
     }
 }

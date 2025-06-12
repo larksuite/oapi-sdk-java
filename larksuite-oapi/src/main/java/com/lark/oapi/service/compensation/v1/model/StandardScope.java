@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.compensation.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.compensation.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class StandardScope {
-     /**
-      * 是否全部
-      * <p> 示例值：false
-      */
+    /**
+     * 是否全部
+     * <p> 示例值：false
+     */
     @SerializedName("all")
     private Boolean all;
-     /**
-      * 条件表达式
-      * <p> 示例值：1 and 2 and 3
-      */
+    /**
+     * 条件表达式
+     * <p> 示例值：1 and 2 and 3
+     */
     @SerializedName("define_expression")
     private String defineExpression;
-     /**
-      * 适用范围明细列表
-      * <p> 示例值：
-      */
+    /**
+     * 适用范围明细列表
+     * <p> 示例值：
+     */
     @SerializedName("expressions")
     private StandardScopeExpression[] expressions;
+
+    // builder 开始
+    public StandardScope() {
+    }
+
+    public StandardScope(Builder builder) {
+        /**
+         * 是否全部
+         * <p> 示例值：false
+         */
+        this.all = builder.all;
+        /**
+         * 条件表达式
+         * <p> 示例值：1 and 2 and 3
+         */
+        this.defineExpression = builder.defineExpression;
+        /**
+         * 适用范围明细列表
+         * <p> 示例值：
+         */
+        this.expressions = builder.expressions;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Boolean getAll() {
         return this.all;
     }
@@ -67,90 +98,64 @@ public class StandardScope {
         this.expressions = expressions;
     }
 
-
-// builder 开始
-  public StandardScope(){}
-
-  public StandardScope(Builder builder){
-         /**
-          * 是否全部
-          * <p> 示例值：false
-          */
-      this.all = builder.all;
-         /**
-          * 条件表达式
-          * <p> 示例值：1 and 2 and 3
-          */
-      this.defineExpression = builder.defineExpression;
-         /**
-          * 适用范围明细列表
-          * <p> 示例值：
-          */
-      this.expressions = builder.expressions;
-  }
-
     public static class Builder {
-     /**
-      * 是否全部
-      * <p> 示例值：false
-      */
+        /**
+         * 是否全部
+         * <p> 示例值：false
+         */
         private Boolean all;
-     /**
-      * 条件表达式
-      * <p> 示例值：1 and 2 and 3
-      */
+        /**
+         * 条件表达式
+         * <p> 示例值：1 and 2 and 3
+         */
         private String defineExpression;
-     /**
-      * 适用范围明细列表
-      * <p> 示例值：
-      */
+        /**
+         * 适用范围明细列表
+         * <p> 示例值：
+         */
         private StandardScopeExpression[] expressions;
 
         /**
          * 是否全部
          * <p> 示例值：false
+         *
          * @param all
          * @return
          */
         public Builder all(Boolean all) {
-             this.all = all;
-             return this;
+            this.all = all;
+            return this;
         }
 
-    
 
         /**
          * 条件表达式
          * <p> 示例值：1 and 2 and 3
+         *
          * @param defineExpression
          * @return
          */
         public Builder defineExpression(String defineExpression) {
-             this.defineExpression = defineExpression;
-             return this;
+            this.defineExpression = defineExpression;
+            return this;
         }
 
-    
 
         /**
          * 适用范围明细列表
          * <p> 示例值：
+         *
          * @param expressions
          * @return
          */
         public Builder expressions(StandardScopeExpression[] expressions) {
-             this.expressions = expressions;
-             return this;
+            this.expressions = expressions;
+            return this;
         }
 
-    
-    
-    public StandardScope build(){
-        return new StandardScope(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public StandardScope build() {
+            return new StandardScope(this);
+        }
     }
 }

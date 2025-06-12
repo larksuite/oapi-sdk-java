@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,60 +20,115 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class QueryCustomOrgReqBody {
-     /**
-      * 组织类型编码
-      * <p> 示例值：apiname__c
-      */
+    /**
+     * 组织类型编码
+     * <p> 示例值：apiname__c
+     */
     @SerializedName("object_api_name")
     private String objectApiName;
-     /**
-      * 返回基础数据的字段列表
-      * <p> 示例值：
-      */
+    /**
+     * 返回基础数据的字段列表
+     * <p> 示例值：
+     */
     @SerializedName("org_fields")
     private String[] orgFields;
-     /**
-      * 返回org_role数据的字段列表
-      * <p> 示例值：
-      */
+    /**
+     * 返回org_role数据的字段列表
+     * <p> 示例值：
+     */
     @SerializedName("org_role_fields")
     private String[] orgRoleFields;
-     /**
-      * 组织ID列表
-      * <p> 示例值：
-      */
+    /**
+     * 组织ID列表
+     * <p> 示例值：
+     */
     @SerializedName("org_ids")
     private String[] orgIds;
-     /**
-      * 组织编码
-      * <p> 示例值：MDPD00000023
-      */
+    /**
+     * 组织编码
+     * <p> 示例值：MDPD00000023
+     */
     @SerializedName("code")
     private String code;
-     /**
-      * 上级组织ID
-      * <p> 示例值：7140964208476371111
-      */
+    /**
+     * 上级组织ID
+     * <p> 示例值：7140964208476371111
+     */
     @SerializedName("parent_id")
     private String parentId;
-     /**
-      * 是否启用
-      * <p> 示例值：true
-      */
+    /**
+     * 是否启用
+     * <p> 示例值：true
+     */
     @SerializedName("active")
     private Boolean active;
-     /**
-      * 是否返回匹配规则
-      * <p> 示例值：false
-      */
+    /**
+     * 是否返回匹配规则
+     * <p> 示例值：false
+     */
     @SerializedName("need_match_rule")
     private Boolean needMatchRule;
+
+    // builder 开始
+    public QueryCustomOrgReqBody() {
+    }
+
+    public QueryCustomOrgReqBody(Builder builder) {
+        /**
+         * 组织类型编码
+         * <p> 示例值：apiname__c
+         */
+        this.objectApiName = builder.objectApiName;
+        /**
+         * 返回基础数据的字段列表
+         * <p> 示例值：
+         */
+        this.orgFields = builder.orgFields;
+        /**
+         * 返回org_role数据的字段列表
+         * <p> 示例值：
+         */
+        this.orgRoleFields = builder.orgRoleFields;
+        /**
+         * 组织ID列表
+         * <p> 示例值：
+         */
+        this.orgIds = builder.orgIds;
+        /**
+         * 组织编码
+         * <p> 示例值：MDPD00000023
+         */
+        this.code = builder.code;
+        /**
+         * 上级组织ID
+         * <p> 示例值：7140964208476371111
+         */
+        this.parentId = builder.parentId;
+        /**
+         * 是否启用
+         * <p> 示例值：true
+         */
+        this.active = builder.active;
+        /**
+         * 是否返回匹配规则
+         * <p> 示例值：false
+         */
+        this.needMatchRule = builder.needMatchRule;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getObjectApiName() {
         return this.objectApiName;
     }
@@ -137,205 +193,154 @@ public class QueryCustomOrgReqBody {
         this.needMatchRule = needMatchRule;
     }
 
-
-// builder 开始
-  public QueryCustomOrgReqBody(){}
-
-  public QueryCustomOrgReqBody(Builder builder){
-         /**
-          * 组织类型编码
-          * <p> 示例值：apiname__c
-          */
-      this.objectApiName = builder.objectApiName;
-         /**
-          * 返回基础数据的字段列表
-          * <p> 示例值：
-          */
-      this.orgFields = builder.orgFields;
-         /**
-          * 返回org_role数据的字段列表
-          * <p> 示例值：
-          */
-      this.orgRoleFields = builder.orgRoleFields;
-         /**
-          * 组织ID列表
-          * <p> 示例值：
-          */
-      this.orgIds = builder.orgIds;
-         /**
-          * 组织编码
-          * <p> 示例值：MDPD00000023
-          */
-      this.code = builder.code;
-         /**
-          * 上级组织ID
-          * <p> 示例值：7140964208476371111
-          */
-      this.parentId = builder.parentId;
-         /**
-          * 是否启用
-          * <p> 示例值：true
-          */
-      this.active = builder.active;
-         /**
-          * 是否返回匹配规则
-          * <p> 示例值：false
-          */
-      this.needMatchRule = builder.needMatchRule;
-  }
-
     public static class Builder {
-     /**
-      * 组织类型编码
-      * <p> 示例值：apiname__c
-      */
+        /**
+         * 组织类型编码
+         * <p> 示例值：apiname__c
+         */
         private String objectApiName;
-     /**
-      * 返回基础数据的字段列表
-      * <p> 示例值：
-      */
+        /**
+         * 返回基础数据的字段列表
+         * <p> 示例值：
+         */
         private String[] orgFields;
-     /**
-      * 返回org_role数据的字段列表
-      * <p> 示例值：
-      */
+        /**
+         * 返回org_role数据的字段列表
+         * <p> 示例值：
+         */
         private String[] orgRoleFields;
-     /**
-      * 组织ID列表
-      * <p> 示例值：
-      */
+        /**
+         * 组织ID列表
+         * <p> 示例值：
+         */
         private String[] orgIds;
-     /**
-      * 组织编码
-      * <p> 示例值：MDPD00000023
-      */
+        /**
+         * 组织编码
+         * <p> 示例值：MDPD00000023
+         */
         private String code;
-     /**
-      * 上级组织ID
-      * <p> 示例值：7140964208476371111
-      */
+        /**
+         * 上级组织ID
+         * <p> 示例值：7140964208476371111
+         */
         private String parentId;
-     /**
-      * 是否启用
-      * <p> 示例值：true
-      */
+        /**
+         * 是否启用
+         * <p> 示例值：true
+         */
         private Boolean active;
-     /**
-      * 是否返回匹配规则
-      * <p> 示例值：false
-      */
+        /**
+         * 是否返回匹配规则
+         * <p> 示例值：false
+         */
         private Boolean needMatchRule;
 
         /**
          * 组织类型编码
          * <p> 示例值：apiname__c
+         *
          * @param objectApiName
          * @return
          */
         public Builder objectApiName(String objectApiName) {
-             this.objectApiName = objectApiName;
-             return this;
+            this.objectApiName = objectApiName;
+            return this;
         }
 
-    
 
         /**
          * 返回基础数据的字段列表
          * <p> 示例值：
+         *
          * @param orgFields
          * @return
          */
         public Builder orgFields(String[] orgFields) {
-             this.orgFields = orgFields;
-             return this;
+            this.orgFields = orgFields;
+            return this;
         }
 
-    
 
         /**
          * 返回org_role数据的字段列表
          * <p> 示例值：
+         *
          * @param orgRoleFields
          * @return
          */
         public Builder orgRoleFields(String[] orgRoleFields) {
-             this.orgRoleFields = orgRoleFields;
-             return this;
+            this.orgRoleFields = orgRoleFields;
+            return this;
         }
 
-    
 
         /**
          * 组织ID列表
          * <p> 示例值：
+         *
          * @param orgIds
          * @return
          */
         public Builder orgIds(String[] orgIds) {
-             this.orgIds = orgIds;
-             return this;
+            this.orgIds = orgIds;
+            return this;
         }
 
-    
 
         /**
          * 组织编码
          * <p> 示例值：MDPD00000023
+         *
          * @param code
          * @return
          */
         public Builder code(String code) {
-             this.code = code;
-             return this;
+            this.code = code;
+            return this;
         }
 
-    
 
         /**
          * 上级组织ID
          * <p> 示例值：7140964208476371111
+         *
          * @param parentId
          * @return
          */
         public Builder parentId(String parentId) {
-             this.parentId = parentId;
-             return this;
+            this.parentId = parentId;
+            return this;
         }
 
-    
 
         /**
          * 是否启用
          * <p> 示例值：true
+         *
          * @param active
          * @return
          */
         public Builder active(Boolean active) {
-             this.active = active;
-             return this;
+            this.active = active;
+            return this;
         }
 
-    
 
         /**
          * 是否返回匹配规则
          * <p> 示例值：false
+         *
          * @param needMatchRule
          * @return
          */
         public Builder needMatchRule(Boolean needMatchRule) {
-             this.needMatchRule = needMatchRule;
-             return this;
+            this.needMatchRule = needMatchRule;
+            return this;
         }
 
-    
-    
-    public QueryCustomOrgReqBody build(){
-        return new QueryCustomOrgReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public QueryCustomOrgReqBody build() {
+            return new QueryCustomOrgReqBody(this);
+        }
     }
 }

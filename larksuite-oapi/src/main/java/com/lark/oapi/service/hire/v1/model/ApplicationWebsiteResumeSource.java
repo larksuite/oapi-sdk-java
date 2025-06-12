@@ -12,36 +12,67 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ApplicationWebsiteResumeSource {
-     /**
-      * 官网站点 ID
-      * <p> 示例值：614218419274131
-      */
+    /**
+     * 官网站点 ID
+     * <p> 示例值：614218419274131
+     */
     @SerializedName("website_id")
     private String websiteId;
-     /**
-      * 官网站点名称
-      * <p> 示例值：
-      */
+    /**
+     * 官网站点名称
+     * <p> 示例值：
+     */
     @SerializedName("website_name")
     private I18n websiteName;
-     /**
-      * 推广渠道来源
-      * <p> 示例值：
-      */
+    /**
+     * 推广渠道来源
+     * <p> 示例值：
+     */
     @SerializedName("channel")
     private ApplicationWebsiteChannel channel;
+
+    // builder 开始
+    public ApplicationWebsiteResumeSource() {
+    }
+
+    public ApplicationWebsiteResumeSource(Builder builder) {
+        /**
+         * 官网站点 ID
+         * <p> 示例值：614218419274131
+         */
+        this.websiteId = builder.websiteId;
+        /**
+         * 官网站点名称
+         * <p> 示例值：
+         */
+        this.websiteName = builder.websiteName;
+        /**
+         * 推广渠道来源
+         * <p> 示例值：
+         */
+        this.channel = builder.channel;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getWebsiteId() {
         return this.websiteId;
     }
@@ -66,90 +97,64 @@ public class ApplicationWebsiteResumeSource {
         this.channel = channel;
     }
 
-
-// builder 开始
-  public ApplicationWebsiteResumeSource(){}
-
-  public ApplicationWebsiteResumeSource(Builder builder){
-         /**
-          * 官网站点 ID
-          * <p> 示例值：614218419274131
-          */
-      this.websiteId = builder.websiteId;
-         /**
-          * 官网站点名称
-          * <p> 示例值：
-          */
-      this.websiteName = builder.websiteName;
-         /**
-          * 推广渠道来源
-          * <p> 示例值：
-          */
-      this.channel = builder.channel;
-  }
-
     public static class Builder {
-     /**
-      * 官网站点 ID
-      * <p> 示例值：614218419274131
-      */
+        /**
+         * 官网站点 ID
+         * <p> 示例值：614218419274131
+         */
         private String websiteId;
-     /**
-      * 官网站点名称
-      * <p> 示例值：
-      */
+        /**
+         * 官网站点名称
+         * <p> 示例值：
+         */
         private I18n websiteName;
-     /**
-      * 推广渠道来源
-      * <p> 示例值：
-      */
+        /**
+         * 推广渠道来源
+         * <p> 示例值：
+         */
         private ApplicationWebsiteChannel channel;
 
         /**
          * 官网站点 ID
          * <p> 示例值：614218419274131
+         *
          * @param websiteId
          * @return
          */
         public Builder websiteId(String websiteId) {
-             this.websiteId = websiteId;
-             return this;
+            this.websiteId = websiteId;
+            return this;
         }
 
-    
 
         /**
          * 官网站点名称
          * <p> 示例值：
+         *
          * @param websiteName
          * @return
          */
         public Builder websiteName(I18n websiteName) {
-             this.websiteName = websiteName;
-             return this;
+            this.websiteName = websiteName;
+            return this;
         }
 
-    
 
         /**
          * 推广渠道来源
          * <p> 示例值：
+         *
          * @param channel
          * @return
          */
         public Builder channel(ApplicationWebsiteChannel channel) {
-             this.channel = channel;
-             return this;
+            this.channel = channel;
+            return this;
         }
 
-    
-    
-    public ApplicationWebsiteResumeSource build(){
-        return new ApplicationWebsiteResumeSource(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ApplicationWebsiteResumeSource build() {
+            return new ApplicationWebsiteResumeSource(this);
+        }
     }
 }

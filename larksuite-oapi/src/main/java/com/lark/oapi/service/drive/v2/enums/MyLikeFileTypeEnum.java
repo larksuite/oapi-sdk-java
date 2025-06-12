@@ -17,16 +17,17 @@ package com.lark.oapi.service.drive.v2.enums;
  * 点赞的文件类型
  */
 public enum MyLikeFileTypeEnum {
-     DOC("doc"), // 旧版文档
-     DOCX("docx"), // 新版文档
-     FILE("file"), // 文件
-  ;
-   private String value;
+    DOC("doc"), // 旧版文档
+    DOCX("docx"), // 新版文档
+    FILE("file"), // 文件
+    ;
+    private String value;
+
     MyLikeFileTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

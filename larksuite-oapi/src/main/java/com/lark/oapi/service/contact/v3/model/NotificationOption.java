@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.contact.v3.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class NotificationOption {
-     /**
-      * 通道列表
-      * <p> 示例值：["sms", "email"]
-      */
+    /**
+     * 通道列表
+     * <p> 示例值：["sms", "email"]
+     */
     @SerializedName("channels")
     private String[] channels;
-     /**
-      * 语言类型
-      * <p> 示例值：zh-CN
-      */
+    /**
+     * 语言类型
+     * <p> 示例值：zh-CN
+     */
     @SerializedName("language")
     private String language;
+
+    // builder 开始
+    public NotificationOption() {
+    }
+
+    public NotificationOption(Builder builder) {
+        /**
+         * 通道列表
+         * <p> 示例值：["sms", "email"]
+         */
+        this.channels = builder.channels;
+        /**
+         * 语言类型
+         * <p> 示例值：zh-CN
+         */
+        this.language = builder.language;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String[] getChannels() {
         return this.channels;
     }
@@ -53,77 +79,58 @@ public class NotificationOption {
         this.language = language;
     }
 
-
-// builder 开始
-  public NotificationOption(){}
-
-  public NotificationOption(Builder builder){
-         /**
-          * 通道列表
-          * <p> 示例值：["sms", "email"]
-          */
-      this.channels = builder.channels;
-         /**
-          * 语言类型
-          * <p> 示例值：zh-CN
-          */
-      this.language = builder.language;
-  }
-
     public static class Builder {
-     /**
-      * 通道列表
-      * <p> 示例值：["sms", "email"]
-      */
+        /**
+         * 通道列表
+         * <p> 示例值：["sms", "email"]
+         */
         private String[] channels;
-     /**
-      * 语言类型
-      * <p> 示例值：zh-CN
-      */
+        /**
+         * 语言类型
+         * <p> 示例值：zh-CN
+         */
         private String language;
 
         /**
          * 通道列表
          * <p> 示例值：["sms", "email"]
+         *
          * @param channels
          * @return
          */
         public Builder channels(String[] channels) {
-             this.channels = channels;
-             return this;
+            this.channels = channels;
+            return this;
         }
 
-    
 
         /**
          * 语言类型
          * <p> 示例值：zh-CN
+         *
          * @param language
          * @return
          */
         public Builder language(String language) {
-             this.language = language;
-             return this;
+            this.language = language;
+            return this;
         }
+
         /**
          * 语言类型
          * <p> 示例值：zh-CN
+         *
          * @param language {@link com.lark.oapi.service.contact.v3.enums.NotificationOptionLanguageEnum}
          * @return
          */
         public Builder language(com.lark.oapi.service.contact.v3.enums.NotificationOptionLanguageEnum language) {
-             this.language = language.getValue();
-             return this;
+            this.language = language.getValue();
+            return this;
         }
 
-    
-    
-    public NotificationOption build(){
-        return new NotificationOption(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public NotificationOption build() {
+            return new NotificationOption(this);
+        }
     }
 }

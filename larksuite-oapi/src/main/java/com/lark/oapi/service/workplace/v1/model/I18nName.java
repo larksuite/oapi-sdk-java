@@ -12,30 +12,56 @@
  */
 
 package com.lark.oapi.service.workplace.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class I18nName {
-     /**
-      * ISO 639-1的语言代码。比如zh表示中文。
-      * <p> 示例值：zh
-      */
+    /**
+     * ISO 639-1的语言代码。比如zh表示中文。
+     * <p> 示例值：zh
+     */
     @SerializedName("language")
     private String language;
-     /**
-      * 名字
-      * <p> 示例值：名字
-      */
+    /**
+     * 名字
+     * <p> 示例值：名字
+     */
     @SerializedName("name")
     private String name;
+
+    // builder 开始
+    public I18nName() {
+    }
+
+    public I18nName(Builder builder) {
+        /**
+         * ISO 639-1的语言代码。比如zh表示中文。
+         * <p> 示例值：zh
+         */
+        this.language = builder.language;
+        /**
+         * 名字
+         * <p> 示例值：名字
+         */
+        this.name = builder.name;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getLanguage() {
         return this.language;
     }
@@ -52,67 +78,46 @@ public class I18nName {
         this.name = name;
     }
 
-
-// builder 开始
-  public I18nName(){}
-
-  public I18nName(Builder builder){
-         /**
-          * ISO 639-1的语言代码。比如zh表示中文。
-          * <p> 示例值：zh
-          */
-      this.language = builder.language;
-         /**
-          * 名字
-          * <p> 示例值：名字
-          */
-      this.name = builder.name;
-  }
-
     public static class Builder {
-     /**
-      * ISO 639-1的语言代码。比如zh表示中文。
-      * <p> 示例值：zh
-      */
+        /**
+         * ISO 639-1的语言代码。比如zh表示中文。
+         * <p> 示例值：zh
+         */
         private String language;
-     /**
-      * 名字
-      * <p> 示例值：名字
-      */
+        /**
+         * 名字
+         * <p> 示例值：名字
+         */
         private String name;
 
         /**
          * ISO 639-1的语言代码。比如zh表示中文。
          * <p> 示例值：zh
+         *
          * @param language
          * @return
          */
         public Builder language(String language) {
-             this.language = language;
-             return this;
+            this.language = language;
+            return this;
         }
 
-    
 
         /**
          * 名字
          * <p> 示例值：名字
+         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
-    
-    public I18nName build(){
-        return new I18nName(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public I18nName build() {
+            return new I18nName(this);
+        }
     }
 }

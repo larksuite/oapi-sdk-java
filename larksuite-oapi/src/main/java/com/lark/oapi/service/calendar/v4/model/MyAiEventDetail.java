@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.calendar.v4.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.calendar.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,66 +20,126 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class MyAiEventDetail {
-     /**
-      * 日程的uid_originTime
-      * <p> 示例值：11dd1004-7cfb-4ad2-89a0-aa3c82f34dda_0
-      */
+    /**
+     * 日程的uid_originTime
+     * <p> 示例值：11dd1004-7cfb-4ad2-89a0-aa3c82f34dda_0
+     */
     @SerializedName("event_id")
     private String eventId;
-     /**
-      * 日程主题
-      * <p> 示例值：none
-      */
+    /**
+     * 日程主题
+     * <p> 示例值：none
+     */
     @SerializedName("summary")
     private String summary;
-     /**
-      * 日程开始时间
-      * <p> 示例值：none
-      */
+    /**
+     * 日程开始时间
+     * <p> 示例值：none
+     */
     @SerializedName("start_time")
     private String startTime;
-     /**
-      * 日程结束时间
-      * <p> 示例值：none
-      */
+    /**
+     * 日程结束时间
+     * <p> 示例值：none
+     */
     @SerializedName("end_time")
     private String endTime;
-     /**
-      * 时区
-      * <p> 示例值：Asia/Shanghai
-      */
+    /**
+     * 时区
+     * <p> 示例值：Asia/Shanghai
+     */
     @SerializedName("timezone")
     private String timezone;
-     /**
-      * 日程的重复性规则
-      * <p> 示例值：FREQ=DAILY;INTERVAL=1
-      */
+    /**
+     * 日程的重复性规则
+     * <p> 示例值：FREQ=DAILY;INTERVAL=1
+     */
     @SerializedName("recurrence_rule")
     private String recurrenceRule;
-     /**
-      * 参与人实体列表
-      * <p> 示例值：
-      */
+    /**
+     * 参与人实体列表
+     * <p> 示例值：
+     */
     @SerializedName("participants")
     private UserMeta[] participants;
-     /**
-      * 会议室实体列表
-      * <p> 示例值：
-      */
+    /**
+     * 会议室实体列表
+     * <p> 示例值：
+     */
     @SerializedName("rooms")
     private RoomMeta[] rooms;
-     /**
-      * 日程的权限
-      * <p> 示例值：read/invite/edit
-      */
+    /**
+     * 日程的权限
+     * <p> 示例值：read/invite/edit
+     */
     @SerializedName("access_role")
     private String accessRole;
+
+    // builder 开始
+    public MyAiEventDetail() {
+    }
+
+    public MyAiEventDetail(Builder builder) {
+        /**
+         * 日程的uid_originTime
+         * <p> 示例值：11dd1004-7cfb-4ad2-89a0-aa3c82f34dda_0
+         */
+        this.eventId = builder.eventId;
+        /**
+         * 日程主题
+         * <p> 示例值：none
+         */
+        this.summary = builder.summary;
+        /**
+         * 日程开始时间
+         * <p> 示例值：none
+         */
+        this.startTime = builder.startTime;
+        /**
+         * 日程结束时间
+         * <p> 示例值：none
+         */
+        this.endTime = builder.endTime;
+        /**
+         * 时区
+         * <p> 示例值：Asia/Shanghai
+         */
+        this.timezone = builder.timezone;
+        /**
+         * 日程的重复性规则
+         * <p> 示例值：FREQ=DAILY;INTERVAL=1
+         */
+        this.recurrenceRule = builder.recurrenceRule;
+        /**
+         * 参与人实体列表
+         * <p> 示例值：
+         */
+        this.participants = builder.participants;
+        /**
+         * 会议室实体列表
+         * <p> 示例值：
+         */
+        this.rooms = builder.rooms;
+        /**
+         * 日程的权限
+         * <p> 示例值：read/invite/edit
+         */
+        this.accessRole = builder.accessRole;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getEventId() {
         return this.eventId;
     }
@@ -151,228 +212,172 @@ public class MyAiEventDetail {
         this.accessRole = accessRole;
     }
 
-
-// builder 开始
-  public MyAiEventDetail(){}
-
-  public MyAiEventDetail(Builder builder){
-         /**
-          * 日程的uid_originTime
-          * <p> 示例值：11dd1004-7cfb-4ad2-89a0-aa3c82f34dda_0
-          */
-      this.eventId = builder.eventId;
-         /**
-          * 日程主题
-          * <p> 示例值：none
-          */
-      this.summary = builder.summary;
-         /**
-          * 日程开始时间
-          * <p> 示例值：none
-          */
-      this.startTime = builder.startTime;
-         /**
-          * 日程结束时间
-          * <p> 示例值：none
-          */
-      this.endTime = builder.endTime;
-         /**
-          * 时区
-          * <p> 示例值：Asia/Shanghai
-          */
-      this.timezone = builder.timezone;
-         /**
-          * 日程的重复性规则
-          * <p> 示例值：FREQ=DAILY;INTERVAL=1
-          */
-      this.recurrenceRule = builder.recurrenceRule;
-         /**
-          * 参与人实体列表
-          * <p> 示例值：
-          */
-      this.participants = builder.participants;
-         /**
-          * 会议室实体列表
-          * <p> 示例值：
-          */
-      this.rooms = builder.rooms;
-         /**
-          * 日程的权限
-          * <p> 示例值：read/invite/edit
-          */
-      this.accessRole = builder.accessRole;
-  }
-
     public static class Builder {
-     /**
-      * 日程的uid_originTime
-      * <p> 示例值：11dd1004-7cfb-4ad2-89a0-aa3c82f34dda_0
-      */
+        /**
+         * 日程的uid_originTime
+         * <p> 示例值：11dd1004-7cfb-4ad2-89a0-aa3c82f34dda_0
+         */
         private String eventId;
-     /**
-      * 日程主题
-      * <p> 示例值：none
-      */
+        /**
+         * 日程主题
+         * <p> 示例值：none
+         */
         private String summary;
-     /**
-      * 日程开始时间
-      * <p> 示例值：none
-      */
+        /**
+         * 日程开始时间
+         * <p> 示例值：none
+         */
         private String startTime;
-     /**
-      * 日程结束时间
-      * <p> 示例值：none
-      */
+        /**
+         * 日程结束时间
+         * <p> 示例值：none
+         */
         private String endTime;
-     /**
-      * 时区
-      * <p> 示例值：Asia/Shanghai
-      */
+        /**
+         * 时区
+         * <p> 示例值：Asia/Shanghai
+         */
         private String timezone;
-     /**
-      * 日程的重复性规则
-      * <p> 示例值：FREQ=DAILY;INTERVAL=1
-      */
+        /**
+         * 日程的重复性规则
+         * <p> 示例值：FREQ=DAILY;INTERVAL=1
+         */
         private String recurrenceRule;
-     /**
-      * 参与人实体列表
-      * <p> 示例值：
-      */
+        /**
+         * 参与人实体列表
+         * <p> 示例值：
+         */
         private UserMeta[] participants;
-     /**
-      * 会议室实体列表
-      * <p> 示例值：
-      */
+        /**
+         * 会议室实体列表
+         * <p> 示例值：
+         */
         private RoomMeta[] rooms;
-     /**
-      * 日程的权限
-      * <p> 示例值：read/invite/edit
-      */
+        /**
+         * 日程的权限
+         * <p> 示例值：read/invite/edit
+         */
         private String accessRole;
 
         /**
          * 日程的uid_originTime
          * <p> 示例值：11dd1004-7cfb-4ad2-89a0-aa3c82f34dda_0
+         *
          * @param eventId
          * @return
          */
         public Builder eventId(String eventId) {
-             this.eventId = eventId;
-             return this;
+            this.eventId = eventId;
+            return this;
         }
 
-    
 
         /**
          * 日程主题
          * <p> 示例值：none
+         *
          * @param summary
          * @return
          */
         public Builder summary(String summary) {
-             this.summary = summary;
-             return this;
+            this.summary = summary;
+            return this;
         }
 
-    
 
         /**
          * 日程开始时间
          * <p> 示例值：none
+         *
          * @param startTime
          * @return
          */
         public Builder startTime(String startTime) {
-             this.startTime = startTime;
-             return this;
+            this.startTime = startTime;
+            return this;
         }
 
-    
 
         /**
          * 日程结束时间
          * <p> 示例值：none
+         *
          * @param endTime
          * @return
          */
         public Builder endTime(String endTime) {
-             this.endTime = endTime;
-             return this;
+            this.endTime = endTime;
+            return this;
         }
 
-    
 
         /**
          * 时区
          * <p> 示例值：Asia/Shanghai
+         *
          * @param timezone
          * @return
          */
         public Builder timezone(String timezone) {
-             this.timezone = timezone;
-             return this;
+            this.timezone = timezone;
+            return this;
         }
 
-    
 
         /**
          * 日程的重复性规则
          * <p> 示例值：FREQ=DAILY;INTERVAL=1
+         *
          * @param recurrenceRule
          * @return
          */
         public Builder recurrenceRule(String recurrenceRule) {
-             this.recurrenceRule = recurrenceRule;
-             return this;
+            this.recurrenceRule = recurrenceRule;
+            return this;
         }
 
-    
 
         /**
          * 参与人实体列表
          * <p> 示例值：
+         *
          * @param participants
          * @return
          */
         public Builder participants(UserMeta[] participants) {
-             this.participants = participants;
-             return this;
+            this.participants = participants;
+            return this;
         }
 
-    
 
         /**
          * 会议室实体列表
          * <p> 示例值：
+         *
          * @param rooms
          * @return
          */
         public Builder rooms(RoomMeta[] rooms) {
-             this.rooms = rooms;
-             return this;
+            this.rooms = rooms;
+            return this;
         }
 
-    
 
         /**
          * 日程的权限
          * <p> 示例值：read/invite/edit
+         *
          * @param accessRole
          * @return
          */
         public Builder accessRole(String accessRole) {
-             this.accessRole = accessRole;
-             return this;
+            this.accessRole = accessRole;
+            return this;
         }
 
-    
-    
-    public MyAiEventDetail build(){
-        return new MyAiEventDetail(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public MyAiEventDetail build() {
+            return new MyAiEventDetail(this);
+        }
     }
 }

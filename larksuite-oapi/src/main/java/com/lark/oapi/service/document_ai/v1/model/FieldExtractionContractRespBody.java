@@ -12,66 +12,71 @@
  */
 
 package com.lark.oapi.service.document_ai.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class FieldExtractionContractRespBody {
-     /**
-      * 文件的唯一id
-      * <p> 示例值：7216597635774283796
-      */
+    /**
+     * 文件的唯一id
+     * <p> 示例值：7216597635774283796
+     */
     @SerializedName("file_id")
     private String fileId;
-     /**
-      * 总交易金额
-      * <p> 示例值：
-      */
+    /**
+     * 总交易金额
+     * <p> 示例值：
+     */
     @SerializedName("price")
     private ExtractPrice price;
-     /**
-      * 期限相关信息，包括开始日期、结束日期、有效时长
-      * <p> 示例值：
-      */
+    /**
+     * 期限相关信息，包括开始日期、结束日期、有效时长
+     * <p> 示例值：
+     */
     @SerializedName("time")
     private ExtractTime time;
-     /**
-      * 盖章份数
-      * <p> 示例值：
-      */
+    /**
+     * 盖章份数
+     * <p> 示例值：
+     */
     @SerializedName("copy")
     private ExtractCopy copy;
-     /**
-      * 币种
-      * <p> 示例值：
-      */
+    /**
+     * 币种
+     * <p> 示例值：
+     */
     @SerializedName("currency")
     private ExtractCurrency currency;
-     /**
-      * 合同标题
-      * <p> 示例值：项目活动框架协议
-      */
+    /**
+     * 合同标题
+     * <p> 示例值：项目活动框架协议
+     */
     @SerializedName("header")
     private String header;
-     /**
-      * 主体信息
-      * <p> 示例值：
-      */
+    /**
+     * 主体信息
+     * <p> 示例值：
+     */
     @SerializedName("body_info")
     private BodyInfo[] bodyInfo;
-     /**
-      * 银行信息
-      * <p> 示例值：
-      */
+    /**
+     * 银行信息
+     * <p> 示例值：
+     */
     @SerializedName("bank_info")
     private BankInfo[] bankInfo;
+
     public String getFileId() {
         return this.fileId;
     }

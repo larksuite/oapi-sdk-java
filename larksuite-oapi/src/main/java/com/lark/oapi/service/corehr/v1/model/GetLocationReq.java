@@ -12,25 +12,46 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class GetLocationReq {
-     /**
-      * 地点 ID
-      * <p> 示例值：1215
-      */
+    /**
+     * 地点 ID
+     * <p> 示例值：1215
+     */
     @Path
     @SerializedName("location_id")
     private String locationId;
+
+    // builder 开始
+    public GetLocationReq() {
+    }
+
+    public GetLocationReq(Builder builder) {
+        /**
+         * 地点 ID
+         * <p> 示例值：1215
+         */
+        this.locationId = builder.locationId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getLocationId() {
         return this.locationId;
     }
@@ -39,39 +60,25 @@ public class GetLocationReq {
         this.locationId = locationId;
     }
 
-
-// builder 开始
-  public GetLocationReq(){}
-
-  public GetLocationReq(Builder builder){
-     /**
-      * 地点 ID
-      * <p> 示例值：1215
-      */
-       this.locationId = builder.locationId;
-  }
-
     public static class Builder {
-    
+
         private String locationId; // 地点 ID
+
         /**
          * 地点 ID
          * <p> 示例值：1215
+         *
          * @param locationId
          * @return
          */
-          public Builder locationId(String locationId) {
-               this.locationId = locationId;
-               return this;
-          }
+        public Builder locationId(String locationId) {
+            this.locationId = locationId;
+            return this;
+        }
 
-    
-    public GetLocationReq build(){
-        return new GetLocationReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public GetLocationReq build() {
+            return new GetLocationReq(this);
+        }
     }
 }

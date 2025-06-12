@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.sheets.v3.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.sheets.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class PatchProtectedRange {
-     /**
-      * 保护范围描述
-      * <p> 示例值：这是一个保护范围
-      */
+    /**
+     * 保护范围描述
+     * <p> 示例值：这是一个保护范围
+     */
     @SerializedName("description")
     private String description;
-     /**
-      * 保护行范围
-      * <p> 示例值：
-      */
+    /**
+     * 保护行范围
+     * <p> 示例值：
+     */
     @SerializedName("protected_rows")
     private ProtectedRows protectedRows;
-     /**
-      * 保护列范围
-      * <p> 示例值：
-      */
+    /**
+     * 保护列范围
+     * <p> 示例值：
+     */
     @SerializedName("protected_columns")
     private ProtectedColumns protectedColumns;
+
+    // builder 开始
+    public PatchProtectedRange() {
+    }
+
+    public PatchProtectedRange(Builder builder) {
+        /**
+         * 保护范围描述
+         * <p> 示例值：这是一个保护范围
+         */
+        this.description = builder.description;
+        /**
+         * 保护行范围
+         * <p> 示例值：
+         */
+        this.protectedRows = builder.protectedRows;
+        /**
+         * 保护列范围
+         * <p> 示例值：
+         */
+        this.protectedColumns = builder.protectedColumns;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getDescription() {
         return this.description;
     }
@@ -67,90 +98,64 @@ public class PatchProtectedRange {
         this.protectedColumns = protectedColumns;
     }
 
-
-// builder 开始
-  public PatchProtectedRange(){}
-
-  public PatchProtectedRange(Builder builder){
-         /**
-          * 保护范围描述
-          * <p> 示例值：这是一个保护范围
-          */
-      this.description = builder.description;
-         /**
-          * 保护行范围
-          * <p> 示例值：
-          */
-      this.protectedRows = builder.protectedRows;
-         /**
-          * 保护列范围
-          * <p> 示例值：
-          */
-      this.protectedColumns = builder.protectedColumns;
-  }
-
     public static class Builder {
-     /**
-      * 保护范围描述
-      * <p> 示例值：这是一个保护范围
-      */
+        /**
+         * 保护范围描述
+         * <p> 示例值：这是一个保护范围
+         */
         private String description;
-     /**
-      * 保护行范围
-      * <p> 示例值：
-      */
+        /**
+         * 保护行范围
+         * <p> 示例值：
+         */
         private ProtectedRows protectedRows;
-     /**
-      * 保护列范围
-      * <p> 示例值：
-      */
+        /**
+         * 保护列范围
+         * <p> 示例值：
+         */
         private ProtectedColumns protectedColumns;
 
         /**
          * 保护范围描述
          * <p> 示例值：这是一个保护范围
+         *
          * @param description
          * @return
          */
         public Builder description(String description) {
-             this.description = description;
-             return this;
+            this.description = description;
+            return this;
         }
 
-    
 
         /**
          * 保护行范围
          * <p> 示例值：
+         *
          * @param protectedRows
          * @return
          */
         public Builder protectedRows(ProtectedRows protectedRows) {
-             this.protectedRows = protectedRows;
-             return this;
+            this.protectedRows = protectedRows;
+            return this;
         }
 
-    
 
         /**
          * 保护列范围
          * <p> 示例值：
+         *
          * @param protectedColumns
          * @return
          */
         public Builder protectedColumns(ProtectedColumns protectedColumns) {
-             this.protectedColumns = protectedColumns;
-             return this;
+            this.protectedColumns = protectedColumns;
+            return this;
         }
 
-    
-    
-    public PatchProtectedRange build(){
-        return new PatchProtectedRange(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public PatchProtectedRange build() {
+            return new PatchProtectedRange(this);
+        }
     }
 }

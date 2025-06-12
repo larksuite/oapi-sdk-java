@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class OnboardingTaskChange {
-     /**
-      * 变更后任务状态
-      * <p> 示例值：in_progress
-      */
+    /**
+     * 变更后任务状态
+     * <p> 示例值：in_progress
+     */
     @SerializedName("after_status")
     private String afterStatus;
-     /**
-      * 任务标识
-      * <p> 示例值：2
-      */
+    /**
+     * 任务标识
+     * <p> 示例值：2
+     */
     @SerializedName("task_code")
     private String taskCode;
+
+    // builder 开始
+    public OnboardingTaskChange() {
+    }
+
+    public OnboardingTaskChange(Builder builder) {
+        /**
+         * 变更后任务状态
+         * <p> 示例值：in_progress
+         */
+        this.afterStatus = builder.afterStatus;
+        /**
+         * 任务标识
+         * <p> 示例值：2
+         */
+        this.taskCode = builder.taskCode;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getAfterStatus() {
         return this.afterStatus;
     }
@@ -53,77 +79,58 @@ public class OnboardingTaskChange {
         this.taskCode = taskCode;
     }
 
-
-// builder 开始
-  public OnboardingTaskChange(){}
-
-  public OnboardingTaskChange(Builder builder){
-         /**
-          * 变更后任务状态
-          * <p> 示例值：in_progress
-          */
-      this.afterStatus = builder.afterStatus;
-         /**
-          * 任务标识
-          * <p> 示例值：2
-          */
-      this.taskCode = builder.taskCode;
-  }
-
     public static class Builder {
-     /**
-      * 变更后任务状态
-      * <p> 示例值：in_progress
-      */
+        /**
+         * 变更后任务状态
+         * <p> 示例值：in_progress
+         */
         private String afterStatus;
-     /**
-      * 任务标识
-      * <p> 示例值：2
-      */
+        /**
+         * 任务标识
+         * <p> 示例值：2
+         */
         private String taskCode;
 
         /**
          * 变更后任务状态
          * <p> 示例值：in_progress
+         *
          * @param afterStatus
          * @return
          */
         public Builder afterStatus(String afterStatus) {
-             this.afterStatus = afterStatus;
-             return this;
+            this.afterStatus = afterStatus;
+            return this;
         }
+
         /**
          * 变更后任务状态
          * <p> 示例值：in_progress
+         *
          * @param afterStatus {@link com.lark.oapi.service.corehr.v2.enums.OnboardingTaskChangeAfterStatusEnum}
          * @return
          */
         public Builder afterStatus(com.lark.oapi.service.corehr.v2.enums.OnboardingTaskChangeAfterStatusEnum afterStatus) {
-             this.afterStatus = afterStatus.getValue();
-             return this;
+            this.afterStatus = afterStatus.getValue();
+            return this;
         }
 
-    
 
         /**
          * 任务标识
          * <p> 示例值：2
+         *
          * @param taskCode
          * @return
          */
         public Builder taskCode(String taskCode) {
-             this.taskCode = taskCode;
-             return this;
+            this.taskCode = taskCode;
+            return this;
         }
 
-    
-    
-    public OnboardingTaskChange build(){
-        return new OnboardingTaskChange(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public OnboardingTaskChange build() {
+            return new OnboardingTaskChange(this);
+        }
     }
 }

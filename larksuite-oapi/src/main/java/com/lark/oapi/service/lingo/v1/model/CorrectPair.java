@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.lingo.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.lingo.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CorrectPair {
-     /**
-      * 被纠错的原词
-      * <p> 示例值：
-      */
+    /**
+     * 被纠错的原词
+     * <p> 示例值：
+     */
     @SerializedName("source_text")
     private String sourceText;
-     /**
-      * 纠错建议替换的新词
-      * <p> 示例值：
-      */
+    /**
+     * 纠错建议替换的新词
+     * <p> 示例值：
+     */
     @SerializedName("target_text")
     private String targetText;
-     /**
-      * 纠错对在周期内出现的次数
-      * <p> 示例值：
-      */
+    /**
+     * 纠错对在周期内出现的次数
+     * <p> 示例值：
+     */
     @SerializedName("total")
     private Integer total;
+
+    // builder 开始
+    public CorrectPair() {
+    }
+
+    public CorrectPair(Builder builder) {
+        /**
+         * 被纠错的原词
+         * <p> 示例值：
+         */
+        this.sourceText = builder.sourceText;
+        /**
+         * 纠错建议替换的新词
+         * <p> 示例值：
+         */
+        this.targetText = builder.targetText;
+        /**
+         * 纠错对在周期内出现的次数
+         * <p> 示例值：
+         */
+        this.total = builder.total;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getSourceText() {
         return this.sourceText;
     }
@@ -67,90 +98,64 @@ public class CorrectPair {
         this.total = total;
     }
 
-
-// builder 开始
-  public CorrectPair(){}
-
-  public CorrectPair(Builder builder){
-         /**
-          * 被纠错的原词
-          * <p> 示例值：
-          */
-      this.sourceText = builder.sourceText;
-         /**
-          * 纠错建议替换的新词
-          * <p> 示例值：
-          */
-      this.targetText = builder.targetText;
-         /**
-          * 纠错对在周期内出现的次数
-          * <p> 示例值：
-          */
-      this.total = builder.total;
-  }
-
     public static class Builder {
-     /**
-      * 被纠错的原词
-      * <p> 示例值：
-      */
+        /**
+         * 被纠错的原词
+         * <p> 示例值：
+         */
         private String sourceText;
-     /**
-      * 纠错建议替换的新词
-      * <p> 示例值：
-      */
+        /**
+         * 纠错建议替换的新词
+         * <p> 示例值：
+         */
         private String targetText;
-     /**
-      * 纠错对在周期内出现的次数
-      * <p> 示例值：
-      */
+        /**
+         * 纠错对在周期内出现的次数
+         * <p> 示例值：
+         */
         private Integer total;
 
         /**
          * 被纠错的原词
          * <p> 示例值：
+         *
          * @param sourceText
          * @return
          */
         public Builder sourceText(String sourceText) {
-             this.sourceText = sourceText;
-             return this;
+            this.sourceText = sourceText;
+            return this;
         }
 
-    
 
         /**
          * 纠错建议替换的新词
          * <p> 示例值：
+         *
          * @param targetText
          * @return
          */
         public Builder targetText(String targetText) {
-             this.targetText = targetText;
-             return this;
+            this.targetText = targetText;
+            return this;
         }
 
-    
 
         /**
          * 纠错对在周期内出现的次数
          * <p> 示例值：
+         *
          * @param total
          * @return
          */
         public Builder total(Integer total) {
-             this.total = total;
-             return this;
+            this.total = total;
+            return this;
         }
 
-    
-    
-    public CorrectPair build(){
-        return new CorrectPair(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public CorrectPair build() {
+            return new CorrectPair(this);
+        }
     }
 }

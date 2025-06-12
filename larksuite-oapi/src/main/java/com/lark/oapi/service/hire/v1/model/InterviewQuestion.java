@@ -12,48 +12,89 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class InterviewQuestion {
-     /**
-      * 面试题题目ID
-      * <p> 示例值：7270798542321666367
-      */
+    /**
+     * 面试题题目ID
+     * <p> 示例值：7270798542321666367
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 面试题题目
-      * <p> 示例值：
-      */
+    /**
+     * 面试题题目
+     * <p> 示例值：
+     */
     @SerializedName("title")
     private I18n title;
-     /**
-      * 面试题描述
-      * <p> 示例值：
-      */
+    /**
+     * 面试题描述
+     * <p> 示例值：
+     */
     @SerializedName("description")
     private I18n description;
-     /**
-      * 面试者作答内容
-      * <p> 示例值：没有
-      */
+    /**
+     * 面试者作答内容
+     * <p> 示例值：没有
+     */
     @SerializedName("content")
     private String content;
-     /**
-      * 题目关联的能力项
-      * <p> 示例值：
-      */
+    /**
+     * 题目关联的能力项
+     * <p> 示例值：
+     */
     @SerializedName("ability_list")
     private Ability[] abilityList;
+
+    // builder 开始
+    public InterviewQuestion() {
+    }
+
+    public InterviewQuestion(Builder builder) {
+        /**
+         * 面试题题目ID
+         * <p> 示例值：7270798542321666367
+         */
+        this.id = builder.id;
+        /**
+         * 面试题题目
+         * <p> 示例值：
+         */
+        this.title = builder.title;
+        /**
+         * 面试题描述
+         * <p> 示例值：
+         */
+        this.description = builder.description;
+        /**
+         * 面试者作答内容
+         * <p> 示例值：没有
+         */
+        this.content = builder.content;
+        /**
+         * 题目关联的能力项
+         * <p> 示例值：
+         */
+        this.abilityList = builder.abilityList;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -94,136 +135,100 @@ public class InterviewQuestion {
         this.abilityList = abilityList;
     }
 
-
-// builder 开始
-  public InterviewQuestion(){}
-
-  public InterviewQuestion(Builder builder){
-         /**
-          * 面试题题目ID
-          * <p> 示例值：7270798542321666367
-          */
-      this.id = builder.id;
-         /**
-          * 面试题题目
-          * <p> 示例值：
-          */
-      this.title = builder.title;
-         /**
-          * 面试题描述
-          * <p> 示例值：
-          */
-      this.description = builder.description;
-         /**
-          * 面试者作答内容
-          * <p> 示例值：没有
-          */
-      this.content = builder.content;
-         /**
-          * 题目关联的能力项
-          * <p> 示例值：
-          */
-      this.abilityList = builder.abilityList;
-  }
-
     public static class Builder {
-     /**
-      * 面试题题目ID
-      * <p> 示例值：7270798542321666367
-      */
+        /**
+         * 面试题题目ID
+         * <p> 示例值：7270798542321666367
+         */
         private String id;
-     /**
-      * 面试题题目
-      * <p> 示例值：
-      */
+        /**
+         * 面试题题目
+         * <p> 示例值：
+         */
         private I18n title;
-     /**
-      * 面试题描述
-      * <p> 示例值：
-      */
+        /**
+         * 面试题描述
+         * <p> 示例值：
+         */
         private I18n description;
-     /**
-      * 面试者作答内容
-      * <p> 示例值：没有
-      */
+        /**
+         * 面试者作答内容
+         * <p> 示例值：没有
+         */
         private String content;
-     /**
-      * 题目关联的能力项
-      * <p> 示例值：
-      */
+        /**
+         * 题目关联的能力项
+         * <p> 示例值：
+         */
         private Ability[] abilityList;
 
         /**
          * 面试题题目ID
          * <p> 示例值：7270798542321666367
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 面试题题目
          * <p> 示例值：
+         *
          * @param title
          * @return
          */
         public Builder title(I18n title) {
-             this.title = title;
-             return this;
+            this.title = title;
+            return this;
         }
 
-    
 
         /**
          * 面试题描述
          * <p> 示例值：
+         *
          * @param description
          * @return
          */
         public Builder description(I18n description) {
-             this.description = description;
-             return this;
+            this.description = description;
+            return this;
         }
 
-    
 
         /**
          * 面试者作答内容
          * <p> 示例值：没有
+         *
          * @param content
          * @return
          */
         public Builder content(String content) {
-             this.content = content;
-             return this;
+            this.content = content;
+            return this;
         }
 
-    
 
         /**
          * 题目关联的能力项
          * <p> 示例值：
+         *
          * @param abilityList
          * @return
          */
         public Builder abilityList(Ability[] abilityList) {
-             this.abilityList = abilityList;
-             return this;
+            this.abilityList = abilityList;
+            return this;
         }
 
-    
-    
-    public InterviewQuestion build(){
-        return new InterviewQuestion(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public InterviewQuestion build() {
+            return new InterviewQuestion(this);
+        }
     }
 }

@@ -17,16 +17,17 @@ package com.lark.oapi.service.search.v2.enums;
  * 用户身份类型
  */
 public enum SchemaUserIdsOptionUserIDsTypeEnum {
-     OPENID("open_id"), // 用户在应用内的身份
-     UNIONID("union_id"), // 用户在同一应用服务商所开发的多个应用下的统一身份
-     USERID("user_id"), // 用户在租户内的身份
-  ;
-   private String value;
+    OPENID("open_id"), // 用户在应用内的身份
+    UNIONID("union_id"), // 用户在同一应用服务商所开发的多个应用下的统一身份
+    USERID("user_id"), // 用户在租户内的身份
+    ;
+    private String value;
+
     SchemaUserIdsOptionUserIDsTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

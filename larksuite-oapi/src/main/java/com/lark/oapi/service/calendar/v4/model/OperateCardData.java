@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.calendar.v4.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.calendar.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class OperateCardData {
-     /**
-      * 视频会议链接
-      * <p> 示例值：https://vc.feishu.cn/j/152568231
-      */
+    /**
+     * 视频会议链接
+     * <p> 示例值：https://vc.feishu.cn/j/152568231
+     */
     @SerializedName("meeting_url")
     private String meetingUrl;
-     /**
-      * 视频会议no
-      * <p> 示例值：808056935
-      */
+    /**
+     * 视频会议no
+     * <p> 示例值：808056935
+     */
     @SerializedName("meeting_no")
     private String meetingNo;
+
+    // builder 开始
+    public OperateCardData() {
+    }
+
+    public OperateCardData(Builder builder) {
+        /**
+         * 视频会议链接
+         * <p> 示例值：https://vc.feishu.cn/j/152568231
+         */
+        this.meetingUrl = builder.meetingUrl;
+        /**
+         * 视频会议no
+         * <p> 示例值：808056935
+         */
+        this.meetingNo = builder.meetingNo;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getMeetingUrl() {
         return this.meetingUrl;
     }
@@ -53,67 +79,46 @@ public class OperateCardData {
         this.meetingNo = meetingNo;
     }
 
-
-// builder 开始
-  public OperateCardData(){}
-
-  public OperateCardData(Builder builder){
-         /**
-          * 视频会议链接
-          * <p> 示例值：https://vc.feishu.cn/j/152568231
-          */
-      this.meetingUrl = builder.meetingUrl;
-         /**
-          * 视频会议no
-          * <p> 示例值：808056935
-          */
-      this.meetingNo = builder.meetingNo;
-  }
-
     public static class Builder {
-     /**
-      * 视频会议链接
-      * <p> 示例值：https://vc.feishu.cn/j/152568231
-      */
+        /**
+         * 视频会议链接
+         * <p> 示例值：https://vc.feishu.cn/j/152568231
+         */
         private String meetingUrl;
-     /**
-      * 视频会议no
-      * <p> 示例值：808056935
-      */
+        /**
+         * 视频会议no
+         * <p> 示例值：808056935
+         */
         private String meetingNo;
 
         /**
          * 视频会议链接
          * <p> 示例值：https://vc.feishu.cn/j/152568231
+         *
          * @param meetingUrl
          * @return
          */
         public Builder meetingUrl(String meetingUrl) {
-             this.meetingUrl = meetingUrl;
-             return this;
+            this.meetingUrl = meetingUrl;
+            return this;
         }
 
-    
 
         /**
          * 视频会议no
          * <p> 示例值：808056935
+         *
          * @param meetingNo
          * @return
          */
         public Builder meetingNo(String meetingNo) {
-             this.meetingNo = meetingNo;
-             return this;
+            this.meetingNo = meetingNo;
+            return this;
         }
 
-    
-    
-    public OperateCardData build(){
-        return new OperateCardData(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public OperateCardData build() {
+            return new OperateCardData(this);
+        }
     }
 }

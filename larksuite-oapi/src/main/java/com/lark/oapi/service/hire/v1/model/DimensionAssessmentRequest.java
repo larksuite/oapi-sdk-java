@@ -12,54 +12,100 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class DimensionAssessmentRequest {
-     /**
-      * 评价维度ID
-      * <p> 示例值：7484008015926434905
-      */
+    /**
+     * 评价维度ID
+     * <p> 示例值：7484008015926434905
+     */
     @SerializedName("dimension_id")
     private String dimensionId;
-     /**
-      * 内容评价，描述题、系统预置-记录维度使用
-      * <p> 示例值：面试评价
-      */
+    /**
+     * 内容评价，描述题、系统预置-记录维度使用
+     * <p> 示例值：面试评价
+     */
     @SerializedName("content")
     private String content;
-     /**
-      * 选项评价，单选题、多选题、打分题(单选)、系统预置-结论、系统预置-得分 维度使用
-      * <p> 示例值：
-      */
+    /**
+     * 选项评价，单选题、多选题、打分题(单选)、系统预置-结论、系统预置-得分 维度使用
+     * <p> 示例值：
+     */
     @SerializedName("option_ids")
     private String[] optionIds;
-     /**
-      * 得分评价，打分题(填空)维度使用
-      * <p> 示例值：20
-      */
+    /**
+     * 得分评价，打分题(填空)维度使用
+     * <p> 示例值：20
+     */
     @SerializedName("score_value")
     private Integer scoreValue;
-     /**
-      * 职级建议下限，职级建议维度使用，「无法判断」时，值为-1.  职级ID可从【获取租户职级列表】接口获取
-      * <p> 示例值：1z3278jv8apy9yb
-      */
+    /**
+     * 职级建议下限，职级建议维度使用，「无法判断」时，值为-1.  职级ID可从【获取租户职级列表】接口获取
+     * <p> 示例值：1z3278jv8apy9yb
+     */
     @SerializedName("min_job_level_id")
     private String minJobLevelId;
-     /**
-      * 职级建议上限，职级建议维度使用，「无法判断」时，值为-1.  职级ID可从【获取租户职级列表】接口获取
-      * <p> 示例值：1z3278jv8apy9yb
-      */
+    /**
+     * 职级建议上限，职级建议维度使用，「无法判断」时，值为-1.  职级ID可从【获取租户职级列表】接口获取
+     * <p> 示例值：1z3278jv8apy9yb
+     */
     @SerializedName("max_job_level_id")
     private String maxJobLevelId;
+
+    // builder 开始
+    public DimensionAssessmentRequest() {
+    }
+
+    public DimensionAssessmentRequest(Builder builder) {
+        /**
+         * 评价维度ID
+         * <p> 示例值：7484008015926434905
+         */
+        this.dimensionId = builder.dimensionId;
+        /**
+         * 内容评价，描述题、系统预置-记录维度使用
+         * <p> 示例值：面试评价
+         */
+        this.content = builder.content;
+        /**
+         * 选项评价，单选题、多选题、打分题(单选)、系统预置-结论、系统预置-得分 维度使用
+         * <p> 示例值：
+         */
+        this.optionIds = builder.optionIds;
+        /**
+         * 得分评价，打分题(填空)维度使用
+         * <p> 示例值：20
+         */
+        this.scoreValue = builder.scoreValue;
+        /**
+         * 职级建议下限，职级建议维度使用，「无法判断」时，值为-1.  职级ID可从【获取租户职级列表】接口获取
+         * <p> 示例值：1z3278jv8apy9yb
+         */
+        this.minJobLevelId = builder.minJobLevelId;
+        /**
+         * 职级建议上限，职级建议维度使用，「无法判断」时，值为-1.  职级ID可从【获取租户职级列表】接口获取
+         * <p> 示例值：1z3278jv8apy9yb
+         */
+        this.maxJobLevelId = builder.maxJobLevelId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getDimensionId() {
         return this.dimensionId;
     }
@@ -108,159 +154,118 @@ public class DimensionAssessmentRequest {
         this.maxJobLevelId = maxJobLevelId;
     }
 
-
-// builder 开始
-  public DimensionAssessmentRequest(){}
-
-  public DimensionAssessmentRequest(Builder builder){
-         /**
-          * 评价维度ID
-          * <p> 示例值：7484008015926434905
-          */
-      this.dimensionId = builder.dimensionId;
-         /**
-          * 内容评价，描述题、系统预置-记录维度使用
-          * <p> 示例值：面试评价
-          */
-      this.content = builder.content;
-         /**
-          * 选项评价，单选题、多选题、打分题(单选)、系统预置-结论、系统预置-得分 维度使用
-          * <p> 示例值：
-          */
-      this.optionIds = builder.optionIds;
-         /**
-          * 得分评价，打分题(填空)维度使用
-          * <p> 示例值：20
-          */
-      this.scoreValue = builder.scoreValue;
-         /**
-          * 职级建议下限，职级建议维度使用，「无法判断」时，值为-1.  职级ID可从【获取租户职级列表】接口获取
-          * <p> 示例值：1z3278jv8apy9yb
-          */
-      this.minJobLevelId = builder.minJobLevelId;
-         /**
-          * 职级建议上限，职级建议维度使用，「无法判断」时，值为-1.  职级ID可从【获取租户职级列表】接口获取
-          * <p> 示例值：1z3278jv8apy9yb
-          */
-      this.maxJobLevelId = builder.maxJobLevelId;
-  }
-
     public static class Builder {
-     /**
-      * 评价维度ID
-      * <p> 示例值：7484008015926434905
-      */
+        /**
+         * 评价维度ID
+         * <p> 示例值：7484008015926434905
+         */
         private String dimensionId;
-     /**
-      * 内容评价，描述题、系统预置-记录维度使用
-      * <p> 示例值：面试评价
-      */
+        /**
+         * 内容评价，描述题、系统预置-记录维度使用
+         * <p> 示例值：面试评价
+         */
         private String content;
-     /**
-      * 选项评价，单选题、多选题、打分题(单选)、系统预置-结论、系统预置-得分 维度使用
-      * <p> 示例值：
-      */
+        /**
+         * 选项评价，单选题、多选题、打分题(单选)、系统预置-结论、系统预置-得分 维度使用
+         * <p> 示例值：
+         */
         private String[] optionIds;
-     /**
-      * 得分评价，打分题(填空)维度使用
-      * <p> 示例值：20
-      */
+        /**
+         * 得分评价，打分题(填空)维度使用
+         * <p> 示例值：20
+         */
         private Integer scoreValue;
-     /**
-      * 职级建议下限，职级建议维度使用，「无法判断」时，值为-1.  职级ID可从【获取租户职级列表】接口获取
-      * <p> 示例值：1z3278jv8apy9yb
-      */
+        /**
+         * 职级建议下限，职级建议维度使用，「无法判断」时，值为-1.  职级ID可从【获取租户职级列表】接口获取
+         * <p> 示例值：1z3278jv8apy9yb
+         */
         private String minJobLevelId;
-     /**
-      * 职级建议上限，职级建议维度使用，「无法判断」时，值为-1.  职级ID可从【获取租户职级列表】接口获取
-      * <p> 示例值：1z3278jv8apy9yb
-      */
+        /**
+         * 职级建议上限，职级建议维度使用，「无法判断」时，值为-1.  职级ID可从【获取租户职级列表】接口获取
+         * <p> 示例值：1z3278jv8apy9yb
+         */
         private String maxJobLevelId;
 
         /**
          * 评价维度ID
          * <p> 示例值：7484008015926434905
+         *
          * @param dimensionId
          * @return
          */
         public Builder dimensionId(String dimensionId) {
-             this.dimensionId = dimensionId;
-             return this;
+            this.dimensionId = dimensionId;
+            return this;
         }
 
-    
 
         /**
          * 内容评价，描述题、系统预置-记录维度使用
          * <p> 示例值：面试评价
+         *
          * @param content
          * @return
          */
         public Builder content(String content) {
-             this.content = content;
-             return this;
+            this.content = content;
+            return this;
         }
 
-    
 
         /**
          * 选项评价，单选题、多选题、打分题(单选)、系统预置-结论、系统预置-得分 维度使用
          * <p> 示例值：
+         *
          * @param optionIds
          * @return
          */
         public Builder optionIds(String[] optionIds) {
-             this.optionIds = optionIds;
-             return this;
+            this.optionIds = optionIds;
+            return this;
         }
 
-    
 
         /**
          * 得分评价，打分题(填空)维度使用
          * <p> 示例值：20
+         *
          * @param scoreValue
          * @return
          */
         public Builder scoreValue(Integer scoreValue) {
-             this.scoreValue = scoreValue;
-             return this;
+            this.scoreValue = scoreValue;
+            return this;
         }
 
-    
 
         /**
          * 职级建议下限，职级建议维度使用，「无法判断」时，值为-1.  职级ID可从【获取租户职级列表】接口获取
          * <p> 示例值：1z3278jv8apy9yb
+         *
          * @param minJobLevelId
          * @return
          */
         public Builder minJobLevelId(String minJobLevelId) {
-             this.minJobLevelId = minJobLevelId;
-             return this;
+            this.minJobLevelId = minJobLevelId;
+            return this;
         }
 
-    
 
         /**
          * 职级建议上限，职级建议维度使用，「无法判断」时，值为-1.  职级ID可从【获取租户职级列表】接口获取
          * <p> 示例值：1z3278jv8apy9yb
+         *
          * @param maxJobLevelId
          * @return
          */
         public Builder maxJobLevelId(String maxJobLevelId) {
-             this.maxJobLevelId = maxJobLevelId;
-             return this;
+            this.maxJobLevelId = maxJobLevelId;
+            return this;
         }
 
-    
-    
-    public DimensionAssessmentRequest build(){
-        return new DimensionAssessmentRequest(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public DimensionAssessmentRequest build() {
+            return new DimensionAssessmentRequest(this);
+        }
     }
 }

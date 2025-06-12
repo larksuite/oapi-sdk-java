@@ -12,36 +12,41 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CreateAppTableRespBody {
-     /**
-      * table id
-      * <p> 示例值：tblKz5D60T4JlfcT
-      */
+    /**
+     * table id
+     * <p> 示例值：tblKz5D60T4JlfcT
+     */
     @SerializedName("table_id")
     private String tableId;
-     /**
-      * 默认表格视图的id，该字段仅在请求参数中填写了default_view_name或fields才会返回
-      * <p> 示例值：vew3y6oFgo
-      */
+    /**
+     * 默认表格视图的id，该字段仅在请求参数中填写了default_view_name或fields才会返回
+     * <p> 示例值：vew3y6oFgo
+     */
     @SerializedName("default_view_id")
     private String defaultViewId;
-     /**
-      * 数据表初始字段的id列表，该字段仅在请求参数中填写了fields才会返回
-      * <p> 示例值：["fldO1Q5uD2"]
-      */
+    /**
+     * 数据表初始字段的id列表，该字段仅在请求参数中填写了fields才会返回
+     * <p> 示例值：["fldO1Q5uD2"]
+     */
     @SerializedName("field_id_list")
     private String[] fieldIdList;
+
     public String getTableId() {
         return this.tableId;
     }

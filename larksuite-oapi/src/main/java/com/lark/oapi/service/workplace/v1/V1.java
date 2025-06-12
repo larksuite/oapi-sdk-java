@@ -17,22 +17,25 @@ import com.lark.oapi.core.Config;
 import com.lark.oapi.service.workplace.v1.resource.*;
 
 public class V1 {
-	private final CustomWorkplaceAccessData customWorkplaceAccessData; // custom_workplace_access_data
-	private final WorkplaceAccessData workplaceAccessData; // workplace_access_data
-	private final WorkplaceBlockAccessData workplaceBlockAccessData; // workplace_block_access_data
+    private final CustomWorkplaceAccessData customWorkplaceAccessData; // custom_workplace_access_data
+    private final WorkplaceAccessData workplaceAccessData; // workplace_access_data
+    private final WorkplaceBlockAccessData workplaceBlockAccessData; // workplace_block_access_data
 
-	public V1(Config config) {
-		this.customWorkplaceAccessData = new CustomWorkplaceAccessData(config);
-		this.workplaceAccessData = new WorkplaceAccessData(config);
-		this.workplaceBlockAccessData = new WorkplaceBlockAccessData(config);
-	}
-	public CustomWorkplaceAccessData customWorkplaceAccessData() {
-		return customWorkplaceAccessData;
-	}
-	public WorkplaceAccessData workplaceAccessData() {
-		return workplaceAccessData;
-	}
-	public WorkplaceBlockAccessData workplaceBlockAccessData() {
-		return workplaceBlockAccessData;
-	}
+    public V1(Config config) {
+        this.customWorkplaceAccessData = new CustomWorkplaceAccessData(config);
+        this.workplaceAccessData = new WorkplaceAccessData(config);
+        this.workplaceBlockAccessData = new WorkplaceBlockAccessData(config);
+    }
+
+    public CustomWorkplaceAccessData customWorkplaceAccessData() {
+        return customWorkplaceAccessData;
+    }
+
+    public WorkplaceAccessData workplaceAccessData() {
+        return workplaceAccessData;
+    }
+
+    public WorkplaceBlockAccessData workplaceBlockAccessData() {
+        return workplaceBlockAccessData;
+    }
 }

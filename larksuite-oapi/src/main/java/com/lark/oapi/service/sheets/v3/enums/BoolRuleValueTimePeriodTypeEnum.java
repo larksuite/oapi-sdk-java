@@ -17,17 +17,18 @@ package com.lark.oapi.service.sheets.v3.enums;
  * 时间区间
  */
 public enum BoolRuleValueTimePeriodTypeEnum {
-     TODAY("Today"), // 今天
-     YESTERDAY("Yesterday"), // 昨天
-     TOMORROW("Tomorrow"), // 明天
-     LASTSEVENTDAYS("LastSeventDays"), // 最近7天
-  ;
-   private String value;
+    TODAY("Today"), // 今天
+    YESTERDAY("Yesterday"), // 昨天
+    TOMORROW("Tomorrow"), // 明天
+    LASTSEVENTDAYS("LastSeventDays"), // 最近7天
+    ;
+    private String value;
+
     BoolRuleValueTimePeriodTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

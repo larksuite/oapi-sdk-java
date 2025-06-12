@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,235 +20,437 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
+
 import java.util.Map;
+
 import com.lark.oapi.core.response.BaseResponse;
+
 public class AuditLogEsField {
-     /**
-      * 审计日志ID
-      * <p> 示例值：7376574450886557740
-      */
+    /**
+     * 审计日志ID
+     * <p> 示例值：7376574450886557740
+     */
     @SerializedName("log_id")
     private String logId;
-     /**
-      * 操作时间
-      * <p> 示例值：1723634726874
-      */
+    /**
+     * 操作时间
+     * <p> 示例值：1723634726874
+     */
     @SerializedName("op_time")
     private String opTime;
-     /**
-      * 日志类型:10000-全部类型;10001-企业管理; 10002-登录日志;10003-应用管理
-      * <p> 示例值：10000
-      */
+    /**
+     * 日志类型:10000-全部类型;10001-企业管理; 10002-登录日志;10003-应用管理
+     * <p> 示例值：10000
+     */
     @SerializedName("log_type")
     private String logType;
-     /**
-      * 操作人
-      * <p> 示例值：
-      */
+    /**
+     * 操作人
+     * <p> 示例值：
+     */
     @SerializedName("operator")
     private LookupWithAvatar operator;
-     /**
-      * 是否为外部用户,true代表是外部用户
-      * <p> 示例值：
-      */
+    /**
+     * 是否为外部用户,true代表是外部用户
+     * <p> 示例值：
+     */
     @SerializedName("outsider")
     private Boolean outsider;
-     /**
-      * 登录类型:11001-飞书登录;11003-账号密码登录
-      * <p> 示例值：11001
-      */
+    /**
+     * 登录类型:11001-飞书登录;11003-账号密码登录
+     * <p> 示例值：11001
+     */
     @SerializedName("login_type")
     private String loginType;
-     /**
-      * 飞书租户ID
-      * <p> 示例值：123
-      */
+    /**
+     * 飞书租户ID
+     * <p> 示例值：123
+     */
     @SerializedName("lark_tenant_id")
     private String larkTenantId;
-     /**
-      * apaas租户ID
-      * <p> 示例值：23333
-      */
+    /**
+     * apaas租户ID
+     * <p> 示例值：23333
+     */
     @SerializedName("apaas_tenant_id")
     private String apaasTenantId;
-     /**
-      * 用户地理信息
-      * <p> 示例值：America/Chicago
-      */
+    /**
+     * 用户地理信息
+     * <p> 示例值：America/Chicago
+     */
     @SerializedName("user_geo")
     private String userGeo;
-     /**
-      * 客户端IP
-      * <p> 示例值：192.168.1.1
-      */
+    /**
+     * 客户端IP
+     * <p> 示例值：192.168.1.1
+     */
     @SerializedName("client_ip")
     private String clientIp;
-     /**
-      * IP位置
-      * <p> 示例值：中国北京
-      */
+    /**
+     * IP位置
+     * <p> 示例值：中国北京
+     */
     @SerializedName("ip_loc")
     private String ipLoc;
-     /**
-      * IP提供商
-      * <p> 示例值：ISP_com
-      */
+    /**
+     * IP提供商
+     * <p> 示例值：ISP_com
+     */
     @SerializedName("ip_provider")
     private String ipProvider;
-     /**
-      * 引用页面
-      * <p> 示例值：https://example.com/referer
-      */
+    /**
+     * 引用页面
+     * <p> 示例值：https://example.com/referer
+     */
     @SerializedName("referer")
     private String referer;
-     /**
-      * 源页面
-      * <p> 示例值：https://example.com/origin
-      */
+    /**
+     * 源页面
+     * <p> 示例值：https://example.com/origin
+     */
     @SerializedName("origin")
     private String origin;
-     /**
-      * 路由路径
-      * <p> 示例值：/api/xxx
-      */
+    /**
+     * 路由路径
+     * <p> 示例值：/api/xxx
+     */
     @SerializedName("api_path")
     private String apiPath;
-     /**
-      * 网关路径
-      * <p> 示例值：/api/xxx
-      */
+    /**
+     * 网关路径
+     * <p> 示例值：/api/xxx
+     */
     @SerializedName("full_path")
     private String fullPath;
-     /**
-      * 用户代理
-      * <p> 示例值：Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148
-      */
+    /**
+     * 用户代理
+     * <p> 示例值：Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148
+     */
     @SerializedName("user_agent")
     private String userAgent;
-     /**
-      * 设备ID
-      * <p> 示例值：device_1234
-      */
+    /**
+     * 设备ID
+     * <p> 示例值：device_1234
+     */
     @SerializedName("device_id")
     private String deviceId;
-     /**
-      * web端设备ID
-      * <p> 示例值：webDevice_1234
-      */
+    /**
+     * web端设备ID
+     * <p> 示例值：webDevice_1234
+     */
     @SerializedName("web_device_id")
     private String webDeviceId;
-     /**
-      * 终端类型:13002-PC类型;13003-Web类型
-      * <p> 示例值：2
-      */
+    /**
+     * 终端类型:13002-PC类型;13003-Web类型
+     * <p> 示例值：2
+     */
     @SerializedName("terminal_type")
     private String terminalType;
-     /**
-      * 系统类型:14002-window;14001-未知
-      * <p> 示例值：14002
-      */
+    /**
+     * 系统类型:14002-window;14001-未知
+     * <p> 示例值：14002
+     */
     @SerializedName("os_type")
     private String osType;
-     /**
-      * 系统版本
-      * <p> 示例值：14.6
-      */
+    /**
+     * 系统版本
+     * <p> 示例值：14.6
+     */
     @SerializedName("os_version")
     private String osVersion;
-     /**
-      * 功能模块
-      * <p> 示例值：17001
-      */
+    /**
+     * 功能模块
+     * <p> 示例值：17001
+     */
     @SerializedName("module")
     private String module;
-     /**
-      * 数据对象
-      * <p> 示例值：object_api_aaa
-      */
+    /**
+     * 数据对象
+     * <p> 示例值：object_api_aaa
+     */
     @SerializedName("data_object")
     private String dataObject;
-     /**
-      * 审计域:15001-企业管理后台;15002-应用管理后 台;15003-应用开发平台
-      * <p> 示例值：15001
-      */
+    /**
+     * 审计域:15001-企业管理后台;15002-应用管理后 台;15003-应用开发平台
+     * <p> 示例值：15001
+     */
     @SerializedName("audit_scope")
     private String auditScope;
-     /**
-      * 租户ID
-      * <p> 示例值：23335
-      */
+    /**
+     * 租户ID
+     * <p> 示例值：23335
+     */
     @SerializedName("tenant_id")
     private String tenantId;
-     /**
-      * 应用唯一标识
-      * <p> 示例值：package_aacc
-      */
+    /**
+     * 应用唯一标识
+     * <p> 示例值：package_aacc
+     */
     @SerializedName("namespace")
     private String namespace;
-     /**
-      * 环境类型:16001-沙箱环境;16003-线上环境
-      * <p> 示例值：16003
-      */
+    /**
+     * 环境类型:16001-沙箱环境;16003-线上环境
+     * <p> 示例值：16003
+     */
     @SerializedName("env_type")
     private String envType;
-     /**
-      * 事件类型
-      * <p> 示例值：19001
-      */
+    /**
+     * 事件类型
+     * <p> 示例值：19001
+     */
     @SerializedName("op_type")
     private String opType;
-     /**
-      * 操作详情内容
-      * <p> 示例值：
-      */
+    /**
+     * 操作详情内容
+     * <p> 示例值：
+     */
     @SerializedName("op_detail")
     private Map<String, String> opDetail;
-     /**
-      * 操作源:20001-前端;20004-openapi
-      * <p> 示例值：20001
-      */
+    /**
+     * 操作源:20001-前端;20004-openapi
+     * <p> 示例值：20001
+     */
     @SerializedName("op_source")
     private String opSource;
-     /**
-      * 操作状态:18001-成功;18002-失败
-      * <p> 示例值：18001
-      */
+    /**
+     * 操作状态:18001-成功;18002-失败
+     * <p> 示例值：18001
+     */
     @SerializedName("status")
     private String status;
-     /**
-      * 失败原因
-      * <p> 示例值：
-      */
+    /**
+     * 失败原因
+     * <p> 示例值：
+     */
     @SerializedName("failed_reason_i18n")
     private Map<String, String> failedReasonI18n;
-     /**
-      * 数据变化(旧值和新值)
-      * <p> 示例值：
-      */
+    /**
+     * 数据变化(旧值和新值)
+     * <p> 示例值：
+     */
     @SerializedName("data_changes")
     private String[] dataChanges;
-     /**
-      * 应用名称
-      * <p> 示例值：
-      */
+    /**
+     * 应用名称
+     * <p> 示例值：
+     */
     @SerializedName("app_name")
     private Map<String, String> appName;
-     /**
-      * 应用版本号
-      * <p> 示例值：v1.2.3
-      */
+    /**
+     * 应用版本号
+     * <p> 示例值：v1.2.3
+     */
     @SerializedName("keyword_field_app_version")
     private String keywordFieldAppVersion;
-     /**
-      * 审计日志事件子模块
-      * <p> 示例值：223
-      */
+    /**
+     * 审计日志事件子模块
+     * <p> 示例值：223
+     */
     @SerializedName("keyword_field_functional_sub_module")
     private String keywordFieldFunctionalSubModule;
+
+    // builder 开始
+    public AuditLogEsField() {
+    }
+
+    public AuditLogEsField(Builder builder) {
+        /**
+         * 审计日志ID
+         * <p> 示例值：7376574450886557740
+         */
+        this.logId = builder.logId;
+        /**
+         * 操作时间
+         * <p> 示例值：1723634726874
+         */
+        this.opTime = builder.opTime;
+        /**
+         * 日志类型:10000-全部类型;10001-企业管理; 10002-登录日志;10003-应用管理
+         * <p> 示例值：10000
+         */
+        this.logType = builder.logType;
+        /**
+         * 操作人
+         * <p> 示例值：
+         */
+        this.operator = builder.operator;
+        /**
+         * 是否为外部用户,true代表是外部用户
+         * <p> 示例值：
+         */
+        this.outsider = builder.outsider;
+        /**
+         * 登录类型:11001-飞书登录;11003-账号密码登录
+         * <p> 示例值：11001
+         */
+        this.loginType = builder.loginType;
+        /**
+         * 飞书租户ID
+         * <p> 示例值：123
+         */
+        this.larkTenantId = builder.larkTenantId;
+        /**
+         * apaas租户ID
+         * <p> 示例值：23333
+         */
+        this.apaasTenantId = builder.apaasTenantId;
+        /**
+         * 用户地理信息
+         * <p> 示例值：America/Chicago
+         */
+        this.userGeo = builder.userGeo;
+        /**
+         * 客户端IP
+         * <p> 示例值：192.168.1.1
+         */
+        this.clientIp = builder.clientIp;
+        /**
+         * IP位置
+         * <p> 示例值：中国北京
+         */
+        this.ipLoc = builder.ipLoc;
+        /**
+         * IP提供商
+         * <p> 示例值：ISP_com
+         */
+        this.ipProvider = builder.ipProvider;
+        /**
+         * 引用页面
+         * <p> 示例值：https://example.com/referer
+         */
+        this.referer = builder.referer;
+        /**
+         * 源页面
+         * <p> 示例值：https://example.com/origin
+         */
+        this.origin = builder.origin;
+        /**
+         * 路由路径
+         * <p> 示例值：/api/xxx
+         */
+        this.apiPath = builder.apiPath;
+        /**
+         * 网关路径
+         * <p> 示例值：/api/xxx
+         */
+        this.fullPath = builder.fullPath;
+        /**
+         * 用户代理
+         * <p> 示例值：Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148
+         */
+        this.userAgent = builder.userAgent;
+        /**
+         * 设备ID
+         * <p> 示例值：device_1234
+         */
+        this.deviceId = builder.deviceId;
+        /**
+         * web端设备ID
+         * <p> 示例值：webDevice_1234
+         */
+        this.webDeviceId = builder.webDeviceId;
+        /**
+         * 终端类型:13002-PC类型;13003-Web类型
+         * <p> 示例值：2
+         */
+        this.terminalType = builder.terminalType;
+        /**
+         * 系统类型:14002-window;14001-未知
+         * <p> 示例值：14002
+         */
+        this.osType = builder.osType;
+        /**
+         * 系统版本
+         * <p> 示例值：14.6
+         */
+        this.osVersion = builder.osVersion;
+        /**
+         * 功能模块
+         * <p> 示例值：17001
+         */
+        this.module = builder.module;
+        /**
+         * 数据对象
+         * <p> 示例值：object_api_aaa
+         */
+        this.dataObject = builder.dataObject;
+        /**
+         * 审计域:15001-企业管理后台;15002-应用管理后 台;15003-应用开发平台
+         * <p> 示例值：15001
+         */
+        this.auditScope = builder.auditScope;
+        /**
+         * 租户ID
+         * <p> 示例值：23335
+         */
+        this.tenantId = builder.tenantId;
+        /**
+         * 应用唯一标识
+         * <p> 示例值：package_aacc
+         */
+        this.namespace = builder.namespace;
+        /**
+         * 环境类型:16001-沙箱环境;16003-线上环境
+         * <p> 示例值：16003
+         */
+        this.envType = builder.envType;
+        /**
+         * 事件类型
+         * <p> 示例值：19001
+         */
+        this.opType = builder.opType;
+        /**
+         * 操作详情内容
+         * <p> 示例值：
+         */
+        this.opDetail = builder.opDetail;
+        /**
+         * 操作源:20001-前端;20004-openapi
+         * <p> 示例值：20001
+         */
+        this.opSource = builder.opSource;
+        /**
+         * 操作状态:18001-成功;18002-失败
+         * <p> 示例值：18001
+         */
+        this.status = builder.status;
+        /**
+         * 失败原因
+         * <p> 示例值：
+         */
+        this.failedReasonI18n = builder.failedReasonI18n;
+        /**
+         * 数据变化(旧值和新值)
+         * <p> 示例值：
+         */
+        this.dataChanges = builder.dataChanges;
+        /**
+         * 应用名称
+         * <p> 示例值：
+         */
+        this.appName = builder.appName;
+        /**
+         * 应用版本号
+         * <p> 示例值：v1.2.3
+         */
+        this.keywordFieldAppVersion = builder.keywordFieldAppVersion;
+        /**
+         * 审计日志事件子模块
+         * <p> 示例值：223
+         */
+        this.keywordFieldFunctionalSubModule = builder.keywordFieldFunctionalSubModule;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getLogId() {
         return this.logId;
     }
@@ -544,872 +747,676 @@ public class AuditLogEsField {
         this.keywordFieldFunctionalSubModule = keywordFieldFunctionalSubModule;
     }
 
-
-// builder 开始
-  public AuditLogEsField(){}
-
-  public AuditLogEsField(Builder builder){
-         /**
-          * 审计日志ID
-          * <p> 示例值：7376574450886557740
-          */
-      this.logId = builder.logId;
-         /**
-          * 操作时间
-          * <p> 示例值：1723634726874
-          */
-      this.opTime = builder.opTime;
-         /**
-          * 日志类型:10000-全部类型;10001-企业管理; 10002-登录日志;10003-应用管理
-          * <p> 示例值：10000
-          */
-      this.logType = builder.logType;
-         /**
-          * 操作人
-          * <p> 示例值：
-          */
-      this.operator = builder.operator;
-         /**
-          * 是否为外部用户,true代表是外部用户
-          * <p> 示例值：
-          */
-      this.outsider = builder.outsider;
-         /**
-          * 登录类型:11001-飞书登录;11003-账号密码登录
-          * <p> 示例值：11001
-          */
-      this.loginType = builder.loginType;
-         /**
-          * 飞书租户ID
-          * <p> 示例值：123
-          */
-      this.larkTenantId = builder.larkTenantId;
-         /**
-          * apaas租户ID
-          * <p> 示例值：23333
-          */
-      this.apaasTenantId = builder.apaasTenantId;
-         /**
-          * 用户地理信息
-          * <p> 示例值：America/Chicago
-          */
-      this.userGeo = builder.userGeo;
-         /**
-          * 客户端IP
-          * <p> 示例值：192.168.1.1
-          */
-      this.clientIp = builder.clientIp;
-         /**
-          * IP位置
-          * <p> 示例值：中国北京
-          */
-      this.ipLoc = builder.ipLoc;
-         /**
-          * IP提供商
-          * <p> 示例值：ISP_com
-          */
-      this.ipProvider = builder.ipProvider;
-         /**
-          * 引用页面
-          * <p> 示例值：https://example.com/referer
-          */
-      this.referer = builder.referer;
-         /**
-          * 源页面
-          * <p> 示例值：https://example.com/origin
-          */
-      this.origin = builder.origin;
-         /**
-          * 路由路径
-          * <p> 示例值：/api/xxx
-          */
-      this.apiPath = builder.apiPath;
-         /**
-          * 网关路径
-          * <p> 示例值：/api/xxx
-          */
-      this.fullPath = builder.fullPath;
-         /**
-          * 用户代理
-          * <p> 示例值：Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148
-          */
-      this.userAgent = builder.userAgent;
-         /**
-          * 设备ID
-          * <p> 示例值：device_1234
-          */
-      this.deviceId = builder.deviceId;
-         /**
-          * web端设备ID
-          * <p> 示例值：webDevice_1234
-          */
-      this.webDeviceId = builder.webDeviceId;
-         /**
-          * 终端类型:13002-PC类型;13003-Web类型
-          * <p> 示例值：2
-          */
-      this.terminalType = builder.terminalType;
-         /**
-          * 系统类型:14002-window;14001-未知
-          * <p> 示例值：14002
-          */
-      this.osType = builder.osType;
-         /**
-          * 系统版本
-          * <p> 示例值：14.6
-          */
-      this.osVersion = builder.osVersion;
-         /**
-          * 功能模块
-          * <p> 示例值：17001
-          */
-      this.module = builder.module;
-         /**
-          * 数据对象
-          * <p> 示例值：object_api_aaa
-          */
-      this.dataObject = builder.dataObject;
-         /**
-          * 审计域:15001-企业管理后台;15002-应用管理后 台;15003-应用开发平台
-          * <p> 示例值：15001
-          */
-      this.auditScope = builder.auditScope;
-         /**
-          * 租户ID
-          * <p> 示例值：23335
-          */
-      this.tenantId = builder.tenantId;
-         /**
-          * 应用唯一标识
-          * <p> 示例值：package_aacc
-          */
-      this.namespace = builder.namespace;
-         /**
-          * 环境类型:16001-沙箱环境;16003-线上环境
-          * <p> 示例值：16003
-          */
-      this.envType = builder.envType;
-         /**
-          * 事件类型
-          * <p> 示例值：19001
-          */
-      this.opType = builder.opType;
-         /**
-          * 操作详情内容
-          * <p> 示例值：
-          */
-      this.opDetail = builder.opDetail;
-         /**
-          * 操作源:20001-前端;20004-openapi
-          * <p> 示例值：20001
-          */
-      this.opSource = builder.opSource;
-         /**
-          * 操作状态:18001-成功;18002-失败
-          * <p> 示例值：18001
-          */
-      this.status = builder.status;
-         /**
-          * 失败原因
-          * <p> 示例值：
-          */
-      this.failedReasonI18n = builder.failedReasonI18n;
-         /**
-          * 数据变化(旧值和新值)
-          * <p> 示例值：
-          */
-      this.dataChanges = builder.dataChanges;
-         /**
-          * 应用名称
-          * <p> 示例值：
-          */
-      this.appName = builder.appName;
-         /**
-          * 应用版本号
-          * <p> 示例值：v1.2.3
-          */
-      this.keywordFieldAppVersion = builder.keywordFieldAppVersion;
-         /**
-          * 审计日志事件子模块
-          * <p> 示例值：223
-          */
-      this.keywordFieldFunctionalSubModule = builder.keywordFieldFunctionalSubModule;
-  }
-
     public static class Builder {
-     /**
-      * 审计日志ID
-      * <p> 示例值：7376574450886557740
-      */
+        /**
+         * 审计日志ID
+         * <p> 示例值：7376574450886557740
+         */
         private String logId;
-     /**
-      * 操作时间
-      * <p> 示例值：1723634726874
-      */
+        /**
+         * 操作时间
+         * <p> 示例值：1723634726874
+         */
         private String opTime;
-     /**
-      * 日志类型:10000-全部类型;10001-企业管理; 10002-登录日志;10003-应用管理
-      * <p> 示例值：10000
-      */
+        /**
+         * 日志类型:10000-全部类型;10001-企业管理; 10002-登录日志;10003-应用管理
+         * <p> 示例值：10000
+         */
         private String logType;
-     /**
-      * 操作人
-      * <p> 示例值：
-      */
+        /**
+         * 操作人
+         * <p> 示例值：
+         */
         private LookupWithAvatar operator;
-     /**
-      * 是否为外部用户,true代表是外部用户
-      * <p> 示例值：
-      */
+        /**
+         * 是否为外部用户,true代表是外部用户
+         * <p> 示例值：
+         */
         private Boolean outsider;
-     /**
-      * 登录类型:11001-飞书登录;11003-账号密码登录
-      * <p> 示例值：11001
-      */
+        /**
+         * 登录类型:11001-飞书登录;11003-账号密码登录
+         * <p> 示例值：11001
+         */
         private String loginType;
-     /**
-      * 飞书租户ID
-      * <p> 示例值：123
-      */
+        /**
+         * 飞书租户ID
+         * <p> 示例值：123
+         */
         private String larkTenantId;
-     /**
-      * apaas租户ID
-      * <p> 示例值：23333
-      */
+        /**
+         * apaas租户ID
+         * <p> 示例值：23333
+         */
         private String apaasTenantId;
-     /**
-      * 用户地理信息
-      * <p> 示例值：America/Chicago
-      */
+        /**
+         * 用户地理信息
+         * <p> 示例值：America/Chicago
+         */
         private String userGeo;
-     /**
-      * 客户端IP
-      * <p> 示例值：192.168.1.1
-      */
+        /**
+         * 客户端IP
+         * <p> 示例值：192.168.1.1
+         */
         private String clientIp;
-     /**
-      * IP位置
-      * <p> 示例值：中国北京
-      */
+        /**
+         * IP位置
+         * <p> 示例值：中国北京
+         */
         private String ipLoc;
-     /**
-      * IP提供商
-      * <p> 示例值：ISP_com
-      */
+        /**
+         * IP提供商
+         * <p> 示例值：ISP_com
+         */
         private String ipProvider;
-     /**
-      * 引用页面
-      * <p> 示例值：https://example.com/referer
-      */
+        /**
+         * 引用页面
+         * <p> 示例值：https://example.com/referer
+         */
         private String referer;
-     /**
-      * 源页面
-      * <p> 示例值：https://example.com/origin
-      */
+        /**
+         * 源页面
+         * <p> 示例值：https://example.com/origin
+         */
         private String origin;
-     /**
-      * 路由路径
-      * <p> 示例值：/api/xxx
-      */
+        /**
+         * 路由路径
+         * <p> 示例值：/api/xxx
+         */
         private String apiPath;
-     /**
-      * 网关路径
-      * <p> 示例值：/api/xxx
-      */
+        /**
+         * 网关路径
+         * <p> 示例值：/api/xxx
+         */
         private String fullPath;
-     /**
-      * 用户代理
-      * <p> 示例值：Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148
-      */
+        /**
+         * 用户代理
+         * <p> 示例值：Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148
+         */
         private String userAgent;
-     /**
-      * 设备ID
-      * <p> 示例值：device_1234
-      */
+        /**
+         * 设备ID
+         * <p> 示例值：device_1234
+         */
         private String deviceId;
-     /**
-      * web端设备ID
-      * <p> 示例值：webDevice_1234
-      */
+        /**
+         * web端设备ID
+         * <p> 示例值：webDevice_1234
+         */
         private String webDeviceId;
-     /**
-      * 终端类型:13002-PC类型;13003-Web类型
-      * <p> 示例值：2
-      */
+        /**
+         * 终端类型:13002-PC类型;13003-Web类型
+         * <p> 示例值：2
+         */
         private String terminalType;
-     /**
-      * 系统类型:14002-window;14001-未知
-      * <p> 示例值：14002
-      */
+        /**
+         * 系统类型:14002-window;14001-未知
+         * <p> 示例值：14002
+         */
         private String osType;
-     /**
-      * 系统版本
-      * <p> 示例值：14.6
-      */
+        /**
+         * 系统版本
+         * <p> 示例值：14.6
+         */
         private String osVersion;
-     /**
-      * 功能模块
-      * <p> 示例值：17001
-      */
+        /**
+         * 功能模块
+         * <p> 示例值：17001
+         */
         private String module;
-     /**
-      * 数据对象
-      * <p> 示例值：object_api_aaa
-      */
+        /**
+         * 数据对象
+         * <p> 示例值：object_api_aaa
+         */
         private String dataObject;
-     /**
-      * 审计域:15001-企业管理后台;15002-应用管理后 台;15003-应用开发平台
-      * <p> 示例值：15001
-      */
+        /**
+         * 审计域:15001-企业管理后台;15002-应用管理后 台;15003-应用开发平台
+         * <p> 示例值：15001
+         */
         private String auditScope;
-     /**
-      * 租户ID
-      * <p> 示例值：23335
-      */
+        /**
+         * 租户ID
+         * <p> 示例值：23335
+         */
         private String tenantId;
-     /**
-      * 应用唯一标识
-      * <p> 示例值：package_aacc
-      */
+        /**
+         * 应用唯一标识
+         * <p> 示例值：package_aacc
+         */
         private String namespace;
-     /**
-      * 环境类型:16001-沙箱环境;16003-线上环境
-      * <p> 示例值：16003
-      */
+        /**
+         * 环境类型:16001-沙箱环境;16003-线上环境
+         * <p> 示例值：16003
+         */
         private String envType;
-     /**
-      * 事件类型
-      * <p> 示例值：19001
-      */
+        /**
+         * 事件类型
+         * <p> 示例值：19001
+         */
         private String opType;
-     /**
-      * 操作详情内容
-      * <p> 示例值：
-      */
+        /**
+         * 操作详情内容
+         * <p> 示例值：
+         */
         private Map<String, String> opDetail;
-     /**
-      * 操作源:20001-前端;20004-openapi
-      * <p> 示例值：20001
-      */
+        /**
+         * 操作源:20001-前端;20004-openapi
+         * <p> 示例值：20001
+         */
         private String opSource;
-     /**
-      * 操作状态:18001-成功;18002-失败
-      * <p> 示例值：18001
-      */
+        /**
+         * 操作状态:18001-成功;18002-失败
+         * <p> 示例值：18001
+         */
         private String status;
-     /**
-      * 失败原因
-      * <p> 示例值：
-      */
+        /**
+         * 失败原因
+         * <p> 示例值：
+         */
         private Map<String, String> failedReasonI18n;
-     /**
-      * 数据变化(旧值和新值)
-      * <p> 示例值：
-      */
+        /**
+         * 数据变化(旧值和新值)
+         * <p> 示例值：
+         */
         private String[] dataChanges;
-     /**
-      * 应用名称
-      * <p> 示例值：
-      */
+        /**
+         * 应用名称
+         * <p> 示例值：
+         */
         private Map<String, String> appName;
-     /**
-      * 应用版本号
-      * <p> 示例值：v1.2.3
-      */
+        /**
+         * 应用版本号
+         * <p> 示例值：v1.2.3
+         */
         private String keywordFieldAppVersion;
-     /**
-      * 审计日志事件子模块
-      * <p> 示例值：223
-      */
+        /**
+         * 审计日志事件子模块
+         * <p> 示例值：223
+         */
         private String keywordFieldFunctionalSubModule;
 
         /**
          * 审计日志ID
          * <p> 示例值：7376574450886557740
+         *
          * @param logId
          * @return
          */
         public Builder logId(String logId) {
-             this.logId = logId;
-             return this;
+            this.logId = logId;
+            return this;
         }
 
-    
 
         /**
          * 操作时间
          * <p> 示例值：1723634726874
+         *
          * @param opTime
          * @return
          */
         public Builder opTime(String opTime) {
-             this.opTime = opTime;
-             return this;
+            this.opTime = opTime;
+            return this;
         }
 
-    
 
         /**
          * 日志类型:10000-全部类型;10001-企业管理; 10002-登录日志;10003-应用管理
          * <p> 示例值：10000
+         *
          * @param logType
          * @return
          */
         public Builder logType(String logType) {
-             this.logType = logType;
-             return this;
+            this.logType = logType;
+            return this;
         }
 
-    
 
         /**
          * 操作人
          * <p> 示例值：
+         *
          * @param operator
          * @return
          */
         public Builder operator(LookupWithAvatar operator) {
-             this.operator = operator;
-             return this;
+            this.operator = operator;
+            return this;
         }
 
-    
 
         /**
          * 是否为外部用户,true代表是外部用户
          * <p> 示例值：
+         *
          * @param outsider
          * @return
          */
         public Builder outsider(Boolean outsider) {
-             this.outsider = outsider;
-             return this;
+            this.outsider = outsider;
+            return this;
         }
 
-    
 
         /**
          * 登录类型:11001-飞书登录;11003-账号密码登录
          * <p> 示例值：11001
+         *
          * @param loginType
          * @return
          */
         public Builder loginType(String loginType) {
-             this.loginType = loginType;
-             return this;
+            this.loginType = loginType;
+            return this;
         }
 
-    
 
         /**
          * 飞书租户ID
          * <p> 示例值：123
+         *
          * @param larkTenantId
          * @return
          */
         public Builder larkTenantId(String larkTenantId) {
-             this.larkTenantId = larkTenantId;
-             return this;
+            this.larkTenantId = larkTenantId;
+            return this;
         }
 
-    
 
         /**
          * apaas租户ID
          * <p> 示例值：23333
+         *
          * @param apaasTenantId
          * @return
          */
         public Builder apaasTenantId(String apaasTenantId) {
-             this.apaasTenantId = apaasTenantId;
-             return this;
+            this.apaasTenantId = apaasTenantId;
+            return this;
         }
 
-    
 
         /**
          * 用户地理信息
          * <p> 示例值：America/Chicago
+         *
          * @param userGeo
          * @return
          */
         public Builder userGeo(String userGeo) {
-             this.userGeo = userGeo;
-             return this;
+            this.userGeo = userGeo;
+            return this;
         }
 
-    
 
         /**
          * 客户端IP
          * <p> 示例值：192.168.1.1
+         *
          * @param clientIp
          * @return
          */
         public Builder clientIp(String clientIp) {
-             this.clientIp = clientIp;
-             return this;
+            this.clientIp = clientIp;
+            return this;
         }
 
-    
 
         /**
          * IP位置
          * <p> 示例值：中国北京
+         *
          * @param ipLoc
          * @return
          */
         public Builder ipLoc(String ipLoc) {
-             this.ipLoc = ipLoc;
-             return this;
+            this.ipLoc = ipLoc;
+            return this;
         }
 
-    
 
         /**
          * IP提供商
          * <p> 示例值：ISP_com
+         *
          * @param ipProvider
          * @return
          */
         public Builder ipProvider(String ipProvider) {
-             this.ipProvider = ipProvider;
-             return this;
+            this.ipProvider = ipProvider;
+            return this;
         }
 
-    
 
         /**
          * 引用页面
          * <p> 示例值：https://example.com/referer
+         *
          * @param referer
          * @return
          */
         public Builder referer(String referer) {
-             this.referer = referer;
-             return this;
+            this.referer = referer;
+            return this;
         }
 
-    
 
         /**
          * 源页面
          * <p> 示例值：https://example.com/origin
+         *
          * @param origin
          * @return
          */
         public Builder origin(String origin) {
-             this.origin = origin;
-             return this;
+            this.origin = origin;
+            return this;
         }
 
-    
 
         /**
          * 路由路径
          * <p> 示例值：/api/xxx
+         *
          * @param apiPath
          * @return
          */
         public Builder apiPath(String apiPath) {
-             this.apiPath = apiPath;
-             return this;
+            this.apiPath = apiPath;
+            return this;
         }
 
-    
 
         /**
          * 网关路径
          * <p> 示例值：/api/xxx
+         *
          * @param fullPath
          * @return
          */
         public Builder fullPath(String fullPath) {
-             this.fullPath = fullPath;
-             return this;
+            this.fullPath = fullPath;
+            return this;
         }
 
-    
 
         /**
          * 用户代理
          * <p> 示例值：Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148
+         *
          * @param userAgent
          * @return
          */
         public Builder userAgent(String userAgent) {
-             this.userAgent = userAgent;
-             return this;
+            this.userAgent = userAgent;
+            return this;
         }
 
-    
 
         /**
          * 设备ID
          * <p> 示例值：device_1234
+         *
          * @param deviceId
          * @return
          */
         public Builder deviceId(String deviceId) {
-             this.deviceId = deviceId;
-             return this;
+            this.deviceId = deviceId;
+            return this;
         }
 
-    
 
         /**
          * web端设备ID
          * <p> 示例值：webDevice_1234
+         *
          * @param webDeviceId
          * @return
          */
         public Builder webDeviceId(String webDeviceId) {
-             this.webDeviceId = webDeviceId;
-             return this;
+            this.webDeviceId = webDeviceId;
+            return this;
         }
 
-    
 
         /**
          * 终端类型:13002-PC类型;13003-Web类型
          * <p> 示例值：2
+         *
          * @param terminalType
          * @return
          */
         public Builder terminalType(String terminalType) {
-             this.terminalType = terminalType;
-             return this;
+            this.terminalType = terminalType;
+            return this;
         }
 
-    
 
         /**
          * 系统类型:14002-window;14001-未知
          * <p> 示例值：14002
+         *
          * @param osType
          * @return
          */
         public Builder osType(String osType) {
-             this.osType = osType;
-             return this;
+            this.osType = osType;
+            return this;
         }
 
-    
 
         /**
          * 系统版本
          * <p> 示例值：14.6
+         *
          * @param osVersion
          * @return
          */
         public Builder osVersion(String osVersion) {
-             this.osVersion = osVersion;
-             return this;
+            this.osVersion = osVersion;
+            return this;
         }
 
-    
 
         /**
          * 功能模块
          * <p> 示例值：17001
+         *
          * @param module
          * @return
          */
         public Builder module(String module) {
-             this.module = module;
-             return this;
+            this.module = module;
+            return this;
         }
 
-    
 
         /**
          * 数据对象
          * <p> 示例值：object_api_aaa
+         *
          * @param dataObject
          * @return
          */
         public Builder dataObject(String dataObject) {
-             this.dataObject = dataObject;
-             return this;
+            this.dataObject = dataObject;
+            return this;
         }
 
-    
 
         /**
          * 审计域:15001-企业管理后台;15002-应用管理后 台;15003-应用开发平台
          * <p> 示例值：15001
+         *
          * @param auditScope
          * @return
          */
         public Builder auditScope(String auditScope) {
-             this.auditScope = auditScope;
-             return this;
+            this.auditScope = auditScope;
+            return this;
         }
 
-    
 
         /**
          * 租户ID
          * <p> 示例值：23335
+         *
          * @param tenantId
          * @return
          */
         public Builder tenantId(String tenantId) {
-             this.tenantId = tenantId;
-             return this;
+            this.tenantId = tenantId;
+            return this;
         }
 
-    
 
         /**
          * 应用唯一标识
          * <p> 示例值：package_aacc
+         *
          * @param namespace
          * @return
          */
         public Builder namespace(String namespace) {
-             this.namespace = namespace;
-             return this;
+            this.namespace = namespace;
+            return this;
         }
 
-    
 
         /**
          * 环境类型:16001-沙箱环境;16003-线上环境
          * <p> 示例值：16003
+         *
          * @param envType
          * @return
          */
         public Builder envType(String envType) {
-             this.envType = envType;
-             return this;
+            this.envType = envType;
+            return this;
         }
 
-    
 
         /**
          * 事件类型
          * <p> 示例值：19001
+         *
          * @param opType
          * @return
          */
         public Builder opType(String opType) {
-             this.opType = opType;
-             return this;
+            this.opType = opType;
+            return this;
         }
 
-    
 
         /**
          * 操作详情内容
          * <p> 示例值：
+         *
          * @param opDetail
          * @return
          */
         public Builder opDetail(Map<String, String> opDetail) {
-             this.opDetail = opDetail;
-             return this;
+            this.opDetail = opDetail;
+            return this;
         }
 
-    
 
         /**
          * 操作源:20001-前端;20004-openapi
          * <p> 示例值：20001
+         *
          * @param opSource
          * @return
          */
         public Builder opSource(String opSource) {
-             this.opSource = opSource;
-             return this;
+            this.opSource = opSource;
+            return this;
         }
 
-    
 
         /**
          * 操作状态:18001-成功;18002-失败
          * <p> 示例值：18001
+         *
          * @param status
          * @return
          */
         public Builder status(String status) {
-             this.status = status;
-             return this;
+            this.status = status;
+            return this;
         }
 
-    
 
         /**
          * 失败原因
          * <p> 示例值：
+         *
          * @param failedReasonI18n
          * @return
          */
         public Builder failedReasonI18n(Map<String, String> failedReasonI18n) {
-             this.failedReasonI18n = failedReasonI18n;
-             return this;
+            this.failedReasonI18n = failedReasonI18n;
+            return this;
         }
 
-    
 
         /**
          * 数据变化(旧值和新值)
          * <p> 示例值：
+         *
          * @param dataChanges
          * @return
          */
         public Builder dataChanges(String[] dataChanges) {
-             this.dataChanges = dataChanges;
-             return this;
+            this.dataChanges = dataChanges;
+            return this;
         }
 
-    
 
         /**
          * 应用名称
          * <p> 示例值：
+         *
          * @param appName
          * @return
          */
         public Builder appName(Map<String, String> appName) {
-             this.appName = appName;
-             return this;
+            this.appName = appName;
+            return this;
         }
 
-    
 
         /**
          * 应用版本号
          * <p> 示例值：v1.2.3
+         *
          * @param keywordFieldAppVersion
          * @return
          */
         public Builder keywordFieldAppVersion(String keywordFieldAppVersion) {
-             this.keywordFieldAppVersion = keywordFieldAppVersion;
-             return this;
+            this.keywordFieldAppVersion = keywordFieldAppVersion;
+            return this;
         }
 
-    
 
         /**
          * 审计日志事件子模块
          * <p> 示例值：223
+         *
          * @param keywordFieldFunctionalSubModule
          * @return
          */
         public Builder keywordFieldFunctionalSubModule(String keywordFieldFunctionalSubModule) {
-             this.keywordFieldFunctionalSubModule = keywordFieldFunctionalSubModule;
-             return this;
+            this.keywordFieldFunctionalSubModule = keywordFieldFunctionalSubModule;
+            return this;
         }
 
-    
-    
-    public AuditLogEsField build(){
-        return new AuditLogEsField(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public AuditLogEsField build() {
+            return new AuditLogEsField(this);
+        }
     }
 }

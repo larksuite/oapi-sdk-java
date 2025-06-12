@@ -12,25 +12,49 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ParentsDepartmentReq {
-     /**
-      * 此次调用中使用的部门 ID 类型
-      * <p> 示例值：open_department_id
-      */
+    /**
+     * 此次调用中使用的部门 ID 类型
+     * <p> 示例值：open_department_id
+     */
     @Query
     @SerializedName("department_id_type")
     private String departmentIdType;
+    @Body
+    private ParentsDepartmentReqBody body;
+
+    // builder 开始
+    public ParentsDepartmentReq() {
+    }
+
+    public ParentsDepartmentReq(Builder builder) {
+        /**
+         * 此次调用中使用的部门 ID 类型
+         * <p> 示例值：open_department_id
+         */
+        this.departmentIdType = builder.departmentIdType;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getDepartmentIdType() {
         return this.departmentIdType;
     }
@@ -38,9 +62,6 @@ public class ParentsDepartmentReq {
     public void setDepartmentIdType(String departmentIdType) {
         this.departmentIdType = departmentIdType;
     }
-
-    @Body
-    private ParentsDepartmentReqBody body;
 
     public ParentsDepartmentReqBody getParentsDepartmentReqBody() {
         return this.body;
@@ -50,65 +71,51 @@ public class ParentsDepartmentReq {
         this.body = body;
     }
 
-// builder 开始
-  public ParentsDepartmentReq(){}
-
-  public ParentsDepartmentReq(Builder builder){
-         /**
-          * 此次调用中使用的部门 ID 类型
-          * <p> 示例值：open_department_id
-          */
-       this.departmentIdType = builder.departmentIdType;
-        this.body = builder.body;
-  }
-
     public static class Builder {
         private String departmentIdType; // 此次调用中使用的部门 ID 类型
-    
+        private ParentsDepartmentReqBody body;
+
         /**
          * 此次调用中使用的部门 ID 类型
          * <p> 示例值：open_department_id
+         *
          * @param departmentIdType
          * @return
          */
-           public Builder departmentIdType(String departmentIdType) {
-                this.departmentIdType = departmentIdType;
-                return this;
-           }
+        public Builder departmentIdType(String departmentIdType) {
+            this.departmentIdType = departmentIdType;
+            return this;
+        }
 
         /**
          * 此次调用中使用的部门 ID 类型
          * <p> 示例值：open_department_id
+         *
          * @param departmentIdType {@link com.lark.oapi.service.corehr.v2.enums.ParentsDepartmentDepartmentIdTypeEnum}
          * @return
          */
-          public Builder departmentIdType(com.lark.oapi.service.corehr.v2.enums.ParentsDepartmentDepartmentIdTypeEnum departmentIdType) {
-               this.departmentIdType = departmentIdType.getValue();
-               return this;
-          }
+        public Builder departmentIdType(com.lark.oapi.service.corehr.v2.enums.ParentsDepartmentDepartmentIdTypeEnum departmentIdType) {
+            this.departmentIdType = departmentIdType.getValue();
+            return this;
+        }
 
-    
-        private ParentsDepartmentReqBody body;
-    
         public ParentsDepartmentReqBody getParentsDepartmentReqBody() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder parentsDepartmentReqBody(ParentsDepartmentReqBody body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public ParentsDepartmentReq build(){
-        return new ParentsDepartmentReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ParentsDepartmentReq build() {
+            return new ParentsDepartmentReq(this);
+        }
     }
 }

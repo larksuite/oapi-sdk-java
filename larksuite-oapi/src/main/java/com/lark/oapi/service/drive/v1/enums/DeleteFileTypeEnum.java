@@ -17,22 +17,23 @@ package com.lark.oapi.service.drive.v1.enums;
  * 被删除文件的类型
  */
 public enum DeleteFileTypeEnum {
-     FILE("file"), // 文件类型
-     DOCX("docx"), // docx文档类型
-     BITABLE("bitable"), // 多维表格类型
-     FOLDER("folder"), // 文件夹类型
-     DOC("doc"), // doc文档类型
-     SHEET("sheet"), // 电子表格类型
-     MINDNOTE("mindnote"), // 思维笔记类型
-     SHORTCUT("shortcut"), // 快捷方式类型
-     SLIDES("slides"), // 幻灯片
-  ;
-   private String value;
+    FILE("file"), // 文件类型
+    DOCX("docx"), // docx文档类型
+    BITABLE("bitable"), // 多维表格类型
+    FOLDER("folder"), // 文件夹类型
+    DOC("doc"), // doc文档类型
+    SHEET("sheet"), // 电子表格类型
+    MINDNOTE("mindnote"), // 思维笔记类型
+    SHORTCUT("shortcut"), // 快捷方式类型
+    SLIDES("slides"), // 幻灯片
+    ;
+    private String value;
+
     DeleteFileTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

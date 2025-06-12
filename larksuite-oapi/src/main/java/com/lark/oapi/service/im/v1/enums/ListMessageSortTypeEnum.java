@@ -17,15 +17,16 @@ package com.lark.oapi.service.im.v1.enums;
  * 消息排序方式
  */
 public enum ListMessageSortTypeEnum {
-     BYCREATETIMEASC("ByCreateTimeAsc"), // 按消息创建时间升序排列
-     BYCREATETIMEDESC("ByCreateTimeDesc"), // 按消息创建时间降序排列
-  ;
-   private String value;
+    BYCREATETIMEASC("ByCreateTimeAsc"), // 按消息创建时间升序排列
+    BYCREATETIMEDESC("ByCreateTimeDesc"), // 按消息创建时间降序排列
+    ;
+    private String value;
+
     ListMessageSortTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

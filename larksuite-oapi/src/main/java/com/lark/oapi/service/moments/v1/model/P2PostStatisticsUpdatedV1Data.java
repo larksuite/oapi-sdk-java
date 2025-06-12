@@ -12,36 +12,41 @@
  */
 
 package com.lark.oapi.service.moments.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class P2PostStatisticsUpdatedV1Data {
-     /**
-      * 帖子ID
-      * <p> 示例值："111111"
-      */
+    /**
+     * 帖子ID
+     * <p> 示例值："111111"
+     */
     @SerializedName("post_id")
     private String postId;
-     /**
-      * 变更统计数据类型
-      * <p> 示例值：1
-      */
+    /**
+     * 变更统计数据类型
+     * <p> 示例值：1
+     */
     @SerializedName("statistics_type")
     private Integer statisticsType;
-     /**
-      * 帖子统计数据
-      * <p> 示例值：
-      */
+    /**
+     * 帖子统计数据
+     * <p> 示例值：
+     */
     @SerializedName("statistics")
     private PostStatistics statistics;
+
     public String getPostId() {
         return this.postId;
     }

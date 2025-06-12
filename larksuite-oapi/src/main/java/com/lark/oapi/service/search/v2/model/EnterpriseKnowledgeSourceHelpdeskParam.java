@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.search.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.search.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class EnterpriseKnowledgeSourceHelpdeskParam {
-     /**
-      * searchable
-      * <p> 示例值：false
-      */
+    /**
+     * searchable
+     * <p> 示例值：false
+     */
     @SerializedName("searchable")
     private Boolean searchable;
-     /**
-      * filter
-      * <p> 示例值：
-      */
+    /**
+     * filter
+     * <p> 示例值：
+     */
     @SerializedName("filter")
     private KnowledgeSourceHelpdeskFilter filter;
+
+    // builder 开始
+    public EnterpriseKnowledgeSourceHelpdeskParam() {
+    }
+
+    public EnterpriseKnowledgeSourceHelpdeskParam(Builder builder) {
+        /**
+         * searchable
+         * <p> 示例值：false
+         */
+        this.searchable = builder.searchable;
+        /**
+         * filter
+         * <p> 示例值：
+         */
+        this.filter = builder.filter;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Boolean getSearchable() {
         return this.searchable;
     }
@@ -53,67 +79,46 @@ public class EnterpriseKnowledgeSourceHelpdeskParam {
         this.filter = filter;
     }
 
-
-// builder 开始
-  public EnterpriseKnowledgeSourceHelpdeskParam(){}
-
-  public EnterpriseKnowledgeSourceHelpdeskParam(Builder builder){
-         /**
-          * searchable
-          * <p> 示例值：false
-          */
-      this.searchable = builder.searchable;
-         /**
-          * filter
-          * <p> 示例值：
-          */
-      this.filter = builder.filter;
-  }
-
     public static class Builder {
-     /**
-      * searchable
-      * <p> 示例值：false
-      */
+        /**
+         * searchable
+         * <p> 示例值：false
+         */
         private Boolean searchable;
-     /**
-      * filter
-      * <p> 示例值：
-      */
+        /**
+         * filter
+         * <p> 示例值：
+         */
         private KnowledgeSourceHelpdeskFilter filter;
 
         /**
          * searchable
          * <p> 示例值：false
+         *
          * @param searchable
          * @return
          */
         public Builder searchable(Boolean searchable) {
-             this.searchable = searchable;
-             return this;
+            this.searchable = searchable;
+            return this;
         }
 
-    
 
         /**
          * filter
          * <p> 示例值：
+         *
          * @param filter
          * @return
          */
         public Builder filter(KnowledgeSourceHelpdeskFilter filter) {
-             this.filter = filter;
-             return this;
+            this.filter = filter;
+            return this;
         }
 
-    
-    
-    public EnterpriseKnowledgeSourceHelpdeskParam build(){
-        return new EnterpriseKnowledgeSourceHelpdeskParam(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public EnterpriseKnowledgeSourceHelpdeskParam build() {
+            return new EnterpriseKnowledgeSourceHelpdeskParam(this);
+        }
     }
 }

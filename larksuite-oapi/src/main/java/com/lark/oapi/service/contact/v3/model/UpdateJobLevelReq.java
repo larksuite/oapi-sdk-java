@@ -12,25 +12,49 @@
  */
 
 package com.lark.oapi.service.contact.v3.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class UpdateJobLevelReq {
-     /**
-      * 职级ID
-      * <p> 示例值：mga5oa8ayjlp9rb
-      */
+    /**
+     * 职级ID
+     * <p> 示例值：mga5oa8ayjlp9rb
+     */
     @Path
     @SerializedName("job_level_id")
     private String jobLevelId;
+    @Body
+    private JobLevel body;
+
+    // builder 开始
+    public UpdateJobLevelReq() {
+    }
+
+    public UpdateJobLevelReq(Builder builder) {
+        /**
+         * 职级ID
+         * <p> 示例值：mga5oa8ayjlp9rb
+         */
+        this.jobLevelId = builder.jobLevelId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getJobLevelId() {
         return this.jobLevelId;
     }
@@ -38,9 +62,6 @@ public class UpdateJobLevelReq {
     public void setJobLevelId(String jobLevelId) {
         this.jobLevelId = jobLevelId;
     }
-
-    @Body
-    private JobLevel body;
 
     public JobLevel getJobLevel() {
         return this.body;
@@ -50,54 +71,40 @@ public class UpdateJobLevelReq {
         this.body = body;
     }
 
-// builder 开始
-  public UpdateJobLevelReq(){}
-
-  public UpdateJobLevelReq(Builder builder){
-     /**
-      * 职级ID
-      * <p> 示例值：mga5oa8ayjlp9rb
-      */
-       this.jobLevelId = builder.jobLevelId;
-        this.body = builder.body;
-  }
-
     public static class Builder {
-    
+
         private String jobLevelId; // 职级ID
+        private JobLevel body;
+
         /**
          * 职级ID
          * <p> 示例值：mga5oa8ayjlp9rb
+         *
          * @param jobLevelId
          * @return
          */
-          public Builder jobLevelId(String jobLevelId) {
-               this.jobLevelId = jobLevelId;
-               return this;
-          }
+        public Builder jobLevelId(String jobLevelId) {
+            this.jobLevelId = jobLevelId;
+            return this;
+        }
 
-    
-        private JobLevel body;
-    
         public JobLevel getJobLevel() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder jobLevel(JobLevel body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public UpdateJobLevelReq build(){
-        return new UpdateJobLevelReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public UpdateJobLevelReq build() {
+            return new UpdateJobLevelReq(this);
+        }
     }
 }

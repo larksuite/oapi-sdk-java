@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,96 +20,181 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class DependentForUpdate {
-     /**
-      * 关系
-      * <p> 示例值：parent
-      */
+    /**
+     * 关系
+     * <p> 示例值：parent
+     */
     @SerializedName("relationship")
     private String relationship;
-     /**
-      * 性别
-      * <p> 示例值：male
-      */
+    /**
+     * 性别
+     * <p> 示例值：male
+     */
     @SerializedName("gender")
     private String gender;
-     /**
-      * 生日
-      * <p> 示例值：2020-01-01
-      */
+    /**
+     * 生日
+     * <p> 示例值：2020-01-01
+     */
     @SerializedName("date_of_birth")
     private String dateOfBirth;
-     /**
-      * 证件号码
-      * <p> 示例值：
-      */
+    /**
+     * 证件号码
+     * <p> 示例值：
+     */
     @SerializedName("national_ids")
     private NationalIdForUpdate[] nationalIds;
-     /**
-      * 配偶工作状态
-      * <p> 示例值：working
-      */
+    /**
+     * 配偶工作状态
+     * <p> 示例值：working
+     */
     @SerializedName("spouses_working_status")
     private String spousesWorkingStatus;
-     /**
-      * 包含家属医疗保险
-      * <p> 示例值：true
-      */
+    /**
+     * 包含家属医疗保险
+     * <p> 示例值：true
+     */
     @SerializedName("is_this_person_covered_by_health_insurance")
     private Boolean isThisPersonCoveredByHealthInsurance;
-     /**
-      * 允许家属抵扣税款
-      * <p> 示例值：false
-      */
+    /**
+     * 允许家属抵扣税款
+     * <p> 示例值：false
+     */
     @SerializedName("is_this_person_allowed_for_tax_deduction")
     private Boolean isThisPersonAllowedForTaxDeduction;
-     /**
-      * 家庭成员姓名
-      * <p> 示例值：王冰
-      */
+    /**
+     * 家庭成员姓名
+     * <p> 示例值：王冰
+     */
     @SerializedName("dependent_name")
     private String dependentName;
-     /**
-      * 工作单位
-      * <p> 示例值：海淀区交警大队
-      */
+    /**
+     * 工作单位
+     * <p> 示例值：海淀区交警大队
+     */
     @SerializedName("employer")
     private String employer;
-     /**
-      * 岗位
-      * <p> 示例值：保安
-      */
+    /**
+     * 岗位
+     * <p> 示例值：保安
+     */
     @SerializedName("job")
     private String job;
-     /**
-      * 电话
-      * <p> 示例值：
-      */
+    /**
+     * 电话
+     * <p> 示例值：
+     */
     @SerializedName("phone")
     private PhoneForUpdate phone;
-     /**
-      * 联系地址
-      * <p> 示例值：
-      */
+    /**
+     * 联系地址
+     * <p> 示例值：
+     */
     @SerializedName("address")
     private AddressForUpdate address;
-     /**
-      * 出生证明
-      * <p> 示例值：
-      */
+    /**
+     * 出生证明
+     * <p> 示例值：
+     */
     @SerializedName("birth_certificate_of_children")
     private File[] birthCertificateOfChildren;
-     /**
-      * 自定义字段
-      * <p> 示例值：
-      */
+    /**
+     * 自定义字段
+     * <p> 示例值：
+     */
     @SerializedName("custom_fields")
     private ObjectFieldData[] customFields;
+
+    // builder 开始
+    public DependentForUpdate() {
+    }
+
+    public DependentForUpdate(Builder builder) {
+        /**
+         * 关系
+         * <p> 示例值：parent
+         */
+        this.relationship = builder.relationship;
+        /**
+         * 性别
+         * <p> 示例值：male
+         */
+        this.gender = builder.gender;
+        /**
+         * 生日
+         * <p> 示例值：2020-01-01
+         */
+        this.dateOfBirth = builder.dateOfBirth;
+        /**
+         * 证件号码
+         * <p> 示例值：
+         */
+        this.nationalIds = builder.nationalIds;
+        /**
+         * 配偶工作状态
+         * <p> 示例值：working
+         */
+        this.spousesWorkingStatus = builder.spousesWorkingStatus;
+        /**
+         * 包含家属医疗保险
+         * <p> 示例值：true
+         */
+        this.isThisPersonCoveredByHealthInsurance = builder.isThisPersonCoveredByHealthInsurance;
+        /**
+         * 允许家属抵扣税款
+         * <p> 示例值：false
+         */
+        this.isThisPersonAllowedForTaxDeduction = builder.isThisPersonAllowedForTaxDeduction;
+        /**
+         * 家庭成员姓名
+         * <p> 示例值：王冰
+         */
+        this.dependentName = builder.dependentName;
+        /**
+         * 工作单位
+         * <p> 示例值：海淀区交警大队
+         */
+        this.employer = builder.employer;
+        /**
+         * 岗位
+         * <p> 示例值：保安
+         */
+        this.job = builder.job;
+        /**
+         * 电话
+         * <p> 示例值：
+         */
+        this.phone = builder.phone;
+        /**
+         * 联系地址
+         * <p> 示例值：
+         */
+        this.address = builder.address;
+        /**
+         * 出生证明
+         * <p> 示例值：
+         */
+        this.birthCertificateOfChildren = builder.birthCertificateOfChildren;
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
+        this.customFields = builder.customFields;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getRelationship() {
         return this.relationship;
     }
@@ -221,343 +307,262 @@ public class DependentForUpdate {
         this.customFields = customFields;
     }
 
-
-// builder 开始
-  public DependentForUpdate(){}
-
-  public DependentForUpdate(Builder builder){
-         /**
-          * 关系
-          * <p> 示例值：parent
-          */
-      this.relationship = builder.relationship;
-         /**
-          * 性别
-          * <p> 示例值：male
-          */
-      this.gender = builder.gender;
-         /**
-          * 生日
-          * <p> 示例值：2020-01-01
-          */
-      this.dateOfBirth = builder.dateOfBirth;
-         /**
-          * 证件号码
-          * <p> 示例值：
-          */
-      this.nationalIds = builder.nationalIds;
-         /**
-          * 配偶工作状态
-          * <p> 示例值：working
-          */
-      this.spousesWorkingStatus = builder.spousesWorkingStatus;
-         /**
-          * 包含家属医疗保险
-          * <p> 示例值：true
-          */
-      this.isThisPersonCoveredByHealthInsurance = builder.isThisPersonCoveredByHealthInsurance;
-         /**
-          * 允许家属抵扣税款
-          * <p> 示例值：false
-          */
-      this.isThisPersonAllowedForTaxDeduction = builder.isThisPersonAllowedForTaxDeduction;
-         /**
-          * 家庭成员姓名
-          * <p> 示例值：王冰
-          */
-      this.dependentName = builder.dependentName;
-         /**
-          * 工作单位
-          * <p> 示例值：海淀区交警大队
-          */
-      this.employer = builder.employer;
-         /**
-          * 岗位
-          * <p> 示例值：保安
-          */
-      this.job = builder.job;
-         /**
-          * 电话
-          * <p> 示例值：
-          */
-      this.phone = builder.phone;
-         /**
-          * 联系地址
-          * <p> 示例值：
-          */
-      this.address = builder.address;
-         /**
-          * 出生证明
-          * <p> 示例值：
-          */
-      this.birthCertificateOfChildren = builder.birthCertificateOfChildren;
-         /**
-          * 自定义字段
-          * <p> 示例值：
-          */
-      this.customFields = builder.customFields;
-  }
-
     public static class Builder {
-     /**
-      * 关系
-      * <p> 示例值：parent
-      */
+        /**
+         * 关系
+         * <p> 示例值：parent
+         */
         private String relationship;
-     /**
-      * 性别
-      * <p> 示例值：male
-      */
+        /**
+         * 性别
+         * <p> 示例值：male
+         */
         private String gender;
-     /**
-      * 生日
-      * <p> 示例值：2020-01-01
-      */
+        /**
+         * 生日
+         * <p> 示例值：2020-01-01
+         */
         private String dateOfBirth;
-     /**
-      * 证件号码
-      * <p> 示例值：
-      */
+        /**
+         * 证件号码
+         * <p> 示例值：
+         */
         private NationalIdForUpdate[] nationalIds;
-     /**
-      * 配偶工作状态
-      * <p> 示例值：working
-      */
+        /**
+         * 配偶工作状态
+         * <p> 示例值：working
+         */
         private String spousesWorkingStatus;
-     /**
-      * 包含家属医疗保险
-      * <p> 示例值：true
-      */
+        /**
+         * 包含家属医疗保险
+         * <p> 示例值：true
+         */
         private Boolean isThisPersonCoveredByHealthInsurance;
-     /**
-      * 允许家属抵扣税款
-      * <p> 示例值：false
-      */
+        /**
+         * 允许家属抵扣税款
+         * <p> 示例值：false
+         */
         private Boolean isThisPersonAllowedForTaxDeduction;
-     /**
-      * 家庭成员姓名
-      * <p> 示例值：王冰
-      */
+        /**
+         * 家庭成员姓名
+         * <p> 示例值：王冰
+         */
         private String dependentName;
-     /**
-      * 工作单位
-      * <p> 示例值：海淀区交警大队
-      */
+        /**
+         * 工作单位
+         * <p> 示例值：海淀区交警大队
+         */
         private String employer;
-     /**
-      * 岗位
-      * <p> 示例值：保安
-      */
+        /**
+         * 岗位
+         * <p> 示例值：保安
+         */
         private String job;
-     /**
-      * 电话
-      * <p> 示例值：
-      */
+        /**
+         * 电话
+         * <p> 示例值：
+         */
         private PhoneForUpdate phone;
-     /**
-      * 联系地址
-      * <p> 示例值：
-      */
+        /**
+         * 联系地址
+         * <p> 示例值：
+         */
         private AddressForUpdate address;
-     /**
-      * 出生证明
-      * <p> 示例值：
-      */
+        /**
+         * 出生证明
+         * <p> 示例值：
+         */
         private File[] birthCertificateOfChildren;
-     /**
-      * 自定义字段
-      * <p> 示例值：
-      */
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
         private ObjectFieldData[] customFields;
 
         /**
          * 关系
          * <p> 示例值：parent
+         *
          * @param relationship
          * @return
          */
         public Builder relationship(String relationship) {
-             this.relationship = relationship;
-             return this;
+            this.relationship = relationship;
+            return this;
         }
 
-    
 
         /**
          * 性别
          * <p> 示例值：male
+         *
          * @param gender
          * @return
          */
         public Builder gender(String gender) {
-             this.gender = gender;
-             return this;
+            this.gender = gender;
+            return this;
         }
 
-    
 
         /**
          * 生日
          * <p> 示例值：2020-01-01
+         *
          * @param dateOfBirth
          * @return
          */
         public Builder dateOfBirth(String dateOfBirth) {
-             this.dateOfBirth = dateOfBirth;
-             return this;
+            this.dateOfBirth = dateOfBirth;
+            return this;
         }
 
-    
 
         /**
          * 证件号码
          * <p> 示例值：
+         *
          * @param nationalIds
          * @return
          */
         public Builder nationalIds(NationalIdForUpdate[] nationalIds) {
-             this.nationalIds = nationalIds;
-             return this;
+            this.nationalIds = nationalIds;
+            return this;
         }
 
-    
 
         /**
          * 配偶工作状态
          * <p> 示例值：working
+         *
          * @param spousesWorkingStatus
          * @return
          */
         public Builder spousesWorkingStatus(String spousesWorkingStatus) {
-             this.spousesWorkingStatus = spousesWorkingStatus;
-             return this;
+            this.spousesWorkingStatus = spousesWorkingStatus;
+            return this;
         }
 
-    
 
         /**
          * 包含家属医疗保险
          * <p> 示例值：true
+         *
          * @param isThisPersonCoveredByHealthInsurance
          * @return
          */
         public Builder isThisPersonCoveredByHealthInsurance(Boolean isThisPersonCoveredByHealthInsurance) {
-             this.isThisPersonCoveredByHealthInsurance = isThisPersonCoveredByHealthInsurance;
-             return this;
+            this.isThisPersonCoveredByHealthInsurance = isThisPersonCoveredByHealthInsurance;
+            return this;
         }
 
-    
 
         /**
          * 允许家属抵扣税款
          * <p> 示例值：false
+         *
          * @param isThisPersonAllowedForTaxDeduction
          * @return
          */
         public Builder isThisPersonAllowedForTaxDeduction(Boolean isThisPersonAllowedForTaxDeduction) {
-             this.isThisPersonAllowedForTaxDeduction = isThisPersonAllowedForTaxDeduction;
-             return this;
+            this.isThisPersonAllowedForTaxDeduction = isThisPersonAllowedForTaxDeduction;
+            return this;
         }
 
-    
 
         /**
          * 家庭成员姓名
          * <p> 示例值：王冰
+         *
          * @param dependentName
          * @return
          */
         public Builder dependentName(String dependentName) {
-             this.dependentName = dependentName;
-             return this;
+            this.dependentName = dependentName;
+            return this;
         }
 
-    
 
         /**
          * 工作单位
          * <p> 示例值：海淀区交警大队
+         *
          * @param employer
          * @return
          */
         public Builder employer(String employer) {
-             this.employer = employer;
-             return this;
+            this.employer = employer;
+            return this;
         }
 
-    
 
         /**
          * 岗位
          * <p> 示例值：保安
+         *
          * @param job
          * @return
          */
         public Builder job(String job) {
-             this.job = job;
-             return this;
+            this.job = job;
+            return this;
         }
 
-    
 
         /**
          * 电话
          * <p> 示例值：
+         *
          * @param phone
          * @return
          */
         public Builder phone(PhoneForUpdate phone) {
-             this.phone = phone;
-             return this;
+            this.phone = phone;
+            return this;
         }
 
-    
 
         /**
          * 联系地址
          * <p> 示例值：
+         *
          * @param address
          * @return
          */
         public Builder address(AddressForUpdate address) {
-             this.address = address;
-             return this;
+            this.address = address;
+            return this;
         }
 
-    
 
         /**
          * 出生证明
          * <p> 示例值：
+         *
          * @param birthCertificateOfChildren
          * @return
          */
         public Builder birthCertificateOfChildren(File[] birthCertificateOfChildren) {
-             this.birthCertificateOfChildren = birthCertificateOfChildren;
-             return this;
+            this.birthCertificateOfChildren = birthCertificateOfChildren;
+            return this;
         }
 
-    
 
         /**
          * 自定义字段
          * <p> 示例值：
+         *
          * @param customFields
          * @return
          */
         public Builder customFields(ObjectFieldData[] customFields) {
-             this.customFields = customFields;
-             return this;
+            this.customFields = customFields;
+            return this;
         }
 
-    
-    
-    public DependentForUpdate build(){
-        return new DependentForUpdate(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public DependentForUpdate build() {
+            return new DependentForUpdate(this);
+        }
     }
 }

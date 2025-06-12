@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.im.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class FeedCardSettingUpdater {
-     /**
-      * 消息流卡片 ID
-      * <p> 示例值：oc_785fae31552ae88681bc69b4a1550289
-      */
+    /**
+     * 消息流卡片 ID
+     * <p> 示例值：oc_785fae31552ae88681bc69b4a1550289
+     */
     @SerializedName("feed_card_id")
     private String feedCardId;
-     /**
-      * 标记已读的时间戳
-      * <p> 示例值：1701246710
-      */
+    /**
+     * 标记已读的时间戳
+     * <p> 示例值：1701246710
+     */
     @SerializedName("read_timestamp")
     private String readTimestamp;
-     /**
-      * 免打扰操作是否发送系统消息
-      * <p> 示例值：false
-      */
+    /**
+     * 免打扰操作是否发送系统消息
+     * <p> 示例值：false
+     */
     @SerializedName("mute_with_system_message")
     private Boolean muteWithSystemMessage;
+
+    // builder 开始
+    public FeedCardSettingUpdater() {
+    }
+
+    public FeedCardSettingUpdater(Builder builder) {
+        /**
+         * 消息流卡片 ID
+         * <p> 示例值：oc_785fae31552ae88681bc69b4a1550289
+         */
+        this.feedCardId = builder.feedCardId;
+        /**
+         * 标记已读的时间戳
+         * <p> 示例值：1701246710
+         */
+        this.readTimestamp = builder.readTimestamp;
+        /**
+         * 免打扰操作是否发送系统消息
+         * <p> 示例值：false
+         */
+        this.muteWithSystemMessage = builder.muteWithSystemMessage;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getFeedCardId() {
         return this.feedCardId;
     }
@@ -67,90 +98,64 @@ public class FeedCardSettingUpdater {
         this.muteWithSystemMessage = muteWithSystemMessage;
     }
 
-
-// builder 开始
-  public FeedCardSettingUpdater(){}
-
-  public FeedCardSettingUpdater(Builder builder){
-         /**
-          * 消息流卡片 ID
-          * <p> 示例值：oc_785fae31552ae88681bc69b4a1550289
-          */
-      this.feedCardId = builder.feedCardId;
-         /**
-          * 标记已读的时间戳
-          * <p> 示例值：1701246710
-          */
-      this.readTimestamp = builder.readTimestamp;
-         /**
-          * 免打扰操作是否发送系统消息
-          * <p> 示例值：false
-          */
-      this.muteWithSystemMessage = builder.muteWithSystemMessage;
-  }
-
     public static class Builder {
-     /**
-      * 消息流卡片 ID
-      * <p> 示例值：oc_785fae31552ae88681bc69b4a1550289
-      */
+        /**
+         * 消息流卡片 ID
+         * <p> 示例值：oc_785fae31552ae88681bc69b4a1550289
+         */
         private String feedCardId;
-     /**
-      * 标记已读的时间戳
-      * <p> 示例值：1701246710
-      */
+        /**
+         * 标记已读的时间戳
+         * <p> 示例值：1701246710
+         */
         private String readTimestamp;
-     /**
-      * 免打扰操作是否发送系统消息
-      * <p> 示例值：false
-      */
+        /**
+         * 免打扰操作是否发送系统消息
+         * <p> 示例值：false
+         */
         private Boolean muteWithSystemMessage;
 
         /**
          * 消息流卡片 ID
          * <p> 示例值：oc_785fae31552ae88681bc69b4a1550289
+         *
          * @param feedCardId
          * @return
          */
         public Builder feedCardId(String feedCardId) {
-             this.feedCardId = feedCardId;
-             return this;
+            this.feedCardId = feedCardId;
+            return this;
         }
 
-    
 
         /**
          * 标记已读的时间戳
          * <p> 示例值：1701246710
+         *
          * @param readTimestamp
          * @return
          */
         public Builder readTimestamp(String readTimestamp) {
-             this.readTimestamp = readTimestamp;
-             return this;
+            this.readTimestamp = readTimestamp;
+            return this;
         }
 
-    
 
         /**
          * 免打扰操作是否发送系统消息
          * <p> 示例值：false
+         *
          * @param muteWithSystemMessage
          * @return
          */
         public Builder muteWithSystemMessage(Boolean muteWithSystemMessage) {
-             this.muteWithSystemMessage = muteWithSystemMessage;
-             return this;
+            this.muteWithSystemMessage = muteWithSystemMessage;
+            return this;
         }
 
-    
-    
-    public FeedCardSettingUpdater build(){
-        return new FeedCardSettingUpdater(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public FeedCardSettingUpdater build() {
+            return new FeedCardSettingUpdater(this);
+        }
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.admin.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.admin.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class AnnualReportMapFloat {
-     /**
-      * 年份
-      * <p> 示例值：2024
-      */
+    /**
+     * 年份
+     * <p> 示例值：2024
+     */
     @SerializedName("year")
     private String year;
-     /**
-      * float64类型数据
-      * <p> 示例值：88.88
-      */
+    /**
+     * float64类型数据
+     * <p> 示例值：88.88
+     */
     @SerializedName("num")
     private Double num;
+
+    // builder 开始
+    public AnnualReportMapFloat() {
+    }
+
+    public AnnualReportMapFloat(Builder builder) {
+        /**
+         * 年份
+         * <p> 示例值：2024
+         */
+        this.year = builder.year;
+        /**
+         * float64类型数据
+         * <p> 示例值：88.88
+         */
+        this.num = builder.num;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getYear() {
         return this.year;
     }
@@ -53,67 +79,46 @@ public class AnnualReportMapFloat {
         this.num = num;
     }
 
-
-// builder 开始
-  public AnnualReportMapFloat(){}
-
-  public AnnualReportMapFloat(Builder builder){
-         /**
-          * 年份
-          * <p> 示例值：2024
-          */
-      this.year = builder.year;
-         /**
-          * float64类型数据
-          * <p> 示例值：88.88
-          */
-      this.num = builder.num;
-  }
-
     public static class Builder {
-     /**
-      * 年份
-      * <p> 示例值：2024
-      */
+        /**
+         * 年份
+         * <p> 示例值：2024
+         */
         private String year;
-     /**
-      * float64类型数据
-      * <p> 示例值：88.88
-      */
+        /**
+         * float64类型数据
+         * <p> 示例值：88.88
+         */
         private Double num;
 
         /**
          * 年份
          * <p> 示例值：2024
+         *
          * @param year
          * @return
          */
         public Builder year(String year) {
-             this.year = year;
-             return this;
+            this.year = year;
+            return this;
         }
 
-    
 
         /**
          * float64类型数据
          * <p> 示例值：88.88
+         *
          * @param num
          * @return
          */
         public Builder num(Double num) {
-             this.num = num;
-             return this;
+            this.num = num;
+            return this;
         }
 
-    
-    
-    public AnnualReportMapFloat build(){
-        return new AnnualReportMapFloat(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public AnnualReportMapFloat build() {
+            return new AnnualReportMapFloat(this);
+        }
     }
 }

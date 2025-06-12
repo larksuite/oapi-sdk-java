@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class DeletePermissionMemberReqBody {
-     /**
-      * 协作者类型
-      * <p> 示例值：user
-      */
+    /**
+     * 协作者类型
+     * <p> 示例值：user
+     */
     @SerializedName("type")
     private String type;
-     /**
-      * 协作者的权限角色类型
-      * <p> 示例值：container
-      */
+    /**
+     * 协作者的权限角色类型
+     * <p> 示例值：container
+     */
     @SerializedName("perm_type")
     private String permType;
+
+    // builder 开始
+    public DeletePermissionMemberReqBody() {
+    }
+
+    public DeletePermissionMemberReqBody(Builder builder) {
+        /**
+         * 协作者类型
+         * <p> 示例值：user
+         */
+        this.type = builder.type;
+        /**
+         * 协作者的权限角色类型
+         * <p> 示例值：container
+         */
+        this.permType = builder.permType;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getType() {
         return this.type;
     }
@@ -53,87 +79,70 @@ public class DeletePermissionMemberReqBody {
         this.permType = permType;
     }
 
-
-// builder 开始
-  public DeletePermissionMemberReqBody(){}
-
-  public DeletePermissionMemberReqBody(Builder builder){
-         /**
-          * 协作者类型
-          * <p> 示例值：user
-          */
-      this.type = builder.type;
-         /**
-          * 协作者的权限角色类型
-          * <p> 示例值：container
-          */
-      this.permType = builder.permType;
-  }
-
     public static class Builder {
-     /**
-      * 协作者类型
-      * <p> 示例值：user
-      */
+        /**
+         * 协作者类型
+         * <p> 示例值：user
+         */
         private String type;
-     /**
-      * 协作者的权限角色类型
-      * <p> 示例值：container
-      */
+        /**
+         * 协作者的权限角色类型
+         * <p> 示例值：container
+         */
         private String permType;
 
         /**
          * 协作者类型
          * <p> 示例值：user
+         *
          * @param type
          * @return
          */
         public Builder type(String type) {
-             this.type = type;
-             return this;
+            this.type = type;
+            return this;
         }
+
         /**
          * 协作者类型
          * <p> 示例值：user
+         *
          * @param type {@link com.lark.oapi.service.drive.v1.enums.DeletePermissionMemberTypeEnum}
          * @return
          */
         public Builder type(com.lark.oapi.service.drive.v1.enums.DeletePermissionMemberTypeEnum type) {
-             this.type = type.getValue();
-             return this;
+            this.type = type.getValue();
+            return this;
         }
 
-    
 
         /**
          * 协作者的权限角色类型
          * <p> 示例值：container
+         *
          * @param permType
          * @return
          */
         public Builder permType(String permType) {
-             this.permType = permType;
-             return this;
+            this.permType = permType;
+            return this;
         }
+
         /**
          * 协作者的权限角色类型
          * <p> 示例值：container
+         *
          * @param permType {@link com.lark.oapi.service.drive.v1.enums.DeletePermissionMemberPermTypeEnum}
          * @return
          */
         public Builder permType(com.lark.oapi.service.drive.v1.enums.DeletePermissionMemberPermTypeEnum permType) {
-             this.permType = permType.getValue();
-             return this;
+            this.permType = permType.getValue();
+            return this;
         }
 
-    
-    
-    public DeletePermissionMemberReqBody build(){
-        return new DeletePermissionMemberReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public DeletePermissionMemberReqBody build() {
+            return new DeletePermissionMemberReqBody(this);
+        }
     }
 }

@@ -12,32 +12,61 @@
  */
 
 package com.lark.oapi.service.mail.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class UpdateUserMailboxRuleReq {
-     /**
-      * 用户邮箱地址 或 输入me代表当前调用接口用户
-      * <p> 示例值：user@xxx.xx 或 me
-      */
+    /**
+     * 用户邮箱地址 或 输入me代表当前调用接口用户
+     * <p> 示例值：user@xxx.xx 或 me
+     */
     @Path
     @SerializedName("user_mailbox_id")
     private String userMailboxId;
-     /**
-      * 规则 id
-      * <p> 示例值：123123123
-      */
+    /**
+     * 规则 id
+     * <p> 示例值：123123123
+     */
     @Path
     @SerializedName("rule_id")
     private String ruleId;
+    @Body
+    private Rule body;
+
+    // builder 开始
+    public UpdateUserMailboxRuleReq() {
+    }
+
+    public UpdateUserMailboxRuleReq(Builder builder) {
+        /**
+         * 用户邮箱地址 或 输入me代表当前调用接口用户
+         * <p> 示例值：user@xxx.xx 或 me
+         */
+        this.userMailboxId = builder.userMailboxId;
+        /**
+         * 规则 id
+         * <p> 示例值：123123123
+         */
+        this.ruleId = builder.ruleId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getUserMailboxId() {
         return this.userMailboxId;
     }
@@ -54,9 +83,6 @@ public class UpdateUserMailboxRuleReq {
         this.ruleId = ruleId;
     }
 
-    @Body
-    private Rule body;
-
     public Rule getRule() {
         return this.body;
     }
@@ -65,72 +91,53 @@ public class UpdateUserMailboxRuleReq {
         this.body = body;
     }
 
-// builder 开始
-  public UpdateUserMailboxRuleReq(){}
-
-  public UpdateUserMailboxRuleReq(Builder builder){
-     /**
-      * 用户邮箱地址 或 输入me代表当前调用接口用户
-      * <p> 示例值：user@xxx.xx 或 me
-      */
-       this.userMailboxId = builder.userMailboxId;
-     /**
-      * 规则 id
-      * <p> 示例值：123123123
-      */
-       this.ruleId = builder.ruleId;
-        this.body = builder.body;
-  }
-
     public static class Builder {
-    
+
         private String userMailboxId; // 用户邮箱地址 或 输入me代表当前调用接口用户
         private String ruleId; // 规则 id
+        private Rule body;
+
         /**
          * 用户邮箱地址 或 输入me代表当前调用接口用户
          * <p> 示例值：user@xxx.xx 或 me
+         *
          * @param userMailboxId
          * @return
          */
-          public Builder userMailboxId(String userMailboxId) {
-               this.userMailboxId = userMailboxId;
-               return this;
-          }
+        public Builder userMailboxId(String userMailboxId) {
+            this.userMailboxId = userMailboxId;
+            return this;
+        }
 
-    
         /**
          * 规则 id
          * <p> 示例值：123123123
+         *
          * @param ruleId
          * @return
          */
-          public Builder ruleId(String ruleId) {
-               this.ruleId = ruleId;
-               return this;
-          }
+        public Builder ruleId(String ruleId) {
+            this.ruleId = ruleId;
+            return this;
+        }
 
-    
-        private Rule body;
-    
         public Rule getRule() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder rule(Rule body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public UpdateUserMailboxRuleReq build(){
-        return new UpdateUserMailboxRuleReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public UpdateUserMailboxRuleReq build() {
+            return new UpdateUserMailboxRuleReq(this);
+        }
     }
 }

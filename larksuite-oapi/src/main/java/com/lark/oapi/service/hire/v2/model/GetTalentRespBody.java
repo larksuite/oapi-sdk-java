@@ -12,174 +12,179 @@
  */
 
 package com.lark.oapi.service.hire.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class GetTalentRespBody {
-     /**
-      * ID
-      * <p> 示例值：6761694410053798151
-      */
+    /**
+     * ID
+     * <p> 示例值：6761694410053798151
+     */
     @SerializedName("talent_id")
     private String talentId;
-     /**
-      * 基础信息
-      * <p> 示例值：
-      */
+    /**
+     * 基础信息
+     * <p> 示例值：
+     */
     @SerializedName("basic_info")
     private CompositeTalentBasicInfo basicInfo;
-     /**
-      * 教育经历
-      * <p> 示例值：
-      */
+    /**
+     * 教育经历
+     * <p> 示例值：
+     */
     @SerializedName("education_list")
     private CompositeTalentEducationInfo[] educationList;
-     /**
-      * 工作经历
-      * <p> 示例值：
-      */
+    /**
+     * 工作经历
+     * <p> 示例值：
+     */
     @SerializedName("career_list")
     private CompositeTalentCareerInfo[] careerList;
-     /**
-      * 项目经历
-      * <p> 示例值：
-      */
+    /**
+     * 项目经历
+     * <p> 示例值：
+     */
     @SerializedName("project_list")
     private CompositeTalentProjectInfo[] projectList;
-     /**
-      * 作品集
-      * <p> 示例值：
-      */
+    /**
+     * 作品集
+     * <p> 示例值：
+     */
     @SerializedName("works_list")
     private CompositeTalentWorksInfo[] worksList;
-     /**
-      * 获奖列表
-      * <p> 示例值：
-      */
+    /**
+     * 获奖列表
+     * <p> 示例值：
+     */
     @SerializedName("award_list")
     private CompositeTalentAwardInfo[] awardList;
-     /**
-      * 语言列表
-      * <p> 示例值：
-      */
+    /**
+     * 语言列表
+     * <p> 示例值：
+     */
     @SerializedName("language_list")
     private CompositeTalentLanguageInfo[] languageList;
-     /**
-      * SNS列表
-      * <p> 示例值：
-      */
+    /**
+     * SNS列表
+     * <p> 示例值：
+     */
     @SerializedName("sns_list")
     private CompositeTalentSnsInfo[] snsList;
-     /**
-      * 简历来源
-      * <p> 示例值：
-      */
+    /**
+     * 简历来源
+     * <p> 示例值：
+     */
     @SerializedName("resume_source_list")
     private TalentResumeSource[] resumeSourceList;
-     /**
-      * 实习经历
-      * <p> 示例值：
-      */
+    /**
+     * 实习经历
+     * <p> 示例值：
+     */
     @SerializedName("internship_list")
     private CompositeTalentInternshipInfo[] internshipList;
-     /**
-      * 自定义字段
-      * <p> 示例值：
-      */
+    /**
+     * 自定义字段
+     * <p> 示例值：
+     */
     @SerializedName("customized_data_list")
     private CompositeTalentCustomizedData[] customizedDataList;
-     /**
-      * 简历附件id列表（按照简历创建时间降序）（废弃，请使用resume_attachment_list代替）
-      * <p> 示例值：
-      */
+    /**
+     * 简历附件id列表（按照简历创建时间降序）（废弃，请使用resume_attachment_list代替）
+     * <p> 示例值：
+     */
     @SerializedName("resume_attachment_id_list")
     private String[] resumeAttachmentIdList;
-     /**
-      * 简历附件列表（按照简历创建时间降序）
-      * <p> 示例值：
-      */
+    /**
+     * 简历附件列表（按照简历创建时间降序）
+     * <p> 示例值：
+     */
     @SerializedName("resume_attachment_list")
     private TalentResumeAttachment[] resumeAttachmentList;
-     /**
-      * 面试登记表
-      * <p> 示例值：
-      */
+    /**
+     * 面试登记表
+     * <p> 示例值：
+     */
     @SerializedName("interview_registration_list")
     private TalentInterviewRegistrationSimple[] interviewRegistrationList;
-     /**
-      * 登记表列表
-      * <p> 示例值：
-      */
+    /**
+     * 登记表列表
+     * <p> 示例值：
+     */
     @SerializedName("registration_list")
     private RegistrationBasicInfo[] registrationList;
-     /**
-      * 是否已入职
-      * <p> 示例值：true
-      */
+    /**
+     * 是否已入职
+     * <p> 示例值：true
+     */
     @SerializedName("is_onboarded")
     private Boolean isOnboarded;
-     /**
-      * 是否在猎头保护期
-      * <p> 示例值：true
-      */
+    /**
+     * 是否在猎头保护期
+     * <p> 示例值：true
+     */
     @SerializedName("is_in_agency_period")
     private Boolean isInAgencyPeriod;
-     /**
-      * 最高学历 参考 DegreeType 枚举
-      * <p> 示例值：1
-      */
+    /**
+     * 最高学历 参考 DegreeType 枚举
+     * <p> 示例值：1
+     */
     @SerializedName("top_degree")
     private Integer topDegree;
-     /**
-      * 人才已加入的人才库列表
-      * <p> 示例值：
-      */
+    /**
+     * 人才已加入的人才库列表
+     * <p> 示例值：
+     */
     @SerializedName("talent_pool_id_list")
     private String[] talentPoolIdList;
-     /**
-      * 文件夹列表
-      * <p> 示例值：
-      */
+    /**
+     * 文件夹列表
+     * <p> 示例值：
+     */
     @SerializedName("talent_folder_ref_list_v2")
     private TalentFolder[] talentFolderRefListV2;
-     /**
-      * 标签列表
-      * <p> 示例值：
-      */
+    /**
+     * 标签列表
+     * <p> 示例值：
+     */
     @SerializedName("tag_list")
     private TalentTag[] tagList;
-     /**
-      * 相似人才信息
-      * <p> 示例值：
-      */
+    /**
+     * 相似人才信息
+     * <p> 示例值：
+     */
     @SerializedName("similar_info_v2")
     private TalentSimilar similarInfoV2;
-     /**
-      * 人才黑名单详情
-      * <p> 示例值：
-      */
+    /**
+     * 人才黑名单详情
+     * <p> 示例值：
+     */
     @SerializedName("block_info")
     private TalentBlock blockInfo;
-     /**
-      * 人才已经加入的人才库列表
-      * <p> 示例值：
-      */
+    /**
+     * 人才已经加入的人才库列表
+     * <p> 示例值：
+     */
     @SerializedName("talent_pool_ref_list_v2")
     private TalentPool[] talentPoolRefListV2;
-     /**
-      * 备注列表
-      * <p> 示例值：
-      */
+    /**
+     * 备注列表
+     * <p> 示例值：
+     */
     @SerializedName("note_list_v2")
     private TalentNote[] noteListV2;
+
     public String getTalentId() {
         return this.talentId;
     }

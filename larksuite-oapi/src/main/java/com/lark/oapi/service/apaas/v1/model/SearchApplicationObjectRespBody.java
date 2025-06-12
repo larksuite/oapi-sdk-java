@@ -12,42 +12,47 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class SearchApplicationObjectRespBody {
-     /**
-      * 搜索结果列表
-      * <p> 示例值：[]
-      */
+    /**
+     * 搜索结果列表
+     * <p> 示例值：[]
+     */
     @SerializedName("records")
     private String records;
-     /**
-      * 是否还有更多数据
-      * <p> 示例值：
-      */
+    /**
+     * 是否还有更多数据
+     * <p> 示例值：
+     */
     @SerializedName("has_more")
     private Boolean hasMore;
-     /**
-      * 分页标记，当 HasMore 为 true 时，会同时返回新的 NextPageToken
-      * <p> 示例值：eyJvYmplY3RzX3BhZ2VfdG9rZW4iOlt7Im9ial9pZCI6MTc2OTI4NzM5M
-      */
+    /**
+     * 分页标记，当 HasMore 为 true 时，会同时返回新的 NextPageToken
+     * <p> 示例值：eyJvYmplY3RzX3BhZ2VfdG9rZW4iOlt7Im9ial9pZCI6MTc2OTI4NzM5M
+     */
     @SerializedName("next_page_token")
     private String nextPageToken;
-     /**
-      * 对象信息
-      * <p> 示例值：
-      */
+    /**
+     * 对象信息
+     * <p> 示例值：
+     */
     @SerializedName("objects")
     private ObjectMeta[] objects;
+
     public String getRecords() {
         return this.records;
     }

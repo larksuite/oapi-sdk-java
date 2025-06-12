@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.contact.v3.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class OldDepartmentObject {
-     /**
-      * 部门状态
-      * <p> 示例值：
-      */
+    /**
+     * 部门状态
+     * <p> 示例值：
+     */
     @SerializedName("status")
     private DepartmentStatus status;
-     /**
-      * 部门open_id
-      * <p> 示例值：od-xxxxxxxx
-      */
+    /**
+     * 部门open_id
+     * <p> 示例值：od-xxxxxxxx
+     */
     @SerializedName("open_department_id")
     private String openDepartmentId;
+
+    // builder 开始
+    public OldDepartmentObject() {
+    }
+
+    public OldDepartmentObject(Builder builder) {
+        /**
+         * 部门状态
+         * <p> 示例值：
+         */
+        this.status = builder.status;
+        /**
+         * 部门open_id
+         * <p> 示例值：od-xxxxxxxx
+         */
+        this.openDepartmentId = builder.openDepartmentId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public DepartmentStatus getStatus() {
         return this.status;
     }
@@ -53,67 +79,46 @@ public class OldDepartmentObject {
         this.openDepartmentId = openDepartmentId;
     }
 
-
-// builder 开始
-  public OldDepartmentObject(){}
-
-  public OldDepartmentObject(Builder builder){
-         /**
-          * 部门状态
-          * <p> 示例值：
-          */
-      this.status = builder.status;
-         /**
-          * 部门open_id
-          * <p> 示例值：od-xxxxxxxx
-          */
-      this.openDepartmentId = builder.openDepartmentId;
-  }
-
     public static class Builder {
-     /**
-      * 部门状态
-      * <p> 示例值：
-      */
+        /**
+         * 部门状态
+         * <p> 示例值：
+         */
         private DepartmentStatus status;
-     /**
-      * 部门open_id
-      * <p> 示例值：od-xxxxxxxx
-      */
+        /**
+         * 部门open_id
+         * <p> 示例值：od-xxxxxxxx
+         */
         private String openDepartmentId;
 
         /**
          * 部门状态
          * <p> 示例值：
+         *
          * @param status
          * @return
          */
         public Builder status(DepartmentStatus status) {
-             this.status = status;
-             return this;
+            this.status = status;
+            return this;
         }
 
-    
 
         /**
          * 部门open_id
          * <p> 示例值：od-xxxxxxxx
+         *
          * @param openDepartmentId
          * @return
          */
         public Builder openDepartmentId(String openDepartmentId) {
-             this.openDepartmentId = openDepartmentId;
-             return this;
+            this.openDepartmentId = openDepartmentId;
+            return this;
         }
 
-    
-    
-    public OldDepartmentObject build(){
-        return new OldDepartmentObject(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public OldDepartmentObject build() {
+            return new OldDepartmentObject(this);
+        }
     }
 }

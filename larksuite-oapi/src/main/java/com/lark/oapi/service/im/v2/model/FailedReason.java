@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.im.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class FailedReason {
-     /**
-      * 错误码
-      * <p> 示例值：0
-      */
+    /**
+     * 错误码
+     * <p> 示例值：0
+     */
     @SerializedName("error_code")
     private Integer errorCode;
-     /**
-      * 错误信息
-      * <p> 示例值：The user is not in the chat
-      */
+    /**
+     * 错误信息
+     * <p> 示例值：The user is not in the chat
+     */
     @SerializedName("error_message")
     private String errorMessage;
-     /**
-      * 用户id
-      * <p> 示例值：ou_679eaeb583654bff73fefcc6e6371301
-      */
+    /**
+     * 用户id
+     * <p> 示例值：ou_679eaeb583654bff73fefcc6e6371301
+     */
     @SerializedName("user_id")
     private String userId;
+
+    // builder 开始
+    public FailedReason() {
+    }
+
+    public FailedReason(Builder builder) {
+        /**
+         * 错误码
+         * <p> 示例值：0
+         */
+        this.errorCode = builder.errorCode;
+        /**
+         * 错误信息
+         * <p> 示例值：The user is not in the chat
+         */
+        this.errorMessage = builder.errorMessage;
+        /**
+         * 用户id
+         * <p> 示例值：ou_679eaeb583654bff73fefcc6e6371301
+         */
+        this.userId = builder.userId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Integer getErrorCode() {
         return this.errorCode;
     }
@@ -67,90 +98,64 @@ public class FailedReason {
         this.userId = userId;
     }
 
-
-// builder 开始
-  public FailedReason(){}
-
-  public FailedReason(Builder builder){
-         /**
-          * 错误码
-          * <p> 示例值：0
-          */
-      this.errorCode = builder.errorCode;
-         /**
-          * 错误信息
-          * <p> 示例值：The user is not in the chat
-          */
-      this.errorMessage = builder.errorMessage;
-         /**
-          * 用户id
-          * <p> 示例值：ou_679eaeb583654bff73fefcc6e6371301
-          */
-      this.userId = builder.userId;
-  }
-
     public static class Builder {
-     /**
-      * 错误码
-      * <p> 示例值：0
-      */
+        /**
+         * 错误码
+         * <p> 示例值：0
+         */
         private Integer errorCode;
-     /**
-      * 错误信息
-      * <p> 示例值：The user is not in the chat
-      */
+        /**
+         * 错误信息
+         * <p> 示例值：The user is not in the chat
+         */
         private String errorMessage;
-     /**
-      * 用户id
-      * <p> 示例值：ou_679eaeb583654bff73fefcc6e6371301
-      */
+        /**
+         * 用户id
+         * <p> 示例值：ou_679eaeb583654bff73fefcc6e6371301
+         */
         private String userId;
 
         /**
          * 错误码
          * <p> 示例值：0
+         *
          * @param errorCode
          * @return
          */
         public Builder errorCode(Integer errorCode) {
-             this.errorCode = errorCode;
-             return this;
+            this.errorCode = errorCode;
+            return this;
         }
 
-    
 
         /**
          * 错误信息
          * <p> 示例值：The user is not in the chat
+         *
          * @param errorMessage
          * @return
          */
         public Builder errorMessage(String errorMessage) {
-             this.errorMessage = errorMessage;
-             return this;
+            this.errorMessage = errorMessage;
+            return this;
         }
 
-    
 
         /**
          * 用户id
          * <p> 示例值：ou_679eaeb583654bff73fefcc6e6371301
+         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-             this.userId = userId;
-             return this;
+            this.userId = userId;
+            return this;
         }
 
-    
-    
-    public FailedReason build(){
-        return new FailedReason(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public FailedReason build() {
+            return new FailedReason(this);
+        }
     }
 }

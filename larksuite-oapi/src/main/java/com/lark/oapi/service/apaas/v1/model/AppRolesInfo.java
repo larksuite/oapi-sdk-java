@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,36 +20,71 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class AppRolesInfo {
-     /**
-      *   aPaaS 产品应用管理员的 ID
-      * <p> 示例值：
-      */
+    /**
+     * aPaaS 产品应用管理员的 ID
+     * <p> 示例值：
+     */
     @SerializedName("admins")
     private Integer[] admins;
-     /**
-      *   aPaaS 产品应用开发者的 ID
-      * <p> 示例值：
-      */
+    /**
+     * aPaaS 产品应用开发者的 ID
+     * <p> 示例值：
+     */
     @SerializedName("developers")
     private Integer[] developers;
-     /**
-      * aPaaS 产品应用测试人员的 ID
-      * <p> 示例值：
-      */
+    /**
+     * aPaaS 产品应用测试人员的 ID
+     * <p> 示例值：
+     */
     @SerializedName("test_users")
     private Integer[] testUsers;
-     /**
-      * aPaaS 产品应用数据管理员的 ID
-      * <p> 示例值：
-      */
+    /**
+     * aPaaS 产品应用数据管理员的 ID
+     * <p> 示例值：
+     */
     @SerializedName("data_admins")
     private Integer[] dataAdmins;
+
+    // builder 开始
+    public AppRolesInfo() {
+    }
+
+    public AppRolesInfo(Builder builder) {
+        /**
+         *   aPaaS 产品应用管理员的 ID
+         * <p> 示例值：
+         */
+        this.admins = builder.admins;
+        /**
+         *   aPaaS 产品应用开发者的 ID
+         * <p> 示例值：
+         */
+        this.developers = builder.developers;
+        /**
+         * aPaaS 产品应用测试人员的 ID
+         * <p> 示例值：
+         */
+        this.testUsers = builder.testUsers;
+        /**
+         * aPaaS 产品应用数据管理员的 ID
+         * <p> 示例值：
+         */
+        this.dataAdmins = builder.dataAdmins;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Integer[] getAdmins() {
         return this.admins;
     }
@@ -81,113 +117,82 @@ public class AppRolesInfo {
         this.dataAdmins = dataAdmins;
     }
 
-
-// builder 开始
-  public AppRolesInfo(){}
-
-  public AppRolesInfo(Builder builder){
-         /**
-          *   aPaaS 产品应用管理员的 ID
-          * <p> 示例值：
-          */
-      this.admins = builder.admins;
-         /**
-          *   aPaaS 产品应用开发者的 ID
-          * <p> 示例值：
-          */
-      this.developers = builder.developers;
-         /**
-          * aPaaS 产品应用测试人员的 ID
-          * <p> 示例值：
-          */
-      this.testUsers = builder.testUsers;
-         /**
-          * aPaaS 产品应用数据管理员的 ID
-          * <p> 示例值：
-          */
-      this.dataAdmins = builder.dataAdmins;
-  }
-
     public static class Builder {
-     /**
-      *   aPaaS 产品应用管理员的 ID
-      * <p> 示例值：
-      */
+        /**
+         * aPaaS 产品应用管理员的 ID
+         * <p> 示例值：
+         */
         private Integer[] admins;
-     /**
-      *   aPaaS 产品应用开发者的 ID
-      * <p> 示例值：
-      */
+        /**
+         * aPaaS 产品应用开发者的 ID
+         * <p> 示例值：
+         */
         private Integer[] developers;
-     /**
-      * aPaaS 产品应用测试人员的 ID
-      * <p> 示例值：
-      */
+        /**
+         * aPaaS 产品应用测试人员的 ID
+         * <p> 示例值：
+         */
         private Integer[] testUsers;
-     /**
-      * aPaaS 产品应用数据管理员的 ID
-      * <p> 示例值：
-      */
+        /**
+         * aPaaS 产品应用数据管理员的 ID
+         * <p> 示例值：
+         */
         private Integer[] dataAdmins;
 
         /**
-         *   aPaaS 产品应用管理员的 ID
+         * aPaaS 产品应用管理员的 ID
          * <p> 示例值：
+         *
          * @param admins
          * @return
          */
         public Builder admins(Integer[] admins) {
-             this.admins = admins;
-             return this;
+            this.admins = admins;
+            return this;
         }
 
-    
 
         /**
-         *   aPaaS 产品应用开发者的 ID
+         * aPaaS 产品应用开发者的 ID
          * <p> 示例值：
+         *
          * @param developers
          * @return
          */
         public Builder developers(Integer[] developers) {
-             this.developers = developers;
-             return this;
+            this.developers = developers;
+            return this;
         }
 
-    
 
         /**
          * aPaaS 产品应用测试人员的 ID
          * <p> 示例值：
+         *
          * @param testUsers
          * @return
          */
         public Builder testUsers(Integer[] testUsers) {
-             this.testUsers = testUsers;
-             return this;
+            this.testUsers = testUsers;
+            return this;
         }
 
-    
 
         /**
          * aPaaS 产品应用数据管理员的 ID
          * <p> 示例值：
+         *
          * @param dataAdmins
          * @return
          */
         public Builder dataAdmins(Integer[] dataAdmins) {
-             this.dataAdmins = dataAdmins;
-             return this;
+            this.dataAdmins = dataAdmins;
+            return this;
         }
 
-    
-    
-    public AppRolesInfo build(){
-        return new AppRolesInfo(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public AppRolesInfo build() {
+            return new AppRolesInfo(this);
+        }
     }
 }

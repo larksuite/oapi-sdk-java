@@ -17,16 +17,17 @@ package com.lark.oapi.service.sheets.v3.enums;
  * 水平对齐策略
  */
 public enum AlignmentStyleHorizontalAlignmentEnum {
-     LEFT("Left"), // 左对齐
-     CENTER("Center"), // 中心对齐
-     RIGHT("Right"), // 右对齐
-  ;
-   private String value;
+    LEFT("Left"), // 左对齐
+    CENTER("Center"), // 中心对齐
+    RIGHT("Right"), // 右对齐
+    ;
+    private String value;
+
     AlignmentStyleHorizontalAlignmentEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

@@ -17,15 +17,16 @@ package com.lark.oapi.service.security_and_compliance.v1.enums;
  * 服务状态
  */
 public enum TenantThirdPartyEncryptionAppStatusEnum {
-     OPEN(1), // 开启
-     CLOSED(0), // 关闭
-  ;
-   private Integer value;
+    OPEN(1), // 开启
+    CLOSED(0), // 关闭
+    ;
+    private Integer value;
+
     TenantThirdPartyEncryptionAppStatusEnum(Integer value) {
-      this.value = value;
+        this.value = value;
     }
 
     public Integer getValue() {
-      return this.value;
+        return this.value;
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.docx.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.docx.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,36 +20,71 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Callout {
-     /**
-      * 高亮块背景色
-      * <p> 示例值：1
-      */
+    /**
+     * 高亮块背景色
+     * <p> 示例值：1
+     */
     @SerializedName("background_color")
     private Integer backgroundColor;
-     /**
-      * 边框色
-      * <p> 示例值：1
-      */
+    /**
+     * 边框色
+     * <p> 示例值：1
+     */
     @SerializedName("border_color")
     private Integer borderColor;
-     /**
-      * 文字颜色
-      * <p> 示例值：1
-      */
+    /**
+     * 文字颜色
+     * <p> 示例值：1
+     */
     @SerializedName("text_color")
     private Integer textColor;
-     /**
-      * 高亮块图标
-      * <p> 示例值：pushpin
-      */
+    /**
+     * 高亮块图标
+     * <p> 示例值：pushpin
+     */
     @SerializedName("emoji_id")
     private String emojiId;
+
+    // builder 开始
+    public Callout() {
+    }
+
+    public Callout(Builder builder) {
+        /**
+         * 高亮块背景色
+         * <p> 示例值：1
+         */
+        this.backgroundColor = builder.backgroundColor;
+        /**
+         * 边框色
+         * <p> 示例值：1
+         */
+        this.borderColor = builder.borderColor;
+        /**
+         * 文字颜色
+         * <p> 示例值：1
+         */
+        this.textColor = builder.textColor;
+        /**
+         * 高亮块图标
+         * <p> 示例值：pushpin
+         */
+        this.emojiId = builder.emojiId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Integer getBackgroundColor() {
         return this.backgroundColor;
     }
@@ -81,143 +117,118 @@ public class Callout {
         this.emojiId = emojiId;
     }
 
-
-// builder 开始
-  public Callout(){}
-
-  public Callout(Builder builder){
-         /**
-          * 高亮块背景色
-          * <p> 示例值：1
-          */
-      this.backgroundColor = builder.backgroundColor;
-         /**
-          * 边框色
-          * <p> 示例值：1
-          */
-      this.borderColor = builder.borderColor;
-         /**
-          * 文字颜色
-          * <p> 示例值：1
-          */
-      this.textColor = builder.textColor;
-         /**
-          * 高亮块图标
-          * <p> 示例值：pushpin
-          */
-      this.emojiId = builder.emojiId;
-  }
-
     public static class Builder {
-     /**
-      * 高亮块背景色
-      * <p> 示例值：1
-      */
+        /**
+         * 高亮块背景色
+         * <p> 示例值：1
+         */
         private Integer backgroundColor;
-     /**
-      * 边框色
-      * <p> 示例值：1
-      */
+        /**
+         * 边框色
+         * <p> 示例值：1
+         */
         private Integer borderColor;
-     /**
-      * 文字颜色
-      * <p> 示例值：1
-      */
+        /**
+         * 文字颜色
+         * <p> 示例值：1
+         */
         private Integer textColor;
-     /**
-      * 高亮块图标
-      * <p> 示例值：pushpin
-      */
+        /**
+         * 高亮块图标
+         * <p> 示例值：pushpin
+         */
         private String emojiId;
 
         /**
          * 高亮块背景色
          * <p> 示例值：1
+         *
          * @param backgroundColor
          * @return
          */
         public Builder backgroundColor(Integer backgroundColor) {
-             this.backgroundColor = backgroundColor;
-             return this;
+            this.backgroundColor = backgroundColor;
+            return this;
         }
+
         /**
          * 高亮块背景色
          * <p> 示例值：1
+         *
          * @param backgroundColor {@link com.lark.oapi.service.docx.v1.enums.CalloutCalloutBackgroundColorEnum}
          * @return
          */
         public Builder backgroundColor(com.lark.oapi.service.docx.v1.enums.CalloutCalloutBackgroundColorEnum backgroundColor) {
-             this.backgroundColor = backgroundColor.getValue();
-             return this;
+            this.backgroundColor = backgroundColor.getValue();
+            return this;
         }
 
-    
 
         /**
          * 边框色
          * <p> 示例值：1
+         *
          * @param borderColor
          * @return
          */
         public Builder borderColor(Integer borderColor) {
-             this.borderColor = borderColor;
-             return this;
+            this.borderColor = borderColor;
+            return this;
         }
+
         /**
          * 边框色
          * <p> 示例值：1
+         *
          * @param borderColor {@link com.lark.oapi.service.docx.v1.enums.CalloutCalloutBorderColorEnum}
          * @return
          */
         public Builder borderColor(com.lark.oapi.service.docx.v1.enums.CalloutCalloutBorderColorEnum borderColor) {
-             this.borderColor = borderColor.getValue();
-             return this;
+            this.borderColor = borderColor.getValue();
+            return this;
         }
 
-    
 
         /**
          * 文字颜色
          * <p> 示例值：1
+         *
          * @param textColor
          * @return
          */
         public Builder textColor(Integer textColor) {
-             this.textColor = textColor;
-             return this;
+            this.textColor = textColor;
+            return this;
         }
+
         /**
          * 文字颜色
          * <p> 示例值：1
+         *
          * @param textColor {@link com.lark.oapi.service.docx.v1.enums.CalloutFontColorEnum}
          * @return
          */
         public Builder textColor(com.lark.oapi.service.docx.v1.enums.CalloutFontColorEnum textColor) {
-             this.textColor = textColor.getValue();
-             return this;
+            this.textColor = textColor.getValue();
+            return this;
         }
 
-    
 
         /**
          * 高亮块图标
          * <p> 示例值：pushpin
+         *
          * @param emojiId
          * @return
          */
         public Builder emojiId(String emojiId) {
-             this.emojiId = emojiId;
-             return this;
+            this.emojiId = emojiId;
+            return this;
         }
 
-    
-    
-    public Callout build(){
-        return new Callout(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Callout build() {
+            return new Callout(this);
+        }
     }
 }

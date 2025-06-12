@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.payroll.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.payroll.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,42 +20,82 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class PaymentAccountingItem {
-     /**
-      * 算薪项唯一标识
-      * <p> 示例值：7202076988667019308
-      */
+    /**
+     * 算薪项唯一标识
+     * <p> 示例值：7202076988667019308
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 算薪项名称
-      * <p> 示例值：
-      */
+    /**
+     * 算薪项名称
+     * <p> 示例值：
+     */
     @SerializedName("accounting_item_names")
     private I18nContent[] accountingItemNames;
-     /**
-      * 算薪项值
-      * <p> 示例值：
-      */
+    /**
+     * 算薪项值
+     * <p> 示例值：
+     */
     @SerializedName("accounting_item_value")
     private AccountingItemValue accountingItemValue;
-     /**
-      * 算薪项分段数据
-      * <p> 示例值：
-      */
+    /**
+     * 算薪项分段数据
+     * <p> 示例值：
+     */
     @SerializedName("segment_values")
     private SegmentValue[] segmentValues;
-     /**
-      * 算薪项类型，1-文本；2-金额；3-数值；4-百分比；5-日期；6-引用
-      * <p> 示例值：1
-      */
+    /**
+     * 算薪项类型，1-文本；2-金额；3-数值；4-百分比；5-日期；6-引用
+     * <p> 示例值：1
+     */
     @SerializedName("accounting_item_type")
     private Integer accountingItemType;
+
+    // builder 开始
+    public PaymentAccountingItem() {
+    }
+
+    public PaymentAccountingItem(Builder builder) {
+        /**
+         * 算薪项唯一标识
+         * <p> 示例值：7202076988667019308
+         */
+        this.id = builder.id;
+        /**
+         * 算薪项名称
+         * <p> 示例值：
+         */
+        this.accountingItemNames = builder.accountingItemNames;
+        /**
+         * 算薪项值
+         * <p> 示例值：
+         */
+        this.accountingItemValue = builder.accountingItemValue;
+        /**
+         * 算薪项分段数据
+         * <p> 示例值：
+         */
+        this.segmentValues = builder.segmentValues;
+        /**
+         * 算薪项类型，1-文本；2-金额；3-数值；4-百分比；5-日期；6-引用
+         * <p> 示例值：1
+         */
+        this.accountingItemType = builder.accountingItemType;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -95,136 +136,100 @@ public class PaymentAccountingItem {
         this.accountingItemType = accountingItemType;
     }
 
-
-// builder 开始
-  public PaymentAccountingItem(){}
-
-  public PaymentAccountingItem(Builder builder){
-         /**
-          * 算薪项唯一标识
-          * <p> 示例值：7202076988667019308
-          */
-      this.id = builder.id;
-         /**
-          * 算薪项名称
-          * <p> 示例值：
-          */
-      this.accountingItemNames = builder.accountingItemNames;
-         /**
-          * 算薪项值
-          * <p> 示例值：
-          */
-      this.accountingItemValue = builder.accountingItemValue;
-         /**
-          * 算薪项分段数据
-          * <p> 示例值：
-          */
-      this.segmentValues = builder.segmentValues;
-         /**
-          * 算薪项类型，1-文本；2-金额；3-数值；4-百分比；5-日期；6-引用
-          * <p> 示例值：1
-          */
-      this.accountingItemType = builder.accountingItemType;
-  }
-
     public static class Builder {
-     /**
-      * 算薪项唯一标识
-      * <p> 示例值：7202076988667019308
-      */
+        /**
+         * 算薪项唯一标识
+         * <p> 示例值：7202076988667019308
+         */
         private String id;
-     /**
-      * 算薪项名称
-      * <p> 示例值：
-      */
+        /**
+         * 算薪项名称
+         * <p> 示例值：
+         */
         private I18nContent[] accountingItemNames;
-     /**
-      * 算薪项值
-      * <p> 示例值：
-      */
+        /**
+         * 算薪项值
+         * <p> 示例值：
+         */
         private AccountingItemValue accountingItemValue;
-     /**
-      * 算薪项分段数据
-      * <p> 示例值：
-      */
+        /**
+         * 算薪项分段数据
+         * <p> 示例值：
+         */
         private SegmentValue[] segmentValues;
-     /**
-      * 算薪项类型，1-文本；2-金额；3-数值；4-百分比；5-日期；6-引用
-      * <p> 示例值：1
-      */
+        /**
+         * 算薪项类型，1-文本；2-金额；3-数值；4-百分比；5-日期；6-引用
+         * <p> 示例值：1
+         */
         private Integer accountingItemType;
 
         /**
          * 算薪项唯一标识
          * <p> 示例值：7202076988667019308
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 算薪项名称
          * <p> 示例值：
+         *
          * @param accountingItemNames
          * @return
          */
         public Builder accountingItemNames(I18nContent[] accountingItemNames) {
-             this.accountingItemNames = accountingItemNames;
-             return this;
+            this.accountingItemNames = accountingItemNames;
+            return this;
         }
 
-    
 
         /**
          * 算薪项值
          * <p> 示例值：
+         *
          * @param accountingItemValue
          * @return
          */
         public Builder accountingItemValue(AccountingItemValue accountingItemValue) {
-             this.accountingItemValue = accountingItemValue;
-             return this;
+            this.accountingItemValue = accountingItemValue;
+            return this;
         }
 
-    
 
         /**
          * 算薪项分段数据
          * <p> 示例值：
+         *
          * @param segmentValues
          * @return
          */
         public Builder segmentValues(SegmentValue[] segmentValues) {
-             this.segmentValues = segmentValues;
-             return this;
+            this.segmentValues = segmentValues;
+            return this;
         }
 
-    
 
         /**
          * 算薪项类型，1-文本；2-金额；3-数值；4-百分比；5-日期；6-引用
          * <p> 示例值：1
+         *
          * @param accountingItemType
          * @return
          */
         public Builder accountingItemType(Integer accountingItemType) {
-             this.accountingItemType = accountingItemType;
-             return this;
+            this.accountingItemType = accountingItemType;
+            return this;
         }
 
-    
-    
-    public PaymentAccountingItem build(){
-        return new PaymentAccountingItem(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public PaymentAccountingItem build() {
+            return new PaymentAccountingItem(this);
+        }
     }
 }

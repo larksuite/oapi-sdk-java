@@ -12,25 +12,46 @@
  */
 
 package com.lark.oapi.service.task.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.task.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class DeleteTaskReq {
-     /**
-      * 要删除的任务guid
-      * <p> 示例值：e297ddff-06ca-4166-b917-4ce57cd3a7a0
-      */
+    /**
+     * 要删除的任务guid
+     * <p> 示例值：e297ddff-06ca-4166-b917-4ce57cd3a7a0
+     */
     @Path
     @SerializedName("task_guid")
     private String taskGuid;
+
+    // builder 开始
+    public DeleteTaskReq() {
+    }
+
+    public DeleteTaskReq(Builder builder) {
+        /**
+         * 要删除的任务guid
+         * <p> 示例值：e297ddff-06ca-4166-b917-4ce57cd3a7a0
+         */
+        this.taskGuid = builder.taskGuid;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getTaskGuid() {
         return this.taskGuid;
     }
@@ -39,39 +60,25 @@ public class DeleteTaskReq {
         this.taskGuid = taskGuid;
     }
 
-
-// builder 开始
-  public DeleteTaskReq(){}
-
-  public DeleteTaskReq(Builder builder){
-     /**
-      * 要删除的任务guid
-      * <p> 示例值：e297ddff-06ca-4166-b917-4ce57cd3a7a0
-      */
-       this.taskGuid = builder.taskGuid;
-  }
-
     public static class Builder {
-    
+
         private String taskGuid; // 要删除的任务guid
+
         /**
          * 要删除的任务guid
          * <p> 示例值：e297ddff-06ca-4166-b917-4ce57cd3a7a0
+         *
          * @param taskGuid
          * @return
          */
-          public Builder taskGuid(String taskGuid) {
-               this.taskGuid = taskGuid;
-               return this;
-          }
+        public Builder taskGuid(String taskGuid) {
+            this.taskGuid = taskGuid;
+            return this;
+        }
 
-    
-    public DeleteTaskReq build(){
-        return new DeleteTaskReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public DeleteTaskReq build() {
+            return new DeleteTaskReq(this);
+        }
     }
 }

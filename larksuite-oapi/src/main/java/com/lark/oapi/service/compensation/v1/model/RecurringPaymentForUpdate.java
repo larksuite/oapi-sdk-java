@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.compensation.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.compensation.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,60 +20,115 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class RecurringPaymentForUpdate {
-     /**
-      * 经常性支付记录id
-      * <p> 示例值：7397033607132351532
-      */
+    /**
+     * 经常性支付记录id
+     * <p> 示例值：7397033607132351532
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 每次发放金额
-      * <p> 示例值：10.00
-      */
+    /**
+     * 每次发放金额
+     * <p> 示例值：10.00
+     */
     @SerializedName("each_amount")
     private String eachAmount;
-     /**
-      * 发放开始时间
-      * <p> 示例值：2024-10-20
-      */
+    /**
+     * 发放开始时间
+     * <p> 示例值：2024-10-20
+     */
     @SerializedName("start_date")
     private String startDate;
-     /**
-      * 发放结束时间
-      * <p> 示例值：2025-03-20
-      */
+    /**
+     * 发放结束时间
+     * <p> 示例值：2025-03-20
+     */
     @SerializedName("end_date")
     private String endDate;
-     /**
-      * 币种id
-      * <p> 示例值：6863329932261459464
-      */
+    /**
+     * 币种id
+     * <p> 示例值：6863329932261459464
+     */
     @SerializedName("currency_id")
     private String currencyId;
-     /**
-      * 发放方式
-      * <p> 示例值：with_salary
-      */
+    /**
+     * 发放方式
+     * <p> 示例值：with_salary
+     */
     @SerializedName("issuance_type")
     private String issuanceType;
-     /**
-      * 原因
-      * <p> 示例值：这是个备注
-      */
+    /**
+     * 原因
+     * <p> 示例值：这是个备注
+     */
     @SerializedName("remark")
     private String remark;
-     /**
-      * 发放国家id（可通过 https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search进行查询）
-      * <p> 示例值：6862995745046267400
-      */
+    /**
+     * 发放国家id（可通过 https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search进行查询）
+     * <p> 示例值：6862995745046267400
+     */
     @SerializedName("issuance_country_region_id")
     private String issuanceCountryRegionId;
+
+    // builder 开始
+    public RecurringPaymentForUpdate() {
+    }
+
+    public RecurringPaymentForUpdate(Builder builder) {
+        /**
+         * 经常性支付记录id
+         * <p> 示例值：7397033607132351532
+         */
+        this.id = builder.id;
+        /**
+         * 每次发放金额
+         * <p> 示例值：10.00
+         */
+        this.eachAmount = builder.eachAmount;
+        /**
+         * 发放开始时间
+         * <p> 示例值：2024-10-20
+         */
+        this.startDate = builder.startDate;
+        /**
+         * 发放结束时间
+         * <p> 示例值：2025-03-20
+         */
+        this.endDate = builder.endDate;
+        /**
+         * 币种id
+         * <p> 示例值：6863329932261459464
+         */
+        this.currencyId = builder.currencyId;
+        /**
+         * 发放方式
+         * <p> 示例值：with_salary
+         */
+        this.issuanceType = builder.issuanceType;
+        /**
+         * 原因
+         * <p> 示例值：这是个备注
+         */
+        this.remark = builder.remark;
+        /**
+         * 发放国家id（可通过 https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search进行查询）
+         * <p> 示例值：6862995745046267400
+         */
+        this.issuanceCountryRegionId = builder.issuanceCountryRegionId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -137,215 +193,166 @@ public class RecurringPaymentForUpdate {
         this.issuanceCountryRegionId = issuanceCountryRegionId;
     }
 
-
-// builder 开始
-  public RecurringPaymentForUpdate(){}
-
-  public RecurringPaymentForUpdate(Builder builder){
-         /**
-          * 经常性支付记录id
-          * <p> 示例值：7397033607132351532
-          */
-      this.id = builder.id;
-         /**
-          * 每次发放金额
-          * <p> 示例值：10.00
-          */
-      this.eachAmount = builder.eachAmount;
-         /**
-          * 发放开始时间
-          * <p> 示例值：2024-10-20
-          */
-      this.startDate = builder.startDate;
-         /**
-          * 发放结束时间
-          * <p> 示例值：2025-03-20
-          */
-      this.endDate = builder.endDate;
-         /**
-          * 币种id
-          * <p> 示例值：6863329932261459464
-          */
-      this.currencyId = builder.currencyId;
-         /**
-          * 发放方式
-          * <p> 示例值：with_salary
-          */
-      this.issuanceType = builder.issuanceType;
-         /**
-          * 原因
-          * <p> 示例值：这是个备注
-          */
-      this.remark = builder.remark;
-         /**
-          * 发放国家id（可通过 https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search进行查询）
-          * <p> 示例值：6862995745046267400
-          */
-      this.issuanceCountryRegionId = builder.issuanceCountryRegionId;
-  }
-
     public static class Builder {
-     /**
-      * 经常性支付记录id
-      * <p> 示例值：7397033607132351532
-      */
+        /**
+         * 经常性支付记录id
+         * <p> 示例值：7397033607132351532
+         */
         private String id;
-     /**
-      * 每次发放金额
-      * <p> 示例值：10.00
-      */
+        /**
+         * 每次发放金额
+         * <p> 示例值：10.00
+         */
         private String eachAmount;
-     /**
-      * 发放开始时间
-      * <p> 示例值：2024-10-20
-      */
+        /**
+         * 发放开始时间
+         * <p> 示例值：2024-10-20
+         */
         private String startDate;
-     /**
-      * 发放结束时间
-      * <p> 示例值：2025-03-20
-      */
+        /**
+         * 发放结束时间
+         * <p> 示例值：2025-03-20
+         */
         private String endDate;
-     /**
-      * 币种id
-      * <p> 示例值：6863329932261459464
-      */
+        /**
+         * 币种id
+         * <p> 示例值：6863329932261459464
+         */
         private String currencyId;
-     /**
-      * 发放方式
-      * <p> 示例值：with_salary
-      */
+        /**
+         * 发放方式
+         * <p> 示例值：with_salary
+         */
         private String issuanceType;
-     /**
-      * 原因
-      * <p> 示例值：这是个备注
-      */
+        /**
+         * 原因
+         * <p> 示例值：这是个备注
+         */
         private String remark;
-     /**
-      * 发放国家id（可通过 https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search进行查询）
-      * <p> 示例值：6862995745046267400
-      */
+        /**
+         * 发放国家id（可通过 https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search进行查询）
+         * <p> 示例值：6862995745046267400
+         */
         private String issuanceCountryRegionId;
 
         /**
          * 经常性支付记录id
          * <p> 示例值：7397033607132351532
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 每次发放金额
          * <p> 示例值：10.00
+         *
          * @param eachAmount
          * @return
          */
         public Builder eachAmount(String eachAmount) {
-             this.eachAmount = eachAmount;
-             return this;
+            this.eachAmount = eachAmount;
+            return this;
         }
 
-    
 
         /**
          * 发放开始时间
          * <p> 示例值：2024-10-20
+         *
          * @param startDate
          * @return
          */
         public Builder startDate(String startDate) {
-             this.startDate = startDate;
-             return this;
+            this.startDate = startDate;
+            return this;
         }
 
-    
 
         /**
          * 发放结束时间
          * <p> 示例值：2025-03-20
+         *
          * @param endDate
          * @return
          */
         public Builder endDate(String endDate) {
-             this.endDate = endDate;
-             return this;
+            this.endDate = endDate;
+            return this;
         }
 
-    
 
         /**
          * 币种id
          * <p> 示例值：6863329932261459464
+         *
          * @param currencyId
          * @return
          */
         public Builder currencyId(String currencyId) {
-             this.currencyId = currencyId;
-             return this;
+            this.currencyId = currencyId;
+            return this;
         }
 
-    
 
         /**
          * 发放方式
          * <p> 示例值：with_salary
+         *
          * @param issuanceType
          * @return
          */
         public Builder issuanceType(String issuanceType) {
-             this.issuanceType = issuanceType;
-             return this;
+            this.issuanceType = issuanceType;
+            return this;
         }
+
         /**
          * 发放方式
          * <p> 示例值：with_salary
+         *
          * @param issuanceType {@link com.lark.oapi.service.compensation.v1.enums.RecurringPaymentForUpdateIssuanceTypeEnum}
          * @return
          */
         public Builder issuanceType(com.lark.oapi.service.compensation.v1.enums.RecurringPaymentForUpdateIssuanceTypeEnum issuanceType) {
-             this.issuanceType = issuanceType.getValue();
-             return this;
+            this.issuanceType = issuanceType.getValue();
+            return this;
         }
 
-    
 
         /**
          * 原因
          * <p> 示例值：这是个备注
+         *
          * @param remark
          * @return
          */
         public Builder remark(String remark) {
-             this.remark = remark;
-             return this;
+            this.remark = remark;
+            return this;
         }
 
-    
 
         /**
          * 发放国家id（可通过 https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search进行查询）
          * <p> 示例值：6862995745046267400
+         *
          * @param issuanceCountryRegionId
          * @return
          */
         public Builder issuanceCountryRegionId(String issuanceCountryRegionId) {
-             this.issuanceCountryRegionId = issuanceCountryRegionId;
-             return this;
+            this.issuanceCountryRegionId = issuanceCountryRegionId;
+            return this;
         }
 
-    
-    
-    public RecurringPaymentForUpdate build(){
-        return new RecurringPaymentForUpdate(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public RecurringPaymentForUpdate build() {
+            return new RecurringPaymentForUpdate(this);
+        }
     }
 }

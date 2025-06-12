@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,36 +20,71 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class JobGradeCreate {
-     /**
-      * 职等数值
-      * <p> 示例值：9999
-      */
+    /**
+     * 职等数值
+     * <p> 示例值：9999
+     */
     @SerializedName("grade_order")
     private Integer gradeOrder;
-     /**
-      * 编码
-      * <p> 示例值：A01234
-      */
+    /**
+     * 编码
+     * <p> 示例值：A01234
+     */
     @SerializedName("code")
     private String code;
-     /**
-      * 名称
-      * <p> 示例值：
-      */
+    /**
+     * 名称
+     * <p> 示例值：
+     */
     @SerializedName("names")
     private I18n[] names;
-     /**
-      * 描述
-      * <p> 示例值：
-      */
+    /**
+     * 描述
+     * <p> 示例值：
+     */
     @SerializedName("descriptions")
     private I18n[] descriptions;
+
+    // builder 开始
+    public JobGradeCreate() {
+    }
+
+    public JobGradeCreate(Builder builder) {
+        /**
+         * 职等数值
+         * <p> 示例值：9999
+         */
+        this.gradeOrder = builder.gradeOrder;
+        /**
+         * 编码
+         * <p> 示例值：A01234
+         */
+        this.code = builder.code;
+        /**
+         * 名称
+         * <p> 示例值：
+         */
+        this.names = builder.names;
+        /**
+         * 描述
+         * <p> 示例值：
+         */
+        this.descriptions = builder.descriptions;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Integer getGradeOrder() {
         return this.gradeOrder;
     }
@@ -81,113 +117,82 @@ public class JobGradeCreate {
         this.descriptions = descriptions;
     }
 
-
-// builder 开始
-  public JobGradeCreate(){}
-
-  public JobGradeCreate(Builder builder){
-         /**
-          * 职等数值
-          * <p> 示例值：9999
-          */
-      this.gradeOrder = builder.gradeOrder;
-         /**
-          * 编码
-          * <p> 示例值：A01234
-          */
-      this.code = builder.code;
-         /**
-          * 名称
-          * <p> 示例值：
-          */
-      this.names = builder.names;
-         /**
-          * 描述
-          * <p> 示例值：
-          */
-      this.descriptions = builder.descriptions;
-  }
-
     public static class Builder {
-     /**
-      * 职等数值
-      * <p> 示例值：9999
-      */
+        /**
+         * 职等数值
+         * <p> 示例值：9999
+         */
         private Integer gradeOrder;
-     /**
-      * 编码
-      * <p> 示例值：A01234
-      */
+        /**
+         * 编码
+         * <p> 示例值：A01234
+         */
         private String code;
-     /**
-      * 名称
-      * <p> 示例值：
-      */
+        /**
+         * 名称
+         * <p> 示例值：
+         */
         private I18n[] names;
-     /**
-      * 描述
-      * <p> 示例值：
-      */
+        /**
+         * 描述
+         * <p> 示例值：
+         */
         private I18n[] descriptions;
 
         /**
          * 职等数值
          * <p> 示例值：9999
+         *
          * @param gradeOrder
          * @return
          */
         public Builder gradeOrder(Integer gradeOrder) {
-             this.gradeOrder = gradeOrder;
-             return this;
+            this.gradeOrder = gradeOrder;
+            return this;
         }
 
-    
 
         /**
          * 编码
          * <p> 示例值：A01234
+         *
          * @param code
          * @return
          */
         public Builder code(String code) {
-             this.code = code;
-             return this;
+            this.code = code;
+            return this;
         }
 
-    
 
         /**
          * 名称
          * <p> 示例值：
+         *
          * @param names
          * @return
          */
         public Builder names(I18n[] names) {
-             this.names = names;
-             return this;
+            this.names = names;
+            return this;
         }
 
-    
 
         /**
          * 描述
          * <p> 示例值：
+         *
          * @param descriptions
          * @return
          */
         public Builder descriptions(I18n[] descriptions) {
-             this.descriptions = descriptions;
-             return this;
+            this.descriptions = descriptions;
+            return this;
         }
 
-    
-    
-    public JobGradeCreate build(){
-        return new JobGradeCreate(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public JobGradeCreate build() {
+            return new JobGradeCreate(this);
+        }
     }
 }

@@ -17,15 +17,16 @@ package com.lark.oapi.service.base.v2.enums;
  * 其他记录权限，仅在table_perm为2时有效
  */
 public enum RecRuleOtherPermEnum {
-     NOPERM(0), // 禁止查看
-     READ(1), // 仅可阅读
-  ;
-   private Integer value;
+    NOPERM(0), // 禁止查看
+    READ(1), // 仅可阅读
+    ;
+    private Integer value;
+
     RecRuleOtherPermEnum(Integer value) {
-      this.value = value;
+        this.value = value;
     }
 
     public Integer getValue() {
-      return this.value;
+        return this.value;
     }
 }

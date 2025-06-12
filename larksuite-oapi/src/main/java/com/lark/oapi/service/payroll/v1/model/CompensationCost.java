@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.payroll.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.payroll.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CompensationCost {
-     /**
-      * 成本项值
-      * <p> 示例值：123456.78
-      */
+    /**
+     * 成本项值
+     * <p> 示例值：123456.78
+     */
     @SerializedName("compensation_cost_value")
     private String compensationCostValue;
-     /**
-      * 成本项名称
-      * <p> 示例值：
-      */
+    /**
+     * 成本项名称
+     * <p> 示例值：
+     */
     @SerializedName("i18n_names")
     private I18nContent[] i18nNames;
+
+    // builder 开始
+    public CompensationCost() {
+    }
+
+    public CompensationCost(Builder builder) {
+        /**
+         * 成本项值
+         * <p> 示例值：123456.78
+         */
+        this.compensationCostValue = builder.compensationCostValue;
+        /**
+         * 成本项名称
+         * <p> 示例值：
+         */
+        this.i18nNames = builder.i18nNames;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getCompensationCostValue() {
         return this.compensationCostValue;
     }
@@ -53,67 +79,46 @@ public class CompensationCost {
         this.i18nNames = i18nNames;
     }
 
-
-// builder 开始
-  public CompensationCost(){}
-
-  public CompensationCost(Builder builder){
-         /**
-          * 成本项值
-          * <p> 示例值：123456.78
-          */
-      this.compensationCostValue = builder.compensationCostValue;
-         /**
-          * 成本项名称
-          * <p> 示例值：
-          */
-      this.i18nNames = builder.i18nNames;
-  }
-
     public static class Builder {
-     /**
-      * 成本项值
-      * <p> 示例值：123456.78
-      */
+        /**
+         * 成本项值
+         * <p> 示例值：123456.78
+         */
         private String compensationCostValue;
-     /**
-      * 成本项名称
-      * <p> 示例值：
-      */
+        /**
+         * 成本项名称
+         * <p> 示例值：
+         */
         private I18nContent[] i18nNames;
 
         /**
          * 成本项值
          * <p> 示例值：123456.78
+         *
          * @param compensationCostValue
          * @return
          */
         public Builder compensationCostValue(String compensationCostValue) {
-             this.compensationCostValue = compensationCostValue;
-             return this;
+            this.compensationCostValue = compensationCostValue;
+            return this;
         }
 
-    
 
         /**
          * 成本项名称
          * <p> 示例值：
+         *
          * @param i18nNames
          * @return
          */
         public Builder i18nNames(I18nContent[] i18nNames) {
-             this.i18nNames = i18nNames;
-             return this;
+            this.i18nNames = i18nNames;
+            return this;
         }
 
-    
-    
-    public CompensationCost build(){
-        return new CompensationCost(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public CompensationCost build() {
+            return new CompensationCost(this);
+        }
     }
 }

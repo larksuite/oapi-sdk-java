@@ -12,36 +12,41 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ListMessageReactionRespBody {
-     /**
-      *  查询指定reaction_type返回的reaction列表
-      * <p> 示例值：
-      */
+    /**
+     * 查询指定reaction_type返回的reaction列表
+     * <p> 示例值：
+     */
     @SerializedName("items")
     private MessageReaction[] items;
-     /**
-      * 是否还有后续翻页
-      * <p> 示例值：
-      */
+    /**
+     * 是否还有后续翻页
+     * <p> 示例值：
+     */
     @SerializedName("has_more")
     private Boolean hasMore;
-     /**
-      *  下一页分页的token
-      * <p> 示例值：
-      */
+    /**
+     * 下一页分页的token
+     * <p> 示例值：
+     */
     @SerializedName("page_token")
     private String pageToken;
+
     public MessageReaction[] getItems() {
         return this.items;
     }

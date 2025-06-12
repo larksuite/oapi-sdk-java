@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,48 +20,93 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class TransferReason {
-     /**
-      * 异动原因唯一标识
-      * <p> 示例值：voluntary_transfer
-      */
+    /**
+     * 异动原因唯一标识
+     * <p> 示例值：voluntary_transfer
+     */
     @SerializedName("transfer_reason_unique_identifier")
     private String transferReasonUniqueIdentifier;
-     /**
-      * 异动原因的名称信息
-      * <p> 示例值：张三
-      */
+    /**
+     * 异动原因的名称信息
+     * <p> 示例值：张三
+     */
     @SerializedName("name")
     private I18n[] name;
-     /**
-      * 异动原因状态
-      * <p> 示例值：true
-      */
+    /**
+     * 异动原因状态
+     * <p> 示例值：true
+     */
     @SerializedName("active")
     private Boolean active;
-     /**
-      * 上级异动原因唯一标识
-      * <p> 示例值：reason_for_job_change_option25
-      */
+    /**
+     * 上级异动原因唯一标识
+     * <p> 示例值：reason_for_job_change_option25
+     */
     @SerializedName("parent_transfer_reason_unique_identifier")
     private String parentTransferReasonUniqueIdentifier;
-     /**
-      * 创建时间
-      * <p> 示例值：2021-07-04 20:30:47
-      */
+    /**
+     * 创建时间
+     * <p> 示例值：2021-07-04 20:30:47
+     */
     @SerializedName("created_time")
     private String createdTime;
-     /**
-      * 更新时间
-      * <p> 示例值：2022-02-28 16:27:56
-      */
+    /**
+     * 更新时间
+     * <p> 示例值：2022-02-28 16:27:56
+     */
     @SerializedName("updated_time")
     private String updatedTime;
+
+    // builder 开始
+    public TransferReason() {
+    }
+
+    public TransferReason(Builder builder) {
+        /**
+         * 异动原因唯一标识
+         * <p> 示例值：voluntary_transfer
+         */
+        this.transferReasonUniqueIdentifier = builder.transferReasonUniqueIdentifier;
+        /**
+         * 异动原因的名称信息
+         * <p> 示例值：张三
+         */
+        this.name = builder.name;
+        /**
+         * 异动原因状态
+         * <p> 示例值：true
+         */
+        this.active = builder.active;
+        /**
+         * 上级异动原因唯一标识
+         * <p> 示例值：reason_for_job_change_option25
+         */
+        this.parentTransferReasonUniqueIdentifier = builder.parentTransferReasonUniqueIdentifier;
+        /**
+         * 创建时间
+         * <p> 示例值：2021-07-04 20:30:47
+         */
+        this.createdTime = builder.createdTime;
+        /**
+         * 更新时间
+         * <p> 示例值：2022-02-28 16:27:56
+         */
+        this.updatedTime = builder.updatedTime;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getTransferReasonUniqueIdentifier() {
         return this.transferReasonUniqueIdentifier;
     }
@@ -109,159 +155,118 @@ public class TransferReason {
         this.updatedTime = updatedTime;
     }
 
-
-// builder 开始
-  public TransferReason(){}
-
-  public TransferReason(Builder builder){
-         /**
-          * 异动原因唯一标识
-          * <p> 示例值：voluntary_transfer
-          */
-      this.transferReasonUniqueIdentifier = builder.transferReasonUniqueIdentifier;
-         /**
-          * 异动原因的名称信息
-          * <p> 示例值：张三
-          */
-      this.name = builder.name;
-         /**
-          * 异动原因状态
-          * <p> 示例值：true
-          */
-      this.active = builder.active;
-         /**
-          * 上级异动原因唯一标识
-          * <p> 示例值：reason_for_job_change_option25
-          */
-      this.parentTransferReasonUniqueIdentifier = builder.parentTransferReasonUniqueIdentifier;
-         /**
-          * 创建时间
-          * <p> 示例值：2021-07-04 20:30:47
-          */
-      this.createdTime = builder.createdTime;
-         /**
-          * 更新时间
-          * <p> 示例值：2022-02-28 16:27:56
-          */
-      this.updatedTime = builder.updatedTime;
-  }
-
     public static class Builder {
-     /**
-      * 异动原因唯一标识
-      * <p> 示例值：voluntary_transfer
-      */
+        /**
+         * 异动原因唯一标识
+         * <p> 示例值：voluntary_transfer
+         */
         private String transferReasonUniqueIdentifier;
-     /**
-      * 异动原因的名称信息
-      * <p> 示例值：张三
-      */
+        /**
+         * 异动原因的名称信息
+         * <p> 示例值：张三
+         */
         private I18n[] name;
-     /**
-      * 异动原因状态
-      * <p> 示例值：true
-      */
+        /**
+         * 异动原因状态
+         * <p> 示例值：true
+         */
         private Boolean active;
-     /**
-      * 上级异动原因唯一标识
-      * <p> 示例值：reason_for_job_change_option25
-      */
+        /**
+         * 上级异动原因唯一标识
+         * <p> 示例值：reason_for_job_change_option25
+         */
         private String parentTransferReasonUniqueIdentifier;
-     /**
-      * 创建时间
-      * <p> 示例值：2021-07-04 20:30:47
-      */
+        /**
+         * 创建时间
+         * <p> 示例值：2021-07-04 20:30:47
+         */
         private String createdTime;
-     /**
-      * 更新时间
-      * <p> 示例值：2022-02-28 16:27:56
-      */
+        /**
+         * 更新时间
+         * <p> 示例值：2022-02-28 16:27:56
+         */
         private String updatedTime;
 
         /**
          * 异动原因唯一标识
          * <p> 示例值：voluntary_transfer
+         *
          * @param transferReasonUniqueIdentifier
          * @return
          */
         public Builder transferReasonUniqueIdentifier(String transferReasonUniqueIdentifier) {
-             this.transferReasonUniqueIdentifier = transferReasonUniqueIdentifier;
-             return this;
+            this.transferReasonUniqueIdentifier = transferReasonUniqueIdentifier;
+            return this;
         }
 
-    
 
         /**
          * 异动原因的名称信息
          * <p> 示例值：张三
+         *
          * @param name
          * @return
          */
         public Builder name(I18n[] name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 异动原因状态
          * <p> 示例值：true
+         *
          * @param active
          * @return
          */
         public Builder active(Boolean active) {
-             this.active = active;
-             return this;
+            this.active = active;
+            return this;
         }
 
-    
 
         /**
          * 上级异动原因唯一标识
          * <p> 示例值：reason_for_job_change_option25
+         *
          * @param parentTransferReasonUniqueIdentifier
          * @return
          */
         public Builder parentTransferReasonUniqueIdentifier(String parentTransferReasonUniqueIdentifier) {
-             this.parentTransferReasonUniqueIdentifier = parentTransferReasonUniqueIdentifier;
-             return this;
+            this.parentTransferReasonUniqueIdentifier = parentTransferReasonUniqueIdentifier;
+            return this;
         }
 
-    
 
         /**
          * 创建时间
          * <p> 示例值：2021-07-04 20:30:47
+         *
          * @param createdTime
          * @return
          */
         public Builder createdTime(String createdTime) {
-             this.createdTime = createdTime;
-             return this;
+            this.createdTime = createdTime;
+            return this;
         }
 
-    
 
         /**
          * 更新时间
          * <p> 示例值：2022-02-28 16:27:56
+         *
          * @param updatedTime
          * @return
          */
         public Builder updatedTime(String updatedTime) {
-             this.updatedTime = updatedTime;
-             return this;
+            this.updatedTime = updatedTime;
+            return this;
         }
 
-    
-    
-    public TransferReason build(){
-        return new TransferReason(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public TransferReason build() {
+            return new TransferReason(this);
+        }
     }
 }

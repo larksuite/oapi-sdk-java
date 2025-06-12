@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.performance.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.performance.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,36 +20,71 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Template {
-     /**
-      * 环节模板 ID
-      * <p> 示例值：7343513161666707459
-      */
+    /**
+     * 环节模板 ID
+     * <p> 示例值：7343513161666707459
+     */
     @SerializedName("template_id")
     private String templateId;
-     /**
-      * 环节模板对应的环节名称
-      * <p> 示例值：
-      */
+    /**
+     * 环节模板对应的环节名称
+     * <p> 示例值：
+     */
     @SerializedName("name")
     private I18n name;
-     /**
-      * 环节类型
-      * <p> 示例值：leader_review
-      */
+    /**
+     * 环节类型
+     * <p> 示例值：leader_review
+     */
     @SerializedName("stage_type")
     private String stageType;
-     /**
-      * 环节执行角色
-      * <p> 示例值：reviewee
-      */
+    /**
+     * 环节执行角色
+     * <p> 示例值：reviewee
+     */
     @SerializedName("review_stage_role")
     private String reviewStageRole;
+
+    // builder 开始
+    public Template() {
+    }
+
+    public Template(Builder builder) {
+        /**
+         * 环节模板 ID
+         * <p> 示例值：7343513161666707459
+         */
+        this.templateId = builder.templateId;
+        /**
+         * 环节模板对应的环节名称
+         * <p> 示例值：
+         */
+        this.name = builder.name;
+        /**
+         * 环节类型
+         * <p> 示例值：leader_review
+         */
+        this.stageType = builder.stageType;
+        /**
+         * 环节执行角色
+         * <p> 示例值：reviewee
+         */
+        this.reviewStageRole = builder.reviewStageRole;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getTemplateId() {
         return this.templateId;
     }
@@ -81,113 +117,82 @@ public class Template {
         this.reviewStageRole = reviewStageRole;
     }
 
-
-// builder 开始
-  public Template(){}
-
-  public Template(Builder builder){
-         /**
-          * 环节模板 ID
-          * <p> 示例值：7343513161666707459
-          */
-      this.templateId = builder.templateId;
-         /**
-          * 环节模板对应的环节名称
-          * <p> 示例值：
-          */
-      this.name = builder.name;
-         /**
-          * 环节类型
-          * <p> 示例值：leader_review
-          */
-      this.stageType = builder.stageType;
-         /**
-          * 环节执行角色
-          * <p> 示例值：reviewee
-          */
-      this.reviewStageRole = builder.reviewStageRole;
-  }
-
     public static class Builder {
-     /**
-      * 环节模板 ID
-      * <p> 示例值：7343513161666707459
-      */
+        /**
+         * 环节模板 ID
+         * <p> 示例值：7343513161666707459
+         */
         private String templateId;
-     /**
-      * 环节模板对应的环节名称
-      * <p> 示例值：
-      */
+        /**
+         * 环节模板对应的环节名称
+         * <p> 示例值：
+         */
         private I18n name;
-     /**
-      * 环节类型
-      * <p> 示例值：leader_review
-      */
+        /**
+         * 环节类型
+         * <p> 示例值：leader_review
+         */
         private String stageType;
-     /**
-      * 环节执行角色
-      * <p> 示例值：reviewee
-      */
+        /**
+         * 环节执行角色
+         * <p> 示例值：reviewee
+         */
         private String reviewStageRole;
 
         /**
          * 环节模板 ID
          * <p> 示例值：7343513161666707459
+         *
          * @param templateId
          * @return
          */
         public Builder templateId(String templateId) {
-             this.templateId = templateId;
-             return this;
+            this.templateId = templateId;
+            return this;
         }
 
-    
 
         /**
          * 环节模板对应的环节名称
          * <p> 示例值：
+         *
          * @param name
          * @return
          */
         public Builder name(I18n name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 环节类型
          * <p> 示例值：leader_review
+         *
          * @param stageType
          * @return
          */
         public Builder stageType(String stageType) {
-             this.stageType = stageType;
-             return this;
+            this.stageType = stageType;
+            return this;
         }
 
-    
 
         /**
          * 环节执行角色
          * <p> 示例值：reviewee
+         *
          * @param reviewStageRole
          * @return
          */
         public Builder reviewStageRole(String reviewStageRole) {
-             this.reviewStageRole = reviewStageRole;
-             return this;
+            this.reviewStageRole = reviewStageRole;
+            return this;
         }
 
-    
-    
-    public Template build(){
-        return new Template(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Template build() {
+            return new Template(this);
+        }
     }
 }

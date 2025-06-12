@@ -12,39 +12,82 @@
  */
 
 package com.lark.oapi.service.wiki.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.wiki.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ListSpaceNodeReq {
-     /**
-      * 分页大小
-      * <p> 示例值：10
-      */
+    /**
+     * 分页大小
+     * <p> 示例值：10
+     */
     @Query
     @SerializedName("page_size")
     private Integer pageSize;
-     /**
-      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-      * <p> 示例值：6946843325487456878
-      */
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     * <p> 示例值：6946843325487456878
+     */
     @Query
     @SerializedName("page_token")
     private String pageToken;
-     /**
-      * 父节点token
-      * <p> 示例值：wikcnKQ1k3p******8Vabce
-      */
+    /**
+     * 父节点token
+     * <p> 示例值：wikcnKQ1k3p******8Vabce
+     */
     @Query
     @SerializedName("parent_node_token")
     private String parentNodeToken;
+    /**
+     * 知识空间id
+     * <p> 示例值：6946843325487906839
+     */
+    @Path
+    @SerializedName("space_id")
+    private String spaceId;
+
+    // builder 开始
+    public ListSpaceNodeReq() {
+    }
+
+    public ListSpaceNodeReq(Builder builder) {
+        /**
+         * 分页大小
+         * <p> 示例值：10
+         */
+        this.pageSize = builder.pageSize;
+        /**
+         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+         * <p> 示例值：6946843325487456878
+         */
+        this.pageToken = builder.pageToken;
+        /**
+         * 父节点token
+         * <p> 示例值：wikcnKQ1k3p******8Vabce
+         */
+        this.parentNodeToken = builder.parentNodeToken;
+        /**
+         * 知识空间id
+         * <p> 示例值：6946843325487906839
+         */
+        this.spaceId = builder.spaceId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Integer getPageSize() {
         return this.pageSize;
     }
@@ -69,13 +112,6 @@ public class ListSpaceNodeReq {
         this.parentNodeToken = parentNodeToken;
     }
 
-     /**
-      * 知识空间id
-      * <p> 示例值：6946843325487906839
-      */
-    @Path
-    @SerializedName("space_id")
-    private String spaceId;
     public String getSpaceId() {
         return this.spaceId;
     }
@@ -84,93 +120,63 @@ public class ListSpaceNodeReq {
         this.spaceId = spaceId;
     }
 
-
-// builder 开始
-  public ListSpaceNodeReq(){}
-
-  public ListSpaceNodeReq(Builder builder){
-         /**
-          * 分页大小
-          * <p> 示例值：10
-          */
-       this.pageSize = builder.pageSize;
-         /**
-          * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-          * <p> 示例值：6946843325487456878
-          */
-       this.pageToken = builder.pageToken;
-         /**
-          * 父节点token
-          * <p> 示例值：wikcnKQ1k3p******8Vabce
-          */
-       this.parentNodeToken = builder.parentNodeToken;
-     /**
-      * 知识空间id
-      * <p> 示例值：6946843325487906839
-      */
-       this.spaceId = builder.spaceId;
-  }
-
     public static class Builder {
         private Integer pageSize; // 分页大小
         private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
         private String parentNodeToken; // 父节点token
-    
+        private String spaceId; // 知识空间id
+
         /**
          * 分页大小
          * <p> 示例值：10
+         *
          * @param pageSize
          * @return
          */
-           public Builder pageSize(Integer pageSize) {
-                this.pageSize = pageSize;
-                return this;
-           }
+        public Builder pageSize(Integer pageSize) {
+            this.pageSize = pageSize;
+            return this;
+        }
 
-    
         /**
          * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
          * <p> 示例值：6946843325487456878
+         *
          * @param pageToken
          * @return
          */
-           public Builder pageToken(String pageToken) {
-                this.pageToken = pageToken;
-                return this;
-           }
+        public Builder pageToken(String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+        }
 
-    
         /**
          * 父节点token
          * <p> 示例值：wikcnKQ1k3p******8Vabce
+         *
          * @param parentNodeToken
          * @return
          */
-           public Builder parentNodeToken(String parentNodeToken) {
-                this.parentNodeToken = parentNodeToken;
-                return this;
-           }
+        public Builder parentNodeToken(String parentNodeToken) {
+            this.parentNodeToken = parentNodeToken;
+            return this;
+        }
 
-    
-        private String spaceId; // 知识空间id
         /**
          * 知识空间id
          * <p> 示例值：6946843325487906839
+         *
          * @param spaceId
          * @return
          */
-          public Builder spaceId(String spaceId) {
-               this.spaceId = spaceId;
-               return this;
-          }
+        public Builder spaceId(String spaceId) {
+            this.spaceId = spaceId;
+            return this;
+        }
 
-    
-    public ListSpaceNodeReq build(){
-        return new ListSpaceNodeReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ListSpaceNodeReq build() {
+            return new ListSpaceNodeReq(this);
+        }
     }
 }

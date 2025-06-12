@@ -12,72 +12,133 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class SearchWebsiteJobPostReqBody {
-     /**
-      * 职位类型列表
-      * <p> 示例值：6916472453069883661
-      */
+    /**
+     * 职位类型列表
+     * <p> 示例值：6916472453069883661
+     */
     @SerializedName("job_type_id_list")
     private String[] jobTypeIdList;
-     /**
-      * 职位城市列表
-      * <p> 示例值：CT_1
-      */
+    /**
+     * 职位城市列表
+     * <p> 示例值：CT_1
+     */
     @SerializedName("city_code_list")
     private String[] cityCodeList;
-     /**
-      * 职能分类列表
-      * <p> 示例值：6916472453069883661
-      */
+    /**
+     * 职能分类列表
+     * <p> 示例值：6916472453069883661
+     */
     @SerializedName("job_function_id_list")
     private String[] jobFunctionIdList;
-     /**
-      * 职位项目列表
-      * <p> 示例值：6916472453069883661
-      */
+    /**
+     * 职位项目列表
+     * <p> 示例值：6916472453069883661
+     */
     @SerializedName("subject_id_list")
     private String[] subjectIdList;
-     /**
-      * 关键字
-      * <p> 示例值：HR
-      */
+    /**
+     * 关键字
+     * <p> 示例值：HR
+     */
     @SerializedName("keyword")
     private String keyword;
-     /**
-      * 最早更新时间,毫秒级时间戳
-      * <p> 示例值：1618500278663
-      */
+    /**
+     * 最早更新时间,毫秒级时间戳
+     * <p> 示例值：1618500278663
+     */
     @SerializedName("update_start_time")
     private String updateStartTime;
-     /**
-      * 最晚更新时间,毫秒级时间戳
-      * <p> 示例值：1618500278663
-      */
+    /**
+     * 最晚更新时间,毫秒级时间戳
+     * <p> 示例值：1618500278663
+     */
     @SerializedName("update_end_time")
     private String updateEndTime;
-     /**
-      * 最早创建时间,毫秒级时间戳
-      * <p> 示例值：1618500278663
-      */
+    /**
+     * 最早创建时间,毫秒级时间戳
+     * <p> 示例值：1618500278663
+     */
     @SerializedName("create_start_time")
     private String createStartTime;
-     /**
-      * 最晚创建时间,毫秒级时间戳
-      * <p> 示例值：1618500278663
-      */
+    /**
+     * 最晚创建时间,毫秒级时间戳
+     * <p> 示例值：1618500278663
+     */
     @SerializedName("create_end_time")
     private String createEndTime;
+
+    // builder 开始
+    public SearchWebsiteJobPostReqBody() {
+    }
+
+    public SearchWebsiteJobPostReqBody(Builder builder) {
+        /**
+         * 职位类型列表
+         * <p> 示例值：6916472453069883661
+         */
+        this.jobTypeIdList = builder.jobTypeIdList;
+        /**
+         * 职位城市列表
+         * <p> 示例值：CT_1
+         */
+        this.cityCodeList = builder.cityCodeList;
+        /**
+         * 职能分类列表
+         * <p> 示例值：6916472453069883661
+         */
+        this.jobFunctionIdList = builder.jobFunctionIdList;
+        /**
+         * 职位项目列表
+         * <p> 示例值：6916472453069883661
+         */
+        this.subjectIdList = builder.subjectIdList;
+        /**
+         * 关键字
+         * <p> 示例值：HR
+         */
+        this.keyword = builder.keyword;
+        /**
+         * 最早更新时间,毫秒级时间戳
+         * <p> 示例值：1618500278663
+         */
+        this.updateStartTime = builder.updateStartTime;
+        /**
+         * 最晚更新时间,毫秒级时间戳
+         * <p> 示例值：1618500278663
+         */
+        this.updateEndTime = builder.updateEndTime;
+        /**
+         * 最早创建时间,毫秒级时间戳
+         * <p> 示例值：1618500278663
+         */
+        this.createStartTime = builder.createStartTime;
+        /**
+         * 最晚创建时间,毫秒级时间戳
+         * <p> 示例值：1618500278663
+         */
+        this.createEndTime = builder.createEndTime;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String[] getJobTypeIdList() {
         return this.jobTypeIdList;
     }
@@ -150,228 +211,172 @@ public class SearchWebsiteJobPostReqBody {
         this.createEndTime = createEndTime;
     }
 
-
-// builder 开始
-  public SearchWebsiteJobPostReqBody(){}
-
-  public SearchWebsiteJobPostReqBody(Builder builder){
-         /**
-          * 职位类型列表
-          * <p> 示例值：6916472453069883661
-          */
-      this.jobTypeIdList = builder.jobTypeIdList;
-         /**
-          * 职位城市列表
-          * <p> 示例值：CT_1
-          */
-      this.cityCodeList = builder.cityCodeList;
-         /**
-          * 职能分类列表
-          * <p> 示例值：6916472453069883661
-          */
-      this.jobFunctionIdList = builder.jobFunctionIdList;
-         /**
-          * 职位项目列表
-          * <p> 示例值：6916472453069883661
-          */
-      this.subjectIdList = builder.subjectIdList;
-         /**
-          * 关键字
-          * <p> 示例值：HR
-          */
-      this.keyword = builder.keyword;
-         /**
-          * 最早更新时间,毫秒级时间戳
-          * <p> 示例值：1618500278663
-          */
-      this.updateStartTime = builder.updateStartTime;
-         /**
-          * 最晚更新时间,毫秒级时间戳
-          * <p> 示例值：1618500278663
-          */
-      this.updateEndTime = builder.updateEndTime;
-         /**
-          * 最早创建时间,毫秒级时间戳
-          * <p> 示例值：1618500278663
-          */
-      this.createStartTime = builder.createStartTime;
-         /**
-          * 最晚创建时间,毫秒级时间戳
-          * <p> 示例值：1618500278663
-          */
-      this.createEndTime = builder.createEndTime;
-  }
-
     public static class Builder {
-     /**
-      * 职位类型列表
-      * <p> 示例值：6916472453069883661
-      */
+        /**
+         * 职位类型列表
+         * <p> 示例值：6916472453069883661
+         */
         private String[] jobTypeIdList;
-     /**
-      * 职位城市列表
-      * <p> 示例值：CT_1
-      */
+        /**
+         * 职位城市列表
+         * <p> 示例值：CT_1
+         */
         private String[] cityCodeList;
-     /**
-      * 职能分类列表
-      * <p> 示例值：6916472453069883661
-      */
+        /**
+         * 职能分类列表
+         * <p> 示例值：6916472453069883661
+         */
         private String[] jobFunctionIdList;
-     /**
-      * 职位项目列表
-      * <p> 示例值：6916472453069883661
-      */
+        /**
+         * 职位项目列表
+         * <p> 示例值：6916472453069883661
+         */
         private String[] subjectIdList;
-     /**
-      * 关键字
-      * <p> 示例值：HR
-      */
+        /**
+         * 关键字
+         * <p> 示例值：HR
+         */
         private String keyword;
-     /**
-      * 最早更新时间,毫秒级时间戳
-      * <p> 示例值：1618500278663
-      */
+        /**
+         * 最早更新时间,毫秒级时间戳
+         * <p> 示例值：1618500278663
+         */
         private String updateStartTime;
-     /**
-      * 最晚更新时间,毫秒级时间戳
-      * <p> 示例值：1618500278663
-      */
+        /**
+         * 最晚更新时间,毫秒级时间戳
+         * <p> 示例值：1618500278663
+         */
         private String updateEndTime;
-     /**
-      * 最早创建时间,毫秒级时间戳
-      * <p> 示例值：1618500278663
-      */
+        /**
+         * 最早创建时间,毫秒级时间戳
+         * <p> 示例值：1618500278663
+         */
         private String createStartTime;
-     /**
-      * 最晚创建时间,毫秒级时间戳
-      * <p> 示例值：1618500278663
-      */
+        /**
+         * 最晚创建时间,毫秒级时间戳
+         * <p> 示例值：1618500278663
+         */
         private String createEndTime;
 
         /**
          * 职位类型列表
          * <p> 示例值：6916472453069883661
+         *
          * @param jobTypeIdList
          * @return
          */
         public Builder jobTypeIdList(String[] jobTypeIdList) {
-             this.jobTypeIdList = jobTypeIdList;
-             return this;
+            this.jobTypeIdList = jobTypeIdList;
+            return this;
         }
 
-    
 
         /**
          * 职位城市列表
          * <p> 示例值：CT_1
+         *
          * @param cityCodeList
          * @return
          */
         public Builder cityCodeList(String[] cityCodeList) {
-             this.cityCodeList = cityCodeList;
-             return this;
+            this.cityCodeList = cityCodeList;
+            return this;
         }
 
-    
 
         /**
          * 职能分类列表
          * <p> 示例值：6916472453069883661
+         *
          * @param jobFunctionIdList
          * @return
          */
         public Builder jobFunctionIdList(String[] jobFunctionIdList) {
-             this.jobFunctionIdList = jobFunctionIdList;
-             return this;
+            this.jobFunctionIdList = jobFunctionIdList;
+            return this;
         }
 
-    
 
         /**
          * 职位项目列表
          * <p> 示例值：6916472453069883661
+         *
          * @param subjectIdList
          * @return
          */
         public Builder subjectIdList(String[] subjectIdList) {
-             this.subjectIdList = subjectIdList;
-             return this;
+            this.subjectIdList = subjectIdList;
+            return this;
         }
 
-    
 
         /**
          * 关键字
          * <p> 示例值：HR
+         *
          * @param keyword
          * @return
          */
         public Builder keyword(String keyword) {
-             this.keyword = keyword;
-             return this;
+            this.keyword = keyword;
+            return this;
         }
 
-    
 
         /**
          * 最早更新时间,毫秒级时间戳
          * <p> 示例值：1618500278663
+         *
          * @param updateStartTime
          * @return
          */
         public Builder updateStartTime(String updateStartTime) {
-             this.updateStartTime = updateStartTime;
-             return this;
+            this.updateStartTime = updateStartTime;
+            return this;
         }
 
-    
 
         /**
          * 最晚更新时间,毫秒级时间戳
          * <p> 示例值：1618500278663
+         *
          * @param updateEndTime
          * @return
          */
         public Builder updateEndTime(String updateEndTime) {
-             this.updateEndTime = updateEndTime;
-             return this;
+            this.updateEndTime = updateEndTime;
+            return this;
         }
 
-    
 
         /**
          * 最早创建时间,毫秒级时间戳
          * <p> 示例值：1618500278663
+         *
          * @param createStartTime
          * @return
          */
         public Builder createStartTime(String createStartTime) {
-             this.createStartTime = createStartTime;
-             return this;
+            this.createStartTime = createStartTime;
+            return this;
         }
 
-    
 
         /**
          * 最晚创建时间,毫秒级时间戳
          * <p> 示例值：1618500278663
+         *
          * @param createEndTime
          * @return
          */
         public Builder createEndTime(String createEndTime) {
-             this.createEndTime = createEndTime;
-             return this;
+            this.createEndTime = createEndTime;
+            return this;
         }
 
-    
-    
-    public SearchWebsiteJobPostReqBody build(){
-        return new SearchWebsiteJobPostReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public SearchWebsiteJobPostReqBody build() {
+            return new SearchWebsiteJobPostReqBody(this);
+        }
     }
 }

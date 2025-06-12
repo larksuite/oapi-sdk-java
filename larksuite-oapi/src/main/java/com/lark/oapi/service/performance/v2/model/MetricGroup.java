@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.performance.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.performance.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class MetricGroup {
-     /**
-      * 人群分组ID
-      * <p> 示例值：7296466589195436051
-      */
+    /**
+     * 人群分组ID
+     * <p> 示例值：7296466589195436051
+     */
     @SerializedName("group_id")
     private String groupId;
-     /**
-      * 名称
-      * <p> 示例值：分组1
-      */
+    /**
+     * 名称
+     * <p> 示例值：分组1
+     */
     @SerializedName("name")
     private String name;
+
+    // builder 开始
+    public MetricGroup() {
+    }
+
+    public MetricGroup(Builder builder) {
+        /**
+         * 人群分组ID
+         * <p> 示例值：7296466589195436051
+         */
+        this.groupId = builder.groupId;
+        /**
+         * 名称
+         * <p> 示例值：分组1
+         */
+        this.name = builder.name;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getGroupId() {
         return this.groupId;
     }
@@ -53,67 +79,46 @@ public class MetricGroup {
         this.name = name;
     }
 
-
-// builder 开始
-  public MetricGroup(){}
-
-  public MetricGroup(Builder builder){
-         /**
-          * 人群分组ID
-          * <p> 示例值：7296466589195436051
-          */
-      this.groupId = builder.groupId;
-         /**
-          * 名称
-          * <p> 示例值：分组1
-          */
-      this.name = builder.name;
-  }
-
     public static class Builder {
-     /**
-      * 人群分组ID
-      * <p> 示例值：7296466589195436051
-      */
+        /**
+         * 人群分组ID
+         * <p> 示例值：7296466589195436051
+         */
         private String groupId;
-     /**
-      * 名称
-      * <p> 示例值：分组1
-      */
+        /**
+         * 名称
+         * <p> 示例值：分组1
+         */
         private String name;
 
         /**
          * 人群分组ID
          * <p> 示例值：7296466589195436051
+         *
          * @param groupId
          * @return
          */
         public Builder groupId(String groupId) {
-             this.groupId = groupId;
-             return this;
+            this.groupId = groupId;
+            return this;
         }
 
-    
 
         /**
          * 名称
          * <p> 示例值：分组1
+         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
-    
-    public MetricGroup build(){
-        return new MetricGroup(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public MetricGroup build() {
+            return new MetricGroup(this);
+        }
     }
 }

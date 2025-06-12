@@ -12,25 +12,61 @@
  */
 
 package com.lark.oapi.service.task.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.task.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class RemoveMembersTasklistReq {
-     /**
-      * 表示user的ID的类型，支持open_id, user_id, union_id
-      * <p> 示例值：open_id
-      */
+    /**
+     * 表示user的ID的类型，支持open_id, user_id, union_id
+     * <p> 示例值：open_id
+     */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
+    /**
+     * 要移除协作人的清单全局唯一ID
+     * <p> 示例值：d300a75f-c56a-4be9-80d1-e47653028ceb
+     */
+    @Path
+    @SerializedName("tasklist_guid")
+    private String tasklistGuid;
+    @Body
+    private RemoveMembersTasklistReqBody body;
+
+    // builder 开始
+    public RemoveMembersTasklistReq() {
+    }
+
+    public RemoveMembersTasklistReq(Builder builder) {
+        /**
+         * 表示user的ID的类型，支持open_id, user_id, union_id
+         * <p> 示例值：open_id
+         */
+        this.userIdType = builder.userIdType;
+        /**
+         * 要移除协作人的清单全局唯一ID
+         * <p> 示例值：d300a75f-c56a-4be9-80d1-e47653028ceb
+         */
+        this.tasklistGuid = builder.tasklistGuid;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getUserIdType() {
         return this.userIdType;
     }
@@ -39,13 +75,6 @@ public class RemoveMembersTasklistReq {
         this.userIdType = userIdType;
     }
 
-     /**
-      * 要移除协作人的清单全局唯一ID
-      * <p> 示例值：d300a75f-c56a-4be9-80d1-e47653028ceb
-      */
-    @Path
-    @SerializedName("tasklist_guid")
-    private String tasklistGuid;
     public String getTasklistGuid() {
         return this.tasklistGuid;
     }
@@ -53,9 +82,6 @@ public class RemoveMembersTasklistReq {
     public void setTasklistGuid(String tasklistGuid) {
         this.tasklistGuid = tasklistGuid;
     }
-
-    @Body
-    private RemoveMembersTasklistReqBody body;
 
     public RemoveMembersTasklistReqBody getRemoveMembersTasklistReqBody() {
         return this.body;
@@ -65,72 +91,52 @@ public class RemoveMembersTasklistReq {
         this.body = body;
     }
 
-// builder 开始
-  public RemoveMembersTasklistReq(){}
-
-  public RemoveMembersTasklistReq(Builder builder){
-         /**
-          * 表示user的ID的类型，支持open_id, user_id, union_id
-          * <p> 示例值：open_id
-          */
-       this.userIdType = builder.userIdType;
-     /**
-      * 要移除协作人的清单全局唯一ID
-      * <p> 示例值：d300a75f-c56a-4be9-80d1-e47653028ceb
-      */
-       this.tasklistGuid = builder.tasklistGuid;
-        this.body = builder.body;
-  }
-
     public static class Builder {
         private String userIdType; // 表示user的ID的类型，支持open_id, user_id, union_id
-    
+        private String tasklistGuid; // 要移除协作人的清单全局唯一ID
+        private RemoveMembersTasklistReqBody body;
+
         /**
          * 表示user的ID的类型，支持open_id, user_id, union_id
          * <p> 示例值：open_id
+         *
          * @param userIdType
          * @return
          */
-           public Builder userIdType(String userIdType) {
-                this.userIdType = userIdType;
-                return this;
-           }
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
 
-    
-        private String tasklistGuid; // 要移除协作人的清单全局唯一ID
         /**
          * 要移除协作人的清单全局唯一ID
          * <p> 示例值：d300a75f-c56a-4be9-80d1-e47653028ceb
+         *
          * @param tasklistGuid
          * @return
          */
-          public Builder tasklistGuid(String tasklistGuid) {
-               this.tasklistGuid = tasklistGuid;
-               return this;
-          }
+        public Builder tasklistGuid(String tasklistGuid) {
+            this.tasklistGuid = tasklistGuid;
+            return this;
+        }
 
-    
-        private RemoveMembersTasklistReqBody body;
-    
         public RemoveMembersTasklistReqBody getRemoveMembersTasklistReqBody() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder removeMembersTasklistReqBody(RemoveMembersTasklistReqBody body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public RemoveMembersTasklistReq build(){
-        return new RemoveMembersTasklistReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public RemoveMembersTasklistReq build() {
+            return new RemoveMembersTasklistReq(this);
+        }
     }
 }

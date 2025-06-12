@@ -12,24 +12,45 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ListInterviewRoundTypeReq {
-     /**
-      * 职位流程类型
-      * <p> 示例值：1
-      */
+    /**
+     * 职位流程类型
+     * <p> 示例值：1
+     */
     @Query
     @SerializedName("process_type")
     private Integer processType;
+
+    // builder 开始
+    public ListInterviewRoundTypeReq() {
+    }
+
+    public ListInterviewRoundTypeReq(Builder builder) {
+        /**
+         * 职位流程类型
+         * <p> 示例值：1
+         */
+        this.processType = builder.processType;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Integer getProcessType() {
         return this.processType;
     }
@@ -38,39 +59,24 @@ public class ListInterviewRoundTypeReq {
         this.processType = processType;
     }
 
-
-// builder 开始
-  public ListInterviewRoundTypeReq(){}
-
-  public ListInterviewRoundTypeReq(Builder builder){
-         /**
-          * 职位流程类型
-          * <p> 示例值：1
-          */
-       this.processType = builder.processType;
-  }
-
     public static class Builder {
         private Integer processType; // 职位流程类型
-    
+
         /**
          * 职位流程类型
          * <p> 示例值：1
+         *
          * @param processType
          * @return
          */
-           public Builder processType(Integer processType) {
-                this.processType = processType;
-                return this;
-           }
+        public Builder processType(Integer processType) {
+            this.processType = processType;
+            return this;
+        }
 
-    
-    public ListInterviewRoundTypeReq build(){
-        return new ListInterviewRoundTypeReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ListInterviewRoundTypeReq build() {
+            return new ListInterviewRoundTypeReq(this);
+        }
     }
 }

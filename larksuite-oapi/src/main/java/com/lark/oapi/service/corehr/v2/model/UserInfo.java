@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,72 +20,137 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class UserInfo {
-     /**
-      * 员工id
-      * <p> 示例值：3e3cf96b
-      */
+    /**
+     * 员工id
+     * <p> 示例值：3e3cf96b
+     */
     @SerializedName("user_id")
     private String userId;
-     /**
-      * 用户默认名
-      * <p> 示例值：张三
-      */
+    /**
+     * 用户默认名
+     * <p> 示例值：张三
+     */
     @SerializedName("name")
     private String name;
-     /**
-      * 中文名
-      * <p> 示例值：张三
-      */
+    /**
+     * 中文名
+     * <p> 示例值：张三
+     */
     @SerializedName("zh_name")
     private String zhName;
-     /**
-      * 英文名
-      * <p> 示例值：zhang san
-      */
+    /**
+     * 英文名
+     * <p> 示例值：zhang san
+     */
     @SerializedName("en_name")
     private String enName;
-     /**
-      * 手机号
-      * <p> 示例值：13011111111
-      */
+    /**
+     * 手机号
+     * <p> 示例值：13011111111
+     */
     @SerializedName("mobile")
     private String mobile;
-     /**
-      * 员工工号
-      * <p> 示例值：1
-      */
+    /**
+     * 员工工号
+     * <p> 示例值：1
+     */
     @SerializedName("employee_no")
     private String employeeNo;
-     /**
-      * 邮箱
-      * <p> 示例值：zhangsan@gmail.com
-      */
+    /**
+     * 邮箱
+     * <p> 示例值：zhangsan@gmail.com
+     */
     @SerializedName("email")
     private String email;
-     /**
-      * 用户是否离职
-      * <p> 示例值：true
-      */
+    /**
+     * 用户是否离职
+     * <p> 示例值：true
+     */
     @SerializedName("is_resigned")
     private Boolean isResigned;
-     /**
-      * 离职时间，时间戳格式，表示从1970年1月1日开始所经过的秒数
-      * <p> 示例值：1672502400
-      */
+    /**
+     * 离职时间，时间戳格式，表示从1970年1月1日开始所经过的秒数
+     * <p> 示例值：1672502400
+     */
     @SerializedName("resign_time")
     private String resignTime;
-     /**
-      * 离职日期
-      * <p> 示例值：2023-01-01
-      */
+    /**
+     * 离职日期
+     * <p> 示例值：2023-01-01
+     */
     @SerializedName("resign_date")
     private String resignDate;
+
+    // builder 开始
+    public UserInfo() {
+    }
+
+    public UserInfo(Builder builder) {
+        /**
+         * 员工id
+         * <p> 示例值：3e3cf96b
+         */
+        this.userId = builder.userId;
+        /**
+         * 用户默认名
+         * <p> 示例值：张三
+         */
+        this.name = builder.name;
+        /**
+         * 中文名
+         * <p> 示例值：张三
+         */
+        this.zhName = builder.zhName;
+        /**
+         * 英文名
+         * <p> 示例值：zhang san
+         */
+        this.enName = builder.enName;
+        /**
+         * 手机号
+         * <p> 示例值：13011111111
+         */
+        this.mobile = builder.mobile;
+        /**
+         * 员工工号
+         * <p> 示例值：1
+         */
+        this.employeeNo = builder.employeeNo;
+        /**
+         * 邮箱
+         * <p> 示例值：zhangsan@gmail.com
+         */
+        this.email = builder.email;
+        /**
+         * 用户是否离职
+         * <p> 示例值：true
+         */
+        this.isResigned = builder.isResigned;
+        /**
+         * 离职时间，时间戳格式，表示从1970年1月1日开始所经过的秒数
+         * <p> 示例值：1672502400
+         */
+        this.resignTime = builder.resignTime;
+        /**
+         * 离职日期
+         * <p> 示例值：2023-01-01
+         */
+        this.resignDate = builder.resignDate;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getUserId() {
         return this.userId;
     }
@@ -165,251 +231,190 @@ public class UserInfo {
         this.resignDate = resignDate;
     }
 
-
-// builder 开始
-  public UserInfo(){}
-
-  public UserInfo(Builder builder){
-         /**
-          * 员工id
-          * <p> 示例值：3e3cf96b
-          */
-      this.userId = builder.userId;
-         /**
-          * 用户默认名
-          * <p> 示例值：张三
-          */
-      this.name = builder.name;
-         /**
-          * 中文名
-          * <p> 示例值：张三
-          */
-      this.zhName = builder.zhName;
-         /**
-          * 英文名
-          * <p> 示例值：zhang san
-          */
-      this.enName = builder.enName;
-         /**
-          * 手机号
-          * <p> 示例值：13011111111
-          */
-      this.mobile = builder.mobile;
-         /**
-          * 员工工号
-          * <p> 示例值：1
-          */
-      this.employeeNo = builder.employeeNo;
-         /**
-          * 邮箱
-          * <p> 示例值：zhangsan@gmail.com
-          */
-      this.email = builder.email;
-         /**
-          * 用户是否离职
-          * <p> 示例值：true
-          */
-      this.isResigned = builder.isResigned;
-         /**
-          * 离职时间，时间戳格式，表示从1970年1月1日开始所经过的秒数
-          * <p> 示例值：1672502400
-          */
-      this.resignTime = builder.resignTime;
-         /**
-          * 离职日期
-          * <p> 示例值：2023-01-01
-          */
-      this.resignDate = builder.resignDate;
-  }
-
     public static class Builder {
-     /**
-      * 员工id
-      * <p> 示例值：3e3cf96b
-      */
+        /**
+         * 员工id
+         * <p> 示例值：3e3cf96b
+         */
         private String userId;
-     /**
-      * 用户默认名
-      * <p> 示例值：张三
-      */
+        /**
+         * 用户默认名
+         * <p> 示例值：张三
+         */
         private String name;
-     /**
-      * 中文名
-      * <p> 示例值：张三
-      */
+        /**
+         * 中文名
+         * <p> 示例值：张三
+         */
         private String zhName;
-     /**
-      * 英文名
-      * <p> 示例值：zhang san
-      */
+        /**
+         * 英文名
+         * <p> 示例值：zhang san
+         */
         private String enName;
-     /**
-      * 手机号
-      * <p> 示例值：13011111111
-      */
+        /**
+         * 手机号
+         * <p> 示例值：13011111111
+         */
         private String mobile;
-     /**
-      * 员工工号
-      * <p> 示例值：1
-      */
+        /**
+         * 员工工号
+         * <p> 示例值：1
+         */
         private String employeeNo;
-     /**
-      * 邮箱
-      * <p> 示例值：zhangsan@gmail.com
-      */
+        /**
+         * 邮箱
+         * <p> 示例值：zhangsan@gmail.com
+         */
         private String email;
-     /**
-      * 用户是否离职
-      * <p> 示例值：true
-      */
+        /**
+         * 用户是否离职
+         * <p> 示例值：true
+         */
         private Boolean isResigned;
-     /**
-      * 离职时间，时间戳格式，表示从1970年1月1日开始所经过的秒数
-      * <p> 示例值：1672502400
-      */
+        /**
+         * 离职时间，时间戳格式，表示从1970年1月1日开始所经过的秒数
+         * <p> 示例值：1672502400
+         */
         private String resignTime;
-     /**
-      * 离职日期
-      * <p> 示例值：2023-01-01
-      */
+        /**
+         * 离职日期
+         * <p> 示例值：2023-01-01
+         */
         private String resignDate;
 
         /**
          * 员工id
          * <p> 示例值：3e3cf96b
+         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-             this.userId = userId;
-             return this;
+            this.userId = userId;
+            return this;
         }
 
-    
 
         /**
          * 用户默认名
          * <p> 示例值：张三
+         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 中文名
          * <p> 示例值：张三
+         *
          * @param zhName
          * @return
          */
         public Builder zhName(String zhName) {
-             this.zhName = zhName;
-             return this;
+            this.zhName = zhName;
+            return this;
         }
 
-    
 
         /**
          * 英文名
          * <p> 示例值：zhang san
+         *
          * @param enName
          * @return
          */
         public Builder enName(String enName) {
-             this.enName = enName;
-             return this;
+            this.enName = enName;
+            return this;
         }
 
-    
 
         /**
          * 手机号
          * <p> 示例值：13011111111
+         *
          * @param mobile
          * @return
          */
         public Builder mobile(String mobile) {
-             this.mobile = mobile;
-             return this;
+            this.mobile = mobile;
+            return this;
         }
 
-    
 
         /**
          * 员工工号
          * <p> 示例值：1
+         *
          * @param employeeNo
          * @return
          */
         public Builder employeeNo(String employeeNo) {
-             this.employeeNo = employeeNo;
-             return this;
+            this.employeeNo = employeeNo;
+            return this;
         }
 
-    
 
         /**
          * 邮箱
          * <p> 示例值：zhangsan@gmail.com
+         *
          * @param email
          * @return
          */
         public Builder email(String email) {
-             this.email = email;
-             return this;
+            this.email = email;
+            return this;
         }
 
-    
 
         /**
          * 用户是否离职
          * <p> 示例值：true
+         *
          * @param isResigned
          * @return
          */
         public Builder isResigned(Boolean isResigned) {
-             this.isResigned = isResigned;
-             return this;
+            this.isResigned = isResigned;
+            return this;
         }
 
-    
 
         /**
          * 离职时间，时间戳格式，表示从1970年1月1日开始所经过的秒数
          * <p> 示例值：1672502400
+         *
          * @param resignTime
          * @return
          */
         public Builder resignTime(String resignTime) {
-             this.resignTime = resignTime;
-             return this;
+            this.resignTime = resignTime;
+            return this;
         }
 
-    
 
         /**
          * 离职日期
          * <p> 示例值：2023-01-01
+         *
          * @param resignDate
          * @return
          */
         public Builder resignDate(String resignDate) {
-             this.resignDate = resignDate;
-             return this;
+            this.resignDate = resignDate;
+            return this;
         }
 
-    
-    
-    public UserInfo build(){
-        return new UserInfo(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public UserInfo build() {
+            return new UserInfo(this);
+        }
     }
 }

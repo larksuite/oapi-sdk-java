@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.sheets.v3.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.sheets.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,36 +20,71 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class SheetProperties {
-     /**
-      * 工作表行数
-      * <p> 示例值：1
-      */
+    /**
+     * 工作表行数
+     * <p> 示例值：1
+     */
     @SerializedName("row_count")
     private Integer rowCount;
-     /**
-      * 工作表列数
-      * <p> 示例值：1
-      */
+    /**
+     * 工作表列数
+     * <p> 示例值：1
+     */
     @SerializedName("column_count")
     private Integer columnCount;
-     /**
-      * 冻结行数
-      * <p> 示例值：1
-      */
+    /**
+     * 冻结行数
+     * <p> 示例值：1
+     */
     @SerializedName("frozen_row_count")
     private Integer frozenRowCount;
-     /**
-      * 冻结列数
-      * <p> 示例值：1
-      */
+    /**
+     * 冻结列数
+     * <p> 示例值：1
+     */
     @SerializedName("frozen_column_count")
     private Integer frozenColumnCount;
+
+    // builder 开始
+    public SheetProperties() {
+    }
+
+    public SheetProperties(Builder builder) {
+        /**
+         * 工作表行数
+         * <p> 示例值：1
+         */
+        this.rowCount = builder.rowCount;
+        /**
+         * 工作表列数
+         * <p> 示例值：1
+         */
+        this.columnCount = builder.columnCount;
+        /**
+         * 冻结行数
+         * <p> 示例值：1
+         */
+        this.frozenRowCount = builder.frozenRowCount;
+        /**
+         * 冻结列数
+         * <p> 示例值：1
+         */
+        this.frozenColumnCount = builder.frozenColumnCount;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Integer getRowCount() {
         return this.rowCount;
     }
@@ -81,113 +117,82 @@ public class SheetProperties {
         this.frozenColumnCount = frozenColumnCount;
     }
 
-
-// builder 开始
-  public SheetProperties(){}
-
-  public SheetProperties(Builder builder){
-         /**
-          * 工作表行数
-          * <p> 示例值：1
-          */
-      this.rowCount = builder.rowCount;
-         /**
-          * 工作表列数
-          * <p> 示例值：1
-          */
-      this.columnCount = builder.columnCount;
-         /**
-          * 冻结行数
-          * <p> 示例值：1
-          */
-      this.frozenRowCount = builder.frozenRowCount;
-         /**
-          * 冻结列数
-          * <p> 示例值：1
-          */
-      this.frozenColumnCount = builder.frozenColumnCount;
-  }
-
     public static class Builder {
-     /**
-      * 工作表行数
-      * <p> 示例值：1
-      */
+        /**
+         * 工作表行数
+         * <p> 示例值：1
+         */
         private Integer rowCount;
-     /**
-      * 工作表列数
-      * <p> 示例值：1
-      */
+        /**
+         * 工作表列数
+         * <p> 示例值：1
+         */
         private Integer columnCount;
-     /**
-      * 冻结行数
-      * <p> 示例值：1
-      */
+        /**
+         * 冻结行数
+         * <p> 示例值：1
+         */
         private Integer frozenRowCount;
-     /**
-      * 冻结列数
-      * <p> 示例值：1
-      */
+        /**
+         * 冻结列数
+         * <p> 示例值：1
+         */
         private Integer frozenColumnCount;
 
         /**
          * 工作表行数
          * <p> 示例值：1
+         *
          * @param rowCount
          * @return
          */
         public Builder rowCount(Integer rowCount) {
-             this.rowCount = rowCount;
-             return this;
+            this.rowCount = rowCount;
+            return this;
         }
 
-    
 
         /**
          * 工作表列数
          * <p> 示例值：1
+         *
          * @param columnCount
          * @return
          */
         public Builder columnCount(Integer columnCount) {
-             this.columnCount = columnCount;
-             return this;
+            this.columnCount = columnCount;
+            return this;
         }
 
-    
 
         /**
          * 冻结行数
          * <p> 示例值：1
+         *
          * @param frozenRowCount
          * @return
          */
         public Builder frozenRowCount(Integer frozenRowCount) {
-             this.frozenRowCount = frozenRowCount;
-             return this;
+            this.frozenRowCount = frozenRowCount;
+            return this;
         }
 
-    
 
         /**
          * 冻结列数
          * <p> 示例值：1
+         *
          * @param frozenColumnCount
          * @return
          */
         public Builder frozenColumnCount(Integer frozenColumnCount) {
-             this.frozenColumnCount = frozenColumnCount;
-             return this;
+            this.frozenColumnCount = frozenColumnCount;
+            return this;
         }
 
-    
-    
-    public SheetProperties build(){
-        return new SheetProperties(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public SheetProperties build() {
+            return new SheetProperties(this);
+        }
     }
 }

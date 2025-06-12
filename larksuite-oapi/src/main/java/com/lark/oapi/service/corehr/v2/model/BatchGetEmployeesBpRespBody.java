@@ -12,30 +12,35 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class BatchGetEmployeesBpRespBody {
-     /**
-      * 员工直属 BP 信息，当员工所在部门、属地无 BP 时，会上钻找到最近的 BP
-      * <p> 示例值：
-      */
+    /**
+     * 员工直属 BP 信息，当员工所在部门、属地无 BP 时，会上钻找到最近的 BP
+     * <p> 示例值：
+     */
     @SerializedName("employment_direct_bps")
     private EmploymentBp[] employmentDirectBps;
-     /**
-      * 员工全部 BP 信息
-      * <p> 示例值：
-      */
+    /**
+     * 员工全部 BP 信息
+     * <p> 示例值：
+     */
     @SerializedName("employment_all_bps")
     private EmploymentBp[] employmentAllBps;
+
     public EmploymentBp[] getEmploymentDirectBps() {
         return this.employmentDirectBps;
     }

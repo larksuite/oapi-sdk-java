@@ -17,15 +17,16 @@ package com.lark.oapi.service.payroll.v1.enums;
  * 查询操作符
  */
 public enum DatasourceRecordFieldFilterOperatorEnum {
-     IS_ANY_OF(1), // 包含任一
-     IN_DATA_RANGE(2), // 处于日期范围中，闭区间。
-  ;
-   private Integer value;
+    IS_ANY_OF(1), // 包含任一
+    IN_DATA_RANGE(2), // 处于日期范围中，闭区间。
+    ;
+    private Integer value;
+
     DatasourceRecordFieldFilterOperatorEnum(Integer value) {
-      this.value = value;
+        this.value = value;
     }
 
     public Integer getValue() {
-      return this.value;
+        return this.value;
     }
 }

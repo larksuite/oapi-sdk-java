@@ -12,32 +12,37 @@
  */
 
 package com.lark.oapi.service.auth.v3.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class TenantAccessToken {
 
-// builder 开始
-  public TenantAccessToken(){}
+    // builder 开始
+    public TenantAccessToken() {
+    }
 
-  public TenantAccessToken(Builder builder){
-  }
-
-    public static class Builder {
-    
-    public TenantAccessToken build(){
-        return new TenantAccessToken(this);
-      }
+    public TenantAccessToken(Builder builder) {
     }
 
     public static Builder newBuilder() {
         return new Builder();
+    }
+
+    public static class Builder {
+
+        public TenantAccessToken build() {
+            return new TenantAccessToken(this);
+        }
     }
 }

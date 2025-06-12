@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.document_ai.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.document_ai.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class LlmContent {
-     /**
-      * 内容类型：text, image_zip
-      * <p> 示例值：text
-      */
+    /**
+     * 内容类型：text, image_zip
+     * <p> 示例值：text
+     */
     @SerializedName("type")
     private String type;
-     /**
-      * 内容：text类型就是对应的输入文本， image_zip是文件的相对路径，文件需要以zip格式输入
-      * <p> 示例值：输入图片按顺序描述了一件什么事情
-      */
+    /**
+     * 内容：text类型就是对应的输入文本， image_zip是文件的相对路径，文件需要以zip格式输入
+     * <p> 示例值：输入图片按顺序描述了一件什么事情
+     */
     @SerializedName("content")
     private String content;
+
+    // builder 开始
+    public LlmContent() {
+    }
+
+    public LlmContent(Builder builder) {
+        /**
+         * 内容类型：text, image_zip
+         * <p> 示例值：text
+         */
+        this.type = builder.type;
+        /**
+         * 内容：text类型就是对应的输入文本， image_zip是文件的相对路径，文件需要以zip格式输入
+         * <p> 示例值：输入图片按顺序描述了一件什么事情
+         */
+        this.content = builder.content;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getType() {
         return this.type;
     }
@@ -53,77 +79,58 @@ public class LlmContent {
         this.content = content;
     }
 
-
-// builder 开始
-  public LlmContent(){}
-
-  public LlmContent(Builder builder){
-         /**
-          * 内容类型：text, image_zip
-          * <p> 示例值：text
-          */
-      this.type = builder.type;
-         /**
-          * 内容：text类型就是对应的输入文本， image_zip是文件的相对路径，文件需要以zip格式输入
-          * <p> 示例值：输入图片按顺序描述了一件什么事情
-          */
-      this.content = builder.content;
-  }
-
     public static class Builder {
-     /**
-      * 内容类型：text, image_zip
-      * <p> 示例值：text
-      */
+        /**
+         * 内容类型：text, image_zip
+         * <p> 示例值：text
+         */
         private String type;
-     /**
-      * 内容：text类型就是对应的输入文本， image_zip是文件的相对路径，文件需要以zip格式输入
-      * <p> 示例值：输入图片按顺序描述了一件什么事情
-      */
+        /**
+         * 内容：text类型就是对应的输入文本， image_zip是文件的相对路径，文件需要以zip格式输入
+         * <p> 示例值：输入图片按顺序描述了一件什么事情
+         */
         private String content;
 
         /**
          * 内容类型：text, image_zip
          * <p> 示例值：text
+         *
          * @param type
          * @return
          */
         public Builder type(String type) {
-             this.type = type;
-             return this;
+            this.type = type;
+            return this;
         }
+
         /**
          * 内容类型：text, image_zip
          * <p> 示例值：text
+         *
          * @param type {@link com.lark.oapi.service.document_ai.v1.enums.LlmContentTypeEnum}
          * @return
          */
         public Builder type(com.lark.oapi.service.document_ai.v1.enums.LlmContentTypeEnum type) {
-             this.type = type.getValue();
-             return this;
+            this.type = type.getValue();
+            return this;
         }
 
-    
 
         /**
          * 内容：text类型就是对应的输入文本， image_zip是文件的相对路径，文件需要以zip格式输入
          * <p> 示例值：输入图片按顺序描述了一件什么事情
+         *
          * @param content
          * @return
          */
         public Builder content(String content) {
-             this.content = content;
-             return this;
+            this.content = content;
+            return this;
         }
 
-    
-    
-    public LlmContent build(){
-        return new LlmContent(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public LlmContent build() {
+            return new LlmContent(this);
+        }
     }
 }

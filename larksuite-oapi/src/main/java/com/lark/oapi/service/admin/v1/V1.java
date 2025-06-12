@@ -17,42 +17,49 @@ import com.lark.oapi.core.Config;
 import com.lark.oapi.service.admin.v1.resource.*;
 
 public class V1 {
-	private final AdminDeptStat adminDeptStat; // 部门维度的数据报表
-	private final AdminUserStat adminUserStat; // 用户维度的数据报表
-	private final AuditInfo auditInfo; // 行为审计日志（灰度租户可见）
-	private final Badge badge; // 勋章
-	private final BadgeGrant badgeGrant; // 勋章授予名单
-	private final BadgeImage badgeImage; // 勋章图片
-	private final Password password; // 登录密码管理
+    private final AdminDeptStat adminDeptStat; // 部门维度的数据报表
+    private final AdminUserStat adminUserStat; // 用户维度的数据报表
+    private final AuditInfo auditInfo; // 行为审计日志（灰度租户可见）
+    private final Badge badge; // 勋章
+    private final BadgeGrant badgeGrant; // 勋章授予名单
+    private final BadgeImage badgeImage; // 勋章图片
+    private final Password password; // 登录密码管理
 
-	public V1(Config config) {
-		this.adminDeptStat = new AdminDeptStat(config);
-		this.adminUserStat = new AdminUserStat(config);
-		this.auditInfo = new AuditInfo(config);
-		this.badge = new Badge(config);
-		this.badgeGrant = new BadgeGrant(config);
-		this.badgeImage = new BadgeImage(config);
-		this.password = new Password(config);
-	}
-	public AdminDeptStat adminDeptStat() {
-		return adminDeptStat;
-	}
-	public AdminUserStat adminUserStat() {
-		return adminUserStat;
-	}
-	public AuditInfo auditInfo() {
-		return auditInfo;
-	}
-	public Badge badge() {
-		return badge;
-	}
-	public BadgeGrant badgeGrant() {
-		return badgeGrant;
-	}
-	public BadgeImage badgeImage() {
-		return badgeImage;
-	}
-	public Password password() {
-		return password;
-	}
+    public V1(Config config) {
+        this.adminDeptStat = new AdminDeptStat(config);
+        this.adminUserStat = new AdminUserStat(config);
+        this.auditInfo = new AuditInfo(config);
+        this.badge = new Badge(config);
+        this.badgeGrant = new BadgeGrant(config);
+        this.badgeImage = new BadgeImage(config);
+        this.password = new Password(config);
+    }
+
+    public AdminDeptStat adminDeptStat() {
+        return adminDeptStat;
+    }
+
+    public AdminUserStat adminUserStat() {
+        return adminUserStat;
+    }
+
+    public AuditInfo auditInfo() {
+        return auditInfo;
+    }
+
+    public Badge badge() {
+        return badge;
+    }
+
+    public BadgeGrant badgeGrant() {
+        return badgeGrant;
+    }
+
+    public BadgeImage badgeImage() {
+        return badgeImage;
+    }
+
+    public Password password() {
+        return password;
+    }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.okr.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.okr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class MetricTable {
-     /**
-      * 指标表 id
-      * <p> 示例值：635782378412311
-      */
+    /**
+     * 指标表 id
+     * <p> 示例值：635782378412311
+     */
     @SerializedName("metric_table_id")
     private String metricTableId;
-     /**
-      * 指标表名称
-      * <p> 示例值：指标表a
-      */
+    /**
+     * 指标表名称
+     * <p> 示例值：指标表a
+     */
     @SerializedName("metric_table_name")
     private String metricTableName;
-     /**
-      * okr周期
-      * <p> 示例值：635782378221221
-      */
+    /**
+     * okr周期
+     * <p> 示例值：635782378221221
+     */
     @SerializedName("period_id")
     private String periodId;
+
+    // builder 开始
+    public MetricTable() {
+    }
+
+    public MetricTable(Builder builder) {
+        /**
+         * 指标表 id
+         * <p> 示例值：635782378412311
+         */
+        this.metricTableId = builder.metricTableId;
+        /**
+         * 指标表名称
+         * <p> 示例值：指标表a
+         */
+        this.metricTableName = builder.metricTableName;
+        /**
+         * okr周期
+         * <p> 示例值：635782378221221
+         */
+        this.periodId = builder.periodId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getMetricTableId() {
         return this.metricTableId;
     }
@@ -67,90 +98,64 @@ public class MetricTable {
         this.periodId = periodId;
     }
 
-
-// builder 开始
-  public MetricTable(){}
-
-  public MetricTable(Builder builder){
-         /**
-          * 指标表 id
-          * <p> 示例值：635782378412311
-          */
-      this.metricTableId = builder.metricTableId;
-         /**
-          * 指标表名称
-          * <p> 示例值：指标表a
-          */
-      this.metricTableName = builder.metricTableName;
-         /**
-          * okr周期
-          * <p> 示例值：635782378221221
-          */
-      this.periodId = builder.periodId;
-  }
-
     public static class Builder {
-     /**
-      * 指标表 id
-      * <p> 示例值：635782378412311
-      */
+        /**
+         * 指标表 id
+         * <p> 示例值：635782378412311
+         */
         private String metricTableId;
-     /**
-      * 指标表名称
-      * <p> 示例值：指标表a
-      */
+        /**
+         * 指标表名称
+         * <p> 示例值：指标表a
+         */
         private String metricTableName;
-     /**
-      * okr周期
-      * <p> 示例值：635782378221221
-      */
+        /**
+         * okr周期
+         * <p> 示例值：635782378221221
+         */
         private String periodId;
 
         /**
          * 指标表 id
          * <p> 示例值：635782378412311
+         *
          * @param metricTableId
          * @return
          */
         public Builder metricTableId(String metricTableId) {
-             this.metricTableId = metricTableId;
-             return this;
+            this.metricTableId = metricTableId;
+            return this;
         }
 
-    
 
         /**
          * 指标表名称
          * <p> 示例值：指标表a
+         *
          * @param metricTableName
          * @return
          */
         public Builder metricTableName(String metricTableName) {
-             this.metricTableName = metricTableName;
-             return this;
+            this.metricTableName = metricTableName;
+            return this;
         }
 
-    
 
         /**
          * okr周期
          * <p> 示例值：635782378221221
+         *
          * @param periodId
          * @return
          */
         public Builder periodId(String periodId) {
-             this.periodId = periodId;
-             return this;
+            this.periodId = periodId;
+            return this;
         }
 
-    
-    
-    public MetricTable build(){
-        return new MetricTable(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public MetricTable build() {
+            return new MetricTable(this);
+        }
     }
 }

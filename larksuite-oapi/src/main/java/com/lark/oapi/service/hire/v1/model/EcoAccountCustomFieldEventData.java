@@ -12,30 +12,56 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class EcoAccountCustomFieldEventData {
-     /**
-      * 自定义字段的标识
-      * <p> 示例值：ord_id
-      */
+    /**
+     * 自定义字段的标识
+     * <p> 示例值：ord_id
+     */
     @SerializedName("key")
     private String key;
-     /**
-      * 自定义字段的值
-      * <p> 示例值：7233333
-      */
+    /**
+     * 自定义字段的值
+     * <p> 示例值：7233333
+     */
     @SerializedName("value")
     private String value;
+
+    // builder 开始
+    public EcoAccountCustomFieldEventData() {
+    }
+
+    public EcoAccountCustomFieldEventData(Builder builder) {
+        /**
+         * 自定义字段的标识
+         * <p> 示例值：ord_id
+         */
+        this.key = builder.key;
+        /**
+         * 自定义字段的值
+         * <p> 示例值：7233333
+         */
+        this.value = builder.value;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getKey() {
         return this.key;
     }
@@ -52,67 +78,46 @@ public class EcoAccountCustomFieldEventData {
         this.value = value;
     }
 
-
-// builder 开始
-  public EcoAccountCustomFieldEventData(){}
-
-  public EcoAccountCustomFieldEventData(Builder builder){
-         /**
-          * 自定义字段的标识
-          * <p> 示例值：ord_id
-          */
-      this.key = builder.key;
-         /**
-          * 自定义字段的值
-          * <p> 示例值：7233333
-          */
-      this.value = builder.value;
-  }
-
     public static class Builder {
-     /**
-      * 自定义字段的标识
-      * <p> 示例值：ord_id
-      */
+        /**
+         * 自定义字段的标识
+         * <p> 示例值：ord_id
+         */
         private String key;
-     /**
-      * 自定义字段的值
-      * <p> 示例值：7233333
-      */
+        /**
+         * 自定义字段的值
+         * <p> 示例值：7233333
+         */
         private String value;
 
         /**
          * 自定义字段的标识
          * <p> 示例值：ord_id
+         *
          * @param key
          * @return
          */
         public Builder key(String key) {
-             this.key = key;
-             return this;
+            this.key = key;
+            return this;
         }
 
-    
 
         /**
          * 自定义字段的值
          * <p> 示例值：7233333
+         *
          * @param value
          * @return
          */
         public Builder value(String value) {
-             this.value = value;
-             return this;
+            this.value = value;
+            return this;
         }
 
-    
-    
-    public EcoAccountCustomFieldEventData build(){
-        return new EcoAccountCustomFieldEventData(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public EcoAccountCustomFieldEventData build() {
+            return new EcoAccountCustomFieldEventData(this);
+        }
     }
 }

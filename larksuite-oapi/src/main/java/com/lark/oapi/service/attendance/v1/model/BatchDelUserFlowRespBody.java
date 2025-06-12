@@ -12,30 +12,35 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class BatchDelUserFlowRespBody {
-     /**
-      * 删除成功的流水记录ID列表
-      * <p> 示例值：
-      */
+    /**
+     * 删除成功的流水记录ID列表
+     * <p> 示例值：
+     */
     @SerializedName("success_record_ids")
     private String[] successRecordIds;
-     /**
-      * 删除失败的流水记录ID列表
-      * <p> 示例值：
-      */
+    /**
+     * 删除失败的流水记录ID列表
+     * <p> 示例值：
+     */
     @SerializedName("fail_record_ids")
     private String[] failRecordIds;
+
     public String[] getSuccessRecordIds() {
         return this.successRecordIds;
     }

@@ -17,15 +17,16 @@ package com.lark.oapi.service.drive.v1.enums;
  * 协作者的权限角色类型
  */
 public enum CreatePermissionMemberPermTypeEnum {
-     CONTAINER("container"), // 当前页面及子页面
-     SINGLE_PAGE("single_page"), // 仅当前页面，当且仅当在知识库文档中该参数有效
-  ;
-   private String value;
+    CONTAINER("container"), // 当前页面及子页面
+    SINGLE_PAGE("single_page"), // 仅当前页面，当且仅当在知识库文档中该参数有效
+    ;
+    private String value;
+
     CreatePermissionMemberPermTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

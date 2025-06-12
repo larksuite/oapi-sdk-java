@@ -12,24 +12,29 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CreateLocationRespBody {
-     /**
-      * 创建成功的地点信息
-      * <p> 示例值：
-      */
+    /**
+     * 创建成功的地点信息
+     * <p> 示例值：
+     */
     @SerializedName("location")
     private Location location;
+
     public Location getLocation() {
         return this.location;
     }

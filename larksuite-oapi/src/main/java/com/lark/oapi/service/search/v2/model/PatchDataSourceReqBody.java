@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.search.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.search.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,60 +20,115 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class PatchDataSourceReqBody {
-     /**
-      * 数据源的展示名称
-      * <p> 示例值：客服工单
-      */
+    /**
+     * 数据源的展示名称
+     * <p> 示例值：客服工单
+     */
     @SerializedName("name")
     private String name;
-     /**
-      * 数据源状态，0-已上线，1-未上线
-      * <p> 示例值：0
-      */
+    /**
+     * 数据源状态，0-已上线，1-未上线
+     * <p> 示例值：0
+     */
     @SerializedName("state")
     private Integer state;
-     /**
-      * 对于数据源的描述
-      * <p> 示例值：搜索客服工单
-      */
+    /**
+     * 对于数据源的描述
+     * <p> 示例值：搜索客服工单
+     */
     @SerializedName("description")
     private String description;
-     /**
-      * 数据源在 search tab 上的展示图标路径
-      * <p> 示例值：https://www.xxx.com/open.jpg
-      */
+    /**
+     * 数据源在 search tab 上的展示图标路径
+     * <p> 示例值：https://www.xxx.com/open.jpg
+     */
     @SerializedName("icon_url")
     private String iconUrl;
-     /**
-      * 数据源名称多语言配置，json格式，key为语言locale，value为对应文案，例如{"zh_cn":"测试数据源", "en_us":"Test DataSource"}
-      * <p> 示例值：
-      */
+    /**
+     * 数据源名称多语言配置，json格式，key为语言locale，value为对应文案，例如{"zh_cn":"测试数据源", "en_us":"Test DataSource"}
+     * <p> 示例值：
+     */
     @SerializedName("i18n_name")
     private I18nMeta i18nName;
-     /**
-      * 数据源描述多语言配置，json格式，key为语言locale，value为对应文案，例如{"zh_cn":"搜索测试数据源相关数据", "en_us":"Search data from Test DataSource"}
-      * <p> 示例值：
-      */
+    /**
+     * 数据源描述多语言配置，json格式，key为语言locale，value为对应文案，例如{"zh_cn":"搜索测试数据源相关数据", "en_us":"Search data from Test DataSource"}
+     * <p> 示例值：
+     */
     @SerializedName("i18n_description")
     private I18nMeta i18nDescription;
-     /**
-      * 修改connector的相关配置
-      * <p> 示例值：
-      */
+    /**
+     * 修改connector的相关配置
+     * <p> 示例值：
+     */
     @SerializedName("connector_param")
     private ConnectorParam connectorParam;
-     /**
-      * 是否使用问答服务
-      * <p> 示例值：false
-      */
+    /**
+     * 是否使用问答服务
+     * <p> 示例值：false
+     */
     @SerializedName("enable_answer")
     private Boolean enableAnswer;
+
+    // builder 开始
+    public PatchDataSourceReqBody() {
+    }
+
+    public PatchDataSourceReqBody(Builder builder) {
+        /**
+         * 数据源的展示名称
+         * <p> 示例值：客服工单
+         */
+        this.name = builder.name;
+        /**
+         * 数据源状态，0-已上线，1-未上线
+         * <p> 示例值：0
+         */
+        this.state = builder.state;
+        /**
+         * 对于数据源的描述
+         * <p> 示例值：搜索客服工单
+         */
+        this.description = builder.description;
+        /**
+         * 数据源在 search tab 上的展示图标路径
+         * <p> 示例值：https://www.xxx.com/open.jpg
+         */
+        this.iconUrl = builder.iconUrl;
+        /**
+         * 数据源名称多语言配置，json格式，key为语言locale，value为对应文案，例如{"zh_cn":"测试数据源", "en_us":"Test DataSource"}
+         * <p> 示例值：
+         */
+        this.i18nName = builder.i18nName;
+        /**
+         * 数据源描述多语言配置，json格式，key为语言locale，value为对应文案，例如{"zh_cn":"搜索测试数据源相关数据", "en_us":"Search data from Test DataSource"}
+         * <p> 示例值：
+         */
+        this.i18nDescription = builder.i18nDescription;
+        /**
+         * 修改connector的相关配置
+         * <p> 示例值：
+         */
+        this.connectorParam = builder.connectorParam;
+        /**
+         * 是否使用问答服务
+         * <p> 示例值：false
+         */
+        this.enableAnswer = builder.enableAnswer;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getName() {
         return this.name;
     }
@@ -137,215 +193,166 @@ public class PatchDataSourceReqBody {
         this.enableAnswer = enableAnswer;
     }
 
-
-// builder 开始
-  public PatchDataSourceReqBody(){}
-
-  public PatchDataSourceReqBody(Builder builder){
-         /**
-          * 数据源的展示名称
-          * <p> 示例值：客服工单
-          */
-      this.name = builder.name;
-         /**
-          * 数据源状态，0-已上线，1-未上线
-          * <p> 示例值：0
-          */
-      this.state = builder.state;
-         /**
-          * 对于数据源的描述
-          * <p> 示例值：搜索客服工单
-          */
-      this.description = builder.description;
-         /**
-          * 数据源在 search tab 上的展示图标路径
-          * <p> 示例值：https://www.xxx.com/open.jpg
-          */
-      this.iconUrl = builder.iconUrl;
-         /**
-          * 数据源名称多语言配置，json格式，key为语言locale，value为对应文案，例如{"zh_cn":"测试数据源", "en_us":"Test DataSource"}
-          * <p> 示例值：
-          */
-      this.i18nName = builder.i18nName;
-         /**
-          * 数据源描述多语言配置，json格式，key为语言locale，value为对应文案，例如{"zh_cn":"搜索测试数据源相关数据", "en_us":"Search data from Test DataSource"}
-          * <p> 示例值：
-          */
-      this.i18nDescription = builder.i18nDescription;
-         /**
-          * 修改connector的相关配置
-          * <p> 示例值：
-          */
-      this.connectorParam = builder.connectorParam;
-         /**
-          * 是否使用问答服务
-          * <p> 示例值：false
-          */
-      this.enableAnswer = builder.enableAnswer;
-  }
-
     public static class Builder {
-     /**
-      * 数据源的展示名称
-      * <p> 示例值：客服工单
-      */
+        /**
+         * 数据源的展示名称
+         * <p> 示例值：客服工单
+         */
         private String name;
-     /**
-      * 数据源状态，0-已上线，1-未上线
-      * <p> 示例值：0
-      */
+        /**
+         * 数据源状态，0-已上线，1-未上线
+         * <p> 示例值：0
+         */
         private Integer state;
-     /**
-      * 对于数据源的描述
-      * <p> 示例值：搜索客服工单
-      */
+        /**
+         * 对于数据源的描述
+         * <p> 示例值：搜索客服工单
+         */
         private String description;
-     /**
-      * 数据源在 search tab 上的展示图标路径
-      * <p> 示例值：https://www.xxx.com/open.jpg
-      */
+        /**
+         * 数据源在 search tab 上的展示图标路径
+         * <p> 示例值：https://www.xxx.com/open.jpg
+         */
         private String iconUrl;
-     /**
-      * 数据源名称多语言配置，json格式，key为语言locale，value为对应文案，例如{"zh_cn":"测试数据源", "en_us":"Test DataSource"}
-      * <p> 示例值：
-      */
+        /**
+         * 数据源名称多语言配置，json格式，key为语言locale，value为对应文案，例如{"zh_cn":"测试数据源", "en_us":"Test DataSource"}
+         * <p> 示例值：
+         */
         private I18nMeta i18nName;
-     /**
-      * 数据源描述多语言配置，json格式，key为语言locale，value为对应文案，例如{"zh_cn":"搜索测试数据源相关数据", "en_us":"Search data from Test DataSource"}
-      * <p> 示例值：
-      */
+        /**
+         * 数据源描述多语言配置，json格式，key为语言locale，value为对应文案，例如{"zh_cn":"搜索测试数据源相关数据", "en_us":"Search data from Test DataSource"}
+         * <p> 示例值：
+         */
         private I18nMeta i18nDescription;
-     /**
-      * 修改connector的相关配置
-      * <p> 示例值：
-      */
+        /**
+         * 修改connector的相关配置
+         * <p> 示例值：
+         */
         private ConnectorParam connectorParam;
-     /**
-      * 是否使用问答服务
-      * <p> 示例值：false
-      */
+        /**
+         * 是否使用问答服务
+         * <p> 示例值：false
+         */
         private Boolean enableAnswer;
 
         /**
          * 数据源的展示名称
          * <p> 示例值：客服工单
+         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 数据源状态，0-已上线，1-未上线
          * <p> 示例值：0
+         *
          * @param state
          * @return
          */
         public Builder state(Integer state) {
-             this.state = state;
-             return this;
+            this.state = state;
+            return this;
         }
+
         /**
          * 数据源状态，0-已上线，1-未上线
          * <p> 示例值：0
+         *
          * @param state {@link com.lark.oapi.service.search.v2.enums.PatchDataSourceStateEnum}
          * @return
          */
         public Builder state(com.lark.oapi.service.search.v2.enums.PatchDataSourceStateEnum state) {
-             this.state = state.getValue();
-             return this;
+            this.state = state.getValue();
+            return this;
         }
 
-    
 
         /**
          * 对于数据源的描述
          * <p> 示例值：搜索客服工单
+         *
          * @param description
          * @return
          */
         public Builder description(String description) {
-             this.description = description;
-             return this;
+            this.description = description;
+            return this;
         }
 
-    
 
         /**
          * 数据源在 search tab 上的展示图标路径
          * <p> 示例值：https://www.xxx.com/open.jpg
+         *
          * @param iconUrl
          * @return
          */
         public Builder iconUrl(String iconUrl) {
-             this.iconUrl = iconUrl;
-             return this;
+            this.iconUrl = iconUrl;
+            return this;
         }
 
-    
 
         /**
          * 数据源名称多语言配置，json格式，key为语言locale，value为对应文案，例如{"zh_cn":"测试数据源", "en_us":"Test DataSource"}
          * <p> 示例值：
+         *
          * @param i18nName
          * @return
          */
         public Builder i18nName(I18nMeta i18nName) {
-             this.i18nName = i18nName;
-             return this;
+            this.i18nName = i18nName;
+            return this;
         }
 
-    
 
         /**
          * 数据源描述多语言配置，json格式，key为语言locale，value为对应文案，例如{"zh_cn":"搜索测试数据源相关数据", "en_us":"Search data from Test DataSource"}
          * <p> 示例值：
+         *
          * @param i18nDescription
          * @return
          */
         public Builder i18nDescription(I18nMeta i18nDescription) {
-             this.i18nDescription = i18nDescription;
-             return this;
+            this.i18nDescription = i18nDescription;
+            return this;
         }
 
-    
 
         /**
          * 修改connector的相关配置
          * <p> 示例值：
+         *
          * @param connectorParam
          * @return
          */
         public Builder connectorParam(ConnectorParam connectorParam) {
-             this.connectorParam = connectorParam;
-             return this;
+            this.connectorParam = connectorParam;
+            return this;
         }
 
-    
 
         /**
          * 是否使用问答服务
          * <p> 示例值：false
+         *
          * @param enableAnswer
          * @return
          */
         public Builder enableAnswer(Boolean enableAnswer) {
-             this.enableAnswer = enableAnswer;
-             return this;
+            this.enableAnswer = enableAnswer;
+            return this;
         }
 
-    
-    
-    public PatchDataSourceReqBody build(){
-        return new PatchDataSourceReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public PatchDataSourceReqBody build() {
+            return new PatchDataSourceReqBody(this);
+        }
     }
 }

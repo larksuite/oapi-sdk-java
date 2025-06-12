@@ -43,52 +43,64 @@ public class BitableService {
     private final AppWorkflow appWorkflow; // app.workflow
 
     public BitableService(Config config) {
-    this.v1 = new V1(config);
-    this.app = new App(config);
-    this.appDashboard = new AppDashboard(config);
-    this.appRole = new AppRole(config);
-    this.appRoleMember = new AppRoleMember(config);
-    this.appTable = new AppTable(config);
-    this.appTableField = new AppTableField(config);
-    this.appTableForm = new AppTableForm(config);
-    this.appTableFormField = new AppTableFormField(config);
-    this.appTableRecord = new AppTableRecord(config);
-    this.appTableView = new AppTableView(config);
-    this.appWorkflow = new AppWorkflow(config);
+        this.v1 = new V1(config);
+        this.app = new App(config);
+        this.appDashboard = new AppDashboard(config);
+        this.appRole = new AppRole(config);
+        this.appRoleMember = new AppRoleMember(config);
+        this.appTable = new AppTable(config);
+        this.appTableField = new AppTableField(config);
+        this.appTableForm = new AppTableForm(config);
+        this.appTableFormField = new AppTableFormField(config);
+        this.appTableRecord = new AppTableRecord(config);
+        this.appTableView = new AppTableView(config);
+        this.appWorkflow = new AppWorkflow(config);
     }
+
     public V1 v1() {
         return v1;
     }
+
     public App app() {
         return app;
     }
+
     public AppDashboard appDashboard() {
         return appDashboard;
     }
+
     public AppRole appRole() {
         return appRole;
     }
+
     public AppRoleMember appRoleMember() {
         return appRoleMember;
     }
+
     public AppTable appTable() {
         return appTable;
     }
+
     public AppTableField appTableField() {
         return appTableField;
     }
+
     public AppTableForm appTableForm() {
         return appTableForm;
     }
+
     public AppTableFormField appTableFormField() {
         return appTableFormField;
     }
+
     public AppTableRecord appTableRecord() {
         return appTableRecord;
     }
+
     public AppTableView appTableView() {
         return appTableView;
     }
+
     public AppWorkflow appWorkflow() {
         return appWorkflow;
     }

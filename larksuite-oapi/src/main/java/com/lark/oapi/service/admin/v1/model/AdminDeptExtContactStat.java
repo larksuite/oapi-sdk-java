@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.admin.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.admin.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,48 +20,93 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class AdminDeptExtContactStat {
-     /**
-      * 日期
-      * <p> 示例值：2024-08-15
-      */
+    /**
+     * 日期
+     * <p> 示例值：2024-08-15
+     */
     @SerializedName("date")
     private String date;
-     /**
-      * 部门ID
-      * <p> 示例值：od-382e2793cfc9471f892e8a672987654c
-      */
+    /**
+     * 部门ID
+     * <p> 示例值：od-382e2793cfc9471f892e8a672987654c
+     */
     @SerializedName("department_id")
     private String departmentId;
-     /**
-      * 部门名
-      * <p> 示例值：部门A
-      */
+    /**
+     * 部门名
+     * <p> 示例值：部门A
+     */
     @SerializedName("department_name")
     private String departmentName;
-     /**
-      * 拥有外部联系人的成员数
-      * <p> 示例值：100
-      */
+    /**
+     * 拥有外部联系人的成员数
+     * <p> 示例值：100
+     */
     @SerializedName("has_ref_contact_ucnt")
     private String hasRefContactUcnt;
-     /**
-      * 外部联系人总数
-      * <p> 示例值：200
-      */
+    /**
+     * 外部联系人总数
+     * <p> 示例值：200
+     */
     @SerializedName("ref_contact_ucnt")
     private String refContactUcnt;
-     /**
-      * 外部联系人所属租户数
-      * <p> 示例值：10
-      */
+    /**
+     * 外部联系人所属租户数
+     * <p> 示例值：10
+     */
     @SerializedName("ref_contact_tcnt")
     private String refContactTcnt;
+
+    // builder 开始
+    public AdminDeptExtContactStat() {
+    }
+
+    public AdminDeptExtContactStat(Builder builder) {
+        /**
+         * 日期
+         * <p> 示例值：2024-08-15
+         */
+        this.date = builder.date;
+        /**
+         * 部门ID
+         * <p> 示例值：od-382e2793cfc9471f892e8a672987654c
+         */
+        this.departmentId = builder.departmentId;
+        /**
+         * 部门名
+         * <p> 示例值：部门A
+         */
+        this.departmentName = builder.departmentName;
+        /**
+         * 拥有外部联系人的成员数
+         * <p> 示例值：100
+         */
+        this.hasRefContactUcnt = builder.hasRefContactUcnt;
+        /**
+         * 外部联系人总数
+         * <p> 示例值：200
+         */
+        this.refContactUcnt = builder.refContactUcnt;
+        /**
+         * 外部联系人所属租户数
+         * <p> 示例值：10
+         */
+        this.refContactTcnt = builder.refContactTcnt;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getDate() {
         return this.date;
     }
@@ -109,159 +155,118 @@ public class AdminDeptExtContactStat {
         this.refContactTcnt = refContactTcnt;
     }
 
-
-// builder 开始
-  public AdminDeptExtContactStat(){}
-
-  public AdminDeptExtContactStat(Builder builder){
-         /**
-          * 日期
-          * <p> 示例值：2024-08-15
-          */
-      this.date = builder.date;
-         /**
-          * 部门ID
-          * <p> 示例值：od-382e2793cfc9471f892e8a672987654c
-          */
-      this.departmentId = builder.departmentId;
-         /**
-          * 部门名
-          * <p> 示例值：部门A
-          */
-      this.departmentName = builder.departmentName;
-         /**
-          * 拥有外部联系人的成员数
-          * <p> 示例值：100
-          */
-      this.hasRefContactUcnt = builder.hasRefContactUcnt;
-         /**
-          * 外部联系人总数
-          * <p> 示例值：200
-          */
-      this.refContactUcnt = builder.refContactUcnt;
-         /**
-          * 外部联系人所属租户数
-          * <p> 示例值：10
-          */
-      this.refContactTcnt = builder.refContactTcnt;
-  }
-
     public static class Builder {
-     /**
-      * 日期
-      * <p> 示例值：2024-08-15
-      */
+        /**
+         * 日期
+         * <p> 示例值：2024-08-15
+         */
         private String date;
-     /**
-      * 部门ID
-      * <p> 示例值：od-382e2793cfc9471f892e8a672987654c
-      */
+        /**
+         * 部门ID
+         * <p> 示例值：od-382e2793cfc9471f892e8a672987654c
+         */
         private String departmentId;
-     /**
-      * 部门名
-      * <p> 示例值：部门A
-      */
+        /**
+         * 部门名
+         * <p> 示例值：部门A
+         */
         private String departmentName;
-     /**
-      * 拥有外部联系人的成员数
-      * <p> 示例值：100
-      */
+        /**
+         * 拥有外部联系人的成员数
+         * <p> 示例值：100
+         */
         private String hasRefContactUcnt;
-     /**
-      * 外部联系人总数
-      * <p> 示例值：200
-      */
+        /**
+         * 外部联系人总数
+         * <p> 示例值：200
+         */
         private String refContactUcnt;
-     /**
-      * 外部联系人所属租户数
-      * <p> 示例值：10
-      */
+        /**
+         * 外部联系人所属租户数
+         * <p> 示例值：10
+         */
         private String refContactTcnt;
 
         /**
          * 日期
          * <p> 示例值：2024-08-15
+         *
          * @param date
          * @return
          */
         public Builder date(String date) {
-             this.date = date;
-             return this;
+            this.date = date;
+            return this;
         }
 
-    
 
         /**
          * 部门ID
          * <p> 示例值：od-382e2793cfc9471f892e8a672987654c
+         *
          * @param departmentId
          * @return
          */
         public Builder departmentId(String departmentId) {
-             this.departmentId = departmentId;
-             return this;
+            this.departmentId = departmentId;
+            return this;
         }
 
-    
 
         /**
          * 部门名
          * <p> 示例值：部门A
+         *
          * @param departmentName
          * @return
          */
         public Builder departmentName(String departmentName) {
-             this.departmentName = departmentName;
-             return this;
+            this.departmentName = departmentName;
+            return this;
         }
 
-    
 
         /**
          * 拥有外部联系人的成员数
          * <p> 示例值：100
+         *
          * @param hasRefContactUcnt
          * @return
          */
         public Builder hasRefContactUcnt(String hasRefContactUcnt) {
-             this.hasRefContactUcnt = hasRefContactUcnt;
-             return this;
+            this.hasRefContactUcnt = hasRefContactUcnt;
+            return this;
         }
 
-    
 
         /**
          * 外部联系人总数
          * <p> 示例值：200
+         *
          * @param refContactUcnt
          * @return
          */
         public Builder refContactUcnt(String refContactUcnt) {
-             this.refContactUcnt = refContactUcnt;
-             return this;
+            this.refContactUcnt = refContactUcnt;
+            return this;
         }
 
-    
 
         /**
          * 外部联系人所属租户数
          * <p> 示例值：10
+         *
          * @param refContactTcnt
          * @return
          */
         public Builder refContactTcnt(String refContactTcnt) {
-             this.refContactTcnt = refContactTcnt;
-             return this;
+            this.refContactTcnt = refContactTcnt;
+            return this;
         }
 
-    
-    
-    public AdminDeptExtContactStat build(){
-        return new AdminDeptExtContactStat(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public AdminDeptExtContactStat build() {
+            return new AdminDeptExtContactStat(this);
+        }
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,60 +20,115 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class PatchLeaveAccrualRecordReqBody {
-     /**
-      * 授予记录的唯一ID
-      * <p> 示例值：1
-      */
+    /**
+     * 授予记录的唯一ID
+     * <p> 示例值：1
+     */
     @SerializedName("leave_granting_record_id")
     private String leaveGrantingRecordId;
-     /**
-      * 员工ID
-      * <p> 示例值：1
-      */
+    /**
+     * 员工ID
+     * <p> 示例值：1
+     */
     @SerializedName("employment_id")
     private String employmentId;
-     /**
-      * 假期类型ID
-      * <p> 示例值：1
-      */
+    /**
+     * 假期类型ID
+     * <p> 示例值：1
+     */
     @SerializedName("leave_type_id")
     private String leaveTypeId;
-     /**
-      * 修改授予记录原因
-      * <p> 示例值：
-      */
+    /**
+     * 修改授予记录原因
+     * <p> 示例值：
+     */
     @SerializedName("reason")
     private LangText[] reason;
-     /**
-      * 时间偏移，东八区：480    8*60
-      * <p> 示例值：480
-      */
+    /**
+     * 时间偏移，东八区：480    8*60
+     * <p> 示例值：480
+     */
     @SerializedName("time_offset")
     private Integer timeOffset;
-     /**
-      * 失效日期，格式"2020-01-01"
-      * <p> 示例值：2020-01-01
-      */
+    /**
+     * 失效日期，格式"2020-01-01"
+     * <p> 示例值：2020-01-01
+     */
     @SerializedName("expiration_date")
     private String expirationDate;
-     /**
-      * 修改source 余额
-      * <p> 示例值：1
-      */
+    /**
+     * 修改source 余额
+     * <p> 示例值：1
+     */
     @SerializedName("quantity")
     private String quantity;
-     /**
-      * 是否参与清算
-      * <p> 示例值：1
-      */
+    /**
+     * 是否参与清算
+     * <p> 示例值：1
+     */
     @SerializedName("section_type")
     private Integer sectionType;
+
+    // builder 开始
+    public PatchLeaveAccrualRecordReqBody() {
+    }
+
+    public PatchLeaveAccrualRecordReqBody(Builder builder) {
+        /**
+         * 授予记录的唯一ID
+         * <p> 示例值：1
+         */
+        this.leaveGrantingRecordId = builder.leaveGrantingRecordId;
+        /**
+         * 员工ID
+         * <p> 示例值：1
+         */
+        this.employmentId = builder.employmentId;
+        /**
+         * 假期类型ID
+         * <p> 示例值：1
+         */
+        this.leaveTypeId = builder.leaveTypeId;
+        /**
+         * 修改授予记录原因
+         * <p> 示例值：
+         */
+        this.reason = builder.reason;
+        /**
+         * 时间偏移，东八区：480    8*60
+         * <p> 示例值：480
+         */
+        this.timeOffset = builder.timeOffset;
+        /**
+         * 失效日期，格式"2020-01-01"
+         * <p> 示例值：2020-01-01
+         */
+        this.expirationDate = builder.expirationDate;
+        /**
+         * 修改source 余额
+         * <p> 示例值：1
+         */
+        this.quantity = builder.quantity;
+        /**
+         * 是否参与清算
+         * <p> 示例值：1
+         */
+        this.sectionType = builder.sectionType;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getLeaveGrantingRecordId() {
         return this.leaveGrantingRecordId;
     }
@@ -137,205 +193,154 @@ public class PatchLeaveAccrualRecordReqBody {
         this.sectionType = sectionType;
     }
 
-
-// builder 开始
-  public PatchLeaveAccrualRecordReqBody(){}
-
-  public PatchLeaveAccrualRecordReqBody(Builder builder){
-         /**
-          * 授予记录的唯一ID
-          * <p> 示例值：1
-          */
-      this.leaveGrantingRecordId = builder.leaveGrantingRecordId;
-         /**
-          * 员工ID
-          * <p> 示例值：1
-          */
-      this.employmentId = builder.employmentId;
-         /**
-          * 假期类型ID
-          * <p> 示例值：1
-          */
-      this.leaveTypeId = builder.leaveTypeId;
-         /**
-          * 修改授予记录原因
-          * <p> 示例值：
-          */
-      this.reason = builder.reason;
-         /**
-          * 时间偏移，东八区：480    8*60
-          * <p> 示例值：480
-          */
-      this.timeOffset = builder.timeOffset;
-         /**
-          * 失效日期，格式"2020-01-01"
-          * <p> 示例值：2020-01-01
-          */
-      this.expirationDate = builder.expirationDate;
-         /**
-          * 修改source 余额
-          * <p> 示例值：1
-          */
-      this.quantity = builder.quantity;
-         /**
-          * 是否参与清算
-          * <p> 示例值：1
-          */
-      this.sectionType = builder.sectionType;
-  }
-
     public static class Builder {
-     /**
-      * 授予记录的唯一ID
-      * <p> 示例值：1
-      */
+        /**
+         * 授予记录的唯一ID
+         * <p> 示例值：1
+         */
         private String leaveGrantingRecordId;
-     /**
-      * 员工ID
-      * <p> 示例值：1
-      */
+        /**
+         * 员工ID
+         * <p> 示例值：1
+         */
         private String employmentId;
-     /**
-      * 假期类型ID
-      * <p> 示例值：1
-      */
+        /**
+         * 假期类型ID
+         * <p> 示例值：1
+         */
         private String leaveTypeId;
-     /**
-      * 修改授予记录原因
-      * <p> 示例值：
-      */
+        /**
+         * 修改授予记录原因
+         * <p> 示例值：
+         */
         private LangText[] reason;
-     /**
-      * 时间偏移，东八区：480    8*60
-      * <p> 示例值：480
-      */
+        /**
+         * 时间偏移，东八区：480    8*60
+         * <p> 示例值：480
+         */
         private Integer timeOffset;
-     /**
-      * 失效日期，格式"2020-01-01"
-      * <p> 示例值：2020-01-01
-      */
+        /**
+         * 失效日期，格式"2020-01-01"
+         * <p> 示例值：2020-01-01
+         */
         private String expirationDate;
-     /**
-      * 修改source 余额
-      * <p> 示例值：1
-      */
+        /**
+         * 修改source 余额
+         * <p> 示例值：1
+         */
         private String quantity;
-     /**
-      * 是否参与清算
-      * <p> 示例值：1
-      */
+        /**
+         * 是否参与清算
+         * <p> 示例值：1
+         */
         private Integer sectionType;
 
         /**
          * 授予记录的唯一ID
          * <p> 示例值：1
+         *
          * @param leaveGrantingRecordId
          * @return
          */
         public Builder leaveGrantingRecordId(String leaveGrantingRecordId) {
-             this.leaveGrantingRecordId = leaveGrantingRecordId;
-             return this;
+            this.leaveGrantingRecordId = leaveGrantingRecordId;
+            return this;
         }
 
-    
 
         /**
          * 员工ID
          * <p> 示例值：1
+         *
          * @param employmentId
          * @return
          */
         public Builder employmentId(String employmentId) {
-             this.employmentId = employmentId;
-             return this;
+            this.employmentId = employmentId;
+            return this;
         }
 
-    
 
         /**
          * 假期类型ID
          * <p> 示例值：1
+         *
          * @param leaveTypeId
          * @return
          */
         public Builder leaveTypeId(String leaveTypeId) {
-             this.leaveTypeId = leaveTypeId;
-             return this;
+            this.leaveTypeId = leaveTypeId;
+            return this;
         }
 
-    
 
         /**
          * 修改授予记录原因
          * <p> 示例值：
+         *
          * @param reason
          * @return
          */
         public Builder reason(LangText[] reason) {
-             this.reason = reason;
-             return this;
+            this.reason = reason;
+            return this;
         }
 
-    
 
         /**
          * 时间偏移，东八区：480    8*60
          * <p> 示例值：480
+         *
          * @param timeOffset
          * @return
          */
         public Builder timeOffset(Integer timeOffset) {
-             this.timeOffset = timeOffset;
-             return this;
+            this.timeOffset = timeOffset;
+            return this;
         }
 
-    
 
         /**
          * 失效日期，格式"2020-01-01"
          * <p> 示例值：2020-01-01
+         *
          * @param expirationDate
          * @return
          */
         public Builder expirationDate(String expirationDate) {
-             this.expirationDate = expirationDate;
-             return this;
+            this.expirationDate = expirationDate;
+            return this;
         }
 
-    
 
         /**
          * 修改source 余额
          * <p> 示例值：1
+         *
          * @param quantity
          * @return
          */
         public Builder quantity(String quantity) {
-             this.quantity = quantity;
-             return this;
+            this.quantity = quantity;
+            return this;
         }
 
-    
 
         /**
          * 是否参与清算
          * <p> 示例值：1
+         *
          * @param sectionType
          * @return
          */
         public Builder sectionType(Integer sectionType) {
-             this.sectionType = sectionType;
-             return this;
+            this.sectionType = sectionType;
+            return this;
         }
 
-    
-    
-    public PatchLeaveAccrualRecordReqBody build(){
-        return new PatchLeaveAccrualRecordReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public PatchLeaveAccrualRecordReqBody build() {
+            return new PatchLeaveAccrualRecordReqBody(this);
+        }
     }
 }

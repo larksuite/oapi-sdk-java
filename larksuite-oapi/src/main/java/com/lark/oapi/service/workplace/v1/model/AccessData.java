@@ -12,30 +12,56 @@
  */
 
 package com.lark.oapi.service.workplace.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class AccessData {
-     /**
-      * 访问次数
-      * <p> 示例值：100
-      */
+    /**
+     * 访问次数
+     * <p> 示例值：100
+     */
     @SerializedName("pv")
     private Integer pv;
-     /**
-      * 访问用户数(去重)
-      * <p> 示例值：30
-      */
+    /**
+     * 访问用户数(去重)
+     * <p> 示例值：30
+     */
     @SerializedName("uv")
     private Integer uv;
+
+    // builder 开始
+    public AccessData() {
+    }
+
+    public AccessData(Builder builder) {
+        /**
+         * 访问次数
+         * <p> 示例值：100
+         */
+        this.pv = builder.pv;
+        /**
+         * 访问用户数(去重)
+         * <p> 示例值：30
+         */
+        this.uv = builder.uv;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Integer getPv() {
         return this.pv;
     }
@@ -52,67 +78,46 @@ public class AccessData {
         this.uv = uv;
     }
 
-
-// builder 开始
-  public AccessData(){}
-
-  public AccessData(Builder builder){
-         /**
-          * 访问次数
-          * <p> 示例值：100
-          */
-      this.pv = builder.pv;
-         /**
-          * 访问用户数(去重)
-          * <p> 示例值：30
-          */
-      this.uv = builder.uv;
-  }
-
     public static class Builder {
-     /**
-      * 访问次数
-      * <p> 示例值：100
-      */
+        /**
+         * 访问次数
+         * <p> 示例值：100
+         */
         private Integer pv;
-     /**
-      * 访问用户数(去重)
-      * <p> 示例值：30
-      */
+        /**
+         * 访问用户数(去重)
+         * <p> 示例值：30
+         */
         private Integer uv;
 
         /**
          * 访问次数
          * <p> 示例值：100
+         *
          * @param pv
          * @return
          */
         public Builder pv(Integer pv) {
-             this.pv = pv;
-             return this;
+            this.pv = pv;
+            return this;
         }
 
-    
 
         /**
          * 访问用户数(去重)
          * <p> 示例值：30
+         *
          * @param uv
          * @return
          */
         public Builder uv(Integer uv) {
-             this.uv = uv;
-             return this;
+            this.uv = uv;
+            return this;
         }
 
-    
-    
-    public AccessData build(){
-        return new AccessData(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public AccessData build() {
+            return new AccessData(this);
+        }
     }
 }

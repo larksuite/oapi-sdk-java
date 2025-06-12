@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,42 +20,82 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Email {
-     /**
-      * 邮箱号
-      * <p> 示例值：12456@test.com
-      */
+    /**
+     * 邮箱号
+     * <p> 示例值：12456@test.com
+     */
     @SerializedName("email")
     private String email;
-     /**
-      * 是否为主要邮箱
-      * <p> 示例值：true
-      */
+    /**
+     * 是否为主要邮箱
+     * <p> 示例值：true
+     */
     @SerializedName("is_primary")
     private Boolean isPrimary;
-     /**
-      * 是否为公开邮箱
-      * <p> 示例值：true
-      */
+    /**
+     * 是否为公开邮箱
+     * <p> 示例值：true
+     */
     @SerializedName("is_public")
     private Boolean isPublic;
-     /**
-      * 邮箱用途，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)邮箱用途（email_usage）枚举定义获得
-      * <p> 示例值：
-      */
+    /**
+     * 邮箱用途，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)邮箱用途（email_usage）枚举定义获得
+     * <p> 示例值：
+     */
     @SerializedName("email_usage")
     private Enum emailUsage;
-     /**
-      * 自定义字段
-      * <p> 示例值：
-      */
+    /**
+     * 自定义字段
+     * <p> 示例值：
+     */
     @SerializedName("custom_fields")
     private ObjectFieldData[] customFields;
+
+    // builder 开始
+    public Email() {
+    }
+
+    public Email(Builder builder) {
+        /**
+         * 邮箱号
+         * <p> 示例值：12456@test.com
+         */
+        this.email = builder.email;
+        /**
+         * 是否为主要邮箱
+         * <p> 示例值：true
+         */
+        this.isPrimary = builder.isPrimary;
+        /**
+         * 是否为公开邮箱
+         * <p> 示例值：true
+         */
+        this.isPublic = builder.isPublic;
+        /**
+         * 邮箱用途，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)邮箱用途（email_usage）枚举定义获得
+         * <p> 示例值：
+         */
+        this.emailUsage = builder.emailUsage;
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
+        this.customFields = builder.customFields;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getEmail() {
         return this.email;
     }
@@ -95,136 +136,100 @@ public class Email {
         this.customFields = customFields;
     }
 
-
-// builder 开始
-  public Email(){}
-
-  public Email(Builder builder){
-         /**
-          * 邮箱号
-          * <p> 示例值：12456@test.com
-          */
-      this.email = builder.email;
-         /**
-          * 是否为主要邮箱
-          * <p> 示例值：true
-          */
-      this.isPrimary = builder.isPrimary;
-         /**
-          * 是否为公开邮箱
-          * <p> 示例值：true
-          */
-      this.isPublic = builder.isPublic;
-         /**
-          * 邮箱用途，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)邮箱用途（email_usage）枚举定义获得
-          * <p> 示例值：
-          */
-      this.emailUsage = builder.emailUsage;
-         /**
-          * 自定义字段
-          * <p> 示例值：
-          */
-      this.customFields = builder.customFields;
-  }
-
     public static class Builder {
-     /**
-      * 邮箱号
-      * <p> 示例值：12456@test.com
-      */
+        /**
+         * 邮箱号
+         * <p> 示例值：12456@test.com
+         */
         private String email;
-     /**
-      * 是否为主要邮箱
-      * <p> 示例值：true
-      */
+        /**
+         * 是否为主要邮箱
+         * <p> 示例值：true
+         */
         private Boolean isPrimary;
-     /**
-      * 是否为公开邮箱
-      * <p> 示例值：true
-      */
+        /**
+         * 是否为公开邮箱
+         * <p> 示例值：true
+         */
         private Boolean isPublic;
-     /**
-      * 邮箱用途，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)邮箱用途（email_usage）枚举定义获得
-      * <p> 示例值：
-      */
+        /**
+         * 邮箱用途，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)邮箱用途（email_usage）枚举定义获得
+         * <p> 示例值：
+         */
         private Enum emailUsage;
-     /**
-      * 自定义字段
-      * <p> 示例值：
-      */
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
         private ObjectFieldData[] customFields;
 
         /**
          * 邮箱号
          * <p> 示例值：12456@test.com
+         *
          * @param email
          * @return
          */
         public Builder email(String email) {
-             this.email = email;
-             return this;
+            this.email = email;
+            return this;
         }
 
-    
 
         /**
          * 是否为主要邮箱
          * <p> 示例值：true
+         *
          * @param isPrimary
          * @return
          */
         public Builder isPrimary(Boolean isPrimary) {
-             this.isPrimary = isPrimary;
-             return this;
+            this.isPrimary = isPrimary;
+            return this;
         }
 
-    
 
         /**
          * 是否为公开邮箱
          * <p> 示例值：true
+         *
          * @param isPublic
          * @return
          */
         public Builder isPublic(Boolean isPublic) {
-             this.isPublic = isPublic;
-             return this;
+            this.isPublic = isPublic;
+            return this;
         }
 
-    
 
         /**
          * 邮箱用途，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)邮箱用途（email_usage）枚举定义获得
          * <p> 示例值：
+         *
          * @param emailUsage
          * @return
          */
         public Builder emailUsage(Enum emailUsage) {
-             this.emailUsage = emailUsage;
-             return this;
+            this.emailUsage = emailUsage;
+            return this;
         }
 
-    
 
         /**
          * 自定义字段
          * <p> 示例值：
+         *
          * @param customFields
          * @return
          */
         public Builder customFields(ObjectFieldData[] customFields) {
-             this.customFields = customFields;
-             return this;
+            this.customFields = customFields;
+            return this;
         }
 
-    
-    
-    public Email build(){
-        return new Email(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Email build() {
+            return new Email(this);
+        }
     }
 }

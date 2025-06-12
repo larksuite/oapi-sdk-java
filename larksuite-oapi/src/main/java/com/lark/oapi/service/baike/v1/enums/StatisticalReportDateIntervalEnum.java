@@ -17,18 +17,19 @@ package com.lark.oapi.service.baike.v1.enums;
  * 请求时间区间
  */
 public enum StatisticalReportDateIntervalEnum {
-     LASTDAY(1), // 最近一天
-     LAST7DAY(2), // 最近七天
-     LAST14DAY(3), // 最近十四天
-     LAST30DAY(4), // 最近三十天
-     LAST90DAY(5), // 最近九十天
-  ;
-   private Integer value;
+    LASTDAY(1), // 最近一天
+    LAST7DAY(2), // 最近七天
+    LAST14DAY(3), // 最近十四天
+    LAST30DAY(4), // 最近三十天
+    LAST90DAY(5), // 最近九十天
+    ;
+    private Integer value;
+
     StatisticalReportDateIntervalEnum(Integer value) {
-      this.value = value;
+        this.value = value;
     }
 
     public Integer getValue() {
-      return this.value;
+        return this.value;
     }
 }

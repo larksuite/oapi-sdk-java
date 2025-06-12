@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.im.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class FeedCardDisplayRuleUpdater {
-     /**
-      * id
-      * <p> 示例值：6881602603248009218
-      */
+    /**
+     * id
+     * <p> 示例值：6881602603248009218
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 消息展示规则
-      * <p> 示例值：
-      */
+    /**
+     * 消息展示规则
+     * <p> 示例值：
+     */
     @SerializedName("display_feed_rule")
     private OpenDisplayFeedRule displayFeedRule;
-     /**
-      * 消息展示规则更新类型
-      * <p> 示例值：filter
-      */
+    /**
+     * 消息展示规则更新类型
+     * <p> 示例值：filter
+     */
     @SerializedName("display_feed_rule_update_type")
     private String displayFeedRuleUpdateType;
+
+    // builder 开始
+    public FeedCardDisplayRuleUpdater() {
+    }
+
+    public FeedCardDisplayRuleUpdater(Builder builder) {
+        /**
+         * id
+         * <p> 示例值：6881602603248009218
+         */
+        this.id = builder.id;
+        /**
+         * 消息展示规则
+         * <p> 示例值：
+         */
+        this.displayFeedRule = builder.displayFeedRule;
+        /**
+         * 消息展示规则更新类型
+         * <p> 示例值：filter
+         */
+        this.displayFeedRuleUpdateType = builder.displayFeedRuleUpdateType;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -67,100 +98,76 @@ public class FeedCardDisplayRuleUpdater {
         this.displayFeedRuleUpdateType = displayFeedRuleUpdateType;
     }
 
-
-// builder 开始
-  public FeedCardDisplayRuleUpdater(){}
-
-  public FeedCardDisplayRuleUpdater(Builder builder){
-         /**
-          * id
-          * <p> 示例值：6881602603248009218
-          */
-      this.id = builder.id;
-         /**
-          * 消息展示规则
-          * <p> 示例值：
-          */
-      this.displayFeedRule = builder.displayFeedRule;
-         /**
-          * 消息展示规则更新类型
-          * <p> 示例值：filter
-          */
-      this.displayFeedRuleUpdateType = builder.displayFeedRuleUpdateType;
-  }
-
     public static class Builder {
-     /**
-      * id
-      * <p> 示例值：6881602603248009218
-      */
+        /**
+         * id
+         * <p> 示例值：6881602603248009218
+         */
         private String id;
-     /**
-      * 消息展示规则
-      * <p> 示例值：
-      */
+        /**
+         * 消息展示规则
+         * <p> 示例值：
+         */
         private OpenDisplayFeedRule displayFeedRule;
-     /**
-      * 消息展示规则更新类型
-      * <p> 示例值：filter
-      */
+        /**
+         * 消息展示规则更新类型
+         * <p> 示例值：filter
+         */
         private String displayFeedRuleUpdateType;
 
         /**
          * id
          * <p> 示例值：6881602603248009218
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 消息展示规则
          * <p> 示例值：
+         *
          * @param displayFeedRule
          * @return
          */
         public Builder displayFeedRule(OpenDisplayFeedRule displayFeedRule) {
-             this.displayFeedRule = displayFeedRule;
-             return this;
+            this.displayFeedRule = displayFeedRule;
+            return this;
         }
 
-    
 
         /**
          * 消息展示规则更新类型
          * <p> 示例值：filter
+         *
          * @param displayFeedRuleUpdateType
          * @return
          */
         public Builder displayFeedRuleUpdateType(String displayFeedRuleUpdateType) {
-             this.displayFeedRuleUpdateType = displayFeedRuleUpdateType;
-             return this;
+            this.displayFeedRuleUpdateType = displayFeedRuleUpdateType;
+            return this;
         }
+
         /**
          * 消息展示规则更新类型
          * <p> 示例值：filter
+         *
          * @param displayFeedRuleUpdateType {@link com.lark.oapi.service.im.v2.enums.FeedCardDisplayRuleUpdaterDisplayFeedRuleUpdateTypeEnum}
          * @return
          */
         public Builder displayFeedRuleUpdateType(com.lark.oapi.service.im.v2.enums.FeedCardDisplayRuleUpdaterDisplayFeedRuleUpdateTypeEnum displayFeedRuleUpdateType) {
-             this.displayFeedRuleUpdateType = displayFeedRuleUpdateType.getValue();
-             return this;
+            this.displayFeedRuleUpdateType = displayFeedRuleUpdateType.getValue();
+            return this;
         }
 
-    
-    
-    public FeedCardDisplayRuleUpdater build(){
-        return new FeedCardDisplayRuleUpdater(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public FeedCardDisplayRuleUpdater build() {
+            return new FeedCardDisplayRuleUpdater(this);
+        }
     }
 }

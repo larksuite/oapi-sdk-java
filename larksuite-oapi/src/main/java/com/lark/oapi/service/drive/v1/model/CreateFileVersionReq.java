@@ -12,25 +12,61 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CreateFileVersionReq {
-     /**
-      * 此次调用中使用的用户ID的类型
-      * <p> 示例值：
-      */
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
+    /**
+     * 源文档token
+     * <p> 示例值：doxbcyvqZlSc9WlHvQMlSJwUrsb
+     */
+    @Path
+    @SerializedName("file_token")
+    private String fileToken;
+    @Body
+    private Version body;
+
+    // builder 开始
+    public CreateFileVersionReq() {
+    }
+
+    public CreateFileVersionReq(Builder builder) {
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         */
+        this.userIdType = builder.userIdType;
+        /**
+         * 源文档token
+         * <p> 示例值：doxbcyvqZlSc9WlHvQMlSJwUrsb
+         */
+        this.fileToken = builder.fileToken;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getUserIdType() {
         return this.userIdType;
     }
@@ -39,13 +75,6 @@ public class CreateFileVersionReq {
         this.userIdType = userIdType;
     }
 
-     /**
-      * 源文档token
-      * <p> 示例值：doxbcyvqZlSc9WlHvQMlSJwUrsb
-      */
-    @Path
-    @SerializedName("file_token")
-    private String fileToken;
     public String getFileToken() {
         return this.fileToken;
     }
@@ -53,9 +82,6 @@ public class CreateFileVersionReq {
     public void setFileToken(String fileToken) {
         this.fileToken = fileToken;
     }
-
-    @Body
-    private Version body;
 
     public Version getVersion() {
         return this.body;
@@ -65,83 +91,64 @@ public class CreateFileVersionReq {
         this.body = body;
     }
 
-// builder 开始
-  public CreateFileVersionReq(){}
-
-  public CreateFileVersionReq(Builder builder){
-         /**
-          * 此次调用中使用的用户ID的类型
-          * <p> 示例值：
-          */
-       this.userIdType = builder.userIdType;
-     /**
-      * 源文档token
-      * <p> 示例值：doxbcyvqZlSc9WlHvQMlSJwUrsb
-      */
-       this.fileToken = builder.fileToken;
-        this.body = builder.body;
-  }
-
     public static class Builder {
         private String userIdType; // 此次调用中使用的用户ID的类型
-    
+        private String fileToken; // 源文档token
+        private Version body;
+
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
+         *
          * @param userIdType
          * @return
          */
-           public Builder userIdType(String userIdType) {
-                this.userIdType = userIdType;
-                return this;
-           }
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
 
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
+         *
          * @param userIdType {@link com.lark.oapi.service.drive.v1.enums.CreateFileVersionUserIdTypeEnum}
          * @return
          */
-          public Builder userIdType(com.lark.oapi.service.drive.v1.enums.CreateFileVersionUserIdTypeEnum userIdType) {
-               this.userIdType = userIdType.getValue();
-               return this;
-          }
+        public Builder userIdType(com.lark.oapi.service.drive.v1.enums.CreateFileVersionUserIdTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
+            return this;
+        }
 
-    
-        private String fileToken; // 源文档token
         /**
          * 源文档token
          * <p> 示例值：doxbcyvqZlSc9WlHvQMlSJwUrsb
+         *
          * @param fileToken
          * @return
          */
-          public Builder fileToken(String fileToken) {
-               this.fileToken = fileToken;
-               return this;
-          }
+        public Builder fileToken(String fileToken) {
+            this.fileToken = fileToken;
+            return this;
+        }
 
-    
-        private Version body;
-    
         public Version getVersion() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder version(Version body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public CreateFileVersionReq build(){
-        return new CreateFileVersionReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public CreateFileVersionReq build() {
+            return new CreateFileVersionReq(this);
+        }
     }
 }

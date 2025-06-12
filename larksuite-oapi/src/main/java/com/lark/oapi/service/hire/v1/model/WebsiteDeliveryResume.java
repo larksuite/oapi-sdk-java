@@ -12,90 +12,166 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class WebsiteDeliveryResume {
-     /**
-      * 实习经历
-      * <p> 示例值：
-      */
+    /**
+     * 实习经历
+     * <p> 示例值：
+     */
     @SerializedName("internship_list")
     private WebsiteDeliveryInternship[] internshipList;
-     /**
-      * 基本信息
-      * <p> 示例值：
-      */
+    /**
+     * 基本信息
+     * <p> 示例值：
+     */
     @SerializedName("basic_info")
     private WebsiteDeliveryBasicInfo basicInfo;
-     /**
-      * 教育经历
-      * <p> 示例值：
-      */
+    /**
+     * 教育经历
+     * <p> 示例值：
+     */
     @SerializedName("education_list")
     private WebsiteDeliveryEducation[] educationList;
-     /**
-      * 自我评价
-      * <p> 示例值：
-      */
+    /**
+     * 自我评价
+     * <p> 示例值：
+     */
     @SerializedName("self_evaluation")
     private WebsiteDeliverySelfEvaluation selfEvaluation;
-     /**
-      * 工作经历
-      * <p> 示例值：
-      */
+    /**
+     * 工作经历
+     * <p> 示例值：
+     */
     @SerializedName("career_list")
     private WebsiteDeliveryCareer[] careerList;
-     /**
-      * 自定义模块
-      * <p> 示例值：
-      */
+    /**
+     * 自定义模块
+     * <p> 示例值：
+     */
     @SerializedName("customized_data")
     private WebsiteDeliveryCustomizedDataParent[] customizedData;
-     /**
-      * 简历附件ID，使用「创建附件」生成
-      * <p> 示例值：6960663240925956654
-      */
+    /**
+     * 简历附件ID，使用「创建附件」生成
+     * <p> 示例值：6960663240925956654
+     */
     @SerializedName("resume_attachment_id")
     private String resumeAttachmentId;
-     /**
-      * 社交账号
-      * <p> 示例值：
-      */
+    /**
+     * 社交账号
+     * <p> 示例值：
+     */
     @SerializedName("sns_list")
     private WebsiteDeliverySns[] snsList;
-     /**
-      * 作品
-      * <p> 示例值：
-      */
+    /**
+     * 作品
+     * <p> 示例值：
+     */
     @SerializedName("works_list")
     private WebsiteDeliveryWorks[] worksList;
-     /**
-      * 获奖记录
-      * <p> 示例值：
-      */
+    /**
+     * 获奖记录
+     * <p> 示例值：
+     */
     @SerializedName("award_list")
     private WebsiteDeliveryAward[] awardList;
-     /**
-      * 项目经历
-      * <p> 示例值：
-      */
+    /**
+     * 项目经历
+     * <p> 示例值：
+     */
     @SerializedName("project_list")
     private WebsiteDeliveryProject[] projectList;
-     /**
-      * 语言能力
-      * <p> 示例值：
-      */
+    /**
+     * 语言能力
+     * <p> 示例值：
+     */
     @SerializedName("language_list")
     private WebsiteDeliveryLanguage[] languageList;
+
+    // builder 开始
+    public WebsiteDeliveryResume() {
+    }
+
+    public WebsiteDeliveryResume(Builder builder) {
+        /**
+         * 实习经历
+         * <p> 示例值：
+         */
+        this.internshipList = builder.internshipList;
+        /**
+         * 基本信息
+         * <p> 示例值：
+         */
+        this.basicInfo = builder.basicInfo;
+        /**
+         * 教育经历
+         * <p> 示例值：
+         */
+        this.educationList = builder.educationList;
+        /**
+         * 自我评价
+         * <p> 示例值：
+         */
+        this.selfEvaluation = builder.selfEvaluation;
+        /**
+         * 工作经历
+         * <p> 示例值：
+         */
+        this.careerList = builder.careerList;
+        /**
+         * 自定义模块
+         * <p> 示例值：
+         */
+        this.customizedData = builder.customizedData;
+        /**
+         * 简历附件ID，使用「创建附件」生成
+         * <p> 示例值：6960663240925956654
+         */
+        this.resumeAttachmentId = builder.resumeAttachmentId;
+        /**
+         * 社交账号
+         * <p> 示例值：
+         */
+        this.snsList = builder.snsList;
+        /**
+         * 作品
+         * <p> 示例值：
+         */
+        this.worksList = builder.worksList;
+        /**
+         * 获奖记录
+         * <p> 示例值：
+         */
+        this.awardList = builder.awardList;
+        /**
+         * 项目经历
+         * <p> 示例值：
+         */
+        this.projectList = builder.projectList;
+        /**
+         * 语言能力
+         * <p> 示例值：
+         */
+        this.languageList = builder.languageList;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public WebsiteDeliveryInternship[] getInternshipList() {
         return this.internshipList;
     }
@@ -192,297 +268,226 @@ public class WebsiteDeliveryResume {
         this.languageList = languageList;
     }
 
-
-// builder 开始
-  public WebsiteDeliveryResume(){}
-
-  public WebsiteDeliveryResume(Builder builder){
-         /**
-          * 实习经历
-          * <p> 示例值：
-          */
-      this.internshipList = builder.internshipList;
-         /**
-          * 基本信息
-          * <p> 示例值：
-          */
-      this.basicInfo = builder.basicInfo;
-         /**
-          * 教育经历
-          * <p> 示例值：
-          */
-      this.educationList = builder.educationList;
-         /**
-          * 自我评价
-          * <p> 示例值：
-          */
-      this.selfEvaluation = builder.selfEvaluation;
-         /**
-          * 工作经历
-          * <p> 示例值：
-          */
-      this.careerList = builder.careerList;
-         /**
-          * 自定义模块
-          * <p> 示例值：
-          */
-      this.customizedData = builder.customizedData;
-         /**
-          * 简历附件ID，使用「创建附件」生成
-          * <p> 示例值：6960663240925956654
-          */
-      this.resumeAttachmentId = builder.resumeAttachmentId;
-         /**
-          * 社交账号
-          * <p> 示例值：
-          */
-      this.snsList = builder.snsList;
-         /**
-          * 作品
-          * <p> 示例值：
-          */
-      this.worksList = builder.worksList;
-         /**
-          * 获奖记录
-          * <p> 示例值：
-          */
-      this.awardList = builder.awardList;
-         /**
-          * 项目经历
-          * <p> 示例值：
-          */
-      this.projectList = builder.projectList;
-         /**
-          * 语言能力
-          * <p> 示例值：
-          */
-      this.languageList = builder.languageList;
-  }
-
     public static class Builder {
-     /**
-      * 实习经历
-      * <p> 示例值：
-      */
+        /**
+         * 实习经历
+         * <p> 示例值：
+         */
         private WebsiteDeliveryInternship[] internshipList;
-     /**
-      * 基本信息
-      * <p> 示例值：
-      */
+        /**
+         * 基本信息
+         * <p> 示例值：
+         */
         private WebsiteDeliveryBasicInfo basicInfo;
-     /**
-      * 教育经历
-      * <p> 示例值：
-      */
+        /**
+         * 教育经历
+         * <p> 示例值：
+         */
         private WebsiteDeliveryEducation[] educationList;
-     /**
-      * 自我评价
-      * <p> 示例值：
-      */
+        /**
+         * 自我评价
+         * <p> 示例值：
+         */
         private WebsiteDeliverySelfEvaluation selfEvaluation;
-     /**
-      * 工作经历
-      * <p> 示例值：
-      */
+        /**
+         * 工作经历
+         * <p> 示例值：
+         */
         private WebsiteDeliveryCareer[] careerList;
-     /**
-      * 自定义模块
-      * <p> 示例值：
-      */
+        /**
+         * 自定义模块
+         * <p> 示例值：
+         */
         private WebsiteDeliveryCustomizedDataParent[] customizedData;
-     /**
-      * 简历附件ID，使用「创建附件」生成
-      * <p> 示例值：6960663240925956654
-      */
+        /**
+         * 简历附件ID，使用「创建附件」生成
+         * <p> 示例值：6960663240925956654
+         */
         private String resumeAttachmentId;
-     /**
-      * 社交账号
-      * <p> 示例值：
-      */
+        /**
+         * 社交账号
+         * <p> 示例值：
+         */
         private WebsiteDeliverySns[] snsList;
-     /**
-      * 作品
-      * <p> 示例值：
-      */
+        /**
+         * 作品
+         * <p> 示例值：
+         */
         private WebsiteDeliveryWorks[] worksList;
-     /**
-      * 获奖记录
-      * <p> 示例值：
-      */
+        /**
+         * 获奖记录
+         * <p> 示例值：
+         */
         private WebsiteDeliveryAward[] awardList;
-     /**
-      * 项目经历
-      * <p> 示例值：
-      */
+        /**
+         * 项目经历
+         * <p> 示例值：
+         */
         private WebsiteDeliveryProject[] projectList;
-     /**
-      * 语言能力
-      * <p> 示例值：
-      */
+        /**
+         * 语言能力
+         * <p> 示例值：
+         */
         private WebsiteDeliveryLanguage[] languageList;
 
         /**
          * 实习经历
          * <p> 示例值：
+         *
          * @param internshipList
          * @return
          */
         public Builder internshipList(WebsiteDeliveryInternship[] internshipList) {
-             this.internshipList = internshipList;
-             return this;
+            this.internshipList = internshipList;
+            return this;
         }
 
-    
 
         /**
          * 基本信息
          * <p> 示例值：
+         *
          * @param basicInfo
          * @return
          */
         public Builder basicInfo(WebsiteDeliveryBasicInfo basicInfo) {
-             this.basicInfo = basicInfo;
-             return this;
+            this.basicInfo = basicInfo;
+            return this;
         }
 
-    
 
         /**
          * 教育经历
          * <p> 示例值：
+         *
          * @param educationList
          * @return
          */
         public Builder educationList(WebsiteDeliveryEducation[] educationList) {
-             this.educationList = educationList;
-             return this;
+            this.educationList = educationList;
+            return this;
         }
 
-    
 
         /**
          * 自我评价
          * <p> 示例值：
+         *
          * @param selfEvaluation
          * @return
          */
         public Builder selfEvaluation(WebsiteDeliverySelfEvaluation selfEvaluation) {
-             this.selfEvaluation = selfEvaluation;
-             return this;
+            this.selfEvaluation = selfEvaluation;
+            return this;
         }
 
-    
 
         /**
          * 工作经历
          * <p> 示例值：
+         *
          * @param careerList
          * @return
          */
         public Builder careerList(WebsiteDeliveryCareer[] careerList) {
-             this.careerList = careerList;
-             return this;
+            this.careerList = careerList;
+            return this;
         }
 
-    
 
         /**
          * 自定义模块
          * <p> 示例值：
+         *
          * @param customizedData
          * @return
          */
         public Builder customizedData(WebsiteDeliveryCustomizedDataParent[] customizedData) {
-             this.customizedData = customizedData;
-             return this;
+            this.customizedData = customizedData;
+            return this;
         }
 
-    
 
         /**
          * 简历附件ID，使用「创建附件」生成
          * <p> 示例值：6960663240925956654
+         *
          * @param resumeAttachmentId
          * @return
          */
         public Builder resumeAttachmentId(String resumeAttachmentId) {
-             this.resumeAttachmentId = resumeAttachmentId;
-             return this;
+            this.resumeAttachmentId = resumeAttachmentId;
+            return this;
         }
 
-    
 
         /**
          * 社交账号
          * <p> 示例值：
+         *
          * @param snsList
          * @return
          */
         public Builder snsList(WebsiteDeliverySns[] snsList) {
-             this.snsList = snsList;
-             return this;
+            this.snsList = snsList;
+            return this;
         }
 
-    
 
         /**
          * 作品
          * <p> 示例值：
+         *
          * @param worksList
          * @return
          */
         public Builder worksList(WebsiteDeliveryWorks[] worksList) {
-             this.worksList = worksList;
-             return this;
+            this.worksList = worksList;
+            return this;
         }
 
-    
 
         /**
          * 获奖记录
          * <p> 示例值：
+         *
          * @param awardList
          * @return
          */
         public Builder awardList(WebsiteDeliveryAward[] awardList) {
-             this.awardList = awardList;
-             return this;
+            this.awardList = awardList;
+            return this;
         }
 
-    
 
         /**
          * 项目经历
          * <p> 示例值：
+         *
          * @param projectList
          * @return
          */
         public Builder projectList(WebsiteDeliveryProject[] projectList) {
-             this.projectList = projectList;
-             return this;
+            this.projectList = projectList;
+            return this;
         }
 
-    
 
         /**
          * 语言能力
          * <p> 示例值：
+         *
          * @param languageList
          * @return
          */
         public Builder languageList(WebsiteDeliveryLanguage[] languageList) {
-             this.languageList = languageList;
-             return this;
+            this.languageList = languageList;
+            return this;
         }
 
-    
-    
-    public WebsiteDeliveryResume build(){
-        return new WebsiteDeliveryResume(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public WebsiteDeliveryResume build() {
+            return new WebsiteDeliveryResume(this);
+        }
     }
 }

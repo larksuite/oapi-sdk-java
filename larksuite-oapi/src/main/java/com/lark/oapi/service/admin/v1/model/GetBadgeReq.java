@@ -12,25 +12,46 @@
  */
 
 package com.lark.oapi.service.admin.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.admin.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class GetBadgeReq {
-     /**
-      * 勋章id
-      * <p> 示例值：m_DjMzaK
-      */
+    /**
+     * 勋章id
+     * <p> 示例值：m_DjMzaK
+     */
     @Path
     @SerializedName("badge_id")
     private String badgeId;
+
+    // builder 开始
+    public GetBadgeReq() {
+    }
+
+    public GetBadgeReq(Builder builder) {
+        /**
+         * 勋章id
+         * <p> 示例值：m_DjMzaK
+         */
+        this.badgeId = builder.badgeId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getBadgeId() {
         return this.badgeId;
     }
@@ -39,39 +60,25 @@ public class GetBadgeReq {
         this.badgeId = badgeId;
     }
 
-
-// builder 开始
-  public GetBadgeReq(){}
-
-  public GetBadgeReq(Builder builder){
-     /**
-      * 勋章id
-      * <p> 示例值：m_DjMzaK
-      */
-       this.badgeId = builder.badgeId;
-  }
-
     public static class Builder {
-    
+
         private String badgeId; // 勋章id
+
         /**
          * 勋章id
          * <p> 示例值：m_DjMzaK
+         *
          * @param badgeId
          * @return
          */
-          public Builder badgeId(String badgeId) {
-               this.badgeId = badgeId;
-               return this;
-          }
+        public Builder badgeId(String badgeId) {
+            this.badgeId = badgeId;
+            return this;
+        }
 
-    
-    public GetBadgeReq build(){
-        return new GetBadgeReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public GetBadgeReq build() {
+            return new GetBadgeReq(this);
+        }
     }
 }

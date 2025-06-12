@@ -17,42 +17,49 @@ import com.lark.oapi.core.Config;
 import com.lark.oapi.service.aily.v1.resource.*;
 
 public class V1 {
-	private final AilySession ailySession; // aily_session
-	private final AilySessionAilyMessage ailySessionAilyMessage; // aily_session.aily_message
-	private final AilySessionRun ailySessionRun; // aily_session.run
-	private final AppDataAsset appDataAsset; // app.data_asset
-	private final AppDataAssetTag appDataAssetTag; // app.data_asset_tag
-	private final AppKnowledge appKnowledge; // app.knowledge
-	private final AppSkill appSkill; // app.skill
+    private final AilySession ailySession; // aily_session
+    private final AilySessionAilyMessage ailySessionAilyMessage; // aily_session.aily_message
+    private final AilySessionRun ailySessionRun; // aily_session.run
+    private final AppDataAsset appDataAsset; // app.data_asset
+    private final AppDataAssetTag appDataAssetTag; // app.data_asset_tag
+    private final AppKnowledge appKnowledge; // app.knowledge
+    private final AppSkill appSkill; // app.skill
 
-	public V1(Config config) {
-		this.ailySession = new AilySession(config);
-		this.ailySessionAilyMessage = new AilySessionAilyMessage(config);
-		this.ailySessionRun = new AilySessionRun(config);
-		this.appDataAsset = new AppDataAsset(config);
-		this.appDataAssetTag = new AppDataAssetTag(config);
-		this.appKnowledge = new AppKnowledge(config);
-		this.appSkill = new AppSkill(config);
-	}
-	public AilySession ailySession() {
-		return ailySession;
-	}
-	public AilySessionAilyMessage ailySessionAilyMessage() {
-		return ailySessionAilyMessage;
-	}
-	public AilySessionRun ailySessionRun() {
-		return ailySessionRun;
-	}
-	public AppDataAsset appDataAsset() {
-		return appDataAsset;
-	}
-	public AppDataAssetTag appDataAssetTag() {
-		return appDataAssetTag;
-	}
-	public AppKnowledge appKnowledge() {
-		return appKnowledge;
-	}
-	public AppSkill appSkill() {
-		return appSkill;
-	}
+    public V1(Config config) {
+        this.ailySession = new AilySession(config);
+        this.ailySessionAilyMessage = new AilySessionAilyMessage(config);
+        this.ailySessionRun = new AilySessionRun(config);
+        this.appDataAsset = new AppDataAsset(config);
+        this.appDataAssetTag = new AppDataAssetTag(config);
+        this.appKnowledge = new AppKnowledge(config);
+        this.appSkill = new AppSkill(config);
+    }
+
+    public AilySession ailySession() {
+        return ailySession;
+    }
+
+    public AilySessionAilyMessage ailySessionAilyMessage() {
+        return ailySessionAilyMessage;
+    }
+
+    public AilySessionRun ailySessionRun() {
+        return ailySessionRun;
+    }
+
+    public AppDataAsset appDataAsset() {
+        return appDataAsset;
+    }
+
+    public AppDataAssetTag appDataAssetTag() {
+        return appDataAssetTag;
+    }
+
+    public AppKnowledge appKnowledge() {
+        return appKnowledge;
+    }
+
+    public AppSkill appSkill() {
+        return appSkill;
+    }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class QrCodeDimension {
-     /**
-      * 维度API name
-      * <p> 示例值：company
-      */
+    /**
+     * 维度API name
+     * <p> 示例值：company
+     */
     @SerializedName("api_name")
     private String apiName;
-     /**
-      * 维度名称
-      * <p> 示例值：
-      */
+    /**
+     * 维度名称
+     * <p> 示例值：
+     */
     @SerializedName("display_name")
     private I18nV2 displayName;
-     /**
-      * 维度类型
-      * <p> 示例值：1
-      */
+    /**
+     * 维度类型
+     * <p> 示例值：1
+     */
     @SerializedName("type")
     private Integer type;
+
+    // builder 开始
+    public QrCodeDimension() {
+    }
+
+    public QrCodeDimension(Builder builder) {
+        /**
+         * 维度API name
+         * <p> 示例值：company
+         */
+        this.apiName = builder.apiName;
+        /**
+         * 维度名称
+         * <p> 示例值：
+         */
+        this.displayName = builder.displayName;
+        /**
+         * 维度类型
+         * <p> 示例值：1
+         */
+        this.type = builder.type;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getApiName() {
         return this.apiName;
     }
@@ -67,100 +98,76 @@ public class QrCodeDimension {
         this.type = type;
     }
 
-
-// builder 开始
-  public QrCodeDimension(){}
-
-  public QrCodeDimension(Builder builder){
-         /**
-          * 维度API name
-          * <p> 示例值：company
-          */
-      this.apiName = builder.apiName;
-         /**
-          * 维度名称
-          * <p> 示例值：
-          */
-      this.displayName = builder.displayName;
-         /**
-          * 维度类型
-          * <p> 示例值：1
-          */
-      this.type = builder.type;
-  }
-
     public static class Builder {
-     /**
-      * 维度API name
-      * <p> 示例值：company
-      */
+        /**
+         * 维度API name
+         * <p> 示例值：company
+         */
         private String apiName;
-     /**
-      * 维度名称
-      * <p> 示例值：
-      */
+        /**
+         * 维度名称
+         * <p> 示例值：
+         */
         private I18nV2 displayName;
-     /**
-      * 维度类型
-      * <p> 示例值：1
-      */
+        /**
+         * 维度类型
+         * <p> 示例值：1
+         */
         private Integer type;
 
         /**
          * 维度API name
          * <p> 示例值：company
+         *
          * @param apiName
          * @return
          */
         public Builder apiName(String apiName) {
-             this.apiName = apiName;
-             return this;
+            this.apiName = apiName;
+            return this;
         }
 
-    
 
         /**
          * 维度名称
          * <p> 示例值：
+         *
          * @param displayName
          * @return
          */
         public Builder displayName(I18nV2 displayName) {
-             this.displayName = displayName;
-             return this;
+            this.displayName = displayName;
+            return this;
         }
 
-    
 
         /**
          * 维度类型
          * <p> 示例值：1
+         *
          * @param type
          * @return
          */
         public Builder type(Integer type) {
-             this.type = type;
-             return this;
+            this.type = type;
+            return this;
         }
+
         /**
          * 维度类型
          * <p> 示例值：1
+         *
          * @param type {@link com.lark.oapi.service.corehr.v2.enums.QrCodeDimensionTypeEnum}
          * @return
          */
         public Builder type(com.lark.oapi.service.corehr.v2.enums.QrCodeDimensionTypeEnum type) {
-             this.type = type.getValue();
-             return this;
+            this.type = type.getValue();
+            return this;
         }
 
-    
-    
-    public QrCodeDimension build(){
-        return new QrCodeDimension(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public QrCodeDimension build() {
+            return new QrCodeDimension(this);
+        }
     }
 }

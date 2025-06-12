@@ -17,16 +17,17 @@ package com.lark.oapi.service.drive.v1.enums;
  * 此次调用中使用的用户 ID 的类型
  */
 public enum CreateFileCommentUserIdTypeEnum {
-     USER_ID("user_id"), // 以 user_id 来识别用户
-     UNION_ID("union_id"), // 以 union_id 来识别用户
-     OPEN_ID("open_id"), // 以 open_id 来识别用户
-  ;
-   private String value;
+    USER_ID("user_id"), // 以 user_id 来识别用户
+    UNION_ID("union_id"), // 以 union_id 来识别用户
+    OPEN_ID("open_id"), // 以 open_id 来识别用户
+    ;
+    private String value;
+
     CreateFileCommentUserIdTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

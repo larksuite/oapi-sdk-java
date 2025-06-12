@@ -12,25 +12,46 @@
  */
 
 package com.lark.oapi.service.contact.v3.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class GetJobTitleReq {
-     /**
-      * 职务ID
-      * <p> 示例值：dd39369b19b9
-      */
+    /**
+     * 职务ID
+     * <p> 示例值：dd39369b19b9
+     */
     @Path
     @SerializedName("job_title_id")
     private String jobTitleId;
+
+    // builder 开始
+    public GetJobTitleReq() {
+    }
+
+    public GetJobTitleReq(Builder builder) {
+        /**
+         * 职务ID
+         * <p> 示例值：dd39369b19b9
+         */
+        this.jobTitleId = builder.jobTitleId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getJobTitleId() {
         return this.jobTitleId;
     }
@@ -39,39 +60,25 @@ public class GetJobTitleReq {
         this.jobTitleId = jobTitleId;
     }
 
-
-// builder 开始
-  public GetJobTitleReq(){}
-
-  public GetJobTitleReq(Builder builder){
-     /**
-      * 职务ID
-      * <p> 示例值：dd39369b19b9
-      */
-       this.jobTitleId = builder.jobTitleId;
-  }
-
     public static class Builder {
-    
+
         private String jobTitleId; // 职务ID
+
         /**
          * 职务ID
          * <p> 示例值：dd39369b19b9
+         *
          * @param jobTitleId
          * @return
          */
-          public Builder jobTitleId(String jobTitleId) {
-               this.jobTitleId = jobTitleId;
-               return this;
-          }
+        public Builder jobTitleId(String jobTitleId) {
+            this.jobTitleId = jobTitleId;
+            return this;
+        }
 
-    
-    public GetJobTitleReq build(){
-        return new GetJobTitleReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public GetJobTitleReq build() {
+            return new GetJobTitleReq(this);
+        }
     }
 }

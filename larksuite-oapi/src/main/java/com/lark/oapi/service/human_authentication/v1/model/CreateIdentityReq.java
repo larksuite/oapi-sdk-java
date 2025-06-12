@@ -12,32 +12,61 @@
  */
 
 package com.lark.oapi.service.human_authentication.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.human_authentication.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CreateIdentityReq {
-     /**
-      * 用户的唯一标识（使用的ID类型见下一参数描述，不同ID类型的区别和获取，参考文档：[如何获得 User ID、Open ID 和 Union ID？](https://open.feishu.cn/document/home/user-identity-introduction/how-to-get)）
-      * <p> 示例值：ou_2eb5483cb377daa5054bc6f86e2089a5
-      */
+    /**
+     * 用户的唯一标识（使用的ID类型见下一参数描述，不同ID类型的区别和获取，参考文档：[如何获得 User ID、Open ID 和 Union ID？](https://open.feishu.cn/document/home/user-identity-introduction/how-to-get)）
+     * <p> 示例值：ou_2eb5483cb377daa5054bc6f86e2089a5
+     */
     @Query
     @SerializedName("user_id")
     private String userId;
-     /**
-      * 用户ID类型 open_id/user_id/union_id
-      * <p> 示例值：
-      */
+    /**
+     * 用户ID类型 open_id/user_id/union_id
+     * <p> 示例值：
+     */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
+    @Body
+    private CreateIdentityReqBody body;
+
+    // builder 开始
+    public CreateIdentityReq() {
+    }
+
+    public CreateIdentityReq(Builder builder) {
+        /**
+         * 用户的唯一标识（使用的ID类型见下一参数描述，不同ID类型的区别和获取，参考文档：[如何获得 User ID、Open ID 和 Union ID？](https://open.feishu.cn/document/home/user-identity-introduction/how-to-get)）
+         * <p> 示例值：ou_2eb5483cb377daa5054bc6f86e2089a5
+         */
+        this.userId = builder.userId;
+        /**
+         * 用户ID类型 open_id/user_id/union_id
+         * <p> 示例值：
+         */
+        this.userIdType = builder.userIdType;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getUserId() {
         return this.userId;
     }
@@ -54,9 +83,6 @@ public class CreateIdentityReq {
         this.userIdType = userIdType;
     }
 
-    @Body
-    private CreateIdentityReqBody body;
-
     public CreateIdentityReqBody getCreateIdentityReqBody() {
         return this.body;
     }
@@ -65,83 +91,64 @@ public class CreateIdentityReq {
         this.body = body;
     }
 
-// builder 开始
-  public CreateIdentityReq(){}
-
-  public CreateIdentityReq(Builder builder){
-         /**
-          * 用户的唯一标识（使用的ID类型见下一参数描述，不同ID类型的区别和获取，参考文档：[如何获得 User ID、Open ID 和 Union ID？](https://open.feishu.cn/document/home/user-identity-introduction/how-to-get)）
-          * <p> 示例值：ou_2eb5483cb377daa5054bc6f86e2089a5
-          */
-       this.userId = builder.userId;
-         /**
-          * 用户ID类型 open_id/user_id/union_id
-          * <p> 示例值：
-          */
-       this.userIdType = builder.userIdType;
-        this.body = builder.body;
-  }
-
     public static class Builder {
         private String userId; // 用户的唯一标识（使用的ID类型见下一参数描述，不同ID类型的区别和获取，参考文档：[如何获得 User ID、Open ID 和 Union ID？](https://open.feishu.cn/document/home/user-identity-introduction/how-to-get)）
         private String userIdType; // 用户ID类型 open_id/user_id/union_id
-    
+        private CreateIdentityReqBody body;
+
         /**
          * 用户的唯一标识（使用的ID类型见下一参数描述，不同ID类型的区别和获取，参考文档：[如何获得 User ID、Open ID 和 Union ID？](https://open.feishu.cn/document/home/user-identity-introduction/how-to-get)）
          * <p> 示例值：ou_2eb5483cb377daa5054bc6f86e2089a5
+         *
          * @param userId
          * @return
          */
-           public Builder userId(String userId) {
-                this.userId = userId;
-                return this;
-           }
+        public Builder userId(String userId) {
+            this.userId = userId;
+            return this;
+        }
 
-    
         /**
          * 用户ID类型 open_id/user_id/union_id
          * <p> 示例值：
+         *
          * @param userIdType
          * @return
          */
-           public Builder userIdType(String userIdType) {
-                this.userIdType = userIdType;
-                return this;
-           }
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
 
         /**
          * 用户ID类型 open_id/user_id/union_id
          * <p> 示例值：
+         *
          * @param userIdType {@link com.lark.oapi.service.human_authentication.v1.enums.CreateIdentityUserIdTypeEnum}
          * @return
          */
-          public Builder userIdType(com.lark.oapi.service.human_authentication.v1.enums.CreateIdentityUserIdTypeEnum userIdType) {
-               this.userIdType = userIdType.getValue();
-               return this;
-          }
+        public Builder userIdType(com.lark.oapi.service.human_authentication.v1.enums.CreateIdentityUserIdTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
+            return this;
+        }
 
-    
-        private CreateIdentityReqBody body;
-    
         public CreateIdentityReqBody getCreateIdentityReqBody() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder createIdentityReqBody(CreateIdentityReqBody body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public CreateIdentityReq build(){
-        return new CreateIdentityReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public CreateIdentityReq build() {
+            return new CreateIdentityReq(this);
+        }
     }
 }

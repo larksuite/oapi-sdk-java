@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.aily.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.aily.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,48 +20,93 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CreateAilySessionAilyMessageReqBody {
-     /**
-      * 幂等id，同一 session 下相同的幂等 id 算一条消息，有效期72h
-      * <p> 示例值：idempotent_id_1
-      */
+    /**
+     * 幂等id，同一 session 下相同的幂等 id 算一条消息，有效期72h
+     * <p> 示例值：idempotent_id_1
+     */
     @SerializedName("idempotent_id")
     private String idempotentId;
-     /**
-      * 消息内容类型
-      * <p> 示例值：MDX
-      */
+    /**
+     * 消息内容类型
+     * <p> 示例值：MDX
+     */
     @SerializedName("content_type")
     private String contentType;
-     /**
-      * 消息内容
-      * <p> 示例值：你好
-      */
+    /**
+     * 消息内容
+     * <p> 示例值：你好
+     */
     @SerializedName("content")
     private String content;
-     /**
-      * 消息中包含的文件 ID 列表
-      * <p> 示例值：
-      */
+    /**
+     * 消息中包含的文件 ID 列表
+     * <p> 示例值：
+     */
     @SerializedName("file_ids")
     private String[] fileIds;
-     /**
-      * 引用的消息 ID
-      * <p> 示例值：message_4de9bpg70qskh
-      */
+    /**
+     * 引用的消息 ID
+     * <p> 示例值：message_4de9bpg70qskh
+     */
     @SerializedName("quote_message_id")
     private String quoteMessageId;
-     /**
-      * 被@的实体
-      * <p> 示例值：
-      */
+    /**
+     * 被@的实体
+     * <p> 示例值：
+     */
     @SerializedName("mentions")
     private AilyMention[] mentions;
+
+    // builder 开始
+    public CreateAilySessionAilyMessageReqBody() {
+    }
+
+    public CreateAilySessionAilyMessageReqBody(Builder builder) {
+        /**
+         * 幂等id，同一 session 下相同的幂等 id 算一条消息，有效期72h
+         * <p> 示例值：idempotent_id_1
+         */
+        this.idempotentId = builder.idempotentId;
+        /**
+         * 消息内容类型
+         * <p> 示例值：MDX
+         */
+        this.contentType = builder.contentType;
+        /**
+         * 消息内容
+         * <p> 示例值：你好
+         */
+        this.content = builder.content;
+        /**
+         * 消息中包含的文件 ID 列表
+         * <p> 示例值：
+         */
+        this.fileIds = builder.fileIds;
+        /**
+         * 引用的消息 ID
+         * <p> 示例值：message_4de9bpg70qskh
+         */
+        this.quoteMessageId = builder.quoteMessageId;
+        /**
+         * 被@的实体
+         * <p> 示例值：
+         */
+        this.mentions = builder.mentions;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getIdempotentId() {
         return this.idempotentId;
     }
@@ -109,169 +155,130 @@ public class CreateAilySessionAilyMessageReqBody {
         this.mentions = mentions;
     }
 
-
-// builder 开始
-  public CreateAilySessionAilyMessageReqBody(){}
-
-  public CreateAilySessionAilyMessageReqBody(Builder builder){
-         /**
-          * 幂等id，同一 session 下相同的幂等 id 算一条消息，有效期72h
-          * <p> 示例值：idempotent_id_1
-          */
-      this.idempotentId = builder.idempotentId;
-         /**
-          * 消息内容类型
-          * <p> 示例值：MDX
-          */
-      this.contentType = builder.contentType;
-         /**
-          * 消息内容
-          * <p> 示例值：你好
-          */
-      this.content = builder.content;
-         /**
-          * 消息中包含的文件 ID 列表
-          * <p> 示例值：
-          */
-      this.fileIds = builder.fileIds;
-         /**
-          * 引用的消息 ID
-          * <p> 示例值：message_4de9bpg70qskh
-          */
-      this.quoteMessageId = builder.quoteMessageId;
-         /**
-          * 被@的实体
-          * <p> 示例值：
-          */
-      this.mentions = builder.mentions;
-  }
-
     public static class Builder {
-     /**
-      * 幂等id，同一 session 下相同的幂等 id 算一条消息，有效期72h
-      * <p> 示例值：idempotent_id_1
-      */
+        /**
+         * 幂等id，同一 session 下相同的幂等 id 算一条消息，有效期72h
+         * <p> 示例值：idempotent_id_1
+         */
         private String idempotentId;
-     /**
-      * 消息内容类型
-      * <p> 示例值：MDX
-      */
+        /**
+         * 消息内容类型
+         * <p> 示例值：MDX
+         */
         private String contentType;
-     /**
-      * 消息内容
-      * <p> 示例值：你好
-      */
+        /**
+         * 消息内容
+         * <p> 示例值：你好
+         */
         private String content;
-     /**
-      * 消息中包含的文件 ID 列表
-      * <p> 示例值：
-      */
+        /**
+         * 消息中包含的文件 ID 列表
+         * <p> 示例值：
+         */
         private String[] fileIds;
-     /**
-      * 引用的消息 ID
-      * <p> 示例值：message_4de9bpg70qskh
-      */
+        /**
+         * 引用的消息 ID
+         * <p> 示例值：message_4de9bpg70qskh
+         */
         private String quoteMessageId;
-     /**
-      * 被@的实体
-      * <p> 示例值：
-      */
+        /**
+         * 被@的实体
+         * <p> 示例值：
+         */
         private AilyMention[] mentions;
 
         /**
          * 幂等id，同一 session 下相同的幂等 id 算一条消息，有效期72h
          * <p> 示例值：idempotent_id_1
+         *
          * @param idempotentId
          * @return
          */
         public Builder idempotentId(String idempotentId) {
-             this.idempotentId = idempotentId;
-             return this;
+            this.idempotentId = idempotentId;
+            return this;
         }
 
-    
 
         /**
          * 消息内容类型
          * <p> 示例值：MDX
+         *
          * @param contentType
          * @return
          */
         public Builder contentType(String contentType) {
-             this.contentType = contentType;
-             return this;
+            this.contentType = contentType;
+            return this;
         }
+
         /**
          * 消息内容类型
          * <p> 示例值：MDX
+         *
          * @param contentType {@link com.lark.oapi.service.aily.v1.enums.CreateAilySessionAilyMessageAilyMessageContentTypeEnum}
          * @return
          */
         public Builder contentType(com.lark.oapi.service.aily.v1.enums.CreateAilySessionAilyMessageAilyMessageContentTypeEnum contentType) {
-             this.contentType = contentType.getValue();
-             return this;
+            this.contentType = contentType.getValue();
+            return this;
         }
 
-    
 
         /**
          * 消息内容
          * <p> 示例值：你好
+         *
          * @param content
          * @return
          */
         public Builder content(String content) {
-             this.content = content;
-             return this;
+            this.content = content;
+            return this;
         }
 
-    
 
         /**
          * 消息中包含的文件 ID 列表
          * <p> 示例值：
+         *
          * @param fileIds
          * @return
          */
         public Builder fileIds(String[] fileIds) {
-             this.fileIds = fileIds;
-             return this;
+            this.fileIds = fileIds;
+            return this;
         }
 
-    
 
         /**
          * 引用的消息 ID
          * <p> 示例值：message_4de9bpg70qskh
+         *
          * @param quoteMessageId
          * @return
          */
         public Builder quoteMessageId(String quoteMessageId) {
-             this.quoteMessageId = quoteMessageId;
-             return this;
+            this.quoteMessageId = quoteMessageId;
+            return this;
         }
 
-    
 
         /**
          * 被@的实体
          * <p> 示例值：
+         *
          * @param mentions
          * @return
          */
         public Builder mentions(AilyMention[] mentions) {
-             this.mentions = mentions;
-             return this;
+            this.mentions = mentions;
+            return this;
         }
 
-    
-    
-    public CreateAilySessionAilyMessageReqBody build(){
-        return new CreateAilySessionAilyMessageReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public CreateAilySessionAilyMessageReqBody build() {
+            return new CreateAilySessionAilyMessageReqBody(this);
+        }
     }
 }

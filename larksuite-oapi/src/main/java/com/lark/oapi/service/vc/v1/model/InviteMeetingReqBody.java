@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class InviteMeetingReqBody {
-     /**
-      * 被邀请的用户列表
-      * <p> 示例值：
-      */
+    /**
+     * 被邀请的用户列表
+     * <p> 示例值：
+     */
     @SerializedName("invitees")
     private MeetingUser[] invitees;
+
+    // builder 开始
+    public InviteMeetingReqBody() {
+    }
+
+    public InviteMeetingReqBody(Builder builder) {
+        /**
+         * 被邀请的用户列表
+         * <p> 示例值：
+         */
+        this.invitees = builder.invitees;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public MeetingUser[] getInvitees() {
         return this.invitees;
     }
@@ -39,44 +60,28 @@ public class InviteMeetingReqBody {
         this.invitees = invitees;
     }
 
-
-// builder 开始
-  public InviteMeetingReqBody(){}
-
-  public InviteMeetingReqBody(Builder builder){
-         /**
-          * 被邀请的用户列表
-          * <p> 示例值：
-          */
-      this.invitees = builder.invitees;
-  }
-
     public static class Builder {
-     /**
-      * 被邀请的用户列表
-      * <p> 示例值：
-      */
+        /**
+         * 被邀请的用户列表
+         * <p> 示例值：
+         */
         private MeetingUser[] invitees;
 
         /**
          * 被邀请的用户列表
          * <p> 示例值：
+         *
          * @param invitees
          * @return
          */
         public Builder invitees(MeetingUser[] invitees) {
-             this.invitees = invitees;
-             return this;
+            this.invitees = invitees;
+            return this;
         }
 
-    
-    
-    public InviteMeetingReqBody build(){
-        return new InviteMeetingReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public InviteMeetingReqBody build() {
+            return new InviteMeetingReqBody(this);
+        }
     }
 }

@@ -12,25 +12,49 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class PushFollowUpMessageReq {
-     /**
-      * AI发送的消息ID
-      * <p> 示例值：om_3210a18894e206715a4359115f4cf2f5
-      */
+    /**
+     * AI发送的消息ID
+     * <p> 示例值：om_3210a18894e206715a4359115f4cf2f5
+     */
     @Path
     @SerializedName("message_id")
     private String messageId;
+    @Body
+    private PushFollowUpMessageReqBody body;
+
+    // builder 开始
+    public PushFollowUpMessageReq() {
+    }
+
+    public PushFollowUpMessageReq(Builder builder) {
+        /**
+         * AI发送的消息ID
+         * <p> 示例值：om_3210a18894e206715a4359115f4cf2f5
+         */
+        this.messageId = builder.messageId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getMessageId() {
         return this.messageId;
     }
@@ -38,9 +62,6 @@ public class PushFollowUpMessageReq {
     public void setMessageId(String messageId) {
         this.messageId = messageId;
     }
-
-    @Body
-    private PushFollowUpMessageReqBody body;
 
     public PushFollowUpMessageReqBody getPushFollowUpMessageReqBody() {
         return this.body;
@@ -50,54 +71,40 @@ public class PushFollowUpMessageReq {
         this.body = body;
     }
 
-// builder 开始
-  public PushFollowUpMessageReq(){}
-
-  public PushFollowUpMessageReq(Builder builder){
-     /**
-      * AI发送的消息ID
-      * <p> 示例值：om_3210a18894e206715a4359115f4cf2f5
-      */
-       this.messageId = builder.messageId;
-        this.body = builder.body;
-  }
-
     public static class Builder {
-    
+
         private String messageId; // AI发送的消息ID
+        private PushFollowUpMessageReqBody body;
+
         /**
          * AI发送的消息ID
          * <p> 示例值：om_3210a18894e206715a4359115f4cf2f5
+         *
          * @param messageId
          * @return
          */
-          public Builder messageId(String messageId) {
-               this.messageId = messageId;
-               return this;
-          }
+        public Builder messageId(String messageId) {
+            this.messageId = messageId;
+            return this;
+        }
 
-    
-        private PushFollowUpMessageReqBody body;
-    
         public PushFollowUpMessageReqBody getPushFollowUpMessageReqBody() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder pushFollowUpMessageReqBody(PushFollowUpMessageReqBody body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public PushFollowUpMessageReq build(){
-        return new PushFollowUpMessageReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public PushFollowUpMessageReq build() {
+            return new PushFollowUpMessageReq(this);
+        }
     }
 }

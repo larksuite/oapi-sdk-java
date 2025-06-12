@@ -12,24 +12,48 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class OfferStatusOfferReq {
-     /**
-      * offer ID
-      * <p> 示例值：6930815272790114324
-      */
+    /**
+     * offer ID
+     * <p> 示例值：6930815272790114324
+     */
     @Path
     @SerializedName("offer_id")
     private String offerId;
+    @Body
+    private OfferStatusOfferReqBody body;
+
+    // builder 开始
+    public OfferStatusOfferReq() {
+    }
+
+    public OfferStatusOfferReq(Builder builder) {
+        /**
+         * offer ID
+         * <p> 示例值：6930815272790114324
+         */
+        this.offerId = builder.offerId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getOfferId() {
         return this.offerId;
     }
@@ -37,9 +61,6 @@ public class OfferStatusOfferReq {
     public void setOfferId(String offerId) {
         this.offerId = offerId;
     }
-
-    @Body
-    private OfferStatusOfferReqBody body;
 
     public OfferStatusOfferReqBody getOfferStatusOfferReqBody() {
         return this.body;
@@ -49,54 +70,40 @@ public class OfferStatusOfferReq {
         this.body = body;
     }
 
-// builder 开始
-  public OfferStatusOfferReq(){}
-
-  public OfferStatusOfferReq(Builder builder){
-     /**
-      * offer ID
-      * <p> 示例值：6930815272790114324
-      */
-       this.offerId = builder.offerId;
-        this.body = builder.body;
-  }
-
     public static class Builder {
-    
+
         private String offerId; // offer ID
+        private OfferStatusOfferReqBody body;
+
         /**
          * offer ID
          * <p> 示例值：6930815272790114324
+         *
          * @param offerId
          * @return
          */
-          public Builder offerId(String offerId) {
-               this.offerId = offerId;
-               return this;
-          }
+        public Builder offerId(String offerId) {
+            this.offerId = offerId;
+            return this;
+        }
 
-    
-        private OfferStatusOfferReqBody body;
-    
         public OfferStatusOfferReqBody getOfferStatusOfferReqBody() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder offerStatusOfferReqBody(OfferStatusOfferReqBody body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public OfferStatusOfferReq build(){
-        return new OfferStatusOfferReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public OfferStatusOfferReq build() {
+            return new OfferStatusOfferReq(this);
+        }
     }
 }

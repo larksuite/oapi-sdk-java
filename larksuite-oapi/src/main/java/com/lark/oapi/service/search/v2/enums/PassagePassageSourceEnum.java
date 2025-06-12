@@ -17,17 +17,18 @@ package com.lark.oapi.service.search.v2.enums;
  * passage所属的数据源
  */
 public enum PassagePassageSourceEnum {
-     HELPDESK(1), // 服务台
-     WIKI(2), // 知识库文档
-     DOC(3), // 普通文档
-     WEB(4), // 网页
-  ;
-   private Integer value;
+    HELPDESK(1), // 服务台
+    WIKI(2), // 知识库文档
+    DOC(3), // 普通文档
+    WEB(4), // 网页
+    ;
+    private Integer value;
+
     PassagePassageSourceEnum(Integer value) {
-      this.value = value;
+        this.value = value;
     }
 
     public Integer getValue() {
-      return this.value;
+        return this.value;
     }
 }

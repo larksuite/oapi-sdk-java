@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ConditionValue {
-     /**
-      * 类型
-      * <p> 示例值：metadataVariable
-      */
+    /**
+     * 类型
+     * <p> 示例值：metadataVariable
+     */
     @SerializedName("type")
     private String type;
-     /**
-      * 设置值
-      * <p> 示例值：{\"fieldPath\":[{\"fieldApiName\": \"_id\",\"objectApiName\": \"_user\"}]}
-      */
+    /**
+     * 设置值
+     * <p> 示例值：{\"fieldPath\":[{\"fieldApiName\": \"_id\",\"objectApiName\": \"_user\"}]}
+     */
     @SerializedName("settings")
     private String settings;
-     /**
-      * 左值/右值的展示名称
-      * <p> 示例值：
-      */
+    /**
+     * 左值/右值的展示名称
+     * <p> 示例值：
+     */
     @SerializedName("display_names")
     private String[] displayNames;
+
+    // builder 开始
+    public ConditionValue() {
+    }
+
+    public ConditionValue(Builder builder) {
+        /**
+         * 类型
+         * <p> 示例值：metadataVariable
+         */
+        this.type = builder.type;
+        /**
+         * 设置值
+         * <p> 示例值：{\"fieldPath\":[{\"fieldApiName\": \"_id\",\"objectApiName\": \"_user\"}]}
+         */
+        this.settings = builder.settings;
+        /**
+         * 左值/右值的展示名称
+         * <p> 示例值：
+         */
+        this.displayNames = builder.displayNames;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getType() {
         return this.type;
     }
@@ -67,90 +98,64 @@ public class ConditionValue {
         this.displayNames = displayNames;
     }
 
-
-// builder 开始
-  public ConditionValue(){}
-
-  public ConditionValue(Builder builder){
-         /**
-          * 类型
-          * <p> 示例值：metadataVariable
-          */
-      this.type = builder.type;
-         /**
-          * 设置值
-          * <p> 示例值：{\"fieldPath\":[{\"fieldApiName\": \"_id\",\"objectApiName\": \"_user\"}]}
-          */
-      this.settings = builder.settings;
-         /**
-          * 左值/右值的展示名称
-          * <p> 示例值：
-          */
-      this.displayNames = builder.displayNames;
-  }
-
     public static class Builder {
-     /**
-      * 类型
-      * <p> 示例值：metadataVariable
-      */
+        /**
+         * 类型
+         * <p> 示例值：metadataVariable
+         */
         private String type;
-     /**
-      * 设置值
-      * <p> 示例值：{\"fieldPath\":[{\"fieldApiName\": \"_id\",\"objectApiName\": \"_user\"}]}
-      */
+        /**
+         * 设置值
+         * <p> 示例值：{\"fieldPath\":[{\"fieldApiName\": \"_id\",\"objectApiName\": \"_user\"}]}
+         */
         private String settings;
-     /**
-      * 左值/右值的展示名称
-      * <p> 示例值：
-      */
+        /**
+         * 左值/右值的展示名称
+         * <p> 示例值：
+         */
         private String[] displayNames;
 
         /**
          * 类型
          * <p> 示例值：metadataVariable
+         *
          * @param type
          * @return
          */
         public Builder type(String type) {
-             this.type = type;
-             return this;
+            this.type = type;
+            return this;
         }
 
-    
 
         /**
          * 设置值
          * <p> 示例值：{\"fieldPath\":[{\"fieldApiName\": \"_id\",\"objectApiName\": \"_user\"}]}
+         *
          * @param settings
          * @return
          */
         public Builder settings(String settings) {
-             this.settings = settings;
-             return this;
+            this.settings = settings;
+            return this;
         }
 
-    
 
         /**
          * 左值/右值的展示名称
          * <p> 示例值：
+         *
          * @param displayNames
          * @return
          */
         public Builder displayNames(String[] displayNames) {
-             this.displayNames = displayNames;
-             return this;
+            this.displayNames = displayNames;
+            return this;
         }
 
-    
-    
-    public ConditionValue build(){
-        return new ConditionValue(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ConditionValue build() {
+            return new ConditionValue(this);
+        }
     }
 }

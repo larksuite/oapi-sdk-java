@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,66 +20,126 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Meta {
-     /**
-      * 文件token
-      * <p> 示例值：doccnfYZzTlvXqZIGTdAHKabcef
-      */
+    /**
+     * 文件token
+     * <p> 示例值：doccnfYZzTlvXqZIGTdAHKabcef
+     */
     @SerializedName("doc_token")
     private String docToken;
-     /**
-      * 文件类型
-      * <p> 示例值：doc
-      */
+    /**
+     * 文件类型
+     * <p> 示例值：doc
+     */
     @SerializedName("doc_type")
     private String docType;
-     /**
-      * 标题
-      * <p> 示例值：sampletitle
-      */
+    /**
+     * 标题
+     * <p> 示例值：sampletitle
+     */
     @SerializedName("title")
     private String title;
-     /**
-      * 文件所有者
-      * <p> 示例值：ou_b13d41c02edc52ce66aaae67bf1abcef
-      */
+    /**
+     * 文件所有者
+     * <p> 示例值：ou_b13d41c02edc52ce66aaae67bf1abcef
+     */
     @SerializedName("owner_id")
     private String ownerId;
-     /**
-      * 创建时间（Unix时间戳）
-      * <p> 示例值：1652066345
-      */
+    /**
+     * 创建时间（Unix时间戳）
+     * <p> 示例值：1652066345
+     */
     @SerializedName("create_time")
     private String createTime;
-     /**
-      * 最后编辑者
-      * <p> 示例值：ou_b13d41c02edc52ce66aaae67bf1abcef
-      */
+    /**
+     * 最后编辑者
+     * <p> 示例值：ou_b13d41c02edc52ce66aaae67bf1abcef
+     */
     @SerializedName("latest_modify_user")
     private String latestModifyUser;
-     /**
-      * 最后编辑时间（Unix时间戳）
-      * <p> 示例值：1652066345
-      */
+    /**
+     * 最后编辑时间（Unix时间戳）
+     * <p> 示例值：1652066345
+     */
     @SerializedName("latest_modify_time")
     private String latestModifyTime;
-     /**
-      * 文档链接
-      * <p> 示例值：https://sample.feishu.cn/docs/doccnfYZzTlvXqZIGTdAHKabcef
-      */
+    /**
+     * 文档链接
+     * <p> 示例值：https://sample.feishu.cn/docs/doccnfYZzTlvXqZIGTdAHKabcef
+     */
     @SerializedName("url")
     private String url;
-     /**
-      * 文档密级标签名称
-      * <p> 示例值：L2-内部
-      */
+    /**
+     * 文档密级标签名称
+     * <p> 示例值：L2-内部
+     */
     @SerializedName("sec_label_name")
     private String secLabelName;
+
+    // builder 开始
+    public Meta() {
+    }
+
+    public Meta(Builder builder) {
+        /**
+         * 文件token
+         * <p> 示例值：doccnfYZzTlvXqZIGTdAHKabcef
+         */
+        this.docToken = builder.docToken;
+        /**
+         * 文件类型
+         * <p> 示例值：doc
+         */
+        this.docType = builder.docType;
+        /**
+         * 标题
+         * <p> 示例值：sampletitle
+         */
+        this.title = builder.title;
+        /**
+         * 文件所有者
+         * <p> 示例值：ou_b13d41c02edc52ce66aaae67bf1abcef
+         */
+        this.ownerId = builder.ownerId;
+        /**
+         * 创建时间（Unix时间戳）
+         * <p> 示例值：1652066345
+         */
+        this.createTime = builder.createTime;
+        /**
+         * 最后编辑者
+         * <p> 示例值：ou_b13d41c02edc52ce66aaae67bf1abcef
+         */
+        this.latestModifyUser = builder.latestModifyUser;
+        /**
+         * 最后编辑时间（Unix时间戳）
+         * <p> 示例值：1652066345
+         */
+        this.latestModifyTime = builder.latestModifyTime;
+        /**
+         * 文档链接
+         * <p> 示例值：https://sample.feishu.cn/docs/doccnfYZzTlvXqZIGTdAHKabcef
+         */
+        this.url = builder.url;
+        /**
+         * 文档密级标签名称
+         * <p> 示例值：L2-内部
+         */
+        this.secLabelName = builder.secLabelName;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getDocToken() {
         return this.docToken;
     }
@@ -151,228 +212,172 @@ public class Meta {
         this.secLabelName = secLabelName;
     }
 
-
-// builder 开始
-  public Meta(){}
-
-  public Meta(Builder builder){
-         /**
-          * 文件token
-          * <p> 示例值：doccnfYZzTlvXqZIGTdAHKabcef
-          */
-      this.docToken = builder.docToken;
-         /**
-          * 文件类型
-          * <p> 示例值：doc
-          */
-      this.docType = builder.docType;
-         /**
-          * 标题
-          * <p> 示例值：sampletitle
-          */
-      this.title = builder.title;
-         /**
-          * 文件所有者
-          * <p> 示例值：ou_b13d41c02edc52ce66aaae67bf1abcef
-          */
-      this.ownerId = builder.ownerId;
-         /**
-          * 创建时间（Unix时间戳）
-          * <p> 示例值：1652066345
-          */
-      this.createTime = builder.createTime;
-         /**
-          * 最后编辑者
-          * <p> 示例值：ou_b13d41c02edc52ce66aaae67bf1abcef
-          */
-      this.latestModifyUser = builder.latestModifyUser;
-         /**
-          * 最后编辑时间（Unix时间戳）
-          * <p> 示例值：1652066345
-          */
-      this.latestModifyTime = builder.latestModifyTime;
-         /**
-          * 文档链接
-          * <p> 示例值：https://sample.feishu.cn/docs/doccnfYZzTlvXqZIGTdAHKabcef
-          */
-      this.url = builder.url;
-         /**
-          * 文档密级标签名称
-          * <p> 示例值：L2-内部
-          */
-      this.secLabelName = builder.secLabelName;
-  }
-
     public static class Builder {
-     /**
-      * 文件token
-      * <p> 示例值：doccnfYZzTlvXqZIGTdAHKabcef
-      */
+        /**
+         * 文件token
+         * <p> 示例值：doccnfYZzTlvXqZIGTdAHKabcef
+         */
         private String docToken;
-     /**
-      * 文件类型
-      * <p> 示例值：doc
-      */
+        /**
+         * 文件类型
+         * <p> 示例值：doc
+         */
         private String docType;
-     /**
-      * 标题
-      * <p> 示例值：sampletitle
-      */
+        /**
+         * 标题
+         * <p> 示例值：sampletitle
+         */
         private String title;
-     /**
-      * 文件所有者
-      * <p> 示例值：ou_b13d41c02edc52ce66aaae67bf1abcef
-      */
+        /**
+         * 文件所有者
+         * <p> 示例值：ou_b13d41c02edc52ce66aaae67bf1abcef
+         */
         private String ownerId;
-     /**
-      * 创建时间（Unix时间戳）
-      * <p> 示例值：1652066345
-      */
+        /**
+         * 创建时间（Unix时间戳）
+         * <p> 示例值：1652066345
+         */
         private String createTime;
-     /**
-      * 最后编辑者
-      * <p> 示例值：ou_b13d41c02edc52ce66aaae67bf1abcef
-      */
+        /**
+         * 最后编辑者
+         * <p> 示例值：ou_b13d41c02edc52ce66aaae67bf1abcef
+         */
         private String latestModifyUser;
-     /**
-      * 最后编辑时间（Unix时间戳）
-      * <p> 示例值：1652066345
-      */
+        /**
+         * 最后编辑时间（Unix时间戳）
+         * <p> 示例值：1652066345
+         */
         private String latestModifyTime;
-     /**
-      * 文档链接
-      * <p> 示例值：https://sample.feishu.cn/docs/doccnfYZzTlvXqZIGTdAHKabcef
-      */
+        /**
+         * 文档链接
+         * <p> 示例值：https://sample.feishu.cn/docs/doccnfYZzTlvXqZIGTdAHKabcef
+         */
         private String url;
-     /**
-      * 文档密级标签名称
-      * <p> 示例值：L2-内部
-      */
+        /**
+         * 文档密级标签名称
+         * <p> 示例值：L2-内部
+         */
         private String secLabelName;
 
         /**
          * 文件token
          * <p> 示例值：doccnfYZzTlvXqZIGTdAHKabcef
+         *
          * @param docToken
          * @return
          */
         public Builder docToken(String docToken) {
-             this.docToken = docToken;
-             return this;
+            this.docToken = docToken;
+            return this;
         }
 
-    
 
         /**
          * 文件类型
          * <p> 示例值：doc
+         *
          * @param docType
          * @return
          */
         public Builder docType(String docType) {
-             this.docType = docType;
-             return this;
+            this.docType = docType;
+            return this;
         }
 
-    
 
         /**
          * 标题
          * <p> 示例值：sampletitle
+         *
          * @param title
          * @return
          */
         public Builder title(String title) {
-             this.title = title;
-             return this;
+            this.title = title;
+            return this;
         }
 
-    
 
         /**
          * 文件所有者
          * <p> 示例值：ou_b13d41c02edc52ce66aaae67bf1abcef
+         *
          * @param ownerId
          * @return
          */
         public Builder ownerId(String ownerId) {
-             this.ownerId = ownerId;
-             return this;
+            this.ownerId = ownerId;
+            return this;
         }
 
-    
 
         /**
          * 创建时间（Unix时间戳）
          * <p> 示例值：1652066345
+         *
          * @param createTime
          * @return
          */
         public Builder createTime(String createTime) {
-             this.createTime = createTime;
-             return this;
+            this.createTime = createTime;
+            return this;
         }
 
-    
 
         /**
          * 最后编辑者
          * <p> 示例值：ou_b13d41c02edc52ce66aaae67bf1abcef
+         *
          * @param latestModifyUser
          * @return
          */
         public Builder latestModifyUser(String latestModifyUser) {
-             this.latestModifyUser = latestModifyUser;
-             return this;
+            this.latestModifyUser = latestModifyUser;
+            return this;
         }
 
-    
 
         /**
          * 最后编辑时间（Unix时间戳）
          * <p> 示例值：1652066345
+         *
          * @param latestModifyTime
          * @return
          */
         public Builder latestModifyTime(String latestModifyTime) {
-             this.latestModifyTime = latestModifyTime;
-             return this;
+            this.latestModifyTime = latestModifyTime;
+            return this;
         }
 
-    
 
         /**
          * 文档链接
          * <p> 示例值：https://sample.feishu.cn/docs/doccnfYZzTlvXqZIGTdAHKabcef
+         *
          * @param url
          * @return
          */
         public Builder url(String url) {
-             this.url = url;
-             return this;
+            this.url = url;
+            return this;
         }
 
-    
 
         /**
          * 文档密级标签名称
          * <p> 示例值：L2-内部
+         *
          * @param secLabelName
          * @return
          */
         public Builder secLabelName(String secLabelName) {
-             this.secLabelName = secLabelName;
-             return this;
+            this.secLabelName = secLabelName;
+            return this;
         }
 
-    
-    
-    public Meta build(){
-        return new Meta(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Meta build() {
+            return new Meta(this);
+        }
     }
 }

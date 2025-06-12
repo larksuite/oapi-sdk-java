@@ -12,60 +12,65 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class P2EhrImportTaskImportedV1Data {
-     /**
-      * 导入任务 ID
-      * <p> 示例值：6890840517010000141
-      */
+    /**
+     * 导入任务 ID
+     * <p> 示例值：6890840517010000141
+     */
     @SerializedName("task_id")
     private String taskId;
-     /**
-      * 投递 ID
-      * <p> 示例值：6891113078776137998
-      */
+    /**
+     * 投递 ID
+     * <p> 示例值：6891113078776137998
+     */
     @SerializedName("application_id")
     private String applicationId;
-     /**
-      * 导入部门 ID
-      * <p> 示例值：6887399523094627847
-      */
+    /**
+     * 导入部门 ID
+     * <p> 示例值：6887399523094627847
+     */
     @SerializedName("ehr_department_id")
     private String ehrDepartmentId;
-     /**
-      * 招聘需求 ID
-      * <p> 示例值：6960663240925956636
-      */
+    /**
+     * 招聘需求 ID
+     * <p> 示例值：6960663240925956636
+     */
     @SerializedName("ehr_requirement_id")
     private String ehrRequirementId;
-     /**
-      * 操作人的飞书招聘 user_id
-      * <p> 示例值：6887868781834536462
-      */
+    /**
+     * 操作人的飞书招聘 user_id
+     * <p> 示例值：6887868781834536462
+     */
     @SerializedName("operator_id")
     private String operatorId;
-     /**
-      * 操作人的飞书 user_id
-      * <p> 示例值：6887868781834536462
-      */
+    /**
+     * 操作人的飞书 user_id
+     * <p> 示例值：6887868781834536462
+     */
     @SerializedName("operator_user_id")
     private UserId operatorUserId;
-     /**
-      * 部门ID
-      * <p> 示例值：
-      */
+    /**
+     * 部门ID
+     * <p> 示例值：
+     */
     @SerializedName("ehr_department")
     private DepartmentId ehrDepartment;
+
     public String getTaskId() {
         return this.taskId;
     }

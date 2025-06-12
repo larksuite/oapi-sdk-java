@@ -12,25 +12,46 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class GetAppReq {
-     /**
-      * 多维表格的唯一标识符 [app_token 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)
-      * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
-      */
+    /**
+     * 多维表格的唯一标识符 [app_token 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)
+     * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+     */
     @Path
     @SerializedName("app_token")
     private String appToken;
+
+    // builder 开始
+    public GetAppReq() {
+    }
+
+    public GetAppReq(Builder builder) {
+        /**
+         * 多维表格的唯一标识符 [app_token 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)
+         * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+         */
+        this.appToken = builder.appToken;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getAppToken() {
         return this.appToken;
     }
@@ -39,39 +60,25 @@ public class GetAppReq {
         this.appToken = appToken;
     }
 
-
-// builder 开始
-  public GetAppReq(){}
-
-  public GetAppReq(Builder builder){
-     /**
-      * 多维表格的唯一标识符 [app_token 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)
-      * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
-      */
-       this.appToken = builder.appToken;
-  }
-
     public static class Builder {
-    
+
         private String appToken; // 多维表格的唯一标识符 [app_token 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)
+
         /**
          * 多维表格的唯一标识符 [app_token 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)
          * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+         *
          * @param appToken
          * @return
          */
-          public Builder appToken(String appToken) {
-               this.appToken = appToken;
-               return this;
-          }
+        public Builder appToken(String appToken) {
+            this.appToken = appToken;
+            return this;
+        }
 
-    
-    public GetAppReq build(){
-        return new GetAppReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public GetAppReq build() {
+            return new GetAppReq(this);
+        }
     }
 }

@@ -12,32 +12,61 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CreateAppTableViewReq {
-     /**
-      * bitable app token
-      * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
-      */
+    /**
+     * bitable app token
+     * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+     */
     @Path
     @SerializedName("app_token")
     private String appToken;
-     /**
-      * table id
-      * <p> 示例值：tblsRc9GRRXKqhvW
-      */
+    /**
+     * table id
+     * <p> 示例值：tblsRc9GRRXKqhvW
+     */
     @Path
     @SerializedName("table_id")
     private String tableId;
+    @Body
+    private ReqView body;
+
+    // builder 开始
+    public CreateAppTableViewReq() {
+    }
+
+    public CreateAppTableViewReq(Builder builder) {
+        /**
+         * bitable app token
+         * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+         */
+        this.appToken = builder.appToken;
+        /**
+         * table id
+         * <p> 示例值：tblsRc9GRRXKqhvW
+         */
+        this.tableId = builder.tableId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getAppToken() {
         return this.appToken;
     }
@@ -54,9 +83,6 @@ public class CreateAppTableViewReq {
         this.tableId = tableId;
     }
 
-    @Body
-    private ReqView body;
-
     public ReqView getReqView() {
         return this.body;
     }
@@ -65,72 +91,53 @@ public class CreateAppTableViewReq {
         this.body = body;
     }
 
-// builder 开始
-  public CreateAppTableViewReq(){}
-
-  public CreateAppTableViewReq(Builder builder){
-     /**
-      * bitable app token
-      * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
-      */
-       this.appToken = builder.appToken;
-     /**
-      * table id
-      * <p> 示例值：tblsRc9GRRXKqhvW
-      */
-       this.tableId = builder.tableId;
-        this.body = builder.body;
-  }
-
     public static class Builder {
-    
+
         private String appToken; // bitable app token
         private String tableId; // table id
+        private ReqView body;
+
         /**
          * bitable app token
          * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+         *
          * @param appToken
          * @return
          */
-          public Builder appToken(String appToken) {
-               this.appToken = appToken;
-               return this;
-          }
+        public Builder appToken(String appToken) {
+            this.appToken = appToken;
+            return this;
+        }
 
-    
         /**
          * table id
          * <p> 示例值：tblsRc9GRRXKqhvW
+         *
          * @param tableId
          * @return
          */
-          public Builder tableId(String tableId) {
-               this.tableId = tableId;
-               return this;
-          }
+        public Builder tableId(String tableId) {
+            this.tableId = tableId;
+            return this;
+        }
 
-    
-        private ReqView body;
-    
         public ReqView getReqView() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder reqView(ReqView body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public CreateAppTableViewReq build(){
-        return new CreateAppTableViewReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public CreateAppTableViewReq build() {
+            return new CreateAppTableViewReq(this);
+        }
     }
 }

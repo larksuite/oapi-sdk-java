@@ -12,20 +12,36 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ActiveLocationReq {
     @Body
     private ActiveLocationReqBody body;
+
+    // builder 开始
+    public ActiveLocationReq() {
+    }
+
+    public ActiveLocationReq(Builder builder) {
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 
     public ActiveLocationReqBody getActiveLocationReqBody() {
         return this.body;
@@ -35,36 +51,27 @@ public class ActiveLocationReq {
         this.body = body;
     }
 
-// builder 开始
-  public ActiveLocationReq(){}
-
-  public ActiveLocationReq(Builder builder){
-        this.body = builder.body;
-  }
-
     public static class Builder {
-    
+
         private ActiveLocationReqBody body;
-    
+
         public ActiveLocationReqBody getActiveLocationReqBody() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder activeLocationReqBody(ActiveLocationReqBody body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public ActiveLocationReq build(){
-        return new ActiveLocationReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ActiveLocationReq build() {
+            return new ActiveLocationReq(this);
+        }
     }
 }

@@ -12,25 +12,46 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class DeleteJobReq {
-     /**
-      * 需要删除的职务 ID
-      * <p> 示例值：67163716371
-      */
+    /**
+     * 需要删除的职务 ID
+     * <p> 示例值：67163716371
+     */
     @Path
     @SerializedName("job_id")
     private String jobId;
+
+    // builder 开始
+    public DeleteJobReq() {
+    }
+
+    public DeleteJobReq(Builder builder) {
+        /**
+         * 需要删除的职务 ID
+         * <p> 示例值：67163716371
+         */
+        this.jobId = builder.jobId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getJobId() {
         return this.jobId;
     }
@@ -39,39 +60,25 @@ public class DeleteJobReq {
         this.jobId = jobId;
     }
 
-
-// builder 开始
-  public DeleteJobReq(){}
-
-  public DeleteJobReq(Builder builder){
-     /**
-      * 需要删除的职务 ID
-      * <p> 示例值：67163716371
-      */
-       this.jobId = builder.jobId;
-  }
-
     public static class Builder {
-    
+
         private String jobId; // 需要删除的职务 ID
+
         /**
          * 需要删除的职务 ID
          * <p> 示例值：67163716371
+         *
          * @param jobId
          * @return
          */
-          public Builder jobId(String jobId) {
-               this.jobId = jobId;
-               return this;
-          }
+        public Builder jobId(String jobId) {
+            this.jobId = jobId;
+            return this;
+        }
 
-    
-    public DeleteJobReq build(){
-        return new DeleteJobReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public DeleteJobReq build() {
+            return new DeleteJobReq(this);
+        }
     }
 }

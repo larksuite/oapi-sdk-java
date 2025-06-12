@@ -34,51 +34,61 @@ public class TaskService {
     private final V2 v2;
 
     public TaskService(Config config) {
-    this.v1 = new V1(config);
-    this.task = new Task(config);
-    this.taskCollaborator = new TaskCollaborator(config);
-    this.taskComment = new TaskComment(config);
-    this.taskFollower = new TaskFollower(config);
-    this.taskReminder = new TaskReminder(config);
-    this.v2 = new V2(config);
+        this.v1 = new V1(config);
+        this.task = new Task(config);
+        this.taskCollaborator = new TaskCollaborator(config);
+        this.taskComment = new TaskComment(config);
+        this.taskFollower = new TaskFollower(config);
+        this.taskReminder = new TaskReminder(config);
+        this.v2 = new V2(config);
     }
+
     public V1 v1() {
         return v1;
     }
+
     public Task task() {
         return task;
     }
+
     public TaskCollaborator taskCollaborator() {
         return taskCollaborator;
     }
+
     public TaskComment taskComment() {
         return taskComment;
     }
+
     public TaskFollower taskFollower() {
         return taskFollower;
     }
+
     public TaskReminder taskReminder() {
         return taskReminder;
     }
+
+    public V2 v2() {
+        return v2;
+    }
+
     public abstract static class P2TaskUpdateTenantV1Handler implements IEventHandler<P2TaskUpdateTenantV1> {
         @Override
         public P2TaskUpdateTenantV1 getEvent() {
             return new P2TaskUpdateTenantV1();
         }
     }
+
     public abstract static class P2TaskUpdatedV1Handler implements IEventHandler<P2TaskUpdatedV1> {
         @Override
         public P2TaskUpdatedV1 getEvent() {
             return new P2TaskUpdatedV1();
         }
     }
+
     public abstract static class P2TaskCommentUpdatedV1Handler implements IEventHandler<P2TaskCommentUpdatedV1> {
         @Override
         public P2TaskCommentUpdatedV1 getEvent() {
             return new P2TaskCommentUpdatedV1();
         }
-    }
-    public V2 v2() {
-        return v2;
     }
 }

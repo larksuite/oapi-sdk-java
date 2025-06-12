@@ -12,36 +12,41 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class P2NotificationApproveV1Data {
-     /**
-      * 推送任务唯一ID
-      * <p> 示例值：6981000586476912660
-      */
+    /**
+     * 推送任务唯一ID
+     * <p> 示例值：6981000586476912660
+     */
     @SerializedName("notification_id")
     private String notificationId;
-     /**
-      * 服务台唯一ID
-      * <p> 示例值：6969495102523703316
-      */
+    /**
+     * 服务台唯一ID
+     * <p> 示例值：6969495102523703316
+     */
     @SerializedName("helpdesk_id")
     private String helpdeskId;
-     /**
-      * REJECTED(审核不通过);APPROVED(审核通过);CANCELED(取消审核);DELETED(删除审核)
-      * <p> 示例值：审核状态
-      */
+    /**
+     * REJECTED(审核不通过);APPROVED(审核通过);CANCELED(取消审核);DELETED(删除审核)
+     * <p> 示例值：审核状态
+     */
     @SerializedName("approve_status")
     private String approveStatus;
+
     public String getNotificationId() {
         return this.notificationId;
     }

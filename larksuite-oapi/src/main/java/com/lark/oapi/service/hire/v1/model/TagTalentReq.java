@@ -12,24 +12,48 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class TagTalentReq {
-     /**
-      * 人才 ID
-      * <p> 示例值：6960663240925956661
-      */
+    /**
+     * 人才 ID
+     * <p> 示例值：6960663240925956661
+     */
     @Path
     @SerializedName("talent_id")
     private String talentId;
+    @Body
+    private TagTalentReqBody body;
+
+    // builder 开始
+    public TagTalentReq() {
+    }
+
+    public TagTalentReq(Builder builder) {
+        /**
+         * 人才 ID
+         * <p> 示例值：6960663240925956661
+         */
+        this.talentId = builder.talentId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getTalentId() {
         return this.talentId;
     }
@@ -37,9 +61,6 @@ public class TagTalentReq {
     public void setTalentId(String talentId) {
         this.talentId = talentId;
     }
-
-    @Body
-    private TagTalentReqBody body;
 
     public TagTalentReqBody getTagTalentReqBody() {
         return this.body;
@@ -49,54 +70,40 @@ public class TagTalentReq {
         this.body = body;
     }
 
-// builder 开始
-  public TagTalentReq(){}
-
-  public TagTalentReq(Builder builder){
-     /**
-      * 人才 ID
-      * <p> 示例值：6960663240925956661
-      */
-       this.talentId = builder.talentId;
-        this.body = builder.body;
-  }
-
     public static class Builder {
-    
+
         private String talentId; // 人才 ID
+        private TagTalentReqBody body;
+
         /**
          * 人才 ID
          * <p> 示例值：6960663240925956661
+         *
          * @param talentId
          * @return
          */
-          public Builder talentId(String talentId) {
-               this.talentId = talentId;
-               return this;
-          }
+        public Builder talentId(String talentId) {
+            this.talentId = talentId;
+            return this;
+        }
 
-    
-        private TagTalentReqBody body;
-    
         public TagTalentReqBody getTagTalentReqBody() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder tagTalentReqBody(TagTalentReqBody body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public TagTalentReq build(){
-        return new TagTalentReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public TagTalentReq build() {
+            return new TagTalentReq(this);
+        }
     }
 }

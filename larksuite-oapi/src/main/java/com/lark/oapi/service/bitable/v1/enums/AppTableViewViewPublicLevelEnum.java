@@ -17,16 +17,17 @@ package com.lark.oapi.service.bitable.v1.enums;
  * 视图公共等级 Public、Locked、Private
  */
 public enum AppTableViewViewPublicLevelEnum {
-     PUBLIC("Public"), // 公共视图
-     LOCKED("Locked"), // 锁定视图
-     PRIVATE("Private"), // 个人视图
-  ;
-   private String value;
+    PUBLIC("Public"), // 公共视图
+    LOCKED("Locked"), // 锁定视图
+    PRIVATE("Private"), // 个人视图
+    ;
+    private String value;
+
     AppTableViewViewPublicLevelEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

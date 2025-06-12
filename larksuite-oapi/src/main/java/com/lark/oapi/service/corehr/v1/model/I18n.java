@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class I18n {
-     /**
-      * 名称信息的语言
-      * <p> 示例值：zh-CN
-      */
+    /**
+     * 名称信息的语言
+     * <p> 示例值：zh-CN
+     */
     @SerializedName("lang")
     private String lang;
-     /**
-      * 名称信息的内容
-      * <p> 示例值：张三
-      */
+    /**
+     * 名称信息的内容
+     * <p> 示例值：张三
+     */
     @SerializedName("value")
     private String value;
+
+    // builder 开始
+    public I18n() {
+    }
+
+    public I18n(Builder builder) {
+        /**
+         * 名称信息的语言
+         * <p> 示例值：zh-CN
+         */
+        this.lang = builder.lang;
+        /**
+         * 名称信息的内容
+         * <p> 示例值：张三
+         */
+        this.value = builder.value;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getLang() {
         return this.lang;
     }
@@ -53,67 +79,46 @@ public class I18n {
         this.value = value;
     }
 
-
-// builder 开始
-  public I18n(){}
-
-  public I18n(Builder builder){
-         /**
-          * 名称信息的语言
-          * <p> 示例值：zh-CN
-          */
-      this.lang = builder.lang;
-         /**
-          * 名称信息的内容
-          * <p> 示例值：张三
-          */
-      this.value = builder.value;
-  }
-
     public static class Builder {
-     /**
-      * 名称信息的语言
-      * <p> 示例值：zh-CN
-      */
+        /**
+         * 名称信息的语言
+         * <p> 示例值：zh-CN
+         */
         private String lang;
-     /**
-      * 名称信息的内容
-      * <p> 示例值：张三
-      */
+        /**
+         * 名称信息的内容
+         * <p> 示例值：张三
+         */
         private String value;
 
         /**
          * 名称信息的语言
          * <p> 示例值：zh-CN
+         *
          * @param lang
          * @return
          */
         public Builder lang(String lang) {
-             this.lang = lang;
-             return this;
+            this.lang = lang;
+            return this;
         }
 
-    
 
         /**
          * 名称信息的内容
          * <p> 示例值：张三
+         *
          * @param value
          * @return
          */
         public Builder value(String value) {
-             this.value = value;
-             return this;
+            this.value = value;
+            return this;
         }
 
-    
-    
-    public I18n build(){
-        return new I18n(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public I18n build() {
+            return new I18n(this);
+        }
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class InstanceCcUser {
-     /**
-      * 抄送人 user id
-      * <p> 示例值：eea5gefe
-      */
+    /**
+     * 抄送人 user id
+     * <p> 示例值：eea5gefe
+     */
     @SerializedName("user_id")
     private String userId;
-     /**
-      * 审批实例内抄送唯一标识
-      * <p> 示例值：123445
-      */
+    /**
+     * 审批实例内抄送唯一标识
+     * <p> 示例值：123445
+     */
     @SerializedName("cc_id")
     private String ccId;
-     /**
-      * 抄送人 open id
-      * <p> 示例值：ou_12345
-      */
+    /**
+     * 抄送人 open id
+     * <p> 示例值：ou_12345
+     */
     @SerializedName("open_id")
     private String openId;
+
+    // builder 开始
+    public InstanceCcUser() {
+    }
+
+    public InstanceCcUser(Builder builder) {
+        /**
+         * 抄送人 user id
+         * <p> 示例值：eea5gefe
+         */
+        this.userId = builder.userId;
+        /**
+         * 审批实例内抄送唯一标识
+         * <p> 示例值：123445
+         */
+        this.ccId = builder.ccId;
+        /**
+         * 抄送人 open id
+         * <p> 示例值：ou_12345
+         */
+        this.openId = builder.openId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getUserId() {
         return this.userId;
     }
@@ -67,90 +98,64 @@ public class InstanceCcUser {
         this.openId = openId;
     }
 
-
-// builder 开始
-  public InstanceCcUser(){}
-
-  public InstanceCcUser(Builder builder){
-         /**
-          * 抄送人 user id
-          * <p> 示例值：eea5gefe
-          */
-      this.userId = builder.userId;
-         /**
-          * 审批实例内抄送唯一标识
-          * <p> 示例值：123445
-          */
-      this.ccId = builder.ccId;
-         /**
-          * 抄送人 open id
-          * <p> 示例值：ou_12345
-          */
-      this.openId = builder.openId;
-  }
-
     public static class Builder {
-     /**
-      * 抄送人 user id
-      * <p> 示例值：eea5gefe
-      */
+        /**
+         * 抄送人 user id
+         * <p> 示例值：eea5gefe
+         */
         private String userId;
-     /**
-      * 审批实例内抄送唯一标识
-      * <p> 示例值：123445
-      */
+        /**
+         * 审批实例内抄送唯一标识
+         * <p> 示例值：123445
+         */
         private String ccId;
-     /**
-      * 抄送人 open id
-      * <p> 示例值：ou_12345
-      */
+        /**
+         * 抄送人 open id
+         * <p> 示例值：ou_12345
+         */
         private String openId;
 
         /**
          * 抄送人 user id
          * <p> 示例值：eea5gefe
+         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-             this.userId = userId;
-             return this;
+            this.userId = userId;
+            return this;
         }
 
-    
 
         /**
          * 审批实例内抄送唯一标识
          * <p> 示例值：123445
+         *
          * @param ccId
          * @return
          */
         public Builder ccId(String ccId) {
-             this.ccId = ccId;
-             return this;
+            this.ccId = ccId;
+            return this;
         }
 
-    
 
         /**
          * 抄送人 open id
          * <p> 示例值：ou_12345
+         *
          * @param openId
          * @return
          */
         public Builder openId(String openId) {
-             this.openId = openId;
-             return this;
+            this.openId = openId;
+            return this;
         }
 
-    
-    
-    public InstanceCcUser build(){
-        return new InstanceCcUser(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public InstanceCcUser build() {
+            return new InstanceCcUser(this);
+        }
     }
 }

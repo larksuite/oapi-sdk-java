@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.ehr.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.ehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,36 +20,71 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Attachment {
-     /**
-      * 下载文件所需要的 Token
-      * <p> 示例值：c7273e07ed9e40a394f88c7dccb49212
-      */
+    /**
+     * 下载文件所需要的 Token
+     * <p> 示例值：c7273e07ed9e40a394f88c7dccb49212
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 文件类型
-      * <p> 示例值：png
-      */
+    /**
+     * 文件类型
+     * <p> 示例值：png
+     */
     @SerializedName("mime_type")
     private String mimeType;
-     /**
-      * 名称
-      * <p> 示例值：Custom Code.png
-      */
+    /**
+     * 名称
+     * <p> 示例值：Custom Code.png
+     */
     @SerializedName("name")
     private String name;
-     /**
-      * 大小
-      * <p> 示例值：57380
-      */
+    /**
+     * 大小
+     * <p> 示例值：57380
+     */
     @SerializedName("size")
     private Long size;
+
+    // builder 开始
+    public Attachment() {
+    }
+
+    public Attachment(Builder builder) {
+        /**
+         * 下载文件所需要的 Token
+         * <p> 示例值：c7273e07ed9e40a394f88c7dccb49212
+         */
+        this.id = builder.id;
+        /**
+         * 文件类型
+         * <p> 示例值：png
+         */
+        this.mimeType = builder.mimeType;
+        /**
+         * 名称
+         * <p> 示例值：Custom Code.png
+         */
+        this.name = builder.name;
+        /**
+         * 大小
+         * <p> 示例值：57380
+         */
+        this.size = builder.size;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -81,113 +117,82 @@ public class Attachment {
         this.size = size;
     }
 
-
-// builder 开始
-  public Attachment(){}
-
-  public Attachment(Builder builder){
-         /**
-          * 下载文件所需要的 Token
-          * <p> 示例值：c7273e07ed9e40a394f88c7dccb49212
-          */
-      this.id = builder.id;
-         /**
-          * 文件类型
-          * <p> 示例值：png
-          */
-      this.mimeType = builder.mimeType;
-         /**
-          * 名称
-          * <p> 示例值：Custom Code.png
-          */
-      this.name = builder.name;
-         /**
-          * 大小
-          * <p> 示例值：57380
-          */
-      this.size = builder.size;
-  }
-
     public static class Builder {
-     /**
-      * 下载文件所需要的 Token
-      * <p> 示例值：c7273e07ed9e40a394f88c7dccb49212
-      */
+        /**
+         * 下载文件所需要的 Token
+         * <p> 示例值：c7273e07ed9e40a394f88c7dccb49212
+         */
         private String id;
-     /**
-      * 文件类型
-      * <p> 示例值：png
-      */
+        /**
+         * 文件类型
+         * <p> 示例值：png
+         */
         private String mimeType;
-     /**
-      * 名称
-      * <p> 示例值：Custom Code.png
-      */
+        /**
+         * 名称
+         * <p> 示例值：Custom Code.png
+         */
         private String name;
-     /**
-      * 大小
-      * <p> 示例值：57380
-      */
+        /**
+         * 大小
+         * <p> 示例值：57380
+         */
         private Long size;
 
         /**
          * 下载文件所需要的 Token
          * <p> 示例值：c7273e07ed9e40a394f88c7dccb49212
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 文件类型
          * <p> 示例值：png
+         *
          * @param mimeType
          * @return
          */
         public Builder mimeType(String mimeType) {
-             this.mimeType = mimeType;
-             return this;
+            this.mimeType = mimeType;
+            return this;
         }
 
-    
 
         /**
          * 名称
          * <p> 示例值：Custom Code.png
+         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 大小
          * <p> 示例值：57380
+         *
          * @param size
          * @return
          */
         public Builder size(Long size) {
-             this.size = size;
-             return this;
+            this.size = size;
+            return this;
         }
 
-    
-    
-    public Attachment build(){
-        return new Attachment(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Attachment build() {
+            return new Attachment(this);
+        }
     }
 }

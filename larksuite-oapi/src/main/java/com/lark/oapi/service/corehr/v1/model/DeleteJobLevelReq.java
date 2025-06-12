@@ -12,25 +12,46 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class DeleteJobLevelReq {
-     /**
-      * 需要删除的职务级别 ID
-      * <p> 示例值：5423452542
-      */
+    /**
+     * 需要删除的职务级别 ID
+     * <p> 示例值：5423452542
+     */
     @Path
     @SerializedName("job_level_id")
     private String jobLevelId;
+
+    // builder 开始
+    public DeleteJobLevelReq() {
+    }
+
+    public DeleteJobLevelReq(Builder builder) {
+        /**
+         * 需要删除的职务级别 ID
+         * <p> 示例值：5423452542
+         */
+        this.jobLevelId = builder.jobLevelId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getJobLevelId() {
         return this.jobLevelId;
     }
@@ -39,39 +60,25 @@ public class DeleteJobLevelReq {
         this.jobLevelId = jobLevelId;
     }
 
-
-// builder 开始
-  public DeleteJobLevelReq(){}
-
-  public DeleteJobLevelReq(Builder builder){
-     /**
-      * 需要删除的职务级别 ID
-      * <p> 示例值：5423452542
-      */
-       this.jobLevelId = builder.jobLevelId;
-  }
-
     public static class Builder {
-    
+
         private String jobLevelId; // 需要删除的职务级别 ID
+
         /**
          * 需要删除的职务级别 ID
          * <p> 示例值：5423452542
+         *
          * @param jobLevelId
          * @return
          */
-          public Builder jobLevelId(String jobLevelId) {
-               this.jobLevelId = jobLevelId;
-               return this;
-          }
+        public Builder jobLevelId(String jobLevelId) {
+            this.jobLevelId = jobLevelId;
+            return this;
+        }
 
-    
-    public DeleteJobLevelReq build(){
-        return new DeleteJobLevelReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public DeleteJobLevelReq build() {
+            return new DeleteJobLevelReq(this);
+        }
     }
 }

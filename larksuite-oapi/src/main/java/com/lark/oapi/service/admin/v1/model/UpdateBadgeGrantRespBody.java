@@ -12,24 +12,29 @@
  */
 
 package com.lark.oapi.service.admin.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class UpdateBadgeGrantRespBody {
-     /**
-      * 授予名单
-      * <p> 示例值：{     "grant_id": "g_uS4yux",     "badge_id": "m_DjMzaK",     "name": "授权给全员用户的周年授予名单",     "grant_type": 1,     "timezone": "Asia/Shanghai",     "is_grant_all": true,     "rule_detail": {         "anniversary": 6,         "effective_period": 0     } }
-      */
+    /**
+     * 授予名单
+     * <p> 示例值：{     "grant_id": "g_uS4yux",     "badge_id": "m_DjMzaK",     "name": "授权给全员用户的周年授予名单",     "grant_type": 1,     "timezone": "Asia/Shanghai",     "is_grant_all": true,     "rule_detail": {         "anniversary": 6,         "effective_period": 0     } }
+     */
     @SerializedName("grant")
     private Grant grant;
+
     public Grant getGrant() {
         return this.grant;
     }

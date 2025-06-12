@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.board.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.board.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Table {
-     /**
-      * 元信息
-      * <p> 示例值：
-      */
+    /**
+     * 元信息
+     * <p> 示例值：
+     */
     @SerializedName("meta")
     private TableMeta meta;
-     /**
-      * 标题
-      * <p> 示例值：表格
-      */
+    /**
+     * 标题
+     * <p> 示例值：表格
+     */
     @SerializedName("title")
     private String title;
-     /**
-      * 单元格列表
-      * <p> 示例值：
-      */
+    /**
+     * 单元格列表
+     * <p> 示例值：
+     */
     @SerializedName("cells")
     private TableCell[] cells;
+
+    // builder 开始
+    public Table() {
+    }
+
+    public Table(Builder builder) {
+        /**
+         * 元信息
+         * <p> 示例值：
+         */
+        this.meta = builder.meta;
+        /**
+         * 标题
+         * <p> 示例值：表格
+         */
+        this.title = builder.title;
+        /**
+         * 单元格列表
+         * <p> 示例值：
+         */
+        this.cells = builder.cells;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public TableMeta getMeta() {
         return this.meta;
     }
@@ -67,90 +98,64 @@ public class Table {
         this.cells = cells;
     }
 
-
-// builder 开始
-  public Table(){}
-
-  public Table(Builder builder){
-         /**
-          * 元信息
-          * <p> 示例值：
-          */
-      this.meta = builder.meta;
-         /**
-          * 标题
-          * <p> 示例值：表格
-          */
-      this.title = builder.title;
-         /**
-          * 单元格列表
-          * <p> 示例值：
-          */
-      this.cells = builder.cells;
-  }
-
     public static class Builder {
-     /**
-      * 元信息
-      * <p> 示例值：
-      */
+        /**
+         * 元信息
+         * <p> 示例值：
+         */
         private TableMeta meta;
-     /**
-      * 标题
-      * <p> 示例值：表格
-      */
+        /**
+         * 标题
+         * <p> 示例值：表格
+         */
         private String title;
-     /**
-      * 单元格列表
-      * <p> 示例值：
-      */
+        /**
+         * 单元格列表
+         * <p> 示例值：
+         */
         private TableCell[] cells;
 
         /**
          * 元信息
          * <p> 示例值：
+         *
          * @param meta
          * @return
          */
         public Builder meta(TableMeta meta) {
-             this.meta = meta;
-             return this;
+            this.meta = meta;
+            return this;
         }
 
-    
 
         /**
          * 标题
          * <p> 示例值：表格
+         *
          * @param title
          * @return
          */
         public Builder title(String title) {
-             this.title = title;
-             return this;
+            this.title = title;
+            return this;
         }
 
-    
 
         /**
          * 单元格列表
          * <p> 示例值：
+         *
          * @param cells
          * @return
          */
         public Builder cells(TableCell[] cells) {
-             this.cells = cells;
-             return this;
+            this.cells = cells;
+            return this;
         }
 
-    
-    
-    public Table build(){
-        return new Table(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Table build() {
+            return new Table(this);
+        }
     }
 }

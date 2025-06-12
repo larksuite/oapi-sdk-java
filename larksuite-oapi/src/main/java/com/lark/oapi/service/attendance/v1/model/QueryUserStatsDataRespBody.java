@@ -12,30 +12,35 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class QueryUserStatsDataRespBody {
-     /**
-      * 用户统计数据（限制1000条，超过1000条会截断）
-      * <p> 示例值：
-      */
+    /**
+     * 用户统计数据（限制1000条，超过1000条会截断）
+     * <p> 示例值：
+     */
     @SerializedName("user_datas")
     private UserStatsData[] userDatas;
-     /**
-      * 无权限获取的用户列表
-      * <p> 示例值：
-      */
+    /**
+     * 无权限获取的用户列表
+     * <p> 示例值：
+     */
     @SerializedName("invalid_user_list")
     private String[] invalidUserList;
+
     public UserStatsData[] getUserDatas() {
         return this.userDatas;
     }

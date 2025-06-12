@@ -12,24 +12,29 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class GetAgentSchedulesRespBody {
-     /**
-      * 客服日程
-      * <p> 示例值：
-      */
+    /**
+     * 客服日程
+     * <p> 示例值：
+     */
     @SerializedName("agent_schedule")
     private AgentSchedule agentSchedule;
+
     public AgentSchedule getAgentSchedule() {
         return this.agentSchedule;
     }

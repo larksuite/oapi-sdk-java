@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.moments.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.moments.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,42 +20,82 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Dislike {
-     /**
-      * 点踩所属实体类型
-      * <p> 示例值：1
-      */
+    /**
+     * 点踩所属实体类型
+     * <p> 示例值：1
+     */
     @SerializedName("entity_type")
     private Integer entityType;
-     /**
-      * 点踩所属实体ID
-      * <p> 示例值："111111"
-      */
+    /**
+     * 点踩所属实体ID
+     * <p> 示例值："111111"
+     */
     @SerializedName("entity_id")
     private String entityId;
-     /**
-      * 点踩时间
-      * <p> 示例值："2022-05-23T00:00:00+08:00"
-      */
+    /**
+     * 点踩时间
+     * <p> 示例值："2022-05-23T00:00:00+08:00"
+     */
     @SerializedName("create_time")
     private String createTime;
-     /**
-      * 点踩人ID
-      * <p> 示例值："ou_xxxxx"
-      */
+    /**
+     * 点踩人ID
+     * <p> 示例值："ou_xxxxx"
+     */
     @SerializedName("user_id")
     private String userId;
-     /**
-      * Dislike的ID
-      * <p> 示例值："2222222"
-      */
+    /**
+     * Dislike的ID
+     * <p> 示例值："2222222"
+     */
     @SerializedName("id")
     private String id;
+
+    // builder 开始
+    public Dislike() {
+    }
+
+    public Dislike(Builder builder) {
+        /**
+         * 点踩所属实体类型
+         * <p> 示例值：1
+         */
+        this.entityType = builder.entityType;
+        /**
+         * 点踩所属实体ID
+         * <p> 示例值："111111"
+         */
+        this.entityId = builder.entityId;
+        /**
+         * 点踩时间
+         * <p> 示例值："2022-05-23T00:00:00+08:00"
+         */
+        this.createTime = builder.createTime;
+        /**
+         * 点踩人ID
+         * <p> 示例值："ou_xxxxx"
+         */
+        this.userId = builder.userId;
+        /**
+         * Dislike的ID
+         * <p> 示例值："2222222"
+         */
+        this.id = builder.id;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Integer getEntityType() {
         return this.entityType;
     }
@@ -95,146 +136,112 @@ public class Dislike {
         this.id = id;
     }
 
-
-// builder 开始
-  public Dislike(){}
-
-  public Dislike(Builder builder){
-         /**
-          * 点踩所属实体类型
-          * <p> 示例值：1
-          */
-      this.entityType = builder.entityType;
-         /**
-          * 点踩所属实体ID
-          * <p> 示例值："111111"
-          */
-      this.entityId = builder.entityId;
-         /**
-          * 点踩时间
-          * <p> 示例值："2022-05-23T00:00:00+08:00"
-          */
-      this.createTime = builder.createTime;
-         /**
-          * 点踩人ID
-          * <p> 示例值："ou_xxxxx"
-          */
-      this.userId = builder.userId;
-         /**
-          * Dislike的ID
-          * <p> 示例值："2222222"
-          */
-      this.id = builder.id;
-  }
-
     public static class Builder {
-     /**
-      * 点踩所属实体类型
-      * <p> 示例值：1
-      */
+        /**
+         * 点踩所属实体类型
+         * <p> 示例值：1
+         */
         private Integer entityType;
-     /**
-      * 点踩所属实体ID
-      * <p> 示例值："111111"
-      */
+        /**
+         * 点踩所属实体ID
+         * <p> 示例值："111111"
+         */
         private String entityId;
-     /**
-      * 点踩时间
-      * <p> 示例值："2022-05-23T00:00:00+08:00"
-      */
+        /**
+         * 点踩时间
+         * <p> 示例值："2022-05-23T00:00:00+08:00"
+         */
         private String createTime;
-     /**
-      * 点踩人ID
-      * <p> 示例值："ou_xxxxx"
-      */
+        /**
+         * 点踩人ID
+         * <p> 示例值："ou_xxxxx"
+         */
         private String userId;
-     /**
-      * Dislike的ID
-      * <p> 示例值："2222222"
-      */
+        /**
+         * Dislike的ID
+         * <p> 示例值："2222222"
+         */
         private String id;
 
         /**
          * 点踩所属实体类型
          * <p> 示例值：1
+         *
          * @param entityType
          * @return
          */
         public Builder entityType(Integer entityType) {
-             this.entityType = entityType;
-             return this;
+            this.entityType = entityType;
+            return this;
         }
+
         /**
          * 点踩所属实体类型
          * <p> 示例值：1
+         *
          * @param entityType {@link com.lark.oapi.service.moments.v1.enums.DislikeEntityTypeEnum}
          * @return
          */
         public Builder entityType(com.lark.oapi.service.moments.v1.enums.DislikeEntityTypeEnum entityType) {
-             this.entityType = entityType.getValue();
-             return this;
+            this.entityType = entityType.getValue();
+            return this;
         }
 
-    
 
         /**
          * 点踩所属实体ID
          * <p> 示例值："111111"
+         *
          * @param entityId
          * @return
          */
         public Builder entityId(String entityId) {
-             this.entityId = entityId;
-             return this;
+            this.entityId = entityId;
+            return this;
         }
 
-    
 
         /**
          * 点踩时间
          * <p> 示例值："2022-05-23T00:00:00+08:00"
+         *
          * @param createTime
          * @return
          */
         public Builder createTime(String createTime) {
-             this.createTime = createTime;
-             return this;
+            this.createTime = createTime;
+            return this;
         }
 
-    
 
         /**
          * 点踩人ID
          * <p> 示例值："ou_xxxxx"
+         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-             this.userId = userId;
-             return this;
+            this.userId = userId;
+            return this;
         }
 
-    
 
         /**
          * Dislike的ID
          * <p> 示例值："2222222"
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
-    
-    public Dislike build(){
-        return new Dislike(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Dislike build() {
+            return new Dislike(this);
+        }
     }
 }

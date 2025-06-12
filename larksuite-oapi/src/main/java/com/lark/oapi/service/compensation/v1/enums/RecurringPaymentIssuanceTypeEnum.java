@@ -17,17 +17,18 @@ package com.lark.oapi.service.compensation.v1.enums;
  * 发放方式
  */
 public enum RecurringPaymentIssuanceTypeEnum {
-     WITH_SALARY("with_salary"), // 随工资发放
-     WITH_CASH("with_cash"), // 现金发放
-     WITH_PHYSICAL_DISTRIBUTION("with_physical_distribution"), // 实物发放
-     WITH_YEAR_END_BONUS("with_year_end_bonus"), // 随年终奖发放
-  ;
-   private String value;
+    WITH_SALARY("with_salary"), // 随工资发放
+    WITH_CASH("with_cash"), // 现金发放
+    WITH_PHYSICAL_DISTRIBUTION("with_physical_distribution"), // 实物发放
+    WITH_YEAR_END_BONUS("with_year_end_bonus"), // 随年终奖发放
+    ;
+    private String value;
+
     RecurringPaymentIssuanceTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

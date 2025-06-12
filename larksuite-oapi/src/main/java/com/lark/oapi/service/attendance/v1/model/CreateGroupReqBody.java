@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CreateGroupReqBody {
-     /**
-      * 6921319402260496386
-      * <p> 示例值：
-      */
+    /**
+     * 6921319402260496386
+     * <p> 示例值：
+     */
     @SerializedName("group")
     private Group group;
-     /**
-      * 操作人uid，如果您未操作[考勤管理后台“API 接入”流程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/attendance-development-guidelines)，则此字段为必填字段
-      * <p> 示例值：dd31248a
-      */
+    /**
+     * 操作人uid，如果您未操作[考勤管理后台“API 接入”流程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/attendance-development-guidelines)，则此字段为必填字段
+     * <p> 示例值：dd31248a
+     */
     @SerializedName("operator_id")
     private String operatorId;
+
+    // builder 开始
+    public CreateGroupReqBody() {
+    }
+
+    public CreateGroupReqBody(Builder builder) {
+        /**
+         * 6921319402260496386
+         * <p> 示例值：
+         */
+        this.group = builder.group;
+        /**
+         * 操作人uid，如果您未操作[考勤管理后台“API 接入”流程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/attendance-development-guidelines)，则此字段为必填字段
+         * <p> 示例值：dd31248a
+         */
+        this.operatorId = builder.operatorId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Group getGroup() {
         return this.group;
     }
@@ -53,67 +79,46 @@ public class CreateGroupReqBody {
         this.operatorId = operatorId;
     }
 
-
-// builder 开始
-  public CreateGroupReqBody(){}
-
-  public CreateGroupReqBody(Builder builder){
-         /**
-          * 6921319402260496386
-          * <p> 示例值：
-          */
-      this.group = builder.group;
-         /**
-          * 操作人uid，如果您未操作[考勤管理后台“API 接入”流程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/attendance-development-guidelines)，则此字段为必填字段
-          * <p> 示例值：dd31248a
-          */
-      this.operatorId = builder.operatorId;
-  }
-
     public static class Builder {
-     /**
-      * 6921319402260496386
-      * <p> 示例值：
-      */
+        /**
+         * 6921319402260496386
+         * <p> 示例值：
+         */
         private Group group;
-     /**
-      * 操作人uid，如果您未操作[考勤管理后台“API 接入”流程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/attendance-development-guidelines)，则此字段为必填字段
-      * <p> 示例值：dd31248a
-      */
+        /**
+         * 操作人uid，如果您未操作[考勤管理后台“API 接入”流程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/attendance-development-guidelines)，则此字段为必填字段
+         * <p> 示例值：dd31248a
+         */
         private String operatorId;
 
         /**
          * 6921319402260496386
          * <p> 示例值：
+         *
          * @param group
          * @return
          */
         public Builder group(Group group) {
-             this.group = group;
-             return this;
+            this.group = group;
+            return this;
         }
 
-    
 
         /**
          * 操作人uid，如果您未操作[考勤管理后台“API 接入”流程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/attendance-development-guidelines)，则此字段为必填字段
          * <p> 示例值：dd31248a
+         *
          * @param operatorId
          * @return
          */
         public Builder operatorId(String operatorId) {
-             this.operatorId = operatorId;
-             return this;
+            this.operatorId = operatorId;
+            return this;
         }
 
-    
-    
-    public CreateGroupReqBody build(){
-        return new CreateGroupReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public CreateGroupReqBody build() {
+            return new CreateGroupReqBody(this);
+        }
     }
 }

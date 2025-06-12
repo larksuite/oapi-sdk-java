@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class FileChangeInfo {
-     /**
-      * 变更开始时间
-      * <p> 示例值：1687748146
-      */
+    /**
+     * 变更开始时间
+     * <p> 示例值：1687748146
+     */
     @SerializedName("start_time")
     private Integer startTime;
-     /**
-      * 版本变更明细
-      * <p> 示例值：
-      */
+    /**
+     * 版本变更明细
+     * <p> 示例值：
+     */
     @SerializedName("changes")
     private FileBlockChangeInfo[] changes;
+
+    // builder 开始
+    public FileChangeInfo() {
+    }
+
+    public FileChangeInfo(Builder builder) {
+        /**
+         * 变更开始时间
+         * <p> 示例值：1687748146
+         */
+        this.startTime = builder.startTime;
+        /**
+         * 版本变更明细
+         * <p> 示例值：
+         */
+        this.changes = builder.changes;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Integer getStartTime() {
         return this.startTime;
     }
@@ -53,67 +79,46 @@ public class FileChangeInfo {
         this.changes = changes;
     }
 
-
-// builder 开始
-  public FileChangeInfo(){}
-
-  public FileChangeInfo(Builder builder){
-         /**
-          * 变更开始时间
-          * <p> 示例值：1687748146
-          */
-      this.startTime = builder.startTime;
-         /**
-          * 版本变更明细
-          * <p> 示例值：
-          */
-      this.changes = builder.changes;
-  }
-
     public static class Builder {
-     /**
-      * 变更开始时间
-      * <p> 示例值：1687748146
-      */
+        /**
+         * 变更开始时间
+         * <p> 示例值：1687748146
+         */
         private Integer startTime;
-     /**
-      * 版本变更明细
-      * <p> 示例值：
-      */
+        /**
+         * 版本变更明细
+         * <p> 示例值：
+         */
         private FileBlockChangeInfo[] changes;
 
         /**
          * 变更开始时间
          * <p> 示例值：1687748146
+         *
          * @param startTime
          * @return
          */
         public Builder startTime(Integer startTime) {
-             this.startTime = startTime;
-             return this;
+            this.startTime = startTime;
+            return this;
         }
 
-    
 
         /**
          * 版本变更明细
          * <p> 示例值：
+         *
          * @param changes
          * @return
          */
         public Builder changes(FileBlockChangeInfo[] changes) {
-             this.changes = changes;
-             return this;
+            this.changes = changes;
+            return this;
         }
 
-    
-    
-    public FileChangeInfo build(){
-        return new FileChangeInfo(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public FileChangeInfo build() {
+            return new FileChangeInfo(this);
+        }
     }
 }

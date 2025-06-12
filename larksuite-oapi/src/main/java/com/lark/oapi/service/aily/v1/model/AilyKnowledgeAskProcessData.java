@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.aily.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.aily.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class AilyKnowledgeAskProcessData {
-     /**
-      * 有数据分析时，根据数据生成的图表描述，按markdown语义描述
-      * <p> 示例值：
-      */
+    /**
+     * 有数据分析时，根据数据生成的图表描述，按markdown语义描述
+     * <p> 示例值：
+     */
     @SerializedName("chart_dsls")
     private String[] chartDsls;
-     /**
-      * 召回的知识视图切片的文本数据
-      * <p> 示例值：
-      */
+    /**
+     * 召回的知识视图切片的文本数据
+     * <p> 示例值：
+     */
     @SerializedName("chunks")
     private String[] chunks;
-     /**
-      * 有数据分析时，查询到数据结果，每个元素为 json 序列化后的数据结果
-      * <p> 示例值：
-      */
+    /**
+     * 有数据分析时，查询到数据结果，每个元素为 json 序列化后的数据结果
+     * <p> 示例值：
+     */
     @SerializedName("sql_data")
     private String[] sqlData;
+
+    // builder 开始
+    public AilyKnowledgeAskProcessData() {
+    }
+
+    public AilyKnowledgeAskProcessData(Builder builder) {
+        /**
+         * 有数据分析时，根据数据生成的图表描述，按markdown语义描述
+         * <p> 示例值：
+         */
+        this.chartDsls = builder.chartDsls;
+        /**
+         * 召回的知识视图切片的文本数据
+         * <p> 示例值：
+         */
+        this.chunks = builder.chunks;
+        /**
+         * 有数据分析时，查询到数据结果，每个元素为 json 序列化后的数据结果
+         * <p> 示例值：
+         */
+        this.sqlData = builder.sqlData;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String[] getChartDsls() {
         return this.chartDsls;
     }
@@ -67,90 +98,64 @@ public class AilyKnowledgeAskProcessData {
         this.sqlData = sqlData;
     }
 
-
-// builder 开始
-  public AilyKnowledgeAskProcessData(){}
-
-  public AilyKnowledgeAskProcessData(Builder builder){
-         /**
-          * 有数据分析时，根据数据生成的图表描述，按markdown语义描述
-          * <p> 示例值：
-          */
-      this.chartDsls = builder.chartDsls;
-         /**
-          * 召回的知识视图切片的文本数据
-          * <p> 示例值：
-          */
-      this.chunks = builder.chunks;
-         /**
-          * 有数据分析时，查询到数据结果，每个元素为 json 序列化后的数据结果
-          * <p> 示例值：
-          */
-      this.sqlData = builder.sqlData;
-  }
-
     public static class Builder {
-     /**
-      * 有数据分析时，根据数据生成的图表描述，按markdown语义描述
-      * <p> 示例值：
-      */
+        /**
+         * 有数据分析时，根据数据生成的图表描述，按markdown语义描述
+         * <p> 示例值：
+         */
         private String[] chartDsls;
-     /**
-      * 召回的知识视图切片的文本数据
-      * <p> 示例值：
-      */
+        /**
+         * 召回的知识视图切片的文本数据
+         * <p> 示例值：
+         */
         private String[] chunks;
-     /**
-      * 有数据分析时，查询到数据结果，每个元素为 json 序列化后的数据结果
-      * <p> 示例值：
-      */
+        /**
+         * 有数据分析时，查询到数据结果，每个元素为 json 序列化后的数据结果
+         * <p> 示例值：
+         */
         private String[] sqlData;
 
         /**
          * 有数据分析时，根据数据生成的图表描述，按markdown语义描述
          * <p> 示例值：
+         *
          * @param chartDsls
          * @return
          */
         public Builder chartDsls(String[] chartDsls) {
-             this.chartDsls = chartDsls;
-             return this;
+            this.chartDsls = chartDsls;
+            return this;
         }
 
-    
 
         /**
          * 召回的知识视图切片的文本数据
          * <p> 示例值：
+         *
          * @param chunks
          * @return
          */
         public Builder chunks(String[] chunks) {
-             this.chunks = chunks;
-             return this;
+            this.chunks = chunks;
+            return this;
         }
 
-    
 
         /**
          * 有数据分析时，查询到数据结果，每个元素为 json 序列化后的数据结果
          * <p> 示例值：
+         *
          * @param sqlData
          * @return
          */
         public Builder sqlData(String[] sqlData) {
-             this.sqlData = sqlData;
-             return this;
+            this.sqlData = sqlData;
+            return this;
         }
 
-    
-    
-    public AilyKnowledgeAskProcessData build(){
-        return new AilyKnowledgeAskProcessData(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public AilyKnowledgeAskProcessData build() {
+            return new AilyKnowledgeAskProcessData(this);
+        }
     }
 }

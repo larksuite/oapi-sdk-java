@@ -17,25 +17,26 @@ package com.lark.oapi.service.corehr.v2.enums;
  * 变更后任务状态
  */
 public enum OnboardingTaskChangeAfterStatusEnum {
-     UNINITIALIZED("uninitialized"), // 未初始化
-     NOTSTARTED("not_started"), // 未开始
-     INPROGRESS("in_progress"), // 进行中
-     INREVIEW("in_review"), // 审核中/审批中
-     REJECTED("rejected"), // 已拒绝
-     FAILED("failed"), // 失败
-     SKIPPED("skipped"), // 自动跳过
-     COMPLETED("completed"), // 已完成
-     TERMINATED("terminated"), // 已终止
-     INITIATING("initiating"), // 初始化中
-     EXCEPTION("exception"), // 异常
-     MANUALSKIPPED("manual_skipped"), // 手动跳过
-  ;
-   private String value;
+    UNINITIALIZED("uninitialized"), // 未初始化
+    NOTSTARTED("not_started"), // 未开始
+    INPROGRESS("in_progress"), // 进行中
+    INREVIEW("in_review"), // 审核中/审批中
+    REJECTED("rejected"), // 已拒绝
+    FAILED("failed"), // 失败
+    SKIPPED("skipped"), // 自动跳过
+    COMPLETED("completed"), // 已完成
+    TERMINATED("terminated"), // 已终止
+    INITIATING("initiating"), // 初始化中
+    EXCEPTION("exception"), // 异常
+    MANUALSKIPPED("manual_skipped"), // 手动跳过
+    ;
+    private String value;
+
     OnboardingTaskChangeAfterStatusEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

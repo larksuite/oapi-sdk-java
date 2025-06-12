@@ -17,19 +17,20 @@ package com.lark.oapi.service.task.v2.enums;
  * 任务创建的来源
  */
 public enum TaskSourceEnum {
-     UNKNOWN_SOURCE_TYPE(0), // 未知来源
-     TASK(1), // 任务中心
-     IM(2), // 群组任务/消息转任务
-     OAPI(6), // 通过开放平台以tenant_access_token授权创建的任务
-     OAPI_USER(7), // 通过开放平台以user_access_token授权创建的任务
-     DOCX(8), // 文档任务
-  ;
-   private Integer value;
+    UNKNOWN_SOURCE_TYPE(0), // 未知来源
+    TASK(1), // 任务中心
+    IM(2), // 群组任务/消息转任务
+    OAPI(6), // 通过开放平台以tenant_access_token授权创建的任务
+    OAPI_USER(7), // 通过开放平台以user_access_token授权创建的任务
+    DOCX(8), // 文档任务
+    ;
+    private Integer value;
+
     TaskSourceEnum(Integer value) {
-      this.value = value;
+        this.value = value;
     }
 
     public Integer getValue() {
-      return this.value;
+        return this.value;
     }
 }

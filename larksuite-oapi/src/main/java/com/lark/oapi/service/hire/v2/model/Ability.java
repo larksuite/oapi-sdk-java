@@ -12,30 +12,56 @@
  */
 
 package com.lark.oapi.service.hire.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Ability {
-     /**
-      * 能力项名称
-      * <p> 示例值：
-      */
+    /**
+     * 能力项名称
+     * <p> 示例值：
+     */
     @SerializedName("name")
     private I18n name;
-     /**
-      * 能力项描述
-      * <p> 示例值：
-      */
+    /**
+     * 能力项描述
+     * <p> 示例值：
+     */
     @SerializedName("description")
     private I18n description;
+
+    // builder 开始
+    public Ability() {
+    }
+
+    public Ability(Builder builder) {
+        /**
+         * 能力项名称
+         * <p> 示例值：
+         */
+        this.name = builder.name;
+        /**
+         * 能力项描述
+         * <p> 示例值：
+         */
+        this.description = builder.description;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public I18n getName() {
         return this.name;
     }
@@ -52,67 +78,46 @@ public class Ability {
         this.description = description;
     }
 
-
-// builder 开始
-  public Ability(){}
-
-  public Ability(Builder builder){
-         /**
-          * 能力项名称
-          * <p> 示例值：
-          */
-      this.name = builder.name;
-         /**
-          * 能力项描述
-          * <p> 示例值：
-          */
-      this.description = builder.description;
-  }
-
     public static class Builder {
-     /**
-      * 能力项名称
-      * <p> 示例值：
-      */
+        /**
+         * 能力项名称
+         * <p> 示例值：
+         */
         private I18n name;
-     /**
-      * 能力项描述
-      * <p> 示例值：
-      */
+        /**
+         * 能力项描述
+         * <p> 示例值：
+         */
         private I18n description;
 
         /**
          * 能力项名称
          * <p> 示例值：
+         *
          * @param name
          * @return
          */
         public Builder name(I18n name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 能力项描述
          * <p> 示例值：
+         *
          * @param description
          * @return
          */
         public Builder description(I18n description) {
-             this.description = description;
-             return this;
+            this.description = description;
+            return this;
         }
 
-    
-    
-    public Ability build(){
-        return new Ability(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Ability build() {
+            return new Ability(this);
+        }
     }
 }

@@ -17,17 +17,18 @@ package com.lark.oapi.service.board.v1.enums;
  * 边框宽度
  */
 public enum StyleBorderWidthEnum {
-     EXTRANARROW("extra_narrow"), // 极细
-     NARROW("narrow"), // 细
-     MEDIUM("medium"), // 中
-     WIDE("wide"), // 粗
-  ;
-   private String value;
+    EXTRANARROW("extra_narrow"), // 极细
+    NARROW("narrow"), // 细
+    MEDIUM("medium"), // 中
+    WIDE("wide"), // 粗
+    ;
+    private String value;
+
     StyleBorderWidthEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

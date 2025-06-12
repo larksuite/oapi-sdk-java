@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.performance.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.performance.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,36 +20,71 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class MetricFieldInTemplate {
-     /**
-      * 指标字段 ID
-      * <p> 示例值：7272581996315099155
-      */
+    /**
+     * 指标字段 ID
+     * <p> 示例值：7272581996315099155
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 字段填写方式设置
-      * <p> 示例值：
-      */
+    /**
+     * 字段填写方式设置
+     * <p> 示例值：
+     */
     @SerializedName("input_setting")
     private String inputSetting;
-     /**
-      * 字段值
-      * <p> 示例值：100
-      */
+    /**
+     * 字段值
+     * <p> 示例值：100
+     */
     @SerializedName("filed_value")
     private String filedValue;
-     /**
-      * 字段值，当字段为人员信息的时候有值
-      * <p> 示例值：
-      */
+    /**
+     * 字段值，当字段为人员信息的时候有值
+     * <p> 示例值：
+     */
     @SerializedName("field_value_person")
     private User fieldValuePerson;
+
+    // builder 开始
+    public MetricFieldInTemplate() {
+    }
+
+    public MetricFieldInTemplate(Builder builder) {
+        /**
+         * 指标字段 ID
+         * <p> 示例值：7272581996315099155
+         */
+        this.id = builder.id;
+        /**
+         * 字段填写方式设置
+         * <p> 示例值：
+         */
+        this.inputSetting = builder.inputSetting;
+        /**
+         * 字段值
+         * <p> 示例值：100
+         */
+        this.filedValue = builder.filedValue;
+        /**
+         * 字段值，当字段为人员信息的时候有值
+         * <p> 示例值：
+         */
+        this.fieldValuePerson = builder.fieldValuePerson;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -81,123 +117,94 @@ public class MetricFieldInTemplate {
         this.fieldValuePerson = fieldValuePerson;
     }
 
-
-// builder 开始
-  public MetricFieldInTemplate(){}
-
-  public MetricFieldInTemplate(Builder builder){
-         /**
-          * 指标字段 ID
-          * <p> 示例值：7272581996315099155
-          */
-      this.id = builder.id;
-         /**
-          * 字段填写方式设置
-          * <p> 示例值：
-          */
-      this.inputSetting = builder.inputSetting;
-         /**
-          * 字段值
-          * <p> 示例值：100
-          */
-      this.filedValue = builder.filedValue;
-         /**
-          * 字段值，当字段为人员信息的时候有值
-          * <p> 示例值：
-          */
-      this.fieldValuePerson = builder.fieldValuePerson;
-  }
-
     public static class Builder {
-     /**
-      * 指标字段 ID
-      * <p> 示例值：7272581996315099155
-      */
+        /**
+         * 指标字段 ID
+         * <p> 示例值：7272581996315099155
+         */
         private String id;
-     /**
-      * 字段填写方式设置
-      * <p> 示例值：
-      */
+        /**
+         * 字段填写方式设置
+         * <p> 示例值：
+         */
         private String inputSetting;
-     /**
-      * 字段值
-      * <p> 示例值：100
-      */
+        /**
+         * 字段值
+         * <p> 示例值：100
+         */
         private String filedValue;
-     /**
-      * 字段值，当字段为人员信息的时候有值
-      * <p> 示例值：
-      */
+        /**
+         * 字段值，当字段为人员信息的时候有值
+         * <p> 示例值：
+         */
         private User fieldValuePerson;
 
         /**
          * 指标字段 ID
          * <p> 示例值：7272581996315099155
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 字段填写方式设置
          * <p> 示例值：
+         *
          * @param inputSetting
          * @return
          */
         public Builder inputSetting(String inputSetting) {
-             this.inputSetting = inputSetting;
-             return this;
+            this.inputSetting = inputSetting;
+            return this;
         }
+
         /**
          * 字段填写方式设置
          * <p> 示例值：
+         *
          * @param inputSetting {@link com.lark.oapi.service.performance.v2.enums.MetricFieldInTemplateInputSettingEnum}
          * @return
          */
         public Builder inputSetting(com.lark.oapi.service.performance.v2.enums.MetricFieldInTemplateInputSettingEnum inputSetting) {
-             this.inputSetting = inputSetting.getValue();
-             return this;
+            this.inputSetting = inputSetting.getValue();
+            return this;
         }
 
-    
 
         /**
          * 字段值
          * <p> 示例值：100
+         *
          * @param filedValue
          * @return
          */
         public Builder filedValue(String filedValue) {
-             this.filedValue = filedValue;
-             return this;
+            this.filedValue = filedValue;
+            return this;
         }
 
-    
 
         /**
          * 字段值，当字段为人员信息的时候有值
          * <p> 示例值：
+         *
          * @param fieldValuePerson
          * @return
          */
         public Builder fieldValuePerson(User fieldValuePerson) {
-             this.fieldValuePerson = fieldValuePerson;
-             return this;
+            this.fieldValuePerson = fieldValuePerson;
+            return this;
         }
 
-    
-    
-    public MetricFieldInTemplate build(){
-        return new MetricFieldInTemplate(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public MetricFieldInTemplate build() {
+            return new MetricFieldInTemplate(this);
+        }
     }
 }

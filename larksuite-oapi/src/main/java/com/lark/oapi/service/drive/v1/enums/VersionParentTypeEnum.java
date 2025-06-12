@@ -17,15 +17,16 @@ package com.lark.oapi.service.drive.v1.enums;
  * 源文档类型
  */
 public enum VersionParentTypeEnum {
-     OBJTYPEDOCX("docx"), // 新版文档
-     OBJTYPESHEET("sheet"), // 电子表格
-  ;
-   private String value;
+    OBJTYPEDOCX("docx"), // 新版文档
+    OBJTYPESHEET("sheet"), // 电子表格
+    ;
+    private String value;
+
     VersionParentTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

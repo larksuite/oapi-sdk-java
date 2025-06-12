@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.docx.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.docx.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Caption {
-     /**
-      * 描述的文本内容
-      * <p> 示例值：caption
-      */
+    /**
+     * 描述的文本内容
+     * <p> 示例值：caption
+     */
     @SerializedName("content")
     private String content;
+
+    // builder 开始
+    public Caption() {
+    }
+
+    public Caption(Builder builder) {
+        /**
+         * 描述的文本内容
+         * <p> 示例值：caption
+         */
+        this.content = builder.content;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getContent() {
         return this.content;
     }
@@ -39,44 +60,28 @@ public class Caption {
         this.content = content;
     }
 
-
-// builder 开始
-  public Caption(){}
-
-  public Caption(Builder builder){
-         /**
-          * 描述的文本内容
-          * <p> 示例值：caption
-          */
-      this.content = builder.content;
-  }
-
     public static class Builder {
-     /**
-      * 描述的文本内容
-      * <p> 示例值：caption
-      */
+        /**
+         * 描述的文本内容
+         * <p> 示例值：caption
+         */
         private String content;
 
         /**
          * 描述的文本内容
          * <p> 示例值：caption
+         *
          * @param content
          * @return
          */
         public Builder content(String content) {
-             this.content = content;
-             return this;
+            this.content = content;
+            return this;
         }
 
-    
-    
-    public Caption build(){
-        return new Caption(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Caption build() {
+            return new Caption(this);
+        }
     }
 }

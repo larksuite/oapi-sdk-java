@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,48 +20,93 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class AuditLogDetail {
-     /**
-      * 审计日志ID
-      * <p> 示例值：7376574450886557740
-      */
+    /**
+     * 审计日志ID
+     * <p> 示例值：7376574450886557740
+     */
     @SerializedName("log_id")
     private String logId;
-     /**
-      * 日志基础信息
-      * <p> 示例值：
-      */
+    /**
+     * 日志基础信息
+     * <p> 示例值：
+     */
     @SerializedName("basic_info")
     private BasicInfo basicInfo;
-     /**
-      * 审计日志操作信息
-      * <p> 示例值：
-      */
+    /**
+     * 审计日志操作信息
+     * <p> 示例值：
+     */
     @SerializedName("op_info")
     private AuditLogOpInfo opInfo;
-     /**
-      * 登录类型信息
-      * <p> 示例值：
-      */
+    /**
+     * 登录类型信息
+     * <p> 示例值：
+     */
     @SerializedName("login_info")
     private AuditLogLoginInfo loginInfo;
-     /**
-      * 设备信息
-      * <p> 示例值：
-      */
+    /**
+     * 设备信息
+     * <p> 示例值：
+     */
     @SerializedName("device_info")
     private AuditLogDeviceInfo deviceInfo;
-     /**
-      * 网络信息
-      * <p> 示例值：
-      */
+    /**
+     * 网络信息
+     * <p> 示例值：
+     */
     @SerializedName("net_info")
     private AuditLogNetInfo netInfo;
+
+    // builder 开始
+    public AuditLogDetail() {
+    }
+
+    public AuditLogDetail(Builder builder) {
+        /**
+         * 审计日志ID
+         * <p> 示例值：7376574450886557740
+         */
+        this.logId = builder.logId;
+        /**
+         * 日志基础信息
+         * <p> 示例值：
+         */
+        this.basicInfo = builder.basicInfo;
+        /**
+         * 审计日志操作信息
+         * <p> 示例值：
+         */
+        this.opInfo = builder.opInfo;
+        /**
+         * 登录类型信息
+         * <p> 示例值：
+         */
+        this.loginInfo = builder.loginInfo;
+        /**
+         * 设备信息
+         * <p> 示例值：
+         */
+        this.deviceInfo = builder.deviceInfo;
+        /**
+         * 网络信息
+         * <p> 示例值：
+         */
+        this.netInfo = builder.netInfo;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getLogId() {
         return this.logId;
     }
@@ -109,159 +155,118 @@ public class AuditLogDetail {
         this.netInfo = netInfo;
     }
 
-
-// builder 开始
-  public AuditLogDetail(){}
-
-  public AuditLogDetail(Builder builder){
-         /**
-          * 审计日志ID
-          * <p> 示例值：7376574450886557740
-          */
-      this.logId = builder.logId;
-         /**
-          * 日志基础信息
-          * <p> 示例值：
-          */
-      this.basicInfo = builder.basicInfo;
-         /**
-          * 审计日志操作信息
-          * <p> 示例值：
-          */
-      this.opInfo = builder.opInfo;
-         /**
-          * 登录类型信息
-          * <p> 示例值：
-          */
-      this.loginInfo = builder.loginInfo;
-         /**
-          * 设备信息
-          * <p> 示例值：
-          */
-      this.deviceInfo = builder.deviceInfo;
-         /**
-          * 网络信息
-          * <p> 示例值：
-          */
-      this.netInfo = builder.netInfo;
-  }
-
     public static class Builder {
-     /**
-      * 审计日志ID
-      * <p> 示例值：7376574450886557740
-      */
+        /**
+         * 审计日志ID
+         * <p> 示例值：7376574450886557740
+         */
         private String logId;
-     /**
-      * 日志基础信息
-      * <p> 示例值：
-      */
+        /**
+         * 日志基础信息
+         * <p> 示例值：
+         */
         private BasicInfo basicInfo;
-     /**
-      * 审计日志操作信息
-      * <p> 示例值：
-      */
+        /**
+         * 审计日志操作信息
+         * <p> 示例值：
+         */
         private AuditLogOpInfo opInfo;
-     /**
-      * 登录类型信息
-      * <p> 示例值：
-      */
+        /**
+         * 登录类型信息
+         * <p> 示例值：
+         */
         private AuditLogLoginInfo loginInfo;
-     /**
-      * 设备信息
-      * <p> 示例值：
-      */
+        /**
+         * 设备信息
+         * <p> 示例值：
+         */
         private AuditLogDeviceInfo deviceInfo;
-     /**
-      * 网络信息
-      * <p> 示例值：
-      */
+        /**
+         * 网络信息
+         * <p> 示例值：
+         */
         private AuditLogNetInfo netInfo;
 
         /**
          * 审计日志ID
          * <p> 示例值：7376574450886557740
+         *
          * @param logId
          * @return
          */
         public Builder logId(String logId) {
-             this.logId = logId;
-             return this;
+            this.logId = logId;
+            return this;
         }
 
-    
 
         /**
          * 日志基础信息
          * <p> 示例值：
+         *
          * @param basicInfo
          * @return
          */
         public Builder basicInfo(BasicInfo basicInfo) {
-             this.basicInfo = basicInfo;
-             return this;
+            this.basicInfo = basicInfo;
+            return this;
         }
 
-    
 
         /**
          * 审计日志操作信息
          * <p> 示例值：
+         *
          * @param opInfo
          * @return
          */
         public Builder opInfo(AuditLogOpInfo opInfo) {
-             this.opInfo = opInfo;
-             return this;
+            this.opInfo = opInfo;
+            return this;
         }
 
-    
 
         /**
          * 登录类型信息
          * <p> 示例值：
+         *
          * @param loginInfo
          * @return
          */
         public Builder loginInfo(AuditLogLoginInfo loginInfo) {
-             this.loginInfo = loginInfo;
-             return this;
+            this.loginInfo = loginInfo;
+            return this;
         }
 
-    
 
         /**
          * 设备信息
          * <p> 示例值：
+         *
          * @param deviceInfo
          * @return
          */
         public Builder deviceInfo(AuditLogDeviceInfo deviceInfo) {
-             this.deviceInfo = deviceInfo;
-             return this;
+            this.deviceInfo = deviceInfo;
+            return this;
         }
 
-    
 
         /**
          * 网络信息
          * <p> 示例值：
+         *
          * @param netInfo
          * @return
          */
         public Builder netInfo(AuditLogNetInfo netInfo) {
-             this.netInfo = netInfo;
-             return this;
+            this.netInfo = netInfo;
+            return this;
         }
 
-    
-    
-    public AuditLogDetail build(){
-        return new AuditLogDetail(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public AuditLogDetail build() {
+            return new AuditLogDetail(this);
+        }
     }
 }

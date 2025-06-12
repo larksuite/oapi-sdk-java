@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class EventMessageReader {
-     /**
-      * 用户 ID
-      * <p> 示例值：ou_5ad573a6411d72b8305fda3a9c15c70e
-      */
+    /**
+     * 用户 ID
+     * <p> 示例值：ou_5ad573a6411d72b8305fda3a9c15c70e
+     */
     @SerializedName("reader_id")
     private UserId readerId;
-     /**
-      * 阅读时间
-      * <p> 示例值：1609484183000
-      */
+    /**
+     * 阅读时间
+     * <p> 示例值：1609484183000
+     */
     @SerializedName("read_time")
     private String readTime;
-     /**
-      * 租户key，为租户在飞书上的唯一标识，用来换取对应的tenant_access_token，也可以用作租户在应用里面的唯一标识
-      * <p> 示例值：736588c9260f175e
-      */
+    /**
+     * 租户key，为租户在飞书上的唯一标识，用来换取对应的tenant_access_token，也可以用作租户在应用里面的唯一标识
+     * <p> 示例值：736588c9260f175e
+     */
     @SerializedName("tenant_key")
     private String tenantKey;
+
+    // builder 开始
+    public EventMessageReader() {
+    }
+
+    public EventMessageReader(Builder builder) {
+        /**
+         * 用户 ID
+         * <p> 示例值：ou_5ad573a6411d72b8305fda3a9c15c70e
+         */
+        this.readerId = builder.readerId;
+        /**
+         * 阅读时间
+         * <p> 示例值：1609484183000
+         */
+        this.readTime = builder.readTime;
+        /**
+         * 租户key，为租户在飞书上的唯一标识，用来换取对应的tenant_access_token，也可以用作租户在应用里面的唯一标识
+         * <p> 示例值：736588c9260f175e
+         */
+        this.tenantKey = builder.tenantKey;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public UserId getReaderId() {
         return this.readerId;
     }
@@ -67,90 +98,64 @@ public class EventMessageReader {
         this.tenantKey = tenantKey;
     }
 
-
-// builder 开始
-  public EventMessageReader(){}
-
-  public EventMessageReader(Builder builder){
-         /**
-          * 用户 ID
-          * <p> 示例值：ou_5ad573a6411d72b8305fda3a9c15c70e
-          */
-      this.readerId = builder.readerId;
-         /**
-          * 阅读时间
-          * <p> 示例值：1609484183000
-          */
-      this.readTime = builder.readTime;
-         /**
-          * 租户key，为租户在飞书上的唯一标识，用来换取对应的tenant_access_token，也可以用作租户在应用里面的唯一标识
-          * <p> 示例值：736588c9260f175e
-          */
-      this.tenantKey = builder.tenantKey;
-  }
-
     public static class Builder {
-     /**
-      * 用户 ID
-      * <p> 示例值：ou_5ad573a6411d72b8305fda3a9c15c70e
-      */
+        /**
+         * 用户 ID
+         * <p> 示例值：ou_5ad573a6411d72b8305fda3a9c15c70e
+         */
         private UserId readerId;
-     /**
-      * 阅读时间
-      * <p> 示例值：1609484183000
-      */
+        /**
+         * 阅读时间
+         * <p> 示例值：1609484183000
+         */
         private String readTime;
-     /**
-      * 租户key，为租户在飞书上的唯一标识，用来换取对应的tenant_access_token，也可以用作租户在应用里面的唯一标识
-      * <p> 示例值：736588c9260f175e
-      */
+        /**
+         * 租户key，为租户在飞书上的唯一标识，用来换取对应的tenant_access_token，也可以用作租户在应用里面的唯一标识
+         * <p> 示例值：736588c9260f175e
+         */
         private String tenantKey;
 
         /**
          * 用户 ID
          * <p> 示例值：ou_5ad573a6411d72b8305fda3a9c15c70e
+         *
          * @param readerId
          * @return
          */
         public Builder readerId(UserId readerId) {
-             this.readerId = readerId;
-             return this;
+            this.readerId = readerId;
+            return this;
         }
 
-    
 
         /**
          * 阅读时间
          * <p> 示例值：1609484183000
+         *
          * @param readTime
          * @return
          */
         public Builder readTime(String readTime) {
-             this.readTime = readTime;
-             return this;
+            this.readTime = readTime;
+            return this;
         }
 
-    
 
         /**
          * 租户key，为租户在飞书上的唯一标识，用来换取对应的tenant_access_token，也可以用作租户在应用里面的唯一标识
          * <p> 示例值：736588c9260f175e
+         *
          * @param tenantKey
          * @return
          */
         public Builder tenantKey(String tenantKey) {
-             this.tenantKey = tenantKey;
-             return this;
+            this.tenantKey = tenantKey;
+            return this;
         }
 
-    
-    
-    public EventMessageReader build(){
-        return new EventMessageReader(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public EventMessageReader build() {
+            return new EventMessageReader(this);
+        }
     }
 }

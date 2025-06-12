@@ -17,15 +17,16 @@ package com.lark.oapi.service.aily.v1.enums;
  * 意图子状态
  */
 public enum IntentIntentSubStatusEnum {
-     WAITING_USER_MESSAGE("WAITING_USER_MESSAGE"), // 等待用户消息
-     WAITING_USER_RESPOND("WAITING_USER_RESPOND"), // 等待用户交互
-  ;
-   private String value;
+    WAITING_USER_MESSAGE("WAITING_USER_MESSAGE"), // 等待用户消息
+    WAITING_USER_RESPOND("WAITING_USER_RESPOND"), // 等待用户交互
+    ;
+    private String value;
+
     IntentIntentSubStatusEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

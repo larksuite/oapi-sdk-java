@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Richtext {
-     /**
-      * 内容
-      * <p> 示例值：我的答案
-      */
+    /**
+     * 内容
+     * <p> 示例值：我的答案
+     */
     @SerializedName("content")
     private String content;
-     /**
-      * 类型
-      * <p> 示例值：text
-      */
+    /**
+     * 类型
+     * <p> 示例值：text
+     */
     @SerializedName("type")
     private String type;
+
+    // builder 开始
+    public Richtext() {
+    }
+
+    public Richtext(Builder builder) {
+        /**
+         * 内容
+         * <p> 示例值：我的答案
+         */
+        this.content = builder.content;
+        /**
+         * 类型
+         * <p> 示例值：text
+         */
+        this.type = builder.type;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getContent() {
         return this.content;
     }
@@ -53,67 +79,46 @@ public class Richtext {
         this.type = type;
     }
 
-
-// builder 开始
-  public Richtext(){}
-
-  public Richtext(Builder builder){
-         /**
-          * 内容
-          * <p> 示例值：我的答案
-          */
-      this.content = builder.content;
-         /**
-          * 类型
-          * <p> 示例值：text
-          */
-      this.type = builder.type;
-  }
-
     public static class Builder {
-     /**
-      * 内容
-      * <p> 示例值：我的答案
-      */
+        /**
+         * 内容
+         * <p> 示例值：我的答案
+         */
         private String content;
-     /**
-      * 类型
-      * <p> 示例值：text
-      */
+        /**
+         * 类型
+         * <p> 示例值：text
+         */
         private String type;
 
         /**
          * 内容
          * <p> 示例值：我的答案
+         *
          * @param content
          * @return
          */
         public Builder content(String content) {
-             this.content = content;
-             return this;
+            this.content = content;
+            return this;
         }
 
-    
 
         /**
          * 类型
          * <p> 示例值：text
+         *
          * @param type
          * @return
          */
         public Builder type(String type) {
-             this.type = type;
-             return this;
+            this.type = type;
+            return this;
         }
 
-    
-    
-    public Richtext build(){
-        return new Richtext(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Richtext build() {
+            return new Richtext(this);
+        }
     }
 }

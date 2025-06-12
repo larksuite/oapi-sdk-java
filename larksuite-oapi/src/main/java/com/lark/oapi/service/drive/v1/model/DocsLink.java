@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class DocsLink {
-     /**
-      * 回复 at云文档
-      * <p> 示例值：https://bytedance.feishu.cn/docs/doccnHh7U87HOFpii5u5Gabcef
-      */
+    /**
+     * 回复 at云文档
+     * <p> 示例值：https://bytedance.feishu.cn/docs/doccnHh7U87HOFpii5u5Gabcef
+     */
     @SerializedName("url")
     private String url;
+
+    // builder 开始
+    public DocsLink() {
+    }
+
+    public DocsLink(Builder builder) {
+        /**
+         * 回复 at云文档
+         * <p> 示例值：https://bytedance.feishu.cn/docs/doccnHh7U87HOFpii5u5Gabcef
+         */
+        this.url = builder.url;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getUrl() {
         return this.url;
     }
@@ -39,44 +60,28 @@ public class DocsLink {
         this.url = url;
     }
 
-
-// builder 开始
-  public DocsLink(){}
-
-  public DocsLink(Builder builder){
-         /**
-          * 回复 at云文档
-          * <p> 示例值：https://bytedance.feishu.cn/docs/doccnHh7U87HOFpii5u5Gabcef
-          */
-      this.url = builder.url;
-  }
-
     public static class Builder {
-     /**
-      * 回复 at云文档
-      * <p> 示例值：https://bytedance.feishu.cn/docs/doccnHh7U87HOFpii5u5Gabcef
-      */
+        /**
+         * 回复 at云文档
+         * <p> 示例值：https://bytedance.feishu.cn/docs/doccnHh7U87HOFpii5u5Gabcef
+         */
         private String url;
 
         /**
          * 回复 at云文档
          * <p> 示例值：https://bytedance.feishu.cn/docs/doccnHh7U87HOFpii5u5Gabcef
+         *
          * @param url
          * @return
          */
         public Builder url(String url) {
-             this.url = url;
-             return this;
+            this.url = url;
+            return this;
         }
 
-    
-    
-    public DocsLink build(){
-        return new DocsLink(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public DocsLink build() {
+            return new DocsLink(this);
+        }
     }
 }

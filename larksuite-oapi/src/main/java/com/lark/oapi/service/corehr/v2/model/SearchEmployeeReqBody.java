@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,258 +20,478 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class SearchEmployeeReqBody {
-     /**
-      * 返回数据的字段列表，填写方式：为空时默认仅返回 ID
-      * <p> 示例值：
-      */
+    /**
+     * 返回数据的字段列表，填写方式：为空时默认仅返回 ID
+     * <p> 示例值：
+     */
     @SerializedName("fields")
     private String[] fields;
-     /**
-      * 雇佣 ID 列表
-      * <p> 示例值：
-      */
+    /**
+     * 雇佣 ID 列表
+     * <p> 示例值：
+     */
     @SerializedName("employment_id_list")
     private String[] employmentIdList;
-     /**
-      * 工号列表
-      * <p> 示例值：
-      */
+    /**
+     * 工号列表
+     * <p> 示例值：
+     */
     @SerializedName("employee_number_list")
     private String[] employeeNumberList;
-     /**
-      * 邮箱，精确匹配查询
-      * <p> 示例值：13312345678@qq.com
-      */
+    /**
+     * 邮箱，精确匹配查询
+     * <p> 示例值：13312345678@qq.com
+     */
     @SerializedName("work_email")
     private String workEmail;
-     /**
-      * 个人电话，精确匹配查询
-      * <p> 示例值：16760342300
-      */
+    /**
+     * 个人电话，精确匹配查询
+     * <p> 示例值：16760342300
+     */
     @SerializedName("phone_number")
     private String phoneNumber;
-     /**
-      * 搜索关键字，支持对邮箱、工号和姓名的模糊匹配
-      * <p> 示例值：张三
-      */
+    /**
+     * 搜索关键字，支持对邮箱、工号和姓名的模糊匹配
+     * <p> 示例值：张三
+     */
     @SerializedName("key_word")
     private String keyWord;
-     /**
-      * 雇佣状态
-      * <p> 示例值：
-      */
+    /**
+     * 雇佣状态
+     * <p> 示例值：
+     */
     @SerializedName("employment_status")
     private String employmentStatus;
-     /**
-      * 人员类型 ID
-      * <p> 示例值：6971090097697521314
-      */
+    /**
+     * 人员类型 ID
+     * <p> 示例值：6971090097697521314
+     */
     @SerializedName("employee_type_id")
     private String employeeTypeId;
-     /**
-      * 部门 ID，根据员工主职的直接部门查询，可以通过【查询部门】API 获取 部门 ID
-      * <p> 示例值：
-      */
+    /**
+     * 部门 ID，根据员工主职的直接部门查询，可以通过【查询部门】API 获取 部门 ID
+     * <p> 示例值：
+     */
     @SerializedName("department_id_list")
     private String[] departmentIdList;
-     /**
-      * 直接上级的雇佣 ID，根据员工主职的直接上级查询
-      * <p> 示例值：7027024823985447820
-      */
+    /**
+     * 直接上级的雇佣 ID，根据员工主职的直接上级查询
+     * <p> 示例值：7027024823985447820
+     */
     @SerializedName("direct_manager_id_list")
     private String[] directManagerIdList;
-     /**
-      * 虚线上级的雇佣 ID，根据员工主职的虚线上级查询
-      * <p> 示例值：7027024823985117820
-      */
+    /**
+     * 虚线上级的雇佣 ID，根据员工主职的虚线上级查询
+     * <p> 示例值：7027024823985117820
+     */
     @SerializedName("dotted_line_manager_id_list")
     private String[] dottedLineManagerIdList;
-     /**
-      * 转正式员工日期-搜索范围开始
-      * <p> 示例值：2020-01-01
-      */
+    /**
+     * 转正式员工日期-搜索范围开始
+     * <p> 示例值：2020-01-01
+     */
     @SerializedName("regular_employee_start_date_start")
     private String regularEmployeeStartDateStart;
-     /**
-      * 转正式员工日期-搜索范围结束
-      * <p> 示例值：2020-01-01
-      */
+    /**
+     * 转正式员工日期-搜索范围结束
+     * <p> 示例值：2020-01-01
+     */
     @SerializedName("regular_employee_start_date_end")
     private String regularEmployeeStartDateEnd;
-     /**
-      * 入职日期-搜索范围开始，需要与搜索范围结束一同使用
-      * <p> 示例值：2020-01-01
-      */
+    /**
+     * 入职日期-搜索范围开始，需要与搜索范围结束一同使用
+     * <p> 示例值：2020-01-01
+     */
     @SerializedName("effective_time_start")
     private String effectiveTimeStart;
-     /**
-      * 入职日期-搜索范围结束
-      * <p> 示例值：2020-01-01
-      */
+    /**
+     * 入职日期-搜索范围结束
+     * <p> 示例值：2020-01-01
+     */
     @SerializedName("effective_time_end")
     private String effectiveTimeEnd;
-     /**
-      * 工作地点 ID 列表，查询属于该工作地点及下级工作地点的员工
-      * <p> 示例值：
-      */
+    /**
+     * 工作地点 ID 列表，查询属于该工作地点及下级工作地点的员工
+     * <p> 示例值：
+     */
     @SerializedName("work_location_id_list_include_sub")
     private String[] workLocationIdListIncludeSub;
-     /**
-      * 常用英文全名精确搜索
-      * <p> 示例值：
-      */
+    /**
+     * 常用英文全名精确搜索
+     * <p> 示例值：
+     */
     @SerializedName("preferred_english_full_name_list")
     private String[] preferredEnglishFullNameList;
-     /**
-      * 常用本地全名精确搜索
-      * <p> 示例值：
-      */
+    /**
+     * 常用本地全名精确搜索
+     * <p> 示例值：
+     */
     @SerializedName("preferred_local_full_name_list")
     private String[] preferredLocalFullNameList;
-     /**
-      * 居民身份证件号码精确搜索
-      * <p> 示例值：
-      */
+    /**
+     * 居民身份证件号码精确搜索
+     * <p> 示例值：
+     */
     @SerializedName("national_id_number_list")
     private String[] nationalIdNumberList;
-     /**
-      * 个人电话列表，精确匹配查询
-      * <p> 示例值：
-      */
+    /**
+     * 个人电话列表，精确匹配查询
+     * <p> 示例值：
+     */
     @SerializedName("phone_number_list")
     private String[] phoneNumberList;
-     /**
-      * 工作邮箱地址列表，精确匹配查询
-      * <p> 示例值：
-      */
+    /**
+     * 工作邮箱地址列表，精确匹配查询
+     * <p> 示例值：
+     */
     @SerializedName("email_address_list")
     private String[] emailAddressList;
-     /**
-      * 老People user_name查询，仅支持字节租户
-      * <p> 示例值：zhangsan
-      */
+    /**
+     * 老People user_name查询，仅支持字节租户
+     * <p> 示例值：zhangsan
+     */
     @SerializedName("user_name")
     private String userName;
-     /**
-      * 部门 ID 列表，查询属于该部门及下级部门的员工
-      * <p> 示例值：
-      */
+    /**
+     * 部门 ID 列表，查询属于该部门及下级部门的员工
+     * <p> 示例值：
+     */
     @SerializedName("department_id_list_include_sub")
     private String[] departmentIdListIncludeSub;
-     /**
-      * 其他国籍ID列表，精准匹配查询
-      * <p> 示例值：
-      */
+    /**
+     * 其他国籍ID列表，精准匹配查询
+     * <p> 示例值：
+     */
     @SerializedName("additional_national_id_number_list")
     private String[] additionalNationalIdNumberList;
-     /**
-      * 公民身份类型列表，精确匹配查询
-      * <p> 示例值：
-      */
+    /**
+     * 公民身份类型列表，精确匹配查询
+     * <p> 示例值：
+     */
     @SerializedName("citizenship_status_list")
     private String[] citizenshipStatusList;
-     /**
-      * 成本中心 ID 列表;- 可通过 [【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search) 获取
-      * <p> 示例值：
-      */
+    /**
+     * 成本中心 ID 列表;- 可通过 [【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search) 获取
+     * <p> 示例值：
+     */
     @SerializedName("cost_center_id_list")
     private String[] costCenterIdList;
-     /**
-      * 任职公司 ID 列表;- [【批量查询公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/list)获取
-      * <p> 示例值：
-      */
+    /**
+     * 任职公司 ID 列表;- [【批量查询公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/list)获取
+     * <p> 示例值：
+     */
     @SerializedName("service_company_list")
     private String[] serviceCompanyList;
-     /**
-      * 任职公司 ID 列表（含下级）;- [【批量查询公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/list)获取
-      * <p> 示例值：
-      */
+    /**
+     * 任职公司 ID 列表（含下级）;- [【批量查询公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/list)获取
+     * <p> 示例值：
+     */
     @SerializedName("service_company_list_include_sub")
     private String[] serviceCompanyListIncludeSub;
-     /**
-      * 序列 ID 列表; - [【批量查询序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)获取
-      * <p> 示例值：
-      */
+    /**
+     * 序列 ID 列表; - [【批量查询序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)获取
+     * <p> 示例值：
+     */
     @SerializedName("job_family_id_list")
     private String[] jobFamilyIdList;
-     /**
-      * 序列 ID 列表（含下级）; - [【批量查询序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)获取
-      * <p> 示例值：
-      */
+    /**
+     * 序列 ID 列表（含下级）; - [【批量查询序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)获取
+     * <p> 示例值：
+     */
     @SerializedName("job_family_id_list_include_sub")
     private String[] jobFamilyIdListIncludeSub;
-     /**
-      * 职级 ID 列表;- 可通过[【批量查询职级】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/list)获取;- 需要有字段读取权限
-      * <p> 示例值：
-      */
+    /**
+     * 职级 ID 列表;- 可通过[【批量查询职级】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/list)获取;- 需要有字段读取权限
+     * <p> 示例值：
+     */
     @SerializedName("job_level_id_list")
     private String[] jobLevelIdList;
-     /**
-      * 职等 ID 列表;- 可通过[【查询职等】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/query)获取;- 需要有字段读取权限
-      * <p> 示例值：
-      */
+    /**
+     * 职等 ID 列表;- 可通过[【查询职等】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/query)获取;- 需要有字段读取权限
+     * <p> 示例值：
+     */
     @SerializedName("job_grade_id_list")
     private String[] jobGradeIdList;
-     /**
-      * 职务 ID 列表;- 可通过[【批量查询职务】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/list)获取;- 需要有字段读取权限
-      * <p> 示例值：
-      */
+    /**
+     * 职务 ID 列表;- 可通过[【批量查询职务】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/list)获取;- 需要有字段读取权限
+     * <p> 示例值：
+     */
     @SerializedName("job_id_list")
     private String[] jobIdList;
-     /**
-      * 岗位 ID 列表; - 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW); - 需要有字段读取权限
-      * <p> 示例值：
-      */
+    /**
+     * 岗位 ID 列表; - 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW); - 需要有字段读取权限
+     * <p> 示例值：
+     */
     @SerializedName("position_id_list")
     private String[] positionIdList;
-     /**
-      * 岗位 ID 列表（含下级）; - 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW); - 需要有字段读取权限
-      * <p> 示例值：
-      */
+    /**
+     * 岗位 ID 列表（含下级）; - 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW); - 需要有字段读取权限
+     * <p> 示例值：
+     */
     @SerializedName("position_id_list_include_sub")
     private String[] positionIdListIncludeSub;
-     /**
-      * 工时制度 ID 列表;- 可通过[【批量查询工时制度】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/working_hours_type/list)获取;- 需要有字段读取权限
-      * <p> 示例值：
-      */
+    /**
+     * 工时制度 ID 列表;- 可通过[【批量查询工时制度】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/working_hours_type/list)获取;- 需要有字段读取权限
+     * <p> 示例值：
+     */
     @SerializedName("working_hours_type_id_list")
     private String[] workingHoursTypeIdList;
-     /**
-      * 国籍 ID 列表;- 可通过[【查询国籍信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-nationality/search)获取;- 需要有字段读取权限
-      * <p> 示例值：
-      */
+    /**
+     * 国籍 ID 列表;- 可通过[【查询国籍信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-nationality/search)获取;- 需要有字段读取权限
+     * <p> 示例值：
+     */
     @SerializedName("nationality_id_list")
     private String[] nationalityIdList;
-     /**
-      * 员工所属薪资组 ID 列表; - 可通过 [【获取薪资组基本信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/paygroup/list) 获取; - 需要有字段读取权限
-      * <p> 示例值：
-      */
+    /**
+     * 员工所属薪资组 ID 列表; - 可通过 [【获取薪资组基本信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/paygroup/list) 获取; - 需要有字段读取权限
+     * <p> 示例值：
+     */
     @SerializedName("pay_group_id_list")
     private String[] payGroupIdList;
-     /**
-      * 员工所属外派薪资组 ID 列表;- 可通过 [【获取薪资组基本信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/paygroup/list) 获取;- 需要有字段读取权限
-      * <p> 示例值：
-      */
+    /**
+     * 员工所属外派薪资组 ID 列表;- 可通过 [【获取薪资组基本信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/paygroup/list) 获取;- 需要有字段读取权限
+     * <p> 示例值：
+     */
     @SerializedName("assignment_pay_group_id_list")
     private String[] assignmentPayGroupIdList;
-     /**
-      * 员工当前合同类型列表;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)查询;  - object_api_name：contract;  - custom_api_name：contract_type;- 需要有字段读取权限
-      * <p> 示例值：
-      */
+    /**
+     * 员工当前合同类型列表;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)查询;  - object_api_name：contract;  - custom_api_name：contract_type;- 需要有字段读取权限
+     * <p> 示例值：
+     */
     @SerializedName("contract_type_list")
     private String[] contractTypeList;
-     /**
-      * 员工当前所属薪资方案 ID 列表;- 可通过[【批量查询薪资方案】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/plan/list)获取;- 需要有字段读取权限
-      * <p> 示例值：
-      */
+    /**
+     * 员工当前所属薪资方案 ID 列表;- 可通过[【批量查询薪资方案】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/plan/list)获取;- 需要有字段读取权限
+     * <p> 示例值：
+     */
     @SerializedName("archive_cpst_plan_id_list")
     private String[] archiveCpstPlanIdList;
+
+    // builder 开始
+    public SearchEmployeeReqBody() {
+    }
+
+    public SearchEmployeeReqBody(Builder builder) {
+        /**
+         * 返回数据的字段列表，填写方式：为空时默认仅返回 ID
+         * <p> 示例值：
+         */
+        this.fields = builder.fields;
+        /**
+         * 雇佣 ID 列表
+         * <p> 示例值：
+         */
+        this.employmentIdList = builder.employmentIdList;
+        /**
+         * 工号列表
+         * <p> 示例值：
+         */
+        this.employeeNumberList = builder.employeeNumberList;
+        /**
+         * 邮箱，精确匹配查询
+         * <p> 示例值：13312345678@qq.com
+         */
+        this.workEmail = builder.workEmail;
+        /**
+         * 个人电话，精确匹配查询
+         * <p> 示例值：16760342300
+         */
+        this.phoneNumber = builder.phoneNumber;
+        /**
+         * 搜索关键字，支持对邮箱、工号和姓名的模糊匹配
+         * <p> 示例值：张三
+         */
+        this.keyWord = builder.keyWord;
+        /**
+         * 雇佣状态
+         * <p> 示例值：
+         */
+        this.employmentStatus = builder.employmentStatus;
+        /**
+         * 人员类型 ID
+         * <p> 示例值：6971090097697521314
+         */
+        this.employeeTypeId = builder.employeeTypeId;
+        /**
+         * 部门 ID，根据员工主职的直接部门查询，可以通过【查询部门】API 获取 部门 ID
+         * <p> 示例值：
+         */
+        this.departmentIdList = builder.departmentIdList;
+        /**
+         * 直接上级的雇佣 ID，根据员工主职的直接上级查询
+         * <p> 示例值：7027024823985447820
+         */
+        this.directManagerIdList = builder.directManagerIdList;
+        /**
+         * 虚线上级的雇佣 ID，根据员工主职的虚线上级查询
+         * <p> 示例值：7027024823985117820
+         */
+        this.dottedLineManagerIdList = builder.dottedLineManagerIdList;
+        /**
+         * 转正式员工日期-搜索范围开始
+         * <p> 示例值：2020-01-01
+         */
+        this.regularEmployeeStartDateStart = builder.regularEmployeeStartDateStart;
+        /**
+         * 转正式员工日期-搜索范围结束
+         * <p> 示例值：2020-01-01
+         */
+        this.regularEmployeeStartDateEnd = builder.regularEmployeeStartDateEnd;
+        /**
+         * 入职日期-搜索范围开始，需要与搜索范围结束一同使用
+         * <p> 示例值：2020-01-01
+         */
+        this.effectiveTimeStart = builder.effectiveTimeStart;
+        /**
+         * 入职日期-搜索范围结束
+         * <p> 示例值：2020-01-01
+         */
+        this.effectiveTimeEnd = builder.effectiveTimeEnd;
+        /**
+         * 工作地点 ID 列表，查询属于该工作地点及下级工作地点的员工
+         * <p> 示例值：
+         */
+        this.workLocationIdListIncludeSub = builder.workLocationIdListIncludeSub;
+        /**
+         * 常用英文全名精确搜索
+         * <p> 示例值：
+         */
+        this.preferredEnglishFullNameList = builder.preferredEnglishFullNameList;
+        /**
+         * 常用本地全名精确搜索
+         * <p> 示例值：
+         */
+        this.preferredLocalFullNameList = builder.preferredLocalFullNameList;
+        /**
+         * 居民身份证件号码精确搜索
+         * <p> 示例值：
+         */
+        this.nationalIdNumberList = builder.nationalIdNumberList;
+        /**
+         * 个人电话列表，精确匹配查询
+         * <p> 示例值：
+         */
+        this.phoneNumberList = builder.phoneNumberList;
+        /**
+         * 工作邮箱地址列表，精确匹配查询
+         * <p> 示例值：
+         */
+        this.emailAddressList = builder.emailAddressList;
+        /**
+         * 老People user_name查询，仅支持字节租户
+         * <p> 示例值：zhangsan
+         */
+        this.userName = builder.userName;
+        /**
+         * 部门 ID 列表，查询属于该部门及下级部门的员工
+         * <p> 示例值：
+         */
+        this.departmentIdListIncludeSub = builder.departmentIdListIncludeSub;
+        /**
+         * 其他国籍ID列表，精准匹配查询
+         * <p> 示例值：
+         */
+        this.additionalNationalIdNumberList = builder.additionalNationalIdNumberList;
+        /**
+         * 公民身份类型列表，精确匹配查询
+         * <p> 示例值：
+         */
+        this.citizenshipStatusList = builder.citizenshipStatusList;
+        /**
+         * 成本中心 ID 列表;- 可通过 [【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search) 获取
+         * <p> 示例值：
+         */
+        this.costCenterIdList = builder.costCenterIdList;
+        /**
+         * 任职公司 ID 列表;- [【批量查询公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/list)获取
+         * <p> 示例值：
+         */
+        this.serviceCompanyList = builder.serviceCompanyList;
+        /**
+         * 任职公司 ID 列表（含下级）;- [【批量查询公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/list)获取
+         * <p> 示例值：
+         */
+        this.serviceCompanyListIncludeSub = builder.serviceCompanyListIncludeSub;
+        /**
+         * 序列 ID 列表; - [【批量查询序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)获取
+         * <p> 示例值：
+         */
+        this.jobFamilyIdList = builder.jobFamilyIdList;
+        /**
+         * 序列 ID 列表（含下级）; - [【批量查询序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)获取
+         * <p> 示例值：
+         */
+        this.jobFamilyIdListIncludeSub = builder.jobFamilyIdListIncludeSub;
+        /**
+         * 职级 ID 列表;- 可通过[【批量查询职级】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/list)获取;- 需要有字段读取权限
+         * <p> 示例值：
+         */
+        this.jobLevelIdList = builder.jobLevelIdList;
+        /**
+         * 职等 ID 列表;- 可通过[【查询职等】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/query)获取;- 需要有字段读取权限
+         * <p> 示例值：
+         */
+        this.jobGradeIdList = builder.jobGradeIdList;
+        /**
+         * 职务 ID 列表;- 可通过[【批量查询职务】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/list)获取;- 需要有字段读取权限
+         * <p> 示例值：
+         */
+        this.jobIdList = builder.jobIdList;
+        /**
+         * 岗位 ID 列表; - 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW); - 需要有字段读取权限
+         * <p> 示例值：
+         */
+        this.positionIdList = builder.positionIdList;
+        /**
+         * 岗位 ID 列表（含下级）; - 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW); - 需要有字段读取权限
+         * <p> 示例值：
+         */
+        this.positionIdListIncludeSub = builder.positionIdListIncludeSub;
+        /**
+         * 工时制度 ID 列表;- 可通过[【批量查询工时制度】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/working_hours_type/list)获取;- 需要有字段读取权限
+         * <p> 示例值：
+         */
+        this.workingHoursTypeIdList = builder.workingHoursTypeIdList;
+        /**
+         * 国籍 ID 列表;- 可通过[【查询国籍信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-nationality/search)获取;- 需要有字段读取权限
+         * <p> 示例值：
+         */
+        this.nationalityIdList = builder.nationalityIdList;
+        /**
+         * 员工所属薪资组 ID 列表; - 可通过 [【获取薪资组基本信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/paygroup/list) 获取; - 需要有字段读取权限
+         * <p> 示例值：
+         */
+        this.payGroupIdList = builder.payGroupIdList;
+        /**
+         * 员工所属外派薪资组 ID 列表;- 可通过 [【获取薪资组基本信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/paygroup/list) 获取;- 需要有字段读取权限
+         * <p> 示例值：
+         */
+        this.assignmentPayGroupIdList = builder.assignmentPayGroupIdList;
+        /**
+         * 员工当前合同类型列表;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)查询;  - object_api_name：contract;  - custom_api_name：contract_type;- 需要有字段读取权限
+         * <p> 示例值：
+         */
+        this.contractTypeList = builder.contractTypeList;
+        /**
+         * 员工当前所属薪资方案 ID 列表;- 可通过[【批量查询薪资方案】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/plan/list)获取;- 需要有字段读取权限
+         * <p> 示例值：
+         */
+        this.archiveCpstPlanIdList = builder.archiveCpstPlanIdList;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String[] getFields() {
         return this.fields;
     }
@@ -599,974 +820,760 @@ public class SearchEmployeeReqBody {
         this.archiveCpstPlanIdList = archiveCpstPlanIdList;
     }
 
-
-// builder 开始
-  public SearchEmployeeReqBody(){}
-
-  public SearchEmployeeReqBody(Builder builder){
-         /**
-          * 返回数据的字段列表，填写方式：为空时默认仅返回 ID
-          * <p> 示例值：
-          */
-      this.fields = builder.fields;
-         /**
-          * 雇佣 ID 列表
-          * <p> 示例值：
-          */
-      this.employmentIdList = builder.employmentIdList;
-         /**
-          * 工号列表
-          * <p> 示例值：
-          */
-      this.employeeNumberList = builder.employeeNumberList;
-         /**
-          * 邮箱，精确匹配查询
-          * <p> 示例值：13312345678@qq.com
-          */
-      this.workEmail = builder.workEmail;
-         /**
-          * 个人电话，精确匹配查询
-          * <p> 示例值：16760342300
-          */
-      this.phoneNumber = builder.phoneNumber;
-         /**
-          * 搜索关键字，支持对邮箱、工号和姓名的模糊匹配
-          * <p> 示例值：张三
-          */
-      this.keyWord = builder.keyWord;
-         /**
-          * 雇佣状态
-          * <p> 示例值：
-          */
-      this.employmentStatus = builder.employmentStatus;
-         /**
-          * 人员类型 ID
-          * <p> 示例值：6971090097697521314
-          */
-      this.employeeTypeId = builder.employeeTypeId;
-         /**
-          * 部门 ID，根据员工主职的直接部门查询，可以通过【查询部门】API 获取 部门 ID
-          * <p> 示例值：
-          */
-      this.departmentIdList = builder.departmentIdList;
-         /**
-          * 直接上级的雇佣 ID，根据员工主职的直接上级查询
-          * <p> 示例值：7027024823985447820
-          */
-      this.directManagerIdList = builder.directManagerIdList;
-         /**
-          * 虚线上级的雇佣 ID，根据员工主职的虚线上级查询
-          * <p> 示例值：7027024823985117820
-          */
-      this.dottedLineManagerIdList = builder.dottedLineManagerIdList;
-         /**
-          * 转正式员工日期-搜索范围开始
-          * <p> 示例值：2020-01-01
-          */
-      this.regularEmployeeStartDateStart = builder.regularEmployeeStartDateStart;
-         /**
-          * 转正式员工日期-搜索范围结束
-          * <p> 示例值：2020-01-01
-          */
-      this.regularEmployeeStartDateEnd = builder.regularEmployeeStartDateEnd;
-         /**
-          * 入职日期-搜索范围开始，需要与搜索范围结束一同使用
-          * <p> 示例值：2020-01-01
-          */
-      this.effectiveTimeStart = builder.effectiveTimeStart;
-         /**
-          * 入职日期-搜索范围结束
-          * <p> 示例值：2020-01-01
-          */
-      this.effectiveTimeEnd = builder.effectiveTimeEnd;
-         /**
-          * 工作地点 ID 列表，查询属于该工作地点及下级工作地点的员工
-          * <p> 示例值：
-          */
-      this.workLocationIdListIncludeSub = builder.workLocationIdListIncludeSub;
-         /**
-          * 常用英文全名精确搜索
-          * <p> 示例值：
-          */
-      this.preferredEnglishFullNameList = builder.preferredEnglishFullNameList;
-         /**
-          * 常用本地全名精确搜索
-          * <p> 示例值：
-          */
-      this.preferredLocalFullNameList = builder.preferredLocalFullNameList;
-         /**
-          * 居民身份证件号码精确搜索
-          * <p> 示例值：
-          */
-      this.nationalIdNumberList = builder.nationalIdNumberList;
-         /**
-          * 个人电话列表，精确匹配查询
-          * <p> 示例值：
-          */
-      this.phoneNumberList = builder.phoneNumberList;
-         /**
-          * 工作邮箱地址列表，精确匹配查询
-          * <p> 示例值：
-          */
-      this.emailAddressList = builder.emailAddressList;
-         /**
-          * 老People user_name查询，仅支持字节租户
-          * <p> 示例值：zhangsan
-          */
-      this.userName = builder.userName;
-         /**
-          * 部门 ID 列表，查询属于该部门及下级部门的员工
-          * <p> 示例值：
-          */
-      this.departmentIdListIncludeSub = builder.departmentIdListIncludeSub;
-         /**
-          * 其他国籍ID列表，精准匹配查询
-          * <p> 示例值：
-          */
-      this.additionalNationalIdNumberList = builder.additionalNationalIdNumberList;
-         /**
-          * 公民身份类型列表，精确匹配查询
-          * <p> 示例值：
-          */
-      this.citizenshipStatusList = builder.citizenshipStatusList;
-         /**
-          * 成本中心 ID 列表;- 可通过 [【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search) 获取
-          * <p> 示例值：
-          */
-      this.costCenterIdList = builder.costCenterIdList;
-         /**
-          * 任职公司 ID 列表;- [【批量查询公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/list)获取
-          * <p> 示例值：
-          */
-      this.serviceCompanyList = builder.serviceCompanyList;
-         /**
-          * 任职公司 ID 列表（含下级）;- [【批量查询公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/list)获取
-          * <p> 示例值：
-          */
-      this.serviceCompanyListIncludeSub = builder.serviceCompanyListIncludeSub;
-         /**
-          * 序列 ID 列表; - [【批量查询序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)获取
-          * <p> 示例值：
-          */
-      this.jobFamilyIdList = builder.jobFamilyIdList;
-         /**
-          * 序列 ID 列表（含下级）; - [【批量查询序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)获取
-          * <p> 示例值：
-          */
-      this.jobFamilyIdListIncludeSub = builder.jobFamilyIdListIncludeSub;
-         /**
-          * 职级 ID 列表;- 可通过[【批量查询职级】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/list)获取;- 需要有字段读取权限
-          * <p> 示例值：
-          */
-      this.jobLevelIdList = builder.jobLevelIdList;
-         /**
-          * 职等 ID 列表;- 可通过[【查询职等】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/query)获取;- 需要有字段读取权限
-          * <p> 示例值：
-          */
-      this.jobGradeIdList = builder.jobGradeIdList;
-         /**
-          * 职务 ID 列表;- 可通过[【批量查询职务】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/list)获取;- 需要有字段读取权限
-          * <p> 示例值：
-          */
-      this.jobIdList = builder.jobIdList;
-         /**
-          * 岗位 ID 列表; - 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW); - 需要有字段读取权限
-          * <p> 示例值：
-          */
-      this.positionIdList = builder.positionIdList;
-         /**
-          * 岗位 ID 列表（含下级）; - 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW); - 需要有字段读取权限
-          * <p> 示例值：
-          */
-      this.positionIdListIncludeSub = builder.positionIdListIncludeSub;
-         /**
-          * 工时制度 ID 列表;- 可通过[【批量查询工时制度】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/working_hours_type/list)获取;- 需要有字段读取权限
-          * <p> 示例值：
-          */
-      this.workingHoursTypeIdList = builder.workingHoursTypeIdList;
-         /**
-          * 国籍 ID 列表;- 可通过[【查询国籍信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-nationality/search)获取;- 需要有字段读取权限
-          * <p> 示例值：
-          */
-      this.nationalityIdList = builder.nationalityIdList;
-         /**
-          * 员工所属薪资组 ID 列表; - 可通过 [【获取薪资组基本信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/paygroup/list) 获取; - 需要有字段读取权限
-          * <p> 示例值：
-          */
-      this.payGroupIdList = builder.payGroupIdList;
-         /**
-          * 员工所属外派薪资组 ID 列表;- 可通过 [【获取薪资组基本信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/paygroup/list) 获取;- 需要有字段读取权限
-          * <p> 示例值：
-          */
-      this.assignmentPayGroupIdList = builder.assignmentPayGroupIdList;
-         /**
-          * 员工当前合同类型列表;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)查询;  - object_api_name：contract;  - custom_api_name：contract_type;- 需要有字段读取权限
-          * <p> 示例值：
-          */
-      this.contractTypeList = builder.contractTypeList;
-         /**
-          * 员工当前所属薪资方案 ID 列表;- 可通过[【批量查询薪资方案】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/plan/list)获取;- 需要有字段读取权限
-          * <p> 示例值：
-          */
-      this.archiveCpstPlanIdList = builder.archiveCpstPlanIdList;
-  }
-
     public static class Builder {
-     /**
-      * 返回数据的字段列表，填写方式：为空时默认仅返回 ID
-      * <p> 示例值：
-      */
+        /**
+         * 返回数据的字段列表，填写方式：为空时默认仅返回 ID
+         * <p> 示例值：
+         */
         private String[] fields;
-     /**
-      * 雇佣 ID 列表
-      * <p> 示例值：
-      */
+        /**
+         * 雇佣 ID 列表
+         * <p> 示例值：
+         */
         private String[] employmentIdList;
-     /**
-      * 工号列表
-      * <p> 示例值：
-      */
+        /**
+         * 工号列表
+         * <p> 示例值：
+         */
         private String[] employeeNumberList;
-     /**
-      * 邮箱，精确匹配查询
-      * <p> 示例值：13312345678@qq.com
-      */
+        /**
+         * 邮箱，精确匹配查询
+         * <p> 示例值：13312345678@qq.com
+         */
         private String workEmail;
-     /**
-      * 个人电话，精确匹配查询
-      * <p> 示例值：16760342300
-      */
+        /**
+         * 个人电话，精确匹配查询
+         * <p> 示例值：16760342300
+         */
         private String phoneNumber;
-     /**
-      * 搜索关键字，支持对邮箱、工号和姓名的模糊匹配
-      * <p> 示例值：张三
-      */
+        /**
+         * 搜索关键字，支持对邮箱、工号和姓名的模糊匹配
+         * <p> 示例值：张三
+         */
         private String keyWord;
-     /**
-      * 雇佣状态
-      * <p> 示例值：
-      */
+        /**
+         * 雇佣状态
+         * <p> 示例值：
+         */
         private String employmentStatus;
-     /**
-      * 人员类型 ID
-      * <p> 示例值：6971090097697521314
-      */
+        /**
+         * 人员类型 ID
+         * <p> 示例值：6971090097697521314
+         */
         private String employeeTypeId;
-     /**
-      * 部门 ID，根据员工主职的直接部门查询，可以通过【查询部门】API 获取 部门 ID
-      * <p> 示例值：
-      */
+        /**
+         * 部门 ID，根据员工主职的直接部门查询，可以通过【查询部门】API 获取 部门 ID
+         * <p> 示例值：
+         */
         private String[] departmentIdList;
-     /**
-      * 直接上级的雇佣 ID，根据员工主职的直接上级查询
-      * <p> 示例值：7027024823985447820
-      */
+        /**
+         * 直接上级的雇佣 ID，根据员工主职的直接上级查询
+         * <p> 示例值：7027024823985447820
+         */
         private String[] directManagerIdList;
-     /**
-      * 虚线上级的雇佣 ID，根据员工主职的虚线上级查询
-      * <p> 示例值：7027024823985117820
-      */
+        /**
+         * 虚线上级的雇佣 ID，根据员工主职的虚线上级查询
+         * <p> 示例值：7027024823985117820
+         */
         private String[] dottedLineManagerIdList;
-     /**
-      * 转正式员工日期-搜索范围开始
-      * <p> 示例值：2020-01-01
-      */
+        /**
+         * 转正式员工日期-搜索范围开始
+         * <p> 示例值：2020-01-01
+         */
         private String regularEmployeeStartDateStart;
-     /**
-      * 转正式员工日期-搜索范围结束
-      * <p> 示例值：2020-01-01
-      */
+        /**
+         * 转正式员工日期-搜索范围结束
+         * <p> 示例值：2020-01-01
+         */
         private String regularEmployeeStartDateEnd;
-     /**
-      * 入职日期-搜索范围开始，需要与搜索范围结束一同使用
-      * <p> 示例值：2020-01-01
-      */
+        /**
+         * 入职日期-搜索范围开始，需要与搜索范围结束一同使用
+         * <p> 示例值：2020-01-01
+         */
         private String effectiveTimeStart;
-     /**
-      * 入职日期-搜索范围结束
-      * <p> 示例值：2020-01-01
-      */
+        /**
+         * 入职日期-搜索范围结束
+         * <p> 示例值：2020-01-01
+         */
         private String effectiveTimeEnd;
-     /**
-      * 工作地点 ID 列表，查询属于该工作地点及下级工作地点的员工
-      * <p> 示例值：
-      */
+        /**
+         * 工作地点 ID 列表，查询属于该工作地点及下级工作地点的员工
+         * <p> 示例值：
+         */
         private String[] workLocationIdListIncludeSub;
-     /**
-      * 常用英文全名精确搜索
-      * <p> 示例值：
-      */
+        /**
+         * 常用英文全名精确搜索
+         * <p> 示例值：
+         */
         private String[] preferredEnglishFullNameList;
-     /**
-      * 常用本地全名精确搜索
-      * <p> 示例值：
-      */
+        /**
+         * 常用本地全名精确搜索
+         * <p> 示例值：
+         */
         private String[] preferredLocalFullNameList;
-     /**
-      * 居民身份证件号码精确搜索
-      * <p> 示例值：
-      */
+        /**
+         * 居民身份证件号码精确搜索
+         * <p> 示例值：
+         */
         private String[] nationalIdNumberList;
-     /**
-      * 个人电话列表，精确匹配查询
-      * <p> 示例值：
-      */
+        /**
+         * 个人电话列表，精确匹配查询
+         * <p> 示例值：
+         */
         private String[] phoneNumberList;
-     /**
-      * 工作邮箱地址列表，精确匹配查询
-      * <p> 示例值：
-      */
+        /**
+         * 工作邮箱地址列表，精确匹配查询
+         * <p> 示例值：
+         */
         private String[] emailAddressList;
-     /**
-      * 老People user_name查询，仅支持字节租户
-      * <p> 示例值：zhangsan
-      */
+        /**
+         * 老People user_name查询，仅支持字节租户
+         * <p> 示例值：zhangsan
+         */
         private String userName;
-     /**
-      * 部门 ID 列表，查询属于该部门及下级部门的员工
-      * <p> 示例值：
-      */
+        /**
+         * 部门 ID 列表，查询属于该部门及下级部门的员工
+         * <p> 示例值：
+         */
         private String[] departmentIdListIncludeSub;
-     /**
-      * 其他国籍ID列表，精准匹配查询
-      * <p> 示例值：
-      */
+        /**
+         * 其他国籍ID列表，精准匹配查询
+         * <p> 示例值：
+         */
         private String[] additionalNationalIdNumberList;
-     /**
-      * 公民身份类型列表，精确匹配查询
-      * <p> 示例值：
-      */
+        /**
+         * 公民身份类型列表，精确匹配查询
+         * <p> 示例值：
+         */
         private String[] citizenshipStatusList;
-     /**
-      * 成本中心 ID 列表;- 可通过 [【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search) 获取
-      * <p> 示例值：
-      */
+        /**
+         * 成本中心 ID 列表;- 可通过 [【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search) 获取
+         * <p> 示例值：
+         */
         private String[] costCenterIdList;
-     /**
-      * 任职公司 ID 列表;- [【批量查询公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/list)获取
-      * <p> 示例值：
-      */
+        /**
+         * 任职公司 ID 列表;- [【批量查询公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/list)获取
+         * <p> 示例值：
+         */
         private String[] serviceCompanyList;
-     /**
-      * 任职公司 ID 列表（含下级）;- [【批量查询公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/list)获取
-      * <p> 示例值：
-      */
+        /**
+         * 任职公司 ID 列表（含下级）;- [【批量查询公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/list)获取
+         * <p> 示例值：
+         */
         private String[] serviceCompanyListIncludeSub;
-     /**
-      * 序列 ID 列表; - [【批量查询序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)获取
-      * <p> 示例值：
-      */
+        /**
+         * 序列 ID 列表; - [【批量查询序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)获取
+         * <p> 示例值：
+         */
         private String[] jobFamilyIdList;
-     /**
-      * 序列 ID 列表（含下级）; - [【批量查询序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)获取
-      * <p> 示例值：
-      */
+        /**
+         * 序列 ID 列表（含下级）; - [【批量查询序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)获取
+         * <p> 示例值：
+         */
         private String[] jobFamilyIdListIncludeSub;
-     /**
-      * 职级 ID 列表;- 可通过[【批量查询职级】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/list)获取;- 需要有字段读取权限
-      * <p> 示例值：
-      */
+        /**
+         * 职级 ID 列表;- 可通过[【批量查询职级】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/list)获取;- 需要有字段读取权限
+         * <p> 示例值：
+         */
         private String[] jobLevelIdList;
-     /**
-      * 职等 ID 列表;- 可通过[【查询职等】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/query)获取;- 需要有字段读取权限
-      * <p> 示例值：
-      */
+        /**
+         * 职等 ID 列表;- 可通过[【查询职等】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/query)获取;- 需要有字段读取权限
+         * <p> 示例值：
+         */
         private String[] jobGradeIdList;
-     /**
-      * 职务 ID 列表;- 可通过[【批量查询职务】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/list)获取;- 需要有字段读取权限
-      * <p> 示例值：
-      */
+        /**
+         * 职务 ID 列表;- 可通过[【批量查询职务】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/list)获取;- 需要有字段读取权限
+         * <p> 示例值：
+         */
         private String[] jobIdList;
-     /**
-      * 岗位 ID 列表; - 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW); - 需要有字段读取权限
-      * <p> 示例值：
-      */
+        /**
+         * 岗位 ID 列表; - 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW); - 需要有字段读取权限
+         * <p> 示例值：
+         */
         private String[] positionIdList;
-     /**
-      * 岗位 ID 列表（含下级）; - 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW); - 需要有字段读取权限
-      * <p> 示例值：
-      */
+        /**
+         * 岗位 ID 列表（含下级）; - 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW); - 需要有字段读取权限
+         * <p> 示例值：
+         */
         private String[] positionIdListIncludeSub;
-     /**
-      * 工时制度 ID 列表;- 可通过[【批量查询工时制度】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/working_hours_type/list)获取;- 需要有字段读取权限
-      * <p> 示例值：
-      */
+        /**
+         * 工时制度 ID 列表;- 可通过[【批量查询工时制度】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/working_hours_type/list)获取;- 需要有字段读取权限
+         * <p> 示例值：
+         */
         private String[] workingHoursTypeIdList;
-     /**
-      * 国籍 ID 列表;- 可通过[【查询国籍信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-nationality/search)获取;- 需要有字段读取权限
-      * <p> 示例值：
-      */
+        /**
+         * 国籍 ID 列表;- 可通过[【查询国籍信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-nationality/search)获取;- 需要有字段读取权限
+         * <p> 示例值：
+         */
         private String[] nationalityIdList;
-     /**
-      * 员工所属薪资组 ID 列表; - 可通过 [【获取薪资组基本信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/paygroup/list) 获取; - 需要有字段读取权限
-      * <p> 示例值：
-      */
+        /**
+         * 员工所属薪资组 ID 列表; - 可通过 [【获取薪资组基本信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/paygroup/list) 获取; - 需要有字段读取权限
+         * <p> 示例值：
+         */
         private String[] payGroupIdList;
-     /**
-      * 员工所属外派薪资组 ID 列表;- 可通过 [【获取薪资组基本信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/paygroup/list) 获取;- 需要有字段读取权限
-      * <p> 示例值：
-      */
+        /**
+         * 员工所属外派薪资组 ID 列表;- 可通过 [【获取薪资组基本信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/paygroup/list) 获取;- 需要有字段读取权限
+         * <p> 示例值：
+         */
         private String[] assignmentPayGroupIdList;
-     /**
-      * 员工当前合同类型列表;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)查询;  - object_api_name：contract;  - custom_api_name：contract_type;- 需要有字段读取权限
-      * <p> 示例值：
-      */
+        /**
+         * 员工当前合同类型列表;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)查询;  - object_api_name：contract;  - custom_api_name：contract_type;- 需要有字段读取权限
+         * <p> 示例值：
+         */
         private String[] contractTypeList;
-     /**
-      * 员工当前所属薪资方案 ID 列表;- 可通过[【批量查询薪资方案】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/plan/list)获取;- 需要有字段读取权限
-      * <p> 示例值：
-      */
+        /**
+         * 员工当前所属薪资方案 ID 列表;- 可通过[【批量查询薪资方案】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/plan/list)获取;- 需要有字段读取权限
+         * <p> 示例值：
+         */
         private String[] archiveCpstPlanIdList;
 
         /**
          * 返回数据的字段列表，填写方式：为空时默认仅返回 ID
          * <p> 示例值：
+         *
          * @param fields
          * @return
          */
         public Builder fields(String[] fields) {
-             this.fields = fields;
-             return this;
+            this.fields = fields;
+            return this;
         }
 
-    
 
         /**
          * 雇佣 ID 列表
          * <p> 示例值：
+         *
          * @param employmentIdList
          * @return
          */
         public Builder employmentIdList(String[] employmentIdList) {
-             this.employmentIdList = employmentIdList;
-             return this;
+            this.employmentIdList = employmentIdList;
+            return this;
         }
 
-    
 
         /**
          * 工号列表
          * <p> 示例值：
+         *
          * @param employeeNumberList
          * @return
          */
         public Builder employeeNumberList(String[] employeeNumberList) {
-             this.employeeNumberList = employeeNumberList;
-             return this;
+            this.employeeNumberList = employeeNumberList;
+            return this;
         }
 
-    
 
         /**
          * 邮箱，精确匹配查询
          * <p> 示例值：13312345678@qq.com
+         *
          * @param workEmail
          * @return
          */
         public Builder workEmail(String workEmail) {
-             this.workEmail = workEmail;
-             return this;
+            this.workEmail = workEmail;
+            return this;
         }
 
-    
 
         /**
          * 个人电话，精确匹配查询
          * <p> 示例值：16760342300
+         *
          * @param phoneNumber
          * @return
          */
         public Builder phoneNumber(String phoneNumber) {
-             this.phoneNumber = phoneNumber;
-             return this;
+            this.phoneNumber = phoneNumber;
+            return this;
         }
 
-    
 
         /**
          * 搜索关键字，支持对邮箱、工号和姓名的模糊匹配
          * <p> 示例值：张三
+         *
          * @param keyWord
          * @return
          */
         public Builder keyWord(String keyWord) {
-             this.keyWord = keyWord;
-             return this;
+            this.keyWord = keyWord;
+            return this;
         }
 
-    
 
         /**
          * 雇佣状态
          * <p> 示例值：
+         *
          * @param employmentStatus
          * @return
          */
         public Builder employmentStatus(String employmentStatus) {
-             this.employmentStatus = employmentStatus;
-             return this;
+            this.employmentStatus = employmentStatus;
+            return this;
         }
+
         /**
          * 雇佣状态
          * <p> 示例值：
+         *
          * @param employmentStatus {@link com.lark.oapi.service.corehr.v2.enums.SearchEmployeeEmploymentStatusEnum}
          * @return
          */
         public Builder employmentStatus(com.lark.oapi.service.corehr.v2.enums.SearchEmployeeEmploymentStatusEnum employmentStatus) {
-             this.employmentStatus = employmentStatus.getValue();
-             return this;
+            this.employmentStatus = employmentStatus.getValue();
+            return this;
         }
 
-    
 
         /**
          * 人员类型 ID
          * <p> 示例值：6971090097697521314
+         *
          * @param employeeTypeId
          * @return
          */
         public Builder employeeTypeId(String employeeTypeId) {
-             this.employeeTypeId = employeeTypeId;
-             return this;
+            this.employeeTypeId = employeeTypeId;
+            return this;
         }
 
-    
 
         /**
          * 部门 ID，根据员工主职的直接部门查询，可以通过【查询部门】API 获取 部门 ID
          * <p> 示例值：
+         *
          * @param departmentIdList
          * @return
          */
         public Builder departmentIdList(String[] departmentIdList) {
-             this.departmentIdList = departmentIdList;
-             return this;
+            this.departmentIdList = departmentIdList;
+            return this;
         }
 
-    
 
         /**
          * 直接上级的雇佣 ID，根据员工主职的直接上级查询
          * <p> 示例值：7027024823985447820
+         *
          * @param directManagerIdList
          * @return
          */
         public Builder directManagerIdList(String[] directManagerIdList) {
-             this.directManagerIdList = directManagerIdList;
-             return this;
+            this.directManagerIdList = directManagerIdList;
+            return this;
         }
 
-    
 
         /**
          * 虚线上级的雇佣 ID，根据员工主职的虚线上级查询
          * <p> 示例值：7027024823985117820
+         *
          * @param dottedLineManagerIdList
          * @return
          */
         public Builder dottedLineManagerIdList(String[] dottedLineManagerIdList) {
-             this.dottedLineManagerIdList = dottedLineManagerIdList;
-             return this;
+            this.dottedLineManagerIdList = dottedLineManagerIdList;
+            return this;
         }
 
-    
 
         /**
          * 转正式员工日期-搜索范围开始
          * <p> 示例值：2020-01-01
+         *
          * @param regularEmployeeStartDateStart
          * @return
          */
         public Builder regularEmployeeStartDateStart(String regularEmployeeStartDateStart) {
-             this.regularEmployeeStartDateStart = regularEmployeeStartDateStart;
-             return this;
+            this.regularEmployeeStartDateStart = regularEmployeeStartDateStart;
+            return this;
         }
 
-    
 
         /**
          * 转正式员工日期-搜索范围结束
          * <p> 示例值：2020-01-01
+         *
          * @param regularEmployeeStartDateEnd
          * @return
          */
         public Builder regularEmployeeStartDateEnd(String regularEmployeeStartDateEnd) {
-             this.regularEmployeeStartDateEnd = regularEmployeeStartDateEnd;
-             return this;
+            this.regularEmployeeStartDateEnd = regularEmployeeStartDateEnd;
+            return this;
         }
 
-    
 
         /**
          * 入职日期-搜索范围开始，需要与搜索范围结束一同使用
          * <p> 示例值：2020-01-01
+         *
          * @param effectiveTimeStart
          * @return
          */
         public Builder effectiveTimeStart(String effectiveTimeStart) {
-             this.effectiveTimeStart = effectiveTimeStart;
-             return this;
+            this.effectiveTimeStart = effectiveTimeStart;
+            return this;
         }
 
-    
 
         /**
          * 入职日期-搜索范围结束
          * <p> 示例值：2020-01-01
+         *
          * @param effectiveTimeEnd
          * @return
          */
         public Builder effectiveTimeEnd(String effectiveTimeEnd) {
-             this.effectiveTimeEnd = effectiveTimeEnd;
-             return this;
+            this.effectiveTimeEnd = effectiveTimeEnd;
+            return this;
         }
 
-    
 
         /**
          * 工作地点 ID 列表，查询属于该工作地点及下级工作地点的员工
          * <p> 示例值：
+         *
          * @param workLocationIdListIncludeSub
          * @return
          */
         public Builder workLocationIdListIncludeSub(String[] workLocationIdListIncludeSub) {
-             this.workLocationIdListIncludeSub = workLocationIdListIncludeSub;
-             return this;
+            this.workLocationIdListIncludeSub = workLocationIdListIncludeSub;
+            return this;
         }
 
-    
 
         /**
          * 常用英文全名精确搜索
          * <p> 示例值：
+         *
          * @param preferredEnglishFullNameList
          * @return
          */
         public Builder preferredEnglishFullNameList(String[] preferredEnglishFullNameList) {
-             this.preferredEnglishFullNameList = preferredEnglishFullNameList;
-             return this;
+            this.preferredEnglishFullNameList = preferredEnglishFullNameList;
+            return this;
         }
 
-    
 
         /**
          * 常用本地全名精确搜索
          * <p> 示例值：
+         *
          * @param preferredLocalFullNameList
          * @return
          */
         public Builder preferredLocalFullNameList(String[] preferredLocalFullNameList) {
-             this.preferredLocalFullNameList = preferredLocalFullNameList;
-             return this;
+            this.preferredLocalFullNameList = preferredLocalFullNameList;
+            return this;
         }
 
-    
 
         /**
          * 居民身份证件号码精确搜索
          * <p> 示例值：
+         *
          * @param nationalIdNumberList
          * @return
          */
         public Builder nationalIdNumberList(String[] nationalIdNumberList) {
-             this.nationalIdNumberList = nationalIdNumberList;
-             return this;
+            this.nationalIdNumberList = nationalIdNumberList;
+            return this;
         }
 
-    
 
         /**
          * 个人电话列表，精确匹配查询
          * <p> 示例值：
+         *
          * @param phoneNumberList
          * @return
          */
         public Builder phoneNumberList(String[] phoneNumberList) {
-             this.phoneNumberList = phoneNumberList;
-             return this;
+            this.phoneNumberList = phoneNumberList;
+            return this;
         }
 
-    
 
         /**
          * 工作邮箱地址列表，精确匹配查询
          * <p> 示例值：
+         *
          * @param emailAddressList
          * @return
          */
         public Builder emailAddressList(String[] emailAddressList) {
-             this.emailAddressList = emailAddressList;
-             return this;
+            this.emailAddressList = emailAddressList;
+            return this;
         }
 
-    
 
         /**
          * 老People user_name查询，仅支持字节租户
          * <p> 示例值：zhangsan
+         *
          * @param userName
          * @return
          */
         public Builder userName(String userName) {
-             this.userName = userName;
-             return this;
+            this.userName = userName;
+            return this;
         }
 
-    
 
         /**
          * 部门 ID 列表，查询属于该部门及下级部门的员工
          * <p> 示例值：
+         *
          * @param departmentIdListIncludeSub
          * @return
          */
         public Builder departmentIdListIncludeSub(String[] departmentIdListIncludeSub) {
-             this.departmentIdListIncludeSub = departmentIdListIncludeSub;
-             return this;
+            this.departmentIdListIncludeSub = departmentIdListIncludeSub;
+            return this;
         }
 
-    
 
         /**
          * 其他国籍ID列表，精准匹配查询
          * <p> 示例值：
+         *
          * @param additionalNationalIdNumberList
          * @return
          */
         public Builder additionalNationalIdNumberList(String[] additionalNationalIdNumberList) {
-             this.additionalNationalIdNumberList = additionalNationalIdNumberList;
-             return this;
+            this.additionalNationalIdNumberList = additionalNationalIdNumberList;
+            return this;
         }
 
-    
 
         /**
          * 公民身份类型列表，精确匹配查询
          * <p> 示例值：
+         *
          * @param citizenshipStatusList
          * @return
          */
         public Builder citizenshipStatusList(String[] citizenshipStatusList) {
-             this.citizenshipStatusList = citizenshipStatusList;
-             return this;
+            this.citizenshipStatusList = citizenshipStatusList;
+            return this;
         }
 
-    
 
         /**
          * 成本中心 ID 列表;- 可通过 [【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search) 获取
          * <p> 示例值：
+         *
          * @param costCenterIdList
          * @return
          */
         public Builder costCenterIdList(String[] costCenterIdList) {
-             this.costCenterIdList = costCenterIdList;
-             return this;
+            this.costCenterIdList = costCenterIdList;
+            return this;
         }
 
-    
 
         /**
          * 任职公司 ID 列表;- [【批量查询公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/list)获取
          * <p> 示例值：
+         *
          * @param serviceCompanyList
          * @return
          */
         public Builder serviceCompanyList(String[] serviceCompanyList) {
-             this.serviceCompanyList = serviceCompanyList;
-             return this;
+            this.serviceCompanyList = serviceCompanyList;
+            return this;
         }
 
-    
 
         /**
          * 任职公司 ID 列表（含下级）;- [【批量查询公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/list)获取
          * <p> 示例值：
+         *
          * @param serviceCompanyListIncludeSub
          * @return
          */
         public Builder serviceCompanyListIncludeSub(String[] serviceCompanyListIncludeSub) {
-             this.serviceCompanyListIncludeSub = serviceCompanyListIncludeSub;
-             return this;
+            this.serviceCompanyListIncludeSub = serviceCompanyListIncludeSub;
+            return this;
         }
 
-    
 
         /**
          * 序列 ID 列表; - [【批量查询序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)获取
          * <p> 示例值：
+         *
          * @param jobFamilyIdList
          * @return
          */
         public Builder jobFamilyIdList(String[] jobFamilyIdList) {
-             this.jobFamilyIdList = jobFamilyIdList;
-             return this;
+            this.jobFamilyIdList = jobFamilyIdList;
+            return this;
         }
 
-    
 
         /**
          * 序列 ID 列表（含下级）; - [【批量查询序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)获取
          * <p> 示例值：
+         *
          * @param jobFamilyIdListIncludeSub
          * @return
          */
         public Builder jobFamilyIdListIncludeSub(String[] jobFamilyIdListIncludeSub) {
-             this.jobFamilyIdListIncludeSub = jobFamilyIdListIncludeSub;
-             return this;
+            this.jobFamilyIdListIncludeSub = jobFamilyIdListIncludeSub;
+            return this;
         }
 
-    
 
         /**
          * 职级 ID 列表;- 可通过[【批量查询职级】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/list)获取;- 需要有字段读取权限
          * <p> 示例值：
+         *
          * @param jobLevelIdList
          * @return
          */
         public Builder jobLevelIdList(String[] jobLevelIdList) {
-             this.jobLevelIdList = jobLevelIdList;
-             return this;
+            this.jobLevelIdList = jobLevelIdList;
+            return this;
         }
 
-    
 
         /**
          * 职等 ID 列表;- 可通过[【查询职等】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/query)获取;- 需要有字段读取权限
          * <p> 示例值：
+         *
          * @param jobGradeIdList
          * @return
          */
         public Builder jobGradeIdList(String[] jobGradeIdList) {
-             this.jobGradeIdList = jobGradeIdList;
-             return this;
+            this.jobGradeIdList = jobGradeIdList;
+            return this;
         }
 
-    
 
         /**
          * 职务 ID 列表;- 可通过[【批量查询职务】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/list)获取;- 需要有字段读取权限
          * <p> 示例值：
+         *
          * @param jobIdList
          * @return
          */
         public Builder jobIdList(String[] jobIdList) {
-             this.jobIdList = jobIdList;
-             return this;
+            this.jobIdList = jobIdList;
+            return this;
         }
 
-    
 
         /**
          * 岗位 ID 列表; - 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW); - 需要有字段读取权限
          * <p> 示例值：
+         *
          * @param positionIdList
          * @return
          */
         public Builder positionIdList(String[] positionIdList) {
-             this.positionIdList = positionIdList;
-             return this;
+            this.positionIdList = positionIdList;
+            return this;
         }
 
-    
 
         /**
          * 岗位 ID 列表（含下级）; - 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW); - 需要有字段读取权限
          * <p> 示例值：
+         *
          * @param positionIdListIncludeSub
          * @return
          */
         public Builder positionIdListIncludeSub(String[] positionIdListIncludeSub) {
-             this.positionIdListIncludeSub = positionIdListIncludeSub;
-             return this;
+            this.positionIdListIncludeSub = positionIdListIncludeSub;
+            return this;
         }
 
-    
 
         /**
          * 工时制度 ID 列表;- 可通过[【批量查询工时制度】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/working_hours_type/list)获取;- 需要有字段读取权限
          * <p> 示例值：
+         *
          * @param workingHoursTypeIdList
          * @return
          */
         public Builder workingHoursTypeIdList(String[] workingHoursTypeIdList) {
-             this.workingHoursTypeIdList = workingHoursTypeIdList;
-             return this;
+            this.workingHoursTypeIdList = workingHoursTypeIdList;
+            return this;
         }
 
-    
 
         /**
          * 国籍 ID 列表;- 可通过[【查询国籍信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-nationality/search)获取;- 需要有字段读取权限
          * <p> 示例值：
+         *
          * @param nationalityIdList
          * @return
          */
         public Builder nationalityIdList(String[] nationalityIdList) {
-             this.nationalityIdList = nationalityIdList;
-             return this;
+            this.nationalityIdList = nationalityIdList;
+            return this;
         }
 
-    
 
         /**
          * 员工所属薪资组 ID 列表; - 可通过 [【获取薪资组基本信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/paygroup/list) 获取; - 需要有字段读取权限
          * <p> 示例值：
+         *
          * @param payGroupIdList
          * @return
          */
         public Builder payGroupIdList(String[] payGroupIdList) {
-             this.payGroupIdList = payGroupIdList;
-             return this;
+            this.payGroupIdList = payGroupIdList;
+            return this;
         }
 
-    
 
         /**
          * 员工所属外派薪资组 ID 列表;- 可通过 [【获取薪资组基本信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/paygroup/list) 获取;- 需要有字段读取权限
          * <p> 示例值：
+         *
          * @param assignmentPayGroupIdList
          * @return
          */
         public Builder assignmentPayGroupIdList(String[] assignmentPayGroupIdList) {
-             this.assignmentPayGroupIdList = assignmentPayGroupIdList;
-             return this;
+            this.assignmentPayGroupIdList = assignmentPayGroupIdList;
+            return this;
         }
 
-    
 
         /**
          * 员工当前合同类型列表;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)查询;  - object_api_name：contract;  - custom_api_name：contract_type;- 需要有字段读取权限
          * <p> 示例值：
+         *
          * @param contractTypeList
          * @return
          */
         public Builder contractTypeList(String[] contractTypeList) {
-             this.contractTypeList = contractTypeList;
-             return this;
+            this.contractTypeList = contractTypeList;
+            return this;
         }
 
-    
 
         /**
          * 员工当前所属薪资方案 ID 列表;- 可通过[【批量查询薪资方案】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/plan/list)获取;- 需要有字段读取权限
          * <p> 示例值：
+         *
          * @param archiveCpstPlanIdList
          * @return
          */
         public Builder archiveCpstPlanIdList(String[] archiveCpstPlanIdList) {
-             this.archiveCpstPlanIdList = archiveCpstPlanIdList;
-             return this;
+            this.archiveCpstPlanIdList = archiveCpstPlanIdList;
+            return this;
         }
 
-    
-    
-    public SearchEmployeeReqBody build(){
-        return new SearchEmployeeReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public SearchEmployeeReqBody build() {
+            return new SearchEmployeeReqBody(this);
+        }
     }
 }

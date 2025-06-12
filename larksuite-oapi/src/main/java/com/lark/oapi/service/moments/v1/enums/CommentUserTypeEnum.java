@@ -17,17 +17,18 @@ package com.lark.oapi.service.moments.v1.enums;
  * 表情回复人类型
  */
 public enum CommentUserTypeEnum {
-     REALNAME(1), // 实名
-     NICKNAME(2), // 花名
-     ANONYMOUS(3), // 匿名
-     OFFICIALACCOUNT(4), // 官方号
-  ;
-   private Integer value;
+    REALNAME(1), // 实名
+    NICKNAME(2), // 花名
+    ANONYMOUS(3), // 匿名
+    OFFICIALACCOUNT(4), // 官方号
+    ;
+    private Integer value;
+
     CommentUserTypeEnum(Integer value) {
-      this.value = value;
+        this.value = value;
     }
 
     public Integer getValue() {
-      return this.value;
+        return this.value;
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,84 +20,159 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Chat {
-     /**
-      * chat_id of the conversation
-      * <p> 示例值：
-      */
+    /**
+     * chat_id of the conversation
+     * <p> 示例值：
+     */
     @SerializedName("chat_id")
     private String chatId;
-     /**
-      * avatar of the conversation
-      * <p> 示例值：
-      */
+    /**
+     * avatar of the conversation
+     * <p> 示例值：
+     */
     @SerializedName("avatar")
     private String avatar;
-     /**
-      * name of the conversation
-      * <p> 示例值：
-      */
+    /**
+     * name of the conversation
+     * <p> 示例值：
+     */
     @SerializedName("name")
     private String name;
-     /**
-      * description of the conversation
-      * <p> 示例值：
-      */
+    /**
+     * description of the conversation
+     * <p> 示例值：
+     */
     @SerializedName("description")
     private String description;
-     /**
-      * i18_names of the conversation
-      * <p> 示例值：
-      */
+    /**
+     * i18_names of the conversation
+     * <p> 示例值：
+     */
     @SerializedName("i18n_names")
     private I18nNames i18nNames;
-     /**
-      * whether only the owner of the converation can add others
-      * <p> 示例值：
-      */
+    /**
+     * whether only the owner of the converation can add others
+     * <p> 示例值：
+     */
     @SerializedName("only_owner_add")
     private Boolean onlyOwnerAdd;
-     /**
-      * whether the converation can be shared
-      * <p> 示例值：
-      */
+    /**
+     * whether the converation can be shared
+     * <p> 示例值：
+     */
     @SerializedName("share_allowed")
     private Boolean shareAllowed;
-     /**
-      * whether only the owner of the converation can @all
-      * <p> 示例值：
-      */
+    /**
+     * whether only the owner of the converation can @all
+     * <p> 示例值：
+     */
     @SerializedName("only_owner_at_all")
     private Boolean onlyOwnerAtAll;
-     /**
-      * whether only the owner of the converation can edit the converation info
-      * <p> 示例值：
-      */
+    /**
+     * whether only the owner of the converation can edit the converation info
+     * <p> 示例值：
+     */
     @SerializedName("only_owner_edit")
     private Boolean onlyOwnerEdit;
-     /**
-      * owner_id
-      * <p> 示例值：
-      */
+    /**
+     * owner_id
+     * <p> 示例值：
+     */
     @SerializedName("owner_user_id")
     private String ownerUserId;
-     /**
-      * type
-      * <p> 示例值：
-      */
+    /**
+     * type
+     * <p> 示例值：
+     */
     @SerializedName("type")
     private String type;
-     /**
-      * 群标签
-      * <p> 示例值：
-      */
+    /**
+     * 群标签
+     * <p> 示例值：
+     */
     @SerializedName("labels")
     private String[] labels;
+
+    // builder 开始
+    public Chat() {
+    }
+
+    public Chat(Builder builder) {
+        /**
+         * chat_id of the conversation
+         * <p> 示例值：
+         */
+        this.chatId = builder.chatId;
+        /**
+         * avatar of the conversation
+         * <p> 示例值：
+         */
+        this.avatar = builder.avatar;
+        /**
+         * name of the conversation
+         * <p> 示例值：
+         */
+        this.name = builder.name;
+        /**
+         * description of the conversation
+         * <p> 示例值：
+         */
+        this.description = builder.description;
+        /**
+         * i18_names of the conversation
+         * <p> 示例值：
+         */
+        this.i18nNames = builder.i18nNames;
+        /**
+         * whether only the owner of the converation can add others
+         * <p> 示例值：
+         */
+        this.onlyOwnerAdd = builder.onlyOwnerAdd;
+        /**
+         * whether the converation can be shared
+         * <p> 示例值：
+         */
+        this.shareAllowed = builder.shareAllowed;
+        /**
+         * whether only the owner of the converation can @all
+         * <p> 示例值：
+         */
+        this.onlyOwnerAtAll = builder.onlyOwnerAtAll;
+        /**
+         * whether only the owner of the converation can edit the converation info
+         * <p> 示例值：
+         */
+        this.onlyOwnerEdit = builder.onlyOwnerEdit;
+        /**
+         * owner_id
+         * <p> 示例值：
+         */
+        this.ownerUserId = builder.ownerUserId;
+        /**
+         * type
+         * <p> 示例值：
+         */
+        this.type = builder.type;
+        /**
+         * 群标签
+         * <p> 示例值：
+         */
+        this.labels = builder.labels;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getChatId() {
         return this.chatId;
     }
@@ -193,297 +269,226 @@ public class Chat {
         this.labels = labels;
     }
 
-
-// builder 开始
-  public Chat(){}
-
-  public Chat(Builder builder){
-         /**
-          * chat_id of the conversation
-          * <p> 示例值：
-          */
-      this.chatId = builder.chatId;
-         /**
-          * avatar of the conversation
-          * <p> 示例值：
-          */
-      this.avatar = builder.avatar;
-         /**
-          * name of the conversation
-          * <p> 示例值：
-          */
-      this.name = builder.name;
-         /**
-          * description of the conversation
-          * <p> 示例值：
-          */
-      this.description = builder.description;
-         /**
-          * i18_names of the conversation
-          * <p> 示例值：
-          */
-      this.i18nNames = builder.i18nNames;
-         /**
-          * whether only the owner of the converation can add others
-          * <p> 示例值：
-          */
-      this.onlyOwnerAdd = builder.onlyOwnerAdd;
-         /**
-          * whether the converation can be shared
-          * <p> 示例值：
-          */
-      this.shareAllowed = builder.shareAllowed;
-         /**
-          * whether only the owner of the converation can @all
-          * <p> 示例值：
-          */
-      this.onlyOwnerAtAll = builder.onlyOwnerAtAll;
-         /**
-          * whether only the owner of the converation can edit the converation info
-          * <p> 示例值：
-          */
-      this.onlyOwnerEdit = builder.onlyOwnerEdit;
-         /**
-          * owner_id
-          * <p> 示例值：
-          */
-      this.ownerUserId = builder.ownerUserId;
-         /**
-          * type
-          * <p> 示例值：
-          */
-      this.type = builder.type;
-         /**
-          * 群标签
-          * <p> 示例值：
-          */
-      this.labels = builder.labels;
-  }
-
     public static class Builder {
-     /**
-      * chat_id of the conversation
-      * <p> 示例值：
-      */
+        /**
+         * chat_id of the conversation
+         * <p> 示例值：
+         */
         private String chatId;
-     /**
-      * avatar of the conversation
-      * <p> 示例值：
-      */
+        /**
+         * avatar of the conversation
+         * <p> 示例值：
+         */
         private String avatar;
-     /**
-      * name of the conversation
-      * <p> 示例值：
-      */
+        /**
+         * name of the conversation
+         * <p> 示例值：
+         */
         private String name;
-     /**
-      * description of the conversation
-      * <p> 示例值：
-      */
+        /**
+         * description of the conversation
+         * <p> 示例值：
+         */
         private String description;
-     /**
-      * i18_names of the conversation
-      * <p> 示例值：
-      */
+        /**
+         * i18_names of the conversation
+         * <p> 示例值：
+         */
         private I18nNames i18nNames;
-     /**
-      * whether only the owner of the converation can add others
-      * <p> 示例值：
-      */
+        /**
+         * whether only the owner of the converation can add others
+         * <p> 示例值：
+         */
         private Boolean onlyOwnerAdd;
-     /**
-      * whether the converation can be shared
-      * <p> 示例值：
-      */
+        /**
+         * whether the converation can be shared
+         * <p> 示例值：
+         */
         private Boolean shareAllowed;
-     /**
-      * whether only the owner of the converation can @all
-      * <p> 示例值：
-      */
+        /**
+         * whether only the owner of the converation can @all
+         * <p> 示例值：
+         */
         private Boolean onlyOwnerAtAll;
-     /**
-      * whether only the owner of the converation can edit the converation info
-      * <p> 示例值：
-      */
+        /**
+         * whether only the owner of the converation can edit the converation info
+         * <p> 示例值：
+         */
         private Boolean onlyOwnerEdit;
-     /**
-      * owner_id
-      * <p> 示例值：
-      */
+        /**
+         * owner_id
+         * <p> 示例值：
+         */
         private String ownerUserId;
-     /**
-      * type
-      * <p> 示例值：
-      */
+        /**
+         * type
+         * <p> 示例值：
+         */
         private String type;
-     /**
-      * 群标签
-      * <p> 示例值：
-      */
+        /**
+         * 群标签
+         * <p> 示例值：
+         */
         private String[] labels;
 
         /**
          * chat_id of the conversation
          * <p> 示例值：
+         *
          * @param chatId
          * @return
          */
         public Builder chatId(String chatId) {
-             this.chatId = chatId;
-             return this;
+            this.chatId = chatId;
+            return this;
         }
 
-    
 
         /**
          * avatar of the conversation
          * <p> 示例值：
+         *
          * @param avatar
          * @return
          */
         public Builder avatar(String avatar) {
-             this.avatar = avatar;
-             return this;
+            this.avatar = avatar;
+            return this;
         }
 
-    
 
         /**
          * name of the conversation
          * <p> 示例值：
+         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * description of the conversation
          * <p> 示例值：
+         *
          * @param description
          * @return
          */
         public Builder description(String description) {
-             this.description = description;
-             return this;
+            this.description = description;
+            return this;
         }
 
-    
 
         /**
          * i18_names of the conversation
          * <p> 示例值：
+         *
          * @param i18nNames
          * @return
          */
         public Builder i18nNames(I18nNames i18nNames) {
-             this.i18nNames = i18nNames;
-             return this;
+            this.i18nNames = i18nNames;
+            return this;
         }
 
-    
 
         /**
          * whether only the owner of the converation can add others
          * <p> 示例值：
+         *
          * @param onlyOwnerAdd
          * @return
          */
         public Builder onlyOwnerAdd(Boolean onlyOwnerAdd) {
-             this.onlyOwnerAdd = onlyOwnerAdd;
-             return this;
+            this.onlyOwnerAdd = onlyOwnerAdd;
+            return this;
         }
 
-    
 
         /**
          * whether the converation can be shared
          * <p> 示例值：
+         *
          * @param shareAllowed
          * @return
          */
         public Builder shareAllowed(Boolean shareAllowed) {
-             this.shareAllowed = shareAllowed;
-             return this;
+            this.shareAllowed = shareAllowed;
+            return this;
         }
 
-    
 
         /**
          * whether only the owner of the converation can @all
          * <p> 示例值：
+         *
          * @param onlyOwnerAtAll
          * @return
          */
         public Builder onlyOwnerAtAll(Boolean onlyOwnerAtAll) {
-             this.onlyOwnerAtAll = onlyOwnerAtAll;
-             return this;
+            this.onlyOwnerAtAll = onlyOwnerAtAll;
+            return this;
         }
 
-    
 
         /**
          * whether only the owner of the converation can edit the converation info
          * <p> 示例值：
+         *
          * @param onlyOwnerEdit
          * @return
          */
         public Builder onlyOwnerEdit(Boolean onlyOwnerEdit) {
-             this.onlyOwnerEdit = onlyOwnerEdit;
-             return this;
+            this.onlyOwnerEdit = onlyOwnerEdit;
+            return this;
         }
 
-    
 
         /**
          * owner_id
          * <p> 示例值：
+         *
          * @param ownerUserId
          * @return
          */
         public Builder ownerUserId(String ownerUserId) {
-             this.ownerUserId = ownerUserId;
-             return this;
+            this.ownerUserId = ownerUserId;
+            return this;
         }
 
-    
 
         /**
          * type
          * <p> 示例值：
+         *
          * @param type
          * @return
          */
         public Builder type(String type) {
-             this.type = type;
-             return this;
+            this.type = type;
+            return this;
         }
 
-    
 
         /**
          * 群标签
          * <p> 示例值：
+         *
          * @param labels
          * @return
          */
         public Builder labels(String[] labels) {
-             this.labels = labels;
-             return this;
+            this.labels = labels;
+            return this;
         }
 
-    
-    
-    public Chat build(){
-        return new Chat(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Chat build() {
+            return new Chat(this);
+        }
     }
 }

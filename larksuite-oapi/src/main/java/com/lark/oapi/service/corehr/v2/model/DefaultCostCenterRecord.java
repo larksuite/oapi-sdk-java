@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class DefaultCostCenterRecord {
-     /**
-      * 变更原因
-      * <p> 示例值：默认成本中心变更
-      */
+    /**
+     * 变更原因
+     * <p> 示例值：默认成本中心变更
+     */
     @SerializedName("reason")
     private String reason;
-     /**
-      * 是否继承
-      * <p> 示例值：true
-      */
+    /**
+     * 是否继承
+     * <p> 示例值：true
+     */
     @SerializedName("is_inherit")
     private Boolean isInherit;
-     /**
-      * 默认成本中心
-      * <p> 示例值：
-      */
+    /**
+     * 默认成本中心
+     * <p> 示例值：
+     */
     @SerializedName("cost_center_id")
     private CostCenterId costCenterId;
+
+    // builder 开始
+    public DefaultCostCenterRecord() {
+    }
+
+    public DefaultCostCenterRecord(Builder builder) {
+        /**
+         * 变更原因
+         * <p> 示例值：默认成本中心变更
+         */
+        this.reason = builder.reason;
+        /**
+         * 是否继承
+         * <p> 示例值：true
+         */
+        this.isInherit = builder.isInherit;
+        /**
+         * 默认成本中心
+         * <p> 示例值：
+         */
+        this.costCenterId = builder.costCenterId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getReason() {
         return this.reason;
     }
@@ -67,90 +98,64 @@ public class DefaultCostCenterRecord {
         this.costCenterId = costCenterId;
     }
 
-
-// builder 开始
-  public DefaultCostCenterRecord(){}
-
-  public DefaultCostCenterRecord(Builder builder){
-         /**
-          * 变更原因
-          * <p> 示例值：默认成本中心变更
-          */
-      this.reason = builder.reason;
-         /**
-          * 是否继承
-          * <p> 示例值：true
-          */
-      this.isInherit = builder.isInherit;
-         /**
-          * 默认成本中心
-          * <p> 示例值：
-          */
-      this.costCenterId = builder.costCenterId;
-  }
-
     public static class Builder {
-     /**
-      * 变更原因
-      * <p> 示例值：默认成本中心变更
-      */
+        /**
+         * 变更原因
+         * <p> 示例值：默认成本中心变更
+         */
         private String reason;
-     /**
-      * 是否继承
-      * <p> 示例值：true
-      */
+        /**
+         * 是否继承
+         * <p> 示例值：true
+         */
         private Boolean isInherit;
-     /**
-      * 默认成本中心
-      * <p> 示例值：
-      */
+        /**
+         * 默认成本中心
+         * <p> 示例值：
+         */
         private CostCenterId costCenterId;
 
         /**
          * 变更原因
          * <p> 示例值：默认成本中心变更
+         *
          * @param reason
          * @return
          */
         public Builder reason(String reason) {
-             this.reason = reason;
-             return this;
+            this.reason = reason;
+            return this;
         }
 
-    
 
         /**
          * 是否继承
          * <p> 示例值：true
+         *
          * @param isInherit
          * @return
          */
         public Builder isInherit(Boolean isInherit) {
-             this.isInherit = isInherit;
-             return this;
+            this.isInherit = isInherit;
+            return this;
         }
 
-    
 
         /**
          * 默认成本中心
          * <p> 示例值：
+         *
          * @param costCenterId
          * @return
          */
         public Builder costCenterId(CostCenterId costCenterId) {
-             this.costCenterId = costCenterId;
-             return this;
+            this.costCenterId = costCenterId;
+            return this;
         }
 
-    
-    
-    public DefaultCostCenterRecord build(){
-        return new DefaultCostCenterRecord(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public DefaultCostCenterRecord build() {
+            return new DefaultCostCenterRecord(this);
+        }
     }
 }

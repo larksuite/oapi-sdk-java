@@ -17,16 +17,17 @@ package com.lark.oapi.service.attendance.v1.enums;
  * 结算方式
  */
 public enum OvertimeDetailOvertimeSettleTypeEnum {
-     OVERTIMESETTLETYPEONLYRECORD(0), // 仅记录
-     OVERTIMESETTLETYPECOMPENSATORYLEAVE(1), // 调休假
-     OVERTIMESETTLETYPECASH(2), // 加班费
-  ;
-   private Integer value;
+    OVERTIMESETTLETYPEONLYRECORD(0), // 仅记录
+    OVERTIMESETTLETYPECOMPENSATORYLEAVE(1), // 调休假
+    OVERTIMESETTLETYPECASH(2), // 加班费
+    ;
+    private Integer value;
+
     OvertimeDetailOvertimeSettleTypeEnum(Integer value) {
-      this.value = value;
+        this.value = value;
     }
 
     public Integer getValue() {
-      return this.value;
+        return this.value;
     }
 }

@@ -17,16 +17,17 @@ package com.lark.oapi.service.performance.v2.enums;
  * 字段填写方式设置
  */
 public enum MetricFieldInTemplateInputSettingEnum {
-     ADMIN("admin"), // 管理员统一配置
-     DATA_SOURCE_INPUTTER("data_source_inputter"), // 数据源录入人填写
-     REVIEWEE("reviewee"), // 被评估人填写
-  ;
-   private String value;
+    ADMIN("admin"), // 管理员统一配置
+    DATA_SOURCE_INPUTTER("data_source_inputter"), // 数据源录入人填写
+    REVIEWEE("reviewee"), // 指标制定人填写
+    ;
+    private String value;
+
     MetricFieldInTemplateInputSettingEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

@@ -12,53 +12,94 @@
  */
 
 package com.lark.oapi.service.payroll.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.payroll.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ListPaymentActivityReq {
-     /**
-      * 发薪日开始时间，格式：YYYY-MM-dd，[pay_period_start_date, pay_period_end_date] 是一个左闭右闭区间。
-      * <p> 示例值：2024-01-01
-      */
+    /**
+     * 发薪日开始时间，格式：YYYY-MM-dd，[pay_period_start_date, pay_period_end_date] 是一个左闭右闭区间。
+     * <p> 示例值：2024-01-01
+     */
     @Query
     @SerializedName("pay_period_start_date")
     private String payPeriodStartDate;
-     /**
-      * 发薪日结束时间，格式：YYYY-MM-dd，[pay_period_start_date, pay_period_end_date] 是一个左闭右闭区间。
-      * <p> 示例值：2024-01-31
-      */
+    /**
+     * 发薪日结束时间，格式：YYYY-MM-dd，[pay_period_start_date, pay_period_end_date] 是一个左闭右闭区间。
+     * <p> 示例值：2024-01-31
+     */
     @Query
     @SerializedName("pay_period_end_date")
     private String payPeriodEndDate;
-     /**
-      * 分页大小，传值范围为 [1, 100]
-      * <p> 示例值：
-      */
+    /**
+     * 分页大小，传值范围为 [1, 100]
+     * <p> 示例值：
+     */
     @Query
     @SerializedName("page_size")
     private Integer pageSize;
-     /**
-      * 分页标记,第一次请求不填,表示从头开始遍 历;分页查询结果还有更多项时会同时返回新 的page_token,下次遍历可采用该 page_token获取查询结果
-      * <p> 示例值：
-      */
+    /**
+     * 分页标记,第一次请求不填,表示从头开始遍 历;分页查询结果还有更多项时会同时返回新 的page_token,下次遍历可采用该 page_token获取查询结果
+     * <p> 示例值：
+     */
     @Query
     @SerializedName("page_token")
     private String pageToken;
-     /**
-      * 发薪活动审批状态列表，其中：100-待确认发薪名单；150-待提交审批；200-审批中；300-审批被拒绝；350-审批被撤回；360-审批被撤销；375-审批通过；400-已封存。
-      * <p> 示例值：
-      */
+    /**
+     * 发薪活动审批状态列表，其中：100-待确认发薪名单；150-待提交审批；200-审批中；300-审批被拒绝；350-审批被撤回；360-审批被撤销；375-审批通过；400-已封存。
+     * <p> 示例值：
+     */
     @Query
     @SerializedName("statuses")
     private Integer[] statuses;
+
+    // builder 开始
+    public ListPaymentActivityReq() {
+    }
+
+    public ListPaymentActivityReq(Builder builder) {
+        /**
+         * 发薪日开始时间，格式：YYYY-MM-dd，[pay_period_start_date, pay_period_end_date] 是一个左闭右闭区间。
+         * <p> 示例值：2024-01-01
+         */
+        this.payPeriodStartDate = builder.payPeriodStartDate;
+        /**
+         * 发薪日结束时间，格式：YYYY-MM-dd，[pay_period_start_date, pay_period_end_date] 是一个左闭右闭区间。
+         * <p> 示例值：2024-01-31
+         */
+        this.payPeriodEndDate = builder.payPeriodEndDate;
+        /**
+         * 分页大小，传值范围为 [1, 100]
+         * <p> 示例值：
+         */
+        this.pageSize = builder.pageSize;
+        /**
+         * 分页标记,第一次请求不填,表示从头开始遍 历;分页查询结果还有更多项时会同时返回新 的page_token,下次遍历可采用该 page_token获取查询结果
+         * <p> 示例值：
+         */
+        this.pageToken = builder.pageToken;
+        /**
+         * 发薪活动审批状态列表，其中：100-待确认发薪名单；150-待提交审批；200-审批中；300-审批被拒绝；350-审批被撤回；360-审批被撤销；375-审批通过；400-已封存。
+         * <p> 示例值：
+         */
+        this.statuses = builder.statuses;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getPayPeriodStartDate() {
         return this.payPeriodStartDate;
     }
@@ -99,111 +140,80 @@ public class ListPaymentActivityReq {
         this.statuses = statuses;
     }
 
-
-// builder 开始
-  public ListPaymentActivityReq(){}
-
-  public ListPaymentActivityReq(Builder builder){
-         /**
-          * 发薪日开始时间，格式：YYYY-MM-dd，[pay_period_start_date, pay_period_end_date] 是一个左闭右闭区间。
-          * <p> 示例值：2024-01-01
-          */
-       this.payPeriodStartDate = builder.payPeriodStartDate;
-         /**
-          * 发薪日结束时间，格式：YYYY-MM-dd，[pay_period_start_date, pay_period_end_date] 是一个左闭右闭区间。
-          * <p> 示例值：2024-01-31
-          */
-       this.payPeriodEndDate = builder.payPeriodEndDate;
-         /**
-          * 分页大小，传值范围为 [1, 100]
-          * <p> 示例值：
-          */
-       this.pageSize = builder.pageSize;
-         /**
-          * 分页标记,第一次请求不填,表示从头开始遍 历;分页查询结果还有更多项时会同时返回新 的page_token,下次遍历可采用该 page_token获取查询结果
-          * <p> 示例值：
-          */
-       this.pageToken = builder.pageToken;
-         /**
-          * 发薪活动审批状态列表，其中：100-待确认发薪名单；150-待提交审批；200-审批中；300-审批被拒绝；350-审批被撤回；360-审批被撤销；375-审批通过；400-已封存。
-          * <p> 示例值：
-          */
-       this.statuses = builder.statuses;
-  }
-
     public static class Builder {
         private String payPeriodStartDate; // 发薪日开始时间，格式：YYYY-MM-dd，[pay_period_start_date, pay_period_end_date] 是一个左闭右闭区间。
         private String payPeriodEndDate; // 发薪日结束时间，格式：YYYY-MM-dd，[pay_period_start_date, pay_period_end_date] 是一个左闭右闭区间。
         private Integer pageSize; // 分页大小，传值范围为 [1, 100]
         private String pageToken; // 分页标记,第一次请求不填,表示从头开始遍 历;分页查询结果还有更多项时会同时返回新 的page_token,下次遍历可采用该 page_token获取查询结果
         private Integer[] statuses; // 发薪活动审批状态列表，其中：100-待确认发薪名单；150-待提交审批；200-审批中；300-审批被拒绝；350-审批被撤回；360-审批被撤销；375-审批通过；400-已封存。
-    
+
         /**
          * 发薪日开始时间，格式：YYYY-MM-dd，[pay_period_start_date, pay_period_end_date] 是一个左闭右闭区间。
          * <p> 示例值：2024-01-01
+         *
          * @param payPeriodStartDate
          * @return
          */
-           public Builder payPeriodStartDate(String payPeriodStartDate) {
-                this.payPeriodStartDate = payPeriodStartDate;
-                return this;
-           }
+        public Builder payPeriodStartDate(String payPeriodStartDate) {
+            this.payPeriodStartDate = payPeriodStartDate;
+            return this;
+        }
 
-    
+
         /**
          * 发薪日结束时间，格式：YYYY-MM-dd，[pay_period_start_date, pay_period_end_date] 是一个左闭右闭区间。
          * <p> 示例值：2024-01-31
+         *
          * @param payPeriodEndDate
          * @return
          */
-           public Builder payPeriodEndDate(String payPeriodEndDate) {
-                this.payPeriodEndDate = payPeriodEndDate;
-                return this;
-           }
+        public Builder payPeriodEndDate(String payPeriodEndDate) {
+            this.payPeriodEndDate = payPeriodEndDate;
+            return this;
+        }
 
-    
+
         /**
          * 分页大小，传值范围为 [1, 100]
          * <p> 示例值：
+         *
          * @param pageSize
          * @return
          */
-           public Builder pageSize(Integer pageSize) {
-                this.pageSize = pageSize;
-                return this;
-           }
+        public Builder pageSize(Integer pageSize) {
+            this.pageSize = pageSize;
+            return this;
+        }
 
-    
+
         /**
          * 分页标记,第一次请求不填,表示从头开始遍 历;分页查询结果还有更多项时会同时返回新 的page_token,下次遍历可采用该 page_token获取查询结果
          * <p> 示例值：
+         *
          * @param pageToken
          * @return
          */
-           public Builder pageToken(String pageToken) {
-                this.pageToken = pageToken;
-                return this;
-           }
+        public Builder pageToken(String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+        }
 
-    
+
         /**
          * 发薪活动审批状态列表，其中：100-待确认发薪名单；150-待提交审批；200-审批中；300-审批被拒绝；350-审批被撤回；360-审批被撤销；375-审批通过；400-已封存。
          * <p> 示例值：
+         *
          * @param statuses
          * @return
          */
-           public Builder statuses(Integer[] statuses) {
-                this.statuses = statuses;
-                return this;
-           }
+        public Builder statuses(Integer[] statuses) {
+            this.statuses = statuses;
+            return this;
+        }
 
-    
-    public ListPaymentActivityReq build(){
-        return new ListPaymentActivityReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ListPaymentActivityReq build() {
+            return new ListPaymentActivityReq(this);
+        }
     }
 }

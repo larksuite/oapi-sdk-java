@@ -12,36 +12,67 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class TalentInterviewRegistrationSimple {
-     /**
-      * ID
-      * <p> 示例值：6833685612520950030
-      */
+    /**
+     * ID
+     * <p> 示例值：6833685612520950030
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 创建时间
-      * <p> 示例值：1618494330932
-      */
+    /**
+     * 创建时间
+     * <p> 示例值：1618494330932
+     */
     @SerializedName("registration_time")
     private Long registrationTime;
-     /**
-      * 下载链接
-      * <p> 示例值：https://hire.feishu.cn/hire/file/blob/...token.../
-      */
+    /**
+     * 下载链接
+     * <p> 示例值：https://hire.feishu.cn/hire/file/blob/...token.../
+     */
     @SerializedName("download_url")
     private String downloadUrl;
+
+    // builder 开始
+    public TalentInterviewRegistrationSimple() {
+    }
+
+    public TalentInterviewRegistrationSimple(Builder builder) {
+        /**
+         * ID
+         * <p> 示例值：6833685612520950030
+         */
+        this.id = builder.id;
+        /**
+         * 创建时间
+         * <p> 示例值：1618494330932
+         */
+        this.registrationTime = builder.registrationTime;
+        /**
+         * 下载链接
+         * <p> 示例值：https://hire.feishu.cn/hire/file/blob/...token.../
+         */
+        this.downloadUrl = builder.downloadUrl;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -66,90 +97,64 @@ public class TalentInterviewRegistrationSimple {
         this.downloadUrl = downloadUrl;
     }
 
-
-// builder 开始
-  public TalentInterviewRegistrationSimple(){}
-
-  public TalentInterviewRegistrationSimple(Builder builder){
-         /**
-          * ID
-          * <p> 示例值：6833685612520950030
-          */
-      this.id = builder.id;
-         /**
-          * 创建时间
-          * <p> 示例值：1618494330932
-          */
-      this.registrationTime = builder.registrationTime;
-         /**
-          * 下载链接
-          * <p> 示例值：https://hire.feishu.cn/hire/file/blob/...token.../
-          */
-      this.downloadUrl = builder.downloadUrl;
-  }
-
     public static class Builder {
-     /**
-      * ID
-      * <p> 示例值：6833685612520950030
-      */
+        /**
+         * ID
+         * <p> 示例值：6833685612520950030
+         */
         private String id;
-     /**
-      * 创建时间
-      * <p> 示例值：1618494330932
-      */
+        /**
+         * 创建时间
+         * <p> 示例值：1618494330932
+         */
         private Long registrationTime;
-     /**
-      * 下载链接
-      * <p> 示例值：https://hire.feishu.cn/hire/file/blob/...token.../
-      */
+        /**
+         * 下载链接
+         * <p> 示例值：https://hire.feishu.cn/hire/file/blob/...token.../
+         */
         private String downloadUrl;
 
         /**
          * ID
          * <p> 示例值：6833685612520950030
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 创建时间
          * <p> 示例值：1618494330932
+         *
          * @param registrationTime
          * @return
          */
         public Builder registrationTime(Long registrationTime) {
-             this.registrationTime = registrationTime;
-             return this;
+            this.registrationTime = registrationTime;
+            return this;
         }
 
-    
 
         /**
          * 下载链接
          * <p> 示例值：https://hire.feishu.cn/hire/file/blob/...token.../
+         *
          * @param downloadUrl
          * @return
          */
         public Builder downloadUrl(String downloadUrl) {
-             this.downloadUrl = downloadUrl;
-             return this;
+            this.downloadUrl = downloadUrl;
+            return this;
         }
 
-    
-    
-    public TalentInterviewRegistrationSimple build(){
-        return new TalentInterviewRegistrationSimple(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public TalentInterviewRegistrationSimple build() {
+            return new TalentInterviewRegistrationSimple(this);
+        }
     }
 }

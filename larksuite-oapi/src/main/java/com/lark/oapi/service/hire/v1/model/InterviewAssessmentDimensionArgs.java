@@ -12,24 +12,45 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class InterviewAssessmentDimensionArgs {
-     /**
-      * 选项列表
-      * <p> 示例值：
-      */
+    /**
+     * 选项列表
+     * <p> 示例值：
+     */
     @SerializedName("score_list")
     private InterviewAssessmentDimensionArgsScore[] scoreList;
+
+    // builder 开始
+    public InterviewAssessmentDimensionArgs() {
+    }
+
+    public InterviewAssessmentDimensionArgs(Builder builder) {
+        /**
+         * 选项列表
+         * <p> 示例值：
+         */
+        this.scoreList = builder.scoreList;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public InterviewAssessmentDimensionArgsScore[] getScoreList() {
         return this.scoreList;
     }
@@ -38,44 +59,28 @@ public class InterviewAssessmentDimensionArgs {
         this.scoreList = scoreList;
     }
 
-
-// builder 开始
-  public InterviewAssessmentDimensionArgs(){}
-
-  public InterviewAssessmentDimensionArgs(Builder builder){
-         /**
-          * 选项列表
-          * <p> 示例值：
-          */
-      this.scoreList = builder.scoreList;
-  }
-
     public static class Builder {
-     /**
-      * 选项列表
-      * <p> 示例值：
-      */
+        /**
+         * 选项列表
+         * <p> 示例值：
+         */
         private InterviewAssessmentDimensionArgsScore[] scoreList;
 
         /**
          * 选项列表
          * <p> 示例值：
+         *
          * @param scoreList
          * @return
          */
         public Builder scoreList(InterviewAssessmentDimensionArgsScore[] scoreList) {
-             this.scoreList = scoreList;
-             return this;
+            this.scoreList = scoreList;
+            return this;
         }
 
-    
-    
-    public InterviewAssessmentDimensionArgs build(){
-        return new InterviewAssessmentDimensionArgs(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public InterviewAssessmentDimensionArgs build() {
+            return new InterviewAssessmentDimensionArgs(this);
+        }
     }
 }

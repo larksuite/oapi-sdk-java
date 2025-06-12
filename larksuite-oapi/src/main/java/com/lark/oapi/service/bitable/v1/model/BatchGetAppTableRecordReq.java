@@ -12,32 +12,61 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class BatchGetAppTableRecordReq {
-     /**
-      * 表格token
-      * <p> 示例值：NQRxbRkBMa6OnZsjtERcxhNWnNh
-      */
+    /**
+     * 表格token
+     * <p> 示例值：NQRxbRkBMa6OnZsjtERcxhNWnNh
+     */
     @Path
     @SerializedName("app_token")
     private String appToken;
-     /**
-      * 表格id
-      * <p> 示例值：tbl0xe5g8PP3U3cS
-      */
+    /**
+     * 表格id
+     * <p> 示例值：tbl0xe5g8PP3U3cS
+     */
     @Path
     @SerializedName("table_id")
     private String tableId;
+    @Body
+    private BatchGetAppTableRecordReqBody body;
+
+    // builder 开始
+    public BatchGetAppTableRecordReq() {
+    }
+
+    public BatchGetAppTableRecordReq(Builder builder) {
+        /**
+         * 表格token
+         * <p> 示例值：NQRxbRkBMa6OnZsjtERcxhNWnNh
+         */
+        this.appToken = builder.appToken;
+        /**
+         * 表格id
+         * <p> 示例值：tbl0xe5g8PP3U3cS
+         */
+        this.tableId = builder.tableId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getAppToken() {
         return this.appToken;
     }
@@ -54,9 +83,6 @@ public class BatchGetAppTableRecordReq {
         this.tableId = tableId;
     }
 
-    @Body
-    private BatchGetAppTableRecordReqBody body;
-
     public BatchGetAppTableRecordReqBody getBatchGetAppTableRecordReqBody() {
         return this.body;
     }
@@ -65,72 +91,53 @@ public class BatchGetAppTableRecordReq {
         this.body = body;
     }
 
-// builder 开始
-  public BatchGetAppTableRecordReq(){}
-
-  public BatchGetAppTableRecordReq(Builder builder){
-     /**
-      * 表格token
-      * <p> 示例值：NQRxbRkBMa6OnZsjtERcxhNWnNh
-      */
-       this.appToken = builder.appToken;
-     /**
-      * 表格id
-      * <p> 示例值：tbl0xe5g8PP3U3cS
-      */
-       this.tableId = builder.tableId;
-        this.body = builder.body;
-  }
-
     public static class Builder {
-    
+
         private String appToken; // 表格token
         private String tableId; // 表格id
+        private BatchGetAppTableRecordReqBody body;
+
         /**
          * 表格token
          * <p> 示例值：NQRxbRkBMa6OnZsjtERcxhNWnNh
+         *
          * @param appToken
          * @return
          */
-          public Builder appToken(String appToken) {
-               this.appToken = appToken;
-               return this;
-          }
+        public Builder appToken(String appToken) {
+            this.appToken = appToken;
+            return this;
+        }
 
-    
         /**
          * 表格id
          * <p> 示例值：tbl0xe5g8PP3U3cS
+         *
          * @param tableId
          * @return
          */
-          public Builder tableId(String tableId) {
-               this.tableId = tableId;
-               return this;
-          }
+        public Builder tableId(String tableId) {
+            this.tableId = tableId;
+            return this;
+        }
 
-    
-        private BatchGetAppTableRecordReqBody body;
-    
         public BatchGetAppTableRecordReqBody getBatchGetAppTableRecordReqBody() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder batchGetAppTableRecordReqBody(BatchGetAppTableRecordReqBody body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public BatchGetAppTableRecordReq build(){
-        return new BatchGetAppTableRecordReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public BatchGetAppTableRecordReq build() {
+            return new BatchGetAppTableRecordReq(this);
+        }
     }
 }

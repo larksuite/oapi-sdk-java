@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.compensation.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.compensation.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class StandardReferenceObject {
-     /**
-      * ID值，详细信息可以通过接口查询[批量查询薪资项](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/item/list)， [批量查询薪资统计指标](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/indicator/list)
-      * <p> 示例值：7475986561660372524
-      */
+    /**
+     * ID值，详细信息可以通过接口查询[批量查询薪资项](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/item/list)， [批量查询薪资统计指标](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/indicator/list)
+     * <p> 示例值：7475986561660372524
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 资源名，薪资项目："cpst_item"，薪资指标: "cpst_indicator"
-      * <p> 示例值：cpst_indicator
-      */
+    /**
+     * 资源名，薪资项目："cpst_item"，薪资指标: "cpst_indicator"
+     * <p> 示例值：cpst_indicator
+     */
     @SerializedName("api_name")
     private String apiName;
+
+    // builder 开始
+    public StandardReferenceObject() {
+    }
+
+    public StandardReferenceObject(Builder builder) {
+        /**
+         * ID值，详细信息可以通过接口查询[批量查询薪资项](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/item/list)， [批量查询薪资统计指标](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/indicator/list)
+         * <p> 示例值：7475986561660372524
+         */
+        this.id = builder.id;
+        /**
+         * 资源名，薪资项目："cpst_item"，薪资指标: "cpst_indicator"
+         * <p> 示例值：cpst_indicator
+         */
+        this.apiName = builder.apiName;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -53,77 +79,58 @@ public class StandardReferenceObject {
         this.apiName = apiName;
     }
 
-
-// builder 开始
-  public StandardReferenceObject(){}
-
-  public StandardReferenceObject(Builder builder){
-         /**
-          * ID值，详细信息可以通过接口查询[批量查询薪资项](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/item/list)， [批量查询薪资统计指标](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/indicator/list)
-          * <p> 示例值：7475986561660372524
-          */
-      this.id = builder.id;
-         /**
-          * 资源名，薪资项目："cpst_item"，薪资指标: "cpst_indicator"
-          * <p> 示例值：cpst_indicator
-          */
-      this.apiName = builder.apiName;
-  }
-
     public static class Builder {
-     /**
-      * ID值，详细信息可以通过接口查询[批量查询薪资项](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/item/list)， [批量查询薪资统计指标](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/indicator/list)
-      * <p> 示例值：7475986561660372524
-      */
+        /**
+         * ID值，详细信息可以通过接口查询[批量查询薪资项](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/item/list)， [批量查询薪资统计指标](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/indicator/list)
+         * <p> 示例值：7475986561660372524
+         */
         private String id;
-     /**
-      * 资源名，薪资项目："cpst_item"，薪资指标: "cpst_indicator"
-      * <p> 示例值：cpst_indicator
-      */
+        /**
+         * 资源名，薪资项目："cpst_item"，薪资指标: "cpst_indicator"
+         * <p> 示例值：cpst_indicator
+         */
         private String apiName;
 
         /**
          * ID值，详细信息可以通过接口查询[批量查询薪资项](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/item/list)， [批量查询薪资统计指标](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/indicator/list)
          * <p> 示例值：7475986561660372524
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 资源名，薪资项目："cpst_item"，薪资指标: "cpst_indicator"
          * <p> 示例值：cpst_indicator
+         *
          * @param apiName
          * @return
          */
         public Builder apiName(String apiName) {
-             this.apiName = apiName;
-             return this;
+            this.apiName = apiName;
+            return this;
         }
+
         /**
          * 资源名，薪资项目："cpst_item"，薪资指标: "cpst_indicator"
          * <p> 示例值：cpst_indicator
+         *
          * @param apiName {@link com.lark.oapi.service.compensation.v1.enums.StandardReferenceObjectApiNameEnum}
          * @return
          */
         public Builder apiName(com.lark.oapi.service.compensation.v1.enums.StandardReferenceObjectApiNameEnum apiName) {
-             this.apiName = apiName.getValue();
-             return this;
+            this.apiName = apiName.getValue();
+            return this;
         }
 
-    
-    
-    public StandardReferenceObject build(){
-        return new StandardReferenceObject(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public StandardReferenceObject build() {
+            return new StandardReferenceObject(this);
+        }
     }
 }

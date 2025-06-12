@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CreateEmpCustomOrg {
-     /**
-      * 自定义组织ID
-      * <p> 示例值：7260357352426782739
-      */
+    /**
+     * 自定义组织ID
+     * <p> 示例值：7260357352426782739
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 比例 如果是非比例的可不填写
-      * <p> 示例值：50.1
-      */
+    /**
+     * 比例 如果是非比例的可不填写
+     * <p> 示例值：50.1
+     */
     @SerializedName("rate")
     private Double rate;
+
+    // builder 开始
+    public CreateEmpCustomOrg() {
+    }
+
+    public CreateEmpCustomOrg(Builder builder) {
+        /**
+         * 自定义组织ID
+         * <p> 示例值：7260357352426782739
+         */
+        this.id = builder.id;
+        /**
+         * 比例 如果是非比例的可不填写
+         * <p> 示例值：50.1
+         */
+        this.rate = builder.rate;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -53,67 +79,46 @@ public class CreateEmpCustomOrg {
         this.rate = rate;
     }
 
-
-// builder 开始
-  public CreateEmpCustomOrg(){}
-
-  public CreateEmpCustomOrg(Builder builder){
-         /**
-          * 自定义组织ID
-          * <p> 示例值：7260357352426782739
-          */
-      this.id = builder.id;
-         /**
-          * 比例 如果是非比例的可不填写
-          * <p> 示例值：50.1
-          */
-      this.rate = builder.rate;
-  }
-
     public static class Builder {
-     /**
-      * 自定义组织ID
-      * <p> 示例值：7260357352426782739
-      */
+        /**
+         * 自定义组织ID
+         * <p> 示例值：7260357352426782739
+         */
         private String id;
-     /**
-      * 比例 如果是非比例的可不填写
-      * <p> 示例值：50.1
-      */
+        /**
+         * 比例 如果是非比例的可不填写
+         * <p> 示例值：50.1
+         */
         private Double rate;
 
         /**
          * 自定义组织ID
          * <p> 示例值：7260357352426782739
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 比例 如果是非比例的可不填写
          * <p> 示例值：50.1
+         *
          * @param rate
          * @return
          */
         public Builder rate(Double rate) {
-             this.rate = rate;
-             return this;
+            this.rate = rate;
+            return this;
         }
 
-    
-    
-    public CreateEmpCustomOrg build(){
-        return new CreateEmpCustomOrg(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public CreateEmpCustomOrg build() {
+            return new CreateEmpCustomOrg(this);
+        }
     }
 }

@@ -17,15 +17,16 @@ package com.lark.oapi.service.performance.v2.enums;
  * 人员组查看人员名单可见性配置
  */
 public enum WriteUserGroupUserRelScopeVisibleSettingEnum {
-     NOT_LIMIT(0), // 无限制
-     BACKEND_ADMIN_NOT_VISIBLE(1), // 后台管理员不可见
-  ;
-   private Integer value;
+    NOT_LIMIT(0), // 无限制
+    BACKEND_ADMIN_NOT_VISIBLE(1), // 后台管理员不可见
+    ;
+    private Integer value;
+
     WriteUserGroupUserRelScopeVisibleSettingEnum(Integer value) {
-      this.value = value;
+        this.value = value;
     }
 
     public Integer getValue() {
-      return this.value;
+        return this.value;
     }
 }

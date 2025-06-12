@@ -12,24 +12,45 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class EnableReferralAccountReqBody {
-     /**
-      * 账户 ID
-      * <p> 示例值：6942778198054125570
-      */
+    /**
+     * 账户 ID
+     * <p> 示例值：6942778198054125570
+     */
     @SerializedName("referral_account_id")
     private String referralAccountId;
+
+    // builder 开始
+    public EnableReferralAccountReqBody() {
+    }
+
+    public EnableReferralAccountReqBody(Builder builder) {
+        /**
+         * 账户 ID
+         * <p> 示例值：6942778198054125570
+         */
+        this.referralAccountId = builder.referralAccountId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getReferralAccountId() {
         return this.referralAccountId;
     }
@@ -38,44 +59,28 @@ public class EnableReferralAccountReqBody {
         this.referralAccountId = referralAccountId;
     }
 
-
-// builder 开始
-  public EnableReferralAccountReqBody(){}
-
-  public EnableReferralAccountReqBody(Builder builder){
-         /**
-          * 账户 ID
-          * <p> 示例值：6942778198054125570
-          */
-      this.referralAccountId = builder.referralAccountId;
-  }
-
     public static class Builder {
-     /**
-      * 账户 ID
-      * <p> 示例值：6942778198054125570
-      */
+        /**
+         * 账户 ID
+         * <p> 示例值：6942778198054125570
+         */
         private String referralAccountId;
 
         /**
          * 账户 ID
          * <p> 示例值：6942778198054125570
+         *
          * @param referralAccountId
          * @return
          */
         public Builder referralAccountId(String referralAccountId) {
-             this.referralAccountId = referralAccountId;
-             return this;
+            this.referralAccountId = referralAccountId;
+            return this;
         }
 
-    
-    
-    public EnableReferralAccountReqBody build(){
-        return new EnableReferralAccountReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public EnableReferralAccountReqBody build() {
+            return new EnableReferralAccountReqBody(this);
+        }
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.performance.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.performance.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class OkrProgressRate {
-     /**
-      * 进度百分比 >= 0
-      * <p> 示例值：30
-      */
+    /**
+     * 进度百分比 >= 0
+     * <p> 示例值：30
+     */
     @SerializedName("percent")
     private Integer percent;
-     /**
-      * 进度状态:"-1" 暂无"0" 正常"1" 风险"2" 延期
-      * <p> 示例值：0
-      */
+    /**
+     * 进度状态:"-1" 暂无"0" 正常"1" 风险"2" 延期
+     * <p> 示例值：0
+     */
     @SerializedName("status")
     private String status;
+
+    // builder 开始
+    public OkrProgressRate() {
+    }
+
+    public OkrProgressRate(Builder builder) {
+        /**
+         * 进度百分比 >= 0
+         * <p> 示例值：30
+         */
+        this.percent = builder.percent;
+        /**
+         * 进度状态:"-1" 暂无"0" 正常"1" 风险"2" 延期
+         * <p> 示例值：0
+         */
+        this.status = builder.status;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Integer getPercent() {
         return this.percent;
     }
@@ -53,67 +79,46 @@ public class OkrProgressRate {
         this.status = status;
     }
 
-
-// builder 开始
-  public OkrProgressRate(){}
-
-  public OkrProgressRate(Builder builder){
-         /**
-          * 进度百分比 >= 0
-          * <p> 示例值：30
-          */
-      this.percent = builder.percent;
-         /**
-          * 进度状态:"-1" 暂无"0" 正常"1" 风险"2" 延期
-          * <p> 示例值：0
-          */
-      this.status = builder.status;
-  }
-
     public static class Builder {
-     /**
-      * 进度百分比 >= 0
-      * <p> 示例值：30
-      */
+        /**
+         * 进度百分比 >= 0
+         * <p> 示例值：30
+         */
         private Integer percent;
-     /**
-      * 进度状态:"-1" 暂无"0" 正常"1" 风险"2" 延期
-      * <p> 示例值：0
-      */
+        /**
+         * 进度状态:"-1" 暂无"0" 正常"1" 风险"2" 延期
+         * <p> 示例值：0
+         */
         private String status;
 
         /**
          * 进度百分比 >= 0
          * <p> 示例值：30
+         *
          * @param percent
          * @return
          */
         public Builder percent(Integer percent) {
-             this.percent = percent;
-             return this;
+            this.percent = percent;
+            return this;
         }
 
-    
 
         /**
          * 进度状态:"-1" 暂无"0" 正常"1" 风险"2" 延期
          * <p> 示例值：0
+         *
          * @param status
          * @return
          */
         public Builder status(String status) {
-             this.status = status;
-             return this;
+            this.status = status;
+            return this;
         }
 
-    
-    
-    public OkrProgressRate build(){
-        return new OkrProgressRate(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public OkrProgressRate build() {
+            return new OkrProgressRate(this);
+        }
     }
 }

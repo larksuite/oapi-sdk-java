@@ -17,14 +17,15 @@ package com.lark.oapi.service.cardkit.v1.enums;
  * 卡片数据的类型
  */
 public enum CardTypeEnum {
-     CARD_JSON("card_json"), // 卡片JSON
-  ;
-   private String value;
+    CARD_JSON("card_json"), // 卡片JSON
+    ;
+    private String value;
+
     CardTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

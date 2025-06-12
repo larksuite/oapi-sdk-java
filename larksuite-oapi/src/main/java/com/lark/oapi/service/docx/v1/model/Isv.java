@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.docx.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.docx.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Isv {
-     /**
-      * 团队互动应用唯一ID
-      * <p> 示例值：7056882725002051603
-      */
+    /**
+     * 团队互动应用唯一ID
+     * <p> 示例值：7056882725002051603
+     */
     @SerializedName("component_id")
     private String componentId;
-     /**
-      * 团队互动应用类型，比如信息收集"blk_5f992038c64240015d280958"
-      * <p> 示例值：blk_5f992038c64240015d280958
-      */
+    /**
+     * 团队互动应用类型，比如信息收集"blk_5f992038c64240015d280958"
+     * <p> 示例值：blk_5f992038c64240015d280958
+     */
     @SerializedName("component_type_id")
     private String componentTypeId;
+
+    // builder 开始
+    public Isv() {
+    }
+
+    public Isv(Builder builder) {
+        /**
+         * 团队互动应用唯一ID
+         * <p> 示例值：7056882725002051603
+         */
+        this.componentId = builder.componentId;
+        /**
+         * 团队互动应用类型，比如信息收集"blk_5f992038c64240015d280958"
+         * <p> 示例值：blk_5f992038c64240015d280958
+         */
+        this.componentTypeId = builder.componentTypeId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getComponentId() {
         return this.componentId;
     }
@@ -53,67 +79,46 @@ public class Isv {
         this.componentTypeId = componentTypeId;
     }
 
-
-// builder 开始
-  public Isv(){}
-
-  public Isv(Builder builder){
-         /**
-          * 团队互动应用唯一ID
-          * <p> 示例值：7056882725002051603
-          */
-      this.componentId = builder.componentId;
-         /**
-          * 团队互动应用类型，比如信息收集"blk_5f992038c64240015d280958"
-          * <p> 示例值：blk_5f992038c64240015d280958
-          */
-      this.componentTypeId = builder.componentTypeId;
-  }
-
     public static class Builder {
-     /**
-      * 团队互动应用唯一ID
-      * <p> 示例值：7056882725002051603
-      */
+        /**
+         * 团队互动应用唯一ID
+         * <p> 示例值：7056882725002051603
+         */
         private String componentId;
-     /**
-      * 团队互动应用类型，比如信息收集"blk_5f992038c64240015d280958"
-      * <p> 示例值：blk_5f992038c64240015d280958
-      */
+        /**
+         * 团队互动应用类型，比如信息收集"blk_5f992038c64240015d280958"
+         * <p> 示例值：blk_5f992038c64240015d280958
+         */
         private String componentTypeId;
 
         /**
          * 团队互动应用唯一ID
          * <p> 示例值：7056882725002051603
+         *
          * @param componentId
          * @return
          */
         public Builder componentId(String componentId) {
-             this.componentId = componentId;
-             return this;
+            this.componentId = componentId;
+            return this;
         }
 
-    
 
         /**
          * 团队互动应用类型，比如信息收集"blk_5f992038c64240015d280958"
          * <p> 示例值：blk_5f992038c64240015d280958
+         *
          * @param componentTypeId
          * @return
          */
         public Builder componentTypeId(String componentTypeId) {
-             this.componentTypeId = componentTypeId;
-             return this;
+            this.componentTypeId = componentTypeId;
+            return this;
         }
 
-    
-    
-    public Isv build(){
-        return new Isv(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Isv build() {
+            return new Isv(this);
+        }
     }
 }

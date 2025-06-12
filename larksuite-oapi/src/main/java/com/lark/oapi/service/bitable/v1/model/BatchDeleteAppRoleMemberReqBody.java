@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class BatchDeleteAppRoleMemberReqBody {
-     /**
-      * 协作者列表
-      * <p> 示例值：
-      */
+    /**
+     * 协作者列表
+     * <p> 示例值：
+     */
     @SerializedName("member_list")
     private AppRoleMemberId[] memberList;
+
+    // builder 开始
+    public BatchDeleteAppRoleMemberReqBody() {
+    }
+
+    public BatchDeleteAppRoleMemberReqBody(Builder builder) {
+        /**
+         * 协作者列表
+         * <p> 示例值：
+         */
+        this.memberList = builder.memberList;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public AppRoleMemberId[] getMemberList() {
         return this.memberList;
     }
@@ -39,44 +60,28 @@ public class BatchDeleteAppRoleMemberReqBody {
         this.memberList = memberList;
     }
 
-
-// builder 开始
-  public BatchDeleteAppRoleMemberReqBody(){}
-
-  public BatchDeleteAppRoleMemberReqBody(Builder builder){
-         /**
-          * 协作者列表
-          * <p> 示例值：
-          */
-      this.memberList = builder.memberList;
-  }
-
     public static class Builder {
-     /**
-      * 协作者列表
-      * <p> 示例值：
-      */
+        /**
+         * 协作者列表
+         * <p> 示例值：
+         */
         private AppRoleMemberId[] memberList;
 
         /**
          * 协作者列表
          * <p> 示例值：
+         *
          * @param memberList
          * @return
          */
         public Builder memberList(AppRoleMemberId[] memberList) {
-             this.memberList = memberList;
-             return this;
+            this.memberList = memberList;
+            return this;
         }
 
-    
-    
-    public BatchDeleteAppRoleMemberReqBody build(){
-        return new BatchDeleteAppRoleMemberReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public BatchDeleteAppRoleMemberReqBody build() {
+            return new BatchDeleteAppRoleMemberReqBody(this);
+        }
     }
 }

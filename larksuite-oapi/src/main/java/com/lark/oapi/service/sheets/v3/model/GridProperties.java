@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.sheets.v3.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.sheets.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,36 +20,71 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class GridProperties {
-     /**
-      * 冻结的行数量
-      * <p> 示例值：0
-      */
+    /**
+     * 冻结的行数量
+     * <p> 示例值：0
+     */
     @SerializedName("frozen_row_count")
     private Integer frozenRowCount;
-     /**
-      * 冻结的列数量
-      * <p> 示例值：0
-      */
+    /**
+     * 冻结的列数量
+     * <p> 示例值：0
+     */
     @SerializedName("frozen_column_count")
     private Integer frozenColumnCount;
-     /**
-      * 工作表的行数
-      * <p> 示例值：200
-      */
+    /**
+     * 工作表的行数
+     * <p> 示例值：200
+     */
     @SerializedName("row_count")
     private Integer rowCount;
-     /**
-      * 工作表的列数量
-      * <p> 示例值：20
-      */
+    /**
+     * 工作表的列数量
+     * <p> 示例值：20
+     */
     @SerializedName("column_count")
     private Integer columnCount;
+
+    // builder 开始
+    public GridProperties() {
+    }
+
+    public GridProperties(Builder builder) {
+        /**
+         * 冻结的行数量
+         * <p> 示例值：0
+         */
+        this.frozenRowCount = builder.frozenRowCount;
+        /**
+         * 冻结的列数量
+         * <p> 示例值：0
+         */
+        this.frozenColumnCount = builder.frozenColumnCount;
+        /**
+         * 工作表的行数
+         * <p> 示例值：200
+         */
+        this.rowCount = builder.rowCount;
+        /**
+         * 工作表的列数量
+         * <p> 示例值：20
+         */
+        this.columnCount = builder.columnCount;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Integer getFrozenRowCount() {
         return this.frozenRowCount;
     }
@@ -81,113 +117,82 @@ public class GridProperties {
         this.columnCount = columnCount;
     }
 
-
-// builder 开始
-  public GridProperties(){}
-
-  public GridProperties(Builder builder){
-         /**
-          * 冻结的行数量
-          * <p> 示例值：0
-          */
-      this.frozenRowCount = builder.frozenRowCount;
-         /**
-          * 冻结的列数量
-          * <p> 示例值：0
-          */
-      this.frozenColumnCount = builder.frozenColumnCount;
-         /**
-          * 工作表的行数
-          * <p> 示例值：200
-          */
-      this.rowCount = builder.rowCount;
-         /**
-          * 工作表的列数量
-          * <p> 示例值：20
-          */
-      this.columnCount = builder.columnCount;
-  }
-
     public static class Builder {
-     /**
-      * 冻结的行数量
-      * <p> 示例值：0
-      */
+        /**
+         * 冻结的行数量
+         * <p> 示例值：0
+         */
         private Integer frozenRowCount;
-     /**
-      * 冻结的列数量
-      * <p> 示例值：0
-      */
+        /**
+         * 冻结的列数量
+         * <p> 示例值：0
+         */
         private Integer frozenColumnCount;
-     /**
-      * 工作表的行数
-      * <p> 示例值：200
-      */
+        /**
+         * 工作表的行数
+         * <p> 示例值：200
+         */
         private Integer rowCount;
-     /**
-      * 工作表的列数量
-      * <p> 示例值：20
-      */
+        /**
+         * 工作表的列数量
+         * <p> 示例值：20
+         */
         private Integer columnCount;
 
         /**
          * 冻结的行数量
          * <p> 示例值：0
+         *
          * @param frozenRowCount
          * @return
          */
         public Builder frozenRowCount(Integer frozenRowCount) {
-             this.frozenRowCount = frozenRowCount;
-             return this;
+            this.frozenRowCount = frozenRowCount;
+            return this;
         }
 
-    
 
         /**
          * 冻结的列数量
          * <p> 示例值：0
+         *
          * @param frozenColumnCount
          * @return
          */
         public Builder frozenColumnCount(Integer frozenColumnCount) {
-             this.frozenColumnCount = frozenColumnCount;
-             return this;
+            this.frozenColumnCount = frozenColumnCount;
+            return this;
         }
 
-    
 
         /**
          * 工作表的行数
          * <p> 示例值：200
+         *
          * @param rowCount
          * @return
          */
         public Builder rowCount(Integer rowCount) {
-             this.rowCount = rowCount;
-             return this;
+            this.rowCount = rowCount;
+            return this;
         }
 
-    
 
         /**
          * 工作表的列数量
          * <p> 示例值：20
+         *
          * @param columnCount
          * @return
          */
         public Builder columnCount(Integer columnCount) {
-             this.columnCount = columnCount;
-             return this;
+            this.columnCount = columnCount;
+            return this;
         }
 
-    
-    
-    public GridProperties build(){
-        return new GridProperties(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public GridProperties build() {
+            return new GridProperties(this);
+        }
     }
 }

@@ -23,12 +23,14 @@ public class HumanAuthenticationService {
     private final Identity identity; // 实名认证
 
     public HumanAuthenticationService(Config config) {
-    this.v1 = new V1(config);
-    this.identity = new Identity(config);
+        this.v1 = new V1(config);
+        this.identity = new Identity(config);
     }
+
     public V1 v1() {
         return v1;
     }
+
     public Identity identity() {
         return identity;
     }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.docx.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.docx.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class UpdateTaskRequest {
-     /**
-      * 任务 ID。该字段仅在首次更新 Task Block 时生效，更新成功后，后续请求中将忽略该字段。
-      * <p> 示例值：ba5040f4-8116-4042-ab3c-254e5cfe3ce7
-      */
+    /**
+     * 任务 ID。该字段仅在首次更新 Task Block 时生效，更新成功后，后续请求中将忽略该字段。
+     * <p> 示例值：ba5040f4-8116-4042-ab3c-254e5cfe3ce7
+     */
     @SerializedName("task_id")
     private String taskId;
-     /**
-      * 折叠状态，字段为空时不更新折叠状态
-      * <p> 示例值：false
-      */
+    /**
+     * 折叠状态，字段为空时不更新折叠状态
+     * <p> 示例值：false
+     */
     @SerializedName("folded")
     private Boolean folded;
+
+    // builder 开始
+    public UpdateTaskRequest() {
+    }
+
+    public UpdateTaskRequest(Builder builder) {
+        /**
+         * 任务 ID。该字段仅在首次更新 Task Block 时生效，更新成功后，后续请求中将忽略该字段。
+         * <p> 示例值：ba5040f4-8116-4042-ab3c-254e5cfe3ce7
+         */
+        this.taskId = builder.taskId;
+        /**
+         * 折叠状态，字段为空时不更新折叠状态
+         * <p> 示例值：false
+         */
+        this.folded = builder.folded;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getTaskId() {
         return this.taskId;
     }
@@ -53,67 +79,46 @@ public class UpdateTaskRequest {
         this.folded = folded;
     }
 
-
-// builder 开始
-  public UpdateTaskRequest(){}
-
-  public UpdateTaskRequest(Builder builder){
-         /**
-          * 任务 ID。该字段仅在首次更新 Task Block 时生效，更新成功后，后续请求中将忽略该字段。
-          * <p> 示例值：ba5040f4-8116-4042-ab3c-254e5cfe3ce7
-          */
-      this.taskId = builder.taskId;
-         /**
-          * 折叠状态，字段为空时不更新折叠状态
-          * <p> 示例值：false
-          */
-      this.folded = builder.folded;
-  }
-
     public static class Builder {
-     /**
-      * 任务 ID。该字段仅在首次更新 Task Block 时生效，更新成功后，后续请求中将忽略该字段。
-      * <p> 示例值：ba5040f4-8116-4042-ab3c-254e5cfe3ce7
-      */
+        /**
+         * 任务 ID。该字段仅在首次更新 Task Block 时生效，更新成功后，后续请求中将忽略该字段。
+         * <p> 示例值：ba5040f4-8116-4042-ab3c-254e5cfe3ce7
+         */
         private String taskId;
-     /**
-      * 折叠状态，字段为空时不更新折叠状态
-      * <p> 示例值：false
-      */
+        /**
+         * 折叠状态，字段为空时不更新折叠状态
+         * <p> 示例值：false
+         */
         private Boolean folded;
 
         /**
          * 任务 ID。该字段仅在首次更新 Task Block 时生效，更新成功后，后续请求中将忽略该字段。
          * <p> 示例值：ba5040f4-8116-4042-ab3c-254e5cfe3ce7
+         *
          * @param taskId
          * @return
          */
         public Builder taskId(String taskId) {
-             this.taskId = taskId;
-             return this;
+            this.taskId = taskId;
+            return this;
         }
 
-    
 
         /**
          * 折叠状态，字段为空时不更新折叠状态
          * <p> 示例值：false
+         *
          * @param folded
          * @return
          */
         public Builder folded(Boolean folded) {
-             this.folded = folded;
-             return this;
+            this.folded = folded;
+            return this;
         }
 
-    
-    
-    public UpdateTaskRequest build(){
-        return new UpdateTaskRequest(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public UpdateTaskRequest build() {
+            return new UpdateTaskRequest(this);
+        }
     }
 }

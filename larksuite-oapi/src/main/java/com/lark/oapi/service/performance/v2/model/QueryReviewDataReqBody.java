@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.performance.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.performance.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,60 +20,115 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class QueryReviewDataReqBody {
-     /**
-      * 评估周期 ID 列表，semester_id 可通过【获取周期】
-      * <p> 示例值：
-      */
+    /**
+     * 评估周期 ID 列表，semester_id 可通过【获取周期】
+     * <p> 示例值：
+     */
     @SerializedName("semester_ids")
     private String[] semesterIds;
-     /**
-      * 被评估人 ID 列表
-      * <p> 示例值：
-      */
+    /**
+     * 被评估人 ID 列表
+     * <p> 示例值：
+     */
     @SerializedName("reviewee_user_ids")
     private String[] revieweeUserIds;
-     /**
-      * 环节类型
-      * <p> 示例值：
-      */
+    /**
+     * 环节类型
+     * <p> 示例值：
+     */
     @SerializedName("stage_types")
     private String[] stageTypes;
-     /**
-      * 评估型环节的执行人角色，不传默认包含所有的执行人角色。当传入的环节类型中有评估型环节时，返回指定执行人角色的评估型环节数据
-      * <p> 示例值：
-      */
+    /**
+     * 评估型环节的执行人角色，不传默认包含所有的执行人角色。当传入的环节类型中有评估型环节时，返回指定执行人角色的评估型环节数据
+     * <p> 示例值：
+     */
     @SerializedName("review_stage_roles")
     private String[] reviewStageRoles;
-     /**
-      * 环节 ID，如果同时传了环节 ID 和环节类型，优先返回环节 ID 对应的绩效数据
-      * <p> 示例值：
-      */
+    /**
+     * 环节 ID，如果同时传了环节 ID 和环节类型，优先返回环节 ID 对应的绩效数据
+     * <p> 示例值：
+     */
     @SerializedName("stage_ids")
     private String[] stageIds;
-     /**
-      * 当要获取的绩效数据的环节类型包含终评环节时，可指定是否需要返回绩效终评数据的具体环节来源。不填则默认不返回 返回的来源枚举值为： 枚举值： review 产生终评结果的评估型环节 calibaration 校准环节 reconsideration 结果复议环节
-      * <p> 示例值：
-      */
+    /**
+     * 当要获取的绩效数据的环节类型包含终评环节时，可指定是否需要返回绩效终评数据的具体环节来源。不填则默认不返回 返回的来源枚举值为： 枚举值： review 产生终评结果的评估型环节 calibaration 校准环节 reconsideration 结果复议环节
+     * <p> 示例值：
+     */
     @SerializedName("need_leader_review_data_source")
     private Boolean needLeaderReviewDataSource;
-     /**
-      * 环节更新时间晚于，可筛选出在此时间之后，有内容提交的环节数据
-      * <p> 示例值：1630425599999
-      */
+    /**
+     * 环节更新时间晚于，可筛选出在此时间之后，有内容提交的环节数据
+     * <p> 示例值：1630425599999
+     */
     @SerializedName("updated_later_than")
     private String updatedLaterThan;
-     /**
-      * 环节状态，不传默认包含所有状态。各类型的环节分别有以下环节状态：  绩效结果查看环节状态 可选值： 0：已开通，绩效结果已开通，未发起复议也无需确认结果 1：待确认，绩效结果已开通但被评估人还未确认结果，确认的截止时间还未到达 2：已截止，绩效结果已开通但被评估人还未确认结果，确认的截止时间已到达 3：已确认，绩效结果已开通，被评估人已确认结果 4：已复议，绩效结果已开通，且被评估人已发起  绩效结果复议环节状态 可选值： 1：待完成，任务未完成 2：已截止，任务的截止时间已到达，且任务未完成 3：已完成，任务已完成  除上述类型外的其他环节类型状态 可选值： 0：未开始，任务的开始时间未到达 1：待完成，任务的开始时间到达而截止时间未到达，且任务未完成 2：已截止，任务的截止时间已到达，且任务未完成 3：已完成，任务已完成
-      * <p> 示例值：
-      */
+    /**
+     * 环节状态，不传默认包含所有状态。各类型的环节分别有以下环节状态：  绩效结果查看环节状态 可选值： 0：已开通，绩效结果已开通，未发起复议也无需确认结果 1：待确认，绩效结果已开通但被评估人还未确认结果，确认的截止时间还未到达 2：已截止，绩效结果已开通但被评估人还未确认结果，确认的截止时间已到达 3：已确认，绩效结果已开通，被评估人已确认结果 4：已复议，绩效结果已开通，且被评估人已发起  绩效结果复议环节状态 可选值： 1：待完成，任务未完成 2：已截止，任务的截止时间已到达，且任务未完成 3：已完成，任务已完成  除上述类型外的其他环节类型状态 可选值： 0：未开始，任务的开始时间未到达 1：待完成，任务的开始时间到达而截止时间未到达，且任务未完成 2：已截止，任务的截止时间已到达，且任务未完成 3：已完成，任务已完成
+     * <p> 示例值：
+     */
     @SerializedName("stage_progresses")
     private Integer[] stageProgresses;
+
+    // builder 开始
+    public QueryReviewDataReqBody() {
+    }
+
+    public QueryReviewDataReqBody(Builder builder) {
+        /**
+         * 评估周期 ID 列表，semester_id 可通过【获取周期】
+         * <p> 示例值：
+         */
+        this.semesterIds = builder.semesterIds;
+        /**
+         * 被评估人 ID 列表
+         * <p> 示例值：
+         */
+        this.revieweeUserIds = builder.revieweeUserIds;
+        /**
+         * 环节类型
+         * <p> 示例值：
+         */
+        this.stageTypes = builder.stageTypes;
+        /**
+         * 评估型环节的执行人角色，不传默认包含所有的执行人角色。当传入的环节类型中有评估型环节时，返回指定执行人角色的评估型环节数据
+         * <p> 示例值：
+         */
+        this.reviewStageRoles = builder.reviewStageRoles;
+        /**
+         * 环节 ID，如果同时传了环节 ID 和环节类型，优先返回环节 ID 对应的绩效数据
+         * <p> 示例值：
+         */
+        this.stageIds = builder.stageIds;
+        /**
+         * 当要获取的绩效数据的环节类型包含终评环节时，可指定是否需要返回绩效终评数据的具体环节来源。不填则默认不返回 返回的来源枚举值为： 枚举值： review 产生终评结果的评估型环节 calibaration 校准环节 reconsideration 结果复议环节
+         * <p> 示例值：
+         */
+        this.needLeaderReviewDataSource = builder.needLeaderReviewDataSource;
+        /**
+         * 环节更新时间晚于，可筛选出在此时间之后，有内容提交的环节数据
+         * <p> 示例值：1630425599999
+         */
+        this.updatedLaterThan = builder.updatedLaterThan;
+        /**
+         * 环节状态，不传默认包含所有状态。各类型的环节分别有以下环节状态：  绩效结果查看环节状态 可选值： 0：已开通，绩效结果已开通，未发起复议也无需确认结果 1：待确认，绩效结果已开通但被评估人还未确认结果，确认的截止时间还未到达 2：已截止，绩效结果已开通但被评估人还未确认结果，确认的截止时间已到达 3：已确认，绩效结果已开通，被评估人已确认结果 4：已复议，绩效结果已开通，且被评估人已发起  绩效结果复议环节状态 可选值： 1：待完成，任务未完成 2：已截止，任务的截止时间已到达，且任务未完成 3：已完成，任务已完成  除上述类型外的其他环节类型状态 可选值： 0：未开始，任务的开始时间未到达 1：待完成，任务的开始时间到达而截止时间未到达，且任务未完成 2：已截止，任务的截止时间已到达，且任务未完成 3：已完成，任务已完成
+         * <p> 示例值：
+         */
+        this.stageProgresses = builder.stageProgresses;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String[] getSemesterIds() {
         return this.semesterIds;
     }
@@ -137,205 +193,154 @@ public class QueryReviewDataReqBody {
         this.stageProgresses = stageProgresses;
     }
 
-
-// builder 开始
-  public QueryReviewDataReqBody(){}
-
-  public QueryReviewDataReqBody(Builder builder){
-         /**
-          * 评估周期 ID 列表，semester_id 可通过【获取周期】
-          * <p> 示例值：
-          */
-      this.semesterIds = builder.semesterIds;
-         /**
-          * 被评估人 ID 列表
-          * <p> 示例值：
-          */
-      this.revieweeUserIds = builder.revieweeUserIds;
-         /**
-          * 环节类型
-          * <p> 示例值：
-          */
-      this.stageTypes = builder.stageTypes;
-         /**
-          * 评估型环节的执行人角色，不传默认包含所有的执行人角色。当传入的环节类型中有评估型环节时，返回指定执行人角色的评估型环节数据
-          * <p> 示例值：
-          */
-      this.reviewStageRoles = builder.reviewStageRoles;
-         /**
-          * 环节 ID，如果同时传了环节 ID 和环节类型，优先返回环节 ID 对应的绩效数据
-          * <p> 示例值：
-          */
-      this.stageIds = builder.stageIds;
-         /**
-          * 当要获取的绩效数据的环节类型包含终评环节时，可指定是否需要返回绩效终评数据的具体环节来源。不填则默认不返回 返回的来源枚举值为： 枚举值： review 产生终评结果的评估型环节 calibaration 校准环节 reconsideration 结果复议环节
-          * <p> 示例值：
-          */
-      this.needLeaderReviewDataSource = builder.needLeaderReviewDataSource;
-         /**
-          * 环节更新时间晚于，可筛选出在此时间之后，有内容提交的环节数据
-          * <p> 示例值：1630425599999
-          */
-      this.updatedLaterThan = builder.updatedLaterThan;
-         /**
-          * 环节状态，不传默认包含所有状态。各类型的环节分别有以下环节状态：  绩效结果查看环节状态 可选值： 0：已开通，绩效结果已开通，未发起复议也无需确认结果 1：待确认，绩效结果已开通但被评估人还未确认结果，确认的截止时间还未到达 2：已截止，绩效结果已开通但被评估人还未确认结果，确认的截止时间已到达 3：已确认，绩效结果已开通，被评估人已确认结果 4：已复议，绩效结果已开通，且被评估人已发起  绩效结果复议环节状态 可选值： 1：待完成，任务未完成 2：已截止，任务的截止时间已到达，且任务未完成 3：已完成，任务已完成  除上述类型外的其他环节类型状态 可选值： 0：未开始，任务的开始时间未到达 1：待完成，任务的开始时间到达而截止时间未到达，且任务未完成 2：已截止，任务的截止时间已到达，且任务未完成 3：已完成，任务已完成
-          * <p> 示例值：
-          */
-      this.stageProgresses = builder.stageProgresses;
-  }
-
     public static class Builder {
-     /**
-      * 评估周期 ID 列表，semester_id 可通过【获取周期】
-      * <p> 示例值：
-      */
+        /**
+         * 评估周期 ID 列表，semester_id 可通过【获取周期】
+         * <p> 示例值：
+         */
         private String[] semesterIds;
-     /**
-      * 被评估人 ID 列表
-      * <p> 示例值：
-      */
+        /**
+         * 被评估人 ID 列表
+         * <p> 示例值：
+         */
         private String[] revieweeUserIds;
-     /**
-      * 环节类型
-      * <p> 示例值：
-      */
+        /**
+         * 环节类型
+         * <p> 示例值：
+         */
         private String[] stageTypes;
-     /**
-      * 评估型环节的执行人角色，不传默认包含所有的执行人角色。当传入的环节类型中有评估型环节时，返回指定执行人角色的评估型环节数据
-      * <p> 示例值：
-      */
+        /**
+         * 评估型环节的执行人角色，不传默认包含所有的执行人角色。当传入的环节类型中有评估型环节时，返回指定执行人角色的评估型环节数据
+         * <p> 示例值：
+         */
         private String[] reviewStageRoles;
-     /**
-      * 环节 ID，如果同时传了环节 ID 和环节类型，优先返回环节 ID 对应的绩效数据
-      * <p> 示例值：
-      */
+        /**
+         * 环节 ID，如果同时传了环节 ID 和环节类型，优先返回环节 ID 对应的绩效数据
+         * <p> 示例值：
+         */
         private String[] stageIds;
-     /**
-      * 当要获取的绩效数据的环节类型包含终评环节时，可指定是否需要返回绩效终评数据的具体环节来源。不填则默认不返回 返回的来源枚举值为： 枚举值： review 产生终评结果的评估型环节 calibaration 校准环节 reconsideration 结果复议环节
-      * <p> 示例值：
-      */
+        /**
+         * 当要获取的绩效数据的环节类型包含终评环节时，可指定是否需要返回绩效终评数据的具体环节来源。不填则默认不返回 返回的来源枚举值为： 枚举值： review 产生终评结果的评估型环节 calibaration 校准环节 reconsideration 结果复议环节
+         * <p> 示例值：
+         */
         private Boolean needLeaderReviewDataSource;
-     /**
-      * 环节更新时间晚于，可筛选出在此时间之后，有内容提交的环节数据
-      * <p> 示例值：1630425599999
-      */
+        /**
+         * 环节更新时间晚于，可筛选出在此时间之后，有内容提交的环节数据
+         * <p> 示例值：1630425599999
+         */
         private String updatedLaterThan;
-     /**
-      * 环节状态，不传默认包含所有状态。各类型的环节分别有以下环节状态：  绩效结果查看环节状态 可选值： 0：已开通，绩效结果已开通，未发起复议也无需确认结果 1：待确认，绩效结果已开通但被评估人还未确认结果，确认的截止时间还未到达 2：已截止，绩效结果已开通但被评估人还未确认结果，确认的截止时间已到达 3：已确认，绩效结果已开通，被评估人已确认结果 4：已复议，绩效结果已开通，且被评估人已发起  绩效结果复议环节状态 可选值： 1：待完成，任务未完成 2：已截止，任务的截止时间已到达，且任务未完成 3：已完成，任务已完成  除上述类型外的其他环节类型状态 可选值： 0：未开始，任务的开始时间未到达 1：待完成，任务的开始时间到达而截止时间未到达，且任务未完成 2：已截止，任务的截止时间已到达，且任务未完成 3：已完成，任务已完成
-      * <p> 示例值：
-      */
+        /**
+         * 环节状态，不传默认包含所有状态。各类型的环节分别有以下环节状态：  绩效结果查看环节状态 可选值： 0：已开通，绩效结果已开通，未发起复议也无需确认结果 1：待确认，绩效结果已开通但被评估人还未确认结果，确认的截止时间还未到达 2：已截止，绩效结果已开通但被评估人还未确认结果，确认的截止时间已到达 3：已确认，绩效结果已开通，被评估人已确认结果 4：已复议，绩效结果已开通，且被评估人已发起  绩效结果复议环节状态 可选值： 1：待完成，任务未完成 2：已截止，任务的截止时间已到达，且任务未完成 3：已完成，任务已完成  除上述类型外的其他环节类型状态 可选值： 0：未开始，任务的开始时间未到达 1：待完成，任务的开始时间到达而截止时间未到达，且任务未完成 2：已截止，任务的截止时间已到达，且任务未完成 3：已完成，任务已完成
+         * <p> 示例值：
+         */
         private Integer[] stageProgresses;
 
         /**
          * 评估周期 ID 列表，semester_id 可通过【获取周期】
          * <p> 示例值：
+         *
          * @param semesterIds
          * @return
          */
         public Builder semesterIds(String[] semesterIds) {
-             this.semesterIds = semesterIds;
-             return this;
+            this.semesterIds = semesterIds;
+            return this;
         }
 
-    
 
         /**
          * 被评估人 ID 列表
          * <p> 示例值：
+         *
          * @param revieweeUserIds
          * @return
          */
         public Builder revieweeUserIds(String[] revieweeUserIds) {
-             this.revieweeUserIds = revieweeUserIds;
-             return this;
+            this.revieweeUserIds = revieweeUserIds;
+            return this;
         }
 
-    
 
         /**
          * 环节类型
          * <p> 示例值：
+         *
          * @param stageTypes
          * @return
          */
         public Builder stageTypes(String[] stageTypes) {
-             this.stageTypes = stageTypes;
-             return this;
+            this.stageTypes = stageTypes;
+            return this;
         }
 
-    
 
         /**
          * 评估型环节的执行人角色，不传默认包含所有的执行人角色。当传入的环节类型中有评估型环节时，返回指定执行人角色的评估型环节数据
          * <p> 示例值：
+         *
          * @param reviewStageRoles
          * @return
          */
         public Builder reviewStageRoles(String[] reviewStageRoles) {
-             this.reviewStageRoles = reviewStageRoles;
-             return this;
+            this.reviewStageRoles = reviewStageRoles;
+            return this;
         }
 
-    
 
         /**
          * 环节 ID，如果同时传了环节 ID 和环节类型，优先返回环节 ID 对应的绩效数据
          * <p> 示例值：
+         *
          * @param stageIds
          * @return
          */
         public Builder stageIds(String[] stageIds) {
-             this.stageIds = stageIds;
-             return this;
+            this.stageIds = stageIds;
+            return this;
         }
 
-    
 
         /**
          * 当要获取的绩效数据的环节类型包含终评环节时，可指定是否需要返回绩效终评数据的具体环节来源。不填则默认不返回 返回的来源枚举值为： 枚举值： review 产生终评结果的评估型环节 calibaration 校准环节 reconsideration 结果复议环节
          * <p> 示例值：
+         *
          * @param needLeaderReviewDataSource
          * @return
          */
         public Builder needLeaderReviewDataSource(Boolean needLeaderReviewDataSource) {
-             this.needLeaderReviewDataSource = needLeaderReviewDataSource;
-             return this;
+            this.needLeaderReviewDataSource = needLeaderReviewDataSource;
+            return this;
         }
 
-    
 
         /**
          * 环节更新时间晚于，可筛选出在此时间之后，有内容提交的环节数据
          * <p> 示例值：1630425599999
+         *
          * @param updatedLaterThan
          * @return
          */
         public Builder updatedLaterThan(String updatedLaterThan) {
-             this.updatedLaterThan = updatedLaterThan;
-             return this;
+            this.updatedLaterThan = updatedLaterThan;
+            return this;
         }
 
-    
 
         /**
          * 环节状态，不传默认包含所有状态。各类型的环节分别有以下环节状态：  绩效结果查看环节状态 可选值： 0：已开通，绩效结果已开通，未发起复议也无需确认结果 1：待确认，绩效结果已开通但被评估人还未确认结果，确认的截止时间还未到达 2：已截止，绩效结果已开通但被评估人还未确认结果，确认的截止时间已到达 3：已确认，绩效结果已开通，被评估人已确认结果 4：已复议，绩效结果已开通，且被评估人已发起  绩效结果复议环节状态 可选值： 1：待完成，任务未完成 2：已截止，任务的截止时间已到达，且任务未完成 3：已完成，任务已完成  除上述类型外的其他环节类型状态 可选值： 0：未开始，任务的开始时间未到达 1：待完成，任务的开始时间到达而截止时间未到达，且任务未完成 2：已截止，任务的截止时间已到达，且任务未完成 3：已完成，任务已完成
          * <p> 示例值：
+         *
          * @param stageProgresses
          * @return
          */
         public Builder stageProgresses(Integer[] stageProgresses) {
-             this.stageProgresses = stageProgresses;
-             return this;
+            this.stageProgresses = stageProgresses;
+            return this;
         }
 
-    
-    
-    public QueryReviewDataReqBody build(){
-        return new QueryReviewDataReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public QueryReviewDataReqBody build() {
+            return new QueryReviewDataReqBody(this);
+        }
     }
 }

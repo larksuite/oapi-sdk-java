@@ -12,36 +12,41 @@
  */
 
 package com.lark.oapi.service.mail.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ListUserMailboxMailContactRespBody {
-     /**
-      * 邮件联系人列表
-      * <p> 示例值：
-      */
+    /**
+     * 邮件联系人列表
+     * <p> 示例值：
+     */
     @SerializedName("items")
     private MailContact[] items;
-     /**
-      * 分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token
-      * <p> 示例值：xxx
-      */
+    /**
+     * 分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token
+     * <p> 示例值：xxx
+     */
     @SerializedName("page_token")
     private String pageToken;
-     /**
-      * 是否还有更多项
-      * <p> 示例值：true
-      */
+    /**
+     * 是否还有更多项
+     * <p> 示例值：true
+     */
     @SerializedName("has_more")
     private Boolean hasMore;
+
     public MailContact[] getItems() {
         return this.items;
     }

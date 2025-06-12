@@ -25,16 +25,19 @@ public class EhrService {
     private final Employee employee; // 飞书人事（标准版)
 
     public EhrService(Config config) {
-    this.v1 = new V1(config);
-    this.attachment = new Attachment(config);
-    this.employee = new Employee(config);
+        this.v1 = new V1(config);
+        this.attachment = new Attachment(config);
+        this.employee = new Employee(config);
     }
+
     public V1 v1() {
         return v1;
     }
+
     public Attachment attachment() {
         return attachment;
     }
+
     public Employee employee() {
         return employee;
     }

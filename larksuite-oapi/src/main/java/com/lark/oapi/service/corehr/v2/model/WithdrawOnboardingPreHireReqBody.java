@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class WithdrawOnboardingPreHireReqBody {
-     /**
-      * 待入职ID，可从待入职列表接口获取
-      * <p> 示例值：7345005664477775407
-      */
+    /**
+     * 待入职ID，可从待入职列表接口获取
+     * <p> 示例值：7345005664477775407
+     */
     @SerializedName("pre_hire_id")
     private String preHireId;
-     /**
-      * 撤销原因
-      * <p> 示例值：withdraw reason
-      */
+    /**
+     * 撤销原因
+     * <p> 示例值：withdraw reason
+     */
     @SerializedName("withdraw_reason")
     private String withdrawReason;
+
+    // builder 开始
+    public WithdrawOnboardingPreHireReqBody() {
+    }
+
+    public WithdrawOnboardingPreHireReqBody(Builder builder) {
+        /**
+         * 待入职ID，可从待入职列表接口获取
+         * <p> 示例值：7345005664477775407
+         */
+        this.preHireId = builder.preHireId;
+        /**
+         * 撤销原因
+         * <p> 示例值：withdraw reason
+         */
+        this.withdrawReason = builder.withdrawReason;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getPreHireId() {
         return this.preHireId;
     }
@@ -53,67 +79,46 @@ public class WithdrawOnboardingPreHireReqBody {
         this.withdrawReason = withdrawReason;
     }
 
-
-// builder 开始
-  public WithdrawOnboardingPreHireReqBody(){}
-
-  public WithdrawOnboardingPreHireReqBody(Builder builder){
-         /**
-          * 待入职ID，可从待入职列表接口获取
-          * <p> 示例值：7345005664477775407
-          */
-      this.preHireId = builder.preHireId;
-         /**
-          * 撤销原因
-          * <p> 示例值：withdraw reason
-          */
-      this.withdrawReason = builder.withdrawReason;
-  }
-
     public static class Builder {
-     /**
-      * 待入职ID，可从待入职列表接口获取
-      * <p> 示例值：7345005664477775407
-      */
+        /**
+         * 待入职ID，可从待入职列表接口获取
+         * <p> 示例值：7345005664477775407
+         */
         private String preHireId;
-     /**
-      * 撤销原因
-      * <p> 示例值：withdraw reason
-      */
+        /**
+         * 撤销原因
+         * <p> 示例值：withdraw reason
+         */
         private String withdrawReason;
 
         /**
          * 待入职ID，可从待入职列表接口获取
          * <p> 示例值：7345005664477775407
+         *
          * @param preHireId
          * @return
          */
         public Builder preHireId(String preHireId) {
-             this.preHireId = preHireId;
-             return this;
+            this.preHireId = preHireId;
+            return this;
         }
 
-    
 
         /**
          * 撤销原因
          * <p> 示例值：withdraw reason
+         *
          * @param withdrawReason
          * @return
          */
         public Builder withdrawReason(String withdrawReason) {
-             this.withdrawReason = withdrawReason;
-             return this;
+            this.withdrawReason = withdrawReason;
+            return this;
         }
 
-    
-    
-    public WithdrawOnboardingPreHireReqBody build(){
-        return new WithdrawOnboardingPreHireReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public WithdrawOnboardingPreHireReqBody build() {
+            return new WithdrawOnboardingPreHireReqBody(this);
+        }
     }
 }

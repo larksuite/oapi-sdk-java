@@ -17,15 +17,16 @@ package com.lark.oapi.service.apaas.v1.enums;
  * aPaaS 产品应用的启用状态
  */
 public enum AppEnableStatusEnum {
-     ENABLED("enabled"), // 启用
-     DISABLED("disabled"), // 停用
-  ;
-   private String value;
+    ENABLED("enabled"), // 启用
+    DISABLED("disabled"), // 停用
+    ;
+    private String value;
+
     AppEnableStatusEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,42 +20,82 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class FaqUpdateInfo {
-     /**
-      * 知识库分类ID
-      * <p> 示例值：6836004780707807251
-      */
+    /**
+     * 知识库分类ID
+     * <p> 示例值：6836004780707807251
+     */
     @SerializedName("category_id")
     private String categoryId;
-     /**
-      * 问题
-      * <p> 示例值：问题
-      */
+    /**
+     * 问题
+     * <p> 示例值：问题
+     */
     @SerializedName("question")
     private String question;
-     /**
-      * 答案
-      * <p> 示例值：答案
-      */
+    /**
+     * 答案
+     * <p> 示例值：答案
+     */
     @SerializedName("answer")
     private String answer;
-     /**
-      * 富文本答案和答案必须有一个必填。Json Array格式，富文本结构请见[了解更多: 富文本](https://open.feishu.cn/document/ukTMukTMukTM/uITM0YjLyEDN24iMxQjN)
-      * <p> 示例值：[{"content":"答案","type":"text"},{"content":"\n","type":"text"}]
-      */
+    /**
+     * 富文本答案和答案必须有一个必填。Json Array格式，富文本结构请见[了解更多: 富文本](https://open.feishu.cn/document/ukTMukTMukTM/uITM0YjLyEDN24iMxQjN)
+     * <p> 示例值：[{"content":"答案","type":"text"},{"content":"\n","type":"text"}]
+     */
     @SerializedName("answer_richtext")
     private Richtext[] answerRichtext;
-     /**
-      * 相似问题
-      * <p> 示例值：["tag1","tag2","tag3"]
-      */
+    /**
+     * 相似问题
+     * <p> 示例值：["tag1","tag2","tag3"]
+     */
     @SerializedName("tags")
     private String[] tags;
+
+    // builder 开始
+    public FaqUpdateInfo() {
+    }
+
+    public FaqUpdateInfo(Builder builder) {
+        /**
+         * 知识库分类ID
+         * <p> 示例值：6836004780707807251
+         */
+        this.categoryId = builder.categoryId;
+        /**
+         * 问题
+         * <p> 示例值：问题
+         */
+        this.question = builder.question;
+        /**
+         * 答案
+         * <p> 示例值：答案
+         */
+        this.answer = builder.answer;
+        /**
+         * 富文本答案和答案必须有一个必填。Json Array格式，富文本结构请见[了解更多: 富文本](https://open.feishu.cn/document/ukTMukTMukTM/uITM0YjLyEDN24iMxQjN)
+         * <p> 示例值：[{"content":"答案","type":"text"},{"content":"\n","type":"text"}]
+         */
+        this.answerRichtext = builder.answerRichtext;
+        /**
+         * 相似问题
+         * <p> 示例值：["tag1","tag2","tag3"]
+         */
+        this.tags = builder.tags;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getCategoryId() {
         return this.categoryId;
     }
@@ -95,136 +136,100 @@ public class FaqUpdateInfo {
         this.tags = tags;
     }
 
-
-// builder 开始
-  public FaqUpdateInfo(){}
-
-  public FaqUpdateInfo(Builder builder){
-         /**
-          * 知识库分类ID
-          * <p> 示例值：6836004780707807251
-          */
-      this.categoryId = builder.categoryId;
-         /**
-          * 问题
-          * <p> 示例值：问题
-          */
-      this.question = builder.question;
-         /**
-          * 答案
-          * <p> 示例值：答案
-          */
-      this.answer = builder.answer;
-         /**
-          * 富文本答案和答案必须有一个必填。Json Array格式，富文本结构请见[了解更多: 富文本](https://open.feishu.cn/document/ukTMukTMukTM/uITM0YjLyEDN24iMxQjN)
-          * <p> 示例值：[{"content":"答案","type":"text"},{"content":"\n","type":"text"}]
-          */
-      this.answerRichtext = builder.answerRichtext;
-         /**
-          * 相似问题
-          * <p> 示例值：["tag1","tag2","tag3"]
-          */
-      this.tags = builder.tags;
-  }
-
     public static class Builder {
-     /**
-      * 知识库分类ID
-      * <p> 示例值：6836004780707807251
-      */
+        /**
+         * 知识库分类ID
+         * <p> 示例值：6836004780707807251
+         */
         private String categoryId;
-     /**
-      * 问题
-      * <p> 示例值：问题
-      */
+        /**
+         * 问题
+         * <p> 示例值：问题
+         */
         private String question;
-     /**
-      * 答案
-      * <p> 示例值：答案
-      */
+        /**
+         * 答案
+         * <p> 示例值：答案
+         */
         private String answer;
-     /**
-      * 富文本答案和答案必须有一个必填。Json Array格式，富文本结构请见[了解更多: 富文本](https://open.feishu.cn/document/ukTMukTMukTM/uITM0YjLyEDN24iMxQjN)
-      * <p> 示例值：[{"content":"答案","type":"text"},{"content":"\n","type":"text"}]
-      */
+        /**
+         * 富文本答案和答案必须有一个必填。Json Array格式，富文本结构请见[了解更多: 富文本](https://open.feishu.cn/document/ukTMukTMukTM/uITM0YjLyEDN24iMxQjN)
+         * <p> 示例值：[{"content":"答案","type":"text"},{"content":"\n","type":"text"}]
+         */
         private Richtext[] answerRichtext;
-     /**
-      * 相似问题
-      * <p> 示例值：["tag1","tag2","tag3"]
-      */
+        /**
+         * 相似问题
+         * <p> 示例值：["tag1","tag2","tag3"]
+         */
         private String[] tags;
 
         /**
          * 知识库分类ID
          * <p> 示例值：6836004780707807251
+         *
          * @param categoryId
          * @return
          */
         public Builder categoryId(String categoryId) {
-             this.categoryId = categoryId;
-             return this;
+            this.categoryId = categoryId;
+            return this;
         }
 
-    
 
         /**
          * 问题
          * <p> 示例值：问题
+         *
          * @param question
          * @return
          */
         public Builder question(String question) {
-             this.question = question;
-             return this;
+            this.question = question;
+            return this;
         }
 
-    
 
         /**
          * 答案
          * <p> 示例值：答案
+         *
          * @param answer
          * @return
          */
         public Builder answer(String answer) {
-             this.answer = answer;
-             return this;
+            this.answer = answer;
+            return this;
         }
 
-    
 
         /**
          * 富文本答案和答案必须有一个必填。Json Array格式，富文本结构请见[了解更多: 富文本](https://open.feishu.cn/document/ukTMukTMukTM/uITM0YjLyEDN24iMxQjN)
          * <p> 示例值：[{"content":"答案","type":"text"},{"content":"\n","type":"text"}]
+         *
          * @param answerRichtext
          * @return
          */
         public Builder answerRichtext(Richtext[] answerRichtext) {
-             this.answerRichtext = answerRichtext;
-             return this;
+            this.answerRichtext = answerRichtext;
+            return this;
         }
 
-    
 
         /**
          * 相似问题
          * <p> 示例值：["tag1","tag2","tag3"]
+         *
          * @param tags
          * @return
          */
         public Builder tags(String[] tags) {
-             this.tags = tags;
-             return this;
+            this.tags = tags;
+            return this;
         }
 
-    
-    
-    public FaqUpdateInfo build(){
-        return new FaqUpdateInfo(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public FaqUpdateInfo build() {
+            return new FaqUpdateInfo(this);
+        }
     }
 }

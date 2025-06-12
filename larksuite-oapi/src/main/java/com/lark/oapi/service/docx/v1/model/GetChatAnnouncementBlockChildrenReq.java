@@ -12,46 +12,106 @@
  */
 
 package com.lark.oapi.service.docx.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.docx.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class GetChatAnnouncementBlockChildrenReq {
-     /**
-      * 查询的群公告版本，-1 表示群公告最新版本。群公告创建后，版本为 1。若查询的版本为群公告最新版本，则需要持有群公告的阅读权限；若查询的版本为群公告的历史版本，则需要持有群公告的更新权限。
-      * <p> 示例值：-1
-      */
+    /**
+     * 查询的群公告版本，-1 表示群公告最新版本。群公告创建后，版本为 1。若查询的版本为群公告最新版本，则需要持有群公告的阅读权限；若查询的版本为群公告的历史版本，则需要持有群公告的更新权限。
+     * <p> 示例值：-1
+     */
     @Query
     @SerializedName("revision_id")
     private Integer revisionId;
-     /**
-      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-      * <p> 示例值：aw7DoMKBFMOGwqHCrcO8w6jCmMOvw6ILeADCvsKNw57Di8O5XGV3LG4_w5HCqhFxSnDCrCzCn0BgZcOYUg85EMOYcEAcwqYOw4ojw5QFwofCu8KoIMO3K8Ktw4IuNMOBBHNYw4bCgCV3U1zDu8K-J8KSR8Kgw7Y0fsKZdsKvW3d9w53DnkHDrcO5bDkYwrvDisOEPcOtVFJ-I03CnsOILMOoAmLDknd6dsKqG1bClAjDuS3CvcOTwo7Dg8OrwovDsRdqIcKxw5HDohTDtXN9w5rCkWo
-      */
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     * <p> 示例值：aw7DoMKBFMOGwqHCrcO8w6jCmMOvw6ILeADCvsKNw57Di8O5XGV3LG4_w5HCqhFxSnDCrCzCn0BgZcOYUg85EMOYcEAcwqYOw4ojw5QFwofCu8KoIMO3K8Ktw4IuNMOBBHNYw4bCgCV3U1zDu8K-J8KSR8Kgw7Y0fsKZdsKvW3d9w53DnkHDrcO5bDkYwrvDisOEPcOtVFJ-I03CnsOILMOoAmLDknd6dsKqG1bClAjDuS3CvcOTwo7Dg8OrwovDsRdqIcKxw5HDohTDtXN9w5rCkWo
+     */
     @Query
     @SerializedName("page_token")
     private String pageToken;
-     /**
-      * 分页大小
-      * <p> 示例值：500
-      */
+    /**
+     * 分页大小
+     * <p> 示例值：500
+     */
     @Query
     @SerializedName("page_size")
     private Integer pageSize;
-     /**
-      * 此次调用中使用的用户ID的类型
-      * <p> 示例值：
-      */
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
+    /**
+     * 群公告对应的群 ID
+     * <p> 示例值：oc_5ad11d72b830411d72b836c20
+     */
+    @Path
+    @SerializedName("chat_id")
+    private String chatId;
+    /**
+     * Block 的唯一标识
+     * <p> 示例值：doxcnO6UW6wAw2qIcYf4hZpFIth
+     */
+    @Path
+    @SerializedName("block_id")
+    private String blockId;
+
+    // builder 开始
+    public GetChatAnnouncementBlockChildrenReq() {
+    }
+
+    public GetChatAnnouncementBlockChildrenReq(Builder builder) {
+        /**
+         * 查询的群公告版本，-1 表示群公告最新版本。群公告创建后，版本为 1。若查询的版本为群公告最新版本，则需要持有群公告的阅读权限；若查询的版本为群公告的历史版本，则需要持有群公告的更新权限。
+         * <p> 示例值：-1
+         */
+        this.revisionId = builder.revisionId;
+        /**
+         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+         * <p> 示例值：aw7DoMKBFMOGwqHCrcO8w6jCmMOvw6ILeADCvsKNw57Di8O5XGV3LG4_w5HCqhFxSnDCrCzCn0BgZcOYUg85EMOYcEAcwqYOw4ojw5QFwofCu8KoIMO3K8Ktw4IuNMOBBHNYw4bCgCV3U1zDu8K-J8KSR8Kgw7Y0fsKZdsKvW3d9w53DnkHDrcO5bDkYwrvDisOEPcOtVFJ-I03CnsOILMOoAmLDknd6dsKqG1bClAjDuS3CvcOTwo7Dg8OrwovDsRdqIcKxw5HDohTDtXN9w5rCkWo
+         */
+        this.pageToken = builder.pageToken;
+        /**
+         * 分页大小
+         * <p> 示例值：500
+         */
+        this.pageSize = builder.pageSize;
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         */
+        this.userIdType = builder.userIdType;
+        /**
+         * 群公告对应的群 ID
+         * <p> 示例值：oc_5ad11d72b830411d72b836c20
+         */
+        this.chatId = builder.chatId;
+        /**
+         * Block 的唯一标识
+         * <p> 示例值：doxcnO6UW6wAw2qIcYf4hZpFIth
+         */
+        this.blockId = builder.blockId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Integer getRevisionId() {
         return this.revisionId;
     }
@@ -84,20 +144,6 @@ public class GetChatAnnouncementBlockChildrenReq {
         this.userIdType = userIdType;
     }
 
-     /**
-      * 群公告对应的群 ID
-      * <p> 示例值：oc_5ad11d72b830411d72b836c20
-      */
-    @Path
-    @SerializedName("chat_id")
-    private String chatId;
-     /**
-      * Block 的唯一标识
-      * <p> 示例值：doxcnO6UW6wAw2qIcYf4hZpFIth
-      */
-    @Path
-    @SerializedName("block_id")
-    private String blockId;
     public String getChatId() {
         return this.chatId;
     }
@@ -114,140 +160,102 @@ public class GetChatAnnouncementBlockChildrenReq {
         this.blockId = blockId;
     }
 
-
-// builder 开始
-  public GetChatAnnouncementBlockChildrenReq(){}
-
-  public GetChatAnnouncementBlockChildrenReq(Builder builder){
-         /**
-          * 查询的群公告版本，-1 表示群公告最新版本。群公告创建后，版本为 1。若查询的版本为群公告最新版本，则需要持有群公告的阅读权限；若查询的版本为群公告的历史版本，则需要持有群公告的更新权限。
-          * <p> 示例值：-1
-          */
-       this.revisionId = builder.revisionId;
-         /**
-          * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-          * <p> 示例值：aw7DoMKBFMOGwqHCrcO8w6jCmMOvw6ILeADCvsKNw57Di8O5XGV3LG4_w5HCqhFxSnDCrCzCn0BgZcOYUg85EMOYcEAcwqYOw4ojw5QFwofCu8KoIMO3K8Ktw4IuNMOBBHNYw4bCgCV3U1zDu8K-J8KSR8Kgw7Y0fsKZdsKvW3d9w53DnkHDrcO5bDkYwrvDisOEPcOtVFJ-I03CnsOILMOoAmLDknd6dsKqG1bClAjDuS3CvcOTwo7Dg8OrwovDsRdqIcKxw5HDohTDtXN9w5rCkWo
-          */
-       this.pageToken = builder.pageToken;
-         /**
-          * 分页大小
-          * <p> 示例值：500
-          */
-       this.pageSize = builder.pageSize;
-         /**
-          * 此次调用中使用的用户ID的类型
-          * <p> 示例值：
-          */
-       this.userIdType = builder.userIdType;
-     /**
-      * 群公告对应的群 ID
-      * <p> 示例值：oc_5ad11d72b830411d72b836c20
-      */
-       this.chatId = builder.chatId;
-     /**
-      * Block 的唯一标识
-      * <p> 示例值：doxcnO6UW6wAw2qIcYf4hZpFIth
-      */
-       this.blockId = builder.blockId;
-  }
-
     public static class Builder {
         private Integer revisionId; // 查询的群公告版本，-1 表示群公告最新版本。群公告创建后，版本为 1。若查询的版本为群公告最新版本，则需要持有群公告的阅读权限；若查询的版本为群公告的历史版本，则需要持有群公告的更新权限。
         private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
         private Integer pageSize; // 分页大小
         private String userIdType; // 此次调用中使用的用户ID的类型
-    
+        private String chatId; // 群公告对应的群 ID
+        private String blockId; // Block 的唯一标识
+
         /**
          * 查询的群公告版本，-1 表示群公告最新版本。群公告创建后，版本为 1。若查询的版本为群公告最新版本，则需要持有群公告的阅读权限；若查询的版本为群公告的历史版本，则需要持有群公告的更新权限。
          * <p> 示例值：-1
+         *
          * @param revisionId
          * @return
          */
-           public Builder revisionId(Integer revisionId) {
-                this.revisionId = revisionId;
-                return this;
-           }
+        public Builder revisionId(Integer revisionId) {
+            this.revisionId = revisionId;
+            return this;
+        }
 
-    
         /**
          * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
          * <p> 示例值：aw7DoMKBFMOGwqHCrcO8w6jCmMOvw6ILeADCvsKNw57Di8O5XGV3LG4_w5HCqhFxSnDCrCzCn0BgZcOYUg85EMOYcEAcwqYOw4ojw5QFwofCu8KoIMO3K8Ktw4IuNMOBBHNYw4bCgCV3U1zDu8K-J8KSR8Kgw7Y0fsKZdsKvW3d9w53DnkHDrcO5bDkYwrvDisOEPcOtVFJ-I03CnsOILMOoAmLDknd6dsKqG1bClAjDuS3CvcOTwo7Dg8OrwovDsRdqIcKxw5HDohTDtXN9w5rCkWo
+         *
          * @param pageToken
          * @return
          */
-           public Builder pageToken(String pageToken) {
-                this.pageToken = pageToken;
-                return this;
-           }
+        public Builder pageToken(String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+        }
 
-    
         /**
          * 分页大小
          * <p> 示例值：500
+         *
          * @param pageSize
          * @return
          */
-           public Builder pageSize(Integer pageSize) {
-                this.pageSize = pageSize;
-                return this;
-           }
+        public Builder pageSize(Integer pageSize) {
+            this.pageSize = pageSize;
+            return this;
+        }
 
-    
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
+         *
          * @param userIdType
          * @return
          */
-           public Builder userIdType(String userIdType) {
-                this.userIdType = userIdType;
-                return this;
-           }
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
 
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
+         *
          * @param userIdType {@link com.lark.oapi.service.docx.v1.enums.GetChatAnnouncementBlockChildrenUserIdTypeEnum}
          * @return
          */
-          public Builder userIdType(com.lark.oapi.service.docx.v1.enums.GetChatAnnouncementBlockChildrenUserIdTypeEnum userIdType) {
-               this.userIdType = userIdType.getValue();
-               return this;
-          }
+        public Builder userIdType(com.lark.oapi.service.docx.v1.enums.GetChatAnnouncementBlockChildrenUserIdTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
+            return this;
+        }
 
-    
-        private String chatId; // 群公告对应的群 ID
-        private String blockId; // Block 的唯一标识
         /**
          * 群公告对应的群 ID
          * <p> 示例值：oc_5ad11d72b830411d72b836c20
+         *
          * @param chatId
          * @return
          */
-          public Builder chatId(String chatId) {
-               this.chatId = chatId;
-               return this;
-          }
+        public Builder chatId(String chatId) {
+            this.chatId = chatId;
+            return this;
+        }
 
-    
+
         /**
          * Block 的唯一标识
          * <p> 示例值：doxcnO6UW6wAw2qIcYf4hZpFIth
+         *
          * @param blockId
          * @return
          */
-          public Builder blockId(String blockId) {
-               this.blockId = blockId;
-               return this;
-          }
+        public Builder blockId(String blockId) {
+            this.blockId = blockId;
+            return this;
+        }
 
-    
-    public GetChatAnnouncementBlockChildrenReq build(){
-        return new GetChatAnnouncementBlockChildrenReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public GetChatAnnouncementBlockChildrenReq build() {
+            return new GetChatAnnouncementBlockChildrenReq(this);
+        }
     }
 }

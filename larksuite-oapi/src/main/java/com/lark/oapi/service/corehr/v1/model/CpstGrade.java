@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,42 +20,82 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CpstGrade {
-     /**
-      * 薪资等级ID
-      * <p> 示例值：7174758360888215084
-      */
+    /**
+     * 薪资等级ID
+     * <p> 示例值：7174758360888215084
+     */
     @SerializedName("grade_id")
     private String gradeId;
-     /**
-      * 薪资等级时间轴ID
-      * <p> 示例值：7174758360888247852
-      */
+    /**
+     * 薪资等级时间轴ID
+     * <p> 示例值：7174758360888247852
+     */
     @SerializedName("grade_tid")
     private String gradeTid;
-     /**
-      * 带宽上下限和标准值
-      * <p> 示例值：
-      */
+    /**
+     * 带宽上下限和标准值
+     * <p> 示例值：
+     */
     @SerializedName("grade_standard_value")
     private CpstGradeStandardValue gradeStandardValue;
-     /**
-      * 币种
-      * <p> 示例值：
-      */
+    /**
+     * 币种
+     * <p> 示例值：
+     */
     @SerializedName("currency")
     private CpstCurrency currency;
-     /**
-      * 薪资标准描述
-      * <p> 示例值：
-      */
+    /**
+     * 薪资标准描述
+     * <p> 示例值：
+     */
     @SerializedName("description")
     private CpstI18n description;
+
+    // builder 开始
+    public CpstGrade() {
+    }
+
+    public CpstGrade(Builder builder) {
+        /**
+         * 薪资等级ID
+         * <p> 示例值：7174758360888215084
+         */
+        this.gradeId = builder.gradeId;
+        /**
+         * 薪资等级时间轴ID
+         * <p> 示例值：7174758360888247852
+         */
+        this.gradeTid = builder.gradeTid;
+        /**
+         * 带宽上下限和标准值
+         * <p> 示例值：
+         */
+        this.gradeStandardValue = builder.gradeStandardValue;
+        /**
+         * 币种
+         * <p> 示例值：
+         */
+        this.currency = builder.currency;
+        /**
+         * 薪资标准描述
+         * <p> 示例值：
+         */
+        this.description = builder.description;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getGradeId() {
         return this.gradeId;
     }
@@ -95,136 +136,100 @@ public class CpstGrade {
         this.description = description;
     }
 
-
-// builder 开始
-  public CpstGrade(){}
-
-  public CpstGrade(Builder builder){
-         /**
-          * 薪资等级ID
-          * <p> 示例值：7174758360888215084
-          */
-      this.gradeId = builder.gradeId;
-         /**
-          * 薪资等级时间轴ID
-          * <p> 示例值：7174758360888247852
-          */
-      this.gradeTid = builder.gradeTid;
-         /**
-          * 带宽上下限和标准值
-          * <p> 示例值：
-          */
-      this.gradeStandardValue = builder.gradeStandardValue;
-         /**
-          * 币种
-          * <p> 示例值：
-          */
-      this.currency = builder.currency;
-         /**
-          * 薪资标准描述
-          * <p> 示例值：
-          */
-      this.description = builder.description;
-  }
-
     public static class Builder {
-     /**
-      * 薪资等级ID
-      * <p> 示例值：7174758360888215084
-      */
+        /**
+         * 薪资等级ID
+         * <p> 示例值：7174758360888215084
+         */
         private String gradeId;
-     /**
-      * 薪资等级时间轴ID
-      * <p> 示例值：7174758360888247852
-      */
+        /**
+         * 薪资等级时间轴ID
+         * <p> 示例值：7174758360888247852
+         */
         private String gradeTid;
-     /**
-      * 带宽上下限和标准值
-      * <p> 示例值：
-      */
+        /**
+         * 带宽上下限和标准值
+         * <p> 示例值：
+         */
         private CpstGradeStandardValue gradeStandardValue;
-     /**
-      * 币种
-      * <p> 示例值：
-      */
+        /**
+         * 币种
+         * <p> 示例值：
+         */
         private CpstCurrency currency;
-     /**
-      * 薪资标准描述
-      * <p> 示例值：
-      */
+        /**
+         * 薪资标准描述
+         * <p> 示例值：
+         */
         private CpstI18n description;
 
         /**
          * 薪资等级ID
          * <p> 示例值：7174758360888215084
+         *
          * @param gradeId
          * @return
          */
         public Builder gradeId(String gradeId) {
-             this.gradeId = gradeId;
-             return this;
+            this.gradeId = gradeId;
+            return this;
         }
 
-    
 
         /**
          * 薪资等级时间轴ID
          * <p> 示例值：7174758360888247852
+         *
          * @param gradeTid
          * @return
          */
         public Builder gradeTid(String gradeTid) {
-             this.gradeTid = gradeTid;
-             return this;
+            this.gradeTid = gradeTid;
+            return this;
         }
 
-    
 
         /**
          * 带宽上下限和标准值
          * <p> 示例值：
+         *
          * @param gradeStandardValue
          * @return
          */
         public Builder gradeStandardValue(CpstGradeStandardValue gradeStandardValue) {
-             this.gradeStandardValue = gradeStandardValue;
-             return this;
+            this.gradeStandardValue = gradeStandardValue;
+            return this;
         }
 
-    
 
         /**
          * 币种
          * <p> 示例值：
+         *
          * @param currency
          * @return
          */
         public Builder currency(CpstCurrency currency) {
-             this.currency = currency;
-             return this;
+            this.currency = currency;
+            return this;
         }
 
-    
 
         /**
          * 薪资标准描述
          * <p> 示例值：
+         *
          * @param description
          * @return
          */
         public Builder description(CpstI18n description) {
-             this.description = description;
-             return this;
+            this.description = description;
+            return this;
         }
 
-    
-    
-    public CpstGrade build(){
-        return new CpstGrade(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public CpstGrade build() {
+            return new CpstGrade(this);
+        }
     }
 }

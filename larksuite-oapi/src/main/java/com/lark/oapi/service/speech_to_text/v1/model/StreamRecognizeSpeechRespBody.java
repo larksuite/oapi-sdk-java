@@ -12,36 +12,41 @@
  */
 
 package com.lark.oapi.service.speech_to_text.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class StreamRecognizeSpeechRespBody {
-     /**
-      * 16 位 String 随机串作为同一数据流的标识
-      * <p> 示例值：asd1234567890ddd
-      */
+    /**
+     * 16 位 String 随机串作为同一数据流的标识
+     * <p> 示例值：asd1234567890ddd
+     */
     @SerializedName("stream_id")
     private String streamId;
-     /**
-      * 数据流分片的序号，序号从 0 开始，每次请求递增 1
-      * <p> 示例值：1
-      */
+    /**
+     * 数据流分片的序号，序号从 0 开始，每次请求递增 1
+     * <p> 示例值：1
+     */
     @SerializedName("sequence_id")
     private Integer sequenceId;
-     /**
-      * 语音流识别后的文本信息
-      * <p> 示例值：你好，尝试使用一下飞书吧
-      */
+    /**
+     * 语音流识别后的文本信息
+     * <p> 示例值：你好，尝试使用一下飞书吧
+     */
     @SerializedName("recognition_text")
     private String recognitionText;
+
     public String getStreamId() {
         return this.streamId;
     }

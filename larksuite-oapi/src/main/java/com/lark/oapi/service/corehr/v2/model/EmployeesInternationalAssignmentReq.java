@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,156 +20,291 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class EmployeesInternationalAssignmentReq {
-     /**
-      * 外派工作地点 ID;  - 可通过[【批量查询地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)获取
-      * <p> 示例值：7127921432117937708
-      */
+    /**
+     * 外派工作地点 ID;  - 可通过[【批量查询地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)获取
+     * <p> 示例值：7127921432117937708
+     */
     @SerializedName("work_location_id")
     private String workLocationId;
-     /**
-      * 外派任职公司 ID;- 可通过[【批量查询公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/list)获取
-      * <p> 示例值：7127921432117937708
-      */
+    /**
+     * 外派任职公司 ID;- 可通过[【批量查询公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/list)获取
+     * <p> 示例值：7127921432117937708
+     */
     @SerializedName("service_company")
     private String serviceCompany;
-     /**
-      * 排班类型;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name：job_data;  - custom_api_name：work_shift
-      * <p> 示例值：work_shift
-      */
+    /**
+     * 排班类型;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name：job_data;  - custom_api_name：work_shift
+     * <p> 示例值：work_shift
+     */
     @SerializedName("work_shift")
     private String workShift;
-     /**
-      * 周工作时长;- 限制两位小数
-      * <p> 示例值：8
-      */
+    /**
+     * 周工作时长;- 限制两位小数
+     * <p> 示例值：8
+     */
     @SerializedName("weekly_working_hours_v2")
     private Double weeklyWorkingHoursV2;
-     /**
-      * 工时制度ID;-  可通过[【批量查询工时制度】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/working_hours_type/list)获取
-      * <p> 示例值：7127921432117937708
-      */
+    /**
+     * 工时制度ID;-  可通过[【批量查询工时制度】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/working_hours_type/list)获取
+     * <p> 示例值：7127921432117937708
+     */
     @SerializedName("working_hours_type_id")
     private String workingHoursTypeId;
-     /**
-      * 人员类型ID;- 可通过[【批量查询人员类型】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/list)获取
-      * <p> 示例值：7127921432117937708
-      */
+    /**
+     * 人员类型ID;- 可通过[【批量查询人员类型】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/list)获取
+     * <p> 示例值：7127921432117937708
+     */
     @SerializedName("employee_type_id")
     private String employeeTypeId;
-     /**
-      * 部门 ID;- 可通过[【批量查询部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)获取;- 类型与 department_id_type 一致
-      * <p> 示例值：7127921432117937708
-      */
+    /**
+     * 部门 ID;- 可通过[【批量查询部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)获取;- 类型与 department_id_type 一致
+     * <p> 示例值：7127921432117937708
+     */
     @SerializedName("department_id")
     private String departmentId;
-     /**
-      * 职务 ID;- 可通过[【批量查询职务】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/list)获取
-      * <p> 示例值：7127921432117937708
-      */
+    /**
+     * 职务 ID;- 可通过[【批量查询职务】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/list)获取
+     * <p> 示例值：7127921432117937708
+     */
     @SerializedName("job_id")
     private String jobId;
-     /**
-      * 序列 ID;- 可通过[【批量查询序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)获取
-      * <p> 示例值：7127921432117937708
-      */
+    /**
+     * 序列 ID;- 可通过[【批量查询序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)获取
+     * <p> 示例值：7127921432117937708
+     */
     @SerializedName("job_family_id")
     private String jobFamilyId;
-     /**
-      * 职级 ID;- 可通过[【批量查询职级】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/list)获取
-      * <p> 示例值：7127921432117937708
-      */
+    /**
+     * 职级 ID;- 可通过[【批量查询职级】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/list)获取
+     * <p> 示例值：7127921432117937708
+     */
     @SerializedName("job_level_id")
     private String jobLevelId;
-     /**
-      * 职等 ID;- 可通过[【查询职等】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/query)获取
-      * <p> 示例值：7127921432117937708
-      */
+    /**
+     * 职等 ID;- 可通过[【查询职等】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/query)获取
+     * <p> 示例值：7127921432117937708
+     */
     @SerializedName("job_grade_id")
     private String jobGradeId;
-     /**
-      * 薪资类型;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name：job_data;  - custom_api_name：compensation_type
-      * <p> 示例值：daily
-      */
+    /**
+     * 薪资类型;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name：job_data;  - custom_api_name：compensation_type
+     * <p> 示例值：daily
+     */
     @SerializedName("compensation_type")
     private String compensationType;
-     /**
-      * 直属上级雇佣 ID;- 可通过[【批量查询员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)获取;- 类型与 user_id_type 一致
-      * <p> 示例值：7127921432117937708
-      */
+    /**
+     * 直属上级雇佣 ID;- 可通过[【批量查询员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)获取;- 类型与 user_id_type 一致
+     * <p> 示例值：7127921432117937708
+     */
     @SerializedName("direct_manager_id")
     private String directManagerId;
-     /**
-      * 虚线上级雇佣 ID;- 可通过[【批量查询员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)获取;- 类型与 user_id_type 一致
-      * <p> 示例值：7127921432117937708
-      */
+    /**
+     * 虚线上级雇佣 ID;- 可通过[【批量查询员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)获取;- 类型与 user_id_type 一致
+     * <p> 示例值：7127921432117937708
+     */
     @SerializedName("dotted_line_manager_id")
     private String dottedLineManagerId;
-     /**
-      * 工作日历 ID;- 可通过[【查询工作日历】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/leave/work_calendar)获取
-      * <p> 示例值：7127921432117937708
-      */
+    /**
+     * 工作日历 ID;- 可通过[【查询工作日历】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/leave/work_calendar)获取
+     * <p> 示例值：7127921432117937708
+     */
     @SerializedName("work_calendar_id")
     private String workCalendarId;
-     /**
-      * 岗位 ID;- 功能灰度中，请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)
-      * <p> 示例值：7127921432117937708
-      */
+    /**
+     * 岗位 ID;- 功能灰度中，请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)
+     * <p> 示例值：7127921432117937708
+     */
     @SerializedName("position_id")
     private String positionId;
-     /**
-      * 雇佣 ID;- 可通过[【批量查询员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)获取;- 类型与 user_id_type 一致
-      * <p> 示例值：7127921432117937708
-      */
+    /**
+     * 雇佣 ID;- 可通过[【批量查询员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)获取;- 类型与 user_id_type 一致
+     * <p> 示例值：7127921432117937708
+     */
     @SerializedName("employment_id")
     private String employmentId;
-     /**
-      * 自定义字段;- 请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)
-      * <p> 示例值：
-      */
+    /**
+     * 自定义字段;- 请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)
+     * <p> 示例值：
+     */
     @SerializedName("custom_fields")
     private ObjectFieldData[] customFields;
-     /**
-      * 外派原因说明
-      * <p> 示例值：xxx 项目派遣
-      */
+    /**
+     * 外派原因说明
+     * <p> 示例值：xxx 项目派遣
+     */
     @SerializedName("international_assignment_reason")
     private String internationalAssignmentReason;
-     /**
-      * 备注
-      * <p> 示例值：xxx 项目
-      */
+    /**
+     * 备注
+     * <p> 示例值：xxx 项目
+     */
     @SerializedName("description")
     private String description;
-     /**
-      * 预计结束日期;- 格式：yyyy-mm-dd
-      * <p> 示例值：2024-01-02
-      */
+    /**
+     * 预计结束日期;- 格式：yyyy-mm-dd
+     * <p> 示例值：2024-01-02
+     */
     @SerializedName("international_assignment_expected_end_date")
     private String internationalAssignmentExpectedEndDate;
-     /**
-      * 外派类型;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name：international_assignment;  - custom_api_name：international_assignment_type
-      * <p> 示例值：global_assignment
-      */
+    /**
+     * 外派类型;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name：international_assignment;  - custom_api_name：international_assignment_type
+     * <p> 示例值：global_assignment
+     */
     @SerializedName("international_assignment_type")
     private String internationalAssignmentType;
-     /**
-      * 开始日期;- 格式：yyyy-mm-dd
-      * <p> 示例值：2024-01-02
-      */
+    /**
+     * 开始日期;- 格式：yyyy-mm-dd
+     * <p> 示例值：2024-01-02
+     */
     @SerializedName("effective_time")
     private String effectiveTime;
-     /**
-      * 结束日期;- 格式：yyyy-mm-dd
-      * <p> 示例值：2024-01-02
-      */
+    /**
+     * 结束日期;- 格式：yyyy-mm-dd
+     * <p> 示例值：2024-01-02
+     */
     @SerializedName("expiration_time")
     private String expirationTime;
+
+    // builder 开始
+    public EmployeesInternationalAssignmentReq() {
+    }
+
+    public EmployeesInternationalAssignmentReq(Builder builder) {
+        /**
+         * 外派工作地点 ID;  - 可通过[【批量查询地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)获取
+         * <p> 示例值：7127921432117937708
+         */
+        this.workLocationId = builder.workLocationId;
+        /**
+         * 外派任职公司 ID;- 可通过[【批量查询公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/list)获取
+         * <p> 示例值：7127921432117937708
+         */
+        this.serviceCompany = builder.serviceCompany;
+        /**
+         * 排班类型;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name：job_data;  - custom_api_name：work_shift
+         * <p> 示例值：work_shift
+         */
+        this.workShift = builder.workShift;
+        /**
+         * 周工作时长;- 限制两位小数
+         * <p> 示例值：8
+         */
+        this.weeklyWorkingHoursV2 = builder.weeklyWorkingHoursV2;
+        /**
+         * 工时制度ID;-  可通过[【批量查询工时制度】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/working_hours_type/list)获取
+         * <p> 示例值：7127921432117937708
+         */
+        this.workingHoursTypeId = builder.workingHoursTypeId;
+        /**
+         * 人员类型ID;- 可通过[【批量查询人员类型】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/list)获取
+         * <p> 示例值：7127921432117937708
+         */
+        this.employeeTypeId = builder.employeeTypeId;
+        /**
+         * 部门 ID;- 可通过[【批量查询部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)获取;- 类型与 department_id_type 一致
+         * <p> 示例值：7127921432117937708
+         */
+        this.departmentId = builder.departmentId;
+        /**
+         * 职务 ID;- 可通过[【批量查询职务】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/list)获取
+         * <p> 示例值：7127921432117937708
+         */
+        this.jobId = builder.jobId;
+        /**
+         * 序列 ID;- 可通过[【批量查询序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)获取
+         * <p> 示例值：7127921432117937708
+         */
+        this.jobFamilyId = builder.jobFamilyId;
+        /**
+         * 职级 ID;- 可通过[【批量查询职级】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/list)获取
+         * <p> 示例值：7127921432117937708
+         */
+        this.jobLevelId = builder.jobLevelId;
+        /**
+         * 职等 ID;- 可通过[【查询职等】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/query)获取
+         * <p> 示例值：7127921432117937708
+         */
+        this.jobGradeId = builder.jobGradeId;
+        /**
+         * 薪资类型;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name：job_data;  - custom_api_name：compensation_type
+         * <p> 示例值：daily
+         */
+        this.compensationType = builder.compensationType;
+        /**
+         * 直属上级雇佣 ID;- 可通过[【批量查询员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)获取;- 类型与 user_id_type 一致
+         * <p> 示例值：7127921432117937708
+         */
+        this.directManagerId = builder.directManagerId;
+        /**
+         * 虚线上级雇佣 ID;- 可通过[【批量查询员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)获取;- 类型与 user_id_type 一致
+         * <p> 示例值：7127921432117937708
+         */
+        this.dottedLineManagerId = builder.dottedLineManagerId;
+        /**
+         * 工作日历 ID;- 可通过[【查询工作日历】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/leave/work_calendar)获取
+         * <p> 示例值：7127921432117937708
+         */
+        this.workCalendarId = builder.workCalendarId;
+        /**
+         * 岗位 ID;- 功能灰度中，请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)
+         * <p> 示例值：7127921432117937708
+         */
+        this.positionId = builder.positionId;
+        /**
+         * 雇佣 ID;- 可通过[【批量查询员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)获取;- 类型与 user_id_type 一致
+         * <p> 示例值：7127921432117937708
+         */
+        this.employmentId = builder.employmentId;
+        /**
+         * 自定义字段;- 请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)
+         * <p> 示例值：
+         */
+        this.customFields = builder.customFields;
+        /**
+         * 外派原因说明
+         * <p> 示例值：xxx 项目派遣
+         */
+        this.internationalAssignmentReason = builder.internationalAssignmentReason;
+        /**
+         * 备注
+         * <p> 示例值：xxx 项目
+         */
+        this.description = builder.description;
+        /**
+         * 预计结束日期;- 格式：yyyy-mm-dd
+         * <p> 示例值：2024-01-02
+         */
+        this.internationalAssignmentExpectedEndDate = builder.internationalAssignmentExpectedEndDate;
+        /**
+         * 外派类型;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name：international_assignment;  - custom_api_name：international_assignment_type
+         * <p> 示例值：global_assignment
+         */
+        this.internationalAssignmentType = builder.internationalAssignmentType;
+        /**
+         * 开始日期;- 格式：yyyy-mm-dd
+         * <p> 示例值：2024-01-02
+         */
+        this.effectiveTime = builder.effectiveTime;
+        /**
+         * 结束日期;- 格式：yyyy-mm-dd
+         * <p> 示例值：2024-01-02
+         */
+        this.expirationTime = builder.expirationTime;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getWorkLocationId() {
         return this.workLocationId;
     }
@@ -361,573 +497,442 @@ public class EmployeesInternationalAssignmentReq {
         this.expirationTime = expirationTime;
     }
 
-
-// builder 开始
-  public EmployeesInternationalAssignmentReq(){}
-
-  public EmployeesInternationalAssignmentReq(Builder builder){
-         /**
-          * 外派工作地点 ID;  - 可通过[【批量查询地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)获取
-          * <p> 示例值：7127921432117937708
-          */
-      this.workLocationId = builder.workLocationId;
-         /**
-          * 外派任职公司 ID;- 可通过[【批量查询公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/list)获取
-          * <p> 示例值：7127921432117937708
-          */
-      this.serviceCompany = builder.serviceCompany;
-         /**
-          * 排班类型;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name：job_data;  - custom_api_name：work_shift
-          * <p> 示例值：work_shift
-          */
-      this.workShift = builder.workShift;
-         /**
-          * 周工作时长;- 限制两位小数
-          * <p> 示例值：8
-          */
-      this.weeklyWorkingHoursV2 = builder.weeklyWorkingHoursV2;
-         /**
-          * 工时制度ID;-  可通过[【批量查询工时制度】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/working_hours_type/list)获取
-          * <p> 示例值：7127921432117937708
-          */
-      this.workingHoursTypeId = builder.workingHoursTypeId;
-         /**
-          * 人员类型ID;- 可通过[【批量查询人员类型】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/list)获取
-          * <p> 示例值：7127921432117937708
-          */
-      this.employeeTypeId = builder.employeeTypeId;
-         /**
-          * 部门 ID;- 可通过[【批量查询部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)获取;- 类型与 department_id_type 一致
-          * <p> 示例值：7127921432117937708
-          */
-      this.departmentId = builder.departmentId;
-         /**
-          * 职务 ID;- 可通过[【批量查询职务】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/list)获取
-          * <p> 示例值：7127921432117937708
-          */
-      this.jobId = builder.jobId;
-         /**
-          * 序列 ID;- 可通过[【批量查询序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)获取
-          * <p> 示例值：7127921432117937708
-          */
-      this.jobFamilyId = builder.jobFamilyId;
-         /**
-          * 职级 ID;- 可通过[【批量查询职级】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/list)获取
-          * <p> 示例值：7127921432117937708
-          */
-      this.jobLevelId = builder.jobLevelId;
-         /**
-          * 职等 ID;- 可通过[【查询职等】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/query)获取
-          * <p> 示例值：7127921432117937708
-          */
-      this.jobGradeId = builder.jobGradeId;
-         /**
-          * 薪资类型;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name：job_data;  - custom_api_name：compensation_type
-          * <p> 示例值：daily
-          */
-      this.compensationType = builder.compensationType;
-         /**
-          * 直属上级雇佣 ID;- 可通过[【批量查询员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)获取;- 类型与 user_id_type 一致
-          * <p> 示例值：7127921432117937708
-          */
-      this.directManagerId = builder.directManagerId;
-         /**
-          * 虚线上级雇佣 ID;- 可通过[【批量查询员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)获取;- 类型与 user_id_type 一致
-          * <p> 示例值：7127921432117937708
-          */
-      this.dottedLineManagerId = builder.dottedLineManagerId;
-         /**
-          * 工作日历 ID;- 可通过[【查询工作日历】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/leave/work_calendar)获取
-          * <p> 示例值：7127921432117937708
-          */
-      this.workCalendarId = builder.workCalendarId;
-         /**
-          * 岗位 ID;- 功能灰度中，请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)
-          * <p> 示例值：7127921432117937708
-          */
-      this.positionId = builder.positionId;
-         /**
-          * 雇佣 ID;- 可通过[【批量查询员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)获取;- 类型与 user_id_type 一致
-          * <p> 示例值：7127921432117937708
-          */
-      this.employmentId = builder.employmentId;
-         /**
-          * 自定义字段;- 请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)
-          * <p> 示例值：
-          */
-      this.customFields = builder.customFields;
-         /**
-          * 外派原因说明
-          * <p> 示例值：xxx 项目派遣
-          */
-      this.internationalAssignmentReason = builder.internationalAssignmentReason;
-         /**
-          * 备注
-          * <p> 示例值：xxx 项目
-          */
-      this.description = builder.description;
-         /**
-          * 预计结束日期;- 格式：yyyy-mm-dd
-          * <p> 示例值：2024-01-02
-          */
-      this.internationalAssignmentExpectedEndDate = builder.internationalAssignmentExpectedEndDate;
-         /**
-          * 外派类型;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name：international_assignment;  - custom_api_name：international_assignment_type
-          * <p> 示例值：global_assignment
-          */
-      this.internationalAssignmentType = builder.internationalAssignmentType;
-         /**
-          * 开始日期;- 格式：yyyy-mm-dd
-          * <p> 示例值：2024-01-02
-          */
-      this.effectiveTime = builder.effectiveTime;
-         /**
-          * 结束日期;- 格式：yyyy-mm-dd
-          * <p> 示例值：2024-01-02
-          */
-      this.expirationTime = builder.expirationTime;
-  }
-
     public static class Builder {
-     /**
-      * 外派工作地点 ID;  - 可通过[【批量查询地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)获取
-      * <p> 示例值：7127921432117937708
-      */
+        /**
+         * 外派工作地点 ID;  - 可通过[【批量查询地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)获取
+         * <p> 示例值：7127921432117937708
+         */
         private String workLocationId;
-     /**
-      * 外派任职公司 ID;- 可通过[【批量查询公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/list)获取
-      * <p> 示例值：7127921432117937708
-      */
+        /**
+         * 外派任职公司 ID;- 可通过[【批量查询公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/list)获取
+         * <p> 示例值：7127921432117937708
+         */
         private String serviceCompany;
-     /**
-      * 排班类型;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name：job_data;  - custom_api_name：work_shift
-      * <p> 示例值：work_shift
-      */
+        /**
+         * 排班类型;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name：job_data;  - custom_api_name：work_shift
+         * <p> 示例值：work_shift
+         */
         private String workShift;
-     /**
-      * 周工作时长;- 限制两位小数
-      * <p> 示例值：8
-      */
+        /**
+         * 周工作时长;- 限制两位小数
+         * <p> 示例值：8
+         */
         private Double weeklyWorkingHoursV2;
-     /**
-      * 工时制度ID;-  可通过[【批量查询工时制度】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/working_hours_type/list)获取
-      * <p> 示例值：7127921432117937708
-      */
+        /**
+         * 工时制度ID;-  可通过[【批量查询工时制度】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/working_hours_type/list)获取
+         * <p> 示例值：7127921432117937708
+         */
         private String workingHoursTypeId;
-     /**
-      * 人员类型ID;- 可通过[【批量查询人员类型】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/list)获取
-      * <p> 示例值：7127921432117937708
-      */
+        /**
+         * 人员类型ID;- 可通过[【批量查询人员类型】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/list)获取
+         * <p> 示例值：7127921432117937708
+         */
         private String employeeTypeId;
-     /**
-      * 部门 ID;- 可通过[【批量查询部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)获取;- 类型与 department_id_type 一致
-      * <p> 示例值：7127921432117937708
-      */
+        /**
+         * 部门 ID;- 可通过[【批量查询部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)获取;- 类型与 department_id_type 一致
+         * <p> 示例值：7127921432117937708
+         */
         private String departmentId;
-     /**
-      * 职务 ID;- 可通过[【批量查询职务】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/list)获取
-      * <p> 示例值：7127921432117937708
-      */
+        /**
+         * 职务 ID;- 可通过[【批量查询职务】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/list)获取
+         * <p> 示例值：7127921432117937708
+         */
         private String jobId;
-     /**
-      * 序列 ID;- 可通过[【批量查询序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)获取
-      * <p> 示例值：7127921432117937708
-      */
+        /**
+         * 序列 ID;- 可通过[【批量查询序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)获取
+         * <p> 示例值：7127921432117937708
+         */
         private String jobFamilyId;
-     /**
-      * 职级 ID;- 可通过[【批量查询职级】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/list)获取
-      * <p> 示例值：7127921432117937708
-      */
+        /**
+         * 职级 ID;- 可通过[【批量查询职级】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/list)获取
+         * <p> 示例值：7127921432117937708
+         */
         private String jobLevelId;
-     /**
-      * 职等 ID;- 可通过[【查询职等】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/query)获取
-      * <p> 示例值：7127921432117937708
-      */
+        /**
+         * 职等 ID;- 可通过[【查询职等】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/query)获取
+         * <p> 示例值：7127921432117937708
+         */
         private String jobGradeId;
-     /**
-      * 薪资类型;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name：job_data;  - custom_api_name：compensation_type
-      * <p> 示例值：daily
-      */
+        /**
+         * 薪资类型;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name：job_data;  - custom_api_name：compensation_type
+         * <p> 示例值：daily
+         */
         private String compensationType;
-     /**
-      * 直属上级雇佣 ID;- 可通过[【批量查询员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)获取;- 类型与 user_id_type 一致
-      * <p> 示例值：7127921432117937708
-      */
+        /**
+         * 直属上级雇佣 ID;- 可通过[【批量查询员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)获取;- 类型与 user_id_type 一致
+         * <p> 示例值：7127921432117937708
+         */
         private String directManagerId;
-     /**
-      * 虚线上级雇佣 ID;- 可通过[【批量查询员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)获取;- 类型与 user_id_type 一致
-      * <p> 示例值：7127921432117937708
-      */
+        /**
+         * 虚线上级雇佣 ID;- 可通过[【批量查询员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)获取;- 类型与 user_id_type 一致
+         * <p> 示例值：7127921432117937708
+         */
         private String dottedLineManagerId;
-     /**
-      * 工作日历 ID;- 可通过[【查询工作日历】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/leave/work_calendar)获取
-      * <p> 示例值：7127921432117937708
-      */
+        /**
+         * 工作日历 ID;- 可通过[【查询工作日历】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/leave/work_calendar)获取
+         * <p> 示例值：7127921432117937708
+         */
         private String workCalendarId;
-     /**
-      * 岗位 ID;- 功能灰度中，请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)
-      * <p> 示例值：7127921432117937708
-      */
+        /**
+         * 岗位 ID;- 功能灰度中，请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)
+         * <p> 示例值：7127921432117937708
+         */
         private String positionId;
-     /**
-      * 雇佣 ID;- 可通过[【批量查询员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)获取;- 类型与 user_id_type 一致
-      * <p> 示例值：7127921432117937708
-      */
+        /**
+         * 雇佣 ID;- 可通过[【批量查询员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)获取;- 类型与 user_id_type 一致
+         * <p> 示例值：7127921432117937708
+         */
         private String employmentId;
-     /**
-      * 自定义字段;- 请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)
-      * <p> 示例值：
-      */
+        /**
+         * 自定义字段;- 请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)
+         * <p> 示例值：
+         */
         private ObjectFieldData[] customFields;
-     /**
-      * 外派原因说明
-      * <p> 示例值：xxx 项目派遣
-      */
+        /**
+         * 外派原因说明
+         * <p> 示例值：xxx 项目派遣
+         */
         private String internationalAssignmentReason;
-     /**
-      * 备注
-      * <p> 示例值：xxx 项目
-      */
+        /**
+         * 备注
+         * <p> 示例值：xxx 项目
+         */
         private String description;
-     /**
-      * 预计结束日期;- 格式：yyyy-mm-dd
-      * <p> 示例值：2024-01-02
-      */
+        /**
+         * 预计结束日期;- 格式：yyyy-mm-dd
+         * <p> 示例值：2024-01-02
+         */
         private String internationalAssignmentExpectedEndDate;
-     /**
-      * 外派类型;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name：international_assignment;  - custom_api_name：international_assignment_type
-      * <p> 示例值：global_assignment
-      */
+        /**
+         * 外派类型;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name：international_assignment;  - custom_api_name：international_assignment_type
+         * <p> 示例值：global_assignment
+         */
         private String internationalAssignmentType;
-     /**
-      * 开始日期;- 格式：yyyy-mm-dd
-      * <p> 示例值：2024-01-02
-      */
+        /**
+         * 开始日期;- 格式：yyyy-mm-dd
+         * <p> 示例值：2024-01-02
+         */
         private String effectiveTime;
-     /**
-      * 结束日期;- 格式：yyyy-mm-dd
-      * <p> 示例值：2024-01-02
-      */
+        /**
+         * 结束日期;- 格式：yyyy-mm-dd
+         * <p> 示例值：2024-01-02
+         */
         private String expirationTime;
 
         /**
          * 外派工作地点 ID;  - 可通过[【批量查询地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)获取
          * <p> 示例值：7127921432117937708
+         *
          * @param workLocationId
          * @return
          */
         public Builder workLocationId(String workLocationId) {
-             this.workLocationId = workLocationId;
-             return this;
+            this.workLocationId = workLocationId;
+            return this;
         }
 
-    
 
         /**
          * 外派任职公司 ID;- 可通过[【批量查询公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/list)获取
          * <p> 示例值：7127921432117937708
+         *
          * @param serviceCompany
          * @return
          */
         public Builder serviceCompany(String serviceCompany) {
-             this.serviceCompany = serviceCompany;
-             return this;
+            this.serviceCompany = serviceCompany;
+            return this;
         }
 
-    
 
         /**
          * 排班类型;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name：job_data;  - custom_api_name：work_shift
          * <p> 示例值：work_shift
+         *
          * @param workShift
          * @return
          */
         public Builder workShift(String workShift) {
-             this.workShift = workShift;
-             return this;
+            this.workShift = workShift;
+            return this;
         }
 
-    
 
         /**
          * 周工作时长;- 限制两位小数
          * <p> 示例值：8
+         *
          * @param weeklyWorkingHoursV2
          * @return
          */
         public Builder weeklyWorkingHoursV2(Double weeklyWorkingHoursV2) {
-             this.weeklyWorkingHoursV2 = weeklyWorkingHoursV2;
-             return this;
+            this.weeklyWorkingHoursV2 = weeklyWorkingHoursV2;
+            return this;
         }
 
-    
 
         /**
          * 工时制度ID;-  可通过[【批量查询工时制度】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/working_hours_type/list)获取
          * <p> 示例值：7127921432117937708
+         *
          * @param workingHoursTypeId
          * @return
          */
         public Builder workingHoursTypeId(String workingHoursTypeId) {
-             this.workingHoursTypeId = workingHoursTypeId;
-             return this;
+            this.workingHoursTypeId = workingHoursTypeId;
+            return this;
         }
 
-    
 
         /**
          * 人员类型ID;- 可通过[【批量查询人员类型】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/list)获取
          * <p> 示例值：7127921432117937708
+         *
          * @param employeeTypeId
          * @return
          */
         public Builder employeeTypeId(String employeeTypeId) {
-             this.employeeTypeId = employeeTypeId;
-             return this;
+            this.employeeTypeId = employeeTypeId;
+            return this;
         }
 
-    
 
         /**
          * 部门 ID;- 可通过[【批量查询部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)获取;- 类型与 department_id_type 一致
          * <p> 示例值：7127921432117937708
+         *
          * @param departmentId
          * @return
          */
         public Builder departmentId(String departmentId) {
-             this.departmentId = departmentId;
-             return this;
+            this.departmentId = departmentId;
+            return this;
         }
 
-    
 
         /**
          * 职务 ID;- 可通过[【批量查询职务】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/list)获取
          * <p> 示例值：7127921432117937708
+         *
          * @param jobId
          * @return
          */
         public Builder jobId(String jobId) {
-             this.jobId = jobId;
-             return this;
+            this.jobId = jobId;
+            return this;
         }
 
-    
 
         /**
          * 序列 ID;- 可通过[【批量查询序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)获取
          * <p> 示例值：7127921432117937708
+         *
          * @param jobFamilyId
          * @return
          */
         public Builder jobFamilyId(String jobFamilyId) {
-             this.jobFamilyId = jobFamilyId;
-             return this;
+            this.jobFamilyId = jobFamilyId;
+            return this;
         }
 
-    
 
         /**
          * 职级 ID;- 可通过[【批量查询职级】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/list)获取
          * <p> 示例值：7127921432117937708
+         *
          * @param jobLevelId
          * @return
          */
         public Builder jobLevelId(String jobLevelId) {
-             this.jobLevelId = jobLevelId;
-             return this;
+            this.jobLevelId = jobLevelId;
+            return this;
         }
 
-    
 
         /**
          * 职等 ID;- 可通过[【查询职等】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/query)获取
          * <p> 示例值：7127921432117937708
+         *
          * @param jobGradeId
          * @return
          */
         public Builder jobGradeId(String jobGradeId) {
-             this.jobGradeId = jobGradeId;
-             return this;
+            this.jobGradeId = jobGradeId;
+            return this;
         }
 
-    
 
         /**
          * 薪资类型;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name：job_data;  - custom_api_name：compensation_type
          * <p> 示例值：daily
+         *
          * @param compensationType
          * @return
          */
         public Builder compensationType(String compensationType) {
-             this.compensationType = compensationType;
-             return this;
+            this.compensationType = compensationType;
+            return this;
         }
 
-    
 
         /**
          * 直属上级雇佣 ID;- 可通过[【批量查询员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)获取;- 类型与 user_id_type 一致
          * <p> 示例值：7127921432117937708
+         *
          * @param directManagerId
          * @return
          */
         public Builder directManagerId(String directManagerId) {
-             this.directManagerId = directManagerId;
-             return this;
+            this.directManagerId = directManagerId;
+            return this;
         }
 
-    
 
         /**
          * 虚线上级雇佣 ID;- 可通过[【批量查询员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)获取;- 类型与 user_id_type 一致
          * <p> 示例值：7127921432117937708
+         *
          * @param dottedLineManagerId
          * @return
          */
         public Builder dottedLineManagerId(String dottedLineManagerId) {
-             this.dottedLineManagerId = dottedLineManagerId;
-             return this;
+            this.dottedLineManagerId = dottedLineManagerId;
+            return this;
         }
 
-    
 
         /**
          * 工作日历 ID;- 可通过[【查询工作日历】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/leave/work_calendar)获取
          * <p> 示例值：7127921432117937708
+         *
          * @param workCalendarId
          * @return
          */
         public Builder workCalendarId(String workCalendarId) {
-             this.workCalendarId = workCalendarId;
-             return this;
+            this.workCalendarId = workCalendarId;
+            return this;
         }
 
-    
 
         /**
          * 岗位 ID;- 功能灰度中，请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)
          * <p> 示例值：7127921432117937708
+         *
          * @param positionId
          * @return
          */
         public Builder positionId(String positionId) {
-             this.positionId = positionId;
-             return this;
+            this.positionId = positionId;
+            return this;
         }
 
-    
 
         /**
          * 雇佣 ID;- 可通过[【批量查询员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)获取;- 类型与 user_id_type 一致
          * <p> 示例值：7127921432117937708
+         *
          * @param employmentId
          * @return
          */
         public Builder employmentId(String employmentId) {
-             this.employmentId = employmentId;
-             return this;
+            this.employmentId = employmentId;
+            return this;
         }
 
-    
 
         /**
          * 自定义字段;- 请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)
          * <p> 示例值：
+         *
          * @param customFields
          * @return
          */
         public Builder customFields(ObjectFieldData[] customFields) {
-             this.customFields = customFields;
-             return this;
+            this.customFields = customFields;
+            return this;
         }
 
-    
 
         /**
          * 外派原因说明
          * <p> 示例值：xxx 项目派遣
+         *
          * @param internationalAssignmentReason
          * @return
          */
         public Builder internationalAssignmentReason(String internationalAssignmentReason) {
-             this.internationalAssignmentReason = internationalAssignmentReason;
-             return this;
+            this.internationalAssignmentReason = internationalAssignmentReason;
+            return this;
         }
 
-    
 
         /**
          * 备注
          * <p> 示例值：xxx 项目
+         *
          * @param description
          * @return
          */
         public Builder description(String description) {
-             this.description = description;
-             return this;
+            this.description = description;
+            return this;
         }
 
-    
 
         /**
          * 预计结束日期;- 格式：yyyy-mm-dd
          * <p> 示例值：2024-01-02
+         *
          * @param internationalAssignmentExpectedEndDate
          * @return
          */
         public Builder internationalAssignmentExpectedEndDate(String internationalAssignmentExpectedEndDate) {
-             this.internationalAssignmentExpectedEndDate = internationalAssignmentExpectedEndDate;
-             return this;
+            this.internationalAssignmentExpectedEndDate = internationalAssignmentExpectedEndDate;
+            return this;
         }
 
-    
 
         /**
          * 外派类型;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name：international_assignment;  - custom_api_name：international_assignment_type
          * <p> 示例值：global_assignment
+         *
          * @param internationalAssignmentType
          * @return
          */
         public Builder internationalAssignmentType(String internationalAssignmentType) {
-             this.internationalAssignmentType = internationalAssignmentType;
-             return this;
+            this.internationalAssignmentType = internationalAssignmentType;
+            return this;
         }
 
-    
 
         /**
          * 开始日期;- 格式：yyyy-mm-dd
          * <p> 示例值：2024-01-02
+         *
          * @param effectiveTime
          * @return
          */
         public Builder effectiveTime(String effectiveTime) {
-             this.effectiveTime = effectiveTime;
-             return this;
+            this.effectiveTime = effectiveTime;
+            return this;
         }
 
-    
 
         /**
          * 结束日期;- 格式：yyyy-mm-dd
          * <p> 示例值：2024-01-02
+         *
          * @param expirationTime
          * @return
          */
         public Builder expirationTime(String expirationTime) {
-             this.expirationTime = expirationTime;
-             return this;
+            this.expirationTime = expirationTime;
+            return this;
         }
 
-    
-    
-    public EmployeesInternationalAssignmentReq build(){
-        return new EmployeesInternationalAssignmentReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public EmployeesInternationalAssignmentReq build() {
+            return new EmployeesInternationalAssignmentReq(this);
+        }
     }
 }

@@ -17,15 +17,16 @@ package com.lark.oapi.service.approval.v4.enums;
  * 详情页title展示模式
  */
 public enum InstanceCreateTitleDisplayMethodEnum {
-     DISPLAY_ALL(0), // 如果都有title，展示approval 和instance的title，竖线分割。
-     DISPLAY_INSTANCE_TITLE(1), // 如果都有title，只展示instance的title
-  ;
-   private Integer value;
+    DISPLAY_ALL(0), // 如果都有title，展示approval 和instance的title，竖线分割。
+    DISPLAY_INSTANCE_TITLE(1), // 如果都有title，只展示instance的title
+    ;
+    private Integer value;
+
     InstanceCreateTitleDisplayMethodEnum(Integer value) {
-      this.value = value;
+        this.value = value;
     }
 
     public Integer getValue() {
-      return this.value;
+        return this.value;
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,48 +20,93 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Log {
-     /**
-      * 日志内容
-      * <p> 示例值：log
-      */
+    /**
+     * 日志内容
+     * <p> 示例值：log
+     */
     @SerializedName("content")
     private String content;
-     /**
-      * 日志级别
-      * <p> 示例值：info
-      */
+    /**
+     * 日志级别
+     * <p> 示例值：info
+     */
     @SerializedName("level")
     private String level;
-     /**
-      * 日志时间戳
-      * <p> 示例值：1741249747824
-      */
+    /**
+     * 日志时间戳
+     * <p> 示例值：1741249747824
+     */
     @SerializedName("timestamp")
     private Integer timestamp;
-     /**
-      * 与日志关联的事件类型
-      * <p> 示例值：
-      */
+    /**
+     * 与日志关联的事件类型
+     * <p> 示例值：
+     */
     @SerializedName("event")
     private Event event;
-     /**
-      * trace id
-      * <p> 示例值：edf45bdf-9f3f-4aad-b260-9287ab09e0de
-      */
+    /**
+     * trace id
+     * <p> 示例值：edf45bdf-9f3f-4aad-b260-9287ab09e0de
+     */
     @SerializedName("trace_id")
     private String traceId;
-     /**
-      * 附加属性，包括应用相关属性（如 tenant_id, namespace），日志所属模块相关属性（如函数日志的 function_api_name）等
-      * <p> 示例值：{"tenant_id": "123"}
-      */
+    /**
+     * 附加属性，包括应用相关属性（如 tenant_id, namespace），日志所属模块相关属性（如函数日志的 function_api_name）等
+     * <p> 示例值：{"tenant_id": "123"}
+     */
     @SerializedName("attributes")
     private String attributes;
+
+    // builder 开始
+    public Log() {
+    }
+
+    public Log(Builder builder) {
+        /**
+         * 日志内容
+         * <p> 示例值：log
+         */
+        this.content = builder.content;
+        /**
+         * 日志级别
+         * <p> 示例值：info
+         */
+        this.level = builder.level;
+        /**
+         * 日志时间戳
+         * <p> 示例值：1741249747824
+         */
+        this.timestamp = builder.timestamp;
+        /**
+         * 与日志关联的事件类型
+         * <p> 示例值：
+         */
+        this.event = builder.event;
+        /**
+         * trace id
+         * <p> 示例值：edf45bdf-9f3f-4aad-b260-9287ab09e0de
+         */
+        this.traceId = builder.traceId;
+        /**
+         * 附加属性，包括应用相关属性（如 tenant_id, namespace），日志所属模块相关属性（如函数日志的 function_api_name）等
+         * <p> 示例值：{"tenant_id": "123"}
+         */
+        this.attributes = builder.attributes;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getContent() {
         return this.content;
     }
@@ -109,159 +155,118 @@ public class Log {
         this.attributes = attributes;
     }
 
-
-// builder 开始
-  public Log(){}
-
-  public Log(Builder builder){
-         /**
-          * 日志内容
-          * <p> 示例值：log
-          */
-      this.content = builder.content;
-         /**
-          * 日志级别
-          * <p> 示例值：info
-          */
-      this.level = builder.level;
-         /**
-          * 日志时间戳
-          * <p> 示例值：1741249747824
-          */
-      this.timestamp = builder.timestamp;
-         /**
-          * 与日志关联的事件类型
-          * <p> 示例值：
-          */
-      this.event = builder.event;
-         /**
-          * trace id
-          * <p> 示例值：edf45bdf-9f3f-4aad-b260-9287ab09e0de
-          */
-      this.traceId = builder.traceId;
-         /**
-          * 附加属性，包括应用相关属性（如 tenant_id, namespace），日志所属模块相关属性（如函数日志的 function_api_name）等
-          * <p> 示例值：{"tenant_id": "123"}
-          */
-      this.attributes = builder.attributes;
-  }
-
     public static class Builder {
-     /**
-      * 日志内容
-      * <p> 示例值：log
-      */
+        /**
+         * 日志内容
+         * <p> 示例值：log
+         */
         private String content;
-     /**
-      * 日志级别
-      * <p> 示例值：info
-      */
+        /**
+         * 日志级别
+         * <p> 示例值：info
+         */
         private String level;
-     /**
-      * 日志时间戳
-      * <p> 示例值：1741249747824
-      */
+        /**
+         * 日志时间戳
+         * <p> 示例值：1741249747824
+         */
         private Integer timestamp;
-     /**
-      * 与日志关联的事件类型
-      * <p> 示例值：
-      */
+        /**
+         * 与日志关联的事件类型
+         * <p> 示例值：
+         */
         private Event event;
-     /**
-      * trace id
-      * <p> 示例值：edf45bdf-9f3f-4aad-b260-9287ab09e0de
-      */
+        /**
+         * trace id
+         * <p> 示例值：edf45bdf-9f3f-4aad-b260-9287ab09e0de
+         */
         private String traceId;
-     /**
-      * 附加属性，包括应用相关属性（如 tenant_id, namespace），日志所属模块相关属性（如函数日志的 function_api_name）等
-      * <p> 示例值：{"tenant_id": "123"}
-      */
+        /**
+         * 附加属性，包括应用相关属性（如 tenant_id, namespace），日志所属模块相关属性（如函数日志的 function_api_name）等
+         * <p> 示例值：{"tenant_id": "123"}
+         */
         private String attributes;
 
         /**
          * 日志内容
          * <p> 示例值：log
+         *
          * @param content
          * @return
          */
         public Builder content(String content) {
-             this.content = content;
-             return this;
+            this.content = content;
+            return this;
         }
 
-    
 
         /**
          * 日志级别
          * <p> 示例值：info
+         *
          * @param level
          * @return
          */
         public Builder level(String level) {
-             this.level = level;
-             return this;
+            this.level = level;
+            return this;
         }
 
-    
 
         /**
          * 日志时间戳
          * <p> 示例值：1741249747824
+         *
          * @param timestamp
          * @return
          */
         public Builder timestamp(Integer timestamp) {
-             this.timestamp = timestamp;
-             return this;
+            this.timestamp = timestamp;
+            return this;
         }
 
-    
 
         /**
          * 与日志关联的事件类型
          * <p> 示例值：
+         *
          * @param event
          * @return
          */
         public Builder event(Event event) {
-             this.event = event;
-             return this;
+            this.event = event;
+            return this;
         }
 
-    
 
         /**
          * trace id
          * <p> 示例值：edf45bdf-9f3f-4aad-b260-9287ab09e0de
+         *
          * @param traceId
          * @return
          */
         public Builder traceId(String traceId) {
-             this.traceId = traceId;
-             return this;
+            this.traceId = traceId;
+            return this;
         }
 
-    
 
         /**
          * 附加属性，包括应用相关属性（如 tenant_id, namespace），日志所属模块相关属性（如函数日志的 function_api_name）等
          * <p> 示例值：{"tenant_id": "123"}
+         *
          * @param attributes
          * @return
          */
         public Builder attributes(String attributes) {
-             this.attributes = attributes;
-             return this;
+            this.attributes = attributes;
+            return this;
         }
 
-    
-    
-    public Log build(){
-        return new Log(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Log build() {
+            return new Log(this);
+        }
     }
 }

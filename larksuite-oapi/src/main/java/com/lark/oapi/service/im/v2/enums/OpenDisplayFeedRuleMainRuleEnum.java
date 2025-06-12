@@ -17,17 +17,18 @@ package com.lark.oapi.service.im.v2.enums;
  * 主规则
  */
 public enum OpenDisplayFeedRuleMainRuleEnum {
-     ALWAYS_DISPLAY("always_display"), // 始终展示
-     DISPLAY_NEW_MSGS("display_new_msgs"), // 有新消息时展示
-     DISPLAY_NEW_IMPORTANT_MSGS("display_new_important_msgs"), // 有重要新消息时展示
-     NEVER_DISPLAY("never_display"), // 始终不展示
-  ;
-   private String value;
+    ALWAYS_DISPLAY("always_display"), // 始终展示
+    DISPLAY_NEW_MSGS("display_new_msgs"), // 有新消息时展示
+    DISPLAY_NEW_IMPORTANT_MSGS("display_new_important_msgs"), // 有重要新消息时展示
+    NEVER_DISPLAY("never_display"), // 始终不展示
+    ;
+    private String value;
+
     OpenDisplayFeedRuleMainRuleEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

@@ -12,32 +12,61 @@
  */
 
 package com.lark.oapi.service.aily.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.aily.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class StartAppSkillReq {
-     /**
-      * 应用 ID
-      * <p> 示例值：spring_xxx__c
-      */
+    /**
+     * 应用 ID
+     * <p> 示例值：spring_xxx__c
+     */
     @Path
     @SerializedName("app_id")
     private String appId;
-     /**
-      * 技能 ID
-      * <p> 示例值：skill_6cc6166178ca
-      */
+    /**
+     * 技能 ID
+     * <p> 示例值：skill_6cc6166178ca
+     */
     @Path
     @SerializedName("skill_id")
     private String skillId;
+    @Body
+    private StartAppSkillReqBody body;
+
+    // builder 开始
+    public StartAppSkillReq() {
+    }
+
+    public StartAppSkillReq(Builder builder) {
+        /**
+         * 应用 ID
+         * <p> 示例值：spring_xxx__c
+         */
+        this.appId = builder.appId;
+        /**
+         * 技能 ID
+         * <p> 示例值：skill_6cc6166178ca
+         */
+        this.skillId = builder.skillId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getAppId() {
         return this.appId;
     }
@@ -54,9 +83,6 @@ public class StartAppSkillReq {
         this.skillId = skillId;
     }
 
-    @Body
-    private StartAppSkillReqBody body;
-
     public StartAppSkillReqBody getStartAppSkillReqBody() {
         return this.body;
     }
@@ -65,72 +91,53 @@ public class StartAppSkillReq {
         this.body = body;
     }
 
-// builder 开始
-  public StartAppSkillReq(){}
-
-  public StartAppSkillReq(Builder builder){
-     /**
-      * 应用 ID
-      * <p> 示例值：spring_xxx__c
-      */
-       this.appId = builder.appId;
-     /**
-      * 技能 ID
-      * <p> 示例值：skill_6cc6166178ca
-      */
-       this.skillId = builder.skillId;
-        this.body = builder.body;
-  }
-
     public static class Builder {
-    
+
         private String appId; // 应用 ID
         private String skillId; // 技能 ID
+        private StartAppSkillReqBody body;
+
         /**
          * 应用 ID
          * <p> 示例值：spring_xxx__c
+         *
          * @param appId
          * @return
          */
-          public Builder appId(String appId) {
-               this.appId = appId;
-               return this;
-          }
+        public Builder appId(String appId) {
+            this.appId = appId;
+            return this;
+        }
 
-    
         /**
          * 技能 ID
          * <p> 示例值：skill_6cc6166178ca
+         *
          * @param skillId
          * @return
          */
-          public Builder skillId(String skillId) {
-               this.skillId = skillId;
-               return this;
-          }
+        public Builder skillId(String skillId) {
+            this.skillId = skillId;
+            return this;
+        }
 
-    
-        private StartAppSkillReqBody body;
-    
         public StartAppSkillReqBody getStartAppSkillReqBody() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder startAppSkillReqBody(StartAppSkillReqBody body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public StartAppSkillReq build(){
-        return new StartAppSkillReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public StartAppSkillReq build() {
+            return new StartAppSkillReq(this);
+        }
     }
 }

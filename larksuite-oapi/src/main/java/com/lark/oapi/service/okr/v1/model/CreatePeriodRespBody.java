@@ -12,36 +12,41 @@
  */
 
 package com.lark.oapi.service.okr.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CreatePeriodRespBody {
-     /**
-      * 周期id
-      * <p> 示例值：6969864184272078374
-      */
+    /**
+     * 周期id
+     * <p> 示例值：6969864184272078374
+     */
     @SerializedName("period_id")
     private String periodId;
-     /**
-      * 周期起始年月
-      * <p> 示例值：2022-01
-      */
+    /**
+     * 周期起始年月
+     * <p> 示例值：2022-01
+     */
     @SerializedName("start_month")
     private String startMonth;
-     /**
-      * 周期结束年月
-      * <p> 示例值：2022-01
-      */
+    /**
+     * 周期结束年月
+     * <p> 示例值：2022-01
+     */
     @SerializedName("end_month")
     private String endMonth;
+
     public String getPeriodId() {
         return this.periodId;
     }

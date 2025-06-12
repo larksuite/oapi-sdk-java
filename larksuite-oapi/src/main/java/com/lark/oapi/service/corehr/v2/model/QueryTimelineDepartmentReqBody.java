@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class QueryTimelineDepartmentReqBody {
-     /**
-      * 部门 ID 列表
-      * <p> 示例值：
-      */
+    /**
+     * 部门 ID 列表
+     * <p> 示例值：
+     */
     @SerializedName("department_ids")
     private String[] departmentIds;
-     /**
-      * 生效日期
-      * <p> 示例值：2020-01-01
-      */
+    /**
+     * 生效日期
+     * <p> 示例值：2020-01-01
+     */
     @SerializedName("effective_date")
     private String effectiveDate;
-     /**
-      * 返回数据的字段列表，可选["department_name", "code", "active", "parent_department_id", "manager", "description", "effective_date"]
-      * <p> 示例值：
-      */
+    /**
+     * 返回数据的字段列表，可选["department_name", "code", "active", "parent_department_id", "manager", "description", "effective_date"]
+     * <p> 示例值：
+     */
     @SerializedName("fields")
     private String[] fields;
+
+    // builder 开始
+    public QueryTimelineDepartmentReqBody() {
+    }
+
+    public QueryTimelineDepartmentReqBody(Builder builder) {
+        /**
+         * 部门 ID 列表
+         * <p> 示例值：
+         */
+        this.departmentIds = builder.departmentIds;
+        /**
+         * 生效日期
+         * <p> 示例值：2020-01-01
+         */
+        this.effectiveDate = builder.effectiveDate;
+        /**
+         * 返回数据的字段列表，可选["department_name", "code", "active", "parent_department_id", "manager", "description", "effective_date"]
+         * <p> 示例值：
+         */
+        this.fields = builder.fields;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String[] getDepartmentIds() {
         return this.departmentIds;
     }
@@ -67,90 +98,64 @@ public class QueryTimelineDepartmentReqBody {
         this.fields = fields;
     }
 
-
-// builder 开始
-  public QueryTimelineDepartmentReqBody(){}
-
-  public QueryTimelineDepartmentReqBody(Builder builder){
-         /**
-          * 部门 ID 列表
-          * <p> 示例值：
-          */
-      this.departmentIds = builder.departmentIds;
-         /**
-          * 生效日期
-          * <p> 示例值：2020-01-01
-          */
-      this.effectiveDate = builder.effectiveDate;
-         /**
-          * 返回数据的字段列表，可选["department_name", "code", "active", "parent_department_id", "manager", "description", "effective_date"]
-          * <p> 示例值：
-          */
-      this.fields = builder.fields;
-  }
-
     public static class Builder {
-     /**
-      * 部门 ID 列表
-      * <p> 示例值：
-      */
+        /**
+         * 部门 ID 列表
+         * <p> 示例值：
+         */
         private String[] departmentIds;
-     /**
-      * 生效日期
-      * <p> 示例值：2020-01-01
-      */
+        /**
+         * 生效日期
+         * <p> 示例值：2020-01-01
+         */
         private String effectiveDate;
-     /**
-      * 返回数据的字段列表，可选["department_name", "code", "active", "parent_department_id", "manager", "description", "effective_date"]
-      * <p> 示例值：
-      */
+        /**
+         * 返回数据的字段列表，可选["department_name", "code", "active", "parent_department_id", "manager", "description", "effective_date"]
+         * <p> 示例值：
+         */
         private String[] fields;
 
         /**
          * 部门 ID 列表
          * <p> 示例值：
+         *
          * @param departmentIds
          * @return
          */
         public Builder departmentIds(String[] departmentIds) {
-             this.departmentIds = departmentIds;
-             return this;
+            this.departmentIds = departmentIds;
+            return this;
         }
 
-    
 
         /**
          * 生效日期
          * <p> 示例值：2020-01-01
+         *
          * @param effectiveDate
          * @return
          */
         public Builder effectiveDate(String effectiveDate) {
-             this.effectiveDate = effectiveDate;
-             return this;
+            this.effectiveDate = effectiveDate;
+            return this;
         }
 
-    
 
         /**
          * 返回数据的字段列表，可选["department_name", "code", "active", "parent_department_id", "manager", "description", "effective_date"]
          * <p> 示例值：
+         *
          * @param fields
          * @return
          */
         public Builder fields(String[] fields) {
-             this.fields = fields;
-             return this;
+            this.fields = fields;
+            return this;
         }
 
-    
-    
-    public QueryTimelineDepartmentReqBody build(){
-        return new QueryTimelineDepartmentReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public QueryTimelineDepartmentReqBody build() {
+            return new QueryTimelineDepartmentReqBody(this);
+        }
     }
 }

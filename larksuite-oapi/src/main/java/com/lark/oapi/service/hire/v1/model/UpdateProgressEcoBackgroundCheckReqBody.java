@@ -12,66 +12,122 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class UpdateProgressEcoBackgroundCheckReqBody {
-     /**
-      * 背调 ID，招聘侧的 ID
-      * <p> 示例值：6931286400470354183
-      */
+    /**
+     * 背调 ID，招聘侧的 ID
+     * <p> 示例值：6931286400470354183
+     */
     @SerializedName("background_check_id")
     private String backgroundCheckId;
-     /**
-      * 阶段 ID，同一背调订单此 ID 不能重复
-      * <p> 示例值：6931286400470354183
-      */
+    /**
+     * 阶段 ID，同一背调订单此 ID 不能重复
+     * <p> 示例值：6931286400470354183
+     */
     @SerializedName("stage_id")
     private String stageId;
-     /**
-      * 背调阶段英文名称
-      * <p> 示例值：stage report
-      */
+    /**
+     * 背调阶段英文名称
+     * <p> 示例值：stage report
+     */
     @SerializedName("stage_en_name")
     private String stageEnName;
-     /**
-      * 背调阶段名称
-      * <p> 示例值：阶段报告
-      */
+    /**
+     * 背调阶段名称
+     * <p> 示例值：阶段报告
+     */
     @SerializedName("stage_name")
     private String stageName;
-     /**
-      * 进入到此背调阶段的时间
-      * <p> 示例值：1660123456789
-      */
+    /**
+     * 进入到此背调阶段的时间
+     * <p> 示例值：1660123456789
+     */
     @SerializedName("stage_time")
     private String stageTime;
-     /**
-      * 阶段性背调结果
-      * <p> 示例值：通过
-      */
+    /**
+     * 阶段性背调结果
+     * <p> 示例值：通过
+     */
     @SerializedName("result")
     private String result;
-     /**
-      * 操作人角色，默认值为 1
-      * <p> 示例值：1
-      */
+    /**
+     * 操作人角色，默认值为 1
+     * <p> 示例值：1
+     */
     @SerializedName("operator_role")
     private Integer operatorRole;
-     /**
-      * 报告列表
-      * <p> 示例值：
-      */
+    /**
+     * 报告列表
+     * <p> 示例值：
+     */
     @SerializedName("report_file_list")
     private EcoBackgroundCheckReportFile[] reportFileList;
+
+    // builder 开始
+    public UpdateProgressEcoBackgroundCheckReqBody() {
+    }
+
+    public UpdateProgressEcoBackgroundCheckReqBody(Builder builder) {
+        /**
+         * 背调 ID，招聘侧的 ID
+         * <p> 示例值：6931286400470354183
+         */
+        this.backgroundCheckId = builder.backgroundCheckId;
+        /**
+         * 阶段 ID，同一背调订单此 ID 不能重复
+         * <p> 示例值：6931286400470354183
+         */
+        this.stageId = builder.stageId;
+        /**
+         * 背调阶段英文名称
+         * <p> 示例值：stage report
+         */
+        this.stageEnName = builder.stageEnName;
+        /**
+         * 背调阶段名称
+         * <p> 示例值：阶段报告
+         */
+        this.stageName = builder.stageName;
+        /**
+         * 进入到此背调阶段的时间
+         * <p> 示例值：1660123456789
+         */
+        this.stageTime = builder.stageTime;
+        /**
+         * 阶段性背调结果
+         * <p> 示例值：通过
+         */
+        this.result = builder.result;
+        /**
+         * 操作人角色，默认值为 1
+         * <p> 示例值：1
+         */
+        this.operatorRole = builder.operatorRole;
+        /**
+         * 报告列表
+         * <p> 示例值：
+         */
+        this.reportFileList = builder.reportFileList;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getBackgroundCheckId() {
         return this.backgroundCheckId;
     }
@@ -136,205 +192,154 @@ public class UpdateProgressEcoBackgroundCheckReqBody {
         this.reportFileList = reportFileList;
     }
 
-
-// builder 开始
-  public UpdateProgressEcoBackgroundCheckReqBody(){}
-
-  public UpdateProgressEcoBackgroundCheckReqBody(Builder builder){
-         /**
-          * 背调 ID，招聘侧的 ID
-          * <p> 示例值：6931286400470354183
-          */
-      this.backgroundCheckId = builder.backgroundCheckId;
-         /**
-          * 阶段 ID，同一背调订单此 ID 不能重复
-          * <p> 示例值：6931286400470354183
-          */
-      this.stageId = builder.stageId;
-         /**
-          * 背调阶段英文名称
-          * <p> 示例值：stage report
-          */
-      this.stageEnName = builder.stageEnName;
-         /**
-          * 背调阶段名称
-          * <p> 示例值：阶段报告
-          */
-      this.stageName = builder.stageName;
-         /**
-          * 进入到此背调阶段的时间
-          * <p> 示例值：1660123456789
-          */
-      this.stageTime = builder.stageTime;
-         /**
-          * 阶段性背调结果
-          * <p> 示例值：通过
-          */
-      this.result = builder.result;
-         /**
-          * 操作人角色，默认值为 1
-          * <p> 示例值：1
-          */
-      this.operatorRole = builder.operatorRole;
-         /**
-          * 报告列表
-          * <p> 示例值：
-          */
-      this.reportFileList = builder.reportFileList;
-  }
-
     public static class Builder {
-     /**
-      * 背调 ID，招聘侧的 ID
-      * <p> 示例值：6931286400470354183
-      */
+        /**
+         * 背调 ID，招聘侧的 ID
+         * <p> 示例值：6931286400470354183
+         */
         private String backgroundCheckId;
-     /**
-      * 阶段 ID，同一背调订单此 ID 不能重复
-      * <p> 示例值：6931286400470354183
-      */
+        /**
+         * 阶段 ID，同一背调订单此 ID 不能重复
+         * <p> 示例值：6931286400470354183
+         */
         private String stageId;
-     /**
-      * 背调阶段英文名称
-      * <p> 示例值：stage report
-      */
+        /**
+         * 背调阶段英文名称
+         * <p> 示例值：stage report
+         */
         private String stageEnName;
-     /**
-      * 背调阶段名称
-      * <p> 示例值：阶段报告
-      */
+        /**
+         * 背调阶段名称
+         * <p> 示例值：阶段报告
+         */
         private String stageName;
-     /**
-      * 进入到此背调阶段的时间
-      * <p> 示例值：1660123456789
-      */
+        /**
+         * 进入到此背调阶段的时间
+         * <p> 示例值：1660123456789
+         */
         private String stageTime;
-     /**
-      * 阶段性背调结果
-      * <p> 示例值：通过
-      */
+        /**
+         * 阶段性背调结果
+         * <p> 示例值：通过
+         */
         private String result;
-     /**
-      * 操作人角色，默认值为 1
-      * <p> 示例值：1
-      */
+        /**
+         * 操作人角色，默认值为 1
+         * <p> 示例值：1
+         */
         private Integer operatorRole;
-     /**
-      * 报告列表
-      * <p> 示例值：
-      */
+        /**
+         * 报告列表
+         * <p> 示例值：
+         */
         private EcoBackgroundCheckReportFile[] reportFileList;
 
         /**
          * 背调 ID，招聘侧的 ID
          * <p> 示例值：6931286400470354183
+         *
          * @param backgroundCheckId
          * @return
          */
         public Builder backgroundCheckId(String backgroundCheckId) {
-             this.backgroundCheckId = backgroundCheckId;
-             return this;
+            this.backgroundCheckId = backgroundCheckId;
+            return this;
         }
 
-    
 
         /**
          * 阶段 ID，同一背调订单此 ID 不能重复
          * <p> 示例值：6931286400470354183
+         *
          * @param stageId
          * @return
          */
         public Builder stageId(String stageId) {
-             this.stageId = stageId;
-             return this;
+            this.stageId = stageId;
+            return this;
         }
 
-    
 
         /**
          * 背调阶段英文名称
          * <p> 示例值：stage report
+         *
          * @param stageEnName
          * @return
          */
         public Builder stageEnName(String stageEnName) {
-             this.stageEnName = stageEnName;
-             return this;
+            this.stageEnName = stageEnName;
+            return this;
         }
 
-    
 
         /**
          * 背调阶段名称
          * <p> 示例值：阶段报告
+         *
          * @param stageName
          * @return
          */
         public Builder stageName(String stageName) {
-             this.stageName = stageName;
-             return this;
+            this.stageName = stageName;
+            return this;
         }
 
-    
 
         /**
          * 进入到此背调阶段的时间
          * <p> 示例值：1660123456789
+         *
          * @param stageTime
          * @return
          */
         public Builder stageTime(String stageTime) {
-             this.stageTime = stageTime;
-             return this;
+            this.stageTime = stageTime;
+            return this;
         }
 
-    
 
         /**
          * 阶段性背调结果
          * <p> 示例值：通过
+         *
          * @param result
          * @return
          */
         public Builder result(String result) {
-             this.result = result;
-             return this;
+            this.result = result;
+            return this;
         }
 
-    
 
         /**
          * 操作人角色，默认值为 1
          * <p> 示例值：1
+         *
          * @param operatorRole
          * @return
          */
         public Builder operatorRole(Integer operatorRole) {
-             this.operatorRole = operatorRole;
-             return this;
+            this.operatorRole = operatorRole;
+            return this;
         }
 
-    
 
         /**
          * 报告列表
          * <p> 示例值：
+         *
          * @param reportFileList
          * @return
          */
         public Builder reportFileList(EcoBackgroundCheckReportFile[] reportFileList) {
-             this.reportFileList = reportFileList;
-             return this;
+            this.reportFileList = reportFileList;
+            return this;
         }
 
-    
-    
-    public UpdateProgressEcoBackgroundCheckReqBody build(){
-        return new UpdateProgressEcoBackgroundCheckReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public UpdateProgressEcoBackgroundCheckReqBody build() {
+            return new UpdateProgressEcoBackgroundCheckReqBody(this);
+        }
     }
 }

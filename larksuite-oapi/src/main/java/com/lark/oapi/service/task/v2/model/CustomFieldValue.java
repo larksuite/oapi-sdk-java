@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.task.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.task.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,66 +20,126 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CustomFieldValue {
-     /**
-      * 字段GUID
-      * <p> 示例值：a4f648d7-76ef-477f-bc8e-0601b5a60093
-      */
+    /**
+     * 字段GUID
+     * <p> 示例值：a4f648d7-76ef-477f-bc8e-0601b5a60093
+     */
     @SerializedName("guid")
     private String guid;
-     /**
-      * 自定义字段类型，支持"member", "datetime", "number", "single_select", "multi_select"五种类型
-      * <p> 示例值：number
-      */
+    /**
+     * 自定义字段类型，支持"member", "datetime", "number", "single_select", "multi_select"五种类型
+     * <p> 示例值：number
+     */
     @SerializedName("type")
     private String type;
-     /**
-      * 数字类型的自定义字段值，填写一个合法数字的字符串表示，空字符串表示设为空。
-      * <p> 示例值：10.23
-      */
+    /**
+     * 数字类型的自定义字段值，填写一个合法数字的字符串表示，空字符串表示设为空。
+     * <p> 示例值：10.23
+     */
     @SerializedName("number_value")
     private String numberValue;
-     /**
-      * 日期类型自定义字段值。可以输入一个表示日期的以毫秒为单位的字符串。设为空字符串表示设为空。
-      * <p> 示例值：1687708260000
-      */
+    /**
+     * 日期类型自定义字段值。可以输入一个表示日期的以毫秒为单位的字符串。设为空字符串表示设为空。
+     * <p> 示例值：1687708260000
+     */
     @SerializedName("datetime_value")
     private String datetimeValue;
-     /**
-      * 人员类型的自定义字段值，可以设置1个或多个用户的id（遵循member格式，只支持user类型）。当该字段的设置为“不能多选”时只能输入一个值。设为空数组表示设为空。
-      * <p> 示例值：
-      */
+    /**
+     * 人员类型的自定义字段值，可以设置1个或多个用户的id（遵循member格式，只支持user类型）。当该字段的设置为“不能多选”时只能输入一个值。设为空数组表示设为空。
+     * <p> 示例值：
+     */
     @SerializedName("member_value")
     private Member[] memberValue;
-     /**
-      * 单选类型字段值，填写一个字段选项的option_guid。设置为空字符串表示设为空。
-      * <p> 示例值：4216f79b-3fda-4dc6-a0c4-a16022e47152
-      */
+    /**
+     * 单选类型字段值，填写一个字段选项的option_guid。设置为空字符串表示设为空。
+     * <p> 示例值：4216f79b-3fda-4dc6-a0c4-a16022e47152
+     */
     @SerializedName("single_select_value")
     private String singleSelectValue;
-     /**
-      * 多选类型字段值，可以填写一个或多个本字段的option_guid。设为空数组表示设为空。
-      * <p> 示例值：
-      */
+    /**
+     * 多选类型字段值，可以填写一个或多个本字段的option_guid。设为空数组表示设为空。
+     * <p> 示例值：
+     */
     @SerializedName("multi_select_value")
     private String[] multiSelectValue;
-     /**
-      * 自定义字段名
-      * <p> 示例值：优先级
-      */
+    /**
+     * 自定义字段名
+     * <p> 示例值：优先级
+     */
     @SerializedName("name")
     private String name;
-     /**
-      * 文本类型字段值。可以输入一段文本。空字符串表示清空。
-      * <p> 示例值：这是一段文本介绍。
-      */
+    /**
+     * 文本类型字段值。可以输入一段文本。空字符串表示清空。
+     * <p> 示例值：这是一段文本介绍。
+     */
     @SerializedName("text_value")
     private String textValue;
+
+    // builder 开始
+    public CustomFieldValue() {
+    }
+
+    public CustomFieldValue(Builder builder) {
+        /**
+         * 字段GUID
+         * <p> 示例值：a4f648d7-76ef-477f-bc8e-0601b5a60093
+         */
+        this.guid = builder.guid;
+        /**
+         * 自定义字段类型，支持"member", "datetime", "number", "single_select", "multi_select"五种类型
+         * <p> 示例值：number
+         */
+        this.type = builder.type;
+        /**
+         * 数字类型的自定义字段值，填写一个合法数字的字符串表示，空字符串表示设为空。
+         * <p> 示例值：10.23
+         */
+        this.numberValue = builder.numberValue;
+        /**
+         * 日期类型自定义字段值。可以输入一个表示日期的以毫秒为单位的字符串。设为空字符串表示设为空。
+         * <p> 示例值：1687708260000
+         */
+        this.datetimeValue = builder.datetimeValue;
+        /**
+         * 人员类型的自定义字段值，可以设置1个或多个用户的id（遵循member格式，只支持user类型）。当该字段的设置为“不能多选”时只能输入一个值。设为空数组表示设为空。
+         * <p> 示例值：
+         */
+        this.memberValue = builder.memberValue;
+        /**
+         * 单选类型字段值，填写一个字段选项的option_guid。设置为空字符串表示设为空。
+         * <p> 示例值：4216f79b-3fda-4dc6-a0c4-a16022e47152
+         */
+        this.singleSelectValue = builder.singleSelectValue;
+        /**
+         * 多选类型字段值，可以填写一个或多个本字段的option_guid。设为空数组表示设为空。
+         * <p> 示例值：
+         */
+        this.multiSelectValue = builder.multiSelectValue;
+        /**
+         * 自定义字段名
+         * <p> 示例值：优先级
+         */
+        this.name = builder.name;
+        /**
+         * 文本类型字段值。可以输入一段文本。空字符串表示清空。
+         * <p> 示例值：这是一段文本介绍。
+         */
+        this.textValue = builder.textValue;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getGuid() {
         return this.guid;
     }
@@ -151,228 +212,172 @@ public class CustomFieldValue {
         this.textValue = textValue;
     }
 
-
-// builder 开始
-  public CustomFieldValue(){}
-
-  public CustomFieldValue(Builder builder){
-         /**
-          * 字段GUID
-          * <p> 示例值：a4f648d7-76ef-477f-bc8e-0601b5a60093
-          */
-      this.guid = builder.guid;
-         /**
-          * 自定义字段类型，支持"member", "datetime", "number", "single_select", "multi_select"五种类型
-          * <p> 示例值：number
-          */
-      this.type = builder.type;
-         /**
-          * 数字类型的自定义字段值，填写一个合法数字的字符串表示，空字符串表示设为空。
-          * <p> 示例值：10.23
-          */
-      this.numberValue = builder.numberValue;
-         /**
-          * 日期类型自定义字段值。可以输入一个表示日期的以毫秒为单位的字符串。设为空字符串表示设为空。
-          * <p> 示例值：1687708260000
-          */
-      this.datetimeValue = builder.datetimeValue;
-         /**
-          * 人员类型的自定义字段值，可以设置1个或多个用户的id（遵循member格式，只支持user类型）。当该字段的设置为“不能多选”时只能输入一个值。设为空数组表示设为空。
-          * <p> 示例值：
-          */
-      this.memberValue = builder.memberValue;
-         /**
-          * 单选类型字段值，填写一个字段选项的option_guid。设置为空字符串表示设为空。
-          * <p> 示例值：4216f79b-3fda-4dc6-a0c4-a16022e47152
-          */
-      this.singleSelectValue = builder.singleSelectValue;
-         /**
-          * 多选类型字段值，可以填写一个或多个本字段的option_guid。设为空数组表示设为空。
-          * <p> 示例值：
-          */
-      this.multiSelectValue = builder.multiSelectValue;
-         /**
-          * 自定义字段名
-          * <p> 示例值：优先级
-          */
-      this.name = builder.name;
-         /**
-          * 文本类型字段值。可以输入一段文本。空字符串表示清空。
-          * <p> 示例值：这是一段文本介绍。
-          */
-      this.textValue = builder.textValue;
-  }
-
     public static class Builder {
-     /**
-      * 字段GUID
-      * <p> 示例值：a4f648d7-76ef-477f-bc8e-0601b5a60093
-      */
+        /**
+         * 字段GUID
+         * <p> 示例值：a4f648d7-76ef-477f-bc8e-0601b5a60093
+         */
         private String guid;
-     /**
-      * 自定义字段类型，支持"member", "datetime", "number", "single_select", "multi_select"五种类型
-      * <p> 示例值：number
-      */
+        /**
+         * 自定义字段类型，支持"member", "datetime", "number", "single_select", "multi_select"五种类型
+         * <p> 示例值：number
+         */
         private String type;
-     /**
-      * 数字类型的自定义字段值，填写一个合法数字的字符串表示，空字符串表示设为空。
-      * <p> 示例值：10.23
-      */
+        /**
+         * 数字类型的自定义字段值，填写一个合法数字的字符串表示，空字符串表示设为空。
+         * <p> 示例值：10.23
+         */
         private String numberValue;
-     /**
-      * 日期类型自定义字段值。可以输入一个表示日期的以毫秒为单位的字符串。设为空字符串表示设为空。
-      * <p> 示例值：1687708260000
-      */
+        /**
+         * 日期类型自定义字段值。可以输入一个表示日期的以毫秒为单位的字符串。设为空字符串表示设为空。
+         * <p> 示例值：1687708260000
+         */
         private String datetimeValue;
-     /**
-      * 人员类型的自定义字段值，可以设置1个或多个用户的id（遵循member格式，只支持user类型）。当该字段的设置为“不能多选”时只能输入一个值。设为空数组表示设为空。
-      * <p> 示例值：
-      */
+        /**
+         * 人员类型的自定义字段值，可以设置1个或多个用户的id（遵循member格式，只支持user类型）。当该字段的设置为“不能多选”时只能输入一个值。设为空数组表示设为空。
+         * <p> 示例值：
+         */
         private Member[] memberValue;
-     /**
-      * 单选类型字段值，填写一个字段选项的option_guid。设置为空字符串表示设为空。
-      * <p> 示例值：4216f79b-3fda-4dc6-a0c4-a16022e47152
-      */
+        /**
+         * 单选类型字段值，填写一个字段选项的option_guid。设置为空字符串表示设为空。
+         * <p> 示例值：4216f79b-3fda-4dc6-a0c4-a16022e47152
+         */
         private String singleSelectValue;
-     /**
-      * 多选类型字段值，可以填写一个或多个本字段的option_guid。设为空数组表示设为空。
-      * <p> 示例值：
-      */
+        /**
+         * 多选类型字段值，可以填写一个或多个本字段的option_guid。设为空数组表示设为空。
+         * <p> 示例值：
+         */
         private String[] multiSelectValue;
-     /**
-      * 自定义字段名
-      * <p> 示例值：优先级
-      */
+        /**
+         * 自定义字段名
+         * <p> 示例值：优先级
+         */
         private String name;
-     /**
-      * 文本类型字段值。可以输入一段文本。空字符串表示清空。
-      * <p> 示例值：这是一段文本介绍。
-      */
+        /**
+         * 文本类型字段值。可以输入一段文本。空字符串表示清空。
+         * <p> 示例值：这是一段文本介绍。
+         */
         private String textValue;
 
         /**
          * 字段GUID
          * <p> 示例值：a4f648d7-76ef-477f-bc8e-0601b5a60093
+         *
          * @param guid
          * @return
          */
         public Builder guid(String guid) {
-             this.guid = guid;
-             return this;
+            this.guid = guid;
+            return this;
         }
 
-    
 
         /**
          * 自定义字段类型，支持"member", "datetime", "number", "single_select", "multi_select"五种类型
          * <p> 示例值：number
+         *
          * @param type
          * @return
          */
         public Builder type(String type) {
-             this.type = type;
-             return this;
+            this.type = type;
+            return this;
         }
 
-    
 
         /**
          * 数字类型的自定义字段值，填写一个合法数字的字符串表示，空字符串表示设为空。
          * <p> 示例值：10.23
+         *
          * @param numberValue
          * @return
          */
         public Builder numberValue(String numberValue) {
-             this.numberValue = numberValue;
-             return this;
+            this.numberValue = numberValue;
+            return this;
         }
 
-    
 
         /**
          * 日期类型自定义字段值。可以输入一个表示日期的以毫秒为单位的字符串。设为空字符串表示设为空。
          * <p> 示例值：1687708260000
+         *
          * @param datetimeValue
          * @return
          */
         public Builder datetimeValue(String datetimeValue) {
-             this.datetimeValue = datetimeValue;
-             return this;
+            this.datetimeValue = datetimeValue;
+            return this;
         }
 
-    
 
         /**
          * 人员类型的自定义字段值，可以设置1个或多个用户的id（遵循member格式，只支持user类型）。当该字段的设置为“不能多选”时只能输入一个值。设为空数组表示设为空。
          * <p> 示例值：
+         *
          * @param memberValue
          * @return
          */
         public Builder memberValue(Member[] memberValue) {
-             this.memberValue = memberValue;
-             return this;
+            this.memberValue = memberValue;
+            return this;
         }
 
-    
 
         /**
          * 单选类型字段值，填写一个字段选项的option_guid。设置为空字符串表示设为空。
          * <p> 示例值：4216f79b-3fda-4dc6-a0c4-a16022e47152
+         *
          * @param singleSelectValue
          * @return
          */
         public Builder singleSelectValue(String singleSelectValue) {
-             this.singleSelectValue = singleSelectValue;
-             return this;
+            this.singleSelectValue = singleSelectValue;
+            return this;
         }
 
-    
 
         /**
          * 多选类型字段值，可以填写一个或多个本字段的option_guid。设为空数组表示设为空。
          * <p> 示例值：
+         *
          * @param multiSelectValue
          * @return
          */
         public Builder multiSelectValue(String[] multiSelectValue) {
-             this.multiSelectValue = multiSelectValue;
-             return this;
+            this.multiSelectValue = multiSelectValue;
+            return this;
         }
 
-    
 
         /**
          * 自定义字段名
          * <p> 示例值：优先级
+         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 文本类型字段值。可以输入一段文本。空字符串表示清空。
          * <p> 示例值：这是一段文本介绍。
+         *
          * @param textValue
          * @return
          */
         public Builder textValue(String textValue) {
-             this.textValue = textValue;
-             return this;
+            this.textValue = textValue;
+            return this;
         }
 
-    
-    
-    public CustomFieldValue build(){
-        return new CustomFieldValue(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public CustomFieldValue build() {
+            return new CustomFieldValue(this);
+        }
     }
 }

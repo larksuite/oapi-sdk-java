@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.sheets.v3.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.sheets.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,54 +20,104 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Sheet {
-     /**
-      * 工作表id
-      * <p> 示例值：sxj5ws
-      */
+    /**
+     * 工作表id
+     * <p> 示例值：sxj5ws
+     */
     @SerializedName("sheet_id")
     private String sheetId;
-     /**
-      * 工作表标题
-      * <p> 示例值：title
-      */
+    /**
+     * 工作表标题
+     * <p> 示例值：title
+     */
     @SerializedName("title")
     private String title;
-     /**
-      * 工作表索引位置，索引从 0 开始计数。
-      * <p> 示例值：0
-      */
+    /**
+     * 工作表索引位置，索引从 0 开始计数。
+     * <p> 示例值：0
+     */
     @SerializedName("index")
     private Integer index;
-     /**
-      * 工作表是否被隐藏;- `true`：表示被隐藏;- `false`：表示未被隐藏
-      * <p> 示例值：false
-      */
+    /**
+     * 工作表是否被隐藏;- `true`：表示被隐藏;- `false`：表示未被隐藏
+     * <p> 示例值：false
+     */
     @SerializedName("hidden")
     private Boolean hidden;
-     /**
-      * 单元格属性
-      * <p> 示例值：
-      */
+    /**
+     * 单元格属性
+     * <p> 示例值：
+     */
     @SerializedName("grid_properties")
     private GridProperties gridProperties;
-     /**
-      * 工作表类型;- `sheet`：工作表;- `bitable`：多维表格，[多维表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview);- `#UNSUPPORTED_TYPE`：不支持的类型
-      * <p> 示例值：sheet
-      */
+    /**
+     * 工作表类型;- `sheet`：工作表;- `bitable`：多维表格，[多维表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview);- `#UNSUPPORTED_TYPE`：不支持的类型
+     * <p> 示例值：sheet
+     */
     @SerializedName("resource_type")
     private String resourceType;
-     /**
-      * 合并单元格的相关信息
-      * <p> 示例值：
-      */
+    /**
+     * 合并单元格的相关信息
+     * <p> 示例值：
+     */
     @SerializedName("merges")
     private MergeRange[] merges;
+
+    // builder 开始
+    public Sheet() {
+    }
+
+    public Sheet(Builder builder) {
+        /**
+         * 工作表id
+         * <p> 示例值：sxj5ws
+         */
+        this.sheetId = builder.sheetId;
+        /**
+         * 工作表标题
+         * <p> 示例值：title
+         */
+        this.title = builder.title;
+        /**
+         * 工作表索引位置，索引从 0 开始计数。
+         * <p> 示例值：0
+         */
+        this.index = builder.index;
+        /**
+         * 工作表是否被隐藏;- `true`：表示被隐藏;- `false`：表示未被隐藏
+         * <p> 示例值：false
+         */
+        this.hidden = builder.hidden;
+        /**
+         * 单元格属性
+         * <p> 示例值：
+         */
+        this.gridProperties = builder.gridProperties;
+        /**
+         * 工作表类型;- `sheet`：工作表;- `bitable`：多维表格，[多维表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview);- `#UNSUPPORTED_TYPE`：不支持的类型
+         * <p> 示例值：sheet
+         */
+        this.resourceType = builder.resourceType;
+        /**
+         * 合并单元格的相关信息
+         * <p> 示例值：
+         */
+        this.merges = builder.merges;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getSheetId() {
         return this.sheetId;
     }
@@ -123,182 +174,136 @@ public class Sheet {
         this.merges = merges;
     }
 
-
-// builder 开始
-  public Sheet(){}
-
-  public Sheet(Builder builder){
-         /**
-          * 工作表id
-          * <p> 示例值：sxj5ws
-          */
-      this.sheetId = builder.sheetId;
-         /**
-          * 工作表标题
-          * <p> 示例值：title
-          */
-      this.title = builder.title;
-         /**
-          * 工作表索引位置，索引从 0 开始计数。
-          * <p> 示例值：0
-          */
-      this.index = builder.index;
-         /**
-          * 工作表是否被隐藏;- `true`：表示被隐藏;- `false`：表示未被隐藏
-          * <p> 示例值：false
-          */
-      this.hidden = builder.hidden;
-         /**
-          * 单元格属性
-          * <p> 示例值：
-          */
-      this.gridProperties = builder.gridProperties;
-         /**
-          * 工作表类型;- `sheet`：工作表;- `bitable`：多维表格，[多维表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview);- `#UNSUPPORTED_TYPE`：不支持的类型
-          * <p> 示例值：sheet
-          */
-      this.resourceType = builder.resourceType;
-         /**
-          * 合并单元格的相关信息
-          * <p> 示例值：
-          */
-      this.merges = builder.merges;
-  }
-
     public static class Builder {
-     /**
-      * 工作表id
-      * <p> 示例值：sxj5ws
-      */
+        /**
+         * 工作表id
+         * <p> 示例值：sxj5ws
+         */
         private String sheetId;
-     /**
-      * 工作表标题
-      * <p> 示例值：title
-      */
+        /**
+         * 工作表标题
+         * <p> 示例值：title
+         */
         private String title;
-     /**
-      * 工作表索引位置，索引从 0 开始计数。
-      * <p> 示例值：0
-      */
+        /**
+         * 工作表索引位置，索引从 0 开始计数。
+         * <p> 示例值：0
+         */
         private Integer index;
-     /**
-      * 工作表是否被隐藏;- `true`：表示被隐藏;- `false`：表示未被隐藏
-      * <p> 示例值：false
-      */
+        /**
+         * 工作表是否被隐藏;- `true`：表示被隐藏;- `false`：表示未被隐藏
+         * <p> 示例值：false
+         */
         private Boolean hidden;
-     /**
-      * 单元格属性
-      * <p> 示例值：
-      */
+        /**
+         * 单元格属性
+         * <p> 示例值：
+         */
         private GridProperties gridProperties;
-     /**
-      * 工作表类型;- `sheet`：工作表;- `bitable`：多维表格，[多维表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview);- `#UNSUPPORTED_TYPE`：不支持的类型
-      * <p> 示例值：sheet
-      */
+        /**
+         * 工作表类型;- `sheet`：工作表;- `bitable`：多维表格，[多维表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview);- `#UNSUPPORTED_TYPE`：不支持的类型
+         * <p> 示例值：sheet
+         */
         private String resourceType;
-     /**
-      * 合并单元格的相关信息
-      * <p> 示例值：
-      */
+        /**
+         * 合并单元格的相关信息
+         * <p> 示例值：
+         */
         private MergeRange[] merges;
 
         /**
          * 工作表id
          * <p> 示例值：sxj5ws
+         *
          * @param sheetId
          * @return
          */
         public Builder sheetId(String sheetId) {
-             this.sheetId = sheetId;
-             return this;
+            this.sheetId = sheetId;
+            return this;
         }
 
-    
 
         /**
          * 工作表标题
          * <p> 示例值：title
+         *
          * @param title
          * @return
          */
         public Builder title(String title) {
-             this.title = title;
-             return this;
+            this.title = title;
+            return this;
         }
 
-    
 
         /**
          * 工作表索引位置，索引从 0 开始计数。
          * <p> 示例值：0
+         *
          * @param index
          * @return
          */
         public Builder index(Integer index) {
-             this.index = index;
-             return this;
+            this.index = index;
+            return this;
         }
 
-    
 
         /**
          * 工作表是否被隐藏;- `true`：表示被隐藏;- `false`：表示未被隐藏
          * <p> 示例值：false
+         *
          * @param hidden
          * @return
          */
         public Builder hidden(Boolean hidden) {
-             this.hidden = hidden;
-             return this;
+            this.hidden = hidden;
+            return this;
         }
 
-    
 
         /**
          * 单元格属性
          * <p> 示例值：
+         *
          * @param gridProperties
          * @return
          */
         public Builder gridProperties(GridProperties gridProperties) {
-             this.gridProperties = gridProperties;
-             return this;
+            this.gridProperties = gridProperties;
+            return this;
         }
 
-    
 
         /**
          * 工作表类型;- `sheet`：工作表;- `bitable`：多维表格，[多维表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview);- `#UNSUPPORTED_TYPE`：不支持的类型
          * <p> 示例值：sheet
+         *
          * @param resourceType
          * @return
          */
         public Builder resourceType(String resourceType) {
-             this.resourceType = resourceType;
-             return this;
+            this.resourceType = resourceType;
+            return this;
         }
 
-    
 
         /**
          * 合并单元格的相关信息
          * <p> 示例值：
+         *
          * @param merges
          * @return
          */
         public Builder merges(MergeRange[] merges) {
-             this.merges = merges;
-             return this;
+            this.merges = merges;
+            return this;
         }
 
-    
-    
-    public Sheet build(){
-        return new Sheet(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Sheet build() {
+            return new Sheet(this);
+        }
     }
 }

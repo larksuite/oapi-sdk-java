@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.search.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.search.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class LingoPassageParam {
-     /**
-      * 是否搜索lingo
-      * <p> 示例值：true
-      */
+    /**
+     * 是否搜索lingo
+     * <p> 示例值：true
+     */
     @SerializedName("searchable")
     private Boolean searchable;
+
+    // builder 开始
+    public LingoPassageParam() {
+    }
+
+    public LingoPassageParam(Builder builder) {
+        /**
+         * 是否搜索lingo
+         * <p> 示例值：true
+         */
+        this.searchable = builder.searchable;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Boolean getSearchable() {
         return this.searchable;
     }
@@ -39,44 +60,28 @@ public class LingoPassageParam {
         this.searchable = searchable;
     }
 
-
-// builder 开始
-  public LingoPassageParam(){}
-
-  public LingoPassageParam(Builder builder){
-         /**
-          * 是否搜索lingo
-          * <p> 示例值：true
-          */
-      this.searchable = builder.searchable;
-  }
-
     public static class Builder {
-     /**
-      * 是否搜索lingo
-      * <p> 示例值：true
-      */
+        /**
+         * 是否搜索lingo
+         * <p> 示例值：true
+         */
         private Boolean searchable;
 
         /**
          * 是否搜索lingo
          * <p> 示例值：true
+         *
          * @param searchable
          * @return
          */
         public Builder searchable(Boolean searchable) {
-             this.searchable = searchable;
-             return this;
+            this.searchable = searchable;
+            return this;
         }
 
-    
-    
-    public LingoPassageParam build(){
-        return new LingoPassageParam(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public LingoPassageParam build() {
+            return new LingoPassageParam(this);
+        }
     }
 }

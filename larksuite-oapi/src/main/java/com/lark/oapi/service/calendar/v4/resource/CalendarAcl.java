@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.calendar.v4.resource;
+
 import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.Transport;
 import com.lark.oapi.core.response.RawResponse;
@@ -20,12 +21,16 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import java.nio.charset.StandardCharsets;
 
 import com.lark.oapi.core.Config;
 import com.lark.oapi.core.request.RequestOptions;
+
 import java.io.ByteArrayOutputStream;
+
 import com.lark.oapi.service.calendar.v4.model.*;
+
 import java.io.*;
 import java.util.Map;
 import java.util.HashMap;
@@ -41,7 +46,7 @@ public class CalendarAcl {
         this.config = config;
     }
 
-    
+
     /**
      * 创建访问控制，该接口用于以当前身份（应用 / 用户）给日历添加访问控制权限，即日历成员。;;身份由 Header Authorization 的 Token 类型决定。
      * <p> 当前身份需要有日历的 owner 权限，并且日历的类型只能为 primary 或 shared。 ;
@@ -59,7 +64,7 @@ public class CalendarAcl {
                 , "/open-apis/calendar/v4/calendars/:calendar_id/acls"
                 , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                 , req);
-        
+
         // 反序列化
         CreateCalendarAclResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateCalendarAclResp.class);
         if (resp == null) {
@@ -67,14 +72,14 @@ public class CalendarAcl {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/calendars/:calendar_id/acls"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
-       resp.setRawResponse(httpResponse);
-       resp.setRequest(req);
-       
-       return resp;
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
     }
 
     /**
@@ -92,7 +97,7 @@ public class CalendarAcl {
                 , "/open-apis/calendar/v4/calendars/:calendar_id/acls"
                 , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                 , req);
-        
+
         // 反序列化
         CreateCalendarAclResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateCalendarAclResp.class);
         if (resp == null) {
@@ -100,15 +105,16 @@ public class CalendarAcl {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/calendars/:calendar_id/acls"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-        
+
         return resp;
     }
+
     /**
      * 删除访问控制，该接口用于以当前身份（应用 / 用户）删除日历的控制权限，即日历成员。;;身份由 Header Authorization 的 Token 类型决定。
      * <p> 当前身份需要有日历的 owner 权限，并且日历的类型只能为 primary 或 shared。 ;
@@ -126,7 +132,7 @@ public class CalendarAcl {
                 , "/open-apis/calendar/v4/calendars/:calendar_id/acls/:acl_id"
                 , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                 , req);
-        
+
         // 反序列化
         DeleteCalendarAclResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteCalendarAclResp.class);
         if (resp == null) {
@@ -134,14 +140,14 @@ public class CalendarAcl {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/calendars/:calendar_id/acls/:acl_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
-       resp.setRawResponse(httpResponse);
-       resp.setRequest(req);
-       
-       return resp;
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
     }
 
     /**
@@ -159,7 +165,7 @@ public class CalendarAcl {
                 , "/open-apis/calendar/v4/calendars/:calendar_id/acls/:acl_id"
                 , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                 , req);
-        
+
         // 反序列化
         DeleteCalendarAclResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteCalendarAclResp.class);
         if (resp == null) {
@@ -167,15 +173,16 @@ public class CalendarAcl {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/calendars/:calendar_id/acls/:acl_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-        
+
         return resp;
     }
+
     /**
      * 获取访问控制列表，该接口用于以当前身份（应用 / 用户）获取日历的控制权限列表。;;身份由 Header Authorization 的 Token 类型决定。
      * <p> 当前身份需要有日历的 owner 权限，并且日历的类型只能为 primary 或 shared。 ;
@@ -193,7 +200,7 @@ public class CalendarAcl {
                 , "/open-apis/calendar/v4/calendars/:calendar_id/acls"
                 , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                 , req);
-        
+
         // 反序列化
         ListCalendarAclResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListCalendarAclResp.class);
         if (resp == null) {
@@ -201,14 +208,14 @@ public class CalendarAcl {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/calendars/:calendar_id/acls"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
-       resp.setRawResponse(httpResponse);
-       resp.setRequest(req);
-       
-       return resp;
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
     }
 
     /**
@@ -226,7 +233,7 @@ public class CalendarAcl {
                 , "/open-apis/calendar/v4/calendars/:calendar_id/acls"
                 , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                 , req);
-        
+
         // 反序列化
         ListCalendarAclResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListCalendarAclResp.class);
         if (resp == null) {
@@ -234,15 +241,16 @@ public class CalendarAcl {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/calendars/:calendar_id/acls"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-        
+
         return resp;
     }
+
     /**
      * 订阅日历访问控制变更事件;，该接口用于以用户身份订阅指定日历下的日历成员变更事件。
      * <p> 用户必须对日历有访问权限。 ;
@@ -260,7 +268,7 @@ public class CalendarAcl {
                 , "/open-apis/calendar/v4/calendars/:calendar_id/acls/subscription"
                 , Sets.newHashSet(AccessTokenType.User)
                 , req);
-        
+
         // 反序列化
         SubscriptionCalendarAclResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, SubscriptionCalendarAclResp.class);
         if (resp == null) {
@@ -268,14 +276,14 @@ public class CalendarAcl {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/calendars/:calendar_id/acls/subscription"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
-       resp.setRawResponse(httpResponse);
-       resp.setRequest(req);
-       
-       return resp;
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
     }
 
     /**
@@ -293,7 +301,7 @@ public class CalendarAcl {
                 , "/open-apis/calendar/v4/calendars/:calendar_id/acls/subscription"
                 , Sets.newHashSet(AccessTokenType.User)
                 , req);
-        
+
         // 反序列化
         SubscriptionCalendarAclResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, SubscriptionCalendarAclResp.class);
         if (resp == null) {
@@ -301,15 +309,16 @@ public class CalendarAcl {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/calendars/:calendar_id/acls/subscription"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-        
+
         return resp;
     }
+
     /**
      * 取消订阅日历访问控制变更事件，该接口用于以用户身份取消订阅指定日历下的日历成员变更事件。
      * <p> 用户必须对日历有访问权限。 ;
@@ -327,7 +336,7 @@ public class CalendarAcl {
                 , "/open-apis/calendar/v4/calendars/:calendar_id/acls/unsubscription"
                 , Sets.newHashSet(AccessTokenType.User)
                 , req);
-        
+
         // 反序列化
         UnsubscriptionCalendarAclResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UnsubscriptionCalendarAclResp.class);
         if (resp == null) {
@@ -335,14 +344,14 @@ public class CalendarAcl {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/calendars/:calendar_id/acls/unsubscription"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
-       resp.setRawResponse(httpResponse);
-       resp.setRequest(req);
-       
-       return resp;
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
     }
 
     /**
@@ -360,7 +369,7 @@ public class CalendarAcl {
                 , "/open-apis/calendar/v4/calendars/:calendar_id/acls/unsubscription"
                 , Sets.newHashSet(AccessTokenType.User)
                 , req);
-        
+
         // 反序列化
         UnsubscriptionCalendarAclResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UnsubscriptionCalendarAclResp.class);
         if (resp == null) {
@@ -368,13 +377,13 @@ public class CalendarAcl {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/calendars/:calendar_id/acls/unsubscription"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
+                            StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-        
+
         return resp;
     }
 }

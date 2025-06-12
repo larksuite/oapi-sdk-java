@@ -12,36 +12,41 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ListFileCommentRespBody {
-     /**
-      * 是否有下一页数据
-      * <p> 示例值：
-      */
+    /**
+     * 是否有下一页数据
+     * <p> 示例值：
+     */
     @SerializedName("has_more")
     private Boolean hasMore;
-     /**
-      * 下一页分页的 Token
-      * <p> 示例值：
-      */
+    /**
+     * 下一页分页的 Token
+     * <p> 示例值：
+     */
     @SerializedName("page_token")
     private String pageToken;
-     /**
-      * 评论列表
-      * <p> 示例值：
-      */
+    /**
+     * 评论列表
+     * <p> 示例值：
+     */
     @SerializedName("items")
     private FileComment[] items;
+
     public Boolean getHasMore() {
         return this.hasMore;
     }

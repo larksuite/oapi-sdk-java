@@ -12,54 +12,100 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class EcoExamPaperData {
-     /**
-      * 试卷 ID
-      * <p> 示例值：7147998241542539527
-      */
+    /**
+     * 试卷 ID
+     * <p> 示例值：7147998241542539527
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 试卷名称
-      * <p> 示例值：春季测评
-      */
+    /**
+     * 试卷名称
+     * <p> 示例值：春季测评
+     */
     @SerializedName("name")
     private String name;
-     /**
-      * 考试时长（分钟）
-      * <p> 示例值：30
-      */
+    /**
+     * 考试时长（分钟）
+     * <p> 示例值：30
+     */
     @SerializedName("duration")
     private Integer duration;
-     /**
-      * 试卷题目数量
-      * <p> 示例值：30
-      */
+    /**
+     * 试卷题目数量
+     * <p> 示例值：30
+     */
     @SerializedName("question_count")
     private Integer questionCount;
-     /**
-      * 开始时间，留空或不传表示不限制开始时间
-      * <p> 示例值：1658676234053
-      */
+    /**
+     * 开始时间，留空或不传表示不限制开始时间
+     * <p> 示例值：1658676234053
+     */
     @SerializedName("start_time")
     private String startTime;
-     /**
-      * 结束时间，留空或不传表示不限制结束时间
-      * <p> 示例值：1672444800000
-      */
+    /**
+     * 结束时间，留空或不传表示不限制结束时间
+     * <p> 示例值：1672444800000
+     */
     @SerializedName("end_time")
     private String endTime;
+
+    // builder 开始
+    public EcoExamPaperData() {
+    }
+
+    public EcoExamPaperData(Builder builder) {
+        /**
+         * 试卷 ID
+         * <p> 示例值：7147998241542539527
+         */
+        this.id = builder.id;
+        /**
+         * 试卷名称
+         * <p> 示例值：春季测评
+         */
+        this.name = builder.name;
+        /**
+         * 考试时长（分钟）
+         * <p> 示例值：30
+         */
+        this.duration = builder.duration;
+        /**
+         * 试卷题目数量
+         * <p> 示例值：30
+         */
+        this.questionCount = builder.questionCount;
+        /**
+         * 开始时间，留空或不传表示不限制开始时间
+         * <p> 示例值：1658676234053
+         */
+        this.startTime = builder.startTime;
+        /**
+         * 结束时间，留空或不传表示不限制结束时间
+         * <p> 示例值：1672444800000
+         */
+        this.endTime = builder.endTime;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -108,159 +154,118 @@ public class EcoExamPaperData {
         this.endTime = endTime;
     }
 
-
-// builder 开始
-  public EcoExamPaperData(){}
-
-  public EcoExamPaperData(Builder builder){
-         /**
-          * 试卷 ID
-          * <p> 示例值：7147998241542539527
-          */
-      this.id = builder.id;
-         /**
-          * 试卷名称
-          * <p> 示例值：春季测评
-          */
-      this.name = builder.name;
-         /**
-          * 考试时长（分钟）
-          * <p> 示例值：30
-          */
-      this.duration = builder.duration;
-         /**
-          * 试卷题目数量
-          * <p> 示例值：30
-          */
-      this.questionCount = builder.questionCount;
-         /**
-          * 开始时间，留空或不传表示不限制开始时间
-          * <p> 示例值：1658676234053
-          */
-      this.startTime = builder.startTime;
-         /**
-          * 结束时间，留空或不传表示不限制结束时间
-          * <p> 示例值：1672444800000
-          */
-      this.endTime = builder.endTime;
-  }
-
     public static class Builder {
-     /**
-      * 试卷 ID
-      * <p> 示例值：7147998241542539527
-      */
+        /**
+         * 试卷 ID
+         * <p> 示例值：7147998241542539527
+         */
         private String id;
-     /**
-      * 试卷名称
-      * <p> 示例值：春季测评
-      */
+        /**
+         * 试卷名称
+         * <p> 示例值：春季测评
+         */
         private String name;
-     /**
-      * 考试时长（分钟）
-      * <p> 示例值：30
-      */
+        /**
+         * 考试时长（分钟）
+         * <p> 示例值：30
+         */
         private Integer duration;
-     /**
-      * 试卷题目数量
-      * <p> 示例值：30
-      */
+        /**
+         * 试卷题目数量
+         * <p> 示例值：30
+         */
         private Integer questionCount;
-     /**
-      * 开始时间，留空或不传表示不限制开始时间
-      * <p> 示例值：1658676234053
-      */
+        /**
+         * 开始时间，留空或不传表示不限制开始时间
+         * <p> 示例值：1658676234053
+         */
         private String startTime;
-     /**
-      * 结束时间，留空或不传表示不限制结束时间
-      * <p> 示例值：1672444800000
-      */
+        /**
+         * 结束时间，留空或不传表示不限制结束时间
+         * <p> 示例值：1672444800000
+         */
         private String endTime;
 
         /**
          * 试卷 ID
          * <p> 示例值：7147998241542539527
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 试卷名称
          * <p> 示例值：春季测评
+         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 考试时长（分钟）
          * <p> 示例值：30
+         *
          * @param duration
          * @return
          */
         public Builder duration(Integer duration) {
-             this.duration = duration;
-             return this;
+            this.duration = duration;
+            return this;
         }
 
-    
 
         /**
          * 试卷题目数量
          * <p> 示例值：30
+         *
          * @param questionCount
          * @return
          */
         public Builder questionCount(Integer questionCount) {
-             this.questionCount = questionCount;
-             return this;
+            this.questionCount = questionCount;
+            return this;
         }
 
-    
 
         /**
          * 开始时间，留空或不传表示不限制开始时间
          * <p> 示例值：1658676234053
+         *
          * @param startTime
          * @return
          */
         public Builder startTime(String startTime) {
-             this.startTime = startTime;
-             return this;
+            this.startTime = startTime;
+            return this;
         }
 
-    
 
         /**
          * 结束时间，留空或不传表示不限制结束时间
          * <p> 示例值：1672444800000
+         *
          * @param endTime
          * @return
          */
         public Builder endTime(String endTime) {
-             this.endTime = endTime;
-             return this;
+            this.endTime = endTime;
+            return this;
         }
 
-    
-    
-    public EcoExamPaperData build(){
-        return new EcoExamPaperData(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public EcoExamPaperData build() {
+            return new EcoExamPaperData(this);
+        }
     }
 }

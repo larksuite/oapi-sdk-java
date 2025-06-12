@@ -12,30 +12,56 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class MasterLocationAddressInfo {
-     /**
-      * 办公地点
-      * <p> 示例值：
-      */
+    /**
+     * 办公地点
+     * <p> 示例值：
+     */
     @SerializedName("location_info")
     private MasterLocationInfo locationInfo;
-     /**
-      * 办公地址
-      * <p> 示例值：
-      */
+    /**
+     * 办公地址
+     * <p> 示例值：
+     */
     @SerializedName("address_info")
     private MasterLocationInfo addressInfo;
+
+    // builder 开始
+    public MasterLocationAddressInfo() {
+    }
+
+    public MasterLocationAddressInfo(Builder builder) {
+        /**
+         * 办公地点
+         * <p> 示例值：
+         */
+        this.locationInfo = builder.locationInfo;
+        /**
+         * 办公地址
+         * <p> 示例值：
+         */
+        this.addressInfo = builder.addressInfo;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public MasterLocationInfo getLocationInfo() {
         return this.locationInfo;
     }
@@ -52,67 +78,46 @@ public class MasterLocationAddressInfo {
         this.addressInfo = addressInfo;
     }
 
-
-// builder 开始
-  public MasterLocationAddressInfo(){}
-
-  public MasterLocationAddressInfo(Builder builder){
-         /**
-          * 办公地点
-          * <p> 示例值：
-          */
-      this.locationInfo = builder.locationInfo;
-         /**
-          * 办公地址
-          * <p> 示例值：
-          */
-      this.addressInfo = builder.addressInfo;
-  }
-
     public static class Builder {
-     /**
-      * 办公地点
-      * <p> 示例值：
-      */
+        /**
+         * 办公地点
+         * <p> 示例值：
+         */
         private MasterLocationInfo locationInfo;
-     /**
-      * 办公地址
-      * <p> 示例值：
-      */
+        /**
+         * 办公地址
+         * <p> 示例值：
+         */
         private MasterLocationInfo addressInfo;
 
         /**
          * 办公地点
          * <p> 示例值：
+         *
          * @param locationInfo
          * @return
          */
         public Builder locationInfo(MasterLocationInfo locationInfo) {
-             this.locationInfo = locationInfo;
-             return this;
+            this.locationInfo = locationInfo;
+            return this;
         }
 
-    
 
         /**
          * 办公地址
          * <p> 示例值：
+         *
          * @param addressInfo
          * @return
          */
         public Builder addressInfo(MasterLocationInfo addressInfo) {
-             this.addressInfo = addressInfo;
-             return this;
+            this.addressInfo = addressInfo;
+            return this;
         }
 
-    
-    
-    public MasterLocationAddressInfo build(){
-        return new MasterLocationAddressInfo(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public MasterLocationAddressInfo build() {
+            return new MasterLocationAddressInfo(this);
+        }
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class AppWorkflow {
-     /**
-      * 自动化工作流的id
-      * <p> 示例值：72934597xxxx9998484
-      */
+    /**
+     * 自动化工作流的id
+     * <p> 示例值：72934597xxxx9998484
+     */
     @SerializedName("workflow_id")
     private String workflowId;
-     /**
-      * 自动化工作流的状态
-      * <p> 示例值：Enable
-      */
+    /**
+     * 自动化工作流的状态
+     * <p> 示例值：Enable
+     */
     @SerializedName("status")
     private String status;
-     /**
-      * 自动化工作流的名称
-      * <p> 示例值：流程
-      */
+    /**
+     * 自动化工作流的名称
+     * <p> 示例值：流程
+     */
     @SerializedName("title")
     private String title;
+
+    // builder 开始
+    public AppWorkflow() {
+    }
+
+    public AppWorkflow(Builder builder) {
+        /**
+         * 自动化工作流的id
+         * <p> 示例值：72934597xxxx9998484
+         */
+        this.workflowId = builder.workflowId;
+        /**
+         * 自动化工作流的状态
+         * <p> 示例值：Enable
+         */
+        this.status = builder.status;
+        /**
+         * 自动化工作流的名称
+         * <p> 示例值：流程
+         */
+        this.title = builder.title;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getWorkflowId() {
         return this.workflowId;
     }
@@ -67,90 +98,64 @@ public class AppWorkflow {
         this.title = title;
     }
 
-
-// builder 开始
-  public AppWorkflow(){}
-
-  public AppWorkflow(Builder builder){
-         /**
-          * 自动化工作流的id
-          * <p> 示例值：72934597xxxx9998484
-          */
-      this.workflowId = builder.workflowId;
-         /**
-          * 自动化工作流的状态
-          * <p> 示例值：Enable
-          */
-      this.status = builder.status;
-         /**
-          * 自动化工作流的名称
-          * <p> 示例值：流程
-          */
-      this.title = builder.title;
-  }
-
     public static class Builder {
-     /**
-      * 自动化工作流的id
-      * <p> 示例值：72934597xxxx9998484
-      */
+        /**
+         * 自动化工作流的id
+         * <p> 示例值：72934597xxxx9998484
+         */
         private String workflowId;
-     /**
-      * 自动化工作流的状态
-      * <p> 示例值：Enable
-      */
+        /**
+         * 自动化工作流的状态
+         * <p> 示例值：Enable
+         */
         private String status;
-     /**
-      * 自动化工作流的名称
-      * <p> 示例值：流程
-      */
+        /**
+         * 自动化工作流的名称
+         * <p> 示例值：流程
+         */
         private String title;
 
         /**
          * 自动化工作流的id
          * <p> 示例值：72934597xxxx9998484
+         *
          * @param workflowId
          * @return
          */
         public Builder workflowId(String workflowId) {
-             this.workflowId = workflowId;
-             return this;
+            this.workflowId = workflowId;
+            return this;
         }
 
-    
 
         /**
          * 自动化工作流的状态
          * <p> 示例值：Enable
+         *
          * @param status
          * @return
          */
         public Builder status(String status) {
-             this.status = status;
-             return this;
+            this.status = status;
+            return this;
         }
 
-    
 
         /**
          * 自动化工作流的名称
          * <p> 示例值：流程
+         *
          * @param title
          * @return
          */
         public Builder title(String title) {
-             this.title = title;
-             return this;
+            this.title = title;
+            return this;
         }
 
-    
-    
-    public AppWorkflow build(){
-        return new AppWorkflow(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public AppWorkflow build() {
+            return new AppWorkflow(this);
+        }
     }
 }

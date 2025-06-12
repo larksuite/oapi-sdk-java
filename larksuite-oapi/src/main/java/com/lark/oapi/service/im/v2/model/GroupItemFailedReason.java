@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.im.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class GroupItemFailedReason {
-     /**
-      * 标签项
-      * <p> 示例值：
-      */
+    /**
+     * 标签项
+     * <p> 示例值：
+     */
     @SerializedName("item")
     private FeedGroupItem item;
-     /**
-      * 错误码
-      * <p> 示例值：0
-      */
+    /**
+     * 错误码
+     * <p> 示例值：0
+     */
     @SerializedName("error_code")
     private Integer errorCode;
-     /**
-      * 错误消息
-      * <p> 示例值：test error message
-      */
+    /**
+     * 错误消息
+     * <p> 示例值：test error message
+     */
     @SerializedName("error_message")
     private String errorMessage;
+
+    // builder 开始
+    public GroupItemFailedReason() {
+    }
+
+    public GroupItemFailedReason(Builder builder) {
+        /**
+         * 标签项
+         * <p> 示例值：
+         */
+        this.item = builder.item;
+        /**
+         * 错误码
+         * <p> 示例值：0
+         */
+        this.errorCode = builder.errorCode;
+        /**
+         * 错误消息
+         * <p> 示例值：test error message
+         */
+        this.errorMessage = builder.errorMessage;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public FeedGroupItem getItem() {
         return this.item;
     }
@@ -67,90 +98,64 @@ public class GroupItemFailedReason {
         this.errorMessage = errorMessage;
     }
 
-
-// builder 开始
-  public GroupItemFailedReason(){}
-
-  public GroupItemFailedReason(Builder builder){
-         /**
-          * 标签项
-          * <p> 示例值：
-          */
-      this.item = builder.item;
-         /**
-          * 错误码
-          * <p> 示例值：0
-          */
-      this.errorCode = builder.errorCode;
-         /**
-          * 错误消息
-          * <p> 示例值：test error message
-          */
-      this.errorMessage = builder.errorMessage;
-  }
-
     public static class Builder {
-     /**
-      * 标签项
-      * <p> 示例值：
-      */
+        /**
+         * 标签项
+         * <p> 示例值：
+         */
         private FeedGroupItem item;
-     /**
-      * 错误码
-      * <p> 示例值：0
-      */
+        /**
+         * 错误码
+         * <p> 示例值：0
+         */
         private Integer errorCode;
-     /**
-      * 错误消息
-      * <p> 示例值：test error message
-      */
+        /**
+         * 错误消息
+         * <p> 示例值：test error message
+         */
         private String errorMessage;
 
         /**
          * 标签项
          * <p> 示例值：
+         *
          * @param item
          * @return
          */
         public Builder item(FeedGroupItem item) {
-             this.item = item;
-             return this;
+            this.item = item;
+            return this;
         }
 
-    
 
         /**
          * 错误码
          * <p> 示例值：0
+         *
          * @param errorCode
          * @return
          */
         public Builder errorCode(Integer errorCode) {
-             this.errorCode = errorCode;
-             return this;
+            this.errorCode = errorCode;
+            return this;
         }
 
-    
 
         /**
          * 错误消息
          * <p> 示例值：test error message
+         *
          * @param errorMessage
          * @return
          */
         public Builder errorMessage(String errorMessage) {
-             this.errorMessage = errorMessage;
-             return this;
+            this.errorMessage = errorMessage;
+            return this;
         }
 
-    
-    
-    public GroupItemFailedReason build(){
-        return new GroupItemFailedReason(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public GroupItemFailedReason build() {
+            return new GroupItemFailedReason(this);
+        }
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class MergeForwardMessageReqBody {
-     /**
-      * 依据receive_id_type的值，填写对应的转发目标的ID
-      * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
-      */
+    /**
+     * 依据receive_id_type的值，填写对应的转发目标的ID
+     * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
+     */
     @SerializedName("receive_id")
     private String receiveId;
-     /**
-      * 要转发的消息ID列表
-      * <p> 示例值：
-      */
+    /**
+     * 要转发的消息ID列表
+     * <p> 示例值：
+     */
     @SerializedName("message_id_list")
     private String[] messageIdList;
+
+    // builder 开始
+    public MergeForwardMessageReqBody() {
+    }
+
+    public MergeForwardMessageReqBody(Builder builder) {
+        /**
+         * 依据receive_id_type的值，填写对应的转发目标的ID
+         * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
+         */
+        this.receiveId = builder.receiveId;
+        /**
+         * 要转发的消息ID列表
+         * <p> 示例值：
+         */
+        this.messageIdList = builder.messageIdList;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getReceiveId() {
         return this.receiveId;
     }
@@ -53,67 +79,46 @@ public class MergeForwardMessageReqBody {
         this.messageIdList = messageIdList;
     }
 
-
-// builder 开始
-  public MergeForwardMessageReqBody(){}
-
-  public MergeForwardMessageReqBody(Builder builder){
-         /**
-          * 依据receive_id_type的值，填写对应的转发目标的ID
-          * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
-          */
-      this.receiveId = builder.receiveId;
-         /**
-          * 要转发的消息ID列表
-          * <p> 示例值：
-          */
-      this.messageIdList = builder.messageIdList;
-  }
-
     public static class Builder {
-     /**
-      * 依据receive_id_type的值，填写对应的转发目标的ID
-      * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
-      */
+        /**
+         * 依据receive_id_type的值，填写对应的转发目标的ID
+         * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
+         */
         private String receiveId;
-     /**
-      * 要转发的消息ID列表
-      * <p> 示例值：
-      */
+        /**
+         * 要转发的消息ID列表
+         * <p> 示例值：
+         */
         private String[] messageIdList;
 
         /**
          * 依据receive_id_type的值，填写对应的转发目标的ID
          * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
+         *
          * @param receiveId
          * @return
          */
         public Builder receiveId(String receiveId) {
-             this.receiveId = receiveId;
-             return this;
+            this.receiveId = receiveId;
+            return this;
         }
 
-    
 
         /**
          * 要转发的消息ID列表
          * <p> 示例值：
+         *
          * @param messageIdList
          * @return
          */
         public Builder messageIdList(String[] messageIdList) {
-             this.messageIdList = messageIdList;
-             return this;
+            this.messageIdList = messageIdList;
+            return this;
         }
 
-    
-    
-    public MergeForwardMessageReqBody build(){
-        return new MergeForwardMessageReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public MergeForwardMessageReqBody build() {
+            return new MergeForwardMessageReqBody(this);
+        }
     }
 }

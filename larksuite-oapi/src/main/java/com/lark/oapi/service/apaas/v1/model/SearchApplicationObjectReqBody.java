@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,42 +20,82 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class SearchApplicationObjectReqBody {
-     /**
-      * 搜索词
-      * <p> 示例值：搜索关键字
-      */
+    /**
+     * 搜索词
+     * <p> 示例值：搜索关键字
+     */
     @SerializedName("q")
     private String q;
-     /**
-      * 搜索对象范围
-      * <p> 示例值：
-      */
+    /**
+     * 搜索对象范围
+     * <p> 示例值：
+     */
     @SerializedName("search_objects")
     private SearchObjectParam[] searchObjects;
-     /**
-      * 分页参数，第一次搜索时为空，需要分页查询时使用 SearchRecordsResponse 中的结果
-      * <p> 示例值：eyJvYmplY3RzX3BhZ2VfdG9rZW4iOlt7Im9ial9pZCI6MTc2OTI4NzM5M
-      */
+    /**
+     * 分页参数，第一次搜索时为空，需要分页查询时使用 SearchRecordsResponse 中的结果
+     * <p> 示例值：eyJvYmplY3RzX3BhZ2VfdG9rZW4iOlt7Im9ial9pZCI6MTc2OTI4NzM5M
+     */
     @SerializedName("page_token")
     private String pageToken;
-     /**
-      * 返回数量，默认为50，最大不超过2000
-      * <p> 示例值：100
-      */
+    /**
+     * 返回数量，默认为50，最大不超过2000
+     * <p> 示例值：100
+     */
     @SerializedName("page_size")
     private String pageSize;
-     /**
-      * 返回元数据枚举值
-      * <p> 示例值：Label
-      */
+    /**
+     * 返回元数据枚举值
+     * <p> 示例值：Label
+     */
     @SerializedName("metadata")
     private String metadata;
+
+    // builder 开始
+    public SearchApplicationObjectReqBody() {
+    }
+
+    public SearchApplicationObjectReqBody(Builder builder) {
+        /**
+         * 搜索词
+         * <p> 示例值：搜索关键字
+         */
+        this.q = builder.q;
+        /**
+         * 搜索对象范围
+         * <p> 示例值：
+         */
+        this.searchObjects = builder.searchObjects;
+        /**
+         * 分页参数，第一次搜索时为空，需要分页查询时使用 SearchRecordsResponse 中的结果
+         * <p> 示例值：eyJvYmplY3RzX3BhZ2VfdG9rZW4iOlt7Im9ial9pZCI6MTc2OTI4NzM5M
+         */
+        this.pageToken = builder.pageToken;
+        /**
+         * 返回数量，默认为50，最大不超过2000
+         * <p> 示例值：100
+         */
+        this.pageSize = builder.pageSize;
+        /**
+         * 返回元数据枚举值
+         * <p> 示例值：Label
+         */
+        this.metadata = builder.metadata;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getQ() {
         return this.q;
     }
@@ -95,146 +136,112 @@ public class SearchApplicationObjectReqBody {
         this.metadata = metadata;
     }
 
-
-// builder 开始
-  public SearchApplicationObjectReqBody(){}
-
-  public SearchApplicationObjectReqBody(Builder builder){
-         /**
-          * 搜索词
-          * <p> 示例值：搜索关键字
-          */
-      this.q = builder.q;
-         /**
-          * 搜索对象范围
-          * <p> 示例值：
-          */
-      this.searchObjects = builder.searchObjects;
-         /**
-          * 分页参数，第一次搜索时为空，需要分页查询时使用 SearchRecordsResponse 中的结果
-          * <p> 示例值：eyJvYmplY3RzX3BhZ2VfdG9rZW4iOlt7Im9ial9pZCI6MTc2OTI4NzM5M
-          */
-      this.pageToken = builder.pageToken;
-         /**
-          * 返回数量，默认为50，最大不超过2000
-          * <p> 示例值：100
-          */
-      this.pageSize = builder.pageSize;
-         /**
-          * 返回元数据枚举值
-          * <p> 示例值：Label
-          */
-      this.metadata = builder.metadata;
-  }
-
     public static class Builder {
-     /**
-      * 搜索词
-      * <p> 示例值：搜索关键字
-      */
+        /**
+         * 搜索词
+         * <p> 示例值：搜索关键字
+         */
         private String q;
-     /**
-      * 搜索对象范围
-      * <p> 示例值：
-      */
+        /**
+         * 搜索对象范围
+         * <p> 示例值：
+         */
         private SearchObjectParam[] searchObjects;
-     /**
-      * 分页参数，第一次搜索时为空，需要分页查询时使用 SearchRecordsResponse 中的结果
-      * <p> 示例值：eyJvYmplY3RzX3BhZ2VfdG9rZW4iOlt7Im9ial9pZCI6MTc2OTI4NzM5M
-      */
+        /**
+         * 分页参数，第一次搜索时为空，需要分页查询时使用 SearchRecordsResponse 中的结果
+         * <p> 示例值：eyJvYmplY3RzX3BhZ2VfdG9rZW4iOlt7Im9ial9pZCI6MTc2OTI4NzM5M
+         */
         private String pageToken;
-     /**
-      * 返回数量，默认为50，最大不超过2000
-      * <p> 示例值：100
-      */
+        /**
+         * 返回数量，默认为50，最大不超过2000
+         * <p> 示例值：100
+         */
         private String pageSize;
-     /**
-      * 返回元数据枚举值
-      * <p> 示例值：Label
-      */
+        /**
+         * 返回元数据枚举值
+         * <p> 示例值：Label
+         */
         private String metadata;
 
         /**
          * 搜索词
          * <p> 示例值：搜索关键字
+         *
          * @param q
          * @return
          */
         public Builder q(String q) {
-             this.q = q;
-             return this;
+            this.q = q;
+            return this;
         }
 
-    
 
         /**
          * 搜索对象范围
          * <p> 示例值：
+         *
          * @param searchObjects
          * @return
          */
         public Builder searchObjects(SearchObjectParam[] searchObjects) {
-             this.searchObjects = searchObjects;
-             return this;
+            this.searchObjects = searchObjects;
+            return this;
         }
 
-    
 
         /**
          * 分页参数，第一次搜索时为空，需要分页查询时使用 SearchRecordsResponse 中的结果
          * <p> 示例值：eyJvYmplY3RzX3BhZ2VfdG9rZW4iOlt7Im9ial9pZCI6MTc2OTI4NzM5M
+         *
          * @param pageToken
          * @return
          */
         public Builder pageToken(String pageToken) {
-             this.pageToken = pageToken;
-             return this;
+            this.pageToken = pageToken;
+            return this;
         }
 
-    
 
         /**
          * 返回数量，默认为50，最大不超过2000
          * <p> 示例值：100
+         *
          * @param pageSize
          * @return
          */
         public Builder pageSize(String pageSize) {
-             this.pageSize = pageSize;
-             return this;
+            this.pageSize = pageSize;
+            return this;
         }
 
-    
 
         /**
          * 返回元数据枚举值
          * <p> 示例值：Label
+         *
          * @param metadata
          * @return
          */
         public Builder metadata(String metadata) {
-             this.metadata = metadata;
-             return this;
+            this.metadata = metadata;
+            return this;
         }
+
         /**
          * 返回元数据枚举值
          * <p> 示例值：Label
+         *
          * @param metadata {@link com.lark.oapi.service.apaas.v1.enums.SearchApplicationObjectMetadataOptionEnum}
          * @return
          */
         public Builder metadata(com.lark.oapi.service.apaas.v1.enums.SearchApplicationObjectMetadataOptionEnum metadata) {
-             this.metadata = metadata.getValue();
-             return this;
+            this.metadata = metadata.getValue();
+            return this;
         }
 
-    
-    
-    public SearchApplicationObjectReqBody build(){
-        return new SearchApplicationObjectReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public SearchApplicationObjectReqBody build() {
+            return new SearchApplicationObjectReqBody(this);
+        }
     }
 }

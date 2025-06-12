@@ -12,25 +12,46 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class DeleteFaqReq {
-     /**
-      * id
-      * <p> 示例值：12345
-      */
+    /**
+     * id
+     * <p> 示例值：12345
+     */
     @Path
     @SerializedName("id")
     private String id;
+
+    // builder 开始
+    public DeleteFaqReq() {
+    }
+
+    public DeleteFaqReq(Builder builder) {
+        /**
+         * id
+         * <p> 示例值：12345
+         */
+        this.id = builder.id;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -39,39 +60,25 @@ public class DeleteFaqReq {
         this.id = id;
     }
 
-
-// builder 开始
-  public DeleteFaqReq(){}
-
-  public DeleteFaqReq(Builder builder){
-     /**
-      * id
-      * <p> 示例值：12345
-      */
-       this.id = builder.id;
-  }
-
     public static class Builder {
-    
+
         private String id; // id
+
         /**
          * id
          * <p> 示例值：12345
+         *
          * @param id
          * @return
          */
-          public Builder id(String id) {
-               this.id = id;
-               return this;
-          }
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
 
-    
-    public DeleteFaqReq build(){
-        return new DeleteFaqReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public DeleteFaqReq build() {
+            return new DeleteFaqReq(this);
+        }
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.im.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class PatchFeedCardReqBody {
-     /**
-      * 临时置顶状态，true-打开，false-关闭
-      * <p> 示例值：true
-      */
+    /**
+     * 临时置顶状态，true-打开，false-关闭
+     * <p> 示例值：true
+     */
     @SerializedName("time_sensitive")
     private Boolean timeSensitive;
-     /**
-      * 用户id 列表
-      * <p> 示例值：
-      */
+    /**
+     * 用户id 列表
+     * <p> 示例值：
+     */
     @SerializedName("user_ids")
     private String[] userIds;
+
+    // builder 开始
+    public PatchFeedCardReqBody() {
+    }
+
+    public PatchFeedCardReqBody(Builder builder) {
+        /**
+         * 临时置顶状态，true-打开，false-关闭
+         * <p> 示例值：true
+         */
+        this.timeSensitive = builder.timeSensitive;
+        /**
+         * 用户id 列表
+         * <p> 示例值：
+         */
+        this.userIds = builder.userIds;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Boolean getTimeSensitive() {
         return this.timeSensitive;
     }
@@ -53,67 +79,46 @@ public class PatchFeedCardReqBody {
         this.userIds = userIds;
     }
 
-
-// builder 开始
-  public PatchFeedCardReqBody(){}
-
-  public PatchFeedCardReqBody(Builder builder){
-         /**
-          * 临时置顶状态，true-打开，false-关闭
-          * <p> 示例值：true
-          */
-      this.timeSensitive = builder.timeSensitive;
-         /**
-          * 用户id 列表
-          * <p> 示例值：
-          */
-      this.userIds = builder.userIds;
-  }
-
     public static class Builder {
-     /**
-      * 临时置顶状态，true-打开，false-关闭
-      * <p> 示例值：true
-      */
+        /**
+         * 临时置顶状态，true-打开，false-关闭
+         * <p> 示例值：true
+         */
         private Boolean timeSensitive;
-     /**
-      * 用户id 列表
-      * <p> 示例值：
-      */
+        /**
+         * 用户id 列表
+         * <p> 示例值：
+         */
         private String[] userIds;
 
         /**
          * 临时置顶状态，true-打开，false-关闭
          * <p> 示例值：true
+         *
          * @param timeSensitive
          * @return
          */
         public Builder timeSensitive(Boolean timeSensitive) {
-             this.timeSensitive = timeSensitive;
-             return this;
+            this.timeSensitive = timeSensitive;
+            return this;
         }
 
-    
 
         /**
          * 用户id 列表
          * <p> 示例值：
+         *
          * @param userIds
          * @return
          */
         public Builder userIds(String[] userIds) {
-             this.userIds = userIds;
-             return this;
+            this.userIds = userIds;
+            return this;
         }
 
-    
-    
-    public PatchFeedCardReqBody build(){
-        return new PatchFeedCardReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public PatchFeedCardReqBody build() {
+            return new PatchFeedCardReqBody(this);
+        }
     }
 }

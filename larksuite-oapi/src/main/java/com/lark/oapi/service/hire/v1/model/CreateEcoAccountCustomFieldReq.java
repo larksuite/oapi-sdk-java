@@ -12,19 +12,35 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CreateEcoAccountCustomFieldReq {
     @Body
     private EcoAccountCustomField body;
+
+    // builder 开始
+    public CreateEcoAccountCustomFieldReq() {
+    }
+
+    public CreateEcoAccountCustomFieldReq(Builder builder) {
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 
     public EcoAccountCustomField getEcoAccountCustomField() {
         return this.body;
@@ -34,36 +50,27 @@ public class CreateEcoAccountCustomFieldReq {
         this.body = body;
     }
 
-// builder 开始
-  public CreateEcoAccountCustomFieldReq(){}
-
-  public CreateEcoAccountCustomFieldReq(Builder builder){
-        this.body = builder.body;
-  }
-
     public static class Builder {
-    
+
         private EcoAccountCustomField body;
-    
+
         public EcoAccountCustomField getEcoAccountCustomField() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder ecoAccountCustomField(EcoAccountCustomField body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public CreateEcoAccountCustomFieldReq build(){
-        return new CreateEcoAccountCustomFieldReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public CreateEcoAccountCustomFieldReq build() {
+            return new CreateEcoAccountCustomFieldReq(this);
+        }
     }
 }

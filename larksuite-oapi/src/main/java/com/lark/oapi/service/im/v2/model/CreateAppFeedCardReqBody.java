@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.im.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CreateAppFeedCardReqBody {
-     /**
-      * 应用消息卡片
-      * <p> 示例值：
-      */
+    /**
+     * 应用消息卡片
+     * <p> 示例值：
+     */
     @SerializedName("app_feed_card")
     private OpenAppFeedCard appFeedCard;
-     /**
-      * 用户 ID
-      * <p> 示例值：
-      */
+    /**
+     * 用户 ID
+     * <p> 示例值：
+     */
     @SerializedName("user_ids")
     private String[] userIds;
+
+    // builder 开始
+    public CreateAppFeedCardReqBody() {
+    }
+
+    public CreateAppFeedCardReqBody(Builder builder) {
+        /**
+         * 应用消息卡片
+         * <p> 示例值：
+         */
+        this.appFeedCard = builder.appFeedCard;
+        /**
+         * 用户 ID
+         * <p> 示例值：
+         */
+        this.userIds = builder.userIds;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public OpenAppFeedCard getAppFeedCard() {
         return this.appFeedCard;
     }
@@ -53,67 +79,46 @@ public class CreateAppFeedCardReqBody {
         this.userIds = userIds;
     }
 
-
-// builder 开始
-  public CreateAppFeedCardReqBody(){}
-
-  public CreateAppFeedCardReqBody(Builder builder){
-         /**
-          * 应用消息卡片
-          * <p> 示例值：
-          */
-      this.appFeedCard = builder.appFeedCard;
-         /**
-          * 用户 ID
-          * <p> 示例值：
-          */
-      this.userIds = builder.userIds;
-  }
-
     public static class Builder {
-     /**
-      * 应用消息卡片
-      * <p> 示例值：
-      */
+        /**
+         * 应用消息卡片
+         * <p> 示例值：
+         */
         private OpenAppFeedCard appFeedCard;
-     /**
-      * 用户 ID
-      * <p> 示例值：
-      */
+        /**
+         * 用户 ID
+         * <p> 示例值：
+         */
         private String[] userIds;
 
         /**
          * 应用消息卡片
          * <p> 示例值：
+         *
          * @param appFeedCard
          * @return
          */
         public Builder appFeedCard(OpenAppFeedCard appFeedCard) {
-             this.appFeedCard = appFeedCard;
-             return this;
+            this.appFeedCard = appFeedCard;
+            return this;
         }
 
-    
 
         /**
          * 用户 ID
          * <p> 示例值：
+         *
          * @param userIds
          * @return
          */
         public Builder userIds(String[] userIds) {
-             this.userIds = userIds;
-             return this;
+            this.userIds = userIds;
+            return this;
         }
 
-    
-    
-    public CreateAppFeedCardReqBody build(){
-        return new CreateAppFeedCardReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public CreateAppFeedCardReqBody build() {
+            return new CreateAppFeedCardReqBody(this);
+        }
     }
 }

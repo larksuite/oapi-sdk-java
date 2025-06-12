@@ -17,14 +17,15 @@ package com.lark.oapi.service.docs.v1.enums;
  * 内容类型
  */
 public enum GetContentContentTypeEnum {
-     MARKDOWN("markdown"), // Markdown 格式
-  ;
-   private String value;
+    MARKDOWN("markdown"), // Markdown 格式
+    ;
+    private String value;
+
     GetContentContentTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

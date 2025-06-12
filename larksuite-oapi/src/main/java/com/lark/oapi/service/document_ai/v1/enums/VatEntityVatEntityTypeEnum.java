@@ -17,41 +17,42 @@ package com.lark.oapi.service.document_ai.v1.enums;
  * 识别的实体类型
  */
 public enum VatEntityVatEntityTypeEnum {
-     INVOICENAME("invoice_name"), // 发票抬头
-     INVOICECODE("invoice_code"), // 发票代码
-     INVOIDENO("invoice_no"), // 发票号码
-     INVOICEDATE("invoice_date"), // 开票日期
-     TOTALPRICE("total_price"), // 合计金额（不含税）
-     TOTALTAX("total_tax"), // 合计税额
-     BIGTOTALPRICEANDTAX("big_total_price_and_tax"), // 合计总额（大写）
-     CHECKCODE("check_code"), // 校验码
-     TOTALPRICEANDTAX("total_price_and_tax"), // 合计总额
-     BUYERNAME("buyer_name"), // 购买方名称
-     BUYERTAXPAYERNO("buyer_taxpayer_no"), // 购买方纳税人识别号
-     BUYERADDRESSPHONE("buyer_address_phone"), // 购买方地址&电话所有人
-     BUYERACCOUNT("buyer_account"), // 购买方开户行&账号
-     SELLERNAME("seller_name"), // 销售方名称
-     SELLERTAXPAYERNO("seller_taxpayer_no"), // 销售方纳税人识别号
-     SELLERADDRESSPHONE("seller_address_phone"), // 销售方地址&电话
-     SELLERACCOUNT("seller_account"), // 销售方开户行&账号
-     PAYEE("payee"), // 收款人
-     INVOICEDATE1("invoice_date"), // 开票日期
-     PASSWORDAREA("password_area"), // 密码区
-     REMARKS("remarks"), // 备注
-     REVIEWER("reviewer"), // 复核人
-     DRAWER("drawer"), // 开票人
-     ISSEALED("is_sealed"), // 是否盖章
-     SELLERNAMEINSEAL("seller_name_in_seal"), // 印章内销售方名称
-     SELLERTAXPAYERNOINSEAL("seller_taxpayer_no_in_seal"), // 印章内销售方纳税人识别号
-     INVOICESPECIALSEAL("invoice_special_seal"), // 印章名称
-     MACHINENUM("machine_num"), // 机器编号
-  ;
-   private String value;
+    INVOICENAME("invoice_name"), // 发票抬头
+    INVOICECODE("invoice_code"), // 发票代码
+    INVOIDENO("invoice_no"), // 发票号码
+    INVOICEDATE("invoice_date"), // 开票日期
+    TOTALPRICE("total_price"), // 合计金额（不含税）
+    TOTALTAX("total_tax"), // 合计税额
+    BIGTOTALPRICEANDTAX("big_total_price_and_tax"), // 合计总额（大写）
+    CHECKCODE("check_code"), // 校验码
+    TOTALPRICEANDTAX("total_price_and_tax"), // 合计总额
+    BUYERNAME("buyer_name"), // 购买方名称
+    BUYERTAXPAYERNO("buyer_taxpayer_no"), // 购买方纳税人识别号
+    BUYERADDRESSPHONE("buyer_address_phone"), // 购买方地址&电话所有人
+    BUYERACCOUNT("buyer_account"), // 购买方开户行&账号
+    SELLERNAME("seller_name"), // 销售方名称
+    SELLERTAXPAYERNO("seller_taxpayer_no"), // 销售方纳税人识别号
+    SELLERADDRESSPHONE("seller_address_phone"), // 销售方地址&电话
+    SELLERACCOUNT("seller_account"), // 销售方开户行&账号
+    PAYEE("payee"), // 收款人
+    INVOICEDATE1("invoice_date"), // 开票日期
+    PASSWORDAREA("password_area"), // 密码区
+    REMARKS("remarks"), // 备注
+    REVIEWER("reviewer"), // 复核人
+    DRAWER("drawer"), // 开票人
+    ISSEALED("is_sealed"), // 是否盖章
+    SELLERNAMEINSEAL("seller_name_in_seal"), // 印章内销售方名称
+    SELLERTAXPAYERNOINSEAL("seller_taxpayer_no_in_seal"), // 印章内销售方纳税人识别号
+    INVOICESPECIALSEAL("invoice_special_seal"), // 印章名称
+    MACHINENUM("machine_num"), // 机器编号
+    ;
+    private String value;
+
     VatEntityVatEntityTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

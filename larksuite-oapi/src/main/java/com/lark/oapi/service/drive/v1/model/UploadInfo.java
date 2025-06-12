@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,36 +20,71 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class UploadInfo {
-     /**
-      * 文件名
-      * <p> 示例值：
-      */
+    /**
+     * 文件名
+     * <p> 示例值：
+     */
     @SerializedName("file_name")
     private String fileName;
-     /**
-      * 父节点类型（父文件系统类型）
-      * <p> 示例值：
-      */
+    /**
+     * 父节点类型（父文件系统类型）
+     * <p> 示例值：
+     */
     @SerializedName("parent_type")
     private String parentType;
-     /**
-      * 父节点
-      * <p> 示例值：
-      */
+    /**
+     * 父节点
+     * <p> 示例值：
+     */
     @SerializedName("parent_node")
     private String parentNode;
-     /**
-      * 文件大小
-      * <p> 示例值：
-      */
+    /**
+     * 文件大小
+     * <p> 示例值：
+     */
     @SerializedName("size")
     private Integer size;
+
+    // builder 开始
+    public UploadInfo() {
+    }
+
+    public UploadInfo(Builder builder) {
+        /**
+         * 文件名
+         * <p> 示例值：
+         */
+        this.fileName = builder.fileName;
+        /**
+         * 父节点类型（父文件系统类型）
+         * <p> 示例值：
+         */
+        this.parentType = builder.parentType;
+        /**
+         * 父节点
+         * <p> 示例值：
+         */
+        this.parentNode = builder.parentNode;
+        /**
+         * 文件大小
+         * <p> 示例值：
+         */
+        this.size = builder.size;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getFileName() {
         return this.fileName;
     }
@@ -81,123 +117,94 @@ public class UploadInfo {
         this.size = size;
     }
 
-
-// builder 开始
-  public UploadInfo(){}
-
-  public UploadInfo(Builder builder){
-         /**
-          * 文件名
-          * <p> 示例值：
-          */
-      this.fileName = builder.fileName;
-         /**
-          * 父节点类型（父文件系统类型）
-          * <p> 示例值：
-          */
-      this.parentType = builder.parentType;
-         /**
-          * 父节点
-          * <p> 示例值：
-          */
-      this.parentNode = builder.parentNode;
-         /**
-          * 文件大小
-          * <p> 示例值：
-          */
-      this.size = builder.size;
-  }
-
     public static class Builder {
-     /**
-      * 文件名
-      * <p> 示例值：
-      */
+        /**
+         * 文件名
+         * <p> 示例值：
+         */
         private String fileName;
-     /**
-      * 父节点类型（父文件系统类型）
-      * <p> 示例值：
-      */
+        /**
+         * 父节点类型（父文件系统类型）
+         * <p> 示例值：
+         */
         private String parentType;
-     /**
-      * 父节点
-      * <p> 示例值：
-      */
+        /**
+         * 父节点
+         * <p> 示例值：
+         */
         private String parentNode;
-     /**
-      * 文件大小
-      * <p> 示例值：
-      */
+        /**
+         * 文件大小
+         * <p> 示例值：
+         */
         private Integer size;
 
         /**
          * 文件名
          * <p> 示例值：
+         *
          * @param fileName
          * @return
          */
         public Builder fileName(String fileName) {
-             this.fileName = fileName;
-             return this;
+            this.fileName = fileName;
+            return this;
         }
 
-    
 
         /**
          * 父节点类型（父文件系统类型）
          * <p> 示例值：
+         *
          * @param parentType
          * @return
          */
         public Builder parentType(String parentType) {
-             this.parentType = parentType;
-             return this;
+            this.parentType = parentType;
+            return this;
         }
+
         /**
          * 父节点类型（父文件系统类型）
          * <p> 示例值：
+         *
          * @param parentType {@link com.lark.oapi.service.drive.v1.enums.UploadInfoParentTypeEnum}
          * @return
          */
         public Builder parentType(com.lark.oapi.service.drive.v1.enums.UploadInfoParentTypeEnum parentType) {
-             this.parentType = parentType.getValue();
-             return this;
+            this.parentType = parentType.getValue();
+            return this;
         }
 
-    
 
         /**
          * 父节点
          * <p> 示例值：
+         *
          * @param parentNode
          * @return
          */
         public Builder parentNode(String parentNode) {
-             this.parentNode = parentNode;
-             return this;
+            this.parentNode = parentNode;
+            return this;
         }
 
-    
 
         /**
          * 文件大小
          * <p> 示例值：
+         *
          * @param size
          * @return
          */
         public Builder size(Integer size) {
-             this.size = size;
-             return this;
+            this.size = size;
+            return this;
         }
 
-    
-    
-    public UploadInfo build(){
-        return new UploadInfo(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public UploadInfo build() {
+            return new UploadInfo(this);
+        }
     }
 }

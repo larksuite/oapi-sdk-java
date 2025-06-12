@@ -12,36 +12,41 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class LinkChatRespBody {
-     /**
-      * 群分享链接
-      * <p> 示例值：https://applink.feishu.cn/client/chat/chatter/add_by_link?link_token=3nf8789-4rfx-427d-a6bf-ed1d2df348aabd
-      */
+    /**
+     * 群分享链接
+     * <p> 示例值：https://applink.feishu.cn/client/chat/chatter/add_by_link?link_token=3nf8789-4rfx-427d-a6bf-ed1d2df348aabd
+     */
     @SerializedName("share_link")
     private String shareLink;
-     /**
-      * 分享链接过期时间戳（秒级）
-      * <p> 示例值：1609296809
-      */
+    /**
+     * 分享链接过期时间戳（秒级）
+     * <p> 示例值：1609296809
+     */
     @SerializedName("expire_time")
     private String expireTime;
-     /**
-      * 分享链接是否永久有效
-      * <p> 示例值：false
-      */
+    /**
+     * 分享链接是否永久有效
+     * <p> 示例值：false
+     */
     @SerializedName("is_permanent")
     private Boolean isPermanent;
+
     public String getShareLink() {
         return this.shareLink;
     }

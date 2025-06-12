@@ -12,25 +12,49 @@
  */
 
 package com.lark.oapi.service.task.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.task.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class RemoveDependenciesTaskReq {
-     /**
-      * 要移除依赖的任务GUID
-      * <p> 示例值：93b7bd05-35e6-4371-b3c9-6b7cbd7100c0
-      */
+    /**
+     * 要移除依赖的任务GUID
+     * <p> 示例值：93b7bd05-35e6-4371-b3c9-6b7cbd7100c0
+     */
     @Path
     @SerializedName("task_guid")
     private String taskGuid;
+    @Body
+    private RemoveDependenciesTaskReqBody body;
+
+    // builder 开始
+    public RemoveDependenciesTaskReq() {
+    }
+
+    public RemoveDependenciesTaskReq(Builder builder) {
+        /**
+         * 要移除依赖的任务GUID
+         * <p> 示例值：93b7bd05-35e6-4371-b3c9-6b7cbd7100c0
+         */
+        this.taskGuid = builder.taskGuid;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getTaskGuid() {
         return this.taskGuid;
     }
@@ -38,9 +62,6 @@ public class RemoveDependenciesTaskReq {
     public void setTaskGuid(String taskGuid) {
         this.taskGuid = taskGuid;
     }
-
-    @Body
-    private RemoveDependenciesTaskReqBody body;
 
     public RemoveDependenciesTaskReqBody getRemoveDependenciesTaskReqBody() {
         return this.body;
@@ -50,54 +71,40 @@ public class RemoveDependenciesTaskReq {
         this.body = body;
     }
 
-// builder 开始
-  public RemoveDependenciesTaskReq(){}
-
-  public RemoveDependenciesTaskReq(Builder builder){
-     /**
-      * 要移除依赖的任务GUID
-      * <p> 示例值：93b7bd05-35e6-4371-b3c9-6b7cbd7100c0
-      */
-       this.taskGuid = builder.taskGuid;
-        this.body = builder.body;
-  }
-
     public static class Builder {
-    
+
         private String taskGuid; // 要移除依赖的任务GUID
+        private RemoveDependenciesTaskReqBody body;
+
         /**
          * 要移除依赖的任务GUID
          * <p> 示例值：93b7bd05-35e6-4371-b3c9-6b7cbd7100c0
+         *
          * @param taskGuid
          * @return
          */
-          public Builder taskGuid(String taskGuid) {
-               this.taskGuid = taskGuid;
-               return this;
-          }
+        public Builder taskGuid(String taskGuid) {
+            this.taskGuid = taskGuid;
+            return this;
+        }
 
-    
-        private RemoveDependenciesTaskReqBody body;
-    
         public RemoveDependenciesTaskReqBody getRemoveDependenciesTaskReqBody() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder removeDependenciesTaskReqBody(RemoveDependenciesTaskReqBody body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public RemoveDependenciesTaskReq build(){
-        return new RemoveDependenciesTaskReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public RemoveDependenciesTaskReq build() {
+            return new RemoveDependenciesTaskReq(this);
+        }
     }
 }

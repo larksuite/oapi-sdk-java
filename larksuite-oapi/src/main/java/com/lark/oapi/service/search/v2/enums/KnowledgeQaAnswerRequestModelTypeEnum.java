@@ -17,15 +17,16 @@ package com.lark.oapi.service.search.v2.enums;
  * 大模型种类
  */
 public enum KnowledgeQaAnswerRequestModelTypeEnum {
-     DOUBAO("doubao"), // 豆包大模型
-     DEEPSEEK("deepseek"), // DeepSeek-R1大模型
-  ;
-   private String value;
+    DOUBAO("doubao"), // 豆包大模型
+    DEEPSEEK("deepseek"), // DeepSeek-R1大模型
+    ;
+    private String value;
+
     KnowledgeQaAnswerRequestModelTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

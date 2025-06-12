@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class UploadPersonReqBody {
-     /**
-      * 文件二进制内容
-      * <p> 示例值：file binary
-      */
+    /**
+     * 文件二进制内容
+     * <p> 示例值：file binary
+     */
     @SerializedName("file_content")
     private java.io.File fileContent;
-     /**
-      * 文件名称
-      * <p> 示例值：个人信息
-      */
+    /**
+     * 文件名称
+     * <p> 示例值：个人信息
+     */
     @SerializedName("file_name")
     private String fileName;
+
+    // builder 开始
+    public UploadPersonReqBody() {
+    }
+
+    public UploadPersonReqBody(Builder builder) {
+        /**
+         * 文件二进制内容
+         * <p> 示例值：file binary
+         */
+        this.fileContent = builder.fileContent;
+        /**
+         * 文件名称
+         * <p> 示例值：个人信息
+         */
+        this.fileName = builder.fileName;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public java.io.File getFileContent() {
         return this.fileContent;
     }
@@ -53,67 +79,46 @@ public class UploadPersonReqBody {
         this.fileName = fileName;
     }
 
-
-// builder 开始
-  public UploadPersonReqBody(){}
-
-  public UploadPersonReqBody(Builder builder){
-         /**
-          * 文件二进制内容
-          * <p> 示例值：file binary
-          */
-      this.fileContent = builder.fileContent;
-         /**
-          * 文件名称
-          * <p> 示例值：个人信息
-          */
-      this.fileName = builder.fileName;
-  }
-
     public static class Builder {
-     /**
-      * 文件二进制内容
-      * <p> 示例值：file binary
-      */
+        /**
+         * 文件二进制内容
+         * <p> 示例值：file binary
+         */
         private java.io.File fileContent;
-     /**
-      * 文件名称
-      * <p> 示例值：个人信息
-      */
+        /**
+         * 文件名称
+         * <p> 示例值：个人信息
+         */
         private String fileName;
 
         /**
          * 文件二进制内容
          * <p> 示例值：file binary
+         *
          * @param fileContent
          * @return
          */
         public Builder fileContent(java.io.File fileContent) {
-             this.fileContent = fileContent;
-             return this;
+            this.fileContent = fileContent;
+            return this;
         }
 
-    
 
         /**
          * 文件名称
          * <p> 示例值：个人信息
+         *
          * @param fileName
          * @return
          */
         public Builder fileName(String fileName) {
-             this.fileName = fileName;
-             return this;
+            this.fileName = fileName;
+            return this;
         }
 
-    
-    
-    public UploadPersonReqBody build(){
-        return new UploadPersonReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public UploadPersonReqBody build() {
+            return new UploadPersonReqBody(this);
+        }
     }
 }

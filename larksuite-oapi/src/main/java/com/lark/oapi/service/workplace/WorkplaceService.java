@@ -27,20 +27,24 @@ public class WorkplaceService {
     private final WorkplaceBlockAccessData workplaceBlockAccessData; // workplace_block_access_data
 
     public WorkplaceService(Config config) {
-    this.v1 = new V1(config);
-    this.customWorkplaceAccessData = new CustomWorkplaceAccessData(config);
-    this.workplaceAccessData = new WorkplaceAccessData(config);
-    this.workplaceBlockAccessData = new WorkplaceBlockAccessData(config);
+        this.v1 = new V1(config);
+        this.customWorkplaceAccessData = new CustomWorkplaceAccessData(config);
+        this.workplaceAccessData = new WorkplaceAccessData(config);
+        this.workplaceBlockAccessData = new WorkplaceBlockAccessData(config);
     }
+
     public V1 v1() {
         return v1;
     }
+
     public CustomWorkplaceAccessData customWorkplaceAccessData() {
         return customWorkplaceAccessData;
     }
+
     public WorkplaceAccessData workplaceAccessData() {
         return workplaceAccessData;
     }
+
     public WorkplaceBlockAccessData workplaceBlockAccessData() {
         return workplaceBlockAccessData;
     }

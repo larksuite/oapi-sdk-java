@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class MyAiTask {
-     /**
-      * 用户姓名
-      * <p> 示例值：张三
-      */
+    /**
+     * 用户姓名
+     * <p> 示例值：张三
+     */
     @SerializedName("user_name")
     private String userName;
-     /**
-      * 操作类型
-      * <p> 示例值：同意
-      */
+    /**
+     * 操作类型
+     * <p> 示例值：同意
+     */
     @SerializedName("type")
     private String type;
-     /**
-      * 节点名称
-      * <p> 示例值：财务审批
-      */
+    /**
+     * 节点名称
+     * <p> 示例值：财务审批
+     */
     @SerializedName("node_name")
     private String nodeName;
+
+    // builder 开始
+    public MyAiTask() {
+    }
+
+    public MyAiTask(Builder builder) {
+        /**
+         * 用户姓名
+         * <p> 示例值：张三
+         */
+        this.userName = builder.userName;
+        /**
+         * 操作类型
+         * <p> 示例值：同意
+         */
+        this.type = builder.type;
+        /**
+         * 节点名称
+         * <p> 示例值：财务审批
+         */
+        this.nodeName = builder.nodeName;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getUserName() {
         return this.userName;
     }
@@ -67,90 +98,64 @@ public class MyAiTask {
         this.nodeName = nodeName;
     }
 
-
-// builder 开始
-  public MyAiTask(){}
-
-  public MyAiTask(Builder builder){
-         /**
-          * 用户姓名
-          * <p> 示例值：张三
-          */
-      this.userName = builder.userName;
-         /**
-          * 操作类型
-          * <p> 示例值：同意
-          */
-      this.type = builder.type;
-         /**
-          * 节点名称
-          * <p> 示例值：财务审批
-          */
-      this.nodeName = builder.nodeName;
-  }
-
     public static class Builder {
-     /**
-      * 用户姓名
-      * <p> 示例值：张三
-      */
+        /**
+         * 用户姓名
+         * <p> 示例值：张三
+         */
         private String userName;
-     /**
-      * 操作类型
-      * <p> 示例值：同意
-      */
+        /**
+         * 操作类型
+         * <p> 示例值：同意
+         */
         private String type;
-     /**
-      * 节点名称
-      * <p> 示例值：财务审批
-      */
+        /**
+         * 节点名称
+         * <p> 示例值：财务审批
+         */
         private String nodeName;
 
         /**
          * 用户姓名
          * <p> 示例值：张三
+         *
          * @param userName
          * @return
          */
         public Builder userName(String userName) {
-             this.userName = userName;
-             return this;
+            this.userName = userName;
+            return this;
         }
 
-    
 
         /**
          * 操作类型
          * <p> 示例值：同意
+         *
          * @param type
          * @return
          */
         public Builder type(String type) {
-             this.type = type;
-             return this;
+            this.type = type;
+            return this;
         }
 
-    
 
         /**
          * 节点名称
          * <p> 示例值：财务审批
+         *
          * @param nodeName
          * @return
          */
         public Builder nodeName(String nodeName) {
-             this.nodeName = nodeName;
-             return this;
+            this.nodeName = nodeName;
+            return this;
         }
 
-    
-    
-    public MyAiTask build(){
-        return new MyAiTask(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public MyAiTask build() {
+            return new MyAiTask(this);
+        }
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class SearchEnumReqBody {
-     /**
-      * 枚举apiname列表
-      * <p> 示例值：
-      */
+    /**
+     * 枚举apiname列表
+     * <p> 示例值：
+     */
     @SerializedName("enum_apiname_lists")
     private String[] enumApinameLists;
+
+    // builder 开始
+    public SearchEnumReqBody() {
+    }
+
+    public SearchEnumReqBody(Builder builder) {
+        /**
+         * 枚举apiname列表
+         * <p> 示例值：
+         */
+        this.enumApinameLists = builder.enumApinameLists;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String[] getEnumApinameLists() {
         return this.enumApinameLists;
     }
@@ -39,44 +60,28 @@ public class SearchEnumReqBody {
         this.enumApinameLists = enumApinameLists;
     }
 
-
-// builder 开始
-  public SearchEnumReqBody(){}
-
-  public SearchEnumReqBody(Builder builder){
-         /**
-          * 枚举apiname列表
-          * <p> 示例值：
-          */
-      this.enumApinameLists = builder.enumApinameLists;
-  }
-
     public static class Builder {
-     /**
-      * 枚举apiname列表
-      * <p> 示例值：
-      */
+        /**
+         * 枚举apiname列表
+         * <p> 示例值：
+         */
         private String[] enumApinameLists;
 
         /**
          * 枚举apiname列表
          * <p> 示例值：
+         *
          * @param enumApinameLists
          * @return
          */
         public Builder enumApinameLists(String[] enumApinameLists) {
-             this.enumApinameLists = enumApinameLists;
-             return this;
+            this.enumApinameLists = enumApinameLists;
+            return this;
         }
 
-    
-    
-    public SearchEnumReqBody build(){
-        return new SearchEnumReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public SearchEnumReqBody build() {
+            return new SearchEnumReqBody(this);
+        }
     }
 }

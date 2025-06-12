@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,66 +20,126 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CreateJobChangeReqBody {
-     /**
-      * 异动方式
-      * <p> 示例值：2
-      */
+    /**
+     * 异动方式
+     * <p> 示例值：2
+     */
     @SerializedName("transfer_mode")
     private Integer transferMode;
-     /**
-      * 雇员id
-      * <p> 示例值：ou_a294793e8fa21529f2a60e3e9de45520
-      */
+    /**
+     * 雇员id
+     * <p> 示例值：ou_a294793e8fa21529f2a60e3e9de45520
+     */
     @SerializedName("employment_id")
     private String employmentId;
-     /**
-      * 异动类型唯一标识
-      * <p> 示例值：internal_transfer
-      */
+    /**
+     * 异动类型唯一标识
+     * <p> 示例值：internal_transfer
+     */
     @SerializedName("transfer_type_unique_identifier")
     private String transferTypeUniqueIdentifier;
-     /**
-      * 异动流程ID
-      * <p> 示例值：people_6963913041981490725_6983885526583627531
-      */
+    /**
+     * 异动流程ID
+     * <p> 示例值：people_6963913041981490725_6983885526583627531
+     */
     @SerializedName("flow_id")
     private String flowId;
-     /**
-      * 生效日期
-      * <p> 示例值：2022-03-01
-      */
+    /**
+     * 生效日期
+     * <p> 示例值：2022-03-01
+     */
     @SerializedName("effective_date")
     private String effectiveDate;
-     /**
-      * 异动详细信息
-      * <p> 示例值：
-      */
+    /**
+     * 异动详细信息
+     * <p> 示例值：
+     */
     @SerializedName("transfer_info")
     private CreateTransferInfo transferInfo;
-     /**
-      * 异动记录标识符
-      * <p> 示例值：transfer_3627531
-      */
+    /**
+     * 异动记录标识符
+     * <p> 示例值：transfer_3627531
+     */
     @SerializedName("transfer_key")
     private String transferKey;
-     /**
-      * 异动发起人 ID
-      * <p> 示例值：ou_a294793e8fa21529f2a60e3e9de45520
-      */
+    /**
+     * 异动发起人 ID
+     * <p> 示例值：ou_a294793e8fa21529f2a60e3e9de45520
+     */
     @SerializedName("initiator_id")
     private String initiatorId;
-     /**
-      * 异动原因唯一标识
-      * <p> 示例值：involuntary_transfer
-      */
+    /**
+     * 异动原因唯一标识
+     * <p> 示例值：involuntary_transfer
+     */
     @SerializedName("transfer_reason_unique_identifier")
     private String transferReasonUniqueIdentifier;
+
+    // builder 开始
+    public CreateJobChangeReqBody() {
+    }
+
+    public CreateJobChangeReqBody(Builder builder) {
+        /**
+         * 异动方式
+         * <p> 示例值：2
+         */
+        this.transferMode = builder.transferMode;
+        /**
+         * 雇员id
+         * <p> 示例值：ou_a294793e8fa21529f2a60e3e9de45520
+         */
+        this.employmentId = builder.employmentId;
+        /**
+         * 异动类型唯一标识
+         * <p> 示例值：internal_transfer
+         */
+        this.transferTypeUniqueIdentifier = builder.transferTypeUniqueIdentifier;
+        /**
+         * 异动流程ID
+         * <p> 示例值：people_6963913041981490725_6983885526583627531
+         */
+        this.flowId = builder.flowId;
+        /**
+         * 生效日期
+         * <p> 示例值：2022-03-01
+         */
+        this.effectiveDate = builder.effectiveDate;
+        /**
+         * 异动详细信息
+         * <p> 示例值：
+         */
+        this.transferInfo = builder.transferInfo;
+        /**
+         * 异动记录标识符
+         * <p> 示例值：transfer_3627531
+         */
+        this.transferKey = builder.transferKey;
+        /**
+         * 异动发起人 ID
+         * <p> 示例值：ou_a294793e8fa21529f2a60e3e9de45520
+         */
+        this.initiatorId = builder.initiatorId;
+        /**
+         * 异动原因唯一标识
+         * <p> 示例值：involuntary_transfer
+         */
+        this.transferReasonUniqueIdentifier = builder.transferReasonUniqueIdentifier;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Integer getTransferMode() {
         return this.transferMode;
     }
@@ -151,228 +212,172 @@ public class CreateJobChangeReqBody {
         this.transferReasonUniqueIdentifier = transferReasonUniqueIdentifier;
     }
 
-
-// builder 开始
-  public CreateJobChangeReqBody(){}
-
-  public CreateJobChangeReqBody(Builder builder){
-         /**
-          * 异动方式
-          * <p> 示例值：2
-          */
-      this.transferMode = builder.transferMode;
-         /**
-          * 雇员id
-          * <p> 示例值：ou_a294793e8fa21529f2a60e3e9de45520
-          */
-      this.employmentId = builder.employmentId;
-         /**
-          * 异动类型唯一标识
-          * <p> 示例值：internal_transfer
-          */
-      this.transferTypeUniqueIdentifier = builder.transferTypeUniqueIdentifier;
-         /**
-          * 异动流程ID
-          * <p> 示例值：people_6963913041981490725_6983885526583627531
-          */
-      this.flowId = builder.flowId;
-         /**
-          * 生效日期
-          * <p> 示例值：2022-03-01
-          */
-      this.effectiveDate = builder.effectiveDate;
-         /**
-          * 异动详细信息
-          * <p> 示例值：
-          */
-      this.transferInfo = builder.transferInfo;
-         /**
-          * 异动记录标识符
-          * <p> 示例值：transfer_3627531
-          */
-      this.transferKey = builder.transferKey;
-         /**
-          * 异动发起人 ID
-          * <p> 示例值：ou_a294793e8fa21529f2a60e3e9de45520
-          */
-      this.initiatorId = builder.initiatorId;
-         /**
-          * 异动原因唯一标识
-          * <p> 示例值：involuntary_transfer
-          */
-      this.transferReasonUniqueIdentifier = builder.transferReasonUniqueIdentifier;
-  }
-
     public static class Builder {
-     /**
-      * 异动方式
-      * <p> 示例值：2
-      */
+        /**
+         * 异动方式
+         * <p> 示例值：2
+         */
         private Integer transferMode;
-     /**
-      * 雇员id
-      * <p> 示例值：ou_a294793e8fa21529f2a60e3e9de45520
-      */
+        /**
+         * 雇员id
+         * <p> 示例值：ou_a294793e8fa21529f2a60e3e9de45520
+         */
         private String employmentId;
-     /**
-      * 异动类型唯一标识
-      * <p> 示例值：internal_transfer
-      */
+        /**
+         * 异动类型唯一标识
+         * <p> 示例值：internal_transfer
+         */
         private String transferTypeUniqueIdentifier;
-     /**
-      * 异动流程ID
-      * <p> 示例值：people_6963913041981490725_6983885526583627531
-      */
+        /**
+         * 异动流程ID
+         * <p> 示例值：people_6963913041981490725_6983885526583627531
+         */
         private String flowId;
-     /**
-      * 生效日期
-      * <p> 示例值：2022-03-01
-      */
+        /**
+         * 生效日期
+         * <p> 示例值：2022-03-01
+         */
         private String effectiveDate;
-     /**
-      * 异动详细信息
-      * <p> 示例值：
-      */
+        /**
+         * 异动详细信息
+         * <p> 示例值：
+         */
         private CreateTransferInfo transferInfo;
-     /**
-      * 异动记录标识符
-      * <p> 示例值：transfer_3627531
-      */
+        /**
+         * 异动记录标识符
+         * <p> 示例值：transfer_3627531
+         */
         private String transferKey;
-     /**
-      * 异动发起人 ID
-      * <p> 示例值：ou_a294793e8fa21529f2a60e3e9de45520
-      */
+        /**
+         * 异动发起人 ID
+         * <p> 示例值：ou_a294793e8fa21529f2a60e3e9de45520
+         */
         private String initiatorId;
-     /**
-      * 异动原因唯一标识
-      * <p> 示例值：involuntary_transfer
-      */
+        /**
+         * 异动原因唯一标识
+         * <p> 示例值：involuntary_transfer
+         */
         private String transferReasonUniqueIdentifier;
 
         /**
          * 异动方式
          * <p> 示例值：2
+         *
          * @param transferMode
          * @return
          */
         public Builder transferMode(Integer transferMode) {
-             this.transferMode = transferMode;
-             return this;
+            this.transferMode = transferMode;
+            return this;
         }
 
-    
 
         /**
          * 雇员id
          * <p> 示例值：ou_a294793e8fa21529f2a60e3e9de45520
+         *
          * @param employmentId
          * @return
          */
         public Builder employmentId(String employmentId) {
-             this.employmentId = employmentId;
-             return this;
+            this.employmentId = employmentId;
+            return this;
         }
 
-    
 
         /**
          * 异动类型唯一标识
          * <p> 示例值：internal_transfer
+         *
          * @param transferTypeUniqueIdentifier
          * @return
          */
         public Builder transferTypeUniqueIdentifier(String transferTypeUniqueIdentifier) {
-             this.transferTypeUniqueIdentifier = transferTypeUniqueIdentifier;
-             return this;
+            this.transferTypeUniqueIdentifier = transferTypeUniqueIdentifier;
+            return this;
         }
 
-    
 
         /**
          * 异动流程ID
          * <p> 示例值：people_6963913041981490725_6983885526583627531
+         *
          * @param flowId
          * @return
          */
         public Builder flowId(String flowId) {
-             this.flowId = flowId;
-             return this;
+            this.flowId = flowId;
+            return this;
         }
 
-    
 
         /**
          * 生效日期
          * <p> 示例值：2022-03-01
+         *
          * @param effectiveDate
          * @return
          */
         public Builder effectiveDate(String effectiveDate) {
-             this.effectiveDate = effectiveDate;
-             return this;
+            this.effectiveDate = effectiveDate;
+            return this;
         }
 
-    
 
         /**
          * 异动详细信息
          * <p> 示例值：
+         *
          * @param transferInfo
          * @return
          */
         public Builder transferInfo(CreateTransferInfo transferInfo) {
-             this.transferInfo = transferInfo;
-             return this;
+            this.transferInfo = transferInfo;
+            return this;
         }
 
-    
 
         /**
          * 异动记录标识符
          * <p> 示例值：transfer_3627531
+         *
          * @param transferKey
          * @return
          */
         public Builder transferKey(String transferKey) {
-             this.transferKey = transferKey;
-             return this;
+            this.transferKey = transferKey;
+            return this;
         }
 
-    
 
         /**
          * 异动发起人 ID
          * <p> 示例值：ou_a294793e8fa21529f2a60e3e9de45520
+         *
          * @param initiatorId
          * @return
          */
         public Builder initiatorId(String initiatorId) {
-             this.initiatorId = initiatorId;
-             return this;
+            this.initiatorId = initiatorId;
+            return this;
         }
 
-    
 
         /**
          * 异动原因唯一标识
          * <p> 示例值：involuntary_transfer
+         *
          * @param transferReasonUniqueIdentifier
          * @return
          */
         public Builder transferReasonUniqueIdentifier(String transferReasonUniqueIdentifier) {
-             this.transferReasonUniqueIdentifier = transferReasonUniqueIdentifier;
-             return this;
+            this.transferReasonUniqueIdentifier = transferReasonUniqueIdentifier;
+            return this;
         }
 
-    
-    
-    public CreateJobChangeReqBody build(){
-        return new CreateJobChangeReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public CreateJobChangeReqBody build() {
+            return new CreateJobChangeReqBody(this);
+        }
     }
 }

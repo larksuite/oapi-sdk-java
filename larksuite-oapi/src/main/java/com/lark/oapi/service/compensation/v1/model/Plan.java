@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.compensation.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.compensation.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,36 +20,71 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Plan {
-     /**
-      * 方案ID
-      * <p> 示例值：7234781378700985913
-      */
+    /**
+     * 方案ID
+     * <p> 示例值：7234781378700985913
+     */
     @SerializedName("plan_id")
     private String planId;
-     /**
-      * 方案时间轴版本ID
-      * <p> 示例值：7137286102364227108
-      */
+    /**
+     * 方案时间轴版本ID
+     * <p> 示例值：7137286102364227108
+     */
     @SerializedName("plan_tid")
     private String planTid;
-     /**
-      * 方案名称
-      * <p> 示例值：
-      */
+    /**
+     * 方案名称
+     * <p> 示例值：
+     */
     @SerializedName("name")
     private I18n name;
-     /**
-      * People系统方案ID
-      * <p> 示例值：20
-      */
+    /**
+     * People系统方案ID
+     * <p> 示例值：20
+     */
     @SerializedName("people_id")
     private Integer peopleId;
+
+    // builder 开始
+    public Plan() {
+    }
+
+    public Plan(Builder builder) {
+        /**
+         * 方案ID
+         * <p> 示例值：7234781378700985913
+         */
+        this.planId = builder.planId;
+        /**
+         * 方案时间轴版本ID
+         * <p> 示例值：7137286102364227108
+         */
+        this.planTid = builder.planTid;
+        /**
+         * 方案名称
+         * <p> 示例值：
+         */
+        this.name = builder.name;
+        /**
+         * People系统方案ID
+         * <p> 示例值：20
+         */
+        this.peopleId = builder.peopleId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getPlanId() {
         return this.planId;
     }
@@ -81,113 +117,82 @@ public class Plan {
         this.peopleId = peopleId;
     }
 
-
-// builder 开始
-  public Plan(){}
-
-  public Plan(Builder builder){
-         /**
-          * 方案ID
-          * <p> 示例值：7234781378700985913
-          */
-      this.planId = builder.planId;
-         /**
-          * 方案时间轴版本ID
-          * <p> 示例值：7137286102364227108
-          */
-      this.planTid = builder.planTid;
-         /**
-          * 方案名称
-          * <p> 示例值：
-          */
-      this.name = builder.name;
-         /**
-          * People系统方案ID
-          * <p> 示例值：20
-          */
-      this.peopleId = builder.peopleId;
-  }
-
     public static class Builder {
-     /**
-      * 方案ID
-      * <p> 示例值：7234781378700985913
-      */
+        /**
+         * 方案ID
+         * <p> 示例值：7234781378700985913
+         */
         private String planId;
-     /**
-      * 方案时间轴版本ID
-      * <p> 示例值：7137286102364227108
-      */
+        /**
+         * 方案时间轴版本ID
+         * <p> 示例值：7137286102364227108
+         */
         private String planTid;
-     /**
-      * 方案名称
-      * <p> 示例值：
-      */
+        /**
+         * 方案名称
+         * <p> 示例值：
+         */
         private I18n name;
-     /**
-      * People系统方案ID
-      * <p> 示例值：20
-      */
+        /**
+         * People系统方案ID
+         * <p> 示例值：20
+         */
         private Integer peopleId;
 
         /**
          * 方案ID
          * <p> 示例值：7234781378700985913
+         *
          * @param planId
          * @return
          */
         public Builder planId(String planId) {
-             this.planId = planId;
-             return this;
+            this.planId = planId;
+            return this;
         }
 
-    
 
         /**
          * 方案时间轴版本ID
          * <p> 示例值：7137286102364227108
+         *
          * @param planTid
          * @return
          */
         public Builder planTid(String planTid) {
-             this.planTid = planTid;
-             return this;
+            this.planTid = planTid;
+            return this;
         }
 
-    
 
         /**
          * 方案名称
          * <p> 示例值：
+         *
          * @param name
          * @return
          */
         public Builder name(I18n name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * People系统方案ID
          * <p> 示例值：20
+         *
          * @param peopleId
          * @return
          */
         public Builder peopleId(Integer peopleId) {
-             this.peopleId = peopleId;
-             return this;
+            this.peopleId = peopleId;
+            return this;
         }
 
-    
-    
-    public Plan build(){
-        return new Plan(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Plan build() {
+            return new Plan(this);
+        }
     }
 }

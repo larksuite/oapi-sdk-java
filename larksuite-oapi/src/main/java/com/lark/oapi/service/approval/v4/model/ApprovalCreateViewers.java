@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ApprovalCreateViewers {
-     /**
-      * 可见人类型
-      * <p> 示例值：USER
-      */
+    /**
+     * 可见人类型
+     * <p> 示例值：USER
+     */
     @SerializedName("viewer_type")
     private String viewerType;
-     /**
-      * 当 viewer_type 是 USER，根据user_id_type填写用户id
-      * <p> 示例值：19a294c2
-      */
+    /**
+     * 当 viewer_type 是 USER，根据user_id_type填写用户id
+     * <p> 示例值：19a294c2
+     */
     @SerializedName("viewer_user_id")
     private String viewerUserId;
-     /**
-      * 当 viewer_type 为DEPARTMENT，根据department_id_type填写部门id
-      * <p> 示例值：od-ac9d697abfa990b715dcc33d58a62a9d
-      */
+    /**
+     * 当 viewer_type 为DEPARTMENT，根据department_id_type填写部门id
+     * <p> 示例值：od-ac9d697abfa990b715dcc33d58a62a9d
+     */
     @SerializedName("viewer_department_id")
     private String viewerDepartmentId;
+
+    // builder 开始
+    public ApprovalCreateViewers() {
+    }
+
+    public ApprovalCreateViewers(Builder builder) {
+        /**
+         * 可见人类型
+         * <p> 示例值：USER
+         */
+        this.viewerType = builder.viewerType;
+        /**
+         * 当 viewer_type 是 USER，根据user_id_type填写用户id
+         * <p> 示例值：19a294c2
+         */
+        this.viewerUserId = builder.viewerUserId;
+        /**
+         * 当 viewer_type 为DEPARTMENT，根据department_id_type填写部门id
+         * <p> 示例值：od-ac9d697abfa990b715dcc33d58a62a9d
+         */
+        this.viewerDepartmentId = builder.viewerDepartmentId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getViewerType() {
         return this.viewerType;
     }
@@ -67,100 +98,76 @@ public class ApprovalCreateViewers {
         this.viewerDepartmentId = viewerDepartmentId;
     }
 
-
-// builder 开始
-  public ApprovalCreateViewers(){}
-
-  public ApprovalCreateViewers(Builder builder){
-         /**
-          * 可见人类型
-          * <p> 示例值：USER
-          */
-      this.viewerType = builder.viewerType;
-         /**
-          * 当 viewer_type 是 USER，根据user_id_type填写用户id
-          * <p> 示例值：19a294c2
-          */
-      this.viewerUserId = builder.viewerUserId;
-         /**
-          * 当 viewer_type 为DEPARTMENT，根据department_id_type填写部门id
-          * <p> 示例值：od-ac9d697abfa990b715dcc33d58a62a9d
-          */
-      this.viewerDepartmentId = builder.viewerDepartmentId;
-  }
-
     public static class Builder {
-     /**
-      * 可见人类型
-      * <p> 示例值：USER
-      */
+        /**
+         * 可见人类型
+         * <p> 示例值：USER
+         */
         private String viewerType;
-     /**
-      * 当 viewer_type 是 USER，根据user_id_type填写用户id
-      * <p> 示例值：19a294c2
-      */
+        /**
+         * 当 viewer_type 是 USER，根据user_id_type填写用户id
+         * <p> 示例值：19a294c2
+         */
         private String viewerUserId;
-     /**
-      * 当 viewer_type 为DEPARTMENT，根据department_id_type填写部门id
-      * <p> 示例值：od-ac9d697abfa990b715dcc33d58a62a9d
-      */
+        /**
+         * 当 viewer_type 为DEPARTMENT，根据department_id_type填写部门id
+         * <p> 示例值：od-ac9d697abfa990b715dcc33d58a62a9d
+         */
         private String viewerDepartmentId;
 
         /**
          * 可见人类型
          * <p> 示例值：USER
+         *
          * @param viewerType
          * @return
          */
         public Builder viewerType(String viewerType) {
-             this.viewerType = viewerType;
-             return this;
+            this.viewerType = viewerType;
+            return this;
         }
+
         /**
          * 可见人类型
          * <p> 示例值：USER
+         *
          * @param viewerType {@link com.lark.oapi.service.approval.v4.enums.ApprovalCreateViewersViewerTypeEnum}
          * @return
          */
         public Builder viewerType(com.lark.oapi.service.approval.v4.enums.ApprovalCreateViewersViewerTypeEnum viewerType) {
-             this.viewerType = viewerType.getValue();
-             return this;
+            this.viewerType = viewerType.getValue();
+            return this;
         }
 
-    
 
         /**
          * 当 viewer_type 是 USER，根据user_id_type填写用户id
          * <p> 示例值：19a294c2
+         *
          * @param viewerUserId
          * @return
          */
         public Builder viewerUserId(String viewerUserId) {
-             this.viewerUserId = viewerUserId;
-             return this;
+            this.viewerUserId = viewerUserId;
+            return this;
         }
 
-    
 
         /**
          * 当 viewer_type 为DEPARTMENT，根据department_id_type填写部门id
          * <p> 示例值：od-ac9d697abfa990b715dcc33d58a62a9d
+         *
          * @param viewerDepartmentId
          * @return
          */
         public Builder viewerDepartmentId(String viewerDepartmentId) {
-             this.viewerDepartmentId = viewerDepartmentId;
-             return this;
+            this.viewerDepartmentId = viewerDepartmentId;
+            return this;
         }
 
-    
-    
-    public ApprovalCreateViewers build(){
-        return new ApprovalCreateViewers(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ApprovalCreateViewers build() {
+            return new ApprovalCreateViewers(this);
+        }
     }
 }

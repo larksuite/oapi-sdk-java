@@ -12,42 +12,78 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Sentence {
-     /**
-      * 速记句子文本
-      * <p> 示例值：你好，可以做一下自我介绍么？
-      */
+    /**
+     * 速记句子文本
+     * <p> 示例值：你好，可以做一下自我介绍么？
+     */
     @SerializedName("content")
     private String content;
-     /**
-      * 句子开始讲话时的毫秒级时间戳
-      * <p> 示例值：1720967514994
-      */
+    /**
+     * 句子开始讲话时的毫秒级时间戳
+     * <p> 示例值：1720967514994
+     */
     @SerializedName("speak_time")
     private String speakTime;
-     /**
-      * 该句子的说话人用户类型
-      * <p> 示例值：1
-      */
+    /**
+     * 该句子的说话人用户类型
+     * <p> 示例值：1
+     */
     @SerializedName("user_type")
     private Integer userType;
-     /**
-      * 该句子的说话人名称
-      * <p> 示例值：
-      */
+    /**
+     * 该句子的说话人名称
+     * <p> 示例值：
+     */
     @SerializedName("speaker_name")
     private I18n speakerName;
+
+    // builder 开始
+    public Sentence() {
+    }
+
+    public Sentence(Builder builder) {
+        /**
+         * 速记句子文本
+         * <p> 示例值：你好，可以做一下自我介绍么？
+         */
+        this.content = builder.content;
+        /**
+         * 句子开始讲话时的毫秒级时间戳
+         * <p> 示例值：1720967514994
+         */
+        this.speakTime = builder.speakTime;
+        /**
+         * 该句子的说话人用户类型
+         * <p> 示例值：1
+         */
+        this.userType = builder.userType;
+        /**
+         * 该句子的说话人名称
+         * <p> 示例值：
+         */
+        this.speakerName = builder.speakerName;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getContent() {
         return this.content;
     }
@@ -80,113 +116,82 @@ public class Sentence {
         this.speakerName = speakerName;
     }
 
-
-// builder 开始
-  public Sentence(){}
-
-  public Sentence(Builder builder){
-         /**
-          * 速记句子文本
-          * <p> 示例值：你好，可以做一下自我介绍么？
-          */
-      this.content = builder.content;
-         /**
-          * 句子开始讲话时的毫秒级时间戳
-          * <p> 示例值：1720967514994
-          */
-      this.speakTime = builder.speakTime;
-         /**
-          * 该句子的说话人用户类型
-          * <p> 示例值：1
-          */
-      this.userType = builder.userType;
-         /**
-          * 该句子的说话人名称
-          * <p> 示例值：
-          */
-      this.speakerName = builder.speakerName;
-  }
-
     public static class Builder {
-     /**
-      * 速记句子文本
-      * <p> 示例值：你好，可以做一下自我介绍么？
-      */
+        /**
+         * 速记句子文本
+         * <p> 示例值：你好，可以做一下自我介绍么？
+         */
         private String content;
-     /**
-      * 句子开始讲话时的毫秒级时间戳
-      * <p> 示例值：1720967514994
-      */
+        /**
+         * 句子开始讲话时的毫秒级时间戳
+         * <p> 示例值：1720967514994
+         */
         private String speakTime;
-     /**
-      * 该句子的说话人用户类型
-      * <p> 示例值：1
-      */
+        /**
+         * 该句子的说话人用户类型
+         * <p> 示例值：1
+         */
         private Integer userType;
-     /**
-      * 该句子的说话人名称
-      * <p> 示例值：
-      */
+        /**
+         * 该句子的说话人名称
+         * <p> 示例值：
+         */
         private I18n speakerName;
 
         /**
          * 速记句子文本
          * <p> 示例值：你好，可以做一下自我介绍么？
+         *
          * @param content
          * @return
          */
         public Builder content(String content) {
-             this.content = content;
-             return this;
+            this.content = content;
+            return this;
         }
 
-    
 
         /**
          * 句子开始讲话时的毫秒级时间戳
          * <p> 示例值：1720967514994
+         *
          * @param speakTime
          * @return
          */
         public Builder speakTime(String speakTime) {
-             this.speakTime = speakTime;
-             return this;
+            this.speakTime = speakTime;
+            return this;
         }
 
-    
 
         /**
          * 该句子的说话人用户类型
          * <p> 示例值：1
+         *
          * @param userType
          * @return
          */
         public Builder userType(Integer userType) {
-             this.userType = userType;
-             return this;
+            this.userType = userType;
+            return this;
         }
 
-    
 
         /**
          * 该句子的说话人名称
          * <p> 示例值：
+         *
          * @param speakerName
          * @return
          */
         public Builder speakerName(I18n speakerName) {
-             this.speakerName = speakerName;
-             return this;
+            this.speakerName = speakerName;
+            return this;
         }
 
-    
-    
-    public Sentence build(){
-        return new Sentence(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Sentence build() {
+            return new Sentence(this);
+        }
     }
 }

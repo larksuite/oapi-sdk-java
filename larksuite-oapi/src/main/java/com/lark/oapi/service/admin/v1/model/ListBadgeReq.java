@@ -12,39 +12,70 @@
  */
 
 package com.lark.oapi.service.admin.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.admin.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ListBadgeReq {
-     /**
-      * 分页大小
-      * <p> 示例值：10
-      */
+    /**
+     * 分页大小
+     * <p> 示例值：10
+     */
     @Query
     @SerializedName("page_size")
     private Integer pageSize;
-     /**
-      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-      * <p> 示例值：b1fmUz
-      */
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     * <p> 示例值：b1fmUz
+     */
     @Query
     @SerializedName("page_token")
     private String pageToken;
-     /**
-      * 租户内唯一的勋章名称，精确匹配。
-      * <p> 示例值：激励勋章
-      */
+    /**
+     * 租户内唯一的勋章名称，精确匹配。
+     * <p> 示例值：激励勋章
+     */
     @Query
     @SerializedName("name")
     private String name;
+
+    // builder 开始
+    public ListBadgeReq() {
+    }
+
+    public ListBadgeReq(Builder builder) {
+        /**
+         * 分页大小
+         * <p> 示例值：10
+         */
+        this.pageSize = builder.pageSize;
+        /**
+         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+         * <p> 示例值：b1fmUz
+         */
+        this.pageToken = builder.pageToken;
+        /**
+         * 租户内唯一的勋章名称，精确匹配。
+         * <p> 示例值：激励勋章
+         */
+        this.name = builder.name;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Integer getPageSize() {
         return this.pageSize;
     }
@@ -69,75 +100,52 @@ public class ListBadgeReq {
         this.name = name;
     }
 
-
-// builder 开始
-  public ListBadgeReq(){}
-
-  public ListBadgeReq(Builder builder){
-         /**
-          * 分页大小
-          * <p> 示例值：10
-          */
-       this.pageSize = builder.pageSize;
-         /**
-          * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-          * <p> 示例值：b1fmUz
-          */
-       this.pageToken = builder.pageToken;
-         /**
-          * 租户内唯一的勋章名称，精确匹配。
-          * <p> 示例值：激励勋章
-          */
-       this.name = builder.name;
-  }
-
     public static class Builder {
         private Integer pageSize; // 分页大小
         private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
         private String name; // 租户内唯一的勋章名称，精确匹配。
-    
+
         /**
          * 分页大小
          * <p> 示例值：10
+         *
          * @param pageSize
          * @return
          */
-           public Builder pageSize(Integer pageSize) {
-                this.pageSize = pageSize;
-                return this;
-           }
+        public Builder pageSize(Integer pageSize) {
+            this.pageSize = pageSize;
+            return this;
+        }
 
-    
+
         /**
          * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
          * <p> 示例值：b1fmUz
+         *
          * @param pageToken
          * @return
          */
-           public Builder pageToken(String pageToken) {
-                this.pageToken = pageToken;
-                return this;
-           }
+        public Builder pageToken(String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+        }
 
-    
+
         /**
          * 租户内唯一的勋章名称，精确匹配。
          * <p> 示例值：激励勋章
+         *
          * @param name
          * @return
          */
-           public Builder name(String name) {
-                this.name = name;
-                return this;
-           }
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
 
-    
-    public ListBadgeReq build(){
-        return new ListBadgeReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ListBadgeReq build() {
+            return new ListBadgeReq(this);
+        }
     }
 }

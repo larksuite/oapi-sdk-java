@@ -12,24 +12,29 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CreateExternalApprovalRespBody {
-     /**
-      * 审批定义code，审批生成的唯一标识，用于三方审批实例同步时使用
-      * <p> 示例值：C30381C8-7A5F-4717-A9CF-C233BF0202D4
-      */
+    /**
+     * 审批定义code，审批生成的唯一标识，用于三方审批实例同步时使用
+     * <p> 示例值：C30381C8-7A5F-4717-A9CF-C233BF0202D4
+     */
     @SerializedName("approval_code")
     private String approvalCode;
+
     public String getApprovalCode() {
         return this.approvalCode;
     }

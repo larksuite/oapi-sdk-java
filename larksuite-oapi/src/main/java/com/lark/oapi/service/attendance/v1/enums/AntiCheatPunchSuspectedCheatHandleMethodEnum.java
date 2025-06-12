@@ -17,15 +17,16 @@ package com.lark.oapi.service.attendance.v1.enums;
  * 疑似作弊打卡时的处理方式
  */
 public enum AntiCheatPunchSuspectedCheatHandleMethodEnum {
-     USE_FACE_PUNCH(1), // 使用人脸识别打卡
-     ONLY_RECORD_CHEAT_INFO(2), // 仅记录疑似作弊信息
-  ;
-   private Integer value;
+    USE_FACE_PUNCH(1), // 使用人脸识别打卡
+    ONLY_RECORD_CHEAT_INFO(2), // 仅记录疑似作弊信息
+    ;
+    private Integer value;
+
     AntiCheatPunchSuspectedCheatHandleMethodEnum(Integer value) {
-      this.value = value;
+        this.value = value;
     }
 
     public Integer getValue() {
-      return this.value;
+        return this.value;
     }
 }

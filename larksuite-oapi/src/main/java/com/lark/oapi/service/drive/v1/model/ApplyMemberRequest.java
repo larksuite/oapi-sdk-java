@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ApplyMemberRequest {
-     /**
-      * 需要申请的权限，权限值："view"，"edit"
-      * <p> 示例值：view
-      */
+    /**
+     * 需要申请的权限，权限值："view"，"edit"
+     * <p> 示例值：view
+     */
     @SerializedName("perm")
     private String perm;
-     /**
-      * 申请权限备注
-      * <p> 示例值：apply_remark
-      */
+    /**
+     * 申请权限备注
+     * <p> 示例值：apply_remark
+     */
     @SerializedName("remark")
     private String remark;
+
+    // builder 开始
+    public ApplyMemberRequest() {
+    }
+
+    public ApplyMemberRequest(Builder builder) {
+        /**
+         * 需要申请的权限，权限值："view"，"edit"
+         * <p> 示例值：view
+         */
+        this.perm = builder.perm;
+        /**
+         * 申请权限备注
+         * <p> 示例值：apply_remark
+         */
+        this.remark = builder.remark;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getPerm() {
         return this.perm;
     }
@@ -53,77 +79,58 @@ public class ApplyMemberRequest {
         this.remark = remark;
     }
 
-
-// builder 开始
-  public ApplyMemberRequest(){}
-
-  public ApplyMemberRequest(Builder builder){
-         /**
-          * 需要申请的权限，权限值："view"，"edit"
-          * <p> 示例值：view
-          */
-      this.perm = builder.perm;
-         /**
-          * 申请权限备注
-          * <p> 示例值：apply_remark
-          */
-      this.remark = builder.remark;
-  }
-
     public static class Builder {
-     /**
-      * 需要申请的权限，权限值："view"，"edit"
-      * <p> 示例值：view
-      */
+        /**
+         * 需要申请的权限，权限值："view"，"edit"
+         * <p> 示例值：view
+         */
         private String perm;
-     /**
-      * 申请权限备注
-      * <p> 示例值：apply_remark
-      */
+        /**
+         * 申请权限备注
+         * <p> 示例值：apply_remark
+         */
         private String remark;
 
         /**
          * 需要申请的权限，权限值："view"，"edit"
          * <p> 示例值：view
+         *
          * @param perm
          * @return
          */
         public Builder perm(String perm) {
-             this.perm = perm;
-             return this;
+            this.perm = perm;
+            return this;
         }
+
         /**
          * 需要申请的权限，权限值："view"，"edit"
          * <p> 示例值：view
+         *
          * @param perm {@link com.lark.oapi.service.drive.v1.enums.ApplyMemberRequestPermEnum}
          * @return
          */
         public Builder perm(com.lark.oapi.service.drive.v1.enums.ApplyMemberRequestPermEnum perm) {
-             this.perm = perm.getValue();
-             return this;
+            this.perm = perm.getValue();
+            return this;
         }
 
-    
 
         /**
          * 申请权限备注
          * <p> 示例值：apply_remark
+         *
          * @param remark
          * @return
          */
         public Builder remark(String remark) {
-             this.remark = remark;
-             return this;
+            this.remark = remark;
+            return this;
         }
 
-    
-    
-    public ApplyMemberRequest build(){
-        return new ApplyMemberRequest(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ApplyMemberRequest build() {
+            return new ApplyMemberRequest(this);
+        }
     }
 }

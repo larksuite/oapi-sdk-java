@@ -12,32 +12,58 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class DeleteAppTableReq {
-     /**
-      * bitable app token
-      * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
-      */
+    /**
+     * bitable app token
+     * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+     */
     @Path
     @SerializedName("app_token")
     private String appToken;
-     /**
-      * table id
-      * <p> 示例值：tblsRc9GRRXKqhvW
-      */
+    /**
+     * table id
+     * <p> 示例值：tblsRc9GRRXKqhvW
+     */
     @Path
     @SerializedName("table_id")
     private String tableId;
+
+    // builder 开始
+    public DeleteAppTableReq() {
+    }
+
+    public DeleteAppTableReq(Builder builder) {
+        /**
+         * bitable app token
+         * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+         */
+        this.appToken = builder.appToken;
+        /**
+         * table id
+         * <p> 示例值：tblsRc9GRRXKqhvW
+         */
+        this.tableId = builder.tableId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getAppToken() {
         return this.appToken;
     }
@@ -54,57 +80,39 @@ public class DeleteAppTableReq {
         this.tableId = tableId;
     }
 
-
-// builder 开始
-  public DeleteAppTableReq(){}
-
-  public DeleteAppTableReq(Builder builder){
-     /**
-      * bitable app token
-      * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
-      */
-       this.appToken = builder.appToken;
-     /**
-      * table id
-      * <p> 示例值：tblsRc9GRRXKqhvW
-      */
-       this.tableId = builder.tableId;
-  }
-
     public static class Builder {
-    
+
         private String appToken; // bitable app token
         private String tableId; // table id
+
         /**
          * bitable app token
          * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+         *
          * @param appToken
          * @return
          */
-          public Builder appToken(String appToken) {
-               this.appToken = appToken;
-               return this;
-          }
+        public Builder appToken(String appToken) {
+            this.appToken = appToken;
+            return this;
+        }
 
-    
+
         /**
          * table id
          * <p> 示例值：tblsRc9GRRXKqhvW
+         *
          * @param tableId
          * @return
          */
-          public Builder tableId(String tableId) {
-               this.tableId = tableId;
-               return this;
-          }
+        public Builder tableId(String tableId) {
+            this.tableId = tableId;
+            return this;
+        }
 
-    
-    public DeleteAppTableReq build(){
-        return new DeleteAppTableReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public DeleteAppTableReq build() {
+            return new DeleteAppTableReq(this);
+        }
     }
 }

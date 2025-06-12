@@ -12,42 +12,78 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class AssessInterviewOption {
-     /**
-      * 忽略面评草稿中的面试速记信息
-      * <p> 示例值：false
-      */
+    /**
+     * 忽略面评草稿中的面试速记信息
+     * <p> 示例值：false
+     */
     @SerializedName("ignore_minutes")
     private Boolean ignoreMinutes;
-     /**
-      * 忽略面评草稿中的代码考核题
-      * <p> 示例值：false
-      */
+    /**
+     * 忽略面评草稿中的代码考核题
+     * <p> 示例值：false
+     */
     @SerializedName("ignore_coding_question")
     private Boolean ignoreCodingQuestion;
-     /**
-      * 忽略面评草稿中的面试题
-      * <p> 示例值：false
-      */
+    /**
+     * 忽略面评草稿中的面试题
+     * <p> 示例值：false
+     */
     @SerializedName("ignore_interview_question")
     private Boolean ignoreInterviewQuestion;
-     /**
-      * 忽略面评草稿中的图片
-      * <p> 示例值：false
-      */
+    /**
+     * 忽略面评草稿中的图片
+     * <p> 示例值：false
+     */
     @SerializedName("ignore_image")
     private Boolean ignoreImage;
+
+    // builder 开始
+    public AssessInterviewOption() {
+    }
+
+    public AssessInterviewOption(Builder builder) {
+        /**
+         * 忽略面评草稿中的面试速记信息
+         * <p> 示例值：false
+         */
+        this.ignoreMinutes = builder.ignoreMinutes;
+        /**
+         * 忽略面评草稿中的代码考核题
+         * <p> 示例值：false
+         */
+        this.ignoreCodingQuestion = builder.ignoreCodingQuestion;
+        /**
+         * 忽略面评草稿中的面试题
+         * <p> 示例值：false
+         */
+        this.ignoreInterviewQuestion = builder.ignoreInterviewQuestion;
+        /**
+         * 忽略面评草稿中的图片
+         * <p> 示例值：false
+         */
+        this.ignoreImage = builder.ignoreImage;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Boolean getIgnoreMinutes() {
         return this.ignoreMinutes;
     }
@@ -80,113 +116,82 @@ public class AssessInterviewOption {
         this.ignoreImage = ignoreImage;
     }
 
-
-// builder 开始
-  public AssessInterviewOption(){}
-
-  public AssessInterviewOption(Builder builder){
-         /**
-          * 忽略面评草稿中的面试速记信息
-          * <p> 示例值：false
-          */
-      this.ignoreMinutes = builder.ignoreMinutes;
-         /**
-          * 忽略面评草稿中的代码考核题
-          * <p> 示例值：false
-          */
-      this.ignoreCodingQuestion = builder.ignoreCodingQuestion;
-         /**
-          * 忽略面评草稿中的面试题
-          * <p> 示例值：false
-          */
-      this.ignoreInterviewQuestion = builder.ignoreInterviewQuestion;
-         /**
-          * 忽略面评草稿中的图片
-          * <p> 示例值：false
-          */
-      this.ignoreImage = builder.ignoreImage;
-  }
-
     public static class Builder {
-     /**
-      * 忽略面评草稿中的面试速记信息
-      * <p> 示例值：false
-      */
+        /**
+         * 忽略面评草稿中的面试速记信息
+         * <p> 示例值：false
+         */
         private Boolean ignoreMinutes;
-     /**
-      * 忽略面评草稿中的代码考核题
-      * <p> 示例值：false
-      */
+        /**
+         * 忽略面评草稿中的代码考核题
+         * <p> 示例值：false
+         */
         private Boolean ignoreCodingQuestion;
-     /**
-      * 忽略面评草稿中的面试题
-      * <p> 示例值：false
-      */
+        /**
+         * 忽略面评草稿中的面试题
+         * <p> 示例值：false
+         */
         private Boolean ignoreInterviewQuestion;
-     /**
-      * 忽略面评草稿中的图片
-      * <p> 示例值：false
-      */
+        /**
+         * 忽略面评草稿中的图片
+         * <p> 示例值：false
+         */
         private Boolean ignoreImage;
 
         /**
          * 忽略面评草稿中的面试速记信息
          * <p> 示例值：false
+         *
          * @param ignoreMinutes
          * @return
          */
         public Builder ignoreMinutes(Boolean ignoreMinutes) {
-             this.ignoreMinutes = ignoreMinutes;
-             return this;
+            this.ignoreMinutes = ignoreMinutes;
+            return this;
         }
 
-    
 
         /**
          * 忽略面评草稿中的代码考核题
          * <p> 示例值：false
+         *
          * @param ignoreCodingQuestion
          * @return
          */
         public Builder ignoreCodingQuestion(Boolean ignoreCodingQuestion) {
-             this.ignoreCodingQuestion = ignoreCodingQuestion;
-             return this;
+            this.ignoreCodingQuestion = ignoreCodingQuestion;
+            return this;
         }
 
-    
 
         /**
          * 忽略面评草稿中的面试题
          * <p> 示例值：false
+         *
          * @param ignoreInterviewQuestion
          * @return
          */
         public Builder ignoreInterviewQuestion(Boolean ignoreInterviewQuestion) {
-             this.ignoreInterviewQuestion = ignoreInterviewQuestion;
-             return this;
+            this.ignoreInterviewQuestion = ignoreInterviewQuestion;
+            return this;
         }
 
-    
 
         /**
          * 忽略面评草稿中的图片
          * <p> 示例值：false
+         *
          * @param ignoreImage
          * @return
          */
         public Builder ignoreImage(Boolean ignoreImage) {
-             this.ignoreImage = ignoreImage;
-             return this;
+            this.ignoreImage = ignoreImage;
+            return this;
         }
 
-    
-    
-    public AssessInterviewOption build(){
-        return new AssessInterviewOption(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public AssessInterviewOption build() {
+            return new AssessInterviewOption(this);
+        }
     }
 }

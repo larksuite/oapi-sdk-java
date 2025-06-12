@@ -12,24 +12,45 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class BatchDeleteEcoBackgroundCheckCustomFieldReqBody {
-     /**
-      * 背调账号 ID，可在「账号绑定」事件中获取
-      * <p> 示例值：a001
-      */
+    /**
+     * 背调账号 ID，可在「账号绑定」事件中获取
+     * <p> 示例值：a001
+     */
     @SerializedName("account_id")
     private String accountId;
+
+    // builder 开始
+    public BatchDeleteEcoBackgroundCheckCustomFieldReqBody() {
+    }
+
+    public BatchDeleteEcoBackgroundCheckCustomFieldReqBody(Builder builder) {
+        /**
+         * 背调账号 ID，可在「账号绑定」事件中获取
+         * <p> 示例值：a001
+         */
+        this.accountId = builder.accountId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getAccountId() {
         return this.accountId;
     }
@@ -38,44 +59,28 @@ public class BatchDeleteEcoBackgroundCheckCustomFieldReqBody {
         this.accountId = accountId;
     }
 
-
-// builder 开始
-  public BatchDeleteEcoBackgroundCheckCustomFieldReqBody(){}
-
-  public BatchDeleteEcoBackgroundCheckCustomFieldReqBody(Builder builder){
-         /**
-          * 背调账号 ID，可在「账号绑定」事件中获取
-          * <p> 示例值：a001
-          */
-      this.accountId = builder.accountId;
-  }
-
     public static class Builder {
-     /**
-      * 背调账号 ID，可在「账号绑定」事件中获取
-      * <p> 示例值：a001
-      */
+        /**
+         * 背调账号 ID，可在「账号绑定」事件中获取
+         * <p> 示例值：a001
+         */
         private String accountId;
 
         /**
          * 背调账号 ID，可在「账号绑定」事件中获取
          * <p> 示例值：a001
+         *
          * @param accountId
          * @return
          */
         public Builder accountId(String accountId) {
-             this.accountId = accountId;
-             return this;
+            this.accountId = accountId;
+            return this;
         }
 
-    
-    
-    public BatchDeleteEcoBackgroundCheckCustomFieldReqBody build(){
-        return new BatchDeleteEcoBackgroundCheckCustomFieldReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public BatchDeleteEcoBackgroundCheckCustomFieldReqBody build() {
+            return new BatchDeleteEcoBackgroundCheckCustomFieldReqBody(this);
+        }
     }
 }

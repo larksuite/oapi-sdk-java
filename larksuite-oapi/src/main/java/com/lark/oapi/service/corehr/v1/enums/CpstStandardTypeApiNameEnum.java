@@ -17,16 +17,17 @@ package com.lark.oapi.service.corehr.v1.enums;
  * 薪资标准类型
  */
 public enum CpstStandardTypeApiNameEnum {
-     STANDARD_VALUE("standard_value"), // standard_value
-     BANDWIDTH_AND_STANDARD_VALUE("bandwidth_and_standard_value"), // bandwidth_and_standard_value
-     BANDWIDTH_UPPER_AND_LOWER_LIMIT("bandwidth_upper_and_lower_limit"), // bandwidth_upper_and_lower_limit
-  ;
-   private String value;
+    STANDARD_VALUE("standard_value"), // standard_value
+    BANDWIDTH_AND_STANDARD_VALUE("bandwidth_and_standard_value"), // bandwidth_and_standard_value
+    BANDWIDTH_UPPER_AND_LOWER_LIMIT("bandwidth_upper_and_lower_limit"), // bandwidth_upper_and_lower_limit
+    ;
+    private String value;
+
     CpstStandardTypeApiNameEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

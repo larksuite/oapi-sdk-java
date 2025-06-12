@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,60 +20,115 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class BackgroundCheck {
-     /**
-      * 背调ID
-      * <p> 示例值：
-      */
+    /**
+     * 背调ID
+     * <p> 示例值：
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 套餐
-      * <p> 示例值：
-      */
+    /**
+     * 套餐
+     * <p> 示例值：
+     */
     @SerializedName("package")
     private Integer package_;
-     /**
-      * 状态
-      * <p> 示例值：
-      */
+    /**
+     * 状态
+     * <p> 示例值：
+     */
     @SerializedName("status")
     private Integer status;
-     /**
-      * 创建时间
-      * <p> 示例值：
-      */
+    /**
+     * 创建时间
+     * <p> 示例值：
+     */
     @SerializedName("created_time")
     private String createdTime;
-     /**
-      * 修改时间
-      * <p> 示例值：
-      */
+    /**
+     * 修改时间
+     * <p> 示例值：
+     */
     @SerializedName("modified_time")
     private String modifiedTime;
-     /**
-      * 背调对象ID
-      * <p> 示例值：
-      */
+    /**
+     * 背调对象ID
+     * <p> 示例值：
+     */
     @SerializedName("target_id")
     private String targetId;
-     /**
-      * 结果
-      * <p> 示例值：
-      */
+    /**
+     * 结果
+     * <p> 示例值：
+     */
     @SerializedName("outcome")
     private Integer outcome;
-     /**
-      * 报告
-      * <p> 示例值：
-      */
+    /**
+     * 报告
+     * <p> 示例值：
+     */
     @SerializedName("report")
     private BackgroundCheckReportObject report;
+
+    // builder 开始
+    public BackgroundCheck() {
+    }
+
+    public BackgroundCheck(Builder builder) {
+        /**
+         * 背调ID
+         * <p> 示例值：
+         */
+        this.id = builder.id;
+        /**
+         * 套餐
+         * <p> 示例值：
+         */
+        this.package_ = builder.package_;
+        /**
+         * 状态
+         * <p> 示例值：
+         */
+        this.status = builder.status;
+        /**
+         * 创建时间
+         * <p> 示例值：
+         */
+        this.createdTime = builder.createdTime;
+        /**
+         * 修改时间
+         * <p> 示例值：
+         */
+        this.modifiedTime = builder.modifiedTime;
+        /**
+         * 背调对象ID
+         * <p> 示例值：
+         */
+        this.targetId = builder.targetId;
+        /**
+         * 结果
+         * <p> 示例值：
+         */
+        this.outcome = builder.outcome;
+        /**
+         * 报告
+         * <p> 示例值：
+         */
+        this.report = builder.report;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -137,235 +193,190 @@ public class BackgroundCheck {
         this.report = report;
     }
 
-
-// builder 开始
-  public BackgroundCheck(){}
-
-  public BackgroundCheck(Builder builder){
-         /**
-          * 背调ID
-          * <p> 示例值：
-          */
-      this.id = builder.id;
-         /**
-          * 套餐
-          * <p> 示例值：
-          */
-      this.package_ = builder.package_;
-         /**
-          * 状态
-          * <p> 示例值：
-          */
-      this.status = builder.status;
-         /**
-          * 创建时间
-          * <p> 示例值：
-          */
-      this.createdTime = builder.createdTime;
-         /**
-          * 修改时间
-          * <p> 示例值：
-          */
-      this.modifiedTime = builder.modifiedTime;
-         /**
-          * 背调对象ID
-          * <p> 示例值：
-          */
-      this.targetId = builder.targetId;
-         /**
-          * 结果
-          * <p> 示例值：
-          */
-      this.outcome = builder.outcome;
-         /**
-          * 报告
-          * <p> 示例值：
-          */
-      this.report = builder.report;
-  }
-
     public static class Builder {
-     /**
-      * 背调ID
-      * <p> 示例值：
-      */
+        /**
+         * 背调ID
+         * <p> 示例值：
+         */
         private String id;
-     /**
-      * 套餐
-      * <p> 示例值：
-      */
+        /**
+         * 套餐
+         * <p> 示例值：
+         */
         private Integer package_;
-     /**
-      * 状态
-      * <p> 示例值：
-      */
+        /**
+         * 状态
+         * <p> 示例值：
+         */
         private Integer status;
-     /**
-      * 创建时间
-      * <p> 示例值：
-      */
+        /**
+         * 创建时间
+         * <p> 示例值：
+         */
         private String createdTime;
-     /**
-      * 修改时间
-      * <p> 示例值：
-      */
+        /**
+         * 修改时间
+         * <p> 示例值：
+         */
         private String modifiedTime;
-     /**
-      * 背调对象ID
-      * <p> 示例值：
-      */
+        /**
+         * 背调对象ID
+         * <p> 示例值：
+         */
         private String targetId;
-     /**
-      * 结果
-      * <p> 示例值：
-      */
+        /**
+         * 结果
+         * <p> 示例值：
+         */
         private Integer outcome;
-     /**
-      * 报告
-      * <p> 示例值：
-      */
+        /**
+         * 报告
+         * <p> 示例值：
+         */
         private BackgroundCheckReportObject report;
 
         /**
          * 背调ID
          * <p> 示例值：
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 套餐
          * <p> 示例值：
+         *
          * @param package_
          * @return
          */
         public Builder package_(Integer package_) {
-             this.package_ = package_;
-             return this;
+            this.package_ = package_;
+            return this;
         }
+
         /**
          * 套餐
          * <p> 示例值：
+         *
          * @param package_ {@link com.lark.oapi.service.corehr.v1.enums.BackgroundCheckPackageEnum}
          * @return
          */
         public Builder package_(com.lark.oapi.service.corehr.v1.enums.BackgroundCheckPackageEnum package_) {
-             this.package_ = package_.getValue();
-             return this;
+            this.package_ = package_.getValue();
+            return this;
         }
 
-    
 
         /**
          * 状态
          * <p> 示例值：
+         *
          * @param status
          * @return
          */
         public Builder status(Integer status) {
-             this.status = status;
-             return this;
+            this.status = status;
+            return this;
         }
+
         /**
          * 状态
          * <p> 示例值：
+         *
          * @param status {@link com.lark.oapi.service.corehr.v1.enums.BackgroundCheckStatusEnum}
          * @return
          */
         public Builder status(com.lark.oapi.service.corehr.v1.enums.BackgroundCheckStatusEnum status) {
-             this.status = status.getValue();
-             return this;
+            this.status = status.getValue();
+            return this;
         }
 
-    
 
         /**
          * 创建时间
          * <p> 示例值：
+         *
          * @param createdTime
          * @return
          */
         public Builder createdTime(String createdTime) {
-             this.createdTime = createdTime;
-             return this;
+            this.createdTime = createdTime;
+            return this;
         }
 
-    
 
         /**
          * 修改时间
          * <p> 示例值：
+         *
          * @param modifiedTime
          * @return
          */
         public Builder modifiedTime(String modifiedTime) {
-             this.modifiedTime = modifiedTime;
-             return this;
+            this.modifiedTime = modifiedTime;
+            return this;
         }
 
-    
 
         /**
          * 背调对象ID
          * <p> 示例值：
+         *
          * @param targetId
          * @return
          */
         public Builder targetId(String targetId) {
-             this.targetId = targetId;
-             return this;
+            this.targetId = targetId;
+            return this;
         }
 
-    
 
         /**
          * 结果
          * <p> 示例值：
+         *
          * @param outcome
          * @return
          */
         public Builder outcome(Integer outcome) {
-             this.outcome = outcome;
-             return this;
+            this.outcome = outcome;
+            return this;
         }
+
         /**
          * 结果
          * <p> 示例值：
+         *
          * @param outcome {@link com.lark.oapi.service.corehr.v1.enums.BackgroundCheckOutcomeEnum}
          * @return
          */
         public Builder outcome(com.lark.oapi.service.corehr.v1.enums.BackgroundCheckOutcomeEnum outcome) {
-             this.outcome = outcome.getValue();
-             return this;
+            this.outcome = outcome.getValue();
+            return this;
         }
 
-    
 
         /**
          * 报告
          * <p> 示例值：
+         *
          * @param report
          * @return
          */
         public Builder report(BackgroundCheckReportObject report) {
-             this.report = report;
-             return this;
+            this.report = report;
+            return this;
         }
 
-    
-    
-    public BackgroundCheck build(){
-        return new BackgroundCheck(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public BackgroundCheck build() {
+            return new BackgroundCheck(this);
+        }
     }
 }

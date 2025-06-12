@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Group {
-     /**
-      * 群组的id
-      * <p> 示例值：oc_a0553eda9014c201e***9b478895c230
-      */
+    /**
+     * 群组的id
+     * <p> 示例值：oc_a0553eda9014c201e***9b478895c230
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 群组名称
-      * <p> 示例值：群名称
-      */
+    /**
+     * 群组名称
+     * <p> 示例值：群名称
+     */
     @SerializedName("name")
     private String name;
-     /**
-      * 群组头像链接
-      * <p> 示例值：https://***.feishu.cn/static-resource/avatar/v2_ba238e9f-8a81-407d-bffe-d***eaj_320.webp
-      */
+    /**
+     * 群组头像链接
+     * <p> 示例值：https://***.feishu.cn/static-resource/avatar/v2_ba238e9f-8a81-407d-bffe-d***eaj_320.webp
+     */
     @SerializedName("avatar_url")
     private String avatarUrl;
+
+    // builder 开始
+    public Group() {
+    }
+
+    public Group(Builder builder) {
+        /**
+         * 群组的id
+         * <p> 示例值：oc_a0553eda9014c201e***9b478895c230
+         */
+        this.id = builder.id;
+        /**
+         * 群组名称
+         * <p> 示例值：群名称
+         */
+        this.name = builder.name;
+        /**
+         * 群组头像链接
+         * <p> 示例值：https://***.feishu.cn/static-resource/avatar/v2_ba238e9f-8a81-407d-bffe-d***eaj_320.webp
+         */
+        this.avatarUrl = builder.avatarUrl;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -67,90 +98,64 @@ public class Group {
         this.avatarUrl = avatarUrl;
     }
 
-
-// builder 开始
-  public Group(){}
-
-  public Group(Builder builder){
-         /**
-          * 群组的id
-          * <p> 示例值：oc_a0553eda9014c201e***9b478895c230
-          */
-      this.id = builder.id;
-         /**
-          * 群组名称
-          * <p> 示例值：群名称
-          */
-      this.name = builder.name;
-         /**
-          * 群组头像链接
-          * <p> 示例值：https://***.feishu.cn/static-resource/avatar/v2_ba238e9f-8a81-407d-bffe-d***eaj_320.webp
-          */
-      this.avatarUrl = builder.avatarUrl;
-  }
-
     public static class Builder {
-     /**
-      * 群组的id
-      * <p> 示例值：oc_a0553eda9014c201e***9b478895c230
-      */
+        /**
+         * 群组的id
+         * <p> 示例值：oc_a0553eda9014c201e***9b478895c230
+         */
         private String id;
-     /**
-      * 群组名称
-      * <p> 示例值：群名称
-      */
+        /**
+         * 群组名称
+         * <p> 示例值：群名称
+         */
         private String name;
-     /**
-      * 群组头像链接
-      * <p> 示例值：https://***.feishu.cn/static-resource/avatar/v2_ba238e9f-8a81-407d-bffe-d***eaj_320.webp
-      */
+        /**
+         * 群组头像链接
+         * <p> 示例值：https://***.feishu.cn/static-resource/avatar/v2_ba238e9f-8a81-407d-bffe-d***eaj_320.webp
+         */
         private String avatarUrl;
 
         /**
          * 群组的id
          * <p> 示例值：oc_a0553eda9014c201e***9b478895c230
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 群组名称
          * <p> 示例值：群名称
+         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 群组头像链接
          * <p> 示例值：https://***.feishu.cn/static-resource/avatar/v2_ba238e9f-8a81-407d-bffe-d***eaj_320.webp
+         *
          * @param avatarUrl
          * @return
          */
         public Builder avatarUrl(String avatarUrl) {
-             this.avatarUrl = avatarUrl;
-             return this;
+            this.avatarUrl = avatarUrl;
+            return this;
         }
 
-    
-    
-    public Group build(){
-        return new Group(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Group build() {
+            return new Group(this);
+        }
     }
 }

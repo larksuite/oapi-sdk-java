@@ -17,17 +17,18 @@ package com.lark.oapi.service.corehr.v2.enums;
  * 调整类型
  */
 public enum DepartmentChangeDepartmentChangeTypeEnum {
-     UNKNOWN("Unknown"), // 未知
-     CREATE("Create"), // 新建
-     MODIFY("Modify"), // 编辑
-     INACTIVE("Inactive"), // 停用
-  ;
-   private String value;
+    UNKNOWN("Unknown"), // 未知
+    CREATE("Create"), // 新建
+    MODIFY("Modify"), // 编辑
+    INACTIVE("Inactive"), // 停用
+    ;
+    private String value;
+
     DepartmentChangeDepartmentChangeTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

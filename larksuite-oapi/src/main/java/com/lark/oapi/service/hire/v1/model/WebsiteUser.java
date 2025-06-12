@@ -12,54 +12,100 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class WebsiteUser {
-     /**
-      * 用户 ID
-      * <p> 示例值：6960663240925956620
-      */
+    /**
+     * 用户 ID
+     * <p> 示例值：6960663240925956620
+     */
     @SerializedName("user_id")
     private String userId;
-     /**
-      * 姓名
-      * <p> 示例值：dan27
-      */
+    /**
+     * 姓名
+     * <p> 示例值：dan27
+     */
     @SerializedName("name")
     private String name;
-     /**
-      * 邮箱
-      * <p> 示例值：dan27@163.com
-      */
+    /**
+     * 邮箱
+     * <p> 示例值：dan27@163.com
+     */
     @SerializedName("email")
     private String email;
-     /**
-      * 外部用户 ID
-      * <p> 示例值：6960663240925956621
-      */
+    /**
+     * 外部用户 ID
+     * <p> 示例值：6960663240925956621
+     */
     @SerializedName("external_id")
     private String externalId;
-     /**
-      * 电话，请和区号对应的国家码一并提供
-      * <p> 示例值：182900291190
-      */
+    /**
+     * 电话，请和区号对应的国家码一并提供
+     * <p> 示例值：182900291190
+     */
     @SerializedName("mobile")
     private String mobile;
-     /**
-      * 国家码，请和电话一并提供，可从「获取地址码」查询
-      * <p> 示例值：CN_1
-      */
+    /**
+     * 国家码，请和电话一并提供，可从「获取地址码」查询
+     * <p> 示例值：CN_1
+     */
     @SerializedName("mobile_country_code")
     private String mobileCountryCode;
+
+    // builder 开始
+    public WebsiteUser() {
+    }
+
+    public WebsiteUser(Builder builder) {
+        /**
+         * 用户 ID
+         * <p> 示例值：6960663240925956620
+         */
+        this.userId = builder.userId;
+        /**
+         * 姓名
+         * <p> 示例值：dan27
+         */
+        this.name = builder.name;
+        /**
+         * 邮箱
+         * <p> 示例值：dan27@163.com
+         */
+        this.email = builder.email;
+        /**
+         * 外部用户 ID
+         * <p> 示例值：6960663240925956621
+         */
+        this.externalId = builder.externalId;
+        /**
+         * 电话，请和区号对应的国家码一并提供
+         * <p> 示例值：182900291190
+         */
+        this.mobile = builder.mobile;
+        /**
+         * 国家码，请和电话一并提供，可从「获取地址码」查询
+         * <p> 示例值：CN_1
+         */
+        this.mobileCountryCode = builder.mobileCountryCode;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getUserId() {
         return this.userId;
     }
@@ -108,159 +154,118 @@ public class WebsiteUser {
         this.mobileCountryCode = mobileCountryCode;
     }
 
-
-// builder 开始
-  public WebsiteUser(){}
-
-  public WebsiteUser(Builder builder){
-         /**
-          * 用户 ID
-          * <p> 示例值：6960663240925956620
-          */
-      this.userId = builder.userId;
-         /**
-          * 姓名
-          * <p> 示例值：dan27
-          */
-      this.name = builder.name;
-         /**
-          * 邮箱
-          * <p> 示例值：dan27@163.com
-          */
-      this.email = builder.email;
-         /**
-          * 外部用户 ID
-          * <p> 示例值：6960663240925956621
-          */
-      this.externalId = builder.externalId;
-         /**
-          * 电话，请和区号对应的国家码一并提供
-          * <p> 示例值：182900291190
-          */
-      this.mobile = builder.mobile;
-         /**
-          * 国家码，请和电话一并提供，可从「获取地址码」查询
-          * <p> 示例值：CN_1
-          */
-      this.mobileCountryCode = builder.mobileCountryCode;
-  }
-
     public static class Builder {
-     /**
-      * 用户 ID
-      * <p> 示例值：6960663240925956620
-      */
+        /**
+         * 用户 ID
+         * <p> 示例值：6960663240925956620
+         */
         private String userId;
-     /**
-      * 姓名
-      * <p> 示例值：dan27
-      */
+        /**
+         * 姓名
+         * <p> 示例值：dan27
+         */
         private String name;
-     /**
-      * 邮箱
-      * <p> 示例值：dan27@163.com
-      */
+        /**
+         * 邮箱
+         * <p> 示例值：dan27@163.com
+         */
         private String email;
-     /**
-      * 外部用户 ID
-      * <p> 示例值：6960663240925956621
-      */
+        /**
+         * 外部用户 ID
+         * <p> 示例值：6960663240925956621
+         */
         private String externalId;
-     /**
-      * 电话，请和区号对应的国家码一并提供
-      * <p> 示例值：182900291190
-      */
+        /**
+         * 电话，请和区号对应的国家码一并提供
+         * <p> 示例值：182900291190
+         */
         private String mobile;
-     /**
-      * 国家码，请和电话一并提供，可从「获取地址码」查询
-      * <p> 示例值：CN_1
-      */
+        /**
+         * 国家码，请和电话一并提供，可从「获取地址码」查询
+         * <p> 示例值：CN_1
+         */
         private String mobileCountryCode;
 
         /**
          * 用户 ID
          * <p> 示例值：6960663240925956620
+         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-             this.userId = userId;
-             return this;
+            this.userId = userId;
+            return this;
         }
 
-    
 
         /**
          * 姓名
          * <p> 示例值：dan27
+         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 邮箱
          * <p> 示例值：dan27@163.com
+         *
          * @param email
          * @return
          */
         public Builder email(String email) {
-             this.email = email;
-             return this;
+            this.email = email;
+            return this;
         }
 
-    
 
         /**
          * 外部用户 ID
          * <p> 示例值：6960663240925956621
+         *
          * @param externalId
          * @return
          */
         public Builder externalId(String externalId) {
-             this.externalId = externalId;
-             return this;
+            this.externalId = externalId;
+            return this;
         }
 
-    
 
         /**
          * 电话，请和区号对应的国家码一并提供
          * <p> 示例值：182900291190
+         *
          * @param mobile
          * @return
          */
         public Builder mobile(String mobile) {
-             this.mobile = mobile;
-             return this;
+            this.mobile = mobile;
+            return this;
         }
 
-    
 
         /**
          * 国家码，请和电话一并提供，可从「获取地址码」查询
          * <p> 示例值：CN_1
+         *
          * @param mobileCountryCode
          * @return
          */
         public Builder mobileCountryCode(String mobileCountryCode) {
-             this.mobileCountryCode = mobileCountryCode;
-             return this;
+            this.mobileCountryCode = mobileCountryCode;
+            return this;
         }
 
-    
-    
-    public WebsiteUser build(){
-        return new WebsiteUser(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public WebsiteUser build() {
+            return new WebsiteUser(this);
+        }
     }
 }

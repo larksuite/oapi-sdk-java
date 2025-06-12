@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,60 +20,115 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ApprovalSetting {
-     /**
-      * 审批实例通过后允许撤回的时间，以秒为单位，默认 31 天，0 为不可撤回
-      * <p> 示例值：0
-      */
+    /**
+     * 审批实例通过后允许撤回的时间，以秒为单位，默认 31 天，0 为不可撤回
+     * <p> 示例值：0
+     */
     @SerializedName("revert_interval")
     private Integer revertInterval;
-     /**
-      * 是否支持审批通过第一个节点后撤回，默认为1，0为不支持
-      * <p> 示例值：0
-      */
+    /**
+     * 是否支持审批通过第一个节点后撤回，默认为1，0为不支持
+     * <p> 示例值：0
+     */
     @SerializedName("revert_option")
     private Integer revertOption;
-     /**
-      * 拒绝设置
-      * <p> 示例值：0
-      */
+    /**
+     * 拒绝设置
+     * <p> 示例值：0
+     */
     @SerializedName("reject_option")
     private Integer rejectOption;
-     /**
-      * 快捷审批配置项，开启后可在卡片上直接审批。默认值1为启用， 0为禁用
-      * <p> 示例值：1
-      */
+    /**
+     * 快捷审批配置项，开启后可在卡片上直接审批。默认值1为启用， 0为禁用
+     * <p> 示例值：1
+     */
     @SerializedName("quick_approval_option")
     private Integer quickApprovalOption;
-     /**
-      * 流程关闭超时配置，传true就是关闭超时配置
-      * <p> 示例值：true
-      */
+    /**
+     * 流程关闭超时配置，传true就是关闭超时配置
+     * <p> 示例值：true
+     */
     @SerializedName("overtime_disable")
     private Boolean overtimeDisable;
-     /**
-      * 单据未处理超时时间，单位天
-      * <p> 示例值：0
-      */
+    /**
+     * 单据未处理超时时间，单位天
+     * <p> 示例值：0
+     */
     @SerializedName("overtime_notice_time")
     private Integer overtimeNoticeTime;
-     /**
-      * 单据已超时后，自动关闭时间，单位天
-      * <p> 示例值：0
-      */
+    /**
+     * 单据已超时后，自动关闭时间，单位天
+     * <p> 示例值：0
+     */
     @SerializedName("overtime_close_time")
     private Integer overtimeCloseTime;
-     /**
-      * 单据自动关闭后，可恢复时间，单位天
-      * <p> 示例值：0
-      */
+    /**
+     * 单据自动关闭后，可恢复时间，单位天
+     * <p> 示例值：0
+     */
     @SerializedName("overtime_recover_time")
     private Integer overtimeRecoverTime;
+
+    // builder 开始
+    public ApprovalSetting() {
+    }
+
+    public ApprovalSetting(Builder builder) {
+        /**
+         * 审批实例通过后允许撤回的时间，以秒为单位，默认 31 天，0 为不可撤回
+         * <p> 示例值：0
+         */
+        this.revertInterval = builder.revertInterval;
+        /**
+         * 是否支持审批通过第一个节点后撤回，默认为1，0为不支持
+         * <p> 示例值：0
+         */
+        this.revertOption = builder.revertOption;
+        /**
+         * 拒绝设置
+         * <p> 示例值：0
+         */
+        this.rejectOption = builder.rejectOption;
+        /**
+         * 快捷审批配置项，开启后可在卡片上直接审批。默认值1为启用， 0为禁用
+         * <p> 示例值：1
+         */
+        this.quickApprovalOption = builder.quickApprovalOption;
+        /**
+         * 流程关闭超时配置，传true就是关闭超时配置
+         * <p> 示例值：true
+         */
+        this.overtimeDisable = builder.overtimeDisable;
+        /**
+         * 单据未处理超时时间，单位天
+         * <p> 示例值：0
+         */
+        this.overtimeNoticeTime = builder.overtimeNoticeTime;
+        /**
+         * 单据已超时后，自动关闭时间，单位天
+         * <p> 示例值：0
+         */
+        this.overtimeCloseTime = builder.overtimeCloseTime;
+        /**
+         * 单据自动关闭后，可恢复时间，单位天
+         * <p> 示例值：0
+         */
+        this.overtimeRecoverTime = builder.overtimeRecoverTime;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Integer getRevertInterval() {
         return this.revertInterval;
     }
@@ -137,225 +193,178 @@ public class ApprovalSetting {
         this.overtimeRecoverTime = overtimeRecoverTime;
     }
 
-
-// builder 开始
-  public ApprovalSetting(){}
-
-  public ApprovalSetting(Builder builder){
-         /**
-          * 审批实例通过后允许撤回的时间，以秒为单位，默认 31 天，0 为不可撤回
-          * <p> 示例值：0
-          */
-      this.revertInterval = builder.revertInterval;
-         /**
-          * 是否支持审批通过第一个节点后撤回，默认为1，0为不支持
-          * <p> 示例值：0
-          */
-      this.revertOption = builder.revertOption;
-         /**
-          * 拒绝设置
-          * <p> 示例值：0
-          */
-      this.rejectOption = builder.rejectOption;
-         /**
-          * 快捷审批配置项，开启后可在卡片上直接审批。默认值1为启用， 0为禁用
-          * <p> 示例值：1
-          */
-      this.quickApprovalOption = builder.quickApprovalOption;
-         /**
-          * 流程关闭超时配置，传true就是关闭超时配置
-          * <p> 示例值：true
-          */
-      this.overtimeDisable = builder.overtimeDisable;
-         /**
-          * 单据未处理超时时间，单位天
-          * <p> 示例值：0
-          */
-      this.overtimeNoticeTime = builder.overtimeNoticeTime;
-         /**
-          * 单据已超时后，自动关闭时间，单位天
-          * <p> 示例值：0
-          */
-      this.overtimeCloseTime = builder.overtimeCloseTime;
-         /**
-          * 单据自动关闭后，可恢复时间，单位天
-          * <p> 示例值：0
-          */
-      this.overtimeRecoverTime = builder.overtimeRecoverTime;
-  }
-
     public static class Builder {
-     /**
-      * 审批实例通过后允许撤回的时间，以秒为单位，默认 31 天，0 为不可撤回
-      * <p> 示例值：0
-      */
+        /**
+         * 审批实例通过后允许撤回的时间，以秒为单位，默认 31 天，0 为不可撤回
+         * <p> 示例值：0
+         */
         private Integer revertInterval;
-     /**
-      * 是否支持审批通过第一个节点后撤回，默认为1，0为不支持
-      * <p> 示例值：0
-      */
+        /**
+         * 是否支持审批通过第一个节点后撤回，默认为1，0为不支持
+         * <p> 示例值：0
+         */
         private Integer revertOption;
-     /**
-      * 拒绝设置
-      * <p> 示例值：0
-      */
+        /**
+         * 拒绝设置
+         * <p> 示例值：0
+         */
         private Integer rejectOption;
-     /**
-      * 快捷审批配置项，开启后可在卡片上直接审批。默认值1为启用， 0为禁用
-      * <p> 示例值：1
-      */
+        /**
+         * 快捷审批配置项，开启后可在卡片上直接审批。默认值1为启用， 0为禁用
+         * <p> 示例值：1
+         */
         private Integer quickApprovalOption;
-     /**
-      * 流程关闭超时配置，传true就是关闭超时配置
-      * <p> 示例值：true
-      */
+        /**
+         * 流程关闭超时配置，传true就是关闭超时配置
+         * <p> 示例值：true
+         */
         private Boolean overtimeDisable;
-     /**
-      * 单据未处理超时时间，单位天
-      * <p> 示例值：0
-      */
+        /**
+         * 单据未处理超时时间，单位天
+         * <p> 示例值：0
+         */
         private Integer overtimeNoticeTime;
-     /**
-      * 单据已超时后，自动关闭时间，单位天
-      * <p> 示例值：0
-      */
+        /**
+         * 单据已超时后，自动关闭时间，单位天
+         * <p> 示例值：0
+         */
         private Integer overtimeCloseTime;
-     /**
-      * 单据自动关闭后，可恢复时间，单位天
-      * <p> 示例值：0
-      */
+        /**
+         * 单据自动关闭后，可恢复时间，单位天
+         * <p> 示例值：0
+         */
         private Integer overtimeRecoverTime;
 
         /**
          * 审批实例通过后允许撤回的时间，以秒为单位，默认 31 天，0 为不可撤回
          * <p> 示例值：0
+         *
          * @param revertInterval
          * @return
          */
         public Builder revertInterval(Integer revertInterval) {
-             this.revertInterval = revertInterval;
-             return this;
+            this.revertInterval = revertInterval;
+            return this;
         }
 
-    
 
         /**
          * 是否支持审批通过第一个节点后撤回，默认为1，0为不支持
          * <p> 示例值：0
+         *
          * @param revertOption
          * @return
          */
         public Builder revertOption(Integer revertOption) {
-             this.revertOption = revertOption;
-             return this;
+            this.revertOption = revertOption;
+            return this;
         }
 
-    
 
         /**
          * 拒绝设置
          * <p> 示例值：0
+         *
          * @param rejectOption
          * @return
          */
         public Builder rejectOption(Integer rejectOption) {
-             this.rejectOption = rejectOption;
-             return this;
+            this.rejectOption = rejectOption;
+            return this;
         }
+
         /**
          * 拒绝设置
          * <p> 示例值：0
+         *
          * @param rejectOption {@link com.lark.oapi.service.approval.v4.enums.ApprovalSettingRejectOptionEnum}
          * @return
          */
         public Builder rejectOption(com.lark.oapi.service.approval.v4.enums.ApprovalSettingRejectOptionEnum rejectOption) {
-             this.rejectOption = rejectOption.getValue();
-             return this;
+            this.rejectOption = rejectOption.getValue();
+            return this;
         }
 
-    
 
         /**
          * 快捷审批配置项，开启后可在卡片上直接审批。默认值1为启用， 0为禁用
          * <p> 示例值：1
+         *
          * @param quickApprovalOption
          * @return
          */
         public Builder quickApprovalOption(Integer quickApprovalOption) {
-             this.quickApprovalOption = quickApprovalOption;
-             return this;
+            this.quickApprovalOption = quickApprovalOption;
+            return this;
         }
+
         /**
          * 快捷审批配置项，开启后可在卡片上直接审批。默认值1为启用， 0为禁用
          * <p> 示例值：1
+         *
          * @param quickApprovalOption {@link com.lark.oapi.service.approval.v4.enums.ApprovalSettingQuickApprovalOptionEnum}
          * @return
          */
         public Builder quickApprovalOption(com.lark.oapi.service.approval.v4.enums.ApprovalSettingQuickApprovalOptionEnum quickApprovalOption) {
-             this.quickApprovalOption = quickApprovalOption.getValue();
-             return this;
+            this.quickApprovalOption = quickApprovalOption.getValue();
+            return this;
         }
 
-    
 
         /**
          * 流程关闭超时配置，传true就是关闭超时配置
          * <p> 示例值：true
+         *
          * @param overtimeDisable
          * @return
          */
         public Builder overtimeDisable(Boolean overtimeDisable) {
-             this.overtimeDisable = overtimeDisable;
-             return this;
+            this.overtimeDisable = overtimeDisable;
+            return this;
         }
 
-    
 
         /**
          * 单据未处理超时时间，单位天
          * <p> 示例值：0
+         *
          * @param overtimeNoticeTime
          * @return
          */
         public Builder overtimeNoticeTime(Integer overtimeNoticeTime) {
-             this.overtimeNoticeTime = overtimeNoticeTime;
-             return this;
+            this.overtimeNoticeTime = overtimeNoticeTime;
+            return this;
         }
 
-    
 
         /**
          * 单据已超时后，自动关闭时间，单位天
          * <p> 示例值：0
+         *
          * @param overtimeCloseTime
          * @return
          */
         public Builder overtimeCloseTime(Integer overtimeCloseTime) {
-             this.overtimeCloseTime = overtimeCloseTime;
-             return this;
+            this.overtimeCloseTime = overtimeCloseTime;
+            return this;
         }
 
-    
 
         /**
          * 单据自动关闭后，可恢复时间，单位天
          * <p> 示例值：0
+         *
          * @param overtimeRecoverTime
          * @return
          */
         public Builder overtimeRecoverTime(Integer overtimeRecoverTime) {
-             this.overtimeRecoverTime = overtimeRecoverTime;
-             return this;
+            this.overtimeRecoverTime = overtimeRecoverTime;
+            return this;
         }
 
-    
-    
-    public ApprovalSetting build(){
-        return new ApprovalSetting(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ApprovalSetting build() {
+            return new ApprovalSetting(this);
+        }
     }
 }

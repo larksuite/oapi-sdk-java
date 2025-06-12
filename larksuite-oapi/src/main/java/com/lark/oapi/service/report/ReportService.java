@@ -21,8 +21,9 @@ public class ReportService {
     private final V1 v1;
 
     public ReportService(Config config) {
-    this.v1 = new V1(config);
+        this.v1 = new V1(config);
     }
+
     public V1 v1() {
         return v1;
     }

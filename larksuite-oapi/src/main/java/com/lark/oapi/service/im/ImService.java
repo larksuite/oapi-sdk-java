@@ -64,164 +64,202 @@ public class ImService {
     private final V2 v2;
 
     public ImService(Config config) {
-    this.v1 = new V1(config);
-    this.batchMessage = new BatchMessage(config);
-    this.chat = new Chat(config);
-    this.chatAccessEvent = new ChatAccessEvent(config);
-    this.chatAnnouncement = new ChatAnnouncement(config);
-    this.chatManagers = new ChatManagers(config);
-    this.chatMemberBot = new ChatMemberBot(config);
-    this.chatMemberUser = new ChatMemberUser(config);
-    this.chatMembers = new ChatMembers(config);
-    this.chatMenuItem = new ChatMenuItem(config);
-    this.chatMenuTree = new ChatMenuTree(config);
-    this.chatModeration = new ChatModeration(config);
-    this.chatTab = new ChatTab(config);
-    this.chatTopNotice = new ChatTopNotice(config);
-    this.file = new File(config);
-    this.image = new Image(config);
-    this.message = new Message(config);
-    this.messageReaction = new MessageReaction(config);
-    this.messageResource = new MessageResource(config);
-    this.pin = new Pin(config);
-    this.thread = new Thread(config);
-    this.v2 = new V2(config);
+        this.v1 = new V1(config);
+        this.batchMessage = new BatchMessage(config);
+        this.chat = new Chat(config);
+        this.chatAccessEvent = new ChatAccessEvent(config);
+        this.chatAnnouncement = new ChatAnnouncement(config);
+        this.chatManagers = new ChatManagers(config);
+        this.chatMemberBot = new ChatMemberBot(config);
+        this.chatMemberUser = new ChatMemberUser(config);
+        this.chatMembers = new ChatMembers(config);
+        this.chatMenuItem = new ChatMenuItem(config);
+        this.chatMenuTree = new ChatMenuTree(config);
+        this.chatModeration = new ChatModeration(config);
+        this.chatTab = new ChatTab(config);
+        this.chatTopNotice = new ChatTopNotice(config);
+        this.file = new File(config);
+        this.image = new Image(config);
+        this.message = new Message(config);
+        this.messageReaction = new MessageReaction(config);
+        this.messageResource = new MessageResource(config);
+        this.pin = new Pin(config);
+        this.thread = new Thread(config);
+        this.v2 = new V2(config);
     }
+
     public V1 v1() {
         return v1;
     }
+
     public BatchMessage batchMessage() {
         return batchMessage;
     }
+
     public Chat chat() {
         return chat;
     }
+
     public ChatAccessEvent chatAccessEvent() {
         return chatAccessEvent;
     }
+
     public ChatAnnouncement chatAnnouncement() {
         return chatAnnouncement;
     }
+
     public ChatManagers chatManagers() {
         return chatManagers;
     }
+
     public ChatMemberBot chatMemberBot() {
         return chatMemberBot;
     }
+
     public ChatMemberUser chatMemberUser() {
         return chatMemberUser;
     }
+
     public ChatMembers chatMembers() {
         return chatMembers;
     }
+
     public ChatMenuItem chatMenuItem() {
         return chatMenuItem;
     }
+
     public ChatMenuTree chatMenuTree() {
         return chatMenuTree;
     }
+
     public ChatModeration chatModeration() {
         return chatModeration;
     }
+
     public ChatTab chatTab() {
         return chatTab;
     }
+
     public ChatTopNotice chatTopNotice() {
         return chatTopNotice;
     }
+
     public File file() {
         return file;
     }
+
     public Image image() {
         return image;
     }
+
     public Message message() {
         return message;
     }
+
     public MessageReaction messageReaction() {
         return messageReaction;
     }
+
     public MessageResource messageResource() {
         return messageResource;
     }
+
     public Pin pin() {
         return pin;
     }
+
     public Thread thread() {
         return thread;
     }
+
+    public V2 v2() {
+        return v2;
+    }
+
     public abstract static class P2ChatDisbandedV1Handler implements IEventHandler<P2ChatDisbandedV1> {
         @Override
         public P2ChatDisbandedV1 getEvent() {
             return new P2ChatDisbandedV1();
         }
     }
+
     public abstract static class P2ChatUpdatedV1Handler implements IEventHandler<P2ChatUpdatedV1> {
         @Override
         public P2ChatUpdatedV1 getEvent() {
             return new P2ChatUpdatedV1();
         }
     }
+
     public abstract static class P2ChatAccessEventBotP2pChatEnteredV1Handler implements IEventHandler<P2ChatAccessEventBotP2pChatEnteredV1> {
         @Override
         public P2ChatAccessEventBotP2pChatEnteredV1 getEvent() {
             return new P2ChatAccessEventBotP2pChatEnteredV1();
         }
     }
+
     public abstract static class P2ChatMemberBotAddedV1Handler implements IEventHandler<P2ChatMemberBotAddedV1> {
         @Override
         public P2ChatMemberBotAddedV1 getEvent() {
             return new P2ChatMemberBotAddedV1();
         }
     }
+
     public abstract static class P2ChatMemberBotDeletedV1Handler implements IEventHandler<P2ChatMemberBotDeletedV1> {
         @Override
         public P2ChatMemberBotDeletedV1 getEvent() {
             return new P2ChatMemberBotDeletedV1();
         }
     }
+
     public abstract static class P2ChatMemberUserAddedV1Handler implements IEventHandler<P2ChatMemberUserAddedV1> {
         @Override
         public P2ChatMemberUserAddedV1 getEvent() {
             return new P2ChatMemberUserAddedV1();
         }
     }
+
     public abstract static class P2ChatMemberUserDeletedV1Handler implements IEventHandler<P2ChatMemberUserDeletedV1> {
         @Override
         public P2ChatMemberUserDeletedV1 getEvent() {
             return new P2ChatMemberUserDeletedV1();
         }
     }
+
     public abstract static class P2ChatMemberUserWithdrawnV1Handler implements IEventHandler<P2ChatMemberUserWithdrawnV1> {
         @Override
         public P2ChatMemberUserWithdrawnV1 getEvent() {
             return new P2ChatMemberUserWithdrawnV1();
         }
     }
+
     public abstract static class P2MessageReadV1Handler implements IEventHandler<P2MessageReadV1> {
         @Override
         public P2MessageReadV1 getEvent() {
             return new P2MessageReadV1();
         }
     }
+
     public abstract static class P2MessageRecalledV1Handler implements IEventHandler<P2MessageRecalledV1> {
         @Override
         public P2MessageRecalledV1 getEvent() {
             return new P2MessageRecalledV1();
         }
     }
+
     public abstract static class P2MessageReceiveV1Handler implements IEventHandler<P2MessageReceiveV1> {
         @Override
         public P2MessageReceiveV1 getEvent() {
             return new P2MessageReceiveV1();
         }
     }
+
     public abstract static class P2MessageReactionCreatedV1Handler implements IEventHandler<P2MessageReactionCreatedV1> {
         @Override
         public P2MessageReactionCreatedV1 getEvent() {
             return new P2MessageReactionCreatedV1();
         }
     }
+
     public abstract static class P2MessageReactionDeletedV1Handler implements IEventHandler<P2MessageReactionDeletedV1> {
         @Override
         public P2MessageReactionDeletedV1 getEvent() {
@@ -230,29 +268,26 @@ public class ImService {
     }
 
 
-    public V2 v2() {
-        return v2;
-    }
     public abstract static class P1MessageReadV1Handler implements IEventHandler<P1MessageReadV1> {
 
         @Override
         public P1MessageReadV1 getEvent() {
             return new P1MessageReadV1();
         }
-  }
+    }
 
 
     public abstract static class P1MessageReceivedV1Handler implements IEventHandler<P1MessageReceivedV1> {
         @Override
         public P1MessageReceivedV1 getEvent() {
-          return new P1MessageReceivedV1();
+            return new P1MessageReceivedV1();
         }
-  }
+    }
 
     public abstract static class P1P2PChatCreatedV1Handler implements IEventHandler<P1P2PChatCreatedV1> {
         @Override
         public P1P2PChatCreatedV1 getEvent() {
-        return new P1P2PChatCreatedV1();
+            return new P1P2PChatCreatedV1();
         }
     }
 }

@@ -12,30 +12,35 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class AddToFolderTalentRespBody {
-     /**
-      * 人才 ID 列表
-      * <p> 示例值：
-      */
+    /**
+     * 人才 ID 列表
+     * <p> 示例值：
+     */
     @SerializedName("talent_id_list")
     private String[] talentIdList;
-     /**
-      * 文件夹 ID
-      * <p> 示例值：7039620186502138156
-      */
+    /**
+     * 文件夹 ID
+     * <p> 示例值：7039620186502138156
+     */
     @SerializedName("folder_id")
     private String folderId;
+
     public String[] getTalentIdList() {
         return this.talentIdList;
     }

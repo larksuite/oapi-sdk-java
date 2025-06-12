@@ -17,17 +17,18 @@ package com.lark.oapi.service.performance.v2.enums;
  * 指标总分计算方式
  */
 public enum MetricTemplateTotalMetricScoreMethodEnum {
-     REVIEW_MANUALLY("review_manually"), // 手动评估
-     SUM("sum"), // 加和计算
-     WEIGHT("weight"), // 加权计算
-     FORMULA("formula"), // 自定义公式
-  ;
-   private String value;
+    REVIEW_MANUALLY("review_manually"), // 手动评估
+    SUM("sum"), // 加和计算
+    WEIGHT("weight"), // 加权计算
+    FORMULA("formula"), // 自定义公式
+    ;
+    private String value;
+
     MetricTemplateTotalMetricScoreMethodEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

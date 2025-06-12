@@ -17,16 +17,17 @@ package com.lark.oapi.service.application.v6.enums;
  * 不传入代表全部返回。传入则按照这种应用状态返回。应用状态可选值有：0：停用状态1：启用状态 2：未启用状态
  */
 public enum ListApplicationAvailabilityStatusEnum {
-     AVAILABILITYSTOPPED(0), // 停用
-     AVAILABILITYACTIVATED(1), // 启用
-     AVAILABILITYUNACTIVATED(2), // 未启用
-  ;
-   private Integer value;
+    AVAILABILITYSTOPPED(0), // 停用
+    AVAILABILITYACTIVATED(1), // 启用
+    AVAILABILITYUNACTIVATED(2), // 未启用
+    ;
+    private Integer value;
+
     ListApplicationAvailabilityStatusEnum(Integer value) {
-      this.value = value;
+        this.value = value;
     }
 
     public Integer getValue() {
-      return this.value;
+        return this.value;
     }
 }

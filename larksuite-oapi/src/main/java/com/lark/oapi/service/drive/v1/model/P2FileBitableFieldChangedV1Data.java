@@ -12,66 +12,71 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class P2FileBitableFieldChangedV1Data {
-     /**
-      * 文档类型
-      * <p> 示例值：bitable
-      */
+    /**
+     * 文档类型
+     * <p> 示例值：bitable
+     */
     @SerializedName("file_type")
     private String fileType;
-     /**
-      * 文档token
-      * <p> 示例值：bascntUPmnoH9kZbGJ8RWeabcef
-      */
+    /**
+     * 文档token
+     * <p> 示例值：bascntUPmnoH9kZbGJ8RWeabcef
+     */
     @SerializedName("file_token")
     private String fileToken;
-     /**
-      * 多维表格数据表ID
-      * <p> 示例值：tblWXe2d0I0abcef
-      */
+    /**
+     * 多维表格数据表ID
+     * <p> 示例值：tblWXe2d0I0abcef
+     */
     @SerializedName("table_id")
     private String tableId;
-     /**
-      * 用户 ID
-      * <p> 示例值：
-      */
+    /**
+     * 用户 ID
+     * <p> 示例值：
+     */
     @SerializedName("operator_id")
     private UserId operatorId;
-     /**
-      * 字段变更操作列表
-      * <p> 示例值：
-      */
+    /**
+     * 字段变更操作列表
+     * <p> 示例值：
+     */
     @SerializedName("action_list")
     private BitableTableFieldAction[] actionList;
-     /**
-      * 多维表格数据表的版本号
-      * <p> 示例值：10
-      */
+    /**
+     * 多维表格数据表的版本号
+     * <p> 示例值：10
+     */
     @SerializedName("revision")
     private Integer revision;
-     /**
-      * 订阅用户id列表
-      * <p> 示例值：
-      */
+    /**
+     * 订阅用户id列表
+     * <p> 示例值：
+     */
     @SerializedName("subscriber_id_list")
     private UserId[] subscriberIdList;
-     /**
-      * 字段变更时间
-      * <p> 示例值：1663727688
-      */
+    /**
+     * 字段变更时间
+     * <p> 示例值：1663727688
+     */
     @SerializedName("update_time")
     private Integer updateTime;
+
     public String getFileType() {
         return this.fileType;
     }

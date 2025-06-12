@@ -17,26 +17,27 @@ package com.lark.oapi.service.personal_settings.v1.enums;
  * 颜色
  */
 public enum CreateSystemStatusSystemStatusColorEnum {
-     BLUE("BLUE"), // 蓝色
-     GRAY("GRAY"), // 灰色
-     INDIGO("INDIGO"), // 靛青色
-     WATHET("WATHET"), // 浅蓝色
-     GREEN("GREEN"), // 绿色
-     TURQUOISE("TURQUOISE"), // 绿松石色
-     YELLOW("YELLOW"), // 黄色
-     LIME("LIME"), // 酸橙色
-     RED("RED"), // 红色
-     ORANGE("ORANGE"), // 橙色
-     PURPLE("PURPLE"), // 紫色
-     VIOLET("VIOLET"), // 紫罗兰色
-     CARMINE("CARMINE"), // 胭脂红色
-  ;
-   private String value;
+    BLUE("BLUE"), // 蓝色
+    GRAY("GRAY"), // 灰色
+    INDIGO("INDIGO"), // 靛青色
+    WATHET("WATHET"), // 浅蓝色
+    GREEN("GREEN"), // 绿色
+    TURQUOISE("TURQUOISE"), // 绿松石色
+    YELLOW("YELLOW"), // 黄色
+    LIME("LIME"), // 酸橙色
+    RED("RED"), // 红色
+    ORANGE("ORANGE"), // 橙色
+    PURPLE("PURPLE"), // 紫色
+    VIOLET("VIOLET"), // 紫罗兰色
+    CARMINE("CARMINE"), // 胭脂红色
+    ;
+    private String value;
+
     CreateSystemStatusSystemStatusColorEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

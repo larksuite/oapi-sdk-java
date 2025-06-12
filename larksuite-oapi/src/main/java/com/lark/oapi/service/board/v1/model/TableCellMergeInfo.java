@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.board.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.board.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class TableCellMergeInfo {
-     /**
-      * 从当前行索引起被合并的连续行数
-      * <p> 示例值：2
-      */
+    /**
+     * 从当前行索引起被合并的连续行数
+     * <p> 示例值：2
+     */
     @SerializedName("row_span")
     private Integer rowSpan;
-     /**
-      * 从当前列索引起被合并的连续列数
-      * <p> 示例值：2
-      */
+    /**
+     * 从当前列索引起被合并的连续列数
+     * <p> 示例值：2
+     */
     @SerializedName("col_span")
     private Integer colSpan;
+
+    // builder 开始
+    public TableCellMergeInfo() {
+    }
+
+    public TableCellMergeInfo(Builder builder) {
+        /**
+         * 从当前行索引起被合并的连续行数
+         * <p> 示例值：2
+         */
+        this.rowSpan = builder.rowSpan;
+        /**
+         * 从当前列索引起被合并的连续列数
+         * <p> 示例值：2
+         */
+        this.colSpan = builder.colSpan;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Integer getRowSpan() {
         return this.rowSpan;
     }
@@ -53,67 +79,46 @@ public class TableCellMergeInfo {
         this.colSpan = colSpan;
     }
 
-
-// builder 开始
-  public TableCellMergeInfo(){}
-
-  public TableCellMergeInfo(Builder builder){
-         /**
-          * 从当前行索引起被合并的连续行数
-          * <p> 示例值：2
-          */
-      this.rowSpan = builder.rowSpan;
-         /**
-          * 从当前列索引起被合并的连续列数
-          * <p> 示例值：2
-          */
-      this.colSpan = builder.colSpan;
-  }
-
     public static class Builder {
-     /**
-      * 从当前行索引起被合并的连续行数
-      * <p> 示例值：2
-      */
+        /**
+         * 从当前行索引起被合并的连续行数
+         * <p> 示例值：2
+         */
         private Integer rowSpan;
-     /**
-      * 从当前列索引起被合并的连续列数
-      * <p> 示例值：2
-      */
+        /**
+         * 从当前列索引起被合并的连续列数
+         * <p> 示例值：2
+         */
         private Integer colSpan;
 
         /**
          * 从当前行索引起被合并的连续行数
          * <p> 示例值：2
+         *
          * @param rowSpan
          * @return
          */
         public Builder rowSpan(Integer rowSpan) {
-             this.rowSpan = rowSpan;
-             return this;
+            this.rowSpan = rowSpan;
+            return this;
         }
 
-    
 
         /**
          * 从当前列索引起被合并的连续列数
          * <p> 示例值：2
+         *
          * @param colSpan
          * @return
          */
         public Builder colSpan(Integer colSpan) {
-             this.colSpan = colSpan;
-             return this;
+            this.colSpan = colSpan;
+            return this;
         }
 
-    
-    
-    public TableCellMergeInfo build(){
-        return new TableCellMergeInfo(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public TableCellMergeInfo build() {
+            return new TableCellMergeInfo(this);
+        }
     }
 }

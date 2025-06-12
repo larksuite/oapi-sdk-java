@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,90 +20,170 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ComponentLibRef {
-     /**
-      * -
-      * <p> 示例值：
-      */
+    /**
+     * -
+     * <p> 示例值：
+     */
     @SerializedName("basic_info")
     private ComponentLibBasic basicInfo;
-     /**
-      * -
-      * <p> 示例值：-
-      */
+    /**
+     * -
+     * <p> 示例值：-
+     */
     @SerializedName("version_number")
     private String versionNumber;
-     /**
-      * -
-      * <p> 示例值：true
-      */
+    /**
+     * -
+     * <p> 示例值：true
+     */
     @SerializedName("can_upgrade")
     private Boolean canUpgrade;
-     /**
-      * -
-      * <p> 示例值：-
-      */
+    /**
+     * -
+     * <p> 示例值：-
+     */
     @SerializedName("version_id")
     private String versionId;
-     /**
-      * -
-      * <p> 示例值：-
-      */
+    /**
+     * -
+     * <p> 示例值：-
+     */
     @SerializedName("comps_count")
     private String compsCount;
-     /**
-      * -
-      * <p> 示例值：
-      */
+    /**
+     * -
+     * <p> 示例值：
+     */
     @SerializedName("operating_task_info")
     private TaskInfo operatingTaskInfo;
-     /**
-      * -
-      * <p> 示例值：-
-      */
+    /**
+     * -
+     * <p> 示例值：-
+     */
     @SerializedName("operating_type")
     private String operatingType;
-     /**
-      * -
-      * <p> 示例值：-
-      */
+    /**
+     * -
+     * <p> 示例值：-
+     */
     @SerializedName("latest_version_number")
     private String latestVersionNumber;
-     /**
-      * -
-      * <p> 示例值：-
-      */
+    /**
+     * -
+     * <p> 示例值：-
+     */
     @SerializedName("installed_at")
     private String installedAt;
-     /**
-      * -
-      * <p> 示例值：
-      */
+    /**
+     * -
+     * <p> 示例值：
+     */
     @SerializedName("installed_by")
     private LookupWithAvatar installedBy;
-     /**
-      * -
-      * <p> 示例值：-
-      */
+    /**
+     * -
+     * <p> 示例值：-
+     */
     @SerializedName("updated_at")
     private String updatedAt;
-     /**
-      * -
-      * <p> 示例值：
-      */
+    /**
+     * -
+     * <p> 示例值：
+     */
     @SerializedName("updated_by")
     private LookupWithAvatar updatedBy;
-     /**
-      * -
-      * <p> 示例值：
-      */
+    /**
+     * -
+     * <p> 示例值：
+     */
     @SerializedName("developer_names")
     private I18n[] developerNames;
+
+    // builder 开始
+    public ComponentLibRef() {
+    }
+
+    public ComponentLibRef(Builder builder) {
+        /**
+         * -
+         * <p> 示例值：
+         */
+        this.basicInfo = builder.basicInfo;
+        /**
+         * -
+         * <p> 示例值：-
+         */
+        this.versionNumber = builder.versionNumber;
+        /**
+         * -
+         * <p> 示例值：true
+         */
+        this.canUpgrade = builder.canUpgrade;
+        /**
+         * -
+         * <p> 示例值：-
+         */
+        this.versionId = builder.versionId;
+        /**
+         * -
+         * <p> 示例值：-
+         */
+        this.compsCount = builder.compsCount;
+        /**
+         * -
+         * <p> 示例值：
+         */
+        this.operatingTaskInfo = builder.operatingTaskInfo;
+        /**
+         * -
+         * <p> 示例值：-
+         */
+        this.operatingType = builder.operatingType;
+        /**
+         * -
+         * <p> 示例值：-
+         */
+        this.latestVersionNumber = builder.latestVersionNumber;
+        /**
+         * -
+         * <p> 示例值：-
+         */
+        this.installedAt = builder.installedAt;
+        /**
+         * -
+         * <p> 示例值：
+         */
+        this.installedBy = builder.installedBy;
+        /**
+         * -
+         * <p> 示例值：-
+         */
+        this.updatedAt = builder.updatedAt;
+        /**
+         * -
+         * <p> 示例值：
+         */
+        this.updatedBy = builder.updatedBy;
+        /**
+         * -
+         * <p> 示例值：
+         */
+        this.developerNames = builder.developerNames;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public ComponentLibBasic getBasicInfo() {
         return this.basicInfo;
     }
@@ -207,320 +288,244 @@ public class ComponentLibRef {
         this.developerNames = developerNames;
     }
 
-
-// builder 开始
-  public ComponentLibRef(){}
-
-  public ComponentLibRef(Builder builder){
-         /**
-          * -
-          * <p> 示例值：
-          */
-      this.basicInfo = builder.basicInfo;
-         /**
-          * -
-          * <p> 示例值：-
-          */
-      this.versionNumber = builder.versionNumber;
-         /**
-          * -
-          * <p> 示例值：true
-          */
-      this.canUpgrade = builder.canUpgrade;
-         /**
-          * -
-          * <p> 示例值：-
-          */
-      this.versionId = builder.versionId;
-         /**
-          * -
-          * <p> 示例值：-
-          */
-      this.compsCount = builder.compsCount;
-         /**
-          * -
-          * <p> 示例值：
-          */
-      this.operatingTaskInfo = builder.operatingTaskInfo;
-         /**
-          * -
-          * <p> 示例值：-
-          */
-      this.operatingType = builder.operatingType;
-         /**
-          * -
-          * <p> 示例值：-
-          */
-      this.latestVersionNumber = builder.latestVersionNumber;
-         /**
-          * -
-          * <p> 示例值：-
-          */
-      this.installedAt = builder.installedAt;
-         /**
-          * -
-          * <p> 示例值：
-          */
-      this.installedBy = builder.installedBy;
-         /**
-          * -
-          * <p> 示例值：-
-          */
-      this.updatedAt = builder.updatedAt;
-         /**
-          * -
-          * <p> 示例值：
-          */
-      this.updatedBy = builder.updatedBy;
-         /**
-          * -
-          * <p> 示例值：
-          */
-      this.developerNames = builder.developerNames;
-  }
-
     public static class Builder {
-     /**
-      * -
-      * <p> 示例值：
-      */
+        /**
+         * -
+         * <p> 示例值：
+         */
         private ComponentLibBasic basicInfo;
-     /**
-      * -
-      * <p> 示例值：-
-      */
+        /**
+         * -
+         * <p> 示例值：-
+         */
         private String versionNumber;
-     /**
-      * -
-      * <p> 示例值：true
-      */
+        /**
+         * -
+         * <p> 示例值：true
+         */
         private Boolean canUpgrade;
-     /**
-      * -
-      * <p> 示例值：-
-      */
+        /**
+         * -
+         * <p> 示例值：-
+         */
         private String versionId;
-     /**
-      * -
-      * <p> 示例值：-
-      */
+        /**
+         * -
+         * <p> 示例值：-
+         */
         private String compsCount;
-     /**
-      * -
-      * <p> 示例值：
-      */
+        /**
+         * -
+         * <p> 示例值：
+         */
         private TaskInfo operatingTaskInfo;
-     /**
-      * -
-      * <p> 示例值：-
-      */
+        /**
+         * -
+         * <p> 示例值：-
+         */
         private String operatingType;
-     /**
-      * -
-      * <p> 示例值：-
-      */
+        /**
+         * -
+         * <p> 示例值：-
+         */
         private String latestVersionNumber;
-     /**
-      * -
-      * <p> 示例值：-
-      */
+        /**
+         * -
+         * <p> 示例值：-
+         */
         private String installedAt;
-     /**
-      * -
-      * <p> 示例值：
-      */
+        /**
+         * -
+         * <p> 示例值：
+         */
         private LookupWithAvatar installedBy;
-     /**
-      * -
-      * <p> 示例值：-
-      */
+        /**
+         * -
+         * <p> 示例值：-
+         */
         private String updatedAt;
-     /**
-      * -
-      * <p> 示例值：
-      */
+        /**
+         * -
+         * <p> 示例值：
+         */
         private LookupWithAvatar updatedBy;
-     /**
-      * -
-      * <p> 示例值：
-      */
+        /**
+         * -
+         * <p> 示例值：
+         */
         private I18n[] developerNames;
 
         /**
          * -
          * <p> 示例值：
+         *
          * @param basicInfo
          * @return
          */
         public Builder basicInfo(ComponentLibBasic basicInfo) {
-             this.basicInfo = basicInfo;
-             return this;
+            this.basicInfo = basicInfo;
+            return this;
         }
 
-    
 
         /**
          * -
          * <p> 示例值：-
+         *
          * @param versionNumber
          * @return
          */
         public Builder versionNumber(String versionNumber) {
-             this.versionNumber = versionNumber;
-             return this;
+            this.versionNumber = versionNumber;
+            return this;
         }
 
-    
 
         /**
          * -
          * <p> 示例值：true
+         *
          * @param canUpgrade
          * @return
          */
         public Builder canUpgrade(Boolean canUpgrade) {
-             this.canUpgrade = canUpgrade;
-             return this;
+            this.canUpgrade = canUpgrade;
+            return this;
         }
 
-    
 
         /**
          * -
          * <p> 示例值：-
+         *
          * @param versionId
          * @return
          */
         public Builder versionId(String versionId) {
-             this.versionId = versionId;
-             return this;
+            this.versionId = versionId;
+            return this;
         }
 
-    
 
         /**
          * -
          * <p> 示例值：-
+         *
          * @param compsCount
          * @return
          */
         public Builder compsCount(String compsCount) {
-             this.compsCount = compsCount;
-             return this;
+            this.compsCount = compsCount;
+            return this;
         }
 
-    
 
         /**
          * -
          * <p> 示例值：
+         *
          * @param operatingTaskInfo
          * @return
          */
         public Builder operatingTaskInfo(TaskInfo operatingTaskInfo) {
-             this.operatingTaskInfo = operatingTaskInfo;
-             return this;
+            this.operatingTaskInfo = operatingTaskInfo;
+            return this;
         }
 
-    
 
         /**
          * -
          * <p> 示例值：-
+         *
          * @param operatingType
          * @return
          */
         public Builder operatingType(String operatingType) {
-             this.operatingType = operatingType;
-             return this;
+            this.operatingType = operatingType;
+            return this;
         }
 
-    
 
         /**
          * -
          * <p> 示例值：-
+         *
          * @param latestVersionNumber
          * @return
          */
         public Builder latestVersionNumber(String latestVersionNumber) {
-             this.latestVersionNumber = latestVersionNumber;
-             return this;
+            this.latestVersionNumber = latestVersionNumber;
+            return this;
         }
 
-    
 
         /**
          * -
          * <p> 示例值：-
+         *
          * @param installedAt
          * @return
          */
         public Builder installedAt(String installedAt) {
-             this.installedAt = installedAt;
-             return this;
+            this.installedAt = installedAt;
+            return this;
         }
 
-    
 
         /**
          * -
          * <p> 示例值：
+         *
          * @param installedBy
          * @return
          */
         public Builder installedBy(LookupWithAvatar installedBy) {
-             this.installedBy = installedBy;
-             return this;
+            this.installedBy = installedBy;
+            return this;
         }
 
-    
 
         /**
          * -
          * <p> 示例值：-
+         *
          * @param updatedAt
          * @return
          */
         public Builder updatedAt(String updatedAt) {
-             this.updatedAt = updatedAt;
-             return this;
+            this.updatedAt = updatedAt;
+            return this;
         }
 
-    
 
         /**
          * -
          * <p> 示例值：
+         *
          * @param updatedBy
          * @return
          */
         public Builder updatedBy(LookupWithAvatar updatedBy) {
-             this.updatedBy = updatedBy;
-             return this;
+            this.updatedBy = updatedBy;
+            return this;
         }
 
-    
 
         /**
          * -
          * <p> 示例值：
+         *
          * @param developerNames
          * @return
          */
         public Builder developerNames(I18n[] developerNames) {
-             this.developerNames = developerNames;
-             return this;
+            this.developerNames = developerNames;
+            return this;
         }
 
-    
-    
-    public ComponentLibRef build(){
-        return new ComponentLibRef(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ComponentLibRef build() {
+            return new ComponentLibRef(this);
+        }
     }
 }

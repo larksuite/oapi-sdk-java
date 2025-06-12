@@ -12,24 +12,29 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CreateLocationAddressRespBody {
-     /**
-      * 地址 ID
-      * <p> 示例值：6862995757234914824
-      */
+    /**
+     * 地址 ID
+     * <p> 示例值：6862995757234914824
+     */
     @SerializedName("address_id")
     private String addressId;
+
     public String getAddressId() {
         return this.addressId;
     }

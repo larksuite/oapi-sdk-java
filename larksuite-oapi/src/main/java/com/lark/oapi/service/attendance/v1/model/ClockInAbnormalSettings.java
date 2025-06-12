@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ClockInAbnormalSettings {
-     /**
-      * 在最晚下班打卡之前忽略异常卡（仅灰度租户有效）
-      * <p> 示例值：
-      */
+    /**
+     * 在最晚下班打卡之前忽略异常卡（仅灰度租户有效）
+     * <p> 示例值：
+     */
     @SerializedName("ignore_until_latest_clockout")
     private Boolean ignoreUntilLatestClockout;
+
+    // builder 开始
+    public ClockInAbnormalSettings() {
+    }
+
+    public ClockInAbnormalSettings(Builder builder) {
+        /**
+         * 在最晚下班打卡之前忽略异常卡（仅灰度租户有效）
+         * <p> 示例值：
+         */
+        this.ignoreUntilLatestClockout = builder.ignoreUntilLatestClockout;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Boolean getIgnoreUntilLatestClockout() {
         return this.ignoreUntilLatestClockout;
     }
@@ -39,44 +60,28 @@ public class ClockInAbnormalSettings {
         this.ignoreUntilLatestClockout = ignoreUntilLatestClockout;
     }
 
-
-// builder 开始
-  public ClockInAbnormalSettings(){}
-
-  public ClockInAbnormalSettings(Builder builder){
-         /**
-          * 在最晚下班打卡之前忽略异常卡（仅灰度租户有效）
-          * <p> 示例值：
-          */
-      this.ignoreUntilLatestClockout = builder.ignoreUntilLatestClockout;
-  }
-
     public static class Builder {
-     /**
-      * 在最晚下班打卡之前忽略异常卡（仅灰度租户有效）
-      * <p> 示例值：
-      */
+        /**
+         * 在最晚下班打卡之前忽略异常卡（仅灰度租户有效）
+         * <p> 示例值：
+         */
         private Boolean ignoreUntilLatestClockout;
 
         /**
          * 在最晚下班打卡之前忽略异常卡（仅灰度租户有效）
          * <p> 示例值：
+         *
          * @param ignoreUntilLatestClockout
          * @return
          */
         public Builder ignoreUntilLatestClockout(Boolean ignoreUntilLatestClockout) {
-             this.ignoreUntilLatestClockout = ignoreUntilLatestClockout;
-             return this;
+            this.ignoreUntilLatestClockout = ignoreUntilLatestClockout;
+            return this;
         }
 
-    
-    
-    public ClockInAbnormalSettings build(){
-        return new ClockInAbnormalSettings(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ClockInAbnormalSettings build() {
+            return new ClockInAbnormalSettings(this);
+        }
     }
 }

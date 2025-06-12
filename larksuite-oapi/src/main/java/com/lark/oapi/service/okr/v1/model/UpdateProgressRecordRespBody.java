@@ -12,36 +12,41 @@
  */
 
 package com.lark.oapi.service.okr.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class UpdateProgressRecordRespBody {
-     /**
-      * OKR 进展ID
-      * <p> 示例值：7041469619902693396
-      */
+    /**
+     * OKR 进展ID
+     * <p> 示例值：7041469619902693396
+     */
     @SerializedName("progress_id")
     private String progressId;
-     /**
-      * 进展更新时间 毫秒
-      * <p> 示例值：1618500278663
-      */
+    /**
+     * 进展更新时间 毫秒
+     * <p> 示例值：1618500278663
+     */
     @SerializedName("modify_time")
     private String modifyTime;
-     /**
-      * 进展 对应的 Content 详细内容
-      * <p> 示例值：
-      */
+    /**
+     * 进展 对应的 Content 详细内容
+     * <p> 示例值：
+     */
     @SerializedName("content")
     private ContentBlock content;
+
     public String getProgressId() {
         return this.progressId;
     }

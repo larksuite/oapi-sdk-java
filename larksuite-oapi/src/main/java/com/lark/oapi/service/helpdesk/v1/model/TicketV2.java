@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,174 +20,324 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class TicketV2 {
-     /**
-      * ticket id
-      * <p> 示例值：123456
-      */
+    /**
+     * ticket id
+     * <p> 示例值：123456
+     */
     @SerializedName("ticket_id")
     private String ticketId;
-     /**
-      * helpdesk id
-      * <p> 示例值：123456
-      */
+    /**
+     * helpdesk id
+     * <p> 示例值：123456
+     */
     @SerializedName("helpdesk_id")
     private String helpdeskId;
-     /**
-      * guest of this ticket
-      * <p> 示例值：
-      */
+    /**
+     * guest of this ticket
+     * <p> 示例值：
+     */
     @SerializedName("guest")
     private TicketUser guest;
-     /**
-      * 备注
-      * <p> 示例值：
-      */
+    /**
+     * 备注
+     * <p> 示例值：
+     */
     @SerializedName("comments")
     private Comments comments;
-     /**
-      * ticket type
-      * <p> 示例值：1
-      */
+    /**
+     * ticket type
+     * <p> 示例值：1
+     */
     @SerializedName("ticket_type")
     private Integer ticketType;
-     /**
-      * ticket status
-      * <p> 示例值：1
-      */
+    /**
+     * ticket status
+     * <p> 示例值：1
+     */
     @SerializedName("status")
     private Integer status;
-     /**
-      * ticket score
-      * <p> 示例值：1
-      */
+    /**
+     * ticket score
+     * <p> 示例值：1
+     */
     @SerializedName("score")
     private Integer score;
-     /**
-      * the time when the ticket is created
-      * <p> 示例值：1616920429000
-      */
+    /**
+     * the time when the ticket is created
+     * <p> 示例值：1616920429000
+     */
     @SerializedName("created_at")
     private Long createdAt;
-     /**
-      * the time when the ticket is updated
-      * <p> 示例值：1616920429000
-      */
+    /**
+     * the time when the ticket is updated
+     * <p> 示例值：1616920429000
+     */
     @SerializedName("updated_at")
     private Long updatedAt;
-     /**
-      * the time when the ticket is closed
-      * <p> 示例值：1616920429000
-      */
+    /**
+     * the time when the ticket is closed
+     * <p> 示例值：1616920429000
+     */
     @SerializedName("closed_at")
     private Long closedAt;
-     /**
-      * 不满意原因
-      * <p> 示例值：
-      */
+    /**
+     * 不满意原因
+     * <p> 示例值：
+     */
     @SerializedName("dissatisfaction_reason")
     private I18n dissatisfactionReason;
-     /**
-      * agents of this ticket
-      * <p> 示例值：
-      */
+    /**
+     * agents of this ticket
+     * <p> 示例值：
+     */
     @SerializedName("agents")
     private TicketUser[] agents;
-     /**
-      * the ticket channel
-      * <p> 示例值：1
-      */
+    /**
+     * the ticket channel
+     * <p> 示例值：1
+     */
     @SerializedName("channel")
     private Integer channel;
-     /**
-      * if ticket is solved
-      * <p> 示例值：1
-      */
+    /**
+     * if ticket is solved
+     * <p> 示例值：1
+     */
     @SerializedName("solve")
     private Integer solve;
-     /**
-      * closed user of this ticket
-      * <p> 示例值：
-      */
+    /**
+     * closed user of this ticket
+     * <p> 示例值：
+     */
     @SerializedName("closed_by")
     private TicketUser closedBy;
-     /**
-      * collaborators of this ticket
-      * <p> 示例值：
-      */
+    /**
+     * collaborators of this ticket
+     * <p> 示例值：
+     */
     @SerializedName("collaborators")
     private TicketUser[] collaborators;
-     /**
-      * ticket customized fields
-      * <p> 示例值：
-      */
+    /**
+     * ticket customized fields
+     * <p> 示例值：
+     */
     @SerializedName("customized_fields")
     private CustomizedFieldDisplayItem[] customizedFields;
-     /**
-      * 客服服务时长，客服最后一次回复时间距离客服进入时间间隔，单位秒
-      * <p> 示例值：1.0
-      */
+    /**
+     * 客服服务时长，客服最后一次回复时间距离客服进入时间间隔，单位秒
+     * <p> 示例值：1.0
+     */
     @SerializedName("agent_service_duration")
     private Double agentServiceDuration;
-     /**
-      * 客服首次回复时间距离客服进入时间的间隔，单位秒
-      * <p> 示例值：1741145995
-      */
+    /**
+     * 客服首次回复时间距离客服进入时间的间隔，单位秒
+     * <p> 示例值：1741145995
+     */
     @SerializedName("agent_first_response_duration")
     private Long agentFirstResponseDuration;
-     /**
-      * 机器人服务时间：客服进入时间距离工单创建时间的间隔，单位秒
-      * <p> 示例值：1741145995
-      */
+    /**
+     * 机器人服务时间：客服进入时间距离工单创建时间的间隔，单位秒
+     * <p> 示例值：1741145995
+     */
     @SerializedName("bot_service_duration")
     private Long botServiceDuration;
-     /**
-      *  客服解决时长，关单时间距离客服进入时间的间隔，单位秒
-      * <p> 示例值：1741145995
-      */
+    /**
+     * 客服解决时长，关单时间距离客服进入时间的间隔，单位秒
+     * <p> 示例值：1741145995
+     */
     @SerializedName("agent_resolution_time")
     private Long agentResolutionTime;
-     /**
-      * 工单实际处理时间：从客服进入到关单，单位秒
-      * <p> 示例值：1741145995
-      */
+    /**
+     * 工单实际处理时间：从客服进入到关单，单位秒
+     * <p> 示例值：1741145995
+     */
     @SerializedName("actual_processing_time")
     private Long actualProcessingTime;
-     /**
-      * 客服进入时间，单位毫秒
-      * <p> 示例值：1616920429000
-      */
+    /**
+     * 客服进入时间，单位毫秒
+     * <p> 示例值：1616920429000
+     */
     @SerializedName("agent_entry_time")
     private Long agentEntryTime;
-     /**
-      * 客服首次回复时间，单位毫秒
-      * <p> 示例值：1616920429000
-      */
+    /**
+     * 客服首次回复时间，单位毫秒
+     * <p> 示例值：1616920429000
+     */
     @SerializedName("agent_first_response_time")
     private Long agentFirstResponseTime;
-     /**
-      * 客服最后回复时间，单位毫秒
-      * <p> 示例值：1616920429000
-      */
+    /**
+     * 客服最后回复时间，单位毫秒
+     * <p> 示例值：1616920429000
+     */
     @SerializedName("agent_last_response_time")
     private Long agentLastResponseTime;
-     /**
-      * 主责客服
-      * <p> 示例值：
-      */
+    /**
+     * 主责客服
+     * <p> 示例值：
+     */
     @SerializedName("agent_owner")
     private TicketUser agentOwner;
-     /**
-      * 工单标签
-      * <p> 示例值：
-      */
+    /**
+     * 工单标签
+     * <p> 示例值：
+     */
     @SerializedName("tags")
     private TicketTag[] tags;
+
+    // builder 开始
+    public TicketV2() {
+    }
+
+    public TicketV2(Builder builder) {
+        /**
+         * ticket id
+         * <p> 示例值：123456
+         */
+        this.ticketId = builder.ticketId;
+        /**
+         * helpdesk id
+         * <p> 示例值：123456
+         */
+        this.helpdeskId = builder.helpdeskId;
+        /**
+         * guest of this ticket
+         * <p> 示例值：
+         */
+        this.guest = builder.guest;
+        /**
+         * 备注
+         * <p> 示例值：
+         */
+        this.comments = builder.comments;
+        /**
+         * ticket type
+         * <p> 示例值：1
+         */
+        this.ticketType = builder.ticketType;
+        /**
+         * ticket status
+         * <p> 示例值：1
+         */
+        this.status = builder.status;
+        /**
+         * ticket score
+         * <p> 示例值：1
+         */
+        this.score = builder.score;
+        /**
+         * the time when the ticket is created
+         * <p> 示例值：1616920429000
+         */
+        this.createdAt = builder.createdAt;
+        /**
+         * the time when the ticket is updated
+         * <p> 示例值：1616920429000
+         */
+        this.updatedAt = builder.updatedAt;
+        /**
+         * the time when the ticket is closed
+         * <p> 示例值：1616920429000
+         */
+        this.closedAt = builder.closedAt;
+        /**
+         * 不满意原因
+         * <p> 示例值：
+         */
+        this.dissatisfactionReason = builder.dissatisfactionReason;
+        /**
+         * agents of this ticket
+         * <p> 示例值：
+         */
+        this.agents = builder.agents;
+        /**
+         * the ticket channel
+         * <p> 示例值：1
+         */
+        this.channel = builder.channel;
+        /**
+         * if ticket is solved
+         * <p> 示例值：1
+         */
+        this.solve = builder.solve;
+        /**
+         * closed user of this ticket
+         * <p> 示例值：
+         */
+        this.closedBy = builder.closedBy;
+        /**
+         * collaborators of this ticket
+         * <p> 示例值：
+         */
+        this.collaborators = builder.collaborators;
+        /**
+         * ticket customized fields
+         * <p> 示例值：
+         */
+        this.customizedFields = builder.customizedFields;
+        /**
+         * 客服服务时长，客服最后一次回复时间距离客服进入时间间隔，单位秒
+         * <p> 示例值：1.0
+         */
+        this.agentServiceDuration = builder.agentServiceDuration;
+        /**
+         * 客服首次回复时间距离客服进入时间的间隔，单位秒
+         * <p> 示例值：1741145995
+         */
+        this.agentFirstResponseDuration = builder.agentFirstResponseDuration;
+        /**
+         * 机器人服务时间：客服进入时间距离工单创建时间的间隔，单位秒
+         * <p> 示例值：1741145995
+         */
+        this.botServiceDuration = builder.botServiceDuration;
+        /**
+         *  客服解决时长，关单时间距离客服进入时间的间隔，单位秒
+         * <p> 示例值：1741145995
+         */
+        this.agentResolutionTime = builder.agentResolutionTime;
+        /**
+         * 工单实际处理时间：从客服进入到关单，单位秒
+         * <p> 示例值：1741145995
+         */
+        this.actualProcessingTime = builder.actualProcessingTime;
+        /**
+         * 客服进入时间，单位毫秒
+         * <p> 示例值：1616920429000
+         */
+        this.agentEntryTime = builder.agentEntryTime;
+        /**
+         * 客服首次回复时间，单位毫秒
+         * <p> 示例值：1616920429000
+         */
+        this.agentFirstResponseTime = builder.agentFirstResponseTime;
+        /**
+         * 客服最后回复时间，单位毫秒
+         * <p> 示例值：1616920429000
+         */
+        this.agentLastResponseTime = builder.agentLastResponseTime;
+        /**
+         * 主责客服
+         * <p> 示例值：
+         */
+        this.agentOwner = builder.agentOwner;
+        /**
+         * 工单标签
+         * <p> 示例值：
+         */
+        this.tags = builder.tags;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getTicketId() {
         return this.ticketId;
     }
@@ -403,642 +554,496 @@ public class TicketV2 {
         this.tags = tags;
     }
 
-
-// builder 开始
-  public TicketV2(){}
-
-  public TicketV2(Builder builder){
-         /**
-          * ticket id
-          * <p> 示例值：123456
-          */
-      this.ticketId = builder.ticketId;
-         /**
-          * helpdesk id
-          * <p> 示例值：123456
-          */
-      this.helpdeskId = builder.helpdeskId;
-         /**
-          * guest of this ticket
-          * <p> 示例值：
-          */
-      this.guest = builder.guest;
-         /**
-          * 备注
-          * <p> 示例值：
-          */
-      this.comments = builder.comments;
-         /**
-          * ticket type
-          * <p> 示例值：1
-          */
-      this.ticketType = builder.ticketType;
-         /**
-          * ticket status
-          * <p> 示例值：1
-          */
-      this.status = builder.status;
-         /**
-          * ticket score
-          * <p> 示例值：1
-          */
-      this.score = builder.score;
-         /**
-          * the time when the ticket is created
-          * <p> 示例值：1616920429000
-          */
-      this.createdAt = builder.createdAt;
-         /**
-          * the time when the ticket is updated
-          * <p> 示例值：1616920429000
-          */
-      this.updatedAt = builder.updatedAt;
-         /**
-          * the time when the ticket is closed
-          * <p> 示例值：1616920429000
-          */
-      this.closedAt = builder.closedAt;
-         /**
-          * 不满意原因
-          * <p> 示例值：
-          */
-      this.dissatisfactionReason = builder.dissatisfactionReason;
-         /**
-          * agents of this ticket
-          * <p> 示例值：
-          */
-      this.agents = builder.agents;
-         /**
-          * the ticket channel
-          * <p> 示例值：1
-          */
-      this.channel = builder.channel;
-         /**
-          * if ticket is solved
-          * <p> 示例值：1
-          */
-      this.solve = builder.solve;
-         /**
-          * closed user of this ticket
-          * <p> 示例值：
-          */
-      this.closedBy = builder.closedBy;
-         /**
-          * collaborators of this ticket
-          * <p> 示例值：
-          */
-      this.collaborators = builder.collaborators;
-         /**
-          * ticket customized fields
-          * <p> 示例值：
-          */
-      this.customizedFields = builder.customizedFields;
-         /**
-          * 客服服务时长，客服最后一次回复时间距离客服进入时间间隔，单位秒
-          * <p> 示例值：1.0
-          */
-      this.agentServiceDuration = builder.agentServiceDuration;
-         /**
-          * 客服首次回复时间距离客服进入时间的间隔，单位秒
-          * <p> 示例值：1741145995
-          */
-      this.agentFirstResponseDuration = builder.agentFirstResponseDuration;
-         /**
-          * 机器人服务时间：客服进入时间距离工单创建时间的间隔，单位秒
-          * <p> 示例值：1741145995
-          */
-      this.botServiceDuration = builder.botServiceDuration;
-         /**
-          *  客服解决时长，关单时间距离客服进入时间的间隔，单位秒
-          * <p> 示例值：1741145995
-          */
-      this.agentResolutionTime = builder.agentResolutionTime;
-         /**
-          * 工单实际处理时间：从客服进入到关单，单位秒
-          * <p> 示例值：1741145995
-          */
-      this.actualProcessingTime = builder.actualProcessingTime;
-         /**
-          * 客服进入时间，单位毫秒
-          * <p> 示例值：1616920429000
-          */
-      this.agentEntryTime = builder.agentEntryTime;
-         /**
-          * 客服首次回复时间，单位毫秒
-          * <p> 示例值：1616920429000
-          */
-      this.agentFirstResponseTime = builder.agentFirstResponseTime;
-         /**
-          * 客服最后回复时间，单位毫秒
-          * <p> 示例值：1616920429000
-          */
-      this.agentLastResponseTime = builder.agentLastResponseTime;
-         /**
-          * 主责客服
-          * <p> 示例值：
-          */
-      this.agentOwner = builder.agentOwner;
-         /**
-          * 工单标签
-          * <p> 示例值：
-          */
-      this.tags = builder.tags;
-  }
-
     public static class Builder {
-     /**
-      * ticket id
-      * <p> 示例值：123456
-      */
+        /**
+         * ticket id
+         * <p> 示例值：123456
+         */
         private String ticketId;
-     /**
-      * helpdesk id
-      * <p> 示例值：123456
-      */
+        /**
+         * helpdesk id
+         * <p> 示例值：123456
+         */
         private String helpdeskId;
-     /**
-      * guest of this ticket
-      * <p> 示例值：
-      */
+        /**
+         * guest of this ticket
+         * <p> 示例值：
+         */
         private TicketUser guest;
-     /**
-      * 备注
-      * <p> 示例值：
-      */
+        /**
+         * 备注
+         * <p> 示例值：
+         */
         private Comments comments;
-     /**
-      * ticket type
-      * <p> 示例值：1
-      */
+        /**
+         * ticket type
+         * <p> 示例值：1
+         */
         private Integer ticketType;
-     /**
-      * ticket status
-      * <p> 示例值：1
-      */
+        /**
+         * ticket status
+         * <p> 示例值：1
+         */
         private Integer status;
-     /**
-      * ticket score
-      * <p> 示例值：1
-      */
+        /**
+         * ticket score
+         * <p> 示例值：1
+         */
         private Integer score;
-     /**
-      * the time when the ticket is created
-      * <p> 示例值：1616920429000
-      */
+        /**
+         * the time when the ticket is created
+         * <p> 示例值：1616920429000
+         */
         private Long createdAt;
-     /**
-      * the time when the ticket is updated
-      * <p> 示例值：1616920429000
-      */
+        /**
+         * the time when the ticket is updated
+         * <p> 示例值：1616920429000
+         */
         private Long updatedAt;
-     /**
-      * the time when the ticket is closed
-      * <p> 示例值：1616920429000
-      */
+        /**
+         * the time when the ticket is closed
+         * <p> 示例值：1616920429000
+         */
         private Long closedAt;
-     /**
-      * 不满意原因
-      * <p> 示例值：
-      */
+        /**
+         * 不满意原因
+         * <p> 示例值：
+         */
         private I18n dissatisfactionReason;
-     /**
-      * agents of this ticket
-      * <p> 示例值：
-      */
+        /**
+         * agents of this ticket
+         * <p> 示例值：
+         */
         private TicketUser[] agents;
-     /**
-      * the ticket channel
-      * <p> 示例值：1
-      */
+        /**
+         * the ticket channel
+         * <p> 示例值：1
+         */
         private Integer channel;
-     /**
-      * if ticket is solved
-      * <p> 示例值：1
-      */
+        /**
+         * if ticket is solved
+         * <p> 示例值：1
+         */
         private Integer solve;
-     /**
-      * closed user of this ticket
-      * <p> 示例值：
-      */
+        /**
+         * closed user of this ticket
+         * <p> 示例值：
+         */
         private TicketUser closedBy;
-     /**
-      * collaborators of this ticket
-      * <p> 示例值：
-      */
+        /**
+         * collaborators of this ticket
+         * <p> 示例值：
+         */
         private TicketUser[] collaborators;
-     /**
-      * ticket customized fields
-      * <p> 示例值：
-      */
+        /**
+         * ticket customized fields
+         * <p> 示例值：
+         */
         private CustomizedFieldDisplayItem[] customizedFields;
-     /**
-      * 客服服务时长，客服最后一次回复时间距离客服进入时间间隔，单位秒
-      * <p> 示例值：1.0
-      */
+        /**
+         * 客服服务时长，客服最后一次回复时间距离客服进入时间间隔，单位秒
+         * <p> 示例值：1.0
+         */
         private Double agentServiceDuration;
-     /**
-      * 客服首次回复时间距离客服进入时间的间隔，单位秒
-      * <p> 示例值：1741145995
-      */
+        /**
+         * 客服首次回复时间距离客服进入时间的间隔，单位秒
+         * <p> 示例值：1741145995
+         */
         private Long agentFirstResponseDuration;
-     /**
-      * 机器人服务时间：客服进入时间距离工单创建时间的间隔，单位秒
-      * <p> 示例值：1741145995
-      */
+        /**
+         * 机器人服务时间：客服进入时间距离工单创建时间的间隔，单位秒
+         * <p> 示例值：1741145995
+         */
         private Long botServiceDuration;
-     /**
-      *  客服解决时长，关单时间距离客服进入时间的间隔，单位秒
-      * <p> 示例值：1741145995
-      */
+        /**
+         * 客服解决时长，关单时间距离客服进入时间的间隔，单位秒
+         * <p> 示例值：1741145995
+         */
         private Long agentResolutionTime;
-     /**
-      * 工单实际处理时间：从客服进入到关单，单位秒
-      * <p> 示例值：1741145995
-      */
+        /**
+         * 工单实际处理时间：从客服进入到关单，单位秒
+         * <p> 示例值：1741145995
+         */
         private Long actualProcessingTime;
-     /**
-      * 客服进入时间，单位毫秒
-      * <p> 示例值：1616920429000
-      */
+        /**
+         * 客服进入时间，单位毫秒
+         * <p> 示例值：1616920429000
+         */
         private Long agentEntryTime;
-     /**
-      * 客服首次回复时间，单位毫秒
-      * <p> 示例值：1616920429000
-      */
+        /**
+         * 客服首次回复时间，单位毫秒
+         * <p> 示例值：1616920429000
+         */
         private Long agentFirstResponseTime;
-     /**
-      * 客服最后回复时间，单位毫秒
-      * <p> 示例值：1616920429000
-      */
+        /**
+         * 客服最后回复时间，单位毫秒
+         * <p> 示例值：1616920429000
+         */
         private Long agentLastResponseTime;
-     /**
-      * 主责客服
-      * <p> 示例值：
-      */
+        /**
+         * 主责客服
+         * <p> 示例值：
+         */
         private TicketUser agentOwner;
-     /**
-      * 工单标签
-      * <p> 示例值：
-      */
+        /**
+         * 工单标签
+         * <p> 示例值：
+         */
         private TicketTag[] tags;
 
         /**
          * ticket id
          * <p> 示例值：123456
+         *
          * @param ticketId
          * @return
          */
         public Builder ticketId(String ticketId) {
-             this.ticketId = ticketId;
-             return this;
+            this.ticketId = ticketId;
+            return this;
         }
 
-    
 
         /**
          * helpdesk id
          * <p> 示例值：123456
+         *
          * @param helpdeskId
          * @return
          */
         public Builder helpdeskId(String helpdeskId) {
-             this.helpdeskId = helpdeskId;
-             return this;
+            this.helpdeskId = helpdeskId;
+            return this;
         }
 
-    
 
         /**
          * guest of this ticket
          * <p> 示例值：
+         *
          * @param guest
          * @return
          */
         public Builder guest(TicketUser guest) {
-             this.guest = guest;
-             return this;
+            this.guest = guest;
+            return this;
         }
 
-    
 
         /**
          * 备注
          * <p> 示例值：
+         *
          * @param comments
          * @return
          */
         public Builder comments(Comments comments) {
-             this.comments = comments;
-             return this;
+            this.comments = comments;
+            return this;
         }
 
-    
 
         /**
          * ticket type
          * <p> 示例值：1
+         *
          * @param ticketType
          * @return
          */
         public Builder ticketType(Integer ticketType) {
-             this.ticketType = ticketType;
-             return this;
+            this.ticketType = ticketType;
+            return this;
         }
 
-    
 
         /**
          * ticket status
          * <p> 示例值：1
+         *
          * @param status
          * @return
          */
         public Builder status(Integer status) {
-             this.status = status;
-             return this;
+            this.status = status;
+            return this;
         }
 
-    
 
         /**
          * ticket score
          * <p> 示例值：1
+         *
          * @param score
          * @return
          */
         public Builder score(Integer score) {
-             this.score = score;
-             return this;
+            this.score = score;
+            return this;
         }
 
-    
 
         /**
          * the time when the ticket is created
          * <p> 示例值：1616920429000
+         *
          * @param createdAt
          * @return
          */
         public Builder createdAt(Long createdAt) {
-             this.createdAt = createdAt;
-             return this;
+            this.createdAt = createdAt;
+            return this;
         }
 
-    
 
         /**
          * the time when the ticket is updated
          * <p> 示例值：1616920429000
+         *
          * @param updatedAt
          * @return
          */
         public Builder updatedAt(Long updatedAt) {
-             this.updatedAt = updatedAt;
-             return this;
+            this.updatedAt = updatedAt;
+            return this;
         }
 
-    
 
         /**
          * the time when the ticket is closed
          * <p> 示例值：1616920429000
+         *
          * @param closedAt
          * @return
          */
         public Builder closedAt(Long closedAt) {
-             this.closedAt = closedAt;
-             return this;
+            this.closedAt = closedAt;
+            return this;
         }
 
-    
 
         /**
          * 不满意原因
          * <p> 示例值：
+         *
          * @param dissatisfactionReason
          * @return
          */
         public Builder dissatisfactionReason(I18n dissatisfactionReason) {
-             this.dissatisfactionReason = dissatisfactionReason;
-             return this;
+            this.dissatisfactionReason = dissatisfactionReason;
+            return this;
         }
 
-    
 
         /**
          * agents of this ticket
          * <p> 示例值：
+         *
          * @param agents
          * @return
          */
         public Builder agents(TicketUser[] agents) {
-             this.agents = agents;
-             return this;
+            this.agents = agents;
+            return this;
         }
 
-    
 
         /**
          * the ticket channel
          * <p> 示例值：1
+         *
          * @param channel
          * @return
          */
         public Builder channel(Integer channel) {
-             this.channel = channel;
-             return this;
+            this.channel = channel;
+            return this;
         }
 
-    
 
         /**
          * if ticket is solved
          * <p> 示例值：1
+         *
          * @param solve
          * @return
          */
         public Builder solve(Integer solve) {
-             this.solve = solve;
-             return this;
+            this.solve = solve;
+            return this;
         }
 
-    
 
         /**
          * closed user of this ticket
          * <p> 示例值：
+         *
          * @param closedBy
          * @return
          */
         public Builder closedBy(TicketUser closedBy) {
-             this.closedBy = closedBy;
-             return this;
+            this.closedBy = closedBy;
+            return this;
         }
 
-    
 
         /**
          * collaborators of this ticket
          * <p> 示例值：
+         *
          * @param collaborators
          * @return
          */
         public Builder collaborators(TicketUser[] collaborators) {
-             this.collaborators = collaborators;
-             return this;
+            this.collaborators = collaborators;
+            return this;
         }
 
-    
 
         /**
          * ticket customized fields
          * <p> 示例值：
+         *
          * @param customizedFields
          * @return
          */
         public Builder customizedFields(CustomizedFieldDisplayItem[] customizedFields) {
-             this.customizedFields = customizedFields;
-             return this;
+            this.customizedFields = customizedFields;
+            return this;
         }
 
-    
 
         /**
          * 客服服务时长，客服最后一次回复时间距离客服进入时间间隔，单位秒
          * <p> 示例值：1.0
+         *
          * @param agentServiceDuration
          * @return
          */
         public Builder agentServiceDuration(Double agentServiceDuration) {
-             this.agentServiceDuration = agentServiceDuration;
-             return this;
+            this.agentServiceDuration = agentServiceDuration;
+            return this;
         }
 
-    
 
         /**
          * 客服首次回复时间距离客服进入时间的间隔，单位秒
          * <p> 示例值：1741145995
+         *
          * @param agentFirstResponseDuration
          * @return
          */
         public Builder agentFirstResponseDuration(Long agentFirstResponseDuration) {
-             this.agentFirstResponseDuration = agentFirstResponseDuration;
-             return this;
+            this.agentFirstResponseDuration = agentFirstResponseDuration;
+            return this;
         }
 
-    
 
         /**
          * 机器人服务时间：客服进入时间距离工单创建时间的间隔，单位秒
          * <p> 示例值：1741145995
+         *
          * @param botServiceDuration
          * @return
          */
         public Builder botServiceDuration(Long botServiceDuration) {
-             this.botServiceDuration = botServiceDuration;
-             return this;
+            this.botServiceDuration = botServiceDuration;
+            return this;
         }
 
-    
 
         /**
-         *  客服解决时长，关单时间距离客服进入时间的间隔，单位秒
+         * 客服解决时长，关单时间距离客服进入时间的间隔，单位秒
          * <p> 示例值：1741145995
+         *
          * @param agentResolutionTime
          * @return
          */
         public Builder agentResolutionTime(Long agentResolutionTime) {
-             this.agentResolutionTime = agentResolutionTime;
-             return this;
+            this.agentResolutionTime = agentResolutionTime;
+            return this;
         }
 
-    
 
         /**
          * 工单实际处理时间：从客服进入到关单，单位秒
          * <p> 示例值：1741145995
+         *
          * @param actualProcessingTime
          * @return
          */
         public Builder actualProcessingTime(Long actualProcessingTime) {
-             this.actualProcessingTime = actualProcessingTime;
-             return this;
+            this.actualProcessingTime = actualProcessingTime;
+            return this;
         }
 
-    
 
         /**
          * 客服进入时间，单位毫秒
          * <p> 示例值：1616920429000
+         *
          * @param agentEntryTime
          * @return
          */
         public Builder agentEntryTime(Long agentEntryTime) {
-             this.agentEntryTime = agentEntryTime;
-             return this;
+            this.agentEntryTime = agentEntryTime;
+            return this;
         }
 
-    
 
         /**
          * 客服首次回复时间，单位毫秒
          * <p> 示例值：1616920429000
+         *
          * @param agentFirstResponseTime
          * @return
          */
         public Builder agentFirstResponseTime(Long agentFirstResponseTime) {
-             this.agentFirstResponseTime = agentFirstResponseTime;
-             return this;
+            this.agentFirstResponseTime = agentFirstResponseTime;
+            return this;
         }
 
-    
 
         /**
          * 客服最后回复时间，单位毫秒
          * <p> 示例值：1616920429000
+         *
          * @param agentLastResponseTime
          * @return
          */
         public Builder agentLastResponseTime(Long agentLastResponseTime) {
-             this.agentLastResponseTime = agentLastResponseTime;
-             return this;
+            this.agentLastResponseTime = agentLastResponseTime;
+            return this;
         }
 
-    
 
         /**
          * 主责客服
          * <p> 示例值：
+         *
          * @param agentOwner
          * @return
          */
         public Builder agentOwner(TicketUser agentOwner) {
-             this.agentOwner = agentOwner;
-             return this;
+            this.agentOwner = agentOwner;
+            return this;
         }
 
-    
 
         /**
          * 工单标签
          * <p> 示例值：
+         *
          * @param tags
          * @return
          */
         public Builder tags(TicketTag[] tags) {
-             this.tags = tags;
-             return this;
+            this.tags = tags;
+            return this;
         }
 
-    
-    
-    public TicketV2 build(){
-        return new TicketV2(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public TicketV2 build() {
+            return new TicketV2(this);
+        }
     }
 }

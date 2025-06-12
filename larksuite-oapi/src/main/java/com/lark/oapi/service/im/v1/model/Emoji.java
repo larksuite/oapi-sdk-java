@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Emoji {
-     /**
-      * emoji类型 [emoji类型列举](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/emojis-introduce)
-      * <p> 示例值：SMILE
-      */
+    /**
+     * emoji类型 [emoji类型列举](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/emojis-introduce)
+     * <p> 示例值：SMILE
+     */
     @SerializedName("emoji_type")
     private String emojiType;
+
+    // builder 开始
+    public Emoji() {
+    }
+
+    public Emoji(Builder builder) {
+        /**
+         * emoji类型 [emoji类型列举](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/emojis-introduce)
+         * <p> 示例值：SMILE
+         */
+        this.emojiType = builder.emojiType;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getEmojiType() {
         return this.emojiType;
     }
@@ -39,44 +60,28 @@ public class Emoji {
         this.emojiType = emojiType;
     }
 
-
-// builder 开始
-  public Emoji(){}
-
-  public Emoji(Builder builder){
-         /**
-          * emoji类型 [emoji类型列举](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/emojis-introduce)
-          * <p> 示例值：SMILE
-          */
-      this.emojiType = builder.emojiType;
-  }
-
     public static class Builder {
-     /**
-      * emoji类型 [emoji类型列举](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/emojis-introduce)
-      * <p> 示例值：SMILE
-      */
+        /**
+         * emoji类型 [emoji类型列举](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/emojis-introduce)
+         * <p> 示例值：SMILE
+         */
         private String emojiType;
 
         /**
          * emoji类型 [emoji类型列举](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/emojis-introduce)
          * <p> 示例值：SMILE
+         *
          * @param emojiType
          * @return
          */
         public Builder emojiType(String emojiType) {
-             this.emojiType = emojiType;
-             return this;
+            this.emojiType = emojiType;
+            return this;
         }
 
-    
-    
-    public Emoji build(){
-        return new Emoji(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Emoji build() {
+            return new Emoji(this);
+        }
     }
 }

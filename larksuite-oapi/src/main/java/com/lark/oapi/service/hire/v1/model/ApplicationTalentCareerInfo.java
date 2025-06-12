@@ -12,60 +12,111 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ApplicationTalentCareerInfo {
-     /**
-      * ID
-      * <p> 示例值：
-      */
+    /**
+     * ID
+     * <p> 示例值：
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 公司
-      * <p> 示例值：
-      */
+    /**
+     * 公司
+     * <p> 示例值：
+     */
     @SerializedName("company")
     private String company;
-     /**
-      * 职称
-      * <p> 示例值：
-      */
+    /**
+     * 职称
+     * <p> 示例值：
+     */
     @SerializedName("title")
     private String title;
-     /**
-      * 描述
-      * <p> 示例值：
-      */
+    /**
+     * 描述
+     * <p> 示例值：
+     */
     @SerializedName("desc")
     private String desc;
-     /**
-      * 开始时间
-      * <p> 示例值：
-      */
+    /**
+     * 开始时间
+     * <p> 示例值：
+     */
     @SerializedName("start_time")
     private String startTime;
-     /**
-      * 结束时间
-      * <p> 示例值：
-      */
+    /**
+     * 结束时间
+     * <p> 示例值：
+     */
     @SerializedName("end_time")
     private String endTime;
-     /**
-      * 标签列表
-      * <p> 示例值：
-      */
+    /**
+     * 标签列表
+     * <p> 示例值：
+     */
     @SerializedName("tag_list")
     private Integer[] tagList;
+
+    // builder 开始
+    public ApplicationTalentCareerInfo() {
+    }
+
+    public ApplicationTalentCareerInfo(Builder builder) {
+        /**
+         * ID
+         * <p> 示例值：
+         */
+        this.id = builder.id;
+        /**
+         * 公司
+         * <p> 示例值：
+         */
+        this.company = builder.company;
+        /**
+         * 职称
+         * <p> 示例值：
+         */
+        this.title = builder.title;
+        /**
+         * 描述
+         * <p> 示例值：
+         */
+        this.desc = builder.desc;
+        /**
+         * 开始时间
+         * <p> 示例值：
+         */
+        this.startTime = builder.startTime;
+        /**
+         * 结束时间
+         * <p> 示例值：
+         */
+        this.endTime = builder.endTime;
+        /**
+         * 标签列表
+         * <p> 示例值：
+         */
+        this.tagList = builder.tagList;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -122,182 +173,136 @@ public class ApplicationTalentCareerInfo {
         this.tagList = tagList;
     }
 
-
-// builder 开始
-  public ApplicationTalentCareerInfo(){}
-
-  public ApplicationTalentCareerInfo(Builder builder){
-         /**
-          * ID
-          * <p> 示例值：
-          */
-      this.id = builder.id;
-         /**
-          * 公司
-          * <p> 示例值：
-          */
-      this.company = builder.company;
-         /**
-          * 职称
-          * <p> 示例值：
-          */
-      this.title = builder.title;
-         /**
-          * 描述
-          * <p> 示例值：
-          */
-      this.desc = builder.desc;
-         /**
-          * 开始时间
-          * <p> 示例值：
-          */
-      this.startTime = builder.startTime;
-         /**
-          * 结束时间
-          * <p> 示例值：
-          */
-      this.endTime = builder.endTime;
-         /**
-          * 标签列表
-          * <p> 示例值：
-          */
-      this.tagList = builder.tagList;
-  }
-
     public static class Builder {
-     /**
-      * ID
-      * <p> 示例值：
-      */
+        /**
+         * ID
+         * <p> 示例值：
+         */
         private String id;
-     /**
-      * 公司
-      * <p> 示例值：
-      */
+        /**
+         * 公司
+         * <p> 示例值：
+         */
         private String company;
-     /**
-      * 职称
-      * <p> 示例值：
-      */
+        /**
+         * 职称
+         * <p> 示例值：
+         */
         private String title;
-     /**
-      * 描述
-      * <p> 示例值：
-      */
+        /**
+         * 描述
+         * <p> 示例值：
+         */
         private String desc;
-     /**
-      * 开始时间
-      * <p> 示例值：
-      */
+        /**
+         * 开始时间
+         * <p> 示例值：
+         */
         private String startTime;
-     /**
-      * 结束时间
-      * <p> 示例值：
-      */
+        /**
+         * 结束时间
+         * <p> 示例值：
+         */
         private String endTime;
-     /**
-      * 标签列表
-      * <p> 示例值：
-      */
+        /**
+         * 标签列表
+         * <p> 示例值：
+         */
         private Integer[] tagList;
 
         /**
          * ID
          * <p> 示例值：
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 公司
          * <p> 示例值：
+         *
          * @param company
          * @return
          */
         public Builder company(String company) {
-             this.company = company;
-             return this;
+            this.company = company;
+            return this;
         }
 
-    
 
         /**
          * 职称
          * <p> 示例值：
+         *
          * @param title
          * @return
          */
         public Builder title(String title) {
-             this.title = title;
-             return this;
+            this.title = title;
+            return this;
         }
 
-    
 
         /**
          * 描述
          * <p> 示例值：
+         *
          * @param desc
          * @return
          */
         public Builder desc(String desc) {
-             this.desc = desc;
-             return this;
+            this.desc = desc;
+            return this;
         }
 
-    
 
         /**
          * 开始时间
          * <p> 示例值：
+         *
          * @param startTime
          * @return
          */
         public Builder startTime(String startTime) {
-             this.startTime = startTime;
-             return this;
+            this.startTime = startTime;
+            return this;
         }
 
-    
 
         /**
          * 结束时间
          * <p> 示例值：
+         *
          * @param endTime
          * @return
          */
         public Builder endTime(String endTime) {
-             this.endTime = endTime;
-             return this;
+            this.endTime = endTime;
+            return this;
         }
 
-    
 
         /**
          * 标签列表
          * <p> 示例值：
+         *
          * @param tagList
          * @return
          */
         public Builder tagList(Integer[] tagList) {
-             this.tagList = tagList;
-             return this;
+            this.tagList = tagList;
+            return this;
         }
 
-    
-    
-    public ApplicationTalentCareerInfo build(){
-        return new ApplicationTalentCareerInfo(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ApplicationTalentCareerInfo build() {
+            return new ApplicationTalentCareerInfo(this);
+        }
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class InstanceDetailScenarioContext {
-     /**
-      * object context
-      * <p> 示例值：
-      */
+    /**
+     * object context
+     * <p> 示例值：
+     */
     @SerializedName("object")
     private ObjectContext object;
-     /**
-      * extra
-      * <p> 示例值：
-      */
+    /**
+     * extra
+     * <p> 示例值：
+     */
     @SerializedName("extra")
     private MyAiInstanceDetailExtra extra;
+
+    // builder 开始
+    public InstanceDetailScenarioContext() {
+    }
+
+    public InstanceDetailScenarioContext(Builder builder) {
+        /**
+         * object context
+         * <p> 示例值：
+         */
+        this.object = builder.object;
+        /**
+         * extra
+         * <p> 示例值：
+         */
+        this.extra = builder.extra;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public ObjectContext getObject() {
         return this.object;
     }
@@ -53,67 +79,46 @@ public class InstanceDetailScenarioContext {
         this.extra = extra;
     }
 
-
-// builder 开始
-  public InstanceDetailScenarioContext(){}
-
-  public InstanceDetailScenarioContext(Builder builder){
-         /**
-          * object context
-          * <p> 示例值：
-          */
-      this.object = builder.object;
-         /**
-          * extra
-          * <p> 示例值：
-          */
-      this.extra = builder.extra;
-  }
-
     public static class Builder {
-     /**
-      * object context
-      * <p> 示例值：
-      */
+        /**
+         * object context
+         * <p> 示例值：
+         */
         private ObjectContext object;
-     /**
-      * extra
-      * <p> 示例值：
-      */
+        /**
+         * extra
+         * <p> 示例值：
+         */
         private MyAiInstanceDetailExtra extra;
 
         /**
          * object context
          * <p> 示例值：
+         *
          * @param object
          * @return
          */
         public Builder object(ObjectContext object) {
-             this.object = object;
-             return this;
+            this.object = object;
+            return this;
         }
 
-    
 
         /**
          * extra
          * <p> 示例值：
+         *
          * @param extra
          * @return
          */
         public Builder extra(MyAiInstanceDetailExtra extra) {
-             this.extra = extra;
-             return this;
+            this.extra = extra;
+            return this;
         }
 
-    
-    
-    public InstanceDetailScenarioContext build(){
-        return new InstanceDetailScenarioContext(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public InstanceDetailScenarioContext build() {
+            return new InstanceDetailScenarioContext(this);
+        }
     }
 }

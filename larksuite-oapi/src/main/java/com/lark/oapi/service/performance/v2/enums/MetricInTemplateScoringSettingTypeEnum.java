@@ -17,15 +17,16 @@ package com.lark.oapi.service.performance.v2.enums;
  * 评分设置类型
  */
 public enum MetricInTemplateScoringSettingTypeEnum {
-     SOCRE_MANUALLY("socre_manually"), // 手动评分
-     SCORE_BY_FORMULA("score_by_formula"), // 公式评分
-  ;
-   private String value;
+    SOCRE_MANUALLY("socre_manually"), // 手动评分
+    SCORE_BY_FORMULA("score_by_formula"), // 公式评分
+    ;
+    private String value;
+
     MetricInTemplateScoringSettingTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

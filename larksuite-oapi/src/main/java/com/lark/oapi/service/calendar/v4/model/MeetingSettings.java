@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.calendar.v4.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.calendar.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,54 +20,104 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class MeetingSettings {
-     /**
-      * 设置会议 owner
-      * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
-      */
+    /**
+     * 设置会议 owner
+     * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
+     */
     @SerializedName("owner_id")
     private String ownerId;
-     /**
-      * 设置入会范围
-      * <p> 示例值：
-      */
+    /**
+     * 设置入会范围
+     * <p> 示例值：
+     */
     @SerializedName("join_meeting_permission")
     private String joinMeetingPermission;
-     /**
-      * 设置会议密码，仅支持 4-9 位数字
-      * <p> 示例值：971024
-      */
+    /**
+     * 设置会议密码，仅支持 4-9 位数字
+     * <p> 示例值：971024
+     */
     @SerializedName("password")
     private String password;
-     /**
-      * 指定主持人
-      * <p> 示例值：
-      */
+    /**
+     * 指定主持人
+     * <p> 示例值：
+     */
     @SerializedName("assign_hosts")
     private String[] assignHosts;
-     /**
-      * 设置自动录制
-      * <p> 示例值：false
-      */
+    /**
+     * 设置自动录制
+     * <p> 示例值：false
+     */
     @SerializedName("auto_record")
     private Boolean autoRecord;
-     /**
-      * 开启等候室
-      * <p> 示例值：true
-      */
+    /**
+     * 开启等候室
+     * <p> 示例值：true
+     */
     @SerializedName("open_lobby")
     private Boolean openLobby;
-     /**
-      * 允许日程参与者发起会议
-      * <p> 示例值：true
-      */
+    /**
+     * 允许日程参与者发起会议
+     * <p> 示例值：true
+     */
     @SerializedName("allow_attendees_start")
     private Boolean allowAttendeesStart;
+
+    // builder 开始
+    public MeetingSettings() {
+    }
+
+    public MeetingSettings(Builder builder) {
+        /**
+         * 设置会议 owner
+         * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
+         */
+        this.ownerId = builder.ownerId;
+        /**
+         * 设置入会范围
+         * <p> 示例值：
+         */
+        this.joinMeetingPermission = builder.joinMeetingPermission;
+        /**
+         * 设置会议密码，仅支持 4-9 位数字
+         * <p> 示例值：971024
+         */
+        this.password = builder.password;
+        /**
+         * 指定主持人
+         * <p> 示例值：
+         */
+        this.assignHosts = builder.assignHosts;
+        /**
+         * 设置自动录制
+         * <p> 示例值：false
+         */
+        this.autoRecord = builder.autoRecord;
+        /**
+         * 开启等候室
+         * <p> 示例值：true
+         */
+        this.openLobby = builder.openLobby;
+        /**
+         * 允许日程参与者发起会议
+         * <p> 示例值：true
+         */
+        this.allowAttendeesStart = builder.allowAttendeesStart;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getOwnerId() {
         return this.ownerId;
     }
@@ -123,192 +174,148 @@ public class MeetingSettings {
         this.allowAttendeesStart = allowAttendeesStart;
     }
 
-
-// builder 开始
-  public MeetingSettings(){}
-
-  public MeetingSettings(Builder builder){
-         /**
-          * 设置会议 owner
-          * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
-          */
-      this.ownerId = builder.ownerId;
-         /**
-          * 设置入会范围
-          * <p> 示例值：
-          */
-      this.joinMeetingPermission = builder.joinMeetingPermission;
-         /**
-          * 设置会议密码，仅支持 4-9 位数字
-          * <p> 示例值：971024
-          */
-      this.password = builder.password;
-         /**
-          * 指定主持人
-          * <p> 示例值：
-          */
-      this.assignHosts = builder.assignHosts;
-         /**
-          * 设置自动录制
-          * <p> 示例值：false
-          */
-      this.autoRecord = builder.autoRecord;
-         /**
-          * 开启等候室
-          * <p> 示例值：true
-          */
-      this.openLobby = builder.openLobby;
-         /**
-          * 允许日程参与者发起会议
-          * <p> 示例值：true
-          */
-      this.allowAttendeesStart = builder.allowAttendeesStart;
-  }
-
     public static class Builder {
-     /**
-      * 设置会议 owner
-      * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
-      */
+        /**
+         * 设置会议 owner
+         * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
+         */
         private String ownerId;
-     /**
-      * 设置入会范围
-      * <p> 示例值：
-      */
+        /**
+         * 设置入会范围
+         * <p> 示例值：
+         */
         private String joinMeetingPermission;
-     /**
-      * 设置会议密码，仅支持 4-9 位数字
-      * <p> 示例值：971024
-      */
+        /**
+         * 设置会议密码，仅支持 4-9 位数字
+         * <p> 示例值：971024
+         */
         private String password;
-     /**
-      * 指定主持人
-      * <p> 示例值：
-      */
+        /**
+         * 指定主持人
+         * <p> 示例值：
+         */
         private String[] assignHosts;
-     /**
-      * 设置自动录制
-      * <p> 示例值：false
-      */
+        /**
+         * 设置自动录制
+         * <p> 示例值：false
+         */
         private Boolean autoRecord;
-     /**
-      * 开启等候室
-      * <p> 示例值：true
-      */
+        /**
+         * 开启等候室
+         * <p> 示例值：true
+         */
         private Boolean openLobby;
-     /**
-      * 允许日程参与者发起会议
-      * <p> 示例值：true
-      */
+        /**
+         * 允许日程参与者发起会议
+         * <p> 示例值：true
+         */
         private Boolean allowAttendeesStart;
 
         /**
          * 设置会议 owner
          * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
+         *
          * @param ownerId
          * @return
          */
         public Builder ownerId(String ownerId) {
-             this.ownerId = ownerId;
-             return this;
+            this.ownerId = ownerId;
+            return this;
         }
 
-    
 
         /**
          * 设置入会范围
          * <p> 示例值：
+         *
          * @param joinMeetingPermission
          * @return
          */
         public Builder joinMeetingPermission(String joinMeetingPermission) {
-             this.joinMeetingPermission = joinMeetingPermission;
-             return this;
+            this.joinMeetingPermission = joinMeetingPermission;
+            return this;
         }
+
         /**
          * 设置入会范围
          * <p> 示例值：
+         *
          * @param joinMeetingPermission {@link com.lark.oapi.service.calendar.v4.enums.MeetingSettingsJoinMeetingPermissionTypeEnum}
          * @return
          */
         public Builder joinMeetingPermission(com.lark.oapi.service.calendar.v4.enums.MeetingSettingsJoinMeetingPermissionTypeEnum joinMeetingPermission) {
-             this.joinMeetingPermission = joinMeetingPermission.getValue();
-             return this;
+            this.joinMeetingPermission = joinMeetingPermission.getValue();
+            return this;
         }
 
-    
 
         /**
          * 设置会议密码，仅支持 4-9 位数字
          * <p> 示例值：971024
+         *
          * @param password
          * @return
          */
         public Builder password(String password) {
-             this.password = password;
-             return this;
+            this.password = password;
+            return this;
         }
 
-    
 
         /**
          * 指定主持人
          * <p> 示例值：
+         *
          * @param assignHosts
          * @return
          */
         public Builder assignHosts(String[] assignHosts) {
-             this.assignHosts = assignHosts;
-             return this;
+            this.assignHosts = assignHosts;
+            return this;
         }
 
-    
 
         /**
          * 设置自动录制
          * <p> 示例值：false
+         *
          * @param autoRecord
          * @return
          */
         public Builder autoRecord(Boolean autoRecord) {
-             this.autoRecord = autoRecord;
-             return this;
+            this.autoRecord = autoRecord;
+            return this;
         }
 
-    
 
         /**
          * 开启等候室
          * <p> 示例值：true
+         *
          * @param openLobby
          * @return
          */
         public Builder openLobby(Boolean openLobby) {
-             this.openLobby = openLobby;
-             return this;
+            this.openLobby = openLobby;
+            return this;
         }
 
-    
 
         /**
          * 允许日程参与者发起会议
          * <p> 示例值：true
+         *
          * @param allowAttendeesStart
          * @return
          */
         public Builder allowAttendeesStart(Boolean allowAttendeesStart) {
-             this.allowAttendeesStart = allowAttendeesStart;
-             return this;
+            this.allowAttendeesStart = allowAttendeesStart;
+            return this;
         }
 
-    
-    
-    public MeetingSettings build(){
-        return new MeetingSettings(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public MeetingSettings build() {
+            return new MeetingSettings(this);
+        }
     }
 }

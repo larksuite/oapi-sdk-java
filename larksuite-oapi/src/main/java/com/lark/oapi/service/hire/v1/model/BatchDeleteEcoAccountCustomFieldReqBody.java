@@ -12,30 +12,56 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class BatchDeleteEcoAccountCustomFieldReqBody {
-     /**
-      * 适用范围
-      * <p> 示例值：1
-      */
+    /**
+     * 适用范围
+     * <p> 示例值：1
+     */
     @SerializedName("scope")
     private Integer scope;
-     /**
-      * 要删除的自定义字段的 key 列表
-      * <p> 示例值：123
-      */
+    /**
+     * 要删除的自定义字段的 key 列表
+     * <p> 示例值：123
+     */
     @SerializedName("custom_field_key_list")
     private String[] customFieldKeyList;
+
+    // builder 开始
+    public BatchDeleteEcoAccountCustomFieldReqBody() {
+    }
+
+    public BatchDeleteEcoAccountCustomFieldReqBody(Builder builder) {
+        /**
+         * 适用范围
+         * <p> 示例值：1
+         */
+        this.scope = builder.scope;
+        /**
+         * 要删除的自定义字段的 key 列表
+         * <p> 示例值：123
+         */
+        this.customFieldKeyList = builder.customFieldKeyList;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Integer getScope() {
         return this.scope;
     }
@@ -52,67 +78,46 @@ public class BatchDeleteEcoAccountCustomFieldReqBody {
         this.customFieldKeyList = customFieldKeyList;
     }
 
-
-// builder 开始
-  public BatchDeleteEcoAccountCustomFieldReqBody(){}
-
-  public BatchDeleteEcoAccountCustomFieldReqBody(Builder builder){
-         /**
-          * 适用范围
-          * <p> 示例值：1
-          */
-      this.scope = builder.scope;
-         /**
-          * 要删除的自定义字段的 key 列表
-          * <p> 示例值：123
-          */
-      this.customFieldKeyList = builder.customFieldKeyList;
-  }
-
     public static class Builder {
-     /**
-      * 适用范围
-      * <p> 示例值：1
-      */
+        /**
+         * 适用范围
+         * <p> 示例值：1
+         */
         private Integer scope;
-     /**
-      * 要删除的自定义字段的 key 列表
-      * <p> 示例值：123
-      */
+        /**
+         * 要删除的自定义字段的 key 列表
+         * <p> 示例值：123
+         */
         private String[] customFieldKeyList;
 
         /**
          * 适用范围
          * <p> 示例值：1
+         *
          * @param scope
          * @return
          */
         public Builder scope(Integer scope) {
-             this.scope = scope;
-             return this;
+            this.scope = scope;
+            return this;
         }
 
-    
 
         /**
          * 要删除的自定义字段的 key 列表
          * <p> 示例值：123
+         *
          * @param customFieldKeyList
          * @return
          */
         public Builder customFieldKeyList(String[] customFieldKeyList) {
-             this.customFieldKeyList = customFieldKeyList;
-             return this;
+            this.customFieldKeyList = customFieldKeyList;
+            return this;
         }
 
-    
-    
-    public BatchDeleteEcoAccountCustomFieldReqBody build(){
-        return new BatchDeleteEcoAccountCustomFieldReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public BatchDeleteEcoAccountCustomFieldReqBody build() {
+            return new BatchDeleteEcoAccountCustomFieldReqBody(this);
+        }
     }
 }

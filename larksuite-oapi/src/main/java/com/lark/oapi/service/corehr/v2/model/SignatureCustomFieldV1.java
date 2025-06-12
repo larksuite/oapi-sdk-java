@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class SignatureCustomFieldV1 {
-     /**
-      * 模板自定义字段的key
-      * <p> 示例值：ItImqNuDK
-      */
+    /**
+     * 模板自定义字段的key
+     * <p> 示例值：ItImqNuDK
+     */
     @SerializedName("key")
     private String key;
-     /**
-      * 自定义字段的value
-      * <p> 示例值：000
-      */
+    /**
+     * 自定义字段的value
+     * <p> 示例值：000
+     */
     @SerializedName("value")
     private String value;
+
+    // builder 开始
+    public SignatureCustomFieldV1() {
+    }
+
+    public SignatureCustomFieldV1(Builder builder) {
+        /**
+         * 模板自定义字段的key
+         * <p> 示例值：ItImqNuDK
+         */
+        this.key = builder.key;
+        /**
+         * 自定义字段的value
+         * <p> 示例值：000
+         */
+        this.value = builder.value;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getKey() {
         return this.key;
     }
@@ -53,67 +79,46 @@ public class SignatureCustomFieldV1 {
         this.value = value;
     }
 
-
-// builder 开始
-  public SignatureCustomFieldV1(){}
-
-  public SignatureCustomFieldV1(Builder builder){
-         /**
-          * 模板自定义字段的key
-          * <p> 示例值：ItImqNuDK
-          */
-      this.key = builder.key;
-         /**
-          * 自定义字段的value
-          * <p> 示例值：000
-          */
-      this.value = builder.value;
-  }
-
     public static class Builder {
-     /**
-      * 模板自定义字段的key
-      * <p> 示例值：ItImqNuDK
-      */
+        /**
+         * 模板自定义字段的key
+         * <p> 示例值：ItImqNuDK
+         */
         private String key;
-     /**
-      * 自定义字段的value
-      * <p> 示例值：000
-      */
+        /**
+         * 自定义字段的value
+         * <p> 示例值：000
+         */
         private String value;
 
         /**
          * 模板自定义字段的key
          * <p> 示例值：ItImqNuDK
+         *
          * @param key
          * @return
          */
         public Builder key(String key) {
-             this.key = key;
-             return this;
+            this.key = key;
+            return this;
         }
 
-    
 
         /**
          * 自定义字段的value
          * <p> 示例值：000
+         *
          * @param value
          * @return
          */
         public Builder value(String value) {
-             this.value = value;
-             return this;
+            this.value = value;
+            return this;
         }
 
-    
-    
-    public SignatureCustomFieldV1 build(){
-        return new SignatureCustomFieldV1(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public SignatureCustomFieldV1 build() {
+            return new SignatureCustomFieldV1(this);
+        }
     }
 }

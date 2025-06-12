@@ -12,30 +12,56 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CandidateTagFilter {
-     /**
-      * 标签匹配方式
-      * <p> 示例值：1
-      */
+    /**
+     * 标签匹配方式
+     * <p> 示例值：1
+     */
     @SerializedName("match_type")
     private Integer matchType;
-     /**
-      * 标签 ID 列表
-      * <p> 示例值：
-      */
+    /**
+     * 标签 ID 列表
+     * <p> 示例值：
+     */
     @SerializedName("candidate_tag_id")
     private String[] candidateTagId;
+
+    // builder 开始
+    public CandidateTagFilter() {
+    }
+
+    public CandidateTagFilter(Builder builder) {
+        /**
+         * 标签匹配方式
+         * <p> 示例值：1
+         */
+        this.matchType = builder.matchType;
+        /**
+         * 标签 ID 列表
+         * <p> 示例值：
+         */
+        this.candidateTagId = builder.candidateTagId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Integer getMatchType() {
         return this.matchType;
     }
@@ -52,67 +78,46 @@ public class CandidateTagFilter {
         this.candidateTagId = candidateTagId;
     }
 
-
-// builder 开始
-  public CandidateTagFilter(){}
-
-  public CandidateTagFilter(Builder builder){
-         /**
-          * 标签匹配方式
-          * <p> 示例值：1
-          */
-      this.matchType = builder.matchType;
-         /**
-          * 标签 ID 列表
-          * <p> 示例值：
-          */
-      this.candidateTagId = builder.candidateTagId;
-  }
-
     public static class Builder {
-     /**
-      * 标签匹配方式
-      * <p> 示例值：1
-      */
+        /**
+         * 标签匹配方式
+         * <p> 示例值：1
+         */
         private Integer matchType;
-     /**
-      * 标签 ID 列表
-      * <p> 示例值：
-      */
+        /**
+         * 标签 ID 列表
+         * <p> 示例值：
+         */
         private String[] candidateTagId;
 
         /**
          * 标签匹配方式
          * <p> 示例值：1
+         *
          * @param matchType
          * @return
          */
         public Builder matchType(Integer matchType) {
-             this.matchType = matchType;
-             return this;
+            this.matchType = matchType;
+            return this;
         }
 
-    
 
         /**
          * 标签 ID 列表
          * <p> 示例值：
+         *
          * @param candidateTagId
          * @return
          */
         public Builder candidateTagId(String[] candidateTagId) {
-             this.candidateTagId = candidateTagId;
-             return this;
+            this.candidateTagId = candidateTagId;
+            return this;
         }
 
-    
-    
-    public CandidateTagFilter build(){
-        return new CandidateTagFilter(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public CandidateTagFilter build() {
+            return new CandidateTagFilter(this);
+        }
     }
 }

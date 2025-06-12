@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.calendar.v4.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.calendar.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CalendarFreebusyError {
-     /**
-      * 日历id
-      * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
-      */
+    /**
+     * 日历id
+     * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
+     */
     @SerializedName("calendar_id")
     private String calendarId;
-     /**
-      * 错误信息
-      * <p> 示例值：xxx
-      */
+    /**
+     * 错误信息
+     * <p> 示例值：xxx
+     */
     @SerializedName("error_msg")
     private String errorMsg;
+
+    // builder 开始
+    public CalendarFreebusyError() {
+    }
+
+    public CalendarFreebusyError(Builder builder) {
+        /**
+         * 日历id
+         * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
+         */
+        this.calendarId = builder.calendarId;
+        /**
+         * 错误信息
+         * <p> 示例值：xxx
+         */
+        this.errorMsg = builder.errorMsg;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getCalendarId() {
         return this.calendarId;
     }
@@ -53,67 +79,46 @@ public class CalendarFreebusyError {
         this.errorMsg = errorMsg;
     }
 
-
-// builder 开始
-  public CalendarFreebusyError(){}
-
-  public CalendarFreebusyError(Builder builder){
-         /**
-          * 日历id
-          * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
-          */
-      this.calendarId = builder.calendarId;
-         /**
-          * 错误信息
-          * <p> 示例值：xxx
-          */
-      this.errorMsg = builder.errorMsg;
-  }
-
     public static class Builder {
-     /**
-      * 日历id
-      * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
-      */
+        /**
+         * 日历id
+         * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
+         */
         private String calendarId;
-     /**
-      * 错误信息
-      * <p> 示例值：xxx
-      */
+        /**
+         * 错误信息
+         * <p> 示例值：xxx
+         */
         private String errorMsg;
 
         /**
          * 日历id
          * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
+         *
          * @param calendarId
          * @return
          */
         public Builder calendarId(String calendarId) {
-             this.calendarId = calendarId;
-             return this;
+            this.calendarId = calendarId;
+            return this;
         }
 
-    
 
         /**
          * 错误信息
          * <p> 示例值：xxx
+         *
          * @param errorMsg
          * @return
          */
         public Builder errorMsg(String errorMsg) {
-             this.errorMsg = errorMsg;
-             return this;
+            this.errorMsg = errorMsg;
+            return this;
         }
 
-    
-    
-    public CalendarFreebusyError build(){
-        return new CalendarFreebusyError(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public CalendarFreebusyError build() {
+            return new CalendarFreebusyError(this);
+        }
     }
 }

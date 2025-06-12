@@ -12,36 +12,67 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CheckFailedAccountInfo {
-     /**
-      * 账户ID
-      * <p> 示例值：6930815272790114324
-      */
+    /**
+     * 账户ID
+     * <p> 示例值：6930815272790114324
+     */
     @SerializedName("account_id")
     private String accountId;
-     /**
-      * 招聘系统内的提取金额
-      * <p> 示例值：
-      */
+    /**
+     * 招聘系统内的提取金额
+     * <p> 示例值：
+     */
     @SerializedName("total_withdraw_reward_info")
     private BonusAmount totalWithdrawRewardInfo;
-     /**
-      * 商城实际充值金额
-      * <p> 示例值：
-      */
+    /**
+     * 商城实际充值金额
+     * <p> 示例值：
+     */
     @SerializedName("total_recharge_reward_info")
     private BonusAmount totalRechargeRewardInfo;
+
+    // builder 开始
+    public CheckFailedAccountInfo() {
+    }
+
+    public CheckFailedAccountInfo(Builder builder) {
+        /**
+         * 账户ID
+         * <p> 示例值：6930815272790114324
+         */
+        this.accountId = builder.accountId;
+        /**
+         * 招聘系统内的提取金额
+         * <p> 示例值：
+         */
+        this.totalWithdrawRewardInfo = builder.totalWithdrawRewardInfo;
+        /**
+         * 商城实际充值金额
+         * <p> 示例值：
+         */
+        this.totalRechargeRewardInfo = builder.totalRechargeRewardInfo;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getAccountId() {
         return this.accountId;
     }
@@ -66,90 +97,64 @@ public class CheckFailedAccountInfo {
         this.totalRechargeRewardInfo = totalRechargeRewardInfo;
     }
 
-
-// builder 开始
-  public CheckFailedAccountInfo(){}
-
-  public CheckFailedAccountInfo(Builder builder){
-         /**
-          * 账户ID
-          * <p> 示例值：6930815272790114324
-          */
-      this.accountId = builder.accountId;
-         /**
-          * 招聘系统内的提取金额
-          * <p> 示例值：
-          */
-      this.totalWithdrawRewardInfo = builder.totalWithdrawRewardInfo;
-         /**
-          * 商城实际充值金额
-          * <p> 示例值：
-          */
-      this.totalRechargeRewardInfo = builder.totalRechargeRewardInfo;
-  }
-
     public static class Builder {
-     /**
-      * 账户ID
-      * <p> 示例值：6930815272790114324
-      */
+        /**
+         * 账户ID
+         * <p> 示例值：6930815272790114324
+         */
         private String accountId;
-     /**
-      * 招聘系统内的提取金额
-      * <p> 示例值：
-      */
+        /**
+         * 招聘系统内的提取金额
+         * <p> 示例值：
+         */
         private BonusAmount totalWithdrawRewardInfo;
-     /**
-      * 商城实际充值金额
-      * <p> 示例值：
-      */
+        /**
+         * 商城实际充值金额
+         * <p> 示例值：
+         */
         private BonusAmount totalRechargeRewardInfo;
 
         /**
          * 账户ID
          * <p> 示例值：6930815272790114324
+         *
          * @param accountId
          * @return
          */
         public Builder accountId(String accountId) {
-             this.accountId = accountId;
-             return this;
+            this.accountId = accountId;
+            return this;
         }
 
-    
 
         /**
          * 招聘系统内的提取金额
          * <p> 示例值：
+         *
          * @param totalWithdrawRewardInfo
          * @return
          */
         public Builder totalWithdrawRewardInfo(BonusAmount totalWithdrawRewardInfo) {
-             this.totalWithdrawRewardInfo = totalWithdrawRewardInfo;
-             return this;
+            this.totalWithdrawRewardInfo = totalWithdrawRewardInfo;
+            return this;
         }
 
-    
 
         /**
          * 商城实际充值金额
          * <p> 示例值：
+         *
          * @param totalRechargeRewardInfo
          * @return
          */
         public Builder totalRechargeRewardInfo(BonusAmount totalRechargeRewardInfo) {
-             this.totalRechargeRewardInfo = totalRechargeRewardInfo;
-             return this;
+            this.totalRechargeRewardInfo = totalRechargeRewardInfo;
+            return this;
         }
 
-    
-    
-    public CheckFailedAccountInfo build(){
-        return new CheckFailedAccountInfo(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public CheckFailedAccountInfo build() {
+            return new CheckFailedAccountInfo(this);
+        }
     }
 }

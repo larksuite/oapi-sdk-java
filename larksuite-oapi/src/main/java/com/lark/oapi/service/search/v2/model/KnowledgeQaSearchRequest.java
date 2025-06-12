@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.search.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.search.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class KnowledgeQaSearchRequest {
-     /**
-      * query
-      * <p> 示例值：hello
-      */
+    /**
+     * query
+     * <p> 示例值：hello
+     */
     @SerializedName("query")
     private String query;
-     /**
-      * enterprise_knowledge_source
-      * <p> 示例值：
-      */
+    /**
+     * enterprise_knowledge_source
+     * <p> 示例值：
+     */
     @SerializedName("enterprise_knowledge_source")
     private EnterpriseKnowledgeSourceParam enterpriseKnowledgeSource;
+
+    // builder 开始
+    public KnowledgeQaSearchRequest() {
+    }
+
+    public KnowledgeQaSearchRequest(Builder builder) {
+        /**
+         * query
+         * <p> 示例值：hello
+         */
+        this.query = builder.query;
+        /**
+         * enterprise_knowledge_source
+         * <p> 示例值：
+         */
+        this.enterpriseKnowledgeSource = builder.enterpriseKnowledgeSource;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getQuery() {
         return this.query;
     }
@@ -53,67 +79,46 @@ public class KnowledgeQaSearchRequest {
         this.enterpriseKnowledgeSource = enterpriseKnowledgeSource;
     }
 
-
-// builder 开始
-  public KnowledgeQaSearchRequest(){}
-
-  public KnowledgeQaSearchRequest(Builder builder){
-         /**
-          * query
-          * <p> 示例值：hello
-          */
-      this.query = builder.query;
-         /**
-          * enterprise_knowledge_source
-          * <p> 示例值：
-          */
-      this.enterpriseKnowledgeSource = builder.enterpriseKnowledgeSource;
-  }
-
     public static class Builder {
-     /**
-      * query
-      * <p> 示例值：hello
-      */
+        /**
+         * query
+         * <p> 示例值：hello
+         */
         private String query;
-     /**
-      * enterprise_knowledge_source
-      * <p> 示例值：
-      */
+        /**
+         * enterprise_knowledge_source
+         * <p> 示例值：
+         */
         private EnterpriseKnowledgeSourceParam enterpriseKnowledgeSource;
 
         /**
          * query
          * <p> 示例值：hello
+         *
          * @param query
          * @return
          */
         public Builder query(String query) {
-             this.query = query;
-             return this;
+            this.query = query;
+            return this;
         }
 
-    
 
         /**
          * enterprise_knowledge_source
          * <p> 示例值：
+         *
          * @param enterpriseKnowledgeSource
          * @return
          */
         public Builder enterpriseKnowledgeSource(EnterpriseKnowledgeSourceParam enterpriseKnowledgeSource) {
-             this.enterpriseKnowledgeSource = enterpriseKnowledgeSource;
-             return this;
+            this.enterpriseKnowledgeSource = enterpriseKnowledgeSource;
+            return this;
         }
 
-    
-    
-    public KnowledgeQaSearchRequest build(){
-        return new KnowledgeQaSearchRequest(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public KnowledgeQaSearchRequest build() {
+            return new KnowledgeQaSearchRequest(this);
+        }
     }
 }

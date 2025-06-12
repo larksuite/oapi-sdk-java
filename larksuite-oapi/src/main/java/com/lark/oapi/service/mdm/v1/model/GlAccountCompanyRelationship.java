@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.mdm.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.mdm.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,36 +20,71 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class GlAccountCompanyRelationship {
-     /**
-      * 会计科目编码
-      * <p> 示例值：U1404733114483220480
-      */
+    /**
+     * 会计科目编码
+     * <p> 示例值：U1404733114483220480
+     */
     @SerializedName("gl_account_code")
     private String glAccountCode;
-     /**
-      * 公司编码
-      * <p> 示例值：U1404700185187065856
-      */
+    /**
+     * 公司编码
+     * <p> 示例值：U1404700185187065856
+     */
     @SerializedName("company_code")
     private String companyCode;
-     /**
-      * 会计科目公司关系唯一ID
-      * <p> 示例值：U1404732747611643904
-      */
+    /**
+     * 会计科目公司关系唯一ID
+     * <p> 示例值：U1404732747611643904
+     */
     @SerializedName("gl_account_company_relationship_uid")
     private String glAccountCompanyRelationshipUid;
-     /**
-      * 有效期至，格式：yyyy-MM-dd
-      * <p> 示例值：2021-12-31
-      */
+    /**
+     * 有效期至，格式：yyyy-MM-dd
+     * <p> 示例值：2021-12-31
+     */
     @SerializedName("valid_to")
     private String validTo;
+
+    // builder 开始
+    public GlAccountCompanyRelationship() {
+    }
+
+    public GlAccountCompanyRelationship(Builder builder) {
+        /**
+         * 会计科目编码
+         * <p> 示例值：U1404733114483220480
+         */
+        this.glAccountCode = builder.glAccountCode;
+        /**
+         * 公司编码
+         * <p> 示例值：U1404700185187065856
+         */
+        this.companyCode = builder.companyCode;
+        /**
+         * 会计科目公司关系唯一ID
+         * <p> 示例值：U1404732747611643904
+         */
+        this.glAccountCompanyRelationshipUid = builder.glAccountCompanyRelationshipUid;
+        /**
+         * 有效期至，格式：yyyy-MM-dd
+         * <p> 示例值：2021-12-31
+         */
+        this.validTo = builder.validTo;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getGlAccountCode() {
         return this.glAccountCode;
     }
@@ -81,113 +117,82 @@ public class GlAccountCompanyRelationship {
         this.validTo = validTo;
     }
 
-
-// builder 开始
-  public GlAccountCompanyRelationship(){}
-
-  public GlAccountCompanyRelationship(Builder builder){
-         /**
-          * 会计科目编码
-          * <p> 示例值：U1404733114483220480
-          */
-      this.glAccountCode = builder.glAccountCode;
-         /**
-          * 公司编码
-          * <p> 示例值：U1404700185187065856
-          */
-      this.companyCode = builder.companyCode;
-         /**
-          * 会计科目公司关系唯一ID
-          * <p> 示例值：U1404732747611643904
-          */
-      this.glAccountCompanyRelationshipUid = builder.glAccountCompanyRelationshipUid;
-         /**
-          * 有效期至，格式：yyyy-MM-dd
-          * <p> 示例值：2021-12-31
-          */
-      this.validTo = builder.validTo;
-  }
-
     public static class Builder {
-     /**
-      * 会计科目编码
-      * <p> 示例值：U1404733114483220480
-      */
+        /**
+         * 会计科目编码
+         * <p> 示例值：U1404733114483220480
+         */
         private String glAccountCode;
-     /**
-      * 公司编码
-      * <p> 示例值：U1404700185187065856
-      */
+        /**
+         * 公司编码
+         * <p> 示例值：U1404700185187065856
+         */
         private String companyCode;
-     /**
-      * 会计科目公司关系唯一ID
-      * <p> 示例值：U1404732747611643904
-      */
+        /**
+         * 会计科目公司关系唯一ID
+         * <p> 示例值：U1404732747611643904
+         */
         private String glAccountCompanyRelationshipUid;
-     /**
-      * 有效期至，格式：yyyy-MM-dd
-      * <p> 示例值：2021-12-31
-      */
+        /**
+         * 有效期至，格式：yyyy-MM-dd
+         * <p> 示例值：2021-12-31
+         */
         private String validTo;
 
         /**
          * 会计科目编码
          * <p> 示例值：U1404733114483220480
+         *
          * @param glAccountCode
          * @return
          */
         public Builder glAccountCode(String glAccountCode) {
-             this.glAccountCode = glAccountCode;
-             return this;
+            this.glAccountCode = glAccountCode;
+            return this;
         }
 
-    
 
         /**
          * 公司编码
          * <p> 示例值：U1404700185187065856
+         *
          * @param companyCode
          * @return
          */
         public Builder companyCode(String companyCode) {
-             this.companyCode = companyCode;
-             return this;
+            this.companyCode = companyCode;
+            return this;
         }
 
-    
 
         /**
          * 会计科目公司关系唯一ID
          * <p> 示例值：U1404732747611643904
+         *
          * @param glAccountCompanyRelationshipUid
          * @return
          */
         public Builder glAccountCompanyRelationshipUid(String glAccountCompanyRelationshipUid) {
-             this.glAccountCompanyRelationshipUid = glAccountCompanyRelationshipUid;
-             return this;
+            this.glAccountCompanyRelationshipUid = glAccountCompanyRelationshipUid;
+            return this;
         }
 
-    
 
         /**
          * 有效期至，格式：yyyy-MM-dd
          * <p> 示例值：2021-12-31
+         *
          * @param validTo
          * @return
          */
         public Builder validTo(String validTo) {
-             this.validTo = validTo;
-             return this;
+            this.validTo = validTo;
+            return this;
         }
 
-    
-    
-    public GlAccountCompanyRelationship build(){
-        return new GlAccountCompanyRelationship(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public GlAccountCompanyRelationship build() {
+            return new GlAccountCompanyRelationship(this);
+        }
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,42 +20,82 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class PositionChange {
-     /**
-      * 岗位调整记录 ID
-      * <p> 示例值：6991776076699549697
-      */
+    /**
+     * 岗位调整记录 ID
+     * <p> 示例值：6991776076699549697
+     */
     @SerializedName("position_change_id")
     private String positionChangeId;
-     /**
-      * 岗位 ID
-      * <p> 示例值：6966236933198579208
-      */
+    /**
+     * 岗位 ID
+     * <p> 示例值：6966236933198579208
+     */
     @SerializedName("position_id")
     private String positionId;
-     /**
-      * 调整过程岗位 ID 。对于在本次调整中新建的岗位，在调整未生效前会返回格式为 td_xxx 的过程岗位 ID，生效后将返回正式的岗位 ID
-      * <p> 示例值：6966236933198579208
-      */
+    /**
+     * 调整过程岗位 ID 。对于在本次调整中新建的岗位，在调整未生效前会返回格式为 td_xxx 的过程岗位 ID，生效后将返回正式的岗位 ID
+     * <p> 示例值：6966236933198579208
+     */
     @SerializedName("draft_position_id")
     private String draftPositionId;
-     /**
-      * 调整类型
-      * <p> 示例值：Create
-      */
+    /**
+     * 调整类型
+     * <p> 示例值：Create
+     */
     @SerializedName("position_change_type")
     private String positionChangeType;
-     /**
-      * 调整详细信息
-      * <p> 示例值：
-      */
+    /**
+     * 调整详细信息
+     * <p> 示例值：
+     */
     @SerializedName("position_adjustment_info")
     private PositionAdjustmentInfo positionAdjustmentInfo;
+
+    // builder 开始
+    public PositionChange() {
+    }
+
+    public PositionChange(Builder builder) {
+        /**
+         * 岗位调整记录 ID
+         * <p> 示例值：6991776076699549697
+         */
+        this.positionChangeId = builder.positionChangeId;
+        /**
+         * 岗位 ID
+         * <p> 示例值：6966236933198579208
+         */
+        this.positionId = builder.positionId;
+        /**
+         * 调整过程岗位 ID 。对于在本次调整中新建的岗位，在调整未生效前会返回格式为 td_xxx 的过程岗位 ID，生效后将返回正式的岗位 ID
+         * <p> 示例值：6966236933198579208
+         */
+        this.draftPositionId = builder.draftPositionId;
+        /**
+         * 调整类型
+         * <p> 示例值：Create
+         */
+        this.positionChangeType = builder.positionChangeType;
+        /**
+         * 调整详细信息
+         * <p> 示例值：
+         */
+        this.positionAdjustmentInfo = builder.positionAdjustmentInfo;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getPositionChangeId() {
         return this.positionChangeId;
     }
@@ -95,146 +136,112 @@ public class PositionChange {
         this.positionAdjustmentInfo = positionAdjustmentInfo;
     }
 
-
-// builder 开始
-  public PositionChange(){}
-
-  public PositionChange(Builder builder){
-         /**
-          * 岗位调整记录 ID
-          * <p> 示例值：6991776076699549697
-          */
-      this.positionChangeId = builder.positionChangeId;
-         /**
-          * 岗位 ID
-          * <p> 示例值：6966236933198579208
-          */
-      this.positionId = builder.positionId;
-         /**
-          * 调整过程岗位 ID 。对于在本次调整中新建的岗位，在调整未生效前会返回格式为 td_xxx 的过程岗位 ID，生效后将返回正式的岗位 ID
-          * <p> 示例值：6966236933198579208
-          */
-      this.draftPositionId = builder.draftPositionId;
-         /**
-          * 调整类型
-          * <p> 示例值：Create
-          */
-      this.positionChangeType = builder.positionChangeType;
-         /**
-          * 调整详细信息
-          * <p> 示例值：
-          */
-      this.positionAdjustmentInfo = builder.positionAdjustmentInfo;
-  }
-
     public static class Builder {
-     /**
-      * 岗位调整记录 ID
-      * <p> 示例值：6991776076699549697
-      */
+        /**
+         * 岗位调整记录 ID
+         * <p> 示例值：6991776076699549697
+         */
         private String positionChangeId;
-     /**
-      * 岗位 ID
-      * <p> 示例值：6966236933198579208
-      */
+        /**
+         * 岗位 ID
+         * <p> 示例值：6966236933198579208
+         */
         private String positionId;
-     /**
-      * 调整过程岗位 ID 。对于在本次调整中新建的岗位，在调整未生效前会返回格式为 td_xxx 的过程岗位 ID，生效后将返回正式的岗位 ID
-      * <p> 示例值：6966236933198579208
-      */
+        /**
+         * 调整过程岗位 ID 。对于在本次调整中新建的岗位，在调整未生效前会返回格式为 td_xxx 的过程岗位 ID，生效后将返回正式的岗位 ID
+         * <p> 示例值：6966236933198579208
+         */
         private String draftPositionId;
-     /**
-      * 调整类型
-      * <p> 示例值：Create
-      */
+        /**
+         * 调整类型
+         * <p> 示例值：Create
+         */
         private String positionChangeType;
-     /**
-      * 调整详细信息
-      * <p> 示例值：
-      */
+        /**
+         * 调整详细信息
+         * <p> 示例值：
+         */
         private PositionAdjustmentInfo positionAdjustmentInfo;
 
         /**
          * 岗位调整记录 ID
          * <p> 示例值：6991776076699549697
+         *
          * @param positionChangeId
          * @return
          */
         public Builder positionChangeId(String positionChangeId) {
-             this.positionChangeId = positionChangeId;
-             return this;
+            this.positionChangeId = positionChangeId;
+            return this;
         }
 
-    
 
         /**
          * 岗位 ID
          * <p> 示例值：6966236933198579208
+         *
          * @param positionId
          * @return
          */
         public Builder positionId(String positionId) {
-             this.positionId = positionId;
-             return this;
+            this.positionId = positionId;
+            return this;
         }
 
-    
 
         /**
          * 调整过程岗位 ID 。对于在本次调整中新建的岗位，在调整未生效前会返回格式为 td_xxx 的过程岗位 ID，生效后将返回正式的岗位 ID
          * <p> 示例值：6966236933198579208
+         *
          * @param draftPositionId
          * @return
          */
         public Builder draftPositionId(String draftPositionId) {
-             this.draftPositionId = draftPositionId;
-             return this;
+            this.draftPositionId = draftPositionId;
+            return this;
         }
 
-    
 
         /**
          * 调整类型
          * <p> 示例值：Create
+         *
          * @param positionChangeType
          * @return
          */
         public Builder positionChangeType(String positionChangeType) {
-             this.positionChangeType = positionChangeType;
-             return this;
+            this.positionChangeType = positionChangeType;
+            return this;
         }
+
         /**
          * 调整类型
          * <p> 示例值：Create
+         *
          * @param positionChangeType {@link com.lark.oapi.service.corehr.v2.enums.PositionChangePositionChangeTypeEnum}
          * @return
          */
         public Builder positionChangeType(com.lark.oapi.service.corehr.v2.enums.PositionChangePositionChangeTypeEnum positionChangeType) {
-             this.positionChangeType = positionChangeType.getValue();
-             return this;
+            this.positionChangeType = positionChangeType.getValue();
+            return this;
         }
 
-    
 
         /**
          * 调整详细信息
          * <p> 示例值：
+         *
          * @param positionAdjustmentInfo
          * @return
          */
         public Builder positionAdjustmentInfo(PositionAdjustmentInfo positionAdjustmentInfo) {
-             this.positionAdjustmentInfo = positionAdjustmentInfo;
-             return this;
+            this.positionAdjustmentInfo = positionAdjustmentInfo;
+            return this;
         }
 
-    
-    
-    public PositionChange build(){
-        return new PositionChange(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public PositionChange build() {
+            return new PositionChange(this);
+        }
     }
 }

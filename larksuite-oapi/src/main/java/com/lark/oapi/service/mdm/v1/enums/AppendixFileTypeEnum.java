@@ -17,23 +17,24 @@ package com.lark.oapi.service.mdm.v1.enums;
  * 文件类型
  */
 public enum AppendixFileTypeEnum {
-     DOC("DOC"), // DOC
-     DOCX("DOCX"), // DOCX
-     XLS("XLS"), // XLS
-     XLSX("XLSX"), // XLSX
-     PNG("PNG"), // PNG
-     JPG("JPG"), // JPG
-     JPEG("JPEG"), // JPEG
-     PDF("PDF"), // PDF
-     ZIP("ZIP"), // ZIP
-     RAR("RAR"), // RAR
-  ;
-   private String value;
+    DOC("DOC"), // DOC
+    DOCX("DOCX"), // DOCX
+    XLS("XLS"), // XLS
+    XLSX("XLSX"), // XLSX
+    PNG("PNG"), // PNG
+    JPG("JPG"), // JPG
+    JPEG("JPEG"), // JPEG
+    PDF("PDF"), // PDF
+    ZIP("ZIP"), // ZIP
+    RAR("RAR"), // RAR
+    ;
+    private String value;
+
     AppendixFileTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

@@ -17,15 +17,16 @@ package com.lark.oapi.service.im.v2.enums;
  * 标签类型
  */
 public enum FeedGroupTypeEnum {
-     NORMAL("normal"), // 普通标签
-     RULE("rule"), // 规则标签
-  ;
-   private String value;
+    NORMAL("normal"), // 普通标签
+    RULE("rule"), // 规则标签
+    ;
+    private String value;
+
     FeedGroupTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

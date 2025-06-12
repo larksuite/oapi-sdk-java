@@ -12,67 +12,118 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class LeaveBalancesLeaveReq {
-     /**
-      * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
-      * <p> 示例值：eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
-      */
+    /**
+     * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
+     * <p> 示例值：eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+     */
     @Query
     @SerializedName("page_token")
     private String pageToken;
-     /**
-      * 每页获取记录数量，最大20
-      * <p> 示例值：20
-      */
+    /**
+     * 每页获取记录数量，最大20
+     * <p> 示例值：20
+     */
     @Query
     @SerializedName("page_size")
     private String pageSize;
-     /**
-      * 查询截止日期，即截止到某天余额数据的日期（不传则默认为当天）
-      * <p> 示例值：2022-07-29
-      */
+    /**
+     * 查询截止日期，即截止到某天余额数据的日期（不传则默认为当天）
+     * <p> 示例值：2022-07-29
+     */
     @Query
     @SerializedName("as_of_date")
     private String asOfDate;
-     /**
-      * 员工 ID 列表，最大 100 个（不传则默认查询全部员工）
-      * <p> 示例值：["6919733291281024526"]
-      */
+    /**
+     * 员工 ID 列表，最大 100 个（不传则默认查询全部员工）
+     * <p> 示例值：["6919733291281024526"]
+     */
     @Query
     @SerializedName("employment_id_list")
     private String[] employmentIdList;
-     /**
-      * 用户 ID 类型
-      * <p> 示例值：people_corehr_id
-      */
+    /**
+     * 用户 ID 类型
+     * <p> 示例值：people_corehr_id
+     */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
-     /**
-      * 查询时区
-      * <p> 示例值：Asia/Shanghai
-      */
+    /**
+     * 查询时区
+     * <p> 示例值：Asia/Shanghai
+     */
     @Query
     @SerializedName("time_zone")
     private String timeZone;
-     /**
-      * 是否获取离职折算字段
-      * <p> 示例值：true
-      */
+    /**
+     * 是否获取离职折算字段
+     * <p> 示例值：true
+     */
     @Query
     @SerializedName("include_offboard")
     private Boolean includeOffboard;
+
+    // builder 开始
+    public LeaveBalancesLeaveReq() {
+    }
+
+    public LeaveBalancesLeaveReq(Builder builder) {
+        /**
+         * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
+         * <p> 示例值：eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+         */
+        this.pageToken = builder.pageToken;
+        /**
+         * 每页获取记录数量，最大20
+         * <p> 示例值：20
+         */
+        this.pageSize = builder.pageSize;
+        /**
+         * 查询截止日期，即截止到某天余额数据的日期（不传则默认为当天）
+         * <p> 示例值：2022-07-29
+         */
+        this.asOfDate = builder.asOfDate;
+        /**
+         * 员工 ID 列表，最大 100 个（不传则默认查询全部员工）
+         * <p> 示例值：["6919733291281024526"]
+         */
+        this.employmentIdList = builder.employmentIdList;
+        /**
+         * 用户 ID 类型
+         * <p> 示例值：people_corehr_id
+         */
+        this.userIdType = builder.userIdType;
+        /**
+         * 查询时区
+         * <p> 示例值：Asia/Shanghai
+         */
+        this.timeZone = builder.timeZone;
+        /**
+         * 是否获取离职折算字段
+         * <p> 示例值：true
+         */
+        this.includeOffboard = builder.includeOffboard;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getPageToken() {
         return this.pageToken;
     }
@@ -129,48 +180,6 @@ public class LeaveBalancesLeaveReq {
         this.includeOffboard = includeOffboard;
     }
 
-
-// builder 开始
-  public LeaveBalancesLeaveReq(){}
-
-  public LeaveBalancesLeaveReq(Builder builder){
-         /**
-          * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
-          * <p> 示例值：eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
-          */
-       this.pageToken = builder.pageToken;
-         /**
-          * 每页获取记录数量，最大20
-          * <p> 示例值：20
-          */
-       this.pageSize = builder.pageSize;
-         /**
-          * 查询截止日期，即截止到某天余额数据的日期（不传则默认为当天）
-          * <p> 示例值：2022-07-29
-          */
-       this.asOfDate = builder.asOfDate;
-         /**
-          * 员工 ID 列表，最大 100 个（不传则默认查询全部员工）
-          * <p> 示例值：["6919733291281024526"]
-          */
-       this.employmentIdList = builder.employmentIdList;
-         /**
-          * 用户 ID 类型
-          * <p> 示例值：people_corehr_id
-          */
-       this.userIdType = builder.userIdType;
-         /**
-          * 查询时区
-          * <p> 示例值：Asia/Shanghai
-          */
-       this.timeZone = builder.timeZone;
-         /**
-          * 是否获取离职折算字段
-          * <p> 示例值：true
-          */
-       this.includeOffboard = builder.includeOffboard;
-  }
-
     public static class Builder {
         private String pageToken; // 页码标识，获取第一页传空，每次查询会返回下一页的page_token
         private String pageSize; // 每页获取记录数量，最大20
@@ -179,108 +188,112 @@ public class LeaveBalancesLeaveReq {
         private String userIdType; // 用户 ID 类型
         private String timeZone; // 查询时区
         private Boolean includeOffboard; // 是否获取离职折算字段
-    
+
         /**
          * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
          * <p> 示例值：eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+         *
          * @param pageToken
          * @return
          */
-           public Builder pageToken(String pageToken) {
-                this.pageToken = pageToken;
-                return this;
-           }
+        public Builder pageToken(String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+        }
 
-    
+
         /**
          * 每页获取记录数量，最大20
          * <p> 示例值：20
+         *
          * @param pageSize
          * @return
          */
-           public Builder pageSize(String pageSize) {
-                this.pageSize = pageSize;
-                return this;
-           }
+        public Builder pageSize(String pageSize) {
+            this.pageSize = pageSize;
+            return this;
+        }
 
-    
+
         /**
          * 查询截止日期，即截止到某天余额数据的日期（不传则默认为当天）
          * <p> 示例值：2022-07-29
+         *
          * @param asOfDate
          * @return
          */
-           public Builder asOfDate(String asOfDate) {
-                this.asOfDate = asOfDate;
-                return this;
-           }
+        public Builder asOfDate(String asOfDate) {
+            this.asOfDate = asOfDate;
+            return this;
+        }
 
-    
+
         /**
          * 员工 ID 列表，最大 100 个（不传则默认查询全部员工）
          * <p> 示例值：["6919733291281024526"]
+         *
          * @param employmentIdList
          * @return
          */
-           public Builder employmentIdList(String[] employmentIdList) {
-                this.employmentIdList = employmentIdList;
-                return this;
-           }
+        public Builder employmentIdList(String[] employmentIdList) {
+            this.employmentIdList = employmentIdList;
+            return this;
+        }
 
-    
+
         /**
          * 用户 ID 类型
          * <p> 示例值：people_corehr_id
+         *
          * @param userIdType
          * @return
          */
-           public Builder userIdType(String userIdType) {
-                this.userIdType = userIdType;
-                return this;
-           }
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
 
         /**
          * 用户 ID 类型
          * <p> 示例值：people_corehr_id
+         *
          * @param userIdType {@link com.lark.oapi.service.corehr.v1.enums.LeaveBalancesLeaveUserIdTypeEnum}
          * @return
          */
-          public Builder userIdType(com.lark.oapi.service.corehr.v1.enums.LeaveBalancesLeaveUserIdTypeEnum userIdType) {
-               this.userIdType = userIdType.getValue();
-               return this;
-          }
+        public Builder userIdType(com.lark.oapi.service.corehr.v1.enums.LeaveBalancesLeaveUserIdTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
+            return this;
+        }
 
-    
+
         /**
          * 查询时区
          * <p> 示例值：Asia/Shanghai
+         *
          * @param timeZone
          * @return
          */
-           public Builder timeZone(String timeZone) {
-                this.timeZone = timeZone;
-                return this;
-           }
+        public Builder timeZone(String timeZone) {
+            this.timeZone = timeZone;
+            return this;
+        }
 
-    
+
         /**
          * 是否获取离职折算字段
          * <p> 示例值：true
+         *
          * @param includeOffboard
          * @return
          */
-           public Builder includeOffboard(Boolean includeOffboard) {
-                this.includeOffboard = includeOffboard;
-                return this;
-           }
+        public Builder includeOffboard(Boolean includeOffboard) {
+            this.includeOffboard = includeOffboard;
+            return this;
+        }
 
-    
-    public LeaveBalancesLeaveReq build(){
-        return new LeaveBalancesLeaveReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public LeaveBalancesLeaveReq build() {
+            return new LeaveBalancesLeaveReq(this);
+        }
     }
 }

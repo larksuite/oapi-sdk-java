@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.admin.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.admin.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,54 +20,104 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class File {
-     /**
-      * 文档标题
-      * <p> 示例值：文件管理综述
-      */
+    /**
+     * 文档标题
+     * <p> 示例值：文件管理综述
+     */
     @SerializedName("title")
     private String title;
-     /**
-      * 文档类型
-      * <p> 示例值：doc
-      */
+    /**
+     * 文档类型
+     * <p> 示例值：doc
+     */
     @SerializedName("type")
     private String type;
-     /**
-      * 文档所有者
-      * <p> 示例值：
-      */
+    /**
+     * 文档所有者
+     * <p> 示例值：
+     */
     @SerializedName("owner")
     private User owner;
-     /**
-      * 文档大小
-      * <p> 示例值：1024
-      */
+    /**
+     * 文档大小
+     * <p> 示例值：1024
+     */
     @SerializedName("size")
     private String size;
-     /**
-      * 更新时间
-      * <p> 示例值：1649419092
-      */
+    /**
+     * 更新时间
+     * <p> 示例值：1649419092
+     */
     @SerializedName("last_op_time")
     private String lastOpTime;
-     /**
-      * 文档状态
-      * <p> 示例值：1
-      */
+    /**
+     * 文档状态
+     * <p> 示例值：1
+     */
     @SerializedName("status")
     private String status;
-     /**
-      * 文档token
-      * <p> 示例值：doxbcOIyUhrRBWSKpBGfzefQgHe
-      */
+    /**
+     * 文档token
+     * <p> 示例值：doxbcOIyUhrRBWSKpBGfzefQgHe
+     */
     @SerializedName("token")
     private String token;
+
+    // builder 开始
+    public File() {
+    }
+
+    public File(Builder builder) {
+        /**
+         * 文档标题
+         * <p> 示例值：文件管理综述
+         */
+        this.title = builder.title;
+        /**
+         * 文档类型
+         * <p> 示例值：doc
+         */
+        this.type = builder.type;
+        /**
+         * 文档所有者
+         * <p> 示例值：
+         */
+        this.owner = builder.owner;
+        /**
+         * 文档大小
+         * <p> 示例值：1024
+         */
+        this.size = builder.size;
+        /**
+         * 更新时间
+         * <p> 示例值：1649419092
+         */
+        this.lastOpTime = builder.lastOpTime;
+        /**
+         * 文档状态
+         * <p> 示例值：1
+         */
+        this.status = builder.status;
+        /**
+         * 文档token
+         * <p> 示例值：doxbcOIyUhrRBWSKpBGfzefQgHe
+         */
+        this.token = builder.token;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getTitle() {
         return this.title;
     }
@@ -123,202 +174,160 @@ public class File {
         this.token = token;
     }
 
-
-// builder 开始
-  public File(){}
-
-  public File(Builder builder){
-         /**
-          * 文档标题
-          * <p> 示例值：文件管理综述
-          */
-      this.title = builder.title;
-         /**
-          * 文档类型
-          * <p> 示例值：doc
-          */
-      this.type = builder.type;
-         /**
-          * 文档所有者
-          * <p> 示例值：
-          */
-      this.owner = builder.owner;
-         /**
-          * 文档大小
-          * <p> 示例值：1024
-          */
-      this.size = builder.size;
-         /**
-          * 更新时间
-          * <p> 示例值：1649419092
-          */
-      this.lastOpTime = builder.lastOpTime;
-         /**
-          * 文档状态
-          * <p> 示例值：1
-          */
-      this.status = builder.status;
-         /**
-          * 文档token
-          * <p> 示例值：doxbcOIyUhrRBWSKpBGfzefQgHe
-          */
-      this.token = builder.token;
-  }
-
     public static class Builder {
-     /**
-      * 文档标题
-      * <p> 示例值：文件管理综述
-      */
+        /**
+         * 文档标题
+         * <p> 示例值：文件管理综述
+         */
         private String title;
-     /**
-      * 文档类型
-      * <p> 示例值：doc
-      */
+        /**
+         * 文档类型
+         * <p> 示例值：doc
+         */
         private String type;
-     /**
-      * 文档所有者
-      * <p> 示例值：
-      */
+        /**
+         * 文档所有者
+         * <p> 示例值：
+         */
         private User owner;
-     /**
-      * 文档大小
-      * <p> 示例值：1024
-      */
+        /**
+         * 文档大小
+         * <p> 示例值：1024
+         */
         private String size;
-     /**
-      * 更新时间
-      * <p> 示例值：1649419092
-      */
+        /**
+         * 更新时间
+         * <p> 示例值：1649419092
+         */
         private String lastOpTime;
-     /**
-      * 文档状态
-      * <p> 示例值：1
-      */
+        /**
+         * 文档状态
+         * <p> 示例值：1
+         */
         private String status;
-     /**
-      * 文档token
-      * <p> 示例值：doxbcOIyUhrRBWSKpBGfzefQgHe
-      */
+        /**
+         * 文档token
+         * <p> 示例值：doxbcOIyUhrRBWSKpBGfzefQgHe
+         */
         private String token;
 
         /**
          * 文档标题
          * <p> 示例值：文件管理综述
+         *
          * @param title
          * @return
          */
         public Builder title(String title) {
-             this.title = title;
-             return this;
+            this.title = title;
+            return this;
         }
 
-    
 
         /**
          * 文档类型
          * <p> 示例值：doc
+         *
          * @param type
          * @return
          */
         public Builder type(String type) {
-             this.type = type;
-             return this;
+            this.type = type;
+            return this;
         }
+
         /**
          * 文档类型
          * <p> 示例值：doc
+         *
          * @param type {@link com.lark.oapi.service.admin.v1.enums.FileTypeEnum}
          * @return
          */
         public Builder type(com.lark.oapi.service.admin.v1.enums.FileTypeEnum type) {
-             this.type = type.getValue();
-             return this;
+            this.type = type.getValue();
+            return this;
         }
 
-    
 
         /**
          * 文档所有者
          * <p> 示例值：
+         *
          * @param owner
          * @return
          */
         public Builder owner(User owner) {
-             this.owner = owner;
-             return this;
+            this.owner = owner;
+            return this;
         }
 
-    
 
         /**
          * 文档大小
          * <p> 示例值：1024
+         *
          * @param size
          * @return
          */
         public Builder size(String size) {
-             this.size = size;
-             return this;
+            this.size = size;
+            return this;
         }
 
-    
 
         /**
          * 更新时间
          * <p> 示例值：1649419092
+         *
          * @param lastOpTime
          * @return
          */
         public Builder lastOpTime(String lastOpTime) {
-             this.lastOpTime = lastOpTime;
-             return this;
+            this.lastOpTime = lastOpTime;
+            return this;
         }
 
-    
 
         /**
          * 文档状态
          * <p> 示例值：1
+         *
          * @param status
          * @return
          */
         public Builder status(String status) {
-             this.status = status;
-             return this;
+            this.status = status;
+            return this;
         }
+
         /**
          * 文档状态
          * <p> 示例值：1
+         *
          * @param status {@link com.lark.oapi.service.admin.v1.enums.FileStatusEnum}
          * @return
          */
         public Builder status(com.lark.oapi.service.admin.v1.enums.FileStatusEnum status) {
-             this.status = status.getValue();
-             return this;
+            this.status = status.getValue();
+            return this;
         }
 
-    
 
         /**
          * 文档token
          * <p> 示例值：doxbcOIyUhrRBWSKpBGfzefQgHe
+         *
          * @param token
          * @return
          */
         public Builder token(String token) {
-             this.token = token;
-             return this;
+            this.token = token;
+            return this;
         }
 
-    
-    
-    public File build(){
-        return new File(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public File build() {
+            return new File(this);
+        }
     }
 }

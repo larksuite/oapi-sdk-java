@@ -12,24 +12,29 @@
  */
 
 package com.lark.oapi.service.mail.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CreateUserMailboxMailContactRespBody {
-     /**
-      * 联系人实体
-      * <p> 示例值：
-      */
+    /**
+     * 联系人实体
+     * <p> 示例值：
+     */
     @SerializedName("mail_contact")
     private MailContact mailContact;
+
     public MailContact getMailContact() {
         return this.mailContact;
     }

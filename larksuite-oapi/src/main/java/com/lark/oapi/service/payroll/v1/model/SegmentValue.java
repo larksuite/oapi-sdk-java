@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.payroll.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.payroll.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,36 +20,71 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class SegmentValue {
-     /**
-      * 分段开始时间-毫秒级时间戳，[start_time, end_time] 是一个左闭右闭区间。
-      * <p> 示例值：7220356259681386540
-      */
+    /**
+     * 分段开始时间-毫秒级时间戳，[start_time, end_time] 是一个左闭右闭区间。
+     * <p> 示例值：7220356259681386540
+     */
     @SerializedName("start_time")
     private String startTime;
-     /**
-      * 分段结束时间-毫秒级时间戳，[start_time, end_time] 是一个左闭右闭区间。
-      * <p> 示例值：7220356259681386540
-      */
+    /**
+     * 分段结束时间-毫秒级时间戳，[start_time, end_time] 是一个左闭右闭区间。
+     * <p> 示例值：7220356259681386540
+     */
     @SerializedName("end_time")
     private String endTime;
-     /**
-      * 引用类型算薪项分段展示值
-      * <p> 示例值：
-      */
+    /**
+     * 引用类型算薪项分段展示值
+     * <p> 示例值：
+     */
     @SerializedName("reference_values")
     private I18nContent[] referenceValues;
-     /**
-      * 算薪项分段原始值
-      * <p> 示例值：10000
-      */
+    /**
+     * 算薪项分段原始值
+     * <p> 示例值：10000
+     */
     @SerializedName("original_value")
     private String originalValue;
+
+    // builder 开始
+    public SegmentValue() {
+    }
+
+    public SegmentValue(Builder builder) {
+        /**
+         * 分段开始时间-毫秒级时间戳，[start_time, end_time] 是一个左闭右闭区间。
+         * <p> 示例值：7220356259681386540
+         */
+        this.startTime = builder.startTime;
+        /**
+         * 分段结束时间-毫秒级时间戳，[start_time, end_time] 是一个左闭右闭区间。
+         * <p> 示例值：7220356259681386540
+         */
+        this.endTime = builder.endTime;
+        /**
+         * 引用类型算薪项分段展示值
+         * <p> 示例值：
+         */
+        this.referenceValues = builder.referenceValues;
+        /**
+         * 算薪项分段原始值
+         * <p> 示例值：10000
+         */
+        this.originalValue = builder.originalValue;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getStartTime() {
         return this.startTime;
     }
@@ -81,113 +117,82 @@ public class SegmentValue {
         this.originalValue = originalValue;
     }
 
-
-// builder 开始
-  public SegmentValue(){}
-
-  public SegmentValue(Builder builder){
-         /**
-          * 分段开始时间-毫秒级时间戳，[start_time, end_time] 是一个左闭右闭区间。
-          * <p> 示例值：7220356259681386540
-          */
-      this.startTime = builder.startTime;
-         /**
-          * 分段结束时间-毫秒级时间戳，[start_time, end_time] 是一个左闭右闭区间。
-          * <p> 示例值：7220356259681386540
-          */
-      this.endTime = builder.endTime;
-         /**
-          * 引用类型算薪项分段展示值
-          * <p> 示例值：
-          */
-      this.referenceValues = builder.referenceValues;
-         /**
-          * 算薪项分段原始值
-          * <p> 示例值：10000
-          */
-      this.originalValue = builder.originalValue;
-  }
-
     public static class Builder {
-     /**
-      * 分段开始时间-毫秒级时间戳，[start_time, end_time] 是一个左闭右闭区间。
-      * <p> 示例值：7220356259681386540
-      */
+        /**
+         * 分段开始时间-毫秒级时间戳，[start_time, end_time] 是一个左闭右闭区间。
+         * <p> 示例值：7220356259681386540
+         */
         private String startTime;
-     /**
-      * 分段结束时间-毫秒级时间戳，[start_time, end_time] 是一个左闭右闭区间。
-      * <p> 示例值：7220356259681386540
-      */
+        /**
+         * 分段结束时间-毫秒级时间戳，[start_time, end_time] 是一个左闭右闭区间。
+         * <p> 示例值：7220356259681386540
+         */
         private String endTime;
-     /**
-      * 引用类型算薪项分段展示值
-      * <p> 示例值：
-      */
+        /**
+         * 引用类型算薪项分段展示值
+         * <p> 示例值：
+         */
         private I18nContent[] referenceValues;
-     /**
-      * 算薪项分段原始值
-      * <p> 示例值：10000
-      */
+        /**
+         * 算薪项分段原始值
+         * <p> 示例值：10000
+         */
         private String originalValue;
 
         /**
          * 分段开始时间-毫秒级时间戳，[start_time, end_time] 是一个左闭右闭区间。
          * <p> 示例值：7220356259681386540
+         *
          * @param startTime
          * @return
          */
         public Builder startTime(String startTime) {
-             this.startTime = startTime;
-             return this;
+            this.startTime = startTime;
+            return this;
         }
 
-    
 
         /**
          * 分段结束时间-毫秒级时间戳，[start_time, end_time] 是一个左闭右闭区间。
          * <p> 示例值：7220356259681386540
+         *
          * @param endTime
          * @return
          */
         public Builder endTime(String endTime) {
-             this.endTime = endTime;
-             return this;
+            this.endTime = endTime;
+            return this;
         }
 
-    
 
         /**
          * 引用类型算薪项分段展示值
          * <p> 示例值：
+         *
          * @param referenceValues
          * @return
          */
         public Builder referenceValues(I18nContent[] referenceValues) {
-             this.referenceValues = referenceValues;
-             return this;
+            this.referenceValues = referenceValues;
+            return this;
         }
 
-    
 
         /**
          * 算薪项分段原始值
          * <p> 示例值：10000
+         *
          * @param originalValue
          * @return
          */
         public Builder originalValue(String originalValue) {
-             this.originalValue = originalValue;
-             return this;
+            this.originalValue = originalValue;
+            return this;
         }
 
-    
-    
-    public SegmentValue build(){
-        return new SegmentValue(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public SegmentValue build() {
+            return new SegmentValue(this);
+        }
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,60 +20,115 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class QualityNetwork {
-     /**
-      * 时间
-      * <p> 示例值：2022.12.23 11:16:00 (GMT+08:00)
-      */
+    /**
+     * 时间
+     * <p> 示例值：2022.12.23 11:16:00 (GMT+08:00)
+     */
     @SerializedName("time")
     private String time;
-     /**
-      * 网络延迟
-      * <p> 示例值：100ms
-      */
+    /**
+     * 网络延迟
+     * <p> 示例值：100ms
+     */
     @SerializedName("network_delay")
     private String networkDelay;
-     /**
-      * 码率（接收）
-      * <p> 示例值：8kbps
-      */
+    /**
+     * 码率（接收）
+     * <p> 示例值：8kbps
+     */
     @SerializedName("bitrate_received")
     private String bitrateReceived;
-     /**
-      * 丢包 - 平均（接收）
-      * <p> 示例值：8%
-      */
+    /**
+     * 丢包 - 平均（接收）
+     * <p> 示例值：8%
+     */
     @SerializedName("packet_loss_avg_received")
     private String packetLossAvgReceived;
-     /**
-      * 丢包 - 最大（接收）
-      * <p> 示例值：9%
-      */
+    /**
+     * 丢包 - 最大（接收）
+     * <p> 示例值：9%
+     */
     @SerializedName("packet_loss_max_received")
     private String packetLossMaxReceived;
-     /**
-      * 码率（发送）
-      * <p> 示例值：9kbps
-      */
+    /**
+     * 码率（发送）
+     * <p> 示例值：9kbps
+     */
     @SerializedName("bitrate_sent")
     private String bitrateSent;
-     /**
-      * 丢包 - 平均（发送）
-      * <p> 示例值：8%
-      */
+    /**
+     * 丢包 - 平均（发送）
+     * <p> 示例值：8%
+     */
     @SerializedName("packet_loss_avg_sent")
     private String packetLossAvgSent;
-     /**
-      * 丢包 - 最大（发送）
-      * <p> 示例值：10%
-      */
+    /**
+     * 丢包 - 最大（发送）
+     * <p> 示例值：10%
+     */
     @SerializedName("packet_loss_max_sent")
     private String packetLossMaxSent;
+
+    // builder 开始
+    public QualityNetwork() {
+    }
+
+    public QualityNetwork(Builder builder) {
+        /**
+         * 时间
+         * <p> 示例值：2022.12.23 11:16:00 (GMT+08:00)
+         */
+        this.time = builder.time;
+        /**
+         * 网络延迟
+         * <p> 示例值：100ms
+         */
+        this.networkDelay = builder.networkDelay;
+        /**
+         * 码率（接收）
+         * <p> 示例值：8kbps
+         */
+        this.bitrateReceived = builder.bitrateReceived;
+        /**
+         * 丢包 - 平均（接收）
+         * <p> 示例值：8%
+         */
+        this.packetLossAvgReceived = builder.packetLossAvgReceived;
+        /**
+         * 丢包 - 最大（接收）
+         * <p> 示例值：9%
+         */
+        this.packetLossMaxReceived = builder.packetLossMaxReceived;
+        /**
+         * 码率（发送）
+         * <p> 示例值：9kbps
+         */
+        this.bitrateSent = builder.bitrateSent;
+        /**
+         * 丢包 - 平均（发送）
+         * <p> 示例值：8%
+         */
+        this.packetLossAvgSent = builder.packetLossAvgSent;
+        /**
+         * 丢包 - 最大（发送）
+         * <p> 示例值：10%
+         */
+        this.packetLossMaxSent = builder.packetLossMaxSent;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getTime() {
         return this.time;
     }
@@ -137,205 +193,154 @@ public class QualityNetwork {
         this.packetLossMaxSent = packetLossMaxSent;
     }
 
-
-// builder 开始
-  public QualityNetwork(){}
-
-  public QualityNetwork(Builder builder){
-         /**
-          * 时间
-          * <p> 示例值：2022.12.23 11:16:00 (GMT+08:00)
-          */
-      this.time = builder.time;
-         /**
-          * 网络延迟
-          * <p> 示例值：100ms
-          */
-      this.networkDelay = builder.networkDelay;
-         /**
-          * 码率（接收）
-          * <p> 示例值：8kbps
-          */
-      this.bitrateReceived = builder.bitrateReceived;
-         /**
-          * 丢包 - 平均（接收）
-          * <p> 示例值：8%
-          */
-      this.packetLossAvgReceived = builder.packetLossAvgReceived;
-         /**
-          * 丢包 - 最大（接收）
-          * <p> 示例值：9%
-          */
-      this.packetLossMaxReceived = builder.packetLossMaxReceived;
-         /**
-          * 码率（发送）
-          * <p> 示例值：9kbps
-          */
-      this.bitrateSent = builder.bitrateSent;
-         /**
-          * 丢包 - 平均（发送）
-          * <p> 示例值：8%
-          */
-      this.packetLossAvgSent = builder.packetLossAvgSent;
-         /**
-          * 丢包 - 最大（发送）
-          * <p> 示例值：10%
-          */
-      this.packetLossMaxSent = builder.packetLossMaxSent;
-  }
-
     public static class Builder {
-     /**
-      * 时间
-      * <p> 示例值：2022.12.23 11:16:00 (GMT+08:00)
-      */
+        /**
+         * 时间
+         * <p> 示例值：2022.12.23 11:16:00 (GMT+08:00)
+         */
         private String time;
-     /**
-      * 网络延迟
-      * <p> 示例值：100ms
-      */
+        /**
+         * 网络延迟
+         * <p> 示例值：100ms
+         */
         private String networkDelay;
-     /**
-      * 码率（接收）
-      * <p> 示例值：8kbps
-      */
+        /**
+         * 码率（接收）
+         * <p> 示例值：8kbps
+         */
         private String bitrateReceived;
-     /**
-      * 丢包 - 平均（接收）
-      * <p> 示例值：8%
-      */
+        /**
+         * 丢包 - 平均（接收）
+         * <p> 示例值：8%
+         */
         private String packetLossAvgReceived;
-     /**
-      * 丢包 - 最大（接收）
-      * <p> 示例值：9%
-      */
+        /**
+         * 丢包 - 最大（接收）
+         * <p> 示例值：9%
+         */
         private String packetLossMaxReceived;
-     /**
-      * 码率（发送）
-      * <p> 示例值：9kbps
-      */
+        /**
+         * 码率（发送）
+         * <p> 示例值：9kbps
+         */
         private String bitrateSent;
-     /**
-      * 丢包 - 平均（发送）
-      * <p> 示例值：8%
-      */
+        /**
+         * 丢包 - 平均（发送）
+         * <p> 示例值：8%
+         */
         private String packetLossAvgSent;
-     /**
-      * 丢包 - 最大（发送）
-      * <p> 示例值：10%
-      */
+        /**
+         * 丢包 - 最大（发送）
+         * <p> 示例值：10%
+         */
         private String packetLossMaxSent;
 
         /**
          * 时间
          * <p> 示例值：2022.12.23 11:16:00 (GMT+08:00)
+         *
          * @param time
          * @return
          */
         public Builder time(String time) {
-             this.time = time;
-             return this;
+            this.time = time;
+            return this;
         }
 
-    
 
         /**
          * 网络延迟
          * <p> 示例值：100ms
+         *
          * @param networkDelay
          * @return
          */
         public Builder networkDelay(String networkDelay) {
-             this.networkDelay = networkDelay;
-             return this;
+            this.networkDelay = networkDelay;
+            return this;
         }
 
-    
 
         /**
          * 码率（接收）
          * <p> 示例值：8kbps
+         *
          * @param bitrateReceived
          * @return
          */
         public Builder bitrateReceived(String bitrateReceived) {
-             this.bitrateReceived = bitrateReceived;
-             return this;
+            this.bitrateReceived = bitrateReceived;
+            return this;
         }
 
-    
 
         /**
          * 丢包 - 平均（接收）
          * <p> 示例值：8%
+         *
          * @param packetLossAvgReceived
          * @return
          */
         public Builder packetLossAvgReceived(String packetLossAvgReceived) {
-             this.packetLossAvgReceived = packetLossAvgReceived;
-             return this;
+            this.packetLossAvgReceived = packetLossAvgReceived;
+            return this;
         }
 
-    
 
         /**
          * 丢包 - 最大（接收）
          * <p> 示例值：9%
+         *
          * @param packetLossMaxReceived
          * @return
          */
         public Builder packetLossMaxReceived(String packetLossMaxReceived) {
-             this.packetLossMaxReceived = packetLossMaxReceived;
-             return this;
+            this.packetLossMaxReceived = packetLossMaxReceived;
+            return this;
         }
 
-    
 
         /**
          * 码率（发送）
          * <p> 示例值：9kbps
+         *
          * @param bitrateSent
          * @return
          */
         public Builder bitrateSent(String bitrateSent) {
-             this.bitrateSent = bitrateSent;
-             return this;
+            this.bitrateSent = bitrateSent;
+            return this;
         }
 
-    
 
         /**
          * 丢包 - 平均（发送）
          * <p> 示例值：8%
+         *
          * @param packetLossAvgSent
          * @return
          */
         public Builder packetLossAvgSent(String packetLossAvgSent) {
-             this.packetLossAvgSent = packetLossAvgSent;
-             return this;
+            this.packetLossAvgSent = packetLossAvgSent;
+            return this;
         }
 
-    
 
         /**
          * 丢包 - 最大（发送）
          * <p> 示例值：10%
+         *
          * @param packetLossMaxSent
          * @return
          */
         public Builder packetLossMaxSent(String packetLossMaxSent) {
-             this.packetLossMaxSent = packetLossMaxSent;
-             return this;
+            this.packetLossMaxSent = packetLossMaxSent;
+            return this;
         }
 
-    
-    
-    public QualityNetwork build(){
-        return new QualityNetwork(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public QualityNetwork build() {
+            return new QualityNetwork(this);
+        }
     }
 }

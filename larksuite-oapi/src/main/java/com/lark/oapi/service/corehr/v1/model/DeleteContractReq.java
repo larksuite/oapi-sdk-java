@@ -12,25 +12,46 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class DeleteContractReq {
-     /**
-      * 需要删除的合同 ID
-      * <p> 示例值：4137834332
-      */
+    /**
+     * 需要删除的合同 ID
+     * <p> 示例值：4137834332
+     */
     @Path
     @SerializedName("contract_id")
     private String contractId;
+
+    // builder 开始
+    public DeleteContractReq() {
+    }
+
+    public DeleteContractReq(Builder builder) {
+        /**
+         * 需要删除的合同 ID
+         * <p> 示例值：4137834332
+         */
+        this.contractId = builder.contractId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getContractId() {
         return this.contractId;
     }
@@ -39,39 +60,25 @@ public class DeleteContractReq {
         this.contractId = contractId;
     }
 
-
-// builder 开始
-  public DeleteContractReq(){}
-
-  public DeleteContractReq(Builder builder){
-     /**
-      * 需要删除的合同 ID
-      * <p> 示例值：4137834332
-      */
-       this.contractId = builder.contractId;
-  }
-
     public static class Builder {
-    
+
         private String contractId; // 需要删除的合同 ID
+
         /**
          * 需要删除的合同 ID
          * <p> 示例值：4137834332
+         *
          * @param contractId
          * @return
          */
-          public Builder contractId(String contractId) {
-               this.contractId = contractId;
-               return this;
-          }
+        public Builder contractId(String contractId) {
+            this.contractId = contractId;
+            return this;
+        }
 
-    
-    public DeleteContractReq build(){
-        return new DeleteContractReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public DeleteContractReq build() {
+            return new DeleteContractReq(this);
+        }
     }
 }

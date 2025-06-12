@@ -12,25 +12,61 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class RevokeJobChangeReq {
-     /**
-      * 此次调用中使用的用户ID的类型
-      * <p> 示例值：open_id
-      */
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：open_id
+     */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
+    /**
+     * 异动id
+     * <p> 示例值：7402156992338658860
+     */
+    @Path
+    @SerializedName("job_change_id")
+    private String jobChangeId;
+    @Body
+    private RevokeJobChangeReqBody body;
+
+    // builder 开始
+    public RevokeJobChangeReq() {
+    }
+
+    public RevokeJobChangeReq(Builder builder) {
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：open_id
+         */
+        this.userIdType = builder.userIdType;
+        /**
+         * 异动id
+         * <p> 示例值：7402156992338658860
+         */
+        this.jobChangeId = builder.jobChangeId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getUserIdType() {
         return this.userIdType;
     }
@@ -39,13 +75,6 @@ public class RevokeJobChangeReq {
         this.userIdType = userIdType;
     }
 
-     /**
-      * 异动id
-      * <p> 示例值：7402156992338658860
-      */
-    @Path
-    @SerializedName("job_change_id")
-    private String jobChangeId;
     public String getJobChangeId() {
         return this.jobChangeId;
     }
@@ -53,9 +82,6 @@ public class RevokeJobChangeReq {
     public void setJobChangeId(String jobChangeId) {
         this.jobChangeId = jobChangeId;
     }
-
-    @Body
-    private RevokeJobChangeReqBody body;
 
     public RevokeJobChangeReqBody getRevokeJobChangeReqBody() {
         return this.body;
@@ -65,83 +91,64 @@ public class RevokeJobChangeReq {
         this.body = body;
     }
 
-// builder 开始
-  public RevokeJobChangeReq(){}
-
-  public RevokeJobChangeReq(Builder builder){
-         /**
-          * 此次调用中使用的用户ID的类型
-          * <p> 示例值：open_id
-          */
-       this.userIdType = builder.userIdType;
-     /**
-      * 异动id
-      * <p> 示例值：7402156992338658860
-      */
-       this.jobChangeId = builder.jobChangeId;
-        this.body = builder.body;
-  }
-
     public static class Builder {
         private String userIdType; // 此次调用中使用的用户ID的类型
-    
+        private String jobChangeId; // 异动id
+        private RevokeJobChangeReqBody body;
+
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：open_id
+         *
          * @param userIdType
          * @return
          */
-           public Builder userIdType(String userIdType) {
-                this.userIdType = userIdType;
-                return this;
-           }
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
 
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：open_id
+         *
          * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.RevokeJobChangeUserIdTypeEnum}
          * @return
          */
-          public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.RevokeJobChangeUserIdTypeEnum userIdType) {
-               this.userIdType = userIdType.getValue();
-               return this;
-          }
+        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.RevokeJobChangeUserIdTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
+            return this;
+        }
 
-    
-        private String jobChangeId; // 异动id
         /**
          * 异动id
          * <p> 示例值：7402156992338658860
+         *
          * @param jobChangeId
          * @return
          */
-          public Builder jobChangeId(String jobChangeId) {
-               this.jobChangeId = jobChangeId;
-               return this;
-          }
+        public Builder jobChangeId(String jobChangeId) {
+            this.jobChangeId = jobChangeId;
+            return this;
+        }
 
-    
-        private RevokeJobChangeReqBody body;
-    
         public RevokeJobChangeReqBody getRevokeJobChangeReqBody() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder revokeJobChangeReqBody(RevokeJobChangeReqBody body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public RevokeJobChangeReq build(){
-        return new RevokeJobChangeReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public RevokeJobChangeReq build() {
+            return new RevokeJobChangeReq(this);
+        }
     }
 }

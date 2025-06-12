@@ -12,25 +12,49 @@
  */
 
 package com.lark.oapi.service.im.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class PatchTagReq {
-     /**
-      * tagid
-      * <p> 示例值：716168xxxxx
-      */
+    /**
+     * tagid
+     * <p> 示例值：716168xxxxx
+     */
     @Path
     @SerializedName("tag_id")
     private String tagId;
+    @Body
+    private PatchTagReqBody body;
+
+    // builder 开始
+    public PatchTagReq() {
+    }
+
+    public PatchTagReq(Builder builder) {
+        /**
+         * tagid
+         * <p> 示例值：716168xxxxx
+         */
+        this.tagId = builder.tagId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getTagId() {
         return this.tagId;
     }
@@ -38,9 +62,6 @@ public class PatchTagReq {
     public void setTagId(String tagId) {
         this.tagId = tagId;
     }
-
-    @Body
-    private PatchTagReqBody body;
 
     public PatchTagReqBody getPatchTagReqBody() {
         return this.body;
@@ -50,54 +71,40 @@ public class PatchTagReq {
         this.body = body;
     }
 
-// builder 开始
-  public PatchTagReq(){}
-
-  public PatchTagReq(Builder builder){
-     /**
-      * tagid
-      * <p> 示例值：716168xxxxx
-      */
-       this.tagId = builder.tagId;
-        this.body = builder.body;
-  }
-
     public static class Builder {
-    
+
         private String tagId; // tagid
+        private PatchTagReqBody body;
+
         /**
          * tagid
          * <p> 示例值：716168xxxxx
+         *
          * @param tagId
          * @return
          */
-          public Builder tagId(String tagId) {
-               this.tagId = tagId;
-               return this;
-          }
+        public Builder tagId(String tagId) {
+            this.tagId = tagId;
+            return this;
+        }
 
-    
-        private PatchTagReqBody body;
-    
         public PatchTagReqBody getPatchTagReqBody() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder patchTagReqBody(PatchTagReqBody body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public PatchTagReq build(){
-        return new PatchTagReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public PatchTagReq build() {
+            return new PatchTagReq(this);
+        }
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.acs.v1.resource;
+
 import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.Transport;
 import com.lark.oapi.core.response.RawResponse;
@@ -20,12 +21,16 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import java.nio.charset.StandardCharsets;
 
 import com.lark.oapi.core.Config;
 import com.lark.oapi.core.request.RequestOptions;
+
 import java.io.ByteArrayOutputStream;
+
 import com.lark.oapi.service.acs.v1.model.*;
+
 import java.io.*;
 import java.util.Map;
 import java.util.HashMap;
@@ -41,13 +46,13 @@ public class Device {
         this.config = config;
     }
 
-    
+
     /**
      * 获取门禁设备列表，使用该接口获取租户内所有门禁设备。
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/device/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/device/list</a> ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/ListDeviceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/ListDeviceSample.java</a> ;
      */
-    public ListDeviceResp list( RequestOptions reqOptions) throws Exception {
+    public ListDeviceResp list(RequestOptions reqOptions) throws Exception {
         // 请求参数选项
         if (reqOptions == null) {
             reqOptions = new RequestOptions();
@@ -58,21 +63,21 @@ public class Device {
                 , "/open-apis/acs/v1/devices"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , null);
-        
+
         // 反序列化
         ListDeviceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListDeviceResp.class);
         if (resp == null) {
             log.error(String.format(
                     "%s,callError,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/acs/v1/devices"
-                    ,  Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                    , Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
-            
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+                            StandardCharsets.UTF_8)));
 
-       resp.setRawResponse(httpResponse);
-       return resp;
+            throw new IllegalArgumentException("The result returned by the server is illegal");
+        }
+
+        resp.setRawResponse(httpResponse);
+        return resp;
     }
 
     /**
@@ -89,18 +94,18 @@ public class Device {
                 , "/open-apis/acs/v1/devices"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , null);
-        
+
         // 反序列化
         ListDeviceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListDeviceResp.class);
         if (resp == null) {
             log.error(String.format(
                     "%s,callError,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/acs/v1/devices"
-                    ,  Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                    , Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                    StandardCharsets.UTF_8)));
-            
+                            StandardCharsets.UTF_8)));
+
             throw new IllegalArgumentException("The result returned by the server is illegal");
-       }
+        }
 
         resp.setRawResponse(httpResponse);
         return resp;

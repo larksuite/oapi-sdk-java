@@ -17,15 +17,16 @@ package com.lark.oapi.service.board.v1.enums;
  * 文字字重
  */
 public enum TextFontWeightEnum {
-     REGULAR("regular"), // 常规
-     BOLD("bold"), // 加粗
-  ;
-   private String value;
+    REGULAR("regular"), // 常规
+    BOLD("bold"), // 加粗
+    ;
+    private String value;
+
     TextFontWeightEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

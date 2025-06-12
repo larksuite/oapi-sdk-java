@@ -12,30 +12,56 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Site {
-     /**
-      * 官网id
-      * <p> 示例值：
-      */
+    /**
+     * 官网id
+     * <p> 示例值：
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 官网名称
-      * <p> 示例值：
-      */
+    /**
+     * 官网名称
+     * <p> 示例值：
+     */
     @SerializedName("name")
     private SiteName name;
+
+    // builder 开始
+    public Site() {
+    }
+
+    public Site(Builder builder) {
+        /**
+         * 官网id
+         * <p> 示例值：
+         */
+        this.id = builder.id;
+        /**
+         * 官网名称
+         * <p> 示例值：
+         */
+        this.name = builder.name;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -52,67 +78,46 @@ public class Site {
         this.name = name;
     }
 
-
-// builder 开始
-  public Site(){}
-
-  public Site(Builder builder){
-         /**
-          * 官网id
-          * <p> 示例值：
-          */
-      this.id = builder.id;
-         /**
-          * 官网名称
-          * <p> 示例值：
-          */
-      this.name = builder.name;
-  }
-
     public static class Builder {
-     /**
-      * 官网id
-      * <p> 示例值：
-      */
+        /**
+         * 官网id
+         * <p> 示例值：
+         */
         private String id;
-     /**
-      * 官网名称
-      * <p> 示例值：
-      */
+        /**
+         * 官网名称
+         * <p> 示例值：
+         */
         private SiteName name;
 
         /**
          * 官网id
          * <p> 示例值：
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 官网名称
          * <p> 示例值：
+         *
          * @param name
          * @return
          */
         public Builder name(SiteName name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
-    
-    public Site build(){
-        return new Site(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Site build() {
+            return new Site(this);
+        }
     }
 }

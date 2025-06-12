@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.security_and_compliance.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.security_and_compliance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class AuditWebContext {
-     /**
-      * UA信息
-      * <p> 示例值：Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36
-      */
+    /**
+     * UA信息
+     * <p> 示例值：Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36
+     */
     @SerializedName("user_agent")
     private String userAgent;
-     /**
-      * 本机IP
-      * <p> 示例值：1.1.1.1
-      */
+    /**
+     * 本机IP
+     * <p> 示例值：1.1.1.1
+     */
     @SerializedName("IP")
     private String iP;
+
+    // builder 开始
+    public AuditWebContext() {
+    }
+
+    public AuditWebContext(Builder builder) {
+        /**
+         * UA信息
+         * <p> 示例值：Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36
+         */
+        this.userAgent = builder.userAgent;
+        /**
+         * 本机IP
+         * <p> 示例值：1.1.1.1
+         */
+        this.iP = builder.iP;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getUserAgent() {
         return this.userAgent;
     }
@@ -53,67 +79,46 @@ public class AuditWebContext {
         this.iP = iP;
     }
 
-
-// builder 开始
-  public AuditWebContext(){}
-
-  public AuditWebContext(Builder builder){
-         /**
-          * UA信息
-          * <p> 示例值：Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36
-          */
-      this.userAgent = builder.userAgent;
-         /**
-          * 本机IP
-          * <p> 示例值：1.1.1.1
-          */
-      this.iP = builder.iP;
-  }
-
     public static class Builder {
-     /**
-      * UA信息
-      * <p> 示例值：Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36
-      */
+        /**
+         * UA信息
+         * <p> 示例值：Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36
+         */
         private String userAgent;
-     /**
-      * 本机IP
-      * <p> 示例值：1.1.1.1
-      */
+        /**
+         * 本机IP
+         * <p> 示例值：1.1.1.1
+         */
         private String iP;
 
         /**
          * UA信息
          * <p> 示例值：Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36
+         *
          * @param userAgent
          * @return
          */
         public Builder userAgent(String userAgent) {
-             this.userAgent = userAgent;
-             return this;
+            this.userAgent = userAgent;
+            return this;
         }
 
-    
 
         /**
          * 本机IP
          * <p> 示例值：1.1.1.1
+         *
          * @param iP
          * @return
          */
         public Builder iP(String iP) {
-             this.iP = iP;
-             return this;
+            this.iP = iP;
+            return this;
         }
 
-    
-    
-    public AuditWebContext build(){
-        return new AuditWebContext(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public AuditWebContext build() {
+            return new AuditWebContext(this);
+        }
     }
 }

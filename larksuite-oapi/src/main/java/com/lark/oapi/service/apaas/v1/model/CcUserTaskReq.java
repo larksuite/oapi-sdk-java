@@ -12,25 +12,49 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CcUserTaskReq {
-     /**
-      * 任务ID
-      * <p> 示例值：1234
-      */
+    /**
+     * 任务ID
+     * <p> 示例值：1234
+     */
     @Path
     @SerializedName("task_id")
     private String taskId;
+    @Body
+    private CcUserTaskReqBody body;
+
+    // builder 开始
+    public CcUserTaskReq() {
+    }
+
+    public CcUserTaskReq(Builder builder) {
+        /**
+         * 任务ID
+         * <p> 示例值：1234
+         */
+        this.taskId = builder.taskId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getTaskId() {
         return this.taskId;
     }
@@ -38,9 +62,6 @@ public class CcUserTaskReq {
     public void setTaskId(String taskId) {
         this.taskId = taskId;
     }
-
-    @Body
-    private CcUserTaskReqBody body;
 
     public CcUserTaskReqBody getCcUserTaskReqBody() {
         return this.body;
@@ -50,54 +71,40 @@ public class CcUserTaskReq {
         this.body = body;
     }
 
-// builder 开始
-  public CcUserTaskReq(){}
-
-  public CcUserTaskReq(Builder builder){
-     /**
-      * 任务ID
-      * <p> 示例值：1234
-      */
-       this.taskId = builder.taskId;
-        this.body = builder.body;
-  }
-
     public static class Builder {
-    
+
         private String taskId; // 任务ID
+        private CcUserTaskReqBody body;
+
         /**
          * 任务ID
          * <p> 示例值：1234
+         *
          * @param taskId
          * @return
          */
-          public Builder taskId(String taskId) {
-               this.taskId = taskId;
-               return this;
-          }
+        public Builder taskId(String taskId) {
+            this.taskId = taskId;
+            return this;
+        }
 
-    
-        private CcUserTaskReqBody body;
-    
         public CcUserTaskReqBody getCcUserTaskReqBody() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder ccUserTaskReqBody(CcUserTaskReqBody body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public CcUserTaskReq build(){
-        return new CcUserTaskReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public CcUserTaskReq build() {
+            return new CcUserTaskReq(this);
+        }
     }
 }

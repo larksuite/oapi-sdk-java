@@ -12,42 +12,78 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class InternOfferStatus {
-     /**
-      * Offer ID
-      * <p> 示例值：6949805467799537964
-      */
+    /**
+     * Offer ID
+     * <p> 示例值：6949805467799537964
+     */
     @SerializedName("offer_id")
     private String offerId;
-     /**
-      * 更新入/离职状态的操作
-      * <p> 示例值：confirm_onboarding
-      */
+    /**
+     * 更新入/离职状态的操作
+     * <p> 示例值：confirm_onboarding
+     */
     @SerializedName("operation")
     private String operation;
-     /**
-      * 入职表单信息（当 operation 为 confirm_onboarding 时，该字段必填）
-      * <p> 示例值：
-      */
+    /**
+     * 入职表单信息（当 operation 为 confirm_onboarding 时，该字段必填）
+     * <p> 示例值：
+     */
     @SerializedName("onboarding_info")
     private InternOfferOnboardingInfo onboardingInfo;
-     /**
-      * 离职表单信息（当 operation 为 offboard 时，该字段必填）
-      * <p> 示例值：
-      */
+    /**
+     * 离职表单信息（当 operation 为 offboard 时，该字段必填）
+     * <p> 示例值：
+     */
     @SerializedName("offboarding_info")
     private InternOfferOffboardingInfo offboardingInfo;
+
+    // builder 开始
+    public InternOfferStatus() {
+    }
+
+    public InternOfferStatus(Builder builder) {
+        /**
+         * Offer ID
+         * <p> 示例值：6949805467799537964
+         */
+        this.offerId = builder.offerId;
+        /**
+         * 更新入/离职状态的操作
+         * <p> 示例值：confirm_onboarding
+         */
+        this.operation = builder.operation;
+        /**
+         * 入职表单信息（当 operation 为 confirm_onboarding 时，该字段必填）
+         * <p> 示例值：
+         */
+        this.onboardingInfo = builder.onboardingInfo;
+        /**
+         * 离职表单信息（当 operation 为 offboard 时，该字段必填）
+         * <p> 示例值：
+         */
+        this.offboardingInfo = builder.offboardingInfo;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getOfferId() {
         return this.offerId;
     }
@@ -80,113 +116,82 @@ public class InternOfferStatus {
         this.offboardingInfo = offboardingInfo;
     }
 
-
-// builder 开始
-  public InternOfferStatus(){}
-
-  public InternOfferStatus(Builder builder){
-         /**
-          * Offer ID
-          * <p> 示例值：6949805467799537964
-          */
-      this.offerId = builder.offerId;
-         /**
-          * 更新入/离职状态的操作
-          * <p> 示例值：confirm_onboarding
-          */
-      this.operation = builder.operation;
-         /**
-          * 入职表单信息（当 operation 为 confirm_onboarding 时，该字段必填）
-          * <p> 示例值：
-          */
-      this.onboardingInfo = builder.onboardingInfo;
-         /**
-          * 离职表单信息（当 operation 为 offboard 时，该字段必填）
-          * <p> 示例值：
-          */
-      this.offboardingInfo = builder.offboardingInfo;
-  }
-
     public static class Builder {
-     /**
-      * Offer ID
-      * <p> 示例值：6949805467799537964
-      */
+        /**
+         * Offer ID
+         * <p> 示例值：6949805467799537964
+         */
         private String offerId;
-     /**
-      * 更新入/离职状态的操作
-      * <p> 示例值：confirm_onboarding
-      */
+        /**
+         * 更新入/离职状态的操作
+         * <p> 示例值：confirm_onboarding
+         */
         private String operation;
-     /**
-      * 入职表单信息（当 operation 为 confirm_onboarding 时，该字段必填）
-      * <p> 示例值：
-      */
+        /**
+         * 入职表单信息（当 operation 为 confirm_onboarding 时，该字段必填）
+         * <p> 示例值：
+         */
         private InternOfferOnboardingInfo onboardingInfo;
-     /**
-      * 离职表单信息（当 operation 为 offboard 时，该字段必填）
-      * <p> 示例值：
-      */
+        /**
+         * 离职表单信息（当 operation 为 offboard 时，该字段必填）
+         * <p> 示例值：
+         */
         private InternOfferOffboardingInfo offboardingInfo;
 
         /**
          * Offer ID
          * <p> 示例值：6949805467799537964
+         *
          * @param offerId
          * @return
          */
         public Builder offerId(String offerId) {
-             this.offerId = offerId;
-             return this;
+            this.offerId = offerId;
+            return this;
         }
 
-    
 
         /**
          * 更新入/离职状态的操作
          * <p> 示例值：confirm_onboarding
+         *
          * @param operation
          * @return
          */
         public Builder operation(String operation) {
-             this.operation = operation;
-             return this;
+            this.operation = operation;
+            return this;
         }
 
-    
 
         /**
          * 入职表单信息（当 operation 为 confirm_onboarding 时，该字段必填）
          * <p> 示例值：
+         *
          * @param onboardingInfo
          * @return
          */
         public Builder onboardingInfo(InternOfferOnboardingInfo onboardingInfo) {
-             this.onboardingInfo = onboardingInfo;
-             return this;
+            this.onboardingInfo = onboardingInfo;
+            return this;
         }
 
-    
 
         /**
          * 离职表单信息（当 operation 为 offboard 时，该字段必填）
          * <p> 示例值：
+         *
          * @param offboardingInfo
          * @return
          */
         public Builder offboardingInfo(InternOfferOffboardingInfo offboardingInfo) {
-             this.offboardingInfo = offboardingInfo;
-             return this;
+            this.offboardingInfo = offboardingInfo;
+            return this;
         }
 
-    
-    
-    public InternOfferStatus build(){
-        return new InternOfferStatus(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public InternOfferStatus build() {
+            return new InternOfferStatus(this);
+        }
     }
 }

@@ -12,39 +12,70 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class GetScopeConfigReq {
-     /**
-      * 查询节点范围
-      * <p> 示例值：1
-      */
+    /**
+     * 查询节点范围
+     * <p> 示例值：1
+     */
     @Query
     @SerializedName("scope_type")
     private Integer scopeType;
-     /**
-      * 查询节点ID：如果scope_type为1，则为层级ID，如果scope_type为2，则为会议室ID
-      * <p> 示例值：omm_608d34d82d531b27fa993902d350a307
-      */
+    /**
+     * 查询节点ID：如果scope_type为1，则为层级ID，如果scope_type为2，则为会议室ID
+     * <p> 示例值：omm_608d34d82d531b27fa993902d350a307
+     */
     @Query
     @SerializedName("scope_id")
     private String scopeId;
-     /**
-      * 此次调用中使用的用户ID的类型，默认使用open_id可不填
-      * <p> 示例值：
-      */
+    /**
+     * 此次调用中使用的用户ID的类型，默认使用open_id可不填
+     * <p> 示例值：
+     */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
+
+    // builder 开始
+    public GetScopeConfigReq() {
+    }
+
+    public GetScopeConfigReq(Builder builder) {
+        /**
+         * 查询节点范围
+         * <p> 示例值：1
+         */
+        this.scopeType = builder.scopeType;
+        /**
+         * 查询节点ID：如果scope_type为1，则为层级ID，如果scope_type为2，则为会议室ID
+         * <p> 示例值：omm_608d34d82d531b27fa993902d350a307
+         */
+        this.scopeId = builder.scopeId;
+        /**
+         * 此次调用中使用的用户ID的类型，默认使用open_id可不填
+         * <p> 示例值：
+         */
+        this.userIdType = builder.userIdType;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Integer getScopeType() {
         return this.scopeType;
     }
@@ -69,97 +100,76 @@ public class GetScopeConfigReq {
         this.userIdType = userIdType;
     }
 
-
-// builder 开始
-  public GetScopeConfigReq(){}
-
-  public GetScopeConfigReq(Builder builder){
-         /**
-          * 查询节点范围
-          * <p> 示例值：1
-          */
-       this.scopeType = builder.scopeType;
-         /**
-          * 查询节点ID：如果scope_type为1，则为层级ID，如果scope_type为2，则为会议室ID
-          * <p> 示例值：omm_608d34d82d531b27fa993902d350a307
-          */
-       this.scopeId = builder.scopeId;
-         /**
-          * 此次调用中使用的用户ID的类型，默认使用open_id可不填
-          * <p> 示例值：
-          */
-       this.userIdType = builder.userIdType;
-  }
-
     public static class Builder {
         private Integer scopeType; // 查询节点范围
         private String scopeId; // 查询节点ID：如果scope_type为1，则为层级ID，如果scope_type为2，则为会议室ID
         private String userIdType; // 此次调用中使用的用户ID的类型，默认使用open_id可不填
-    
+
         /**
          * 查询节点范围
          * <p> 示例值：1
+         *
          * @param scopeType
          * @return
          */
-           public Builder scopeType(Integer scopeType) {
-                this.scopeType = scopeType;
-                return this;
-           }
+        public Builder scopeType(Integer scopeType) {
+            this.scopeType = scopeType;
+            return this;
+        }
 
         /**
          * 查询节点范围
          * <p> 示例值：1
+         *
          * @param scopeType {@link com.lark.oapi.service.vc.v1.enums.GetScopeConfigScopeTypeEnum}
          * @return
          */
-          public Builder scopeType(com.lark.oapi.service.vc.v1.enums.GetScopeConfigScopeTypeEnum scopeType) {
-               this.scopeType = scopeType.getValue();
-               return this;
-          }
+        public Builder scopeType(com.lark.oapi.service.vc.v1.enums.GetScopeConfigScopeTypeEnum scopeType) {
+            this.scopeType = scopeType.getValue();
+            return this;
+        }
 
-    
+
         /**
          * 查询节点ID：如果scope_type为1，则为层级ID，如果scope_type为2，则为会议室ID
          * <p> 示例值：omm_608d34d82d531b27fa993902d350a307
+         *
          * @param scopeId
          * @return
          */
-           public Builder scopeId(String scopeId) {
-                this.scopeId = scopeId;
-                return this;
-           }
+        public Builder scopeId(String scopeId) {
+            this.scopeId = scopeId;
+            return this;
+        }
 
-    
+
         /**
          * 此次调用中使用的用户ID的类型，默认使用open_id可不填
          * <p> 示例值：
+         *
          * @param userIdType
          * @return
          */
-           public Builder userIdType(String userIdType) {
-                this.userIdType = userIdType;
-                return this;
-           }
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
 
         /**
          * 此次调用中使用的用户ID的类型，默认使用open_id可不填
          * <p> 示例值：
+         *
          * @param userIdType {@link com.lark.oapi.service.vc.v1.enums.GetScopeConfigUserIdTypeEnum}
          * @return
          */
-          public Builder userIdType(com.lark.oapi.service.vc.v1.enums.GetScopeConfigUserIdTypeEnum userIdType) {
-               this.userIdType = userIdType.getValue();
-               return this;
-          }
+        public Builder userIdType(com.lark.oapi.service.vc.v1.enums.GetScopeConfigUserIdTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
+            return this;
+        }
 
-    
-    public GetScopeConfigReq build(){
-        return new GetScopeConfigReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public GetScopeConfigReq build() {
+            return new GetScopeConfigReq(this);
+        }
     }
 }

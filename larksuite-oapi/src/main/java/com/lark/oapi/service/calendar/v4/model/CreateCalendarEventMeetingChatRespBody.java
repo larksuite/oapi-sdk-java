@@ -12,30 +12,35 @@
  */
 
 package com.lark.oapi.service.calendar.v4.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CreateCalendarEventMeetingChatRespBody {
-     /**
-      * 会议群ID
-      * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
-      */
+    /**
+     * 会议群ID
+     * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
+     */
     @SerializedName("meeting_chat_id")
     private String meetingChatId;
-     /**
-      * 群分享链接
-      * <p> 示例值：https://applink.feishu.cn/client/chat/open?openChatId=oc_a0553eda9014c201e6969b478895c230
-      */
+    /**
+     * 群分享链接
+     * <p> 示例值：https://applink.feishu.cn/client/chat/open?openChatId=oc_a0553eda9014c201e6969b478895c230
+     */
     @SerializedName("applink")
     private String applink;
+
     public String getMeetingChatId() {
         return this.meetingChatId;
     }

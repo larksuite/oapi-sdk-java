@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,42 +20,82 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ParticipantQuality {
-     /**
-      * 网络
-      * <p> 示例值：
-      */
+    /**
+     * 网络
+     * <p> 示例值：
+     */
     @SerializedName("network")
     private QualityNetwork network;
-     /**
-      * 音频
-      * <p> 示例值：
-      */
+    /**
+     * 音频
+     * <p> 示例值：
+     */
     @SerializedName("audio")
     private QualityAudio audio;
-     /**
-      * 视频
-      * <p> 示例值：
-      */
+    /**
+     * 视频
+     * <p> 示例值：
+     */
     @SerializedName("video")
     private QualityVideoSharing video;
-     /**
-      * 共享屏幕
-      * <p> 示例值：
-      */
+    /**
+     * 共享屏幕
+     * <p> 示例值：
+     */
     @SerializedName("screen_sharing")
     private QualityVideoSharing screenSharing;
-     /**
-      * Cpu使用量
-      * <p> 示例值：
-      */
+    /**
+     * Cpu使用量
+     * <p> 示例值：
+     */
     @SerializedName("cpu_usage")
     private QualityCpuUsage cpuUsage;
+
+    // builder 开始
+    public ParticipantQuality() {
+    }
+
+    public ParticipantQuality(Builder builder) {
+        /**
+         * 网络
+         * <p> 示例值：
+         */
+        this.network = builder.network;
+        /**
+         * 音频
+         * <p> 示例值：
+         */
+        this.audio = builder.audio;
+        /**
+         * 视频
+         * <p> 示例值：
+         */
+        this.video = builder.video;
+        /**
+         * 共享屏幕
+         * <p> 示例值：
+         */
+        this.screenSharing = builder.screenSharing;
+        /**
+         * Cpu使用量
+         * <p> 示例值：
+         */
+        this.cpuUsage = builder.cpuUsage;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public QualityNetwork getNetwork() {
         return this.network;
     }
@@ -95,136 +136,100 @@ public class ParticipantQuality {
         this.cpuUsage = cpuUsage;
     }
 
-
-// builder 开始
-  public ParticipantQuality(){}
-
-  public ParticipantQuality(Builder builder){
-         /**
-          * 网络
-          * <p> 示例值：
-          */
-      this.network = builder.network;
-         /**
-          * 音频
-          * <p> 示例值：
-          */
-      this.audio = builder.audio;
-         /**
-          * 视频
-          * <p> 示例值：
-          */
-      this.video = builder.video;
-         /**
-          * 共享屏幕
-          * <p> 示例值：
-          */
-      this.screenSharing = builder.screenSharing;
-         /**
-          * Cpu使用量
-          * <p> 示例值：
-          */
-      this.cpuUsage = builder.cpuUsage;
-  }
-
     public static class Builder {
-     /**
-      * 网络
-      * <p> 示例值：
-      */
+        /**
+         * 网络
+         * <p> 示例值：
+         */
         private QualityNetwork network;
-     /**
-      * 音频
-      * <p> 示例值：
-      */
+        /**
+         * 音频
+         * <p> 示例值：
+         */
         private QualityAudio audio;
-     /**
-      * 视频
-      * <p> 示例值：
-      */
+        /**
+         * 视频
+         * <p> 示例值：
+         */
         private QualityVideoSharing video;
-     /**
-      * 共享屏幕
-      * <p> 示例值：
-      */
+        /**
+         * 共享屏幕
+         * <p> 示例值：
+         */
         private QualityVideoSharing screenSharing;
-     /**
-      * Cpu使用量
-      * <p> 示例值：
-      */
+        /**
+         * Cpu使用量
+         * <p> 示例值：
+         */
         private QualityCpuUsage cpuUsage;
 
         /**
          * 网络
          * <p> 示例值：
+         *
          * @param network
          * @return
          */
         public Builder network(QualityNetwork network) {
-             this.network = network;
-             return this;
+            this.network = network;
+            return this;
         }
 
-    
 
         /**
          * 音频
          * <p> 示例值：
+         *
          * @param audio
          * @return
          */
         public Builder audio(QualityAudio audio) {
-             this.audio = audio;
-             return this;
+            this.audio = audio;
+            return this;
         }
 
-    
 
         /**
          * 视频
          * <p> 示例值：
+         *
          * @param video
          * @return
          */
         public Builder video(QualityVideoSharing video) {
-             this.video = video;
-             return this;
+            this.video = video;
+            return this;
         }
 
-    
 
         /**
          * 共享屏幕
          * <p> 示例值：
+         *
          * @param screenSharing
          * @return
          */
         public Builder screenSharing(QualityVideoSharing screenSharing) {
-             this.screenSharing = screenSharing;
-             return this;
+            this.screenSharing = screenSharing;
+            return this;
         }
 
-    
 
         /**
          * Cpu使用量
          * <p> 示例值：
+         *
          * @param cpuUsage
          * @return
          */
         public Builder cpuUsage(QualityCpuUsage cpuUsage) {
-             this.cpuUsage = cpuUsage;
-             return this;
+            this.cpuUsage = cpuUsage;
+            return this;
         }
 
-    
-    
-    public ParticipantQuality build(){
-        return new ParticipantQuality(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ParticipantQuality build() {
+            return new ParticipantQuality(this);
+        }
     }
 }

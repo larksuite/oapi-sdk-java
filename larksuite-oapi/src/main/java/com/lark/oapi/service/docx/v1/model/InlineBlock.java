@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.docx.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.docx.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class InlineBlock {
-     /**
-      * 关联的内联状态的 block 的 block_id
-      * <p> 示例值：doxcnPFi0R56ctbvh2MjkkROFWf
-      */
+    /**
+     * 关联的内联状态的 block 的 block_id
+     * <p> 示例值：doxcnPFi0R56ctbvh2MjkkROFWf
+     */
     @SerializedName("block_id")
     private String blockId;
-     /**
-      * 文本局部样式
-      * <p> 示例值：
-      */
+    /**
+     * 文本局部样式
+     * <p> 示例值：
+     */
     @SerializedName("text_element_style")
     private TextElementStyle textElementStyle;
+
+    // builder 开始
+    public InlineBlock() {
+    }
+
+    public InlineBlock(Builder builder) {
+        /**
+         * 关联的内联状态的 block 的 block_id
+         * <p> 示例值：doxcnPFi0R56ctbvh2MjkkROFWf
+         */
+        this.blockId = builder.blockId;
+        /**
+         * 文本局部样式
+         * <p> 示例值：
+         */
+        this.textElementStyle = builder.textElementStyle;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getBlockId() {
         return this.blockId;
     }
@@ -53,67 +79,46 @@ public class InlineBlock {
         this.textElementStyle = textElementStyle;
     }
 
-
-// builder 开始
-  public InlineBlock(){}
-
-  public InlineBlock(Builder builder){
-         /**
-          * 关联的内联状态的 block 的 block_id
-          * <p> 示例值：doxcnPFi0R56ctbvh2MjkkROFWf
-          */
-      this.blockId = builder.blockId;
-         /**
-          * 文本局部样式
-          * <p> 示例值：
-          */
-      this.textElementStyle = builder.textElementStyle;
-  }
-
     public static class Builder {
-     /**
-      * 关联的内联状态的 block 的 block_id
-      * <p> 示例值：doxcnPFi0R56ctbvh2MjkkROFWf
-      */
+        /**
+         * 关联的内联状态的 block 的 block_id
+         * <p> 示例值：doxcnPFi0R56ctbvh2MjkkROFWf
+         */
         private String blockId;
-     /**
-      * 文本局部样式
-      * <p> 示例值：
-      */
+        /**
+         * 文本局部样式
+         * <p> 示例值：
+         */
         private TextElementStyle textElementStyle;
 
         /**
          * 关联的内联状态的 block 的 block_id
          * <p> 示例值：doxcnPFi0R56ctbvh2MjkkROFWf
+         *
          * @param blockId
          * @return
          */
         public Builder blockId(String blockId) {
-             this.blockId = blockId;
-             return this;
+            this.blockId = blockId;
+            return this;
         }
 
-    
 
         /**
          * 文本局部样式
          * <p> 示例值：
+         *
          * @param textElementStyle
          * @return
          */
         public Builder textElementStyle(TextElementStyle textElementStyle) {
-             this.textElementStyle = textElementStyle;
-             return this;
+            this.textElementStyle = textElementStyle;
+            return this;
         }
 
-    
-    
-    public InlineBlock build(){
-        return new InlineBlock(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public InlineBlock build() {
+            return new InlineBlock(this);
+        }
     }
 }

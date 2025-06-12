@@ -17,17 +17,19 @@ import com.lark.oapi.core.Config;
 import com.lark.oapi.service.cardkit.v1.resource.*;
 
 public class V1 {
-	private final Card card; // card
-	private final CardElement cardElement; // card.element
+    private final Card card; // card
+    private final CardElement cardElement; // card.element
 
-	public V1(Config config) {
-		this.card = new Card(config);
-		this.cardElement = new CardElement(config);
-	}
-	public Card card() {
-		return card;
-	}
-	public CardElement cardElement() {
-		return cardElement;
-	}
+    public V1(Config config) {
+        this.card = new Card(config);
+        this.cardElement = new CardElement(config);
+    }
+
+    public Card card() {
+        return card;
+    }
+
+    public CardElement cardElement() {
+        return cardElement;
+    }
 }

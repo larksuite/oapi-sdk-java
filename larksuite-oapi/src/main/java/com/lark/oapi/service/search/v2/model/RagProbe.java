@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.search.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.search.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class RagProbe {
-     /**
-      * 是否命中了权威小库
-      * <p> 示例值：false
-      */
+    /**
+     * 是否命中了权威小库
+     * <p> 示例值：false
+     */
     @SerializedName("hit_authority")
     private Boolean hitAuthority;
-     /**
-      * 是否命中了低置信度提示
-      * <p> 示例值：false
-      */
+    /**
+     * 是否命中了低置信度提示
+     * <p> 示例值：false
+     */
     @SerializedName("hit_confidence_warn")
     private Boolean hitConfidenceWarn;
-     /**
-      * 是否命中了模型拒答
-      * <p> 示例值：1
-      */
+    /**
+     * 是否命中了模型拒答
+     * <p> 示例值：1
+     */
     @SerializedName("hit_llm_reject")
     private Boolean hitLlmReject;
+
+    // builder 开始
+    public RagProbe() {
+    }
+
+    public RagProbe(Builder builder) {
+        /**
+         * 是否命中了权威小库
+         * <p> 示例值：false
+         */
+        this.hitAuthority = builder.hitAuthority;
+        /**
+         * 是否命中了低置信度提示
+         * <p> 示例值：false
+         */
+        this.hitConfidenceWarn = builder.hitConfidenceWarn;
+        /**
+         * 是否命中了模型拒答
+         * <p> 示例值：1
+         */
+        this.hitLlmReject = builder.hitLlmReject;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Boolean getHitAuthority() {
         return this.hitAuthority;
     }
@@ -67,90 +98,64 @@ public class RagProbe {
         this.hitLlmReject = hitLlmReject;
     }
 
-
-// builder 开始
-  public RagProbe(){}
-
-  public RagProbe(Builder builder){
-         /**
-          * 是否命中了权威小库
-          * <p> 示例值：false
-          */
-      this.hitAuthority = builder.hitAuthority;
-         /**
-          * 是否命中了低置信度提示
-          * <p> 示例值：false
-          */
-      this.hitConfidenceWarn = builder.hitConfidenceWarn;
-         /**
-          * 是否命中了模型拒答
-          * <p> 示例值：1
-          */
-      this.hitLlmReject = builder.hitLlmReject;
-  }
-
     public static class Builder {
-     /**
-      * 是否命中了权威小库
-      * <p> 示例值：false
-      */
+        /**
+         * 是否命中了权威小库
+         * <p> 示例值：false
+         */
         private Boolean hitAuthority;
-     /**
-      * 是否命中了低置信度提示
-      * <p> 示例值：false
-      */
+        /**
+         * 是否命中了低置信度提示
+         * <p> 示例值：false
+         */
         private Boolean hitConfidenceWarn;
-     /**
-      * 是否命中了模型拒答
-      * <p> 示例值：1
-      */
+        /**
+         * 是否命中了模型拒答
+         * <p> 示例值：1
+         */
         private Boolean hitLlmReject;
 
         /**
          * 是否命中了权威小库
          * <p> 示例值：false
+         *
          * @param hitAuthority
          * @return
          */
         public Builder hitAuthority(Boolean hitAuthority) {
-             this.hitAuthority = hitAuthority;
-             return this;
+            this.hitAuthority = hitAuthority;
+            return this;
         }
 
-    
 
         /**
          * 是否命中了低置信度提示
          * <p> 示例值：false
+         *
          * @param hitConfidenceWarn
          * @return
          */
         public Builder hitConfidenceWarn(Boolean hitConfidenceWarn) {
-             this.hitConfidenceWarn = hitConfidenceWarn;
-             return this;
+            this.hitConfidenceWarn = hitConfidenceWarn;
+            return this;
         }
 
-    
 
         /**
          * 是否命中了模型拒答
          * <p> 示例值：1
+         *
          * @param hitLlmReject
          * @return
          */
         public Builder hitLlmReject(Boolean hitLlmReject) {
-             this.hitLlmReject = hitLlmReject;
-             return this;
+            this.hitLlmReject = hitLlmReject;
+            return this;
         }
 
-    
-    
-    public RagProbe build(){
-        return new RagProbe(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public RagProbe build() {
+            return new RagProbe(this);
+        }
     }
 }

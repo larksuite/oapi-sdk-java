@@ -17,15 +17,16 @@ package com.lark.oapi.service.compensation.v1.enums;
  * 启用状态
  */
 public enum IndicatorActiveStatusEnum {
-     ACTIVEENABLE(1), // 启用
-     ACTIVEDISABLE(0), // 禁用
-  ;
-   private Integer value;
+    ACTIVEENABLE(1), // 启用
+    ACTIVEDISABLE(0), // 禁用
+    ;
+    private Integer value;
+
     IndicatorActiveStatusEnum(Integer value) {
-      this.value = value;
+        this.value = value;
     }
 
     public Integer getValue() {
-      return this.value;
+        return this.value;
     }
 }

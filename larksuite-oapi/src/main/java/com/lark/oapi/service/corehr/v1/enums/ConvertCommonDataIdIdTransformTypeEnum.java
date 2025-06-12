@@ -17,17 +17,18 @@ package com.lark.oapi.service.corehr.v1.enums;
  * ID 转换类型
  */
 public enum ConvertCommonDataIdIdTransformTypeEnum {
-     COREHR2FEISHU(1), // 飞书人事 -> 飞书通讯录
-     FEISHU2COREHR(2), // 飞书通讯录 -> 飞书人事
-     ADMIN2FEISHU(3), // people admin -> 飞书人事
-     ADMIN2COREHR(4), // people admin -> 飞书通讯录
-  ;
-   private Integer value;
+    COREHR2FEISHU(1), // 飞书人事 -> 飞书通讯录
+    FEISHU2COREHR(2), // 飞书通讯录 -> 飞书人事
+    ADMIN2FEISHU(3), // people admin -> 飞书人事
+    ADMIN2COREHR(4), // people admin -> 飞书通讯录
+    ;
+    private Integer value;
+
     ConvertCommonDataIdIdTransformTypeEnum(Integer value) {
-      this.value = value;
+        this.value = value;
     }
 
     public Integer getValue() {
-      return this.value;
+        return this.value;
     }
 }

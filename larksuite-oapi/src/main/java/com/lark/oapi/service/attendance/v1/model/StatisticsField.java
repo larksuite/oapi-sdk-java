@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,36 +20,71 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class StatisticsField {
-     /**
-      * 字段ID
-      * <p> 示例值：1111111
-      */
+    /**
+     * 字段ID
+     * <p> 示例值：1111111
+     */
     @SerializedName("field_id")
     private String fieldId;
-     /**
-      * 字段公式
-      * <p> 示例值：1
-      */
+    /**
+     * 字段公式
+     * <p> 示例值：1
+     */
     @SerializedName("field_content")
     private String fieldContent;
-     /**
-      * 字段名称
-      * <p> 示例值：计薪天数
-      */
+    /**
+     * 字段名称
+     * <p> 示例值：计薪天数
+     */
     @SerializedName("title")
     private String title;
-     /**
-      * 字段描述
-      * <p> 示例值：测试
-      */
+    /**
+     * 字段描述
+     * <p> 示例值：测试
+     */
     @SerializedName("field_desc")
     private String fieldDesc;
+
+    // builder 开始
+    public StatisticsField() {
+    }
+
+    public StatisticsField(Builder builder) {
+        /**
+         * 字段ID
+         * <p> 示例值：1111111
+         */
+        this.fieldId = builder.fieldId;
+        /**
+         * 字段公式
+         * <p> 示例值：1
+         */
+        this.fieldContent = builder.fieldContent;
+        /**
+         * 字段名称
+         * <p> 示例值：计薪天数
+         */
+        this.title = builder.title;
+        /**
+         * 字段描述
+         * <p> 示例值：测试
+         */
+        this.fieldDesc = builder.fieldDesc;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getFieldId() {
         return this.fieldId;
     }
@@ -81,113 +117,82 @@ public class StatisticsField {
         this.fieldDesc = fieldDesc;
     }
 
-
-// builder 开始
-  public StatisticsField(){}
-
-  public StatisticsField(Builder builder){
-         /**
-          * 字段ID
-          * <p> 示例值：1111111
-          */
-      this.fieldId = builder.fieldId;
-         /**
-          * 字段公式
-          * <p> 示例值：1
-          */
-      this.fieldContent = builder.fieldContent;
-         /**
-          * 字段名称
-          * <p> 示例值：计薪天数
-          */
-      this.title = builder.title;
-         /**
-          * 字段描述
-          * <p> 示例值：测试
-          */
-      this.fieldDesc = builder.fieldDesc;
-  }
-
     public static class Builder {
-     /**
-      * 字段ID
-      * <p> 示例值：1111111
-      */
+        /**
+         * 字段ID
+         * <p> 示例值：1111111
+         */
         private String fieldId;
-     /**
-      * 字段公式
-      * <p> 示例值：1
-      */
+        /**
+         * 字段公式
+         * <p> 示例值：1
+         */
         private String fieldContent;
-     /**
-      * 字段名称
-      * <p> 示例值：计薪天数
-      */
+        /**
+         * 字段名称
+         * <p> 示例值：计薪天数
+         */
         private String title;
-     /**
-      * 字段描述
-      * <p> 示例值：测试
-      */
+        /**
+         * 字段描述
+         * <p> 示例值：测试
+         */
         private String fieldDesc;
 
         /**
          * 字段ID
          * <p> 示例值：1111111
+         *
          * @param fieldId
          * @return
          */
         public Builder fieldId(String fieldId) {
-             this.fieldId = fieldId;
-             return this;
+            this.fieldId = fieldId;
+            return this;
         }
 
-    
 
         /**
          * 字段公式
          * <p> 示例值：1
+         *
          * @param fieldContent
          * @return
          */
         public Builder fieldContent(String fieldContent) {
-             this.fieldContent = fieldContent;
-             return this;
+            this.fieldContent = fieldContent;
+            return this;
         }
 
-    
 
         /**
          * 字段名称
          * <p> 示例值：计薪天数
+         *
          * @param title
          * @return
          */
         public Builder title(String title) {
-             this.title = title;
-             return this;
+            this.title = title;
+            return this;
         }
 
-    
 
         /**
          * 字段描述
          * <p> 示例值：测试
+         *
          * @param fieldDesc
          * @return
          */
         public Builder fieldDesc(String fieldDesc) {
-             this.fieldDesc = fieldDesc;
-             return this;
+            this.fieldDesc = fieldDesc;
+            return this;
         }
 
-    
-    
-    public StatisticsField build(){
-        return new StatisticsField(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public StatisticsField build() {
+            return new StatisticsField(this);
+        }
     }
 }

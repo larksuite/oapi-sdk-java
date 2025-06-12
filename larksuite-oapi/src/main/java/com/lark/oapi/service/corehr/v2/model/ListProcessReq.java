@@ -12,60 +12,106 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ListProcessReq {
-     /**
-      * 查询流程状态列表。
-      * <p> 示例值：
-      */
+    /**
+     * 查询流程状态列表。
+     * <p> 示例值：
+     */
     @Query
     @SerializedName("statuses")
     private Integer[] statuses;
-     /**
-      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-      * <p> 示例值：7278949005675988535
-      */
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     * <p> 示例值：7278949005675988535
+     */
     @Query
     @SerializedName("page_token")
     private String pageToken;
-     /**
-      * 分页大小
-      * <p> 示例值：100
-      */
+    /**
+     * 分页大小
+     * <p> 示例值：100
+     */
     @Query
     @SerializedName("page_size")
     private Integer pageSize;
-     /**
-      * 查询开始时间（unix毫秒时间戳），闭区间，开始时间和结束时间跨度不能超过31天
-      * <p> 示例值：1547654251506
-      */
+    /**
+     * 查询开始时间（unix毫秒时间戳），闭区间，开始时间和结束时间跨度不能超过31天
+     * <p> 示例值：1547654251506
+     */
     @Query
     @SerializedName("modify_time_from")
     private String modifyTimeFrom;
-     /**
-      * 1. 任务查询结束时间，闭区间 2. 单位：ms。从1970年1月1日(UTC/GMT的午夜) 开始经过的毫秒数 3. 注意：开始时间和结束时间跨度不能超过31天 4. 示例值：1719549169735
-      * <p> 示例值：1547654251506
-      */
+    /**
+     * 1. 任务查询结束时间，闭区间 2. 单位：ms。从1970年1月1日(UTC/GMT的午夜) 开始经过的毫秒数 3. 注意：开始时间和结束时间跨度不能超过31天 4. 示例值：1719549169735
+     * <p> 示例值：1547654251506
+     */
     @Query
     @SerializedName("modify_time_to")
     private String modifyTimeTo;
-     /**
-      * 流程定义ID
-      * <p> 示例值：people_6961286846093788680_7081951411982077732
-      */
+    /**
+     * 流程定义ID
+     * <p> 示例值：people_6961286846093788680_7081951411982077732
+     */
     @Query
     @SerializedName("flow_definition_id")
     private String flowDefinitionId;
+
+    // builder 开始
+    public ListProcessReq() {
+    }
+
+    public ListProcessReq(Builder builder) {
+        /**
+         * 查询流程状态列表。
+         * <p> 示例值：
+         */
+        this.statuses = builder.statuses;
+        /**
+         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+         * <p> 示例值：7278949005675988535
+         */
+        this.pageToken = builder.pageToken;
+        /**
+         * 分页大小
+         * <p> 示例值：100
+         */
+        this.pageSize = builder.pageSize;
+        /**
+         * 查询开始时间（unix毫秒时间戳），闭区间，开始时间和结束时间跨度不能超过31天
+         * <p> 示例值：1547654251506
+         */
+        this.modifyTimeFrom = builder.modifyTimeFrom;
+        /**
+         * 1. 任务查询结束时间，闭区间 2. 单位：ms。从1970年1月1日(UTC/GMT的午夜) 开始经过的毫秒数 3. 注意：开始时间和结束时间跨度不能超过31天 4. 示例值：1719549169735
+         * <p> 示例值：1547654251506
+         */
+        this.modifyTimeTo = builder.modifyTimeTo;
+        /**
+         * 流程定义ID
+         * <p> 示例值：people_6961286846093788680_7081951411982077732
+         */
+        this.flowDefinitionId = builder.flowDefinitionId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Integer[] getStatuses() {
         return this.statuses;
     }
@@ -114,43 +160,6 @@ public class ListProcessReq {
         this.flowDefinitionId = flowDefinitionId;
     }
 
-
-// builder 开始
-  public ListProcessReq(){}
-
-  public ListProcessReq(Builder builder){
-         /**
-          * 查询流程状态列表。
-          * <p> 示例值：
-          */
-       this.statuses = builder.statuses;
-         /**
-          * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-          * <p> 示例值：7278949005675988535
-          */
-       this.pageToken = builder.pageToken;
-         /**
-          * 分页大小
-          * <p> 示例值：100
-          */
-       this.pageSize = builder.pageSize;
-         /**
-          * 查询开始时间（unix毫秒时间戳），闭区间，开始时间和结束时间跨度不能超过31天
-          * <p> 示例值：1547654251506
-          */
-       this.modifyTimeFrom = builder.modifyTimeFrom;
-         /**
-          * 1. 任务查询结束时间，闭区间 2. 单位：ms。从1970年1月1日(UTC/GMT的午夜) 开始经过的毫秒数 3. 注意：开始时间和结束时间跨度不能超过31天 4. 示例值：1719549169735
-          * <p> 示例值：1547654251506
-          */
-       this.modifyTimeTo = builder.modifyTimeTo;
-         /**
-          * 流程定义ID
-          * <p> 示例值：people_6961286846093788680_7081951411982077732
-          */
-       this.flowDefinitionId = builder.flowDefinitionId;
-  }
-
     public static class Builder {
         private Integer[] statuses; // 查询流程状态列表。
         private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
@@ -158,85 +167,87 @@ public class ListProcessReq {
         private String modifyTimeFrom; // 查询开始时间（unix毫秒时间戳），闭区间，开始时间和结束时间跨度不能超过31天
         private String modifyTimeTo; // 1. 任务查询结束时间，闭区间 2. 单位：ms。从1970年1月1日(UTC/GMT的午夜) 开始经过的毫秒数 3. 注意：开始时间和结束时间跨度不能超过31天 4. 示例值：1719549169735
         private String flowDefinitionId; // 流程定义ID
-    
+
         /**
          * 查询流程状态列表。
          * <p> 示例值：
+         *
          * @param statuses
          * @return
          */
-           public Builder statuses(Integer[] statuses) {
-                this.statuses = statuses;
-                return this;
-           }
+        public Builder statuses(Integer[] statuses) {
+            this.statuses = statuses;
+            return this;
+        }
 
-    
+
         /**
          * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
          * <p> 示例值：7278949005675988535
+         *
          * @param pageToken
          * @return
          */
-           public Builder pageToken(String pageToken) {
-                this.pageToken = pageToken;
-                return this;
-           }
+        public Builder pageToken(String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+        }
 
-    
+
         /**
          * 分页大小
          * <p> 示例值：100
+         *
          * @param pageSize
          * @return
          */
-           public Builder pageSize(Integer pageSize) {
-                this.pageSize = pageSize;
-                return this;
-           }
+        public Builder pageSize(Integer pageSize) {
+            this.pageSize = pageSize;
+            return this;
+        }
 
-    
+
         /**
          * 查询开始时间（unix毫秒时间戳），闭区间，开始时间和结束时间跨度不能超过31天
          * <p> 示例值：1547654251506
+         *
          * @param modifyTimeFrom
          * @return
          */
-           public Builder modifyTimeFrom(String modifyTimeFrom) {
-                this.modifyTimeFrom = modifyTimeFrom;
-                return this;
-           }
+        public Builder modifyTimeFrom(String modifyTimeFrom) {
+            this.modifyTimeFrom = modifyTimeFrom;
+            return this;
+        }
 
-    
+
         /**
          * 1. 任务查询结束时间，闭区间 2. 单位：ms。从1970年1月1日(UTC/GMT的午夜) 开始经过的毫秒数 3. 注意：开始时间和结束时间跨度不能超过31天 4. 示例值：1719549169735
          * <p> 示例值：1547654251506
+         *
          * @param modifyTimeTo
          * @return
          */
-           public Builder modifyTimeTo(String modifyTimeTo) {
-                this.modifyTimeTo = modifyTimeTo;
-                return this;
-           }
+        public Builder modifyTimeTo(String modifyTimeTo) {
+            this.modifyTimeTo = modifyTimeTo;
+            return this;
+        }
 
-    
+
         /**
          * 流程定义ID
          * <p> 示例值：people_6961286846093788680_7081951411982077732
+         *
          * @param flowDefinitionId
          * @return
          */
-           public Builder flowDefinitionId(String flowDefinitionId) {
-                this.flowDefinitionId = flowDefinitionId;
-                return this;
-           }
+        public Builder flowDefinitionId(String flowDefinitionId) {
+            this.flowDefinitionId = flowDefinitionId;
+            return this;
+        }
 
-    
-    public ListProcessReq build(){
-        return new ListProcessReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ListProcessReq build() {
+            return new ListProcessReq(this);
+        }
     }
 }

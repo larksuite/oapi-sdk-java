@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.mail.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class RuleCondition {
-     /**
-      * 匹配类型
-      * <p> 示例值：1
-      */
+    /**
+     * 匹配类型
+     * <p> 示例值：1
+     */
     @SerializedName("match_type")
     private Integer matchType;
-     /**
-      * 匹配规则列表
-      * <p> 示例值：
-      */
+    /**
+     * 匹配规则列表
+     * <p> 示例值：
+     */
     @SerializedName("items")
     private RuleConditionItem[] items;
+
+    // builder 开始
+    public RuleCondition() {
+    }
+
+    public RuleCondition(Builder builder) {
+        /**
+         * 匹配类型
+         * <p> 示例值：1
+         */
+        this.matchType = builder.matchType;
+        /**
+         * 匹配规则列表
+         * <p> 示例值：
+         */
+        this.items = builder.items;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Integer getMatchType() {
         return this.matchType;
     }
@@ -53,77 +79,58 @@ public class RuleCondition {
         this.items = items;
     }
 
-
-// builder 开始
-  public RuleCondition(){}
-
-  public RuleCondition(Builder builder){
-         /**
-          * 匹配类型
-          * <p> 示例值：1
-          */
-      this.matchType = builder.matchType;
-         /**
-          * 匹配规则列表
-          * <p> 示例值：
-          */
-      this.items = builder.items;
-  }
-
     public static class Builder {
-     /**
-      * 匹配类型
-      * <p> 示例值：1
-      */
+        /**
+         * 匹配类型
+         * <p> 示例值：1
+         */
         private Integer matchType;
-     /**
-      * 匹配规则列表
-      * <p> 示例值：
-      */
+        /**
+         * 匹配规则列表
+         * <p> 示例值：
+         */
         private RuleConditionItem[] items;
 
         /**
          * 匹配类型
          * <p> 示例值：1
+         *
          * @param matchType
          * @return
          */
         public Builder matchType(Integer matchType) {
-             this.matchType = matchType;
-             return this;
+            this.matchType = matchType;
+            return this;
         }
+
         /**
          * 匹配类型
          * <p> 示例值：1
+         *
          * @param matchType {@link com.lark.oapi.service.mail.v1.enums.RuleConditionRuleConditionMatchTypeEnum}
          * @return
          */
         public Builder matchType(com.lark.oapi.service.mail.v1.enums.RuleConditionRuleConditionMatchTypeEnum matchType) {
-             this.matchType = matchType.getValue();
-             return this;
+            this.matchType = matchType.getValue();
+            return this;
         }
 
-    
 
         /**
          * 匹配规则列表
          * <p> 示例值：
+         *
          * @param items
          * @return
          */
         public Builder items(RuleConditionItem[] items) {
-             this.items = items;
-             return this;
+            this.items = items;
+            return this;
         }
 
-    
-    
-    public RuleCondition build(){
-        return new RuleCondition(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public RuleCondition build() {
+            return new RuleCondition(this);
+        }
     }
 }

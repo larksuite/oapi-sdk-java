@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,36 +20,71 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class WorkforcePlanMultiPeriodValue {
-     /**
-      * 周期的最后一天
-      * <p> 示例值："2022-10-31"
-      */
+    /**
+     * 周期的最后一天
+     * <p> 示例值："2022-10-31"
+     */
     @SerializedName("period_date")
     private String periodDate;
-     /**
-      * 对应周期的编制规划值
-      * <p> 示例值："12.00"
-      */
+    /**
+     * 对应周期的编制规划值
+     * <p> 示例值："12.00"
+     */
     @SerializedName("workforce_plan")
     private String workforcePlan;
-     /**
-      * 预增员数量
-      * <p> 示例值："10.00"
-      */
+    /**
+     * 预增员数量
+     * <p> 示例值："10.00"
+     */
     @SerializedName("individuals_to_be_added")
     private String individualsToBeAdded;
-     /**
-      * 预减员数量
-      * <p> 示例值："10.00"
-      */
+    /**
+     * 预减员数量
+     * <p> 示例值："10.00"
+     */
     @SerializedName("individuals_to_be_removed")
     private String individualsToBeRemoved;
+
+    // builder 开始
+    public WorkforcePlanMultiPeriodValue() {
+    }
+
+    public WorkforcePlanMultiPeriodValue(Builder builder) {
+        /**
+         * 周期的最后一天
+         * <p> 示例值："2022-10-31"
+         */
+        this.periodDate = builder.periodDate;
+        /**
+         * 对应周期的编制规划值
+         * <p> 示例值："12.00"
+         */
+        this.workforcePlan = builder.workforcePlan;
+        /**
+         * 预增员数量
+         * <p> 示例值："10.00"
+         */
+        this.individualsToBeAdded = builder.individualsToBeAdded;
+        /**
+         * 预减员数量
+         * <p> 示例值："10.00"
+         */
+        this.individualsToBeRemoved = builder.individualsToBeRemoved;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getPeriodDate() {
         return this.periodDate;
     }
@@ -81,113 +117,82 @@ public class WorkforcePlanMultiPeriodValue {
         this.individualsToBeRemoved = individualsToBeRemoved;
     }
 
-
-// builder 开始
-  public WorkforcePlanMultiPeriodValue(){}
-
-  public WorkforcePlanMultiPeriodValue(Builder builder){
-         /**
-          * 周期的最后一天
-          * <p> 示例值："2022-10-31"
-          */
-      this.periodDate = builder.periodDate;
-         /**
-          * 对应周期的编制规划值
-          * <p> 示例值："12.00"
-          */
-      this.workforcePlan = builder.workforcePlan;
-         /**
-          * 预增员数量
-          * <p> 示例值："10.00"
-          */
-      this.individualsToBeAdded = builder.individualsToBeAdded;
-         /**
-          * 预减员数量
-          * <p> 示例值："10.00"
-          */
-      this.individualsToBeRemoved = builder.individualsToBeRemoved;
-  }
-
     public static class Builder {
-     /**
-      * 周期的最后一天
-      * <p> 示例值："2022-10-31"
-      */
+        /**
+         * 周期的最后一天
+         * <p> 示例值："2022-10-31"
+         */
         private String periodDate;
-     /**
-      * 对应周期的编制规划值
-      * <p> 示例值："12.00"
-      */
+        /**
+         * 对应周期的编制规划值
+         * <p> 示例值："12.00"
+         */
         private String workforcePlan;
-     /**
-      * 预增员数量
-      * <p> 示例值："10.00"
-      */
+        /**
+         * 预增员数量
+         * <p> 示例值："10.00"
+         */
         private String individualsToBeAdded;
-     /**
-      * 预减员数量
-      * <p> 示例值："10.00"
-      */
+        /**
+         * 预减员数量
+         * <p> 示例值："10.00"
+         */
         private String individualsToBeRemoved;
 
         /**
          * 周期的最后一天
          * <p> 示例值："2022-10-31"
+         *
          * @param periodDate
          * @return
          */
         public Builder periodDate(String periodDate) {
-             this.periodDate = periodDate;
-             return this;
+            this.periodDate = periodDate;
+            return this;
         }
 
-    
 
         /**
          * 对应周期的编制规划值
          * <p> 示例值："12.00"
+         *
          * @param workforcePlan
          * @return
          */
         public Builder workforcePlan(String workforcePlan) {
-             this.workforcePlan = workforcePlan;
-             return this;
+            this.workforcePlan = workforcePlan;
+            return this;
         }
 
-    
 
         /**
          * 预增员数量
          * <p> 示例值："10.00"
+         *
          * @param individualsToBeAdded
          * @return
          */
         public Builder individualsToBeAdded(String individualsToBeAdded) {
-             this.individualsToBeAdded = individualsToBeAdded;
-             return this;
+            this.individualsToBeAdded = individualsToBeAdded;
+            return this;
         }
 
-    
 
         /**
          * 预减员数量
          * <p> 示例值："10.00"
+         *
          * @param individualsToBeRemoved
          * @return
          */
         public Builder individualsToBeRemoved(String individualsToBeRemoved) {
-             this.individualsToBeRemoved = individualsToBeRemoved;
-             return this;
+            this.individualsToBeRemoved = individualsToBeRemoved;
+            return this;
         }
 
-    
-    
-    public WorkforcePlanMultiPeriodValue build(){
-        return new WorkforcePlanMultiPeriodValue(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public WorkforcePlanMultiPeriodValue build() {
+            return new WorkforcePlanMultiPeriodValue(this);
+        }
     }
 }

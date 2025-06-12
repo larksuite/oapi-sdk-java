@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ProfileSettingCustomGroup {
-     /**
-      * 分组名
-      * <p> 示例值：custom_obj__c
-      */
+    /**
+     * 分组名
+     * <p> 示例值：custom_obj__c
+     */
     @SerializedName("group_name")
     private String groupName;
-     /**
-      * 分组数据
-      * <p> 示例值：
-      */
+    /**
+     * 分组数据
+     * <p> 示例值：
+     */
     @SerializedName("items")
     private ProfileSettingCustomGroupItem[] items;
+
+    // builder 开始
+    public ProfileSettingCustomGroup() {
+    }
+
+    public ProfileSettingCustomGroup(Builder builder) {
+        /**
+         * 分组名
+         * <p> 示例值：custom_obj__c
+         */
+        this.groupName = builder.groupName;
+        /**
+         * 分组数据
+         * <p> 示例值：
+         */
+        this.items = builder.items;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getGroupName() {
         return this.groupName;
     }
@@ -53,67 +79,46 @@ public class ProfileSettingCustomGroup {
         this.items = items;
     }
 
-
-// builder 开始
-  public ProfileSettingCustomGroup(){}
-
-  public ProfileSettingCustomGroup(Builder builder){
-         /**
-          * 分组名
-          * <p> 示例值：custom_obj__c
-          */
-      this.groupName = builder.groupName;
-         /**
-          * 分组数据
-          * <p> 示例值：
-          */
-      this.items = builder.items;
-  }
-
     public static class Builder {
-     /**
-      * 分组名
-      * <p> 示例值：custom_obj__c
-      */
+        /**
+         * 分组名
+         * <p> 示例值：custom_obj__c
+         */
         private String groupName;
-     /**
-      * 分组数据
-      * <p> 示例值：
-      */
+        /**
+         * 分组数据
+         * <p> 示例值：
+         */
         private ProfileSettingCustomGroupItem[] items;
 
         /**
          * 分组名
          * <p> 示例值：custom_obj__c
+         *
          * @param groupName
          * @return
          */
         public Builder groupName(String groupName) {
-             this.groupName = groupName;
-             return this;
+            this.groupName = groupName;
+            return this;
         }
 
-    
 
         /**
          * 分组数据
          * <p> 示例值：
+         *
          * @param items
          * @return
          */
         public Builder items(ProfileSettingCustomGroupItem[] items) {
-             this.items = items;
-             return this;
+            this.items = items;
+            return this;
         }
 
-    
-    
-    public ProfileSettingCustomGroup build(){
-        return new ProfileSettingCustomGroup(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ProfileSettingCustomGroup build() {
+            return new ProfileSettingCustomGroup(this);
+        }
     }
 }

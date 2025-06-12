@@ -12,42 +12,47 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class P2ProcessCcUpdatedV2Data {
-     /**
-      * 流程实例ID
-      * <p> 示例值：7072306364927985196
-      */
+    /**
+     * 流程实例ID
+     * <p> 示例值：7072306364927985196
+     */
     @SerializedName("process_id")
     private String processId;
-     /**
-      * 抄送单据ID
-      * <p> 示例值：7072306364927985187
-      */
+    /**
+     * 抄送单据ID
+     * <p> 示例值：7072306364927985187
+     */
     @SerializedName("approver_id")
     private String approverId;
-     /**
-      * 单据状态
-      * <p> 示例值：5
-      */
+    /**
+     * 单据状态
+     * <p> 示例值：5
+     */
     @SerializedName("status")
     private Integer status;
-     /**
-      * 业务类型
-      * <p> 示例值：renewal_record
-      */
+    /**
+     * 业务类型
+     * <p> 示例值：renewal_record
+     */
     @SerializedName("biz_type")
     private String bizType;
+
     public String getProcessId() {
         return this.processId;
     }

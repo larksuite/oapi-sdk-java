@@ -21,17 +21,20 @@ public class PayrollService {
     private final V1 v1;
 
     public PayrollService(Config config) {
-    this.v1 = new V1(config);
+        this.v1 = new V1(config);
     }
+
     public V1 v1() {
         return v1;
     }
+
     public abstract static class P2PaymentActivityApprovedV1Handler implements IEventHandler<P2PaymentActivityApprovedV1> {
         @Override
         public P2PaymentActivityApprovedV1 getEvent() {
             return new P2PaymentActivityApprovedV1();
         }
     }
+
     public abstract static class P2PaymentActivityStatusChangedV1Handler implements IEventHandler<P2PaymentActivityStatusChangedV1> {
         @Override
         public P2PaymentActivityStatusChangedV1 getEvent() {

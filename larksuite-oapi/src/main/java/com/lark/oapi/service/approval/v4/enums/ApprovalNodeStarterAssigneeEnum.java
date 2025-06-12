@@ -17,17 +17,18 @@ package com.lark.oapi.service.approval.v4.enums;
  * 审批人为提交人时的操作
  */
 public enum ApprovalNodeStarterAssigneeEnum {
-     STARTER("STARTER"), // 发起人本人审批
-     AUTO_PASS("AUTO_PASS"), // 自动通过
-     SUPERVISOR("SUPERVISOR"), // 直属上级审批
-     DEPARTMENT_MANAGER("DEPARTMENT_MANAGER"), // 直属部门负责人审批
-  ;
-   private String value;
+    STARTER("STARTER"), // 发起人本人审批
+    AUTO_PASS("AUTO_PASS"), // 自动通过
+    SUPERVISOR("SUPERVISOR"), // 直属上级审批
+    DEPARTMENT_MANAGER("DEPARTMENT_MANAGER"), // 直属部门负责人审批
+    ;
+    private String value;
+
     ApprovalNodeStarterAssigneeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

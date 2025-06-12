@@ -12,32 +12,82 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class GetFileVersionReq {
-     /**
-      * 文档类型
-      * <p> 示例值：doc/sheet/bitable/docx
-      */
+    /**
+     * 文档类型
+     * <p> 示例值：doc/sheet/bitable/docx
+     */
     @Query
     @SerializedName("obj_type")
     private String objType;
-     /**
-      * 用户ID类型
-      * <p> 示例值：
-      */
+    /**
+     * 用户ID类型
+     * <p> 示例值：
+     */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
+    /**
+     * 源文档token
+     * <p> 示例值：shtbcqqoXZJaKYrfN5IHQg4sVFZ
+     */
+    @Path
+    @SerializedName("file_token")
+    private String fileToken;
+    /**
+     * 版本文档版本号
+     * <p> 示例值：file_version
+     */
+    @Path
+    @SerializedName("version_id")
+    private String versionId;
+
+    // builder 开始
+    public GetFileVersionReq() {
+    }
+
+    public GetFileVersionReq(Builder builder) {
+        /**
+         * 文档类型
+         * <p> 示例值：doc/sheet/bitable/docx
+         */
+        this.objType = builder.objType;
+        /**
+         * 用户ID类型
+         * <p> 示例值：
+         */
+        this.userIdType = builder.userIdType;
+        /**
+         * 源文档token
+         * <p> 示例值：shtbcqqoXZJaKYrfN5IHQg4sVFZ
+         */
+        this.fileToken = builder.fileToken;
+        /**
+         * 版本文档版本号
+         * <p> 示例值：file_version
+         */
+        this.versionId = builder.versionId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getObjType() {
         return this.objType;
     }
@@ -54,20 +104,6 @@ public class GetFileVersionReq {
         this.userIdType = userIdType;
     }
 
-     /**
-      * 源文档token
-      * <p> 示例值：shtbcqqoXZJaKYrfN5IHQg4sVFZ
-      */
-    @Path
-    @SerializedName("file_token")
-    private String fileToken;
-     /**
-      * 版本文档版本号
-      * <p> 示例值：file_version
-      */
-    @Path
-    @SerializedName("version_id")
-    private String versionId;
     public String getFileToken() {
         return this.fileToken;
     }
@@ -84,115 +120,88 @@ public class GetFileVersionReq {
         this.versionId = versionId;
     }
 
-
-// builder 开始
-  public GetFileVersionReq(){}
-
-  public GetFileVersionReq(Builder builder){
-         /**
-          * 文档类型
-          * <p> 示例值：doc/sheet/bitable/docx
-          */
-       this.objType = builder.objType;
-         /**
-          * 用户ID类型
-          * <p> 示例值：
-          */
-       this.userIdType = builder.userIdType;
-     /**
-      * 源文档token
-      * <p> 示例值：shtbcqqoXZJaKYrfN5IHQg4sVFZ
-      */
-       this.fileToken = builder.fileToken;
-     /**
-      * 版本文档版本号
-      * <p> 示例值：file_version
-      */
-       this.versionId = builder.versionId;
-  }
-
     public static class Builder {
         private String objType; // 文档类型
         private String userIdType; // 用户ID类型
-    
+        private String fileToken; // 源文档token
+        private String versionId; // 版本文档版本号
+
         /**
          * 文档类型
          * <p> 示例值：doc/sheet/bitable/docx
+         *
          * @param objType
          * @return
          */
-           public Builder objType(String objType) {
-                this.objType = objType;
-                return this;
-           }
+        public Builder objType(String objType) {
+            this.objType = objType;
+            return this;
+        }
 
         /**
          * 文档类型
          * <p> 示例值：doc/sheet/bitable/docx
+         *
          * @param objType {@link com.lark.oapi.service.drive.v1.enums.GetFileVersionObjTypeEnum}
          * @return
          */
-          public Builder objType(com.lark.oapi.service.drive.v1.enums.GetFileVersionObjTypeEnum objType) {
-               this.objType = objType.getValue();
-               return this;
-          }
+        public Builder objType(com.lark.oapi.service.drive.v1.enums.GetFileVersionObjTypeEnum objType) {
+            this.objType = objType.getValue();
+            return this;
+        }
 
-    
         /**
          * 用户ID类型
          * <p> 示例值：
+         *
          * @param userIdType
          * @return
          */
-           public Builder userIdType(String userIdType) {
-                this.userIdType = userIdType;
-                return this;
-           }
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
 
         /**
          * 用户ID类型
          * <p> 示例值：
+         *
          * @param userIdType {@link com.lark.oapi.service.drive.v1.enums.GetFileVersionUserIdTypeEnum}
          * @return
          */
-          public Builder userIdType(com.lark.oapi.service.drive.v1.enums.GetFileVersionUserIdTypeEnum userIdType) {
-               this.userIdType = userIdType.getValue();
-               return this;
-          }
+        public Builder userIdType(com.lark.oapi.service.drive.v1.enums.GetFileVersionUserIdTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
+            return this;
+        }
 
-    
-        private String fileToken; // 源文档token
-        private String versionId; // 版本文档版本号
         /**
          * 源文档token
          * <p> 示例值：shtbcqqoXZJaKYrfN5IHQg4sVFZ
+         *
          * @param fileToken
          * @return
          */
-          public Builder fileToken(String fileToken) {
-               this.fileToken = fileToken;
-               return this;
-          }
+        public Builder fileToken(String fileToken) {
+            this.fileToken = fileToken;
+            return this;
+        }
 
-    
+
         /**
          * 版本文档版本号
          * <p> 示例值：file_version
+         *
          * @param versionId
          * @return
          */
-          public Builder versionId(String versionId) {
-               this.versionId = versionId;
-               return this;
-          }
+        public Builder versionId(String versionId) {
+            this.versionId = versionId;
+            return this;
+        }
 
-    
-    public GetFileVersionReq build(){
-        return new GetFileVersionReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public GetFileVersionReq build() {
+            return new GetFileVersionReq(this);
+        }
     }
 }

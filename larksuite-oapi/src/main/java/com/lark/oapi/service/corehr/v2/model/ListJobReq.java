@@ -12,46 +12,82 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ListJobReq {
-     /**
-      * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
-      * <p> 示例值：1231231987
-      */
+    /**
+     * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
+     * <p> 示例值：1231231987
+     */
     @Query
     @SerializedName("page_token")
     private String pageToken;
-     /**
-      * 每页获取记录数量，最大100
-      * <p> 示例值：100
-      */
+    /**
+     * 每页获取记录数量，最大100
+     * <p> 示例值：100
+     */
     @Query
     @SerializedName("page_size")
     private String pageSize;
-     /**
-      * 名称
-      * <p> 示例值：keyword
-      */
+    /**
+     * 名称
+     * <p> 示例值：keyword
+     */
     @Query
     @SerializedName("name")
     private String name;
-     /**
-      * 语言
-      * <p> 示例值：zh
-      */
+    /**
+     * 语言
+     * <p> 示例值：zh
+     */
     @Query
     @SerializedName("query_language")
     private String queryLanguage;
+
+    // builder 开始
+    public ListJobReq() {
+    }
+
+    public ListJobReq(Builder builder) {
+        /**
+         * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
+         * <p> 示例值：1231231987
+         */
+        this.pageToken = builder.pageToken;
+        /**
+         * 每页获取记录数量，最大100
+         * <p> 示例值：100
+         */
+        this.pageSize = builder.pageSize;
+        /**
+         * 名称
+         * <p> 示例值：keyword
+         */
+        this.name = builder.name;
+        /**
+         * 语言
+         * <p> 示例值：zh
+         */
+        this.queryLanguage = builder.queryLanguage;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getPageToken() {
         return this.pageToken;
     }
@@ -84,93 +120,66 @@ public class ListJobReq {
         this.queryLanguage = queryLanguage;
     }
 
-
-// builder 开始
-  public ListJobReq(){}
-
-  public ListJobReq(Builder builder){
-         /**
-          * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
-          * <p> 示例值：1231231987
-          */
-       this.pageToken = builder.pageToken;
-         /**
-          * 每页获取记录数量，最大100
-          * <p> 示例值：100
-          */
-       this.pageSize = builder.pageSize;
-         /**
-          * 名称
-          * <p> 示例值：keyword
-          */
-       this.name = builder.name;
-         /**
-          * 语言
-          * <p> 示例值：zh
-          */
-       this.queryLanguage = builder.queryLanguage;
-  }
-
     public static class Builder {
         private String pageToken; // 页码标识，获取第一页传空，每次查询会返回下一页的page_token
         private String pageSize; // 每页获取记录数量，最大100
         private String name; // 名称
         private String queryLanguage; // 语言
-    
+
         /**
          * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
          * <p> 示例值：1231231987
+         *
          * @param pageToken
          * @return
          */
-           public Builder pageToken(String pageToken) {
-                this.pageToken = pageToken;
-                return this;
-           }
+        public Builder pageToken(String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+        }
 
-    
+
         /**
          * 每页获取记录数量，最大100
          * <p> 示例值：100
+         *
          * @param pageSize
          * @return
          */
-           public Builder pageSize(String pageSize) {
-                this.pageSize = pageSize;
-                return this;
-           }
+        public Builder pageSize(String pageSize) {
+            this.pageSize = pageSize;
+            return this;
+        }
 
-    
+
         /**
          * 名称
          * <p> 示例值：keyword
+         *
          * @param name
          * @return
          */
-           public Builder name(String name) {
-                this.name = name;
-                return this;
-           }
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
 
-    
+
         /**
          * 语言
          * <p> 示例值：zh
+         *
          * @param queryLanguage
          * @return
          */
-           public Builder queryLanguage(String queryLanguage) {
-                this.queryLanguage = queryLanguage;
-                return this;
-           }
+        public Builder queryLanguage(String queryLanguage) {
+            this.queryLanguage = queryLanguage;
+            return this;
+        }
 
-    
-    public ListJobReq build(){
-        return new ListJobReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ListJobReq build() {
+            return new ListJobReq(this);
+        }
     }
 }

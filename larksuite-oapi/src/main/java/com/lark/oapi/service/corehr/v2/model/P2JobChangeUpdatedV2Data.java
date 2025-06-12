@@ -12,96 +12,101 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class P2JobChangeUpdatedV2Data {
-     /**
-      * 异动员工雇员ID
-      * <p> 示例值：7072306364927985196
-      */
+    /**
+     * 异动员工雇员ID
+     * <p> 示例值：7072306364927985196
+     */
     @SerializedName("employment_id")
     private String employmentId;
-     /**
-      * Saas租户ID
-      * <p> 示例值：7072306364927985196
-      */
+    /**
+     * Saas租户ID
+     * <p> 示例值：7072306364927985196
+     */
     @SerializedName("tenant_id")
     private String tenantId;
-     /**
-      * 流程ID
-      * <p> 示例值：7072306364927985196
-      */
+    /**
+     * 流程ID
+     * <p> 示例值：7072306364927985196
+     */
     @SerializedName("process_id")
     private String processId;
-     /**
-      * 发起人雇员ID
-      * <p> 示例值：7072306364927985196
-      */
+    /**
+     * 发起人雇员ID
+     * <p> 示例值：7072306364927985196
+     */
     @SerializedName("initiator")
     private String initiator;
-     /**
-      * 操作人雇员ID
-      * <p> 示例值：7072306364927985196
-      */
+    /**
+     * 操作人雇员ID
+     * <p> 示例值：7072306364927985196
+     */
     @SerializedName("operator")
     private String operator;
-     /**
-      * 更新时间毫秒时间戳
-      * <p> 示例值：1714985958000
-      */
+    /**
+     * 更新时间毫秒时间戳
+     * <p> 示例值：1714985958000
+     */
     @SerializedName("updated_time")
     private String updatedTime;
-     /**
-      * 异动记录ID
-      * <p> 示例值：7072306364927985196
-      */
+    /**
+     * 异动记录ID
+     * <p> 示例值：7072306364927985196
+     */
     @SerializedName("job_change_id")
     private String jobChangeId;
-     /**
-      * 变更后异动状态
-      * <p> 示例值：1
-      */
+    /**
+     * 变更后异动状态
+     * <p> 示例值：1
+     */
     @SerializedName("status")
     private Integer status;
-     /**
-      * 操作原因
-      * <p> 示例值：操作原因
-      */
+    /**
+     * 操作原因
+     * <p> 示例值：操作原因
+     */
     @SerializedName("operate_reason")
     private String operateReason;
-     /**
-      * 变更类型
-      * <p> 示例值：1
-      */
+    /**
+     * 变更类型
+     * <p> 示例值：1
+     */
     @SerializedName("transfer_type")
     private Integer transferType;
-     /**
-      * 所有更新过的字段，异动字段为元数据定义的字段api name，工作信息字段为"target_employment_change." + 元数据定义的字段api name
-      * <p> 示例值：
-      */
+    /**
+     * 所有更新过的字段，异动字段为元数据定义的字段api name，工作信息字段为"target_employment_change." + 元数据定义的字段api name
+     * <p> 示例值：
+     */
     @SerializedName("updated_fields")
     private String[] updatedFields;
-     /**
-      * 异动类型
-      * <p> 示例值：assignment_start_reason_option1
-      */
+    /**
+     * 异动类型
+     * <p> 示例值：assignment_start_reason_option1
+     */
     @SerializedName("transform_type")
     private String transformType;
-     /**
-      * 异动原因
-      * <p> 示例值：reason_for_job_change_option1
-      */
+    /**
+     * 异动原因
+     * <p> 示例值：reason_for_job_change_option1
+     */
     @SerializedName("transform_reason")
     private String transformReason;
+
     public String getEmploymentId() {
         return this.employmentId;
     }

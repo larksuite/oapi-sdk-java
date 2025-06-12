@@ -17,16 +17,17 @@ package com.lark.oapi.service.compensation.v1.enums;
  * 绑定期内离职类型
  */
 public enum LumpSumPaymentBindingPeriodOffboardingTypeEnum {
-     YES("yes"), // 绑定期内离职
-     NO("no"), // 绑定期外离职
-     DEFAULT("default"), // 无绑定期离职标识
-  ;
-   private String value;
+    YES("yes"), // 绑定期内离职
+    NO("no"), // 绑定期外离职
+    DEFAULT("default"), // 无绑定期离职标识
+    ;
+    private String value;
+
     LumpSumPaymentBindingPeriodOffboardingTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

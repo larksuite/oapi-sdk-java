@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,36 +20,71 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class QueryMultiTimelineDepartmentReqBody {
-     /**
-      * 部门 ID 列表
-      * <p> 示例值：
-      */
+    /**
+     * 部门 ID 列表
+     * <p> 示例值：
+     */
     @SerializedName("department_ids")
     private String[] departmentIds;
-     /**
-      * 生效日期开始(包含)
-      * <p> 示例值：2024-01-01
-      */
+    /**
+     * 生效日期开始(包含)
+     * <p> 示例值：2024-01-01
+     */
     @SerializedName("effective_date_start")
     private String effectiveDateStart;
-     /**
-      * 生效日期结束(包含)
-      * <p> 示例值：2024-12-31
-      */
+    /**
+     * 生效日期结束(包含)
+     * <p> 示例值：2024-12-31
+     */
     @SerializedName("effective_date_end")
     private String effectiveDateEnd;
-     /**
-      * 返回数据的字段列表，可选["department_name", "code", "active", "parent_department_id", "manager", "description", "effective_date"], 以及自定义字段field_name
-      * <p> 示例值：
-      */
+    /**
+     * 返回数据的字段列表，可选["department_name", "code", "active", "parent_department_id", "manager", "description", "effective_date"], 以及自定义字段field_name
+     * <p> 示例值：
+     */
     @SerializedName("fields")
     private String[] fields;
+
+    // builder 开始
+    public QueryMultiTimelineDepartmentReqBody() {
+    }
+
+    public QueryMultiTimelineDepartmentReqBody(Builder builder) {
+        /**
+         * 部门 ID 列表
+         * <p> 示例值：
+         */
+        this.departmentIds = builder.departmentIds;
+        /**
+         * 生效日期开始(包含)
+         * <p> 示例值：2024-01-01
+         */
+        this.effectiveDateStart = builder.effectiveDateStart;
+        /**
+         * 生效日期结束(包含)
+         * <p> 示例值：2024-12-31
+         */
+        this.effectiveDateEnd = builder.effectiveDateEnd;
+        /**
+         * 返回数据的字段列表，可选["department_name", "code", "active", "parent_department_id", "manager", "description", "effective_date"], 以及自定义字段field_name
+         * <p> 示例值：
+         */
+        this.fields = builder.fields;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String[] getDepartmentIds() {
         return this.departmentIds;
     }
@@ -81,113 +117,82 @@ public class QueryMultiTimelineDepartmentReqBody {
         this.fields = fields;
     }
 
-
-// builder 开始
-  public QueryMultiTimelineDepartmentReqBody(){}
-
-  public QueryMultiTimelineDepartmentReqBody(Builder builder){
-         /**
-          * 部门 ID 列表
-          * <p> 示例值：
-          */
-      this.departmentIds = builder.departmentIds;
-         /**
-          * 生效日期开始(包含)
-          * <p> 示例值：2024-01-01
-          */
-      this.effectiveDateStart = builder.effectiveDateStart;
-         /**
-          * 生效日期结束(包含)
-          * <p> 示例值：2024-12-31
-          */
-      this.effectiveDateEnd = builder.effectiveDateEnd;
-         /**
-          * 返回数据的字段列表，可选["department_name", "code", "active", "parent_department_id", "manager", "description", "effective_date"], 以及自定义字段field_name
-          * <p> 示例值：
-          */
-      this.fields = builder.fields;
-  }
-
     public static class Builder {
-     /**
-      * 部门 ID 列表
-      * <p> 示例值：
-      */
+        /**
+         * 部门 ID 列表
+         * <p> 示例值：
+         */
         private String[] departmentIds;
-     /**
-      * 生效日期开始(包含)
-      * <p> 示例值：2024-01-01
-      */
+        /**
+         * 生效日期开始(包含)
+         * <p> 示例值：2024-01-01
+         */
         private String effectiveDateStart;
-     /**
-      * 生效日期结束(包含)
-      * <p> 示例值：2024-12-31
-      */
+        /**
+         * 生效日期结束(包含)
+         * <p> 示例值：2024-12-31
+         */
         private String effectiveDateEnd;
-     /**
-      * 返回数据的字段列表，可选["department_name", "code", "active", "parent_department_id", "manager", "description", "effective_date"], 以及自定义字段field_name
-      * <p> 示例值：
-      */
+        /**
+         * 返回数据的字段列表，可选["department_name", "code", "active", "parent_department_id", "manager", "description", "effective_date"], 以及自定义字段field_name
+         * <p> 示例值：
+         */
         private String[] fields;
 
         /**
          * 部门 ID 列表
          * <p> 示例值：
+         *
          * @param departmentIds
          * @return
          */
         public Builder departmentIds(String[] departmentIds) {
-             this.departmentIds = departmentIds;
-             return this;
+            this.departmentIds = departmentIds;
+            return this;
         }
 
-    
 
         /**
          * 生效日期开始(包含)
          * <p> 示例值：2024-01-01
+         *
          * @param effectiveDateStart
          * @return
          */
         public Builder effectiveDateStart(String effectiveDateStart) {
-             this.effectiveDateStart = effectiveDateStart;
-             return this;
+            this.effectiveDateStart = effectiveDateStart;
+            return this;
         }
 
-    
 
         /**
          * 生效日期结束(包含)
          * <p> 示例值：2024-12-31
+         *
          * @param effectiveDateEnd
          * @return
          */
         public Builder effectiveDateEnd(String effectiveDateEnd) {
-             this.effectiveDateEnd = effectiveDateEnd;
-             return this;
+            this.effectiveDateEnd = effectiveDateEnd;
+            return this;
         }
 
-    
 
         /**
          * 返回数据的字段列表，可选["department_name", "code", "active", "parent_department_id", "manager", "description", "effective_date"], 以及自定义字段field_name
          * <p> 示例值：
+         *
          * @param fields
          * @return
          */
         public Builder fields(String[] fields) {
-             this.fields = fields;
-             return this;
+            this.fields = fields;
+            return this;
         }
 
-    
-    
-    public QueryMultiTimelineDepartmentReqBody build(){
-        return new QueryMultiTimelineDepartmentReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public QueryMultiTimelineDepartmentReqBody build() {
+            return new QueryMultiTimelineDepartmentReqBody(this);
+        }
     }
 }

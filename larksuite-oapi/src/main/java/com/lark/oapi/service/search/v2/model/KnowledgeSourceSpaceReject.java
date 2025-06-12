@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.search.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.search.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class KnowledgeSourceSpaceReject {
-     /**
-      * 云空间文档 token 列表
-      * <p> 示例值：
-      */
+    /**
+     * 云空间文档 token 列表
+     * <p> 示例值：
+     */
     @SerializedName("doc_tokens")
     private String[] docTokens;
-     /**
-      * 云空间文件夹 token 列表
-      * <p> 示例值：
-      */
+    /**
+     * 云空间文件夹 token 列表
+     * <p> 示例值：
+     */
     @SerializedName("folder_tokens")
     private String[] folderTokens;
+
+    // builder 开始
+    public KnowledgeSourceSpaceReject() {
+    }
+
+    public KnowledgeSourceSpaceReject(Builder builder) {
+        /**
+         * 云空间文档 token 列表
+         * <p> 示例值：
+         */
+        this.docTokens = builder.docTokens;
+        /**
+         * 云空间文件夹 token 列表
+         * <p> 示例值：
+         */
+        this.folderTokens = builder.folderTokens;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String[] getDocTokens() {
         return this.docTokens;
     }
@@ -53,67 +79,46 @@ public class KnowledgeSourceSpaceReject {
         this.folderTokens = folderTokens;
     }
 
-
-// builder 开始
-  public KnowledgeSourceSpaceReject(){}
-
-  public KnowledgeSourceSpaceReject(Builder builder){
-         /**
-          * 云空间文档 token 列表
-          * <p> 示例值：
-          */
-      this.docTokens = builder.docTokens;
-         /**
-          * 云空间文件夹 token 列表
-          * <p> 示例值：
-          */
-      this.folderTokens = builder.folderTokens;
-  }
-
     public static class Builder {
-     /**
-      * 云空间文档 token 列表
-      * <p> 示例值：
-      */
+        /**
+         * 云空间文档 token 列表
+         * <p> 示例值：
+         */
         private String[] docTokens;
-     /**
-      * 云空间文件夹 token 列表
-      * <p> 示例值：
-      */
+        /**
+         * 云空间文件夹 token 列表
+         * <p> 示例值：
+         */
         private String[] folderTokens;
 
         /**
          * 云空间文档 token 列表
          * <p> 示例值：
+         *
          * @param docTokens
          * @return
          */
         public Builder docTokens(String[] docTokens) {
-             this.docTokens = docTokens;
-             return this;
+            this.docTokens = docTokens;
+            return this;
         }
 
-    
 
         /**
          * 云空间文件夹 token 列表
          * <p> 示例值：
+         *
          * @param folderTokens
          * @return
          */
         public Builder folderTokens(String[] folderTokens) {
-             this.folderTokens = folderTokens;
-             return this;
+            this.folderTokens = folderTokens;
+            return this;
         }
 
-    
-    
-    public KnowledgeSourceSpaceReject build(){
-        return new KnowledgeSourceSpaceReject(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public KnowledgeSourceSpaceReject build() {
+            return new KnowledgeSourceSpaceReject(this);
+        }
     }
 }

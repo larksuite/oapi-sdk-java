@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,36 +20,71 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class EmploymentLeaveBalance {
-     /**
-      * 雇佣信息ID
-      * <p> 示例值：4718803945687580505
-      */
+    /**
+     * 雇佣信息ID
+     * <p> 示例值：4718803945687580505
+     */
     @SerializedName("employment_id")
     private String employmentId;
-     /**
-      * 员工姓名
-      * <p> 示例值：
-      */
+    /**
+     * 员工姓名
+     * <p> 示例值：
+     */
     @SerializedName("employment_name")
     private I18n[] employmentName;
-     /**
-      * 余额查看日期
-      * <p> 示例值：0
-      */
+    /**
+     * 余额查看日期
+     * <p> 示例值：0
+     */
     @SerializedName("as_of_date")
     private String asOfDate;
-     /**
-      * 假期余额列表
-      * <p> 示例值：
-      */
+    /**
+     * 假期余额列表
+     * <p> 示例值：
+     */
     @SerializedName("leave_balance_list")
     private LeaveBalance[] leaveBalanceList;
+
+    // builder 开始
+    public EmploymentLeaveBalance() {
+    }
+
+    public EmploymentLeaveBalance(Builder builder) {
+        /**
+         * 雇佣信息ID
+         * <p> 示例值：4718803945687580505
+         */
+        this.employmentId = builder.employmentId;
+        /**
+         * 员工姓名
+         * <p> 示例值：
+         */
+        this.employmentName = builder.employmentName;
+        /**
+         * 余额查看日期
+         * <p> 示例值：0
+         */
+        this.asOfDate = builder.asOfDate;
+        /**
+         * 假期余额列表
+         * <p> 示例值：
+         */
+        this.leaveBalanceList = builder.leaveBalanceList;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getEmploymentId() {
         return this.employmentId;
     }
@@ -81,113 +117,82 @@ public class EmploymentLeaveBalance {
         this.leaveBalanceList = leaveBalanceList;
     }
 
-
-// builder 开始
-  public EmploymentLeaveBalance(){}
-
-  public EmploymentLeaveBalance(Builder builder){
-         /**
-          * 雇佣信息ID
-          * <p> 示例值：4718803945687580505
-          */
-      this.employmentId = builder.employmentId;
-         /**
-          * 员工姓名
-          * <p> 示例值：
-          */
-      this.employmentName = builder.employmentName;
-         /**
-          * 余额查看日期
-          * <p> 示例值：0
-          */
-      this.asOfDate = builder.asOfDate;
-         /**
-          * 假期余额列表
-          * <p> 示例值：
-          */
-      this.leaveBalanceList = builder.leaveBalanceList;
-  }
-
     public static class Builder {
-     /**
-      * 雇佣信息ID
-      * <p> 示例值：4718803945687580505
-      */
+        /**
+         * 雇佣信息ID
+         * <p> 示例值：4718803945687580505
+         */
         private String employmentId;
-     /**
-      * 员工姓名
-      * <p> 示例值：
-      */
+        /**
+         * 员工姓名
+         * <p> 示例值：
+         */
         private I18n[] employmentName;
-     /**
-      * 余额查看日期
-      * <p> 示例值：0
-      */
+        /**
+         * 余额查看日期
+         * <p> 示例值：0
+         */
         private String asOfDate;
-     /**
-      * 假期余额列表
-      * <p> 示例值：
-      */
+        /**
+         * 假期余额列表
+         * <p> 示例值：
+         */
         private LeaveBalance[] leaveBalanceList;
 
         /**
          * 雇佣信息ID
          * <p> 示例值：4718803945687580505
+         *
          * @param employmentId
          * @return
          */
         public Builder employmentId(String employmentId) {
-             this.employmentId = employmentId;
-             return this;
+            this.employmentId = employmentId;
+            return this;
         }
 
-    
 
         /**
          * 员工姓名
          * <p> 示例值：
+         *
          * @param employmentName
          * @return
          */
         public Builder employmentName(I18n[] employmentName) {
-             this.employmentName = employmentName;
-             return this;
+            this.employmentName = employmentName;
+            return this;
         }
 
-    
 
         /**
          * 余额查看日期
          * <p> 示例值：0
+         *
          * @param asOfDate
          * @return
          */
         public Builder asOfDate(String asOfDate) {
-             this.asOfDate = asOfDate;
-             return this;
+            this.asOfDate = asOfDate;
+            return this;
         }
 
-    
 
         /**
          * 假期余额列表
          * <p> 示例值：
+         *
          * @param leaveBalanceList
          * @return
          */
         public Builder leaveBalanceList(LeaveBalance[] leaveBalanceList) {
-             this.leaveBalanceList = leaveBalanceList;
-             return this;
+            this.leaveBalanceList = leaveBalanceList;
+            return this;
         }
 
-    
-    
-    public EmploymentLeaveBalance build(){
-        return new EmploymentLeaveBalance(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public EmploymentLeaveBalance build() {
+            return new EmploymentLeaveBalance(this);
+        }
     }
 }

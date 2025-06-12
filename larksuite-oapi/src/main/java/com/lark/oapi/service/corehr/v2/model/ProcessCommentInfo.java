@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,36 +20,71 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ProcessCommentInfo {
-     /**
-      * 评论人id
-      * <p> 示例值：7355397217231831060
-      */
+    /**
+     * 评论人id
+     * <p> 示例值：7355397217231831060
+     */
     @SerializedName("commentor_id")
     private String commentorId;
-     /**
-      * 评论人姓名
-      * <p> 示例值：
-      */
+    /**
+     * 评论人姓名
+     * <p> 示例值：
+     */
     @SerializedName("commentor_name")
     private DataengineI18n commentorName;
-     /**
-      * 评论时间,Unix毫秒时间戳
-      * <p> 示例值：1694769814036
-      */
+    /**
+     * 评论时间,Unix毫秒时间戳
+     * <p> 示例值：1694769814036
+     */
     @SerializedName("comment_time")
     private String commentTime;
-     /**
-      * 评论内容
-      * <p> 示例值：评论内容
-      */
+    /**
+     * 评论内容
+     * <p> 示例值：评论内容
+     */
     @SerializedName("comment_msg")
     private String commentMsg;
+
+    // builder 开始
+    public ProcessCommentInfo() {
+    }
+
+    public ProcessCommentInfo(Builder builder) {
+        /**
+         * 评论人id
+         * <p> 示例值：7355397217231831060
+         */
+        this.commentorId = builder.commentorId;
+        /**
+         * 评论人姓名
+         * <p> 示例值：
+         */
+        this.commentorName = builder.commentorName;
+        /**
+         * 评论时间,Unix毫秒时间戳
+         * <p> 示例值：1694769814036
+         */
+        this.commentTime = builder.commentTime;
+        /**
+         * 评论内容
+         * <p> 示例值：评论内容
+         */
+        this.commentMsg = builder.commentMsg;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getCommentorId() {
         return this.commentorId;
     }
@@ -81,113 +117,82 @@ public class ProcessCommentInfo {
         this.commentMsg = commentMsg;
     }
 
-
-// builder 开始
-  public ProcessCommentInfo(){}
-
-  public ProcessCommentInfo(Builder builder){
-         /**
-          * 评论人id
-          * <p> 示例值：7355397217231831060
-          */
-      this.commentorId = builder.commentorId;
-         /**
-          * 评论人姓名
-          * <p> 示例值：
-          */
-      this.commentorName = builder.commentorName;
-         /**
-          * 评论时间,Unix毫秒时间戳
-          * <p> 示例值：1694769814036
-          */
-      this.commentTime = builder.commentTime;
-         /**
-          * 评论内容
-          * <p> 示例值：评论内容
-          */
-      this.commentMsg = builder.commentMsg;
-  }
-
     public static class Builder {
-     /**
-      * 评论人id
-      * <p> 示例值：7355397217231831060
-      */
+        /**
+         * 评论人id
+         * <p> 示例值：7355397217231831060
+         */
         private String commentorId;
-     /**
-      * 评论人姓名
-      * <p> 示例值：
-      */
+        /**
+         * 评论人姓名
+         * <p> 示例值：
+         */
         private DataengineI18n commentorName;
-     /**
-      * 评论时间,Unix毫秒时间戳
-      * <p> 示例值：1694769814036
-      */
+        /**
+         * 评论时间,Unix毫秒时间戳
+         * <p> 示例值：1694769814036
+         */
         private String commentTime;
-     /**
-      * 评论内容
-      * <p> 示例值：评论内容
-      */
+        /**
+         * 评论内容
+         * <p> 示例值：评论内容
+         */
         private String commentMsg;
 
         /**
          * 评论人id
          * <p> 示例值：7355397217231831060
+         *
          * @param commentorId
          * @return
          */
         public Builder commentorId(String commentorId) {
-             this.commentorId = commentorId;
-             return this;
+            this.commentorId = commentorId;
+            return this;
         }
 
-    
 
         /**
          * 评论人姓名
          * <p> 示例值：
+         *
          * @param commentorName
          * @return
          */
         public Builder commentorName(DataengineI18n commentorName) {
-             this.commentorName = commentorName;
-             return this;
+            this.commentorName = commentorName;
+            return this;
         }
 
-    
 
         /**
          * 评论时间,Unix毫秒时间戳
          * <p> 示例值：1694769814036
+         *
          * @param commentTime
          * @return
          */
         public Builder commentTime(String commentTime) {
-             this.commentTime = commentTime;
-             return this;
+            this.commentTime = commentTime;
+            return this;
         }
 
-    
 
         /**
          * 评论内容
          * <p> 示例值：评论内容
+         *
          * @param commentMsg
          * @return
          */
         public Builder commentMsg(String commentMsg) {
-             this.commentMsg = commentMsg;
-             return this;
+            this.commentMsg = commentMsg;
+            return this;
         }
 
-    
-    
-    public ProcessCommentInfo build(){
-        return new ProcessCommentInfo(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ProcessCommentInfo build() {
+            return new ProcessCommentInfo(this);
+        }
     }
 }

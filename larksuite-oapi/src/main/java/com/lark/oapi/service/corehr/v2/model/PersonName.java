@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,156 +20,291 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class PersonName {
-     /**
-      * 姓 - 本地文字
-      * <p> 示例值：黄
-      */
+    /**
+     * 姓 - 本地文字
+     * <p> 示例值：黄
+     */
     @SerializedName("local_primary")
     private String localPrimary;
-     /**
-      * 名 - 本地文字
-      * <p> 示例值：四
-      */
+    /**
+     * 名 - 本地文字
+     * <p> 示例值：四
+     */
     @SerializedName("local_first_name")
     private String localFirstName;
-     /**
-      * 国家 / 地区;- 详细信息可通过[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口查询获得
-      * <p> 示例值：6862995757234914824
-      */
+    /**
+     * 国家 / 地区;- 详细信息可通过[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口查询获得
+     * <p> 示例值：6862995757234914824
+     */
     @SerializedName("country_region_id")
     private String countryRegionId;
-     /**
-      * 姓名类型;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name：person_name;  - custom_api_name：name_type
-      * <p> 示例值：
-      */
+    /**
+     * 姓名类型;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name：person_name;  - custom_api_name：name_type
+     * <p> 示例值：
+     */
     @SerializedName("name_type")
     private Enum nameType;
-     /**
-      * 名 - 第二本地文字
-      * <p> 示例值：五
-      */
+    /**
+     * 名 - 第二本地文字
+     * <p> 示例值：五
+     */
     @SerializedName("local_first_name_2")
     private String localFirstName2;
-     /**
-      * 姓 - 第二本地文字
-      * <p> 示例值：王
-      */
+    /**
+     * 姓 - 第二本地文字
+     * <p> 示例值：王
+     */
     @SerializedName("local_primary_2")
     private String localPrimary2;
-     /**
-      * 别名
-      * <p> 示例值：别名
-      */
+    /**
+     * 别名
+     * <p> 示例值：别名
+     */
     @SerializedName("additional_name")
     private String additionalName;
-     /**
-      * 补充姓名类型;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name：person_name;  - custom_api_name：additional_name_type
-      * <p> 示例值：
-      */
+    /**
+     * 补充姓名类型;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name：person_name;  - custom_api_name：additional_name_type
+     * <p> 示例值：
+     */
     @SerializedName("additional_name_type")
     private Enum additionalNameType;
-     /**
-      * 名
-      * <p> 示例值：帅
-      */
+    /**
+     * 名
+     * <p> 示例值：帅
+     */
     @SerializedName("first_name")
     private String firstName;
-     /**
-      * 全名
-      * <p> 示例值：王大帅
-      */
+    /**
+     * 全名
+     * <p> 示例值：王大帅
+     */
     @SerializedName("full_name")
     private String fullName;
-     /**
-      * 姓氏称谓
-      * <p> 示例值：王
-      */
+    /**
+     * 姓氏称谓
+     * <p> 示例值：王
+     */
     @SerializedName("hereditary")
     private String hereditary;
-     /**
-      * 自定义姓名（未传入时，姓名将默认根据所属国家 / 地区规则对相关姓、名字段拼接）
-      * <p> 示例值：王大帅
-      */
+    /**
+     * 自定义姓名（未传入时，姓名将默认根据所属国家 / 地区规则对相关姓、名字段拼接）
+     * <p> 示例值：王大帅
+     */
     @SerializedName("custom_name")
     private String customName;
-     /**
-      * 本地文字的自定义姓名（未传入时，本地文字的姓名将默认根据所属国家 / 地区规则对本地文字的相关姓、名字段拼接）
-      * <p> 示例值：王大帅
-      */
+    /**
+     * 本地文字的自定义姓名（未传入时，本地文字的姓名将默认根据所属国家 / 地区规则对本地文字的相关姓、名字段拼接）
+     * <p> 示例值：王大帅
+     */
     @SerializedName("custom_local_name")
     private String customLocalName;
-     /**
-      * 中间名
-      * <p> 示例值：大
-      */
+    /**
+     * 中间名
+     * <p> 示例值：大
+     */
     @SerializedName("middle_name")
     private String middleName;
-     /**
-      * 姓
-      * <p> 示例值：王
-      */
+    /**
+     * 姓
+     * <p> 示例值：王
+     */
     @SerializedName("name_primary")
     private String namePrimary;
-     /**
-      * 第二姓氏
-      * <p> 示例值：王
-      */
+    /**
+     * 第二姓氏
+     * <p> 示例值：王
+     */
     @SerializedName("secondary")
     private String secondary;
-     /**
-      * 婚后姓氏
-      * <p> 示例值：王
-      */
+    /**
+     * 婚后姓氏
+     * <p> 示例值：王
+     */
     @SerializedName("tertiary")
     private String tertiary;
-     /**
-      * 尊称;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name：person_name;  - custom_api_name：social
-      * <p> 示例值：王大帅
-      */
+    /**
+     * 尊称;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name：person_name;  - custom_api_name：social
+     * <p> 示例值：王大帅
+     */
     @SerializedName("social")
     private Enum social;
-     /**
-      * 头衔;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name：person_name;  - custom_api_name：title
-      * <p> 示例值：王
-      */
+    /**
+     * 头衔;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name：person_name;  - custom_api_name：title
+     * <p> 示例值：王
+     */
     @SerializedName("title")
     private Enum title;
-     /**
-      * 本地中间名
-      * <p> 示例值：大
-      */
+    /**
+     * 本地中间名
+     * <p> 示例值：大
+     */
     @SerializedName("local_middle_name")
     private String localMiddleName;
-     /**
-      * 第二姓氏 - 本地文字
-      * <p> 示例值：王
-      */
+    /**
+     * 第二姓氏 - 本地文字
+     * <p> 示例值：王
+     */
     @SerializedName("local_secondary")
     private String localSecondary;
-     /**
-      * 展示姓名（本地和西方文字）
-      * <p> 示例值：王大帅
-      */
+    /**
+     * 展示姓名（本地和西方文字）
+     * <p> 示例值：王大帅
+     */
     @SerializedName("display_name_local_and_western_script")
     private String displayNameLocalAndWesternScript;
-     /**
-      * 展示姓名（本地文字）
-      * <p> 示例值：王大帅
-      */
+    /**
+     * 展示姓名（本地文字）
+     * <p> 示例值：王大帅
+     */
     @SerializedName("display_name_local_script")
     private String displayNameLocalScript;
-     /**
-      * 展示姓名（西方文字）
-      * <p> 示例值：王大帅
-      */
+    /**
+     * 展示姓名（西方文字）
+     * <p> 示例值：王大帅
+     */
     @SerializedName("display_name_western_script")
     private String displayNameWesternScript;
+
+    // builder 开始
+    public PersonName() {
+    }
+
+    public PersonName(Builder builder) {
+        /**
+         * 姓 - 本地文字
+         * <p> 示例值：黄
+         */
+        this.localPrimary = builder.localPrimary;
+        /**
+         * 名 - 本地文字
+         * <p> 示例值：四
+         */
+        this.localFirstName = builder.localFirstName;
+        /**
+         * 国家 / 地区;- 详细信息可通过[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口查询获得
+         * <p> 示例值：6862995757234914824
+         */
+        this.countryRegionId = builder.countryRegionId;
+        /**
+         * 姓名类型;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name：person_name;  - custom_api_name：name_type
+         * <p> 示例值：
+         */
+        this.nameType = builder.nameType;
+        /**
+         * 名 - 第二本地文字
+         * <p> 示例值：五
+         */
+        this.localFirstName2 = builder.localFirstName2;
+        /**
+         * 姓 - 第二本地文字
+         * <p> 示例值：王
+         */
+        this.localPrimary2 = builder.localPrimary2;
+        /**
+         * 别名
+         * <p> 示例值：别名
+         */
+        this.additionalName = builder.additionalName;
+        /**
+         * 补充姓名类型;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name：person_name;  - custom_api_name：additional_name_type
+         * <p> 示例值：
+         */
+        this.additionalNameType = builder.additionalNameType;
+        /**
+         * 名
+         * <p> 示例值：帅
+         */
+        this.firstName = builder.firstName;
+        /**
+         * 全名
+         * <p> 示例值：王大帅
+         */
+        this.fullName = builder.fullName;
+        /**
+         * 姓氏称谓
+         * <p> 示例值：王
+         */
+        this.hereditary = builder.hereditary;
+        /**
+         * 自定义姓名（未传入时，姓名将默认根据所属国家 / 地区规则对相关姓、名字段拼接）
+         * <p> 示例值：王大帅
+         */
+        this.customName = builder.customName;
+        /**
+         * 本地文字的自定义姓名（未传入时，本地文字的姓名将默认根据所属国家 / 地区规则对本地文字的相关姓、名字段拼接）
+         * <p> 示例值：王大帅
+         */
+        this.customLocalName = builder.customLocalName;
+        /**
+         * 中间名
+         * <p> 示例值：大
+         */
+        this.middleName = builder.middleName;
+        /**
+         * 姓
+         * <p> 示例值：王
+         */
+        this.namePrimary = builder.namePrimary;
+        /**
+         * 第二姓氏
+         * <p> 示例值：王
+         */
+        this.secondary = builder.secondary;
+        /**
+         * 婚后姓氏
+         * <p> 示例值：王
+         */
+        this.tertiary = builder.tertiary;
+        /**
+         * 尊称;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name：person_name;  - custom_api_name：social
+         * <p> 示例值：王大帅
+         */
+        this.social = builder.social;
+        /**
+         * 头衔;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name：person_name;  - custom_api_name：title
+         * <p> 示例值：王
+         */
+        this.title = builder.title;
+        /**
+         * 本地中间名
+         * <p> 示例值：大
+         */
+        this.localMiddleName = builder.localMiddleName;
+        /**
+         * 第二姓氏 - 本地文字
+         * <p> 示例值：王
+         */
+        this.localSecondary = builder.localSecondary;
+        /**
+         * 展示姓名（本地和西方文字）
+         * <p> 示例值：王大帅
+         */
+        this.displayNameLocalAndWesternScript = builder.displayNameLocalAndWesternScript;
+        /**
+         * 展示姓名（本地文字）
+         * <p> 示例值：王大帅
+         */
+        this.displayNameLocalScript = builder.displayNameLocalScript;
+        /**
+         * 展示姓名（西方文字）
+         * <p> 示例值：王大帅
+         */
+        this.displayNameWesternScript = builder.displayNameWesternScript;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getLocalPrimary() {
         return this.localPrimary;
     }
@@ -361,573 +497,442 @@ public class PersonName {
         this.displayNameWesternScript = displayNameWesternScript;
     }
 
-
-// builder 开始
-  public PersonName(){}
-
-  public PersonName(Builder builder){
-         /**
-          * 姓 - 本地文字
-          * <p> 示例值：黄
-          */
-      this.localPrimary = builder.localPrimary;
-         /**
-          * 名 - 本地文字
-          * <p> 示例值：四
-          */
-      this.localFirstName = builder.localFirstName;
-         /**
-          * 国家 / 地区;- 详细信息可通过[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口查询获得
-          * <p> 示例值：6862995757234914824
-          */
-      this.countryRegionId = builder.countryRegionId;
-         /**
-          * 姓名类型;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name：person_name;  - custom_api_name：name_type
-          * <p> 示例值：
-          */
-      this.nameType = builder.nameType;
-         /**
-          * 名 - 第二本地文字
-          * <p> 示例值：五
-          */
-      this.localFirstName2 = builder.localFirstName2;
-         /**
-          * 姓 - 第二本地文字
-          * <p> 示例值：王
-          */
-      this.localPrimary2 = builder.localPrimary2;
-         /**
-          * 别名
-          * <p> 示例值：别名
-          */
-      this.additionalName = builder.additionalName;
-         /**
-          * 补充姓名类型;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name：person_name;  - custom_api_name：additional_name_type
-          * <p> 示例值：
-          */
-      this.additionalNameType = builder.additionalNameType;
-         /**
-          * 名
-          * <p> 示例值：帅
-          */
-      this.firstName = builder.firstName;
-         /**
-          * 全名
-          * <p> 示例值：王大帅
-          */
-      this.fullName = builder.fullName;
-         /**
-          * 姓氏称谓
-          * <p> 示例值：王
-          */
-      this.hereditary = builder.hereditary;
-         /**
-          * 自定义姓名（未传入时，姓名将默认根据所属国家 / 地区规则对相关姓、名字段拼接）
-          * <p> 示例值：王大帅
-          */
-      this.customName = builder.customName;
-         /**
-          * 本地文字的自定义姓名（未传入时，本地文字的姓名将默认根据所属国家 / 地区规则对本地文字的相关姓、名字段拼接）
-          * <p> 示例值：王大帅
-          */
-      this.customLocalName = builder.customLocalName;
-         /**
-          * 中间名
-          * <p> 示例值：大
-          */
-      this.middleName = builder.middleName;
-         /**
-          * 姓
-          * <p> 示例值：王
-          */
-      this.namePrimary = builder.namePrimary;
-         /**
-          * 第二姓氏
-          * <p> 示例值：王
-          */
-      this.secondary = builder.secondary;
-         /**
-          * 婚后姓氏
-          * <p> 示例值：王
-          */
-      this.tertiary = builder.tertiary;
-         /**
-          * 尊称;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name：person_name;  - custom_api_name：social
-          * <p> 示例值：王大帅
-          */
-      this.social = builder.social;
-         /**
-          * 头衔;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name：person_name;  - custom_api_name：title
-          * <p> 示例值：王
-          */
-      this.title = builder.title;
-         /**
-          * 本地中间名
-          * <p> 示例值：大
-          */
-      this.localMiddleName = builder.localMiddleName;
-         /**
-          * 第二姓氏 - 本地文字
-          * <p> 示例值：王
-          */
-      this.localSecondary = builder.localSecondary;
-         /**
-          * 展示姓名（本地和西方文字）
-          * <p> 示例值：王大帅
-          */
-      this.displayNameLocalAndWesternScript = builder.displayNameLocalAndWesternScript;
-         /**
-          * 展示姓名（本地文字）
-          * <p> 示例值：王大帅
-          */
-      this.displayNameLocalScript = builder.displayNameLocalScript;
-         /**
-          * 展示姓名（西方文字）
-          * <p> 示例值：王大帅
-          */
-      this.displayNameWesternScript = builder.displayNameWesternScript;
-  }
-
     public static class Builder {
-     /**
-      * 姓 - 本地文字
-      * <p> 示例值：黄
-      */
+        /**
+         * 姓 - 本地文字
+         * <p> 示例值：黄
+         */
         private String localPrimary;
-     /**
-      * 名 - 本地文字
-      * <p> 示例值：四
-      */
+        /**
+         * 名 - 本地文字
+         * <p> 示例值：四
+         */
         private String localFirstName;
-     /**
-      * 国家 / 地区;- 详细信息可通过[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口查询获得
-      * <p> 示例值：6862995757234914824
-      */
+        /**
+         * 国家 / 地区;- 详细信息可通过[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口查询获得
+         * <p> 示例值：6862995757234914824
+         */
         private String countryRegionId;
-     /**
-      * 姓名类型;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name：person_name;  - custom_api_name：name_type
-      * <p> 示例值：
-      */
+        /**
+         * 姓名类型;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name：person_name;  - custom_api_name：name_type
+         * <p> 示例值：
+         */
         private Enum nameType;
-     /**
-      * 名 - 第二本地文字
-      * <p> 示例值：五
-      */
+        /**
+         * 名 - 第二本地文字
+         * <p> 示例值：五
+         */
         private String localFirstName2;
-     /**
-      * 姓 - 第二本地文字
-      * <p> 示例值：王
-      */
+        /**
+         * 姓 - 第二本地文字
+         * <p> 示例值：王
+         */
         private String localPrimary2;
-     /**
-      * 别名
-      * <p> 示例值：别名
-      */
+        /**
+         * 别名
+         * <p> 示例值：别名
+         */
         private String additionalName;
-     /**
-      * 补充姓名类型;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name：person_name;  - custom_api_name：additional_name_type
-      * <p> 示例值：
-      */
+        /**
+         * 补充姓名类型;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name：person_name;  - custom_api_name：additional_name_type
+         * <p> 示例值：
+         */
         private Enum additionalNameType;
-     /**
-      * 名
-      * <p> 示例值：帅
-      */
+        /**
+         * 名
+         * <p> 示例值：帅
+         */
         private String firstName;
-     /**
-      * 全名
-      * <p> 示例值：王大帅
-      */
+        /**
+         * 全名
+         * <p> 示例值：王大帅
+         */
         private String fullName;
-     /**
-      * 姓氏称谓
-      * <p> 示例值：王
-      */
+        /**
+         * 姓氏称谓
+         * <p> 示例值：王
+         */
         private String hereditary;
-     /**
-      * 自定义姓名（未传入时，姓名将默认根据所属国家 / 地区规则对相关姓、名字段拼接）
-      * <p> 示例值：王大帅
-      */
+        /**
+         * 自定义姓名（未传入时，姓名将默认根据所属国家 / 地区规则对相关姓、名字段拼接）
+         * <p> 示例值：王大帅
+         */
         private String customName;
-     /**
-      * 本地文字的自定义姓名（未传入时，本地文字的姓名将默认根据所属国家 / 地区规则对本地文字的相关姓、名字段拼接）
-      * <p> 示例值：王大帅
-      */
+        /**
+         * 本地文字的自定义姓名（未传入时，本地文字的姓名将默认根据所属国家 / 地区规则对本地文字的相关姓、名字段拼接）
+         * <p> 示例值：王大帅
+         */
         private String customLocalName;
-     /**
-      * 中间名
-      * <p> 示例值：大
-      */
+        /**
+         * 中间名
+         * <p> 示例值：大
+         */
         private String middleName;
-     /**
-      * 姓
-      * <p> 示例值：王
-      */
+        /**
+         * 姓
+         * <p> 示例值：王
+         */
         private String namePrimary;
-     /**
-      * 第二姓氏
-      * <p> 示例值：王
-      */
+        /**
+         * 第二姓氏
+         * <p> 示例值：王
+         */
         private String secondary;
-     /**
-      * 婚后姓氏
-      * <p> 示例值：王
-      */
+        /**
+         * 婚后姓氏
+         * <p> 示例值：王
+         */
         private String tertiary;
-     /**
-      * 尊称;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name：person_name;  - custom_api_name：social
-      * <p> 示例值：王大帅
-      */
+        /**
+         * 尊称;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name：person_name;  - custom_api_name：social
+         * <p> 示例值：王大帅
+         */
         private Enum social;
-     /**
-      * 头衔;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name：person_name;  - custom_api_name：title
-      * <p> 示例值：王
-      */
+        /**
+         * 头衔;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name：person_name;  - custom_api_name：title
+         * <p> 示例值：王
+         */
         private Enum title;
-     /**
-      * 本地中间名
-      * <p> 示例值：大
-      */
+        /**
+         * 本地中间名
+         * <p> 示例值：大
+         */
         private String localMiddleName;
-     /**
-      * 第二姓氏 - 本地文字
-      * <p> 示例值：王
-      */
+        /**
+         * 第二姓氏 - 本地文字
+         * <p> 示例值：王
+         */
         private String localSecondary;
-     /**
-      * 展示姓名（本地和西方文字）
-      * <p> 示例值：王大帅
-      */
+        /**
+         * 展示姓名（本地和西方文字）
+         * <p> 示例值：王大帅
+         */
         private String displayNameLocalAndWesternScript;
-     /**
-      * 展示姓名（本地文字）
-      * <p> 示例值：王大帅
-      */
+        /**
+         * 展示姓名（本地文字）
+         * <p> 示例值：王大帅
+         */
         private String displayNameLocalScript;
-     /**
-      * 展示姓名（西方文字）
-      * <p> 示例值：王大帅
-      */
+        /**
+         * 展示姓名（西方文字）
+         * <p> 示例值：王大帅
+         */
         private String displayNameWesternScript;
 
         /**
          * 姓 - 本地文字
          * <p> 示例值：黄
+         *
          * @param localPrimary
          * @return
          */
         public Builder localPrimary(String localPrimary) {
-             this.localPrimary = localPrimary;
-             return this;
+            this.localPrimary = localPrimary;
+            return this;
         }
 
-    
 
         /**
          * 名 - 本地文字
          * <p> 示例值：四
+         *
          * @param localFirstName
          * @return
          */
         public Builder localFirstName(String localFirstName) {
-             this.localFirstName = localFirstName;
-             return this;
+            this.localFirstName = localFirstName;
+            return this;
         }
 
-    
 
         /**
          * 国家 / 地区;- 详细信息可通过[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口查询获得
          * <p> 示例值：6862995757234914824
+         *
          * @param countryRegionId
          * @return
          */
         public Builder countryRegionId(String countryRegionId) {
-             this.countryRegionId = countryRegionId;
-             return this;
+            this.countryRegionId = countryRegionId;
+            return this;
         }
 
-    
 
         /**
          * 姓名类型;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name：person_name;  - custom_api_name：name_type
          * <p> 示例值：
+         *
          * @param nameType
          * @return
          */
         public Builder nameType(Enum nameType) {
-             this.nameType = nameType;
-             return this;
+            this.nameType = nameType;
+            return this;
         }
 
-    
 
         /**
          * 名 - 第二本地文字
          * <p> 示例值：五
+         *
          * @param localFirstName2
          * @return
          */
         public Builder localFirstName2(String localFirstName2) {
-             this.localFirstName2 = localFirstName2;
-             return this;
+            this.localFirstName2 = localFirstName2;
+            return this;
         }
 
-    
 
         /**
          * 姓 - 第二本地文字
          * <p> 示例值：王
+         *
          * @param localPrimary2
          * @return
          */
         public Builder localPrimary2(String localPrimary2) {
-             this.localPrimary2 = localPrimary2;
-             return this;
+            this.localPrimary2 = localPrimary2;
+            return this;
         }
 
-    
 
         /**
          * 别名
          * <p> 示例值：别名
+         *
          * @param additionalName
          * @return
          */
         public Builder additionalName(String additionalName) {
-             this.additionalName = additionalName;
-             return this;
+            this.additionalName = additionalName;
+            return this;
         }
 
-    
 
         /**
          * 补充姓名类型;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name：person_name;  - custom_api_name：additional_name_type
          * <p> 示例值：
+         *
          * @param additionalNameType
          * @return
          */
         public Builder additionalNameType(Enum additionalNameType) {
-             this.additionalNameType = additionalNameType;
-             return this;
+            this.additionalNameType = additionalNameType;
+            return this;
         }
 
-    
 
         /**
          * 名
          * <p> 示例值：帅
+         *
          * @param firstName
          * @return
          */
         public Builder firstName(String firstName) {
-             this.firstName = firstName;
-             return this;
+            this.firstName = firstName;
+            return this;
         }
 
-    
 
         /**
          * 全名
          * <p> 示例值：王大帅
+         *
          * @param fullName
          * @return
          */
         public Builder fullName(String fullName) {
-             this.fullName = fullName;
-             return this;
+            this.fullName = fullName;
+            return this;
         }
 
-    
 
         /**
          * 姓氏称谓
          * <p> 示例值：王
+         *
          * @param hereditary
          * @return
          */
         public Builder hereditary(String hereditary) {
-             this.hereditary = hereditary;
-             return this;
+            this.hereditary = hereditary;
+            return this;
         }
 
-    
 
         /**
          * 自定义姓名（未传入时，姓名将默认根据所属国家 / 地区规则对相关姓、名字段拼接）
          * <p> 示例值：王大帅
+         *
          * @param customName
          * @return
          */
         public Builder customName(String customName) {
-             this.customName = customName;
-             return this;
+            this.customName = customName;
+            return this;
         }
 
-    
 
         /**
          * 本地文字的自定义姓名（未传入时，本地文字的姓名将默认根据所属国家 / 地区规则对本地文字的相关姓、名字段拼接）
          * <p> 示例值：王大帅
+         *
          * @param customLocalName
          * @return
          */
         public Builder customLocalName(String customLocalName) {
-             this.customLocalName = customLocalName;
-             return this;
+            this.customLocalName = customLocalName;
+            return this;
         }
 
-    
 
         /**
          * 中间名
          * <p> 示例值：大
+         *
          * @param middleName
          * @return
          */
         public Builder middleName(String middleName) {
-             this.middleName = middleName;
-             return this;
+            this.middleName = middleName;
+            return this;
         }
 
-    
 
         /**
          * 姓
          * <p> 示例值：王
+         *
          * @param namePrimary
          * @return
          */
         public Builder namePrimary(String namePrimary) {
-             this.namePrimary = namePrimary;
-             return this;
+            this.namePrimary = namePrimary;
+            return this;
         }
 
-    
 
         /**
          * 第二姓氏
          * <p> 示例值：王
+         *
          * @param secondary
          * @return
          */
         public Builder secondary(String secondary) {
-             this.secondary = secondary;
-             return this;
+            this.secondary = secondary;
+            return this;
         }
 
-    
 
         /**
          * 婚后姓氏
          * <p> 示例值：王
+         *
          * @param tertiary
          * @return
          */
         public Builder tertiary(String tertiary) {
-             this.tertiary = tertiary;
-             return this;
+            this.tertiary = tertiary;
+            return this;
         }
 
-    
 
         /**
          * 尊称;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name：person_name;  - custom_api_name：social
          * <p> 示例值：王大帅
+         *
          * @param social
          * @return
          */
         public Builder social(Enum social) {
-             this.social = social;
-             return this;
+            this.social = social;
+            return this;
         }
 
-    
 
         /**
          * 头衔;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name：person_name;  - custom_api_name：title
          * <p> 示例值：王
+         *
          * @param title
          * @return
          */
         public Builder title(Enum title) {
-             this.title = title;
-             return this;
+            this.title = title;
+            return this;
         }
 
-    
 
         /**
          * 本地中间名
          * <p> 示例值：大
+         *
          * @param localMiddleName
          * @return
          */
         public Builder localMiddleName(String localMiddleName) {
-             this.localMiddleName = localMiddleName;
-             return this;
+            this.localMiddleName = localMiddleName;
+            return this;
         }
 
-    
 
         /**
          * 第二姓氏 - 本地文字
          * <p> 示例值：王
+         *
          * @param localSecondary
          * @return
          */
         public Builder localSecondary(String localSecondary) {
-             this.localSecondary = localSecondary;
-             return this;
+            this.localSecondary = localSecondary;
+            return this;
         }
 
-    
 
         /**
          * 展示姓名（本地和西方文字）
          * <p> 示例值：王大帅
+         *
          * @param displayNameLocalAndWesternScript
          * @return
          */
         public Builder displayNameLocalAndWesternScript(String displayNameLocalAndWesternScript) {
-             this.displayNameLocalAndWesternScript = displayNameLocalAndWesternScript;
-             return this;
+            this.displayNameLocalAndWesternScript = displayNameLocalAndWesternScript;
+            return this;
         }
 
-    
 
         /**
          * 展示姓名（本地文字）
          * <p> 示例值：王大帅
+         *
          * @param displayNameLocalScript
          * @return
          */
         public Builder displayNameLocalScript(String displayNameLocalScript) {
-             this.displayNameLocalScript = displayNameLocalScript;
-             return this;
+            this.displayNameLocalScript = displayNameLocalScript;
+            return this;
         }
 
-    
 
         /**
          * 展示姓名（西方文字）
          * <p> 示例值：王大帅
+         *
          * @param displayNameWesternScript
          * @return
          */
         public Builder displayNameWesternScript(String displayNameWesternScript) {
-             this.displayNameWesternScript = displayNameWesternScript;
-             return this;
+            this.displayNameWesternScript = displayNameWesternScript;
+            return this;
         }
 
-    
-    
-    public PersonName build(){
-        return new PersonName(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public PersonName build() {
+            return new PersonName(this);
+        }
     }
 }

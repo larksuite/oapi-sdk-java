@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.okr.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.okr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,42 +20,82 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ContentTextStyle {
-     /**
-      * 是否加粗
-      * <p> 示例值：true
-      */
+    /**
+     * 是否加粗
+     * <p> 示例值：true
+     */
     @SerializedName("bold")
     private Boolean bold;
-     /**
-      * 是否删除
-      * <p> 示例值：true
-      */
+    /**
+     * 是否删除
+     * <p> 示例值：true
+     */
     @SerializedName("strikeThrough")
     private Boolean strikeThrough;
-     /**
-      * 背景颜色
-      * <p> 示例值：
-      */
+    /**
+     * 背景颜色
+     * <p> 示例值：
+     */
     @SerializedName("backColor")
     private ContentColor backColor;
-     /**
-      * 字体颜色
-      * <p> 示例值：
-      */
+    /**
+     * 字体颜色
+     * <p> 示例值：
+     */
     @SerializedName("textColor")
     private ContentColor textColor;
-     /**
-      * 链接地址
-      * <p> 示例值：
-      */
+    /**
+     * 链接地址
+     * <p> 示例值：
+     */
     @SerializedName("link")
     private ContentLink link;
+
+    // builder 开始
+    public ContentTextStyle() {
+    }
+
+    public ContentTextStyle(Builder builder) {
+        /**
+         * 是否加粗
+         * <p> 示例值：true
+         */
+        this.bold = builder.bold;
+        /**
+         * 是否删除
+         * <p> 示例值：true
+         */
+        this.strikeThrough = builder.strikeThrough;
+        /**
+         * 背景颜色
+         * <p> 示例值：
+         */
+        this.backColor = builder.backColor;
+        /**
+         * 字体颜色
+         * <p> 示例值：
+         */
+        this.textColor = builder.textColor;
+        /**
+         * 链接地址
+         * <p> 示例值：
+         */
+        this.link = builder.link;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Boolean getBold() {
         return this.bold;
     }
@@ -95,136 +136,100 @@ public class ContentTextStyle {
         this.link = link;
     }
 
-
-// builder 开始
-  public ContentTextStyle(){}
-
-  public ContentTextStyle(Builder builder){
-         /**
-          * 是否加粗
-          * <p> 示例值：true
-          */
-      this.bold = builder.bold;
-         /**
-          * 是否删除
-          * <p> 示例值：true
-          */
-      this.strikeThrough = builder.strikeThrough;
-         /**
-          * 背景颜色
-          * <p> 示例值：
-          */
-      this.backColor = builder.backColor;
-         /**
-          * 字体颜色
-          * <p> 示例值：
-          */
-      this.textColor = builder.textColor;
-         /**
-          * 链接地址
-          * <p> 示例值：
-          */
-      this.link = builder.link;
-  }
-
     public static class Builder {
-     /**
-      * 是否加粗
-      * <p> 示例值：true
-      */
+        /**
+         * 是否加粗
+         * <p> 示例值：true
+         */
         private Boolean bold;
-     /**
-      * 是否删除
-      * <p> 示例值：true
-      */
+        /**
+         * 是否删除
+         * <p> 示例值：true
+         */
         private Boolean strikeThrough;
-     /**
-      * 背景颜色
-      * <p> 示例值：
-      */
+        /**
+         * 背景颜色
+         * <p> 示例值：
+         */
         private ContentColor backColor;
-     /**
-      * 字体颜色
-      * <p> 示例值：
-      */
+        /**
+         * 字体颜色
+         * <p> 示例值：
+         */
         private ContentColor textColor;
-     /**
-      * 链接地址
-      * <p> 示例值：
-      */
+        /**
+         * 链接地址
+         * <p> 示例值：
+         */
         private ContentLink link;
 
         /**
          * 是否加粗
          * <p> 示例值：true
+         *
          * @param bold
          * @return
          */
         public Builder bold(Boolean bold) {
-             this.bold = bold;
-             return this;
+            this.bold = bold;
+            return this;
         }
 
-    
 
         /**
          * 是否删除
          * <p> 示例值：true
+         *
          * @param strikeThrough
          * @return
          */
         public Builder strikeThrough(Boolean strikeThrough) {
-             this.strikeThrough = strikeThrough;
-             return this;
+            this.strikeThrough = strikeThrough;
+            return this;
         }
 
-    
 
         /**
          * 背景颜色
          * <p> 示例值：
+         *
          * @param backColor
          * @return
          */
         public Builder backColor(ContentColor backColor) {
-             this.backColor = backColor;
-             return this;
+            this.backColor = backColor;
+            return this;
         }
 
-    
 
         /**
          * 字体颜色
          * <p> 示例值：
+         *
          * @param textColor
          * @return
          */
         public Builder textColor(ContentColor textColor) {
-             this.textColor = textColor;
-             return this;
+            this.textColor = textColor;
+            return this;
         }
 
-    
 
         /**
          * 链接地址
          * <p> 示例值：
+         *
          * @param link
          * @return
          */
         public Builder link(ContentLink link) {
-             this.link = link;
-             return this;
+            this.link = link;
+            return this;
         }
 
-    
-    
-    public ContentTextStyle build(){
-        return new ContentTextStyle(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ContentTextStyle build() {
+            return new ContentTextStyle(this);
+        }
     }
 }

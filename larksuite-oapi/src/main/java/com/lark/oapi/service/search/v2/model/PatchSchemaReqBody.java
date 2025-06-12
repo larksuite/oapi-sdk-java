@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.search.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.search.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class PatchSchemaReqBody {
-     /**
-      * 数据展示相关配置
-      * <p> 示例值：
-      */
+    /**
+     * 数据展示相关配置
+     * <p> 示例值：
+     */
     @SerializedName("display")
     private SchemaDisplay display;
-     /**
-      * 数据范式的属性定义
-      * <p> 示例值：
-      */
+    /**
+     * 数据范式的属性定义
+     * <p> 示例值：
+     */
     @SerializedName("properties")
     private PatchSchemaProperty[] properties;
+
+    // builder 开始
+    public PatchSchemaReqBody() {
+    }
+
+    public PatchSchemaReqBody(Builder builder) {
+        /**
+         * 数据展示相关配置
+         * <p> 示例值：
+         */
+        this.display = builder.display;
+        /**
+         * 数据范式的属性定义
+         * <p> 示例值：
+         */
+        this.properties = builder.properties;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public SchemaDisplay getDisplay() {
         return this.display;
     }
@@ -53,67 +79,46 @@ public class PatchSchemaReqBody {
         this.properties = properties;
     }
 
-
-// builder 开始
-  public PatchSchemaReqBody(){}
-
-  public PatchSchemaReqBody(Builder builder){
-         /**
-          * 数据展示相关配置
-          * <p> 示例值：
-          */
-      this.display = builder.display;
-         /**
-          * 数据范式的属性定义
-          * <p> 示例值：
-          */
-      this.properties = builder.properties;
-  }
-
     public static class Builder {
-     /**
-      * 数据展示相关配置
-      * <p> 示例值：
-      */
+        /**
+         * 数据展示相关配置
+         * <p> 示例值：
+         */
         private SchemaDisplay display;
-     /**
-      * 数据范式的属性定义
-      * <p> 示例值：
-      */
+        /**
+         * 数据范式的属性定义
+         * <p> 示例值：
+         */
         private PatchSchemaProperty[] properties;
 
         /**
          * 数据展示相关配置
          * <p> 示例值：
+         *
          * @param display
          * @return
          */
         public Builder display(SchemaDisplay display) {
-             this.display = display;
-             return this;
+            this.display = display;
+            return this;
         }
 
-    
 
         /**
          * 数据范式的属性定义
          * <p> 示例值：
+         *
          * @param properties
          * @return
          */
         public Builder properties(PatchSchemaProperty[] properties) {
-             this.properties = properties;
-             return this;
+            this.properties = properties;
+            return this;
         }
 
-    
-    
-    public PatchSchemaReqBody build(){
-        return new PatchSchemaReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public PatchSchemaReqBody build() {
+            return new PatchSchemaReqBody(this);
+        }
     }
 }

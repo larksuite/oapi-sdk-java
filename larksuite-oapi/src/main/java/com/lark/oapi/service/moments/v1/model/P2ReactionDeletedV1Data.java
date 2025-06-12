@@ -12,54 +12,59 @@
  */
 
 package com.lark.oapi.service.moments.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class P2ReactionDeletedV1Data {
-     /**
-      * reaction 类型
-      * <p> 示例值："OK"
-      */
+    /**
+     * reaction 类型
+     * <p> 示例值："OK"
+     */
     @SerializedName("type")
     private String type;
-     /**
-      * reaction 所属用户ID
-      * <p> 示例值：
-      */
+    /**
+     * reaction 所属用户ID
+     * <p> 示例值：
+     */
     @SerializedName("user_id")
     private UserId userId;
-     /**
-      * reaction 所属实体ID
-      * <p> 示例值："248381241"
-      */
+    /**
+     * reaction 所属实体ID
+     * <p> 示例值："248381241"
+     */
     @SerializedName("entity_id")
     private String entityId;
-     /**
-      * Reaction的ID
-      * <p> 示例值："MS8yL1NPQg=="
-      */
+    /**
+     * Reaction的ID
+     * <p> 示例值："MS8yL1NPQg=="
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 表情回复所属实体类型
-      * <p> 示例值：1
-      */
+    /**
+     * 表情回复所属实体类型
+     * <p> 示例值：1
+     */
     @SerializedName("entity_type")
     private Integer entityType;
-     /**
-      * 表情回复人类型
-      * <p> 示例值：1
-      */
+    /**
+     * 表情回复人类型
+     * <p> 示例值：1
+     */
     @SerializedName("user_type")
     private Integer userType;
+
     public String getType() {
         return this.type;
     }

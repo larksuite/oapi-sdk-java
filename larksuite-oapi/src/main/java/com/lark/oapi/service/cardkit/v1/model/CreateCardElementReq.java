@@ -12,25 +12,49 @@
  */
 
 package com.lark.oapi.service.cardkit.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.cardkit.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CreateCardElementReq {
-     /**
-      * 卡片ID
-      * <p> 示例值：7355439197428236291
-      */
+    /**
+     * 卡片ID
+     * <p> 示例值：7355439197428236291
+     */
     @Path
     @SerializedName("card_id")
     private String cardId;
+    @Body
+    private CreateCardElementReqBody body;
+
+    // builder 开始
+    public CreateCardElementReq() {
+    }
+
+    public CreateCardElementReq(Builder builder) {
+        /**
+         * 卡片ID
+         * <p> 示例值：7355439197428236291
+         */
+        this.cardId = builder.cardId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getCardId() {
         return this.cardId;
     }
@@ -38,9 +62,6 @@ public class CreateCardElementReq {
     public void setCardId(String cardId) {
         this.cardId = cardId;
     }
-
-    @Body
-    private CreateCardElementReqBody body;
 
     public CreateCardElementReqBody getCreateCardElementReqBody() {
         return this.body;
@@ -50,54 +71,40 @@ public class CreateCardElementReq {
         this.body = body;
     }
 
-// builder 开始
-  public CreateCardElementReq(){}
-
-  public CreateCardElementReq(Builder builder){
-     /**
-      * 卡片ID
-      * <p> 示例值：7355439197428236291
-      */
-       this.cardId = builder.cardId;
-        this.body = builder.body;
-  }
-
     public static class Builder {
-    
+
         private String cardId; // 卡片ID
+        private CreateCardElementReqBody body;
+
         /**
          * 卡片ID
          * <p> 示例值：7355439197428236291
+         *
          * @param cardId
          * @return
          */
-          public Builder cardId(String cardId) {
-               this.cardId = cardId;
-               return this;
-          }
+        public Builder cardId(String cardId) {
+            this.cardId = cardId;
+            return this;
+        }
 
-    
-        private CreateCardElementReqBody body;
-    
         public CreateCardElementReqBody getCreateCardElementReqBody() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder createCardElementReqBody(CreateCardElementReqBody body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public CreateCardElementReq build(){
-        return new CreateCardElementReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public CreateCardElementReq build() {
+            return new CreateCardElementReq(this);
+        }
     }
 }

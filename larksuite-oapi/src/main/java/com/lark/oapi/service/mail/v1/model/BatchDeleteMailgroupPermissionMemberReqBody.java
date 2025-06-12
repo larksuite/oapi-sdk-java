@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.mail.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class BatchDeleteMailgroupPermissionMemberReqBody {
-     /**
-      * 本次调用删除的权限成员ID列表
-      * <p> 示例值：
-      */
+    /**
+     * 本次调用删除的权限成员ID列表
+     * <p> 示例值：
+     */
     @SerializedName("permission_member_id_list")
     private String[] permissionMemberIdList;
+
+    // builder 开始
+    public BatchDeleteMailgroupPermissionMemberReqBody() {
+    }
+
+    public BatchDeleteMailgroupPermissionMemberReqBody(Builder builder) {
+        /**
+         * 本次调用删除的权限成员ID列表
+         * <p> 示例值：
+         */
+        this.permissionMemberIdList = builder.permissionMemberIdList;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String[] getPermissionMemberIdList() {
         return this.permissionMemberIdList;
     }
@@ -39,44 +60,28 @@ public class BatchDeleteMailgroupPermissionMemberReqBody {
         this.permissionMemberIdList = permissionMemberIdList;
     }
 
-
-// builder 开始
-  public BatchDeleteMailgroupPermissionMemberReqBody(){}
-
-  public BatchDeleteMailgroupPermissionMemberReqBody(Builder builder){
-         /**
-          * 本次调用删除的权限成员ID列表
-          * <p> 示例值：
-          */
-      this.permissionMemberIdList = builder.permissionMemberIdList;
-  }
-
     public static class Builder {
-     /**
-      * 本次调用删除的权限成员ID列表
-      * <p> 示例值：
-      */
+        /**
+         * 本次调用删除的权限成员ID列表
+         * <p> 示例值：
+         */
         private String[] permissionMemberIdList;
 
         /**
          * 本次调用删除的权限成员ID列表
          * <p> 示例值：
+         *
          * @param permissionMemberIdList
          * @return
          */
         public Builder permissionMemberIdList(String[] permissionMemberIdList) {
-             this.permissionMemberIdList = permissionMemberIdList;
-             return this;
+            this.permissionMemberIdList = permissionMemberIdList;
+            return this;
         }
 
-    
-    
-    public BatchDeleteMailgroupPermissionMemberReqBody build(){
-        return new BatchDeleteMailgroupPermissionMemberReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public BatchDeleteMailgroupPermissionMemberReqBody build() {
+            return new BatchDeleteMailgroupPermissionMemberReqBody(this);
+        }
     }
 }

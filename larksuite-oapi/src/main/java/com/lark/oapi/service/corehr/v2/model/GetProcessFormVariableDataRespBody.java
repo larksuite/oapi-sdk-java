@@ -12,30 +12,35 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class GetProcessFormVariableDataRespBody {
-     /**
-      * 表单数据
-      * <p> 示例值：
-      */
+    /**
+     * 表单数据
+     * <p> 示例值：
+     */
     @SerializedName("field_variable_values")
     private FieldVariableValue[] fieldVariableValues;
-     /**
-      * 流程实例id
-      * <p> 示例值：7368832822481536556
-      */
+    /**
+     * 流程实例id
+     * <p> 示例值：7368832822481536556
+     */
     @SerializedName("process_id")
     private String processId;
+
     public FieldVariableValue[] getFieldVariableValues() {
         return this.fieldVariableValues;
     }

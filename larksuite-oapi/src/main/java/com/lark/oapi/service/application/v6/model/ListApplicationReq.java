@@ -12,67 +12,118 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ListApplicationReq {
-     /**
-      * 分页大小
-      * <p> 示例值：50
-      */
+    /**
+     * 分页大小
+     * <p> 示例值：50
+     */
     @Query
     @SerializedName("page_size")
     private Integer pageSize;
-     /**
-      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-      * <p> 示例值：AQD9/Rn9eij9Pm39ED40/dk53s4Ebp882DYfFaPFbz00L4CMZJrqGdzNyc8BcZtDbwVUvRmQTvyMYicnGWrde9X56TgdBuS+JKiSIkdexPw=
-      */
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     * <p> 示例值：AQD9/Rn9eij9Pm39ED40/dk53s4Ebp882DYfFaPFbz00L4CMZJrqGdzNyc8BcZtDbwVUvRmQTvyMYicnGWrde9X56TgdBuS+JKiSIkdexPw=
+     */
     @Query
     @SerializedName("page_token")
     private String pageToken;
-     /**
-      * 用户 ID 类型
-      * <p> 示例值：
-      */
+    /**
+     * 用户 ID 类型
+     * <p> 示例值：
+     */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
-     /**
-      * 应用的图标、描述、帮助文档链接是按照应用的主语言返回；其他内容（如应用权限、应用分类）按照该参数设定返回对应的语言。可选值有： zh_cn：中文 en_us：英文 ja_jp：日文  如不填写，则按照应用的主语言返回
-      * <p> 示例值：zh_cn
-      */
+    /**
+     * 应用的图标、描述、帮助文档链接是按照应用的主语言返回；其他内容（如应用权限、应用分类）按照该参数设定返回对应的语言。可选值有： zh_cn：中文 en_us：英文 ja_jp：日文  如不填写，则按照应用的主语言返回
+     * <p> 示例值：zh_cn
+     */
     @Query
     @SerializedName("lang")
     private String lang;
-     /**
-      * 不传入代表全部返回。传入则按照这种应用状态返回。应用状态可选值有：0：停用状态1：启用状态 2：未启用状态
-      * <p> 示例值：0
-      */
+    /**
+     * 不传入代表全部返回。传入则按照这种应用状态返回。应用状态可选值有：0：停用状态1：启用状态 2：未启用状态
+     * <p> 示例值：0
+     */
     @Query
     @SerializedName("status")
     private Integer status;
-     /**
-      * 不传入代表全部返回。传入则按照这种应用状态返回。 付费类型 可选值： 0：免费 1：付费
-      * <p> 示例值：0
-      */
+    /**
+     * 不传入代表全部返回。传入则按照这种应用状态返回。 付费类型 可选值： 0：免费 1：付费
+     * <p> 示例值：0
+     */
     @Query
     @SerializedName("payment_type")
     private Integer paymentType;
-     /**
-      * 不传入代表全部返回。传入则按照这种应用状态返回。所有者类型，可选值： 0：飞书科技 1：飞书合作伙伴 2：企业内成员
-      * <p> 示例值：0
-      */
+    /**
+     * 不传入代表全部返回。传入则按照这种应用状态返回。所有者类型，可选值： 0：飞书科技 1：飞书合作伙伴 2：企业内成员
+     * <p> 示例值：0
+     */
     @Query
     @SerializedName("owner_type")
     private Integer ownerType;
+
+    // builder 开始
+    public ListApplicationReq() {
+    }
+
+    public ListApplicationReq(Builder builder) {
+        /**
+         * 分页大小
+         * <p> 示例值：50
+         */
+        this.pageSize = builder.pageSize;
+        /**
+         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+         * <p> 示例值：AQD9/Rn9eij9Pm39ED40/dk53s4Ebp882DYfFaPFbz00L4CMZJrqGdzNyc8BcZtDbwVUvRmQTvyMYicnGWrde9X56TgdBuS+JKiSIkdexPw=
+         */
+        this.pageToken = builder.pageToken;
+        /**
+         * 用户 ID 类型
+         * <p> 示例值：
+         */
+        this.userIdType = builder.userIdType;
+        /**
+         * 应用的图标、描述、帮助文档链接是按照应用的主语言返回；其他内容（如应用权限、应用分类）按照该参数设定返回对应的语言。可选值有： zh_cn：中文 en_us：英文 ja_jp：日文  如不填写，则按照应用的主语言返回
+         * <p> 示例值：zh_cn
+         */
+        this.lang = builder.lang;
+        /**
+         * 不传入代表全部返回。传入则按照这种应用状态返回。应用状态可选值有：0：停用状态1：启用状态 2：未启用状态
+         * <p> 示例值：0
+         */
+        this.status = builder.status;
+        /**
+         * 不传入代表全部返回。传入则按照这种应用状态返回。 付费类型 可选值： 0：免费 1：付费
+         * <p> 示例值：0
+         */
+        this.paymentType = builder.paymentType;
+        /**
+         * 不传入代表全部返回。传入则按照这种应用状态返回。所有者类型，可选值： 0：飞书科技 1：飞书合作伙伴 2：企业内成员
+         * <p> 示例值：0
+         */
+        this.ownerType = builder.ownerType;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Integer getPageSize() {
         return this.pageSize;
     }
@@ -129,48 +180,6 @@ public class ListApplicationReq {
         this.ownerType = ownerType;
     }
 
-
-// builder 开始
-  public ListApplicationReq(){}
-
-  public ListApplicationReq(Builder builder){
-         /**
-          * 分页大小
-          * <p> 示例值：50
-          */
-       this.pageSize = builder.pageSize;
-         /**
-          * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-          * <p> 示例值：AQD9/Rn9eij9Pm39ED40/dk53s4Ebp882DYfFaPFbz00L4CMZJrqGdzNyc8BcZtDbwVUvRmQTvyMYicnGWrde9X56TgdBuS+JKiSIkdexPw=
-          */
-       this.pageToken = builder.pageToken;
-         /**
-          * 用户 ID 类型
-          * <p> 示例值：
-          */
-       this.userIdType = builder.userIdType;
-         /**
-          * 应用的图标、描述、帮助文档链接是按照应用的主语言返回；其他内容（如应用权限、应用分类）按照该参数设定返回对应的语言。可选值有： zh_cn：中文 en_us：英文 ja_jp：日文  如不填写，则按照应用的主语言返回
-          * <p> 示例值：zh_cn
-          */
-       this.lang = builder.lang;
-         /**
-          * 不传入代表全部返回。传入则按照这种应用状态返回。应用状态可选值有：0：停用状态1：启用状态 2：未启用状态
-          * <p> 示例值：0
-          */
-       this.status = builder.status;
-         /**
-          * 不传入代表全部返回。传入则按照这种应用状态返回。 付费类型 可选值： 0：免费 1：付费
-          * <p> 示例值：0
-          */
-       this.paymentType = builder.paymentType;
-         /**
-          * 不传入代表全部返回。传入则按照这种应用状态返回。所有者类型，可选值： 0：飞书科技 1：飞书合作伙伴 2：企业内成员
-          * <p> 示例值：0
-          */
-       this.ownerType = builder.ownerType;
-  }
-
     public static class Builder {
         private Integer pageSize; // 分页大小
         private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
@@ -179,130 +188,136 @@ public class ListApplicationReq {
         private Integer status; // 不传入代表全部返回。传入则按照这种应用状态返回。应用状态可选值有：0：停用状态1：启用状态 2：未启用状态
         private Integer paymentType; // 不传入代表全部返回。传入则按照这种应用状态返回。 付费类型 可选值： 0：免费 1：付费
         private Integer ownerType; // 不传入代表全部返回。传入则按照这种应用状态返回。所有者类型，可选值： 0：飞书科技 1：飞书合作伙伴 2：企业内成员
-    
+
         /**
          * 分页大小
          * <p> 示例值：50
+         *
          * @param pageSize
          * @return
          */
-           public Builder pageSize(Integer pageSize) {
-                this.pageSize = pageSize;
-                return this;
-           }
+        public Builder pageSize(Integer pageSize) {
+            this.pageSize = pageSize;
+            return this;
+        }
 
-    
+
         /**
          * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
          * <p> 示例值：AQD9/Rn9eij9Pm39ED40/dk53s4Ebp882DYfFaPFbz00L4CMZJrqGdzNyc8BcZtDbwVUvRmQTvyMYicnGWrde9X56TgdBuS+JKiSIkdexPw=
+         *
          * @param pageToken
          * @return
          */
-           public Builder pageToken(String pageToken) {
-                this.pageToken = pageToken;
-                return this;
-           }
+        public Builder pageToken(String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+        }
 
-    
+
         /**
          * 用户 ID 类型
          * <p> 示例值：
+         *
          * @param userIdType
          * @return
          */
-           public Builder userIdType(String userIdType) {
-                this.userIdType = userIdType;
-                return this;
-           }
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
 
-    
+
         /**
          * 应用的图标、描述、帮助文档链接是按照应用的主语言返回；其他内容（如应用权限、应用分类）按照该参数设定返回对应的语言。可选值有： zh_cn：中文 en_us：英文 ja_jp：日文  如不填写，则按照应用的主语言返回
          * <p> 示例值：zh_cn
+         *
          * @param lang
          * @return
          */
-           public Builder lang(String lang) {
-                this.lang = lang;
-                return this;
-           }
+        public Builder lang(String lang) {
+            this.lang = lang;
+            return this;
+        }
 
-    
+
         /**
          * 不传入代表全部返回。传入则按照这种应用状态返回。应用状态可选值有：0：停用状态1：启用状态 2：未启用状态
          * <p> 示例值：0
+         *
          * @param status
          * @return
          */
-           public Builder status(Integer status) {
-                this.status = status;
-                return this;
-           }
+        public Builder status(Integer status) {
+            this.status = status;
+            return this;
+        }
 
         /**
          * 不传入代表全部返回。传入则按照这种应用状态返回。应用状态可选值有：0：停用状态1：启用状态 2：未启用状态
          * <p> 示例值：0
+         *
          * @param status {@link com.lark.oapi.service.application.v6.enums.ListApplicationAvailabilityStatusEnum}
          * @return
          */
-          public Builder status(com.lark.oapi.service.application.v6.enums.ListApplicationAvailabilityStatusEnum status) {
-               this.status = status.getValue();
-               return this;
-          }
+        public Builder status(com.lark.oapi.service.application.v6.enums.ListApplicationAvailabilityStatusEnum status) {
+            this.status = status.getValue();
+            return this;
+        }
 
-    
+
         /**
          * 不传入代表全部返回。传入则按照这种应用状态返回。 付费类型 可选值： 0：免费 1：付费
          * <p> 示例值：0
+         *
          * @param paymentType
          * @return
          */
-           public Builder paymentType(Integer paymentType) {
-                this.paymentType = paymentType;
-                return this;
-           }
+        public Builder paymentType(Integer paymentType) {
+            this.paymentType = paymentType;
+            return this;
+        }
 
         /**
          * 不传入代表全部返回。传入则按照这种应用状态返回。 付费类型 可选值： 0：免费 1：付费
          * <p> 示例值：0
+         *
          * @param paymentType {@link com.lark.oapi.service.application.v6.enums.ListApplicationPaymentTypeEnum}
          * @return
          */
-          public Builder paymentType(com.lark.oapi.service.application.v6.enums.ListApplicationPaymentTypeEnum paymentType) {
-               this.paymentType = paymentType.getValue();
-               return this;
-          }
+        public Builder paymentType(com.lark.oapi.service.application.v6.enums.ListApplicationPaymentTypeEnum paymentType) {
+            this.paymentType = paymentType.getValue();
+            return this;
+        }
 
-    
+
         /**
          * 不传入代表全部返回。传入则按照这种应用状态返回。所有者类型，可选值： 0：飞书科技 1：飞书合作伙伴 2：企业内成员
          * <p> 示例值：0
+         *
          * @param ownerType
          * @return
          */
-           public Builder ownerType(Integer ownerType) {
-                this.ownerType = ownerType;
-                return this;
-           }
+        public Builder ownerType(Integer ownerType) {
+            this.ownerType = ownerType;
+            return this;
+        }
 
         /**
          * 不传入代表全部返回。传入则按照这种应用状态返回。所有者类型，可选值： 0：飞书科技 1：飞书合作伙伴 2：企业内成员
          * <p> 示例值：0
+         *
          * @param ownerType {@link com.lark.oapi.service.application.v6.enums.ListApplicationOwnerTypeEnum}
          * @return
          */
-          public Builder ownerType(com.lark.oapi.service.application.v6.enums.ListApplicationOwnerTypeEnum ownerType) {
-               this.ownerType = ownerType.getValue();
-               return this;
-          }
+        public Builder ownerType(com.lark.oapi.service.application.v6.enums.ListApplicationOwnerTypeEnum ownerType) {
+            this.ownerType = ownerType.getValue();
+            return this;
+        }
 
-    
-    public ListApplicationReq build(){
-        return new ListApplicationReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ListApplicationReq build() {
+            return new ListApplicationReq(this);
+        }
     }
 }

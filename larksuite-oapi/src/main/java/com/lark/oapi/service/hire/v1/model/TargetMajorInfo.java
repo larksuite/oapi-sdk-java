@@ -12,36 +12,67 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class TargetMajorInfo {
-     /**
-      * 目标专业ID
-      * <p> 示例值：6930815272790114324
-      */
+    /**
+     * 目标专业ID
+     * <p> 示例值：6930815272790114324
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 目标专业中文名称
-      * <p> 示例值：考古
-      */
+    /**
+     * 目标专业中文名称
+     * <p> 示例值：考古
+     */
     @SerializedName("zh_name")
     private String zhName;
-     /**
-      * 目标专业英文名称
-      * <p> 示例值：archeology
-      */
+    /**
+     * 目标专业英文名称
+     * <p> 示例值：archeology
+     */
     @SerializedName("en_name")
     private String enName;
+
+    // builder 开始
+    public TargetMajorInfo() {
+    }
+
+    public TargetMajorInfo(Builder builder) {
+        /**
+         * 目标专业ID
+         * <p> 示例值：6930815272790114324
+         */
+        this.id = builder.id;
+        /**
+         * 目标专业中文名称
+         * <p> 示例值：考古
+         */
+        this.zhName = builder.zhName;
+        /**
+         * 目标专业英文名称
+         * <p> 示例值：archeology
+         */
+        this.enName = builder.enName;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -66,90 +97,64 @@ public class TargetMajorInfo {
         this.enName = enName;
     }
 
-
-// builder 开始
-  public TargetMajorInfo(){}
-
-  public TargetMajorInfo(Builder builder){
-         /**
-          * 目标专业ID
-          * <p> 示例值：6930815272790114324
-          */
-      this.id = builder.id;
-         /**
-          * 目标专业中文名称
-          * <p> 示例值：考古
-          */
-      this.zhName = builder.zhName;
-         /**
-          * 目标专业英文名称
-          * <p> 示例值：archeology
-          */
-      this.enName = builder.enName;
-  }
-
     public static class Builder {
-     /**
-      * 目标专业ID
-      * <p> 示例值：6930815272790114324
-      */
+        /**
+         * 目标专业ID
+         * <p> 示例值：6930815272790114324
+         */
         private String id;
-     /**
-      * 目标专业中文名称
-      * <p> 示例值：考古
-      */
+        /**
+         * 目标专业中文名称
+         * <p> 示例值：考古
+         */
         private String zhName;
-     /**
-      * 目标专业英文名称
-      * <p> 示例值：archeology
-      */
+        /**
+         * 目标专业英文名称
+         * <p> 示例值：archeology
+         */
         private String enName;
 
         /**
          * 目标专业ID
          * <p> 示例值：6930815272790114324
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 目标专业中文名称
          * <p> 示例值：考古
+         *
          * @param zhName
          * @return
          */
         public Builder zhName(String zhName) {
-             this.zhName = zhName;
-             return this;
+            this.zhName = zhName;
+            return this;
         }
 
-    
 
         /**
          * 目标专业英文名称
          * <p> 示例值：archeology
+         *
          * @param enName
          * @return
          */
         public Builder enName(String enName) {
-             this.enName = enName;
-             return this;
+            this.enName = enName;
+            return this;
         }
 
-    
-    
-    public TargetMajorInfo build(){
-        return new TargetMajorInfo(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public TargetMajorInfo build() {
+            return new TargetMajorInfo(this);
+        }
     }
 }

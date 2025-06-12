@@ -17,16 +17,17 @@ package com.lark.oapi.service.corehr.v1.enums;
  * 招聘类型
  */
 public enum MatchCompensationStandardRecruitmentTypeEnum {
-     EXPERIENCED_PROFESSIONALS("experienced_professionals"), // 社招
-     RECENT_GRADUATES("recent_graduates"), // 校招
-     ROUTINE_INTERN("routine_intern"), // 日常实习
-  ;
-   private String value;
+    EXPERIENCED_PROFESSIONALS("experienced_professionals"), // 社招
+    RECENT_GRADUATES("recent_graduates"), // 校招
+    ROUTINE_INTERN("routine_intern"), // 日常实习
+    ;
+    private String value;
+
     MatchCompensationStandardRecruitmentTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

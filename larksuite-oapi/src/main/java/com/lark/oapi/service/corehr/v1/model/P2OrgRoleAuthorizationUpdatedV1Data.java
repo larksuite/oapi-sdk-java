@@ -12,36 +12,41 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class P2OrgRoleAuthorizationUpdatedV1Data {
-     /**
-      * 角色id
-      * <p> 示例值：7072306364927985196
-      */
+    /**
+     * 角色id
+     * <p> 示例值：7072306364927985196
+     */
     @SerializedName("role_id")
     private String roleId;
-     /**
-      * 管理范围信息
-      * <p> 示例值：
-      */
+    /**
+     * 管理范围信息
+     * <p> 示例值：
+     */
     @SerializedName("management_scope_list")
     private ManagementScope[] managementScopeList;
-     /**
-      * 员工雇佣信息ID list
-      * <p> 示例值：
-      */
+    /**
+     * 员工雇佣信息ID list
+     * <p> 示例值：
+     */
     @SerializedName("employment_id_list")
     private String[] employmentIdList;
+
     public String getRoleId() {
         return this.roleId;
     }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,48 +20,93 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class PermissionPublicRequest {
-     /**
-      * 允许内容被分享到组织外
-      * <p> 示例值：true
-      */
+    /**
+     * 允许内容被分享到组织外
+     * <p> 示例值：true
+     */
     @SerializedName("external_access")
     private Boolean externalAccess;
-     /**
-      * 谁可以复制内容、创建副本、打印、下载
-      * <p> 示例值：anyone_can_view
-      */
+    /**
+     * 谁可以复制内容、创建副本、打印、下载
+     * <p> 示例值：anyone_can_view
+     */
     @SerializedName("security_entity")
     private String securityEntity;
-     /**
-      * 谁可以评论
-      * <p> 示例值：anyone_can_view
-      */
+    /**
+     * 谁可以评论
+     * <p> 示例值：anyone_can_view
+     */
     @SerializedName("comment_entity")
     private String commentEntity;
-     /**
-      * 谁可以添加和管理协作者
-      * <p> 示例值：anyone
-      */
+    /**
+     * 谁可以添加和管理协作者
+     * <p> 示例值：anyone
+     */
     @SerializedName("share_entity")
     private String shareEntity;
-     /**
-      * 链接分享设置
-      * <p> 示例值：tenant_readable
-      */
+    /**
+     * 链接分享设置
+     * <p> 示例值：tenant_readable
+     */
     @SerializedName("link_share_entity")
     private String linkShareEntity;
-     /**
-      * 允许非「可管理权限」的人分享到组织外
-      * <p> 示例值：true
-      */
+    /**
+     * 允许非「可管理权限」的人分享到组织外
+     * <p> 示例值：true
+     */
     @SerializedName("invite_external")
     private Boolean inviteExternal;
+
+    // builder 开始
+    public PermissionPublicRequest() {
+    }
+
+    public PermissionPublicRequest(Builder builder) {
+        /**
+         * 允许内容被分享到组织外
+         * <p> 示例值：true
+         */
+        this.externalAccess = builder.externalAccess;
+        /**
+         * 谁可以复制内容、创建副本、打印、下载
+         * <p> 示例值：anyone_can_view
+         */
+        this.securityEntity = builder.securityEntity;
+        /**
+         * 谁可以评论
+         * <p> 示例值：anyone_can_view
+         */
+        this.commentEntity = builder.commentEntity;
+        /**
+         * 谁可以添加和管理协作者
+         * <p> 示例值：anyone
+         */
+        this.shareEntity = builder.shareEntity;
+        /**
+         * 链接分享设置
+         * <p> 示例值：tenant_readable
+         */
+        this.linkShareEntity = builder.linkShareEntity;
+        /**
+         * 允许非「可管理权限」的人分享到组织外
+         * <p> 示例值：true
+         */
+        this.inviteExternal = builder.inviteExternal;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Boolean getExternalAccess() {
         return this.externalAccess;
     }
@@ -109,199 +155,166 @@ public class PermissionPublicRequest {
         this.inviteExternal = inviteExternal;
     }
 
-
-// builder 开始
-  public PermissionPublicRequest(){}
-
-  public PermissionPublicRequest(Builder builder){
-         /**
-          * 允许内容被分享到组织外
-          * <p> 示例值：true
-          */
-      this.externalAccess = builder.externalAccess;
-         /**
-          * 谁可以复制内容、创建副本、打印、下载
-          * <p> 示例值：anyone_can_view
-          */
-      this.securityEntity = builder.securityEntity;
-         /**
-          * 谁可以评论
-          * <p> 示例值：anyone_can_view
-          */
-      this.commentEntity = builder.commentEntity;
-         /**
-          * 谁可以添加和管理协作者
-          * <p> 示例值：anyone
-          */
-      this.shareEntity = builder.shareEntity;
-         /**
-          * 链接分享设置
-          * <p> 示例值：tenant_readable
-          */
-      this.linkShareEntity = builder.linkShareEntity;
-         /**
-          * 允许非「可管理权限」的人分享到组织外
-          * <p> 示例值：true
-          */
-      this.inviteExternal = builder.inviteExternal;
-  }
-
     public static class Builder {
-     /**
-      * 允许内容被分享到组织外
-      * <p> 示例值：true
-      */
+        /**
+         * 允许内容被分享到组织外
+         * <p> 示例值：true
+         */
         private Boolean externalAccess;
-     /**
-      * 谁可以复制内容、创建副本、打印、下载
-      * <p> 示例值：anyone_can_view
-      */
+        /**
+         * 谁可以复制内容、创建副本、打印、下载
+         * <p> 示例值：anyone_can_view
+         */
         private String securityEntity;
-     /**
-      * 谁可以评论
-      * <p> 示例值：anyone_can_view
-      */
+        /**
+         * 谁可以评论
+         * <p> 示例值：anyone_can_view
+         */
         private String commentEntity;
-     /**
-      * 谁可以添加和管理协作者
-      * <p> 示例值：anyone
-      */
+        /**
+         * 谁可以添加和管理协作者
+         * <p> 示例值：anyone
+         */
         private String shareEntity;
-     /**
-      * 链接分享设置
-      * <p> 示例值：tenant_readable
-      */
+        /**
+         * 链接分享设置
+         * <p> 示例值：tenant_readable
+         */
         private String linkShareEntity;
-     /**
-      * 允许非「可管理权限」的人分享到组织外
-      * <p> 示例值：true
-      */
+        /**
+         * 允许非「可管理权限」的人分享到组织外
+         * <p> 示例值：true
+         */
         private Boolean inviteExternal;
 
         /**
          * 允许内容被分享到组织外
          * <p> 示例值：true
+         *
          * @param externalAccess
          * @return
          */
         public Builder externalAccess(Boolean externalAccess) {
-             this.externalAccess = externalAccess;
-             return this;
+            this.externalAccess = externalAccess;
+            return this;
         }
 
-    
 
         /**
          * 谁可以复制内容、创建副本、打印、下载
          * <p> 示例值：anyone_can_view
+         *
          * @param securityEntity
          * @return
          */
         public Builder securityEntity(String securityEntity) {
-             this.securityEntity = securityEntity;
-             return this;
+            this.securityEntity = securityEntity;
+            return this;
         }
+
         /**
          * 谁可以复制内容、创建副本、打印、下载
          * <p> 示例值：anyone_can_view
+         *
          * @param securityEntity {@link com.lark.oapi.service.drive.v1.enums.PermissionPublicRequestSecurityEntityEnum}
          * @return
          */
         public Builder securityEntity(com.lark.oapi.service.drive.v1.enums.PermissionPublicRequestSecurityEntityEnum securityEntity) {
-             this.securityEntity = securityEntity.getValue();
-             return this;
+            this.securityEntity = securityEntity.getValue();
+            return this;
         }
 
-    
 
         /**
          * 谁可以评论
          * <p> 示例值：anyone_can_view
+         *
          * @param commentEntity
          * @return
          */
         public Builder commentEntity(String commentEntity) {
-             this.commentEntity = commentEntity;
-             return this;
+            this.commentEntity = commentEntity;
+            return this;
         }
+
         /**
          * 谁可以评论
          * <p> 示例值：anyone_can_view
+         *
          * @param commentEntity {@link com.lark.oapi.service.drive.v1.enums.PermissionPublicRequestCommentEntityEnum}
          * @return
          */
         public Builder commentEntity(com.lark.oapi.service.drive.v1.enums.PermissionPublicRequestCommentEntityEnum commentEntity) {
-             this.commentEntity = commentEntity.getValue();
-             return this;
+            this.commentEntity = commentEntity.getValue();
+            return this;
         }
 
-    
 
         /**
          * 谁可以添加和管理协作者
          * <p> 示例值：anyone
+         *
          * @param shareEntity
          * @return
          */
         public Builder shareEntity(String shareEntity) {
-             this.shareEntity = shareEntity;
-             return this;
+            this.shareEntity = shareEntity;
+            return this;
         }
+
         /**
          * 谁可以添加和管理协作者
          * <p> 示例值：anyone
+         *
          * @param shareEntity {@link com.lark.oapi.service.drive.v1.enums.PermissionPublicRequestShareEntityEnum}
          * @return
          */
         public Builder shareEntity(com.lark.oapi.service.drive.v1.enums.PermissionPublicRequestShareEntityEnum shareEntity) {
-             this.shareEntity = shareEntity.getValue();
-             return this;
+            this.shareEntity = shareEntity.getValue();
+            return this;
         }
 
-    
 
         /**
          * 链接分享设置
          * <p> 示例值：tenant_readable
+         *
          * @param linkShareEntity
          * @return
          */
         public Builder linkShareEntity(String linkShareEntity) {
-             this.linkShareEntity = linkShareEntity;
-             return this;
+            this.linkShareEntity = linkShareEntity;
+            return this;
         }
+
         /**
          * 链接分享设置
          * <p> 示例值：tenant_readable
+         *
          * @param linkShareEntity {@link com.lark.oapi.service.drive.v1.enums.PermissionPublicRequestLinkShareEntityEnum}
          * @return
          */
         public Builder linkShareEntity(com.lark.oapi.service.drive.v1.enums.PermissionPublicRequestLinkShareEntityEnum linkShareEntity) {
-             this.linkShareEntity = linkShareEntity.getValue();
-             return this;
+            this.linkShareEntity = linkShareEntity.getValue();
+            return this;
         }
 
-    
 
         /**
          * 允许非「可管理权限」的人分享到组织外
          * <p> 示例值：true
+         *
          * @param inviteExternal
          * @return
          */
         public Builder inviteExternal(Boolean inviteExternal) {
-             this.inviteExternal = inviteExternal;
-             return this;
+            this.inviteExternal = inviteExternal;
+            return this;
         }
 
-    
-    
-    public PermissionPublicRequest build(){
-        return new PermissionPublicRequest(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public PermissionPublicRequest build() {
+            return new PermissionPublicRequest(this);
+        }
     }
 }

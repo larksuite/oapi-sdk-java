@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.calendar.v4.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.calendar.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ReplyCalendarEventReqBody {
-     /**
-      * rsvp-日程状态
-      * <p> 示例值：accept
-      */
+    /**
+     * rsvp-日程状态
+     * <p> 示例值：accept
+     */
     @SerializedName("rsvp_status")
     private String rsvpStatus;
+
+    // builder 开始
+    public ReplyCalendarEventReqBody() {
+    }
+
+    public ReplyCalendarEventReqBody(Builder builder) {
+        /**
+         * rsvp-日程状态
+         * <p> 示例值：accept
+         */
+        this.rsvpStatus = builder.rsvpStatus;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getRsvpStatus() {
         return this.rsvpStatus;
     }
@@ -39,54 +60,40 @@ public class ReplyCalendarEventReqBody {
         this.rsvpStatus = rsvpStatus;
     }
 
-
-// builder 开始
-  public ReplyCalendarEventReqBody(){}
-
-  public ReplyCalendarEventReqBody(Builder builder){
-         /**
-          * rsvp-日程状态
-          * <p> 示例值：accept
-          */
-      this.rsvpStatus = builder.rsvpStatus;
-  }
-
     public static class Builder {
-     /**
-      * rsvp-日程状态
-      * <p> 示例值：accept
-      */
+        /**
+         * rsvp-日程状态
+         * <p> 示例值：accept
+         */
         private String rsvpStatus;
 
         /**
          * rsvp-日程状态
          * <p> 示例值：accept
+         *
          * @param rsvpStatus
          * @return
          */
         public Builder rsvpStatus(String rsvpStatus) {
-             this.rsvpStatus = rsvpStatus;
-             return this;
+            this.rsvpStatus = rsvpStatus;
+            return this;
         }
+
         /**
          * rsvp-日程状态
          * <p> 示例值：accept
+         *
          * @param rsvpStatus {@link com.lark.oapi.service.calendar.v4.enums.ReplyCalendarEventRsvpStatusEnum}
          * @return
          */
         public Builder rsvpStatus(com.lark.oapi.service.calendar.v4.enums.ReplyCalendarEventRsvpStatusEnum rsvpStatus) {
-             this.rsvpStatus = rsvpStatus.getValue();
-             return this;
+            this.rsvpStatus = rsvpStatus.getValue();
+            return this;
         }
 
-    
-    
-    public ReplyCalendarEventReqBody build(){
-        return new ReplyCalendarEventReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ReplyCalendarEventReqBody build() {
+            return new ReplyCalendarEventReqBody(this);
+        }
     }
 }

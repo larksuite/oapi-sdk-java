@@ -12,36 +12,41 @@
  */
 
 package com.lark.oapi.service.contact.v3.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class SimplelistGroupRespBody {
-     /**
-      * 用户组列表
-      * <p> 示例值：
-      */
+    /**
+     * 用户组列表
+     * <p> 示例值：
+     */
     @SerializedName("grouplist")
     private Group[] grouplist;
-     /**
-      * 下次分页获取的page_token
-      * <p> 示例值：AQD9/Rn9556539ED40/dk53s4Ebp882DYfFaPFbz00L4CMZJrqGdzNyc8BcZtDbwVUvRmQTvyMYicnGWrde9X56TgdBuS+JDTJJDDPw=
-      */
+    /**
+     * 下次分页获取的page_token
+     * <p> 示例值：AQD9/Rn9556539ED40/dk53s4Ebp882DYfFaPFbz00L4CMZJrqGdzNyc8BcZtDbwVUvRmQTvyMYicnGWrde9X56TgdBuS+JDTJJDDPw=
+     */
     @SerializedName("page_token")
     private String pageToken;
-     /**
-      * 是否还需要分页获取
-      * <p> 示例值：true
-      */
+    /**
+     * 是否还需要分页获取
+     * <p> 示例值：true
+     */
     @SerializedName("has_more")
     private Boolean hasMore;
+
     public Group[] getGrouplist() {
         return this.grouplist;
     }

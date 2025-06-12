@@ -12,30 +12,56 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class JobDetailTargetMajorInfo {
-     /**
-      * 目标专业ID
-      * <p> 示例值：6930815272790114324
-      */
+    /**
+     * 目标专业ID
+     * <p> 示例值：6930815272790114324
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 目标专业名称
-      * <p> 示例值：
-      */
+    /**
+     * 目标专业名称
+     * <p> 示例值：
+     */
     @SerializedName("name")
     private I18n name;
+
+    // builder 开始
+    public JobDetailTargetMajorInfo() {
+    }
+
+    public JobDetailTargetMajorInfo(Builder builder) {
+        /**
+         * 目标专业ID
+         * <p> 示例值：6930815272790114324
+         */
+        this.id = builder.id;
+        /**
+         * 目标专业名称
+         * <p> 示例值：
+         */
+        this.name = builder.name;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -52,67 +78,46 @@ public class JobDetailTargetMajorInfo {
         this.name = name;
     }
 
-
-// builder 开始
-  public JobDetailTargetMajorInfo(){}
-
-  public JobDetailTargetMajorInfo(Builder builder){
-         /**
-          * 目标专业ID
-          * <p> 示例值：6930815272790114324
-          */
-      this.id = builder.id;
-         /**
-          * 目标专业名称
-          * <p> 示例值：
-          */
-      this.name = builder.name;
-  }
-
     public static class Builder {
-     /**
-      * 目标专业ID
-      * <p> 示例值：6930815272790114324
-      */
+        /**
+         * 目标专业ID
+         * <p> 示例值：6930815272790114324
+         */
         private String id;
-     /**
-      * 目标专业名称
-      * <p> 示例值：
-      */
+        /**
+         * 目标专业名称
+         * <p> 示例值：
+         */
         private I18n name;
 
         /**
          * 目标专业ID
          * <p> 示例值：6930815272790114324
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 目标专业名称
          * <p> 示例值：
+         *
          * @param name
          * @return
          */
         public Builder name(I18n name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
-    
-    public JobDetailTargetMajorInfo build(){
-        return new JobDetailTargetMajorInfo(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public JobDetailTargetMajorInfo build() {
+            return new JobDetailTargetMajorInfo(this);
+        }
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.im.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CreateTagReqBody {
-     /**
-      * 创建标签
-      * <p> 示例值：
-      */
+    /**
+     * 创建标签
+     * <p> 示例值：
+     */
     @SerializedName("create_tag")
     private CreateTag createTag;
-     /**
-      * 机器人id
-      * <p> 示例值：716168xxxxx
-      */
+    /**
+     * 机器人id
+     * <p> 示例值：716168xxxxx
+     */
     @SerializedName("bot_id")
     private String botId;
+
+    // builder 开始
+    public CreateTagReqBody() {
+    }
+
+    public CreateTagReqBody(Builder builder) {
+        /**
+         * 创建标签
+         * <p> 示例值：
+         */
+        this.createTag = builder.createTag;
+        /**
+         * 机器人id
+         * <p> 示例值：716168xxxxx
+         */
+        this.botId = builder.botId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public CreateTag getCreateTag() {
         return this.createTag;
     }
@@ -53,67 +79,46 @@ public class CreateTagReqBody {
         this.botId = botId;
     }
 
-
-// builder 开始
-  public CreateTagReqBody(){}
-
-  public CreateTagReqBody(Builder builder){
-         /**
-          * 创建标签
-          * <p> 示例值：
-          */
-      this.createTag = builder.createTag;
-         /**
-          * 机器人id
-          * <p> 示例值：716168xxxxx
-          */
-      this.botId = builder.botId;
-  }
-
     public static class Builder {
-     /**
-      * 创建标签
-      * <p> 示例值：
-      */
+        /**
+         * 创建标签
+         * <p> 示例值：
+         */
         private CreateTag createTag;
-     /**
-      * 机器人id
-      * <p> 示例值：716168xxxxx
-      */
+        /**
+         * 机器人id
+         * <p> 示例值：716168xxxxx
+         */
         private String botId;
 
         /**
          * 创建标签
          * <p> 示例值：
+         *
          * @param createTag
          * @return
          */
         public Builder createTag(CreateTag createTag) {
-             this.createTag = createTag;
-             return this;
+            this.createTag = createTag;
+            return this;
         }
 
-    
 
         /**
          * 机器人id
          * <p> 示例值：716168xxxxx
+         *
          * @param botId
          * @return
          */
         public Builder botId(String botId) {
-             this.botId = botId;
-             return this;
+            this.botId = botId;
+            return this;
         }
 
-    
-    
-    public CreateTagReqBody build(){
-        return new CreateTagReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public CreateTagReqBody build() {
+            return new CreateTagReqBody(this);
+        }
     }
 }

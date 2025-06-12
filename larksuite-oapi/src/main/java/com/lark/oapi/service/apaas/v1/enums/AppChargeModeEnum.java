@@ -17,17 +17,18 @@ package com.lark.oapi.service.apaas.v1.enums;
  * aPaaS 产品应用的计费方式
  */
 public enum AppChargeModeEnum {
-     PER_USER_PER_APP("per_user_per_app"), // 应用席位计费
-     PER_USER("per_user"), // 不限应用席位计费
-     INDEPENDENT("independent"), // 独立计费
-     FREE("free"), // 免费
-  ;
-   private String value;
+    PER_USER_PER_APP("per_user_per_app"), // 应用席位计费
+    PER_USER("per_user"), // 不限应用席位计费
+    INDEPENDENT("independent"), // 独立计费
+    FREE("free"), // 免费
+    ;
+    private String value;
+
     AppChargeModeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

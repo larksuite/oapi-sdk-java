@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,43 +20,85 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
+
 import java.util.Map;
+
 import com.lark.oapi.core.response.BaseResponse;
+
 public class RuntimeLogTag {
-     /**
-      * -
-      * <p> 示例值：-
-      */
+    /**
+     * -
+     * <p> 示例值：-
+     */
     @SerializedName("key")
     private String key;
-     /**
-      * -
-      * <p> 示例值：-
-      */
+    /**
+     * -
+     * <p> 示例值：-
+     */
     @SerializedName("value")
     private String value;
-     /**
-      * -
-      * <p> 示例值：-
-      */
+    /**
+     * -
+     * <p> 示例值：-
+     */
     @SerializedName("value_type")
     private String valueType;
-     /**
-      * -
-      * <p> 示例值：-
-      */
+    /**
+     * -
+     * <p> 示例值：-
+     */
     @SerializedName("uri")
     private String uri;
-     /**
-      * -
-      * <p> 示例值：
-      */
+    /**
+     * -
+     * <p> 示例值：
+     */
     @SerializedName("attachs")
     private Map<String, String> attachs;
+
+    // builder 开始
+    public RuntimeLogTag() {
+    }
+
+    public RuntimeLogTag(Builder builder) {
+        /**
+         * -
+         * <p> 示例值：-
+         */
+        this.key = builder.key;
+        /**
+         * -
+         * <p> 示例值：-
+         */
+        this.value = builder.value;
+        /**
+         * -
+         * <p> 示例值：-
+         */
+        this.valueType = builder.valueType;
+        /**
+         * -
+         * <p> 示例值：-
+         */
+        this.uri = builder.uri;
+        /**
+         * -
+         * <p> 示例值：
+         */
+        this.attachs = builder.attachs;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getKey() {
         return this.key;
     }
@@ -96,136 +139,100 @@ public class RuntimeLogTag {
         this.attachs = attachs;
     }
 
-
-// builder 开始
-  public RuntimeLogTag(){}
-
-  public RuntimeLogTag(Builder builder){
-         /**
-          * -
-          * <p> 示例值：-
-          */
-      this.key = builder.key;
-         /**
-          * -
-          * <p> 示例值：-
-          */
-      this.value = builder.value;
-         /**
-          * -
-          * <p> 示例值：-
-          */
-      this.valueType = builder.valueType;
-         /**
-          * -
-          * <p> 示例值：-
-          */
-      this.uri = builder.uri;
-         /**
-          * -
-          * <p> 示例值：
-          */
-      this.attachs = builder.attachs;
-  }
-
     public static class Builder {
-     /**
-      * -
-      * <p> 示例值：-
-      */
+        /**
+         * -
+         * <p> 示例值：-
+         */
         private String key;
-     /**
-      * -
-      * <p> 示例值：-
-      */
+        /**
+         * -
+         * <p> 示例值：-
+         */
         private String value;
-     /**
-      * -
-      * <p> 示例值：-
-      */
+        /**
+         * -
+         * <p> 示例值：-
+         */
         private String valueType;
-     /**
-      * -
-      * <p> 示例值：-
-      */
+        /**
+         * -
+         * <p> 示例值：-
+         */
         private String uri;
-     /**
-      * -
-      * <p> 示例值：
-      */
+        /**
+         * -
+         * <p> 示例值：
+         */
         private Map<String, String> attachs;
 
         /**
          * -
          * <p> 示例值：-
+         *
          * @param key
          * @return
          */
         public Builder key(String key) {
-             this.key = key;
-             return this;
+            this.key = key;
+            return this;
         }
 
-    
 
         /**
          * -
          * <p> 示例值：-
+         *
          * @param value
          * @return
          */
         public Builder value(String value) {
-             this.value = value;
-             return this;
+            this.value = value;
+            return this;
         }
 
-    
 
         /**
          * -
          * <p> 示例值：-
+         *
          * @param valueType
          * @return
          */
         public Builder valueType(String valueType) {
-             this.valueType = valueType;
-             return this;
+            this.valueType = valueType;
+            return this;
         }
 
-    
 
         /**
          * -
          * <p> 示例值：-
+         *
          * @param uri
          * @return
          */
         public Builder uri(String uri) {
-             this.uri = uri;
-             return this;
+            this.uri = uri;
+            return this;
         }
 
-    
 
         /**
          * -
          * <p> 示例值：
+         *
          * @param attachs
          * @return
          */
         public Builder attachs(Map<String, String> attachs) {
-             this.attachs = attachs;
-             return this;
+            this.attachs = attachs;
+            return this;
         }
 
-    
-    
-    public RuntimeLogTag build(){
-        return new RuntimeLogTag(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public RuntimeLogTag build() {
+            return new RuntimeLogTag(this);
+        }
     }
 }

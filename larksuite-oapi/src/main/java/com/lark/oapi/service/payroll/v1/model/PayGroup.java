@@ -12,39 +12,77 @@
  */
 
 package com.lark.oapi.service.payroll.v1.model;
+
 import com.google.gson.annotations.SerializedName;
 
 public class PayGroup {
-     /**
-      * 薪资组ID
-      * <p> 示例值：6823630319749580301
-      */
+    /**
+     * 薪资组ID
+     * <p> 示例值：6823630319749580301
+     */
     @SerializedName("pay_group_id")
     private String payGroupId;
-     /**
-      * 薪资组名称
-      * <p> 示例值：CHN - 审核
-      */
+    /**
+     * 薪资组名称
+     * <p> 示例值：CHN - 审核
+     */
     @SerializedName("name")
     private I18n name;
-     /**
-      * 薪资组编码
-      * <p> 示例值：PAY_GROUP-3-8
-      */
+    /**
+     * 薪资组编码
+     * <p> 示例值：PAY_GROUP-3-8
+     */
     @SerializedName("code")
     private String code;
-     /**
-      * 薪资组状态
-      * <p> 示例值：1
-      */
+    /**
+     * 薪资组状态
+     * <p> 示例值：1
+     */
     @SerializedName("status")
     private Integer status;
-     /**
-      * 薪资组所属国家/地区
-      * <p> 示例值：
-      */
+    /**
+     * 薪资组所属国家/地区
+     * <p> 示例值：
+     */
     @SerializedName("country_region")
     private CountryRegion countryRegion;
+
+    // builder 开始
+    public PayGroup() {
+    }
+
+    public PayGroup(Builder builder) {
+        /**
+         * 薪资组ID
+         * <p> 示例值：6823630319749580301
+         */
+        this.payGroupId = builder.payGroupId;
+        /**
+         * 薪资组名称
+         * <p> 示例值：CHN - 审核
+         */
+        this.name = builder.name;
+        /**
+         * 薪资组编码
+         * <p> 示例值：PAY_GROUP-3-8
+         */
+        this.code = builder.code;
+        /**
+         * 薪资组状态
+         * <p> 示例值：1
+         */
+        this.status = builder.status;
+        /**
+         * 薪资组所属国家/地区
+         * <p> 示例值：
+         */
+        this.countryRegion = builder.countryRegion;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getPayGroupId() {
         return this.payGroupId;
     }
@@ -85,146 +123,112 @@ public class PayGroup {
         this.countryRegion = countryRegion;
     }
 
-
-// builder 开始
-  public PayGroup(){}
-
-  public PayGroup(Builder builder){
-         /**
-          * 薪资组ID
-          * <p> 示例值：6823630319749580301
-          */
-      this.payGroupId = builder.payGroupId;
-         /**
-          * 薪资组名称
-          * <p> 示例值：CHN - 审核
-          */
-      this.name = builder.name;
-         /**
-          * 薪资组编码
-          * <p> 示例值：PAY_GROUP-3-8
-          */
-      this.code = builder.code;
-         /**
-          * 薪资组状态
-          * <p> 示例值：1
-          */
-      this.status = builder.status;
-         /**
-          * 薪资组所属国家/地区
-          * <p> 示例值：
-          */
-      this.countryRegion = builder.countryRegion;
-  }
-
     public static class Builder {
-     /**
-      * 薪资组ID
-      * <p> 示例值：6823630319749580301
-      */
+        /**
+         * 薪资组ID
+         * <p> 示例值：6823630319749580301
+         */
         private String payGroupId;
-     /**
-      * 薪资组名称
-      * <p> 示例值：CHN - 审核
-      */
+        /**
+         * 薪资组名称
+         * <p> 示例值：CHN - 审核
+         */
         private I18n name;
-     /**
-      * 薪资组编码
-      * <p> 示例值：PAY_GROUP-3-8
-      */
+        /**
+         * 薪资组编码
+         * <p> 示例值：PAY_GROUP-3-8
+         */
         private String code;
-     /**
-      * 薪资组状态
-      * <p> 示例值：1
-      */
+        /**
+         * 薪资组状态
+         * <p> 示例值：1
+         */
         private Integer status;
-     /**
-      * 薪资组所属国家/地区
-      * <p> 示例值：
-      */
+        /**
+         * 薪资组所属国家/地区
+         * <p> 示例值：
+         */
         private CountryRegion countryRegion;
 
         /**
          * 薪资组ID
          * <p> 示例值：6823630319749580301
+         *
          * @param payGroupId
          * @return
          */
         public Builder payGroupId(String payGroupId) {
-             this.payGroupId = payGroupId;
-             return this;
+            this.payGroupId = payGroupId;
+            return this;
         }
 
-    
 
         /**
          * 薪资组名称
          * <p> 示例值：CHN - 审核
+         *
          * @param name
          * @return
          */
         public Builder name(I18n name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 薪资组编码
          * <p> 示例值：PAY_GROUP-3-8
+         *
          * @param code
          * @return
          */
         public Builder code(String code) {
-             this.code = code;
-             return this;
+            this.code = code;
+            return this;
         }
 
-    
 
         /**
          * 薪资组状态
          * <p> 示例值：1
+         *
          * @param status
          * @return
          */
         public Builder status(Integer status) {
-             this.status = status;
-             return this;
+            this.status = status;
+            return this;
         }
+
         /**
          * 薪资组状态
          * <p> 示例值：1
+         *
          * @param status {@link com.lark.oapi.service.payroll.v1.enums.PaygroupStatusEnum}
          * @return
          */
         public Builder status(com.lark.oapi.service.payroll.v1.enums.PaygroupStatusEnum status) {
-             this.status = status.getValue();
-             return this;
+            this.status = status.getValue();
+            return this;
         }
 
-    
 
         /**
          * 薪资组所属国家/地区
          * <p> 示例值：
+         *
          * @param countryRegion
          * @return
          */
         public Builder countryRegion(CountryRegion countryRegion) {
-             this.countryRegion = countryRegion;
-             return this;
+            this.countryRegion = countryRegion;
+            return this;
         }
 
-    
-    
-    public PayGroup build(){
-        return new PayGroup(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public PayGroup build() {
+            return new PayGroup(this);
+        }
     }
 }

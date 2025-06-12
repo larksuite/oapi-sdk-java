@@ -12,30 +12,56 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class MentionEntity {
-     /**
-      * 被@人在 content 中的偏移量
-      * <p> 示例值：3
-      */
+    /**
+     * 被@人在 content 中的偏移量
+     * <p> 示例值：3
+     */
     @SerializedName("offset")
     private Integer offset;
-     /**
-      * 被@人的 user id
-      * <p> 示例值：on_94a1ee5551019f18cd73d9f111898cf2
-      */
+    /**
+     * 被@人的 user id
+     * <p> 示例值：on_94a1ee5551019f18cd73d9f111898cf2
+     */
     @SerializedName("user_id")
     private String userId;
+
+    // builder 开始
+    public MentionEntity() {
+    }
+
+    public MentionEntity(Builder builder) {
+        /**
+         * 被@人在 content 中的偏移量
+         * <p> 示例值：3
+         */
+        this.offset = builder.offset;
+        /**
+         * 被@人的 user id
+         * <p> 示例值：on_94a1ee5551019f18cd73d9f111898cf2
+         */
+        this.userId = builder.userId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Integer getOffset() {
         return this.offset;
     }
@@ -52,67 +78,46 @@ public class MentionEntity {
         this.userId = userId;
     }
 
-
-// builder 开始
-  public MentionEntity(){}
-
-  public MentionEntity(Builder builder){
-         /**
-          * 被@人在 content 中的偏移量
-          * <p> 示例值：3
-          */
-      this.offset = builder.offset;
-         /**
-          * 被@人的 user id
-          * <p> 示例值：on_94a1ee5551019f18cd73d9f111898cf2
-          */
-      this.userId = builder.userId;
-  }
-
     public static class Builder {
-     /**
-      * 被@人在 content 中的偏移量
-      * <p> 示例值：3
-      */
+        /**
+         * 被@人在 content 中的偏移量
+         * <p> 示例值：3
+         */
         private Integer offset;
-     /**
-      * 被@人的 user id
-      * <p> 示例值：on_94a1ee5551019f18cd73d9f111898cf2
-      */
+        /**
+         * 被@人的 user id
+         * <p> 示例值：on_94a1ee5551019f18cd73d9f111898cf2
+         */
         private String userId;
 
         /**
          * 被@人在 content 中的偏移量
          * <p> 示例值：3
+         *
          * @param offset
          * @return
          */
         public Builder offset(Integer offset) {
-             this.offset = offset;
-             return this;
+            this.offset = offset;
+            return this;
         }
 
-    
 
         /**
          * 被@人的 user id
          * <p> 示例值：on_94a1ee5551019f18cd73d9f111898cf2
+         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-             this.userId = userId;
-             return this;
+            this.userId = userId;
+            return this;
         }
 
-    
-    
-    public MentionEntity build(){
-        return new MentionEntity(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public MentionEntity build() {
+            return new MentionEntity(this);
+        }
     }
 }

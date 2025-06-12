@@ -12,25 +12,49 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class TransitTaskPreHireReq {
-     /**
-      * 待入职ID
-      * <p> 示例值：7345005664477775407
-      */
+    /**
+     * 待入职ID
+     * <p> 示例值：7345005664477775407
+     */
     @Path
     @SerializedName("pre_hire_id")
     private String preHireId;
+    @Body
+    private TransitTaskPreHireReqBody body;
+
+    // builder 开始
+    public TransitTaskPreHireReq() {
+    }
+
+    public TransitTaskPreHireReq(Builder builder) {
+        /**
+         * 待入职ID
+         * <p> 示例值：7345005664477775407
+         */
+        this.preHireId = builder.preHireId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getPreHireId() {
         return this.preHireId;
     }
@@ -38,9 +62,6 @@ public class TransitTaskPreHireReq {
     public void setPreHireId(String preHireId) {
         this.preHireId = preHireId;
     }
-
-    @Body
-    private TransitTaskPreHireReqBody body;
 
     public TransitTaskPreHireReqBody getTransitTaskPreHireReqBody() {
         return this.body;
@@ -50,54 +71,40 @@ public class TransitTaskPreHireReq {
         this.body = body;
     }
 
-// builder 开始
-  public TransitTaskPreHireReq(){}
-
-  public TransitTaskPreHireReq(Builder builder){
-     /**
-      * 待入职ID
-      * <p> 示例值：7345005664477775407
-      */
-       this.preHireId = builder.preHireId;
-        this.body = builder.body;
-  }
-
     public static class Builder {
-    
+
         private String preHireId; // 待入职ID
+        private TransitTaskPreHireReqBody body;
+
         /**
          * 待入职ID
          * <p> 示例值：7345005664477775407
+         *
          * @param preHireId
          * @return
          */
-          public Builder preHireId(String preHireId) {
-               this.preHireId = preHireId;
-               return this;
-          }
+        public Builder preHireId(String preHireId) {
+            this.preHireId = preHireId;
+            return this;
+        }
 
-    
-        private TransitTaskPreHireReqBody body;
-    
         public TransitTaskPreHireReqBody getTransitTaskPreHireReqBody() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder transitTaskPreHireReqBody(TransitTaskPreHireReqBody body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public TransitTaskPreHireReq build(){
-        return new TransitTaskPreHireReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public TransitTaskPreHireReq build() {
+            return new TransitTaskPreHireReq(this);
+        }
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.okr.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.okr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ImageInfo {
-     /**
-      * 图片token
-      * <p> 示例值：boxbcLxEnhUE3REJSAwAbVFZwPf
-      */
+    /**
+     * 图片token
+     * <p> 示例值：boxbcLxEnhUE3REJSAwAbVFZwPf
+     */
     @SerializedName("file_token")
     private String fileToken;
-     /**
-      * 图片下载链接
-      * <p> 示例值：https://bytedance.feishu.cn/drive/home/
-      */
+    /**
+     * 图片下载链接
+     * <p> 示例值：https://bytedance.feishu.cn/drive/home/
+     */
     @SerializedName("url")
     private String url;
+
+    // builder 开始
+    public ImageInfo() {
+    }
+
+    public ImageInfo(Builder builder) {
+        /**
+         * 图片token
+         * <p> 示例值：boxbcLxEnhUE3REJSAwAbVFZwPf
+         */
+        this.fileToken = builder.fileToken;
+        /**
+         * 图片下载链接
+         * <p> 示例值：https://bytedance.feishu.cn/drive/home/
+         */
+        this.url = builder.url;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getFileToken() {
         return this.fileToken;
     }
@@ -53,67 +79,46 @@ public class ImageInfo {
         this.url = url;
     }
 
-
-// builder 开始
-  public ImageInfo(){}
-
-  public ImageInfo(Builder builder){
-         /**
-          * 图片token
-          * <p> 示例值：boxbcLxEnhUE3REJSAwAbVFZwPf
-          */
-      this.fileToken = builder.fileToken;
-         /**
-          * 图片下载链接
-          * <p> 示例值：https://bytedance.feishu.cn/drive/home/
-          */
-      this.url = builder.url;
-  }
-
     public static class Builder {
-     /**
-      * 图片token
-      * <p> 示例值：boxbcLxEnhUE3REJSAwAbVFZwPf
-      */
+        /**
+         * 图片token
+         * <p> 示例值：boxbcLxEnhUE3REJSAwAbVFZwPf
+         */
         private String fileToken;
-     /**
-      * 图片下载链接
-      * <p> 示例值：https://bytedance.feishu.cn/drive/home/
-      */
+        /**
+         * 图片下载链接
+         * <p> 示例值：https://bytedance.feishu.cn/drive/home/
+         */
         private String url;
 
         /**
          * 图片token
          * <p> 示例值：boxbcLxEnhUE3REJSAwAbVFZwPf
+         *
          * @param fileToken
          * @return
          */
         public Builder fileToken(String fileToken) {
-             this.fileToken = fileToken;
-             return this;
+            this.fileToken = fileToken;
+            return this;
         }
 
-    
 
         /**
          * 图片下载链接
          * <p> 示例值：https://bytedance.feishu.cn/drive/home/
+         *
          * @param url
          * @return
          */
         public Builder url(String url) {
-             this.url = url;
-             return this;
+            this.url = url;
+            return this;
         }
 
-    
-    
-    public ImageInfo build(){
-        return new ImageInfo(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ImageInfo build() {
+            return new ImageInfo(this);
+        }
     }
 }

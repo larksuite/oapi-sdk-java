@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.search.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.search.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class EnterpriseKnowledgeSourceLingoParam {
-     /**
-      * searchable
-      * <p> 示例值：false
-      */
+    /**
+     * searchable
+     * <p> 示例值：false
+     */
     @SerializedName("searchable")
     private Boolean searchable;
+
+    // builder 开始
+    public EnterpriseKnowledgeSourceLingoParam() {
+    }
+
+    public EnterpriseKnowledgeSourceLingoParam(Builder builder) {
+        /**
+         * searchable
+         * <p> 示例值：false
+         */
+        this.searchable = builder.searchable;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Boolean getSearchable() {
         return this.searchable;
     }
@@ -39,44 +60,28 @@ public class EnterpriseKnowledgeSourceLingoParam {
         this.searchable = searchable;
     }
 
-
-// builder 开始
-  public EnterpriseKnowledgeSourceLingoParam(){}
-
-  public EnterpriseKnowledgeSourceLingoParam(Builder builder){
-         /**
-          * searchable
-          * <p> 示例值：false
-          */
-      this.searchable = builder.searchable;
-  }
-
     public static class Builder {
-     /**
-      * searchable
-      * <p> 示例值：false
-      */
+        /**
+         * searchable
+         * <p> 示例值：false
+         */
         private Boolean searchable;
 
         /**
          * searchable
          * <p> 示例值：false
+         *
          * @param searchable
          * @return
          */
         public Builder searchable(Boolean searchable) {
-             this.searchable = searchable;
-             return this;
+            this.searchable = searchable;
+            return this;
         }
 
-    
-    
-    public EnterpriseKnowledgeSourceLingoParam build(){
-        return new EnterpriseKnowledgeSourceLingoParam(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public EnterpriseKnowledgeSourceLingoParam build() {
+            return new EnterpriseKnowledgeSourceLingoParam(this);
+        }
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CustomOrgWithRate {
-     /**
-      * 自定义组织id
-      * <p> 示例值：7382048365313261588
-      */
+    /**
+     * 自定义组织id
+     * <p> 示例值：7382048365313261588
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 比例
-      * <p> 示例值：50.01
-      */
+    /**
+     * 比例
+     * <p> 示例值：50.01
+     */
     @SerializedName("rate")
     private String rate;
+
+    // builder 开始
+    public CustomOrgWithRate() {
+    }
+
+    public CustomOrgWithRate(Builder builder) {
+        /**
+         * 自定义组织id
+         * <p> 示例值：7382048365313261588
+         */
+        this.id = builder.id;
+        /**
+         * 比例
+         * <p> 示例值：50.01
+         */
+        this.rate = builder.rate;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -53,67 +79,46 @@ public class CustomOrgWithRate {
         this.rate = rate;
     }
 
-
-// builder 开始
-  public CustomOrgWithRate(){}
-
-  public CustomOrgWithRate(Builder builder){
-         /**
-          * 自定义组织id
-          * <p> 示例值：7382048365313261588
-          */
-      this.id = builder.id;
-         /**
-          * 比例
-          * <p> 示例值：50.01
-          */
-      this.rate = builder.rate;
-  }
-
     public static class Builder {
-     /**
-      * 自定义组织id
-      * <p> 示例值：7382048365313261588
-      */
+        /**
+         * 自定义组织id
+         * <p> 示例值：7382048365313261588
+         */
         private String id;
-     /**
-      * 比例
-      * <p> 示例值：50.01
-      */
+        /**
+         * 比例
+         * <p> 示例值：50.01
+         */
         private String rate;
 
         /**
          * 自定义组织id
          * <p> 示例值：7382048365313261588
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 比例
          * <p> 示例值：50.01
+         *
          * @param rate
          * @return
          */
         public Builder rate(String rate) {
-             this.rate = rate;
-             return this;
+            this.rate = rate;
+            return this;
         }
 
-    
-    
-    public CustomOrgWithRate build(){
-        return new CustomOrgWithRate(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public CustomOrgWithRate build() {
+            return new CustomOrgWithRate(this);
+        }
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,48 +20,93 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class PhoneForUpdate {
-     /**
-      * 国家区号,枚举值
-      * <p> 示例值：86_china
-      */
+    /**
+     * 国家区号,枚举值
+     * <p> 示例值：86_china
+     */
     @SerializedName("international_area_code")
     private String internationalAreaCode;
-     /**
-      * 电话号码
-      * <p> 示例值：010-12345678
-      */
+    /**
+     * 电话号码
+     * <p> 示例值：010-12345678
+     */
     @SerializedName("phone_number")
     private String phoneNumber;
-     /**
-      * 设备类型，枚举值
-      * <p> 示例值：mobile_phone
-      */
+    /**
+     * 设备类型，枚举值
+     * <p> 示例值：mobile_phone
+     */
     @SerializedName("device_type")
     private String deviceType;
-     /**
-      * 电话用途,枚举值
-      * <p> 示例值：home
-      */
+    /**
+     * 电话用途,枚举值
+     * <p> 示例值：home
+     */
     @SerializedName("phone_usage")
     private String phoneUsage;
-     /**
-      * 主要电话,若有多个电话，只能有一个电话的「is_primary」为true
-      * <p> 示例值：true
-      */
+    /**
+     * 主要电话,若有多个电话，只能有一个电话的「is_primary」为true
+     * <p> 示例值：true
+     */
     @SerializedName("is_primary")
     private Boolean isPrimary;
-     /**
-      * 公开电话
-      * <p> 示例值：true
-      */
+    /**
+     * 公开电话
+     * <p> 示例值：true
+     */
     @SerializedName("is_public")
     private Boolean isPublic;
+
+    // builder 开始
+    public PhoneForUpdate() {
+    }
+
+    public PhoneForUpdate(Builder builder) {
+        /**
+         * 国家区号,枚举值
+         * <p> 示例值：86_china
+         */
+        this.internationalAreaCode = builder.internationalAreaCode;
+        /**
+         * 电话号码
+         * <p> 示例值：010-12345678
+         */
+        this.phoneNumber = builder.phoneNumber;
+        /**
+         * 设备类型，枚举值
+         * <p> 示例值：mobile_phone
+         */
+        this.deviceType = builder.deviceType;
+        /**
+         * 电话用途,枚举值
+         * <p> 示例值：home
+         */
+        this.phoneUsage = builder.phoneUsage;
+        /**
+         * 主要电话,若有多个电话，只能有一个电话的「is_primary」为true
+         * <p> 示例值：true
+         */
+        this.isPrimary = builder.isPrimary;
+        /**
+         * 公开电话
+         * <p> 示例值：true
+         */
+        this.isPublic = builder.isPublic;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getInternationalAreaCode() {
         return this.internationalAreaCode;
     }
@@ -109,159 +155,118 @@ public class PhoneForUpdate {
         this.isPublic = isPublic;
     }
 
-
-// builder 开始
-  public PhoneForUpdate(){}
-
-  public PhoneForUpdate(Builder builder){
-         /**
-          * 国家区号,枚举值
-          * <p> 示例值：86_china
-          */
-      this.internationalAreaCode = builder.internationalAreaCode;
-         /**
-          * 电话号码
-          * <p> 示例值：010-12345678
-          */
-      this.phoneNumber = builder.phoneNumber;
-         /**
-          * 设备类型，枚举值
-          * <p> 示例值：mobile_phone
-          */
-      this.deviceType = builder.deviceType;
-         /**
-          * 电话用途,枚举值
-          * <p> 示例值：home
-          */
-      this.phoneUsage = builder.phoneUsage;
-         /**
-          * 主要电话,若有多个电话，只能有一个电话的「is_primary」为true
-          * <p> 示例值：true
-          */
-      this.isPrimary = builder.isPrimary;
-         /**
-          * 公开电话
-          * <p> 示例值：true
-          */
-      this.isPublic = builder.isPublic;
-  }
-
     public static class Builder {
-     /**
-      * 国家区号,枚举值
-      * <p> 示例值：86_china
-      */
+        /**
+         * 国家区号,枚举值
+         * <p> 示例值：86_china
+         */
         private String internationalAreaCode;
-     /**
-      * 电话号码
-      * <p> 示例值：010-12345678
-      */
+        /**
+         * 电话号码
+         * <p> 示例值：010-12345678
+         */
         private String phoneNumber;
-     /**
-      * 设备类型，枚举值
-      * <p> 示例值：mobile_phone
-      */
+        /**
+         * 设备类型，枚举值
+         * <p> 示例值：mobile_phone
+         */
         private String deviceType;
-     /**
-      * 电话用途,枚举值
-      * <p> 示例值：home
-      */
+        /**
+         * 电话用途,枚举值
+         * <p> 示例值：home
+         */
         private String phoneUsage;
-     /**
-      * 主要电话,若有多个电话，只能有一个电话的「is_primary」为true
-      * <p> 示例值：true
-      */
+        /**
+         * 主要电话,若有多个电话，只能有一个电话的「is_primary」为true
+         * <p> 示例值：true
+         */
         private Boolean isPrimary;
-     /**
-      * 公开电话
-      * <p> 示例值：true
-      */
+        /**
+         * 公开电话
+         * <p> 示例值：true
+         */
         private Boolean isPublic;
 
         /**
          * 国家区号,枚举值
          * <p> 示例值：86_china
+         *
          * @param internationalAreaCode
          * @return
          */
         public Builder internationalAreaCode(String internationalAreaCode) {
-             this.internationalAreaCode = internationalAreaCode;
-             return this;
+            this.internationalAreaCode = internationalAreaCode;
+            return this;
         }
 
-    
 
         /**
          * 电话号码
          * <p> 示例值：010-12345678
+         *
          * @param phoneNumber
          * @return
          */
         public Builder phoneNumber(String phoneNumber) {
-             this.phoneNumber = phoneNumber;
-             return this;
+            this.phoneNumber = phoneNumber;
+            return this;
         }
 
-    
 
         /**
          * 设备类型，枚举值
          * <p> 示例值：mobile_phone
+         *
          * @param deviceType
          * @return
          */
         public Builder deviceType(String deviceType) {
-             this.deviceType = deviceType;
-             return this;
+            this.deviceType = deviceType;
+            return this;
         }
 
-    
 
         /**
          * 电话用途,枚举值
          * <p> 示例值：home
+         *
          * @param phoneUsage
          * @return
          */
         public Builder phoneUsage(String phoneUsage) {
-             this.phoneUsage = phoneUsage;
-             return this;
+            this.phoneUsage = phoneUsage;
+            return this;
         }
 
-    
 
         /**
          * 主要电话,若有多个电话，只能有一个电话的「is_primary」为true
          * <p> 示例值：true
+         *
          * @param isPrimary
          * @return
          */
         public Builder isPrimary(Boolean isPrimary) {
-             this.isPrimary = isPrimary;
-             return this;
+            this.isPrimary = isPrimary;
+            return this;
         }
 
-    
 
         /**
          * 公开电话
          * <p> 示例值：true
+         *
          * @param isPublic
          * @return
          */
         public Builder isPublic(Boolean isPublic) {
-             this.isPublic = isPublic;
-             return this;
+            this.isPublic = isPublic;
+            return this;
         }
 
-    
-    
-    public PhoneForUpdate build(){
-        return new PhoneForUpdate(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public PhoneForUpdate build() {
+            return new PhoneForUpdate(this);
+        }
     }
 }

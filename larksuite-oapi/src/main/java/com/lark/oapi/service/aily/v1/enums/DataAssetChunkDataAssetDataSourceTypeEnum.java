@@ -17,39 +17,40 @@ package com.lark.oapi.service.aily.v1.enums;
  * 归属数据知识的数据资源类型
  */
 public enum DataAssetChunkDataAssetDataSourceTypeEnum {
-     EXCEL("excel"), // excel
-     PDF("pdf"), // pdf
-     PPTX("pptx"), // pptx
-     TXT("txt"), // txt
-     DOCX("docx"), // docx
-     MYSQL("mysql"), // mysql
-     POSTGRESQL("postgresql"), // postgresql
-     LARKBASE("larkbase"), // 飞书多维表格
-     SALESFORCE("salesforce"), // salesforce
-     FENXIANGXIAOKE("fenxiangxiaoke"), // 分享逍客
-     QIANCHUAN("qianchuan"), // 巨量千川
-     CLICKHOUSE("clickhouse"), // clickhouse
-     DATABRICKS("databricks"), // databricks
-     SERVICEDESK("servicedesk"), // 飞书服务台
-     LARKBIZ_WIKI("larkbiz_wiki"), // 飞书Wiki
-     LARKBIZ_DOC("larkbiz_doc"), // 飞书doc
-     LARKBIZ_DOCS("larkbiz_docs"), // 飞书docs
-     LARKBIZ_DOCX("larkbiz_docx"), // 飞书docx
-     LARKBIZ_PDF("larkbiz_pdf"), // 飞书pdf
-     LARKBIZ_WORD("larkbiz_word"), // 飞书word
-     LARKBIZ_PPTX("larkbiz_pptx"), // 飞书pptx
-     LARKBIZ_SHEETS("larkbiz_sheets"), // 飞书文档
-     LARKBIZ_BASE("larkbiz_base"), // 飞书多维表格
-     LARKBIZ_PERSONALFOLDER("larkbiz_personalfolder"), // 飞书个人文件夹
-     LARKBIZ_SHAREDFOLDER("larkbiz_sharedfolder"), // 飞书共享文件夹
-     OBJECT("object"), // 数据表
-  ;
-   private String value;
+    EXCEL("excel"), // excel
+    PDF("pdf"), // pdf
+    PPTX("pptx"), // pptx
+    TXT("txt"), // txt
+    DOCX("docx"), // docx
+    MYSQL("mysql"), // mysql
+    POSTGRESQL("postgresql"), // postgresql
+    LARKBASE("larkbase"), // 飞书多维表格
+    SALESFORCE("salesforce"), // salesforce
+    FENXIANGXIAOKE("fenxiangxiaoke"), // 分享逍客
+    QIANCHUAN("qianchuan"), // 巨量千川
+    CLICKHOUSE("clickhouse"), // clickhouse
+    DATABRICKS("databricks"), // databricks
+    SERVICEDESK("servicedesk"), // 飞书服务台
+    LARKBIZ_WIKI("larkbiz_wiki"), // 飞书Wiki
+    LARKBIZ_DOC("larkbiz_doc"), // 飞书doc
+    LARKBIZ_DOCS("larkbiz_docs"), // 飞书docs
+    LARKBIZ_DOCX("larkbiz_docx"), // 飞书docx
+    LARKBIZ_PDF("larkbiz_pdf"), // 飞书pdf
+    LARKBIZ_WORD("larkbiz_word"), // 飞书word
+    LARKBIZ_PPTX("larkbiz_pptx"), // 飞书pptx
+    LARKBIZ_SHEETS("larkbiz_sheets"), // 飞书文档
+    LARKBIZ_BASE("larkbiz_base"), // 飞书多维表格
+    LARKBIZ_PERSONALFOLDER("larkbiz_personalfolder"), // 飞书个人文件夹
+    LARKBIZ_SHAREDFOLDER("larkbiz_sharedfolder"), // 飞书共享文件夹
+    OBJECT("object"), // 数据表
+    ;
+    private String value;
+
     DataAssetChunkDataAssetDataSourceTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

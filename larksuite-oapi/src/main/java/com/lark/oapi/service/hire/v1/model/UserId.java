@@ -12,36 +12,64 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class UserId {
-     /**
-      * 
-      * <p> 示例值：
-      */
+    /**
+     * <p> 示例值：
+     */
     @SerializedName("user_id")
     private String userId;
-     /**
-      * 
-      * <p> 示例值：
-      */
+    /**
+     * <p> 示例值：
+     */
     @SerializedName("open_id")
     private String openId;
-     /**
-      * 
-      * <p> 示例值：
-      */
+    /**
+     * <p> 示例值：
+     */
     @SerializedName("union_id")
     private String unionId;
+
+    // builder 开始
+    public UserId() {
+    }
+
+    public UserId(Builder builder) {
+        /**
+         *
+         * <p> 示例值：
+         */
+        this.userId = builder.userId;
+        /**
+         *
+         * <p> 示例值：
+         */
+        this.openId = builder.openId;
+        /**
+         *
+         * <p> 示例值：
+         */
+        this.unionId = builder.unionId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getUserId() {
         return this.userId;
     }
@@ -66,90 +94,58 @@ public class UserId {
         this.unionId = unionId;
     }
 
-
-// builder 开始
-  public UserId(){}
-
-  public UserId(Builder builder){
-         /**
-          * 
-          * <p> 示例值：
-          */
-      this.userId = builder.userId;
-         /**
-          * 
-          * <p> 示例值：
-          */
-      this.openId = builder.openId;
-         /**
-          * 
-          * <p> 示例值：
-          */
-      this.unionId = builder.unionId;
-  }
-
     public static class Builder {
-     /**
-      * 
-      * <p> 示例值：
-      */
+        /**
+         * <p> 示例值：
+         */
         private String userId;
-     /**
-      * 
-      * <p> 示例值：
-      */
+        /**
+         * <p> 示例值：
+         */
         private String openId;
-     /**
-      * 
-      * <p> 示例值：
-      */
+        /**
+         * <p> 示例值：
+         */
         private String unionId;
 
         /**
-         * 
          * <p> 示例值：
+         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-             this.userId = userId;
-             return this;
+            this.userId = userId;
+            return this;
         }
 
-    
 
         /**
-         * 
          * <p> 示例值：
+         *
          * @param openId
          * @return
          */
         public Builder openId(String openId) {
-             this.openId = openId;
-             return this;
+            this.openId = openId;
+            return this;
         }
 
-    
 
         /**
-         * 
          * <p> 示例值：
+         *
          * @param unionId
          * @return
          */
         public Builder unionId(String unionId) {
-             this.unionId = unionId;
-             return this;
+            this.unionId = unionId;
+            return this;
         }
 
-    
-    
-    public UserId build(){
-        return new UserId(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public UserId build() {
+            return new UserId(this);
+        }
     }
 }

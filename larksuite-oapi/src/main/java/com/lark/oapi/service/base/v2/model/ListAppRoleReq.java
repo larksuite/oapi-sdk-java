@@ -12,32 +12,68 @@
  */
 
 package com.lark.oapi.service.base.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.base.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ListAppRoleReq {
-     /**
-      * 
-      * <p> 示例值：
-      */
+    /**
+     * <p> 示例值：
+     */
     @Query
     @SerializedName("page_size")
     private Integer pageSize;
-     /**
-      * 
-      * <p> 示例值：
-      */
+    /**
+     * <p> 示例值：
+     */
     @Query
     @SerializedName("page_token")
     private String pageToken;
+    /**
+     * 多维表格的唯一标识符
+     * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+     */
+    @Path
+    @SerializedName("app_token")
+    private String appToken;
+
+    // builder 开始
+    public ListAppRoleReq() {
+    }
+
+    public ListAppRoleReq(Builder builder) {
+        /**
+         *
+         * <p> 示例值：
+         */
+        this.pageSize = builder.pageSize;
+        /**
+         *
+         * <p> 示例值：
+         */
+        this.pageToken = builder.pageToken;
+        /**
+         * 多维表格的唯一标识符
+         * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+         */
+        this.appToken = builder.appToken;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Integer getPageSize() {
         return this.pageSize;
     }
@@ -54,13 +90,6 @@ public class ListAppRoleReq {
         this.pageToken = pageToken;
     }
 
-     /**
-      * 多维表格的唯一标识符
-      * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
-      */
-    @Path
-    @SerializedName("app_token")
-    private String appToken;
     public String getAppToken() {
         return this.appToken;
     }
@@ -69,75 +98,48 @@ public class ListAppRoleReq {
         this.appToken = appToken;
     }
 
-
-// builder 开始
-  public ListAppRoleReq(){}
-
-  public ListAppRoleReq(Builder builder){
-         /**
-          * 
-          * <p> 示例值：
-          */
-       this.pageSize = builder.pageSize;
-         /**
-          * 
-          * <p> 示例值：
-          */
-       this.pageToken = builder.pageToken;
-     /**
-      * 多维表格的唯一标识符
-      * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
-      */
-       this.appToken = builder.appToken;
-  }
-
     public static class Builder {
-        private Integer pageSize; // 
-        private String pageToken; // 
-    
+        private Integer pageSize; //
+        private String pageToken; //
+        private String appToken; // 多维表格的唯一标识符
+
         /**
-         * 
          * <p> 示例值：
+         *
          * @param pageSize
          * @return
          */
-           public Builder pageSize(Integer pageSize) {
-                this.pageSize = pageSize;
-                return this;
-           }
+        public Builder pageSize(Integer pageSize) {
+            this.pageSize = pageSize;
+            return this;
+        }
 
-    
         /**
-         * 
          * <p> 示例值：
+         *
          * @param pageToken
          * @return
          */
-           public Builder pageToken(String pageToken) {
-                this.pageToken = pageToken;
-                return this;
-           }
+        public Builder pageToken(String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+        }
 
-    
-        private String appToken; // 多维表格的唯一标识符
         /**
          * 多维表格的唯一标识符
          * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+         *
          * @param appToken
          * @return
          */
-          public Builder appToken(String appToken) {
-               this.appToken = appToken;
-               return this;
-          }
+        public Builder appToken(String appToken) {
+            this.appToken = appToken;
+            return this;
+        }
 
-    
-    public ListAppRoleReq build(){
-        return new ListAppRoleReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ListAppRoleReq build() {
+            return new ListAppRoleReq(this);
+        }
     }
 }

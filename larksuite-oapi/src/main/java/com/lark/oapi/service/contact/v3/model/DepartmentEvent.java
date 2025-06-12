@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.contact.v3.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,78 +20,148 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class DepartmentEvent {
-     /**
-      * 部门名称
-      * <p> 示例值：测试部门
-      */
+    /**
+     * 部门名称
+     * <p> 示例值：测试部门
+     */
     @SerializedName("name")
     private String name;
-     /**
-      * 父部门的部门open_department_id [部门相关ID概念](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
-      * <p> 示例值：jkfsd89782
-      */
+    /**
+     * 父部门的部门open_department_id [部门相关ID概念](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+     * <p> 示例值：jkfsd89782
+     */
     @SerializedName("parent_department_id")
     private String parentDepartmentId;
-     /**
-      * 本部门的department_id [部门相关ID概念](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
-      * <p> 示例值：yd7sa8yf2j
-      */
+    /**
+     * 本部门的department_id [部门相关ID概念](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+     * <p> 示例值：yd7sa8yf2j
+     */
     @SerializedName("department_id")
     private String departmentId;
-     /**
-      * 部门的open_department_id [部门相关ID概念](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
-      * <p> 示例值：od_j10j52hjksd9g0isdfg43
-      */
+    /**
+     * 部门的open_department_id [部门相关ID概念](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+     * <p> 示例值：od_j10j52hjksd9g0isdfg43
+     */
     @SerializedName("open_department_id")
     private String openDepartmentId;
-     /**
-      * 部门主管用户open_id [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
-      * <p> 示例值：ou_3j1kh45jk18fgh23hf
-      */
+    /**
+     * 部门主管用户open_id [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
+     * <p> 示例值：ou_3j1kh45jk18fgh23hf
+     */
     @SerializedName("leader_user_id")
     private String leaderUserId;
-     /**
-      * 部门群ID
-      * <p> 示例值：oc_uiy325uy23bnv48gdf
-      */
+    /**
+     * 部门群ID
+     * <p> 示例值：oc_uiy325uy23bnv48gdf
+     */
     @SerializedName("chat_id")
     private String chatId;
-     /**
-      * 部门的排序
-      * <p> 示例值：100
-      */
+    /**
+     * 部门的排序
+     * <p> 示例值：100
+     */
     @SerializedName("order")
     private Integer order;
-     /**
-      * 部门单位自定义ID列表，当前只支持一个
-      * <p> 示例值：
-      */
+    /**
+     * 部门单位自定义ID列表，当前只支持一个
+     * <p> 示例值：
+     */
     @SerializedName("unit_ids")
     private String[] unitIds;
-     /**
-      * 部门状态
-      * <p> 示例值：
-      */
+    /**
+     * 部门状态
+     * <p> 示例值：
+     */
     @SerializedName("status")
     private DepartmentStatus status;
-     /**
-      * 部门负责人
-      * <p> 示例值：
-      */
+    /**
+     * 部门负责人
+     * <p> 示例值：
+     */
     @SerializedName("leaders")
     private DepartmentLeader[] leaders;
-     /**
-      * 部门HRBP
-      * <p> 示例值：
-      */
+    /**
+     * 部门HRBP
+     * <p> 示例值：
+     */
     @SerializedName("department_hrbps")
     private UserId[] departmentHrbps;
+
+    // builder 开始
+    public DepartmentEvent() {
+    }
+
+    public DepartmentEvent(Builder builder) {
+        /**
+         * 部门名称
+         * <p> 示例值：测试部门
+         */
+        this.name = builder.name;
+        /**
+         * 父部门的部门open_department_id [部门相关ID概念](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+         * <p> 示例值：jkfsd89782
+         */
+        this.parentDepartmentId = builder.parentDepartmentId;
+        /**
+         * 本部门的department_id [部门相关ID概念](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+         * <p> 示例值：yd7sa8yf2j
+         */
+        this.departmentId = builder.departmentId;
+        /**
+         * 部门的open_department_id [部门相关ID概念](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+         * <p> 示例值：od_j10j52hjksd9g0isdfg43
+         */
+        this.openDepartmentId = builder.openDepartmentId;
+        /**
+         * 部门主管用户open_id [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
+         * <p> 示例值：ou_3j1kh45jk18fgh23hf
+         */
+        this.leaderUserId = builder.leaderUserId;
+        /**
+         * 部门群ID
+         * <p> 示例值：oc_uiy325uy23bnv48gdf
+         */
+        this.chatId = builder.chatId;
+        /**
+         * 部门的排序
+         * <p> 示例值：100
+         */
+        this.order = builder.order;
+        /**
+         * 部门单位自定义ID列表，当前只支持一个
+         * <p> 示例值：
+         */
+        this.unitIds = builder.unitIds;
+        /**
+         * 部门状态
+         * <p> 示例值：
+         */
+        this.status = builder.status;
+        /**
+         * 部门负责人
+         * <p> 示例值：
+         */
+        this.leaders = builder.leaders;
+        /**
+         * 部门HRBP
+         * <p> 示例值：
+         */
+        this.departmentHrbps = builder.departmentHrbps;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getName() {
         return this.name;
     }
@@ -179,274 +250,208 @@ public class DepartmentEvent {
         this.departmentHrbps = departmentHrbps;
     }
 
-
-// builder 开始
-  public DepartmentEvent(){}
-
-  public DepartmentEvent(Builder builder){
-         /**
-          * 部门名称
-          * <p> 示例值：测试部门
-          */
-      this.name = builder.name;
-         /**
-          * 父部门的部门open_department_id [部门相关ID概念](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
-          * <p> 示例值：jkfsd89782
-          */
-      this.parentDepartmentId = builder.parentDepartmentId;
-         /**
-          * 本部门的department_id [部门相关ID概念](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
-          * <p> 示例值：yd7sa8yf2j
-          */
-      this.departmentId = builder.departmentId;
-         /**
-          * 部门的open_department_id [部门相关ID概念](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
-          * <p> 示例值：od_j10j52hjksd9g0isdfg43
-          */
-      this.openDepartmentId = builder.openDepartmentId;
-         /**
-          * 部门主管用户open_id [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
-          * <p> 示例值：ou_3j1kh45jk18fgh23hf
-          */
-      this.leaderUserId = builder.leaderUserId;
-         /**
-          * 部门群ID
-          * <p> 示例值：oc_uiy325uy23bnv48gdf
-          */
-      this.chatId = builder.chatId;
-         /**
-          * 部门的排序
-          * <p> 示例值：100
-          */
-      this.order = builder.order;
-         /**
-          * 部门单位自定义ID列表，当前只支持一个
-          * <p> 示例值：
-          */
-      this.unitIds = builder.unitIds;
-         /**
-          * 部门状态
-          * <p> 示例值：
-          */
-      this.status = builder.status;
-         /**
-          * 部门负责人
-          * <p> 示例值：
-          */
-      this.leaders = builder.leaders;
-         /**
-          * 部门HRBP
-          * <p> 示例值：
-          */
-      this.departmentHrbps = builder.departmentHrbps;
-  }
-
     public static class Builder {
-     /**
-      * 部门名称
-      * <p> 示例值：测试部门
-      */
+        /**
+         * 部门名称
+         * <p> 示例值：测试部门
+         */
         private String name;
-     /**
-      * 父部门的部门open_department_id [部门相关ID概念](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
-      * <p> 示例值：jkfsd89782
-      */
+        /**
+         * 父部门的部门open_department_id [部门相关ID概念](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+         * <p> 示例值：jkfsd89782
+         */
         private String parentDepartmentId;
-     /**
-      * 本部门的department_id [部门相关ID概念](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
-      * <p> 示例值：yd7sa8yf2j
-      */
+        /**
+         * 本部门的department_id [部门相关ID概念](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+         * <p> 示例值：yd7sa8yf2j
+         */
         private String departmentId;
-     /**
-      * 部门的open_department_id [部门相关ID概念](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
-      * <p> 示例值：od_j10j52hjksd9g0isdfg43
-      */
+        /**
+         * 部门的open_department_id [部门相关ID概念](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+         * <p> 示例值：od_j10j52hjksd9g0isdfg43
+         */
         private String openDepartmentId;
-     /**
-      * 部门主管用户open_id [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
-      * <p> 示例值：ou_3j1kh45jk18fgh23hf
-      */
+        /**
+         * 部门主管用户open_id [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
+         * <p> 示例值：ou_3j1kh45jk18fgh23hf
+         */
         private String leaderUserId;
-     /**
-      * 部门群ID
-      * <p> 示例值：oc_uiy325uy23bnv48gdf
-      */
+        /**
+         * 部门群ID
+         * <p> 示例值：oc_uiy325uy23bnv48gdf
+         */
         private String chatId;
-     /**
-      * 部门的排序
-      * <p> 示例值：100
-      */
+        /**
+         * 部门的排序
+         * <p> 示例值：100
+         */
         private Integer order;
-     /**
-      * 部门单位自定义ID列表，当前只支持一个
-      * <p> 示例值：
-      */
+        /**
+         * 部门单位自定义ID列表，当前只支持一个
+         * <p> 示例值：
+         */
         private String[] unitIds;
-     /**
-      * 部门状态
-      * <p> 示例值：
-      */
+        /**
+         * 部门状态
+         * <p> 示例值：
+         */
         private DepartmentStatus status;
-     /**
-      * 部门负责人
-      * <p> 示例值：
-      */
+        /**
+         * 部门负责人
+         * <p> 示例值：
+         */
         private DepartmentLeader[] leaders;
-     /**
-      * 部门HRBP
-      * <p> 示例值：
-      */
+        /**
+         * 部门HRBP
+         * <p> 示例值：
+         */
         private UserId[] departmentHrbps;
 
         /**
          * 部门名称
          * <p> 示例值：测试部门
+         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 父部门的部门open_department_id [部门相关ID概念](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
          * <p> 示例值：jkfsd89782
+         *
          * @param parentDepartmentId
          * @return
          */
         public Builder parentDepartmentId(String parentDepartmentId) {
-             this.parentDepartmentId = parentDepartmentId;
-             return this;
+            this.parentDepartmentId = parentDepartmentId;
+            return this;
         }
 
-    
 
         /**
          * 本部门的department_id [部门相关ID概念](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
          * <p> 示例值：yd7sa8yf2j
+         *
          * @param departmentId
          * @return
          */
         public Builder departmentId(String departmentId) {
-             this.departmentId = departmentId;
-             return this;
+            this.departmentId = departmentId;
+            return this;
         }
 
-    
 
         /**
          * 部门的open_department_id [部门相关ID概念](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
          * <p> 示例值：od_j10j52hjksd9g0isdfg43
+         *
          * @param openDepartmentId
          * @return
          */
         public Builder openDepartmentId(String openDepartmentId) {
-             this.openDepartmentId = openDepartmentId;
-             return this;
+            this.openDepartmentId = openDepartmentId;
+            return this;
         }
 
-    
 
         /**
          * 部门主管用户open_id [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
          * <p> 示例值：ou_3j1kh45jk18fgh23hf
+         *
          * @param leaderUserId
          * @return
          */
         public Builder leaderUserId(String leaderUserId) {
-             this.leaderUserId = leaderUserId;
-             return this;
+            this.leaderUserId = leaderUserId;
+            return this;
         }
 
-    
 
         /**
          * 部门群ID
          * <p> 示例值：oc_uiy325uy23bnv48gdf
+         *
          * @param chatId
          * @return
          */
         public Builder chatId(String chatId) {
-             this.chatId = chatId;
-             return this;
+            this.chatId = chatId;
+            return this;
         }
 
-    
 
         /**
          * 部门的排序
          * <p> 示例值：100
+         *
          * @param order
          * @return
          */
         public Builder order(Integer order) {
-             this.order = order;
-             return this;
+            this.order = order;
+            return this;
         }
 
-    
 
         /**
          * 部门单位自定义ID列表，当前只支持一个
          * <p> 示例值：
+         *
          * @param unitIds
          * @return
          */
         public Builder unitIds(String[] unitIds) {
-             this.unitIds = unitIds;
-             return this;
+            this.unitIds = unitIds;
+            return this;
         }
 
-    
 
         /**
          * 部门状态
          * <p> 示例值：
+         *
          * @param status
          * @return
          */
         public Builder status(DepartmentStatus status) {
-             this.status = status;
-             return this;
+            this.status = status;
+            return this;
         }
 
-    
 
         /**
          * 部门负责人
          * <p> 示例值：
+         *
          * @param leaders
          * @return
          */
         public Builder leaders(DepartmentLeader[] leaders) {
-             this.leaders = leaders;
-             return this;
+            this.leaders = leaders;
+            return this;
         }
 
-    
 
         /**
          * 部门HRBP
          * <p> 示例值：
+         *
          * @param departmentHrbps
          * @return
          */
         public Builder departmentHrbps(UserId[] departmentHrbps) {
-             this.departmentHrbps = departmentHrbps;
-             return this;
+            this.departmentHrbps = departmentHrbps;
+            return this;
         }
 
-    
-    
-    public DepartmentEvent build(){
-        return new DepartmentEvent(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public DepartmentEvent build() {
+            return new DepartmentEvent(this);
+        }
     }
 }

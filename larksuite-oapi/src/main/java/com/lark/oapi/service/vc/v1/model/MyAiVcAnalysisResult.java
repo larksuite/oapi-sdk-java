@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class MyAiVcAnalysisResult {
-     /**
-      * result reply
-      * <p> 示例值：this is a reply
-      */
+    /**
+     * result reply
+     * <p> 示例值：this is a reply
+     */
     @SerializedName("reply")
     private String reply;
+
+    // builder 开始
+    public MyAiVcAnalysisResult() {
+    }
+
+    public MyAiVcAnalysisResult(Builder builder) {
+        /**
+         * result reply
+         * <p> 示例值：this is a reply
+         */
+        this.reply = builder.reply;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getReply() {
         return this.reply;
     }
@@ -39,44 +60,28 @@ public class MyAiVcAnalysisResult {
         this.reply = reply;
     }
 
-
-// builder 开始
-  public MyAiVcAnalysisResult(){}
-
-  public MyAiVcAnalysisResult(Builder builder){
-         /**
-          * result reply
-          * <p> 示例值：this is a reply
-          */
-      this.reply = builder.reply;
-  }
-
     public static class Builder {
-     /**
-      * result reply
-      * <p> 示例值：this is a reply
-      */
+        /**
+         * result reply
+         * <p> 示例值：this is a reply
+         */
         private String reply;
 
         /**
          * result reply
          * <p> 示例值：this is a reply
+         *
          * @param reply
          * @return
          */
         public Builder reply(String reply) {
-             this.reply = reply;
-             return this;
+            this.reply = reply;
+            return this;
         }
 
-    
-    
-    public MyAiVcAnalysisResult build(){
-        return new MyAiVcAnalysisResult(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public MyAiVcAnalysisResult build() {
+            return new MyAiVcAnalysisResult(this);
+        }
     }
 }

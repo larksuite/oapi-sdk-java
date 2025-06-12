@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class AppTableFieldPropertyLookupFilter {
-     /**
-      * 引用表格
-      * <p> 示例值：tblXJDra28ZYsSKo
-      */
+    /**
+     * 引用表格
+     * <p> 示例值：tblXJDra28ZYsSKo
+     */
     @SerializedName("target_table")
     private String targetTable;
-     /**
-      * 查找条件
-      * <p> 示例值：
-      */
+    /**
+     * 查找条件
+     * <p> 示例值：
+     */
     @SerializedName("filter_info")
     private AppTableFieldPropertyFilterInfo filterInfo;
+
+    // builder 开始
+    public AppTableFieldPropertyLookupFilter() {
+    }
+
+    public AppTableFieldPropertyLookupFilter(Builder builder) {
+        /**
+         * 引用表格
+         * <p> 示例值：tblXJDra28ZYsSKo
+         */
+        this.targetTable = builder.targetTable;
+        /**
+         * 查找条件
+         * <p> 示例值：
+         */
+        this.filterInfo = builder.filterInfo;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getTargetTable() {
         return this.targetTable;
     }
@@ -53,67 +79,46 @@ public class AppTableFieldPropertyLookupFilter {
         this.filterInfo = filterInfo;
     }
 
-
-// builder 开始
-  public AppTableFieldPropertyLookupFilter(){}
-
-  public AppTableFieldPropertyLookupFilter(Builder builder){
-         /**
-          * 引用表格
-          * <p> 示例值：tblXJDra28ZYsSKo
-          */
-      this.targetTable = builder.targetTable;
-         /**
-          * 查找条件
-          * <p> 示例值：
-          */
-      this.filterInfo = builder.filterInfo;
-  }
-
     public static class Builder {
-     /**
-      * 引用表格
-      * <p> 示例值：tblXJDra28ZYsSKo
-      */
+        /**
+         * 引用表格
+         * <p> 示例值：tblXJDra28ZYsSKo
+         */
         private String targetTable;
-     /**
-      * 查找条件
-      * <p> 示例值：
-      */
+        /**
+         * 查找条件
+         * <p> 示例值：
+         */
         private AppTableFieldPropertyFilterInfo filterInfo;
 
         /**
          * 引用表格
          * <p> 示例值：tblXJDra28ZYsSKo
+         *
          * @param targetTable
          * @return
          */
         public Builder targetTable(String targetTable) {
-             this.targetTable = targetTable;
-             return this;
+            this.targetTable = targetTable;
+            return this;
         }
 
-    
 
         /**
          * 查找条件
          * <p> 示例值：
+         *
          * @param filterInfo
          * @return
          */
         public Builder filterInfo(AppTableFieldPropertyFilterInfo filterInfo) {
-             this.filterInfo = filterInfo;
-             return this;
+            this.filterInfo = filterInfo;
+            return this;
         }
 
-    
-    
-    public AppTableFieldPropertyLookupFilter build(){
-        return new AppTableFieldPropertyLookupFilter(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public AppTableFieldPropertyLookupFilter build() {
+            return new AppTableFieldPropertyLookupFilter(this);
+        }
     }
 }

@@ -12,90 +12,166 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class AgencySupplier {
-     /**
-      * 猎头供应商 ID
-      * <p> 示例值：7398493486516799788
-      */
+    /**
+     * 猎头供应商 ID
+     * <p> 示例值：7398493486516799788
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 猎头供应商名称
-      * <p> 示例值：北极无敌猎头
-      */
+    /**
+     * 猎头供应商名称
+     * <p> 示例值：北极无敌猎头
+     */
     @SerializedName("name")
     private String name;
-     /**
-      * 标签列表
-      * <p> 示例值：
-      */
+    /**
+     * 标签列表
+     * <p> 示例值：
+     */
     @SerializedName("label_list")
     private AgencySupplierLabel[] labelList;
-     /**
-      * 管理员列表
-      * <p> 示例值：
-      */
+    /**
+     * 管理员列表
+     * <p> 示例值：
+     */
     @SerializedName("admin_list")
     private AgencySupplierAdmin[] adminList;
-     /**
-      * 猎头简历保护期
-      * <p> 示例值：
-      */
+    /**
+     * 猎头简历保护期
+     * <p> 示例值：
+     */
     @SerializedName("agency_protect_time")
     private AgencySupplierProtectTime agencyProtectTime;
-     /**
-      * 合作创建时间，毫秒时间戳
-      * <p> 示例值：1639992265035
-      */
+    /**
+     * 合作创建时间，毫秒时间戳
+     * <p> 示例值：1639992265035
+     */
     @SerializedName("cooperation_create_time")
     private String cooperationCreateTime;
-     /**
-      * 合作开始时间，毫秒时间戳
-      * <p> 示例值：1639992265035
-      */
+    /**
+     * 合作开始时间，毫秒时间戳
+     * <p> 示例值：1639992265035
+     */
     @SerializedName("cooperation_start_time")
     private String cooperationStartTime;
-     /**
-      * 合作终止时间，毫秒时间戳
-      * <p> 示例值：1639992265035
-      */
+    /**
+     * 合作终止时间，毫秒时间戳
+     * <p> 示例值：1639992265035
+     */
     @SerializedName("cooperation_end_time")
     private String cooperationEndTime;
-     /**
-      * 合作状态，毫秒时间戳
-      * <p> 示例值：1
-      */
+    /**
+     * 合作状态，毫秒时间戳
+     * <p> 示例值：1
+     */
     @SerializedName("cooperation_status")
     private Integer cooperationStatus;
-     /**
-      * 供应商邮箱
-      * <p> 示例值：28933718393.qq.com
-      */
+    /**
+     * 供应商邮箱
+     * <p> 示例值：28933718393.qq.com
+     */
     @SerializedName("invite_email")
     private String inviteEmail;
-     /**
-      * 猎头区域
-      * <p> 示例值：1
-      */
+    /**
+     * 猎头区域
+     * <p> 示例值：1
+     */
     @SerializedName("supplier_area")
     private Integer supplierArea;
-     /**
-      * 企业自有简历保护期
-      * <p> 示例值：
-      */
+    /**
+     * 企业自有简历保护期
+     * <p> 示例值：
+     */
     @SerializedName("talent_protect_time")
     private AgencySupplierTalentProtectTime talentProtectTime;
+
+    // builder 开始
+    public AgencySupplier() {
+    }
+
+    public AgencySupplier(Builder builder) {
+        /**
+         * 猎头供应商 ID
+         * <p> 示例值：7398493486516799788
+         */
+        this.id = builder.id;
+        /**
+         * 猎头供应商名称
+         * <p> 示例值：北极无敌猎头
+         */
+        this.name = builder.name;
+        /**
+         * 标签列表
+         * <p> 示例值：
+         */
+        this.labelList = builder.labelList;
+        /**
+         * 管理员列表
+         * <p> 示例值：
+         */
+        this.adminList = builder.adminList;
+        /**
+         * 猎头简历保护期
+         * <p> 示例值：
+         */
+        this.agencyProtectTime = builder.agencyProtectTime;
+        /**
+         * 合作创建时间，毫秒时间戳
+         * <p> 示例值：1639992265035
+         */
+        this.cooperationCreateTime = builder.cooperationCreateTime;
+        /**
+         * 合作开始时间，毫秒时间戳
+         * <p> 示例值：1639992265035
+         */
+        this.cooperationStartTime = builder.cooperationStartTime;
+        /**
+         * 合作终止时间，毫秒时间戳
+         * <p> 示例值：1639992265035
+         */
+        this.cooperationEndTime = builder.cooperationEndTime;
+        /**
+         * 合作状态，毫秒时间戳
+         * <p> 示例值：1
+         */
+        this.cooperationStatus = builder.cooperationStatus;
+        /**
+         * 供应商邮箱
+         * <p> 示例值：28933718393.qq.com
+         */
+        this.inviteEmail = builder.inviteEmail;
+        /**
+         * 猎头区域
+         * <p> 示例值：1
+         */
+        this.supplierArea = builder.supplierArea;
+        /**
+         * 企业自有简历保护期
+         * <p> 示例值：
+         */
+        this.talentProtectTime = builder.talentProtectTime;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -192,297 +268,226 @@ public class AgencySupplier {
         this.talentProtectTime = talentProtectTime;
     }
 
-
-// builder 开始
-  public AgencySupplier(){}
-
-  public AgencySupplier(Builder builder){
-         /**
-          * 猎头供应商 ID
-          * <p> 示例值：7398493486516799788
-          */
-      this.id = builder.id;
-         /**
-          * 猎头供应商名称
-          * <p> 示例值：北极无敌猎头
-          */
-      this.name = builder.name;
-         /**
-          * 标签列表
-          * <p> 示例值：
-          */
-      this.labelList = builder.labelList;
-         /**
-          * 管理员列表
-          * <p> 示例值：
-          */
-      this.adminList = builder.adminList;
-         /**
-          * 猎头简历保护期
-          * <p> 示例值：
-          */
-      this.agencyProtectTime = builder.agencyProtectTime;
-         /**
-          * 合作创建时间，毫秒时间戳
-          * <p> 示例值：1639992265035
-          */
-      this.cooperationCreateTime = builder.cooperationCreateTime;
-         /**
-          * 合作开始时间，毫秒时间戳
-          * <p> 示例值：1639992265035
-          */
-      this.cooperationStartTime = builder.cooperationStartTime;
-         /**
-          * 合作终止时间，毫秒时间戳
-          * <p> 示例值：1639992265035
-          */
-      this.cooperationEndTime = builder.cooperationEndTime;
-         /**
-          * 合作状态，毫秒时间戳
-          * <p> 示例值：1
-          */
-      this.cooperationStatus = builder.cooperationStatus;
-         /**
-          * 供应商邮箱
-          * <p> 示例值：28933718393.qq.com
-          */
-      this.inviteEmail = builder.inviteEmail;
-         /**
-          * 猎头区域
-          * <p> 示例值：1
-          */
-      this.supplierArea = builder.supplierArea;
-         /**
-          * 企业自有简历保护期
-          * <p> 示例值：
-          */
-      this.talentProtectTime = builder.talentProtectTime;
-  }
-
     public static class Builder {
-     /**
-      * 猎头供应商 ID
-      * <p> 示例值：7398493486516799788
-      */
+        /**
+         * 猎头供应商 ID
+         * <p> 示例值：7398493486516799788
+         */
         private String id;
-     /**
-      * 猎头供应商名称
-      * <p> 示例值：北极无敌猎头
-      */
+        /**
+         * 猎头供应商名称
+         * <p> 示例值：北极无敌猎头
+         */
         private String name;
-     /**
-      * 标签列表
-      * <p> 示例值：
-      */
+        /**
+         * 标签列表
+         * <p> 示例值：
+         */
         private AgencySupplierLabel[] labelList;
-     /**
-      * 管理员列表
-      * <p> 示例值：
-      */
+        /**
+         * 管理员列表
+         * <p> 示例值：
+         */
         private AgencySupplierAdmin[] adminList;
-     /**
-      * 猎头简历保护期
-      * <p> 示例值：
-      */
+        /**
+         * 猎头简历保护期
+         * <p> 示例值：
+         */
         private AgencySupplierProtectTime agencyProtectTime;
-     /**
-      * 合作创建时间，毫秒时间戳
-      * <p> 示例值：1639992265035
-      */
+        /**
+         * 合作创建时间，毫秒时间戳
+         * <p> 示例值：1639992265035
+         */
         private String cooperationCreateTime;
-     /**
-      * 合作开始时间，毫秒时间戳
-      * <p> 示例值：1639992265035
-      */
+        /**
+         * 合作开始时间，毫秒时间戳
+         * <p> 示例值：1639992265035
+         */
         private String cooperationStartTime;
-     /**
-      * 合作终止时间，毫秒时间戳
-      * <p> 示例值：1639992265035
-      */
+        /**
+         * 合作终止时间，毫秒时间戳
+         * <p> 示例值：1639992265035
+         */
         private String cooperationEndTime;
-     /**
-      * 合作状态，毫秒时间戳
-      * <p> 示例值：1
-      */
+        /**
+         * 合作状态，毫秒时间戳
+         * <p> 示例值：1
+         */
         private Integer cooperationStatus;
-     /**
-      * 供应商邮箱
-      * <p> 示例值：28933718393.qq.com
-      */
+        /**
+         * 供应商邮箱
+         * <p> 示例值：28933718393.qq.com
+         */
         private String inviteEmail;
-     /**
-      * 猎头区域
-      * <p> 示例值：1
-      */
+        /**
+         * 猎头区域
+         * <p> 示例值：1
+         */
         private Integer supplierArea;
-     /**
-      * 企业自有简历保护期
-      * <p> 示例值：
-      */
+        /**
+         * 企业自有简历保护期
+         * <p> 示例值：
+         */
         private AgencySupplierTalentProtectTime talentProtectTime;
 
         /**
          * 猎头供应商 ID
          * <p> 示例值：7398493486516799788
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 猎头供应商名称
          * <p> 示例值：北极无敌猎头
+         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 标签列表
          * <p> 示例值：
+         *
          * @param labelList
          * @return
          */
         public Builder labelList(AgencySupplierLabel[] labelList) {
-             this.labelList = labelList;
-             return this;
+            this.labelList = labelList;
+            return this;
         }
 
-    
 
         /**
          * 管理员列表
          * <p> 示例值：
+         *
          * @param adminList
          * @return
          */
         public Builder adminList(AgencySupplierAdmin[] adminList) {
-             this.adminList = adminList;
-             return this;
+            this.adminList = adminList;
+            return this;
         }
 
-    
 
         /**
          * 猎头简历保护期
          * <p> 示例值：
+         *
          * @param agencyProtectTime
          * @return
          */
         public Builder agencyProtectTime(AgencySupplierProtectTime agencyProtectTime) {
-             this.agencyProtectTime = agencyProtectTime;
-             return this;
+            this.agencyProtectTime = agencyProtectTime;
+            return this;
         }
 
-    
 
         /**
          * 合作创建时间，毫秒时间戳
          * <p> 示例值：1639992265035
+         *
          * @param cooperationCreateTime
          * @return
          */
         public Builder cooperationCreateTime(String cooperationCreateTime) {
-             this.cooperationCreateTime = cooperationCreateTime;
-             return this;
+            this.cooperationCreateTime = cooperationCreateTime;
+            return this;
         }
 
-    
 
         /**
          * 合作开始时间，毫秒时间戳
          * <p> 示例值：1639992265035
+         *
          * @param cooperationStartTime
          * @return
          */
         public Builder cooperationStartTime(String cooperationStartTime) {
-             this.cooperationStartTime = cooperationStartTime;
-             return this;
+            this.cooperationStartTime = cooperationStartTime;
+            return this;
         }
 
-    
 
         /**
          * 合作终止时间，毫秒时间戳
          * <p> 示例值：1639992265035
+         *
          * @param cooperationEndTime
          * @return
          */
         public Builder cooperationEndTime(String cooperationEndTime) {
-             this.cooperationEndTime = cooperationEndTime;
-             return this;
+            this.cooperationEndTime = cooperationEndTime;
+            return this;
         }
 
-    
 
         /**
          * 合作状态，毫秒时间戳
          * <p> 示例值：1
+         *
          * @param cooperationStatus
          * @return
          */
         public Builder cooperationStatus(Integer cooperationStatus) {
-             this.cooperationStatus = cooperationStatus;
-             return this;
+            this.cooperationStatus = cooperationStatus;
+            return this;
         }
 
-    
 
         /**
          * 供应商邮箱
          * <p> 示例值：28933718393.qq.com
+         *
          * @param inviteEmail
          * @return
          */
         public Builder inviteEmail(String inviteEmail) {
-             this.inviteEmail = inviteEmail;
-             return this;
+            this.inviteEmail = inviteEmail;
+            return this;
         }
 
-    
 
         /**
          * 猎头区域
          * <p> 示例值：1
+         *
          * @param supplierArea
          * @return
          */
         public Builder supplierArea(Integer supplierArea) {
-             this.supplierArea = supplierArea;
-             return this;
+            this.supplierArea = supplierArea;
+            return this;
         }
 
-    
 
         /**
          * 企业自有简历保护期
          * <p> 示例值：
+         *
          * @param talentProtectTime
          * @return
          */
         public Builder talentProtectTime(AgencySupplierTalentProtectTime talentProtectTime) {
-             this.talentProtectTime = talentProtectTime;
-             return this;
+            this.talentProtectTime = talentProtectTime;
+            return this;
         }
 
-    
-    
-    public AgencySupplier build(){
-        return new AgencySupplier(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public AgencySupplier build() {
+            return new AgencySupplier(this);
+        }
     }
 }

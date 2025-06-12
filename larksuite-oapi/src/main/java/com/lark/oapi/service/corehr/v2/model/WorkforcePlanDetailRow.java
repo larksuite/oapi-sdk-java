@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,36 +20,71 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class WorkforcePlanDetailRow {
-     /**
-      * 维度信息
-      * <p> 示例值：
-      */
+    /**
+     * 维度信息
+     * <p> 示例值：
+     */
     @SerializedName("dimensions")
     private DimensionEntity[] dimensions;
-     /**
-      * 预估在职人数
-      * <p> 示例值：
-      */
+    /**
+     * 预估在职人数
+     * <p> 示例值：
+     */
     @SerializedName("eai_details")
     private WorkforcePlanEaiDetail[] eaiDetails;
-     /**
-      * 编制规划值
-      * <p> 示例值：12
-      */
+    /**
+     * 编制规划值
+     * <p> 示例值：12
+     */
     @SerializedName("plan_value")
     private String planValue;
-     /**
-      * 多周期编制规划信息
-      * <p> 示例值：
-      */
+    /**
+     * 多周期编制规划信息
+     * <p> 示例值：
+     */
     @SerializedName("multi_period_values")
     private WorkforcePlanMultiPeriodValue[] multiPeriodValues;
+
+    // builder 开始
+    public WorkforcePlanDetailRow() {
+    }
+
+    public WorkforcePlanDetailRow(Builder builder) {
+        /**
+         * 维度信息
+         * <p> 示例值：
+         */
+        this.dimensions = builder.dimensions;
+        /**
+         * 预估在职人数
+         * <p> 示例值：
+         */
+        this.eaiDetails = builder.eaiDetails;
+        /**
+         * 编制规划值
+         * <p> 示例值：12
+         */
+        this.planValue = builder.planValue;
+        /**
+         * 多周期编制规划信息
+         * <p> 示例值：
+         */
+        this.multiPeriodValues = builder.multiPeriodValues;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public DimensionEntity[] getDimensions() {
         return this.dimensions;
     }
@@ -81,113 +117,82 @@ public class WorkforcePlanDetailRow {
         this.multiPeriodValues = multiPeriodValues;
     }
 
-
-// builder 开始
-  public WorkforcePlanDetailRow(){}
-
-  public WorkforcePlanDetailRow(Builder builder){
-         /**
-          * 维度信息
-          * <p> 示例值：
-          */
-      this.dimensions = builder.dimensions;
-         /**
-          * 预估在职人数
-          * <p> 示例值：
-          */
-      this.eaiDetails = builder.eaiDetails;
-         /**
-          * 编制规划值
-          * <p> 示例值：12
-          */
-      this.planValue = builder.planValue;
-         /**
-          * 多周期编制规划信息
-          * <p> 示例值：
-          */
-      this.multiPeriodValues = builder.multiPeriodValues;
-  }
-
     public static class Builder {
-     /**
-      * 维度信息
-      * <p> 示例值：
-      */
+        /**
+         * 维度信息
+         * <p> 示例值：
+         */
         private DimensionEntity[] dimensions;
-     /**
-      * 预估在职人数
-      * <p> 示例值：
-      */
+        /**
+         * 预估在职人数
+         * <p> 示例值：
+         */
         private WorkforcePlanEaiDetail[] eaiDetails;
-     /**
-      * 编制规划值
-      * <p> 示例值：12
-      */
+        /**
+         * 编制规划值
+         * <p> 示例值：12
+         */
         private String planValue;
-     /**
-      * 多周期编制规划信息
-      * <p> 示例值：
-      */
+        /**
+         * 多周期编制规划信息
+         * <p> 示例值：
+         */
         private WorkforcePlanMultiPeriodValue[] multiPeriodValues;
 
         /**
          * 维度信息
          * <p> 示例值：
+         *
          * @param dimensions
          * @return
          */
         public Builder dimensions(DimensionEntity[] dimensions) {
-             this.dimensions = dimensions;
-             return this;
+            this.dimensions = dimensions;
+            return this;
         }
 
-    
 
         /**
          * 预估在职人数
          * <p> 示例值：
+         *
          * @param eaiDetails
          * @return
          */
         public Builder eaiDetails(WorkforcePlanEaiDetail[] eaiDetails) {
-             this.eaiDetails = eaiDetails;
-             return this;
+            this.eaiDetails = eaiDetails;
+            return this;
         }
 
-    
 
         /**
          * 编制规划值
          * <p> 示例值：12
+         *
          * @param planValue
          * @return
          */
         public Builder planValue(String planValue) {
-             this.planValue = planValue;
-             return this;
+            this.planValue = planValue;
+            return this;
         }
 
-    
 
         /**
          * 多周期编制规划信息
          * <p> 示例值：
+         *
          * @param multiPeriodValues
          * @return
          */
         public Builder multiPeriodValues(WorkforcePlanMultiPeriodValue[] multiPeriodValues) {
-             this.multiPeriodValues = multiPeriodValues;
-             return this;
+            this.multiPeriodValues = multiPeriodValues;
+            return this;
         }
 
-    
-    
-    public WorkforcePlanDetailRow build(){
-        return new WorkforcePlanDetailRow(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public WorkforcePlanDetailRow build() {
+            return new WorkforcePlanDetailRow(this);
+        }
     }
 }

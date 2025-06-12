@@ -12,36 +12,67 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class OfferApplyFormConfigFormulaInfo {
-     /**
-      * 公式值
-      * <p> 示例值：[object_id_1] + [object_id_2] * 12
-      */
+    /**
+     * 公式值
+     * <p> 示例值：[object_id_1] + [object_id_2] * 12
+     */
     @SerializedName("value")
     private String value;
-     /**
-      * 公式结果类型枚举
-      * <p> 示例值：1
-      */
+    /**
+     * 公式结果类型枚举
+     * <p> 示例值：1
+     */
     @SerializedName("result")
     private Integer result;
-     /**
-      * 公式额外描述
-      * <p> 示例值：
-      */
+    /**
+     * 公式额外描述
+     * <p> 示例值：
+     */
     @SerializedName("extra_map")
     private OfferApplyFormFormulaExtraMapInfo[] extraMap;
+
+    // builder 开始
+    public OfferApplyFormConfigFormulaInfo() {
+    }
+
+    public OfferApplyFormConfigFormulaInfo(Builder builder) {
+        /**
+         * 公式值
+         * <p> 示例值：[object_id_1] + [object_id_2] * 12
+         */
+        this.value = builder.value;
+        /**
+         * 公式结果类型枚举
+         * <p> 示例值：1
+         */
+        this.result = builder.result;
+        /**
+         * 公式额外描述
+         * <p> 示例值：
+         */
+        this.extraMap = builder.extraMap;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getValue() {
         return this.value;
     }
@@ -66,90 +97,64 @@ public class OfferApplyFormConfigFormulaInfo {
         this.extraMap = extraMap;
     }
 
-
-// builder 开始
-  public OfferApplyFormConfigFormulaInfo(){}
-
-  public OfferApplyFormConfigFormulaInfo(Builder builder){
-         /**
-          * 公式值
-          * <p> 示例值：[object_id_1] + [object_id_2] * 12
-          */
-      this.value = builder.value;
-         /**
-          * 公式结果类型枚举
-          * <p> 示例值：1
-          */
-      this.result = builder.result;
-         /**
-          * 公式额外描述
-          * <p> 示例值：
-          */
-      this.extraMap = builder.extraMap;
-  }
-
     public static class Builder {
-     /**
-      * 公式值
-      * <p> 示例值：[object_id_1] + [object_id_2] * 12
-      */
+        /**
+         * 公式值
+         * <p> 示例值：[object_id_1] + [object_id_2] * 12
+         */
         private String value;
-     /**
-      * 公式结果类型枚举
-      * <p> 示例值：1
-      */
+        /**
+         * 公式结果类型枚举
+         * <p> 示例值：1
+         */
         private Integer result;
-     /**
-      * 公式额外描述
-      * <p> 示例值：
-      */
+        /**
+         * 公式额外描述
+         * <p> 示例值：
+         */
         private OfferApplyFormFormulaExtraMapInfo[] extraMap;
 
         /**
          * 公式值
          * <p> 示例值：[object_id_1] + [object_id_2] * 12
+         *
          * @param value
          * @return
          */
         public Builder value(String value) {
-             this.value = value;
-             return this;
+            this.value = value;
+            return this;
         }
 
-    
 
         /**
          * 公式结果类型枚举
          * <p> 示例值：1
+         *
          * @param result
          * @return
          */
         public Builder result(Integer result) {
-             this.result = result;
-             return this;
+            this.result = result;
+            return this;
         }
 
-    
 
         /**
          * 公式额外描述
          * <p> 示例值：
+         *
          * @param extraMap
          * @return
          */
         public Builder extraMap(OfferApplyFormFormulaExtraMapInfo[] extraMap) {
-             this.extraMap = extraMap;
-             return this;
+            this.extraMap = extraMap;
+            return this;
         }
 
-    
-    
-    public OfferApplyFormConfigFormulaInfo build(){
-        return new OfferApplyFormConfigFormulaInfo(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public OfferApplyFormConfigFormulaInfo build() {
+            return new OfferApplyFormConfigFormulaInfo(this);
+        }
     }
 }

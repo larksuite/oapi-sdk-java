@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.search.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.search.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ConnectorParam {
-     /**
-      * 回调时Request里面的id类型
-      * <p> 示例值：1
-      */
+    /**
+     * 回调时Request里面的id类型
+     * <p> 示例值：1
+     */
     @SerializedName("callback_user_id_type")
     private Integer callbackUserIdType;
-     /**
-      * 回调时的地址，必须为POST地址
-      * <p> 示例值：https://open.approval.cn/api/search
-      */
+    /**
+     * 回调时的地址，必须为POST地址
+     * <p> 示例值：https://open.approval.cn/api/search
+     */
     @SerializedName("callback_endpoint")
     private String callbackEndpoint;
+
+    // builder 开始
+    public ConnectorParam() {
+    }
+
+    public ConnectorParam(Builder builder) {
+        /**
+         * 回调时Request里面的id类型
+         * <p> 示例值：1
+         */
+        this.callbackUserIdType = builder.callbackUserIdType;
+        /**
+         * 回调时的地址，必须为POST地址
+         * <p> 示例值：https://open.approval.cn/api/search
+         */
+        this.callbackEndpoint = builder.callbackEndpoint;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Integer getCallbackUserIdType() {
         return this.callbackUserIdType;
     }
@@ -53,77 +79,58 @@ public class ConnectorParam {
         this.callbackEndpoint = callbackEndpoint;
     }
 
-
-// builder 开始
-  public ConnectorParam(){}
-
-  public ConnectorParam(Builder builder){
-         /**
-          * 回调时Request里面的id类型
-          * <p> 示例值：1
-          */
-      this.callbackUserIdType = builder.callbackUserIdType;
-         /**
-          * 回调时的地址，必须为POST地址
-          * <p> 示例值：https://open.approval.cn/api/search
-          */
-      this.callbackEndpoint = builder.callbackEndpoint;
-  }
-
     public static class Builder {
-     /**
-      * 回调时Request里面的id类型
-      * <p> 示例值：1
-      */
+        /**
+         * 回调时Request里面的id类型
+         * <p> 示例值：1
+         */
         private Integer callbackUserIdType;
-     /**
-      * 回调时的地址，必须为POST地址
-      * <p> 示例值：https://open.approval.cn/api/search
-      */
+        /**
+         * 回调时的地址，必须为POST地址
+         * <p> 示例值：https://open.approval.cn/api/search
+         */
         private String callbackEndpoint;
 
         /**
          * 回调时Request里面的id类型
          * <p> 示例值：1
+         *
          * @param callbackUserIdType
          * @return
          */
         public Builder callbackUserIdType(Integer callbackUserIdType) {
-             this.callbackUserIdType = callbackUserIdType;
-             return this;
+            this.callbackUserIdType = callbackUserIdType;
+            return this;
         }
+
         /**
          * 回调时Request里面的id类型
          * <p> 示例值：1
+         *
          * @param callbackUserIdType {@link com.lark.oapi.service.search.v2.enums.ConnectorParamCallbackUserIdTypeEnum}
          * @return
          */
         public Builder callbackUserIdType(com.lark.oapi.service.search.v2.enums.ConnectorParamCallbackUserIdTypeEnum callbackUserIdType) {
-             this.callbackUserIdType = callbackUserIdType.getValue();
-             return this;
+            this.callbackUserIdType = callbackUserIdType.getValue();
+            return this;
         }
 
-    
 
         /**
          * 回调时的地址，必须为POST地址
          * <p> 示例值：https://open.approval.cn/api/search
+         *
          * @param callbackEndpoint
          * @return
          */
         public Builder callbackEndpoint(String callbackEndpoint) {
-             this.callbackEndpoint = callbackEndpoint;
-             return this;
+            this.callbackEndpoint = callbackEndpoint;
+            return this;
         }
 
-    
-    
-    public ConnectorParam build(){
-        return new ConnectorParam(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ConnectorParam build() {
+            return new ConnectorParam(this);
+        }
     }
 }

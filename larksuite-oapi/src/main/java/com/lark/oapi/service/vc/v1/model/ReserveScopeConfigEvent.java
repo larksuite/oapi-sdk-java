@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ReserveScopeConfigEvent {
-     /**
-      * 可预定成员范围，0部分成员，1全部成员
-      * <p> 示例值：1
-      */
+    /**
+     * 可预定成员范围，0部分成员，1全部成员
+     * <p> 示例值：1
+     */
     @SerializedName("allow_all_users")
     private Integer allowAllUsers;
-     /**
-      * 可预定成员列表
-      * <p> 示例值：[{user_id:"ou_e8bce6c3935ef1fc1b432992fd9d3db8"}]
-      */
+    /**
+     * 可预定成员列表
+     * <p> 示例值：[{user_id:"ou_e8bce6c3935ef1fc1b432992fd9d3db8"}]
+     */
     @SerializedName("allow_users")
     private SubscribeUserEvent[] allowUsers;
-     /**
-      * 可预定部门列表
-      * <p> 示例值：[{department_id:"od-5c07f0c117cf8795f25610a69363ce31"}]
-      */
+    /**
+     * 可预定部门列表
+     * <p> 示例值：[{department_id:"od-5c07f0c117cf8795f25610a69363ce31"}]
+     */
     @SerializedName("allow_depts")
     private SubscribeDepartment[] allowDepts;
+
+    // builder 开始
+    public ReserveScopeConfigEvent() {
+    }
+
+    public ReserveScopeConfigEvent(Builder builder) {
+        /**
+         * 可预定成员范围，0部分成员，1全部成员
+         * <p> 示例值：1
+         */
+        this.allowAllUsers = builder.allowAllUsers;
+        /**
+         * 可预定成员列表
+         * <p> 示例值：[{user_id:"ou_e8bce6c3935ef1fc1b432992fd9d3db8"}]
+         */
+        this.allowUsers = builder.allowUsers;
+        /**
+         * 可预定部门列表
+         * <p> 示例值：[{department_id:"od-5c07f0c117cf8795f25610a69363ce31"}]
+         */
+        this.allowDepts = builder.allowDepts;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Integer getAllowAllUsers() {
         return this.allowAllUsers;
     }
@@ -67,90 +98,64 @@ public class ReserveScopeConfigEvent {
         this.allowDepts = allowDepts;
     }
 
-
-// builder 开始
-  public ReserveScopeConfigEvent(){}
-
-  public ReserveScopeConfigEvent(Builder builder){
-         /**
-          * 可预定成员范围，0部分成员，1全部成员
-          * <p> 示例值：1
-          */
-      this.allowAllUsers = builder.allowAllUsers;
-         /**
-          * 可预定成员列表
-          * <p> 示例值：[{user_id:"ou_e8bce6c3935ef1fc1b432992fd9d3db8"}]
-          */
-      this.allowUsers = builder.allowUsers;
-         /**
-          * 可预定部门列表
-          * <p> 示例值：[{department_id:"od-5c07f0c117cf8795f25610a69363ce31"}]
-          */
-      this.allowDepts = builder.allowDepts;
-  }
-
     public static class Builder {
-     /**
-      * 可预定成员范围，0部分成员，1全部成员
-      * <p> 示例值：1
-      */
+        /**
+         * 可预定成员范围，0部分成员，1全部成员
+         * <p> 示例值：1
+         */
         private Integer allowAllUsers;
-     /**
-      * 可预定成员列表
-      * <p> 示例值：[{user_id:"ou_e8bce6c3935ef1fc1b432992fd9d3db8"}]
-      */
+        /**
+         * 可预定成员列表
+         * <p> 示例值：[{user_id:"ou_e8bce6c3935ef1fc1b432992fd9d3db8"}]
+         */
         private SubscribeUserEvent[] allowUsers;
-     /**
-      * 可预定部门列表
-      * <p> 示例值：[{department_id:"od-5c07f0c117cf8795f25610a69363ce31"}]
-      */
+        /**
+         * 可预定部门列表
+         * <p> 示例值：[{department_id:"od-5c07f0c117cf8795f25610a69363ce31"}]
+         */
         private SubscribeDepartment[] allowDepts;
 
         /**
          * 可预定成员范围，0部分成员，1全部成员
          * <p> 示例值：1
+         *
          * @param allowAllUsers
          * @return
          */
         public Builder allowAllUsers(Integer allowAllUsers) {
-             this.allowAllUsers = allowAllUsers;
-             return this;
+            this.allowAllUsers = allowAllUsers;
+            return this;
         }
 
-    
 
         /**
          * 可预定成员列表
          * <p> 示例值：[{user_id:"ou_e8bce6c3935ef1fc1b432992fd9d3db8"}]
+         *
          * @param allowUsers
          * @return
          */
         public Builder allowUsers(SubscribeUserEvent[] allowUsers) {
-             this.allowUsers = allowUsers;
-             return this;
+            this.allowUsers = allowUsers;
+            return this;
         }
 
-    
 
         /**
          * 可预定部门列表
          * <p> 示例值：[{department_id:"od-5c07f0c117cf8795f25610a69363ce31"}]
+         *
          * @param allowDepts
          * @return
          */
         public Builder allowDepts(SubscribeDepartment[] allowDepts) {
-             this.allowDepts = allowDepts;
-             return this;
+            this.allowDepts = allowDepts;
+            return this;
         }
 
-    
-    
-    public ReserveScopeConfigEvent build(){
-        return new ReserveScopeConfigEvent(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ReserveScopeConfigEvent build() {
+            return new ReserveScopeConfigEvent(this);
+        }
     }
 }

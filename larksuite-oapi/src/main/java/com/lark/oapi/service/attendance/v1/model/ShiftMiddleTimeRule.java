@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ShiftMiddleTimeRule {
-     /**
-      * 半天分割类型
-      * <p> 示例值：0
-      */
+    /**
+     * 半天分割类型
+     * <p> 示例值：0
+     */
     @SerializedName("middle_time_type")
     private Integer middleTimeType;
-     /**
-      * 固定分割时间点（middle_time_type 为 3 时有效）
-      * <p> 示例值：12:00
-      */
+    /**
+     * 固定分割时间点（middle_time_type 为 3 时有效）
+     * <p> 示例值：12:00
+     */
     @SerializedName("fixed_middle_time")
     private String fixedMiddleTime;
+
+    // builder 开始
+    public ShiftMiddleTimeRule() {
+    }
+
+    public ShiftMiddleTimeRule(Builder builder) {
+        /**
+         * 半天分割类型
+         * <p> 示例值：0
+         */
+        this.middleTimeType = builder.middleTimeType;
+        /**
+         * 固定分割时间点（middle_time_type 为 3 时有效）
+         * <p> 示例值：12:00
+         */
+        this.fixedMiddleTime = builder.fixedMiddleTime;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Integer getMiddleTimeType() {
         return this.middleTimeType;
     }
@@ -53,77 +79,58 @@ public class ShiftMiddleTimeRule {
         this.fixedMiddleTime = fixedMiddleTime;
     }
 
-
-// builder 开始
-  public ShiftMiddleTimeRule(){}
-
-  public ShiftMiddleTimeRule(Builder builder){
-         /**
-          * 半天分割类型
-          * <p> 示例值：0
-          */
-      this.middleTimeType = builder.middleTimeType;
-         /**
-          * 固定分割时间点（middle_time_type 为 3 时有效）
-          * <p> 示例值：12:00
-          */
-      this.fixedMiddleTime = builder.fixedMiddleTime;
-  }
-
     public static class Builder {
-     /**
-      * 半天分割类型
-      * <p> 示例值：0
-      */
+        /**
+         * 半天分割类型
+         * <p> 示例值：0
+         */
         private Integer middleTimeType;
-     /**
-      * 固定分割时间点（middle_time_type 为 3 时有效）
-      * <p> 示例值：12:00
-      */
+        /**
+         * 固定分割时间点（middle_time_type 为 3 时有效）
+         * <p> 示例值：12:00
+         */
         private String fixedMiddleTime;
 
         /**
          * 半天分割类型
          * <p> 示例值：0
+         *
          * @param middleTimeType
          * @return
          */
         public Builder middleTimeType(Integer middleTimeType) {
-             this.middleTimeType = middleTimeType;
-             return this;
+            this.middleTimeType = middleTimeType;
+            return this;
         }
+
         /**
          * 半天分割类型
          * <p> 示例值：0
+         *
          * @param middleTimeType {@link com.lark.oapi.service.attendance.v1.enums.ShiftMiddleTimeRuleMiddleTimeTypeEnum}
          * @return
          */
         public Builder middleTimeType(com.lark.oapi.service.attendance.v1.enums.ShiftMiddleTimeRuleMiddleTimeTypeEnum middleTimeType) {
-             this.middleTimeType = middleTimeType.getValue();
-             return this;
+            this.middleTimeType = middleTimeType.getValue();
+            return this;
         }
 
-    
 
         /**
          * 固定分割时间点（middle_time_type 为 3 时有效）
          * <p> 示例值：12:00
+         *
          * @param fixedMiddleTime
          * @return
          */
         public Builder fixedMiddleTime(String fixedMiddleTime) {
-             this.fixedMiddleTime = fixedMiddleTime;
-             return this;
+            this.fixedMiddleTime = fixedMiddleTime;
+            return this;
         }
 
-    
-    
-    public ShiftMiddleTimeRule build(){
-        return new ShiftMiddleTimeRule(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ShiftMiddleTimeRule build() {
+            return new ShiftMiddleTimeRule(this);
+        }
     }
 }

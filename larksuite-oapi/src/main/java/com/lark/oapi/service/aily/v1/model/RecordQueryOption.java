@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.aily.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.aily.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class RecordQueryOption {
-     /**
-      * 是否以字符串形式返回数字
-      * <p> 示例值：false
-      */
+    /**
+     * 是否以字符串形式返回数字
+     * <p> 示例值：false
+     */
     @SerializedName("stringify_number")
     private Boolean stringifyNumber;
-     /**
-      * 返回的列名是否去除特殊字符
-      * <p> 示例值：false
-      */
+    /**
+     * 返回的列名是否去除特殊字符
+     * <p> 示例值：false
+     */
     @SerializedName("normalize_column_name")
     private Boolean normalizeColumnName;
+
+    // builder 开始
+    public RecordQueryOption() {
+    }
+
+    public RecordQueryOption(Builder builder) {
+        /**
+         * 是否以字符串形式返回数字
+         * <p> 示例值：false
+         */
+        this.stringifyNumber = builder.stringifyNumber;
+        /**
+         * 返回的列名是否去除特殊字符
+         * <p> 示例值：false
+         */
+        this.normalizeColumnName = builder.normalizeColumnName;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Boolean getStringifyNumber() {
         return this.stringifyNumber;
     }
@@ -53,67 +79,46 @@ public class RecordQueryOption {
         this.normalizeColumnName = normalizeColumnName;
     }
 
-
-// builder 开始
-  public RecordQueryOption(){}
-
-  public RecordQueryOption(Builder builder){
-         /**
-          * 是否以字符串形式返回数字
-          * <p> 示例值：false
-          */
-      this.stringifyNumber = builder.stringifyNumber;
-         /**
-          * 返回的列名是否去除特殊字符
-          * <p> 示例值：false
-          */
-      this.normalizeColumnName = builder.normalizeColumnName;
-  }
-
     public static class Builder {
-     /**
-      * 是否以字符串形式返回数字
-      * <p> 示例值：false
-      */
+        /**
+         * 是否以字符串形式返回数字
+         * <p> 示例值：false
+         */
         private Boolean stringifyNumber;
-     /**
-      * 返回的列名是否去除特殊字符
-      * <p> 示例值：false
-      */
+        /**
+         * 返回的列名是否去除特殊字符
+         * <p> 示例值：false
+         */
         private Boolean normalizeColumnName;
 
         /**
          * 是否以字符串形式返回数字
          * <p> 示例值：false
+         *
          * @param stringifyNumber
          * @return
          */
         public Builder stringifyNumber(Boolean stringifyNumber) {
-             this.stringifyNumber = stringifyNumber;
-             return this;
+            this.stringifyNumber = stringifyNumber;
+            return this;
         }
 
-    
 
         /**
          * 返回的列名是否去除特殊字符
          * <p> 示例值：false
+         *
          * @param normalizeColumnName
          * @return
          */
         public Builder normalizeColumnName(Boolean normalizeColumnName) {
-             this.normalizeColumnName = normalizeColumnName;
-             return this;
+            this.normalizeColumnName = normalizeColumnName;
+            return this;
         }
 
-    
-    
-    public RecordQueryOption build(){
-        return new RecordQueryOption(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public RecordQueryOption build() {
+            return new RecordQueryOption(this);
+        }
     }
 }

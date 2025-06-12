@@ -12,39 +12,70 @@
  */
 
 package com.lark.oapi.service.contact.v3.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class BatchDepartmentReq {
-     /**
-      * 查询的部门ID列表，类型需要与department_id_type对应
-      * <p> 示例值：
-      */
+    /**
+     * 查询的部门ID列表，类型需要与department_id_type对应
+     * <p> 示例值：
+     */
     @Query
     @SerializedName("department_ids")
     private String[] departmentIds;
-     /**
-      * 说明请求中department_id_list参数所使用的部门ID类型
-      * <p> 示例值：open_department_id
-      */
+    /**
+     * 说明请求中department_id_list参数所使用的部门ID类型
+     * <p> 示例值：open_department_id
+     */
     @Query
     @SerializedName("department_id_type")
     private String departmentIdType;
-     /**
-      * 指定调用结果中包含用户（如部门leader）关联的用户ID类型
-      * <p> 示例值：open_id
-      */
+    /**
+     * 指定调用结果中包含用户（如部门leader）关联的用户ID类型
+     * <p> 示例值：open_id
+     */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
+
+    // builder 开始
+    public BatchDepartmentReq() {
+    }
+
+    public BatchDepartmentReq(Builder builder) {
+        /**
+         * 查询的部门ID列表，类型需要与department_id_type对应
+         * <p> 示例值：
+         */
+        this.departmentIds = builder.departmentIds;
+        /**
+         * 说明请求中department_id_list参数所使用的部门ID类型
+         * <p> 示例值：open_department_id
+         */
+        this.departmentIdType = builder.departmentIdType;
+        /**
+         * 指定调用结果中包含用户（如部门leader）关联的用户ID类型
+         * <p> 示例值：open_id
+         */
+        this.userIdType = builder.userIdType;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String[] getDepartmentIds() {
         return this.departmentIds;
     }
@@ -69,97 +100,76 @@ public class BatchDepartmentReq {
         this.userIdType = userIdType;
     }
 
-
-// builder 开始
-  public BatchDepartmentReq(){}
-
-  public BatchDepartmentReq(Builder builder){
-         /**
-          * 查询的部门ID列表，类型需要与department_id_type对应
-          * <p> 示例值：
-          */
-       this.departmentIds = builder.departmentIds;
-         /**
-          * 说明请求中department_id_list参数所使用的部门ID类型
-          * <p> 示例值：open_department_id
-          */
-       this.departmentIdType = builder.departmentIdType;
-         /**
-          * 指定调用结果中包含用户（如部门leader）关联的用户ID类型
-          * <p> 示例值：open_id
-          */
-       this.userIdType = builder.userIdType;
-  }
-
     public static class Builder {
         private String[] departmentIds; // 查询的部门ID列表，类型需要与department_id_type对应
         private String departmentIdType; // 说明请求中department_id_list参数所使用的部门ID类型
         private String userIdType; // 指定调用结果中包含用户（如部门leader）关联的用户ID类型
-    
+
         /**
          * 查询的部门ID列表，类型需要与department_id_type对应
          * <p> 示例值：
+         *
          * @param departmentIds
          * @return
          */
-           public Builder departmentIds(String[] departmentIds) {
-                this.departmentIds = departmentIds;
-                return this;
-           }
+        public Builder departmentIds(String[] departmentIds) {
+            this.departmentIds = departmentIds;
+            return this;
+        }
 
-    
+
         /**
          * 说明请求中department_id_list参数所使用的部门ID类型
          * <p> 示例值：open_department_id
+         *
          * @param departmentIdType
          * @return
          */
-           public Builder departmentIdType(String departmentIdType) {
-                this.departmentIdType = departmentIdType;
-                return this;
-           }
+        public Builder departmentIdType(String departmentIdType) {
+            this.departmentIdType = departmentIdType;
+            return this;
+        }
 
         /**
          * 说明请求中department_id_list参数所使用的部门ID类型
          * <p> 示例值：open_department_id
+         *
          * @param departmentIdType {@link com.lark.oapi.service.contact.v3.enums.BatchDepartmentDepartmentIdTypeEnum}
          * @return
          */
-          public Builder departmentIdType(com.lark.oapi.service.contact.v3.enums.BatchDepartmentDepartmentIdTypeEnum departmentIdType) {
-               this.departmentIdType = departmentIdType.getValue();
-               return this;
-          }
+        public Builder departmentIdType(com.lark.oapi.service.contact.v3.enums.BatchDepartmentDepartmentIdTypeEnum departmentIdType) {
+            this.departmentIdType = departmentIdType.getValue();
+            return this;
+        }
 
-    
+
         /**
          * 指定调用结果中包含用户（如部门leader）关联的用户ID类型
          * <p> 示例值：open_id
+         *
          * @param userIdType
          * @return
          */
-           public Builder userIdType(String userIdType) {
-                this.userIdType = userIdType;
-                return this;
-           }
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
 
         /**
          * 指定调用结果中包含用户（如部门leader）关联的用户ID类型
          * <p> 示例值：open_id
+         *
          * @param userIdType {@link com.lark.oapi.service.contact.v3.enums.BatchDepartmentUserIdTypeEnum}
          * @return
          */
-          public Builder userIdType(com.lark.oapi.service.contact.v3.enums.BatchDepartmentUserIdTypeEnum userIdType) {
-               this.userIdType = userIdType.getValue();
-               return this;
-          }
+        public Builder userIdType(com.lark.oapi.service.contact.v3.enums.BatchDepartmentUserIdTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
+            return this;
+        }
 
-    
-    public BatchDepartmentReq build(){
-        return new BatchDepartmentReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public BatchDepartmentReq build() {
+            return new BatchDepartmentReq(this);
+        }
     }
 }

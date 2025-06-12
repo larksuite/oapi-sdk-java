@@ -14,6 +14,8 @@ package com.lark.oapi.service.wiki;
 
 import com.lark.oapi.core.Config;
 import com.lark.oapi.event.IEventHandler;
+import com.lark.oapi.service.wiki.v1.V1;
+import com.lark.oapi.service.wiki.v1.model.*;
 import com.lark.oapi.service.wiki.v2.V2;
 import com.lark.oapi.service.wiki.v2.model.*;
 import com.lark.oapi.service.wiki.v2.resource.Space;
@@ -23,6 +25,7 @@ import com.lark.oapi.service.wiki.v2.resource.SpaceSetting;
 import com.lark.oapi.service.wiki.v2.resource.Task;
 
 public class WikiService {
+    private final V1 v1;
     private final V2 v2;
     private final Space space; // 知识空间
     private final SpaceMember spaceMember; // 空间成员
@@ -31,28 +34,39 @@ public class WikiService {
     private final Task task; // 云文档
 
     public WikiService(Config config) {
-    this.v2 = new V2(config);
-    this.space = new Space(config);
-    this.spaceMember = new SpaceMember(config);
-    this.spaceNode = new SpaceNode(config);
-    this.spaceSetting = new SpaceSetting(config);
-    this.task = new Task(config);
+        this.v1 = new V1(config);
+        this.v2 = new V2(config);
+        this.space = new Space(config);
+        this.spaceMember = new SpaceMember(config);
+        this.spaceNode = new SpaceNode(config);
+        this.spaceSetting = new SpaceSetting(config);
+        this.task = new Task(config);
     }
+
+    public V1 v1() {
+        return v1;
+    }
+
     public V2 v2() {
         return v2;
     }
+
     public Space space() {
         return space;
     }
+
     public SpaceMember spaceMember() {
         return spaceMember;
     }
+
     public SpaceNode spaceNode() {
         return spaceNode;
     }
+
     public SpaceSetting spaceSetting() {
         return spaceSetting;
     }
+
     public Task task() {
         return task;
     }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.admin.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.admin.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class AnnualReportMapInt {
-     /**
-      * 年份
-      * <p> 示例值：2024
-      */
+    /**
+     * 年份
+     * <p> 示例值：2024
+     */
     @SerializedName("year")
     private String year;
-     /**
-      * int64类型数据
-      * <p> 示例值：88
-      */
+    /**
+     * int64类型数据
+     * <p> 示例值：88
+     */
     @SerializedName("count")
     private String count;
+
+    // builder 开始
+    public AnnualReportMapInt() {
+    }
+
+    public AnnualReportMapInt(Builder builder) {
+        /**
+         * 年份
+         * <p> 示例值：2024
+         */
+        this.year = builder.year;
+        /**
+         * int64类型数据
+         * <p> 示例值：88
+         */
+        this.count = builder.count;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getYear() {
         return this.year;
     }
@@ -53,67 +79,46 @@ public class AnnualReportMapInt {
         this.count = count;
     }
 
-
-// builder 开始
-  public AnnualReportMapInt(){}
-
-  public AnnualReportMapInt(Builder builder){
-         /**
-          * 年份
-          * <p> 示例值：2024
-          */
-      this.year = builder.year;
-         /**
-          * int64类型数据
-          * <p> 示例值：88
-          */
-      this.count = builder.count;
-  }
-
     public static class Builder {
-     /**
-      * 年份
-      * <p> 示例值：2024
-      */
+        /**
+         * 年份
+         * <p> 示例值：2024
+         */
         private String year;
-     /**
-      * int64类型数据
-      * <p> 示例值：88
-      */
+        /**
+         * int64类型数据
+         * <p> 示例值：88
+         */
         private String count;
 
         /**
          * 年份
          * <p> 示例值：2024
+         *
          * @param year
          * @return
          */
         public Builder year(String year) {
-             this.year = year;
-             return this;
+            this.year = year;
+            return this;
         }
 
-    
 
         /**
          * int64类型数据
          * <p> 示例值：88
+         *
          * @param count
          * @return
          */
         public Builder count(String count) {
-             this.count = count;
-             return this;
+            this.count = count;
+            return this;
         }
 
-    
-    
-    public AnnualReportMapInt build(){
-        return new AnnualReportMapInt(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public AnnualReportMapInt build() {
+            return new AnnualReportMapInt(this);
+        }
     }
 }

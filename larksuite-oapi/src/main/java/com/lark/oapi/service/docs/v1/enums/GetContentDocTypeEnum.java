@@ -17,14 +17,15 @@ package com.lark.oapi.service.docs.v1.enums;
  * 文档类型
  */
 public enum GetContentDocTypeEnum {
-     DOCX("docx"), // 新版文档
-  ;
-   private String value;
+    DOCX("docx"), // 新版文档
+    ;
+    private String value;
+
     GetContentDocTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

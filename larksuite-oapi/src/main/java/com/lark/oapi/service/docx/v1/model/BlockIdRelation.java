@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.docx.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.docx.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class BlockIdRelation {
-     /**
-      * 用户传入的临时 BlockID
-      * <p> 示例值：80bf5b2a-4dea-4c02-8a84-a0e682de463d
-      */
+    /**
+     * 用户传入的临时 BlockID
+     * <p> 示例值：80bf5b2a-4dea-4c02-8a84-a0e682de463d
+     */
     @SerializedName("temporary_block_id")
     private String temporaryBlockId;
-     /**
-      * 真实使用的 BlockID
-      * <p> 示例值：doxbcQOmtfkzY6BFFVQ86LH2J2d
-      */
+    /**
+     * 真实使用的 BlockID
+     * <p> 示例值：doxbcQOmtfkzY6BFFVQ86LH2J2d
+     */
     @SerializedName("block_id")
     private String blockId;
+
+    // builder 开始
+    public BlockIdRelation() {
+    }
+
+    public BlockIdRelation(Builder builder) {
+        /**
+         * 用户传入的临时 BlockID
+         * <p> 示例值：80bf5b2a-4dea-4c02-8a84-a0e682de463d
+         */
+        this.temporaryBlockId = builder.temporaryBlockId;
+        /**
+         * 真实使用的 BlockID
+         * <p> 示例值：doxbcQOmtfkzY6BFFVQ86LH2J2d
+         */
+        this.blockId = builder.blockId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getTemporaryBlockId() {
         return this.temporaryBlockId;
     }
@@ -53,67 +79,46 @@ public class BlockIdRelation {
         this.blockId = blockId;
     }
 
-
-// builder 开始
-  public BlockIdRelation(){}
-
-  public BlockIdRelation(Builder builder){
-         /**
-          * 用户传入的临时 BlockID
-          * <p> 示例值：80bf5b2a-4dea-4c02-8a84-a0e682de463d
-          */
-      this.temporaryBlockId = builder.temporaryBlockId;
-         /**
-          * 真实使用的 BlockID
-          * <p> 示例值：doxbcQOmtfkzY6BFFVQ86LH2J2d
-          */
-      this.blockId = builder.blockId;
-  }
-
     public static class Builder {
-     /**
-      * 用户传入的临时 BlockID
-      * <p> 示例值：80bf5b2a-4dea-4c02-8a84-a0e682de463d
-      */
+        /**
+         * 用户传入的临时 BlockID
+         * <p> 示例值：80bf5b2a-4dea-4c02-8a84-a0e682de463d
+         */
         private String temporaryBlockId;
-     /**
-      * 真实使用的 BlockID
-      * <p> 示例值：doxbcQOmtfkzY6BFFVQ86LH2J2d
-      */
+        /**
+         * 真实使用的 BlockID
+         * <p> 示例值：doxbcQOmtfkzY6BFFVQ86LH2J2d
+         */
         private String blockId;
 
         /**
          * 用户传入的临时 BlockID
          * <p> 示例值：80bf5b2a-4dea-4c02-8a84-a0e682de463d
+         *
          * @param temporaryBlockId
          * @return
          */
         public Builder temporaryBlockId(String temporaryBlockId) {
-             this.temporaryBlockId = temporaryBlockId;
-             return this;
+            this.temporaryBlockId = temporaryBlockId;
+            return this;
         }
 
-    
 
         /**
          * 真实使用的 BlockID
          * <p> 示例值：doxbcQOmtfkzY6BFFVQ86LH2J2d
+         *
          * @param blockId
          * @return
          */
         public Builder blockId(String blockId) {
-             this.blockId = blockId;
-             return this;
+            this.blockId = blockId;
+            return this;
         }
 
-    
-    
-    public BlockIdRelation build(){
-        return new BlockIdRelation(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public BlockIdRelation build() {
+            return new BlockIdRelation(this);
+        }
     }
 }

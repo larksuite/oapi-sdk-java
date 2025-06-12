@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,102 +20,192 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class TicketCustomizedField {
-     /**
-      * 工单自定义字段ID
-      * <p> 示例值：6834320707288072194
-      */
+    /**
+     * 工单自定义字段ID
+     * <p> 示例值：6834320707288072194
+     */
     @SerializedName("ticket_customized_field_id")
     private String ticketCustomizedFieldId;
-     /**
-      * 服务台ID
-      * <p> 示例值：1542164574896126
-      */
+    /**
+     * 服务台ID
+     * <p> 示例值：1542164574896126
+     */
     @SerializedName("helpdesk_id")
     private String helpdeskId;
-     /**
-      * 键名
-      * <p> 示例值：test dropdown
-      */
+    /**
+     * 键名
+     * <p> 示例值：test dropdown
+     */
     @SerializedName("key_name")
     private String keyName;
-     /**
-      * 名称
-      * <p> 示例值：test dropdown
-      */
+    /**
+     * 名称
+     * <p> 示例值：test dropdown
+     */
     @SerializedName("display_name")
     private String displayName;
-     /**
-      * 字段在列表后台管理列表中的位置
-      * <p> 示例值：3
-      */
+    /**
+     * 字段在列表后台管理列表中的位置
+     * <p> 示例值：3
+     */
     @SerializedName("position")
     private String position;
-     /**
-      * 类型;;string - 单行文本;;multiline - 多行文本;;dropdown - 下拉列表;;dropdown_nested - 级联下拉
-      * <p> 示例值：dropdown
-      */
+    /**
+     * 类型;;string - 单行文本;;multiline - 多行文本;;dropdown - 下拉列表;;dropdown_nested - 级联下拉
+     * <p> 示例值：dropdown
+     */
     @SerializedName("field_type")
     private String fieldType;
-     /**
-      * 描述
-      * <p> 示例值：下拉示例
-      */
+    /**
+     * 描述
+     * <p> 示例值：下拉示例
+     */
     @SerializedName("description")
     private String description;
-     /**
-      * 是否可见
-      * <p> 示例值：true
-      */
+    /**
+     * 是否可见
+     * <p> 示例值：true
+     */
     @SerializedName("visible")
     private Boolean visible;
-     /**
-      * 是否可以修改
-      * <p> 示例值：true
-      */
+    /**
+     * 是否可以修改
+     * <p> 示例值：true
+     */
     @SerializedName("editable")
     private Boolean editable;
-     /**
-      * 是否必填
-      * <p> 示例值：false
-      */
+    /**
+     * 是否必填
+     * <p> 示例值：false
+     */
     @SerializedName("required")
     private Boolean required;
-     /**
-      * 创建时间
-      * <p> 示例值：1591239289000
-      */
+    /**
+     * 创建时间
+     * <p> 示例值：1591239289000
+     */
     @SerializedName("created_at")
     private String createdAt;
-     /**
-      * 更新时间
-      * <p> 示例值：1591239289000
-      */
+    /**
+     * 更新时间
+     * <p> 示例值：1591239289000
+     */
     @SerializedName("updated_at")
     private String updatedAt;
-     /**
-      * 创建用户
-      * <p> 示例值：
-      */
+    /**
+     * 创建用户
+     * <p> 示例值：
+     */
     @SerializedName("created_by")
     private TicketUser createdBy;
-     /**
-      * 更新用户
-      * <p> 示例值：
-      */
+    /**
+     * 更新用户
+     * <p> 示例值：
+     */
     @SerializedName("updated_by")
     private TicketUser updatedBy;
-     /**
-      * 是否支持多选，仅在字段类型是dropdown的时候有效
-      * <p> 示例值：true
-      */
+    /**
+     * 是否支持多选，仅在字段类型是dropdown的时候有效
+     * <p> 示例值：true
+     */
     @SerializedName("dropdown_allow_multiple")
     private Boolean dropdownAllowMultiple;
+
+    // builder 开始
+    public TicketCustomizedField() {
+    }
+
+    public TicketCustomizedField(Builder builder) {
+        /**
+         * 工单自定义字段ID
+         * <p> 示例值：6834320707288072194
+         */
+        this.ticketCustomizedFieldId = builder.ticketCustomizedFieldId;
+        /**
+         * 服务台ID
+         * <p> 示例值：1542164574896126
+         */
+        this.helpdeskId = builder.helpdeskId;
+        /**
+         * 键名
+         * <p> 示例值：test dropdown
+         */
+        this.keyName = builder.keyName;
+        /**
+         * 名称
+         * <p> 示例值：test dropdown
+         */
+        this.displayName = builder.displayName;
+        /**
+         * 字段在列表后台管理列表中的位置
+         * <p> 示例值：3
+         */
+        this.position = builder.position;
+        /**
+         * 类型;;string - 单行文本;;multiline - 多行文本;;dropdown - 下拉列表;;dropdown_nested - 级联下拉
+         * <p> 示例值：dropdown
+         */
+        this.fieldType = builder.fieldType;
+        /**
+         * 描述
+         * <p> 示例值：下拉示例
+         */
+        this.description = builder.description;
+        /**
+         * 是否可见
+         * <p> 示例值：true
+         */
+        this.visible = builder.visible;
+        /**
+         * 是否可以修改
+         * <p> 示例值：true
+         */
+        this.editable = builder.editable;
+        /**
+         * 是否必填
+         * <p> 示例值：false
+         */
+        this.required = builder.required;
+        /**
+         * 创建时间
+         * <p> 示例值：1591239289000
+         */
+        this.createdAt = builder.createdAt;
+        /**
+         * 更新时间
+         * <p> 示例值：1591239289000
+         */
+        this.updatedAt = builder.updatedAt;
+        /**
+         * 创建用户
+         * <p> 示例值：
+         */
+        this.createdBy = builder.createdBy;
+        /**
+         * 更新用户
+         * <p> 示例值：
+         */
+        this.updatedBy = builder.updatedBy;
+        /**
+         * 是否支持多选，仅在字段类型是dropdown的时候有效
+         * <p> 示例值：true
+         */
+        this.dropdownAllowMultiple = builder.dropdownAllowMultiple;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getTicketCustomizedFieldId() {
         return this.ticketCustomizedFieldId;
     }
@@ -235,366 +326,280 @@ public class TicketCustomizedField {
         this.dropdownAllowMultiple = dropdownAllowMultiple;
     }
 
-
-// builder 开始
-  public TicketCustomizedField(){}
-
-  public TicketCustomizedField(Builder builder){
-         /**
-          * 工单自定义字段ID
-          * <p> 示例值：6834320707288072194
-          */
-      this.ticketCustomizedFieldId = builder.ticketCustomizedFieldId;
-         /**
-          * 服务台ID
-          * <p> 示例值：1542164574896126
-          */
-      this.helpdeskId = builder.helpdeskId;
-         /**
-          * 键名
-          * <p> 示例值：test dropdown
-          */
-      this.keyName = builder.keyName;
-         /**
-          * 名称
-          * <p> 示例值：test dropdown
-          */
-      this.displayName = builder.displayName;
-         /**
-          * 字段在列表后台管理列表中的位置
-          * <p> 示例值：3
-          */
-      this.position = builder.position;
-         /**
-          * 类型;;string - 单行文本;;multiline - 多行文本;;dropdown - 下拉列表;;dropdown_nested - 级联下拉
-          * <p> 示例值：dropdown
-          */
-      this.fieldType = builder.fieldType;
-         /**
-          * 描述
-          * <p> 示例值：下拉示例
-          */
-      this.description = builder.description;
-         /**
-          * 是否可见
-          * <p> 示例值：true
-          */
-      this.visible = builder.visible;
-         /**
-          * 是否可以修改
-          * <p> 示例值：true
-          */
-      this.editable = builder.editable;
-         /**
-          * 是否必填
-          * <p> 示例值：false
-          */
-      this.required = builder.required;
-         /**
-          * 创建时间
-          * <p> 示例值：1591239289000
-          */
-      this.createdAt = builder.createdAt;
-         /**
-          * 更新时间
-          * <p> 示例值：1591239289000
-          */
-      this.updatedAt = builder.updatedAt;
-         /**
-          * 创建用户
-          * <p> 示例值：
-          */
-      this.createdBy = builder.createdBy;
-         /**
-          * 更新用户
-          * <p> 示例值：
-          */
-      this.updatedBy = builder.updatedBy;
-         /**
-          * 是否支持多选，仅在字段类型是dropdown的时候有效
-          * <p> 示例值：true
-          */
-      this.dropdownAllowMultiple = builder.dropdownAllowMultiple;
-  }
-
     public static class Builder {
-     /**
-      * 工单自定义字段ID
-      * <p> 示例值：6834320707288072194
-      */
+        /**
+         * 工单自定义字段ID
+         * <p> 示例值：6834320707288072194
+         */
         private String ticketCustomizedFieldId;
-     /**
-      * 服务台ID
-      * <p> 示例值：1542164574896126
-      */
+        /**
+         * 服务台ID
+         * <p> 示例值：1542164574896126
+         */
         private String helpdeskId;
-     /**
-      * 键名
-      * <p> 示例值：test dropdown
-      */
+        /**
+         * 键名
+         * <p> 示例值：test dropdown
+         */
         private String keyName;
-     /**
-      * 名称
-      * <p> 示例值：test dropdown
-      */
+        /**
+         * 名称
+         * <p> 示例值：test dropdown
+         */
         private String displayName;
-     /**
-      * 字段在列表后台管理列表中的位置
-      * <p> 示例值：3
-      */
+        /**
+         * 字段在列表后台管理列表中的位置
+         * <p> 示例值：3
+         */
         private String position;
-     /**
-      * 类型;;string - 单行文本;;multiline - 多行文本;;dropdown - 下拉列表;;dropdown_nested - 级联下拉
-      * <p> 示例值：dropdown
-      */
+        /**
+         * 类型;;string - 单行文本;;multiline - 多行文本;;dropdown - 下拉列表;;dropdown_nested - 级联下拉
+         * <p> 示例值：dropdown
+         */
         private String fieldType;
-     /**
-      * 描述
-      * <p> 示例值：下拉示例
-      */
+        /**
+         * 描述
+         * <p> 示例值：下拉示例
+         */
         private String description;
-     /**
-      * 是否可见
-      * <p> 示例值：true
-      */
+        /**
+         * 是否可见
+         * <p> 示例值：true
+         */
         private Boolean visible;
-     /**
-      * 是否可以修改
-      * <p> 示例值：true
-      */
+        /**
+         * 是否可以修改
+         * <p> 示例值：true
+         */
         private Boolean editable;
-     /**
-      * 是否必填
-      * <p> 示例值：false
-      */
+        /**
+         * 是否必填
+         * <p> 示例值：false
+         */
         private Boolean required;
-     /**
-      * 创建时间
-      * <p> 示例值：1591239289000
-      */
+        /**
+         * 创建时间
+         * <p> 示例值：1591239289000
+         */
         private String createdAt;
-     /**
-      * 更新时间
-      * <p> 示例值：1591239289000
-      */
+        /**
+         * 更新时间
+         * <p> 示例值：1591239289000
+         */
         private String updatedAt;
-     /**
-      * 创建用户
-      * <p> 示例值：
-      */
+        /**
+         * 创建用户
+         * <p> 示例值：
+         */
         private TicketUser createdBy;
-     /**
-      * 更新用户
-      * <p> 示例值：
-      */
+        /**
+         * 更新用户
+         * <p> 示例值：
+         */
         private TicketUser updatedBy;
-     /**
-      * 是否支持多选，仅在字段类型是dropdown的时候有效
-      * <p> 示例值：true
-      */
+        /**
+         * 是否支持多选，仅在字段类型是dropdown的时候有效
+         * <p> 示例值：true
+         */
         private Boolean dropdownAllowMultiple;
 
         /**
          * 工单自定义字段ID
          * <p> 示例值：6834320707288072194
+         *
          * @param ticketCustomizedFieldId
          * @return
          */
         public Builder ticketCustomizedFieldId(String ticketCustomizedFieldId) {
-             this.ticketCustomizedFieldId = ticketCustomizedFieldId;
-             return this;
+            this.ticketCustomizedFieldId = ticketCustomizedFieldId;
+            return this;
         }
 
-    
 
         /**
          * 服务台ID
          * <p> 示例值：1542164574896126
+         *
          * @param helpdeskId
          * @return
          */
         public Builder helpdeskId(String helpdeskId) {
-             this.helpdeskId = helpdeskId;
-             return this;
+            this.helpdeskId = helpdeskId;
+            return this;
         }
 
-    
 
         /**
          * 键名
          * <p> 示例值：test dropdown
+         *
          * @param keyName
          * @return
          */
         public Builder keyName(String keyName) {
-             this.keyName = keyName;
-             return this;
+            this.keyName = keyName;
+            return this;
         }
 
-    
 
         /**
          * 名称
          * <p> 示例值：test dropdown
+         *
          * @param displayName
          * @return
          */
         public Builder displayName(String displayName) {
-             this.displayName = displayName;
-             return this;
+            this.displayName = displayName;
+            return this;
         }
 
-    
 
         /**
          * 字段在列表后台管理列表中的位置
          * <p> 示例值：3
+         *
          * @param position
          * @return
          */
         public Builder position(String position) {
-             this.position = position;
-             return this;
+            this.position = position;
+            return this;
         }
 
-    
 
         /**
          * 类型;;string - 单行文本;;multiline - 多行文本;;dropdown - 下拉列表;;dropdown_nested - 级联下拉
          * <p> 示例值：dropdown
+         *
          * @param fieldType
          * @return
          */
         public Builder fieldType(String fieldType) {
-             this.fieldType = fieldType;
-             return this;
+            this.fieldType = fieldType;
+            return this;
         }
 
-    
 
         /**
          * 描述
          * <p> 示例值：下拉示例
+         *
          * @param description
          * @return
          */
         public Builder description(String description) {
-             this.description = description;
-             return this;
+            this.description = description;
+            return this;
         }
 
-    
 
         /**
          * 是否可见
          * <p> 示例值：true
+         *
          * @param visible
          * @return
          */
         public Builder visible(Boolean visible) {
-             this.visible = visible;
-             return this;
+            this.visible = visible;
+            return this;
         }
 
-    
 
         /**
          * 是否可以修改
          * <p> 示例值：true
+         *
          * @param editable
          * @return
          */
         public Builder editable(Boolean editable) {
-             this.editable = editable;
-             return this;
+            this.editable = editable;
+            return this;
         }
 
-    
 
         /**
          * 是否必填
          * <p> 示例值：false
+         *
          * @param required
          * @return
          */
         public Builder required(Boolean required) {
-             this.required = required;
-             return this;
+            this.required = required;
+            return this;
         }
 
-    
 
         /**
          * 创建时间
          * <p> 示例值：1591239289000
+         *
          * @param createdAt
          * @return
          */
         public Builder createdAt(String createdAt) {
-             this.createdAt = createdAt;
-             return this;
+            this.createdAt = createdAt;
+            return this;
         }
 
-    
 
         /**
          * 更新时间
          * <p> 示例值：1591239289000
+         *
          * @param updatedAt
          * @return
          */
         public Builder updatedAt(String updatedAt) {
-             this.updatedAt = updatedAt;
-             return this;
+            this.updatedAt = updatedAt;
+            return this;
         }
 
-    
 
         /**
          * 创建用户
          * <p> 示例值：
+         *
          * @param createdBy
          * @return
          */
         public Builder createdBy(TicketUser createdBy) {
-             this.createdBy = createdBy;
-             return this;
+            this.createdBy = createdBy;
+            return this;
         }
 
-    
 
         /**
          * 更新用户
          * <p> 示例值：
+         *
          * @param updatedBy
          * @return
          */
         public Builder updatedBy(TicketUser updatedBy) {
-             this.updatedBy = updatedBy;
-             return this;
+            this.updatedBy = updatedBy;
+            return this;
         }
 
-    
 
         /**
          * 是否支持多选，仅在字段类型是dropdown的时候有效
          * <p> 示例值：true
+         *
          * @param dropdownAllowMultiple
          * @return
          */
         public Builder dropdownAllowMultiple(Boolean dropdownAllowMultiple) {
-             this.dropdownAllowMultiple = dropdownAllowMultiple;
-             return this;
+            this.dropdownAllowMultiple = dropdownAllowMultiple;
+            return this;
         }
 
-    
-    
-    public TicketCustomizedField build(){
-        return new TicketCustomizedField(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public TicketCustomizedField build() {
+            return new TicketCustomizedField(this);
+        }
     }
 }

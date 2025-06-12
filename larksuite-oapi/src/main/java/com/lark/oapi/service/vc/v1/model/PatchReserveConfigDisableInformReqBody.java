@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class PatchReserveConfigDisableInformReqBody {
-     /**
-      * 1表示会议室层级，2表示会议室
-      * <p> 示例值：2
-      */
+    /**
+     * 1表示会议室层级，2表示会议室
+     * <p> 示例值：2
+     */
     @SerializedName("scope_type")
     private Integer scopeType;
-     /**
-      * 禁用通知配置
-      * <p> 示例值：
-      */
+    /**
+     * 禁用通知配置
+     * <p> 示例值：
+     */
     @SerializedName("disable_inform")
     private DisableInformConfig disableInform;
+
+    // builder 开始
+    public PatchReserveConfigDisableInformReqBody() {
+    }
+
+    public PatchReserveConfigDisableInformReqBody(Builder builder) {
+        /**
+         * 1表示会议室层级，2表示会议室
+         * <p> 示例值：2
+         */
+        this.scopeType = builder.scopeType;
+        /**
+         * 禁用通知配置
+         * <p> 示例值：
+         */
+        this.disableInform = builder.disableInform;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Integer getScopeType() {
         return this.scopeType;
     }
@@ -53,67 +79,46 @@ public class PatchReserveConfigDisableInformReqBody {
         this.disableInform = disableInform;
     }
 
-
-// builder 开始
-  public PatchReserveConfigDisableInformReqBody(){}
-
-  public PatchReserveConfigDisableInformReqBody(Builder builder){
-         /**
-          * 1表示会议室层级，2表示会议室
-          * <p> 示例值：2
-          */
-      this.scopeType = builder.scopeType;
-         /**
-          * 禁用通知配置
-          * <p> 示例值：
-          */
-      this.disableInform = builder.disableInform;
-  }
-
     public static class Builder {
-     /**
-      * 1表示会议室层级，2表示会议室
-      * <p> 示例值：2
-      */
+        /**
+         * 1表示会议室层级，2表示会议室
+         * <p> 示例值：2
+         */
         private Integer scopeType;
-     /**
-      * 禁用通知配置
-      * <p> 示例值：
-      */
+        /**
+         * 禁用通知配置
+         * <p> 示例值：
+         */
         private DisableInformConfig disableInform;
 
         /**
          * 1表示会议室层级，2表示会议室
          * <p> 示例值：2
+         *
          * @param scopeType
          * @return
          */
         public Builder scopeType(Integer scopeType) {
-             this.scopeType = scopeType;
-             return this;
+            this.scopeType = scopeType;
+            return this;
         }
 
-    
 
         /**
          * 禁用通知配置
          * <p> 示例值：
+         *
          * @param disableInform
          * @return
          */
         public Builder disableInform(DisableInformConfig disableInform) {
-             this.disableInform = disableInform;
-             return this;
+            this.disableInform = disableInform;
+            return this;
         }
 
-    
-    
-    public PatchReserveConfigDisableInformReqBody build(){
-        return new PatchReserveConfigDisableInformReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public PatchReserveConfigDisableInformReqBody build() {
+            return new PatchReserveConfigDisableInformReqBody(this);
+        }
     }
 }

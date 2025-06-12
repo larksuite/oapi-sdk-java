@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,48 +20,93 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class MyAiVcMeetingExtra {
-     /**
-      * 会议id
-      * <p> 示例值：6909384684539478036
-      */
+    /**
+     * 会议id
+     * <p> 示例值：6909384684539478036
+     */
     @SerializedName("vc_meeting_id")
     private String vcMeetingId;
-     /**
-      * 客户端语言
-      * <p> 示例值：zh_cn
-      */
+    /**
+     * 客户端语言
+     * <p> 示例值：zh_cn
+     */
     @SerializedName("vc_locale")
     private String vcLocale;
-     /**
-      * applink域名
-      * <p> 示例值：applink.feishu.cn
-      */
+    /**
+     * applink域名
+     * <p> 示例值：applink.feishu.cn
+     */
     @SerializedName("vc_applink_host")
     private String vcApplinkHost;
-     /**
-      * app版本
-      * <p> 示例值：7.0.0
-      */
+    /**
+     * app版本
+     * <p> 示例值：7.0.0
+     */
     @SerializedName("vc_app_version")
     private String vcAppVersion;
-     /**
-      * 功能开关，用于一些功能服务端确认客户端是否可以执行。
-      * <p> 示例值：recording_status
-      */
+    /**
+     * 功能开关，用于一些功能服务端确认客户端是否可以执行。
+     * <p> 示例值：recording_status
+     */
     @SerializedName("vc_feature_config")
     private String vcFeatureConfig;
-     /**
-      * 端上富文本额外信息
-      * <p> 示例值：json字符串
-      */
+    /**
+     * 端上富文本额外信息
+     * <p> 示例值：json字符串
+     */
     @SerializedName("quick_execute_param_rich_tag")
     private String quickExecuteParamRichTag;
+
+    // builder 开始
+    public MyAiVcMeetingExtra() {
+    }
+
+    public MyAiVcMeetingExtra(Builder builder) {
+        /**
+         * 会议id
+         * <p> 示例值：6909384684539478036
+         */
+        this.vcMeetingId = builder.vcMeetingId;
+        /**
+         * 客户端语言
+         * <p> 示例值：zh_cn
+         */
+        this.vcLocale = builder.vcLocale;
+        /**
+         * applink域名
+         * <p> 示例值：applink.feishu.cn
+         */
+        this.vcApplinkHost = builder.vcApplinkHost;
+        /**
+         * app版本
+         * <p> 示例值：7.0.0
+         */
+        this.vcAppVersion = builder.vcAppVersion;
+        /**
+         * 功能开关，用于一些功能服务端确认客户端是否可以执行。
+         * <p> 示例值：recording_status
+         */
+        this.vcFeatureConfig = builder.vcFeatureConfig;
+        /**
+         * 端上富文本额外信息
+         * <p> 示例值：json字符串
+         */
+        this.quickExecuteParamRichTag = builder.quickExecuteParamRichTag;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getVcMeetingId() {
         return this.vcMeetingId;
     }
@@ -109,159 +155,118 @@ public class MyAiVcMeetingExtra {
         this.quickExecuteParamRichTag = quickExecuteParamRichTag;
     }
 
-
-// builder 开始
-  public MyAiVcMeetingExtra(){}
-
-  public MyAiVcMeetingExtra(Builder builder){
-         /**
-          * 会议id
-          * <p> 示例值：6909384684539478036
-          */
-      this.vcMeetingId = builder.vcMeetingId;
-         /**
-          * 客户端语言
-          * <p> 示例值：zh_cn
-          */
-      this.vcLocale = builder.vcLocale;
-         /**
-          * applink域名
-          * <p> 示例值：applink.feishu.cn
-          */
-      this.vcApplinkHost = builder.vcApplinkHost;
-         /**
-          * app版本
-          * <p> 示例值：7.0.0
-          */
-      this.vcAppVersion = builder.vcAppVersion;
-         /**
-          * 功能开关，用于一些功能服务端确认客户端是否可以执行。
-          * <p> 示例值：recording_status
-          */
-      this.vcFeatureConfig = builder.vcFeatureConfig;
-         /**
-          * 端上富文本额外信息
-          * <p> 示例值：json字符串
-          */
-      this.quickExecuteParamRichTag = builder.quickExecuteParamRichTag;
-  }
-
     public static class Builder {
-     /**
-      * 会议id
-      * <p> 示例值：6909384684539478036
-      */
+        /**
+         * 会议id
+         * <p> 示例值：6909384684539478036
+         */
         private String vcMeetingId;
-     /**
-      * 客户端语言
-      * <p> 示例值：zh_cn
-      */
+        /**
+         * 客户端语言
+         * <p> 示例值：zh_cn
+         */
         private String vcLocale;
-     /**
-      * applink域名
-      * <p> 示例值：applink.feishu.cn
-      */
+        /**
+         * applink域名
+         * <p> 示例值：applink.feishu.cn
+         */
         private String vcApplinkHost;
-     /**
-      * app版本
-      * <p> 示例值：7.0.0
-      */
+        /**
+         * app版本
+         * <p> 示例值：7.0.0
+         */
         private String vcAppVersion;
-     /**
-      * 功能开关，用于一些功能服务端确认客户端是否可以执行。
-      * <p> 示例值：recording_status
-      */
+        /**
+         * 功能开关，用于一些功能服务端确认客户端是否可以执行。
+         * <p> 示例值：recording_status
+         */
         private String vcFeatureConfig;
-     /**
-      * 端上富文本额外信息
-      * <p> 示例值：json字符串
-      */
+        /**
+         * 端上富文本额外信息
+         * <p> 示例值：json字符串
+         */
         private String quickExecuteParamRichTag;
 
         /**
          * 会议id
          * <p> 示例值：6909384684539478036
+         *
          * @param vcMeetingId
          * @return
          */
         public Builder vcMeetingId(String vcMeetingId) {
-             this.vcMeetingId = vcMeetingId;
-             return this;
+            this.vcMeetingId = vcMeetingId;
+            return this;
         }
 
-    
 
         /**
          * 客户端语言
          * <p> 示例值：zh_cn
+         *
          * @param vcLocale
          * @return
          */
         public Builder vcLocale(String vcLocale) {
-             this.vcLocale = vcLocale;
-             return this;
+            this.vcLocale = vcLocale;
+            return this;
         }
 
-    
 
         /**
          * applink域名
          * <p> 示例值：applink.feishu.cn
+         *
          * @param vcApplinkHost
          * @return
          */
         public Builder vcApplinkHost(String vcApplinkHost) {
-             this.vcApplinkHost = vcApplinkHost;
-             return this;
+            this.vcApplinkHost = vcApplinkHost;
+            return this;
         }
 
-    
 
         /**
          * app版本
          * <p> 示例值：7.0.0
+         *
          * @param vcAppVersion
          * @return
          */
         public Builder vcAppVersion(String vcAppVersion) {
-             this.vcAppVersion = vcAppVersion;
-             return this;
+            this.vcAppVersion = vcAppVersion;
+            return this;
         }
 
-    
 
         /**
          * 功能开关，用于一些功能服务端确认客户端是否可以执行。
          * <p> 示例值：recording_status
+         *
          * @param vcFeatureConfig
          * @return
          */
         public Builder vcFeatureConfig(String vcFeatureConfig) {
-             this.vcFeatureConfig = vcFeatureConfig;
-             return this;
+            this.vcFeatureConfig = vcFeatureConfig;
+            return this;
         }
 
-    
 
         /**
          * 端上富文本额外信息
          * <p> 示例值：json字符串
+         *
          * @param quickExecuteParamRichTag
          * @return
          */
         public Builder quickExecuteParamRichTag(String quickExecuteParamRichTag) {
-             this.quickExecuteParamRichTag = quickExecuteParamRichTag;
-             return this;
+            this.quickExecuteParamRichTag = quickExecuteParamRichTag;
+            return this;
         }
 
-    
-    
-    public MyAiVcMeetingExtra build(){
-        return new MyAiVcMeetingExtra(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public MyAiVcMeetingExtra build() {
+            return new MyAiVcMeetingExtra(this);
+        }
     }
 }

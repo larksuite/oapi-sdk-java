@@ -17,15 +17,16 @@ package com.lark.oapi.service.task.v2.enums;
  * 返回数据的排序方式
  */
 public enum ListCommentDirectionEnum {
-     ASC("asc"), // 评论发表时间升序
-     DESC("desc"), // 评论发表时间降序
-  ;
-   private String value;
+    ASC("asc"), // 评论发表时间升序
+    DESC("desc"), // 评论发表时间降序
+    ;
+    private String value;
+
     ListCommentDirectionEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

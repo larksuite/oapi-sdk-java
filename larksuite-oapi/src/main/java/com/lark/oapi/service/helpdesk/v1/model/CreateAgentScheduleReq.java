@@ -12,20 +12,36 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CreateAgentScheduleReq {
     @Body
     private CreateAgentScheduleReqBody body;
+
+    // builder 开始
+    public CreateAgentScheduleReq() {
+    }
+
+    public CreateAgentScheduleReq(Builder builder) {
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 
     public CreateAgentScheduleReqBody getCreateAgentScheduleReqBody() {
         return this.body;
@@ -35,36 +51,27 @@ public class CreateAgentScheduleReq {
         this.body = body;
     }
 
-// builder 开始
-  public CreateAgentScheduleReq(){}
-
-  public CreateAgentScheduleReq(Builder builder){
-        this.body = builder.body;
-  }
-
     public static class Builder {
-    
+
         private CreateAgentScheduleReqBody body;
-    
+
         public CreateAgentScheduleReqBody getCreateAgentScheduleReqBody() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder createAgentScheduleReqBody(CreateAgentScheduleReqBody body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public CreateAgentScheduleReq build(){
-        return new CreateAgentScheduleReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public CreateAgentScheduleReq build() {
+            return new CreateAgentScheduleReq(this);
+        }
     }
 }

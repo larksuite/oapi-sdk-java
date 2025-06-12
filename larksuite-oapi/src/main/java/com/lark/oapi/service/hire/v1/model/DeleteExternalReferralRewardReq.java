@@ -12,24 +12,44 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class DeleteExternalReferralRewardReq {
-     /**
-      * 
-      * <p> 示例值：
-      */
+    /**
+     * <p> 示例值：
+     */
     @Path
     @SerializedName("external_referral_reward_id")
     private String externalReferralRewardId;
+
+    // builder 开始
+    public DeleteExternalReferralRewardReq() {
+    }
+
+    public DeleteExternalReferralRewardReq(Builder builder) {
+        /**
+         *
+         * <p> 示例值：
+         */
+        this.externalReferralRewardId = builder.externalReferralRewardId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getExternalReferralRewardId() {
         return this.externalReferralRewardId;
     }
@@ -38,39 +58,24 @@ public class DeleteExternalReferralRewardReq {
         this.externalReferralRewardId = externalReferralRewardId;
     }
 
-
-// builder 开始
-  public DeleteExternalReferralRewardReq(){}
-
-  public DeleteExternalReferralRewardReq(Builder builder){
-     /**
-      * 
-      * <p> 示例值：
-      */
-       this.externalReferralRewardId = builder.externalReferralRewardId;
-  }
-
     public static class Builder {
-    
-        private String externalReferralRewardId; // 
+
+        private String externalReferralRewardId; //
+
         /**
-         * 
          * <p> 示例值：
+         *
          * @param externalReferralRewardId
          * @return
          */
-          public Builder externalReferralRewardId(String externalReferralRewardId) {
-               this.externalReferralRewardId = externalReferralRewardId;
-               return this;
-          }
+        public Builder externalReferralRewardId(String externalReferralRewardId) {
+            this.externalReferralRewardId = externalReferralRewardId;
+            return this;
+        }
 
-    
-    public DeleteExternalReferralRewardReq build(){
-        return new DeleteExternalReferralRewardReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public DeleteExternalReferralRewardReq build() {
+            return new DeleteExternalReferralRewardReq(this);
+        }
     }
 }

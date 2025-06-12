@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class MyAiRoomCommonResult {
-     /**
-      * 通用回复
-      * <p> 示例值：OK
-      */
+    /**
+     * 通用回复
+     * <p> 示例值：OK
+     */
     @SerializedName("room_reply")
     private String roomReply;
-     /**
-      * openapi 响应结果
-      * <p> 示例值：
-      */
+    /**
+     * openapi 响应结果
+     * <p> 示例值：
+     */
     @SerializedName("openapi_response")
     private MyAiRoomOpenapiResponse openapiResponse;
+
+    // builder 开始
+    public MyAiRoomCommonResult() {
+    }
+
+    public MyAiRoomCommonResult(Builder builder) {
+        /**
+         * 通用回复
+         * <p> 示例值：OK
+         */
+        this.roomReply = builder.roomReply;
+        /**
+         * openapi 响应结果
+         * <p> 示例值：
+         */
+        this.openapiResponse = builder.openapiResponse;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getRoomReply() {
         return this.roomReply;
     }
@@ -53,67 +79,46 @@ public class MyAiRoomCommonResult {
         this.openapiResponse = openapiResponse;
     }
 
-
-// builder 开始
-  public MyAiRoomCommonResult(){}
-
-  public MyAiRoomCommonResult(Builder builder){
-         /**
-          * 通用回复
-          * <p> 示例值：OK
-          */
-      this.roomReply = builder.roomReply;
-         /**
-          * openapi 响应结果
-          * <p> 示例值：
-          */
-      this.openapiResponse = builder.openapiResponse;
-  }
-
     public static class Builder {
-     /**
-      * 通用回复
-      * <p> 示例值：OK
-      */
+        /**
+         * 通用回复
+         * <p> 示例值：OK
+         */
         private String roomReply;
-     /**
-      * openapi 响应结果
-      * <p> 示例值：
-      */
+        /**
+         * openapi 响应结果
+         * <p> 示例值：
+         */
         private MyAiRoomOpenapiResponse openapiResponse;
 
         /**
          * 通用回复
          * <p> 示例值：OK
+         *
          * @param roomReply
          * @return
          */
         public Builder roomReply(String roomReply) {
-             this.roomReply = roomReply;
-             return this;
+            this.roomReply = roomReply;
+            return this;
         }
 
-    
 
         /**
          * openapi 响应结果
          * <p> 示例值：
+         *
          * @param openapiResponse
          * @return
          */
         public Builder openapiResponse(MyAiRoomOpenapiResponse openapiResponse) {
-             this.openapiResponse = openapiResponse;
-             return this;
+            this.openapiResponse = openapiResponse;
+            return this;
         }
 
-    
-    
-    public MyAiRoomCommonResult build(){
-        return new MyAiRoomCommonResult(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public MyAiRoomCommonResult build() {
+            return new MyAiRoomCommonResult(this);
+        }
     }
 }

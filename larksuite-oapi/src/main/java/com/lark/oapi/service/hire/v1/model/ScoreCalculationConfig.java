@@ -12,30 +12,55 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ScoreCalculationConfig {
-     /**
-      * 是否启用
-      * <p> 示例值：true
-      */
+    /**
+     * 是否启用
+     * <p> 示例值：true
+     */
     @SerializedName("enabled")
     private Boolean enabled;
-     /**
-      * 
-      * <p> 示例值：1
-      */
+    /**
+     * <p> 示例值：1
+     */
     @SerializedName("calculation_mode")
     private Integer calculationMode;
+
+    // builder 开始
+    public ScoreCalculationConfig() {
+    }
+
+    public ScoreCalculationConfig(Builder builder) {
+        /**
+         * 是否启用
+         * <p> 示例值：true
+         */
+        this.enabled = builder.enabled;
+        /**
+         *
+         * <p> 示例值：1
+         */
+        this.calculationMode = builder.calculationMode;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Boolean getEnabled() {
         return this.enabled;
     }
@@ -52,67 +77,44 @@ public class ScoreCalculationConfig {
         this.calculationMode = calculationMode;
     }
 
-
-// builder 开始
-  public ScoreCalculationConfig(){}
-
-  public ScoreCalculationConfig(Builder builder){
-         /**
-          * 是否启用
-          * <p> 示例值：true
-          */
-      this.enabled = builder.enabled;
-         /**
-          * 
-          * <p> 示例值：1
-          */
-      this.calculationMode = builder.calculationMode;
-  }
-
     public static class Builder {
-     /**
-      * 是否启用
-      * <p> 示例值：true
-      */
+        /**
+         * 是否启用
+         * <p> 示例值：true
+         */
         private Boolean enabled;
-     /**
-      * 
-      * <p> 示例值：1
-      */
+        /**
+         * <p> 示例值：1
+         */
         private Integer calculationMode;
 
         /**
          * 是否启用
          * <p> 示例值：true
+         *
          * @param enabled
          * @return
          */
         public Builder enabled(Boolean enabled) {
-             this.enabled = enabled;
-             return this;
+            this.enabled = enabled;
+            return this;
         }
 
-    
 
         /**
-         * 
          * <p> 示例值：1
+         *
          * @param calculationMode
          * @return
          */
         public Builder calculationMode(Integer calculationMode) {
-             this.calculationMode = calculationMode;
-             return this;
+            this.calculationMode = calculationMode;
+            return this;
         }
 
-    
-    
-    public ScoreCalculationConfig build(){
-        return new ScoreCalculationConfig(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ScoreCalculationConfig build() {
+            return new ScoreCalculationConfig(this);
+        }
     }
 }

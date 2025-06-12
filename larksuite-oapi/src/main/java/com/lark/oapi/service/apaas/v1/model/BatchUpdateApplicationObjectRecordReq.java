@@ -12,32 +12,61 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class BatchUpdateApplicationObjectRecordReq {
-     /**
-      * 应用命名空间
-      * <p> 示例值：package_test__c
-      */
+    /**
+     * 应用命名空间
+     * <p> 示例值：package_test__c
+     */
     @Path
     @SerializedName("namespace")
     private String namespace;
-     /**
-      * 对象唯一标识
-      * <p> 示例值：user
-      */
+    /**
+     * 对象唯一标识
+     * <p> 示例值：user
+     */
     @Path
     @SerializedName("object_api_name")
     private String objectApiName;
+    @Body
+    private BatchUpdateApplicationObjectRecordReqBody body;
+
+    // builder 开始
+    public BatchUpdateApplicationObjectRecordReq() {
+    }
+
+    public BatchUpdateApplicationObjectRecordReq(Builder builder) {
+        /**
+         * 应用命名空间
+         * <p> 示例值：package_test__c
+         */
+        this.namespace = builder.namespace;
+        /**
+         * 对象唯一标识
+         * <p> 示例值：user
+         */
+        this.objectApiName = builder.objectApiName;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getNamespace() {
         return this.namespace;
     }
@@ -54,9 +83,6 @@ public class BatchUpdateApplicationObjectRecordReq {
         this.objectApiName = objectApiName;
     }
 
-    @Body
-    private BatchUpdateApplicationObjectRecordReqBody body;
-
     public BatchUpdateApplicationObjectRecordReqBody getBatchUpdateApplicationObjectRecordReqBody() {
         return this.body;
     }
@@ -65,72 +91,53 @@ public class BatchUpdateApplicationObjectRecordReq {
         this.body = body;
     }
 
-// builder 开始
-  public BatchUpdateApplicationObjectRecordReq(){}
-
-  public BatchUpdateApplicationObjectRecordReq(Builder builder){
-     /**
-      * 应用命名空间
-      * <p> 示例值：package_test__c
-      */
-       this.namespace = builder.namespace;
-     /**
-      * 对象唯一标识
-      * <p> 示例值：user
-      */
-       this.objectApiName = builder.objectApiName;
-        this.body = builder.body;
-  }
-
     public static class Builder {
-    
+
         private String namespace; // 应用命名空间
         private String objectApiName; // 对象唯一标识
+        private BatchUpdateApplicationObjectRecordReqBody body;
+
         /**
          * 应用命名空间
          * <p> 示例值：package_test__c
+         *
          * @param namespace
          * @return
          */
-          public Builder namespace(String namespace) {
-               this.namespace = namespace;
-               return this;
-          }
+        public Builder namespace(String namespace) {
+            this.namespace = namespace;
+            return this;
+        }
 
-    
         /**
          * 对象唯一标识
          * <p> 示例值：user
+         *
          * @param objectApiName
          * @return
          */
-          public Builder objectApiName(String objectApiName) {
-               this.objectApiName = objectApiName;
-               return this;
-          }
+        public Builder objectApiName(String objectApiName) {
+            this.objectApiName = objectApiName;
+            return this;
+        }
 
-    
-        private BatchUpdateApplicationObjectRecordReqBody body;
-    
         public BatchUpdateApplicationObjectRecordReqBody getBatchUpdateApplicationObjectRecordReqBody() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder batchUpdateApplicationObjectRecordReqBody(BatchUpdateApplicationObjectRecordReqBody body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public BatchUpdateApplicationObjectRecordReq build(){
-        return new BatchUpdateApplicationObjectRecordReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public BatchUpdateApplicationObjectRecordReq build() {
+            return new BatchUpdateApplicationObjectRecordReq(this);
+        }
     }
 }

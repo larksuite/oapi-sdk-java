@@ -12,36 +12,41 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class P2ReferralAccountAssetsUpdateV1Data {
-     /**
-      * 账户ID， 同一用户在同一租户同一应用中账户唯一
-      * <p> 示例值：7147998241542539527
-      */
+    /**
+     * 账户ID， 同一用户在同一租户同一应用中账户唯一
+     * <p> 示例值：7147998241542539527
+     */
     @SerializedName("account_id")
     private String accountId;
-     /**
-      * 账户余额信息
-      * <p> 示例值：
-      */
+    /**
+     * 账户余额信息
+     * <p> 示例值：
+     */
     @SerializedName("assets")
     private Assets assets;
-     /**
-      * 变更时间
-      * <p> 示例值：1685431415036
-      */
+    /**
+     * 变更时间
+     * <p> 示例值：1685431415036
+     */
     @SerializedName("modify_time")
     private String modifyTime;
+
     public String getAccountId() {
         return this.accountId;
     }

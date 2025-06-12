@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class SearchBasicInfoNationalityReqBody {
-     /**
-      * 国籍 ID 列表，可从[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)接口返回的 `person_info.nationality_id_v2` 等字段中获取
-      * <p> 示例值：
-      */
+    /**
+     * 国籍 ID 列表，可从[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)接口返回的 `person_info.nationality_id_v2` 等字段中获取
+     * <p> 示例值：
+     */
     @SerializedName("nationality_id_list")
     private String[] nationalityIdList;
-     /**
-      * 国家/地区 ID 列表，可通过[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口列举
-      * <p> 示例值：
-      */
+    /**
+     * 国家/地区 ID 列表，可通过[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口列举
+     * <p> 示例值：
+     */
     @SerializedName("country_region_id_list")
     private String[] countryRegionIdList;
-     /**
-      * 状态列表
-      * <p> 示例值：
-      */
+    /**
+     * 状态列表
+     * <p> 示例值：
+     */
     @SerializedName("status_list")
     private Integer[] statusList;
+
+    // builder 开始
+    public SearchBasicInfoNationalityReqBody() {
+    }
+
+    public SearchBasicInfoNationalityReqBody(Builder builder) {
+        /**
+         * 国籍 ID 列表，可从[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)接口返回的 `person_info.nationality_id_v2` 等字段中获取
+         * <p> 示例值：
+         */
+        this.nationalityIdList = builder.nationalityIdList;
+        /**
+         * 国家/地区 ID 列表，可通过[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口列举
+         * <p> 示例值：
+         */
+        this.countryRegionIdList = builder.countryRegionIdList;
+        /**
+         * 状态列表
+         * <p> 示例值：
+         */
+        this.statusList = builder.statusList;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String[] getNationalityIdList() {
         return this.nationalityIdList;
     }
@@ -67,90 +98,64 @@ public class SearchBasicInfoNationalityReqBody {
         this.statusList = statusList;
     }
 
-
-// builder 开始
-  public SearchBasicInfoNationalityReqBody(){}
-
-  public SearchBasicInfoNationalityReqBody(Builder builder){
-         /**
-          * 国籍 ID 列表，可从[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)接口返回的 `person_info.nationality_id_v2` 等字段中获取
-          * <p> 示例值：
-          */
-      this.nationalityIdList = builder.nationalityIdList;
-         /**
-          * 国家/地区 ID 列表，可通过[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口列举
-          * <p> 示例值：
-          */
-      this.countryRegionIdList = builder.countryRegionIdList;
-         /**
-          * 状态列表
-          * <p> 示例值：
-          */
-      this.statusList = builder.statusList;
-  }
-
     public static class Builder {
-     /**
-      * 国籍 ID 列表，可从[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)接口返回的 `person_info.nationality_id_v2` 等字段中获取
-      * <p> 示例值：
-      */
+        /**
+         * 国籍 ID 列表，可从[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)接口返回的 `person_info.nationality_id_v2` 等字段中获取
+         * <p> 示例值：
+         */
         private String[] nationalityIdList;
-     /**
-      * 国家/地区 ID 列表，可通过[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口列举
-      * <p> 示例值：
-      */
+        /**
+         * 国家/地区 ID 列表，可通过[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口列举
+         * <p> 示例值：
+         */
         private String[] countryRegionIdList;
-     /**
-      * 状态列表
-      * <p> 示例值：
-      */
+        /**
+         * 状态列表
+         * <p> 示例值：
+         */
         private Integer[] statusList;
 
         /**
          * 国籍 ID 列表，可从[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)接口返回的 `person_info.nationality_id_v2` 等字段中获取
          * <p> 示例值：
+         *
          * @param nationalityIdList
          * @return
          */
         public Builder nationalityIdList(String[] nationalityIdList) {
-             this.nationalityIdList = nationalityIdList;
-             return this;
+            this.nationalityIdList = nationalityIdList;
+            return this;
         }
 
-    
 
         /**
          * 国家/地区 ID 列表，可通过[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口列举
          * <p> 示例值：
+         *
          * @param countryRegionIdList
          * @return
          */
         public Builder countryRegionIdList(String[] countryRegionIdList) {
-             this.countryRegionIdList = countryRegionIdList;
-             return this;
+            this.countryRegionIdList = countryRegionIdList;
+            return this;
         }
 
-    
 
         /**
          * 状态列表
          * <p> 示例值：
+         *
          * @param statusList
          * @return
          */
         public Builder statusList(Integer[] statusList) {
-             this.statusList = statusList;
-             return this;
+            this.statusList = statusList;
+            return this;
         }
 
-    
-    
-    public SearchBasicInfoNationalityReqBody build(){
-        return new SearchBasicInfoNationalityReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public SearchBasicInfoNationalityReqBody build() {
+            return new SearchBasicInfoNationalityReqBody(this);
+        }
     }
 }

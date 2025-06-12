@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.personal_settings.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.personal_settings.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class SystemStatusUserCloseResultEntity {
-     /**
-      * 用户ID
-      * <p> 示例值：ou_53edd3282dbc2fdbe5c593cfa5ce82ab
-      */
+    /**
+     * 用户ID
+     * <p> 示例值：ou_53edd3282dbc2fdbe5c593cfa5ce82ab
+     */
     @SerializedName("user_id")
     private String userId;
-     /**
-      * 关闭结果
-      * <p> 示例值：success
-      */
+    /**
+     * 关闭结果
+     * <p> 示例值：success
+     */
     @SerializedName("result")
     private String result;
+
+    // builder 开始
+    public SystemStatusUserCloseResultEntity() {
+    }
+
+    public SystemStatusUserCloseResultEntity(Builder builder) {
+        /**
+         * 用户ID
+         * <p> 示例值：ou_53edd3282dbc2fdbe5c593cfa5ce82ab
+         */
+        this.userId = builder.userId;
+        /**
+         * 关闭结果
+         * <p> 示例值：success
+         */
+        this.result = builder.result;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getUserId() {
         return this.userId;
     }
@@ -53,77 +79,58 @@ public class SystemStatusUserCloseResultEntity {
         this.result = result;
     }
 
-
-// builder 开始
-  public SystemStatusUserCloseResultEntity(){}
-
-  public SystemStatusUserCloseResultEntity(Builder builder){
-         /**
-          * 用户ID
-          * <p> 示例值：ou_53edd3282dbc2fdbe5c593cfa5ce82ab
-          */
-      this.userId = builder.userId;
-         /**
-          * 关闭结果
-          * <p> 示例值：success
-          */
-      this.result = builder.result;
-  }
-
     public static class Builder {
-     /**
-      * 用户ID
-      * <p> 示例值：ou_53edd3282dbc2fdbe5c593cfa5ce82ab
-      */
+        /**
+         * 用户ID
+         * <p> 示例值：ou_53edd3282dbc2fdbe5c593cfa5ce82ab
+         */
         private String userId;
-     /**
-      * 关闭结果
-      * <p> 示例值：success
-      */
+        /**
+         * 关闭结果
+         * <p> 示例值：success
+         */
         private String result;
 
         /**
          * 用户ID
          * <p> 示例值：ou_53edd3282dbc2fdbe5c593cfa5ce82ab
+         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-             this.userId = userId;
-             return this;
+            this.userId = userId;
+            return this;
         }
 
-    
 
         /**
          * 关闭结果
          * <p> 示例值：success
+         *
          * @param result
          * @return
          */
         public Builder result(String result) {
-             this.result = result;
-             return this;
+            this.result = result;
+            return this;
         }
+
         /**
          * 关闭结果
          * <p> 示例值：success
+         *
          * @param result {@link com.lark.oapi.service.personal_settings.v1.enums.SystemStatusUserCloseResultEntitySystemStatusUserCloseResultEnum}
          * @return
          */
         public Builder result(com.lark.oapi.service.personal_settings.v1.enums.SystemStatusUserCloseResultEntitySystemStatusUserCloseResultEnum result) {
-             this.result = result.getValue();
-             return this;
+            this.result = result.getValue();
+            return this;
         }
 
-    
-    
-    public SystemStatusUserCloseResultEntity build(){
-        return new SystemStatusUserCloseResultEntity(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public SystemStatusUserCloseResultEntity build() {
+            return new SystemStatusUserCloseResultEntity(this);
+        }
     }
 }

@@ -12,32 +12,58 @@
  */
 
 package com.lark.oapi.service.mail.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class GetUserMailboxMessageReq {
-     /**
-      * 用户邮箱地址 或 输入me代表当前调用接口用户
-      * <p> 示例值：user@xxx.xx 或 me
-      */
+    /**
+     * 用户邮箱地址 或 输入me代表当前调用接口用户
+     * <p> 示例值：user@xxx.xx 或 me
+     */
     @Path
     @SerializedName("user_mailbox_id")
     private String userMailboxId;
-     /**
-      * 用户邮件 id
-      * <p> 示例值：TUlHc1NoWFhJMXgyUi9VZTNVL3h6UnlkRUdzPQ==
-      */
+    /**
+     * 用户邮件 id
+     * <p> 示例值：TUlHc1NoWFhJMXgyUi9VZTNVL3h6UnlkRUdzPQ==
+     */
     @Path
     @SerializedName("message_id")
     private String messageId;
+
+    // builder 开始
+    public GetUserMailboxMessageReq() {
+    }
+
+    public GetUserMailboxMessageReq(Builder builder) {
+        /**
+         * 用户邮箱地址 或 输入me代表当前调用接口用户
+         * <p> 示例值：user@xxx.xx 或 me
+         */
+        this.userMailboxId = builder.userMailboxId;
+        /**
+         * 用户邮件 id
+         * <p> 示例值：TUlHc1NoWFhJMXgyUi9VZTNVL3h6UnlkRUdzPQ==
+         */
+        this.messageId = builder.messageId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getUserMailboxId() {
         return this.userMailboxId;
     }
@@ -54,57 +80,39 @@ public class GetUserMailboxMessageReq {
         this.messageId = messageId;
     }
 
-
-// builder 开始
-  public GetUserMailboxMessageReq(){}
-
-  public GetUserMailboxMessageReq(Builder builder){
-     /**
-      * 用户邮箱地址 或 输入me代表当前调用接口用户
-      * <p> 示例值：user@xxx.xx 或 me
-      */
-       this.userMailboxId = builder.userMailboxId;
-     /**
-      * 用户邮件 id
-      * <p> 示例值：TUlHc1NoWFhJMXgyUi9VZTNVL3h6UnlkRUdzPQ==
-      */
-       this.messageId = builder.messageId;
-  }
-
     public static class Builder {
-    
+
         private String userMailboxId; // 用户邮箱地址 或 输入me代表当前调用接口用户
         private String messageId; // 用户邮件 id
+
         /**
          * 用户邮箱地址 或 输入me代表当前调用接口用户
          * <p> 示例值：user@xxx.xx 或 me
+         *
          * @param userMailboxId
          * @return
          */
-          public Builder userMailboxId(String userMailboxId) {
-               this.userMailboxId = userMailboxId;
-               return this;
-          }
+        public Builder userMailboxId(String userMailboxId) {
+            this.userMailboxId = userMailboxId;
+            return this;
+        }
 
-    
+
         /**
          * 用户邮件 id
          * <p> 示例值：TUlHc1NoWFhJMXgyUi9VZTNVL3h6UnlkRUdzPQ==
+         *
          * @param messageId
          * @return
          */
-          public Builder messageId(String messageId) {
-               this.messageId = messageId;
-               return this;
-          }
+        public Builder messageId(String messageId) {
+            this.messageId = messageId;
+            return this;
+        }
 
-    
-    public GetUserMailboxMessageReq build(){
-        return new GetUserMailboxMessageReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public GetUserMailboxMessageReq build() {
+            return new GetUserMailboxMessageReq(this);
+        }
     }
 }

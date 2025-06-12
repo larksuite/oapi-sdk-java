@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.document_ai.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.document_ai.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class DocChunkBboxItem {
-     /**
-      * bbox坐标列表
-      * <p> 示例值：
-      */
+    /**
+     * bbox坐标列表
+     * <p> 示例值：
+     */
     @SerializedName("bbox_positions")
     private String[] bboxPositions;
+
+    // builder 开始
+    public DocChunkBboxItem() {
+    }
+
+    public DocChunkBboxItem(Builder builder) {
+        /**
+         * bbox坐标列表
+         * <p> 示例值：
+         */
+        this.bboxPositions = builder.bboxPositions;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String[] getBboxPositions() {
         return this.bboxPositions;
     }
@@ -39,44 +60,28 @@ public class DocChunkBboxItem {
         this.bboxPositions = bboxPositions;
     }
 
-
-// builder 开始
-  public DocChunkBboxItem(){}
-
-  public DocChunkBboxItem(Builder builder){
-         /**
-          * bbox坐标列表
-          * <p> 示例值：
-          */
-      this.bboxPositions = builder.bboxPositions;
-  }
-
     public static class Builder {
-     /**
-      * bbox坐标列表
-      * <p> 示例值：
-      */
+        /**
+         * bbox坐标列表
+         * <p> 示例值：
+         */
         private String[] bboxPositions;
 
         /**
          * bbox坐标列表
          * <p> 示例值：
+         *
          * @param bboxPositions
          * @return
          */
         public Builder bboxPositions(String[] bboxPositions) {
-             this.bboxPositions = bboxPositions;
-             return this;
+            this.bboxPositions = bboxPositions;
+            return this;
         }
 
-    
-    
-    public DocChunkBboxItem build(){
-        return new DocChunkBboxItem(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public DocChunkBboxItem build() {
+            return new DocChunkBboxItem(this);
+        }
     }
 }

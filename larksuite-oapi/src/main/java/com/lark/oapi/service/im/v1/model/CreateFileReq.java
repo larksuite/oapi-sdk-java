@@ -12,20 +12,36 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CreateFileReq {
     @Body
     private CreateFileReqBody body;
+
+    // builder 开始
+    public CreateFileReq() {
+    }
+
+    public CreateFileReq(Builder builder) {
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 
     public CreateFileReqBody getCreateFileReqBody() {
         return this.body;
@@ -35,36 +51,27 @@ public class CreateFileReq {
         this.body = body;
     }
 
-// builder 开始
-  public CreateFileReq(){}
-
-  public CreateFileReq(Builder builder){
-        this.body = builder.body;
-  }
-
     public static class Builder {
-    
+
         private CreateFileReqBody body;
-    
+
         public CreateFileReqBody getCreateFileReqBody() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder createFileReqBody(CreateFileReqBody body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public CreateFileReq build(){
-        return new CreateFileReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public CreateFileReq build() {
+            return new CreateFileReq(this);
+        }
     }
 }

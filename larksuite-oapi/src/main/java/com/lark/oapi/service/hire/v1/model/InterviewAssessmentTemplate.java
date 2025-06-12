@@ -12,36 +12,67 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class InterviewAssessmentTemplate {
-     /**
-      * 面试评价表 ID
-      * <p> 示例值：6949805467799537964
-      */
+    /**
+     * 面试评价表 ID
+     * <p> 示例值：6949805467799537964
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 面试评价表名称
-      * <p> 示例值：
-      */
+    /**
+     * 面试评价表名称
+     * <p> 示例值：
+     */
     @SerializedName("name")
     private I18n name;
-     /**
-      * 面试评价表题目
-      * <p> 示例值：
-      */
+    /**
+     * 面试评价表题目
+     * <p> 示例值：
+     */
     @SerializedName("args")
     private InterviewAssessmentTemplateArgs args;
+
+    // builder 开始
+    public InterviewAssessmentTemplate() {
+    }
+
+    public InterviewAssessmentTemplate(Builder builder) {
+        /**
+         * 面试评价表 ID
+         * <p> 示例值：6949805467799537964
+         */
+        this.id = builder.id;
+        /**
+         * 面试评价表名称
+         * <p> 示例值：
+         */
+        this.name = builder.name;
+        /**
+         * 面试评价表题目
+         * <p> 示例值：
+         */
+        this.args = builder.args;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -66,90 +97,64 @@ public class InterviewAssessmentTemplate {
         this.args = args;
     }
 
-
-// builder 开始
-  public InterviewAssessmentTemplate(){}
-
-  public InterviewAssessmentTemplate(Builder builder){
-         /**
-          * 面试评价表 ID
-          * <p> 示例值：6949805467799537964
-          */
-      this.id = builder.id;
-         /**
-          * 面试评价表名称
-          * <p> 示例值：
-          */
-      this.name = builder.name;
-         /**
-          * 面试评价表题目
-          * <p> 示例值：
-          */
-      this.args = builder.args;
-  }
-
     public static class Builder {
-     /**
-      * 面试评价表 ID
-      * <p> 示例值：6949805467799537964
-      */
+        /**
+         * 面试评价表 ID
+         * <p> 示例值：6949805467799537964
+         */
         private String id;
-     /**
-      * 面试评价表名称
-      * <p> 示例值：
-      */
+        /**
+         * 面试评价表名称
+         * <p> 示例值：
+         */
         private I18n name;
-     /**
-      * 面试评价表题目
-      * <p> 示例值：
-      */
+        /**
+         * 面试评价表题目
+         * <p> 示例值：
+         */
         private InterviewAssessmentTemplateArgs args;
 
         /**
          * 面试评价表 ID
          * <p> 示例值：6949805467799537964
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 面试评价表名称
          * <p> 示例值：
+         *
          * @param name
          * @return
          */
         public Builder name(I18n name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 面试评价表题目
          * <p> 示例值：
+         *
          * @param args
          * @return
          */
         public Builder args(InterviewAssessmentTemplateArgs args) {
-             this.args = args;
-             return this;
+            this.args = args;
+            return this;
         }
 
-    
-    
-    public InterviewAssessmentTemplate build(){
-        return new InterviewAssessmentTemplate(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public InterviewAssessmentTemplate build() {
+            return new InterviewAssessmentTemplate(this);
+        }
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,120 +20,225 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class InternationalAssignmentV2 {
-     /**
-      * 派驻信息ID
-      * <p> 示例值：7046599238679447000
-      */
+    /**
+     * 派驻信息ID
+     * <p> 示例值：7046599238679447000
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * Employment ID
-      * <p> 示例值：7046599238679447000
-      */
+    /**
+     * Employment ID
+     * <p> 示例值：7046599238679447000
+     */
     @SerializedName("employment_id")
     private String employmentId;
-     /**
-      * 创建人
-      * <p> 示例值：7046599238679447000
-      */
+    /**
+     * 创建人
+     * <p> 示例值：7046599238679447000
+     */
     @SerializedName("created_by")
     private String createdBy;
-     /**
-      * 创建时间
-      * <p> 示例值：2021-08-18 16:04:21
-      */
+    /**
+     * 创建时间
+     * <p> 示例值：2021-08-18 16:04:21
+     */
     @SerializedName("created_at")
     private String createdAt;
-     /**
-      * 生效时间
-      * <p> 示例值：2023-08-29
-      */
+    /**
+     * 生效时间
+     * <p> 示例值：2023-08-29
+     */
     @SerializedName("effective_time")
     private String effectiveTime;
-     /**
-      * 预计结束日期
-      * <p> 示例值：2023-12-29
-      */
+    /**
+     * 预计结束日期
+     * <p> 示例值：2023-12-29
+     */
     @SerializedName("international_assignment_expected_end_date")
     private String internationalAssignmentExpectedEndDate;
-     /**
-      * 失效时间
-      * <p> 示例值：2023-12-29
-      */
+    /**
+     * 失效时间
+     * <p> 示例值：2023-12-29
+     */
     @SerializedName("expiration_time")
     private String expirationTime;
-     /**
-      * 删除时间
-      * <p> 示例值：2021-08-18 16:04:21
-      */
+    /**
+     * 删除时间
+     * <p> 示例值：2021-08-18 16:04:21
+     */
     @SerializedName("deleted_at")
     private String deletedAt;
-     /**
-      * 更新时间
-      * <p> 示例值：2021-08-18 16:04:21
-      */
+    /**
+     * 更新时间
+     * <p> 示例值：2021-08-18 16:04:21
+     */
     @SerializedName("updated_at")
     private String updatedAt;
-     /**
-      * 更新人
-      * <p> 示例值：7046599238679447000
-      */
+    /**
+     * 更新人
+     * <p> 示例值：7046599238679447000
+     */
     @SerializedName("updated_by")
     private String updatedBy;
-     /**
-      * 外派国家ID
-      * <p> 示例值：7046599238679447084
-      */
+    /**
+     * 外派国家ID
+     * <p> 示例值：7046599238679447084
+     */
     @SerializedName("assignment_country")
     private String assignmentCountry;
-     /**
-      * 外派城市ID
-      * <p> 示例值：7046599238679447084
-      */
+    /**
+     * 外派城市ID
+     * <p> 示例值：7046599238679447084
+     */
     @SerializedName("assignment_city")
     private String assignmentCity;
-     /**
-      * 外派公司ID
-      * <p> 示例值：7046599238679447084
-      */
+    /**
+     * 外派公司ID
+     * <p> 示例值：7046599238679447084
+     */
     @SerializedName("assignment_company")
     private String assignmentCompany;
-     /**
-      * 当前生效外派记录的外派状态 - 枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：international_assignment_status - object_api_name：international_assignment
-      * <p> 示例值：
-      */
+    /**
+     * 当前生效外派记录的外派状态 - 枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：international_assignment_status - object_api_name：international_assignment
+     * <p> 示例值：
+     */
     @SerializedName("international_assignment_status")
     private Enum internationalAssignmentStatus;
-     /**
-      * 当前生效外派记录的外派类型 - 枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：international_assignment_type - object_api_name：international_assignment
-      * <p> 示例值：
-      */
+    /**
+     * 当前生效外派记录的外派类型 - 枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：international_assignment_type - object_api_name：international_assignment
+     * <p> 示例值：
+     */
     @SerializedName("international_assignment_type")
     private Enum internationalAssignmentType;
-     /**
-      * 是否享有派驻津贴
-      * <p> 示例值：false
-      */
+    /**
+     * 是否享有派驻津贴
+     * <p> 示例值：false
+     */
     @SerializedName("international_assignment_allowance")
     private Boolean internationalAssignmentAllowance;
-     /**
-      * 是否提供住宿
-      * <p> 示例值：false
-      */
+    /**
+     * 是否提供住宿
+     * <p> 示例值：false
+     */
     @SerializedName("accommodation")
     private Boolean accommodation;
-     /**
-      * 描述
-      * <p> 示例值：外派信息的描述
-      */
+    /**
+     * 描述
+     * <p> 示例值：外派信息的描述
+     */
     @SerializedName("description")
     private String description;
+
+    // builder 开始
+    public InternationalAssignmentV2() {
+    }
+
+    public InternationalAssignmentV2(Builder builder) {
+        /**
+         * 派驻信息ID
+         * <p> 示例值：7046599238679447000
+         */
+        this.id = builder.id;
+        /**
+         * Employment ID
+         * <p> 示例值：7046599238679447000
+         */
+        this.employmentId = builder.employmentId;
+        /**
+         * 创建人
+         * <p> 示例值：7046599238679447000
+         */
+        this.createdBy = builder.createdBy;
+        /**
+         * 创建时间
+         * <p> 示例值：2021-08-18 16:04:21
+         */
+        this.createdAt = builder.createdAt;
+        /**
+         * 生效时间
+         * <p> 示例值：2023-08-29
+         */
+        this.effectiveTime = builder.effectiveTime;
+        /**
+         * 预计结束日期
+         * <p> 示例值：2023-12-29
+         */
+        this.internationalAssignmentExpectedEndDate = builder.internationalAssignmentExpectedEndDate;
+        /**
+         * 失效时间
+         * <p> 示例值：2023-12-29
+         */
+        this.expirationTime = builder.expirationTime;
+        /**
+         * 删除时间
+         * <p> 示例值：2021-08-18 16:04:21
+         */
+        this.deletedAt = builder.deletedAt;
+        /**
+         * 更新时间
+         * <p> 示例值：2021-08-18 16:04:21
+         */
+        this.updatedAt = builder.updatedAt;
+        /**
+         * 更新人
+         * <p> 示例值：7046599238679447000
+         */
+        this.updatedBy = builder.updatedBy;
+        /**
+         * 外派国家ID
+         * <p> 示例值：7046599238679447084
+         */
+        this.assignmentCountry = builder.assignmentCountry;
+        /**
+         * 外派城市ID
+         * <p> 示例值：7046599238679447084
+         */
+        this.assignmentCity = builder.assignmentCity;
+        /**
+         * 外派公司ID
+         * <p> 示例值：7046599238679447084
+         */
+        this.assignmentCompany = builder.assignmentCompany;
+        /**
+         * 当前生效外派记录的外派状态 - 枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：international_assignment_status - object_api_name：international_assignment
+         * <p> 示例值：
+         */
+        this.internationalAssignmentStatus = builder.internationalAssignmentStatus;
+        /**
+         * 当前生效外派记录的外派类型 - 枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：international_assignment_type - object_api_name：international_assignment
+         * <p> 示例值：
+         */
+        this.internationalAssignmentType = builder.internationalAssignmentType;
+        /**
+         * 是否享有派驻津贴
+         * <p> 示例值：false
+         */
+        this.internationalAssignmentAllowance = builder.internationalAssignmentAllowance;
+        /**
+         * 是否提供住宿
+         * <p> 示例值：false
+         */
+        this.accommodation = builder.accommodation;
+        /**
+         * 描述
+         * <p> 示例值：外派信息的描述
+         */
+        this.description = builder.description;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -277,435 +383,334 @@ public class InternationalAssignmentV2 {
         this.description = description;
     }
 
-
-// builder 开始
-  public InternationalAssignmentV2(){}
-
-  public InternationalAssignmentV2(Builder builder){
-         /**
-          * 派驻信息ID
-          * <p> 示例值：7046599238679447000
-          */
-      this.id = builder.id;
-         /**
-          * Employment ID
-          * <p> 示例值：7046599238679447000
-          */
-      this.employmentId = builder.employmentId;
-         /**
-          * 创建人
-          * <p> 示例值：7046599238679447000
-          */
-      this.createdBy = builder.createdBy;
-         /**
-          * 创建时间
-          * <p> 示例值：2021-08-18 16:04:21
-          */
-      this.createdAt = builder.createdAt;
-         /**
-          * 生效时间
-          * <p> 示例值：2023-08-29
-          */
-      this.effectiveTime = builder.effectiveTime;
-         /**
-          * 预计结束日期
-          * <p> 示例值：2023-12-29
-          */
-      this.internationalAssignmentExpectedEndDate = builder.internationalAssignmentExpectedEndDate;
-         /**
-          * 失效时间
-          * <p> 示例值：2023-12-29
-          */
-      this.expirationTime = builder.expirationTime;
-         /**
-          * 删除时间
-          * <p> 示例值：2021-08-18 16:04:21
-          */
-      this.deletedAt = builder.deletedAt;
-         /**
-          * 更新时间
-          * <p> 示例值：2021-08-18 16:04:21
-          */
-      this.updatedAt = builder.updatedAt;
-         /**
-          * 更新人
-          * <p> 示例值：7046599238679447000
-          */
-      this.updatedBy = builder.updatedBy;
-         /**
-          * 外派国家ID
-          * <p> 示例值：7046599238679447084
-          */
-      this.assignmentCountry = builder.assignmentCountry;
-         /**
-          * 外派城市ID
-          * <p> 示例值：7046599238679447084
-          */
-      this.assignmentCity = builder.assignmentCity;
-         /**
-          * 外派公司ID
-          * <p> 示例值：7046599238679447084
-          */
-      this.assignmentCompany = builder.assignmentCompany;
-         /**
-          * 当前生效外派记录的外派状态 - 枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：international_assignment_status - object_api_name：international_assignment
-          * <p> 示例值：
-          */
-      this.internationalAssignmentStatus = builder.internationalAssignmentStatus;
-         /**
-          * 当前生效外派记录的外派类型 - 枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：international_assignment_type - object_api_name：international_assignment
-          * <p> 示例值：
-          */
-      this.internationalAssignmentType = builder.internationalAssignmentType;
-         /**
-          * 是否享有派驻津贴
-          * <p> 示例值：false
-          */
-      this.internationalAssignmentAllowance = builder.internationalAssignmentAllowance;
-         /**
-          * 是否提供住宿
-          * <p> 示例值：false
-          */
-      this.accommodation = builder.accommodation;
-         /**
-          * 描述
-          * <p> 示例值：外派信息的描述
-          */
-      this.description = builder.description;
-  }
-
     public static class Builder {
-     /**
-      * 派驻信息ID
-      * <p> 示例值：7046599238679447000
-      */
+        /**
+         * 派驻信息ID
+         * <p> 示例值：7046599238679447000
+         */
         private String id;
-     /**
-      * Employment ID
-      * <p> 示例值：7046599238679447000
-      */
+        /**
+         * Employment ID
+         * <p> 示例值：7046599238679447000
+         */
         private String employmentId;
-     /**
-      * 创建人
-      * <p> 示例值：7046599238679447000
-      */
+        /**
+         * 创建人
+         * <p> 示例值：7046599238679447000
+         */
         private String createdBy;
-     /**
-      * 创建时间
-      * <p> 示例值：2021-08-18 16:04:21
-      */
+        /**
+         * 创建时间
+         * <p> 示例值：2021-08-18 16:04:21
+         */
         private String createdAt;
-     /**
-      * 生效时间
-      * <p> 示例值：2023-08-29
-      */
+        /**
+         * 生效时间
+         * <p> 示例值：2023-08-29
+         */
         private String effectiveTime;
-     /**
-      * 预计结束日期
-      * <p> 示例值：2023-12-29
-      */
+        /**
+         * 预计结束日期
+         * <p> 示例值：2023-12-29
+         */
         private String internationalAssignmentExpectedEndDate;
-     /**
-      * 失效时间
-      * <p> 示例值：2023-12-29
-      */
+        /**
+         * 失效时间
+         * <p> 示例值：2023-12-29
+         */
         private String expirationTime;
-     /**
-      * 删除时间
-      * <p> 示例值：2021-08-18 16:04:21
-      */
+        /**
+         * 删除时间
+         * <p> 示例值：2021-08-18 16:04:21
+         */
         private String deletedAt;
-     /**
-      * 更新时间
-      * <p> 示例值：2021-08-18 16:04:21
-      */
+        /**
+         * 更新时间
+         * <p> 示例值：2021-08-18 16:04:21
+         */
         private String updatedAt;
-     /**
-      * 更新人
-      * <p> 示例值：7046599238679447000
-      */
+        /**
+         * 更新人
+         * <p> 示例值：7046599238679447000
+         */
         private String updatedBy;
-     /**
-      * 外派国家ID
-      * <p> 示例值：7046599238679447084
-      */
+        /**
+         * 外派国家ID
+         * <p> 示例值：7046599238679447084
+         */
         private String assignmentCountry;
-     /**
-      * 外派城市ID
-      * <p> 示例值：7046599238679447084
-      */
+        /**
+         * 外派城市ID
+         * <p> 示例值：7046599238679447084
+         */
         private String assignmentCity;
-     /**
-      * 外派公司ID
-      * <p> 示例值：7046599238679447084
-      */
+        /**
+         * 外派公司ID
+         * <p> 示例值：7046599238679447084
+         */
         private String assignmentCompany;
-     /**
-      * 当前生效外派记录的外派状态 - 枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：international_assignment_status - object_api_name：international_assignment
-      * <p> 示例值：
-      */
+        /**
+         * 当前生效外派记录的外派状态 - 枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：international_assignment_status - object_api_name：international_assignment
+         * <p> 示例值：
+         */
         private Enum internationalAssignmentStatus;
-     /**
-      * 当前生效外派记录的外派类型 - 枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：international_assignment_type - object_api_name：international_assignment
-      * <p> 示例值：
-      */
+        /**
+         * 当前生效外派记录的外派类型 - 枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：international_assignment_type - object_api_name：international_assignment
+         * <p> 示例值：
+         */
         private Enum internationalAssignmentType;
-     /**
-      * 是否享有派驻津贴
-      * <p> 示例值：false
-      */
+        /**
+         * 是否享有派驻津贴
+         * <p> 示例值：false
+         */
         private Boolean internationalAssignmentAllowance;
-     /**
-      * 是否提供住宿
-      * <p> 示例值：false
-      */
+        /**
+         * 是否提供住宿
+         * <p> 示例值：false
+         */
         private Boolean accommodation;
-     /**
-      * 描述
-      * <p> 示例值：外派信息的描述
-      */
+        /**
+         * 描述
+         * <p> 示例值：外派信息的描述
+         */
         private String description;
 
         /**
          * 派驻信息ID
          * <p> 示例值：7046599238679447000
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * Employment ID
          * <p> 示例值：7046599238679447000
+         *
          * @param employmentId
          * @return
          */
         public Builder employmentId(String employmentId) {
-             this.employmentId = employmentId;
-             return this;
+            this.employmentId = employmentId;
+            return this;
         }
 
-    
 
         /**
          * 创建人
          * <p> 示例值：7046599238679447000
+         *
          * @param createdBy
          * @return
          */
         public Builder createdBy(String createdBy) {
-             this.createdBy = createdBy;
-             return this;
+            this.createdBy = createdBy;
+            return this;
         }
 
-    
 
         /**
          * 创建时间
          * <p> 示例值：2021-08-18 16:04:21
+         *
          * @param createdAt
          * @return
          */
         public Builder createdAt(String createdAt) {
-             this.createdAt = createdAt;
-             return this;
+            this.createdAt = createdAt;
+            return this;
         }
 
-    
 
         /**
          * 生效时间
          * <p> 示例值：2023-08-29
+         *
          * @param effectiveTime
          * @return
          */
         public Builder effectiveTime(String effectiveTime) {
-             this.effectiveTime = effectiveTime;
-             return this;
+            this.effectiveTime = effectiveTime;
+            return this;
         }
 
-    
 
         /**
          * 预计结束日期
          * <p> 示例值：2023-12-29
+         *
          * @param internationalAssignmentExpectedEndDate
          * @return
          */
         public Builder internationalAssignmentExpectedEndDate(String internationalAssignmentExpectedEndDate) {
-             this.internationalAssignmentExpectedEndDate = internationalAssignmentExpectedEndDate;
-             return this;
+            this.internationalAssignmentExpectedEndDate = internationalAssignmentExpectedEndDate;
+            return this;
         }
 
-    
 
         /**
          * 失效时间
          * <p> 示例值：2023-12-29
+         *
          * @param expirationTime
          * @return
          */
         public Builder expirationTime(String expirationTime) {
-             this.expirationTime = expirationTime;
-             return this;
+            this.expirationTime = expirationTime;
+            return this;
         }
 
-    
 
         /**
          * 删除时间
          * <p> 示例值：2021-08-18 16:04:21
+         *
          * @param deletedAt
          * @return
          */
         public Builder deletedAt(String deletedAt) {
-             this.deletedAt = deletedAt;
-             return this;
+            this.deletedAt = deletedAt;
+            return this;
         }
 
-    
 
         /**
          * 更新时间
          * <p> 示例值：2021-08-18 16:04:21
+         *
          * @param updatedAt
          * @return
          */
         public Builder updatedAt(String updatedAt) {
-             this.updatedAt = updatedAt;
-             return this;
+            this.updatedAt = updatedAt;
+            return this;
         }
 
-    
 
         /**
          * 更新人
          * <p> 示例值：7046599238679447000
+         *
          * @param updatedBy
          * @return
          */
         public Builder updatedBy(String updatedBy) {
-             this.updatedBy = updatedBy;
-             return this;
+            this.updatedBy = updatedBy;
+            return this;
         }
 
-    
 
         /**
          * 外派国家ID
          * <p> 示例值：7046599238679447084
+         *
          * @param assignmentCountry
          * @return
          */
         public Builder assignmentCountry(String assignmentCountry) {
-             this.assignmentCountry = assignmentCountry;
-             return this;
+            this.assignmentCountry = assignmentCountry;
+            return this;
         }
 
-    
 
         /**
          * 外派城市ID
          * <p> 示例值：7046599238679447084
+         *
          * @param assignmentCity
          * @return
          */
         public Builder assignmentCity(String assignmentCity) {
-             this.assignmentCity = assignmentCity;
-             return this;
+            this.assignmentCity = assignmentCity;
+            return this;
         }
 
-    
 
         /**
          * 外派公司ID
          * <p> 示例值：7046599238679447084
+         *
          * @param assignmentCompany
          * @return
          */
         public Builder assignmentCompany(String assignmentCompany) {
-             this.assignmentCompany = assignmentCompany;
-             return this;
+            this.assignmentCompany = assignmentCompany;
+            return this;
         }
 
-    
 
         /**
          * 当前生效外派记录的外派状态 - 枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：international_assignment_status - object_api_name：international_assignment
          * <p> 示例值：
+         *
          * @param internationalAssignmentStatus
          * @return
          */
         public Builder internationalAssignmentStatus(Enum internationalAssignmentStatus) {
-             this.internationalAssignmentStatus = internationalAssignmentStatus;
-             return this;
+            this.internationalAssignmentStatus = internationalAssignmentStatus;
+            return this;
         }
 
-    
 
         /**
          * 当前生效外派记录的外派类型 - 枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：international_assignment_type - object_api_name：international_assignment
          * <p> 示例值：
+         *
          * @param internationalAssignmentType
          * @return
          */
         public Builder internationalAssignmentType(Enum internationalAssignmentType) {
-             this.internationalAssignmentType = internationalAssignmentType;
-             return this;
+            this.internationalAssignmentType = internationalAssignmentType;
+            return this;
         }
 
-    
 
         /**
          * 是否享有派驻津贴
          * <p> 示例值：false
+         *
          * @param internationalAssignmentAllowance
          * @return
          */
         public Builder internationalAssignmentAllowance(Boolean internationalAssignmentAllowance) {
-             this.internationalAssignmentAllowance = internationalAssignmentAllowance;
-             return this;
+            this.internationalAssignmentAllowance = internationalAssignmentAllowance;
+            return this;
         }
 
-    
 
         /**
          * 是否提供住宿
          * <p> 示例值：false
+         *
          * @param accommodation
          * @return
          */
         public Builder accommodation(Boolean accommodation) {
-             this.accommodation = accommodation;
-             return this;
+            this.accommodation = accommodation;
+            return this;
         }
 
-    
 
         /**
          * 描述
          * <p> 示例值：外派信息的描述
+         *
          * @param description
          * @return
          */
         public Builder description(String description) {
-             this.description = description;
-             return this;
+            this.description = description;
+            return this;
         }
 
-    
-    
-    public InternationalAssignmentV2 build(){
-        return new InternationalAssignmentV2(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public InternationalAssignmentV2 build() {
+            return new InternationalAssignmentV2(this);
+        }
     }
 }

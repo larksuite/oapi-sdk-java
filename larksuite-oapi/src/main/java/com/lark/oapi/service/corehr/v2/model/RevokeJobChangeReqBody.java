@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class RevokeJobChangeReqBody {
-     /**
-      * 操作人id
-      * <p> 示例值：ou_a294793e8fa21529f2a60e3e9de45520
-      */
+    /**
+     * 操作人id
+     * <p> 示例值：ou_a294793e8fa21529f2a60e3e9de45520
+     */
     @SerializedName("operator_id")
     private String operatorId;
+
+    // builder 开始
+    public RevokeJobChangeReqBody() {
+    }
+
+    public RevokeJobChangeReqBody(Builder builder) {
+        /**
+         * 操作人id
+         * <p> 示例值：ou_a294793e8fa21529f2a60e3e9de45520
+         */
+        this.operatorId = builder.operatorId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getOperatorId() {
         return this.operatorId;
     }
@@ -39,44 +60,28 @@ public class RevokeJobChangeReqBody {
         this.operatorId = operatorId;
     }
 
-
-// builder 开始
-  public RevokeJobChangeReqBody(){}
-
-  public RevokeJobChangeReqBody(Builder builder){
-         /**
-          * 操作人id
-          * <p> 示例值：ou_a294793e8fa21529f2a60e3e9de45520
-          */
-      this.operatorId = builder.operatorId;
-  }
-
     public static class Builder {
-     /**
-      * 操作人id
-      * <p> 示例值：ou_a294793e8fa21529f2a60e3e9de45520
-      */
+        /**
+         * 操作人id
+         * <p> 示例值：ou_a294793e8fa21529f2a60e3e9de45520
+         */
         private String operatorId;
 
         /**
          * 操作人id
          * <p> 示例值：ou_a294793e8fa21529f2a60e3e9de45520
+         *
          * @param operatorId
          * @return
          */
         public Builder operatorId(String operatorId) {
-             this.operatorId = operatorId;
-             return this;
+            this.operatorId = operatorId;
+            return this;
         }
 
-    
-    
-    public RevokeJobChangeReqBody build(){
-        return new RevokeJobChangeReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public RevokeJobChangeReqBody build() {
+            return new RevokeJobChangeReqBody(this);
+        }
     }
 }

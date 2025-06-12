@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class AppConfigScopeItem {
-     /**
-      * 权限名称
-      * <p> 示例值：im:message
-      */
+    /**
+     * 权限名称
+     * <p> 示例值：im:message
+     */
     @SerializedName("scope_name")
     private String scopeName;
-     /**
-      * 身份类型
-      * <p> 示例值：tenant
-      */
+    /**
+     * 身份类型
+     * <p> 示例值：tenant
+     */
     @SerializedName("token_type")
     private String tokenType;
+
+    // builder 开始
+    public AppConfigScopeItem() {
+    }
+
+    public AppConfigScopeItem(Builder builder) {
+        /**
+         * 权限名称
+         * <p> 示例值：im:message
+         */
+        this.scopeName = builder.scopeName;
+        /**
+         * 身份类型
+         * <p> 示例值：tenant
+         */
+        this.tokenType = builder.tokenType;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getScopeName() {
         return this.scopeName;
     }
@@ -53,77 +79,58 @@ public class AppConfigScopeItem {
         this.tokenType = tokenType;
     }
 
-
-// builder 开始
-  public AppConfigScopeItem(){}
-
-  public AppConfigScopeItem(Builder builder){
-         /**
-          * 权限名称
-          * <p> 示例值：im:message
-          */
-      this.scopeName = builder.scopeName;
-         /**
-          * 身份类型
-          * <p> 示例值：tenant
-          */
-      this.tokenType = builder.tokenType;
-  }
-
     public static class Builder {
-     /**
-      * 权限名称
-      * <p> 示例值：im:message
-      */
+        /**
+         * 权限名称
+         * <p> 示例值：im:message
+         */
         private String scopeName;
-     /**
-      * 身份类型
-      * <p> 示例值：tenant
-      */
+        /**
+         * 身份类型
+         * <p> 示例值：tenant
+         */
         private String tokenType;
 
         /**
          * 权限名称
          * <p> 示例值：im:message
+         *
          * @param scopeName
          * @return
          */
         public Builder scopeName(String scopeName) {
-             this.scopeName = scopeName;
-             return this;
+            this.scopeName = scopeName;
+            return this;
         }
 
-    
 
         /**
          * 身份类型
          * <p> 示例值：tenant
+         *
          * @param tokenType
          * @return
          */
         public Builder tokenType(String tokenType) {
-             this.tokenType = tokenType;
-             return this;
+            this.tokenType = tokenType;
+            return this;
         }
+
         /**
          * 身份类型
          * <p> 示例值：tenant
+         *
          * @param tokenType {@link com.lark.oapi.service.application.v6.enums.AppConfigScopeItemTokenTypeEnum}
          * @return
          */
         public Builder tokenType(com.lark.oapi.service.application.v6.enums.AppConfigScopeItemTokenTypeEnum tokenType) {
-             this.tokenType = tokenType.getValue();
-             return this;
+            this.tokenType = tokenType.getValue();
+            return this;
         }
 
-    
-    
-    public AppConfigScopeItem build(){
-        return new AppConfigScopeItem(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public AppConfigScopeItem build() {
+            return new AppConfigScopeItem(this);
+        }
     }
 }

@@ -12,25 +12,46 @@
  */
 
 package com.lark.oapi.service.task.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.task.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class DeleteCommentReq {
-     /**
-      * 要删除的评论id
-      * <p> 示例值：7198104824246747156
-      */
+    /**
+     * 要删除的评论id
+     * <p> 示例值：7198104824246747156
+     */
     @Path
     @SerializedName("comment_id")
     private String commentId;
+
+    // builder 开始
+    public DeleteCommentReq() {
+    }
+
+    public DeleteCommentReq(Builder builder) {
+        /**
+         * 要删除的评论id
+         * <p> 示例值：7198104824246747156
+         */
+        this.commentId = builder.commentId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getCommentId() {
         return this.commentId;
     }
@@ -39,39 +60,25 @@ public class DeleteCommentReq {
         this.commentId = commentId;
     }
 
-
-// builder 开始
-  public DeleteCommentReq(){}
-
-  public DeleteCommentReq(Builder builder){
-     /**
-      * 要删除的评论id
-      * <p> 示例值：7198104824246747156
-      */
-       this.commentId = builder.commentId;
-  }
-
     public static class Builder {
-    
+
         private String commentId; // 要删除的评论id
+
         /**
          * 要删除的评论id
          * <p> 示例值：7198104824246747156
+         *
          * @param commentId
          * @return
          */
-          public Builder commentId(String commentId) {
-               this.commentId = commentId;
-               return this;
-          }
+        public Builder commentId(String commentId) {
+            this.commentId = commentId;
+            return this;
+        }
 
-    
-    public DeleteCommentReq build(){
-        return new DeleteCommentReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public DeleteCommentReq build() {
+            return new DeleteCommentReq(this);
+        }
     }
 }

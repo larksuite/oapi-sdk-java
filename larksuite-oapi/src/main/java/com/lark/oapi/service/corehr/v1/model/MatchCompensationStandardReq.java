@@ -12,137 +12,238 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class MatchCompensationStandardReq {
-     /**
-      * 此次调用中使用的用户ID的类型
-      * <p> 示例值：open_id
-      */
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：open_id
+     */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
-     /**
-      * 此次调用中使用的部门 ID 类型
-      * <p> 示例值：
-      */
+    /**
+     * 此次调用中使用的部门 ID 类型
+     * <p> 示例值：
+     */
     @Query
     @SerializedName("department_id_type")
     private String departmentIdType;
-     /**
-      * 雇员ID
-      * <p> 示例值：7124293751317038636
-      */
+    /**
+     * 雇员ID
+     * <p> 示例值：7124293751317038636
+     */
     @Query
     @SerializedName("employment_id")
     private String employmentId;
-     /**
-      * 薪资标准的关联对象，项目或者指标
-      * <p> 示例值：
-      */
+    /**
+     * 薪资标准的关联对象，项目或者指标
+     * <p> 示例值：
+     */
     @Query
     @SerializedName("reference_object_api")
     private String referenceObjectApi;
-     /**
-      * 薪资标准关联对象ID
-      * <p> 示例值：7156853394442044972
-      */
+    /**
+     * 薪资标准关联对象ID
+     * <p> 示例值：7156853394442044972
+     */
     @Query
     @SerializedName("reference_object_id")
     private String referenceObjectId;
-     /**
-      * 部门ID
-      * <p> 示例值：od-53899868dd0da32292a2d809f0518c8f
-      */
+    /**
+     * 部门ID
+     * <p> 示例值：od-53899868dd0da32292a2d809f0518c8f
+     */
     @Query
     @SerializedName("department_id")
     private String departmentId;
-     /**
-      * 工作地点ID
-      * <p> 示例值：7094869485965870636
-      */
+    /**
+     * 工作地点ID
+     * <p> 示例值：7094869485965870636
+     */
     @Query
     @SerializedName("work_location_id")
     private String workLocationId;
-     /**
-      * 公司ID
-      * <p> 示例值：7091599096804394540
-      */
+    /**
+     * 公司ID
+     * <p> 示例值：7091599096804394540
+     */
     @Query
     @SerializedName("company_id")
     private String companyId;
-     /**
-      * 职务序列ID
-      * <p> 示例值：7039313681989502508
-      */
+    /**
+     * 职务序列ID
+     * <p> 示例值：7039313681989502508
+     */
     @Query
     @SerializedName("job_family_id")
     private String jobFamilyId;
-     /**
-      * 职务ID
-      * <p> 示例值：7342883436321097257
-      */
+    /**
+     * 职务ID
+     * <p> 示例值：7342883436321097257
+     */
     @Query
     @SerializedName("job_id")
     private String jobId;
-     /**
-      * 职级ID
-      * <p> 示例值：7086415175263258156
-      */
+    /**
+     * 职级ID
+     * <p> 示例值：7086415175263258156
+     */
     @Query
     @SerializedName("job_level_id")
     private String jobLevelId;
-     /**
-      * 人员类型ID
-      * <p> 示例值：7039310401359775276
-      */
+    /**
+     * 人员类型ID
+     * <p> 示例值：7039310401359775276
+     */
     @Query
     @SerializedName("employee_type_id")
     private String employeeTypeId;
-     /**
-      * 招聘类型
-      * <p> 示例值：experienced_professionals
-      */
+    /**
+     * 招聘类型
+     * <p> 示例值：experienced_professionals
+     */
     @Query
     @SerializedName("recruitment_type")
     private String recruitmentType;
-     /**
-      * 定调薪原因ID
-      * <p> 示例值：6967639606963471117
-      */
+    /**
+     * 定调薪原因ID
+     * <p> 示例值：6967639606963471117
+     */
     @Query
     @SerializedName("cpst_change_reason_id")
     private String cpstChangeReasonId;
-     /**
-      * 薪资方案ID
-      * <p> 示例值：6967639606963471118
-      */
+    /**
+     * 薪资方案ID
+     * <p> 示例值：6967639606963471118
+     */
     @Query
     @SerializedName("cpst_plan_id")
     private String cpstPlanId;
-     /**
-      * 薪级薪等ID
-      * <p> 示例值：6967639606963471119
-      */
+    /**
+     * 薪级薪等ID
+     * <p> 示例值：6967639606963471119
+     */
     @Query
     @SerializedName("cpst_salary_level_id")
     private String cpstSalaryLevelId;
-     /**
-      * 生效时间
-      * <p> 示例值：1660924800000
-      */
+    /**
+     * 生效时间
+     * <p> 示例值：1660924800000
+     */
     @Query
     @SerializedName("effective_time")
     private String effectiveTime;
+
+    // builder 开始
+    public MatchCompensationStandardReq() {
+    }
+
+    public MatchCompensationStandardReq(Builder builder) {
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：open_id
+         */
+        this.userIdType = builder.userIdType;
+        /**
+         * 此次调用中使用的部门 ID 类型
+         * <p> 示例值：
+         */
+        this.departmentIdType = builder.departmentIdType;
+        /**
+         * 雇员ID
+         * <p> 示例值：7124293751317038636
+         */
+        this.employmentId = builder.employmentId;
+        /**
+         * 薪资标准的关联对象，项目或者指标
+         * <p> 示例值：
+         */
+        this.referenceObjectApi = builder.referenceObjectApi;
+        /**
+         * 薪资标准关联对象ID
+         * <p> 示例值：7156853394442044972
+         */
+        this.referenceObjectId = builder.referenceObjectId;
+        /**
+         * 部门ID
+         * <p> 示例值：od-53899868dd0da32292a2d809f0518c8f
+         */
+        this.departmentId = builder.departmentId;
+        /**
+         * 工作地点ID
+         * <p> 示例值：7094869485965870636
+         */
+        this.workLocationId = builder.workLocationId;
+        /**
+         * 公司ID
+         * <p> 示例值：7091599096804394540
+         */
+        this.companyId = builder.companyId;
+        /**
+         * 职务序列ID
+         * <p> 示例值：7039313681989502508
+         */
+        this.jobFamilyId = builder.jobFamilyId;
+        /**
+         * 职务ID
+         * <p> 示例值：7342883436321097257
+         */
+        this.jobId = builder.jobId;
+        /**
+         * 职级ID
+         * <p> 示例值：7086415175263258156
+         */
+        this.jobLevelId = builder.jobLevelId;
+        /**
+         * 人员类型ID
+         * <p> 示例值：7039310401359775276
+         */
+        this.employeeTypeId = builder.employeeTypeId;
+        /**
+         * 招聘类型
+         * <p> 示例值：experienced_professionals
+         */
+        this.recruitmentType = builder.recruitmentType;
+        /**
+         * 定调薪原因ID
+         * <p> 示例值：6967639606963471117
+         */
+        this.cpstChangeReasonId = builder.cpstChangeReasonId;
+        /**
+         * 薪资方案ID
+         * <p> 示例值：6967639606963471118
+         */
+        this.cpstPlanId = builder.cpstPlanId;
+        /**
+         * 薪级薪等ID
+         * <p> 示例值：6967639606963471119
+         */
+        this.cpstSalaryLevelId = builder.cpstSalaryLevelId;
+        /**
+         * 生效时间
+         * <p> 示例值：1660924800000
+         */
+        this.effectiveTime = builder.effectiveTime;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getUserIdType() {
         return this.userIdType;
     }
@@ -279,98 +380,6 @@ public class MatchCompensationStandardReq {
         this.effectiveTime = effectiveTime;
     }
 
-
-// builder 开始
-  public MatchCompensationStandardReq(){}
-
-  public MatchCompensationStandardReq(Builder builder){
-         /**
-          * 此次调用中使用的用户ID的类型
-          * <p> 示例值：open_id
-          */
-       this.userIdType = builder.userIdType;
-         /**
-          * 此次调用中使用的部门 ID 类型
-          * <p> 示例值：
-          */
-       this.departmentIdType = builder.departmentIdType;
-         /**
-          * 雇员ID
-          * <p> 示例值：7124293751317038636
-          */
-       this.employmentId = builder.employmentId;
-         /**
-          * 薪资标准的关联对象，项目或者指标
-          * <p> 示例值：
-          */
-       this.referenceObjectApi = builder.referenceObjectApi;
-         /**
-          * 薪资标准关联对象ID
-          * <p> 示例值：7156853394442044972
-          */
-       this.referenceObjectId = builder.referenceObjectId;
-         /**
-          * 部门ID
-          * <p> 示例值：od-53899868dd0da32292a2d809f0518c8f
-          */
-       this.departmentId = builder.departmentId;
-         /**
-          * 工作地点ID
-          * <p> 示例值：7094869485965870636
-          */
-       this.workLocationId = builder.workLocationId;
-         /**
-          * 公司ID
-          * <p> 示例值：7091599096804394540
-          */
-       this.companyId = builder.companyId;
-         /**
-          * 职务序列ID
-          * <p> 示例值：7039313681989502508
-          */
-       this.jobFamilyId = builder.jobFamilyId;
-         /**
-          * 职务ID
-          * <p> 示例值：7342883436321097257
-          */
-       this.jobId = builder.jobId;
-         /**
-          * 职级ID
-          * <p> 示例值：7086415175263258156
-          */
-       this.jobLevelId = builder.jobLevelId;
-         /**
-          * 人员类型ID
-          * <p> 示例值：7039310401359775276
-          */
-       this.employeeTypeId = builder.employeeTypeId;
-         /**
-          * 招聘类型
-          * <p> 示例值：experienced_professionals
-          */
-       this.recruitmentType = builder.recruitmentType;
-         /**
-          * 定调薪原因ID
-          * <p> 示例值：6967639606963471117
-          */
-       this.cpstChangeReasonId = builder.cpstChangeReasonId;
-         /**
-          * 薪资方案ID
-          * <p> 示例值：6967639606963471118
-          */
-       this.cpstPlanId = builder.cpstPlanId;
-         /**
-          * 薪级薪等ID
-          * <p> 示例值：6967639606963471119
-          */
-       this.cpstSalaryLevelId = builder.cpstSalaryLevelId;
-         /**
-          * 生效时间
-          * <p> 示例值：1660924800000
-          */
-       this.effectiveTime = builder.effectiveTime;
-  }
-
     public static class Builder {
         private String userIdType; // 此次调用中使用的用户ID的类型
         private String departmentIdType; // 此次调用中使用的部门 ID 类型
@@ -389,261 +398,278 @@ public class MatchCompensationStandardReq {
         private String cpstPlanId; // 薪资方案ID
         private String cpstSalaryLevelId; // 薪级薪等ID
         private String effectiveTime; // 生效时间
-    
+
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：open_id
+         *
          * @param userIdType
          * @return
          */
-           public Builder userIdType(String userIdType) {
-                this.userIdType = userIdType;
-                return this;
-           }
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
 
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：open_id
+         *
          * @param userIdType {@link com.lark.oapi.service.corehr.v1.enums.MatchCompensationStandardUserIdTypeEnum}
          * @return
          */
-          public Builder userIdType(com.lark.oapi.service.corehr.v1.enums.MatchCompensationStandardUserIdTypeEnum userIdType) {
-               this.userIdType = userIdType.getValue();
-               return this;
-          }
+        public Builder userIdType(com.lark.oapi.service.corehr.v1.enums.MatchCompensationStandardUserIdTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
+            return this;
+        }
 
-    
+
         /**
          * 此次调用中使用的部门 ID 类型
          * <p> 示例值：
+         *
          * @param departmentIdType
          * @return
          */
-           public Builder departmentIdType(String departmentIdType) {
-                this.departmentIdType = departmentIdType;
-                return this;
-           }
+        public Builder departmentIdType(String departmentIdType) {
+            this.departmentIdType = departmentIdType;
+            return this;
+        }
 
         /**
          * 此次调用中使用的部门 ID 类型
          * <p> 示例值：
+         *
          * @param departmentIdType {@link com.lark.oapi.service.corehr.v1.enums.MatchCompensationStandardDepartmentIdTypeEnum}
          * @return
          */
-          public Builder departmentIdType(com.lark.oapi.service.corehr.v1.enums.MatchCompensationStandardDepartmentIdTypeEnum departmentIdType) {
-               this.departmentIdType = departmentIdType.getValue();
-               return this;
-          }
+        public Builder departmentIdType(com.lark.oapi.service.corehr.v1.enums.MatchCompensationStandardDepartmentIdTypeEnum departmentIdType) {
+            this.departmentIdType = departmentIdType.getValue();
+            return this;
+        }
 
-    
+
         /**
          * 雇员ID
          * <p> 示例值：7124293751317038636
+         *
          * @param employmentId
          * @return
          */
-           public Builder employmentId(String employmentId) {
-                this.employmentId = employmentId;
-                return this;
-           }
+        public Builder employmentId(String employmentId) {
+            this.employmentId = employmentId;
+            return this;
+        }
 
-    
+
         /**
          * 薪资标准的关联对象，项目或者指标
          * <p> 示例值：
+         *
          * @param referenceObjectApi
          * @return
          */
-           public Builder referenceObjectApi(String referenceObjectApi) {
-                this.referenceObjectApi = referenceObjectApi;
-                return this;
-           }
+        public Builder referenceObjectApi(String referenceObjectApi) {
+            this.referenceObjectApi = referenceObjectApi;
+            return this;
+        }
 
         /**
          * 薪资标准的关联对象，项目或者指标
          * <p> 示例值：
+         *
          * @param referenceObjectApi {@link com.lark.oapi.service.corehr.v1.enums.MatchCompensationStandardReferenceObjectApiEnum}
          * @return
          */
-          public Builder referenceObjectApi(com.lark.oapi.service.corehr.v1.enums.MatchCompensationStandardReferenceObjectApiEnum referenceObjectApi) {
-               this.referenceObjectApi = referenceObjectApi.getValue();
-               return this;
-          }
+        public Builder referenceObjectApi(com.lark.oapi.service.corehr.v1.enums.MatchCompensationStandardReferenceObjectApiEnum referenceObjectApi) {
+            this.referenceObjectApi = referenceObjectApi.getValue();
+            return this;
+        }
 
-    
+
         /**
          * 薪资标准关联对象ID
          * <p> 示例值：7156853394442044972
+         *
          * @param referenceObjectId
          * @return
          */
-           public Builder referenceObjectId(String referenceObjectId) {
-                this.referenceObjectId = referenceObjectId;
-                return this;
-           }
+        public Builder referenceObjectId(String referenceObjectId) {
+            this.referenceObjectId = referenceObjectId;
+            return this;
+        }
 
-    
+
         /**
          * 部门ID
          * <p> 示例值：od-53899868dd0da32292a2d809f0518c8f
+         *
          * @param departmentId
          * @return
          */
-           public Builder departmentId(String departmentId) {
-                this.departmentId = departmentId;
-                return this;
-           }
+        public Builder departmentId(String departmentId) {
+            this.departmentId = departmentId;
+            return this;
+        }
 
-    
+
         /**
          * 工作地点ID
          * <p> 示例值：7094869485965870636
+         *
          * @param workLocationId
          * @return
          */
-           public Builder workLocationId(String workLocationId) {
-                this.workLocationId = workLocationId;
-                return this;
-           }
+        public Builder workLocationId(String workLocationId) {
+            this.workLocationId = workLocationId;
+            return this;
+        }
 
-    
+
         /**
          * 公司ID
          * <p> 示例值：7091599096804394540
+         *
          * @param companyId
          * @return
          */
-           public Builder companyId(String companyId) {
-                this.companyId = companyId;
-                return this;
-           }
+        public Builder companyId(String companyId) {
+            this.companyId = companyId;
+            return this;
+        }
 
-    
+
         /**
          * 职务序列ID
          * <p> 示例值：7039313681989502508
+         *
          * @param jobFamilyId
          * @return
          */
-           public Builder jobFamilyId(String jobFamilyId) {
-                this.jobFamilyId = jobFamilyId;
-                return this;
-           }
+        public Builder jobFamilyId(String jobFamilyId) {
+            this.jobFamilyId = jobFamilyId;
+            return this;
+        }
 
-    
+
         /**
          * 职务ID
          * <p> 示例值：7342883436321097257
+         *
          * @param jobId
          * @return
          */
-           public Builder jobId(String jobId) {
-                this.jobId = jobId;
-                return this;
-           }
+        public Builder jobId(String jobId) {
+            this.jobId = jobId;
+            return this;
+        }
 
-    
+
         /**
          * 职级ID
          * <p> 示例值：7086415175263258156
+         *
          * @param jobLevelId
          * @return
          */
-           public Builder jobLevelId(String jobLevelId) {
-                this.jobLevelId = jobLevelId;
-                return this;
-           }
+        public Builder jobLevelId(String jobLevelId) {
+            this.jobLevelId = jobLevelId;
+            return this;
+        }
 
-    
+
         /**
          * 人员类型ID
          * <p> 示例值：7039310401359775276
+         *
          * @param employeeTypeId
          * @return
          */
-           public Builder employeeTypeId(String employeeTypeId) {
-                this.employeeTypeId = employeeTypeId;
-                return this;
-           }
+        public Builder employeeTypeId(String employeeTypeId) {
+            this.employeeTypeId = employeeTypeId;
+            return this;
+        }
 
-    
+
         /**
          * 招聘类型
          * <p> 示例值：experienced_professionals
+         *
          * @param recruitmentType
          * @return
          */
-           public Builder recruitmentType(String recruitmentType) {
-                this.recruitmentType = recruitmentType;
-                return this;
-           }
+        public Builder recruitmentType(String recruitmentType) {
+            this.recruitmentType = recruitmentType;
+            return this;
+        }
 
         /**
          * 招聘类型
          * <p> 示例值：experienced_professionals
+         *
          * @param recruitmentType {@link com.lark.oapi.service.corehr.v1.enums.MatchCompensationStandardRecruitmentTypeEnum}
          * @return
          */
-          public Builder recruitmentType(com.lark.oapi.service.corehr.v1.enums.MatchCompensationStandardRecruitmentTypeEnum recruitmentType) {
-               this.recruitmentType = recruitmentType.getValue();
-               return this;
-          }
+        public Builder recruitmentType(com.lark.oapi.service.corehr.v1.enums.MatchCompensationStandardRecruitmentTypeEnum recruitmentType) {
+            this.recruitmentType = recruitmentType.getValue();
+            return this;
+        }
 
-    
+
         /**
          * 定调薪原因ID
          * <p> 示例值：6967639606963471117
+         *
          * @param cpstChangeReasonId
          * @return
          */
-           public Builder cpstChangeReasonId(String cpstChangeReasonId) {
-                this.cpstChangeReasonId = cpstChangeReasonId;
-                return this;
-           }
+        public Builder cpstChangeReasonId(String cpstChangeReasonId) {
+            this.cpstChangeReasonId = cpstChangeReasonId;
+            return this;
+        }
 
-    
+
         /**
          * 薪资方案ID
          * <p> 示例值：6967639606963471118
+         *
          * @param cpstPlanId
          * @return
          */
-           public Builder cpstPlanId(String cpstPlanId) {
-                this.cpstPlanId = cpstPlanId;
-                return this;
-           }
+        public Builder cpstPlanId(String cpstPlanId) {
+            this.cpstPlanId = cpstPlanId;
+            return this;
+        }
 
-    
+
         /**
          * 薪级薪等ID
          * <p> 示例值：6967639606963471119
+         *
          * @param cpstSalaryLevelId
          * @return
          */
-           public Builder cpstSalaryLevelId(String cpstSalaryLevelId) {
-                this.cpstSalaryLevelId = cpstSalaryLevelId;
-                return this;
-           }
+        public Builder cpstSalaryLevelId(String cpstSalaryLevelId) {
+            this.cpstSalaryLevelId = cpstSalaryLevelId;
+            return this;
+        }
 
-    
+
         /**
          * 生效时间
          * <p> 示例值：1660924800000
+         *
          * @param effectiveTime
          * @return
          */
-           public Builder effectiveTime(String effectiveTime) {
-                this.effectiveTime = effectiveTime;
-                return this;
-           }
+        public Builder effectiveTime(String effectiveTime) {
+            this.effectiveTime = effectiveTime;
+            return this;
+        }
 
-    
-    public MatchCompensationStandardReq build(){
-        return new MatchCompensationStandardReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public MatchCompensationStandardReq build() {
+            return new MatchCompensationStandardReq(this);
+        }
     }
 }

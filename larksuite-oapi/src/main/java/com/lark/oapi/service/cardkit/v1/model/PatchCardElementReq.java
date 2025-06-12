@@ -12,32 +12,61 @@
  */
 
 package com.lark.oapi.service.cardkit.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.cardkit.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class PatchCardElementReq {
-     /**
-      * 卡片ID
-      * <p> 示例值：7355439197428236291
-      */
+    /**
+     * 卡片ID
+     * <p> 示例值：7355439197428236291
+     */
     @Path
     @SerializedName("card_id")
     private String cardId;
-     /**
-      * 组件ID
-      * <p> 示例值：elem_63529372
-      */
+    /**
+     * 组件ID
+     * <p> 示例值：elem_63529372
+     */
     @Path
     @SerializedName("element_id")
     private String elementId;
+    @Body
+    private PatchCardElementReqBody body;
+
+    // builder 开始
+    public PatchCardElementReq() {
+    }
+
+    public PatchCardElementReq(Builder builder) {
+        /**
+         * 卡片ID
+         * <p> 示例值：7355439197428236291
+         */
+        this.cardId = builder.cardId;
+        /**
+         * 组件ID
+         * <p> 示例值：elem_63529372
+         */
+        this.elementId = builder.elementId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getCardId() {
         return this.cardId;
     }
@@ -54,9 +83,6 @@ public class PatchCardElementReq {
         this.elementId = elementId;
     }
 
-    @Body
-    private PatchCardElementReqBody body;
-
     public PatchCardElementReqBody getPatchCardElementReqBody() {
         return this.body;
     }
@@ -65,72 +91,53 @@ public class PatchCardElementReq {
         this.body = body;
     }
 
-// builder 开始
-  public PatchCardElementReq(){}
-
-  public PatchCardElementReq(Builder builder){
-     /**
-      * 卡片ID
-      * <p> 示例值：7355439197428236291
-      */
-       this.cardId = builder.cardId;
-     /**
-      * 组件ID
-      * <p> 示例值：elem_63529372
-      */
-       this.elementId = builder.elementId;
-        this.body = builder.body;
-  }
-
     public static class Builder {
-    
+
         private String cardId; // 卡片ID
         private String elementId; // 组件ID
+        private PatchCardElementReqBody body;
+
         /**
          * 卡片ID
          * <p> 示例值：7355439197428236291
+         *
          * @param cardId
          * @return
          */
-          public Builder cardId(String cardId) {
-               this.cardId = cardId;
-               return this;
-          }
+        public Builder cardId(String cardId) {
+            this.cardId = cardId;
+            return this;
+        }
 
-    
         /**
          * 组件ID
          * <p> 示例值：elem_63529372
+         *
          * @param elementId
          * @return
          */
-          public Builder elementId(String elementId) {
-               this.elementId = elementId;
-               return this;
-          }
+        public Builder elementId(String elementId) {
+            this.elementId = elementId;
+            return this;
+        }
 
-    
-        private PatchCardElementReqBody body;
-    
         public PatchCardElementReqBody getPatchCardElementReqBody() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder patchCardElementReqBody(PatchCardElementReqBody body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public PatchCardElementReq build(){
-        return new PatchCardElementReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public PatchCardElementReq build() {
+            return new PatchCardElementReq(this);
+        }
     }
 }

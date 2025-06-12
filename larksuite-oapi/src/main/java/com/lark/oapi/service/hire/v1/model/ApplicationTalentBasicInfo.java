@@ -12,102 +12,188 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ApplicationTalentBasicInfo {
-     /**
-      * 名字
-      * <p> 示例值：xx
-      */
+    /**
+     * 名字
+     * <p> 示例值：xx
+     */
     @SerializedName("name")
     private String name;
-     /**
-      * 手机
-      * <p> 示例值：xx
-      */
+    /**
+     * 手机
+     * <p> 示例值：xx
+     */
     @SerializedName("mobile")
     private String mobile;
-     /**
-      * 手机国家代码
-      * <p> 示例值：xx
-      */
+    /**
+     * 手机国家代码
+     * <p> 示例值：xx
+     */
     @SerializedName("mobile_country_code")
     private String mobileCountryCode;
-     /**
-      * 邮箱
-      * <p> 示例值：xx
-      */
+    /**
+     * 邮箱
+     * <p> 示例值：xx
+     */
     @SerializedName("email")
     private String email;
-     /**
-      * 工作年限
-      * <p> 示例值：1
-      */
+    /**
+     * 工作年限
+     * <p> 示例值：1
+     */
     @SerializedName("experience_years")
     private Integer experienceYears;
-     /**
-      * 年龄
-      * <p> 示例值：1
-      */
+    /**
+     * 年龄
+     * <p> 示例值：1
+     */
     @SerializedName("age")
     private Long age;
-     /**
-      * 国籍
-      * <p> 示例值：
-      */
+    /**
+     * 国籍
+     * <p> 示例值：
+     */
     @SerializedName("nationality")
     private Nationality nationality;
-     /**
-      * 性别
-      * <p> 示例值：1
-      */
+    /**
+     * 性别
+     * <p> 示例值：1
+     */
     @SerializedName("gender")
     private Integer gender;
-     /**
-      * 现居住城市
-      * <p> 示例值：
-      */
+    /**
+     * 现居住城市
+     * <p> 示例值：
+     */
     @SerializedName("current_city")
     private City currentCity;
-     /**
-      * 家乡所在城市
-      * <p> 示例值：
-      */
+    /**
+     * 家乡所在城市
+     * <p> 示例值：
+     */
     @SerializedName("hometown_city")
     private City hometownCity;
-     /**
-      * 首选城市
-      * <p> 示例值：
-      */
+    /**
+     * 首选城市
+     * <p> 示例值：
+     */
     @SerializedName("preferred_city_list")
     private City[] preferredCityList;
-     /**
-      * 手机国家代码
-      * <p> 示例值：1
-      */
+    /**
+     * 手机国家代码
+     * <p> 示例值：1
+     */
     @SerializedName("mobile_code")
     private String mobileCode;
-     /**
-      * 证件类型
-      * <p> 示例值：1
-      */
+    /**
+     * 证件类型
+     * <p> 示例值：1
+     */
     @SerializedName("identification_type")
     private Integer identificationType;
-     /**
-      * 证件号码
-      * <p> 示例值：1
-      */
+    /**
+     * 证件号码
+     * <p> 示例值：1
+     */
     @SerializedName("identification_number")
     private String identificationNumber;
+
+    // builder 开始
+    public ApplicationTalentBasicInfo() {
+    }
+
+    public ApplicationTalentBasicInfo(Builder builder) {
+        /**
+         * 名字
+         * <p> 示例值：xx
+         */
+        this.name = builder.name;
+        /**
+         * 手机
+         * <p> 示例值：xx
+         */
+        this.mobile = builder.mobile;
+        /**
+         * 手机国家代码
+         * <p> 示例值：xx
+         */
+        this.mobileCountryCode = builder.mobileCountryCode;
+        /**
+         * 邮箱
+         * <p> 示例值：xx
+         */
+        this.email = builder.email;
+        /**
+         * 工作年限
+         * <p> 示例值：1
+         */
+        this.experienceYears = builder.experienceYears;
+        /**
+         * 年龄
+         * <p> 示例值：1
+         */
+        this.age = builder.age;
+        /**
+         * 国籍
+         * <p> 示例值：
+         */
+        this.nationality = builder.nationality;
+        /**
+         * 性别
+         * <p> 示例值：1
+         */
+        this.gender = builder.gender;
+        /**
+         * 现居住城市
+         * <p> 示例值：
+         */
+        this.currentCity = builder.currentCity;
+        /**
+         * 家乡所在城市
+         * <p> 示例值：
+         */
+        this.hometownCity = builder.hometownCity;
+        /**
+         * 首选城市
+         * <p> 示例值：
+         */
+        this.preferredCityList = builder.preferredCityList;
+        /**
+         * 手机国家代码
+         * <p> 示例值：1
+         */
+        this.mobileCode = builder.mobileCode;
+        /**
+         * 证件类型
+         * <p> 示例值：1
+         */
+        this.identificationType = builder.identificationType;
+        /**
+         * 证件号码
+         * <p> 示例值：1
+         */
+        this.identificationNumber = builder.identificationNumber;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getName() {
         return this.name;
     }
@@ -220,343 +306,262 @@ public class ApplicationTalentBasicInfo {
         this.identificationNumber = identificationNumber;
     }
 
-
-// builder 开始
-  public ApplicationTalentBasicInfo(){}
-
-  public ApplicationTalentBasicInfo(Builder builder){
-         /**
-          * 名字
-          * <p> 示例值：xx
-          */
-      this.name = builder.name;
-         /**
-          * 手机
-          * <p> 示例值：xx
-          */
-      this.mobile = builder.mobile;
-         /**
-          * 手机国家代码
-          * <p> 示例值：xx
-          */
-      this.mobileCountryCode = builder.mobileCountryCode;
-         /**
-          * 邮箱
-          * <p> 示例值：xx
-          */
-      this.email = builder.email;
-         /**
-          * 工作年限
-          * <p> 示例值：1
-          */
-      this.experienceYears = builder.experienceYears;
-         /**
-          * 年龄
-          * <p> 示例值：1
-          */
-      this.age = builder.age;
-         /**
-          * 国籍
-          * <p> 示例值：
-          */
-      this.nationality = builder.nationality;
-         /**
-          * 性别
-          * <p> 示例值：1
-          */
-      this.gender = builder.gender;
-         /**
-          * 现居住城市
-          * <p> 示例值：
-          */
-      this.currentCity = builder.currentCity;
-         /**
-          * 家乡所在城市
-          * <p> 示例值：
-          */
-      this.hometownCity = builder.hometownCity;
-         /**
-          * 首选城市
-          * <p> 示例值：
-          */
-      this.preferredCityList = builder.preferredCityList;
-         /**
-          * 手机国家代码
-          * <p> 示例值：1
-          */
-      this.mobileCode = builder.mobileCode;
-         /**
-          * 证件类型
-          * <p> 示例值：1
-          */
-      this.identificationType = builder.identificationType;
-         /**
-          * 证件号码
-          * <p> 示例值：1
-          */
-      this.identificationNumber = builder.identificationNumber;
-  }
-
     public static class Builder {
-     /**
-      * 名字
-      * <p> 示例值：xx
-      */
+        /**
+         * 名字
+         * <p> 示例值：xx
+         */
         private String name;
-     /**
-      * 手机
-      * <p> 示例值：xx
-      */
+        /**
+         * 手机
+         * <p> 示例值：xx
+         */
         private String mobile;
-     /**
-      * 手机国家代码
-      * <p> 示例值：xx
-      */
+        /**
+         * 手机国家代码
+         * <p> 示例值：xx
+         */
         private String mobileCountryCode;
-     /**
-      * 邮箱
-      * <p> 示例值：xx
-      */
+        /**
+         * 邮箱
+         * <p> 示例值：xx
+         */
         private String email;
-     /**
-      * 工作年限
-      * <p> 示例值：1
-      */
+        /**
+         * 工作年限
+         * <p> 示例值：1
+         */
         private Integer experienceYears;
-     /**
-      * 年龄
-      * <p> 示例值：1
-      */
+        /**
+         * 年龄
+         * <p> 示例值：1
+         */
         private Long age;
-     /**
-      * 国籍
-      * <p> 示例值：
-      */
+        /**
+         * 国籍
+         * <p> 示例值：
+         */
         private Nationality nationality;
-     /**
-      * 性别
-      * <p> 示例值：1
-      */
+        /**
+         * 性别
+         * <p> 示例值：1
+         */
         private Integer gender;
-     /**
-      * 现居住城市
-      * <p> 示例值：
-      */
+        /**
+         * 现居住城市
+         * <p> 示例值：
+         */
         private City currentCity;
-     /**
-      * 家乡所在城市
-      * <p> 示例值：
-      */
+        /**
+         * 家乡所在城市
+         * <p> 示例值：
+         */
         private City hometownCity;
-     /**
-      * 首选城市
-      * <p> 示例值：
-      */
+        /**
+         * 首选城市
+         * <p> 示例值：
+         */
         private City[] preferredCityList;
-     /**
-      * 手机国家代码
-      * <p> 示例值：1
-      */
+        /**
+         * 手机国家代码
+         * <p> 示例值：1
+         */
         private String mobileCode;
-     /**
-      * 证件类型
-      * <p> 示例值：1
-      */
+        /**
+         * 证件类型
+         * <p> 示例值：1
+         */
         private Integer identificationType;
-     /**
-      * 证件号码
-      * <p> 示例值：1
-      */
+        /**
+         * 证件号码
+         * <p> 示例值：1
+         */
         private String identificationNumber;
 
         /**
          * 名字
          * <p> 示例值：xx
+         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 手机
          * <p> 示例值：xx
+         *
          * @param mobile
          * @return
          */
         public Builder mobile(String mobile) {
-             this.mobile = mobile;
-             return this;
+            this.mobile = mobile;
+            return this;
         }
 
-    
 
         /**
          * 手机国家代码
          * <p> 示例值：xx
+         *
          * @param mobileCountryCode
          * @return
          */
         public Builder mobileCountryCode(String mobileCountryCode) {
-             this.mobileCountryCode = mobileCountryCode;
-             return this;
+            this.mobileCountryCode = mobileCountryCode;
+            return this;
         }
 
-    
 
         /**
          * 邮箱
          * <p> 示例值：xx
+         *
          * @param email
          * @return
          */
         public Builder email(String email) {
-             this.email = email;
-             return this;
+            this.email = email;
+            return this;
         }
 
-    
 
         /**
          * 工作年限
          * <p> 示例值：1
+         *
          * @param experienceYears
          * @return
          */
         public Builder experienceYears(Integer experienceYears) {
-             this.experienceYears = experienceYears;
-             return this;
+            this.experienceYears = experienceYears;
+            return this;
         }
 
-    
 
         /**
          * 年龄
          * <p> 示例值：1
+         *
          * @param age
          * @return
          */
         public Builder age(Long age) {
-             this.age = age;
-             return this;
+            this.age = age;
+            return this;
         }
 
-    
 
         /**
          * 国籍
          * <p> 示例值：
+         *
          * @param nationality
          * @return
          */
         public Builder nationality(Nationality nationality) {
-             this.nationality = nationality;
-             return this;
+            this.nationality = nationality;
+            return this;
         }
 
-    
 
         /**
          * 性别
          * <p> 示例值：1
+         *
          * @param gender
          * @return
          */
         public Builder gender(Integer gender) {
-             this.gender = gender;
-             return this;
+            this.gender = gender;
+            return this;
         }
 
-    
 
         /**
          * 现居住城市
          * <p> 示例值：
+         *
          * @param currentCity
          * @return
          */
         public Builder currentCity(City currentCity) {
-             this.currentCity = currentCity;
-             return this;
+            this.currentCity = currentCity;
+            return this;
         }
 
-    
 
         /**
          * 家乡所在城市
          * <p> 示例值：
+         *
          * @param hometownCity
          * @return
          */
         public Builder hometownCity(City hometownCity) {
-             this.hometownCity = hometownCity;
-             return this;
+            this.hometownCity = hometownCity;
+            return this;
         }
 
-    
 
         /**
          * 首选城市
          * <p> 示例值：
+         *
          * @param preferredCityList
          * @return
          */
         public Builder preferredCityList(City[] preferredCityList) {
-             this.preferredCityList = preferredCityList;
-             return this;
+            this.preferredCityList = preferredCityList;
+            return this;
         }
 
-    
 
         /**
          * 手机国家代码
          * <p> 示例值：1
+         *
          * @param mobileCode
          * @return
          */
         public Builder mobileCode(String mobileCode) {
-             this.mobileCode = mobileCode;
-             return this;
+            this.mobileCode = mobileCode;
+            return this;
         }
 
-    
 
         /**
          * 证件类型
          * <p> 示例值：1
+         *
          * @param identificationType
          * @return
          */
         public Builder identificationType(Integer identificationType) {
-             this.identificationType = identificationType;
-             return this;
+            this.identificationType = identificationType;
+            return this;
         }
 
-    
 
         /**
          * 证件号码
          * <p> 示例值：1
+         *
          * @param identificationNumber
          * @return
          */
         public Builder identificationNumber(String identificationNumber) {
-             this.identificationNumber = identificationNumber;
-             return this;
+            this.identificationNumber = identificationNumber;
+            return this;
         }
 
-    
-    
-    public ApplicationTalentBasicInfo build(){
-        return new ApplicationTalentBasicInfo(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ApplicationTalentBasicInfo build() {
+            return new ApplicationTalentBasicInfo(this);
+        }
     }
 }

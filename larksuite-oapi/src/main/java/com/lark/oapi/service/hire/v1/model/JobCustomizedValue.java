@@ -12,54 +12,100 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class JobCustomizedValue {
-     /**
-      * 当字段类型为单行文本、多行文本、模块、默认字段时，从此字段取值
-      * <p> 示例值：text
-      */
+    /**
+     * 当字段类型为单行文本、多行文本、模块、默认字段时，从此字段取值
+     * <p> 示例值：text
+     */
     @SerializedName("content")
     private String content;
-     /**
-      * 当字段类型为单选时，从此字段取值
-      * <p> 示例值：
-      */
+    /**
+     * 当字段类型为单选时，从此字段取值
+     * <p> 示例值：
+     */
     @SerializedName("option")
     private JobCustomizedOption option;
-     /**
-      * 当字段类型为多选时，从此字段取值
-      * <p> 示例值：
-      */
+    /**
+     * 当字段类型为多选时，从此字段取值
+     * <p> 示例值：
+     */
     @SerializedName("option_list")
     private JobCustomizedOption[] optionList;
-     /**
-      * 当字段类型为时间段时，从此字段取值
-      * <p> 示例值：
-      */
+    /**
+     * 当字段类型为时间段时，从此字段取值
+     * <p> 示例值：
+     */
     @SerializedName("time_range")
     private JobCustomizedTimeRange timeRange;
-     /**
-      * 当字段类型为日期选择、月份选择、年份选择时，从此字段取值，该字段是毫秒级时间戳
-      * <p> 示例值：1625456721000
-      */
+    /**
+     * 当字段类型为日期选择、月份选择、年份选择时，从此字段取值，该字段是毫秒级时间戳
+     * <p> 示例值：1625456721000
+     */
     @SerializedName("time")
     private String time;
-     /**
-      * 当字段类型为数字时，从此字段取值
-      * <p> 示例值：111
-      */
+    /**
+     * 当字段类型为数字时，从此字段取值
+     * <p> 示例值：111
+     */
     @SerializedName("number")
     private String number;
+
+    // builder 开始
+    public JobCustomizedValue() {
+    }
+
+    public JobCustomizedValue(Builder builder) {
+        /**
+         * 当字段类型为单行文本、多行文本、模块、默认字段时，从此字段取值
+         * <p> 示例值：text
+         */
+        this.content = builder.content;
+        /**
+         * 当字段类型为单选时，从此字段取值
+         * <p> 示例值：
+         */
+        this.option = builder.option;
+        /**
+         * 当字段类型为多选时，从此字段取值
+         * <p> 示例值：
+         */
+        this.optionList = builder.optionList;
+        /**
+         * 当字段类型为时间段时，从此字段取值
+         * <p> 示例值：
+         */
+        this.timeRange = builder.timeRange;
+        /**
+         * 当字段类型为日期选择、月份选择、年份选择时，从此字段取值，该字段是毫秒级时间戳
+         * <p> 示例值：1625456721000
+         */
+        this.time = builder.time;
+        /**
+         * 当字段类型为数字时，从此字段取值
+         * <p> 示例值：111
+         */
+        this.number = builder.number;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getContent() {
         return this.content;
     }
@@ -108,159 +154,118 @@ public class JobCustomizedValue {
         this.number = number;
     }
 
-
-// builder 开始
-  public JobCustomizedValue(){}
-
-  public JobCustomizedValue(Builder builder){
-         /**
-          * 当字段类型为单行文本、多行文本、模块、默认字段时，从此字段取值
-          * <p> 示例值：text
-          */
-      this.content = builder.content;
-         /**
-          * 当字段类型为单选时，从此字段取值
-          * <p> 示例值：
-          */
-      this.option = builder.option;
-         /**
-          * 当字段类型为多选时，从此字段取值
-          * <p> 示例值：
-          */
-      this.optionList = builder.optionList;
-         /**
-          * 当字段类型为时间段时，从此字段取值
-          * <p> 示例值：
-          */
-      this.timeRange = builder.timeRange;
-         /**
-          * 当字段类型为日期选择、月份选择、年份选择时，从此字段取值，该字段是毫秒级时间戳
-          * <p> 示例值：1625456721000
-          */
-      this.time = builder.time;
-         /**
-          * 当字段类型为数字时，从此字段取值
-          * <p> 示例值：111
-          */
-      this.number = builder.number;
-  }
-
     public static class Builder {
-     /**
-      * 当字段类型为单行文本、多行文本、模块、默认字段时，从此字段取值
-      * <p> 示例值：text
-      */
+        /**
+         * 当字段类型为单行文本、多行文本、模块、默认字段时，从此字段取值
+         * <p> 示例值：text
+         */
         private String content;
-     /**
-      * 当字段类型为单选时，从此字段取值
-      * <p> 示例值：
-      */
+        /**
+         * 当字段类型为单选时，从此字段取值
+         * <p> 示例值：
+         */
         private JobCustomizedOption option;
-     /**
-      * 当字段类型为多选时，从此字段取值
-      * <p> 示例值：
-      */
+        /**
+         * 当字段类型为多选时，从此字段取值
+         * <p> 示例值：
+         */
         private JobCustomizedOption[] optionList;
-     /**
-      * 当字段类型为时间段时，从此字段取值
-      * <p> 示例值：
-      */
+        /**
+         * 当字段类型为时间段时，从此字段取值
+         * <p> 示例值：
+         */
         private JobCustomizedTimeRange timeRange;
-     /**
-      * 当字段类型为日期选择、月份选择、年份选择时，从此字段取值，该字段是毫秒级时间戳
-      * <p> 示例值：1625456721000
-      */
+        /**
+         * 当字段类型为日期选择、月份选择、年份选择时，从此字段取值，该字段是毫秒级时间戳
+         * <p> 示例值：1625456721000
+         */
         private String time;
-     /**
-      * 当字段类型为数字时，从此字段取值
-      * <p> 示例值：111
-      */
+        /**
+         * 当字段类型为数字时，从此字段取值
+         * <p> 示例值：111
+         */
         private String number;
 
         /**
          * 当字段类型为单行文本、多行文本、模块、默认字段时，从此字段取值
          * <p> 示例值：text
+         *
          * @param content
          * @return
          */
         public Builder content(String content) {
-             this.content = content;
-             return this;
+            this.content = content;
+            return this;
         }
 
-    
 
         /**
          * 当字段类型为单选时，从此字段取值
          * <p> 示例值：
+         *
          * @param option
          * @return
          */
         public Builder option(JobCustomizedOption option) {
-             this.option = option;
-             return this;
+            this.option = option;
+            return this;
         }
 
-    
 
         /**
          * 当字段类型为多选时，从此字段取值
          * <p> 示例值：
+         *
          * @param optionList
          * @return
          */
         public Builder optionList(JobCustomizedOption[] optionList) {
-             this.optionList = optionList;
-             return this;
+            this.optionList = optionList;
+            return this;
         }
 
-    
 
         /**
          * 当字段类型为时间段时，从此字段取值
          * <p> 示例值：
+         *
          * @param timeRange
          * @return
          */
         public Builder timeRange(JobCustomizedTimeRange timeRange) {
-             this.timeRange = timeRange;
-             return this;
+            this.timeRange = timeRange;
+            return this;
         }
 
-    
 
         /**
          * 当字段类型为日期选择、月份选择、年份选择时，从此字段取值，该字段是毫秒级时间戳
          * <p> 示例值：1625456721000
+         *
          * @param time
          * @return
          */
         public Builder time(String time) {
-             this.time = time;
-             return this;
+            this.time = time;
+            return this;
         }
 
-    
 
         /**
          * 当字段类型为数字时，从此字段取值
          * <p> 示例值：111
+         *
          * @param number
          * @return
          */
         public Builder number(String number) {
-             this.number = number;
-             return this;
+            this.number = number;
+            return this;
         }
 
-    
-    
-    public JobCustomizedValue build(){
-        return new JobCustomizedValue(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public JobCustomizedValue build() {
+            return new JobCustomizedValue(this);
+        }
     }
 }

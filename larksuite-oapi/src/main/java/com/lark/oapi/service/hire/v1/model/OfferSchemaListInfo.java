@@ -12,24 +12,45 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class OfferSchemaListInfo {
-     /**
-      * offer申请表列表
-      * <p> 示例值：
-      */
+    /**
+     * offer申请表列表
+     * <p> 示例值：
+     */
     @SerializedName("schema_list")
     private OfferSchemaChild[] schemaList;
+
+    // builder 开始
+    public OfferSchemaListInfo() {
+    }
+
+    public OfferSchemaListInfo(Builder builder) {
+        /**
+         * offer申请表列表
+         * <p> 示例值：
+         */
+        this.schemaList = builder.schemaList;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public OfferSchemaChild[] getSchemaList() {
         return this.schemaList;
     }
@@ -38,44 +59,28 @@ public class OfferSchemaListInfo {
         this.schemaList = schemaList;
     }
 
-
-// builder 开始
-  public OfferSchemaListInfo(){}
-
-  public OfferSchemaListInfo(Builder builder){
-         /**
-          * offer申请表列表
-          * <p> 示例值：
-          */
-      this.schemaList = builder.schemaList;
-  }
-
     public static class Builder {
-     /**
-      * offer申请表列表
-      * <p> 示例值：
-      */
+        /**
+         * offer申请表列表
+         * <p> 示例值：
+         */
         private OfferSchemaChild[] schemaList;
 
         /**
          * offer申请表列表
          * <p> 示例值：
+         *
          * @param schemaList
          * @return
          */
         public Builder schemaList(OfferSchemaChild[] schemaList) {
-             this.schemaList = schemaList;
-             return this;
+            this.schemaList = schemaList;
+            return this;
         }
 
-    
-    
-    public OfferSchemaListInfo build(){
-        return new OfferSchemaListInfo(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public OfferSchemaListInfo build() {
+            return new OfferSchemaListInfo(this);
+        }
     }
 }

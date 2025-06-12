@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Operator {
-     /**
-      * 操作人ID
-      * <p> 示例值：ou_ff0b7ba35fb********67dfc8b885136
-      */
+    /**
+     * 操作人ID
+     * <p> 示例值：ou_ff0b7ba35fb********67dfc8b885136
+     */
     @SerializedName("operator_id")
     private String operatorId;
-     /**
-      * 操作人身份，用户或应用
-      * <p> 示例值：app/user
-      */
+    /**
+     * 操作人身份，用户或应用
+     * <p> 示例值：app/user
+     */
     @SerializedName("operator_type")
     private String operatorType;
+
+    // builder 开始
+    public Operator() {
+    }
+
+    public Operator(Builder builder) {
+        /**
+         * 操作人ID
+         * <p> 示例值：ou_ff0b7ba35fb********67dfc8b885136
+         */
+        this.operatorId = builder.operatorId;
+        /**
+         * 操作人身份，用户或应用
+         * <p> 示例值：app/user
+         */
+        this.operatorType = builder.operatorType;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getOperatorId() {
         return this.operatorId;
     }
@@ -53,77 +79,58 @@ public class Operator {
         this.operatorType = operatorType;
     }
 
-
-// builder 开始
-  public Operator(){}
-
-  public Operator(Builder builder){
-         /**
-          * 操作人ID
-          * <p> 示例值：ou_ff0b7ba35fb********67dfc8b885136
-          */
-      this.operatorId = builder.operatorId;
-         /**
-          * 操作人身份，用户或应用
-          * <p> 示例值：app/user
-          */
-      this.operatorType = builder.operatorType;
-  }
-
     public static class Builder {
-     /**
-      * 操作人ID
-      * <p> 示例值：ou_ff0b7ba35fb********67dfc8b885136
-      */
+        /**
+         * 操作人ID
+         * <p> 示例值：ou_ff0b7ba35fb********67dfc8b885136
+         */
         private String operatorId;
-     /**
-      * 操作人身份，用户或应用
-      * <p> 示例值：app/user
-      */
+        /**
+         * 操作人身份，用户或应用
+         * <p> 示例值：app/user
+         */
         private String operatorType;
 
         /**
          * 操作人ID
          * <p> 示例值：ou_ff0b7ba35fb********67dfc8b885136
+         *
          * @param operatorId
          * @return
          */
         public Builder operatorId(String operatorId) {
-             this.operatorId = operatorId;
-             return this;
+            this.operatorId = operatorId;
+            return this;
         }
 
-    
 
         /**
          * 操作人身份，用户或应用
          * <p> 示例值：app/user
+         *
          * @param operatorType
          * @return
          */
         public Builder operatorType(String operatorType) {
-             this.operatorType = operatorType;
-             return this;
+            this.operatorType = operatorType;
+            return this;
         }
+
         /**
          * 操作人身份，用户或应用
          * <p> 示例值：app/user
+         *
          * @param operatorType {@link com.lark.oapi.service.im.v1.enums.OperatorOperatorTypeEnum}
          * @return
          */
         public Builder operatorType(com.lark.oapi.service.im.v1.enums.OperatorOperatorTypeEnum operatorType) {
-             this.operatorType = operatorType.getValue();
-             return this;
+            this.operatorType = operatorType.getValue();
+            return this;
         }
 
-    
-    
-    public Operator build(){
-        return new Operator(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Operator build() {
+            return new Operator(this);
+        }
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.performance.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.performance.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class User {
-     /**
-      * 用户的 open_id
-      * <p> 示例值：od-asd2dasdasd
-      */
+    /**
+     * 用户的 open_id
+     * <p> 示例值：od-asd2dasdasd
+     */
     @SerializedName("open_id")
     private String openId;
-     /**
-      * 用户的 user_id，取值与user_id_type一致
-      * <p> 示例值：ou-ux987dsf6x
-      */
+    /**
+     * 用户的 user_id，取值与user_id_type一致
+     * <p> 示例值：ou-ux987dsf6x
+     */
     @SerializedName("user_id")
     private String userId;
+
+    // builder 开始
+    public User() {
+    }
+
+    public User(Builder builder) {
+        /**
+         * 用户的 open_id
+         * <p> 示例值：od-asd2dasdasd
+         */
+        this.openId = builder.openId;
+        /**
+         * 用户的 user_id，取值与user_id_type一致
+         * <p> 示例值：ou-ux987dsf6x
+         */
+        this.userId = builder.userId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getOpenId() {
         return this.openId;
     }
@@ -53,67 +79,46 @@ public class User {
         this.userId = userId;
     }
 
-
-// builder 开始
-  public User(){}
-
-  public User(Builder builder){
-         /**
-          * 用户的 open_id
-          * <p> 示例值：od-asd2dasdasd
-          */
-      this.openId = builder.openId;
-         /**
-          * 用户的 user_id，取值与user_id_type一致
-          * <p> 示例值：ou-ux987dsf6x
-          */
-      this.userId = builder.userId;
-  }
-
     public static class Builder {
-     /**
-      * 用户的 open_id
-      * <p> 示例值：od-asd2dasdasd
-      */
+        /**
+         * 用户的 open_id
+         * <p> 示例值：od-asd2dasdasd
+         */
         private String openId;
-     /**
-      * 用户的 user_id，取值与user_id_type一致
-      * <p> 示例值：ou-ux987dsf6x
-      */
+        /**
+         * 用户的 user_id，取值与user_id_type一致
+         * <p> 示例值：ou-ux987dsf6x
+         */
         private String userId;
 
         /**
          * 用户的 open_id
          * <p> 示例值：od-asd2dasdasd
+         *
          * @param openId
          * @return
          */
         public Builder openId(String openId) {
-             this.openId = openId;
-             return this;
+            this.openId = openId;
+            return this;
         }
 
-    
 
         /**
          * 用户的 user_id，取值与user_id_type一致
          * <p> 示例值：ou-ux987dsf6x
+         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-             this.userId = userId;
-             return this;
+            this.userId = userId;
+            return this;
         }
 
-    
-    
-    public User build(){
-        return new User(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public User build() {
+            return new User(this);
+        }
     }
 }

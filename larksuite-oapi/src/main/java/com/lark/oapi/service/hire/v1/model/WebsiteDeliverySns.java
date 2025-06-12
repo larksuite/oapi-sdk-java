@@ -12,36 +12,67 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class WebsiteDeliverySns {
-     /**
-      * 社交账号类型
-      * <p> 示例值：1
-      */
+    /**
+     * 社交账号类型
+     * <p> 示例值：1
+     */
     @SerializedName("sns_type")
     private Integer snsType;
-     /**
-      * 自定义字段
-      * <p> 示例值：
-      */
+    /**
+     * 自定义字段
+     * <p> 示例值：
+     */
     @SerializedName("customized_data")
     private WebsiteDeliveryCustomizedData[] customizedData;
-     /**
-      * 链接
-      * <p> 示例值：toutiao.com
-      */
+    /**
+     * 链接
+     * <p> 示例值：toutiao.com
+     */
     @SerializedName("link")
     private String link;
+
+    // builder 开始
+    public WebsiteDeliverySns() {
+    }
+
+    public WebsiteDeliverySns(Builder builder) {
+        /**
+         * 社交账号类型
+         * <p> 示例值：1
+         */
+        this.snsType = builder.snsType;
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
+        this.customizedData = builder.customizedData;
+        /**
+         * 链接
+         * <p> 示例值：toutiao.com
+         */
+        this.link = builder.link;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Integer getSnsType() {
         return this.snsType;
     }
@@ -66,90 +97,64 @@ public class WebsiteDeliverySns {
         this.link = link;
     }
 
-
-// builder 开始
-  public WebsiteDeliverySns(){}
-
-  public WebsiteDeliverySns(Builder builder){
-         /**
-          * 社交账号类型
-          * <p> 示例值：1
-          */
-      this.snsType = builder.snsType;
-         /**
-          * 自定义字段
-          * <p> 示例值：
-          */
-      this.customizedData = builder.customizedData;
-         /**
-          * 链接
-          * <p> 示例值：toutiao.com
-          */
-      this.link = builder.link;
-  }
-
     public static class Builder {
-     /**
-      * 社交账号类型
-      * <p> 示例值：1
-      */
+        /**
+         * 社交账号类型
+         * <p> 示例值：1
+         */
         private Integer snsType;
-     /**
-      * 自定义字段
-      * <p> 示例值：
-      */
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
         private WebsiteDeliveryCustomizedData[] customizedData;
-     /**
-      * 链接
-      * <p> 示例值：toutiao.com
-      */
+        /**
+         * 链接
+         * <p> 示例值：toutiao.com
+         */
         private String link;
 
         /**
          * 社交账号类型
          * <p> 示例值：1
+         *
          * @param snsType
          * @return
          */
         public Builder snsType(Integer snsType) {
-             this.snsType = snsType;
-             return this;
+            this.snsType = snsType;
+            return this;
         }
 
-    
 
         /**
          * 自定义字段
          * <p> 示例值：
+         *
          * @param customizedData
          * @return
          */
         public Builder customizedData(WebsiteDeliveryCustomizedData[] customizedData) {
-             this.customizedData = customizedData;
-             return this;
+            this.customizedData = customizedData;
+            return this;
         }
 
-    
 
         /**
          * 链接
          * <p> 示例值：toutiao.com
+         *
          * @param link
          * @return
          */
         public Builder link(String link) {
-             this.link = link;
-             return this;
+            this.link = link;
+            return this;
         }
 
-    
-    
-    public WebsiteDeliverySns build(){
-        return new WebsiteDeliverySns(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public WebsiteDeliverySns build() {
+            return new WebsiteDeliverySns(this);
+        }
     }
 }

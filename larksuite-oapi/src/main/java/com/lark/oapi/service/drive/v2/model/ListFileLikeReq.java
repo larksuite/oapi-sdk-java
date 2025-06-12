@@ -12,46 +12,94 @@
  */
 
 package com.lark.oapi.service.drive.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.drive.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ListFileLikeReq {
-     /**
-      * 文件类型，如果该值为空或者与文件实际类型不匹配，接口会返回失败。
-      * <p> 示例值：doc
-      */
+    /**
+     * 文件类型，如果该值为空或者与文件实际类型不匹配，接口会返回失败。
+     * <p> 示例值：doc
+     */
     @Query
     @SerializedName("file_type")
     private String fileType;
-     /**
-      * 分页大小
-      * <p> 示例值：10
-      */
+    /**
+     * 分页大小
+     * <p> 示例值：10
+     */
     @Query
     @SerializedName("page_size")
     private Integer pageSize;
-     /**
-      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-      * <p> 示例值：aw7DoMKBFMOGwqHCrcO8w6jCmMOvw6ILeADCvsKNw57Di8O5XGV3LG4_w5HCqhFxSnDCrCzCn0BgZcOYUg85EMOYcEAcwqYOw4ojw5QFwofCu8KoIMO3K8Ktw4IuNMOBBHNYw4bCgCV3U1zDu8K-J8KSR8Kgw7Y0fsKZdsKvW3d9w53DnkHDrcO5bDkYwrvDisOEPcOtVFJ-I03CnsOILMOoAmLDknd6dsKqG1bClAjDuS3CvcOTwo7Dg8OrwovDsRdqIcKxw5HDohTDtXN9w5rCkWo
-      */
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     * <p> 示例值：aw7DoMKBFMOGwqHCrcO8w6jCmMOvw6ILeADCvsKNw57Di8O5XGV3LG4_w5HCqhFxSnDCrCzCn0BgZcOYUg85EMOYcEAcwqYOw4ojw5QFwofCu8KoIMO3K8Ktw4IuNMOBBHNYw4bCgCV3U1zDu8K-J8KSR8Kgw7Y0fsKZdsKvW3d9w53DnkHDrcO5bDkYwrvDisOEPcOtVFJ-I03CnsOILMOoAmLDknd6dsKqG1bClAjDuS3CvcOTwo7Dg8OrwovDsRdqIcKxw5HDohTDtXN9w5rCkWo
+     */
     @Query
     @SerializedName("page_token")
     private String pageToken;
-     /**
-      * 此次调用中使用的用户ID的类型
-      * <p> 示例值：
-      */
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
+    /**
+     * 需要查询点赞列表的文件 token
+     * <p> 示例值：J6Lddz22AovnqkxWEXBcUJIingx
+     */
+    @Path
+    @SerializedName("file_token")
+    private String fileToken;
+
+    // builder 开始
+    public ListFileLikeReq() {
+    }
+
+    public ListFileLikeReq(Builder builder) {
+        /**
+         * 文件类型，如果该值为空或者与文件实际类型不匹配，接口会返回失败。
+         * <p> 示例值：doc
+         */
+        this.fileType = builder.fileType;
+        /**
+         * 分页大小
+         * <p> 示例值：10
+         */
+        this.pageSize = builder.pageSize;
+        /**
+         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+         * <p> 示例值：aw7DoMKBFMOGwqHCrcO8w6jCmMOvw6ILeADCvsKNw57Di8O5XGV3LG4_w5HCqhFxSnDCrCzCn0BgZcOYUg85EMOYcEAcwqYOw4ojw5QFwofCu8KoIMO3K8Ktw4IuNMOBBHNYw4bCgCV3U1zDu8K-J8KSR8Kgw7Y0fsKZdsKvW3d9w53DnkHDrcO5bDkYwrvDisOEPcOtVFJ-I03CnsOILMOoAmLDknd6dsKqG1bClAjDuS3CvcOTwo7Dg8OrwovDsRdqIcKxw5HDohTDtXN9w5rCkWo
+         */
+        this.pageToken = builder.pageToken;
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         */
+        this.userIdType = builder.userIdType;
+        /**
+         * 需要查询点赞列表的文件 token
+         * <p> 示例值：J6Lddz22AovnqkxWEXBcUJIingx
+         */
+        this.fileToken = builder.fileToken;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getFileType() {
         return this.fileType;
     }
@@ -84,13 +132,6 @@ public class ListFileLikeReq {
         this.userIdType = userIdType;
     }
 
-     /**
-      * 需要查询点赞列表的文件 token
-      * <p> 示例值：J6Lddz22AovnqkxWEXBcUJIingx
-      */
-    @Path
-    @SerializedName("file_token")
-    private String fileToken;
     public String getFileToken() {
         return this.fileToken;
     }
@@ -99,133 +140,100 @@ public class ListFileLikeReq {
         this.fileToken = fileToken;
     }
 
-
-// builder 开始
-  public ListFileLikeReq(){}
-
-  public ListFileLikeReq(Builder builder){
-         /**
-          * 文件类型，如果该值为空或者与文件实际类型不匹配，接口会返回失败。
-          * <p> 示例值：doc
-          */
-       this.fileType = builder.fileType;
-         /**
-          * 分页大小
-          * <p> 示例值：10
-          */
-       this.pageSize = builder.pageSize;
-         /**
-          * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-          * <p> 示例值：aw7DoMKBFMOGwqHCrcO8w6jCmMOvw6ILeADCvsKNw57Di8O5XGV3LG4_w5HCqhFxSnDCrCzCn0BgZcOYUg85EMOYcEAcwqYOw4ojw5QFwofCu8KoIMO3K8Ktw4IuNMOBBHNYw4bCgCV3U1zDu8K-J8KSR8Kgw7Y0fsKZdsKvW3d9w53DnkHDrcO5bDkYwrvDisOEPcOtVFJ-I03CnsOILMOoAmLDknd6dsKqG1bClAjDuS3CvcOTwo7Dg8OrwovDsRdqIcKxw5HDohTDtXN9w5rCkWo
-          */
-       this.pageToken = builder.pageToken;
-         /**
-          * 此次调用中使用的用户ID的类型
-          * <p> 示例值：
-          */
-       this.userIdType = builder.userIdType;
-     /**
-      * 需要查询点赞列表的文件 token
-      * <p> 示例值：J6Lddz22AovnqkxWEXBcUJIingx
-      */
-       this.fileToken = builder.fileToken;
-  }
-
     public static class Builder {
         private String fileType; // 文件类型，如果该值为空或者与文件实际类型不匹配，接口会返回失败。
         private Integer pageSize; // 分页大小
         private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
         private String userIdType; // 此次调用中使用的用户ID的类型
-    
+        private String fileToken; // 需要查询点赞列表的文件 token
+
         /**
          * 文件类型，如果该值为空或者与文件实际类型不匹配，接口会返回失败。
          * <p> 示例值：doc
+         *
          * @param fileType
          * @return
          */
-           public Builder fileType(String fileType) {
-                this.fileType = fileType;
-                return this;
-           }
+        public Builder fileType(String fileType) {
+            this.fileType = fileType;
+            return this;
+        }
 
         /**
          * 文件类型，如果该值为空或者与文件实际类型不匹配，接口会返回失败。
          * <p> 示例值：doc
+         *
          * @param fileType {@link com.lark.oapi.service.drive.v2.enums.ListFileLikeFileTypeEnum}
          * @return
          */
-          public Builder fileType(com.lark.oapi.service.drive.v2.enums.ListFileLikeFileTypeEnum fileType) {
-               this.fileType = fileType.getValue();
-               return this;
-          }
+        public Builder fileType(com.lark.oapi.service.drive.v2.enums.ListFileLikeFileTypeEnum fileType) {
+            this.fileType = fileType.getValue();
+            return this;
+        }
 
-    
         /**
          * 分页大小
          * <p> 示例值：10
+         *
          * @param pageSize
          * @return
          */
-           public Builder pageSize(Integer pageSize) {
-                this.pageSize = pageSize;
-                return this;
-           }
+        public Builder pageSize(Integer pageSize) {
+            this.pageSize = pageSize;
+            return this;
+        }
 
-    
         /**
          * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
          * <p> 示例值：aw7DoMKBFMOGwqHCrcO8w6jCmMOvw6ILeADCvsKNw57Di8O5XGV3LG4_w5HCqhFxSnDCrCzCn0BgZcOYUg85EMOYcEAcwqYOw4ojw5QFwofCu8KoIMO3K8Ktw4IuNMOBBHNYw4bCgCV3U1zDu8K-J8KSR8Kgw7Y0fsKZdsKvW3d9w53DnkHDrcO5bDkYwrvDisOEPcOtVFJ-I03CnsOILMOoAmLDknd6dsKqG1bClAjDuS3CvcOTwo7Dg8OrwovDsRdqIcKxw5HDohTDtXN9w5rCkWo
+         *
          * @param pageToken
          * @return
          */
-           public Builder pageToken(String pageToken) {
-                this.pageToken = pageToken;
-                return this;
-           }
+        public Builder pageToken(String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+        }
 
-    
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
+         *
          * @param userIdType
          * @return
          */
-           public Builder userIdType(String userIdType) {
-                this.userIdType = userIdType;
-                return this;
-           }
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
 
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
+         *
          * @param userIdType {@link com.lark.oapi.service.drive.v2.enums.ListFileLikeUserIdTypeEnum}
          * @return
          */
-          public Builder userIdType(com.lark.oapi.service.drive.v2.enums.ListFileLikeUserIdTypeEnum userIdType) {
-               this.userIdType = userIdType.getValue();
-               return this;
-          }
+        public Builder userIdType(com.lark.oapi.service.drive.v2.enums.ListFileLikeUserIdTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
+            return this;
+        }
 
-    
-        private String fileToken; // 需要查询点赞列表的文件 token
         /**
          * 需要查询点赞列表的文件 token
          * <p> 示例值：J6Lddz22AovnqkxWEXBcUJIingx
+         *
          * @param fileToken
          * @return
          */
-          public Builder fileToken(String fileToken) {
-               this.fileToken = fileToken;
-               return this;
-          }
+        public Builder fileToken(String fileToken) {
+            this.fileToken = fileToken;
+            return this;
+        }
 
-    
-    public ListFileLikeReq build(){
-        return new ListFileLikeReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ListFileLikeReq build() {
+            return new ListFileLikeReq(this);
+        }
     }
 }

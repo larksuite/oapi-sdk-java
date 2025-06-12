@@ -12,30 +12,56 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class SiteResumeSns {
-     /**
-      * 社交网站类型
-      * <p> 示例值：
-      */
+    /**
+     * 社交网站类型
+     * <p> 示例值：
+     */
     @SerializedName("sns_type")
     private String snsType;
-     /**
-      * 链接
-      * <p> 示例值：
-      */
+    /**
+     * 链接
+     * <p> 示例值：
+     */
     @SerializedName("link")
     private String link;
+
+    // builder 开始
+    public SiteResumeSns() {
+    }
+
+    public SiteResumeSns(Builder builder) {
+        /**
+         * 社交网站类型
+         * <p> 示例值：
+         */
+        this.snsType = builder.snsType;
+        /**
+         * 链接
+         * <p> 示例值：
+         */
+        this.link = builder.link;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getSnsType() {
         return this.snsType;
     }
@@ -52,67 +78,46 @@ public class SiteResumeSns {
         this.link = link;
     }
 
-
-// builder 开始
-  public SiteResumeSns(){}
-
-  public SiteResumeSns(Builder builder){
-         /**
-          * 社交网站类型
-          * <p> 示例值：
-          */
-      this.snsType = builder.snsType;
-         /**
-          * 链接
-          * <p> 示例值：
-          */
-      this.link = builder.link;
-  }
-
     public static class Builder {
-     /**
-      * 社交网站类型
-      * <p> 示例值：
-      */
+        /**
+         * 社交网站类型
+         * <p> 示例值：
+         */
         private String snsType;
-     /**
-      * 链接
-      * <p> 示例值：
-      */
+        /**
+         * 链接
+         * <p> 示例值：
+         */
         private String link;
 
         /**
          * 社交网站类型
          * <p> 示例值：
+         *
          * @param snsType
          * @return
          */
         public Builder snsType(String snsType) {
-             this.snsType = snsType;
-             return this;
+            this.snsType = snsType;
+            return this;
         }
 
-    
 
         /**
          * 链接
          * <p> 示例值：
+         *
          * @param link
          * @return
          */
         public Builder link(String link) {
-             this.link = link;
-             return this;
+            this.link = link;
+            return this;
         }
 
-    
-    
-    public SiteResumeSns build(){
-        return new SiteResumeSns(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public SiteResumeSns build() {
+            return new SiteResumeSns(this);
+        }
     }
 }

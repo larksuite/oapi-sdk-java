@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.mdm.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.mdm.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,54 +20,104 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class VendorAddress {
-     /**
-      * 交易方地址id
-      * <p> 示例值：1433488030078558209
-      */
+    /**
+     * 交易方地址id
+     * <p> 示例值：1433488030078558209
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 国家
-      * <p> 示例值：CN
-      */
+    /**
+     * 国家
+     * <p> 示例值：CN
+     */
     @SerializedName("country")
     private String country;
-     /**
-      * 省份
-      * <p> 示例值：MDPS00000001
-      */
+    /**
+     * 省份
+     * <p> 示例值：MDPS00000001
+     */
     @SerializedName("province")
     private String province;
-     /**
-      * 城市
-      * <p> 示例值：MDCY00000001
-      */
+    /**
+     * 城市
+     * <p> 示例值：MDCY00000001
+     */
     @SerializedName("city")
     private String city;
-     /**
-      * 县
-      * <p> 示例值：MDCA00002746
-      */
+    /**
+     * 县
+     * <p> 示例值：MDCA00002746
+     */
     @SerializedName("county")
     private String county;
-     /**
-      * 详细地址
-      * <p> 示例值：北京市海淀区苏州街
-      */
+    /**
+     * 详细地址
+     * <p> 示例值：北京市海淀区苏州街
+     */
     @SerializedName("address")
     private String address;
-     /**
-      * 扩展字段相关信息列表
-      * <p> 示例值：
-      */
+    /**
+     * 扩展字段相关信息列表
+     * <p> 示例值：
+     */
     @SerializedName("extend_info")
     private ExtendField[] extendInfo;
+
+    // builder 开始
+    public VendorAddress() {
+    }
+
+    public VendorAddress(Builder builder) {
+        /**
+         * 交易方地址id
+         * <p> 示例值：1433488030078558209
+         */
+        this.id = builder.id;
+        /**
+         * 国家
+         * <p> 示例值：CN
+         */
+        this.country = builder.country;
+        /**
+         * 省份
+         * <p> 示例值：MDPS00000001
+         */
+        this.province = builder.province;
+        /**
+         * 城市
+         * <p> 示例值：MDCY00000001
+         */
+        this.city = builder.city;
+        /**
+         * 县
+         * <p> 示例值：MDCA00002746
+         */
+        this.county = builder.county;
+        /**
+         * 详细地址
+         * <p> 示例值：北京市海淀区苏州街
+         */
+        this.address = builder.address;
+        /**
+         * 扩展字段相关信息列表
+         * <p> 示例值：
+         */
+        this.extendInfo = builder.extendInfo;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -123,182 +174,136 @@ public class VendorAddress {
         this.extendInfo = extendInfo;
     }
 
-
-// builder 开始
-  public VendorAddress(){}
-
-  public VendorAddress(Builder builder){
-         /**
-          * 交易方地址id
-          * <p> 示例值：1433488030078558209
-          */
-      this.id = builder.id;
-         /**
-          * 国家
-          * <p> 示例值：CN
-          */
-      this.country = builder.country;
-         /**
-          * 省份
-          * <p> 示例值：MDPS00000001
-          */
-      this.province = builder.province;
-         /**
-          * 城市
-          * <p> 示例值：MDCY00000001
-          */
-      this.city = builder.city;
-         /**
-          * 县
-          * <p> 示例值：MDCA00002746
-          */
-      this.county = builder.county;
-         /**
-          * 详细地址
-          * <p> 示例值：北京市海淀区苏州街
-          */
-      this.address = builder.address;
-         /**
-          * 扩展字段相关信息列表
-          * <p> 示例值：
-          */
-      this.extendInfo = builder.extendInfo;
-  }
-
     public static class Builder {
-     /**
-      * 交易方地址id
-      * <p> 示例值：1433488030078558209
-      */
+        /**
+         * 交易方地址id
+         * <p> 示例值：1433488030078558209
+         */
         private String id;
-     /**
-      * 国家
-      * <p> 示例值：CN
-      */
+        /**
+         * 国家
+         * <p> 示例值：CN
+         */
         private String country;
-     /**
-      * 省份
-      * <p> 示例值：MDPS00000001
-      */
+        /**
+         * 省份
+         * <p> 示例值：MDPS00000001
+         */
         private String province;
-     /**
-      * 城市
-      * <p> 示例值：MDCY00000001
-      */
+        /**
+         * 城市
+         * <p> 示例值：MDCY00000001
+         */
         private String city;
-     /**
-      * 县
-      * <p> 示例值：MDCA00002746
-      */
+        /**
+         * 县
+         * <p> 示例值：MDCA00002746
+         */
         private String county;
-     /**
-      * 详细地址
-      * <p> 示例值：北京市海淀区苏州街
-      */
+        /**
+         * 详细地址
+         * <p> 示例值：北京市海淀区苏州街
+         */
         private String address;
-     /**
-      * 扩展字段相关信息列表
-      * <p> 示例值：
-      */
+        /**
+         * 扩展字段相关信息列表
+         * <p> 示例值：
+         */
         private ExtendField[] extendInfo;
 
         /**
          * 交易方地址id
          * <p> 示例值：1433488030078558209
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 国家
          * <p> 示例值：CN
+         *
          * @param country
          * @return
          */
         public Builder country(String country) {
-             this.country = country;
-             return this;
+            this.country = country;
+            return this;
         }
 
-    
 
         /**
          * 省份
          * <p> 示例值：MDPS00000001
+         *
          * @param province
          * @return
          */
         public Builder province(String province) {
-             this.province = province;
-             return this;
+            this.province = province;
+            return this;
         }
 
-    
 
         /**
          * 城市
          * <p> 示例值：MDCY00000001
+         *
          * @param city
          * @return
          */
         public Builder city(String city) {
-             this.city = city;
-             return this;
+            this.city = city;
+            return this;
         }
 
-    
 
         /**
          * 县
          * <p> 示例值：MDCA00002746
+         *
          * @param county
          * @return
          */
         public Builder county(String county) {
-             this.county = county;
-             return this;
+            this.county = county;
+            return this;
         }
 
-    
 
         /**
          * 详细地址
          * <p> 示例值：北京市海淀区苏州街
+         *
          * @param address
          * @return
          */
         public Builder address(String address) {
-             this.address = address;
-             return this;
+            this.address = address;
+            return this;
         }
 
-    
 
         /**
          * 扩展字段相关信息列表
          * <p> 示例值：
+         *
          * @param extendInfo
          * @return
          */
         public Builder extendInfo(ExtendField[] extendInfo) {
-             this.extendInfo = extendInfo;
-             return this;
+            this.extendInfo = extendInfo;
+            return this;
         }
 
-    
-    
-    public VendorAddress build(){
-        return new VendorAddress(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public VendorAddress build() {
+            return new VendorAddress(this);
+        }
     }
 }

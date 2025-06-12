@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.calendar.v4.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.calendar.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CheckInTime {
-     /**
-      * (分钟)偏移量相对于的日程时间节点类型
-      * <p> 示例值：
-      */
+    /**
+     * (分钟)偏移量相对于的日程时间节点类型
+     * <p> 示例值：
+     */
     @SerializedName("time_type")
     private String timeType;
-     /**
-      * 相对于日程开始或者结束的偏移量(分钟)
-      * <p> 示例值：15
-      */
+    /**
+     * 相对于日程开始或者结束的偏移量(分钟)
+     * <p> 示例值：15
+     */
     @SerializedName("duration")
     private Integer duration;
+
+    // builder 开始
+    public CheckInTime() {
+    }
+
+    public CheckInTime(Builder builder) {
+        /**
+         * (分钟)偏移量相对于的日程时间节点类型
+         * <p> 示例值：
+         */
+        this.timeType = builder.timeType;
+        /**
+         * 相对于日程开始或者结束的偏移量(分钟)
+         * <p> 示例值：15
+         */
+        this.duration = builder.duration;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getTimeType() {
         return this.timeType;
     }
@@ -53,77 +79,58 @@ public class CheckInTime {
         this.duration = duration;
     }
 
-
-// builder 开始
-  public CheckInTime(){}
-
-  public CheckInTime(Builder builder){
-         /**
-          * (分钟)偏移量相对于的日程时间节点类型
-          * <p> 示例值：
-          */
-      this.timeType = builder.timeType;
-         /**
-          * 相对于日程开始或者结束的偏移量(分钟)
-          * <p> 示例值：15
-          */
-      this.duration = builder.duration;
-  }
-
     public static class Builder {
-     /**
-      * (分钟)偏移量相对于的日程时间节点类型
-      * <p> 示例值：
-      */
+        /**
+         * (分钟)偏移量相对于的日程时间节点类型
+         * <p> 示例值：
+         */
         private String timeType;
-     /**
-      * 相对于日程开始或者结束的偏移量(分钟)
-      * <p> 示例值：15
-      */
+        /**
+         * 相对于日程开始或者结束的偏移量(分钟)
+         * <p> 示例值：15
+         */
         private Integer duration;
 
         /**
          * (分钟)偏移量相对于的日程时间节点类型
          * <p> 示例值：
+         *
          * @param timeType
          * @return
          */
         public Builder timeType(String timeType) {
-             this.timeType = timeType;
-             return this;
+            this.timeType = timeType;
+            return this;
         }
+
         /**
          * (分钟)偏移量相对于的日程时间节点类型
          * <p> 示例值：
+         *
          * @param timeType {@link com.lark.oapi.service.calendar.v4.enums.CheckInTimeTimeTypeEnum}
          * @return
          */
         public Builder timeType(com.lark.oapi.service.calendar.v4.enums.CheckInTimeTimeTypeEnum timeType) {
-             this.timeType = timeType.getValue();
-             return this;
+            this.timeType = timeType.getValue();
+            return this;
         }
 
-    
 
         /**
          * 相对于日程开始或者结束的偏移量(分钟)
          * <p> 示例值：15
+         *
          * @param duration
          * @return
          */
         public Builder duration(Integer duration) {
-             this.duration = duration;
-             return this;
+            this.duration = duration;
+            return this;
         }
 
-    
-    
-    public CheckInTime build(){
-        return new CheckInTime(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public CheckInTime build() {
+            return new CheckInTime(this);
+        }
     }
 }

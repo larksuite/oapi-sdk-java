@@ -12,25 +12,61 @@
  */
 
 package com.lark.oapi.service.aily.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.aily.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CreateAppDataAssetReq {
-     /**
-      * 应用环境，默认为线上环境，dev代表开发环境，只支持dev
-      * <p> 示例值：dev
-      */
+    /**
+     * 应用环境，默认为线上环境，dev代表开发环境，只支持dev
+     * <p> 示例值：dev
+     */
     @Query
     @SerializedName("tenant_type")
     private String tenantType;
+    /**
+     * APPID
+     * <p> 示例值：spring_dfasdf__c
+     */
+    @Path
+    @SerializedName("app_id")
+    private String appId;
+    @Body
+    private CreateAppDataAssetReqBody body;
+
+    // builder 开始
+    public CreateAppDataAssetReq() {
+    }
+
+    public CreateAppDataAssetReq(Builder builder) {
+        /**
+         * 应用环境，默认为线上环境，dev代表开发环境，只支持dev
+         * <p> 示例值：dev
+         */
+        this.tenantType = builder.tenantType;
+        /**
+         * APPID
+         * <p> 示例值：spring_dfasdf__c
+         */
+        this.appId = builder.appId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getTenantType() {
         return this.tenantType;
     }
@@ -39,13 +75,6 @@ public class CreateAppDataAssetReq {
         this.tenantType = tenantType;
     }
 
-     /**
-      * APPID
-      * <p> 示例值：spring_dfasdf__c
-      */
-    @Path
-    @SerializedName("app_id")
-    private String appId;
     public String getAppId() {
         return this.appId;
     }
@@ -53,9 +82,6 @@ public class CreateAppDataAssetReq {
     public void setAppId(String appId) {
         this.appId = appId;
     }
-
-    @Body
-    private CreateAppDataAssetReqBody body;
 
     public CreateAppDataAssetReqBody getCreateAppDataAssetReqBody() {
         return this.body;
@@ -65,72 +91,52 @@ public class CreateAppDataAssetReq {
         this.body = body;
     }
 
-// builder 开始
-  public CreateAppDataAssetReq(){}
-
-  public CreateAppDataAssetReq(Builder builder){
-         /**
-          * 应用环境，默认为线上环境，dev代表开发环境，只支持dev
-          * <p> 示例值：dev
-          */
-       this.tenantType = builder.tenantType;
-     /**
-      * APPID
-      * <p> 示例值：spring_dfasdf__c
-      */
-       this.appId = builder.appId;
-        this.body = builder.body;
-  }
-
     public static class Builder {
         private String tenantType; // 应用环境，默认为线上环境，dev代表开发环境，只支持dev
-    
+        private String appId; // APPID
+        private CreateAppDataAssetReqBody body;
+
         /**
          * 应用环境，默认为线上环境，dev代表开发环境，只支持dev
          * <p> 示例值：dev
+         *
          * @param tenantType
          * @return
          */
-           public Builder tenantType(String tenantType) {
-                this.tenantType = tenantType;
-                return this;
-           }
+        public Builder tenantType(String tenantType) {
+            this.tenantType = tenantType;
+            return this;
+        }
 
-    
-        private String appId; // APPID
         /**
          * APPID
          * <p> 示例值：spring_dfasdf__c
+         *
          * @param appId
          * @return
          */
-          public Builder appId(String appId) {
-               this.appId = appId;
-               return this;
-          }
+        public Builder appId(String appId) {
+            this.appId = appId;
+            return this;
+        }
 
-    
-        private CreateAppDataAssetReqBody body;
-    
         public CreateAppDataAssetReqBody getCreateAppDataAssetReqBody() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder createAppDataAssetReqBody(CreateAppDataAssetReqBody body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public CreateAppDataAssetReq build(){
-        return new CreateAppDataAssetReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public CreateAppDataAssetReq build() {
+            return new CreateAppDataAssetReq(this);
+        }
     }
 }

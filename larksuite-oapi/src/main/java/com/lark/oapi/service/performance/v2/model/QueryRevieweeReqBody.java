@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.performance.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.performance.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class QueryRevieweeReqBody {
-     /**
-      * 周期 ID，1 次只允许查询 1 个周期，semester_id 可通过【获取周期】接口获得
-      * <p> 示例值：6992035450862224940
-      */
+    /**
+     * 周期 ID，1 次只允许查询 1 个周期，semester_id 可通过【获取周期】接口获得
+     * <p> 示例值：6992035450862224940
+     */
     @SerializedName("semester_id")
     private String semesterId;
-     /**
-      * 用户 ID，类型需要与查询参数中的user_id_type保持一致。不传则默认返回该周期所有被评估人的信息。
-      * <p> 示例值：
-      */
+    /**
+     * 用户 ID，类型需要与查询参数中的user_id_type保持一致。不传则默认返回该周期所有被评估人的信息。
+     * <p> 示例值：
+     */
     @SerializedName("user_ids")
     private String[] userIds;
-     /**
-      * 项目 ID 列表，查询指定的项目下的被评估人数据
-      * <p> 示例值：
-      */
+    /**
+     * 项目 ID 列表，查询指定的项目下的被评估人数据
+     * <p> 示例值：
+     */
     @SerializedName("activity_ids")
     private String[] activityIds;
+
+    // builder 开始
+    public QueryRevieweeReqBody() {
+    }
+
+    public QueryRevieweeReqBody(Builder builder) {
+        /**
+         * 周期 ID，1 次只允许查询 1 个周期，semester_id 可通过【获取周期】接口获得
+         * <p> 示例值：6992035450862224940
+         */
+        this.semesterId = builder.semesterId;
+        /**
+         * 用户 ID，类型需要与查询参数中的user_id_type保持一致。不传则默认返回该周期所有被评估人的信息。
+         * <p> 示例值：
+         */
+        this.userIds = builder.userIds;
+        /**
+         * 项目 ID 列表，查询指定的项目下的被评估人数据
+         * <p> 示例值：
+         */
+        this.activityIds = builder.activityIds;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getSemesterId() {
         return this.semesterId;
     }
@@ -67,90 +98,64 @@ public class QueryRevieweeReqBody {
         this.activityIds = activityIds;
     }
 
-
-// builder 开始
-  public QueryRevieweeReqBody(){}
-
-  public QueryRevieweeReqBody(Builder builder){
-         /**
-          * 周期 ID，1 次只允许查询 1 个周期，semester_id 可通过【获取周期】接口获得
-          * <p> 示例值：6992035450862224940
-          */
-      this.semesterId = builder.semesterId;
-         /**
-          * 用户 ID，类型需要与查询参数中的user_id_type保持一致。不传则默认返回该周期所有被评估人的信息。
-          * <p> 示例值：
-          */
-      this.userIds = builder.userIds;
-         /**
-          * 项目 ID 列表，查询指定的项目下的被评估人数据
-          * <p> 示例值：
-          */
-      this.activityIds = builder.activityIds;
-  }
-
     public static class Builder {
-     /**
-      * 周期 ID，1 次只允许查询 1 个周期，semester_id 可通过【获取周期】接口获得
-      * <p> 示例值：6992035450862224940
-      */
+        /**
+         * 周期 ID，1 次只允许查询 1 个周期，semester_id 可通过【获取周期】接口获得
+         * <p> 示例值：6992035450862224940
+         */
         private String semesterId;
-     /**
-      * 用户 ID，类型需要与查询参数中的user_id_type保持一致。不传则默认返回该周期所有被评估人的信息。
-      * <p> 示例值：
-      */
+        /**
+         * 用户 ID，类型需要与查询参数中的user_id_type保持一致。不传则默认返回该周期所有被评估人的信息。
+         * <p> 示例值：
+         */
         private String[] userIds;
-     /**
-      * 项目 ID 列表，查询指定的项目下的被评估人数据
-      * <p> 示例值：
-      */
+        /**
+         * 项目 ID 列表，查询指定的项目下的被评估人数据
+         * <p> 示例值：
+         */
         private String[] activityIds;
 
         /**
          * 周期 ID，1 次只允许查询 1 个周期，semester_id 可通过【获取周期】接口获得
          * <p> 示例值：6992035450862224940
+         *
          * @param semesterId
          * @return
          */
         public Builder semesterId(String semesterId) {
-             this.semesterId = semesterId;
-             return this;
+            this.semesterId = semesterId;
+            return this;
         }
 
-    
 
         /**
          * 用户 ID，类型需要与查询参数中的user_id_type保持一致。不传则默认返回该周期所有被评估人的信息。
          * <p> 示例值：
+         *
          * @param userIds
          * @return
          */
         public Builder userIds(String[] userIds) {
-             this.userIds = userIds;
-             return this;
+            this.userIds = userIds;
+            return this;
         }
 
-    
 
         /**
          * 项目 ID 列表，查询指定的项目下的被评估人数据
          * <p> 示例值：
+         *
          * @param activityIds
          * @return
          */
         public Builder activityIds(String[] activityIds) {
-             this.activityIds = activityIds;
-             return this;
+            this.activityIds = activityIds;
+            return this;
         }
 
-    
-    
-    public QueryRevieweeReqBody build(){
-        return new QueryRevieweeReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public QueryRevieweeReqBody build() {
+            return new QueryRevieweeReqBody(this);
+        }
     }
 }

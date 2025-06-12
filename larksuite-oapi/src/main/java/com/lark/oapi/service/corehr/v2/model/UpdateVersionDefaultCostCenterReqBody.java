@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class UpdateVersionDefaultCostCenterReqBody {
-     /**
-      * 员工雇佣 ID
-      * <p> 示例值：6862995757234914821
-      */
+    /**
+     * 员工雇佣 ID
+     * <p> 示例值：6862995757234914821
+     */
     @SerializedName("employment_id")
     private String employmentId;
-     /**
-      * 成本中心信息
-      * <p> 示例值：
-      */
+    /**
+     * 成本中心信息
+     * <p> 示例值：
+     */
     @SerializedName("default_cost_center")
     private EmploymentDefaultCostCenter defaultCostCenter;
+
+    // builder 开始
+    public UpdateVersionDefaultCostCenterReqBody() {
+    }
+
+    public UpdateVersionDefaultCostCenterReqBody(Builder builder) {
+        /**
+         * 员工雇佣 ID
+         * <p> 示例值：6862995757234914821
+         */
+        this.employmentId = builder.employmentId;
+        /**
+         * 成本中心信息
+         * <p> 示例值：
+         */
+        this.defaultCostCenter = builder.defaultCostCenter;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getEmploymentId() {
         return this.employmentId;
     }
@@ -53,67 +79,46 @@ public class UpdateVersionDefaultCostCenterReqBody {
         this.defaultCostCenter = defaultCostCenter;
     }
 
-
-// builder 开始
-  public UpdateVersionDefaultCostCenterReqBody(){}
-
-  public UpdateVersionDefaultCostCenterReqBody(Builder builder){
-         /**
-          * 员工雇佣 ID
-          * <p> 示例值：6862995757234914821
-          */
-      this.employmentId = builder.employmentId;
-         /**
-          * 成本中心信息
-          * <p> 示例值：
-          */
-      this.defaultCostCenter = builder.defaultCostCenter;
-  }
-
     public static class Builder {
-     /**
-      * 员工雇佣 ID
-      * <p> 示例值：6862995757234914821
-      */
+        /**
+         * 员工雇佣 ID
+         * <p> 示例值：6862995757234914821
+         */
         private String employmentId;
-     /**
-      * 成本中心信息
-      * <p> 示例值：
-      */
+        /**
+         * 成本中心信息
+         * <p> 示例值：
+         */
         private EmploymentDefaultCostCenter defaultCostCenter;
 
         /**
          * 员工雇佣 ID
          * <p> 示例值：6862995757234914821
+         *
          * @param employmentId
          * @return
          */
         public Builder employmentId(String employmentId) {
-             this.employmentId = employmentId;
-             return this;
+            this.employmentId = employmentId;
+            return this;
         }
 
-    
 
         /**
          * 成本中心信息
          * <p> 示例值：
+         *
          * @param defaultCostCenter
          * @return
          */
         public Builder defaultCostCenter(EmploymentDefaultCostCenter defaultCostCenter) {
-             this.defaultCostCenter = defaultCostCenter;
-             return this;
+            this.defaultCostCenter = defaultCostCenter;
+            return this;
         }
 
-    
-    
-    public UpdateVersionDefaultCostCenterReqBody build(){
-        return new UpdateVersionDefaultCostCenterReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public UpdateVersionDefaultCostCenterReqBody build() {
+            return new UpdateVersionDefaultCostCenterReqBody(this);
+        }
     }
 }

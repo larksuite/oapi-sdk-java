@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,48 +20,93 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ScopeGroup {
-     /**
-      * 类型： 1: 部门 2：人员 3:国家地区 4:员工类型 5:工作城市 6:职级 7:序列 8:职务（企业版）9:工时制度（企业版） 100:自定义字段（企业版）
-      * <p> 示例值：1
-      */
+    /**
+     * 类型： 1: 部门 2：人员 3:国家地区 4:员工类型 5:工作城市 6:职级 7:序列 8:职务（企业版）9:工时制度（企业版） 100:自定义字段（企业版）
+     * <p> 示例值：1
+     */
     @SerializedName("scope_value_type")
     private Integer scopeValueType;
-     /**
-      * 范围类型（是否包含）
-      * <p> 示例值：1
-      */
+    /**
+     * 范围类型（是否包含）
+     * <p> 示例值：1
+     */
     @SerializedName("operation_type")
     private Integer operationType;
-     /**
-      * 如果是人员/部门类型 不需要使用该字段
-      * <p> 示例值：
-      */
+    /**
+     * 如果是人员/部门类型 不需要使用该字段
+     * <p> 示例值：
+     */
     @SerializedName("right")
     private ScopeValue[] right;
-     /**
-      * 部门/人员id列表（具体类型根据scope_value_type判断）
-      * <p> 示例值：
-      */
+    /**
+     * 部门/人员id列表（具体类型根据scope_value_type判断）
+     * <p> 示例值：
+     */
     @SerializedName("member_ids")
     private String[] memberIds;
-     /**
-      * 企业版自定义字段唯一键 ID, 需要从飞书人事那边获取
-      * <p> 示例值：123213123
-      */
+    /**
+     * 企业版自定义字段唯一键 ID, 需要从飞书人事那边获取
+     * <p> 示例值：123213123
+     */
     @SerializedName("custom_field_ID")
     private String customFieldID;
-     /**
-      * 企业版自定义字段对象类型  "employment":主数据对象，员工雇佣信息 , "person":主数据对象，个人
-      * <p> 示例值：employment
-      */
+    /**
+     * 企业版自定义字段对象类型  "employment":主数据对象，员工雇佣信息 , "person":主数据对象，个人
+     * <p> 示例值：employment
+     */
     @SerializedName("custom_field_obj_type")
     private String customFieldObjType;
+
+    // builder 开始
+    public ScopeGroup() {
+    }
+
+    public ScopeGroup(Builder builder) {
+        /**
+         * 类型： 1: 部门 2：人员 3:国家地区 4:员工类型 5:工作城市 6:职级 7:序列 8:职务（企业版）9:工时制度（企业版） 100:自定义字段（企业版）
+         * <p> 示例值：1
+         */
+        this.scopeValueType = builder.scopeValueType;
+        /**
+         * 范围类型（是否包含）
+         * <p> 示例值：1
+         */
+        this.operationType = builder.operationType;
+        /**
+         * 如果是人员/部门类型 不需要使用该字段
+         * <p> 示例值：
+         */
+        this.right = builder.right;
+        /**
+         * 部门/人员id列表（具体类型根据scope_value_type判断）
+         * <p> 示例值：
+         */
+        this.memberIds = builder.memberIds;
+        /**
+         * 企业版自定义字段唯一键 ID, 需要从飞书人事那边获取
+         * <p> 示例值：123213123
+         */
+        this.customFieldID = builder.customFieldID;
+        /**
+         * 企业版自定义字段对象类型  "employment":主数据对象，员工雇佣信息 , "person":主数据对象，个人
+         * <p> 示例值：employment
+         */
+        this.customFieldObjType = builder.customFieldObjType;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Integer getScopeValueType() {
         return this.scopeValueType;
     }
@@ -109,159 +155,118 @@ public class ScopeGroup {
         this.customFieldObjType = customFieldObjType;
     }
 
-
-// builder 开始
-  public ScopeGroup(){}
-
-  public ScopeGroup(Builder builder){
-         /**
-          * 类型： 1: 部门 2：人员 3:国家地区 4:员工类型 5:工作城市 6:职级 7:序列 8:职务（企业版）9:工时制度（企业版） 100:自定义字段（企业版）
-          * <p> 示例值：1
-          */
-      this.scopeValueType = builder.scopeValueType;
-         /**
-          * 范围类型（是否包含）
-          * <p> 示例值：1
-          */
-      this.operationType = builder.operationType;
-         /**
-          * 如果是人员/部门类型 不需要使用该字段
-          * <p> 示例值：
-          */
-      this.right = builder.right;
-         /**
-          * 部门/人员id列表（具体类型根据scope_value_type判断）
-          * <p> 示例值：
-          */
-      this.memberIds = builder.memberIds;
-         /**
-          * 企业版自定义字段唯一键 ID, 需要从飞书人事那边获取
-          * <p> 示例值：123213123
-          */
-      this.customFieldID = builder.customFieldID;
-         /**
-          * 企业版自定义字段对象类型  "employment":主数据对象，员工雇佣信息 , "person":主数据对象，个人
-          * <p> 示例值：employment
-          */
-      this.customFieldObjType = builder.customFieldObjType;
-  }
-
     public static class Builder {
-     /**
-      * 类型： 1: 部门 2：人员 3:国家地区 4:员工类型 5:工作城市 6:职级 7:序列 8:职务（企业版）9:工时制度（企业版） 100:自定义字段（企业版）
-      * <p> 示例值：1
-      */
+        /**
+         * 类型： 1: 部门 2：人员 3:国家地区 4:员工类型 5:工作城市 6:职级 7:序列 8:职务（企业版）9:工时制度（企业版） 100:自定义字段（企业版）
+         * <p> 示例值：1
+         */
         private Integer scopeValueType;
-     /**
-      * 范围类型（是否包含）
-      * <p> 示例值：1
-      */
+        /**
+         * 范围类型（是否包含）
+         * <p> 示例值：1
+         */
         private Integer operationType;
-     /**
-      * 如果是人员/部门类型 不需要使用该字段
-      * <p> 示例值：
-      */
+        /**
+         * 如果是人员/部门类型 不需要使用该字段
+         * <p> 示例值：
+         */
         private ScopeValue[] right;
-     /**
-      * 部门/人员id列表（具体类型根据scope_value_type判断）
-      * <p> 示例值：
-      */
+        /**
+         * 部门/人员id列表（具体类型根据scope_value_type判断）
+         * <p> 示例值：
+         */
         private String[] memberIds;
-     /**
-      * 企业版自定义字段唯一键 ID, 需要从飞书人事那边获取
-      * <p> 示例值：123213123
-      */
+        /**
+         * 企业版自定义字段唯一键 ID, 需要从飞书人事那边获取
+         * <p> 示例值：123213123
+         */
         private String customFieldID;
-     /**
-      * 企业版自定义字段对象类型  "employment":主数据对象，员工雇佣信息 , "person":主数据对象，个人
-      * <p> 示例值：employment
-      */
+        /**
+         * 企业版自定义字段对象类型  "employment":主数据对象，员工雇佣信息 , "person":主数据对象，个人
+         * <p> 示例值：employment
+         */
         private String customFieldObjType;
 
         /**
          * 类型： 1: 部门 2：人员 3:国家地区 4:员工类型 5:工作城市 6:职级 7:序列 8:职务（企业版）9:工时制度（企业版） 100:自定义字段（企业版）
          * <p> 示例值：1
+         *
          * @param scopeValueType
          * @return
          */
         public Builder scopeValueType(Integer scopeValueType) {
-             this.scopeValueType = scopeValueType;
-             return this;
+            this.scopeValueType = scopeValueType;
+            return this;
         }
 
-    
 
         /**
          * 范围类型（是否包含）
          * <p> 示例值：1
+         *
          * @param operationType
          * @return
          */
         public Builder operationType(Integer operationType) {
-             this.operationType = operationType;
-             return this;
+            this.operationType = operationType;
+            return this;
         }
 
-    
 
         /**
          * 如果是人员/部门类型 不需要使用该字段
          * <p> 示例值：
+         *
          * @param right
          * @return
          */
         public Builder right(ScopeValue[] right) {
-             this.right = right;
-             return this;
+            this.right = right;
+            return this;
         }
 
-    
 
         /**
          * 部门/人员id列表（具体类型根据scope_value_type判断）
          * <p> 示例值：
+         *
          * @param memberIds
          * @return
          */
         public Builder memberIds(String[] memberIds) {
-             this.memberIds = memberIds;
-             return this;
+            this.memberIds = memberIds;
+            return this;
         }
 
-    
 
         /**
          * 企业版自定义字段唯一键 ID, 需要从飞书人事那边获取
          * <p> 示例值：123213123
+         *
          * @param customFieldID
          * @return
          */
         public Builder customFieldID(String customFieldID) {
-             this.customFieldID = customFieldID;
-             return this;
+            this.customFieldID = customFieldID;
+            return this;
         }
 
-    
 
         /**
          * 企业版自定义字段对象类型  "employment":主数据对象，员工雇佣信息 , "person":主数据对象，个人
          * <p> 示例值：employment
+         *
          * @param customFieldObjType
          * @return
          */
         public Builder customFieldObjType(String customFieldObjType) {
-             this.customFieldObjType = customFieldObjType;
-             return this;
+            this.customFieldObjType = customFieldObjType;
+            return this;
         }
 
-    
-    
-    public ScopeGroup build(){
-        return new ScopeGroup(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ScopeGroup build() {
+            return new ScopeGroup(this);
+        }
     }
 }

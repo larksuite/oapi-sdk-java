@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.admin.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.admin.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CreateBadgeImageReqBody {
-     /**
-      * 勋章图片的文件，仅支持 PNG 格式，320 x 320 像素，大小不超过 1024 KB。
-      * <p> 示例值：file binary
-      */
+    /**
+     * 勋章图片的文件，仅支持 PNG 格式，320 x 320 像素，大小不超过 1024 KB。
+     * <p> 示例值：file binary
+     */
     @SerializedName("image_file")
     private java.io.File imageFile;
-     /**
-      * 图片的类型
-      * <p> 示例值：1
-      */
+    /**
+     * 图片的类型
+     * <p> 示例值：1
+     */
     @SerializedName("image_type")
     private Integer imageType;
+
+    // builder 开始
+    public CreateBadgeImageReqBody() {
+    }
+
+    public CreateBadgeImageReqBody(Builder builder) {
+        /**
+         * 勋章图片的文件，仅支持 PNG 格式，320 x 320 像素，大小不超过 1024 KB。
+         * <p> 示例值：file binary
+         */
+        this.imageFile = builder.imageFile;
+        /**
+         * 图片的类型
+         * <p> 示例值：1
+         */
+        this.imageType = builder.imageType;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public java.io.File getImageFile() {
         return this.imageFile;
     }
@@ -53,77 +79,58 @@ public class CreateBadgeImageReqBody {
         this.imageType = imageType;
     }
 
-
-// builder 开始
-  public CreateBadgeImageReqBody(){}
-
-  public CreateBadgeImageReqBody(Builder builder){
-         /**
-          * 勋章图片的文件，仅支持 PNG 格式，320 x 320 像素，大小不超过 1024 KB。
-          * <p> 示例值：file binary
-          */
-      this.imageFile = builder.imageFile;
-         /**
-          * 图片的类型
-          * <p> 示例值：1
-          */
-      this.imageType = builder.imageType;
-  }
-
     public static class Builder {
-     /**
-      * 勋章图片的文件，仅支持 PNG 格式，320 x 320 像素，大小不超过 1024 KB。
-      * <p> 示例值：file binary
-      */
+        /**
+         * 勋章图片的文件，仅支持 PNG 格式，320 x 320 像素，大小不超过 1024 KB。
+         * <p> 示例值：file binary
+         */
         private java.io.File imageFile;
-     /**
-      * 图片的类型
-      * <p> 示例值：1
-      */
+        /**
+         * 图片的类型
+         * <p> 示例值：1
+         */
         private Integer imageType;
 
         /**
          * 勋章图片的文件，仅支持 PNG 格式，320 x 320 像素，大小不超过 1024 KB。
          * <p> 示例值：file binary
+         *
          * @param imageFile
          * @return
          */
         public Builder imageFile(java.io.File imageFile) {
-             this.imageFile = imageFile;
-             return this;
+            this.imageFile = imageFile;
+            return this;
         }
 
-    
 
         /**
          * 图片的类型
          * <p> 示例值：1
+         *
          * @param imageType
          * @return
          */
         public Builder imageType(Integer imageType) {
-             this.imageType = imageType;
-             return this;
+            this.imageType = imageType;
+            return this;
         }
+
         /**
          * 图片的类型
          * <p> 示例值：1
+         *
          * @param imageType {@link com.lark.oapi.service.admin.v1.enums.CreateBadgeImageImageTypeEnum}
          * @return
          */
         public Builder imageType(com.lark.oapi.service.admin.v1.enums.CreateBadgeImageImageTypeEnum imageType) {
-             this.imageType = imageType.getValue();
-             return this;
+            this.imageType = imageType.getValue();
+            return this;
         }
 
-    
-    
-    public CreateBadgeImageReqBody build(){
-        return new CreateBadgeImageReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public CreateBadgeImageReqBody build() {
+            return new CreateBadgeImageReqBody(this);
+        }
     }
 }

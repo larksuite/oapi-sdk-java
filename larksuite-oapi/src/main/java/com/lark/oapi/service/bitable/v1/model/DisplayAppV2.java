@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,36 +20,71 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class DisplayAppV2 {
-     /**
-      * 多维表格的 app_token
-      * <p> 示例值：
-      */
+    /**
+     * 多维表格的 app_token
+     * <p> 示例值：
+     */
     @SerializedName("app_token")
     private String appToken;
-     /**
-      * 多维表格的名字
-      * <p> 示例值：
-      */
+    /**
+     * 多维表格的名字
+     * <p> 示例值：
+     */
     @SerializedName("name")
     private String name;
-     /**
-      * 多维表格是否已开启高级权限
-      * <p> 示例值：
-      */
+    /**
+     * 多维表格是否已开启高级权限
+     * <p> 示例值：
+     */
     @SerializedName("is_advanced")
     private Boolean isAdvanced;
-     /**
-      * 文档时区
-      * <p> 示例值：
-      */
+    /**
+     * 文档时区
+     * <p> 示例值：
+     */
     @SerializedName("time_zone")
     private String timeZone;
+
+    // builder 开始
+    public DisplayAppV2() {
+    }
+
+    public DisplayAppV2(Builder builder) {
+        /**
+         * 多维表格的 app_token
+         * <p> 示例值：
+         */
+        this.appToken = builder.appToken;
+        /**
+         * 多维表格的名字
+         * <p> 示例值：
+         */
+        this.name = builder.name;
+        /**
+         * 多维表格是否已开启高级权限
+         * <p> 示例值：
+         */
+        this.isAdvanced = builder.isAdvanced;
+        /**
+         * 文档时区
+         * <p> 示例值：
+         */
+        this.timeZone = builder.timeZone;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getAppToken() {
         return this.appToken;
     }
@@ -81,113 +117,82 @@ public class DisplayAppV2 {
         this.timeZone = timeZone;
     }
 
-
-// builder 开始
-  public DisplayAppV2(){}
-
-  public DisplayAppV2(Builder builder){
-         /**
-          * 多维表格的 app_token
-          * <p> 示例值：
-          */
-      this.appToken = builder.appToken;
-         /**
-          * 多维表格的名字
-          * <p> 示例值：
-          */
-      this.name = builder.name;
-         /**
-          * 多维表格是否已开启高级权限
-          * <p> 示例值：
-          */
-      this.isAdvanced = builder.isAdvanced;
-         /**
-          * 文档时区
-          * <p> 示例值：
-          */
-      this.timeZone = builder.timeZone;
-  }
-
     public static class Builder {
-     /**
-      * 多维表格的 app_token
-      * <p> 示例值：
-      */
+        /**
+         * 多维表格的 app_token
+         * <p> 示例值：
+         */
         private String appToken;
-     /**
-      * 多维表格的名字
-      * <p> 示例值：
-      */
+        /**
+         * 多维表格的名字
+         * <p> 示例值：
+         */
         private String name;
-     /**
-      * 多维表格是否已开启高级权限
-      * <p> 示例值：
-      */
+        /**
+         * 多维表格是否已开启高级权限
+         * <p> 示例值：
+         */
         private Boolean isAdvanced;
-     /**
-      * 文档时区
-      * <p> 示例值：
-      */
+        /**
+         * 文档时区
+         * <p> 示例值：
+         */
         private String timeZone;
 
         /**
          * 多维表格的 app_token
          * <p> 示例值：
+         *
          * @param appToken
          * @return
          */
         public Builder appToken(String appToken) {
-             this.appToken = appToken;
-             return this;
+            this.appToken = appToken;
+            return this;
         }
 
-    
 
         /**
          * 多维表格的名字
          * <p> 示例值：
+         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 多维表格是否已开启高级权限
          * <p> 示例值：
+         *
          * @param isAdvanced
          * @return
          */
         public Builder isAdvanced(Boolean isAdvanced) {
-             this.isAdvanced = isAdvanced;
-             return this;
+            this.isAdvanced = isAdvanced;
+            return this;
         }
 
-    
 
         /**
          * 文档时区
          * <p> 示例值：
+         *
          * @param timeZone
          * @return
          */
         public Builder timeZone(String timeZone) {
-             this.timeZone = timeZone;
-             return this;
+            this.timeZone = timeZone;
+            return this;
         }
 
-    
-    
-    public DisplayAppV2 build(){
-        return new DisplayAppV2(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public DisplayAppV2 build() {
+            return new DisplayAppV2(this);
+        }
     }
 }

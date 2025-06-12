@@ -12,25 +12,61 @@
  */
 
 package com.lark.oapi.service.contact.v3.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class UpdateDepartmentIdDepartmentReq {
-     /**
-      * 此次调用中使用的部门ID的类型
-      * <p> 示例值：
-      */
+    /**
+     * 此次调用中使用的部门ID的类型
+     * <p> 示例值：
+     */
     @Query
     @SerializedName("department_id_type")
     private String departmentIdType;
+    /**
+     * 需要更新ID部门的ID
+     * <p> 示例值：
+     */
+    @Path
+    @SerializedName("department_id")
+    private String departmentId;
+    @Body
+    private UpdateDepartmentIdDepartmentReqBody body;
+
+    // builder 开始
+    public UpdateDepartmentIdDepartmentReq() {
+    }
+
+    public UpdateDepartmentIdDepartmentReq(Builder builder) {
+        /**
+         * 此次调用中使用的部门ID的类型
+         * <p> 示例值：
+         */
+        this.departmentIdType = builder.departmentIdType;
+        /**
+         * 需要更新ID部门的ID
+         * <p> 示例值：
+         */
+        this.departmentId = builder.departmentId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getDepartmentIdType() {
         return this.departmentIdType;
     }
@@ -39,13 +75,6 @@ public class UpdateDepartmentIdDepartmentReq {
         this.departmentIdType = departmentIdType;
     }
 
-     /**
-      * 需要更新ID部门的ID
-      * <p> 示例值：
-      */
-    @Path
-    @SerializedName("department_id")
-    private String departmentId;
     public String getDepartmentId() {
         return this.departmentId;
     }
@@ -53,9 +82,6 @@ public class UpdateDepartmentIdDepartmentReq {
     public void setDepartmentId(String departmentId) {
         this.departmentId = departmentId;
     }
-
-    @Body
-    private UpdateDepartmentIdDepartmentReqBody body;
 
     public UpdateDepartmentIdDepartmentReqBody getUpdateDepartmentIdDepartmentReqBody() {
         return this.body;
@@ -65,83 +91,64 @@ public class UpdateDepartmentIdDepartmentReq {
         this.body = body;
     }
 
-// builder 开始
-  public UpdateDepartmentIdDepartmentReq(){}
-
-  public UpdateDepartmentIdDepartmentReq(Builder builder){
-         /**
-          * 此次调用中使用的部门ID的类型
-          * <p> 示例值：
-          */
-       this.departmentIdType = builder.departmentIdType;
-     /**
-      * 需要更新ID部门的ID
-      * <p> 示例值：
-      */
-       this.departmentId = builder.departmentId;
-        this.body = builder.body;
-  }
-
     public static class Builder {
         private String departmentIdType; // 此次调用中使用的部门ID的类型
-    
+        private String departmentId; // 需要更新ID部门的ID
+        private UpdateDepartmentIdDepartmentReqBody body;
+
         /**
          * 此次调用中使用的部门ID的类型
          * <p> 示例值：
+         *
          * @param departmentIdType
          * @return
          */
-           public Builder departmentIdType(String departmentIdType) {
-                this.departmentIdType = departmentIdType;
-                return this;
-           }
+        public Builder departmentIdType(String departmentIdType) {
+            this.departmentIdType = departmentIdType;
+            return this;
+        }
 
         /**
          * 此次调用中使用的部门ID的类型
          * <p> 示例值：
+         *
          * @param departmentIdType {@link com.lark.oapi.service.contact.v3.enums.UpdateDepartmentIdDepartmentDepartmentIdTypeEnum}
          * @return
          */
-          public Builder departmentIdType(com.lark.oapi.service.contact.v3.enums.UpdateDepartmentIdDepartmentDepartmentIdTypeEnum departmentIdType) {
-               this.departmentIdType = departmentIdType.getValue();
-               return this;
-          }
+        public Builder departmentIdType(com.lark.oapi.service.contact.v3.enums.UpdateDepartmentIdDepartmentDepartmentIdTypeEnum departmentIdType) {
+            this.departmentIdType = departmentIdType.getValue();
+            return this;
+        }
 
-    
-        private String departmentId; // 需要更新ID部门的ID
         /**
          * 需要更新ID部门的ID
          * <p> 示例值：
+         *
          * @param departmentId
          * @return
          */
-          public Builder departmentId(String departmentId) {
-               this.departmentId = departmentId;
-               return this;
-          }
+        public Builder departmentId(String departmentId) {
+            this.departmentId = departmentId;
+            return this;
+        }
 
-    
-        private UpdateDepartmentIdDepartmentReqBody body;
-    
         public UpdateDepartmentIdDepartmentReqBody getUpdateDepartmentIdDepartmentReqBody() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder updateDepartmentIdDepartmentReqBody(UpdateDepartmentIdDepartmentReqBody body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public UpdateDepartmentIdDepartmentReq build(){
-        return new UpdateDepartmentIdDepartmentReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public UpdateDepartmentIdDepartmentReq build() {
+            return new UpdateDepartmentIdDepartmentReq(this);
+        }
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class UploadFinishMediaReqBody {
-     /**
-      * 分片上传事务ID
-      * <p> 示例值：7111211691345512356
-      */
+    /**
+     * 分片上传事务ID
+     * <p> 示例值：7111211691345512356
+     */
     @SerializedName("upload_id")
     private String uploadId;
-     /**
-      * 分片数量
-      * <p> 示例值：1
-      */
+    /**
+     * 分片数量
+     * <p> 示例值：1
+     */
     @SerializedName("block_num")
     private Integer blockNum;
+
+    // builder 开始
+    public UploadFinishMediaReqBody() {
+    }
+
+    public UploadFinishMediaReqBody(Builder builder) {
+        /**
+         * 分片上传事务ID
+         * <p> 示例值：7111211691345512356
+         */
+        this.uploadId = builder.uploadId;
+        /**
+         * 分片数量
+         * <p> 示例值：1
+         */
+        this.blockNum = builder.blockNum;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getUploadId() {
         return this.uploadId;
     }
@@ -53,67 +79,46 @@ public class UploadFinishMediaReqBody {
         this.blockNum = blockNum;
     }
 
-
-// builder 开始
-  public UploadFinishMediaReqBody(){}
-
-  public UploadFinishMediaReqBody(Builder builder){
-         /**
-          * 分片上传事务ID
-          * <p> 示例值：7111211691345512356
-          */
-      this.uploadId = builder.uploadId;
-         /**
-          * 分片数量
-          * <p> 示例值：1
-          */
-      this.blockNum = builder.blockNum;
-  }
-
     public static class Builder {
-     /**
-      * 分片上传事务ID
-      * <p> 示例值：7111211691345512356
-      */
+        /**
+         * 分片上传事务ID
+         * <p> 示例值：7111211691345512356
+         */
         private String uploadId;
-     /**
-      * 分片数量
-      * <p> 示例值：1
-      */
+        /**
+         * 分片数量
+         * <p> 示例值：1
+         */
         private Integer blockNum;
 
         /**
          * 分片上传事务ID
          * <p> 示例值：7111211691345512356
+         *
          * @param uploadId
          * @return
          */
         public Builder uploadId(String uploadId) {
-             this.uploadId = uploadId;
-             return this;
+            this.uploadId = uploadId;
+            return this;
         }
 
-    
 
         /**
          * 分片数量
          * <p> 示例值：1
+         *
          * @param blockNum
          * @return
          */
         public Builder blockNum(Integer blockNum) {
-             this.blockNum = blockNum;
-             return this;
+            this.blockNum = blockNum;
+            return this;
         }
 
-    
-    
-    public UploadFinishMediaReqBody build(){
-        return new UploadFinishMediaReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public UploadFinishMediaReqBody build() {
+            return new UploadFinishMediaReqBody(this);
+        }
     }
 }

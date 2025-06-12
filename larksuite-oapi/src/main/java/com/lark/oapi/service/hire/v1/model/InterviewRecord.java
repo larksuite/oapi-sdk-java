@@ -12,108 +12,199 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class InterviewRecord {
-     /**
-      * 面试记录 ID
-      * <p> 示例值：6949805467799537964
-      */
+    /**
+     * 面试记录 ID
+     * <p> 示例值：6949805467799537964
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 面试官用户 ID
-      * <p> 示例值：1618899376474
-      */
+    /**
+     * 面试官用户 ID
+     * <p> 示例值：1618899376474
+     */
     @SerializedName("user_id")
     private String userId;
-     /**
-      * 系统预设「记录」题目内容
-      * <p> 示例值：代码还行，只是不够聪明
-      */
+    /**
+     * 系统预设「记录」题目内容
+     * <p> 示例值：代码还行，只是不够聪明
+     */
     @SerializedName("content")
     private String content;
-     /**
-      * 建议定级下限的职级 ID
-      * <p> 示例值：6435238827342432
-      */
+    /**
+     * 建议定级下限的职级 ID
+     * <p> 示例值：6435238827342432
+     */
     @SerializedName("min_job_level_id")
     private String minJobLevelId;
-     /**
-      * 建议定级上限的职级 ID
-      * <p> 示例值：643523885843573
-      */
+    /**
+     * 建议定级上限的职级 ID
+     * <p> 示例值：643523885843573
+     */
     @SerializedName("max_job_level_id")
     private String maxJobLevelId;
-     /**
-      * 提交状态
-      * <p> 示例值：1
-      */
+    /**
+     * 提交状态
+     * <p> 示例值：1
+     */
     @SerializedName("commit_status")
     private Integer commitStatus;
-     /**
-      * 面试评价提交时间
-      * <p> 示例值：1659318415000
-      */
+    /**
+     * 面试评价提交时间
+     * <p> 示例值：1659318415000
+     */
     @SerializedName("feedback_submit_time")
     private Long feedbackSubmitTime;
-     /**
-      * 面试结论
-      * <p> 示例值：1
-      */
+    /**
+     * 面试结论
+     * <p> 示例值：1
+     */
     @SerializedName("conclusion")
     private Integer conclusion;
-     /**
-      * 面试评分
-      * <p> 示例值：
-      */
+    /**
+     * 面试评分
+     * <p> 示例值：
+     */
     @SerializedName("interview_score")
     private InterviewScore interviewScore;
-     /**
-      * 面评打分题分数
-      * <p> 示例值：
-      */
+    /**
+     * 面评打分题分数
+     * <p> 示例值：
+     */
     @SerializedName("assessment_score")
     private AssessmentScoreInfo assessmentScore;
-     /**
-      * 面试题目
-      * <p> 示例值：
-      */
+    /**
+     * 面试题目
+     * <p> 示例值：
+     */
     @SerializedName("question_list")
     private InterviewQuestion[] questionList;
-     /**
-      * 在线编程题目
-      * <p> 示例值：
-      */
+    /**
+     * 在线编程题目
+     * <p> 示例值：
+     */
     @SerializedName("code_question_list")
     private InterviewQuestion[] codeQuestionList;
-     /**
-      * 面试官信息
-      * <p> 示例值：
-      */
+    /**
+     * 面试官信息
+     * <p> 示例值：
+     */
     @SerializedName("interviewer")
     private IdNameObject interviewer;
-     /**
-      * 面试评价图片
-      * <p> 示例值：
-      */
+    /**
+     * 面试评价图片
+     * <p> 示例值：
+     */
     @SerializedName("image_list")
     private AttachmentV2[] imageList;
-     /**
-      * 面试评价
-      * <p> 示例值：
-      */
+    /**
+     * 面试评价
+     * <p> 示例值：
+     */
     @SerializedName("dimension_assessment_list")
     private InterviewDimensionAssessment[] dimensionAssessmentList;
+
+    // builder 开始
+    public InterviewRecord() {
+    }
+
+    public InterviewRecord(Builder builder) {
+        /**
+         * 面试记录 ID
+         * <p> 示例值：6949805467799537964
+         */
+        this.id = builder.id;
+        /**
+         * 面试官用户 ID
+         * <p> 示例值：1618899376474
+         */
+        this.userId = builder.userId;
+        /**
+         * 系统预设「记录」题目内容
+         * <p> 示例值：代码还行，只是不够聪明
+         */
+        this.content = builder.content;
+        /**
+         * 建议定级下限的职级 ID
+         * <p> 示例值：6435238827342432
+         */
+        this.minJobLevelId = builder.minJobLevelId;
+        /**
+         * 建议定级上限的职级 ID
+         * <p> 示例值：643523885843573
+         */
+        this.maxJobLevelId = builder.maxJobLevelId;
+        /**
+         * 提交状态
+         * <p> 示例值：1
+         */
+        this.commitStatus = builder.commitStatus;
+        /**
+         * 面试评价提交时间
+         * <p> 示例值：1659318415000
+         */
+        this.feedbackSubmitTime = builder.feedbackSubmitTime;
+        /**
+         * 面试结论
+         * <p> 示例值：1
+         */
+        this.conclusion = builder.conclusion;
+        /**
+         * 面试评分
+         * <p> 示例值：
+         */
+        this.interviewScore = builder.interviewScore;
+        /**
+         * 面评打分题分数
+         * <p> 示例值：
+         */
+        this.assessmentScore = builder.assessmentScore;
+        /**
+         * 面试题目
+         * <p> 示例值：
+         */
+        this.questionList = builder.questionList;
+        /**
+         * 在线编程题目
+         * <p> 示例值：
+         */
+        this.codeQuestionList = builder.codeQuestionList;
+        /**
+         * 面试官信息
+         * <p> 示例值：
+         */
+        this.interviewer = builder.interviewer;
+        /**
+         * 面试评价图片
+         * <p> 示例值：
+         */
+        this.imageList = builder.imageList;
+        /**
+         * 面试评价
+         * <p> 示例值：
+         */
+        this.dimensionAssessmentList = builder.dimensionAssessmentList;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -234,366 +325,280 @@ public class InterviewRecord {
         this.dimensionAssessmentList = dimensionAssessmentList;
     }
 
-
-// builder 开始
-  public InterviewRecord(){}
-
-  public InterviewRecord(Builder builder){
-         /**
-          * 面试记录 ID
-          * <p> 示例值：6949805467799537964
-          */
-      this.id = builder.id;
-         /**
-          * 面试官用户 ID
-          * <p> 示例值：1618899376474
-          */
-      this.userId = builder.userId;
-         /**
-          * 系统预设「记录」题目内容
-          * <p> 示例值：代码还行，只是不够聪明
-          */
-      this.content = builder.content;
-         /**
-          * 建议定级下限的职级 ID
-          * <p> 示例值：6435238827342432
-          */
-      this.minJobLevelId = builder.minJobLevelId;
-         /**
-          * 建议定级上限的职级 ID
-          * <p> 示例值：643523885843573
-          */
-      this.maxJobLevelId = builder.maxJobLevelId;
-         /**
-          * 提交状态
-          * <p> 示例值：1
-          */
-      this.commitStatus = builder.commitStatus;
-         /**
-          * 面试评价提交时间
-          * <p> 示例值：1659318415000
-          */
-      this.feedbackSubmitTime = builder.feedbackSubmitTime;
-         /**
-          * 面试结论
-          * <p> 示例值：1
-          */
-      this.conclusion = builder.conclusion;
-         /**
-          * 面试评分
-          * <p> 示例值：
-          */
-      this.interviewScore = builder.interviewScore;
-         /**
-          * 面评打分题分数
-          * <p> 示例值：
-          */
-      this.assessmentScore = builder.assessmentScore;
-         /**
-          * 面试题目
-          * <p> 示例值：
-          */
-      this.questionList = builder.questionList;
-         /**
-          * 在线编程题目
-          * <p> 示例值：
-          */
-      this.codeQuestionList = builder.codeQuestionList;
-         /**
-          * 面试官信息
-          * <p> 示例值：
-          */
-      this.interviewer = builder.interviewer;
-         /**
-          * 面试评价图片
-          * <p> 示例值：
-          */
-      this.imageList = builder.imageList;
-         /**
-          * 面试评价
-          * <p> 示例值：
-          */
-      this.dimensionAssessmentList = builder.dimensionAssessmentList;
-  }
-
     public static class Builder {
-     /**
-      * 面试记录 ID
-      * <p> 示例值：6949805467799537964
-      */
+        /**
+         * 面试记录 ID
+         * <p> 示例值：6949805467799537964
+         */
         private String id;
-     /**
-      * 面试官用户 ID
-      * <p> 示例值：1618899376474
-      */
+        /**
+         * 面试官用户 ID
+         * <p> 示例值：1618899376474
+         */
         private String userId;
-     /**
-      * 系统预设「记录」题目内容
-      * <p> 示例值：代码还行，只是不够聪明
-      */
+        /**
+         * 系统预设「记录」题目内容
+         * <p> 示例值：代码还行，只是不够聪明
+         */
         private String content;
-     /**
-      * 建议定级下限的职级 ID
-      * <p> 示例值：6435238827342432
-      */
+        /**
+         * 建议定级下限的职级 ID
+         * <p> 示例值：6435238827342432
+         */
         private String minJobLevelId;
-     /**
-      * 建议定级上限的职级 ID
-      * <p> 示例值：643523885843573
-      */
+        /**
+         * 建议定级上限的职级 ID
+         * <p> 示例值：643523885843573
+         */
         private String maxJobLevelId;
-     /**
-      * 提交状态
-      * <p> 示例值：1
-      */
+        /**
+         * 提交状态
+         * <p> 示例值：1
+         */
         private Integer commitStatus;
-     /**
-      * 面试评价提交时间
-      * <p> 示例值：1659318415000
-      */
+        /**
+         * 面试评价提交时间
+         * <p> 示例值：1659318415000
+         */
         private Long feedbackSubmitTime;
-     /**
-      * 面试结论
-      * <p> 示例值：1
-      */
+        /**
+         * 面试结论
+         * <p> 示例值：1
+         */
         private Integer conclusion;
-     /**
-      * 面试评分
-      * <p> 示例值：
-      */
+        /**
+         * 面试评分
+         * <p> 示例值：
+         */
         private InterviewScore interviewScore;
-     /**
-      * 面评打分题分数
-      * <p> 示例值：
-      */
+        /**
+         * 面评打分题分数
+         * <p> 示例值：
+         */
         private AssessmentScoreInfo assessmentScore;
-     /**
-      * 面试题目
-      * <p> 示例值：
-      */
+        /**
+         * 面试题目
+         * <p> 示例值：
+         */
         private InterviewQuestion[] questionList;
-     /**
-      * 在线编程题目
-      * <p> 示例值：
-      */
+        /**
+         * 在线编程题目
+         * <p> 示例值：
+         */
         private InterviewQuestion[] codeQuestionList;
-     /**
-      * 面试官信息
-      * <p> 示例值：
-      */
+        /**
+         * 面试官信息
+         * <p> 示例值：
+         */
         private IdNameObject interviewer;
-     /**
-      * 面试评价图片
-      * <p> 示例值：
-      */
+        /**
+         * 面试评价图片
+         * <p> 示例值：
+         */
         private AttachmentV2[] imageList;
-     /**
-      * 面试评价
-      * <p> 示例值：
-      */
+        /**
+         * 面试评价
+         * <p> 示例值：
+         */
         private InterviewDimensionAssessment[] dimensionAssessmentList;
 
         /**
          * 面试记录 ID
          * <p> 示例值：6949805467799537964
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 面试官用户 ID
          * <p> 示例值：1618899376474
+         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-             this.userId = userId;
-             return this;
+            this.userId = userId;
+            return this;
         }
 
-    
 
         /**
          * 系统预设「记录」题目内容
          * <p> 示例值：代码还行，只是不够聪明
+         *
          * @param content
          * @return
          */
         public Builder content(String content) {
-             this.content = content;
-             return this;
+            this.content = content;
+            return this;
         }
 
-    
 
         /**
          * 建议定级下限的职级 ID
          * <p> 示例值：6435238827342432
+         *
          * @param minJobLevelId
          * @return
          */
         public Builder minJobLevelId(String minJobLevelId) {
-             this.minJobLevelId = minJobLevelId;
-             return this;
+            this.minJobLevelId = minJobLevelId;
+            return this;
         }
 
-    
 
         /**
          * 建议定级上限的职级 ID
          * <p> 示例值：643523885843573
+         *
          * @param maxJobLevelId
          * @return
          */
         public Builder maxJobLevelId(String maxJobLevelId) {
-             this.maxJobLevelId = maxJobLevelId;
-             return this;
+            this.maxJobLevelId = maxJobLevelId;
+            return this;
         }
 
-    
 
         /**
          * 提交状态
          * <p> 示例值：1
+         *
          * @param commitStatus
          * @return
          */
         public Builder commitStatus(Integer commitStatus) {
-             this.commitStatus = commitStatus;
-             return this;
+            this.commitStatus = commitStatus;
+            return this;
         }
 
-    
 
         /**
          * 面试评价提交时间
          * <p> 示例值：1659318415000
+         *
          * @param feedbackSubmitTime
          * @return
          */
         public Builder feedbackSubmitTime(Long feedbackSubmitTime) {
-             this.feedbackSubmitTime = feedbackSubmitTime;
-             return this;
+            this.feedbackSubmitTime = feedbackSubmitTime;
+            return this;
         }
 
-    
 
         /**
          * 面试结论
          * <p> 示例值：1
+         *
          * @param conclusion
          * @return
          */
         public Builder conclusion(Integer conclusion) {
-             this.conclusion = conclusion;
-             return this;
+            this.conclusion = conclusion;
+            return this;
         }
 
-    
 
         /**
          * 面试评分
          * <p> 示例值：
+         *
          * @param interviewScore
          * @return
          */
         public Builder interviewScore(InterviewScore interviewScore) {
-             this.interviewScore = interviewScore;
-             return this;
+            this.interviewScore = interviewScore;
+            return this;
         }
 
-    
 
         /**
          * 面评打分题分数
          * <p> 示例值：
+         *
          * @param assessmentScore
          * @return
          */
         public Builder assessmentScore(AssessmentScoreInfo assessmentScore) {
-             this.assessmentScore = assessmentScore;
-             return this;
+            this.assessmentScore = assessmentScore;
+            return this;
         }
 
-    
 
         /**
          * 面试题目
          * <p> 示例值：
+         *
          * @param questionList
          * @return
          */
         public Builder questionList(InterviewQuestion[] questionList) {
-             this.questionList = questionList;
-             return this;
+            this.questionList = questionList;
+            return this;
         }
 
-    
 
         /**
          * 在线编程题目
          * <p> 示例值：
+         *
          * @param codeQuestionList
          * @return
          */
         public Builder codeQuestionList(InterviewQuestion[] codeQuestionList) {
-             this.codeQuestionList = codeQuestionList;
-             return this;
+            this.codeQuestionList = codeQuestionList;
+            return this;
         }
 
-    
 
         /**
          * 面试官信息
          * <p> 示例值：
+         *
          * @param interviewer
          * @return
          */
         public Builder interviewer(IdNameObject interviewer) {
-             this.interviewer = interviewer;
-             return this;
+            this.interviewer = interviewer;
+            return this;
         }
 
-    
 
         /**
          * 面试评价图片
          * <p> 示例值：
+         *
          * @param imageList
          * @return
          */
         public Builder imageList(AttachmentV2[] imageList) {
-             this.imageList = imageList;
-             return this;
+            this.imageList = imageList;
+            return this;
         }
 
-    
 
         /**
          * 面试评价
          * <p> 示例值：
+         *
          * @param dimensionAssessmentList
          * @return
          */
         public Builder dimensionAssessmentList(InterviewDimensionAssessment[] dimensionAssessmentList) {
-             this.dimensionAssessmentList = dimensionAssessmentList;
-             return this;
+            this.dimensionAssessmentList = dimensionAssessmentList;
+            return this;
         }
 
-    
-    
-    public InterviewRecord build(){
-        return new InterviewRecord(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public InterviewRecord build() {
+            return new InterviewRecord(this);
+        }
     }
 }

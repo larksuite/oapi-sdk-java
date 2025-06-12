@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,102 +20,192 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Contract {
-     /**
-      * 合同ID
-      * <p> 示例值：7147527056140813828
-      */
+    /**
+     * 合同ID
+     * <p> 示例值：7147527056140813828
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 合同开始日期
-      * <p> 示例值：2023-01-01 00:00:00
-      */
+    /**
+     * 合同开始日期
+     * <p> 示例值：2023-01-01 00:00:00
+     */
     @SerializedName("effective_time")
     private String effectiveTime;
-     /**
-      * 合同结束日期
-      * <p> 示例值：2024-01-01
-      */
+    /**
+     * 合同结束日期
+     * <p> 示例值：2024-01-01
+     */
     @SerializedName("contract_end_date")
     private String contractEndDate;
-     /**
-      * 实际结束日期
-      * <p> 示例值：2023-11-01 00:00:00
-      */
+    /**
+     * 实际结束日期
+     * <p> 示例值：2023-11-01 00:00:00
+     */
     @SerializedName("expiration_time")
     private String expirationTime;
-     /**
-      * 雇佣 ID
-      * <p> 示例值：6893014062142064135
-      */
+    /**
+     * 雇佣 ID
+     * <p> 示例值：6893014062142064135
+     */
     @SerializedName("employment_id")
     private String employmentId;
-     /**
-      * 合同类型，枚举值可通过文档【飞书人事枚举常量】合同类型（contract_type）枚举定义部分获得
-      * <p> 示例值：
-      */
+    /**
+     * 合同类型，枚举值可通过文档【飞书人事枚举常量】合同类型（contract_type）枚举定义部分获得
+     * <p> 示例值：
+     */
     @SerializedName("contract_type")
     private Enum contractType;
-     /**
-      * 合同主体, 引用Company的ID，枚举值及详细信息可通过【批量查询公司】接口查询获得
-      * <p> 示例值：7091599096804394540
-      */
+    /**
+     * 合同主体, 引用Company的ID，枚举值及详细信息可通过【批量查询公司】接口查询获得
+     * <p> 示例值：7091599096804394540
+     */
     @SerializedName("first_party_company_id")
     private String firstPartyCompanyId;
-     /**
-      * Person ID，枚举值及详细信息可通过【批量查询个人信息】接口查询获得
-      * <p> 示例值：7088589447189022252
-      */
+    /**
+     * Person ID，枚举值及详细信息可通过【批量查询个人信息】接口查询获得
+     * <p> 示例值：7088589447189022252
+     */
     @SerializedName("person_id")
     private String personId;
-     /**
-      * 期限类型，枚举值可通过文档【飞书人事枚举常量】合同期限类型（duration_type）枚举定义部分获得
-      * <p> 示例值：
-      */
+    /**
+     * 期限类型，枚举值可通过文档【飞书人事枚举常量】合同期限类型（duration_type）枚举定义部分获得
+     * <p> 示例值：
+     */
     @SerializedName("duration_type")
     private Enum durationType;
-     /**
-      * 合同编号
-      * <p> 示例值：0000011
-      */
+    /**
+     * 合同编号
+     * <p> 示例值：0000011
+     */
     @SerializedName("contract_number")
     private String contractNumber;
-     /**
-      * 签订类型，枚举值可通过文档【飞书人事枚举常量】签订类型（signing_type）枚举定义部分获得
-      * <p> 示例值：
-      */
+    /**
+     * 签订类型，枚举值可通过文档【飞书人事枚举常量】签订类型（signing_type）枚举定义部分获得
+     * <p> 示例值：
+     */
     @SerializedName("signing_type")
     private Enum signingType;
-     /**
-      * 合同协议状态，枚举值可通过文档【飞书人事枚举常量】合同协议状态（contract_status）枚举定义部分获得
-      * <p> 示例值：
-      */
+    /**
+     * 合同协议状态，枚举值可通过文档【飞书人事枚举常量】合同协议状态（contract_status）枚举定义部分获得
+     * <p> 示例值：
+     */
     @SerializedName("contract_status")
     private Enum contractStatus;
-     /**
-      * 续签状态，枚举值可通过文档【飞书人事枚举常量】续签状态（renewal_status）枚举定义部分获得
-      * <p> 示例值：
-      */
+    /**
+     * 续签状态，枚举值可通过文档【飞书人事枚举常量】续签状态（renewal_status）枚举定义部分获得
+     * <p> 示例值：
+     */
     @SerializedName("renewal_status")
     private Enum renewalStatus;
-     /**
-      * 第几次签署
-      * <p> 示例值：1
-      */
+    /**
+     * 第几次签署
+     * <p> 示例值：1
+     */
     @SerializedName("signing_times")
     private Integer signingTimes;
-     /**
-      * 原合同ID
-      * <p> 示例值：7147527056140813828
-      */
+    /**
+     * 原合同ID
+     * <p> 示例值：7147527056140813828
+     */
     @SerializedName("original_contract")
     private String originalContract;
+
+    // builder 开始
+    public Contract() {
+    }
+
+    public Contract(Builder builder) {
+        /**
+         * 合同ID
+         * <p> 示例值：7147527056140813828
+         */
+        this.id = builder.id;
+        /**
+         * 合同开始日期
+         * <p> 示例值：2023-01-01 00:00:00
+         */
+        this.effectiveTime = builder.effectiveTime;
+        /**
+         * 合同结束日期
+         * <p> 示例值：2024-01-01
+         */
+        this.contractEndDate = builder.contractEndDate;
+        /**
+         * 实际结束日期
+         * <p> 示例值：2023-11-01 00:00:00
+         */
+        this.expirationTime = builder.expirationTime;
+        /**
+         * 雇佣 ID
+         * <p> 示例值：6893014062142064135
+         */
+        this.employmentId = builder.employmentId;
+        /**
+         * 合同类型，枚举值可通过文档【飞书人事枚举常量】合同类型（contract_type）枚举定义部分获得
+         * <p> 示例值：
+         */
+        this.contractType = builder.contractType;
+        /**
+         * 合同主体, 引用Company的ID，枚举值及详细信息可通过【批量查询公司】接口查询获得
+         * <p> 示例值：7091599096804394540
+         */
+        this.firstPartyCompanyId = builder.firstPartyCompanyId;
+        /**
+         * Person ID，枚举值及详细信息可通过【批量查询个人信息】接口查询获得
+         * <p> 示例值：7088589447189022252
+         */
+        this.personId = builder.personId;
+        /**
+         * 期限类型，枚举值可通过文档【飞书人事枚举常量】合同期限类型（duration_type）枚举定义部分获得
+         * <p> 示例值：
+         */
+        this.durationType = builder.durationType;
+        /**
+         * 合同编号
+         * <p> 示例值：0000011
+         */
+        this.contractNumber = builder.contractNumber;
+        /**
+         * 签订类型，枚举值可通过文档【飞书人事枚举常量】签订类型（signing_type）枚举定义部分获得
+         * <p> 示例值：
+         */
+        this.signingType = builder.signingType;
+        /**
+         * 合同协议状态，枚举值可通过文档【飞书人事枚举常量】合同协议状态（contract_status）枚举定义部分获得
+         * <p> 示例值：
+         */
+        this.contractStatus = builder.contractStatus;
+        /**
+         * 续签状态，枚举值可通过文档【飞书人事枚举常量】续签状态（renewal_status）枚举定义部分获得
+         * <p> 示例值：
+         */
+        this.renewalStatus = builder.renewalStatus;
+        /**
+         * 第几次签署
+         * <p> 示例值：1
+         */
+        this.signingTimes = builder.signingTimes;
+        /**
+         * 原合同ID
+         * <p> 示例值：7147527056140813828
+         */
+        this.originalContract = builder.originalContract;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -235,366 +326,280 @@ public class Contract {
         this.originalContract = originalContract;
     }
 
-
-// builder 开始
-  public Contract(){}
-
-  public Contract(Builder builder){
-         /**
-          * 合同ID
-          * <p> 示例值：7147527056140813828
-          */
-      this.id = builder.id;
-         /**
-          * 合同开始日期
-          * <p> 示例值：2023-01-01 00:00:00
-          */
-      this.effectiveTime = builder.effectiveTime;
-         /**
-          * 合同结束日期
-          * <p> 示例值：2024-01-01
-          */
-      this.contractEndDate = builder.contractEndDate;
-         /**
-          * 实际结束日期
-          * <p> 示例值：2023-11-01 00:00:00
-          */
-      this.expirationTime = builder.expirationTime;
-         /**
-          * 雇佣 ID
-          * <p> 示例值：6893014062142064135
-          */
-      this.employmentId = builder.employmentId;
-         /**
-          * 合同类型，枚举值可通过文档【飞书人事枚举常量】合同类型（contract_type）枚举定义部分获得
-          * <p> 示例值：
-          */
-      this.contractType = builder.contractType;
-         /**
-          * 合同主体, 引用Company的ID，枚举值及详细信息可通过【批量查询公司】接口查询获得
-          * <p> 示例值：7091599096804394540
-          */
-      this.firstPartyCompanyId = builder.firstPartyCompanyId;
-         /**
-          * Person ID，枚举值及详细信息可通过【批量查询个人信息】接口查询获得
-          * <p> 示例值：7088589447189022252
-          */
-      this.personId = builder.personId;
-         /**
-          * 期限类型，枚举值可通过文档【飞书人事枚举常量】合同期限类型（duration_type）枚举定义部分获得
-          * <p> 示例值：
-          */
-      this.durationType = builder.durationType;
-         /**
-          * 合同编号
-          * <p> 示例值：0000011
-          */
-      this.contractNumber = builder.contractNumber;
-         /**
-          * 签订类型，枚举值可通过文档【飞书人事枚举常量】签订类型（signing_type）枚举定义部分获得
-          * <p> 示例值：
-          */
-      this.signingType = builder.signingType;
-         /**
-          * 合同协议状态，枚举值可通过文档【飞书人事枚举常量】合同协议状态（contract_status）枚举定义部分获得
-          * <p> 示例值：
-          */
-      this.contractStatus = builder.contractStatus;
-         /**
-          * 续签状态，枚举值可通过文档【飞书人事枚举常量】续签状态（renewal_status）枚举定义部分获得
-          * <p> 示例值：
-          */
-      this.renewalStatus = builder.renewalStatus;
-         /**
-          * 第几次签署
-          * <p> 示例值：1
-          */
-      this.signingTimes = builder.signingTimes;
-         /**
-          * 原合同ID
-          * <p> 示例值：7147527056140813828
-          */
-      this.originalContract = builder.originalContract;
-  }
-
     public static class Builder {
-     /**
-      * 合同ID
-      * <p> 示例值：7147527056140813828
-      */
+        /**
+         * 合同ID
+         * <p> 示例值：7147527056140813828
+         */
         private String id;
-     /**
-      * 合同开始日期
-      * <p> 示例值：2023-01-01 00:00:00
-      */
+        /**
+         * 合同开始日期
+         * <p> 示例值：2023-01-01 00:00:00
+         */
         private String effectiveTime;
-     /**
-      * 合同结束日期
-      * <p> 示例值：2024-01-01
-      */
+        /**
+         * 合同结束日期
+         * <p> 示例值：2024-01-01
+         */
         private String contractEndDate;
-     /**
-      * 实际结束日期
-      * <p> 示例值：2023-11-01 00:00:00
-      */
+        /**
+         * 实际结束日期
+         * <p> 示例值：2023-11-01 00:00:00
+         */
         private String expirationTime;
-     /**
-      * 雇佣 ID
-      * <p> 示例值：6893014062142064135
-      */
+        /**
+         * 雇佣 ID
+         * <p> 示例值：6893014062142064135
+         */
         private String employmentId;
-     /**
-      * 合同类型，枚举值可通过文档【飞书人事枚举常量】合同类型（contract_type）枚举定义部分获得
-      * <p> 示例值：
-      */
+        /**
+         * 合同类型，枚举值可通过文档【飞书人事枚举常量】合同类型（contract_type）枚举定义部分获得
+         * <p> 示例值：
+         */
         private Enum contractType;
-     /**
-      * 合同主体, 引用Company的ID，枚举值及详细信息可通过【批量查询公司】接口查询获得
-      * <p> 示例值：7091599096804394540
-      */
+        /**
+         * 合同主体, 引用Company的ID，枚举值及详细信息可通过【批量查询公司】接口查询获得
+         * <p> 示例值：7091599096804394540
+         */
         private String firstPartyCompanyId;
-     /**
-      * Person ID，枚举值及详细信息可通过【批量查询个人信息】接口查询获得
-      * <p> 示例值：7088589447189022252
-      */
+        /**
+         * Person ID，枚举值及详细信息可通过【批量查询个人信息】接口查询获得
+         * <p> 示例值：7088589447189022252
+         */
         private String personId;
-     /**
-      * 期限类型，枚举值可通过文档【飞书人事枚举常量】合同期限类型（duration_type）枚举定义部分获得
-      * <p> 示例值：
-      */
+        /**
+         * 期限类型，枚举值可通过文档【飞书人事枚举常量】合同期限类型（duration_type）枚举定义部分获得
+         * <p> 示例值：
+         */
         private Enum durationType;
-     /**
-      * 合同编号
-      * <p> 示例值：0000011
-      */
+        /**
+         * 合同编号
+         * <p> 示例值：0000011
+         */
         private String contractNumber;
-     /**
-      * 签订类型，枚举值可通过文档【飞书人事枚举常量】签订类型（signing_type）枚举定义部分获得
-      * <p> 示例值：
-      */
+        /**
+         * 签订类型，枚举值可通过文档【飞书人事枚举常量】签订类型（signing_type）枚举定义部分获得
+         * <p> 示例值：
+         */
         private Enum signingType;
-     /**
-      * 合同协议状态，枚举值可通过文档【飞书人事枚举常量】合同协议状态（contract_status）枚举定义部分获得
-      * <p> 示例值：
-      */
+        /**
+         * 合同协议状态，枚举值可通过文档【飞书人事枚举常量】合同协议状态（contract_status）枚举定义部分获得
+         * <p> 示例值：
+         */
         private Enum contractStatus;
-     /**
-      * 续签状态，枚举值可通过文档【飞书人事枚举常量】续签状态（renewal_status）枚举定义部分获得
-      * <p> 示例值：
-      */
+        /**
+         * 续签状态，枚举值可通过文档【飞书人事枚举常量】续签状态（renewal_status）枚举定义部分获得
+         * <p> 示例值：
+         */
         private Enum renewalStatus;
-     /**
-      * 第几次签署
-      * <p> 示例值：1
-      */
+        /**
+         * 第几次签署
+         * <p> 示例值：1
+         */
         private Integer signingTimes;
-     /**
-      * 原合同ID
-      * <p> 示例值：7147527056140813828
-      */
+        /**
+         * 原合同ID
+         * <p> 示例值：7147527056140813828
+         */
         private String originalContract;
 
         /**
          * 合同ID
          * <p> 示例值：7147527056140813828
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 合同开始日期
          * <p> 示例值：2023-01-01 00:00:00
+         *
          * @param effectiveTime
          * @return
          */
         public Builder effectiveTime(String effectiveTime) {
-             this.effectiveTime = effectiveTime;
-             return this;
+            this.effectiveTime = effectiveTime;
+            return this;
         }
 
-    
 
         /**
          * 合同结束日期
          * <p> 示例值：2024-01-01
+         *
          * @param contractEndDate
          * @return
          */
         public Builder contractEndDate(String contractEndDate) {
-             this.contractEndDate = contractEndDate;
-             return this;
+            this.contractEndDate = contractEndDate;
+            return this;
         }
 
-    
 
         /**
          * 实际结束日期
          * <p> 示例值：2023-11-01 00:00:00
+         *
          * @param expirationTime
          * @return
          */
         public Builder expirationTime(String expirationTime) {
-             this.expirationTime = expirationTime;
-             return this;
+            this.expirationTime = expirationTime;
+            return this;
         }
 
-    
 
         /**
          * 雇佣 ID
          * <p> 示例值：6893014062142064135
+         *
          * @param employmentId
          * @return
          */
         public Builder employmentId(String employmentId) {
-             this.employmentId = employmentId;
-             return this;
+            this.employmentId = employmentId;
+            return this;
         }
 
-    
 
         /**
          * 合同类型，枚举值可通过文档【飞书人事枚举常量】合同类型（contract_type）枚举定义部分获得
          * <p> 示例值：
+         *
          * @param contractType
          * @return
          */
         public Builder contractType(Enum contractType) {
-             this.contractType = contractType;
-             return this;
+            this.contractType = contractType;
+            return this;
         }
 
-    
 
         /**
          * 合同主体, 引用Company的ID，枚举值及详细信息可通过【批量查询公司】接口查询获得
          * <p> 示例值：7091599096804394540
+         *
          * @param firstPartyCompanyId
          * @return
          */
         public Builder firstPartyCompanyId(String firstPartyCompanyId) {
-             this.firstPartyCompanyId = firstPartyCompanyId;
-             return this;
+            this.firstPartyCompanyId = firstPartyCompanyId;
+            return this;
         }
 
-    
 
         /**
          * Person ID，枚举值及详细信息可通过【批量查询个人信息】接口查询获得
          * <p> 示例值：7088589447189022252
+         *
          * @param personId
          * @return
          */
         public Builder personId(String personId) {
-             this.personId = personId;
-             return this;
+            this.personId = personId;
+            return this;
         }
 
-    
 
         /**
          * 期限类型，枚举值可通过文档【飞书人事枚举常量】合同期限类型（duration_type）枚举定义部分获得
          * <p> 示例值：
+         *
          * @param durationType
          * @return
          */
         public Builder durationType(Enum durationType) {
-             this.durationType = durationType;
-             return this;
+            this.durationType = durationType;
+            return this;
         }
 
-    
 
         /**
          * 合同编号
          * <p> 示例值：0000011
+         *
          * @param contractNumber
          * @return
          */
         public Builder contractNumber(String contractNumber) {
-             this.contractNumber = contractNumber;
-             return this;
+            this.contractNumber = contractNumber;
+            return this;
         }
 
-    
 
         /**
          * 签订类型，枚举值可通过文档【飞书人事枚举常量】签订类型（signing_type）枚举定义部分获得
          * <p> 示例值：
+         *
          * @param signingType
          * @return
          */
         public Builder signingType(Enum signingType) {
-             this.signingType = signingType;
-             return this;
+            this.signingType = signingType;
+            return this;
         }
 
-    
 
         /**
          * 合同协议状态，枚举值可通过文档【飞书人事枚举常量】合同协议状态（contract_status）枚举定义部分获得
          * <p> 示例值：
+         *
          * @param contractStatus
          * @return
          */
         public Builder contractStatus(Enum contractStatus) {
-             this.contractStatus = contractStatus;
-             return this;
+            this.contractStatus = contractStatus;
+            return this;
         }
 
-    
 
         /**
          * 续签状态，枚举值可通过文档【飞书人事枚举常量】续签状态（renewal_status）枚举定义部分获得
          * <p> 示例值：
+         *
          * @param renewalStatus
          * @return
          */
         public Builder renewalStatus(Enum renewalStatus) {
-             this.renewalStatus = renewalStatus;
-             return this;
+            this.renewalStatus = renewalStatus;
+            return this;
         }
 
-    
 
         /**
          * 第几次签署
          * <p> 示例值：1
+         *
          * @param signingTimes
          * @return
          */
         public Builder signingTimes(Integer signingTimes) {
-             this.signingTimes = signingTimes;
-             return this;
+            this.signingTimes = signingTimes;
+            return this;
         }
 
-    
 
         /**
          * 原合同ID
          * <p> 示例值：7147527056140813828
+         *
          * @param originalContract
          * @return
          */
         public Builder originalContract(String originalContract) {
-             this.originalContract = originalContract;
-             return this;
+            this.originalContract = originalContract;
+            return this;
         }
 
-    
-    
-    public Contract build(){
-        return new Contract(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Contract build() {
+            return new Contract(this);
+        }
     }
 }

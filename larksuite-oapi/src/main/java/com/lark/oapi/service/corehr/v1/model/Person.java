@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,186 +20,346 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Person {
-     /**
-      * 个人手机号
-      * <p> 示例值：11111111111
-      */
+    /**
+     * 个人手机号
+     * <p> 示例值：11111111111
+     */
     @SerializedName("phone_number")
     private String phoneNumber;
-     /**
-      * 法定姓名
-      * <p> 示例值：张三
-      */
+    /**
+     * 法定姓名
+     * <p> 示例值：张三
+     */
     @SerializedName("legal_name")
     private String legalName;
-     /**
-      * 常用名
-      * <p> 示例值：张四
-      */
+    /**
+     * 常用名
+     * <p> 示例值：张四
+     */
     @SerializedName("preferred_name")
     private String preferredName;
-     /**
-      * Person ID
-      * <p> 示例值：646465654545
-      */
+    /**
+     * Person ID
+     * <p> 示例值：646465654545
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 姓名
-      * <p> 示例值：
-      */
+    /**
+     * 姓名
+     * <p> 示例值：
+     */
     @SerializedName("name_list")
     private PersonName[] nameList;
-     /**
-      * 性别，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)性别（gender）枚举定义部分获得
-      * <p> 示例值：
-      */
+    /**
+     * 性别，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)性别（gender）枚举定义部分获得
+     * <p> 示例值：
+     */
     @SerializedName("gender")
     private Enum gender;
-     /**
-      * 出生日期
-      * <p> 示例值：2020-01-01
-      */
+    /**
+     * 出生日期
+     * <p> 示例值：2020-01-01
+     */
     @SerializedName("date_of_birth")
     private String dateOfBirth;
-     /**
-      * 国籍id
-      * <p> 示例值：123456789
-      */
+    /**
+     * 国籍id
+     * <p> 示例值：123456789
+     */
     @SerializedName("nationality_id")
     private String nationalityId;
-     /**
-      * 国籍 ID，可通过【查询国籍信息】接口查询
-      * <p> 示例值：7075702732803278380
-      */
+    /**
+     * 国籍 ID，可通过【查询国籍信息】接口查询
+     * <p> 示例值：7075702732803278380
+     */
     @SerializedName("nationality_id_v2")
     private String nationalityIdV2;
-     /**
-      * 民族 / 种族，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)民族（race）枚举定义部分获得
-      * <p> 示例值：
-      */
+    /**
+     * 民族 / 种族，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)民族（race）枚举定义部分获得
+     * <p> 示例值：
+     */
     @SerializedName("race")
     private Enum race;
-     /**
-      * 婚姻状况，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)婚姻状况（marital_status）枚举定义部分获得
-      * <p> 示例值：
-      */
+    /**
+     * 婚姻状况，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)婚姻状况（marital_status）枚举定义部分获得
+     * <p> 示例值：
+     */
     @SerializedName("marital_status")
     private Enum maritalStatus;
-     /**
-      * 电话列表，只有当满足下面所有条件时，电话在个人信息页才可见:;- 电话号码不为空;- is_primary = "true" ;- phone_usage = "home"
-      * <p> 示例值：
-      */
+    /**
+     * 电话列表，只有当满足下面所有条件时，电话在个人信息页才可见:;- 电话号码不为空;- is_primary = "true" ;- phone_usage = "home"
+     * <p> 示例值：
+     */
     @SerializedName("phone_list")
     private Phone[] phoneList;
-     /**
-      * 地址列表
-      * <p> 示例值：
-      */
+    /**
+     * 地址列表
+     * <p> 示例值：
+     */
     @SerializedName("address_list")
     private Address[] addressList;
-     /**
-      * 邮箱列表
-      * <p> 示例值：
-      */
+    /**
+     * 邮箱列表
+     * <p> 示例值：
+     */
     @SerializedName("email_list")
     private Email[] emailList;
-     /**
-      * 工作履历列表
-      * <p> 示例值：
-      */
+    /**
+     * 工作履历列表
+     * <p> 示例值：
+     */
     @SerializedName("work_experience_list")
     private WorkExperience[] workExperienceList;
-     /**
-      * 教育经历列表
-      * <p> 示例值：
-      */
+    /**
+     * 教育经历列表
+     * <p> 示例值：
+     */
     @SerializedName("education_list")
     private Education[] educationList;
-     /**
-      * 银行账号
-      * <p> 示例值：
-      */
+    /**
+     * 银行账号
+     * <p> 示例值：
+     */
     @SerializedName("bank_account_list")
     private BankAccount[] bankAccountList;
-     /**
-      * 证件号码
-      * <p> 示例值：
-      */
+    /**
+     * 证件号码
+     * <p> 示例值：
+     */
     @SerializedName("national_id_list")
     private NationalId[] nationalIdList;
-     /**
-      * 亲属列表
-      * <p> 示例值：
-      */
+    /**
+     * 亲属列表
+     * <p> 示例值：
+     */
     @SerializedName("dependent_list")
     private Dependent[] dependentList;
-     /**
-      * 紧急联系人列表
-      * <p> 示例值：
-      */
+    /**
+     * 紧急联系人列表
+     * <p> 示例值：
+     */
     @SerializedName("emergency_contact_list")
     private EmergencyContact[] emergencyContactList;
-     /**
-      * 参加工作日期
-      * <p> 示例值：2020-10-01
-      */
+    /**
+     * 参加工作日期
+     * <p> 示例值：2020-10-01
+     */
     @SerializedName("date_entered_workforce")
     private String dateEnteredWorkforce;
-     /**
-      * 头像资源的 ID
-      * <p> 示例值：dfysuc8x76dsfsw
-      */
+    /**
+     * 头像资源的 ID
+     * <p> 示例值：dfysuc8x76dsfsw
+     */
     @SerializedName("profile_image_id")
     private String profileImageId;
-     /**
-      * 自定义字段
-      * <p> 示例值：
-      */
+    /**
+     * 自定义字段
+     * <p> 示例值：
+     */
     @SerializedName("custom_fields")
     private ObjectFieldData[] customFields;
-     /**
-      * 邮箱
-      * <p> 示例值：test@163.com
-      */
+    /**
+     * 邮箱
+     * <p> 示例值：test@163.com
+     */
     @SerializedName("email_address")
     private String emailAddress;
-     /**
-      * 纳税身份信息
-      * <p> 示例值：["1", "2"]
-      */
+    /**
+     * 纳税身份信息
+     * <p> 示例值：["1", "2"]
+     */
     @SerializedName("resident_tax_id_list")
     private String[] residentTaxIdList;
-     /**
-      * 年龄
-      * <p> 示例值：25
-      */
+    /**
+     * 年龄
+     * <p> 示例值：25
+     */
     @SerializedName("age")
     private Integer age;
-     /**
-      * 最高学历教育
-      * <p> 示例值：
-      */
+    /**
+     * 最高学历教育
+     * <p> 示例值：
+     */
     @SerializedName("highest_level_of_education")
     private Education highestLevelOfEducation;
-     /**
-      * 最高学位教育经历
-      * <p> 示例值：
-      */
+    /**
+     * 最高学位教育经历
+     * <p> 示例值：
+     */
     @SerializedName("highest_degree_of_education")
     private Education highestDegreeOfEducation;
-     /**
-      * 个人资料
-      * <p> 示例值：
-      */
+    /**
+     * 个人资料
+     * <p> 示例值：
+     */
     @SerializedName("personal_profile")
     private PersonalProfile[] personalProfile;
+
+    // builder 开始
+    public Person() {
+    }
+
+    public Person(Builder builder) {
+        /**
+         * 个人手机号
+         * <p> 示例值：11111111111
+         */
+        this.phoneNumber = builder.phoneNumber;
+        /**
+         * 法定姓名
+         * <p> 示例值：张三
+         */
+        this.legalName = builder.legalName;
+        /**
+         * 常用名
+         * <p> 示例值：张四
+         */
+        this.preferredName = builder.preferredName;
+        /**
+         * Person ID
+         * <p> 示例值：646465654545
+         */
+        this.id = builder.id;
+        /**
+         * 姓名
+         * <p> 示例值：
+         */
+        this.nameList = builder.nameList;
+        /**
+         * 性别，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)性别（gender）枚举定义部分获得
+         * <p> 示例值：
+         */
+        this.gender = builder.gender;
+        /**
+         * 出生日期
+         * <p> 示例值：2020-01-01
+         */
+        this.dateOfBirth = builder.dateOfBirth;
+        /**
+         * 国籍id
+         * <p> 示例值：123456789
+         */
+        this.nationalityId = builder.nationalityId;
+        /**
+         * 国籍 ID，可通过【查询国籍信息】接口查询
+         * <p> 示例值：7075702732803278380
+         */
+        this.nationalityIdV2 = builder.nationalityIdV2;
+        /**
+         * 民族 / 种族，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)民族（race）枚举定义部分获得
+         * <p> 示例值：
+         */
+        this.race = builder.race;
+        /**
+         * 婚姻状况，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)婚姻状况（marital_status）枚举定义部分获得
+         * <p> 示例值：
+         */
+        this.maritalStatus = builder.maritalStatus;
+        /**
+         * 电话列表，只有当满足下面所有条件时，电话在个人信息页才可见:;- 电话号码不为空;- is_primary = "true" ;- phone_usage = "home"
+         * <p> 示例值：
+         */
+        this.phoneList = builder.phoneList;
+        /**
+         * 地址列表
+         * <p> 示例值：
+         */
+        this.addressList = builder.addressList;
+        /**
+         * 邮箱列表
+         * <p> 示例值：
+         */
+        this.emailList = builder.emailList;
+        /**
+         * 工作履历列表
+         * <p> 示例值：
+         */
+        this.workExperienceList = builder.workExperienceList;
+        /**
+         * 教育经历列表
+         * <p> 示例值：
+         */
+        this.educationList = builder.educationList;
+        /**
+         * 银行账号
+         * <p> 示例值：
+         */
+        this.bankAccountList = builder.bankAccountList;
+        /**
+         * 证件号码
+         * <p> 示例值：
+         */
+        this.nationalIdList = builder.nationalIdList;
+        /**
+         * 亲属列表
+         * <p> 示例值：
+         */
+        this.dependentList = builder.dependentList;
+        /**
+         * 紧急联系人列表
+         * <p> 示例值：
+         */
+        this.emergencyContactList = builder.emergencyContactList;
+        /**
+         * 参加工作日期
+         * <p> 示例值：2020-10-01
+         */
+        this.dateEnteredWorkforce = builder.dateEnteredWorkforce;
+        /**
+         * 头像资源的 ID
+         * <p> 示例值：dfysuc8x76dsfsw
+         */
+        this.profileImageId = builder.profileImageId;
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
+        this.customFields = builder.customFields;
+        /**
+         * 邮箱
+         * <p> 示例值：test@163.com
+         */
+        this.emailAddress = builder.emailAddress;
+        /**
+         * 纳税身份信息
+         * <p> 示例值：["1", "2"]
+         */
+        this.residentTaxIdList = builder.residentTaxIdList;
+        /**
+         * 年龄
+         * <p> 示例值：25
+         */
+        this.age = builder.age;
+        /**
+         * 最高学历教育
+         * <p> 示例值：
+         */
+        this.highestLevelOfEducation = builder.highestLevelOfEducation;
+        /**
+         * 最高学位教育经历
+         * <p> 示例值：
+         */
+        this.highestDegreeOfEducation = builder.highestDegreeOfEducation;
+        /**
+         * 个人资料
+         * <p> 示例值：
+         */
+        this.personalProfile = builder.personalProfile;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getPhoneNumber() {
         return this.phoneNumber;
     }
@@ -431,688 +592,532 @@ public class Person {
         this.personalProfile = personalProfile;
     }
 
-
-// builder 开始
-  public Person(){}
-
-  public Person(Builder builder){
-         /**
-          * 个人手机号
-          * <p> 示例值：11111111111
-          */
-      this.phoneNumber = builder.phoneNumber;
-         /**
-          * 法定姓名
-          * <p> 示例值：张三
-          */
-      this.legalName = builder.legalName;
-         /**
-          * 常用名
-          * <p> 示例值：张四
-          */
-      this.preferredName = builder.preferredName;
-         /**
-          * Person ID
-          * <p> 示例值：646465654545
-          */
-      this.id = builder.id;
-         /**
-          * 姓名
-          * <p> 示例值：
-          */
-      this.nameList = builder.nameList;
-         /**
-          * 性别，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)性别（gender）枚举定义部分获得
-          * <p> 示例值：
-          */
-      this.gender = builder.gender;
-         /**
-          * 出生日期
-          * <p> 示例值：2020-01-01
-          */
-      this.dateOfBirth = builder.dateOfBirth;
-         /**
-          * 国籍id
-          * <p> 示例值：123456789
-          */
-      this.nationalityId = builder.nationalityId;
-         /**
-          * 国籍 ID，可通过【查询国籍信息】接口查询
-          * <p> 示例值：7075702732803278380
-          */
-      this.nationalityIdV2 = builder.nationalityIdV2;
-         /**
-          * 民族 / 种族，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)民族（race）枚举定义部分获得
-          * <p> 示例值：
-          */
-      this.race = builder.race;
-         /**
-          * 婚姻状况，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)婚姻状况（marital_status）枚举定义部分获得
-          * <p> 示例值：
-          */
-      this.maritalStatus = builder.maritalStatus;
-         /**
-          * 电话列表，只有当满足下面所有条件时，电话在个人信息页才可见:;- 电话号码不为空;- is_primary = "true" ;- phone_usage = "home"
-          * <p> 示例值：
-          */
-      this.phoneList = builder.phoneList;
-         /**
-          * 地址列表
-          * <p> 示例值：
-          */
-      this.addressList = builder.addressList;
-         /**
-          * 邮箱列表
-          * <p> 示例值：
-          */
-      this.emailList = builder.emailList;
-         /**
-          * 工作履历列表
-          * <p> 示例值：
-          */
-      this.workExperienceList = builder.workExperienceList;
-         /**
-          * 教育经历列表
-          * <p> 示例值：
-          */
-      this.educationList = builder.educationList;
-         /**
-          * 银行账号
-          * <p> 示例值：
-          */
-      this.bankAccountList = builder.bankAccountList;
-         /**
-          * 证件号码
-          * <p> 示例值：
-          */
-      this.nationalIdList = builder.nationalIdList;
-         /**
-          * 亲属列表
-          * <p> 示例值：
-          */
-      this.dependentList = builder.dependentList;
-         /**
-          * 紧急联系人列表
-          * <p> 示例值：
-          */
-      this.emergencyContactList = builder.emergencyContactList;
-         /**
-          * 参加工作日期
-          * <p> 示例值：2020-10-01
-          */
-      this.dateEnteredWorkforce = builder.dateEnteredWorkforce;
-         /**
-          * 头像资源的 ID
-          * <p> 示例值：dfysuc8x76dsfsw
-          */
-      this.profileImageId = builder.profileImageId;
-         /**
-          * 自定义字段
-          * <p> 示例值：
-          */
-      this.customFields = builder.customFields;
-         /**
-          * 邮箱
-          * <p> 示例值：test@163.com
-          */
-      this.emailAddress = builder.emailAddress;
-         /**
-          * 纳税身份信息
-          * <p> 示例值：["1", "2"]
-          */
-      this.residentTaxIdList = builder.residentTaxIdList;
-         /**
-          * 年龄
-          * <p> 示例值：25
-          */
-      this.age = builder.age;
-         /**
-          * 最高学历教育
-          * <p> 示例值：
-          */
-      this.highestLevelOfEducation = builder.highestLevelOfEducation;
-         /**
-          * 最高学位教育经历
-          * <p> 示例值：
-          */
-      this.highestDegreeOfEducation = builder.highestDegreeOfEducation;
-         /**
-          * 个人资料
-          * <p> 示例值：
-          */
-      this.personalProfile = builder.personalProfile;
-  }
-
     public static class Builder {
-     /**
-      * 个人手机号
-      * <p> 示例值：11111111111
-      */
+        /**
+         * 个人手机号
+         * <p> 示例值：11111111111
+         */
         private String phoneNumber;
-     /**
-      * 法定姓名
-      * <p> 示例值：张三
-      */
+        /**
+         * 法定姓名
+         * <p> 示例值：张三
+         */
         private String legalName;
-     /**
-      * 常用名
-      * <p> 示例值：张四
-      */
+        /**
+         * 常用名
+         * <p> 示例值：张四
+         */
         private String preferredName;
-     /**
-      * Person ID
-      * <p> 示例值：646465654545
-      */
+        /**
+         * Person ID
+         * <p> 示例值：646465654545
+         */
         private String id;
-     /**
-      * 姓名
-      * <p> 示例值：
-      */
+        /**
+         * 姓名
+         * <p> 示例值：
+         */
         private PersonName[] nameList;
-     /**
-      * 性别，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)性别（gender）枚举定义部分获得
-      * <p> 示例值：
-      */
+        /**
+         * 性别，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)性别（gender）枚举定义部分获得
+         * <p> 示例值：
+         */
         private Enum gender;
-     /**
-      * 出生日期
-      * <p> 示例值：2020-01-01
-      */
+        /**
+         * 出生日期
+         * <p> 示例值：2020-01-01
+         */
         private String dateOfBirth;
-     /**
-      * 国籍id
-      * <p> 示例值：123456789
-      */
+        /**
+         * 国籍id
+         * <p> 示例值：123456789
+         */
         private String nationalityId;
-     /**
-      * 国籍 ID，可通过【查询国籍信息】接口查询
-      * <p> 示例值：7075702732803278380
-      */
+        /**
+         * 国籍 ID，可通过【查询国籍信息】接口查询
+         * <p> 示例值：7075702732803278380
+         */
         private String nationalityIdV2;
-     /**
-      * 民族 / 种族，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)民族（race）枚举定义部分获得
-      * <p> 示例值：
-      */
+        /**
+         * 民族 / 种族，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)民族（race）枚举定义部分获得
+         * <p> 示例值：
+         */
         private Enum race;
-     /**
-      * 婚姻状况，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)婚姻状况（marital_status）枚举定义部分获得
-      * <p> 示例值：
-      */
+        /**
+         * 婚姻状况，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)婚姻状况（marital_status）枚举定义部分获得
+         * <p> 示例值：
+         */
         private Enum maritalStatus;
-     /**
-      * 电话列表，只有当满足下面所有条件时，电话在个人信息页才可见:;- 电话号码不为空;- is_primary = "true" ;- phone_usage = "home"
-      * <p> 示例值：
-      */
+        /**
+         * 电话列表，只有当满足下面所有条件时，电话在个人信息页才可见:;- 电话号码不为空;- is_primary = "true" ;- phone_usage = "home"
+         * <p> 示例值：
+         */
         private Phone[] phoneList;
-     /**
-      * 地址列表
-      * <p> 示例值：
-      */
+        /**
+         * 地址列表
+         * <p> 示例值：
+         */
         private Address[] addressList;
-     /**
-      * 邮箱列表
-      * <p> 示例值：
-      */
+        /**
+         * 邮箱列表
+         * <p> 示例值：
+         */
         private Email[] emailList;
-     /**
-      * 工作履历列表
-      * <p> 示例值：
-      */
+        /**
+         * 工作履历列表
+         * <p> 示例值：
+         */
         private WorkExperience[] workExperienceList;
-     /**
-      * 教育经历列表
-      * <p> 示例值：
-      */
+        /**
+         * 教育经历列表
+         * <p> 示例值：
+         */
         private Education[] educationList;
-     /**
-      * 银行账号
-      * <p> 示例值：
-      */
+        /**
+         * 银行账号
+         * <p> 示例值：
+         */
         private BankAccount[] bankAccountList;
-     /**
-      * 证件号码
-      * <p> 示例值：
-      */
+        /**
+         * 证件号码
+         * <p> 示例值：
+         */
         private NationalId[] nationalIdList;
-     /**
-      * 亲属列表
-      * <p> 示例值：
-      */
+        /**
+         * 亲属列表
+         * <p> 示例值：
+         */
         private Dependent[] dependentList;
-     /**
-      * 紧急联系人列表
-      * <p> 示例值：
-      */
+        /**
+         * 紧急联系人列表
+         * <p> 示例值：
+         */
         private EmergencyContact[] emergencyContactList;
-     /**
-      * 参加工作日期
-      * <p> 示例值：2020-10-01
-      */
+        /**
+         * 参加工作日期
+         * <p> 示例值：2020-10-01
+         */
         private String dateEnteredWorkforce;
-     /**
-      * 头像资源的 ID
-      * <p> 示例值：dfysuc8x76dsfsw
-      */
+        /**
+         * 头像资源的 ID
+         * <p> 示例值：dfysuc8x76dsfsw
+         */
         private String profileImageId;
-     /**
-      * 自定义字段
-      * <p> 示例值：
-      */
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
         private ObjectFieldData[] customFields;
-     /**
-      * 邮箱
-      * <p> 示例值：test@163.com
-      */
+        /**
+         * 邮箱
+         * <p> 示例值：test@163.com
+         */
         private String emailAddress;
-     /**
-      * 纳税身份信息
-      * <p> 示例值：["1", "2"]
-      */
+        /**
+         * 纳税身份信息
+         * <p> 示例值：["1", "2"]
+         */
         private String[] residentTaxIdList;
-     /**
-      * 年龄
-      * <p> 示例值：25
-      */
+        /**
+         * 年龄
+         * <p> 示例值：25
+         */
         private Integer age;
-     /**
-      * 最高学历教育
-      * <p> 示例值：
-      */
+        /**
+         * 最高学历教育
+         * <p> 示例值：
+         */
         private Education highestLevelOfEducation;
-     /**
-      * 最高学位教育经历
-      * <p> 示例值：
-      */
+        /**
+         * 最高学位教育经历
+         * <p> 示例值：
+         */
         private Education highestDegreeOfEducation;
-     /**
-      * 个人资料
-      * <p> 示例值：
-      */
+        /**
+         * 个人资料
+         * <p> 示例值：
+         */
         private PersonalProfile[] personalProfile;
 
         /**
          * 个人手机号
          * <p> 示例值：11111111111
+         *
          * @param phoneNumber
          * @return
          */
         public Builder phoneNumber(String phoneNumber) {
-             this.phoneNumber = phoneNumber;
-             return this;
+            this.phoneNumber = phoneNumber;
+            return this;
         }
 
-    
 
         /**
          * 法定姓名
          * <p> 示例值：张三
+         *
          * @param legalName
          * @return
          */
         public Builder legalName(String legalName) {
-             this.legalName = legalName;
-             return this;
+            this.legalName = legalName;
+            return this;
         }
 
-    
 
         /**
          * 常用名
          * <p> 示例值：张四
+         *
          * @param preferredName
          * @return
          */
         public Builder preferredName(String preferredName) {
-             this.preferredName = preferredName;
-             return this;
+            this.preferredName = preferredName;
+            return this;
         }
 
-    
 
         /**
          * Person ID
          * <p> 示例值：646465654545
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 姓名
          * <p> 示例值：
+         *
          * @param nameList
          * @return
          */
         public Builder nameList(PersonName[] nameList) {
-             this.nameList = nameList;
-             return this;
+            this.nameList = nameList;
+            return this;
         }
 
-    
 
         /**
          * 性别，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)性别（gender）枚举定义部分获得
          * <p> 示例值：
+         *
          * @param gender
          * @return
          */
         public Builder gender(Enum gender) {
-             this.gender = gender;
-             return this;
+            this.gender = gender;
+            return this;
         }
 
-    
 
         /**
          * 出生日期
          * <p> 示例值：2020-01-01
+         *
          * @param dateOfBirth
          * @return
          */
         public Builder dateOfBirth(String dateOfBirth) {
-             this.dateOfBirth = dateOfBirth;
-             return this;
+            this.dateOfBirth = dateOfBirth;
+            return this;
         }
 
-    
 
         /**
          * 国籍id
          * <p> 示例值：123456789
+         *
          * @param nationalityId
          * @return
          */
         public Builder nationalityId(String nationalityId) {
-             this.nationalityId = nationalityId;
-             return this;
+            this.nationalityId = nationalityId;
+            return this;
         }
 
-    
 
         /**
          * 国籍 ID，可通过【查询国籍信息】接口查询
          * <p> 示例值：7075702732803278380
+         *
          * @param nationalityIdV2
          * @return
          */
         public Builder nationalityIdV2(String nationalityIdV2) {
-             this.nationalityIdV2 = nationalityIdV2;
-             return this;
+            this.nationalityIdV2 = nationalityIdV2;
+            return this;
         }
 
-    
 
         /**
          * 民族 / 种族，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)民族（race）枚举定义部分获得
          * <p> 示例值：
+         *
          * @param race
          * @return
          */
         public Builder race(Enum race) {
-             this.race = race;
-             return this;
+            this.race = race;
+            return this;
         }
 
-    
 
         /**
          * 婚姻状况，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)婚姻状况（marital_status）枚举定义部分获得
          * <p> 示例值：
+         *
          * @param maritalStatus
          * @return
          */
         public Builder maritalStatus(Enum maritalStatus) {
-             this.maritalStatus = maritalStatus;
-             return this;
+            this.maritalStatus = maritalStatus;
+            return this;
         }
 
-    
 
         /**
          * 电话列表，只有当满足下面所有条件时，电话在个人信息页才可见:;- 电话号码不为空;- is_primary = "true" ;- phone_usage = "home"
          * <p> 示例值：
+         *
          * @param phoneList
          * @return
          */
         public Builder phoneList(Phone[] phoneList) {
-             this.phoneList = phoneList;
-             return this;
+            this.phoneList = phoneList;
+            return this;
         }
 
-    
 
         /**
          * 地址列表
          * <p> 示例值：
+         *
          * @param addressList
          * @return
          */
         public Builder addressList(Address[] addressList) {
-             this.addressList = addressList;
-             return this;
+            this.addressList = addressList;
+            return this;
         }
 
-    
 
         /**
          * 邮箱列表
          * <p> 示例值：
+         *
          * @param emailList
          * @return
          */
         public Builder emailList(Email[] emailList) {
-             this.emailList = emailList;
-             return this;
+            this.emailList = emailList;
+            return this;
         }
 
-    
 
         /**
          * 工作履历列表
          * <p> 示例值：
+         *
          * @param workExperienceList
          * @return
          */
         public Builder workExperienceList(WorkExperience[] workExperienceList) {
-             this.workExperienceList = workExperienceList;
-             return this;
+            this.workExperienceList = workExperienceList;
+            return this;
         }
 
-    
 
         /**
          * 教育经历列表
          * <p> 示例值：
+         *
          * @param educationList
          * @return
          */
         public Builder educationList(Education[] educationList) {
-             this.educationList = educationList;
-             return this;
+            this.educationList = educationList;
+            return this;
         }
 
-    
 
         /**
          * 银行账号
          * <p> 示例值：
+         *
          * @param bankAccountList
          * @return
          */
         public Builder bankAccountList(BankAccount[] bankAccountList) {
-             this.bankAccountList = bankAccountList;
-             return this;
+            this.bankAccountList = bankAccountList;
+            return this;
         }
 
-    
 
         /**
          * 证件号码
          * <p> 示例值：
+         *
          * @param nationalIdList
          * @return
          */
         public Builder nationalIdList(NationalId[] nationalIdList) {
-             this.nationalIdList = nationalIdList;
-             return this;
+            this.nationalIdList = nationalIdList;
+            return this;
         }
 
-    
 
         /**
          * 亲属列表
          * <p> 示例值：
+         *
          * @param dependentList
          * @return
          */
         public Builder dependentList(Dependent[] dependentList) {
-             this.dependentList = dependentList;
-             return this;
+            this.dependentList = dependentList;
+            return this;
         }
 
-    
 
         /**
          * 紧急联系人列表
          * <p> 示例值：
+         *
          * @param emergencyContactList
          * @return
          */
         public Builder emergencyContactList(EmergencyContact[] emergencyContactList) {
-             this.emergencyContactList = emergencyContactList;
-             return this;
+            this.emergencyContactList = emergencyContactList;
+            return this;
         }
 
-    
 
         /**
          * 参加工作日期
          * <p> 示例值：2020-10-01
+         *
          * @param dateEnteredWorkforce
          * @return
          */
         public Builder dateEnteredWorkforce(String dateEnteredWorkforce) {
-             this.dateEnteredWorkforce = dateEnteredWorkforce;
-             return this;
+            this.dateEnteredWorkforce = dateEnteredWorkforce;
+            return this;
         }
 
-    
 
         /**
          * 头像资源的 ID
          * <p> 示例值：dfysuc8x76dsfsw
+         *
          * @param profileImageId
          * @return
          */
         public Builder profileImageId(String profileImageId) {
-             this.profileImageId = profileImageId;
-             return this;
+            this.profileImageId = profileImageId;
+            return this;
         }
 
-    
 
         /**
          * 自定义字段
          * <p> 示例值：
+         *
          * @param customFields
          * @return
          */
         public Builder customFields(ObjectFieldData[] customFields) {
-             this.customFields = customFields;
-             return this;
+            this.customFields = customFields;
+            return this;
         }
 
-    
 
         /**
          * 邮箱
          * <p> 示例值：test@163.com
+         *
          * @param emailAddress
          * @return
          */
         public Builder emailAddress(String emailAddress) {
-             this.emailAddress = emailAddress;
-             return this;
+            this.emailAddress = emailAddress;
+            return this;
         }
 
-    
 
         /**
          * 纳税身份信息
          * <p> 示例值：["1", "2"]
+         *
          * @param residentTaxIdList
          * @return
          */
         public Builder residentTaxIdList(String[] residentTaxIdList) {
-             this.residentTaxIdList = residentTaxIdList;
-             return this;
+            this.residentTaxIdList = residentTaxIdList;
+            return this;
         }
 
-    
 
         /**
          * 年龄
          * <p> 示例值：25
+         *
          * @param age
          * @return
          */
         public Builder age(Integer age) {
-             this.age = age;
-             return this;
+            this.age = age;
+            return this;
         }
 
-    
 
         /**
          * 最高学历教育
          * <p> 示例值：
+         *
          * @param highestLevelOfEducation
          * @return
          */
         public Builder highestLevelOfEducation(Education highestLevelOfEducation) {
-             this.highestLevelOfEducation = highestLevelOfEducation;
-             return this;
+            this.highestLevelOfEducation = highestLevelOfEducation;
+            return this;
         }
 
-    
 
         /**
          * 最高学位教育经历
          * <p> 示例值：
+         *
          * @param highestDegreeOfEducation
          * @return
          */
         public Builder highestDegreeOfEducation(Education highestDegreeOfEducation) {
-             this.highestDegreeOfEducation = highestDegreeOfEducation;
-             return this;
+            this.highestDegreeOfEducation = highestDegreeOfEducation;
+            return this;
         }
 
-    
 
         /**
          * 个人资料
          * <p> 示例值：
+         *
          * @param personalProfile
          * @return
          */
         public Builder personalProfile(PersonalProfile[] personalProfile) {
-             this.personalProfile = personalProfile;
-             return this;
+            this.personalProfile = personalProfile;
+            return this;
         }
 
-    
-    
-    public Person build(){
-        return new Person(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Person build() {
+            return new Person(this);
+        }
     }
 }

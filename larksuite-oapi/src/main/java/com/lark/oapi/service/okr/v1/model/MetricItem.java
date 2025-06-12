@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.okr.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.okr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,78 +20,148 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class MetricItem {
-     /**
-      * 指标项id
-      * <p> 示例值：635782378412311
-      */
+    /**
+     * 指标项id
+     * <p> 示例值：635782378412311
+     */
     @SerializedName("metric_item_id")
     private String metricItemId;
-     /**
-      * 指标承接人员id
-      * <p> 示例值：635782378412311
-      */
+    /**
+     * 指标承接人员id
+     * <p> 示例值：635782378412311
+     */
     @SerializedName("user_id")
     private String userId;
-     /**
-      * 指标的okr周期
-      * <p> 示例值：635782378412311
-      */
+    /**
+     * 指标的okr周期
+     * <p> 示例值：635782378412311
+     */
     @SerializedName("period_id")
     private String periodId;
-     /**
-      * 指标单位
-      * <p> 示例值：
-      */
+    /**
+     * 指标单位
+     * <p> 示例值：
+     */
     @SerializedName("metric_unit")
     private MetricUnit metricUnit;
-     /**
-      * 指标起始值
-      * <p> 示例值：10.01
-      */
+    /**
+     * 指标起始值
+     * <p> 示例值：10.01
+     */
     @SerializedName("metric_initial_value")
     private Double metricInitialValue;
-     /**
-      * 指标目标值
-      * <p> 示例值：10.01
-      */
+    /**
+     * 指标目标值
+     * <p> 示例值：10.01
+     */
     @SerializedName("metric_target_value")
     private Double metricTargetValue;
-     /**
-      * 指标进度值
-      * <p> 示例值：10.01
-      */
+    /**
+     * 指标进度值
+     * <p> 示例值：10.01
+     */
     @SerializedName("metric_current_value")
     private Double metricCurrentValue;
-     /**
-      * 指标支撑的上级人员id
-      * <p> 示例值：ou_8e7d79ca2327bf4f0b3c37899d6abbd5
-      */
+    /**
+     * 指标支撑的上级人员id
+     * <p> 示例值：ou_8e7d79ca2327bf4f0b3c37899d6abbd5
+     */
     @SerializedName("supported_user_id")
     private String supportedUserId;
-     /**
-      * 指标关联的kr
-      * <p> 示例值：7139040982003302420
-      */
+    /**
+     * 指标关联的kr
+     * <p> 示例值：7139040982003302420
+     */
     @SerializedName("kr_id")
     private String krId;
-     /**
-      * 更新时间
-      * <p> 示例值：1663145941129
-      */
+    /**
+     * 更新时间
+     * <p> 示例值：1663145941129
+     */
     @SerializedName("updated_at")
     private String updatedAt;
-     /**
-      * 更新人
-      * <p> 示例值：ou_8e7d79ca2327bf4f0b3c37899d6abbd5
-      */
+    /**
+     * 更新人
+     * <p> 示例值：ou_8e7d79ca2327bf4f0b3c37899d6abbd5
+     */
     @SerializedName("updated_by")
     private String updatedBy;
+
+    // builder 开始
+    public MetricItem() {
+    }
+
+    public MetricItem(Builder builder) {
+        /**
+         * 指标项id
+         * <p> 示例值：635782378412311
+         */
+        this.metricItemId = builder.metricItemId;
+        /**
+         * 指标承接人员id
+         * <p> 示例值：635782378412311
+         */
+        this.userId = builder.userId;
+        /**
+         * 指标的okr周期
+         * <p> 示例值：635782378412311
+         */
+        this.periodId = builder.periodId;
+        /**
+         * 指标单位
+         * <p> 示例值：
+         */
+        this.metricUnit = builder.metricUnit;
+        /**
+         * 指标起始值
+         * <p> 示例值：10.01
+         */
+        this.metricInitialValue = builder.metricInitialValue;
+        /**
+         * 指标目标值
+         * <p> 示例值：10.01
+         */
+        this.metricTargetValue = builder.metricTargetValue;
+        /**
+         * 指标进度值
+         * <p> 示例值：10.01
+         */
+        this.metricCurrentValue = builder.metricCurrentValue;
+        /**
+         * 指标支撑的上级人员id
+         * <p> 示例值：ou_8e7d79ca2327bf4f0b3c37899d6abbd5
+         */
+        this.supportedUserId = builder.supportedUserId;
+        /**
+         * 指标关联的kr
+         * <p> 示例值：7139040982003302420
+         */
+        this.krId = builder.krId;
+        /**
+         * 更新时间
+         * <p> 示例值：1663145941129
+         */
+        this.updatedAt = builder.updatedAt;
+        /**
+         * 更新人
+         * <p> 示例值：ou_8e7d79ca2327bf4f0b3c37899d6abbd5
+         */
+        this.updatedBy = builder.updatedBy;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getMetricItemId() {
         return this.metricItemId;
     }
@@ -179,274 +250,208 @@ public class MetricItem {
         this.updatedBy = updatedBy;
     }
 
-
-// builder 开始
-  public MetricItem(){}
-
-  public MetricItem(Builder builder){
-         /**
-          * 指标项id
-          * <p> 示例值：635782378412311
-          */
-      this.metricItemId = builder.metricItemId;
-         /**
-          * 指标承接人员id
-          * <p> 示例值：635782378412311
-          */
-      this.userId = builder.userId;
-         /**
-          * 指标的okr周期
-          * <p> 示例值：635782378412311
-          */
-      this.periodId = builder.periodId;
-         /**
-          * 指标单位
-          * <p> 示例值：
-          */
-      this.metricUnit = builder.metricUnit;
-         /**
-          * 指标起始值
-          * <p> 示例值：10.01
-          */
-      this.metricInitialValue = builder.metricInitialValue;
-         /**
-          * 指标目标值
-          * <p> 示例值：10.01
-          */
-      this.metricTargetValue = builder.metricTargetValue;
-         /**
-          * 指标进度值
-          * <p> 示例值：10.01
-          */
-      this.metricCurrentValue = builder.metricCurrentValue;
-         /**
-          * 指标支撑的上级人员id
-          * <p> 示例值：ou_8e7d79ca2327bf4f0b3c37899d6abbd5
-          */
-      this.supportedUserId = builder.supportedUserId;
-         /**
-          * 指标关联的kr
-          * <p> 示例值：7139040982003302420
-          */
-      this.krId = builder.krId;
-         /**
-          * 更新时间
-          * <p> 示例值：1663145941129
-          */
-      this.updatedAt = builder.updatedAt;
-         /**
-          * 更新人
-          * <p> 示例值：ou_8e7d79ca2327bf4f0b3c37899d6abbd5
-          */
-      this.updatedBy = builder.updatedBy;
-  }
-
     public static class Builder {
-     /**
-      * 指标项id
-      * <p> 示例值：635782378412311
-      */
+        /**
+         * 指标项id
+         * <p> 示例值：635782378412311
+         */
         private String metricItemId;
-     /**
-      * 指标承接人员id
-      * <p> 示例值：635782378412311
-      */
+        /**
+         * 指标承接人员id
+         * <p> 示例值：635782378412311
+         */
         private String userId;
-     /**
-      * 指标的okr周期
-      * <p> 示例值：635782378412311
-      */
+        /**
+         * 指标的okr周期
+         * <p> 示例值：635782378412311
+         */
         private String periodId;
-     /**
-      * 指标单位
-      * <p> 示例值：
-      */
+        /**
+         * 指标单位
+         * <p> 示例值：
+         */
         private MetricUnit metricUnit;
-     /**
-      * 指标起始值
-      * <p> 示例值：10.01
-      */
+        /**
+         * 指标起始值
+         * <p> 示例值：10.01
+         */
         private Double metricInitialValue;
-     /**
-      * 指标目标值
-      * <p> 示例值：10.01
-      */
+        /**
+         * 指标目标值
+         * <p> 示例值：10.01
+         */
         private Double metricTargetValue;
-     /**
-      * 指标进度值
-      * <p> 示例值：10.01
-      */
+        /**
+         * 指标进度值
+         * <p> 示例值：10.01
+         */
         private Double metricCurrentValue;
-     /**
-      * 指标支撑的上级人员id
-      * <p> 示例值：ou_8e7d79ca2327bf4f0b3c37899d6abbd5
-      */
+        /**
+         * 指标支撑的上级人员id
+         * <p> 示例值：ou_8e7d79ca2327bf4f0b3c37899d6abbd5
+         */
         private String supportedUserId;
-     /**
-      * 指标关联的kr
-      * <p> 示例值：7139040982003302420
-      */
+        /**
+         * 指标关联的kr
+         * <p> 示例值：7139040982003302420
+         */
         private String krId;
-     /**
-      * 更新时间
-      * <p> 示例值：1663145941129
-      */
+        /**
+         * 更新时间
+         * <p> 示例值：1663145941129
+         */
         private String updatedAt;
-     /**
-      * 更新人
-      * <p> 示例值：ou_8e7d79ca2327bf4f0b3c37899d6abbd5
-      */
+        /**
+         * 更新人
+         * <p> 示例值：ou_8e7d79ca2327bf4f0b3c37899d6abbd5
+         */
         private String updatedBy;
 
         /**
          * 指标项id
          * <p> 示例值：635782378412311
+         *
          * @param metricItemId
          * @return
          */
         public Builder metricItemId(String metricItemId) {
-             this.metricItemId = metricItemId;
-             return this;
+            this.metricItemId = metricItemId;
+            return this;
         }
 
-    
 
         /**
          * 指标承接人员id
          * <p> 示例值：635782378412311
+         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-             this.userId = userId;
-             return this;
+            this.userId = userId;
+            return this;
         }
 
-    
 
         /**
          * 指标的okr周期
          * <p> 示例值：635782378412311
+         *
          * @param periodId
          * @return
          */
         public Builder periodId(String periodId) {
-             this.periodId = periodId;
-             return this;
+            this.periodId = periodId;
+            return this;
         }
 
-    
 
         /**
          * 指标单位
          * <p> 示例值：
+         *
          * @param metricUnit
          * @return
          */
         public Builder metricUnit(MetricUnit metricUnit) {
-             this.metricUnit = metricUnit;
-             return this;
+            this.metricUnit = metricUnit;
+            return this;
         }
 
-    
 
         /**
          * 指标起始值
          * <p> 示例值：10.01
+         *
          * @param metricInitialValue
          * @return
          */
         public Builder metricInitialValue(Double metricInitialValue) {
-             this.metricInitialValue = metricInitialValue;
-             return this;
+            this.metricInitialValue = metricInitialValue;
+            return this;
         }
 
-    
 
         /**
          * 指标目标值
          * <p> 示例值：10.01
+         *
          * @param metricTargetValue
          * @return
          */
         public Builder metricTargetValue(Double metricTargetValue) {
-             this.metricTargetValue = metricTargetValue;
-             return this;
+            this.metricTargetValue = metricTargetValue;
+            return this;
         }
 
-    
 
         /**
          * 指标进度值
          * <p> 示例值：10.01
+         *
          * @param metricCurrentValue
          * @return
          */
         public Builder metricCurrentValue(Double metricCurrentValue) {
-             this.metricCurrentValue = metricCurrentValue;
-             return this;
+            this.metricCurrentValue = metricCurrentValue;
+            return this;
         }
 
-    
 
         /**
          * 指标支撑的上级人员id
          * <p> 示例值：ou_8e7d79ca2327bf4f0b3c37899d6abbd5
+         *
          * @param supportedUserId
          * @return
          */
         public Builder supportedUserId(String supportedUserId) {
-             this.supportedUserId = supportedUserId;
-             return this;
+            this.supportedUserId = supportedUserId;
+            return this;
         }
 
-    
 
         /**
          * 指标关联的kr
          * <p> 示例值：7139040982003302420
+         *
          * @param krId
          * @return
          */
         public Builder krId(String krId) {
-             this.krId = krId;
-             return this;
+            this.krId = krId;
+            return this;
         }
 
-    
 
         /**
          * 更新时间
          * <p> 示例值：1663145941129
+         *
          * @param updatedAt
          * @return
          */
         public Builder updatedAt(String updatedAt) {
-             this.updatedAt = updatedAt;
-             return this;
+            this.updatedAt = updatedAt;
+            return this;
         }
 
-    
 
         /**
          * 更新人
          * <p> 示例值：ou_8e7d79ca2327bf4f0b3c37899d6abbd5
+         *
          * @param updatedBy
          * @return
          */
         public Builder updatedBy(String updatedBy) {
-             this.updatedBy = updatedBy;
-             return this;
+            this.updatedBy = updatedBy;
+            return this;
         }
 
-    
-    
-    public MetricItem build(){
-        return new MetricItem(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public MetricItem build() {
+            return new MetricItem(this);
+        }
     }
 }

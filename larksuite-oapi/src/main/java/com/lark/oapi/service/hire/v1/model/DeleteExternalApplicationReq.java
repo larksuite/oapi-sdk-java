@@ -12,24 +12,57 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class DeleteExternalApplicationReq {
-     /**
-      * 人才ID
-      * <p> 示例值：6960663240925956660
-      */
+    /**
+     * 人才ID
+     * <p> 示例值：6960663240925956660
+     */
     @Query
     @SerializedName("talent_id")
     private String talentId;
+    /**
+     * 外部投递 id
+     * <p> 示例值：6960663240925956660
+     */
+    @Path
+    @SerializedName("external_application_id")
+    private String externalApplicationId;
+
+    // builder 开始
+    public DeleteExternalApplicationReq() {
+    }
+
+    public DeleteExternalApplicationReq(Builder builder) {
+        /**
+         * 人才ID
+         * <p> 示例值：6960663240925956660
+         */
+        this.talentId = builder.talentId;
+        /**
+         * 外部投递 id
+         * <p> 示例值：6960663240925956660
+         */
+        this.externalApplicationId = builder.externalApplicationId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getTalentId() {
         return this.talentId;
     }
@@ -38,13 +71,6 @@ public class DeleteExternalApplicationReq {
         this.talentId = talentId;
     }
 
-     /**
-      * 外部投递 id
-      * <p> 示例值：6960663240925956660
-      */
-    @Path
-    @SerializedName("external_application_id")
-    private String externalApplicationId;
     public String getExternalApplicationId() {
         return this.externalApplicationId;
     }
@@ -53,57 +79,37 @@ public class DeleteExternalApplicationReq {
         this.externalApplicationId = externalApplicationId;
     }
 
-
-// builder 开始
-  public DeleteExternalApplicationReq(){}
-
-  public DeleteExternalApplicationReq(Builder builder){
-         /**
-          * 人才ID
-          * <p> 示例值：6960663240925956660
-          */
-       this.talentId = builder.talentId;
-     /**
-      * 外部投递 id
-      * <p> 示例值：6960663240925956660
-      */
-       this.externalApplicationId = builder.externalApplicationId;
-  }
-
     public static class Builder {
         private String talentId; // 人才ID
-    
+        private String externalApplicationId; // 外部投递 id
+
         /**
          * 人才ID
          * <p> 示例值：6960663240925956660
+         *
          * @param talentId
          * @return
          */
-           public Builder talentId(String talentId) {
-                this.talentId = talentId;
-                return this;
-           }
+        public Builder talentId(String talentId) {
+            this.talentId = talentId;
+            return this;
+        }
 
-    
-        private String externalApplicationId; // 外部投递 id
         /**
          * 外部投递 id
          * <p> 示例值：6960663240925956660
+         *
          * @param externalApplicationId
          * @return
          */
-          public Builder externalApplicationId(String externalApplicationId) {
-               this.externalApplicationId = externalApplicationId;
-               return this;
-          }
+        public Builder externalApplicationId(String externalApplicationId) {
+            this.externalApplicationId = externalApplicationId;
+            return this;
+        }
 
-    
-    public DeleteExternalApplicationReq build(){
-        return new DeleteExternalApplicationReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public DeleteExternalApplicationReq build() {
+            return new DeleteExternalApplicationReq(this);
+        }
     }
 }

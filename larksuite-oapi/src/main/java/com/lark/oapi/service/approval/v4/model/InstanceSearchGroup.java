@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class InstanceSearchGroup {
-     /**
-      * 审批定义分组外部 id
-      * <p> 示例值：0004
-      */
+    /**
+     * 审批定义分组外部 id
+     * <p> 示例值：0004
+     */
     @SerializedName("external_id")
     private String externalId;
-     /**
-      * 审批定义分组名称
-      * <p> 示例值：groupA
-      */
+    /**
+     * 审批定义分组名称
+     * <p> 示例值：groupA
+     */
     @SerializedName("name")
     private String name;
+
+    // builder 开始
+    public InstanceSearchGroup() {
+    }
+
+    public InstanceSearchGroup(Builder builder) {
+        /**
+         * 审批定义分组外部 id
+         * <p> 示例值：0004
+         */
+        this.externalId = builder.externalId;
+        /**
+         * 审批定义分组名称
+         * <p> 示例值：groupA
+         */
+        this.name = builder.name;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getExternalId() {
         return this.externalId;
     }
@@ -53,67 +79,46 @@ public class InstanceSearchGroup {
         this.name = name;
     }
 
-
-// builder 开始
-  public InstanceSearchGroup(){}
-
-  public InstanceSearchGroup(Builder builder){
-         /**
-          * 审批定义分组外部 id
-          * <p> 示例值：0004
-          */
-      this.externalId = builder.externalId;
-         /**
-          * 审批定义分组名称
-          * <p> 示例值：groupA
-          */
-      this.name = builder.name;
-  }
-
     public static class Builder {
-     /**
-      * 审批定义分组外部 id
-      * <p> 示例值：0004
-      */
+        /**
+         * 审批定义分组外部 id
+         * <p> 示例值：0004
+         */
         private String externalId;
-     /**
-      * 审批定义分组名称
-      * <p> 示例值：groupA
-      */
+        /**
+         * 审批定义分组名称
+         * <p> 示例值：groupA
+         */
         private String name;
 
         /**
          * 审批定义分组外部 id
          * <p> 示例值：0004
+         *
          * @param externalId
          * @return
          */
         public Builder externalId(String externalId) {
-             this.externalId = externalId;
-             return this;
+            this.externalId = externalId;
+            return this;
         }
 
-    
 
         /**
          * 审批定义分组名称
          * <p> 示例值：groupA
+         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
-    
-    public InstanceSearchGroup build(){
-        return new InstanceSearchGroup(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public InstanceSearchGroup build() {
+            return new InstanceSearchGroup(this);
+        }
     }
 }

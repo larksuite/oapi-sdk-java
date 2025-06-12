@@ -12,32 +12,61 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class RemoveVersionCostAllocationReq {
-     /**
-      * 用户 ID 类型
-      * <p> 示例值：open_id
-      */
+    /**
+     * 用户 ID 类型
+     * <p> 示例值：open_id
+     */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
-     /**
-      * 根据client_token是否一致来判断是否为同一请求
-      * <p> 示例值：1245464678
-      */
+    /**
+     * 根据client_token是否一致来判断是否为同一请求
+     * <p> 示例值：1245464678
+     */
     @Query
     @SerializedName("client_token")
     private String clientToken;
+    @Body
+    private RemoveVersionCostAllocationReqBody body;
+
+    // builder 开始
+    public RemoveVersionCostAllocationReq() {
+    }
+
+    public RemoveVersionCostAllocationReq(Builder builder) {
+        /**
+         * 用户 ID 类型
+         * <p> 示例值：open_id
+         */
+        this.userIdType = builder.userIdType;
+        /**
+         * 根据client_token是否一致来判断是否为同一请求
+         * <p> 示例值：1245464678
+         */
+        this.clientToken = builder.clientToken;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getUserIdType() {
         return this.userIdType;
     }
@@ -54,9 +83,6 @@ public class RemoveVersionCostAllocationReq {
         this.clientToken = clientToken;
     }
 
-    @Body
-    private RemoveVersionCostAllocationReqBody body;
-
     public RemoveVersionCostAllocationReqBody getRemoveVersionCostAllocationReqBody() {
         return this.body;
     }
@@ -65,83 +91,64 @@ public class RemoveVersionCostAllocationReq {
         this.body = body;
     }
 
-// builder 开始
-  public RemoveVersionCostAllocationReq(){}
-
-  public RemoveVersionCostAllocationReq(Builder builder){
-         /**
-          * 用户 ID 类型
-          * <p> 示例值：open_id
-          */
-       this.userIdType = builder.userIdType;
-         /**
-          * 根据client_token是否一致来判断是否为同一请求
-          * <p> 示例值：1245464678
-          */
-       this.clientToken = builder.clientToken;
-        this.body = builder.body;
-  }
-
     public static class Builder {
         private String userIdType; // 用户 ID 类型
         private String clientToken; // 根据client_token是否一致来判断是否为同一请求
-    
+        private RemoveVersionCostAllocationReqBody body;
+
         /**
          * 用户 ID 类型
          * <p> 示例值：open_id
+         *
          * @param userIdType
          * @return
          */
-           public Builder userIdType(String userIdType) {
-                this.userIdType = userIdType;
-                return this;
-           }
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
 
         /**
          * 用户 ID 类型
          * <p> 示例值：open_id
+         *
          * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.RemoveVersionCostAllocationUserIdTypeEnum}
          * @return
          */
-          public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.RemoveVersionCostAllocationUserIdTypeEnum userIdType) {
-               this.userIdType = userIdType.getValue();
-               return this;
-          }
+        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.RemoveVersionCostAllocationUserIdTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
+            return this;
+        }
 
-    
         /**
          * 根据client_token是否一致来判断是否为同一请求
          * <p> 示例值：1245464678
+         *
          * @param clientToken
          * @return
          */
-           public Builder clientToken(String clientToken) {
-                this.clientToken = clientToken;
-                return this;
-           }
+        public Builder clientToken(String clientToken) {
+            this.clientToken = clientToken;
+            return this;
+        }
 
-    
-        private RemoveVersionCostAllocationReqBody body;
-    
         public RemoveVersionCostAllocationReqBody getRemoveVersionCostAllocationReqBody() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder removeVersionCostAllocationReqBody(RemoveVersionCostAllocationReqBody body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public RemoveVersionCostAllocationReq build(){
-        return new RemoveVersionCostAllocationReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public RemoveVersionCostAllocationReq build() {
+            return new RemoveVersionCostAllocationReq(this);
+        }
     }
 }

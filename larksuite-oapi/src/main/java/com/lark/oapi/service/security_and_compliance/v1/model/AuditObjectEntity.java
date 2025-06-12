@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.security_and_compliance.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.security_and_compliance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,42 +20,82 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class AuditObjectEntity {
-     /**
-      * 操作对象类型
-      * <p> 示例值：1
-      */
+    /**
+     * 操作对象类型
+     * <p> 示例值：1
+     */
     @SerializedName("object_type")
     private String objectType;
-     /**
-      * 操作对象值，可能存在 department_id、user_id 等，需要进行 lark_id 的转换
-      * <p> 示例值：47d74411
-      */
+    /**
+     * 操作对象值，可能存在 department_id、user_id 等，需要进行 lark_id 的转换
+     * <p> 示例值：47d74411
+     */
     @SerializedName("object_value")
     private String objectValue;
-     /**
-      * object 详情
-      * <p> 示例值：
-      */
+    /**
+     * object 详情
+     * <p> 示例值：
+     */
     @SerializedName("object_detail")
     private AuditObjectDetail objectDetail;
-     /**
-      * 操作对象名称，如会话名、文档名等
-      * <p> 示例值：xxx
-      */
+    /**
+     * 操作对象名称，如会话名、文档名等
+     * <p> 示例值：xxx
+     */
     @SerializedName("object_name")
     private String objectName;
-     /**
-      * 操作对象的所有者
-      * <p> 示例值：47d74411
-      */
+    /**
+     * 操作对象的所有者
+     * <p> 示例值：47d74411
+     */
     @SerializedName("object_owner")
     private String objectOwner;
+
+    // builder 开始
+    public AuditObjectEntity() {
+    }
+
+    public AuditObjectEntity(Builder builder) {
+        /**
+         * 操作对象类型
+         * <p> 示例值：1
+         */
+        this.objectType = builder.objectType;
+        /**
+         * 操作对象值，可能存在 department_id、user_id 等，需要进行 lark_id 的转换
+         * <p> 示例值：47d74411
+         */
+        this.objectValue = builder.objectValue;
+        /**
+         * object 详情
+         * <p> 示例值：
+         */
+        this.objectDetail = builder.objectDetail;
+        /**
+         * 操作对象名称，如会话名、文档名等
+         * <p> 示例值：xxx
+         */
+        this.objectName = builder.objectName;
+        /**
+         * 操作对象的所有者
+         * <p> 示例值：47d74411
+         */
+        this.objectOwner = builder.objectOwner;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getObjectType() {
         return this.objectType;
     }
@@ -95,136 +136,100 @@ public class AuditObjectEntity {
         this.objectOwner = objectOwner;
     }
 
-
-// builder 开始
-  public AuditObjectEntity(){}
-
-  public AuditObjectEntity(Builder builder){
-         /**
-          * 操作对象类型
-          * <p> 示例值：1
-          */
-      this.objectType = builder.objectType;
-         /**
-          * 操作对象值，可能存在 department_id、user_id 等，需要进行 lark_id 的转换
-          * <p> 示例值：47d74411
-          */
-      this.objectValue = builder.objectValue;
-         /**
-          * object 详情
-          * <p> 示例值：
-          */
-      this.objectDetail = builder.objectDetail;
-         /**
-          * 操作对象名称，如会话名、文档名等
-          * <p> 示例值：xxx
-          */
-      this.objectName = builder.objectName;
-         /**
-          * 操作对象的所有者
-          * <p> 示例值：47d74411
-          */
-      this.objectOwner = builder.objectOwner;
-  }
-
     public static class Builder {
-     /**
-      * 操作对象类型
-      * <p> 示例值：1
-      */
+        /**
+         * 操作对象类型
+         * <p> 示例值：1
+         */
         private String objectType;
-     /**
-      * 操作对象值，可能存在 department_id、user_id 等，需要进行 lark_id 的转换
-      * <p> 示例值：47d74411
-      */
+        /**
+         * 操作对象值，可能存在 department_id、user_id 等，需要进行 lark_id 的转换
+         * <p> 示例值：47d74411
+         */
         private String objectValue;
-     /**
-      * object 详情
-      * <p> 示例值：
-      */
+        /**
+         * object 详情
+         * <p> 示例值：
+         */
         private AuditObjectDetail objectDetail;
-     /**
-      * 操作对象名称，如会话名、文档名等
-      * <p> 示例值：xxx
-      */
+        /**
+         * 操作对象名称，如会话名、文档名等
+         * <p> 示例值：xxx
+         */
         private String objectName;
-     /**
-      * 操作对象的所有者
-      * <p> 示例值：47d74411
-      */
+        /**
+         * 操作对象的所有者
+         * <p> 示例值：47d74411
+         */
         private String objectOwner;
 
         /**
          * 操作对象类型
          * <p> 示例值：1
+         *
          * @param objectType
          * @return
          */
         public Builder objectType(String objectType) {
-             this.objectType = objectType;
-             return this;
+            this.objectType = objectType;
+            return this;
         }
 
-    
 
         /**
          * 操作对象值，可能存在 department_id、user_id 等，需要进行 lark_id 的转换
          * <p> 示例值：47d74411
+         *
          * @param objectValue
          * @return
          */
         public Builder objectValue(String objectValue) {
-             this.objectValue = objectValue;
-             return this;
+            this.objectValue = objectValue;
+            return this;
         }
 
-    
 
         /**
          * object 详情
          * <p> 示例值：
+         *
          * @param objectDetail
          * @return
          */
         public Builder objectDetail(AuditObjectDetail objectDetail) {
-             this.objectDetail = objectDetail;
-             return this;
+            this.objectDetail = objectDetail;
+            return this;
         }
 
-    
 
         /**
          * 操作对象名称，如会话名、文档名等
          * <p> 示例值：xxx
+         *
          * @param objectName
          * @return
          */
         public Builder objectName(String objectName) {
-             this.objectName = objectName;
-             return this;
+            this.objectName = objectName;
+            return this;
         }
 
-    
 
         /**
          * 操作对象的所有者
          * <p> 示例值：47d74411
+         *
          * @param objectOwner
          * @return
          */
         public Builder objectOwner(String objectOwner) {
-             this.objectOwner = objectOwner;
-             return this;
+            this.objectOwner = objectOwner;
+            return this;
         }
 
-    
-    
-    public AuditObjectEntity build(){
-        return new AuditObjectEntity(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public AuditObjectEntity build() {
+            return new AuditObjectEntity(this);
+        }
     }
 }

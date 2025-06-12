@@ -17,15 +17,16 @@ package com.lark.oapi.service.bitable.v1.enums;
  * 文档公式字段类型
  */
 public enum DisplayAppFormulaTypeEnum {
-     NO_BASIC_TYPE(1), // 不支持指定类型
-     EXIST_BASIC_TYPE(2), // 支持指定类型
-  ;
-   private Integer value;
+    NO_BASIC_TYPE(1), // 不支持指定类型
+    EXIST_BASIC_TYPE(2), // 支持指定类型
+    ;
+    private Integer value;
+
     DisplayAppFormulaTypeEnum(Integer value) {
-      this.value = value;
+        this.value = value;
     }
 
     public Integer getValue() {
-      return this.value;
+        return this.value;
     }
 }

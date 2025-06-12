@@ -12,73 +12,129 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ListInterviewReq {
-     /**
-      * 分页大小，不能超过 100
-      * <p> 示例值：10
-      */
+    /**
+     * 分页大小，不能超过 100
+     * <p> 示例值：10
+     */
     @Query
     @SerializedName("page_size")
     private Integer pageSize;
-     /**
-      * 查询游标, 由上一页结果返回, 第一页不传
-      * <p> 示例值：xx
-      */
+    /**
+     * 查询游标, 由上一页结果返回, 第一页不传
+     * <p> 示例值：xx
+     */
     @Query
     @SerializedName("page_token")
     private String pageToken;
-     /**
-      * 投递 ID
-      * <p> 示例值：6134134355464633
-      */
+    /**
+     * 投递 ID
+     * <p> 示例值：6134134355464633
+     */
     @Query
     @SerializedName("application_id")
     private String applicationId;
-     /**
-      * 面试 ID
-      * <p> 示例值：6888217964693309704
-      */
+    /**
+     * 面试 ID
+     * <p> 示例值：6888217964693309704
+     */
     @Query
     @SerializedName("interview_id")
     private String interviewId;
-     /**
-      * 最早开始时间，格式为时间戳
-      * <p> 示例值：1609489908000
-      */
+    /**
+     * 最早开始时间，格式为时间戳
+     * <p> 示例值：1609489908000
+     */
     @Query
     @SerializedName("start_time")
     private String startTime;
-     /**
-      * 最晚开始时间，格式为时间戳
-      * <p> 示例值：1610489908000
-      */
+    /**
+     * 最晚开始时间，格式为时间戳
+     * <p> 示例值：1610489908000
+     */
     @Query
     @SerializedName("end_time")
     private String endTime;
-     /**
-      * 此次调用中使用的「职级 ID」的类型
-      * <p> 示例值：
-      */
+    /**
+     * 此次调用中使用的「职级 ID」的类型
+     * <p> 示例值：
+     */
     @Query
     @SerializedName("job_level_id_type")
     private String jobLevelIdType;
-     /**
-      * 此次调用中使用的用户ID的类型
-      * <p> 示例值：
-      */
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
+
+    // builder 开始
+    public ListInterviewReq() {
+    }
+
+    public ListInterviewReq(Builder builder) {
+        /**
+         * 分页大小，不能超过 100
+         * <p> 示例值：10
+         */
+        this.pageSize = builder.pageSize;
+        /**
+         * 查询游标, 由上一页结果返回, 第一页不传
+         * <p> 示例值：xx
+         */
+        this.pageToken = builder.pageToken;
+        /**
+         * 投递 ID
+         * <p> 示例值：6134134355464633
+         */
+        this.applicationId = builder.applicationId;
+        /**
+         * 面试 ID
+         * <p> 示例值：6888217964693309704
+         */
+        this.interviewId = builder.interviewId;
+        /**
+         * 最早开始时间，格式为时间戳
+         * <p> 示例值：1609489908000
+         */
+        this.startTime = builder.startTime;
+        /**
+         * 最晚开始时间，格式为时间戳
+         * <p> 示例值：1610489908000
+         */
+        this.endTime = builder.endTime;
+        /**
+         * 此次调用中使用的「职级 ID」的类型
+         * <p> 示例值：
+         */
+        this.jobLevelIdType = builder.jobLevelIdType;
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         */
+        this.userIdType = builder.userIdType;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Integer getPageSize() {
         return this.pageSize;
     }
@@ -143,53 +199,6 @@ public class ListInterviewReq {
         this.userIdType = userIdType;
     }
 
-
-// builder 开始
-  public ListInterviewReq(){}
-
-  public ListInterviewReq(Builder builder){
-         /**
-          * 分页大小，不能超过 100
-          * <p> 示例值：10
-          */
-       this.pageSize = builder.pageSize;
-         /**
-          * 查询游标, 由上一页结果返回, 第一页不传
-          * <p> 示例值：xx
-          */
-       this.pageToken = builder.pageToken;
-         /**
-          * 投递 ID
-          * <p> 示例值：6134134355464633
-          */
-       this.applicationId = builder.applicationId;
-         /**
-          * 面试 ID
-          * <p> 示例值：6888217964693309704
-          */
-       this.interviewId = builder.interviewId;
-         /**
-          * 最早开始时间，格式为时间戳
-          * <p> 示例值：1609489908000
-          */
-       this.startTime = builder.startTime;
-         /**
-          * 最晚开始时间，格式为时间戳
-          * <p> 示例值：1610489908000
-          */
-       this.endTime = builder.endTime;
-         /**
-          * 此次调用中使用的「职级 ID」的类型
-          * <p> 示例值：
-          */
-       this.jobLevelIdType = builder.jobLevelIdType;
-         /**
-          * 此次调用中使用的用户ID的类型
-          * <p> 示例值：
-          */
-       this.userIdType = builder.userIdType;
-  }
-
     public static class Builder {
         private Integer pageSize; // 分页大小，不能超过 100
         private String pageToken; // 查询游标, 由上一页结果返回, 第一页不传
@@ -199,109 +208,113 @@ public class ListInterviewReq {
         private String endTime; // 最晚开始时间，格式为时间戳
         private String jobLevelIdType; // 此次调用中使用的「职级 ID」的类型
         private String userIdType; // 此次调用中使用的用户ID的类型
-    
+
         /**
          * 分页大小，不能超过 100
          * <p> 示例值：10
+         *
          * @param pageSize
          * @return
          */
-           public Builder pageSize(Integer pageSize) {
-                this.pageSize = pageSize;
-                return this;
-           }
+        public Builder pageSize(Integer pageSize) {
+            this.pageSize = pageSize;
+            return this;
+        }
 
-    
+
         /**
          * 查询游标, 由上一页结果返回, 第一页不传
          * <p> 示例值：xx
+         *
          * @param pageToken
          * @return
          */
-           public Builder pageToken(String pageToken) {
-                this.pageToken = pageToken;
-                return this;
-           }
+        public Builder pageToken(String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+        }
 
-    
+
         /**
          * 投递 ID
          * <p> 示例值：6134134355464633
+         *
          * @param applicationId
          * @return
          */
-           public Builder applicationId(String applicationId) {
-                this.applicationId = applicationId;
-                return this;
-           }
+        public Builder applicationId(String applicationId) {
+            this.applicationId = applicationId;
+            return this;
+        }
 
-    
+
         /**
          * 面试 ID
          * <p> 示例值：6888217964693309704
+         *
          * @param interviewId
          * @return
          */
-           public Builder interviewId(String interviewId) {
-                this.interviewId = interviewId;
-                return this;
-           }
+        public Builder interviewId(String interviewId) {
+            this.interviewId = interviewId;
+            return this;
+        }
 
-    
+
         /**
          * 最早开始时间，格式为时间戳
          * <p> 示例值：1609489908000
+         *
          * @param startTime
          * @return
          */
-           public Builder startTime(String startTime) {
-                this.startTime = startTime;
-                return this;
-           }
+        public Builder startTime(String startTime) {
+            this.startTime = startTime;
+            return this;
+        }
 
-    
+
         /**
          * 最晚开始时间，格式为时间戳
          * <p> 示例值：1610489908000
+         *
          * @param endTime
          * @return
          */
-           public Builder endTime(String endTime) {
-                this.endTime = endTime;
-                return this;
-           }
+        public Builder endTime(String endTime) {
+            this.endTime = endTime;
+            return this;
+        }
 
-    
+
         /**
          * 此次调用中使用的「职级 ID」的类型
          * <p> 示例值：
+         *
          * @param jobLevelIdType
          * @return
          */
-           public Builder jobLevelIdType(String jobLevelIdType) {
-                this.jobLevelIdType = jobLevelIdType;
-                return this;
-           }
+        public Builder jobLevelIdType(String jobLevelIdType) {
+            this.jobLevelIdType = jobLevelIdType;
+            return this;
+        }
 
-    
+
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
+         *
          * @param userIdType
          * @return
          */
-           public Builder userIdType(String userIdType) {
-                this.userIdType = userIdType;
-                return this;
-           }
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
 
-    
-    public ListInterviewReq build(){
-        return new ListInterviewReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ListInterviewReq build() {
+            return new ListInterviewReq(this);
+        }
     }
 }

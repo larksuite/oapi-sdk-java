@@ -12,32 +12,61 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class UpdateAppRoleReq {
-     /**
-      * bitable app token
-      * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
-      */
+    /**
+     * bitable app token
+     * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+     */
     @Path
     @SerializedName("app_token")
     private String appToken;
-     /**
-      * 自定义角色的id
-      * <p> 示例值：roljRpwIUt
-      */
+    /**
+     * 自定义角色的id
+     * <p> 示例值：roljRpwIUt
+     */
     @Path
     @SerializedName("role_id")
     private String roleId;
+    @Body
+    private AppRole body;
+
+    // builder 开始
+    public UpdateAppRoleReq() {
+    }
+
+    public UpdateAppRoleReq(Builder builder) {
+        /**
+         * bitable app token
+         * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+         */
+        this.appToken = builder.appToken;
+        /**
+         * 自定义角色的id
+         * <p> 示例值：roljRpwIUt
+         */
+        this.roleId = builder.roleId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getAppToken() {
         return this.appToken;
     }
@@ -54,9 +83,6 @@ public class UpdateAppRoleReq {
         this.roleId = roleId;
     }
 
-    @Body
-    private AppRole body;
-
     public AppRole getAppRole() {
         return this.body;
     }
@@ -65,72 +91,53 @@ public class UpdateAppRoleReq {
         this.body = body;
     }
 
-// builder 开始
-  public UpdateAppRoleReq(){}
-
-  public UpdateAppRoleReq(Builder builder){
-     /**
-      * bitable app token
-      * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
-      */
-       this.appToken = builder.appToken;
-     /**
-      * 自定义角色的id
-      * <p> 示例值：roljRpwIUt
-      */
-       this.roleId = builder.roleId;
-        this.body = builder.body;
-  }
-
     public static class Builder {
-    
+
         private String appToken; // bitable app token
         private String roleId; // 自定义角色的id
+        private AppRole body;
+
         /**
          * bitable app token
          * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+         *
          * @param appToken
          * @return
          */
-          public Builder appToken(String appToken) {
-               this.appToken = appToken;
-               return this;
-          }
+        public Builder appToken(String appToken) {
+            this.appToken = appToken;
+            return this;
+        }
 
-    
         /**
          * 自定义角色的id
          * <p> 示例值：roljRpwIUt
+         *
          * @param roleId
          * @return
          */
-          public Builder roleId(String roleId) {
-               this.roleId = roleId;
-               return this;
-          }
+        public Builder roleId(String roleId) {
+            this.roleId = roleId;
+            return this;
+        }
 
-    
-        private AppRole body;
-    
         public AppRole getAppRole() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder appRole(AppRole body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public UpdateAppRoleReq build(){
-        return new UpdateAppRoleReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public UpdateAppRoleReq build() {
+            return new UpdateAppRoleReq(this);
+        }
     }
 }

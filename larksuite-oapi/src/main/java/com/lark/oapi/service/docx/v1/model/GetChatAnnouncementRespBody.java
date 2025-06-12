@@ -12,78 +12,83 @@
  */
 
 package com.lark.oapi.service.docx.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class GetChatAnnouncementRespBody {
-     /**
-      * 当前版本号
-      * <p> 示例值：1
-      */
+    /**
+     * 当前版本号
+     * <p> 示例值：1
+     */
     @SerializedName("revision_id")
     private Integer revisionId;
-     /**
-      * 群公告生成的时间戳（秒）（已废弃）
-      * <p> 示例值：1609296809
-      */
+    /**
+     * 群公告生成的时间戳（秒）（已废弃）
+     * <p> 示例值：1609296809
+     */
     @SerializedName("create_time")
     private Long createTime;
-     /**
-      * 群公告更新的时间戳（秒）（已废弃）
-      * <p> 示例值：1609296809
-      */
+    /**
+     * 群公告更新的时间戳（秒）（已废弃）
+     * <p> 示例值：1609296809
+     */
     @SerializedName("update_time")
     private Long updateTime;
-     /**
-      * 群公告所有者 ID，ID 值与 owner_id_type 中的ID类型对应
-      * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
-      */
+    /**
+     * 群公告所有者 ID，ID 值与 owner_id_type 中的ID类型对应
+     * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
+     */
     @SerializedName("owner_id")
     private String ownerId;
-     /**
-      * 群公告所有者的 ID 类型
-      * <p> 示例值：user_id
-      */
+    /**
+     * 群公告所有者的 ID 类型
+     * <p> 示例值：user_id
+     */
     @SerializedName("owner_id_type")
     private String ownerIdType;
-     /**
-      * 群公告最新修改者 ID，ID 值与 modifier_id_type 中的ID类型对应
-      * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
-      */
+    /**
+     * 群公告最新修改者 ID，ID 值与 modifier_id_type 中的ID类型对应
+     * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
+     */
     @SerializedName("modifier_id")
     private String modifierId;
-     /**
-      * 群公告最新修改者 id 类型
-      * <p> 示例值：user_id
-      */
+    /**
+     * 群公告最新修改者 id 类型
+     * <p> 示例值：user_id
+     */
     @SerializedName("modifier_id_type")
     private String modifierIdType;
-     /**
-      * 群公告类型
-      * <p> 示例值：docx
-      */
+    /**
+     * 群公告类型
+     * <p> 示例值：docx
+     */
     @SerializedName("announcement_type")
     private String announcementType;
-     /**
-      * 群公告生成的时间戳（秒）
-      * <p> 示例值：1609296809
-      */
+    /**
+     * 群公告生成的时间戳（秒）
+     * <p> 示例值：1609296809
+     */
     @SerializedName("create_time_v2")
     private String createTimeV2;
-     /**
-      * 群公告更新的时间戳（秒）
-      * <p> 示例值：1609296809
-      */
+    /**
+     * 群公告更新的时间戳（秒）
+     * <p> 示例值：1609296809
+     */
     @SerializedName("update_time_v2")
     private String updateTimeV2;
+
     public Integer getRevisionId() {
         return this.revisionId;
     }

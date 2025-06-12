@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Sort {
-     /**
-      * 字段唯一标识
-      * <p> 示例值：_id
-      */
+    /**
+     * 字段唯一标识
+     * <p> 示例值：_id
+     */
     @SerializedName("field")
     private String field;
-     /**
-      * 排序方向，值为 "ASC" 或者 "DESC"，代表升序和降序
-      * <p> 示例值：ASC
-      */
+    /**
+     * 排序方向，值为 "ASC" 或者 "DESC"，代表升序和降序
+     * <p> 示例值：ASC
+     */
     @SerializedName("direction")
     private String direction;
+
+    // builder 开始
+    public Sort() {
+    }
+
+    public Sort(Builder builder) {
+        /**
+         * 字段唯一标识
+         * <p> 示例值：_id
+         */
+        this.field = builder.field;
+        /**
+         * 排序方向，值为 "ASC" 或者 "DESC"，代表升序和降序
+         * <p> 示例值：ASC
+         */
+        this.direction = builder.direction;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getField() {
         return this.field;
     }
@@ -53,77 +79,58 @@ public class Sort {
         this.direction = direction;
     }
 
-
-// builder 开始
-  public Sort(){}
-
-  public Sort(Builder builder){
-         /**
-          * 字段唯一标识
-          * <p> 示例值：_id
-          */
-      this.field = builder.field;
-         /**
-          * 排序方向，值为 "ASC" 或者 "DESC"，代表升序和降序
-          * <p> 示例值：ASC
-          */
-      this.direction = builder.direction;
-  }
-
     public static class Builder {
-     /**
-      * 字段唯一标识
-      * <p> 示例值：_id
-      */
+        /**
+         * 字段唯一标识
+         * <p> 示例值：_id
+         */
         private String field;
-     /**
-      * 排序方向，值为 "ASC" 或者 "DESC"，代表升序和降序
-      * <p> 示例值：ASC
-      */
+        /**
+         * 排序方向，值为 "ASC" 或者 "DESC"，代表升序和降序
+         * <p> 示例值：ASC
+         */
         private String direction;
 
         /**
          * 字段唯一标识
          * <p> 示例值：_id
+         *
          * @param field
          * @return
          */
         public Builder field(String field) {
-             this.field = field;
-             return this;
+            this.field = field;
+            return this;
         }
 
-    
 
         /**
          * 排序方向，值为 "ASC" 或者 "DESC"，代表升序和降序
          * <p> 示例值：ASC
+         *
          * @param direction
          * @return
          */
         public Builder direction(String direction) {
-             this.direction = direction;
-             return this;
+            this.direction = direction;
+            return this;
         }
+
         /**
          * 排序方向，值为 "ASC" 或者 "DESC"，代表升序和降序
          * <p> 示例值：ASC
+         *
          * @param direction {@link com.lark.oapi.service.apaas.v1.enums.SortSortDirectionEnum}
          * @return
          */
         public Builder direction(com.lark.oapi.service.apaas.v1.enums.SortSortDirectionEnum direction) {
-             this.direction = direction.getValue();
-             return this;
+            this.direction = direction.getValue();
+            return this;
         }
 
-    
-    
-    public Sort build(){
-        return new Sort(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Sort build() {
+            return new Sort(this);
+        }
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.lingo.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.lingo.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Span {
-     /**
-      * 偏移量开始位置，从 0 开始计数（编码格式采用 utf-8）
-      * <p> 示例值：0
-      */
+    /**
+     * 偏移量开始位置，从 0 开始计数（编码格式采用 utf-8）
+     * <p> 示例值：0
+     */
     @SerializedName("start")
     private Integer start;
-     /**
-      * 偏移量结束位置，从 0 开始计数（编码格式采用 utf-8）
-      * <p> 示例值：4
-      */
+    /**
+     * 偏移量结束位置，从 0 开始计数（编码格式采用 utf-8）
+     * <p> 示例值：4
+     */
     @SerializedName("end")
     private Integer end;
+
+    // builder 开始
+    public Span() {
+    }
+
+    public Span(Builder builder) {
+        /**
+         * 偏移量开始位置，从 0 开始计数（编码格式采用 utf-8）
+         * <p> 示例值：0
+         */
+        this.start = builder.start;
+        /**
+         * 偏移量结束位置，从 0 开始计数（编码格式采用 utf-8）
+         * <p> 示例值：4
+         */
+        this.end = builder.end;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Integer getStart() {
         return this.start;
     }
@@ -53,67 +79,46 @@ public class Span {
         this.end = end;
     }
 
-
-// builder 开始
-  public Span(){}
-
-  public Span(Builder builder){
-         /**
-          * 偏移量开始位置，从 0 开始计数（编码格式采用 utf-8）
-          * <p> 示例值：0
-          */
-      this.start = builder.start;
-         /**
-          * 偏移量结束位置，从 0 开始计数（编码格式采用 utf-8）
-          * <p> 示例值：4
-          */
-      this.end = builder.end;
-  }
-
     public static class Builder {
-     /**
-      * 偏移量开始位置，从 0 开始计数（编码格式采用 utf-8）
-      * <p> 示例值：0
-      */
+        /**
+         * 偏移量开始位置，从 0 开始计数（编码格式采用 utf-8）
+         * <p> 示例值：0
+         */
         private Integer start;
-     /**
-      * 偏移量结束位置，从 0 开始计数（编码格式采用 utf-8）
-      * <p> 示例值：4
-      */
+        /**
+         * 偏移量结束位置，从 0 开始计数（编码格式采用 utf-8）
+         * <p> 示例值：4
+         */
         private Integer end;
 
         /**
          * 偏移量开始位置，从 0 开始计数（编码格式采用 utf-8）
          * <p> 示例值：0
+         *
          * @param start
          * @return
          */
         public Builder start(Integer start) {
-             this.start = start;
-             return this;
+            this.start = start;
+            return this;
         }
 
-    
 
         /**
          * 偏移量结束位置，从 0 开始计数（编码格式采用 utf-8）
          * <p> 示例值：4
+         *
          * @param end
          * @return
          */
         public Builder end(Integer end) {
-             this.end = end;
-             return this;
+            this.end = end;
+            return this;
         }
 
-    
-    
-    public Span build(){
-        return new Span(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Span build() {
+            return new Span(this);
+        }
     }
 }

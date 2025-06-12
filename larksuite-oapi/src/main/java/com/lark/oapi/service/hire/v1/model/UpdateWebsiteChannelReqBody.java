@@ -12,24 +12,45 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class UpdateWebsiteChannelReqBody {
-     /**
-      * 推广渠道名称
-      * <p> 示例值：小爱侧推广渠道
-      */
+    /**
+     * 推广渠道名称
+     * <p> 示例值：小爱侧推广渠道
+     */
     @SerializedName("channel_name")
     private String channelName;
+
+    // builder 开始
+    public UpdateWebsiteChannelReqBody() {
+    }
+
+    public UpdateWebsiteChannelReqBody(Builder builder) {
+        /**
+         * 推广渠道名称
+         * <p> 示例值：小爱侧推广渠道
+         */
+        this.channelName = builder.channelName;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getChannelName() {
         return this.channelName;
     }
@@ -38,44 +59,28 @@ public class UpdateWebsiteChannelReqBody {
         this.channelName = channelName;
     }
 
-
-// builder 开始
-  public UpdateWebsiteChannelReqBody(){}
-
-  public UpdateWebsiteChannelReqBody(Builder builder){
-         /**
-          * 推广渠道名称
-          * <p> 示例值：小爱侧推广渠道
-          */
-      this.channelName = builder.channelName;
-  }
-
     public static class Builder {
-     /**
-      * 推广渠道名称
-      * <p> 示例值：小爱侧推广渠道
-      */
+        /**
+         * 推广渠道名称
+         * <p> 示例值：小爱侧推广渠道
+         */
         private String channelName;
 
         /**
          * 推广渠道名称
          * <p> 示例值：小爱侧推广渠道
+         *
          * @param channelName
          * @return
          */
         public Builder channelName(String channelName) {
-             this.channelName = channelName;
-             return this;
+            this.channelName = channelName;
+            return this;
         }
 
-    
-    
-    public UpdateWebsiteChannelReqBody build(){
-        return new UpdateWebsiteChannelReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public UpdateWebsiteChannelReqBody build() {
+            return new UpdateWebsiteChannelReqBody(this);
+        }
     }
 }

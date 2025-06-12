@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.sheets.v3.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.sheets.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ProtectedColumns {
-     /**
-      * 工作表ID
-      * <p> 示例值：ah9IJ2
-      */
+    /**
+     * 工作表ID
+     * <p> 示例值：ah9IJ2
+     */
     @SerializedName("sheet_id")
     private String sheetId;
-     /**
-      * 起始列
-      * <p> 示例值：0
-      */
+    /**
+     * 起始列
+     * <p> 示例值：0
+     */
     @SerializedName("start_index")
     private Integer startIndex;
-     /**
-      * 结束列
-      * <p> 示例值：2
-      */
+    /**
+     * 结束列
+     * <p> 示例值：2
+     */
     @SerializedName("end_index")
     private Integer endIndex;
+
+    // builder 开始
+    public ProtectedColumns() {
+    }
+
+    public ProtectedColumns(Builder builder) {
+        /**
+         * 工作表ID
+         * <p> 示例值：ah9IJ2
+         */
+        this.sheetId = builder.sheetId;
+        /**
+         * 起始列
+         * <p> 示例值：0
+         */
+        this.startIndex = builder.startIndex;
+        /**
+         * 结束列
+         * <p> 示例值：2
+         */
+        this.endIndex = builder.endIndex;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getSheetId() {
         return this.sheetId;
     }
@@ -67,90 +98,64 @@ public class ProtectedColumns {
         this.endIndex = endIndex;
     }
 
-
-// builder 开始
-  public ProtectedColumns(){}
-
-  public ProtectedColumns(Builder builder){
-         /**
-          * 工作表ID
-          * <p> 示例值：ah9IJ2
-          */
-      this.sheetId = builder.sheetId;
-         /**
-          * 起始列
-          * <p> 示例值：0
-          */
-      this.startIndex = builder.startIndex;
-         /**
-          * 结束列
-          * <p> 示例值：2
-          */
-      this.endIndex = builder.endIndex;
-  }
-
     public static class Builder {
-     /**
-      * 工作表ID
-      * <p> 示例值：ah9IJ2
-      */
+        /**
+         * 工作表ID
+         * <p> 示例值：ah9IJ2
+         */
         private String sheetId;
-     /**
-      * 起始列
-      * <p> 示例值：0
-      */
+        /**
+         * 起始列
+         * <p> 示例值：0
+         */
         private Integer startIndex;
-     /**
-      * 结束列
-      * <p> 示例值：2
-      */
+        /**
+         * 结束列
+         * <p> 示例值：2
+         */
         private Integer endIndex;
 
         /**
          * 工作表ID
          * <p> 示例值：ah9IJ2
+         *
          * @param sheetId
          * @return
          */
         public Builder sheetId(String sheetId) {
-             this.sheetId = sheetId;
-             return this;
+            this.sheetId = sheetId;
+            return this;
         }
 
-    
 
         /**
          * 起始列
          * <p> 示例值：0
+         *
          * @param startIndex
          * @return
          */
         public Builder startIndex(Integer startIndex) {
-             this.startIndex = startIndex;
-             return this;
+            this.startIndex = startIndex;
+            return this;
         }
 
-    
 
         /**
          * 结束列
          * <p> 示例值：2
+         *
          * @param endIndex
          * @return
          */
         public Builder endIndex(Integer endIndex) {
-             this.endIndex = endIndex;
-             return this;
+            this.endIndex = endIndex;
+            return this;
         }
 
-    
-    
-    public ProtectedColumns build(){
-        return new ProtectedColumns(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ProtectedColumns build() {
+            return new ProtectedColumns(this);
+        }
     }
 }

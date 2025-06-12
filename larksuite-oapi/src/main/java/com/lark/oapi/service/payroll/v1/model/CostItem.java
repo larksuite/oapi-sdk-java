@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.payroll.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.payroll.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CostItem {
-     /**
-      * 成本项的唯一标识
-      * <p> 示例值：7433424967234601004
-      */
+    /**
+     * 成本项的唯一标识
+     * <p> 示例值：7433424967234601004
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 成本项名称
-      * <p> 示例值：
-      */
+    /**
+     * 成本项名称
+     * <p> 示例值：
+     */
     @SerializedName("name")
     private I18nContent[] name;
-     /**
-      * 成本项是否启用更正
-      * <p> 示例值：true
-      */
+    /**
+     * 成本项是否启用更正
+     * <p> 示例值：true
+     */
     @SerializedName("enable_correct")
     private Boolean enableCorrect;
+
+    // builder 开始
+    public CostItem() {
+    }
+
+    public CostItem(Builder builder) {
+        /**
+         * 成本项的唯一标识
+         * <p> 示例值：7433424967234601004
+         */
+        this.id = builder.id;
+        /**
+         * 成本项名称
+         * <p> 示例值：
+         */
+        this.name = builder.name;
+        /**
+         * 成本项是否启用更正
+         * <p> 示例值：true
+         */
+        this.enableCorrect = builder.enableCorrect;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -67,90 +98,64 @@ public class CostItem {
         this.enableCorrect = enableCorrect;
     }
 
-
-// builder 开始
-  public CostItem(){}
-
-  public CostItem(Builder builder){
-         /**
-          * 成本项的唯一标识
-          * <p> 示例值：7433424967234601004
-          */
-      this.id = builder.id;
-         /**
-          * 成本项名称
-          * <p> 示例值：
-          */
-      this.name = builder.name;
-         /**
-          * 成本项是否启用更正
-          * <p> 示例值：true
-          */
-      this.enableCorrect = builder.enableCorrect;
-  }
-
     public static class Builder {
-     /**
-      * 成本项的唯一标识
-      * <p> 示例值：7433424967234601004
-      */
+        /**
+         * 成本项的唯一标识
+         * <p> 示例值：7433424967234601004
+         */
         private String id;
-     /**
-      * 成本项名称
-      * <p> 示例值：
-      */
+        /**
+         * 成本项名称
+         * <p> 示例值：
+         */
         private I18nContent[] name;
-     /**
-      * 成本项是否启用更正
-      * <p> 示例值：true
-      */
+        /**
+         * 成本项是否启用更正
+         * <p> 示例值：true
+         */
         private Boolean enableCorrect;
 
         /**
          * 成本项的唯一标识
          * <p> 示例值：7433424967234601004
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 成本项名称
          * <p> 示例值：
+         *
          * @param name
          * @return
          */
         public Builder name(I18nContent[] name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 成本项是否启用更正
          * <p> 示例值：true
+         *
          * @param enableCorrect
          * @return
          */
         public Builder enableCorrect(Boolean enableCorrect) {
-             this.enableCorrect = enableCorrect;
-             return this;
+            this.enableCorrect = enableCorrect;
+            return this;
         }
 
-    
-    
-    public CostItem build(){
-        return new CostItem(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public CostItem build() {
+            return new CostItem(this);
+        }
     }
 }

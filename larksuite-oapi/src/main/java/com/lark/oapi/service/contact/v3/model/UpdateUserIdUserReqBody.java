@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.contact.v3.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class UpdateUserIdUserReqBody {
-     /**
-      * 自定义新用户ID
-      * <p> 示例值：3e3cf96b
-      */
+    /**
+     * 自定义新用户ID
+     * <p> 示例值：3e3cf96b
+     */
     @SerializedName("new_user_id")
     private String newUserId;
+
+    // builder 开始
+    public UpdateUserIdUserReqBody() {
+    }
+
+    public UpdateUserIdUserReqBody(Builder builder) {
+        /**
+         * 自定义新用户ID
+         * <p> 示例值：3e3cf96b
+         */
+        this.newUserId = builder.newUserId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getNewUserId() {
         return this.newUserId;
     }
@@ -39,44 +60,28 @@ public class UpdateUserIdUserReqBody {
         this.newUserId = newUserId;
     }
 
-
-// builder 开始
-  public UpdateUserIdUserReqBody(){}
-
-  public UpdateUserIdUserReqBody(Builder builder){
-         /**
-          * 自定义新用户ID
-          * <p> 示例值：3e3cf96b
-          */
-      this.newUserId = builder.newUserId;
-  }
-
     public static class Builder {
-     /**
-      * 自定义新用户ID
-      * <p> 示例值：3e3cf96b
-      */
+        /**
+         * 自定义新用户ID
+         * <p> 示例值：3e3cf96b
+         */
         private String newUserId;
 
         /**
          * 自定义新用户ID
          * <p> 示例值：3e3cf96b
+         *
          * @param newUserId
          * @return
          */
         public Builder newUserId(String newUserId) {
-             this.newUserId = newUserId;
-             return this;
+            this.newUserId = newUserId;
+            return this;
         }
 
-    
-    
-    public UpdateUserIdUserReqBody build(){
-        return new UpdateUserIdUserReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public UpdateUserIdUserReqBody build() {
+            return new UpdateUserIdUserReqBody(this);
+        }
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.payroll.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.payroll.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class I18n {
-     /**
-      * 中文名称
-      * <p> 示例值：CHN-审核
-      */
+    /**
+     * 中文名称
+     * <p> 示例值：CHN-审核
+     */
     @SerializedName("zh_cn")
     private String zhCn;
-     /**
-      * 英文名称
-      * <p> 示例值：english name
-      */
+    /**
+     * 英文名称
+     * <p> 示例值：english name
+     */
     @SerializedName("en_us")
     private String enUs;
+
+    // builder 开始
+    public I18n() {
+    }
+
+    public I18n(Builder builder) {
+        /**
+         * 中文名称
+         * <p> 示例值：CHN-审核
+         */
+        this.zhCn = builder.zhCn;
+        /**
+         * 英文名称
+         * <p> 示例值：english name
+         */
+        this.enUs = builder.enUs;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getZhCn() {
         return this.zhCn;
     }
@@ -53,67 +79,46 @@ public class I18n {
         this.enUs = enUs;
     }
 
-
-// builder 开始
-  public I18n(){}
-
-  public I18n(Builder builder){
-         /**
-          * 中文名称
-          * <p> 示例值：CHN-审核
-          */
-      this.zhCn = builder.zhCn;
-         /**
-          * 英文名称
-          * <p> 示例值：english name
-          */
-      this.enUs = builder.enUs;
-  }
-
     public static class Builder {
-     /**
-      * 中文名称
-      * <p> 示例值：CHN-审核
-      */
+        /**
+         * 中文名称
+         * <p> 示例值：CHN-审核
+         */
         private String zhCn;
-     /**
-      * 英文名称
-      * <p> 示例值：english name
-      */
+        /**
+         * 英文名称
+         * <p> 示例值：english name
+         */
         private String enUs;
 
         /**
          * 中文名称
          * <p> 示例值：CHN-审核
+         *
          * @param zhCn
          * @return
          */
         public Builder zhCn(String zhCn) {
-             this.zhCn = zhCn;
-             return this;
+            this.zhCn = zhCn;
+            return this;
         }
 
-    
 
         /**
          * 英文名称
          * <p> 示例值：english name
+         *
          * @param enUs
          * @return
          */
         public Builder enUs(String enUs) {
-             this.enUs = enUs;
-             return this;
+            this.enUs = enUs;
+            return this;
         }
 
-    
-    
-    public I18n build(){
-        return new I18n(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public I18n build() {
+            return new I18n(this);
+        }
     }
 }

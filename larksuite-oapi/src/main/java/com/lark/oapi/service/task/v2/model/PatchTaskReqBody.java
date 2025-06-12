@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.task.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.task.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class PatchTaskReqBody {
-     /**
-      * 要更新的任务数据，只需要写明要更新的字段
-      * <p> 示例值：
-      */
+    /**
+     * 要更新的任务数据，只需要写明要更新的字段
+     * <p> 示例值：
+     */
     @SerializedName("task")
     private InputTask task;
-     /**
-      * 要更新的字段名称。支持summary, description, due, start, completed_at, extra, repeat_rule, custom_complete, mode, is_milestone, custom_fields。
-      * <p> 示例值：
-      */
+    /**
+     * 要更新的字段名称。支持summary, description, due, start, completed_at, extra, repeat_rule, custom_complete, mode, is_milestone, custom_fields。
+     * <p> 示例值：
+     */
     @SerializedName("update_fields")
     private String[] updateFields;
+
+    // builder 开始
+    public PatchTaskReqBody() {
+    }
+
+    public PatchTaskReqBody(Builder builder) {
+        /**
+         * 要更新的任务数据，只需要写明要更新的字段
+         * <p> 示例值：
+         */
+        this.task = builder.task;
+        /**
+         * 要更新的字段名称。支持summary, description, due, start, completed_at, extra, repeat_rule, custom_complete, mode, is_milestone, custom_fields。
+         * <p> 示例值：
+         */
+        this.updateFields = builder.updateFields;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public InputTask getTask() {
         return this.task;
     }
@@ -53,67 +79,46 @@ public class PatchTaskReqBody {
         this.updateFields = updateFields;
     }
 
-
-// builder 开始
-  public PatchTaskReqBody(){}
-
-  public PatchTaskReqBody(Builder builder){
-         /**
-          * 要更新的任务数据，只需要写明要更新的字段
-          * <p> 示例值：
-          */
-      this.task = builder.task;
-         /**
-          * 要更新的字段名称。支持summary, description, due, start, completed_at, extra, repeat_rule, custom_complete, mode, is_milestone, custom_fields。
-          * <p> 示例值：
-          */
-      this.updateFields = builder.updateFields;
-  }
-
     public static class Builder {
-     /**
-      * 要更新的任务数据，只需要写明要更新的字段
-      * <p> 示例值：
-      */
+        /**
+         * 要更新的任务数据，只需要写明要更新的字段
+         * <p> 示例值：
+         */
         private InputTask task;
-     /**
-      * 要更新的字段名称。支持summary, description, due, start, completed_at, extra, repeat_rule, custom_complete, mode, is_milestone, custom_fields。
-      * <p> 示例值：
-      */
+        /**
+         * 要更新的字段名称。支持summary, description, due, start, completed_at, extra, repeat_rule, custom_complete, mode, is_milestone, custom_fields。
+         * <p> 示例值：
+         */
         private String[] updateFields;
 
         /**
          * 要更新的任务数据，只需要写明要更新的字段
          * <p> 示例值：
+         *
          * @param task
          * @return
          */
         public Builder task(InputTask task) {
-             this.task = task;
-             return this;
+            this.task = task;
+            return this;
         }
 
-    
 
         /**
          * 要更新的字段名称。支持summary, description, due, start, completed_at, extra, repeat_rule, custom_complete, mode, is_milestone, custom_fields。
          * <p> 示例值：
+         *
          * @param updateFields
          * @return
          */
         public Builder updateFields(String[] updateFields) {
-             this.updateFields = updateFields;
-             return this;
+            this.updateFields = updateFields;
+            return this;
         }
 
-    
-    
-    public PatchTaskReqBody build(){
-        return new PatchTaskReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public PatchTaskReqBody build() {
+            return new PatchTaskReqBody(this);
+        }
     }
 }

@@ -12,36 +12,67 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class JobDetailRecruitmentType {
-     /**
-      * 雇佣类型 ID
-      * <p> 示例值：6001
-      */
+    /**
+     * 雇佣类型 ID
+     * <p> 示例值：6001
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 雇佣类型名称
-      * <p> 示例值：
-      */
+    /**
+     * 雇佣类型名称
+     * <p> 示例值：
+     */
     @SerializedName("name")
     private I18n name;
-     /**
-      * 雇佣类型启用状态
-      * <p> 示例值：1
-      */
+    /**
+     * 雇佣类型启用状态
+     * <p> 示例值：1
+     */
     @SerializedName("active_status")
     private Integer activeStatus;
+
+    // builder 开始
+    public JobDetailRecruitmentType() {
+    }
+
+    public JobDetailRecruitmentType(Builder builder) {
+        /**
+         * 雇佣类型 ID
+         * <p> 示例值：6001
+         */
+        this.id = builder.id;
+        /**
+         * 雇佣类型名称
+         * <p> 示例值：
+         */
+        this.name = builder.name;
+        /**
+         * 雇佣类型启用状态
+         * <p> 示例值：1
+         */
+        this.activeStatus = builder.activeStatus;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -66,90 +97,64 @@ public class JobDetailRecruitmentType {
         this.activeStatus = activeStatus;
     }
 
-
-// builder 开始
-  public JobDetailRecruitmentType(){}
-
-  public JobDetailRecruitmentType(Builder builder){
-         /**
-          * 雇佣类型 ID
-          * <p> 示例值：6001
-          */
-      this.id = builder.id;
-         /**
-          * 雇佣类型名称
-          * <p> 示例值：
-          */
-      this.name = builder.name;
-         /**
-          * 雇佣类型启用状态
-          * <p> 示例值：1
-          */
-      this.activeStatus = builder.activeStatus;
-  }
-
     public static class Builder {
-     /**
-      * 雇佣类型 ID
-      * <p> 示例值：6001
-      */
+        /**
+         * 雇佣类型 ID
+         * <p> 示例值：6001
+         */
         private String id;
-     /**
-      * 雇佣类型名称
-      * <p> 示例值：
-      */
+        /**
+         * 雇佣类型名称
+         * <p> 示例值：
+         */
         private I18n name;
-     /**
-      * 雇佣类型启用状态
-      * <p> 示例值：1
-      */
+        /**
+         * 雇佣类型启用状态
+         * <p> 示例值：1
+         */
         private Integer activeStatus;
 
         /**
          * 雇佣类型 ID
          * <p> 示例值：6001
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 雇佣类型名称
          * <p> 示例值：
+         *
          * @param name
          * @return
          */
         public Builder name(I18n name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 雇佣类型启用状态
          * <p> 示例值：1
+         *
          * @param activeStatus
          * @return
          */
         public Builder activeStatus(Integer activeStatus) {
-             this.activeStatus = activeStatus;
-             return this;
+            this.activeStatus = activeStatus;
+            return this;
         }
 
-    
-    
-    public JobDetailRecruitmentType build(){
-        return new JobDetailRecruitmentType(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public JobDetailRecruitmentType build() {
+            return new JobDetailRecruitmentType(this);
+        }
     }
 }

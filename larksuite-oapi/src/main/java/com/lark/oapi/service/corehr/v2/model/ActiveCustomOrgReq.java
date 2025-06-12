@@ -12,20 +12,36 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ActiveCustomOrgReq {
     @Body
     private ActiveCustomOrgReqBody body;
+
+    // builder 开始
+    public ActiveCustomOrgReq() {
+    }
+
+    public ActiveCustomOrgReq(Builder builder) {
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 
     public ActiveCustomOrgReqBody getActiveCustomOrgReqBody() {
         return this.body;
@@ -35,36 +51,27 @@ public class ActiveCustomOrgReq {
         this.body = body;
     }
 
-// builder 开始
-  public ActiveCustomOrgReq(){}
-
-  public ActiveCustomOrgReq(Builder builder){
-        this.body = builder.body;
-  }
-
     public static class Builder {
-    
+
         private ActiveCustomOrgReqBody body;
-    
+
         public ActiveCustomOrgReqBody getActiveCustomOrgReqBody() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder activeCustomOrgReqBody(ActiveCustomOrgReqBody body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public ActiveCustomOrgReq build(){
-        return new ActiveCustomOrgReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ActiveCustomOrgReq build() {
+            return new ActiveCustomOrgReq(this);
+        }
     }
 }

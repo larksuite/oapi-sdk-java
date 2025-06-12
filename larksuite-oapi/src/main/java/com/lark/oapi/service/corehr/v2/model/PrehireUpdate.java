@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,42 +20,82 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class PrehireUpdate {
-     /**
-      * 更新个人（person）信息
-      * <p> 示例值：
-      */
+    /**
+     * 更新个人（person）信息
+     * <p> 示例值：
+     */
     @SerializedName("basic_info_update")
     private BasicInfoUpdate basicInfoUpdate;
-     /**
-      * 更新待入职（prehire）信息
-      * <p> 示例值：
-      */
+    /**
+     * 更新待入职（prehire）信息
+     * <p> 示例值：
+     */
     @SerializedName("offer_info_update")
     private OfferInfoUpdate offerInfoUpdate;
-     /**
-      * 指定需要更新的系统字段，只支持最多下钻一层，格式如下：; - basic_info_update字段：basic_info_update.name（对name整体进行覆盖更新）；basic_info_update.emails（对邮箱整体进行更新）; - offer_info_update字段：offer_info_update.onboarding_method; - 招聘ID：ats_application_id
-      * <p> 示例值：\["basic_info_update.names","offer_info_update.onboarding_method"\]
-      */
+    /**
+     * 指定需要更新的系统字段，只支持最多下钻一层，格式如下：; - basic_info_update字段：basic_info_update.name（对name整体进行覆盖更新）；basic_info_update.emails（对邮箱整体进行更新）; - offer_info_update字段：offer_info_update.onboarding_method; - 招聘ID：ats_application_id
+     * <p> 示例值：\["basic_info_update.names","offer_info_update.onboarding_method"\]
+     */
     @SerializedName("standard_update_fields")
     private String[] standardUpdateFields;
-     /**
-      * 指定需要更新的PreHire对象上的自定义字段，格式如下：; - custom_field1__c
-      * <p> 示例值：\["custom_field1__c","custom_field2__c"\]
-      */
+    /**
+     * 指定需要更新的PreHire对象上的自定义字段，格式如下：; - custom_field1__c
+     * <p> 示例值：\["custom_field1__c","custom_field2__c"\]
+     */
     @SerializedName("custom_update_fields")
     private String[] customUpdateFields;
-     /**
-      * 指定需要更新的Person对象上的自定义字段，格式如下：; - custom_field1__c
-      * <p> 示例值：\["custom_field1__c","custom_field2__c"\]
-      */
+    /**
+     * 指定需要更新的Person对象上的自定义字段，格式如下：; - custom_field1__c
+     * <p> 示例值：\["custom_field1__c","custom_field2__c"\]
+     */
     @SerializedName("person_custom_update_fields")
     private String[] personCustomUpdateFields;
+
+    // builder 开始
+    public PrehireUpdate() {
+    }
+
+    public PrehireUpdate(Builder builder) {
+        /**
+         * 更新个人（person）信息
+         * <p> 示例值：
+         */
+        this.basicInfoUpdate = builder.basicInfoUpdate;
+        /**
+         * 更新待入职（prehire）信息
+         * <p> 示例值：
+         */
+        this.offerInfoUpdate = builder.offerInfoUpdate;
+        /**
+         * 指定需要更新的系统字段，只支持最多下钻一层，格式如下：; - basic_info_update字段：basic_info_update.name（对name整体进行覆盖更新）；basic_info_update.emails（对邮箱整体进行更新）; - offer_info_update字段：offer_info_update.onboarding_method; - 招聘ID：ats_application_id
+         * <p> 示例值：\["basic_info_update.names","offer_info_update.onboarding_method"\]
+         */
+        this.standardUpdateFields = builder.standardUpdateFields;
+        /**
+         * 指定需要更新的PreHire对象上的自定义字段，格式如下：; - custom_field1__c
+         * <p> 示例值：\["custom_field1__c","custom_field2__c"\]
+         */
+        this.customUpdateFields = builder.customUpdateFields;
+        /**
+         * 指定需要更新的Person对象上的自定义字段，格式如下：; - custom_field1__c
+         * <p> 示例值：\["custom_field1__c","custom_field2__c"\]
+         */
+        this.personCustomUpdateFields = builder.personCustomUpdateFields;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public BasicInfoUpdate getBasicInfoUpdate() {
         return this.basicInfoUpdate;
     }
@@ -95,136 +136,100 @@ public class PrehireUpdate {
         this.personCustomUpdateFields = personCustomUpdateFields;
     }
 
-
-// builder 开始
-  public PrehireUpdate(){}
-
-  public PrehireUpdate(Builder builder){
-         /**
-          * 更新个人（person）信息
-          * <p> 示例值：
-          */
-      this.basicInfoUpdate = builder.basicInfoUpdate;
-         /**
-          * 更新待入职（prehire）信息
-          * <p> 示例值：
-          */
-      this.offerInfoUpdate = builder.offerInfoUpdate;
-         /**
-          * 指定需要更新的系统字段，只支持最多下钻一层，格式如下：; - basic_info_update字段：basic_info_update.name（对name整体进行覆盖更新）；basic_info_update.emails（对邮箱整体进行更新）; - offer_info_update字段：offer_info_update.onboarding_method; - 招聘ID：ats_application_id
-          * <p> 示例值：\["basic_info_update.names","offer_info_update.onboarding_method"\]
-          */
-      this.standardUpdateFields = builder.standardUpdateFields;
-         /**
-          * 指定需要更新的PreHire对象上的自定义字段，格式如下：; - custom_field1__c
-          * <p> 示例值：\["custom_field1__c","custom_field2__c"\]
-          */
-      this.customUpdateFields = builder.customUpdateFields;
-         /**
-          * 指定需要更新的Person对象上的自定义字段，格式如下：; - custom_field1__c
-          * <p> 示例值：\["custom_field1__c","custom_field2__c"\]
-          */
-      this.personCustomUpdateFields = builder.personCustomUpdateFields;
-  }
-
     public static class Builder {
-     /**
-      * 更新个人（person）信息
-      * <p> 示例值：
-      */
+        /**
+         * 更新个人（person）信息
+         * <p> 示例值：
+         */
         private BasicInfoUpdate basicInfoUpdate;
-     /**
-      * 更新待入职（prehire）信息
-      * <p> 示例值：
-      */
+        /**
+         * 更新待入职（prehire）信息
+         * <p> 示例值：
+         */
         private OfferInfoUpdate offerInfoUpdate;
-     /**
-      * 指定需要更新的系统字段，只支持最多下钻一层，格式如下：; - basic_info_update字段：basic_info_update.name（对name整体进行覆盖更新）；basic_info_update.emails（对邮箱整体进行更新）; - offer_info_update字段：offer_info_update.onboarding_method; - 招聘ID：ats_application_id
-      * <p> 示例值：\["basic_info_update.names","offer_info_update.onboarding_method"\]
-      */
+        /**
+         * 指定需要更新的系统字段，只支持最多下钻一层，格式如下：; - basic_info_update字段：basic_info_update.name（对name整体进行覆盖更新）；basic_info_update.emails（对邮箱整体进行更新）; - offer_info_update字段：offer_info_update.onboarding_method; - 招聘ID：ats_application_id
+         * <p> 示例值：\["basic_info_update.names","offer_info_update.onboarding_method"\]
+         */
         private String[] standardUpdateFields;
-     /**
-      * 指定需要更新的PreHire对象上的自定义字段，格式如下：; - custom_field1__c
-      * <p> 示例值：\["custom_field1__c","custom_field2__c"\]
-      */
+        /**
+         * 指定需要更新的PreHire对象上的自定义字段，格式如下：; - custom_field1__c
+         * <p> 示例值：\["custom_field1__c","custom_field2__c"\]
+         */
         private String[] customUpdateFields;
-     /**
-      * 指定需要更新的Person对象上的自定义字段，格式如下：; - custom_field1__c
-      * <p> 示例值：\["custom_field1__c","custom_field2__c"\]
-      */
+        /**
+         * 指定需要更新的Person对象上的自定义字段，格式如下：; - custom_field1__c
+         * <p> 示例值：\["custom_field1__c","custom_field2__c"\]
+         */
         private String[] personCustomUpdateFields;
 
         /**
          * 更新个人（person）信息
          * <p> 示例值：
+         *
          * @param basicInfoUpdate
          * @return
          */
         public Builder basicInfoUpdate(BasicInfoUpdate basicInfoUpdate) {
-             this.basicInfoUpdate = basicInfoUpdate;
-             return this;
+            this.basicInfoUpdate = basicInfoUpdate;
+            return this;
         }
 
-    
 
         /**
          * 更新待入职（prehire）信息
          * <p> 示例值：
+         *
          * @param offerInfoUpdate
          * @return
          */
         public Builder offerInfoUpdate(OfferInfoUpdate offerInfoUpdate) {
-             this.offerInfoUpdate = offerInfoUpdate;
-             return this;
+            this.offerInfoUpdate = offerInfoUpdate;
+            return this;
         }
 
-    
 
         /**
          * 指定需要更新的系统字段，只支持最多下钻一层，格式如下：; - basic_info_update字段：basic_info_update.name（对name整体进行覆盖更新）；basic_info_update.emails（对邮箱整体进行更新）; - offer_info_update字段：offer_info_update.onboarding_method; - 招聘ID：ats_application_id
          * <p> 示例值：\["basic_info_update.names","offer_info_update.onboarding_method"\]
+         *
          * @param standardUpdateFields
          * @return
          */
         public Builder standardUpdateFields(String[] standardUpdateFields) {
-             this.standardUpdateFields = standardUpdateFields;
-             return this;
+            this.standardUpdateFields = standardUpdateFields;
+            return this;
         }
 
-    
 
         /**
          * 指定需要更新的PreHire对象上的自定义字段，格式如下：; - custom_field1__c
          * <p> 示例值：\["custom_field1__c","custom_field2__c"\]
+         *
          * @param customUpdateFields
          * @return
          */
         public Builder customUpdateFields(String[] customUpdateFields) {
-             this.customUpdateFields = customUpdateFields;
-             return this;
+            this.customUpdateFields = customUpdateFields;
+            return this;
         }
 
-    
 
         /**
          * 指定需要更新的Person对象上的自定义字段，格式如下：; - custom_field1__c
          * <p> 示例值：\["custom_field1__c","custom_field2__c"\]
+         *
          * @param personCustomUpdateFields
          * @return
          */
         public Builder personCustomUpdateFields(String[] personCustomUpdateFields) {
-             this.personCustomUpdateFields = personCustomUpdateFields;
-             return this;
+            this.personCustomUpdateFields = personCustomUpdateFields;
+            return this;
         }
 
-    
-    
-    public PrehireUpdate build(){
-        return new PrehireUpdate(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public PrehireUpdate build() {
+            return new PrehireUpdate(this);
+        }
     }
 }

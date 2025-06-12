@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.cardkit.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.cardkit.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,60 +20,115 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Params {
-     /**
-      * 添加组件的方式，action是add_elements使用。
-      * <p> 示例值：insert_before
-      */
+    /**
+     * 添加组件的方式，action是add_elements使用。
+     * <p> 示例值：insert_before
+     */
     @SerializedName("type")
     private String type;
-     /**
-      * 目标组件的 ID。 当 type 为 insert_before、insert_after 时，为用于定位的目标组件。 当 type 为 append 时，该字段仅支持容器类组件，为用于指定末尾添加的目标组件，未填写默认为在卡片 body 末尾添加。action是add_elements使用。
-      * <p> 示例值：elem_63529372
-      */
+    /**
+     * 目标组件的 ID。 当 type 为 insert_before、insert_after 时，为用于定位的目标组件。 当 type 为 append 时，该字段仅支持容器类组件，为用于指定末尾添加的目标组件，未填写默认为在卡片 body 末尾添加。action是add_elements使用。
+     * <p> 示例值：elem_63529372
+     */
     @SerializedName("target_element_id")
     private String targetElementId;
-     /**
-      * 组件列表，action是add_elements使用。
-      * <p> 示例值：
-      */
+    /**
+     * 组件列表，action是add_elements使用。
+     * <p> 示例值：
+     */
     @SerializedName("elements")
     private String[] elements;
-     /**
-      * 删除的组件ID数组，action是delete_elements使用。
-      * <p> 示例值：
-      */
+    /**
+     * 删除的组件ID数组，action是delete_elements使用。
+     * <p> 示例值：
+     */
     @SerializedName("element_ids")
     private String[] elementIds;
-     /**
-      * 组件ID，action是partial_update_element或update_element使用
-      * <p> 示例值：elem_63529372
-      */
+    /**
+     * 组件ID，action是partial_update_element或update_element使用
+     * <p> 示例值：elem_63529372
+     */
     @SerializedName("element_id")
     private String elementId;
-     /**
-      * 局部更新组件，action是partial_update_element使用
-      * <p> 示例值：{\"content\":\"更新后的组件文本\"}
-      */
+    /**
+     * 局部更新组件，action是partial_update_element使用
+     * <p> 示例值：{\"content\":\"更新后的组件文本\"}
+     */
     @SerializedName("partial_element")
     private String partialElement;
-     /**
-      * 全量更新组件，action是update_element使用
-      * <p> 示例值：{\"tag\":\"markdown\",\"id\":\"md_1\",\"content\":\"普通文本\"}
-      */
+    /**
+     * 全量更新组件，action是update_element使用
+     * <p> 示例值：{\"tag\":\"markdown\",\"id\":\"md_1\",\"content\":\"普通文本\"}
+     */
     @SerializedName("element")
     private String element;
-     /**
-      * 卡片设置
-      * <p> 示例值：{\"config\":{\"streaming_mode\":true,\"enable_forward\":true,\"update_multi\":true,\"width_mode\":\"fill\",\"enable_forward_interaction\":false},\"card_link\":{\"url\":\"https://open.feishu.cn\",\"android_url\":\"https://open.feishu.cn\",\"ios_url\":\"https://open.feishu.cn\",\"pc_url\":\"https://open.feishu.cn\"}}
-      */
+    /**
+     * 卡片设置
+     * <p> 示例值：{\"config\":{\"streaming_mode\":true,\"enable_forward\":true,\"update_multi\":true,\"width_mode\":\"fill\",\"enable_forward_interaction\":false},\"card_link\":{\"url\":\"https://open.feishu.cn\",\"android_url\":\"https://open.feishu.cn\",\"ios_url\":\"https://open.feishu.cn\",\"pc_url\":\"https://open.feishu.cn\"}}
+     */
     @SerializedName("settings")
     private String settings;
+
+    // builder 开始
+    public Params() {
+    }
+
+    public Params(Builder builder) {
+        /**
+         * 添加组件的方式，action是add_elements使用。
+         * <p> 示例值：insert_before
+         */
+        this.type = builder.type;
+        /**
+         * 目标组件的 ID。 当 type 为 insert_before、insert_after 时，为用于定位的目标组件。 当 type 为 append 时，该字段仅支持容器类组件，为用于指定末尾添加的目标组件，未填写默认为在卡片 body 末尾添加。action是add_elements使用。
+         * <p> 示例值：elem_63529372
+         */
+        this.targetElementId = builder.targetElementId;
+        /**
+         * 组件列表，action是add_elements使用。
+         * <p> 示例值：
+         */
+        this.elements = builder.elements;
+        /**
+         * 删除的组件ID数组，action是delete_elements使用。
+         * <p> 示例值：
+         */
+        this.elementIds = builder.elementIds;
+        /**
+         * 组件ID，action是partial_update_element或update_element使用
+         * <p> 示例值：elem_63529372
+         */
+        this.elementId = builder.elementId;
+        /**
+         * 局部更新组件，action是partial_update_element使用
+         * <p> 示例值：{\"content\":\"更新后的组件文本\"}
+         */
+        this.partialElement = builder.partialElement;
+        /**
+         * 全量更新组件，action是update_element使用
+         * <p> 示例值：{\"tag\":\"markdown\",\"id\":\"md_1\",\"content\":\"普通文本\"}
+         */
+        this.element = builder.element;
+        /**
+         * 卡片设置
+         * <p> 示例值：{\"config\":{\"streaming_mode\":true,\"enable_forward\":true,\"update_multi\":true,\"width_mode\":\"fill\",\"enable_forward_interaction\":false},\"card_link\":{\"url\":\"https://open.feishu.cn\",\"android_url\":\"https://open.feishu.cn\",\"ios_url\":\"https://open.feishu.cn\",\"pc_url\":\"https://open.feishu.cn\"}}
+         */
+        this.settings = builder.settings;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getType() {
         return this.type;
     }
@@ -137,215 +193,166 @@ public class Params {
         this.settings = settings;
     }
 
-
-// builder 开始
-  public Params(){}
-
-  public Params(Builder builder){
-         /**
-          * 添加组件的方式，action是add_elements使用。
-          * <p> 示例值：insert_before
-          */
-      this.type = builder.type;
-         /**
-          * 目标组件的 ID。 当 type 为 insert_before、insert_after 时，为用于定位的目标组件。 当 type 为 append 时，该字段仅支持容器类组件，为用于指定末尾添加的目标组件，未填写默认为在卡片 body 末尾添加。action是add_elements使用。
-          * <p> 示例值：elem_63529372
-          */
-      this.targetElementId = builder.targetElementId;
-         /**
-          * 组件列表，action是add_elements使用。
-          * <p> 示例值：
-          */
-      this.elements = builder.elements;
-         /**
-          * 删除的组件ID数组，action是delete_elements使用。
-          * <p> 示例值：
-          */
-      this.elementIds = builder.elementIds;
-         /**
-          * 组件ID，action是partial_update_element或update_element使用
-          * <p> 示例值：elem_63529372
-          */
-      this.elementId = builder.elementId;
-         /**
-          * 局部更新组件，action是partial_update_element使用
-          * <p> 示例值：{\"content\":\"更新后的组件文本\"}
-          */
-      this.partialElement = builder.partialElement;
-         /**
-          * 全量更新组件，action是update_element使用
-          * <p> 示例值：{\"tag\":\"markdown\",\"id\":\"md_1\",\"content\":\"普通文本\"}
-          */
-      this.element = builder.element;
-         /**
-          * 卡片设置
-          * <p> 示例值：{\"config\":{\"streaming_mode\":true,\"enable_forward\":true,\"update_multi\":true,\"width_mode\":\"fill\",\"enable_forward_interaction\":false},\"card_link\":{\"url\":\"https://open.feishu.cn\",\"android_url\":\"https://open.feishu.cn\",\"ios_url\":\"https://open.feishu.cn\",\"pc_url\":\"https://open.feishu.cn\"}}
-          */
-      this.settings = builder.settings;
-  }
-
     public static class Builder {
-     /**
-      * 添加组件的方式，action是add_elements使用。
-      * <p> 示例值：insert_before
-      */
+        /**
+         * 添加组件的方式，action是add_elements使用。
+         * <p> 示例值：insert_before
+         */
         private String type;
-     /**
-      * 目标组件的 ID。 当 type 为 insert_before、insert_after 时，为用于定位的目标组件。 当 type 为 append 时，该字段仅支持容器类组件，为用于指定末尾添加的目标组件，未填写默认为在卡片 body 末尾添加。action是add_elements使用。
-      * <p> 示例值：elem_63529372
-      */
+        /**
+         * 目标组件的 ID。 当 type 为 insert_before、insert_after 时，为用于定位的目标组件。 当 type 为 append 时，该字段仅支持容器类组件，为用于指定末尾添加的目标组件，未填写默认为在卡片 body 末尾添加。action是add_elements使用。
+         * <p> 示例值：elem_63529372
+         */
         private String targetElementId;
-     /**
-      * 组件列表，action是add_elements使用。
-      * <p> 示例值：
-      */
+        /**
+         * 组件列表，action是add_elements使用。
+         * <p> 示例值：
+         */
         private String[] elements;
-     /**
-      * 删除的组件ID数组，action是delete_elements使用。
-      * <p> 示例值：
-      */
+        /**
+         * 删除的组件ID数组，action是delete_elements使用。
+         * <p> 示例值：
+         */
         private String[] elementIds;
-     /**
-      * 组件ID，action是partial_update_element或update_element使用
-      * <p> 示例值：elem_63529372
-      */
+        /**
+         * 组件ID，action是partial_update_element或update_element使用
+         * <p> 示例值：elem_63529372
+         */
         private String elementId;
-     /**
-      * 局部更新组件，action是partial_update_element使用
-      * <p> 示例值：{\"content\":\"更新后的组件文本\"}
-      */
+        /**
+         * 局部更新组件，action是partial_update_element使用
+         * <p> 示例值：{\"content\":\"更新后的组件文本\"}
+         */
         private String partialElement;
-     /**
-      * 全量更新组件，action是update_element使用
-      * <p> 示例值：{\"tag\":\"markdown\",\"id\":\"md_1\",\"content\":\"普通文本\"}
-      */
+        /**
+         * 全量更新组件，action是update_element使用
+         * <p> 示例值：{\"tag\":\"markdown\",\"id\":\"md_1\",\"content\":\"普通文本\"}
+         */
         private String element;
-     /**
-      * 卡片设置
-      * <p> 示例值：{\"config\":{\"streaming_mode\":true,\"enable_forward\":true,\"update_multi\":true,\"width_mode\":\"fill\",\"enable_forward_interaction\":false},\"card_link\":{\"url\":\"https://open.feishu.cn\",\"android_url\":\"https://open.feishu.cn\",\"ios_url\":\"https://open.feishu.cn\",\"pc_url\":\"https://open.feishu.cn\"}}
-      */
+        /**
+         * 卡片设置
+         * <p> 示例值：{\"config\":{\"streaming_mode\":true,\"enable_forward\":true,\"update_multi\":true,\"width_mode\":\"fill\",\"enable_forward_interaction\":false},\"card_link\":{\"url\":\"https://open.feishu.cn\",\"android_url\":\"https://open.feishu.cn\",\"ios_url\":\"https://open.feishu.cn\",\"pc_url\":\"https://open.feishu.cn\"}}
+         */
         private String settings;
 
         /**
          * 添加组件的方式，action是add_elements使用。
          * <p> 示例值：insert_before
+         *
          * @param type
          * @return
          */
         public Builder type(String type) {
-             this.type = type;
-             return this;
+            this.type = type;
+            return this;
         }
+
         /**
          * 添加组件的方式，action是add_elements使用。
          * <p> 示例值：insert_before
+         *
          * @param type {@link com.lark.oapi.service.cardkit.v1.enums.ParamsTypeEnum}
          * @return
          */
         public Builder type(com.lark.oapi.service.cardkit.v1.enums.ParamsTypeEnum type) {
-             this.type = type.getValue();
-             return this;
+            this.type = type.getValue();
+            return this;
         }
 
-    
 
         /**
          * 目标组件的 ID。 当 type 为 insert_before、insert_after 时，为用于定位的目标组件。 当 type 为 append 时，该字段仅支持容器类组件，为用于指定末尾添加的目标组件，未填写默认为在卡片 body 末尾添加。action是add_elements使用。
          * <p> 示例值：elem_63529372
+         *
          * @param targetElementId
          * @return
          */
         public Builder targetElementId(String targetElementId) {
-             this.targetElementId = targetElementId;
-             return this;
+            this.targetElementId = targetElementId;
+            return this;
         }
 
-    
 
         /**
          * 组件列表，action是add_elements使用。
          * <p> 示例值：
+         *
          * @param elements
          * @return
          */
         public Builder elements(String[] elements) {
-             this.elements = elements;
-             return this;
+            this.elements = elements;
+            return this;
         }
 
-    
 
         /**
          * 删除的组件ID数组，action是delete_elements使用。
          * <p> 示例值：
+         *
          * @param elementIds
          * @return
          */
         public Builder elementIds(String[] elementIds) {
-             this.elementIds = elementIds;
-             return this;
+            this.elementIds = elementIds;
+            return this;
         }
 
-    
 
         /**
          * 组件ID，action是partial_update_element或update_element使用
          * <p> 示例值：elem_63529372
+         *
          * @param elementId
          * @return
          */
         public Builder elementId(String elementId) {
-             this.elementId = elementId;
-             return this;
+            this.elementId = elementId;
+            return this;
         }
 
-    
 
         /**
          * 局部更新组件，action是partial_update_element使用
          * <p> 示例值：{\"content\":\"更新后的组件文本\"}
+         *
          * @param partialElement
          * @return
          */
         public Builder partialElement(String partialElement) {
-             this.partialElement = partialElement;
-             return this;
+            this.partialElement = partialElement;
+            return this;
         }
 
-    
 
         /**
          * 全量更新组件，action是update_element使用
          * <p> 示例值：{\"tag\":\"markdown\",\"id\":\"md_1\",\"content\":\"普通文本\"}
+         *
          * @param element
          * @return
          */
         public Builder element(String element) {
-             this.element = element;
-             return this;
+            this.element = element;
+            return this;
         }
 
-    
 
         /**
          * 卡片设置
          * <p> 示例值：{\"config\":{\"streaming_mode\":true,\"enable_forward\":true,\"update_multi\":true,\"width_mode\":\"fill\",\"enable_forward_interaction\":false},\"card_link\":{\"url\":\"https://open.feishu.cn\",\"android_url\":\"https://open.feishu.cn\",\"ios_url\":\"https://open.feishu.cn\",\"pc_url\":\"https://open.feishu.cn\"}}
+         *
          * @param settings
          * @return
          */
         public Builder settings(String settings) {
-             this.settings = settings;
-             return this;
+            this.settings = settings;
+            return this;
         }
 
-    
-    
-    public Params build(){
-        return new Params(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Params build() {
+            return new Params(this);
+        }
     }
 }

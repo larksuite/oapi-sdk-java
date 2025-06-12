@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ReplyExtra {
-     /**
-      * 评论中的图片token list
-      * <p> 示例值：["xfsfseewewabcef"]
-      */
+    /**
+     * 评论中的图片token list
+     * <p> 示例值：["xfsfseewewabcef"]
+     */
     @SerializedName("image_list")
     private String[] imageList;
+
+    // builder 开始
+    public ReplyExtra() {
+    }
+
+    public ReplyExtra(Builder builder) {
+        /**
+         * 评论中的图片token list
+         * <p> 示例值：["xfsfseewewabcef"]
+         */
+        this.imageList = builder.imageList;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String[] getImageList() {
         return this.imageList;
     }
@@ -39,44 +60,28 @@ public class ReplyExtra {
         this.imageList = imageList;
     }
 
-
-// builder 开始
-  public ReplyExtra(){}
-
-  public ReplyExtra(Builder builder){
-         /**
-          * 评论中的图片token list
-          * <p> 示例值：["xfsfseewewabcef"]
-          */
-      this.imageList = builder.imageList;
-  }
-
     public static class Builder {
-     /**
-      * 评论中的图片token list
-      * <p> 示例值：["xfsfseewewabcef"]
-      */
+        /**
+         * 评论中的图片token list
+         * <p> 示例值：["xfsfseewewabcef"]
+         */
         private String[] imageList;
 
         /**
          * 评论中的图片token list
          * <p> 示例值：["xfsfseewewabcef"]
+         *
          * @param imageList
          * @return
          */
         public Builder imageList(String[] imageList) {
-             this.imageList = imageList;
-             return this;
+            this.imageList = imageList;
+            return this;
         }
 
-    
-    
-    public ReplyExtra build(){
-        return new ReplyExtra(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ReplyExtra build() {
+            return new ReplyExtra(this);
+        }
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class PatchReserveConfigAdminReqBody {
-     /**
-      * 1代表层级，2代表会议室
-      * <p> 示例值：2
-      */
+    /**
+     * 1代表层级，2代表会议室
+     * <p> 示例值：2
+     */
     @SerializedName("scope_type")
     private Integer scopeType;
-     /**
-      * 预定管理员或部门
-      * <p> 示例值：
-      */
+    /**
+     * 预定管理员或部门
+     * <p> 示例值：
+     */
     @SerializedName("reserve_admin_config")
     private ReserveAdminConfig reserveAdminConfig;
+
+    // builder 开始
+    public PatchReserveConfigAdminReqBody() {
+    }
+
+    public PatchReserveConfigAdminReqBody(Builder builder) {
+        /**
+         * 1代表层级，2代表会议室
+         * <p> 示例值：2
+         */
+        this.scopeType = builder.scopeType;
+        /**
+         * 预定管理员或部门
+         * <p> 示例值：
+         */
+        this.reserveAdminConfig = builder.reserveAdminConfig;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Integer getScopeType() {
         return this.scopeType;
     }
@@ -53,67 +79,46 @@ public class PatchReserveConfigAdminReqBody {
         this.reserveAdminConfig = reserveAdminConfig;
     }
 
-
-// builder 开始
-  public PatchReserveConfigAdminReqBody(){}
-
-  public PatchReserveConfigAdminReqBody(Builder builder){
-         /**
-          * 1代表层级，2代表会议室
-          * <p> 示例值：2
-          */
-      this.scopeType = builder.scopeType;
-         /**
-          * 预定管理员或部门
-          * <p> 示例值：
-          */
-      this.reserveAdminConfig = builder.reserveAdminConfig;
-  }
-
     public static class Builder {
-     /**
-      * 1代表层级，2代表会议室
-      * <p> 示例值：2
-      */
+        /**
+         * 1代表层级，2代表会议室
+         * <p> 示例值：2
+         */
         private Integer scopeType;
-     /**
-      * 预定管理员或部门
-      * <p> 示例值：
-      */
+        /**
+         * 预定管理员或部门
+         * <p> 示例值：
+         */
         private ReserveAdminConfig reserveAdminConfig;
 
         /**
          * 1代表层级，2代表会议室
          * <p> 示例值：2
+         *
          * @param scopeType
          * @return
          */
         public Builder scopeType(Integer scopeType) {
-             this.scopeType = scopeType;
-             return this;
+            this.scopeType = scopeType;
+            return this;
         }
 
-    
 
         /**
          * 预定管理员或部门
          * <p> 示例值：
+         *
          * @param reserveAdminConfig
          * @return
          */
         public Builder reserveAdminConfig(ReserveAdminConfig reserveAdminConfig) {
-             this.reserveAdminConfig = reserveAdminConfig;
-             return this;
+            this.reserveAdminConfig = reserveAdminConfig;
+            return this;
         }
 
-    
-    
-    public PatchReserveConfigAdminReqBody build(){
-        return new PatchReserveConfigAdminReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public PatchReserveConfigAdminReqBody build() {
+            return new PatchReserveConfigAdminReqBody(this);
+        }
     }
 }

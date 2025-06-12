@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.search.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.search.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class KnowledgeQaInternetReference {
-     /**
-      * title
-      * <p> 示例值：xxxxxx
-      */
+    /**
+     * title
+     * <p> 示例值：xxxxxx
+     */
     @SerializedName("title")
     private String title;
-     /**
-      * summary
-      * <p> 示例值：xxxxx
-      */
+    /**
+     * summary
+     * <p> 示例值：xxxxx
+     */
     @SerializedName("summary")
     private String summary;
-     /**
-      * url
-      * <p> 示例值：xxxxxx
-      */
+    /**
+     * url
+     * <p> 示例值：xxxxxx
+     */
     @SerializedName("url")
     private String url;
+
+    // builder 开始
+    public KnowledgeQaInternetReference() {
+    }
+
+    public KnowledgeQaInternetReference(Builder builder) {
+        /**
+         * title
+         * <p> 示例值：xxxxxx
+         */
+        this.title = builder.title;
+        /**
+         * summary
+         * <p> 示例值：xxxxx
+         */
+        this.summary = builder.summary;
+        /**
+         * url
+         * <p> 示例值：xxxxxx
+         */
+        this.url = builder.url;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getTitle() {
         return this.title;
     }
@@ -67,90 +98,64 @@ public class KnowledgeQaInternetReference {
         this.url = url;
     }
 
-
-// builder 开始
-  public KnowledgeQaInternetReference(){}
-
-  public KnowledgeQaInternetReference(Builder builder){
-         /**
-          * title
-          * <p> 示例值：xxxxxx
-          */
-      this.title = builder.title;
-         /**
-          * summary
-          * <p> 示例值：xxxxx
-          */
-      this.summary = builder.summary;
-         /**
-          * url
-          * <p> 示例值：xxxxxx
-          */
-      this.url = builder.url;
-  }
-
     public static class Builder {
-     /**
-      * title
-      * <p> 示例值：xxxxxx
-      */
+        /**
+         * title
+         * <p> 示例值：xxxxxx
+         */
         private String title;
-     /**
-      * summary
-      * <p> 示例值：xxxxx
-      */
+        /**
+         * summary
+         * <p> 示例值：xxxxx
+         */
         private String summary;
-     /**
-      * url
-      * <p> 示例值：xxxxxx
-      */
+        /**
+         * url
+         * <p> 示例值：xxxxxx
+         */
         private String url;
 
         /**
          * title
          * <p> 示例值：xxxxxx
+         *
          * @param title
          * @return
          */
         public Builder title(String title) {
-             this.title = title;
-             return this;
+            this.title = title;
+            return this;
         }
 
-    
 
         /**
          * summary
          * <p> 示例值：xxxxx
+         *
          * @param summary
          * @return
          */
         public Builder summary(String summary) {
-             this.summary = summary;
-             return this;
+            this.summary = summary;
+            return this;
         }
 
-    
 
         /**
          * url
          * <p> 示例值：xxxxxx
+         *
          * @param url
          * @return
          */
         public Builder url(String url) {
-             this.url = url;
-             return this;
+            this.url = url;
+            return this;
         }
 
-    
-    
-    public KnowledgeQaInternetReference build(){
-        return new KnowledgeQaInternetReference(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public KnowledgeQaInternetReference build() {
+            return new KnowledgeQaInternetReference(this);
+        }
     }
 }

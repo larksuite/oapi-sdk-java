@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.board.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.board.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Connector {
-     /**
-      * 连线连接的起点图形
-      * <p> 示例值：
-      */
+    /**
+     * 连线连接的起点图形
+     * <p> 示例值：
+     */
     @SerializedName("start_object")
     private ConnectorAttachedObject startObject;
-     /**
-      * 连线连接的终点图形
-      * <p> 示例值：
-      */
+    /**
+     * 连线连接的终点图形
+     * <p> 示例值：
+     */
     @SerializedName("end_object")
     private ConnectorAttachedObject endObject;
-     /**
-      * 连线文本
-      * <p> 示例值：
-      */
+    /**
+     * 连线文本
+     * <p> 示例值：
+     */
     @SerializedName("captions")
     private ConnectorCaption captions;
+
+    // builder 开始
+    public Connector() {
+    }
+
+    public Connector(Builder builder) {
+        /**
+         * 连线连接的起点图形
+         * <p> 示例值：
+         */
+        this.startObject = builder.startObject;
+        /**
+         * 连线连接的终点图形
+         * <p> 示例值：
+         */
+        this.endObject = builder.endObject;
+        /**
+         * 连线文本
+         * <p> 示例值：
+         */
+        this.captions = builder.captions;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public ConnectorAttachedObject getStartObject() {
         return this.startObject;
     }
@@ -67,90 +98,64 @@ public class Connector {
         this.captions = captions;
     }
 
-
-// builder 开始
-  public Connector(){}
-
-  public Connector(Builder builder){
-         /**
-          * 连线连接的起点图形
-          * <p> 示例值：
-          */
-      this.startObject = builder.startObject;
-         /**
-          * 连线连接的终点图形
-          * <p> 示例值：
-          */
-      this.endObject = builder.endObject;
-         /**
-          * 连线文本
-          * <p> 示例值：
-          */
-      this.captions = builder.captions;
-  }
-
     public static class Builder {
-     /**
-      * 连线连接的起点图形
-      * <p> 示例值：
-      */
+        /**
+         * 连线连接的起点图形
+         * <p> 示例值：
+         */
         private ConnectorAttachedObject startObject;
-     /**
-      * 连线连接的终点图形
-      * <p> 示例值：
-      */
+        /**
+         * 连线连接的终点图形
+         * <p> 示例值：
+         */
         private ConnectorAttachedObject endObject;
-     /**
-      * 连线文本
-      * <p> 示例值：
-      */
+        /**
+         * 连线文本
+         * <p> 示例值：
+         */
         private ConnectorCaption captions;
 
         /**
          * 连线连接的起点图形
          * <p> 示例值：
+         *
          * @param startObject
          * @return
          */
         public Builder startObject(ConnectorAttachedObject startObject) {
-             this.startObject = startObject;
-             return this;
+            this.startObject = startObject;
+            return this;
         }
 
-    
 
         /**
          * 连线连接的终点图形
          * <p> 示例值：
+         *
          * @param endObject
          * @return
          */
         public Builder endObject(ConnectorAttachedObject endObject) {
-             this.endObject = endObject;
-             return this;
+            this.endObject = endObject;
+            return this;
         }
 
-    
 
         /**
          * 连线文本
          * <p> 示例值：
+         *
          * @param captions
          * @return
          */
         public Builder captions(ConnectorCaption captions) {
-             this.captions = captions;
-             return this;
+            this.captions = captions;
+            return this;
         }
 
-    
-    
-    public Connector build(){
-        return new Connector(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Connector build() {
+            return new Connector(this);
+        }
     }
 }

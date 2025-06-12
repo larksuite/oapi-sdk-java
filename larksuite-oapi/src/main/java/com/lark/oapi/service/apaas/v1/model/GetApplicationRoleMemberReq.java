@@ -12,32 +12,82 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class GetApplicationRoleMemberReq {
-     /**
-      * 是否需要公式的展示名称，便于前端展示
-      * <p> 示例值：
-      */
+    /**
+     * 是否需要公式的展示名称，便于前端展示
+     * <p> 示例值：
+     */
     @Query
     @SerializedName("need_display_name")
     private Boolean needDisplayName;
-     /**
-      * 是否使用 APIID字段作为出入参，默认值为 false
-      * <p> 示例值：false
-      */
+    /**
+     * 是否使用 APIID字段作为出入参，默认值为 false
+     * <p> 示例值：false
+     */
     @Query
     @SerializedName("use_api_id")
     private Boolean useApiId;
+    /**
+     * 应用命名空间
+     * <p> 示例值：package_test__c
+     */
+    @Path
+    @SerializedName("namespace")
+    private String namespace;
+    /**
+     * 角色 API 名称
+     * <p> 示例值：adminRole
+     */
+    @Path
+    @SerializedName("role_api_name")
+    private String roleApiName;
+
+    // builder 开始
+    public GetApplicationRoleMemberReq() {
+    }
+
+    public GetApplicationRoleMemberReq(Builder builder) {
+        /**
+         * 是否需要公式的展示名称，便于前端展示
+         * <p> 示例值：
+         */
+        this.needDisplayName = builder.needDisplayName;
+        /**
+         * 是否使用 APIID字段作为出入参，默认值为 false
+         * <p> 示例值：false
+         */
+        this.useApiId = builder.useApiId;
+        /**
+         * 应用命名空间
+         * <p> 示例值：package_test__c
+         */
+        this.namespace = builder.namespace;
+        /**
+         * 角色 API 名称
+         * <p> 示例值：adminRole
+         */
+        this.roleApiName = builder.roleApiName;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Boolean getNeedDisplayName() {
         return this.needDisplayName;
     }
@@ -54,20 +104,6 @@ public class GetApplicationRoleMemberReq {
         this.useApiId = useApiId;
     }
 
-     /**
-      * 应用命名空间
-      * <p> 示例值：package_test__c
-      */
-    @Path
-    @SerializedName("namespace")
-    private String namespace;
-     /**
-      * 角色 API 名称
-      * <p> 示例值：adminRole
-      */
-    @Path
-    @SerializedName("role_api_name")
-    private String roleApiName;
     public String getNamespace() {
         return this.namespace;
     }
@@ -84,93 +120,64 @@ public class GetApplicationRoleMemberReq {
         this.roleApiName = roleApiName;
     }
 
-
-// builder 开始
-  public GetApplicationRoleMemberReq(){}
-
-  public GetApplicationRoleMemberReq(Builder builder){
-         /**
-          * 是否需要公式的展示名称，便于前端展示
-          * <p> 示例值：
-          */
-       this.needDisplayName = builder.needDisplayName;
-         /**
-          * 是否使用 APIID字段作为出入参，默认值为 false
-          * <p> 示例值：false
-          */
-       this.useApiId = builder.useApiId;
-     /**
-      * 应用命名空间
-      * <p> 示例值：package_test__c
-      */
-       this.namespace = builder.namespace;
-     /**
-      * 角色 API 名称
-      * <p> 示例值：adminRole
-      */
-       this.roleApiName = builder.roleApiName;
-  }
-
     public static class Builder {
         private Boolean needDisplayName; // 是否需要公式的展示名称，便于前端展示
         private Boolean useApiId; // 是否使用 APIID字段作为出入参，默认值为 false
-    
+        private String namespace; // 应用命名空间
+        private String roleApiName; // 角色 API 名称
+
         /**
          * 是否需要公式的展示名称，便于前端展示
          * <p> 示例值：
+         *
          * @param needDisplayName
          * @return
          */
-           public Builder needDisplayName(Boolean needDisplayName) {
-                this.needDisplayName = needDisplayName;
-                return this;
-           }
+        public Builder needDisplayName(Boolean needDisplayName) {
+            this.needDisplayName = needDisplayName;
+            return this;
+        }
 
-    
         /**
          * 是否使用 APIID字段作为出入参，默认值为 false
          * <p> 示例值：false
+         *
          * @param useApiId
          * @return
          */
-           public Builder useApiId(Boolean useApiId) {
-                this.useApiId = useApiId;
-                return this;
-           }
+        public Builder useApiId(Boolean useApiId) {
+            this.useApiId = useApiId;
+            return this;
+        }
 
-    
-        private String namespace; // 应用命名空间
-        private String roleApiName; // 角色 API 名称
         /**
          * 应用命名空间
          * <p> 示例值：package_test__c
+         *
          * @param namespace
          * @return
          */
-          public Builder namespace(String namespace) {
-               this.namespace = namespace;
-               return this;
-          }
+        public Builder namespace(String namespace) {
+            this.namespace = namespace;
+            return this;
+        }
 
-    
+
         /**
          * 角色 API 名称
          * <p> 示例值：adminRole
+         *
          * @param roleApiName
          * @return
          */
-          public Builder roleApiName(String roleApiName) {
-               this.roleApiName = roleApiName;
-               return this;
-          }
+        public Builder roleApiName(String roleApiName) {
+            this.roleApiName = roleApiName;
+            return this;
+        }
 
-    
-    public GetApplicationRoleMemberReq build(){
-        return new GetApplicationRoleMemberReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public GetApplicationRoleMemberReq build() {
+            return new GetApplicationRoleMemberReq(this);
+        }
     }
 }

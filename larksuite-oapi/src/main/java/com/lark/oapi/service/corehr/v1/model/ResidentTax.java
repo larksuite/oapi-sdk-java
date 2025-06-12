@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,54 +20,104 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ResidentTax {
-     /**
-      * 实体在CoreHR内部的唯一键
-      * <p> 示例值：6950635856373745165
-      */
+    /**
+     * 实体在CoreHR内部的唯一键
+     * <p> 示例值：6950635856373745165
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 年度
-      * <p> 示例值：2021
-      */
+    /**
+     * 年度
+     * <p> 示例值：2021
+     */
     @SerializedName("year_resident_tax")
     private String yearResidentTax;
-     /**
-      * 纳税地址
-      * <p> 示例值：
-      */
+    /**
+     * 纳税地址
+     * <p> 示例值：
+     */
     @SerializedName("tax_address")
     private Address taxAddress;
-     /**
-      * 纳税国家地区
-      * <p> 示例值：马来西亚
-      */
+    /**
+     * 纳税国家地区
+     * <p> 示例值：马来西亚
+     */
     @SerializedName("tax_country_region_id")
     private String taxCountryRegionId;
-     /**
-      * 居民纳税身份
-      * <p> 示例值：马来西亚
-      */
+    /**
+     * 居民纳税身份
+     * <p> 示例值：马来西亚
+     */
     @SerializedName("resident_status")
     private Enum residentStatus;
-     /**
-      * 本年度在马来西亚已有工作收入
-      * <p> 示例值：马来西亚
-      */
+    /**
+     * 本年度在马来西亚已有工作收入
+     * <p> 示例值：马来西亚
+     */
     @SerializedName("resident_status_specification")
     private String residentStatusSpecification;
-     /**
-      * 自定义字段
-      * <p> 示例值：
-      */
+    /**
+     * 自定义字段
+     * <p> 示例值：
+     */
     @SerializedName("custom_fields")
     private ObjectFieldData[] customFields;
+
+    // builder 开始
+    public ResidentTax() {
+    }
+
+    public ResidentTax(Builder builder) {
+        /**
+         * 实体在CoreHR内部的唯一键
+         * <p> 示例值：6950635856373745165
+         */
+        this.id = builder.id;
+        /**
+         * 年度
+         * <p> 示例值：2021
+         */
+        this.yearResidentTax = builder.yearResidentTax;
+        /**
+         * 纳税地址
+         * <p> 示例值：
+         */
+        this.taxAddress = builder.taxAddress;
+        /**
+         * 纳税国家地区
+         * <p> 示例值：马来西亚
+         */
+        this.taxCountryRegionId = builder.taxCountryRegionId;
+        /**
+         * 居民纳税身份
+         * <p> 示例值：马来西亚
+         */
+        this.residentStatus = builder.residentStatus;
+        /**
+         * 本年度在马来西亚已有工作收入
+         * <p> 示例值：马来西亚
+         */
+        this.residentStatusSpecification = builder.residentStatusSpecification;
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
+        this.customFields = builder.customFields;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -123,182 +174,136 @@ public class ResidentTax {
         this.customFields = customFields;
     }
 
-
-// builder 开始
-  public ResidentTax(){}
-
-  public ResidentTax(Builder builder){
-         /**
-          * 实体在CoreHR内部的唯一键
-          * <p> 示例值：6950635856373745165
-          */
-      this.id = builder.id;
-         /**
-          * 年度
-          * <p> 示例值：2021
-          */
-      this.yearResidentTax = builder.yearResidentTax;
-         /**
-          * 纳税地址
-          * <p> 示例值：
-          */
-      this.taxAddress = builder.taxAddress;
-         /**
-          * 纳税国家地区
-          * <p> 示例值：马来西亚
-          */
-      this.taxCountryRegionId = builder.taxCountryRegionId;
-         /**
-          * 居民纳税身份
-          * <p> 示例值：马来西亚
-          */
-      this.residentStatus = builder.residentStatus;
-         /**
-          * 本年度在马来西亚已有工作收入
-          * <p> 示例值：马来西亚
-          */
-      this.residentStatusSpecification = builder.residentStatusSpecification;
-         /**
-          * 自定义字段
-          * <p> 示例值：
-          */
-      this.customFields = builder.customFields;
-  }
-
     public static class Builder {
-     /**
-      * 实体在CoreHR内部的唯一键
-      * <p> 示例值：6950635856373745165
-      */
+        /**
+         * 实体在CoreHR内部的唯一键
+         * <p> 示例值：6950635856373745165
+         */
         private String id;
-     /**
-      * 年度
-      * <p> 示例值：2021
-      */
+        /**
+         * 年度
+         * <p> 示例值：2021
+         */
         private String yearResidentTax;
-     /**
-      * 纳税地址
-      * <p> 示例值：
-      */
+        /**
+         * 纳税地址
+         * <p> 示例值：
+         */
         private Address taxAddress;
-     /**
-      * 纳税国家地区
-      * <p> 示例值：马来西亚
-      */
+        /**
+         * 纳税国家地区
+         * <p> 示例值：马来西亚
+         */
         private String taxCountryRegionId;
-     /**
-      * 居民纳税身份
-      * <p> 示例值：马来西亚
-      */
+        /**
+         * 居民纳税身份
+         * <p> 示例值：马来西亚
+         */
         private Enum residentStatus;
-     /**
-      * 本年度在马来西亚已有工作收入
-      * <p> 示例值：马来西亚
-      */
+        /**
+         * 本年度在马来西亚已有工作收入
+         * <p> 示例值：马来西亚
+         */
         private String residentStatusSpecification;
-     /**
-      * 自定义字段
-      * <p> 示例值：
-      */
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
         private ObjectFieldData[] customFields;
 
         /**
          * 实体在CoreHR内部的唯一键
          * <p> 示例值：6950635856373745165
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 年度
          * <p> 示例值：2021
+         *
          * @param yearResidentTax
          * @return
          */
         public Builder yearResidentTax(String yearResidentTax) {
-             this.yearResidentTax = yearResidentTax;
-             return this;
+            this.yearResidentTax = yearResidentTax;
+            return this;
         }
 
-    
 
         /**
          * 纳税地址
          * <p> 示例值：
+         *
          * @param taxAddress
          * @return
          */
         public Builder taxAddress(Address taxAddress) {
-             this.taxAddress = taxAddress;
-             return this;
+            this.taxAddress = taxAddress;
+            return this;
         }
 
-    
 
         /**
          * 纳税国家地区
          * <p> 示例值：马来西亚
+         *
          * @param taxCountryRegionId
          * @return
          */
         public Builder taxCountryRegionId(String taxCountryRegionId) {
-             this.taxCountryRegionId = taxCountryRegionId;
-             return this;
+            this.taxCountryRegionId = taxCountryRegionId;
+            return this;
         }
 
-    
 
         /**
          * 居民纳税身份
          * <p> 示例值：马来西亚
+         *
          * @param residentStatus
          * @return
          */
         public Builder residentStatus(Enum residentStatus) {
-             this.residentStatus = residentStatus;
-             return this;
+            this.residentStatus = residentStatus;
+            return this;
         }
 
-    
 
         /**
          * 本年度在马来西亚已有工作收入
          * <p> 示例值：马来西亚
+         *
          * @param residentStatusSpecification
          * @return
          */
         public Builder residentStatusSpecification(String residentStatusSpecification) {
-             this.residentStatusSpecification = residentStatusSpecification;
-             return this;
+            this.residentStatusSpecification = residentStatusSpecification;
+            return this;
         }
 
-    
 
         /**
          * 自定义字段
          * <p> 示例值：
+         *
          * @param customFields
          * @return
          */
         public Builder customFields(ObjectFieldData[] customFields) {
-             this.customFields = customFields;
-             return this;
+            this.customFields = customFields;
+            return this;
         }
 
-    
-    
-    public ResidentTax build(){
-        return new ResidentTax(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ResidentTax build() {
+            return new ResidentTax(this);
+        }
     }
 }

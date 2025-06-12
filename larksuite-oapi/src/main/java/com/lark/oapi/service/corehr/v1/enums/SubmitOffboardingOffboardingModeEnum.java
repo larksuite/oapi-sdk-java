@@ -17,14 +17,15 @@ package com.lark.oapi.service.corehr.v1.enums;
  * 离职方式
  */
 public enum SubmitOffboardingOffboardingModeEnum {
-     TERMINATION_OF_DISMISSAL(1), // 直接离职
-  ;
-   private Integer value;
+    TERMINATION_OF_DISMISSAL(1), // 直接离职
+    ;
+    private Integer value;
+
     SubmitOffboardingOffboardingModeEnum(Integer value) {
-      this.value = value;
+        this.value = value;
     }
 
     public Integer getValue() {
-      return this.value;
+        return this.value;
     }
 }

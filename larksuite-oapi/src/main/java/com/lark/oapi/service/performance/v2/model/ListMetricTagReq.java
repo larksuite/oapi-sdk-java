@@ -12,39 +12,70 @@
  */
 
 package com.lark.oapi.service.performance.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.performance.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ListMetricTagReq {
-     /**
-      * 分页大小
-      * <p> 示例值：
-      */
+    /**
+     * 分页大小
+     * <p> 示例值：
+     */
     @Query
     @SerializedName("page_size")
     private Integer pageSize;
-     /**
-      * 分页 Token
-      * <p> 示例值：
-      */
+    /**
+     * 分页 Token
+     * <p> 示例值：
+     */
     @Query
     @SerializedName("page_token")
     private String pageToken;
-     /**
-      * 指标标签 ID 列表
-      * <p> 示例值：
-      */
+    /**
+     * 指标标签 ID 列表
+     * <p> 示例值：
+     */
     @Query
     @SerializedName("tag_ids")
     private String[] tagIds;
+
+    // builder 开始
+    public ListMetricTagReq() {
+    }
+
+    public ListMetricTagReq(Builder builder) {
+        /**
+         * 分页大小
+         * <p> 示例值：
+         */
+        this.pageSize = builder.pageSize;
+        /**
+         * 分页 Token
+         * <p> 示例值：
+         */
+        this.pageToken = builder.pageToken;
+        /**
+         * 指标标签 ID 列表
+         * <p> 示例值：
+         */
+        this.tagIds = builder.tagIds;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Integer getPageSize() {
         return this.pageSize;
     }
@@ -69,75 +100,52 @@ public class ListMetricTagReq {
         this.tagIds = tagIds;
     }
 
-
-// builder 开始
-  public ListMetricTagReq(){}
-
-  public ListMetricTagReq(Builder builder){
-         /**
-          * 分页大小
-          * <p> 示例值：
-          */
-       this.pageSize = builder.pageSize;
-         /**
-          * 分页 Token
-          * <p> 示例值：
-          */
-       this.pageToken = builder.pageToken;
-         /**
-          * 指标标签 ID 列表
-          * <p> 示例值：
-          */
-       this.tagIds = builder.tagIds;
-  }
-
     public static class Builder {
         private Integer pageSize; // 分页大小
         private String pageToken; // 分页 Token
         private String[] tagIds; // 指标标签 ID 列表
-    
+
         /**
          * 分页大小
          * <p> 示例值：
+         *
          * @param pageSize
          * @return
          */
-           public Builder pageSize(Integer pageSize) {
-                this.pageSize = pageSize;
-                return this;
-           }
+        public Builder pageSize(Integer pageSize) {
+            this.pageSize = pageSize;
+            return this;
+        }
 
-    
+
         /**
          * 分页 Token
          * <p> 示例值：
+         *
          * @param pageToken
          * @return
          */
-           public Builder pageToken(String pageToken) {
-                this.pageToken = pageToken;
-                return this;
-           }
+        public Builder pageToken(String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+        }
 
-    
+
         /**
          * 指标标签 ID 列表
          * <p> 示例值：
+         *
          * @param tagIds
          * @return
          */
-           public Builder tagIds(String[] tagIds) {
-                this.tagIds = tagIds;
-                return this;
-           }
+        public Builder tagIds(String[] tagIds) {
+            this.tagIds = tagIds;
+            return this;
+        }
 
-    
-    public ListMetricTagReq build(){
-        return new ListMetricTagReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ListMetricTagReq build() {
+            return new ListMetricTagReq(this);
+        }
     }
 }

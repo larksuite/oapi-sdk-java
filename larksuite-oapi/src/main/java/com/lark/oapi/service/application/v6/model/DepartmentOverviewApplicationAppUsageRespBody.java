@@ -12,36 +12,41 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class DepartmentOverviewApplicationAppUsageRespBody {
-     /**
-      * 分页查询时返回，代表是否还有更多数据
-      * <p> 示例值：
-      */
+    /**
+     * 分页查询时返回，代表是否还有更多数据
+     * <p> 示例值：
+     */
     @SerializedName("has_more")
     private Boolean hasMore;
-     /**
-      * 分页标记，下一页分页的token
-      * <p> 示例值：
-      */
+    /**
+     * 分页标记，下一页分页的token
+     * <p> 示例值：
+     */
     @SerializedName("page_token")
     private String pageToken;
-     /**
-      * 部门内员工使用应用的概览数据
-      * <p> 示例值：
-      */
+    /**
+     * 部门内员工使用应用的概览数据
+     * <p> 示例值：
+     */
     @SerializedName("items")
     private ApplicationDepartmentAppUsage[] items;
+
     public Boolean getHasMore() {
         return this.hasMore;
     }

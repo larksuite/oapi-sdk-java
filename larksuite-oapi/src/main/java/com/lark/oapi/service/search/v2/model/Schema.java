@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.search.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.search.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Schema {
-     /**
-      * 数据范式的属性定义
-      * <p> 示例值：
-      */
+    /**
+     * 数据范式的属性定义
+     * <p> 示例值：
+     */
     @SerializedName("properties")
     private SchemaProperty[] properties;
-     /**
-      * 数据展示相关配置
-      * <p> 示例值：
-      */
+    /**
+     * 数据展示相关配置
+     * <p> 示例值：
+     */
     @SerializedName("display")
     private SchemaDisplay display;
-     /**
-      * 用户自定义数据范式的唯一标识
-      * <p> 示例值：jira_schema
-      */
+    /**
+     * 用户自定义数据范式的唯一标识
+     * <p> 示例值：jira_schema
+     */
     @SerializedName("schema_id")
     private String schemaId;
+
+    // builder 开始
+    public Schema() {
+    }
+
+    public Schema(Builder builder) {
+        /**
+         * 数据范式的属性定义
+         * <p> 示例值：
+         */
+        this.properties = builder.properties;
+        /**
+         * 数据展示相关配置
+         * <p> 示例值：
+         */
+        this.display = builder.display;
+        /**
+         * 用户自定义数据范式的唯一标识
+         * <p> 示例值：jira_schema
+         */
+        this.schemaId = builder.schemaId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public SchemaProperty[] getProperties() {
         return this.properties;
     }
@@ -67,90 +98,64 @@ public class Schema {
         this.schemaId = schemaId;
     }
 
-
-// builder 开始
-  public Schema(){}
-
-  public Schema(Builder builder){
-         /**
-          * 数据范式的属性定义
-          * <p> 示例值：
-          */
-      this.properties = builder.properties;
-         /**
-          * 数据展示相关配置
-          * <p> 示例值：
-          */
-      this.display = builder.display;
-         /**
-          * 用户自定义数据范式的唯一标识
-          * <p> 示例值：jira_schema
-          */
-      this.schemaId = builder.schemaId;
-  }
-
     public static class Builder {
-     /**
-      * 数据范式的属性定义
-      * <p> 示例值：
-      */
+        /**
+         * 数据范式的属性定义
+         * <p> 示例值：
+         */
         private SchemaProperty[] properties;
-     /**
-      * 数据展示相关配置
-      * <p> 示例值：
-      */
+        /**
+         * 数据展示相关配置
+         * <p> 示例值：
+         */
         private SchemaDisplay display;
-     /**
-      * 用户自定义数据范式的唯一标识
-      * <p> 示例值：jira_schema
-      */
+        /**
+         * 用户自定义数据范式的唯一标识
+         * <p> 示例值：jira_schema
+         */
         private String schemaId;
 
         /**
          * 数据范式的属性定义
          * <p> 示例值：
+         *
          * @param properties
          * @return
          */
         public Builder properties(SchemaProperty[] properties) {
-             this.properties = properties;
-             return this;
+            this.properties = properties;
+            return this;
         }
 
-    
 
         /**
          * 数据展示相关配置
          * <p> 示例值：
+         *
          * @param display
          * @return
          */
         public Builder display(SchemaDisplay display) {
-             this.display = display;
-             return this;
+            this.display = display;
+            return this;
         }
 
-    
 
         /**
          * 用户自定义数据范式的唯一标识
          * <p> 示例值：jira_schema
+         *
          * @param schemaId
          * @return
          */
         public Builder schemaId(String schemaId) {
-             this.schemaId = schemaId;
-             return this;
+            this.schemaId = schemaId;
+            return this;
         }
 
-    
-    
-    public Schema build(){
-        return new Schema(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Schema build() {
+            return new Schema(this);
+        }
     }
 }

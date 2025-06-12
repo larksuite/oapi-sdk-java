@@ -12,36 +12,67 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ApplicationReferral {
-     /**
-      * ID
-      * <p> 示例值：
-      */
+    /**
+     * ID
+     * <p> 示例值：
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 名字
-      * <p> 示例值：
-      */
+    /**
+     * 名字
+     * <p> 示例值：
+     */
     @SerializedName("name")
     private String name;
-     /**
-      * 英文名
-      * <p> 示例值：
-      */
+    /**
+     * 英文名
+     * <p> 示例值：
+     */
     @SerializedName("en_name")
     private String enName;
+
+    // builder 开始
+    public ApplicationReferral() {
+    }
+
+    public ApplicationReferral(Builder builder) {
+        /**
+         * ID
+         * <p> 示例值：
+         */
+        this.id = builder.id;
+        /**
+         * 名字
+         * <p> 示例值：
+         */
+        this.name = builder.name;
+        /**
+         * 英文名
+         * <p> 示例值：
+         */
+        this.enName = builder.enName;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -66,90 +97,64 @@ public class ApplicationReferral {
         this.enName = enName;
     }
 
-
-// builder 开始
-  public ApplicationReferral(){}
-
-  public ApplicationReferral(Builder builder){
-         /**
-          * ID
-          * <p> 示例值：
-          */
-      this.id = builder.id;
-         /**
-          * 名字
-          * <p> 示例值：
-          */
-      this.name = builder.name;
-         /**
-          * 英文名
-          * <p> 示例值：
-          */
-      this.enName = builder.enName;
-  }
-
     public static class Builder {
-     /**
-      * ID
-      * <p> 示例值：
-      */
+        /**
+         * ID
+         * <p> 示例值：
+         */
         private String id;
-     /**
-      * 名字
-      * <p> 示例值：
-      */
+        /**
+         * 名字
+         * <p> 示例值：
+         */
         private String name;
-     /**
-      * 英文名
-      * <p> 示例值：
-      */
+        /**
+         * 英文名
+         * <p> 示例值：
+         */
         private String enName;
 
         /**
          * ID
          * <p> 示例值：
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 名字
          * <p> 示例值：
+         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 英文名
          * <p> 示例值：
+         *
          * @param enName
          * @return
          */
         public Builder enName(String enName) {
-             this.enName = enName;
-             return this;
+            this.enName = enName;
+            return this;
         }
 
-    
-    
-    public ApplicationReferral build(){
-        return new ApplicationReferral(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ApplicationReferral build() {
+            return new ApplicationReferral(this);
+        }
     }
 }

@@ -17,15 +17,16 @@ package com.lark.oapi.service.application.v6.enums;
  * 身份类型
  */
 public enum AppConfigScopeItemTokenTypeEnum {
-     USER("user"), // 以用户身份申请, 调用API时使用user_access_token
-     TENANT("tenant"), // 以应用身份申请, 调用API时使用tenant_access_token
-  ;
-   private String value;
+    USER("user"), // 以用户身份申请, 调用API时使用user_access_token
+    TENANT("tenant"), // 以应用身份申请, 调用API时使用tenant_access_token
+    ;
+    private String value;
+
     AppConfigScopeItemTokenTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

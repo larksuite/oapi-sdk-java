@@ -12,32 +12,61 @@
  */
 
 package com.lark.oapi.service.wiki.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.wiki.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class MoveSpaceNodeReq {
-     /**
-      * 知识空间id
-      * <p> 示例值：7008061636015512345
-      */
+    /**
+     * 知识空间id
+     * <p> 示例值：7008061636015512345
+     */
     @Path
     @SerializedName("space_id")
     private String spaceId;
-     /**
-      * 需要迁移的节点token
-      * <p> 示例值：wikbcd6ydSUyOEzbdlt1BfpA5Yc
-      */
+    /**
+     * 需要迁移的节点token
+     * <p> 示例值：wikbcd6ydSUyOEzbdlt1BfpA5Yc
+     */
     @Path
     @SerializedName("node_token")
     private String nodeToken;
+    @Body
+    private MoveSpaceNodeReqBody body;
+
+    // builder 开始
+    public MoveSpaceNodeReq() {
+    }
+
+    public MoveSpaceNodeReq(Builder builder) {
+        /**
+         * 知识空间id
+         * <p> 示例值：7008061636015512345
+         */
+        this.spaceId = builder.spaceId;
+        /**
+         * 需要迁移的节点token
+         * <p> 示例值：wikbcd6ydSUyOEzbdlt1BfpA5Yc
+         */
+        this.nodeToken = builder.nodeToken;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getSpaceId() {
         return this.spaceId;
     }
@@ -54,9 +83,6 @@ public class MoveSpaceNodeReq {
         this.nodeToken = nodeToken;
     }
 
-    @Body
-    private MoveSpaceNodeReqBody body;
-
     public MoveSpaceNodeReqBody getMoveSpaceNodeReqBody() {
         return this.body;
     }
@@ -65,72 +91,53 @@ public class MoveSpaceNodeReq {
         this.body = body;
     }
 
-// builder 开始
-  public MoveSpaceNodeReq(){}
-
-  public MoveSpaceNodeReq(Builder builder){
-     /**
-      * 知识空间id
-      * <p> 示例值：7008061636015512345
-      */
-       this.spaceId = builder.spaceId;
-     /**
-      * 需要迁移的节点token
-      * <p> 示例值：wikbcd6ydSUyOEzbdlt1BfpA5Yc
-      */
-       this.nodeToken = builder.nodeToken;
-        this.body = builder.body;
-  }
-
     public static class Builder {
-    
+
         private String spaceId; // 知识空间id
         private String nodeToken; // 需要迁移的节点token
+        private MoveSpaceNodeReqBody body;
+
         /**
          * 知识空间id
          * <p> 示例值：7008061636015512345
+         *
          * @param spaceId
          * @return
          */
-          public Builder spaceId(String spaceId) {
-               this.spaceId = spaceId;
-               return this;
-          }
+        public Builder spaceId(String spaceId) {
+            this.spaceId = spaceId;
+            return this;
+        }
 
-    
         /**
          * 需要迁移的节点token
          * <p> 示例值：wikbcd6ydSUyOEzbdlt1BfpA5Yc
+         *
          * @param nodeToken
          * @return
          */
-          public Builder nodeToken(String nodeToken) {
-               this.nodeToken = nodeToken;
-               return this;
-          }
+        public Builder nodeToken(String nodeToken) {
+            this.nodeToken = nodeToken;
+            return this;
+        }
 
-    
-        private MoveSpaceNodeReqBody body;
-    
         public MoveSpaceNodeReqBody getMoveSpaceNodeReqBody() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder moveSpaceNodeReqBody(MoveSpaceNodeReqBody body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public MoveSpaceNodeReq build(){
-        return new MoveSpaceNodeReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public MoveSpaceNodeReq build() {
+            return new MoveSpaceNodeReq(this);
+        }
     }
 }

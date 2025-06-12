@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.im.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,36 +20,71 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class FeedGroup {
-     /**
-      * 标签 ID
-      * <p> 示例值：7091086414609645828
-      */
+    /**
+     * 标签 ID
+     * <p> 示例值：7091086414609645828
+     */
     @SerializedName("group_id")
     private String groupId;
-     /**
-      * 标签类型
-      * <p> 示例值：normal
-      */
+    /**
+     * 标签类型
+     * <p> 示例值：normal
+     */
     @SerializedName("type")
     private String type;
-     /**
-      * 标签名
-      * <p> 示例值：test
-      */
+    /**
+     * 标签名
+     * <p> 示例值：test
+     */
     @SerializedName("name")
     private String name;
-     /**
-      * 标签规则
-      * <p> 示例值：
-      */
+    /**
+     * 标签规则
+     * <p> 示例值：
+     */
     @SerializedName("rules")
     private FeedGroupRules rules;
+
+    // builder 开始
+    public FeedGroup() {
+    }
+
+    public FeedGroup(Builder builder) {
+        /**
+         * 标签 ID
+         * <p> 示例值：7091086414609645828
+         */
+        this.groupId = builder.groupId;
+        /**
+         * 标签类型
+         * <p> 示例值：normal
+         */
+        this.type = builder.type;
+        /**
+         * 标签名
+         * <p> 示例值：test
+         */
+        this.name = builder.name;
+        /**
+         * 标签规则
+         * <p> 示例值：
+         */
+        this.rules = builder.rules;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getGroupId() {
         return this.groupId;
     }
@@ -81,123 +117,94 @@ public class FeedGroup {
         this.rules = rules;
     }
 
-
-// builder 开始
-  public FeedGroup(){}
-
-  public FeedGroup(Builder builder){
-         /**
-          * 标签 ID
-          * <p> 示例值：7091086414609645828
-          */
-      this.groupId = builder.groupId;
-         /**
-          * 标签类型
-          * <p> 示例值：normal
-          */
-      this.type = builder.type;
-         /**
-          * 标签名
-          * <p> 示例值：test
-          */
-      this.name = builder.name;
-         /**
-          * 标签规则
-          * <p> 示例值：
-          */
-      this.rules = builder.rules;
-  }
-
     public static class Builder {
-     /**
-      * 标签 ID
-      * <p> 示例值：7091086414609645828
-      */
+        /**
+         * 标签 ID
+         * <p> 示例值：7091086414609645828
+         */
         private String groupId;
-     /**
-      * 标签类型
-      * <p> 示例值：normal
-      */
+        /**
+         * 标签类型
+         * <p> 示例值：normal
+         */
         private String type;
-     /**
-      * 标签名
-      * <p> 示例值：test
-      */
+        /**
+         * 标签名
+         * <p> 示例值：test
+         */
         private String name;
-     /**
-      * 标签规则
-      * <p> 示例值：
-      */
+        /**
+         * 标签规则
+         * <p> 示例值：
+         */
         private FeedGroupRules rules;
 
         /**
          * 标签 ID
          * <p> 示例值：7091086414609645828
+         *
          * @param groupId
          * @return
          */
         public Builder groupId(String groupId) {
-             this.groupId = groupId;
-             return this;
+            this.groupId = groupId;
+            return this;
         }
 
-    
 
         /**
          * 标签类型
          * <p> 示例值：normal
+         *
          * @param type
          * @return
          */
         public Builder type(String type) {
-             this.type = type;
-             return this;
+            this.type = type;
+            return this;
         }
+
         /**
          * 标签类型
          * <p> 示例值：normal
+         *
          * @param type {@link com.lark.oapi.service.im.v2.enums.FeedGroupTypeEnum}
          * @return
          */
         public Builder type(com.lark.oapi.service.im.v2.enums.FeedGroupTypeEnum type) {
-             this.type = type.getValue();
-             return this;
+            this.type = type.getValue();
+            return this;
         }
 
-    
 
         /**
          * 标签名
          * <p> 示例值：test
+         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 标签规则
          * <p> 示例值：
+         *
          * @param rules
          * @return
          */
         public Builder rules(FeedGroupRules rules) {
-             this.rules = rules;
-             return this;
+            this.rules = rules;
+            return this;
         }
 
-    
-    
-    public FeedGroup build(){
-        return new FeedGroup(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public FeedGroup build() {
+            return new FeedGroup(this);
+        }
     }
 }

@@ -23,12 +23,14 @@ public class PersonalSettingsService {
     private final SystemStatus systemStatus; // 系统状态
 
     public PersonalSettingsService(Config config) {
-    this.v1 = new V1(config);
-    this.systemStatus = new SystemStatus(config);
+        this.v1 = new V1(config);
+        this.systemStatus = new SystemStatus(config);
     }
+
     public V1 v1() {
         return v1;
     }
+
     public SystemStatus systemStatus() {
         return systemStatus;
     }

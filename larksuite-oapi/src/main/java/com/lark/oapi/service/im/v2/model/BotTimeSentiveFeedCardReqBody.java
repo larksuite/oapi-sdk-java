@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.im.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class BotTimeSentiveFeedCardReqBody {
-     /**
-      * 机器人id
-      * <p> 示例值：71616xxxx
-      */
+    /**
+     * 机器人id
+     * <p> 示例值：71616xxxx
+     */
     @SerializedName("bot_id")
     private String botId;
-     /**
-      * 临时置顶状态，true-打开，false-关闭
-      * <p> 示例值：true
-      */
+    /**
+     * 临时置顶状态，true-打开，false-关闭
+     * <p> 示例值：true
+     */
     @SerializedName("time_sensitive")
     private Boolean timeSensitive;
-     /**
-      * 用户id 列表
-      * <p> 示例值：
-      */
+    /**
+     * 用户id 列表
+     * <p> 示例值：
+     */
     @SerializedName("user_ids")
     private String[] userIds;
+
+    // builder 开始
+    public BotTimeSentiveFeedCardReqBody() {
+    }
+
+    public BotTimeSentiveFeedCardReqBody(Builder builder) {
+        /**
+         * 机器人id
+         * <p> 示例值：71616xxxx
+         */
+        this.botId = builder.botId;
+        /**
+         * 临时置顶状态，true-打开，false-关闭
+         * <p> 示例值：true
+         */
+        this.timeSensitive = builder.timeSensitive;
+        /**
+         * 用户id 列表
+         * <p> 示例值：
+         */
+        this.userIds = builder.userIds;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getBotId() {
         return this.botId;
     }
@@ -67,90 +98,64 @@ public class BotTimeSentiveFeedCardReqBody {
         this.userIds = userIds;
     }
 
-
-// builder 开始
-  public BotTimeSentiveFeedCardReqBody(){}
-
-  public BotTimeSentiveFeedCardReqBody(Builder builder){
-         /**
-          * 机器人id
-          * <p> 示例值：71616xxxx
-          */
-      this.botId = builder.botId;
-         /**
-          * 临时置顶状态，true-打开，false-关闭
-          * <p> 示例值：true
-          */
-      this.timeSensitive = builder.timeSensitive;
-         /**
-          * 用户id 列表
-          * <p> 示例值：
-          */
-      this.userIds = builder.userIds;
-  }
-
     public static class Builder {
-     /**
-      * 机器人id
-      * <p> 示例值：71616xxxx
-      */
+        /**
+         * 机器人id
+         * <p> 示例值：71616xxxx
+         */
         private String botId;
-     /**
-      * 临时置顶状态，true-打开，false-关闭
-      * <p> 示例值：true
-      */
+        /**
+         * 临时置顶状态，true-打开，false-关闭
+         * <p> 示例值：true
+         */
         private Boolean timeSensitive;
-     /**
-      * 用户id 列表
-      * <p> 示例值：
-      */
+        /**
+         * 用户id 列表
+         * <p> 示例值：
+         */
         private String[] userIds;
 
         /**
          * 机器人id
          * <p> 示例值：71616xxxx
+         *
          * @param botId
          * @return
          */
         public Builder botId(String botId) {
-             this.botId = botId;
-             return this;
+            this.botId = botId;
+            return this;
         }
 
-    
 
         /**
          * 临时置顶状态，true-打开，false-关闭
          * <p> 示例值：true
+         *
          * @param timeSensitive
          * @return
          */
         public Builder timeSensitive(Boolean timeSensitive) {
-             this.timeSensitive = timeSensitive;
-             return this;
+            this.timeSensitive = timeSensitive;
+            return this;
         }
 
-    
 
         /**
          * 用户id 列表
          * <p> 示例值：
+         *
          * @param userIds
          * @return
          */
         public Builder userIds(String[] userIds) {
-             this.userIds = userIds;
-             return this;
+            this.userIds = userIds;
+            return this;
         }
 
-    
-    
-    public BotTimeSentiveFeedCardReqBody build(){
-        return new BotTimeSentiveFeedCardReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public BotTimeSentiveFeedCardReqBody build() {
+            return new BotTimeSentiveFeedCardReqBody(this);
+        }
     }
 }

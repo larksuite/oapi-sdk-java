@@ -17,16 +17,17 @@ package com.lark.oapi.service.corehr.v2.enums;
  * 分配方式，枚举值
  */
 public enum ProfileSettingBankAccountPaymentTypeEnum {
-     PERCENT("percent"), // 按比例分配
-     AMOUNT("amount"), // 按金额分配
-     BALANCE("balance"), // 默认卡
-  ;
-   private String value;
+    PERCENT("percent"), // 按比例分配
+    AMOUNT("amount"), // 按金额分配
+    BALANCE("balance"), // 默认卡
+    ;
+    private String value;
+
     ProfileSettingBankAccountPaymentTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

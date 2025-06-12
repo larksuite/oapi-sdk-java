@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.compensation.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.compensation.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class SocialArchive {
-     /**
-      * 员工ID 
-      * <p> 示例值：
-      */
+    /**
+     * 员工ID
+     * <p> 示例值：
+     */
     @SerializedName("user_id")
     private String userId;
-     /**
-      * 员工参保档案，包含社保、公积金档案
-      * <p> 示例值：
-      */
+    /**
+     * 员工参保档案，包含社保、公积金档案
+     * <p> 示例值：
+     */
     @SerializedName("details")
     private SocialArchiveDetail[] details;
+
+    // builder 开始
+    public SocialArchive() {
+    }
+
+    public SocialArchive(Builder builder) {
+        /**
+         * 员工ID
+         * <p> 示例值：
+         */
+        this.userId = builder.userId;
+        /**
+         * 员工参保档案，包含社保、公积金档案
+         * <p> 示例值：
+         */
+        this.details = builder.details;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getUserId() {
         return this.userId;
     }
@@ -53,67 +79,46 @@ public class SocialArchive {
         this.details = details;
     }
 
-
-// builder 开始
-  public SocialArchive(){}
-
-  public SocialArchive(Builder builder){
-         /**
-          * 员工ID 
-          * <p> 示例值：
-          */
-      this.userId = builder.userId;
-         /**
-          * 员工参保档案，包含社保、公积金档案
-          * <p> 示例值：
-          */
-      this.details = builder.details;
-  }
-
     public static class Builder {
-     /**
-      * 员工ID 
-      * <p> 示例值：
-      */
+        /**
+         * 员工ID
+         * <p> 示例值：
+         */
         private String userId;
-     /**
-      * 员工参保档案，包含社保、公积金档案
-      * <p> 示例值：
-      */
+        /**
+         * 员工参保档案，包含社保、公积金档案
+         * <p> 示例值：
+         */
         private SocialArchiveDetail[] details;
 
         /**
-         * 员工ID 
+         * 员工ID
          * <p> 示例值：
+         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-             this.userId = userId;
-             return this;
+            this.userId = userId;
+            return this;
         }
 
-    
 
         /**
          * 员工参保档案，包含社保、公积金档案
          * <p> 示例值：
+         *
          * @param details
          * @return
          */
         public Builder details(SocialArchiveDetail[] details) {
-             this.details = details;
-             return this;
+            this.details = details;
+            return this;
         }
 
-    
-    
-    public SocialArchive build(){
-        return new SocialArchive(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public SocialArchive build() {
+            return new SocialArchive(this);
+        }
     }
 }

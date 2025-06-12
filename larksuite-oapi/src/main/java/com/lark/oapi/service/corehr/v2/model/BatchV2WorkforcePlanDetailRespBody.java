@@ -12,48 +12,53 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class BatchV2WorkforcePlanDetailRespBody {
-     /**
-      * 编制规划方案 ID
-      * <p> 示例值：7128319234123
-      */
+    /**
+     * 编制规划方案 ID
+     * <p> 示例值：7128319234123
+     */
     @SerializedName("workforce_plan_id")
     private String workforcePlanId;
-     /**
-      * 集中填报项目 ID
-      * <p> 示例值：7128319234123
-      */
+    /**
+     * 集中填报项目 ID
+     * <p> 示例值：7128319234123
+     */
     @SerializedName("centralized_reporting_project_id")
     private String centralizedReportingProjectId;
-     /**
-      * 编制规划明细信息
-      * <p> 示例值：
-      */
+    /**
+     * 编制规划明细信息
+     * <p> 示例值：
+     */
     @SerializedName("items")
     private WorkforcePlanDetailV2[] items;
-     /**
-      * 分页标识
-      * <p> 示例值：34523459
-      */
+    /**
+     * 分页标识
+     * <p> 示例值：34523459
+     */
     @SerializedName("page_token")
     private String pageToken;
-     /**
-      * 是否还有更多项
-      * <p> 示例值：true
-      */
+    /**
+     * 是否还有更多项
+     * <p> 示例值：true
+     */
     @SerializedName("has_more")
     private Boolean hasMore;
+
     public String getWorkforcePlanId() {
         return this.workforcePlanId;
     }

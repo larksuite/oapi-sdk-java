@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,54 +20,104 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class TransferType {
-     /**
-      * 异动类型唯一标识
-      * <p> 示例值：internal_transfer
-      */
+    /**
+     * 异动类型唯一标识
+     * <p> 示例值：internal_transfer
+     */
     @SerializedName("transfer_type_unique_identifier")
     private String transferTypeUniqueIdentifier;
-     /**
-      * 异动类型名称
-      * <p> 示例值：张三
-      */
+    /**
+     * 异动类型名称
+     * <p> 示例值：张三
+     */
     @SerializedName("name")
     private I18n[] name;
-     /**
-      * 异动类型状态
-      * <p> 示例值：true
-      */
+    /**
+     * 异动类型状态
+     * <p> 示例值：true
+     */
     @SerializedName("active")
     private Boolean active;
-     /**
-      * 关联流程唯一标识符
-      * <p> 示例值：people_6963913041981490725_6983885526583627531
-      */
+    /**
+     * 关联流程唯一标识符
+     * <p> 示例值：people_6963913041981490725_6983885526583627531
+     */
     @SerializedName("flow_id")
     private String flowId;
-     /**
-      * 关联流程名称
-      * <p> 示例值：张三
-      */
+    /**
+     * 关联流程名称
+     * <p> 示例值：张三
+     */
     @SerializedName("flow_name")
     private I18n[] flowName;
-     /**
-      * 创建时间
-      * <p> 示例值：2021-06-29 18:21:26
-      */
+    /**
+     * 创建时间
+     * <p> 示例值：2021-06-29 18:21:26
+     */
     @SerializedName("created_time")
     private String createdTime;
-     /**
-      * 更新时间
-      * <p> 示例值：2022-01-07 17:20:51
-      */
+    /**
+     * 更新时间
+     * <p> 示例值：2022-01-07 17:20:51
+     */
     @SerializedName("updated_time")
     private String updatedTime;
+
+    // builder 开始
+    public TransferType() {
+    }
+
+    public TransferType(Builder builder) {
+        /**
+         * 异动类型唯一标识
+         * <p> 示例值：internal_transfer
+         */
+        this.transferTypeUniqueIdentifier = builder.transferTypeUniqueIdentifier;
+        /**
+         * 异动类型名称
+         * <p> 示例值：张三
+         */
+        this.name = builder.name;
+        /**
+         * 异动类型状态
+         * <p> 示例值：true
+         */
+        this.active = builder.active;
+        /**
+         * 关联流程唯一标识符
+         * <p> 示例值：people_6963913041981490725_6983885526583627531
+         */
+        this.flowId = builder.flowId;
+        /**
+         * 关联流程名称
+         * <p> 示例值：张三
+         */
+        this.flowName = builder.flowName;
+        /**
+         * 创建时间
+         * <p> 示例值：2021-06-29 18:21:26
+         */
+        this.createdTime = builder.createdTime;
+        /**
+         * 更新时间
+         * <p> 示例值：2022-01-07 17:20:51
+         */
+        this.updatedTime = builder.updatedTime;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getTransferTypeUniqueIdentifier() {
         return this.transferTypeUniqueIdentifier;
     }
@@ -123,182 +174,136 @@ public class TransferType {
         this.updatedTime = updatedTime;
     }
 
-
-// builder 开始
-  public TransferType(){}
-
-  public TransferType(Builder builder){
-         /**
-          * 异动类型唯一标识
-          * <p> 示例值：internal_transfer
-          */
-      this.transferTypeUniqueIdentifier = builder.transferTypeUniqueIdentifier;
-         /**
-          * 异动类型名称
-          * <p> 示例值：张三
-          */
-      this.name = builder.name;
-         /**
-          * 异动类型状态
-          * <p> 示例值：true
-          */
-      this.active = builder.active;
-         /**
-          * 关联流程唯一标识符
-          * <p> 示例值：people_6963913041981490725_6983885526583627531
-          */
-      this.flowId = builder.flowId;
-         /**
-          * 关联流程名称
-          * <p> 示例值：张三
-          */
-      this.flowName = builder.flowName;
-         /**
-          * 创建时间
-          * <p> 示例值：2021-06-29 18:21:26
-          */
-      this.createdTime = builder.createdTime;
-         /**
-          * 更新时间
-          * <p> 示例值：2022-01-07 17:20:51
-          */
-      this.updatedTime = builder.updatedTime;
-  }
-
     public static class Builder {
-     /**
-      * 异动类型唯一标识
-      * <p> 示例值：internal_transfer
-      */
+        /**
+         * 异动类型唯一标识
+         * <p> 示例值：internal_transfer
+         */
         private String transferTypeUniqueIdentifier;
-     /**
-      * 异动类型名称
-      * <p> 示例值：张三
-      */
+        /**
+         * 异动类型名称
+         * <p> 示例值：张三
+         */
         private I18n[] name;
-     /**
-      * 异动类型状态
-      * <p> 示例值：true
-      */
+        /**
+         * 异动类型状态
+         * <p> 示例值：true
+         */
         private Boolean active;
-     /**
-      * 关联流程唯一标识符
-      * <p> 示例值：people_6963913041981490725_6983885526583627531
-      */
+        /**
+         * 关联流程唯一标识符
+         * <p> 示例值：people_6963913041981490725_6983885526583627531
+         */
         private String flowId;
-     /**
-      * 关联流程名称
-      * <p> 示例值：张三
-      */
+        /**
+         * 关联流程名称
+         * <p> 示例值：张三
+         */
         private I18n[] flowName;
-     /**
-      * 创建时间
-      * <p> 示例值：2021-06-29 18:21:26
-      */
+        /**
+         * 创建时间
+         * <p> 示例值：2021-06-29 18:21:26
+         */
         private String createdTime;
-     /**
-      * 更新时间
-      * <p> 示例值：2022-01-07 17:20:51
-      */
+        /**
+         * 更新时间
+         * <p> 示例值：2022-01-07 17:20:51
+         */
         private String updatedTime;
 
         /**
          * 异动类型唯一标识
          * <p> 示例值：internal_transfer
+         *
          * @param transferTypeUniqueIdentifier
          * @return
          */
         public Builder transferTypeUniqueIdentifier(String transferTypeUniqueIdentifier) {
-             this.transferTypeUniqueIdentifier = transferTypeUniqueIdentifier;
-             return this;
+            this.transferTypeUniqueIdentifier = transferTypeUniqueIdentifier;
+            return this;
         }
 
-    
 
         /**
          * 异动类型名称
          * <p> 示例值：张三
+         *
          * @param name
          * @return
          */
         public Builder name(I18n[] name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 异动类型状态
          * <p> 示例值：true
+         *
          * @param active
          * @return
          */
         public Builder active(Boolean active) {
-             this.active = active;
-             return this;
+            this.active = active;
+            return this;
         }
 
-    
 
         /**
          * 关联流程唯一标识符
          * <p> 示例值：people_6963913041981490725_6983885526583627531
+         *
          * @param flowId
          * @return
          */
         public Builder flowId(String flowId) {
-             this.flowId = flowId;
-             return this;
+            this.flowId = flowId;
+            return this;
         }
 
-    
 
         /**
          * 关联流程名称
          * <p> 示例值：张三
+         *
          * @param flowName
          * @return
          */
         public Builder flowName(I18n[] flowName) {
-             this.flowName = flowName;
-             return this;
+            this.flowName = flowName;
+            return this;
         }
 
-    
 
         /**
          * 创建时间
          * <p> 示例值：2021-06-29 18:21:26
+         *
          * @param createdTime
          * @return
          */
         public Builder createdTime(String createdTime) {
-             this.createdTime = createdTime;
-             return this;
+            this.createdTime = createdTime;
+            return this;
         }
 
-    
 
         /**
          * 更新时间
          * <p> 示例值：2022-01-07 17:20:51
+         *
          * @param updatedTime
          * @return
          */
         public Builder updatedTime(String updatedTime) {
-             this.updatedTime = updatedTime;
-             return this;
+            this.updatedTime = updatedTime;
+            return this;
         }
 
-    
-    
-    public TransferType build(){
-        return new TransferType(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public TransferType build() {
+            return new TransferType(this);
+        }
     }
 }

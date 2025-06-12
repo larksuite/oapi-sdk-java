@@ -12,20 +12,36 @@
  */
 
 package com.lark.oapi.service.docx.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.docx.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class CreateDocumentReq {
     @Body
     private CreateDocumentReqBody body;
+
+    // builder 开始
+    public CreateDocumentReq() {
+    }
+
+    public CreateDocumentReq(Builder builder) {
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 
     public CreateDocumentReqBody getCreateDocumentReqBody() {
         return this.body;
@@ -35,36 +51,27 @@ public class CreateDocumentReq {
         this.body = body;
     }
 
-// builder 开始
-  public CreateDocumentReq(){}
-
-  public CreateDocumentReq(Builder builder){
-        this.body = builder.body;
-  }
-
     public static class Builder {
-    
+
         private CreateDocumentReqBody body;
-    
+
         public CreateDocumentReqBody getCreateDocumentReqBody() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder createDocumentReqBody(CreateDocumentReqBody body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public CreateDocumentReq build(){
-        return new CreateDocumentReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public CreateDocumentReq build() {
+            return new CreateDocumentReq(this);
+        }
     }
 }

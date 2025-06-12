@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.sheets.v3.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.sheets.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ProtectedRangeEditors {
-     /**
-      * 可编辑人员
-      * <p> 示例值：o
-      */
+    /**
+     * 可编辑人员
+     * <p> 示例值：o
+     */
     @SerializedName("users")
     private String[] users;
-     /**
-      * 可编辑部门
-      * <p> 示例值：
-      */
+    /**
+     * 可编辑部门
+     * <p> 示例值：
+     */
     @SerializedName("departments")
     private String[] departments;
-     /**
-      * 可编辑群
-      * <p> 示例值：
-      */
+    /**
+     * 可编辑群
+     * <p> 示例值：
+     */
     @SerializedName("chats")
     private String[] chats;
+
+    // builder 开始
+    public ProtectedRangeEditors() {
+    }
+
+    public ProtectedRangeEditors(Builder builder) {
+        /**
+         * 可编辑人员
+         * <p> 示例值：o
+         */
+        this.users = builder.users;
+        /**
+         * 可编辑部门
+         * <p> 示例值：
+         */
+        this.departments = builder.departments;
+        /**
+         * 可编辑群
+         * <p> 示例值：
+         */
+        this.chats = builder.chats;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String[] getUsers() {
         return this.users;
     }
@@ -67,90 +98,64 @@ public class ProtectedRangeEditors {
         this.chats = chats;
     }
 
-
-// builder 开始
-  public ProtectedRangeEditors(){}
-
-  public ProtectedRangeEditors(Builder builder){
-         /**
-          * 可编辑人员
-          * <p> 示例值：o
-          */
-      this.users = builder.users;
-         /**
-          * 可编辑部门
-          * <p> 示例值：
-          */
-      this.departments = builder.departments;
-         /**
-          * 可编辑群
-          * <p> 示例值：
-          */
-      this.chats = builder.chats;
-  }
-
     public static class Builder {
-     /**
-      * 可编辑人员
-      * <p> 示例值：o
-      */
+        /**
+         * 可编辑人员
+         * <p> 示例值：o
+         */
         private String[] users;
-     /**
-      * 可编辑部门
-      * <p> 示例值：
-      */
+        /**
+         * 可编辑部门
+         * <p> 示例值：
+         */
         private String[] departments;
-     /**
-      * 可编辑群
-      * <p> 示例值：
-      */
+        /**
+         * 可编辑群
+         * <p> 示例值：
+         */
         private String[] chats;
 
         /**
          * 可编辑人员
          * <p> 示例值：o
+         *
          * @param users
          * @return
          */
         public Builder users(String[] users) {
-             this.users = users;
-             return this;
+            this.users = users;
+            return this;
         }
 
-    
 
         /**
          * 可编辑部门
          * <p> 示例值：
+         *
          * @param departments
          * @return
          */
         public Builder departments(String[] departments) {
-             this.departments = departments;
-             return this;
+            this.departments = departments;
+            return this;
         }
 
-    
 
         /**
          * 可编辑群
          * <p> 示例值：
+         *
          * @param chats
          * @return
          */
         public Builder chats(String[] chats) {
-             this.chats = chats;
-             return this;
+            this.chats = chats;
+            return this;
         }
 
-    
-    
-    public ProtectedRangeEditors build(){
-        return new ProtectedRangeEditors(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ProtectedRangeEditors build() {
+            return new ProtectedRangeEditors(this);
+        }
     }
 }

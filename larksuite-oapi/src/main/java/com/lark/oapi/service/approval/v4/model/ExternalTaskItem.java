@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ExternalTaskItem {
-     /**
-      * 审批任务 ID
-      * <p> 示例值：310
-      */
+    /**
+     * 审批任务 ID
+     * <p> 示例值：310
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 审批任务状态
-      * <p> 示例值：PENDING
-      */
+    /**
+     * 审批任务状态
+     * <p> 示例值：PENDING
+     */
     @SerializedName("status")
     private String status;
-     /**
-      * 审批任务最后更新时间，单位 毫秒
-      * <p> 示例值：1621863215000
-      */
+    /**
+     * 审批任务最后更新时间，单位 毫秒
+     * <p> 示例值：1621863215000
+     */
     @SerializedName("update_time")
     private String updateTime;
+
+    // builder 开始
+    public ExternalTaskItem() {
+    }
+
+    public ExternalTaskItem(Builder builder) {
+        /**
+         * 审批任务 ID
+         * <p> 示例值：310
+         */
+        this.id = builder.id;
+        /**
+         * 审批任务状态
+         * <p> 示例值：PENDING
+         */
+        this.status = builder.status;
+        /**
+         * 审批任务最后更新时间，单位 毫秒
+         * <p> 示例值：1621863215000
+         */
+        this.updateTime = builder.updateTime;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -67,100 +98,76 @@ public class ExternalTaskItem {
         this.updateTime = updateTime;
     }
 
-
-// builder 开始
-  public ExternalTaskItem(){}
-
-  public ExternalTaskItem(Builder builder){
-         /**
-          * 审批任务 ID
-          * <p> 示例值：310
-          */
-      this.id = builder.id;
-         /**
-          * 审批任务状态
-          * <p> 示例值：PENDING
-          */
-      this.status = builder.status;
-         /**
-          * 审批任务最后更新时间，单位 毫秒
-          * <p> 示例值：1621863215000
-          */
-      this.updateTime = builder.updateTime;
-  }
-
     public static class Builder {
-     /**
-      * 审批任务 ID
-      * <p> 示例值：310
-      */
+        /**
+         * 审批任务 ID
+         * <p> 示例值：310
+         */
         private String id;
-     /**
-      * 审批任务状态
-      * <p> 示例值：PENDING
-      */
+        /**
+         * 审批任务状态
+         * <p> 示例值：PENDING
+         */
         private String status;
-     /**
-      * 审批任务最后更新时间，单位 毫秒
-      * <p> 示例值：1621863215000
-      */
+        /**
+         * 审批任务最后更新时间，单位 毫秒
+         * <p> 示例值：1621863215000
+         */
         private String updateTime;
 
         /**
          * 审批任务 ID
          * <p> 示例值：310
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 审批任务状态
          * <p> 示例值：PENDING
+         *
          * @param status
          * @return
          */
         public Builder status(String status) {
-             this.status = status;
-             return this;
+            this.status = status;
+            return this;
         }
+
         /**
          * 审批任务状态
          * <p> 示例值：PENDING
+         *
          * @param status {@link com.lark.oapi.service.approval.v4.enums.ExternalTaskItemExternalTaskStatusEnum}
          * @return
          */
         public Builder status(com.lark.oapi.service.approval.v4.enums.ExternalTaskItemExternalTaskStatusEnum status) {
-             this.status = status.getValue();
-             return this;
+            this.status = status.getValue();
+            return this;
         }
 
-    
 
         /**
          * 审批任务最后更新时间，单位 毫秒
          * <p> 示例值：1621863215000
+         *
          * @param updateTime
          * @return
          */
         public Builder updateTime(String updateTime) {
-             this.updateTime = updateTime;
-             return this;
+            this.updateTime = updateTime;
+            return this;
         }
 
-    
-    
-    public ExternalTaskItem build(){
-        return new ExternalTaskItem(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ExternalTaskItem build() {
+            return new ExternalTaskItem(this);
+        }
     }
 }

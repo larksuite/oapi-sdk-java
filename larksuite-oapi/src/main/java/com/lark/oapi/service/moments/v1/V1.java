@@ -17,27 +17,31 @@ import com.lark.oapi.core.Config;
 import com.lark.oapi.service.moments.v1.resource.*;
 
 public class V1 {
-	private final Comment comment; // comment
-	private final Post post; // post
-	private final PostStatistics postStatistics; // post_statistics
-	private final Reaction reaction; // reaction
+    private final Comment comment; // comment
+    private final Post post; // post
+    private final PostStatistics postStatistics; // post_statistics
+    private final Reaction reaction; // reaction
 
-	public V1(Config config) {
-		this.comment = new Comment(config);
-		this.post = new Post(config);
-		this.postStatistics = new PostStatistics(config);
-		this.reaction = new Reaction(config);
-	}
-	public Comment comment() {
-		return comment;
-	}
-	public Post post() {
-		return post;
-	}
-	public PostStatistics postStatistics() {
-		return postStatistics;
-	}
-	public Reaction reaction() {
-		return reaction;
-	}
+    public V1(Config config) {
+        this.comment = new Comment(config);
+        this.post = new Post(config);
+        this.postStatistics = new PostStatistics(config);
+        this.reaction = new Reaction(config);
+    }
+
+    public Comment comment() {
+        return comment;
+    }
+
+    public Post post() {
+        return post;
+    }
+
+    public PostStatistics postStatistics() {
+        return postStatistics;
+    }
+
+    public Reaction reaction() {
+        return reaction;
+    }
 }

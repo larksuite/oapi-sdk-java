@@ -12,54 +12,100 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class AgencyAccount {
-     /**
-      * 猎头 ID
-      * <p> 示例值：6995312261554538796
-      */
+    /**
+     * 猎头 ID
+     * <p> 示例值：6995312261554538796
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 禁用原因
-      * <p> 示例值：这个猎头很不负责
-      */
+    /**
+     * 禁用原因
+     * <p> 示例值：这个猎头很不负责
+     */
     @SerializedName("reason")
     private String reason;
-     /**
-      * 添加时间，毫秒时间戳
-      * <p> 示例值：1639992265035
-      */
+    /**
+     * 添加时间，毫秒时间戳
+     * <p> 示例值：1639992265035
+     */
     @SerializedName("create_time")
     private String createTime;
-     /**
-      * 猎头状态
-      * <p> 示例值：
-      */
+    /**
+     * 猎头状态
+     * <p> 示例值：
+     */
     @SerializedName("status")
     private Integer status;
-     /**
-      * 用户信息
-      * <p> 示例值：
-      */
+    /**
+     * 用户信息
+     * <p> 示例值：
+     */
     @SerializedName("user_info")
     private AgencyAccountUser userInfo;
-     /**
-      * 角色
-      * <p> 示例值：
-      */
+    /**
+     * 角色
+     * <p> 示例值：
+     */
     @SerializedName("role")
     private Integer role;
+
+    // builder 开始
+    public AgencyAccount() {
+    }
+
+    public AgencyAccount(Builder builder) {
+        /**
+         * 猎头 ID
+         * <p> 示例值：6995312261554538796
+         */
+        this.id = builder.id;
+        /**
+         * 禁用原因
+         * <p> 示例值：这个猎头很不负责
+         */
+        this.reason = builder.reason;
+        /**
+         * 添加时间，毫秒时间戳
+         * <p> 示例值：1639992265035
+         */
+        this.createTime = builder.createTime;
+        /**
+         * 猎头状态
+         * <p> 示例值：
+         */
+        this.status = builder.status;
+        /**
+         * 用户信息
+         * <p> 示例值：
+         */
+        this.userInfo = builder.userInfo;
+        /**
+         * 角色
+         * <p> 示例值：
+         */
+        this.role = builder.role;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -108,159 +154,118 @@ public class AgencyAccount {
         this.role = role;
     }
 
-
-// builder 开始
-  public AgencyAccount(){}
-
-  public AgencyAccount(Builder builder){
-         /**
-          * 猎头 ID
-          * <p> 示例值：6995312261554538796
-          */
-      this.id = builder.id;
-         /**
-          * 禁用原因
-          * <p> 示例值：这个猎头很不负责
-          */
-      this.reason = builder.reason;
-         /**
-          * 添加时间，毫秒时间戳
-          * <p> 示例值：1639992265035
-          */
-      this.createTime = builder.createTime;
-         /**
-          * 猎头状态
-          * <p> 示例值：
-          */
-      this.status = builder.status;
-         /**
-          * 用户信息
-          * <p> 示例值：
-          */
-      this.userInfo = builder.userInfo;
-         /**
-          * 角色
-          * <p> 示例值：
-          */
-      this.role = builder.role;
-  }
-
     public static class Builder {
-     /**
-      * 猎头 ID
-      * <p> 示例值：6995312261554538796
-      */
+        /**
+         * 猎头 ID
+         * <p> 示例值：6995312261554538796
+         */
         private String id;
-     /**
-      * 禁用原因
-      * <p> 示例值：这个猎头很不负责
-      */
+        /**
+         * 禁用原因
+         * <p> 示例值：这个猎头很不负责
+         */
         private String reason;
-     /**
-      * 添加时间，毫秒时间戳
-      * <p> 示例值：1639992265035
-      */
+        /**
+         * 添加时间，毫秒时间戳
+         * <p> 示例值：1639992265035
+         */
         private String createTime;
-     /**
-      * 猎头状态
-      * <p> 示例值：
-      */
+        /**
+         * 猎头状态
+         * <p> 示例值：
+         */
         private Integer status;
-     /**
-      * 用户信息
-      * <p> 示例值：
-      */
+        /**
+         * 用户信息
+         * <p> 示例值：
+         */
         private AgencyAccountUser userInfo;
-     /**
-      * 角色
-      * <p> 示例值：
-      */
+        /**
+         * 角色
+         * <p> 示例值：
+         */
         private Integer role;
 
         /**
          * 猎头 ID
          * <p> 示例值：6995312261554538796
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 禁用原因
          * <p> 示例值：这个猎头很不负责
+         *
          * @param reason
          * @return
          */
         public Builder reason(String reason) {
-             this.reason = reason;
-             return this;
+            this.reason = reason;
+            return this;
         }
 
-    
 
         /**
          * 添加时间，毫秒时间戳
          * <p> 示例值：1639992265035
+         *
          * @param createTime
          * @return
          */
         public Builder createTime(String createTime) {
-             this.createTime = createTime;
-             return this;
+            this.createTime = createTime;
+            return this;
         }
 
-    
 
         /**
          * 猎头状态
          * <p> 示例值：
+         *
          * @param status
          * @return
          */
         public Builder status(Integer status) {
-             this.status = status;
-             return this;
+            this.status = status;
+            return this;
         }
 
-    
 
         /**
          * 用户信息
          * <p> 示例值：
+         *
          * @param userInfo
          * @return
          */
         public Builder userInfo(AgencyAccountUser userInfo) {
-             this.userInfo = userInfo;
-             return this;
+            this.userInfo = userInfo;
+            return this;
         }
 
-    
 
         /**
          * 角色
          * <p> 示例值：
+         *
          * @param role
          * @return
          */
         public Builder role(Integer role) {
-             this.role = role;
-             return this;
+            this.role = role;
+            return this;
         }
 
-    
-    
-    public AgencyAccount build(){
-        return new AgencyAccount(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public AgencyAccount build() {
+            return new AgencyAccount(this);
+        }
     }
 }

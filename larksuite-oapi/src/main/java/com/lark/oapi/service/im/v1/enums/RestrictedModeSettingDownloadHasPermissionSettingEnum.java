@@ -17,15 +17,16 @@ package com.lark.oapi.service.im.v1.enums;
  * 允许下载消息中图片、视频和文件
  */
 public enum RestrictedModeSettingDownloadHasPermissionSettingEnum {
-     ALLMEMBERS("all_members"), // 所有成员允许下载资源
-     NOTANYONE("not_anyone"), // 所有成员禁止下载资源
-  ;
-   private String value;
+    ALLMEMBERS("all_members"), // 所有成员允许下载资源
+    NOTANYONE("not_anyone"), // 所有成员禁止下载资源
+    ;
+    private String value;
+
     RestrictedModeSettingDownloadHasPermissionSettingEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

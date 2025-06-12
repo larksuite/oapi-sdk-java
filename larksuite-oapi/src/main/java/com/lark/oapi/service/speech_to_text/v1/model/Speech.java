@@ -12,30 +12,56 @@
  */
 
 package com.lark.oapi.service.speech_to_text.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class Speech {
-     /**
-      * pcm格式音频文件（文件识别）或音频分片（流式识别）经base64编码后的内容
-      * <p> 示例值：PdmrfE267Cd/Z9KpmNFh71A2PSJZxSp7+8upCg==
-      */
+    /**
+     * pcm格式音频文件（文件识别）或音频分片（流式识别）经base64编码后的内容
+     * <p> 示例值：PdmrfE267Cd/Z9KpmNFh71A2PSJZxSp7+8upCg==
+     */
     @SerializedName("speech")
     private String speech;
-     /**
-      * 上传到 drive 存储平台后获取到的 key （暂不支持）
-      * <p> 示例值：
-      */
+    /**
+     * 上传到 drive 存储平台后获取到的 key （暂不支持）
+     * <p> 示例值：
+     */
     @SerializedName("speech_key")
     private String speechKey;
+
+    // builder 开始
+    public Speech() {
+    }
+
+    public Speech(Builder builder) {
+        /**
+         * pcm格式音频文件（文件识别）或音频分片（流式识别）经base64编码后的内容
+         * <p> 示例值：PdmrfE267Cd/Z9KpmNFh71A2PSJZxSp7+8upCg==
+         */
+        this.speech = builder.speech;
+        /**
+         * 上传到 drive 存储平台后获取到的 key （暂不支持）
+         * <p> 示例值：
+         */
+        this.speechKey = builder.speechKey;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getSpeech() {
         return this.speech;
     }
@@ -52,67 +78,46 @@ public class Speech {
         this.speechKey = speechKey;
     }
 
-
-// builder 开始
-  public Speech(){}
-
-  public Speech(Builder builder){
-         /**
-          * pcm格式音频文件（文件识别）或音频分片（流式识别）经base64编码后的内容
-          * <p> 示例值：PdmrfE267Cd/Z9KpmNFh71A2PSJZxSp7+8upCg==
-          */
-      this.speech = builder.speech;
-         /**
-          * 上传到 drive 存储平台后获取到的 key （暂不支持）
-          * <p> 示例值：
-          */
-      this.speechKey = builder.speechKey;
-  }
-
     public static class Builder {
-     /**
-      * pcm格式音频文件（文件识别）或音频分片（流式识别）经base64编码后的内容
-      * <p> 示例值：PdmrfE267Cd/Z9KpmNFh71A2PSJZxSp7+8upCg==
-      */
+        /**
+         * pcm格式音频文件（文件识别）或音频分片（流式识别）经base64编码后的内容
+         * <p> 示例值：PdmrfE267Cd/Z9KpmNFh71A2PSJZxSp7+8upCg==
+         */
         private String speech;
-     /**
-      * 上传到 drive 存储平台后获取到的 key （暂不支持）
-      * <p> 示例值：
-      */
+        /**
+         * 上传到 drive 存储平台后获取到的 key （暂不支持）
+         * <p> 示例值：
+         */
         private String speechKey;
 
         /**
          * pcm格式音频文件（文件识别）或音频分片（流式识别）经base64编码后的内容
          * <p> 示例值：PdmrfE267Cd/Z9KpmNFh71A2PSJZxSp7+8upCg==
+         *
          * @param speech
          * @return
          */
         public Builder speech(String speech) {
-             this.speech = speech;
-             return this;
+            this.speech = speech;
+            return this;
         }
 
-    
 
         /**
          * 上传到 drive 存储平台后获取到的 key （暂不支持）
          * <p> 示例值：
+         *
          * @param speechKey
          * @return
          */
         public Builder speechKey(String speechKey) {
-             this.speechKey = speechKey;
-             return this;
+            this.speechKey = speechKey;
+            return this;
         }
 
-    
-    
-    public Speech build(){
-        return new Speech(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public Speech build() {
+            return new Speech(this);
+        }
     }
 }

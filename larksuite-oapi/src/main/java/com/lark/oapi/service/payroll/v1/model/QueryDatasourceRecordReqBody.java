@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.payroll.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.payroll.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class QueryDatasourceRecordReqBody {
-     /**
-      * 数据源编码
-      * <p> 示例值：test__c
-      */
+    /**
+     * 数据源编码
+     * <p> 示例值：test__c
+     */
     @SerializedName("source_code")
     private String sourceCode;
-     /**
-      * 指定查询的数据源字段。如不传，默认返回所有数据源字段
-      * <p> 示例值：
-      */
+    /**
+     * 指定查询的数据源字段。如不传，默认返回所有数据源字段
+     * <p> 示例值：
+     */
     @SerializedName("selected_fields")
     private String[] selectedFields;
-     /**
-      * 查询过滤器列表，多个过滤器之间为And关系。本期员工月维度汇总类型数据源，只支持employment_id、payroll_period fieldKey的查询，其中payroll_period必传
-      * <p> 示例值：
-      */
+    /**
+     * 查询过滤器列表，多个过滤器之间为And关系。本期员工月维度汇总类型数据源，只支持employment_id、payroll_period fieldKey的查询，其中payroll_period必传
+     * <p> 示例值：
+     */
     @SerializedName("field_filters")
     private DatasourceRecordFieldFilter[] fieldFilters;
+
+    // builder 开始
+    public QueryDatasourceRecordReqBody() {
+    }
+
+    public QueryDatasourceRecordReqBody(Builder builder) {
+        /**
+         * 数据源编码
+         * <p> 示例值：test__c
+         */
+        this.sourceCode = builder.sourceCode;
+        /**
+         * 指定查询的数据源字段。如不传，默认返回所有数据源字段
+         * <p> 示例值：
+         */
+        this.selectedFields = builder.selectedFields;
+        /**
+         * 查询过滤器列表，多个过滤器之间为And关系。本期员工月维度汇总类型数据源，只支持employment_id、payroll_period fieldKey的查询，其中payroll_period必传
+         * <p> 示例值：
+         */
+        this.fieldFilters = builder.fieldFilters;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getSourceCode() {
         return this.sourceCode;
     }
@@ -67,90 +98,64 @@ public class QueryDatasourceRecordReqBody {
         this.fieldFilters = fieldFilters;
     }
 
-
-// builder 开始
-  public QueryDatasourceRecordReqBody(){}
-
-  public QueryDatasourceRecordReqBody(Builder builder){
-         /**
-          * 数据源编码
-          * <p> 示例值：test__c
-          */
-      this.sourceCode = builder.sourceCode;
-         /**
-          * 指定查询的数据源字段。如不传，默认返回所有数据源字段
-          * <p> 示例值：
-          */
-      this.selectedFields = builder.selectedFields;
-         /**
-          * 查询过滤器列表，多个过滤器之间为And关系。本期员工月维度汇总类型数据源，只支持employment_id、payroll_period fieldKey的查询，其中payroll_period必传
-          * <p> 示例值：
-          */
-      this.fieldFilters = builder.fieldFilters;
-  }
-
     public static class Builder {
-     /**
-      * 数据源编码
-      * <p> 示例值：test__c
-      */
+        /**
+         * 数据源编码
+         * <p> 示例值：test__c
+         */
         private String sourceCode;
-     /**
-      * 指定查询的数据源字段。如不传，默认返回所有数据源字段
-      * <p> 示例值：
-      */
+        /**
+         * 指定查询的数据源字段。如不传，默认返回所有数据源字段
+         * <p> 示例值：
+         */
         private String[] selectedFields;
-     /**
-      * 查询过滤器列表，多个过滤器之间为And关系。本期员工月维度汇总类型数据源，只支持employment_id、payroll_period fieldKey的查询，其中payroll_period必传
-      * <p> 示例值：
-      */
+        /**
+         * 查询过滤器列表，多个过滤器之间为And关系。本期员工月维度汇总类型数据源，只支持employment_id、payroll_period fieldKey的查询，其中payroll_period必传
+         * <p> 示例值：
+         */
         private DatasourceRecordFieldFilter[] fieldFilters;
 
         /**
          * 数据源编码
          * <p> 示例值：test__c
+         *
          * @param sourceCode
          * @return
          */
         public Builder sourceCode(String sourceCode) {
-             this.sourceCode = sourceCode;
-             return this;
+            this.sourceCode = sourceCode;
+            return this;
         }
 
-    
 
         /**
          * 指定查询的数据源字段。如不传，默认返回所有数据源字段
          * <p> 示例值：
+         *
          * @param selectedFields
          * @return
          */
         public Builder selectedFields(String[] selectedFields) {
-             this.selectedFields = selectedFields;
-             return this;
+            this.selectedFields = selectedFields;
+            return this;
         }
 
-    
 
         /**
          * 查询过滤器列表，多个过滤器之间为And关系。本期员工月维度汇总类型数据源，只支持employment_id、payroll_period fieldKey的查询，其中payroll_period必传
          * <p> 示例值：
+         *
          * @param fieldFilters
          * @return
          */
         public Builder fieldFilters(DatasourceRecordFieldFilter[] fieldFilters) {
-             this.fieldFilters = fieldFilters;
-             return this;
+            this.fieldFilters = fieldFilters;
+            return this;
         }
 
-    
-    
-    public QueryDatasourceRecordReqBody build(){
-        return new QueryDatasourceRecordReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public QueryDatasourceRecordReqBody build() {
+            return new QueryDatasourceRecordReqBody(this);
+        }
     }
 }

@@ -12,30 +12,56 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ApplicationOfferCustomModule {
-     /**
-      * 自定义模块ID
-      * <p> 示例值：6930815272790114324
-      */
+    /**
+     * 自定义模块ID
+     * <p> 示例值：6930815272790114324
+     */
     @SerializedName("ID")
     private String iD;
-     /**
-      * 自定义模块下字段的值
-      * <p> 示例值：
-      */
+    /**
+     * 自定义模块下字段的值
+     * <p> 示例值：
+     */
     @SerializedName("object_list")
     private ApplicationOfferCustomValue[] objectList;
+
+    // builder 开始
+    public ApplicationOfferCustomModule() {
+    }
+
+    public ApplicationOfferCustomModule(Builder builder) {
+        /**
+         * 自定义模块ID
+         * <p> 示例值：6930815272790114324
+         */
+        this.iD = builder.iD;
+        /**
+         * 自定义模块下字段的值
+         * <p> 示例值：
+         */
+        this.objectList = builder.objectList;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getID() {
         return this.iD;
     }
@@ -52,67 +78,46 @@ public class ApplicationOfferCustomModule {
         this.objectList = objectList;
     }
 
-
-// builder 开始
-  public ApplicationOfferCustomModule(){}
-
-  public ApplicationOfferCustomModule(Builder builder){
-         /**
-          * 自定义模块ID
-          * <p> 示例值：6930815272790114324
-          */
-      this.iD = builder.iD;
-         /**
-          * 自定义模块下字段的值
-          * <p> 示例值：
-          */
-      this.objectList = builder.objectList;
-  }
-
     public static class Builder {
-     /**
-      * 自定义模块ID
-      * <p> 示例值：6930815272790114324
-      */
+        /**
+         * 自定义模块ID
+         * <p> 示例值：6930815272790114324
+         */
         private String iD;
-     /**
-      * 自定义模块下字段的值
-      * <p> 示例值：
-      */
+        /**
+         * 自定义模块下字段的值
+         * <p> 示例值：
+         */
         private ApplicationOfferCustomValue[] objectList;
 
         /**
          * 自定义模块ID
          * <p> 示例值：6930815272790114324
+         *
          * @param iD
          * @return
          */
         public Builder iD(String iD) {
-             this.iD = iD;
-             return this;
+            this.iD = iD;
+            return this;
         }
 
-    
 
         /**
          * 自定义模块下字段的值
          * <p> 示例值：
+         *
          * @param objectList
          * @return
          */
         public Builder objectList(ApplicationOfferCustomValue[] objectList) {
-             this.objectList = objectList;
-             return this;
+            this.objectList = objectList;
+            return this;
         }
 
-    
-    
-    public ApplicationOfferCustomModule build(){
-        return new ApplicationOfferCustomModule(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ApplicationOfferCustomModule build() {
+            return new ApplicationOfferCustomModule(this);
+        }
     }
 }

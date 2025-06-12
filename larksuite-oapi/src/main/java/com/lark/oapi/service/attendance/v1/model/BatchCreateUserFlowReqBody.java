@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class BatchCreateUserFlowReqBody {
-     /**
-      * 打卡流水记录列表(数量限制50)
-      * <p> 示例值：
-      */
+    /**
+     * 打卡流水记录列表(数量限制50)
+     * <p> 示例值：
+     */
     @SerializedName("flow_records")
     private UserFlow[] flowRecords;
+
+    // builder 开始
+    public BatchCreateUserFlowReqBody() {
+    }
+
+    public BatchCreateUserFlowReqBody(Builder builder) {
+        /**
+         * 打卡流水记录列表(数量限制50)
+         * <p> 示例值：
+         */
+        this.flowRecords = builder.flowRecords;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public UserFlow[] getFlowRecords() {
         return this.flowRecords;
     }
@@ -39,44 +60,28 @@ public class BatchCreateUserFlowReqBody {
         this.flowRecords = flowRecords;
     }
 
-
-// builder 开始
-  public BatchCreateUserFlowReqBody(){}
-
-  public BatchCreateUserFlowReqBody(Builder builder){
-         /**
-          * 打卡流水记录列表(数量限制50)
-          * <p> 示例值：
-          */
-      this.flowRecords = builder.flowRecords;
-  }
-
     public static class Builder {
-     /**
-      * 打卡流水记录列表(数量限制50)
-      * <p> 示例值：
-      */
+        /**
+         * 打卡流水记录列表(数量限制50)
+         * <p> 示例值：
+         */
         private UserFlow[] flowRecords;
 
         /**
          * 打卡流水记录列表(数量限制50)
          * <p> 示例值：
+         *
          * @param flowRecords
          * @return
          */
         public Builder flowRecords(UserFlow[] flowRecords) {
-             this.flowRecords = flowRecords;
-             return this;
+            this.flowRecords = flowRecords;
+            return this;
         }
 
-    
-    
-    public BatchCreateUserFlowReqBody build(){
-        return new BatchCreateUserFlowReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public BatchCreateUserFlowReqBody build() {
+            return new BatchCreateUserFlowReqBody(this);
+        }
     }
 }

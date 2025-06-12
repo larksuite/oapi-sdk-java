@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.im.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,36 +20,71 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class OpenAppFeedCardUrl {
-     /**
-      * 默认 URL
-      * <p> 示例值：https://www.feishu.cn/
-      */
+    /**
+     * 默认 URL
+     * <p> 示例值：https://www.feishu.cn/
+     */
     @SerializedName("url")
     private String url;
-     /**
-      * Android 平台 URL
-      * <p> 示例值：https://www.feishu.cn/
-      */
+    /**
+     * Android 平台 URL
+     * <p> 示例值：https://www.feishu.cn/
+     */
     @SerializedName("android_url")
     private String androidUrl;
-     /**
-      * iOS 平台 URL
-      * <p> 示例值：https://www.feishu.cn/
-      */
+    /**
+     * iOS 平台 URL
+     * <p> 示例值：https://www.feishu.cn/
+     */
     @SerializedName("ios_url")
     private String iosUrl;
-     /**
-      * PC URL
-      * <p> 示例值：https://www.feishu.cn/
-      */
+    /**
+     * PC URL
+     * <p> 示例值：https://www.feishu.cn/
+     */
     @SerializedName("pc_url")
     private String pcUrl;
+
+    // builder 开始
+    public OpenAppFeedCardUrl() {
+    }
+
+    public OpenAppFeedCardUrl(Builder builder) {
+        /**
+         * 默认 URL
+         * <p> 示例值：https://www.feishu.cn/
+         */
+        this.url = builder.url;
+        /**
+         * Android 平台 URL
+         * <p> 示例值：https://www.feishu.cn/
+         */
+        this.androidUrl = builder.androidUrl;
+        /**
+         * iOS 平台 URL
+         * <p> 示例值：https://www.feishu.cn/
+         */
+        this.iosUrl = builder.iosUrl;
+        /**
+         * PC URL
+         * <p> 示例值：https://www.feishu.cn/
+         */
+        this.pcUrl = builder.pcUrl;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getUrl() {
         return this.url;
     }
@@ -81,113 +117,82 @@ public class OpenAppFeedCardUrl {
         this.pcUrl = pcUrl;
     }
 
-
-// builder 开始
-  public OpenAppFeedCardUrl(){}
-
-  public OpenAppFeedCardUrl(Builder builder){
-         /**
-          * 默认 URL
-          * <p> 示例值：https://www.feishu.cn/
-          */
-      this.url = builder.url;
-         /**
-          * Android 平台 URL
-          * <p> 示例值：https://www.feishu.cn/
-          */
-      this.androidUrl = builder.androidUrl;
-         /**
-          * iOS 平台 URL
-          * <p> 示例值：https://www.feishu.cn/
-          */
-      this.iosUrl = builder.iosUrl;
-         /**
-          * PC URL
-          * <p> 示例值：https://www.feishu.cn/
-          */
-      this.pcUrl = builder.pcUrl;
-  }
-
     public static class Builder {
-     /**
-      * 默认 URL
-      * <p> 示例值：https://www.feishu.cn/
-      */
+        /**
+         * 默认 URL
+         * <p> 示例值：https://www.feishu.cn/
+         */
         private String url;
-     /**
-      * Android 平台 URL
-      * <p> 示例值：https://www.feishu.cn/
-      */
+        /**
+         * Android 平台 URL
+         * <p> 示例值：https://www.feishu.cn/
+         */
         private String androidUrl;
-     /**
-      * iOS 平台 URL
-      * <p> 示例值：https://www.feishu.cn/
-      */
+        /**
+         * iOS 平台 URL
+         * <p> 示例值：https://www.feishu.cn/
+         */
         private String iosUrl;
-     /**
-      * PC URL
-      * <p> 示例值：https://www.feishu.cn/
-      */
+        /**
+         * PC URL
+         * <p> 示例值：https://www.feishu.cn/
+         */
         private String pcUrl;
 
         /**
          * 默认 URL
          * <p> 示例值：https://www.feishu.cn/
+         *
          * @param url
          * @return
          */
         public Builder url(String url) {
-             this.url = url;
-             return this;
+            this.url = url;
+            return this;
         }
 
-    
 
         /**
          * Android 平台 URL
          * <p> 示例值：https://www.feishu.cn/
+         *
          * @param androidUrl
          * @return
          */
         public Builder androidUrl(String androidUrl) {
-             this.androidUrl = androidUrl;
-             return this;
+            this.androidUrl = androidUrl;
+            return this;
         }
 
-    
 
         /**
          * iOS 平台 URL
          * <p> 示例值：https://www.feishu.cn/
+         *
          * @param iosUrl
          * @return
          */
         public Builder iosUrl(String iosUrl) {
-             this.iosUrl = iosUrl;
-             return this;
+            this.iosUrl = iosUrl;
+            return this;
         }
 
-    
 
         /**
          * PC URL
          * <p> 示例值：https://www.feishu.cn/
+         *
          * @param pcUrl
          * @return
          */
         public Builder pcUrl(String pcUrl) {
-             this.pcUrl = pcUrl;
-             return this;
+            this.pcUrl = pcUrl;
+            return this;
         }
 
-    
-    
-    public OpenAppFeedCardUrl build(){
-        return new OpenAppFeedCardUrl(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public OpenAppFeedCardUrl build() {
+            return new OpenAppFeedCardUrl(this);
+        }
     }
 }

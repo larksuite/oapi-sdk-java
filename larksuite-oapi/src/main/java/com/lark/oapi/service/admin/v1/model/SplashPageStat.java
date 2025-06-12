@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.admin.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.admin.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,60 +20,115 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class SplashPageStat {
-     /**
-      * 日期
-      * <p> 示例值：
-      */
+    /**
+     * 日期
+     * <p> 示例值：
+     */
     @SerializedName("date")
     private String date;
-     /**
-      * 开屏素材id
-      * <p> 示例值：
-      */
+    /**
+     * 开屏素材id
+     * <p> 示例值：
+     */
     @SerializedName("splash_id")
     private String splashId;
-     /**
-      * 曝光数
-      * <p> 示例值：
-      */
+    /**
+     * 曝光数
+     * <p> 示例值：
+     */
     @SerializedName("impression_count")
     private Integer impressionCount;
-     /**
-      * 点击数
-      * <p> 示例值：
-      */
+    /**
+     * 点击数
+     * <p> 示例值：
+     */
     @SerializedName("click_count")
     private Integer clickCount;
-     /**
-      * 点击跳过数
-      * <p> 示例值：
-      */
+    /**
+     * 点击跳过数
+     * <p> 示例值：
+     */
     @SerializedName("skip_count")
     private Integer skipCount;
-     /**
-      * 累计曝光
-      * <p> 示例值：
-      */
+    /**
+     * 累计曝光
+     * <p> 示例值：
+     */
     @SerializedName("impression_count_accumulate")
     private Integer impressionCountAccumulate;
-     /**
-      * 累计点击
-      * <p> 示例值：
-      */
+    /**
+     * 累计点击
+     * <p> 示例值：
+     */
     @SerializedName("click_count_accumulate")
     private Integer clickCountAccumulate;
-     /**
-      * 累积点击跳过数
-      * <p> 示例值：
-      */
+    /**
+     * 累积点击跳过数
+     * <p> 示例值：
+     */
     @SerializedName("skip_count_accumulate")
     private Integer skipCountAccumulate;
+
+    // builder 开始
+    public SplashPageStat() {
+    }
+
+    public SplashPageStat(Builder builder) {
+        /**
+         * 日期
+         * <p> 示例值：
+         */
+        this.date = builder.date;
+        /**
+         * 开屏素材id
+         * <p> 示例值：
+         */
+        this.splashId = builder.splashId;
+        /**
+         * 曝光数
+         * <p> 示例值：
+         */
+        this.impressionCount = builder.impressionCount;
+        /**
+         * 点击数
+         * <p> 示例值：
+         */
+        this.clickCount = builder.clickCount;
+        /**
+         * 点击跳过数
+         * <p> 示例值：
+         */
+        this.skipCount = builder.skipCount;
+        /**
+         * 累计曝光
+         * <p> 示例值：
+         */
+        this.impressionCountAccumulate = builder.impressionCountAccumulate;
+        /**
+         * 累计点击
+         * <p> 示例值：
+         */
+        this.clickCountAccumulate = builder.clickCountAccumulate;
+        /**
+         * 累积点击跳过数
+         * <p> 示例值：
+         */
+        this.skipCountAccumulate = builder.skipCountAccumulate;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getDate() {
         return this.date;
     }
@@ -137,205 +193,154 @@ public class SplashPageStat {
         this.skipCountAccumulate = skipCountAccumulate;
     }
 
-
-// builder 开始
-  public SplashPageStat(){}
-
-  public SplashPageStat(Builder builder){
-         /**
-          * 日期
-          * <p> 示例值：
-          */
-      this.date = builder.date;
-         /**
-          * 开屏素材id
-          * <p> 示例值：
-          */
-      this.splashId = builder.splashId;
-         /**
-          * 曝光数
-          * <p> 示例值：
-          */
-      this.impressionCount = builder.impressionCount;
-         /**
-          * 点击数
-          * <p> 示例值：
-          */
-      this.clickCount = builder.clickCount;
-         /**
-          * 点击跳过数
-          * <p> 示例值：
-          */
-      this.skipCount = builder.skipCount;
-         /**
-          * 累计曝光
-          * <p> 示例值：
-          */
-      this.impressionCountAccumulate = builder.impressionCountAccumulate;
-         /**
-          * 累计点击
-          * <p> 示例值：
-          */
-      this.clickCountAccumulate = builder.clickCountAccumulate;
-         /**
-          * 累积点击跳过数
-          * <p> 示例值：
-          */
-      this.skipCountAccumulate = builder.skipCountAccumulate;
-  }
-
     public static class Builder {
-     /**
-      * 日期
-      * <p> 示例值：
-      */
+        /**
+         * 日期
+         * <p> 示例值：
+         */
         private String date;
-     /**
-      * 开屏素材id
-      * <p> 示例值：
-      */
+        /**
+         * 开屏素材id
+         * <p> 示例值：
+         */
         private String splashId;
-     /**
-      * 曝光数
-      * <p> 示例值：
-      */
+        /**
+         * 曝光数
+         * <p> 示例值：
+         */
         private Integer impressionCount;
-     /**
-      * 点击数
-      * <p> 示例值：
-      */
+        /**
+         * 点击数
+         * <p> 示例值：
+         */
         private Integer clickCount;
-     /**
-      * 点击跳过数
-      * <p> 示例值：
-      */
+        /**
+         * 点击跳过数
+         * <p> 示例值：
+         */
         private Integer skipCount;
-     /**
-      * 累计曝光
-      * <p> 示例值：
-      */
+        /**
+         * 累计曝光
+         * <p> 示例值：
+         */
         private Integer impressionCountAccumulate;
-     /**
-      * 累计点击
-      * <p> 示例值：
-      */
+        /**
+         * 累计点击
+         * <p> 示例值：
+         */
         private Integer clickCountAccumulate;
-     /**
-      * 累积点击跳过数
-      * <p> 示例值：
-      */
+        /**
+         * 累积点击跳过数
+         * <p> 示例值：
+         */
         private Integer skipCountAccumulate;
 
         /**
          * 日期
          * <p> 示例值：
+         *
          * @param date
          * @return
          */
         public Builder date(String date) {
-             this.date = date;
-             return this;
+            this.date = date;
+            return this;
         }
 
-    
 
         /**
          * 开屏素材id
          * <p> 示例值：
+         *
          * @param splashId
          * @return
          */
         public Builder splashId(String splashId) {
-             this.splashId = splashId;
-             return this;
+            this.splashId = splashId;
+            return this;
         }
 
-    
 
         /**
          * 曝光数
          * <p> 示例值：
+         *
          * @param impressionCount
          * @return
          */
         public Builder impressionCount(Integer impressionCount) {
-             this.impressionCount = impressionCount;
-             return this;
+            this.impressionCount = impressionCount;
+            return this;
         }
 
-    
 
         /**
          * 点击数
          * <p> 示例值：
+         *
          * @param clickCount
          * @return
          */
         public Builder clickCount(Integer clickCount) {
-             this.clickCount = clickCount;
-             return this;
+            this.clickCount = clickCount;
+            return this;
         }
 
-    
 
         /**
          * 点击跳过数
          * <p> 示例值：
+         *
          * @param skipCount
          * @return
          */
         public Builder skipCount(Integer skipCount) {
-             this.skipCount = skipCount;
-             return this;
+            this.skipCount = skipCount;
+            return this;
         }
 
-    
 
         /**
          * 累计曝光
          * <p> 示例值：
+         *
          * @param impressionCountAccumulate
          * @return
          */
         public Builder impressionCountAccumulate(Integer impressionCountAccumulate) {
-             this.impressionCountAccumulate = impressionCountAccumulate;
-             return this;
+            this.impressionCountAccumulate = impressionCountAccumulate;
+            return this;
         }
 
-    
 
         /**
          * 累计点击
          * <p> 示例值：
+         *
          * @param clickCountAccumulate
          * @return
          */
         public Builder clickCountAccumulate(Integer clickCountAccumulate) {
-             this.clickCountAccumulate = clickCountAccumulate;
-             return this;
+            this.clickCountAccumulate = clickCountAccumulate;
+            return this;
         }
 
-    
 
         /**
          * 累积点击跳过数
          * <p> 示例值：
+         *
          * @param skipCountAccumulate
          * @return
          */
         public Builder skipCountAccumulate(Integer skipCountAccumulate) {
-             this.skipCountAccumulate = skipCountAccumulate;
-             return this;
+            this.skipCountAccumulate = skipCountAccumulate;
+            return this;
         }
 
-    
-    
-    public SplashPageStat build(){
-        return new SplashPageStat(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public SplashPageStat build() {
+            return new SplashPageStat(this);
+        }
     }
 }

@@ -12,25 +12,49 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ReplyMessageReq {
-     /**
-      * 待回复的消息的ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
-      * <p> 示例值：om_dc13264520392913993dd051dba21dcf
-      */
+    /**
+     * 待回复的消息的ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
+     * <p> 示例值：om_dc13264520392913993dd051dba21dcf
+     */
     @Path
     @SerializedName("message_id")
     private String messageId;
+    @Body
+    private ReplyMessageReqBody body;
+
+    // builder 开始
+    public ReplyMessageReq() {
+    }
+
+    public ReplyMessageReq(Builder builder) {
+        /**
+         * 待回复的消息的ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
+         * <p> 示例值：om_dc13264520392913993dd051dba21dcf
+         */
+        this.messageId = builder.messageId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getMessageId() {
         return this.messageId;
     }
@@ -38,9 +62,6 @@ public class ReplyMessageReq {
     public void setMessageId(String messageId) {
         this.messageId = messageId;
     }
-
-    @Body
-    private ReplyMessageReqBody body;
 
     public ReplyMessageReqBody getReplyMessageReqBody() {
         return this.body;
@@ -50,54 +71,40 @@ public class ReplyMessageReq {
         this.body = body;
     }
 
-// builder 开始
-  public ReplyMessageReq(){}
-
-  public ReplyMessageReq(Builder builder){
-     /**
-      * 待回复的消息的ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
-      * <p> 示例值：om_dc13264520392913993dd051dba21dcf
-      */
-       this.messageId = builder.messageId;
-        this.body = builder.body;
-  }
-
     public static class Builder {
-    
+
         private String messageId; // 待回复的消息的ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
+        private ReplyMessageReqBody body;
+
         /**
          * 待回复的消息的ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
          * <p> 示例值：om_dc13264520392913993dd051dba21dcf
+         *
          * @param messageId
          * @return
          */
-          public Builder messageId(String messageId) {
-               this.messageId = messageId;
-               return this;
-          }
+        public Builder messageId(String messageId) {
+            this.messageId = messageId;
+            return this;
+        }
 
-    
-        private ReplyMessageReqBody body;
-    
         public ReplyMessageReqBody getReplyMessageReqBody() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder replyMessageReqBody(ReplyMessageReqBody body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public ReplyMessageReq build(){
-        return new ReplyMessageReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ReplyMessageReq build() {
+            return new ReplyMessageReq(this);
+        }
     }
 }

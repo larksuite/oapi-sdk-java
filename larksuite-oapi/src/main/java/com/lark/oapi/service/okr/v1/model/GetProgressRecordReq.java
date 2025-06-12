@@ -12,25 +12,58 @@
  */
 
 package com.lark.oapi.service.okr.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.okr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class GetProgressRecordReq {
-     /**
-      * 此次调用中使用的用户ID的类型
-      * <p> 示例值：
-      */
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
+    /**
+     * 待查询的 OKR进展记录 ID
+     * <p> 示例值：7041857032248410131
+     */
+    @Path
+    @SerializedName("progress_id")
+    private String progressId;
+
+    // builder 开始
+    public GetProgressRecordReq() {
+    }
+
+    public GetProgressRecordReq(Builder builder) {
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         */
+        this.userIdType = builder.userIdType;
+        /**
+         * 待查询的 OKR进展记录 ID
+         * <p> 示例值：7041857032248410131
+         */
+        this.progressId = builder.progressId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getUserIdType() {
         return this.userIdType;
     }
@@ -39,13 +72,6 @@ public class GetProgressRecordReq {
         this.userIdType = userIdType;
     }
 
-     /**
-      * 待查询的 OKR进展记录 ID
-      * <p> 示例值：7041857032248410131
-      */
-    @Path
-    @SerializedName("progress_id")
-    private String progressId;
     public String getProgressId() {
         return this.progressId;
     }
@@ -54,68 +80,49 @@ public class GetProgressRecordReq {
         this.progressId = progressId;
     }
 
-
-// builder 开始
-  public GetProgressRecordReq(){}
-
-  public GetProgressRecordReq(Builder builder){
-         /**
-          * 此次调用中使用的用户ID的类型
-          * <p> 示例值：
-          */
-       this.userIdType = builder.userIdType;
-     /**
-      * 待查询的 OKR进展记录 ID
-      * <p> 示例值：7041857032248410131
-      */
-       this.progressId = builder.progressId;
-  }
-
     public static class Builder {
         private String userIdType; // 此次调用中使用的用户ID的类型
-    
+        private String progressId; // 待查询的 OKR进展记录 ID
+
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
+         *
          * @param userIdType
          * @return
          */
-           public Builder userIdType(String userIdType) {
-                this.userIdType = userIdType;
-                return this;
-           }
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
 
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
+         *
          * @param userIdType {@link com.lark.oapi.service.okr.v1.enums.GetProgressRecordUserIdTypeEnum}
          * @return
          */
-          public Builder userIdType(com.lark.oapi.service.okr.v1.enums.GetProgressRecordUserIdTypeEnum userIdType) {
-               this.userIdType = userIdType.getValue();
-               return this;
-          }
+        public Builder userIdType(com.lark.oapi.service.okr.v1.enums.GetProgressRecordUserIdTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
+            return this;
+        }
 
-    
-        private String progressId; // 待查询的 OKR进展记录 ID
         /**
          * 待查询的 OKR进展记录 ID
          * <p> 示例值：7041857032248410131
+         *
          * @param progressId
          * @return
          */
-          public Builder progressId(String progressId) {
-               this.progressId = progressId;
-               return this;
-          }
+        public Builder progressId(String progressId) {
+            this.progressId = progressId;
+            return this;
+        }
 
-    
-    public GetProgressRecordReq build(){
-        return new GetProgressRecordReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public GetProgressRecordReq build() {
+            return new GetProgressRecordReq(this);
+        }
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.security_and_compliance.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.security_and_compliance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,42 +20,82 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class AuditContext {
-     /**
-      * 终端类型
-      * <p> 示例值：
-      */
+    /**
+     * 终端类型
+     * <p> 示例值：
+     */
     @SerializedName("terminal_type")
     private Integer terminalType;
-     /**
-      * ios的环境信息
-      * <p> 示例值：
-      */
+    /**
+     * ios的环境信息
+     * <p> 示例值：
+     */
     @SerializedName("ios_context")
     private AuditIosContext iosContext;
-     /**
-      * pc的环境信息
-      * <p> 示例值：
-      */
+    /**
+     * pc的环境信息
+     * <p> 示例值：
+     */
     @SerializedName("pc_context")
     private AuditPcContext pcContext;
-     /**
-      * web的环境信息
-      * <p> 示例值：
-      */
+    /**
+     * web的环境信息
+     * <p> 示例值：
+     */
     @SerializedName("web_context")
     private AuditWebContext webContext;
-     /**
-      * android的环境信息
-      * <p> 示例值：
-      */
+    /**
+     * android的环境信息
+     * <p> 示例值：
+     */
     @SerializedName("android_context")
     private AuditAndroidContext androidContext;
+
+    // builder 开始
+    public AuditContext() {
+    }
+
+    public AuditContext(Builder builder) {
+        /**
+         * 终端类型
+         * <p> 示例值：
+         */
+        this.terminalType = builder.terminalType;
+        /**
+         * ios的环境信息
+         * <p> 示例值：
+         */
+        this.iosContext = builder.iosContext;
+        /**
+         * pc的环境信息
+         * <p> 示例值：
+         */
+        this.pcContext = builder.pcContext;
+        /**
+         * web的环境信息
+         * <p> 示例值：
+         */
+        this.webContext = builder.webContext;
+        /**
+         * android的环境信息
+         * <p> 示例值：
+         */
+        this.androidContext = builder.androidContext;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Integer getTerminalType() {
         return this.terminalType;
     }
@@ -95,146 +136,112 @@ public class AuditContext {
         this.androidContext = androidContext;
     }
 
-
-// builder 开始
-  public AuditContext(){}
-
-  public AuditContext(Builder builder){
-         /**
-          * 终端类型
-          * <p> 示例值：
-          */
-      this.terminalType = builder.terminalType;
-         /**
-          * ios的环境信息
-          * <p> 示例值：
-          */
-      this.iosContext = builder.iosContext;
-         /**
-          * pc的环境信息
-          * <p> 示例值：
-          */
-      this.pcContext = builder.pcContext;
-         /**
-          * web的环境信息
-          * <p> 示例值：
-          */
-      this.webContext = builder.webContext;
-         /**
-          * android的环境信息
-          * <p> 示例值：
-          */
-      this.androidContext = builder.androidContext;
-  }
-
     public static class Builder {
-     /**
-      * 终端类型
-      * <p> 示例值：
-      */
+        /**
+         * 终端类型
+         * <p> 示例值：
+         */
         private Integer terminalType;
-     /**
-      * ios的环境信息
-      * <p> 示例值：
-      */
+        /**
+         * ios的环境信息
+         * <p> 示例值：
+         */
         private AuditIosContext iosContext;
-     /**
-      * pc的环境信息
-      * <p> 示例值：
-      */
+        /**
+         * pc的环境信息
+         * <p> 示例值：
+         */
         private AuditPcContext pcContext;
-     /**
-      * web的环境信息
-      * <p> 示例值：
-      */
+        /**
+         * web的环境信息
+         * <p> 示例值：
+         */
         private AuditWebContext webContext;
-     /**
-      * android的环境信息
-      * <p> 示例值：
-      */
+        /**
+         * android的环境信息
+         * <p> 示例值：
+         */
         private AuditAndroidContext androidContext;
 
         /**
          * 终端类型
          * <p> 示例值：
+         *
          * @param terminalType
          * @return
          */
         public Builder terminalType(Integer terminalType) {
-             this.terminalType = terminalType;
-             return this;
+            this.terminalType = terminalType;
+            return this;
         }
+
         /**
          * 终端类型
          * <p> 示例值：
+         *
          * @param terminalType {@link com.lark.oapi.service.security_and_compliance.v1.enums.AuditContextTerminalTypeEnum}
          * @return
          */
         public Builder terminalType(com.lark.oapi.service.security_and_compliance.v1.enums.AuditContextTerminalTypeEnum terminalType) {
-             this.terminalType = terminalType.getValue();
-             return this;
+            this.terminalType = terminalType.getValue();
+            return this;
         }
 
-    
 
         /**
          * ios的环境信息
          * <p> 示例值：
+         *
          * @param iosContext
          * @return
          */
         public Builder iosContext(AuditIosContext iosContext) {
-             this.iosContext = iosContext;
-             return this;
+            this.iosContext = iosContext;
+            return this;
         }
 
-    
 
         /**
          * pc的环境信息
          * <p> 示例值：
+         *
          * @param pcContext
          * @return
          */
         public Builder pcContext(AuditPcContext pcContext) {
-             this.pcContext = pcContext;
-             return this;
+            this.pcContext = pcContext;
+            return this;
         }
 
-    
 
         /**
          * web的环境信息
          * <p> 示例值：
+         *
          * @param webContext
          * @return
          */
         public Builder webContext(AuditWebContext webContext) {
-             this.webContext = webContext;
-             return this;
+            this.webContext = webContext;
+            return this;
         }
 
-    
 
         /**
          * android的环境信息
          * <p> 示例值：
+         *
          * @param androidContext
          * @return
          */
         public Builder androidContext(AuditAndroidContext androidContext) {
-             this.androidContext = androidContext;
-             return this;
+            this.androidContext = androidContext;
+            return this;
         }
 
-    
-    
-    public AuditContext build(){
-        return new AuditContext(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public AuditContext build() {
+            return new AuditContext(this);
+        }
     }
 }

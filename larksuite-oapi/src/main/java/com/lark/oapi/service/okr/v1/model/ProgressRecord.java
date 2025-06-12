@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.okr.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.okr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ProgressRecord {
-     /**
-      * OKR 进展ID
-      * <p> 示例值：7041469619902693396
-      */
+    /**
+     * OKR 进展ID
+     * <p> 示例值：7041469619902693396
+     */
     @SerializedName("progress_id")
     private String progressId;
-     /**
-      * 进展更新时间 毫秒
-      * <p> 示例值：1618500278663
-      */
+    /**
+     * 进展更新时间 毫秒
+     * <p> 示例值：1618500278663
+     */
     @SerializedName("modify_time")
     private String modifyTime;
-     /**
-      * 进展 对应的 Content 详细内容
-      * <p> 示例值：
-      */
+    /**
+     * 进展 对应的 Content 详细内容
+     * <p> 示例值：
+     */
     @SerializedName("content")
     private ContentBlock content;
+
+    // builder 开始
+    public ProgressRecord() {
+    }
+
+    public ProgressRecord(Builder builder) {
+        /**
+         * OKR 进展ID
+         * <p> 示例值：7041469619902693396
+         */
+        this.progressId = builder.progressId;
+        /**
+         * 进展更新时间 毫秒
+         * <p> 示例值：1618500278663
+         */
+        this.modifyTime = builder.modifyTime;
+        /**
+         * 进展 对应的 Content 详细内容
+         * <p> 示例值：
+         */
+        this.content = builder.content;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getProgressId() {
         return this.progressId;
     }
@@ -67,90 +98,64 @@ public class ProgressRecord {
         this.content = content;
     }
 
-
-// builder 开始
-  public ProgressRecord(){}
-
-  public ProgressRecord(Builder builder){
-         /**
-          * OKR 进展ID
-          * <p> 示例值：7041469619902693396
-          */
-      this.progressId = builder.progressId;
-         /**
-          * 进展更新时间 毫秒
-          * <p> 示例值：1618500278663
-          */
-      this.modifyTime = builder.modifyTime;
-         /**
-          * 进展 对应的 Content 详细内容
-          * <p> 示例值：
-          */
-      this.content = builder.content;
-  }
-
     public static class Builder {
-     /**
-      * OKR 进展ID
-      * <p> 示例值：7041469619902693396
-      */
+        /**
+         * OKR 进展ID
+         * <p> 示例值：7041469619902693396
+         */
         private String progressId;
-     /**
-      * 进展更新时间 毫秒
-      * <p> 示例值：1618500278663
-      */
+        /**
+         * 进展更新时间 毫秒
+         * <p> 示例值：1618500278663
+         */
         private String modifyTime;
-     /**
-      * 进展 对应的 Content 详细内容
-      * <p> 示例值：
-      */
+        /**
+         * 进展 对应的 Content 详细内容
+         * <p> 示例值：
+         */
         private ContentBlock content;
 
         /**
          * OKR 进展ID
          * <p> 示例值：7041469619902693396
+         *
          * @param progressId
          * @return
          */
         public Builder progressId(String progressId) {
-             this.progressId = progressId;
-             return this;
+            this.progressId = progressId;
+            return this;
         }
 
-    
 
         /**
          * 进展更新时间 毫秒
          * <p> 示例值：1618500278663
+         *
          * @param modifyTime
          * @return
          */
         public Builder modifyTime(String modifyTime) {
-             this.modifyTime = modifyTime;
-             return this;
+            this.modifyTime = modifyTime;
+            return this;
         }
 
-    
 
         /**
          * 进展 对应的 Content 详细内容
          * <p> 示例值：
+         *
          * @param content
          * @return
          */
         public Builder content(ContentBlock content) {
-             this.content = content;
-             return this;
+            this.content = content;
+            return this;
         }
 
-    
-    
-    public ProgressRecord build(){
-        return new ProgressRecord(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ProgressRecord build() {
+            return new ProgressRecord(this);
+        }
     }
 }

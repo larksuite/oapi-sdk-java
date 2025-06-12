@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.wiki.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.wiki.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class TaskResult {
-     /**
-      * 任务id
-      * <p> 示例值：7037044037068177428-075c9481e6a0007c1df689dfbe5b55a08b6b06f7
-      */
+    /**
+     * 任务id
+     * <p> 示例值：7037044037068177428-075c9481e6a0007c1df689dfbe5b55a08b6b06f7
+     */
     @SerializedName("task_id")
     private String taskId;
-     /**
-      * [移动云空间文档至知识空间](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space-node/move_docs_to_wiki)任务结果
-      * <p> 示例值：
-      */
+    /**
+     * [移动云空间文档至知识空间](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space-node/move_docs_to_wiki)任务结果
+     * <p> 示例值：
+     */
     @SerializedName("move_result")
     private MoveResult[] moveResult;
+
+    // builder 开始
+    public TaskResult() {
+    }
+
+    public TaskResult(Builder builder) {
+        /**
+         * 任务id
+         * <p> 示例值：7037044037068177428-075c9481e6a0007c1df689dfbe5b55a08b6b06f7
+         */
+        this.taskId = builder.taskId;
+        /**
+         * [移动云空间文档至知识空间](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space-node/move_docs_to_wiki)任务结果
+         * <p> 示例值：
+         */
+        this.moveResult = builder.moveResult;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getTaskId() {
         return this.taskId;
     }
@@ -53,67 +79,46 @@ public class TaskResult {
         this.moveResult = moveResult;
     }
 
-
-// builder 开始
-  public TaskResult(){}
-
-  public TaskResult(Builder builder){
-         /**
-          * 任务id
-          * <p> 示例值：7037044037068177428-075c9481e6a0007c1df689dfbe5b55a08b6b06f7
-          */
-      this.taskId = builder.taskId;
-         /**
-          * [移动云空间文档至知识空间](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space-node/move_docs_to_wiki)任务结果
-          * <p> 示例值：
-          */
-      this.moveResult = builder.moveResult;
-  }
-
     public static class Builder {
-     /**
-      * 任务id
-      * <p> 示例值：7037044037068177428-075c9481e6a0007c1df689dfbe5b55a08b6b06f7
-      */
+        /**
+         * 任务id
+         * <p> 示例值：7037044037068177428-075c9481e6a0007c1df689dfbe5b55a08b6b06f7
+         */
         private String taskId;
-     /**
-      * [移动云空间文档至知识空间](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space-node/move_docs_to_wiki)任务结果
-      * <p> 示例值：
-      */
+        /**
+         * [移动云空间文档至知识空间](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space-node/move_docs_to_wiki)任务结果
+         * <p> 示例值：
+         */
         private MoveResult[] moveResult;
 
         /**
          * 任务id
          * <p> 示例值：7037044037068177428-075c9481e6a0007c1df689dfbe5b55a08b6b06f7
+         *
          * @param taskId
          * @return
          */
         public Builder taskId(String taskId) {
-             this.taskId = taskId;
-             return this;
+            this.taskId = taskId;
+            return this;
         }
 
-    
 
         /**
          * [移动云空间文档至知识空间](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space-node/move_docs_to_wiki)任务结果
          * <p> 示例值：
+         *
          * @param moveResult
          * @return
          */
         public Builder moveResult(MoveResult[] moveResult) {
-             this.moveResult = moveResult;
-             return this;
+            this.moveResult = moveResult;
+            return this;
         }
 
-    
-    
-    public TaskResult build(){
-        return new TaskResult(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public TaskResult build() {
+            return new TaskResult(this);
+        }
     }
 }

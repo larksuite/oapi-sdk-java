@@ -17,15 +17,16 @@ package com.lark.oapi.service.apaas.v1.enums;
  * 排序方式
  */
 public enum OrderConditionOrderTypeEnum {
-     ORDERTYPEASC("asc"), // 升序
-     ORDERTYPEDESC("desc"), // 降序
-  ;
-   private String value;
+    ORDERTYPEASC("asc"), // 升序
+    ORDERTYPEDESC("desc"), // 降序
+    ;
+    private String value;
+
     OrderConditionOrderTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.calendar.v4.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.calendar.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,60 +20,115 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class MyaiReply {
-     /**
-      * 返回给myai的自然语言描述
-      * <p> 示例值：none
-      */
+    /**
+     * 返回给myai的自然语言描述
+     * <p> 示例值：none
+     */
     @SerializedName("reply")
     private String reply;
-     /**
-      * 日程开始时间
-      * <p> 示例值：none
-      */
+    /**
+     * 日程开始时间
+     * <p> 示例值：none
+     */
     @SerializedName("start_time")
     private String startTime;
-     /**
-      * 日程结束时间
-      * <p> 示例值：none
-      */
+    /**
+     * 日程结束时间
+     * <p> 示例值：none
+     */
     @SerializedName("end_time")
     private String endTime;
-     /**
-      * 会议室实体列表
-      * <p> 示例值：
-      */
+    /**
+     * 会议室实体列表
+     * <p> 示例值：
+     */
     @SerializedName("rooms")
     private RoomMeta[] rooms;
-     /**
-      * 日程主题
-      * <p> 示例值：none
-      */
+    /**
+     * 日程主题
+     * <p> 示例值：none
+     */
     @SerializedName("summary")
     private String summary;
-     /**
-      * 参与人实体列表
-      * <p> 示例值：
-      */
+    /**
+     * 参与人实体列表
+     * <p> 示例值：
+     */
     @SerializedName("participants")
     private UserMeta[] participants;
-     /**
-      * 日程的uid_originTime
-      * <p> 示例值：11dd1004-7cfb-4ad2-89a0-aa3c82f34dda_0
-      */
+    /**
+     * 日程的uid_originTime
+     * <p> 示例值：11dd1004-7cfb-4ad2-89a0-aa3c82f34dda_0
+     */
     @SerializedName("event_id")
     private String eventId;
-     /**
-      * 日程的重复性规则
-      * <p> 示例值：FREQ=DAILY;INTERVAL=1
-      */
+    /**
+     * 日程的重复性规则
+     * <p> 示例值：FREQ=DAILY;INTERVAL=1
+     */
     @SerializedName("recurrence_rule")
     private String recurrenceRule;
+
+    // builder 开始
+    public MyaiReply() {
+    }
+
+    public MyaiReply(Builder builder) {
+        /**
+         * 返回给myai的自然语言描述
+         * <p> 示例值：none
+         */
+        this.reply = builder.reply;
+        /**
+         * 日程开始时间
+         * <p> 示例值：none
+         */
+        this.startTime = builder.startTime;
+        /**
+         * 日程结束时间
+         * <p> 示例值：none
+         */
+        this.endTime = builder.endTime;
+        /**
+         * 会议室实体列表
+         * <p> 示例值：
+         */
+        this.rooms = builder.rooms;
+        /**
+         * 日程主题
+         * <p> 示例值：none
+         */
+        this.summary = builder.summary;
+        /**
+         * 参与人实体列表
+         * <p> 示例值：
+         */
+        this.participants = builder.participants;
+        /**
+         * 日程的uid_originTime
+         * <p> 示例值：11dd1004-7cfb-4ad2-89a0-aa3c82f34dda_0
+         */
+        this.eventId = builder.eventId;
+        /**
+         * 日程的重复性规则
+         * <p> 示例值：FREQ=DAILY;INTERVAL=1
+         */
+        this.recurrenceRule = builder.recurrenceRule;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getReply() {
         return this.reply;
     }
@@ -137,205 +193,154 @@ public class MyaiReply {
         this.recurrenceRule = recurrenceRule;
     }
 
-
-// builder 开始
-  public MyaiReply(){}
-
-  public MyaiReply(Builder builder){
-         /**
-          * 返回给myai的自然语言描述
-          * <p> 示例值：none
-          */
-      this.reply = builder.reply;
-         /**
-          * 日程开始时间
-          * <p> 示例值：none
-          */
-      this.startTime = builder.startTime;
-         /**
-          * 日程结束时间
-          * <p> 示例值：none
-          */
-      this.endTime = builder.endTime;
-         /**
-          * 会议室实体列表
-          * <p> 示例值：
-          */
-      this.rooms = builder.rooms;
-         /**
-          * 日程主题
-          * <p> 示例值：none
-          */
-      this.summary = builder.summary;
-         /**
-          * 参与人实体列表
-          * <p> 示例值：
-          */
-      this.participants = builder.participants;
-         /**
-          * 日程的uid_originTime
-          * <p> 示例值：11dd1004-7cfb-4ad2-89a0-aa3c82f34dda_0
-          */
-      this.eventId = builder.eventId;
-         /**
-          * 日程的重复性规则
-          * <p> 示例值：FREQ=DAILY;INTERVAL=1
-          */
-      this.recurrenceRule = builder.recurrenceRule;
-  }
-
     public static class Builder {
-     /**
-      * 返回给myai的自然语言描述
-      * <p> 示例值：none
-      */
+        /**
+         * 返回给myai的自然语言描述
+         * <p> 示例值：none
+         */
         private String reply;
-     /**
-      * 日程开始时间
-      * <p> 示例值：none
-      */
+        /**
+         * 日程开始时间
+         * <p> 示例值：none
+         */
         private String startTime;
-     /**
-      * 日程结束时间
-      * <p> 示例值：none
-      */
+        /**
+         * 日程结束时间
+         * <p> 示例值：none
+         */
         private String endTime;
-     /**
-      * 会议室实体列表
-      * <p> 示例值：
-      */
+        /**
+         * 会议室实体列表
+         * <p> 示例值：
+         */
         private RoomMeta[] rooms;
-     /**
-      * 日程主题
-      * <p> 示例值：none
-      */
+        /**
+         * 日程主题
+         * <p> 示例值：none
+         */
         private String summary;
-     /**
-      * 参与人实体列表
-      * <p> 示例值：
-      */
+        /**
+         * 参与人实体列表
+         * <p> 示例值：
+         */
         private UserMeta[] participants;
-     /**
-      * 日程的uid_originTime
-      * <p> 示例值：11dd1004-7cfb-4ad2-89a0-aa3c82f34dda_0
-      */
+        /**
+         * 日程的uid_originTime
+         * <p> 示例值：11dd1004-7cfb-4ad2-89a0-aa3c82f34dda_0
+         */
         private String eventId;
-     /**
-      * 日程的重复性规则
-      * <p> 示例值：FREQ=DAILY;INTERVAL=1
-      */
+        /**
+         * 日程的重复性规则
+         * <p> 示例值：FREQ=DAILY;INTERVAL=1
+         */
         private String recurrenceRule;
 
         /**
          * 返回给myai的自然语言描述
          * <p> 示例值：none
+         *
          * @param reply
          * @return
          */
         public Builder reply(String reply) {
-             this.reply = reply;
-             return this;
+            this.reply = reply;
+            return this;
         }
 
-    
 
         /**
          * 日程开始时间
          * <p> 示例值：none
+         *
          * @param startTime
          * @return
          */
         public Builder startTime(String startTime) {
-             this.startTime = startTime;
-             return this;
+            this.startTime = startTime;
+            return this;
         }
 
-    
 
         /**
          * 日程结束时间
          * <p> 示例值：none
+         *
          * @param endTime
          * @return
          */
         public Builder endTime(String endTime) {
-             this.endTime = endTime;
-             return this;
+            this.endTime = endTime;
+            return this;
         }
 
-    
 
         /**
          * 会议室实体列表
          * <p> 示例值：
+         *
          * @param rooms
          * @return
          */
         public Builder rooms(RoomMeta[] rooms) {
-             this.rooms = rooms;
-             return this;
+            this.rooms = rooms;
+            return this;
         }
 
-    
 
         /**
          * 日程主题
          * <p> 示例值：none
+         *
          * @param summary
          * @return
          */
         public Builder summary(String summary) {
-             this.summary = summary;
-             return this;
+            this.summary = summary;
+            return this;
         }
 
-    
 
         /**
          * 参与人实体列表
          * <p> 示例值：
+         *
          * @param participants
          * @return
          */
         public Builder participants(UserMeta[] participants) {
-             this.participants = participants;
-             return this;
+            this.participants = participants;
+            return this;
         }
 
-    
 
         /**
          * 日程的uid_originTime
          * <p> 示例值：11dd1004-7cfb-4ad2-89a0-aa3c82f34dda_0
+         *
          * @param eventId
          * @return
          */
         public Builder eventId(String eventId) {
-             this.eventId = eventId;
-             return this;
+            this.eventId = eventId;
+            return this;
         }
 
-    
 
         /**
          * 日程的重复性规则
          * <p> 示例值：FREQ=DAILY;INTERVAL=1
+         *
          * @param recurrenceRule
          * @return
          */
         public Builder recurrenceRule(String recurrenceRule) {
-             this.recurrenceRule = recurrenceRule;
-             return this;
+            this.recurrenceRule = recurrenceRule;
+            return this;
         }
 
-    
-    
-    public MyaiReply build(){
-        return new MyaiReply(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public MyaiReply build() {
+            return new MyaiReply(this);
+        }
     }
 }

@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,36 +20,71 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class BasicPersonInfo {
-     /**
-      * 个人信息 ID
-      * <p> 示例值：6919733936050406926
-      */
+    /**
+     * 个人信息 ID
+     * <p> 示例值：6919733936050406926
+     */
     @SerializedName("person_id")
     private String personId;
-     /**
-      * 常用名
-      * <p> 示例值：刘梓新
-      */
+    /**
+     * 常用名
+     * <p> 示例值：刘梓新
+     */
     @SerializedName("preferred_name")
     private String preferredName;
-     /**
-      * 常用本地全名
-      * <p> 示例值：刘梓新
-      */
+    /**
+     * 常用本地全名
+     * <p> 示例值：刘梓新
+     */
     @SerializedName("preferred_local_full_name")
     private String preferredLocalFullName;
-     /**
-      * 常用英文全名
-      * <p> 示例值：Henry
-      */
+    /**
+     * 常用英文全名
+     * <p> 示例值：Henry
+     */
     @SerializedName("preferred_english_full_name")
     private String preferredEnglishFullName;
+
+    // builder 开始
+    public BasicPersonInfo() {
+    }
+
+    public BasicPersonInfo(Builder builder) {
+        /**
+         * 个人信息 ID
+         * <p> 示例值：6919733936050406926
+         */
+        this.personId = builder.personId;
+        /**
+         * 常用名
+         * <p> 示例值：刘梓新
+         */
+        this.preferredName = builder.preferredName;
+        /**
+         * 常用本地全名
+         * <p> 示例值：刘梓新
+         */
+        this.preferredLocalFullName = builder.preferredLocalFullName;
+        /**
+         * 常用英文全名
+         * <p> 示例值：Henry
+         */
+        this.preferredEnglishFullName = builder.preferredEnglishFullName;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getPersonId() {
         return this.personId;
     }
@@ -81,113 +117,82 @@ public class BasicPersonInfo {
         this.preferredEnglishFullName = preferredEnglishFullName;
     }
 
-
-// builder 开始
-  public BasicPersonInfo(){}
-
-  public BasicPersonInfo(Builder builder){
-         /**
-          * 个人信息 ID
-          * <p> 示例值：6919733936050406926
-          */
-      this.personId = builder.personId;
-         /**
-          * 常用名
-          * <p> 示例值：刘梓新
-          */
-      this.preferredName = builder.preferredName;
-         /**
-          * 常用本地全名
-          * <p> 示例值：刘梓新
-          */
-      this.preferredLocalFullName = builder.preferredLocalFullName;
-         /**
-          * 常用英文全名
-          * <p> 示例值：Henry
-          */
-      this.preferredEnglishFullName = builder.preferredEnglishFullName;
-  }
-
     public static class Builder {
-     /**
-      * 个人信息 ID
-      * <p> 示例值：6919733936050406926
-      */
+        /**
+         * 个人信息 ID
+         * <p> 示例值：6919733936050406926
+         */
         private String personId;
-     /**
-      * 常用名
-      * <p> 示例值：刘梓新
-      */
+        /**
+         * 常用名
+         * <p> 示例值：刘梓新
+         */
         private String preferredName;
-     /**
-      * 常用本地全名
-      * <p> 示例值：刘梓新
-      */
+        /**
+         * 常用本地全名
+         * <p> 示例值：刘梓新
+         */
         private String preferredLocalFullName;
-     /**
-      * 常用英文全名
-      * <p> 示例值：Henry
-      */
+        /**
+         * 常用英文全名
+         * <p> 示例值：Henry
+         */
         private String preferredEnglishFullName;
 
         /**
          * 个人信息 ID
          * <p> 示例值：6919733936050406926
+         *
          * @param personId
          * @return
          */
         public Builder personId(String personId) {
-             this.personId = personId;
-             return this;
+            this.personId = personId;
+            return this;
         }
 
-    
 
         /**
          * 常用名
          * <p> 示例值：刘梓新
+         *
          * @param preferredName
          * @return
          */
         public Builder preferredName(String preferredName) {
-             this.preferredName = preferredName;
-             return this;
+            this.preferredName = preferredName;
+            return this;
         }
 
-    
 
         /**
          * 常用本地全名
          * <p> 示例值：刘梓新
+         *
          * @param preferredLocalFullName
          * @return
          */
         public Builder preferredLocalFullName(String preferredLocalFullName) {
-             this.preferredLocalFullName = preferredLocalFullName;
-             return this;
+            this.preferredLocalFullName = preferredLocalFullName;
+            return this;
         }
 
-    
 
         /**
          * 常用英文全名
          * <p> 示例值：Henry
+         *
          * @param preferredEnglishFullName
          * @return
          */
         public Builder preferredEnglishFullName(String preferredEnglishFullName) {
-             this.preferredEnglishFullName = preferredEnglishFullName;
-             return this;
+            this.preferredEnglishFullName = preferredEnglishFullName;
+            return this;
         }
 
-    
-    
-    public BasicPersonInfo build(){
-        return new BasicPersonInfo(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public BasicPersonInfo build() {
+            return new BasicPersonInfo(this);
+        }
     }
 }

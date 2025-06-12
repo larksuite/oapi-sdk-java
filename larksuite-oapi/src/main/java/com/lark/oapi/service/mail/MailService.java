@@ -55,79 +55,98 @@ public class MailService {
     private final UserMailboxRule userMailboxRule; // user_mailbox.rule
 
     public MailService(Config config) {
-    this.v1 = new V1(config);
-    this.mailgroup = new Mailgroup(config);
-    this.mailgroupAlias = new MailgroupAlias(config);
-    this.mailgroupManager = new MailgroupManager(config);
-    this.mailgroupMember = new MailgroupMember(config);
-    this.mailgroupPermissionMember = new MailgroupPermissionMember(config);
-    this.publicMailbox = new PublicMailbox(config);
-    this.publicMailboxAlias = new PublicMailboxAlias(config);
-    this.publicMailboxMember = new PublicMailboxMember(config);
-    this.user = new User(config);
-    this.userMailbox = new UserMailbox(config);
-    this.userMailboxAlias = new UserMailboxAlias(config);
-    this.userMailboxEvent = new UserMailboxEvent(config);
-    this.userMailboxFolder = new UserMailboxFolder(config);
-    this.userMailboxMailContact = new UserMailboxMailContact(config);
-    this.userMailboxMessage = new UserMailboxMessage(config);
-    this.userMailboxMessageAttachment = new UserMailboxMessageAttachment(config);
-    this.userMailboxRule = new UserMailboxRule(config);
+        this.v1 = new V1(config);
+        this.mailgroup = new Mailgroup(config);
+        this.mailgroupAlias = new MailgroupAlias(config);
+        this.mailgroupManager = new MailgroupManager(config);
+        this.mailgroupMember = new MailgroupMember(config);
+        this.mailgroupPermissionMember = new MailgroupPermissionMember(config);
+        this.publicMailbox = new PublicMailbox(config);
+        this.publicMailboxAlias = new PublicMailboxAlias(config);
+        this.publicMailboxMember = new PublicMailboxMember(config);
+        this.user = new User(config);
+        this.userMailbox = new UserMailbox(config);
+        this.userMailboxAlias = new UserMailboxAlias(config);
+        this.userMailboxEvent = new UserMailboxEvent(config);
+        this.userMailboxFolder = new UserMailboxFolder(config);
+        this.userMailboxMailContact = new UserMailboxMailContact(config);
+        this.userMailboxMessage = new UserMailboxMessage(config);
+        this.userMailboxMessageAttachment = new UserMailboxMessageAttachment(config);
+        this.userMailboxRule = new UserMailboxRule(config);
     }
+
     public V1 v1() {
         return v1;
     }
+
     public Mailgroup mailgroup() {
         return mailgroup;
     }
+
     public MailgroupAlias mailgroupAlias() {
         return mailgroupAlias;
     }
+
     public MailgroupManager mailgroupManager() {
         return mailgroupManager;
     }
+
     public MailgroupMember mailgroupMember() {
         return mailgroupMember;
     }
+
     public MailgroupPermissionMember mailgroupPermissionMember() {
         return mailgroupPermissionMember;
     }
+
     public PublicMailbox publicMailbox() {
         return publicMailbox;
     }
+
     public PublicMailboxAlias publicMailboxAlias() {
         return publicMailboxAlias;
     }
+
     public PublicMailboxMember publicMailboxMember() {
         return publicMailboxMember;
     }
+
     public User user() {
         return user;
     }
+
     public UserMailbox userMailbox() {
         return userMailbox;
     }
+
     public UserMailboxAlias userMailboxAlias() {
         return userMailboxAlias;
     }
+
     public UserMailboxEvent userMailboxEvent() {
         return userMailboxEvent;
     }
+
     public UserMailboxFolder userMailboxFolder() {
         return userMailboxFolder;
     }
+
     public UserMailboxMailContact userMailboxMailContact() {
         return userMailboxMailContact;
     }
+
     public UserMailboxMessage userMailboxMessage() {
         return userMailboxMessage;
     }
+
     public UserMailboxMessageAttachment userMailboxMessageAttachment() {
         return userMailboxMessageAttachment;
     }
+
     public UserMailboxRule userMailboxRule() {
         return userMailboxRule;
     }
+
     public abstract static class P2UserMailboxEventMessageReceivedV1Handler implements IEventHandler<P2UserMailboxEventMessageReceivedV1> {
         @Override
         public P2UserMailboxEventMessageReceivedV1 getEvent() {

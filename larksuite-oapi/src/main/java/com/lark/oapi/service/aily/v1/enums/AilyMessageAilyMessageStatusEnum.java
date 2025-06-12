@@ -17,15 +17,16 @@ package com.lark.oapi.service.aily.v1.enums;
  * 状态
  */
 public enum AilyMessageAilyMessageStatusEnum {
-     MESSAGESTATUSINPROGRESS("IN_PROGRESS"), // 生成中
-     MESSAGESTATUSCOMPLETED("COMPLETED"), // 已完成
-  ;
-   private String value;
+    MESSAGESTATUSINPROGRESS("IN_PROGRESS"), // 生成中
+    MESSAGESTATUSCOMPLETED("COMPLETED"), // 已完成
+    ;
+    private String value;
+
     AilyMessageAilyMessageStatusEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

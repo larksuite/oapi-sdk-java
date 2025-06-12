@@ -12,30 +12,56 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class EmployeeOverboardInfo {
-     /**
-      * 实际离职日期
-      * <p> 示例值：1637596800000
-      */
+    /**
+     * 实际离职日期
+     * <p> 示例值：1637596800000
+     */
     @SerializedName("actual_overboard_time")
     private Long actualOverboardTime;
-     /**
-      * 离职原因
-      * <p> 示例值：职业发展考虑
-      */
+    /**
+     * 离职原因
+     * <p> 示例值：职业发展考虑
+     */
     @SerializedName("overboard_note")
     private String overboardNote;
+
+    // builder 开始
+    public EmployeeOverboardInfo() {
+    }
+
+    public EmployeeOverboardInfo(Builder builder) {
+        /**
+         * 实际离职日期
+         * <p> 示例值：1637596800000
+         */
+        this.actualOverboardTime = builder.actualOverboardTime;
+        /**
+         * 离职原因
+         * <p> 示例值：职业发展考虑
+         */
+        this.overboardNote = builder.overboardNote;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Long getActualOverboardTime() {
         return this.actualOverboardTime;
     }
@@ -52,67 +78,46 @@ public class EmployeeOverboardInfo {
         this.overboardNote = overboardNote;
     }
 
-
-// builder 开始
-  public EmployeeOverboardInfo(){}
-
-  public EmployeeOverboardInfo(Builder builder){
-         /**
-          * 实际离职日期
-          * <p> 示例值：1637596800000
-          */
-      this.actualOverboardTime = builder.actualOverboardTime;
-         /**
-          * 离职原因
-          * <p> 示例值：职业发展考虑
-          */
-      this.overboardNote = builder.overboardNote;
-  }
-
     public static class Builder {
-     /**
-      * 实际离职日期
-      * <p> 示例值：1637596800000
-      */
+        /**
+         * 实际离职日期
+         * <p> 示例值：1637596800000
+         */
         private Long actualOverboardTime;
-     /**
-      * 离职原因
-      * <p> 示例值：职业发展考虑
-      */
+        /**
+         * 离职原因
+         * <p> 示例值：职业发展考虑
+         */
         private String overboardNote;
 
         /**
          * 实际离职日期
          * <p> 示例值：1637596800000
+         *
          * @param actualOverboardTime
          * @return
          */
         public Builder actualOverboardTime(Long actualOverboardTime) {
-             this.actualOverboardTime = actualOverboardTime;
-             return this;
+            this.actualOverboardTime = actualOverboardTime;
+            return this;
         }
 
-    
 
         /**
          * 离职原因
          * <p> 示例值：职业发展考虑
+         *
          * @param overboardNote
          * @return
          */
         public Builder overboardNote(String overboardNote) {
-             this.overboardNote = overboardNote;
-             return this;
+            this.overboardNote = overboardNote;
+            return this;
         }
 
-    
-    
-    public EmployeeOverboardInfo build(){
-        return new EmployeeOverboardInfo(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public EmployeeOverboardInfo build() {
+            return new EmployeeOverboardInfo(this);
+        }
     }
 }

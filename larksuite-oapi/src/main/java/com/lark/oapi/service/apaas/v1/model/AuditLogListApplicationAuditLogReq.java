@@ -12,95 +12,178 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class AuditLogListApplicationAuditLogReq {
-     /**
-      * 分页大小
-      * <p> 示例值：10
-      */
+    /**
+     * 分页大小
+     * <p> 示例值：10
+     */
     @Query
     @SerializedName("page_size")
     private String pageSize;
-     /**
-      * 翻页数量
-      * <p> 示例值：0
-      */
+    /**
+     * 翻页数量
+     * <p> 示例值：0
+     */
     @Query
     @SerializedName("offset")
     private String offset;
-     /**
-      * 模糊查询
-      * <p> 示例值：Intel Mac OS
-      */
+    /**
+     * 模糊查询
+     * <p> 示例值：Intel Mac OS
+     */
     @Query
     @SerializedName("quick_query")
     private String quickQuery;
-     /**
-      * 查询时间范围：开始时间
-      * <p> 示例值：1723691857002
-      */
+    /**
+     * 查询时间范围：开始时间
+     * <p> 示例值：1723691857002
+     */
     @Query
     @SerializedName("from")
     private String from;
-     /**
-      * 查询时间范围：结束时间
-      * <p> 示例值：1724296657002
-      */
+    /**
+     * 查询时间范围：结束时间
+     * <p> 示例值：1724296657002
+     */
     @Query
     @SerializedName("to")
     private String to;
-     /**
-      * 日志类型：10001-企业管理日志，10003-应用管理日志，10002-登录日志
-      * <p> 示例值：10000
-      */
+    /**
+     * 日志类型：10001-企业管理日志，10003-应用管理日志，10002-登录日志
+     * <p> 示例值：10000
+     */
     @Query
     @SerializedName("log_type")
     private String logType;
-     /**
-      * 日志查询：筛选能力
-      * <p> 示例值：{"items":[{"left":"eventName","operator":"=","right":[19001]}]}
-      */
+    /**
+     * 日志查询：筛选能力
+     * <p> 示例值：{"items":[{"left":"eventName","operator":"=","right":[19001]}]}
+     */
     @Query
     @SerializedName("filter")
     private String filter;
-     /**
-      * 日志列表：选择展示行信息，例如["opTime","appName","eventName","clientIP","operator","status"]
-      * <p> 示例值：
-      */
+    /**
+     * 日志列表：选择展示行信息，例如["opTime","appName","eventName","clientIP","operator","status"]
+     * <p> 示例值：
+     */
     @Query
     @SerializedName("columns")
     private String[] columns;
-     /**
-      * 查询排序字段：可选项为操作时间（opTime）
-      * <p> 示例值：opTime
-      */
+    /**
+     * 查询排序字段：可选项为操作时间（opTime）
+     * <p> 示例值：opTime
+     */
     @Query
     @SerializedName("sort_by")
     private String sortBy;
-     /**
-      * 查询排序：按时间从小到大使用 asc
-      * <p> 示例值：asc
-      */
+    /**
+     * 查询排序：按时间从小到大使用 asc
+     * <p> 示例值：asc
+     */
     @Query
     @SerializedName("sort_order")
     private String sortOrder;
-     /**
-      * 应用类型，0为apaas类型，1为aily类型
-      * <p> 示例值：0
-      */
+    /**
+     * 应用类型，0为apaas类型，1为aily类型
+     * <p> 示例值：0
+     */
     @Query
     @SerializedName("app_type")
     private String appType;
+    /**
+     * 应用命名空间
+     * <p> 示例值：package_aa_bb
+     */
+    @Path
+    @SerializedName("namespace")
+    private String namespace;
+
+    // builder 开始
+    public AuditLogListApplicationAuditLogReq() {
+    }
+
+    public AuditLogListApplicationAuditLogReq(Builder builder) {
+        /**
+         * 分页大小
+         * <p> 示例值：10
+         */
+        this.pageSize = builder.pageSize;
+        /**
+         * 翻页数量
+         * <p> 示例值：0
+         */
+        this.offset = builder.offset;
+        /**
+         * 模糊查询
+         * <p> 示例值：Intel Mac OS
+         */
+        this.quickQuery = builder.quickQuery;
+        /**
+         * 查询时间范围：开始时间
+         * <p> 示例值：1723691857002
+         */
+        this.from = builder.from;
+        /**
+         * 查询时间范围：结束时间
+         * <p> 示例值：1724296657002
+         */
+        this.to = builder.to;
+        /**
+         * 日志类型：10001-企业管理日志，10003-应用管理日志，10002-登录日志
+         * <p> 示例值：10000
+         */
+        this.logType = builder.logType;
+        /**
+         * 日志查询：筛选能力
+         * <p> 示例值：{"items":[{"left":"eventName","operator":"=","right":[19001]}]}
+         */
+        this.filter = builder.filter;
+        /**
+         * 日志列表：选择展示行信息，例如["opTime","appName","eventName","clientIP","operator","status"]
+         * <p> 示例值：
+         */
+        this.columns = builder.columns;
+        /**
+         * 查询排序字段：可选项为操作时间（opTime）
+         * <p> 示例值：opTime
+         */
+        this.sortBy = builder.sortBy;
+        /**
+         * 查询排序：按时间从小到大使用 asc
+         * <p> 示例值：asc
+         */
+        this.sortOrder = builder.sortOrder;
+        /**
+         * 应用类型，0为apaas类型，1为aily类型
+         * <p> 示例值：0
+         */
+        this.appType = builder.appType;
+        /**
+         * 应用命名空间
+         * <p> 示例值：package_aa_bb
+         */
+        this.namespace = builder.namespace;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getPageSize() {
         return this.pageSize;
     }
@@ -189,13 +272,6 @@ public class AuditLogListApplicationAuditLogReq {
         this.appType = appType;
     }
 
-     /**
-      * 应用命名空间
-      * <p> 示例值：package_aa_bb
-      */
-    @Path
-    @SerializedName("namespace")
-    private String namespace;
     public String getNamespace() {
         return this.namespace;
     }
@@ -203,73 +279,6 @@ public class AuditLogListApplicationAuditLogReq {
     public void setNamespace(String namespace) {
         this.namespace = namespace;
     }
-
-
-// builder 开始
-  public AuditLogListApplicationAuditLogReq(){}
-
-  public AuditLogListApplicationAuditLogReq(Builder builder){
-         /**
-          * 分页大小
-          * <p> 示例值：10
-          */
-       this.pageSize = builder.pageSize;
-         /**
-          * 翻页数量
-          * <p> 示例值：0
-          */
-       this.offset = builder.offset;
-         /**
-          * 模糊查询
-          * <p> 示例值：Intel Mac OS
-          */
-       this.quickQuery = builder.quickQuery;
-         /**
-          * 查询时间范围：开始时间
-          * <p> 示例值：1723691857002
-          */
-       this.from = builder.from;
-         /**
-          * 查询时间范围：结束时间
-          * <p> 示例值：1724296657002
-          */
-       this.to = builder.to;
-         /**
-          * 日志类型：10001-企业管理日志，10003-应用管理日志，10002-登录日志
-          * <p> 示例值：10000
-          */
-       this.logType = builder.logType;
-         /**
-          * 日志查询：筛选能力
-          * <p> 示例值：{"items":[{"left":"eventName","operator":"=","right":[19001]}]}
-          */
-       this.filter = builder.filter;
-         /**
-          * 日志列表：选择展示行信息，例如["opTime","appName","eventName","clientIP","operator","status"]
-          * <p> 示例值：
-          */
-       this.columns = builder.columns;
-         /**
-          * 查询排序字段：可选项为操作时间（opTime）
-          * <p> 示例值：opTime
-          */
-       this.sortBy = builder.sortBy;
-         /**
-          * 查询排序：按时间从小到大使用 asc
-          * <p> 示例值：asc
-          */
-       this.sortOrder = builder.sortOrder;
-         /**
-          * 应用类型，0为apaas类型，1为aily类型
-          * <p> 示例值：0
-          */
-       this.appType = builder.appType;
-     /**
-      * 应用命名空间
-      * <p> 示例值：package_aa_bb
-      */
-       this.namespace = builder.namespace;
-  }
 
     public static class Builder {
         private String pageSize; // 分页大小
@@ -283,158 +292,155 @@ public class AuditLogListApplicationAuditLogReq {
         private String sortBy; // 查询排序字段：可选项为操作时间（opTime）
         private String sortOrder; // 查询排序：按时间从小到大使用 asc
         private String appType; // 应用类型，0为apaas类型，1为aily类型
-    
+        private String namespace; // 应用命名空间
+
         /**
          * 分页大小
          * <p> 示例值：10
+         *
          * @param pageSize
          * @return
          */
-           public Builder pageSize(String pageSize) {
-                this.pageSize = pageSize;
-                return this;
-           }
+        public Builder pageSize(String pageSize) {
+            this.pageSize = pageSize;
+            return this;
+        }
 
-    
         /**
          * 翻页数量
          * <p> 示例值：0
+         *
          * @param offset
          * @return
          */
-           public Builder offset(String offset) {
-                this.offset = offset;
-                return this;
-           }
+        public Builder offset(String offset) {
+            this.offset = offset;
+            return this;
+        }
 
-    
         /**
          * 模糊查询
          * <p> 示例值：Intel Mac OS
+         *
          * @param quickQuery
          * @return
          */
-           public Builder quickQuery(String quickQuery) {
-                this.quickQuery = quickQuery;
-                return this;
-           }
+        public Builder quickQuery(String quickQuery) {
+            this.quickQuery = quickQuery;
+            return this;
+        }
 
-    
         /**
          * 查询时间范围：开始时间
          * <p> 示例值：1723691857002
+         *
          * @param from
          * @return
          */
-           public Builder from(String from) {
-                this.from = from;
-                return this;
-           }
+        public Builder from(String from) {
+            this.from = from;
+            return this;
+        }
 
-    
         /**
          * 查询时间范围：结束时间
          * <p> 示例值：1724296657002
+         *
          * @param to
          * @return
          */
-           public Builder to(String to) {
-                this.to = to;
-                return this;
-           }
+        public Builder to(String to) {
+            this.to = to;
+            return this;
+        }
 
-    
         /**
          * 日志类型：10001-企业管理日志，10003-应用管理日志，10002-登录日志
          * <p> 示例值：10000
+         *
          * @param logType
          * @return
          */
-           public Builder logType(String logType) {
-                this.logType = logType;
-                return this;
-           }
+        public Builder logType(String logType) {
+            this.logType = logType;
+            return this;
+        }
 
-    
         /**
          * 日志查询：筛选能力
          * <p> 示例值：{"items":[{"left":"eventName","operator":"=","right":[19001]}]}
+         *
          * @param filter
          * @return
          */
-           public Builder filter(String filter) {
-                this.filter = filter;
-                return this;
-           }
+        public Builder filter(String filter) {
+            this.filter = filter;
+            return this;
+        }
 
-    
         /**
          * 日志列表：选择展示行信息，例如["opTime","appName","eventName","clientIP","operator","status"]
          * <p> 示例值：
+         *
          * @param columns
          * @return
          */
-           public Builder columns(String[] columns) {
-                this.columns = columns;
-                return this;
-           }
+        public Builder columns(String[] columns) {
+            this.columns = columns;
+            return this;
+        }
 
-    
         /**
          * 查询排序字段：可选项为操作时间（opTime）
          * <p> 示例值：opTime
+         *
          * @param sortBy
          * @return
          */
-           public Builder sortBy(String sortBy) {
-                this.sortBy = sortBy;
-                return this;
-           }
+        public Builder sortBy(String sortBy) {
+            this.sortBy = sortBy;
+            return this;
+        }
 
-    
         /**
          * 查询排序：按时间从小到大使用 asc
          * <p> 示例值：asc
+         *
          * @param sortOrder
          * @return
          */
-           public Builder sortOrder(String sortOrder) {
-                this.sortOrder = sortOrder;
-                return this;
-           }
+        public Builder sortOrder(String sortOrder) {
+            this.sortOrder = sortOrder;
+            return this;
+        }
 
-    
         /**
          * 应用类型，0为apaas类型，1为aily类型
          * <p> 示例值：0
+         *
          * @param appType
          * @return
          */
-           public Builder appType(String appType) {
-                this.appType = appType;
-                return this;
-           }
+        public Builder appType(String appType) {
+            this.appType = appType;
+            return this;
+        }
 
-    
-        private String namespace; // 应用命名空间
         /**
          * 应用命名空间
          * <p> 示例值：package_aa_bb
+         *
          * @param namespace
          * @return
          */
-          public Builder namespace(String namespace) {
-               this.namespace = namespace;
-               return this;
-          }
+        public Builder namespace(String namespace) {
+            this.namespace = namespace;
+            return this;
+        }
 
-    
-    public AuditLogListApplicationAuditLogReq build(){
-        return new AuditLogListApplicationAuditLogReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public AuditLogListApplicationAuditLogReq build() {
+            return new AuditLogListApplicationAuditLogReq(this);
+        }
     }
 }

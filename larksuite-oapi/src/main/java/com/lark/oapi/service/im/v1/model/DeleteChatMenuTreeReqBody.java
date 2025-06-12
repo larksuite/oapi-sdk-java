@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class DeleteChatMenuTreeReqBody {
-     /**
-      * 群内要删除的一级菜单ID。通过 [获取群菜单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-menu_tree/get) 接口获取群内菜单详情。
-      * <p> 示例值：7156553273518882844
-      */
+    /**
+     * 群内要删除的一级菜单ID。通过 [获取群菜单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-menu_tree/get) 接口获取群内菜单详情。
+     * <p> 示例值：7156553273518882844
+     */
     @SerializedName("chat_menu_top_level_ids")
     private String[] chatMenuTopLevelIds;
+
+    // builder 开始
+    public DeleteChatMenuTreeReqBody() {
+    }
+
+    public DeleteChatMenuTreeReqBody(Builder builder) {
+        /**
+         * 群内要删除的一级菜单ID。通过 [获取群菜单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-menu_tree/get) 接口获取群内菜单详情。
+         * <p> 示例值：7156553273518882844
+         */
+        this.chatMenuTopLevelIds = builder.chatMenuTopLevelIds;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String[] getChatMenuTopLevelIds() {
         return this.chatMenuTopLevelIds;
     }
@@ -39,44 +60,28 @@ public class DeleteChatMenuTreeReqBody {
         this.chatMenuTopLevelIds = chatMenuTopLevelIds;
     }
 
-
-// builder 开始
-  public DeleteChatMenuTreeReqBody(){}
-
-  public DeleteChatMenuTreeReqBody(Builder builder){
-         /**
-          * 群内要删除的一级菜单ID。通过 [获取群菜单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-menu_tree/get) 接口获取群内菜单详情。
-          * <p> 示例值：7156553273518882844
-          */
-      this.chatMenuTopLevelIds = builder.chatMenuTopLevelIds;
-  }
-
     public static class Builder {
-     /**
-      * 群内要删除的一级菜单ID。通过 [获取群菜单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-menu_tree/get) 接口获取群内菜单详情。
-      * <p> 示例值：7156553273518882844
-      */
+        /**
+         * 群内要删除的一级菜单ID。通过 [获取群菜单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-menu_tree/get) 接口获取群内菜单详情。
+         * <p> 示例值：7156553273518882844
+         */
         private String[] chatMenuTopLevelIds;
 
         /**
          * 群内要删除的一级菜单ID。通过 [获取群菜单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-menu_tree/get) 接口获取群内菜单详情。
          * <p> 示例值：7156553273518882844
+         *
          * @param chatMenuTopLevelIds
          * @return
          */
         public Builder chatMenuTopLevelIds(String[] chatMenuTopLevelIds) {
-             this.chatMenuTopLevelIds = chatMenuTopLevelIds;
-             return this;
+            this.chatMenuTopLevelIds = chatMenuTopLevelIds;
+            return this;
         }
 
-    
-    
-    public DeleteChatMenuTreeReqBody build(){
-        return new DeleteChatMenuTreeReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public DeleteChatMenuTreeReqBody build() {
+            return new DeleteChatMenuTreeReqBody(this);
+        }
     }
 }

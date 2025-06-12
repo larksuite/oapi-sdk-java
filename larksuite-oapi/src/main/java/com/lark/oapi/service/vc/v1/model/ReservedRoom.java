@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ReservedRoom {
-     /**
-      * 会议室ID
-      * <p> 示例值：omm_12381298739
-      */
+    /**
+     * 会议室ID
+     * <p> 示例值：omm_12381298739
+     */
     @SerializedName("room_id")
     private String roomId;
-     /**
-      * 会议室名称
-      * <p> 示例值：room123
-      */
+    /**
+     * 会议室名称
+     * <p> 示例值：room123
+     */
     @SerializedName("room_name")
     private String roomName;
+
+    // builder 开始
+    public ReservedRoom() {
+    }
+
+    public ReservedRoom(Builder builder) {
+        /**
+         * 会议室ID
+         * <p> 示例值：omm_12381298739
+         */
+        this.roomId = builder.roomId;
+        /**
+         * 会议室名称
+         * <p> 示例值：room123
+         */
+        this.roomName = builder.roomName;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getRoomId() {
         return this.roomId;
     }
@@ -53,67 +79,46 @@ public class ReservedRoom {
         this.roomName = roomName;
     }
 
-
-// builder 开始
-  public ReservedRoom(){}
-
-  public ReservedRoom(Builder builder){
-         /**
-          * 会议室ID
-          * <p> 示例值：omm_12381298739
-          */
-      this.roomId = builder.roomId;
-         /**
-          * 会议室名称
-          * <p> 示例值：room123
-          */
-      this.roomName = builder.roomName;
-  }
-
     public static class Builder {
-     /**
-      * 会议室ID
-      * <p> 示例值：omm_12381298739
-      */
+        /**
+         * 会议室ID
+         * <p> 示例值：omm_12381298739
+         */
         private String roomId;
-     /**
-      * 会议室名称
-      * <p> 示例值：room123
-      */
+        /**
+         * 会议室名称
+         * <p> 示例值：room123
+         */
         private String roomName;
 
         /**
          * 会议室ID
          * <p> 示例值：omm_12381298739
+         *
          * @param roomId
          * @return
          */
         public Builder roomId(String roomId) {
-             this.roomId = roomId;
-             return this;
+            this.roomId = roomId;
+            return this;
         }
 
-    
 
         /**
          * 会议室名称
          * <p> 示例值：room123
+         *
          * @param roomName
          * @return
          */
         public Builder roomName(String roomName) {
-             this.roomName = roomName;
-             return this;
+            this.roomName = roomName;
+            return this;
         }
 
-    
-    
-    public ReservedRoom build(){
-        return new ReservedRoom(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ReservedRoom build() {
+            return new ReservedRoom(this);
+        }
     }
 }

@@ -12,59 +12,107 @@
  */
 
 package com.lark.oapi.service.mdm.v3.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ListCountryRegionReq {
-     /**
-      * 语言集
-      * <p> 示例值：
-      */
+    /**
+     * 语言集
+     * <p> 示例值：
+     */
     @Query
     @SerializedName("languages")
     private String[] languages;
-     /**
-      * 需要的查询字段集
-      * <p> 示例值：
-      */
+    /**
+     * 需要的查询字段集
+     * <p> 示例值：
+     */
     @Query
     @SerializedName("fields")
     private String[] fields;
-     /**
-      * 查询页大小
-      * <p> 示例值：10
-      */
+    /**
+     * 查询页大小
+     * <p> 示例值：10
+     */
     @Query
     @SerializedName("limit")
     private Integer limit;
-     /**
-      * 查询起始位置
-      * <p> 示例值：0
-      */
+    /**
+     * 查询起始位置
+     * <p> 示例值：0
+     */
     @Query
     @SerializedName("offset")
     private Integer offset;
-     /**
-      * 是否返回总数
-      * <p> 示例值：
-      */
+    /**
+     * 是否返回总数
+     * <p> 示例值：
+     */
     @Query
     @SerializedName("return_count")
     private Boolean returnCount;
-     /**
-      * 
-      * <p> 示例值：
-      */
+    /**
+     * <p> 示例值：
+     */
     @Query
     @SerializedName("page_token")
     private String pageToken;
+    @Body
+    private ListCountryRegionReqBody body;
+
+    // builder 开始
+    public ListCountryRegionReq() {
+    }
+
+    public ListCountryRegionReq(Builder builder) {
+        /**
+         * 语言集
+         * <p> 示例值：
+         */
+        this.languages = builder.languages;
+        /**
+         * 需要的查询字段集
+         * <p> 示例值：
+         */
+        this.fields = builder.fields;
+        /**
+         * 查询页大小
+         * <p> 示例值：10
+         */
+        this.limit = builder.limit;
+        /**
+         * 查询起始位置
+         * <p> 示例值：0
+         */
+        this.offset = builder.offset;
+        /**
+         * 是否返回总数
+         * <p> 示例值：
+         */
+        this.returnCount = builder.returnCount;
+        /**
+         *
+         * <p> 示例值：
+         */
+        this.pageToken = builder.pageToken;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String[] getLanguages() {
         return this.languages;
     }
@@ -113,9 +161,6 @@ public class ListCountryRegionReq {
         this.pageToken = pageToken;
     }
 
-    @Body
-    private ListCountryRegionReqBody body;
-
     public ListCountryRegionReqBody getListCountryRegionReqBody() {
         return this.body;
     }
@@ -124,144 +169,103 @@ public class ListCountryRegionReq {
         this.body = body;
     }
 
-// builder 开始
-  public ListCountryRegionReq(){}
-
-  public ListCountryRegionReq(Builder builder){
-         /**
-          * 语言集
-          * <p> 示例值：
-          */
-       this.languages = builder.languages;
-         /**
-          * 需要的查询字段集
-          * <p> 示例值：
-          */
-       this.fields = builder.fields;
-         /**
-          * 查询页大小
-          * <p> 示例值：10
-          */
-       this.limit = builder.limit;
-         /**
-          * 查询起始位置
-          * <p> 示例值：0
-          */
-       this.offset = builder.offset;
-         /**
-          * 是否返回总数
-          * <p> 示例值：
-          */
-       this.returnCount = builder.returnCount;
-         /**
-          * 
-          * <p> 示例值：
-          */
-       this.pageToken = builder.pageToken;
-        this.body = builder.body;
-  }
-
     public static class Builder {
         private String[] languages; // 语言集
         private String[] fields; // 需要的查询字段集
         private Integer limit; // 查询页大小
         private Integer offset; // 查询起始位置
         private Boolean returnCount; // 是否返回总数
-        private String pageToken; // 
-    
+        private String pageToken; //
+        private ListCountryRegionReqBody body;
+
         /**
          * 语言集
          * <p> 示例值：
+         *
          * @param languages
          * @return
          */
-           public Builder languages(String[] languages) {
-                this.languages = languages;
-                return this;
-           }
+        public Builder languages(String[] languages) {
+            this.languages = languages;
+            return this;
+        }
 
-    
         /**
          * 需要的查询字段集
          * <p> 示例值：
+         *
          * @param fields
          * @return
          */
-           public Builder fields(String[] fields) {
-                this.fields = fields;
-                return this;
-           }
+        public Builder fields(String[] fields) {
+            this.fields = fields;
+            return this;
+        }
 
-    
         /**
          * 查询页大小
          * <p> 示例值：10
+         *
          * @param limit
          * @return
          */
-           public Builder limit(Integer limit) {
-                this.limit = limit;
-                return this;
-           }
+        public Builder limit(Integer limit) {
+            this.limit = limit;
+            return this;
+        }
 
-    
         /**
          * 查询起始位置
          * <p> 示例值：0
+         *
          * @param offset
          * @return
          */
-           public Builder offset(Integer offset) {
-                this.offset = offset;
-                return this;
-           }
+        public Builder offset(Integer offset) {
+            this.offset = offset;
+            return this;
+        }
 
-    
         /**
          * 是否返回总数
          * <p> 示例值：
+         *
          * @param returnCount
          * @return
          */
-           public Builder returnCount(Boolean returnCount) {
-                this.returnCount = returnCount;
-                return this;
-           }
+        public Builder returnCount(Boolean returnCount) {
+            this.returnCount = returnCount;
+            return this;
+        }
 
-    
         /**
-         * 
          * <p> 示例值：
+         *
          * @param pageToken
          * @return
          */
-           public Builder pageToken(String pageToken) {
-                this.pageToken = pageToken;
-                return this;
-           }
+        public Builder pageToken(String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+        }
 
-    
-        private ListCountryRegionReqBody body;
-    
         public ListCountryRegionReqBody getListCountryRegionReqBody() {
             return this.body;
         }
 
         /**
          * body
+         *
          * @param body
          * @return
          */
         public Builder listCountryRegionReqBody(ListCountryRegionReqBody body) {
-             this.body = body;
-             return this;
+            this.body = body;
+            return this;
         }
-    public ListCountryRegionReq build(){
-        return new ListCountryRegionReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ListCountryRegionReq build() {
+            return new ListCountryRegionReq(this);
+        }
     }
 }

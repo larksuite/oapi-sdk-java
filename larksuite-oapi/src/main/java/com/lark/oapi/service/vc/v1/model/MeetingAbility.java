@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,48 +20,93 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class MeetingAbility {
-     /**
-      * 是否使用视频
-      * <p> 示例值：true
-      */
+    /**
+     * 是否使用视频
+     * <p> 示例值：true
+     */
     @SerializedName("use_video")
     private Boolean useVideo;
-     /**
-      * 是否使用音频
-      * <p> 示例值：true
-      */
+    /**
+     * 是否使用音频
+     * <p> 示例值：true
+     */
     @SerializedName("use_audio")
     private Boolean useAudio;
-     /**
-      * 是否使用共享屏幕
-      * <p> 示例值：true
-      */
+    /**
+     * 是否使用共享屏幕
+     * <p> 示例值：true
+     */
     @SerializedName("use_share_screen")
     private Boolean useShareScreen;
-     /**
-      * 是否使用妙享（magic share）
-      * <p> 示例值：true
-      */
+    /**
+     * 是否使用妙享（magic share）
+     * <p> 示例值：true
+     */
     @SerializedName("use_follow_screen")
     private Boolean useFollowScreen;
-     /**
-      * 是否使用录制
-      * <p> 示例值：true
-      */
+    /**
+     * 是否使用录制
+     * <p> 示例值：true
+     */
     @SerializedName("use_recording")
     private Boolean useRecording;
-     /**
-      * 是否使用PSTN
-      * <p> 示例值：true
-      */
+    /**
+     * 是否使用PSTN
+     * <p> 示例值：true
+     */
     @SerializedName("use_pstn")
     private Boolean usePstn;
+
+    // builder 开始
+    public MeetingAbility() {
+    }
+
+    public MeetingAbility(Builder builder) {
+        /**
+         * 是否使用视频
+         * <p> 示例值：true
+         */
+        this.useVideo = builder.useVideo;
+        /**
+         * 是否使用音频
+         * <p> 示例值：true
+         */
+        this.useAudio = builder.useAudio;
+        /**
+         * 是否使用共享屏幕
+         * <p> 示例值：true
+         */
+        this.useShareScreen = builder.useShareScreen;
+        /**
+         * 是否使用妙享（magic share）
+         * <p> 示例值：true
+         */
+        this.useFollowScreen = builder.useFollowScreen;
+        /**
+         * 是否使用录制
+         * <p> 示例值：true
+         */
+        this.useRecording = builder.useRecording;
+        /**
+         * 是否使用PSTN
+         * <p> 示例值：true
+         */
+        this.usePstn = builder.usePstn;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Boolean getUseVideo() {
         return this.useVideo;
     }
@@ -109,159 +155,118 @@ public class MeetingAbility {
         this.usePstn = usePstn;
     }
 
-
-// builder 开始
-  public MeetingAbility(){}
-
-  public MeetingAbility(Builder builder){
-         /**
-          * 是否使用视频
-          * <p> 示例值：true
-          */
-      this.useVideo = builder.useVideo;
-         /**
-          * 是否使用音频
-          * <p> 示例值：true
-          */
-      this.useAudio = builder.useAudio;
-         /**
-          * 是否使用共享屏幕
-          * <p> 示例值：true
-          */
-      this.useShareScreen = builder.useShareScreen;
-         /**
-          * 是否使用妙享（magic share）
-          * <p> 示例值：true
-          */
-      this.useFollowScreen = builder.useFollowScreen;
-         /**
-          * 是否使用录制
-          * <p> 示例值：true
-          */
-      this.useRecording = builder.useRecording;
-         /**
-          * 是否使用PSTN
-          * <p> 示例值：true
-          */
-      this.usePstn = builder.usePstn;
-  }
-
     public static class Builder {
-     /**
-      * 是否使用视频
-      * <p> 示例值：true
-      */
+        /**
+         * 是否使用视频
+         * <p> 示例值：true
+         */
         private Boolean useVideo;
-     /**
-      * 是否使用音频
-      * <p> 示例值：true
-      */
+        /**
+         * 是否使用音频
+         * <p> 示例值：true
+         */
         private Boolean useAudio;
-     /**
-      * 是否使用共享屏幕
-      * <p> 示例值：true
-      */
+        /**
+         * 是否使用共享屏幕
+         * <p> 示例值：true
+         */
         private Boolean useShareScreen;
-     /**
-      * 是否使用妙享（magic share）
-      * <p> 示例值：true
-      */
+        /**
+         * 是否使用妙享（magic share）
+         * <p> 示例值：true
+         */
         private Boolean useFollowScreen;
-     /**
-      * 是否使用录制
-      * <p> 示例值：true
-      */
+        /**
+         * 是否使用录制
+         * <p> 示例值：true
+         */
         private Boolean useRecording;
-     /**
-      * 是否使用PSTN
-      * <p> 示例值：true
-      */
+        /**
+         * 是否使用PSTN
+         * <p> 示例值：true
+         */
         private Boolean usePstn;
 
         /**
          * 是否使用视频
          * <p> 示例值：true
+         *
          * @param useVideo
          * @return
          */
         public Builder useVideo(Boolean useVideo) {
-             this.useVideo = useVideo;
-             return this;
+            this.useVideo = useVideo;
+            return this;
         }
 
-    
 
         /**
          * 是否使用音频
          * <p> 示例值：true
+         *
          * @param useAudio
          * @return
          */
         public Builder useAudio(Boolean useAudio) {
-             this.useAudio = useAudio;
-             return this;
+            this.useAudio = useAudio;
+            return this;
         }
 
-    
 
         /**
          * 是否使用共享屏幕
          * <p> 示例值：true
+         *
          * @param useShareScreen
          * @return
          */
         public Builder useShareScreen(Boolean useShareScreen) {
-             this.useShareScreen = useShareScreen;
-             return this;
+            this.useShareScreen = useShareScreen;
+            return this;
         }
 
-    
 
         /**
          * 是否使用妙享（magic share）
          * <p> 示例值：true
+         *
          * @param useFollowScreen
          * @return
          */
         public Builder useFollowScreen(Boolean useFollowScreen) {
-             this.useFollowScreen = useFollowScreen;
-             return this;
+            this.useFollowScreen = useFollowScreen;
+            return this;
         }
 
-    
 
         /**
          * 是否使用录制
          * <p> 示例值：true
+         *
          * @param useRecording
          * @return
          */
         public Builder useRecording(Boolean useRecording) {
-             this.useRecording = useRecording;
-             return this;
+            this.useRecording = useRecording;
+            return this;
         }
 
-    
 
         /**
          * 是否使用PSTN
          * <p> 示例值：true
+         *
          * @param usePstn
          * @return
          */
         public Builder usePstn(Boolean usePstn) {
-             this.usePstn = usePstn;
-             return this;
+            this.usePstn = usePstn;
+            return this;
         }
 
-    
-    
-    public MeetingAbility build(){
-        return new MeetingAbility(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public MeetingAbility build() {
+            return new MeetingAbility(this);
+        }
     }
 }

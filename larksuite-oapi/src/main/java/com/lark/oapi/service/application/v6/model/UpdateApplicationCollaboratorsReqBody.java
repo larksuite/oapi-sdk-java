@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class UpdateApplicationCollaboratorsReqBody {
-     /**
-      * 添加人员
-      * <p> 示例值：
-      */
+    /**
+     * 添加人员
+     * <p> 示例值：
+     */
     @SerializedName("adds")
     private AppCollaborator[] adds;
-     /**
-      * 移除人员
-      * <p> 示例值：
-      */
+    /**
+     * 移除人员
+     * <p> 示例值：
+     */
     @SerializedName("removes")
     private String[] removes;
+
+    // builder 开始
+    public UpdateApplicationCollaboratorsReqBody() {
+    }
+
+    public UpdateApplicationCollaboratorsReqBody(Builder builder) {
+        /**
+         * 添加人员
+         * <p> 示例值：
+         */
+        this.adds = builder.adds;
+        /**
+         * 移除人员
+         * <p> 示例值：
+         */
+        this.removes = builder.removes;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public AppCollaborator[] getAdds() {
         return this.adds;
     }
@@ -53,67 +79,46 @@ public class UpdateApplicationCollaboratorsReqBody {
         this.removes = removes;
     }
 
-
-// builder 开始
-  public UpdateApplicationCollaboratorsReqBody(){}
-
-  public UpdateApplicationCollaboratorsReqBody(Builder builder){
-         /**
-          * 添加人员
-          * <p> 示例值：
-          */
-      this.adds = builder.adds;
-         /**
-          * 移除人员
-          * <p> 示例值：
-          */
-      this.removes = builder.removes;
-  }
-
     public static class Builder {
-     /**
-      * 添加人员
-      * <p> 示例值：
-      */
+        /**
+         * 添加人员
+         * <p> 示例值：
+         */
         private AppCollaborator[] adds;
-     /**
-      * 移除人员
-      * <p> 示例值：
-      */
+        /**
+         * 移除人员
+         * <p> 示例值：
+         */
         private String[] removes;
 
         /**
          * 添加人员
          * <p> 示例值：
+         *
          * @param adds
          * @return
          */
         public Builder adds(AppCollaborator[] adds) {
-             this.adds = adds;
-             return this;
+            this.adds = adds;
+            return this;
         }
 
-    
 
         /**
          * 移除人员
          * <p> 示例值：
+         *
          * @param removes
          * @return
          */
         public Builder removes(String[] removes) {
-             this.removes = removes;
-             return this;
+            this.removes = removes;
+            return this;
         }
 
-    
-    
-    public UpdateApplicationCollaboratorsReqBody build(){
-        return new UpdateApplicationCollaboratorsReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public UpdateApplicationCollaboratorsReqBody build() {
+            return new UpdateApplicationCollaboratorsReqBody(this);
+        }
     }
 }

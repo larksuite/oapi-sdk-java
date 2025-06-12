@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,18 +20,38 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class PatchFaqReqBody {
-     /**
-      * 修改的知识库内容
-      * <p> 示例值：
-      */
+    /**
+     * 修改的知识库内容
+     * <p> 示例值：
+     */
     @SerializedName("faq")
     private FaqUpdateInfo faq;
+
+    // builder 开始
+    public PatchFaqReqBody() {
+    }
+
+    public PatchFaqReqBody(Builder builder) {
+        /**
+         * 修改的知识库内容
+         * <p> 示例值：
+         */
+        this.faq = builder.faq;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public FaqUpdateInfo getFaq() {
         return this.faq;
     }
@@ -39,44 +60,28 @@ public class PatchFaqReqBody {
         this.faq = faq;
     }
 
-
-// builder 开始
-  public PatchFaqReqBody(){}
-
-  public PatchFaqReqBody(Builder builder){
-         /**
-          * 修改的知识库内容
-          * <p> 示例值：
-          */
-      this.faq = builder.faq;
-  }
-
     public static class Builder {
-     /**
-      * 修改的知识库内容
-      * <p> 示例值：
-      */
+        /**
+         * 修改的知识库内容
+         * <p> 示例值：
+         */
         private FaqUpdateInfo faq;
 
         /**
          * 修改的知识库内容
          * <p> 示例值：
+         *
          * @param faq
          * @return
          */
         public Builder faq(FaqUpdateInfo faq) {
-             this.faq = faq;
-             return this;
+            this.faq = faq;
+            return this;
         }
 
-    
-    
-    public PatchFaqReqBody build(){
-        return new PatchFaqReqBody(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public PatchFaqReqBody build() {
+            return new PatchFaqReqBody(this);
+        }
     }
 }

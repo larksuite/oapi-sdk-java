@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.docx.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.docx.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class File {
-     /**
-      * 附件 Token
-      * <p> 示例值：boxbcOj88GDkmWGm2zsTyCBqoLb
-      */
+    /**
+     * 附件 Token
+     * <p> 示例值：boxbcOj88GDkmWGm2zsTyCBqoLb
+     */
     @SerializedName("token")
     private String token;
-     /**
-      * 文件名
-      * <p> 示例值：文件名
-      */
+    /**
+     * 文件名
+     * <p> 示例值：文件名
+     */
     @SerializedName("name")
     private String name;
-     /**
-      * 视图类型，卡片视图（默认）或预览视图
-      * <p> 示例值：1
-      */
+    /**
+     * 视图类型，卡片视图（默认）或预览视图
+     * <p> 示例值：1
+     */
     @SerializedName("view_type")
     private Integer viewType;
+
+    // builder 开始
+    public File() {
+    }
+
+    public File(Builder builder) {
+        /**
+         * 附件 Token
+         * <p> 示例值：boxbcOj88GDkmWGm2zsTyCBqoLb
+         */
+        this.token = builder.token;
+        /**
+         * 文件名
+         * <p> 示例值：文件名
+         */
+        this.name = builder.name;
+        /**
+         * 视图类型，卡片视图（默认）或预览视图
+         * <p> 示例值：1
+         */
+        this.viewType = builder.viewType;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getToken() {
         return this.token;
     }
@@ -67,100 +98,76 @@ public class File {
         this.viewType = viewType;
     }
 
-
-// builder 开始
-  public File(){}
-
-  public File(Builder builder){
-         /**
-          * 附件 Token
-          * <p> 示例值：boxbcOj88GDkmWGm2zsTyCBqoLb
-          */
-      this.token = builder.token;
-         /**
-          * 文件名
-          * <p> 示例值：文件名
-          */
-      this.name = builder.name;
-         /**
-          * 视图类型，卡片视图（默认）或预览视图
-          * <p> 示例值：1
-          */
-      this.viewType = builder.viewType;
-  }
-
     public static class Builder {
-     /**
-      * 附件 Token
-      * <p> 示例值：boxbcOj88GDkmWGm2zsTyCBqoLb
-      */
+        /**
+         * 附件 Token
+         * <p> 示例值：boxbcOj88GDkmWGm2zsTyCBqoLb
+         */
         private String token;
-     /**
-      * 文件名
-      * <p> 示例值：文件名
-      */
+        /**
+         * 文件名
+         * <p> 示例值：文件名
+         */
         private String name;
-     /**
-      * 视图类型，卡片视图（默认）或预览视图
-      * <p> 示例值：1
-      */
+        /**
+         * 视图类型，卡片视图（默认）或预览视图
+         * <p> 示例值：1
+         */
         private Integer viewType;
 
         /**
          * 附件 Token
          * <p> 示例值：boxbcOj88GDkmWGm2zsTyCBqoLb
+         *
          * @param token
          * @return
          */
         public Builder token(String token) {
-             this.token = token;
-             return this;
+            this.token = token;
+            return this;
         }
 
-    
 
         /**
          * 文件名
          * <p> 示例值：文件名
+         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 视图类型，卡片视图（默认）或预览视图
          * <p> 示例值：1
+         *
          * @param viewType
          * @return
          */
         public Builder viewType(Integer viewType) {
-             this.viewType = viewType;
-             return this;
+            this.viewType = viewType;
+            return this;
         }
+
         /**
          * 视图类型，卡片视图（默认）或预览视图
          * <p> 示例值：1
+         *
          * @param viewType {@link com.lark.oapi.service.docx.v1.enums.FileViewTypeEnum}
          * @return
          */
         public Builder viewType(com.lark.oapi.service.docx.v1.enums.FileViewTypeEnum viewType) {
-             this.viewType = viewType.getValue();
-             return this;
+            this.viewType = viewType.getValue();
+            return this;
         }
 
-    
-    
-    public File build(){
-        return new File(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public File build() {
+            return new File(this);
+        }
     }
 }

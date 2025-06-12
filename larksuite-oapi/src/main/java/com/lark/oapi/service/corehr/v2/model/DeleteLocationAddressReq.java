@@ -12,32 +12,58 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class DeleteLocationAddressReq {
-     /**
-      * 地点 ID
-      * <p> 示例值：1616161616
-      */
+    /**
+     * 地点 ID
+     * <p> 示例值：1616161616
+     */
     @Path
     @SerializedName("location_id")
     private String locationId;
-     /**
-      * 地址 ID
-      * <p> 示例值：1515151515
-      */
+    /**
+     * 地址 ID
+     * <p> 示例值：1515151515
+     */
     @Path
     @SerializedName("address_id")
     private String addressId;
+
+    // builder 开始
+    public DeleteLocationAddressReq() {
+    }
+
+    public DeleteLocationAddressReq(Builder builder) {
+        /**
+         * 地点 ID
+         * <p> 示例值：1616161616
+         */
+        this.locationId = builder.locationId;
+        /**
+         * 地址 ID
+         * <p> 示例值：1515151515
+         */
+        this.addressId = builder.addressId;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getLocationId() {
         return this.locationId;
     }
@@ -54,57 +80,39 @@ public class DeleteLocationAddressReq {
         this.addressId = addressId;
     }
 
-
-// builder 开始
-  public DeleteLocationAddressReq(){}
-
-  public DeleteLocationAddressReq(Builder builder){
-     /**
-      * 地点 ID
-      * <p> 示例值：1616161616
-      */
-       this.locationId = builder.locationId;
-     /**
-      * 地址 ID
-      * <p> 示例值：1515151515
-      */
-       this.addressId = builder.addressId;
-  }
-
     public static class Builder {
-    
+
         private String locationId; // 地点 ID
         private String addressId; // 地址 ID
+
         /**
          * 地点 ID
          * <p> 示例值：1616161616
+         *
          * @param locationId
          * @return
          */
-          public Builder locationId(String locationId) {
-               this.locationId = locationId;
-               return this;
-          }
+        public Builder locationId(String locationId) {
+            this.locationId = locationId;
+            return this;
+        }
 
-    
+
         /**
          * 地址 ID
          * <p> 示例值：1515151515
+         *
          * @param addressId
          * @return
          */
-          public Builder addressId(String addressId) {
-               this.addressId = addressId;
-               return this;
-          }
+        public Builder addressId(String addressId) {
+            this.addressId = addressId;
+            return this;
+        }
 
-    
-    public DeleteLocationAddressReq build(){
-        return new DeleteLocationAddressReq(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public DeleteLocationAddressReq build() {
+            return new DeleteLocationAddressReq(this);
+        }
     }
 }

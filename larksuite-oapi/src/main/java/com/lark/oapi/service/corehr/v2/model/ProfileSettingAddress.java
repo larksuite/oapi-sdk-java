@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,192 +20,357 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ProfileSettingAddress {
-     /**
-      * 地址类型，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "address" custom_api_name = "address_type"
-      * <p> 示例值：home_address
-      */
+    /**
+     * 地址类型，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "address" custom_api_name = "address_type"
+     * <p> 示例值：home_address
+     */
     @SerializedName("address_type")
     private String addressType;
-     /**
-      * 国家 / 地区ID
-      * <p> 示例值：6862995757234914824
-      */
+    /**
+     * 国家 / 地区ID
+     * <p> 示例值：6862995757234914824
+     */
     @SerializedName("country_region")
     private String countryRegion;
-     /**
-      * 主要行政区ID
-      * <p> 示例值：6863326815667095047
-      */
+    /**
+     * 主要行政区ID
+     * <p> 示例值：6863326815667095047
+     */
     @SerializedName("region")
     private String region;
-     /**
-      * 主要行政区往下细分 1 层的行政区
-      * <p> 示例值：行政区1
-      */
+    /**
+     * 主要行政区往下细分 1 层的行政区
+     * <p> 示例值：行政区1
+     */
     @SerializedName("region_subdivision_1")
     private String regionSubdivision1;
-     /**
-      * 主要行政区往下细分 2 层的行政区
-      * <p> 示例值：行政区2
-      */
+    /**
+     * 主要行政区往下细分 2 层的行政区
+     * <p> 示例值：行政区2
+     */
     @SerializedName("region_subdivision_2")
     private String regionSubdivision2;
-     /**
-      * 城市V2 ID
-      * <p> 示例值：6862995757234914829
-      */
+    /**
+     * 城市V2 ID
+     * <p> 示例值：6862995757234914829
+     */
     @SerializedName("city_v2")
     private String cityV2;
-     /**
-      * 城市（文本）
-      * <p> 示例值：北京市
-      */
+    /**
+     * 城市（文本）
+     * <p> 示例值：北京市
+     */
     @SerializedName("city_text")
     private String cityText;
-     /**
-      * 城市（仅文本，非拉丁语系的本地文字）
-      * <p> 示例值：北京市
-      */
+    /**
+     * 城市（仅文本，非拉丁语系的本地文字）
+     * <p> 示例值：北京市
+     */
     @SerializedName("local_city_text")
     private String localCityText;
-     /**
-      * 城市往下细分 1 层的行政区
-      * <p> 示例值：行政区1
-      */
+    /**
+     * 城市往下细分 1 层的行政区
+     * <p> 示例值：行政区1
+     */
     @SerializedName("city_subdivision_1")
     private String citySubdivision1;
-     /**
-      * 城市往下细分 2 层的行政区
-      * <p> 示例值：行政区2
-      */
+    /**
+     * 城市往下细分 2 层的行政区
+     * <p> 示例值：行政区2
+     */
     @SerializedName("city_subdivision_2")
     private String citySubdivision2;
-     /**
-      * 区/县V2 ID
-      * <p> 示例值：6862995757234914831
-      */
+    /**
+     * 区/县V2 ID
+     * <p> 示例值：6862995757234914831
+     */
     @SerializedName("district_v2")
     private String districtV2;
-     /**
-      * 邮政编码
-      * <p> 示例值：611530
-      */
+    /**
+     * 邮政编码
+     * <p> 示例值：611530
+     */
     @SerializedName("postal_code")
     private String postalCode;
-     /**
-      * 地址行 1
-      * <p> 示例值：丹佛测试地址-纽埃时区
-      */
+    /**
+     * 地址行 1
+     * <p> 示例值：丹佛测试地址-纽埃时区
+     */
     @SerializedName("address_line_1")
     private String addressLine1;
-     /**
-      * 地址行 1（非拉丁语系的本地文字）
-      * <p> 示例值：丹佛测试地址-纽埃时区
-      */
+    /**
+     * 地址行 1（非拉丁语系的本地文字）
+     * <p> 示例值：丹佛测试地址-纽埃时区
+     */
     @SerializedName("local_address_line_1")
     private String localAddressLine1;
-     /**
-      * 地址行 2
-      * <p> 示例值：PoewH
-      */
+    /**
+     * 地址行 2
+     * <p> 示例值：PoewH
+     */
     @SerializedName("address_line_2")
     private String addressLine2;
-     /**
-      * 地址行 2（非拉丁语系的本地文字）
-      * <p> 示例值：PoewH
-      */
+    /**
+     * 地址行 2（非拉丁语系的本地文字）
+     * <p> 示例值：PoewH
+     */
     @SerializedName("local_address_line_2")
     private String localAddressLine2;
-     /**
-      * 地址行 3
-      * <p> 示例值：PoewH
-      */
+    /**
+     * 地址行 3
+     * <p> 示例值：PoewH
+     */
     @SerializedName("address_line_3")
     private String addressLine3;
-     /**
-      * 地址行 3（非拉丁语系的本地文字）
-      * <p> 示例值：PoewH
-      */
+    /**
+     * 地址行 3（非拉丁语系的本地文字）
+     * <p> 示例值：PoewH
+     */
     @SerializedName("local_address_line_3")
     private String localAddressLine3;
-     /**
-      * 地址行 4
-      * <p> 示例值：jmwJc
-      */
+    /**
+     * 地址行 4
+     * <p> 示例值：jmwJc
+     */
     @SerializedName("address_line_4")
     private String addressLine4;
-     /**
-      * 地址行 5（非拉丁语系的本地文字）
-      * <p> 示例值：jmwJc
-      */
+    /**
+     * 地址行 5（非拉丁语系的本地文字）
+     * <p> 示例值：jmwJc
+     */
     @SerializedName("local_address_line_5")
     private String localAddressLine5;
-     /**
-      * 地址行 6
-      * <p> 示例值：jmwJc
-      */
+    /**
+     * 地址行 6
+     * <p> 示例值：jmwJc
+     */
     @SerializedName("address_line_6")
     private String addressLine6;
-     /**
-      * 地址行 6（非拉丁语系的本地文字）
-      * <p> 示例值：jmwJc
-      */
+    /**
+     * 地址行 6（非拉丁语系的本地文字）
+     * <p> 示例值：jmwJc
+     */
     @SerializedName("local_address_line_6")
     private String localAddressLine6;
-     /**
-      * 地址行 7
-      * <p> 示例值：jmwJc
-      */
+    /**
+     * 地址行 7
+     * <p> 示例值：jmwJc
+     */
     @SerializedName("address_line_7")
     private String addressLine7;
-     /**
-      * 地址行 7（非拉丁语系的本地文字）
-      * <p> 示例值：jmwJc
-      */
+    /**
+     * 地址行 7（非拉丁语系的本地文字）
+     * <p> 示例值：jmwJc
+     */
     @SerializedName("local_address_line_7")
     private String localAddressLine7;
-     /**
-      * 地址行 8
-      * <p> 示例值：jmwJc
-      */
+    /**
+     * 地址行 8
+     * <p> 示例值：jmwJc
+     */
     @SerializedName("address_line_8")
     private String addressLine8;
-     /**
-      * 地址行 8（非拉丁语系的本地文字）
-      * <p> 示例值：rafSu
-      */
+    /**
+     * 地址行 8（非拉丁语系的本地文字）
+     * <p> 示例值：rafSu
+     */
     @SerializedName("local_address_line_8")
     private String localAddressLine8;
-     /**
-      * 地址行 9
-      * <p> 示例值：McPRG
-      */
+    /**
+     * 地址行 9
+     * <p> 示例值：McPRG
+     */
     @SerializedName("address_line_9")
     private String addressLine9;
-     /**
-      * 地址行 9（非拉丁语系的本地文字）
-      * <p> 示例值：McPRG
-      */
+    /**
+     * 地址行 9（非拉丁语系的本地文字）
+     * <p> 示例值：McPRG
+     */
     @SerializedName("local_address_line_9")
     private String localAddressLine9;
-     /**
-      * 地址行 4（非拉丁语系的本地文字）
-      * <p> 示例值：jmwJc
-      */
+    /**
+     * 地址行 4（非拉丁语系的本地文字）
+     * <p> 示例值：jmwJc
+     */
     @SerializedName("local_address_line_4")
     private String localAddressLine4;
-     /**
-      * 地址行 5
-      * <p> 示例值：jmwJc
-      */
+    /**
+     * 地址行 5
+     * <p> 示例值：jmwJc
+     */
     @SerializedName("address_line_5")
     private String addressLine5;
+
+    // builder 开始
+    public ProfileSettingAddress() {
+    }
+
+    public ProfileSettingAddress(Builder builder) {
+        /**
+         * 地址类型，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "address" custom_api_name = "address_type"
+         * <p> 示例值：home_address
+         */
+        this.addressType = builder.addressType;
+        /**
+         * 国家 / 地区ID
+         * <p> 示例值：6862995757234914824
+         */
+        this.countryRegion = builder.countryRegion;
+        /**
+         * 主要行政区ID
+         * <p> 示例值：6863326815667095047
+         */
+        this.region = builder.region;
+        /**
+         * 主要行政区往下细分 1 层的行政区
+         * <p> 示例值：行政区1
+         */
+        this.regionSubdivision1 = builder.regionSubdivision1;
+        /**
+         * 主要行政区往下细分 2 层的行政区
+         * <p> 示例值：行政区2
+         */
+        this.regionSubdivision2 = builder.regionSubdivision2;
+        /**
+         * 城市V2 ID
+         * <p> 示例值：6862995757234914829
+         */
+        this.cityV2 = builder.cityV2;
+        /**
+         * 城市（文本）
+         * <p> 示例值：北京市
+         */
+        this.cityText = builder.cityText;
+        /**
+         * 城市（仅文本，非拉丁语系的本地文字）
+         * <p> 示例值：北京市
+         */
+        this.localCityText = builder.localCityText;
+        /**
+         * 城市往下细分 1 层的行政区
+         * <p> 示例值：行政区1
+         */
+        this.citySubdivision1 = builder.citySubdivision1;
+        /**
+         * 城市往下细分 2 层的行政区
+         * <p> 示例值：行政区2
+         */
+        this.citySubdivision2 = builder.citySubdivision2;
+        /**
+         * 区/县V2 ID
+         * <p> 示例值：6862995757234914831
+         */
+        this.districtV2 = builder.districtV2;
+        /**
+         * 邮政编码
+         * <p> 示例值：611530
+         */
+        this.postalCode = builder.postalCode;
+        /**
+         * 地址行 1
+         * <p> 示例值：丹佛测试地址-纽埃时区
+         */
+        this.addressLine1 = builder.addressLine1;
+        /**
+         * 地址行 1（非拉丁语系的本地文字）
+         * <p> 示例值：丹佛测试地址-纽埃时区
+         */
+        this.localAddressLine1 = builder.localAddressLine1;
+        /**
+         * 地址行 2
+         * <p> 示例值：PoewH
+         */
+        this.addressLine2 = builder.addressLine2;
+        /**
+         * 地址行 2（非拉丁语系的本地文字）
+         * <p> 示例值：PoewH
+         */
+        this.localAddressLine2 = builder.localAddressLine2;
+        /**
+         * 地址行 3
+         * <p> 示例值：PoewH
+         */
+        this.addressLine3 = builder.addressLine3;
+        /**
+         * 地址行 3（非拉丁语系的本地文字）
+         * <p> 示例值：PoewH
+         */
+        this.localAddressLine3 = builder.localAddressLine3;
+        /**
+         * 地址行 4
+         * <p> 示例值：jmwJc
+         */
+        this.addressLine4 = builder.addressLine4;
+        /**
+         * 地址行 5（非拉丁语系的本地文字）
+         * <p> 示例值：jmwJc
+         */
+        this.localAddressLine5 = builder.localAddressLine5;
+        /**
+         * 地址行 6
+         * <p> 示例值：jmwJc
+         */
+        this.addressLine6 = builder.addressLine6;
+        /**
+         * 地址行 6（非拉丁语系的本地文字）
+         * <p> 示例值：jmwJc
+         */
+        this.localAddressLine6 = builder.localAddressLine6;
+        /**
+         * 地址行 7
+         * <p> 示例值：jmwJc
+         */
+        this.addressLine7 = builder.addressLine7;
+        /**
+         * 地址行 7（非拉丁语系的本地文字）
+         * <p> 示例值：jmwJc
+         */
+        this.localAddressLine7 = builder.localAddressLine7;
+        /**
+         * 地址行 8
+         * <p> 示例值：jmwJc
+         */
+        this.addressLine8 = builder.addressLine8;
+        /**
+         * 地址行 8（非拉丁语系的本地文字）
+         * <p> 示例值：rafSu
+         */
+        this.localAddressLine8 = builder.localAddressLine8;
+        /**
+         * 地址行 9
+         * <p> 示例值：McPRG
+         */
+        this.addressLine9 = builder.addressLine9;
+        /**
+         * 地址行 9（非拉丁语系的本地文字）
+         * <p> 示例值：McPRG
+         */
+        this.localAddressLine9 = builder.localAddressLine9;
+        /**
+         * 地址行 4（非拉丁语系的本地文字）
+         * <p> 示例值：jmwJc
+         */
+        this.localAddressLine4 = builder.localAddressLine4;
+        /**
+         * 地址行 5
+         * <p> 示例值：jmwJc
+         */
+        this.addressLine5 = builder.addressLine5;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getAddressType() {
         return this.addressType;
     }
@@ -445,711 +611,550 @@ public class ProfileSettingAddress {
         this.addressLine5 = addressLine5;
     }
 
-
-// builder 开始
-  public ProfileSettingAddress(){}
-
-  public ProfileSettingAddress(Builder builder){
-         /**
-          * 地址类型，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "address" custom_api_name = "address_type"
-          * <p> 示例值：home_address
-          */
-      this.addressType = builder.addressType;
-         /**
-          * 国家 / 地区ID
-          * <p> 示例值：6862995757234914824
-          */
-      this.countryRegion = builder.countryRegion;
-         /**
-          * 主要行政区ID
-          * <p> 示例值：6863326815667095047
-          */
-      this.region = builder.region;
-         /**
-          * 主要行政区往下细分 1 层的行政区
-          * <p> 示例值：行政区1
-          */
-      this.regionSubdivision1 = builder.regionSubdivision1;
-         /**
-          * 主要行政区往下细分 2 层的行政区
-          * <p> 示例值：行政区2
-          */
-      this.regionSubdivision2 = builder.regionSubdivision2;
-         /**
-          * 城市V2 ID
-          * <p> 示例值：6862995757234914829
-          */
-      this.cityV2 = builder.cityV2;
-         /**
-          * 城市（文本）
-          * <p> 示例值：北京市
-          */
-      this.cityText = builder.cityText;
-         /**
-          * 城市（仅文本，非拉丁语系的本地文字）
-          * <p> 示例值：北京市
-          */
-      this.localCityText = builder.localCityText;
-         /**
-          * 城市往下细分 1 层的行政区
-          * <p> 示例值：行政区1
-          */
-      this.citySubdivision1 = builder.citySubdivision1;
-         /**
-          * 城市往下细分 2 层的行政区
-          * <p> 示例值：行政区2
-          */
-      this.citySubdivision2 = builder.citySubdivision2;
-         /**
-          * 区/县V2 ID
-          * <p> 示例值：6862995757234914831
-          */
-      this.districtV2 = builder.districtV2;
-         /**
-          * 邮政编码
-          * <p> 示例值：611530
-          */
-      this.postalCode = builder.postalCode;
-         /**
-          * 地址行 1
-          * <p> 示例值：丹佛测试地址-纽埃时区
-          */
-      this.addressLine1 = builder.addressLine1;
-         /**
-          * 地址行 1（非拉丁语系的本地文字）
-          * <p> 示例值：丹佛测试地址-纽埃时区
-          */
-      this.localAddressLine1 = builder.localAddressLine1;
-         /**
-          * 地址行 2
-          * <p> 示例值：PoewH
-          */
-      this.addressLine2 = builder.addressLine2;
-         /**
-          * 地址行 2（非拉丁语系的本地文字）
-          * <p> 示例值：PoewH
-          */
-      this.localAddressLine2 = builder.localAddressLine2;
-         /**
-          * 地址行 3
-          * <p> 示例值：PoewH
-          */
-      this.addressLine3 = builder.addressLine3;
-         /**
-          * 地址行 3（非拉丁语系的本地文字）
-          * <p> 示例值：PoewH
-          */
-      this.localAddressLine3 = builder.localAddressLine3;
-         /**
-          * 地址行 4
-          * <p> 示例值：jmwJc
-          */
-      this.addressLine4 = builder.addressLine4;
-         /**
-          * 地址行 5（非拉丁语系的本地文字）
-          * <p> 示例值：jmwJc
-          */
-      this.localAddressLine5 = builder.localAddressLine5;
-         /**
-          * 地址行 6
-          * <p> 示例值：jmwJc
-          */
-      this.addressLine6 = builder.addressLine6;
-         /**
-          * 地址行 6（非拉丁语系的本地文字）
-          * <p> 示例值：jmwJc
-          */
-      this.localAddressLine6 = builder.localAddressLine6;
-         /**
-          * 地址行 7
-          * <p> 示例值：jmwJc
-          */
-      this.addressLine7 = builder.addressLine7;
-         /**
-          * 地址行 7（非拉丁语系的本地文字）
-          * <p> 示例值：jmwJc
-          */
-      this.localAddressLine7 = builder.localAddressLine7;
-         /**
-          * 地址行 8
-          * <p> 示例值：jmwJc
-          */
-      this.addressLine8 = builder.addressLine8;
-         /**
-          * 地址行 8（非拉丁语系的本地文字）
-          * <p> 示例值：rafSu
-          */
-      this.localAddressLine8 = builder.localAddressLine8;
-         /**
-          * 地址行 9
-          * <p> 示例值：McPRG
-          */
-      this.addressLine9 = builder.addressLine9;
-         /**
-          * 地址行 9（非拉丁语系的本地文字）
-          * <p> 示例值：McPRG
-          */
-      this.localAddressLine9 = builder.localAddressLine9;
-         /**
-          * 地址行 4（非拉丁语系的本地文字）
-          * <p> 示例值：jmwJc
-          */
-      this.localAddressLine4 = builder.localAddressLine4;
-         /**
-          * 地址行 5
-          * <p> 示例值：jmwJc
-          */
-      this.addressLine5 = builder.addressLine5;
-  }
-
     public static class Builder {
-     /**
-      * 地址类型，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "address" custom_api_name = "address_type"
-      * <p> 示例值：home_address
-      */
+        /**
+         * 地址类型，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "address" custom_api_name = "address_type"
+         * <p> 示例值：home_address
+         */
         private String addressType;
-     /**
-      * 国家 / 地区ID
-      * <p> 示例值：6862995757234914824
-      */
+        /**
+         * 国家 / 地区ID
+         * <p> 示例值：6862995757234914824
+         */
         private String countryRegion;
-     /**
-      * 主要行政区ID
-      * <p> 示例值：6863326815667095047
-      */
+        /**
+         * 主要行政区ID
+         * <p> 示例值：6863326815667095047
+         */
         private String region;
-     /**
-      * 主要行政区往下细分 1 层的行政区
-      * <p> 示例值：行政区1
-      */
+        /**
+         * 主要行政区往下细分 1 层的行政区
+         * <p> 示例值：行政区1
+         */
         private String regionSubdivision1;
-     /**
-      * 主要行政区往下细分 2 层的行政区
-      * <p> 示例值：行政区2
-      */
+        /**
+         * 主要行政区往下细分 2 层的行政区
+         * <p> 示例值：行政区2
+         */
         private String regionSubdivision2;
-     /**
-      * 城市V2 ID
-      * <p> 示例值：6862995757234914829
-      */
+        /**
+         * 城市V2 ID
+         * <p> 示例值：6862995757234914829
+         */
         private String cityV2;
-     /**
-      * 城市（文本）
-      * <p> 示例值：北京市
-      */
+        /**
+         * 城市（文本）
+         * <p> 示例值：北京市
+         */
         private String cityText;
-     /**
-      * 城市（仅文本，非拉丁语系的本地文字）
-      * <p> 示例值：北京市
-      */
+        /**
+         * 城市（仅文本，非拉丁语系的本地文字）
+         * <p> 示例值：北京市
+         */
         private String localCityText;
-     /**
-      * 城市往下细分 1 层的行政区
-      * <p> 示例值：行政区1
-      */
+        /**
+         * 城市往下细分 1 层的行政区
+         * <p> 示例值：行政区1
+         */
         private String citySubdivision1;
-     /**
-      * 城市往下细分 2 层的行政区
-      * <p> 示例值：行政区2
-      */
+        /**
+         * 城市往下细分 2 层的行政区
+         * <p> 示例值：行政区2
+         */
         private String citySubdivision2;
-     /**
-      * 区/县V2 ID
-      * <p> 示例值：6862995757234914831
-      */
+        /**
+         * 区/县V2 ID
+         * <p> 示例值：6862995757234914831
+         */
         private String districtV2;
-     /**
-      * 邮政编码
-      * <p> 示例值：611530
-      */
+        /**
+         * 邮政编码
+         * <p> 示例值：611530
+         */
         private String postalCode;
-     /**
-      * 地址行 1
-      * <p> 示例值：丹佛测试地址-纽埃时区
-      */
+        /**
+         * 地址行 1
+         * <p> 示例值：丹佛测试地址-纽埃时区
+         */
         private String addressLine1;
-     /**
-      * 地址行 1（非拉丁语系的本地文字）
-      * <p> 示例值：丹佛测试地址-纽埃时区
-      */
+        /**
+         * 地址行 1（非拉丁语系的本地文字）
+         * <p> 示例值：丹佛测试地址-纽埃时区
+         */
         private String localAddressLine1;
-     /**
-      * 地址行 2
-      * <p> 示例值：PoewH
-      */
+        /**
+         * 地址行 2
+         * <p> 示例值：PoewH
+         */
         private String addressLine2;
-     /**
-      * 地址行 2（非拉丁语系的本地文字）
-      * <p> 示例值：PoewH
-      */
+        /**
+         * 地址行 2（非拉丁语系的本地文字）
+         * <p> 示例值：PoewH
+         */
         private String localAddressLine2;
-     /**
-      * 地址行 3
-      * <p> 示例值：PoewH
-      */
+        /**
+         * 地址行 3
+         * <p> 示例值：PoewH
+         */
         private String addressLine3;
-     /**
-      * 地址行 3（非拉丁语系的本地文字）
-      * <p> 示例值：PoewH
-      */
+        /**
+         * 地址行 3（非拉丁语系的本地文字）
+         * <p> 示例值：PoewH
+         */
         private String localAddressLine3;
-     /**
-      * 地址行 4
-      * <p> 示例值：jmwJc
-      */
+        /**
+         * 地址行 4
+         * <p> 示例值：jmwJc
+         */
         private String addressLine4;
-     /**
-      * 地址行 5（非拉丁语系的本地文字）
-      * <p> 示例值：jmwJc
-      */
+        /**
+         * 地址行 5（非拉丁语系的本地文字）
+         * <p> 示例值：jmwJc
+         */
         private String localAddressLine5;
-     /**
-      * 地址行 6
-      * <p> 示例值：jmwJc
-      */
+        /**
+         * 地址行 6
+         * <p> 示例值：jmwJc
+         */
         private String addressLine6;
-     /**
-      * 地址行 6（非拉丁语系的本地文字）
-      * <p> 示例值：jmwJc
-      */
+        /**
+         * 地址行 6（非拉丁语系的本地文字）
+         * <p> 示例值：jmwJc
+         */
         private String localAddressLine6;
-     /**
-      * 地址行 7
-      * <p> 示例值：jmwJc
-      */
+        /**
+         * 地址行 7
+         * <p> 示例值：jmwJc
+         */
         private String addressLine7;
-     /**
-      * 地址行 7（非拉丁语系的本地文字）
-      * <p> 示例值：jmwJc
-      */
+        /**
+         * 地址行 7（非拉丁语系的本地文字）
+         * <p> 示例值：jmwJc
+         */
         private String localAddressLine7;
-     /**
-      * 地址行 8
-      * <p> 示例值：jmwJc
-      */
+        /**
+         * 地址行 8
+         * <p> 示例值：jmwJc
+         */
         private String addressLine8;
-     /**
-      * 地址行 8（非拉丁语系的本地文字）
-      * <p> 示例值：rafSu
-      */
+        /**
+         * 地址行 8（非拉丁语系的本地文字）
+         * <p> 示例值：rafSu
+         */
         private String localAddressLine8;
-     /**
-      * 地址行 9
-      * <p> 示例值：McPRG
-      */
+        /**
+         * 地址行 9
+         * <p> 示例值：McPRG
+         */
         private String addressLine9;
-     /**
-      * 地址行 9（非拉丁语系的本地文字）
-      * <p> 示例值：McPRG
-      */
+        /**
+         * 地址行 9（非拉丁语系的本地文字）
+         * <p> 示例值：McPRG
+         */
         private String localAddressLine9;
-     /**
-      * 地址行 4（非拉丁语系的本地文字）
-      * <p> 示例值：jmwJc
-      */
+        /**
+         * 地址行 4（非拉丁语系的本地文字）
+         * <p> 示例值：jmwJc
+         */
         private String localAddressLine4;
-     /**
-      * 地址行 5
-      * <p> 示例值：jmwJc
-      */
+        /**
+         * 地址行 5
+         * <p> 示例值：jmwJc
+         */
         private String addressLine5;
 
         /**
          * 地址类型，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "address" custom_api_name = "address_type"
          * <p> 示例值：home_address
+         *
          * @param addressType
          * @return
          */
         public Builder addressType(String addressType) {
-             this.addressType = addressType;
-             return this;
+            this.addressType = addressType;
+            return this;
         }
 
-    
 
         /**
          * 国家 / 地区ID
          * <p> 示例值：6862995757234914824
+         *
          * @param countryRegion
          * @return
          */
         public Builder countryRegion(String countryRegion) {
-             this.countryRegion = countryRegion;
-             return this;
+            this.countryRegion = countryRegion;
+            return this;
         }
 
-    
 
         /**
          * 主要行政区ID
          * <p> 示例值：6863326815667095047
+         *
          * @param region
          * @return
          */
         public Builder region(String region) {
-             this.region = region;
-             return this;
+            this.region = region;
+            return this;
         }
 
-    
 
         /**
          * 主要行政区往下细分 1 层的行政区
          * <p> 示例值：行政区1
+         *
          * @param regionSubdivision1
          * @return
          */
         public Builder regionSubdivision1(String regionSubdivision1) {
-             this.regionSubdivision1 = regionSubdivision1;
-             return this;
+            this.regionSubdivision1 = regionSubdivision1;
+            return this;
         }
 
-    
 
         /**
          * 主要行政区往下细分 2 层的行政区
          * <p> 示例值：行政区2
+         *
          * @param regionSubdivision2
          * @return
          */
         public Builder regionSubdivision2(String regionSubdivision2) {
-             this.regionSubdivision2 = regionSubdivision2;
-             return this;
+            this.regionSubdivision2 = regionSubdivision2;
+            return this;
         }
 
-    
 
         /**
          * 城市V2 ID
          * <p> 示例值：6862995757234914829
+         *
          * @param cityV2
          * @return
          */
         public Builder cityV2(String cityV2) {
-             this.cityV2 = cityV2;
-             return this;
+            this.cityV2 = cityV2;
+            return this;
         }
 
-    
 
         /**
          * 城市（文本）
          * <p> 示例值：北京市
+         *
          * @param cityText
          * @return
          */
         public Builder cityText(String cityText) {
-             this.cityText = cityText;
-             return this;
+            this.cityText = cityText;
+            return this;
         }
 
-    
 
         /**
          * 城市（仅文本，非拉丁语系的本地文字）
          * <p> 示例值：北京市
+         *
          * @param localCityText
          * @return
          */
         public Builder localCityText(String localCityText) {
-             this.localCityText = localCityText;
-             return this;
+            this.localCityText = localCityText;
+            return this;
         }
 
-    
 
         /**
          * 城市往下细分 1 层的行政区
          * <p> 示例值：行政区1
+         *
          * @param citySubdivision1
          * @return
          */
         public Builder citySubdivision1(String citySubdivision1) {
-             this.citySubdivision1 = citySubdivision1;
-             return this;
+            this.citySubdivision1 = citySubdivision1;
+            return this;
         }
 
-    
 
         /**
          * 城市往下细分 2 层的行政区
          * <p> 示例值：行政区2
+         *
          * @param citySubdivision2
          * @return
          */
         public Builder citySubdivision2(String citySubdivision2) {
-             this.citySubdivision2 = citySubdivision2;
-             return this;
+            this.citySubdivision2 = citySubdivision2;
+            return this;
         }
 
-    
 
         /**
          * 区/县V2 ID
          * <p> 示例值：6862995757234914831
+         *
          * @param districtV2
          * @return
          */
         public Builder districtV2(String districtV2) {
-             this.districtV2 = districtV2;
-             return this;
+            this.districtV2 = districtV2;
+            return this;
         }
 
-    
 
         /**
          * 邮政编码
          * <p> 示例值：611530
+         *
          * @param postalCode
          * @return
          */
         public Builder postalCode(String postalCode) {
-             this.postalCode = postalCode;
-             return this;
+            this.postalCode = postalCode;
+            return this;
         }
 
-    
 
         /**
          * 地址行 1
          * <p> 示例值：丹佛测试地址-纽埃时区
+         *
          * @param addressLine1
          * @return
          */
         public Builder addressLine1(String addressLine1) {
-             this.addressLine1 = addressLine1;
-             return this;
+            this.addressLine1 = addressLine1;
+            return this;
         }
 
-    
 
         /**
          * 地址行 1（非拉丁语系的本地文字）
          * <p> 示例值：丹佛测试地址-纽埃时区
+         *
          * @param localAddressLine1
          * @return
          */
         public Builder localAddressLine1(String localAddressLine1) {
-             this.localAddressLine1 = localAddressLine1;
-             return this;
+            this.localAddressLine1 = localAddressLine1;
+            return this;
         }
 
-    
 
         /**
          * 地址行 2
          * <p> 示例值：PoewH
+         *
          * @param addressLine2
          * @return
          */
         public Builder addressLine2(String addressLine2) {
-             this.addressLine2 = addressLine2;
-             return this;
+            this.addressLine2 = addressLine2;
+            return this;
         }
 
-    
 
         /**
          * 地址行 2（非拉丁语系的本地文字）
          * <p> 示例值：PoewH
+         *
          * @param localAddressLine2
          * @return
          */
         public Builder localAddressLine2(String localAddressLine2) {
-             this.localAddressLine2 = localAddressLine2;
-             return this;
+            this.localAddressLine2 = localAddressLine2;
+            return this;
         }
 
-    
 
         /**
          * 地址行 3
          * <p> 示例值：PoewH
+         *
          * @param addressLine3
          * @return
          */
         public Builder addressLine3(String addressLine3) {
-             this.addressLine3 = addressLine3;
-             return this;
+            this.addressLine3 = addressLine3;
+            return this;
         }
 
-    
 
         /**
          * 地址行 3（非拉丁语系的本地文字）
          * <p> 示例值：PoewH
+         *
          * @param localAddressLine3
          * @return
          */
         public Builder localAddressLine3(String localAddressLine3) {
-             this.localAddressLine3 = localAddressLine3;
-             return this;
+            this.localAddressLine3 = localAddressLine3;
+            return this;
         }
 
-    
 
         /**
          * 地址行 4
          * <p> 示例值：jmwJc
+         *
          * @param addressLine4
          * @return
          */
         public Builder addressLine4(String addressLine4) {
-             this.addressLine4 = addressLine4;
-             return this;
+            this.addressLine4 = addressLine4;
+            return this;
         }
 
-    
 
         /**
          * 地址行 5（非拉丁语系的本地文字）
          * <p> 示例值：jmwJc
+         *
          * @param localAddressLine5
          * @return
          */
         public Builder localAddressLine5(String localAddressLine5) {
-             this.localAddressLine5 = localAddressLine5;
-             return this;
+            this.localAddressLine5 = localAddressLine5;
+            return this;
         }
 
-    
 
         /**
          * 地址行 6
          * <p> 示例值：jmwJc
+         *
          * @param addressLine6
          * @return
          */
         public Builder addressLine6(String addressLine6) {
-             this.addressLine6 = addressLine6;
-             return this;
+            this.addressLine6 = addressLine6;
+            return this;
         }
 
-    
 
         /**
          * 地址行 6（非拉丁语系的本地文字）
          * <p> 示例值：jmwJc
+         *
          * @param localAddressLine6
          * @return
          */
         public Builder localAddressLine6(String localAddressLine6) {
-             this.localAddressLine6 = localAddressLine6;
-             return this;
+            this.localAddressLine6 = localAddressLine6;
+            return this;
         }
 
-    
 
         /**
          * 地址行 7
          * <p> 示例值：jmwJc
+         *
          * @param addressLine7
          * @return
          */
         public Builder addressLine7(String addressLine7) {
-             this.addressLine7 = addressLine7;
-             return this;
+            this.addressLine7 = addressLine7;
+            return this;
         }
 
-    
 
         /**
          * 地址行 7（非拉丁语系的本地文字）
          * <p> 示例值：jmwJc
+         *
          * @param localAddressLine7
          * @return
          */
         public Builder localAddressLine7(String localAddressLine7) {
-             this.localAddressLine7 = localAddressLine7;
-             return this;
+            this.localAddressLine7 = localAddressLine7;
+            return this;
         }
 
-    
 
         /**
          * 地址行 8
          * <p> 示例值：jmwJc
+         *
          * @param addressLine8
          * @return
          */
         public Builder addressLine8(String addressLine8) {
-             this.addressLine8 = addressLine8;
-             return this;
+            this.addressLine8 = addressLine8;
+            return this;
         }
 
-    
 
         /**
          * 地址行 8（非拉丁语系的本地文字）
          * <p> 示例值：rafSu
+         *
          * @param localAddressLine8
          * @return
          */
         public Builder localAddressLine8(String localAddressLine8) {
-             this.localAddressLine8 = localAddressLine8;
-             return this;
+            this.localAddressLine8 = localAddressLine8;
+            return this;
         }
 
-    
 
         /**
          * 地址行 9
          * <p> 示例值：McPRG
+         *
          * @param addressLine9
          * @return
          */
         public Builder addressLine9(String addressLine9) {
-             this.addressLine9 = addressLine9;
-             return this;
+            this.addressLine9 = addressLine9;
+            return this;
         }
 
-    
 
         /**
          * 地址行 9（非拉丁语系的本地文字）
          * <p> 示例值：McPRG
+         *
          * @param localAddressLine9
          * @return
          */
         public Builder localAddressLine9(String localAddressLine9) {
-             this.localAddressLine9 = localAddressLine9;
-             return this;
+            this.localAddressLine9 = localAddressLine9;
+            return this;
         }
 
-    
 
         /**
          * 地址行 4（非拉丁语系的本地文字）
          * <p> 示例值：jmwJc
+         *
          * @param localAddressLine4
          * @return
          */
         public Builder localAddressLine4(String localAddressLine4) {
-             this.localAddressLine4 = localAddressLine4;
-             return this;
+            this.localAddressLine4 = localAddressLine4;
+            return this;
         }
 
-    
 
         /**
          * 地址行 5
          * <p> 示例值：jmwJc
+         *
          * @param addressLine5
          * @return
          */
         public Builder addressLine5(String addressLine5) {
-             this.addressLine5 = addressLine5;
-             return this;
+            this.addressLine5 = addressLine5;
+            return this;
         }
 
-    
-    
-    public ProfileSettingAddress build(){
-        return new ProfileSettingAddress(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ProfileSettingAddress build() {
+            return new ProfileSettingAddress(this);
+        }
     }
 }

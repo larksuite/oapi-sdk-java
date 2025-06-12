@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,48 +20,93 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class EmployeeType {
-     /**
-      * 雇员类型ID
-      * <p> 示例值：6919732473504990727
-      */
+    /**
+     * 雇员类型ID
+     * <p> 示例值：6919732473504990727
+     */
     @SerializedName("id")
     private String id;
-     /**
-      * 名称
-      * <p> 示例值：
-      */
+    /**
+     * 名称
+     * <p> 示例值：
+     */
     @SerializedName("name")
     private I18n[] name;
-     /**
-      * 是否为默认人员类型，每个租户只能定义一个默认人员类型
-      * <p> 示例值：true
-      */
+    /**
+     * 是否为默认人员类型，每个租户只能定义一个默认人员类型
+     * <p> 示例值：true
+     */
     @SerializedName("default_employee_type")
     private Boolean defaultEmployeeType;
-     /**
-      * 启用
-      * <p> 示例值：true
-      */
+    /**
+     * 启用
+     * <p> 示例值：true
+     */
     @SerializedName("active")
     private Boolean active;
-     /**
-      * 编码
-      * <p> 示例值：1245
-      */
+    /**
+     * 编码
+     * <p> 示例值：1245
+     */
     @SerializedName("code")
     private String code;
-     /**
-      * 自定义字段
-      * <p> 示例值：
-      */
+    /**
+     * 自定义字段
+     * <p> 示例值：
+     */
     @SerializedName("custom_fields")
     private ObjectFieldData[] customFields;
+
+    // builder 开始
+    public EmployeeType() {
+    }
+
+    public EmployeeType(Builder builder) {
+        /**
+         * 雇员类型ID
+         * <p> 示例值：6919732473504990727
+         */
+        this.id = builder.id;
+        /**
+         * 名称
+         * <p> 示例值：
+         */
+        this.name = builder.name;
+        /**
+         * 是否为默认人员类型，每个租户只能定义一个默认人员类型
+         * <p> 示例值：true
+         */
+        this.defaultEmployeeType = builder.defaultEmployeeType;
+        /**
+         * 启用
+         * <p> 示例值：true
+         */
+        this.active = builder.active;
+        /**
+         * 编码
+         * <p> 示例值：1245
+         */
+        this.code = builder.code;
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
+        this.customFields = builder.customFields;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
         return this.id;
     }
@@ -109,159 +155,118 @@ public class EmployeeType {
         this.customFields = customFields;
     }
 
-
-// builder 开始
-  public EmployeeType(){}
-
-  public EmployeeType(Builder builder){
-         /**
-          * 雇员类型ID
-          * <p> 示例值：6919732473504990727
-          */
-      this.id = builder.id;
-         /**
-          * 名称
-          * <p> 示例值：
-          */
-      this.name = builder.name;
-         /**
-          * 是否为默认人员类型，每个租户只能定义一个默认人员类型
-          * <p> 示例值：true
-          */
-      this.defaultEmployeeType = builder.defaultEmployeeType;
-         /**
-          * 启用
-          * <p> 示例值：true
-          */
-      this.active = builder.active;
-         /**
-          * 编码
-          * <p> 示例值：1245
-          */
-      this.code = builder.code;
-         /**
-          * 自定义字段
-          * <p> 示例值：
-          */
-      this.customFields = builder.customFields;
-  }
-
     public static class Builder {
-     /**
-      * 雇员类型ID
-      * <p> 示例值：6919732473504990727
-      */
+        /**
+         * 雇员类型ID
+         * <p> 示例值：6919732473504990727
+         */
         private String id;
-     /**
-      * 名称
-      * <p> 示例值：
-      */
+        /**
+         * 名称
+         * <p> 示例值：
+         */
         private I18n[] name;
-     /**
-      * 是否为默认人员类型，每个租户只能定义一个默认人员类型
-      * <p> 示例值：true
-      */
+        /**
+         * 是否为默认人员类型，每个租户只能定义一个默认人员类型
+         * <p> 示例值：true
+         */
         private Boolean defaultEmployeeType;
-     /**
-      * 启用
-      * <p> 示例值：true
-      */
+        /**
+         * 启用
+         * <p> 示例值：true
+         */
         private Boolean active;
-     /**
-      * 编码
-      * <p> 示例值：1245
-      */
+        /**
+         * 编码
+         * <p> 示例值：1245
+         */
         private String code;
-     /**
-      * 自定义字段
-      * <p> 示例值：
-      */
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
         private ObjectFieldData[] customFields;
 
         /**
          * 雇员类型ID
          * <p> 示例值：6919732473504990727
+         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-             this.id = id;
-             return this;
+            this.id = id;
+            return this;
         }
 
-    
 
         /**
          * 名称
          * <p> 示例值：
+         *
          * @param name
          * @return
          */
         public Builder name(I18n[] name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 是否为默认人员类型，每个租户只能定义一个默认人员类型
          * <p> 示例值：true
+         *
          * @param defaultEmployeeType
          * @return
          */
         public Builder defaultEmployeeType(Boolean defaultEmployeeType) {
-             this.defaultEmployeeType = defaultEmployeeType;
-             return this;
+            this.defaultEmployeeType = defaultEmployeeType;
+            return this;
         }
 
-    
 
         /**
          * 启用
          * <p> 示例值：true
+         *
          * @param active
          * @return
          */
         public Builder active(Boolean active) {
-             this.active = active;
-             return this;
+            this.active = active;
+            return this;
         }
 
-    
 
         /**
          * 编码
          * <p> 示例值：1245
+         *
          * @param code
          * @return
          */
         public Builder code(String code) {
-             this.code = code;
-             return this;
+            this.code = code;
+            return this;
         }
 
-    
 
         /**
          * 自定义字段
          * <p> 示例值：
+         *
          * @param customFields
          * @return
          */
         public Builder customFields(ObjectFieldData[] customFields) {
-             this.customFields = customFields;
-             return this;
+            this.customFields = customFields;
+            return this;
         }
 
-    
-    
-    public EmployeeType build(){
-        return new EmployeeType(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public EmployeeType build() {
+            return new EmployeeType(this);
+        }
     }
 }

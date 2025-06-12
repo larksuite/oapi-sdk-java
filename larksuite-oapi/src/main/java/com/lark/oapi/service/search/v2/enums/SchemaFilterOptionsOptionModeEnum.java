@@ -17,15 +17,16 @@ package com.lark.oapi.service.search.v2.enums;
  * 指明该筛选器支持单选或多选，默认单选
  */
 public enum SchemaFilterOptionsOptionModeEnum {
-     SINGLE("single"), // 该筛选器支持单选
-     MULTIPLE("multiple"), // 该筛选器支持多选
-  ;
-   private String value;
+    SINGLE("single"), // 该筛选器支持单选
+    MULTIPLE("multiple"), // 该筛选器支持多选
+    ;
+    private String value;
+
     SchemaFilterOptionsOptionModeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

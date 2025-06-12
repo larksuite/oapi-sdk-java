@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class ReqTable {
-     /**
-      * 数据表名字，必填字段
-      * <p> 示例值：table1
-      */
+    /**
+     * 数据表名字，必填字段
+     * <p> 示例值：table1
+     */
     @SerializedName("name")
     private String name;
-     /**
-      * 默认表格视图的名称
-      * <p> 示例值：表格
-      */
+    /**
+     * 默认表格视图的名称
+     * <p> 示例值：表格
+     */
     @SerializedName("default_view_name")
     private String defaultViewName;
-     /**
-      * 允许设置数据表的初始字段,默认第一个字段为索引列
-      * <p> 示例值：
-      */
+    /**
+     * 允许设置数据表的初始字段,默认第一个字段为索引列
+     * <p> 示例值：
+     */
     @SerializedName("fields")
     private AppTableCreateHeader[] fields;
+
+    // builder 开始
+    public ReqTable() {
+    }
+
+    public ReqTable(Builder builder) {
+        /**
+         * 数据表名字，必填字段
+         * <p> 示例值：table1
+         */
+        this.name = builder.name;
+        /**
+         * 默认表格视图的名称
+         * <p> 示例值：表格
+         */
+        this.defaultViewName = builder.defaultViewName;
+        /**
+         * 允许设置数据表的初始字段,默认第一个字段为索引列
+         * <p> 示例值：
+         */
+        this.fields = builder.fields;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getName() {
         return this.name;
     }
@@ -67,90 +98,64 @@ public class ReqTable {
         this.fields = fields;
     }
 
-
-// builder 开始
-  public ReqTable(){}
-
-  public ReqTable(Builder builder){
-         /**
-          * 数据表名字，必填字段
-          * <p> 示例值：table1
-          */
-      this.name = builder.name;
-         /**
-          * 默认表格视图的名称
-          * <p> 示例值：表格
-          */
-      this.defaultViewName = builder.defaultViewName;
-         /**
-          * 允许设置数据表的初始字段,默认第一个字段为索引列
-          * <p> 示例值：
-          */
-      this.fields = builder.fields;
-  }
-
     public static class Builder {
-     /**
-      * 数据表名字，必填字段
-      * <p> 示例值：table1
-      */
+        /**
+         * 数据表名字，必填字段
+         * <p> 示例值：table1
+         */
         private String name;
-     /**
-      * 默认表格视图的名称
-      * <p> 示例值：表格
-      */
+        /**
+         * 默认表格视图的名称
+         * <p> 示例值：表格
+         */
         private String defaultViewName;
-     /**
-      * 允许设置数据表的初始字段,默认第一个字段为索引列
-      * <p> 示例值：
-      */
+        /**
+         * 允许设置数据表的初始字段,默认第一个字段为索引列
+         * <p> 示例值：
+         */
         private AppTableCreateHeader[] fields;
 
         /**
          * 数据表名字，必填字段
          * <p> 示例值：table1
+         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-             this.name = name;
-             return this;
+            this.name = name;
+            return this;
         }
 
-    
 
         /**
          * 默认表格视图的名称
          * <p> 示例值：表格
+         *
          * @param defaultViewName
          * @return
          */
         public Builder defaultViewName(String defaultViewName) {
-             this.defaultViewName = defaultViewName;
-             return this;
+            this.defaultViewName = defaultViewName;
+            return this;
         }
 
-    
 
         /**
          * 允许设置数据表的初始字段,默认第一个字段为索引列
          * <p> 示例值：
+         *
          * @param fields
          * @return
          */
         public Builder fields(AppTableCreateHeader[] fields) {
-             this.fields = fields;
-             return this;
+            this.fields = fields;
+            return this;
         }
 
-    
-    
-    public ReqTable build(){
-        return new ReqTable(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public ReqTable build() {
+            return new ReqTable(this);
+        }
     }
 }

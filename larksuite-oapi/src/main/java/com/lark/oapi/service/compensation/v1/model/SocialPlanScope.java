@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.compensation.v1.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.compensation.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,24 +20,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class SocialPlanScope {
-     /**
-      * 是否适用于全部
-      * <p> 示例值：true
-      */
+    /**
+     * 是否适用于全部
+     * <p> 示例值：true
+     */
     @SerializedName("is_all")
     private Boolean isAll;
-     /**
-      * 适用范围，二维。外层or连接，内层and连接
-      * <p> 示例值：
-      */
+    /**
+     * 适用范围，二维。外层or连接，内层and连接
+     * <p> 示例值：
+     */
     @SerializedName("rules")
     private SocialPlanCondition[][] rules;
+
+    // builder 开始
+    public SocialPlanScope() {
+    }
+
+    public SocialPlanScope(Builder builder) {
+        /**
+         * 是否适用于全部
+         * <p> 示例值：true
+         */
+        this.isAll = builder.isAll;
+        /**
+         * 适用范围，二维。外层or连接，内层and连接
+         * <p> 示例值：
+         */
+        this.rules = builder.rules;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Boolean getIsAll() {
         return this.isAll;
     }
@@ -53,67 +79,46 @@ public class SocialPlanScope {
         this.rules = rules;
     }
 
-
-// builder 开始
-  public SocialPlanScope(){}
-
-  public SocialPlanScope(Builder builder){
-         /**
-          * 是否适用于全部
-          * <p> 示例值：true
-          */
-      this.isAll = builder.isAll;
-         /**
-          * 适用范围，二维。外层or连接，内层and连接
-          * <p> 示例值：
-          */
-      this.rules = builder.rules;
-  }
-
     public static class Builder {
-     /**
-      * 是否适用于全部
-      * <p> 示例值：true
-      */
+        /**
+         * 是否适用于全部
+         * <p> 示例值：true
+         */
         private Boolean isAll;
-     /**
-      * 适用范围，二维。外层or连接，内层and连接
-      * <p> 示例值：
-      */
+        /**
+         * 适用范围，二维。外层or连接，内层and连接
+         * <p> 示例值：
+         */
         private SocialPlanCondition[][] rules;
 
         /**
          * 是否适用于全部
          * <p> 示例值：true
+         *
          * @param isAll
          * @return
          */
         public Builder isAll(Boolean isAll) {
-             this.isAll = isAll;
-             return this;
+            this.isAll = isAll;
+            return this;
         }
 
-    
 
         /**
          * 适用范围，二维。外层or连接，内层and连接
          * <p> 示例值：
+         *
          * @param rules
          * @return
          */
         public Builder rules(SocialPlanCondition[][] rules) {
-             this.rules = rules;
-             return this;
+            this.rules = rules;
+            return this;
         }
 
-    
-    
-    public SocialPlanScope build(){
-        return new SocialPlanScope(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public SocialPlanScope build() {
+            return new SocialPlanScope(this);
+        }
     }
 }

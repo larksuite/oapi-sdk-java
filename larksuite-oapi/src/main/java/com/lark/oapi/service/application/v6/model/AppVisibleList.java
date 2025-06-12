@@ -12,6 +12,7 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
+
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -19,30 +20,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
+
 public class AppVisibleList {
-     /**
-      * 可见性成员 open_id 列表
-      * <p> 示例值：
-      */
+    /**
+     * 可见性成员 open_id 列表
+     * <p> 示例值：
+     */
     @SerializedName("open_ids")
     private String[] openIds;
-     /**
-      * 可见性部门的 id 列表
-      * <p> 示例值：
-      */
+    /**
+     * 可见性部门的 id 列表
+     * <p> 示例值：
+     */
     @SerializedName("department_ids")
     private String[] departmentIds;
-     /**
-      * 可见性成员 group_id 列表
-      * <p> 示例值：
-      */
+    /**
+     * 可见性成员 group_id 列表
+     * <p> 示例值：
+     */
     @SerializedName("group_ids")
     private String[] groupIds;
+
+    // builder 开始
+    public AppVisibleList() {
+    }
+
+    public AppVisibleList(Builder builder) {
+        /**
+         * 可见性成员 open_id 列表
+         * <p> 示例值：
+         */
+        this.openIds = builder.openIds;
+        /**
+         * 可见性部门的 id 列表
+         * <p> 示例值：
+         */
+        this.departmentIds = builder.departmentIds;
+        /**
+         * 可见性成员 group_id 列表
+         * <p> 示例值：
+         */
+        this.groupIds = builder.groupIds;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String[] getOpenIds() {
         return this.openIds;
     }
@@ -67,90 +98,64 @@ public class AppVisibleList {
         this.groupIds = groupIds;
     }
 
-
-// builder 开始
-  public AppVisibleList(){}
-
-  public AppVisibleList(Builder builder){
-         /**
-          * 可见性成员 open_id 列表
-          * <p> 示例值：
-          */
-      this.openIds = builder.openIds;
-         /**
-          * 可见性部门的 id 列表
-          * <p> 示例值：
-          */
-      this.departmentIds = builder.departmentIds;
-         /**
-          * 可见性成员 group_id 列表
-          * <p> 示例值：
-          */
-      this.groupIds = builder.groupIds;
-  }
-
     public static class Builder {
-     /**
-      * 可见性成员 open_id 列表
-      * <p> 示例值：
-      */
+        /**
+         * 可见性成员 open_id 列表
+         * <p> 示例值：
+         */
         private String[] openIds;
-     /**
-      * 可见性部门的 id 列表
-      * <p> 示例值：
-      */
+        /**
+         * 可见性部门的 id 列表
+         * <p> 示例值：
+         */
         private String[] departmentIds;
-     /**
-      * 可见性成员 group_id 列表
-      * <p> 示例值：
-      */
+        /**
+         * 可见性成员 group_id 列表
+         * <p> 示例值：
+         */
         private String[] groupIds;
 
         /**
          * 可见性成员 open_id 列表
          * <p> 示例值：
+         *
          * @param openIds
          * @return
          */
         public Builder openIds(String[] openIds) {
-             this.openIds = openIds;
-             return this;
+            this.openIds = openIds;
+            return this;
         }
 
-    
 
         /**
          * 可见性部门的 id 列表
          * <p> 示例值：
+         *
          * @param departmentIds
          * @return
          */
         public Builder departmentIds(String[] departmentIds) {
-             this.departmentIds = departmentIds;
-             return this;
+            this.departmentIds = departmentIds;
+            return this;
         }
 
-    
 
         /**
          * 可见性成员 group_id 列表
          * <p> 示例值：
+         *
          * @param groupIds
          * @return
          */
         public Builder groupIds(String[] groupIds) {
-             this.groupIds = groupIds;
-             return this;
+            this.groupIds = groupIds;
+            return this;
         }
 
-    
-    
-    public AppVisibleList build(){
-        return new AppVisibleList(this);
-      }
-    }
 
-    public static Builder newBuilder() {
-        return new Builder();
+        public AppVisibleList build() {
+            return new AppVisibleList(this);
+        }
     }
 }
