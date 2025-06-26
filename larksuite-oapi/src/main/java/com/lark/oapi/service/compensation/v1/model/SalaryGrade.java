@@ -30,13 +30,13 @@ import com.lark.oapi.core.response.BaseResponse;
 
 public class SalaryGrade {
     /**
-     * ID
+     * 薪等ID
      * <p> 示例值：7491135696314353196
      */
     @SerializedName("id")
     private String id;
     /**
-     * 名称
+     * 薪等名称
      * <p> 示例值：
      */
     @SerializedName("name")
@@ -54,12 +54,12 @@ public class SalaryGrade {
 
     public SalaryGrade(Builder builder) {
         /**
-         * ID
+         * 薪等ID
          * <p> 示例值：7491135696314353196
          */
         this.id = builder.id;
         /**
-         * 名称
+         * 薪等名称
          * <p> 示例值：
          */
         this.name = builder.name;
@@ -100,12 +100,12 @@ public class SalaryGrade {
 
     public static class Builder {
         /**
-         * ID
+         * 薪等ID
          * <p> 示例值：7491135696314353196
          */
         private String id;
         /**
-         * 名称
+         * 薪等名称
          * <p> 示例值：
          */
         private I18n name;
@@ -116,7 +116,7 @@ public class SalaryGrade {
         private Boolean status;
 
         /**
-         * ID
+         * 薪等ID
          * <p> 示例值：7491135696314353196
          *
          * @param id
@@ -129,7 +129,7 @@ public class SalaryGrade {
 
 
         /**
-         * 名称
+         * 薪等名称
          * <p> 示例值：
          *
          * @param name

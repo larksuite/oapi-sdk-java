@@ -197,6 +197,12 @@ public class DlpExecuteLog {
      */
     @SerializedName("trigger_event_type")
     private String triggerEventType;
+    /**
+     * 会话类型
+     * <p> 示例值：1
+     */
+    @SerializedName("chat_type")
+    private String chatType;
 
     // builder 开始
     public DlpExecuteLog() {
@@ -343,6 +349,11 @@ public class DlpExecuteLog {
          * <p> 示例值：系统送检
          */
         this.triggerEventType = builder.triggerEventType;
+        /**
+         * 会话类型
+         * <p> 示例值：1
+         */
+        this.chatType = builder.chatType;
     }
 
     public static Builder newBuilder() {
@@ -573,6 +584,14 @@ public class DlpExecuteLog {
         this.triggerEventType = triggerEventType;
     }
 
+    public String getChatType() {
+        return this.chatType;
+    }
+
+    public void setChatType(String chatType) {
+        this.chatType = chatType;
+    }
+
     public static class Builder {
         /**
          * 应用业务线
@@ -714,6 +733,11 @@ public class DlpExecuteLog {
          * <p> 示例值：系统送检
          */
         private String triggerEventType;
+        /**
+         * 会话类型
+         * <p> 示例值：1
+         */
+        private String chatType;
 
         /**
          * 应用业务线
@@ -1075,6 +1099,19 @@ public class DlpExecuteLog {
          */
         public Builder triggerEventType(String triggerEventType) {
             this.triggerEventType = triggerEventType;
+            return this;
+        }
+
+
+        /**
+         * 会话类型
+         * <p> 示例值：1
+         *
+         * @param chatType
+         * @return
+         */
+        public Builder chatType(String chatType) {
+            this.chatType = chatType;
             return this;
         }
 

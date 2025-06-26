@@ -30,7 +30,7 @@ import com.lark.oapi.core.response.BaseResponse;
 
 public class StandardReferenceObject {
     /**
-     * ID值，详细信息可以通过接口查询[批量查询薪资项](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/item/list)， [批量查询薪资统计指标](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/indicator/list)
+     * 薪资项目ID/薪资统计指标ID，详细信息可以通过接口查询[批量查询薪资项](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/item/list)， [批量查询薪资统计指标](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/indicator/list)
      * <p> 示例值：7475986561660372524
      */
     @SerializedName("id")
@@ -48,7 +48,7 @@ public class StandardReferenceObject {
 
     public StandardReferenceObject(Builder builder) {
         /**
-         * ID值，详细信息可以通过接口查询[批量查询薪资项](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/item/list)， [批量查询薪资统计指标](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/indicator/list)
+         * 薪资项目ID/薪资统计指标ID，详细信息可以通过接口查询[批量查询薪资项](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/item/list)， [批量查询薪资统计指标](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/indicator/list)
          * <p> 示例值：7475986561660372524
          */
         this.id = builder.id;
@@ -81,7 +81,7 @@ public class StandardReferenceObject {
 
     public static class Builder {
         /**
-         * ID值，详细信息可以通过接口查询[批量查询薪资项](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/item/list)， [批量查询薪资统计指标](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/indicator/list)
+         * 薪资项目ID/薪资统计指标ID，详细信息可以通过接口查询[批量查询薪资项](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/item/list)， [批量查询薪资统计指标](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/indicator/list)
          * <p> 示例值：7475986561660372524
          */
         private String id;
@@ -92,7 +92,7 @@ public class StandardReferenceObject {
         private String apiName;
 
         /**
-         * ID值，详细信息可以通过接口查询[批量查询薪资项](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/item/list)， [批量查询薪资统计指标](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/indicator/list)
+         * 薪资项目ID/薪资统计指标ID，详细信息可以通过接口查询[批量查询薪资项](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/item/list)， [批量查询薪资统计指标](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/indicator/list)
          * <p> 示例值：7475986561660372524
          *
          * @param id

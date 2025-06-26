@@ -395,6 +395,18 @@ public class OfferInfo {
      */
     @SerializedName("talent_id")
     private String talentId;
+    /**
+     * 是否复用飞书账号
+     * <p> 示例值：reuse
+     */
+    @SerializedName("reuse_feishu_account")
+    private String reuseFeishuAccount;
+    /**
+     * 复用的飞书账号
+     * <p> 示例值：7032210902531327521
+     */
+    @SerializedName("reused_feishu_account_id")
+    private String reusedFeishuAccountId;
 
     // builder 开始
     public OfferInfo() {
@@ -706,6 +718,16 @@ public class OfferInfo {
          * <p> 示例值：8234698927348
          */
         this.talentId = builder.talentId;
+        /**
+         * 是否复用飞书账号
+         * <p> 示例值：reuse
+         */
+        this.reuseFeishuAccount = builder.reuseFeishuAccount;
+        /**
+         * 复用的飞书账号
+         * <p> 示例值：7032210902531327521
+         */
+        this.reusedFeishuAccountId = builder.reusedFeishuAccountId;
     }
 
     public static Builder newBuilder() {
@@ -1200,6 +1222,22 @@ public class OfferInfo {
         this.talentId = talentId;
     }
 
+    public String getReuseFeishuAccount() {
+        return this.reuseFeishuAccount;
+    }
+
+    public void setReuseFeishuAccount(String reuseFeishuAccount) {
+        this.reuseFeishuAccount = reuseFeishuAccount;
+    }
+
+    public String getReusedFeishuAccountId() {
+        return this.reusedFeishuAccountId;
+    }
+
+    public void setReusedFeishuAccountId(String reusedFeishuAccountId) {
+        this.reusedFeishuAccountId = reusedFeishuAccountId;
+    }
+
     public static class Builder {
         /**
          * Offer id
@@ -1506,6 +1544,16 @@ public class OfferInfo {
          * <p> 示例值：8234698927348
          */
         private String talentId;
+        /**
+         * 是否复用飞书账号
+         * <p> 示例值：reuse
+         */
+        private String reuseFeishuAccount;
+        /**
+         * 复用的飞书账号
+         * <p> 示例值：7032210902531327521
+         */
+        private String reusedFeishuAccountId;
 
         /**
          * Offer id
@@ -2296,6 +2344,32 @@ public class OfferInfo {
          */
         public Builder talentId(String talentId) {
             this.talentId = talentId;
+            return this;
+        }
+
+
+        /**
+         * 是否复用飞书账号
+         * <p> 示例值：reuse
+         *
+         * @param reuseFeishuAccount
+         * @return
+         */
+        public Builder reuseFeishuAccount(String reuseFeishuAccount) {
+            this.reuseFeishuAccount = reuseFeishuAccount;
+            return this;
+        }
+
+
+        /**
+         * 复用的飞书账号
+         * <p> 示例值：7032210902531327521
+         *
+         * @param reusedFeishuAccountId
+         * @return
+         */
+        public Builder reusedFeishuAccountId(String reusedFeishuAccountId) {
+            this.reusedFeishuAccountId = reusedFeishuAccountId;
             return this;
         }
 

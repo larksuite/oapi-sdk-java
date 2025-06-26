@@ -48,7 +48,7 @@ public class JobLevel {
 
 
     /**
-     * ，通过职级 ID 批量获取职级信息
+     * ，批量获取职级信息
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch_get&project=corehr&resource=job_level&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch_get&project=corehr&resource=job_level&version=v2</a> ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/BatchGetJobLevelSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/BatchGetJobLevelSample.java</a> ;
      */
@@ -82,7 +82,7 @@ public class JobLevel {
     }
 
     /**
-     * ，通过职级 ID 批量获取职级信息
+     * ，批量获取职级信息
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch_get&project=corehr&resource=job_level&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch_get&project=corehr&resource=job_level&version=v2</a> ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/BatchGetJobLevelSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/BatchGetJobLevelSample.java</a> ;
      */

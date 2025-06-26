@@ -48,6 +48,72 @@ public class Document {
 
 
     /**
+     * ，
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=convert&project=docx&resource=document&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=convert&project=docx&resource=document&version=v1</a> ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/docxv1/ConvertDocumentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/docxv1/ConvertDocumentSample.java</a> ;
+     */
+    public ConvertDocumentResp convert(ConvertDocumentReq req, RequestOptions reqOptions) throws Exception {
+        // 请求参数选项
+        if (reqOptions == null) {
+            reqOptions = new RequestOptions();
+        }
+
+        // 发起请求
+        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                , "/open-apis/docx/v1/documents/blocks/convert"
+                , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                , req);
+
+        // 反序列化
+        ConvertDocumentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ConvertDocumentResp.class);
+        if (resp == null) {
+            log.error(String.format(
+                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/docx/v1/documents/blocks/convert"
+                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                            StandardCharsets.UTF_8)));
+            throw new IllegalArgumentException("The result returned by the server is illegal");
+        }
+
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
+    }
+
+    /**
+     * ，
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=convert&project=docx&resource=document&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=convert&project=docx&resource=document&version=v1</a> ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/docxv1/ConvertDocumentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/docxv1/ConvertDocumentSample.java</a> ;
+     */
+    public ConvertDocumentResp convert(ConvertDocumentReq req) throws Exception {
+        // 请求参数选项
+        RequestOptions reqOptions = new RequestOptions();
+
+        // 发起请求
+        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                , "/open-apis/docx/v1/documents/blocks/convert"
+                , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                , req);
+
+        // 反序列化
+        ConvertDocumentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ConvertDocumentResp.class);
+        if (resp == null) {
+            log.error(String.format(
+                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/docx/v1/documents/blocks/convert"
+                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                            StandardCharsets.UTF_8)));
+            throw new IllegalArgumentException("The result returned by the server is illegal");
+        }
+
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
+    }
+
+    /**
      * 创建文档，创建新版文档，文档标题和目录可选。
      * <p> 在调用此接口前，请仔细阅读[新版文档 OpenAPI 接口校验规则](https://bytedance.feishu.cn/docx/doxcnby5Y0yoACL3PdfZqrJEm6f#doxcnyoyCgwS8ywWwMtQr9yjZ2f)，了解相关规则及约束。 ;
      * <p> 频率限制：单个应用调用频率上限为每秒 3 次。 ;

@@ -29,6 +29,7 @@ public class SearchCcInstanceSample {
                         .ccCreateTimeFrom("1547654251506")
                         .ccCreateTimeTo("1547654251506")
                         .locale("zh-CN")
+                        .withRevokedInstance(false)
                         .build())
                 .build();
 

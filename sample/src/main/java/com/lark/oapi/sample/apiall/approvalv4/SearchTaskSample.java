@@ -31,6 +31,7 @@ public class SearchTaskSample {
                         .locale("zh-CN")
                         .taskStatusList(new String[]{})
                         .order(2)
+                        .withRevokedInstance(false)
                         .build())
                 .build();
 

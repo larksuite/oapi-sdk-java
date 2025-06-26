@@ -425,6 +425,18 @@ public class PreHireEmploymentInfo {
      */
     @SerializedName("cost_allocation")
     private CostAllocation costAllocation;
+    /**
+     * 是否复用飞书账号
+     * <p> 示例值：reuse
+     */
+    @SerializedName("reuse_feishu_account")
+    private String reuseFeishuAccount;
+    /**
+     * 复用的飞书账号
+     * <p> 示例值：6738317738688661772
+     */
+    @SerializedName("reused_feishu_account_id")
+    private String reusedFeishuAccountId;
 
     // builder 开始
     public PreHireEmploymentInfo() {
@@ -761,6 +773,16 @@ public class PreHireEmploymentInfo {
          * <p> 示例值：
          */
         this.costAllocation = builder.costAllocation;
+        /**
+         * 是否复用飞书账号
+         * <p> 示例值：reuse
+         */
+        this.reuseFeishuAccount = builder.reuseFeishuAccount;
+        /**
+         * 复用的飞书账号
+         * <p> 示例值：6738317738688661772
+         */
+        this.reusedFeishuAccountId = builder.reusedFeishuAccountId;
     }
 
     public static Builder newBuilder() {
@@ -1295,6 +1317,22 @@ public class PreHireEmploymentInfo {
         this.costAllocation = costAllocation;
     }
 
+    public String getReuseFeishuAccount() {
+        return this.reuseFeishuAccount;
+    }
+
+    public void setReuseFeishuAccount(String reuseFeishuAccount) {
+        this.reuseFeishuAccount = reuseFeishuAccount;
+    }
+
+    public String getReusedFeishuAccountId() {
+        return this.reusedFeishuAccountId;
+    }
+
+    public void setReusedFeishuAccountId(String reusedFeishuAccountId) {
+        this.reusedFeishuAccountId = reusedFeishuAccountId;
+    }
+
     public static class Builder {
         /**
          * 部门 ID ，可以通过【搜索部门信息】接口获取
@@ -1626,6 +1664,16 @@ public class PreHireEmploymentInfo {
          * <p> 示例值：
          */
         private CostAllocation costAllocation;
+        /**
+         * 是否复用飞书账号
+         * <p> 示例值：reuse
+         */
+        private String reuseFeishuAccount;
+        /**
+         * 复用的飞书账号
+         * <p> 示例值：6738317738688661772
+         */
+        private String reusedFeishuAccountId;
 
         /**
          * 部门 ID ，可以通过【搜索部门信息】接口获取
@@ -2493,6 +2541,32 @@ public class PreHireEmploymentInfo {
          */
         public Builder costAllocation(CostAllocation costAllocation) {
             this.costAllocation = costAllocation;
+            return this;
+        }
+
+
+        /**
+         * 是否复用飞书账号
+         * <p> 示例值：reuse
+         *
+         * @param reuseFeishuAccount
+         * @return
+         */
+        public Builder reuseFeishuAccount(String reuseFeishuAccount) {
+            this.reuseFeishuAccount = reuseFeishuAccount;
+            return this;
+        }
+
+
+        /**
+         * 复用的飞书账号
+         * <p> 示例值：6738317738688661772
+         *
+         * @param reusedFeishuAccountId
+         * @return
+         */
+        public Builder reusedFeishuAccountId(String reusedFeishuAccountId) {
+            this.reusedFeishuAccountId = reusedFeishuAccountId;
             return this;
         }
 

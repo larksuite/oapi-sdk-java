@@ -30,23 +30,23 @@ import com.lark.oapi.core.response.BaseResponse;
 
 public class Grade {
     /**
-     * 标准明细ID
+     * 薪资标准明细ID
      * <p> 示例值：7481615459021637164
      */
     @SerializedName("id")
     private String id;
     /**
-     * 标准明细TID
+     * 薪资标准明细版本TID
      * <p> 示例值：7481615459021669932
      */
     @SerializedName("tid")
     private String tid;
     /**
-     * 编码
+     * 编号
      * <p> 示例值：1
      */
-    @SerializedName("code")
-    private Integer code;
+    @SerializedName("serial_number")
+    private String serialNumber;
     /**
      * 薪资标准值列表
      * <p> 示例值：
@@ -72,8 +72,8 @@ public class Grade {
     @SerializedName("description")
     private I18n description;
     /**
-     * 生效时间，毫秒时间戳
-     * <p> 示例值：1704038400000
+     * 生效日期，格式"2025-05-01"
+     * <p> 示例值：2025-05-01
      */
     @SerializedName("effective_time")
     private String effectiveTime;
@@ -114,20 +114,20 @@ public class Grade {
 
     public Grade(Builder builder) {
         /**
-         * 标准明细ID
+         * 薪资标准明细ID
          * <p> 示例值：7481615459021637164
          */
         this.id = builder.id;
         /**
-         * 标准明细TID
+         * 薪资标准明细版本TID
          * <p> 示例值：7481615459021669932
          */
         this.tid = builder.tid;
         /**
-         * 编码
+         * 编号
          * <p> 示例值：1
          */
-        this.code = builder.code;
+        this.serialNumber = builder.serialNumber;
         /**
          * 薪资标准值列表
          * <p> 示例值：
@@ -149,8 +149,8 @@ public class Grade {
          */
         this.description = builder.description;
         /**
-         * 生效时间，毫秒时间戳
-         * <p> 示例值：1704038400000
+         * 生效日期，格式"2025-05-01"
+         * <p> 示例值：2025-05-01
          */
         this.effectiveTime = builder.effectiveTime;
         /**
@@ -200,12 +200,12 @@ public class Grade {
         this.tid = tid;
     }
 
-    public Integer getCode() {
-        return this.code;
+    public String getSerialNumber() {
+        return this.serialNumber;
     }
 
-    public void setCode(Integer code) {
-        this.code = code;
+    public void setSerialNumber(String serialNumber) {
+        this.serialNumber = serialNumber;
     }
 
     public GradeStandardValue[] getGradeStandardValues() {
@@ -290,20 +290,20 @@ public class Grade {
 
     public static class Builder {
         /**
-         * 标准明细ID
+         * 薪资标准明细ID
          * <p> 示例值：7481615459021637164
          */
         private String id;
         /**
-         * 标准明细TID
+         * 薪资标准明细版本TID
          * <p> 示例值：7481615459021669932
          */
         private String tid;
         /**
-         * 编码
+         * 编号
          * <p> 示例值：1
          */
-        private Integer code;
+        private String serialNumber;
         /**
          * 薪资标准值列表
          * <p> 示例值：
@@ -325,8 +325,8 @@ public class Grade {
          */
         private I18n description;
         /**
-         * 生效时间，毫秒时间戳
-         * <p> 示例值：1704038400000
+         * 生效日期，格式"2025-05-01"
+         * <p> 示例值：2025-05-01
          */
         private String effectiveTime;
         /**
@@ -356,7 +356,7 @@ public class Grade {
         private Integer standardKind;
 
         /**
-         * 标准明细ID
+         * 薪资标准明细ID
          * <p> 示例值：7481615459021637164
          *
          * @param id
@@ -369,7 +369,7 @@ public class Grade {
 
 
         /**
-         * 标准明细TID
+         * 薪资标准明细版本TID
          * <p> 示例值：7481615459021669932
          *
          * @param tid
@@ -382,14 +382,14 @@ public class Grade {
 
 
         /**
-         * 编码
+         * 编号
          * <p> 示例值：1
          *
-         * @param code
+         * @param serialNumber
          * @return
          */
-        public Builder code(Integer code) {
-            this.code = code;
+        public Builder serialNumber(String serialNumber) {
+            this.serialNumber = serialNumber;
             return this;
         }
 
@@ -447,8 +447,8 @@ public class Grade {
 
 
         /**
-         * 生效时间，毫秒时间戳
-         * <p> 示例值：1704038400000
+         * 生效日期，格式"2025-05-01"
+         * <p> 示例值：2025-05-01
          *
          * @param effectiveTime
          * @return

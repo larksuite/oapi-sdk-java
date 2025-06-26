@@ -101,6 +101,12 @@ public class TaskSearch {
      */
     @SerializedName("order")
     private Integer order;
+    /**
+     * 是否包含撤销申请对应的审批单
+     * <p> 示例值：false
+     */
+    @SerializedName("with_revoked_instance")
+    private Boolean withRevokedInstance;
 
     // builder 开始
     public TaskSearch() {
@@ -167,6 +173,11 @@ public class TaskSearch {
          * <p> 示例值：2
          */
         this.order = builder.order;
+        /**
+         * 是否包含撤销申请对应的审批单
+         * <p> 示例值：false
+         */
+        this.withRevokedInstance = builder.withRevokedInstance;
     }
 
     public static Builder newBuilder() {
@@ -269,6 +280,14 @@ public class TaskSearch {
         this.order = order;
     }
 
+    public Boolean getWithRevokedInstance() {
+        return this.withRevokedInstance;
+    }
+
+    public void setWithRevokedInstance(Boolean withRevokedInstance) {
+        this.withRevokedInstance = withRevokedInstance;
+    }
+
     public static class Builder {
         /**
          * 根据x_user_type填写审批人id
@@ -330,6 +349,11 @@ public class TaskSearch {
          * <p> 示例值：2
          */
         private Integer order;
+        /**
+         * 是否包含撤销申请对应的审批单
+         * <p> 示例值：false
+         */
+        private Boolean withRevokedInstance;
 
         /**
          * 根据x_user_type填写审批人id
@@ -519,6 +543,19 @@ public class TaskSearch {
          */
         public Builder order(com.lark.oapi.service.approval.v4.enums.TaskSearchOrderEnum order) {
             this.order = order.getValue();
+            return this;
+        }
+
+
+        /**
+         * 是否包含撤销申请对应的审批单
+         * <p> 示例值：false
+         *
+         * @param withRevokedInstance
+         * @return
+         */
+        public Builder withRevokedInstance(Boolean withRevokedInstance) {
+            this.withRevokedInstance = withRevokedInstance;
             return this;
         }
 

@@ -42,7 +42,7 @@ public class Standard {
     @SerializedName("name")
     private I18n name;
     /**
-     * 更新人，id类型：people_corehr_id，详细信息可通过[获取单个用户信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/get)接口查询
+     * 更新人，ID类型由入参user_id_type指定，详细信息可通过[获取单个用户信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/get)接口查询
      * <p> 示例值：7433328946189796908
      */
     @SerializedName("updated_by")
@@ -54,7 +54,7 @@ public class Standard {
     @SerializedName("updated_at")
     private String updatedAt;
     /**
-     * 创建人，id类型：people_corehr_id，详细信息可通过[获取单个用户信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/get)接口查询
+     * 创建人，ID类型由入参user_id_type指定，详细信息可通过[获取单个用户信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/get)接口查询
      * <p> 示例值：7433328946189796908
      */
     @SerializedName("created_by")
@@ -106,7 +106,7 @@ public class Standard {
          */
         this.name = builder.name;
         /**
-         * 更新人，id类型：people_corehr_id，详细信息可通过[获取单个用户信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/get)接口查询
+         * 更新人，ID类型由入参user_id_type指定，详细信息可通过[获取单个用户信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/get)接口查询
          * <p> 示例值：7433328946189796908
          */
         this.updatedBy = builder.updatedBy;
@@ -116,7 +116,7 @@ public class Standard {
          */
         this.updatedAt = builder.updatedAt;
         /**
-         * 创建人，id类型：people_corehr_id，详细信息可通过[获取单个用户信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/get)接口查询
+         * 创建人，ID类型由入参user_id_type指定，详细信息可通过[获取单个用户信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/get)接口查询
          * <p> 示例值：7433328946189796908
          */
         this.createdBy = builder.createdBy;
@@ -243,7 +243,7 @@ public class Standard {
          */
         private I18n name;
         /**
-         * 更新人，id类型：people_corehr_id，详细信息可通过[获取单个用户信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/get)接口查询
+         * 更新人，ID类型由入参user_id_type指定，详细信息可通过[获取单个用户信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/get)接口查询
          * <p> 示例值：7433328946189796908
          */
         private String updatedBy;
@@ -253,7 +253,7 @@ public class Standard {
          */
         private String updatedAt;
         /**
-         * 创建人，id类型：people_corehr_id，详细信息可通过[获取单个用户信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/get)接口查询
+         * 创建人，ID类型由入参user_id_type指定，详细信息可通过[获取单个用户信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/get)接口查询
          * <p> 示例值：7433328946189796908
          */
         private String createdBy;
@@ -310,7 +310,7 @@ public class Standard {
 
 
         /**
-         * 更新人，id类型：people_corehr_id，详细信息可通过[获取单个用户信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/get)接口查询
+         * 更新人，ID类型由入参user_id_type指定，详细信息可通过[获取单个用户信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/get)接口查询
          * <p> 示例值：7433328946189796908
          *
          * @param updatedBy
@@ -336,7 +336,7 @@ public class Standard {
 
 
         /**
-         * 创建人，id类型：people_corehr_id，详细信息可通过[获取单个用户信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/get)接口查询
+         * 创建人，ID类型由入参user_id_type指定，详细信息可通过[获取单个用户信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/get)接口查询
          * <p> 示例值：7433328946189796908
          *
          * @param createdBy

@@ -19,6 +19,7 @@ public class BatchGetJobFamilySample {
         BatchGetJobFamilyReq req = BatchGetJobFamilyReq.newBuilder()
                 .batchGetJobFamilyReqBody(BatchGetJobFamilyReqBody.newBuilder()
                         .jobFamilyIds(new String[]{})
+                        .jobFamilyCodes(new String[]{})
                         .build())
                 .build();
 

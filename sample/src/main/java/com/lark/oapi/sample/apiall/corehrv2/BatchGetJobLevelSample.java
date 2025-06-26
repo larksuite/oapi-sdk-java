@@ -19,6 +19,7 @@ public class BatchGetJobLevelSample {
         BatchGetJobLevelReq req = BatchGetJobLevelReq.newBuilder()
                 .batchGetJobLevelReqBody(BatchGetJobLevelReqBody.newBuilder()
                         .jobLevelIds(new String[]{})
+                        .jobLevelCodes(new String[]{})
                         .build())
                 .build();
 

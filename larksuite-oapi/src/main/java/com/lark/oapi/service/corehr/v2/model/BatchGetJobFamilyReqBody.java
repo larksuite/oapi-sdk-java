@@ -35,6 +35,12 @@ public class BatchGetJobFamilyReqBody {
      */
     @SerializedName("job_family_ids")
     private String[] jobFamilyIds;
+    /**
+     * 序列 Code 列表
+     * <p> 示例值：
+     */
+    @SerializedName("job_family_codes")
+    private String[] jobFamilyCodes;
 
     // builder 开始
     public BatchGetJobFamilyReqBody() {
@@ -46,6 +52,11 @@ public class BatchGetJobFamilyReqBody {
          * <p> 示例值：
          */
         this.jobFamilyIds = builder.jobFamilyIds;
+        /**
+         * 序列 Code 列表
+         * <p> 示例值：
+         */
+        this.jobFamilyCodes = builder.jobFamilyCodes;
     }
 
     public static Builder newBuilder() {
@@ -60,12 +71,25 @@ public class BatchGetJobFamilyReqBody {
         this.jobFamilyIds = jobFamilyIds;
     }
 
+    public String[] getJobFamilyCodes() {
+        return this.jobFamilyCodes;
+    }
+
+    public void setJobFamilyCodes(String[] jobFamilyCodes) {
+        this.jobFamilyCodes = jobFamilyCodes;
+    }
+
     public static class Builder {
         /**
          * 序列 ID 列表
          * <p> 示例值：
          */
         private String[] jobFamilyIds;
+        /**
+         * 序列 Code 列表
+         * <p> 示例值：
+         */
+        private String[] jobFamilyCodes;
 
         /**
          * 序列 ID 列表
@@ -76,6 +100,19 @@ public class BatchGetJobFamilyReqBody {
          */
         public Builder jobFamilyIds(String[] jobFamilyIds) {
             this.jobFamilyIds = jobFamilyIds;
+            return this;
+        }
+
+
+        /**
+         * 序列 Code 列表
+         * <p> 示例值：
+         *
+         * @param jobFamilyCodes
+         * @return
+         */
+        public Builder jobFamilyCodes(String[] jobFamilyCodes) {
+            this.jobFamilyCodes = jobFamilyCodes;
             return this;
         }
 

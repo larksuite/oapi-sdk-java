@@ -30,13 +30,13 @@ import com.lark.oapi.core.response.BaseResponse;
 
 public class SalaryLevelType {
     /**
-     * ID
+     * 薪级类型ID
      * <p> 示例值：7491135696314353196
      */
     @SerializedName("id")
     private String id;
     /**
-     * 名称
+     * 薪级类型名称
      * <p> 示例值：
      */
     @SerializedName("name")
@@ -60,12 +60,12 @@ public class SalaryLevelType {
 
     public SalaryLevelType(Builder builder) {
         /**
-         * ID
+         * 薪级类型ID
          * <p> 示例值：7491135696314353196
          */
         this.id = builder.id;
         /**
-         * 名称
+         * 薪级类型名称
          * <p> 示例值：
          */
         this.name = builder.name;
@@ -119,12 +119,12 @@ public class SalaryLevelType {
 
     public static class Builder {
         /**
-         * ID
+         * 薪级类型ID
          * <p> 示例值：7491135696314353196
          */
         private String id;
         /**
-         * 名称
+         * 薪级类型名称
          * <p> 示例值：
          */
         private I18n name;
@@ -140,7 +140,7 @@ public class SalaryLevelType {
         private SalaryLevel[] salaryLevels;
 
         /**
-         * ID
+         * 薪级类型ID
          * <p> 示例值：7491135696314353196
          *
          * @param id
@@ -153,7 +153,7 @@ public class SalaryLevelType {
 
 
         /**
-         * 名称
+         * 薪级类型名称
          * <p> 示例值：
          *
          * @param name

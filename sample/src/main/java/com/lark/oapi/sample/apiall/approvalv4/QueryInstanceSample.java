@@ -29,6 +29,7 @@ public class QueryInstanceSample {
                         .instanceStartTimeFrom("1547654251506")
                         .instanceStartTimeTo("1547654251506")
                         .locale("zh-CN")
+                        .withRevokedInstance(false)
                         .build())
                 .build();
 

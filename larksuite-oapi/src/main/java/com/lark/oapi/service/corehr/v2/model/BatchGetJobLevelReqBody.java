@@ -35,6 +35,12 @@ public class BatchGetJobLevelReqBody {
      */
     @SerializedName("job_level_ids")
     private String[] jobLevelIds;
+    /**
+     * 职级 Code 列表
+     * <p> 示例值：
+     */
+    @SerializedName("job_level_codes")
+    private String[] jobLevelCodes;
 
     // builder 开始
     public BatchGetJobLevelReqBody() {
@@ -46,6 +52,11 @@ public class BatchGetJobLevelReqBody {
          * <p> 示例值：
          */
         this.jobLevelIds = builder.jobLevelIds;
+        /**
+         * 职级 Code 列表
+         * <p> 示例值：
+         */
+        this.jobLevelCodes = builder.jobLevelCodes;
     }
 
     public static Builder newBuilder() {
@@ -60,12 +71,25 @@ public class BatchGetJobLevelReqBody {
         this.jobLevelIds = jobLevelIds;
     }
 
+    public String[] getJobLevelCodes() {
+        return this.jobLevelCodes;
+    }
+
+    public void setJobLevelCodes(String[] jobLevelCodes) {
+        this.jobLevelCodes = jobLevelCodes;
+    }
+
     public static class Builder {
         /**
          * 职级 ID 列表
          * <p> 示例值：
          */
         private String[] jobLevelIds;
+        /**
+         * 职级 Code 列表
+         * <p> 示例值：
+         */
+        private String[] jobLevelCodes;
 
         /**
          * 职级 ID 列表
@@ -76,6 +100,19 @@ public class BatchGetJobLevelReqBody {
          */
         public Builder jobLevelIds(String[] jobLevelIds) {
             this.jobLevelIds = jobLevelIds;
+            return this;
+        }
+
+
+        /**
+         * 职级 Code 列表
+         * <p> 示例值：
+         *
+         * @param jobLevelCodes
+         * @return
+         */
+        public Builder jobLevelCodes(String[] jobLevelCodes) {
+            this.jobLevelCodes = jobLevelCodes;
             return this;
         }
 

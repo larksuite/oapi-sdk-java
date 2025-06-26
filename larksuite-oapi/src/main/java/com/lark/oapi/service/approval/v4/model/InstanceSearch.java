@@ -89,6 +89,12 @@ public class InstanceSearch {
      */
     @SerializedName("locale")
     private String locale;
+    /**
+     * 是否包含撤销申请对应的审批单
+     * <p> 示例值：false
+     */
+    @SerializedName("with_revoked_instance")
+    private Boolean withRevokedInstance;
 
     // builder 开始
     public InstanceSearch() {
@@ -145,6 +151,11 @@ public class InstanceSearch {
          * <p> 示例值：zh-CN
          */
         this.locale = builder.locale;
+        /**
+         * 是否包含撤销申请对应的审批单
+         * <p> 示例值：false
+         */
+        this.withRevokedInstance = builder.withRevokedInstance;
     }
 
     public static Builder newBuilder() {
@@ -231,6 +242,14 @@ public class InstanceSearch {
         this.locale = locale;
     }
 
+    public Boolean getWithRevokedInstance() {
+        return this.withRevokedInstance;
+    }
+
+    public void setWithRevokedInstance(Boolean withRevokedInstance) {
+        this.withRevokedInstance = withRevokedInstance;
+    }
+
     public static class Builder {
         /**
          * 根据x_user_type填写用户 id
@@ -282,6 +301,11 @@ public class InstanceSearch {
          * <p> 示例值：zh-CN
          */
         private String locale;
+        /**
+         * 是否包含撤销申请对应的审批单
+         * <p> 示例值：false
+         */
+        private Boolean withRevokedInstance;
 
         /**
          * 根据x_user_type填写用户 id
@@ -433,6 +457,19 @@ public class InstanceSearch {
          */
         public Builder locale(com.lark.oapi.service.approval.v4.enums.InstanceSearchLocaleEnum locale) {
             this.locale = locale.getValue();
+            return this;
+        }
+
+
+        /**
+         * 是否包含撤销申请对应的审批单
+         * <p> 示例值：false
+         *
+         * @param withRevokedInstance
+         * @return
+         */
+        public Builder withRevokedInstance(Boolean withRevokedInstance) {
+            this.withRevokedInstance = withRevokedInstance;
             return this;
         }
 

@@ -13,59 +13,59 @@
 
 package com.lark.oapi;
 
-import com.lark.oapi.service.optical_char_recognition.OpticalCharRecognitionService;
-import com.lark.oapi.service.authen.AuthenService;
-import com.lark.oapi.service.document_ai.DocumentAiService;
-import com.lark.oapi.service.meeting_room.MeetingRoomService;
-import com.lark.oapi.service.okr.OkrService;
-import com.lark.oapi.service.block.BlockService;
-import com.lark.oapi.service.compensation.CompensationService;
-import com.lark.oapi.service.docs.DocsService;
-import com.lark.oapi.service.speech_to_text.SpeechToTextService;
-import com.lark.oapi.service.bitable.BitableService;
-import com.lark.oapi.service.cardkit.CardkitService;
-import com.lark.oapi.service.acs.AcsService;
-import com.lark.oapi.service.contact.ContactService;
-import com.lark.oapi.service.lingo.LingoService;
-import com.lark.oapi.service.drive.DriveService;
-import com.lark.oapi.service.performance.PerformanceService;
-import com.lark.oapi.service.sheets.SheetsService;
-import com.lark.oapi.service.corehr.CorehrService;
-import com.lark.oapi.service.passport.PassportService;
-import com.lark.oapi.service.baike.BaikeService;
-import com.lark.oapi.service.board.BoardService;
-import com.lark.oapi.service.im.ImService;
-import com.lark.oapi.service.search.SearchService;
-import com.lark.oapi.service.verification.VerificationService;
-import com.lark.oapi.service.translation.TranslationService;
-import com.lark.oapi.service.attendance.AttendanceService;
-import com.lark.oapi.service.hire.HireService;
-import com.lark.oapi.service.payroll.PayrollService;
-import com.lark.oapi.service.security_and_compliance.SecurityAndComplianceService;
-import com.lark.oapi.service.task.TaskService;
-import com.lark.oapi.service.minutes.MinutesService;
-import com.lark.oapi.service.moments.MomentsService;
-import com.lark.oapi.service.vc.VcService;
-import com.lark.oapi.service.human_authentication.HumanAuthenticationService;
-import com.lark.oapi.service.calendar.CalendarService;
-import com.lark.oapi.service.admin.AdminService;
-import com.lark.oapi.service.application.ApplicationService;
-import com.lark.oapi.service.approval.ApprovalService;
-import com.lark.oapi.service.base.BaseService;
-import com.lark.oapi.service.ehr.EhrService;
-import com.lark.oapi.service.helpdesk.HelpdeskService;
-import com.lark.oapi.service.wiki.WikiService;
-import com.lark.oapi.service.aily.AilyService;
-import com.lark.oapi.service.apaas.ApaasService;
-import com.lark.oapi.service.event.EventService;
-import com.lark.oapi.service.report.ReportService;
-import com.lark.oapi.service.workplace.WorkplaceService;
-import com.lark.oapi.service.tenant.TenantService;
 import com.lark.oapi.service.mail.MailService;
-import com.lark.oapi.service.mdm.MdmService;
-import com.lark.oapi.service.personal_settings.PersonalSettingsService;
-import com.lark.oapi.service.auth.AuthService;
+import com.lark.oapi.service.wiki.WikiService;
+import com.lark.oapi.service.workplace.WorkplaceService;
+import com.lark.oapi.service.cardkit.CardkitService;
+import com.lark.oapi.service.helpdesk.HelpdeskService;
+import com.lark.oapi.service.verification.VerificationService;
+import com.lark.oapi.service.payroll.PayrollService;
+import com.lark.oapi.service.task.TaskService;
+import com.lark.oapi.service.translation.TranslationService;
+import com.lark.oapi.service.application.ApplicationService;
+import com.lark.oapi.service.board.BoardService;
+import com.lark.oapi.service.performance.PerformanceService;
+import com.lark.oapi.service.tenant.TenantService;
 import com.lark.oapi.service.docx.DocxService;
+import com.lark.oapi.service.im.ImService;
+import com.lark.oapi.service.admin.AdminService;
+import com.lark.oapi.service.search.SearchService;
+import com.lark.oapi.service.hire.HireService;
+import com.lark.oapi.service.meeting_room.MeetingRoomService;
+import com.lark.oapi.service.vc.VcService;
+import com.lark.oapi.service.acs.AcsService;
+import com.lark.oapi.service.mdm.MdmService;
+import com.lark.oapi.service.passport.PassportService;
+import com.lark.oapi.service.bitable.BitableService;
+import com.lark.oapi.service.lingo.LingoService;
+import com.lark.oapi.service.compensation.CompensationService;
+import com.lark.oapi.service.human_authentication.HumanAuthenticationService;
+import com.lark.oapi.service.report.ReportService;
+import com.lark.oapi.service.attendance.AttendanceService;
+import com.lark.oapi.service.authen.AuthenService;
+import com.lark.oapi.service.speech_to_text.SpeechToTextService;
+import com.lark.oapi.service.drive.DriveService;
+import com.lark.oapi.service.personal_settings.PersonalSettingsService;
+import com.lark.oapi.service.security_and_compliance.SecurityAndComplianceService;
+import com.lark.oapi.service.contact.ContactService;
+import com.lark.oapi.service.corehr.CorehrService;
+import com.lark.oapi.service.document_ai.DocumentAiService;
+import com.lark.oapi.service.event.EventService;
+import com.lark.oapi.service.minutes.MinutesService;
+import com.lark.oapi.service.okr.OkrService;
+import com.lark.oapi.service.auth.AuthService;
+import com.lark.oapi.service.baike.BaikeService;
+import com.lark.oapi.service.calendar.CalendarService;
+import com.lark.oapi.service.moments.MomentsService;
+import com.lark.oapi.service.optical_char_recognition.OpticalCharRecognitionService;
+import com.lark.oapi.service.sheets.SheetsService;
+import com.lark.oapi.service.apaas.ApaasService;
+import com.lark.oapi.service.base.BaseService;
+import com.lark.oapi.service.docs.DocsService;
+import com.lark.oapi.service.aily.AilyService;
+import com.lark.oapi.service.approval.ApprovalService;
+import com.lark.oapi.service.ehr.EhrService;
+import com.lark.oapi.service.block.BlockService;
 
 import com.lark.oapi.service.ext.ExtService;
 import com.lark.oapi.core.httpclient.IHttpTransport;
@@ -106,59 +106,59 @@ import com.lark.oapi.core.Constants;
 
 public class Client {
     private Config config;
-    private OpticalCharRecognitionService opticalCharRecognition;
-    private AuthenService authen;
-    private DocumentAiService documentAi;
-    private MeetingRoomService meetingRoom;
-    private OkrService okr;
-    private BlockService block;
-    private CompensationService compensation;
-    private DocsService docs;
-    private SpeechToTextService speechToText;
-    private BitableService bitable;
-    private CardkitService cardkit;
-    private AcsService acs;
-    private ContactService contact;
-    private LingoService lingo;
-    private DriveService drive;
-    private PerformanceService performance;
-    private SheetsService sheets;
-    private CorehrService corehr;
-    private PassportService passport;
-    private BaikeService baike;
-    private BoardService board;
-    private ImService im;
-    private SearchService search;
-    private VerificationService verification;
-    private TranslationService translation;
-    private AttendanceService attendance;
-    private HireService hire;
-    private PayrollService payroll;
-    private SecurityAndComplianceService securityAndCompliance;
-    private TaskService task;
-    private MinutesService minutes;
-    private MomentsService moments;
-    private VcService vc;
-    private HumanAuthenticationService humanAuthentication;
-    private CalendarService calendar;
-    private AdminService admin;
-    private ApplicationService application;
-    private ApprovalService approval;
-    private BaseService base;
-    private EhrService ehr;
-    private HelpdeskService helpdesk;
-    private WikiService wiki;
-    private AilyService aily;
-    private ApaasService apaas;
-    private EventService event;
-    private ReportService report;
-    private WorkplaceService workplace;
-    private TenantService tenant;
     private MailService mail;
-    private MdmService mdm;
-    private PersonalSettingsService personalSettings;
-    private AuthService auth;
+    private WikiService wiki;
+    private WorkplaceService workplace;
+    private CardkitService cardkit;
+    private HelpdeskService helpdesk;
+    private VerificationService verification;
+    private PayrollService payroll;
+    private TaskService task;
+    private TranslationService translation;
+    private ApplicationService application;
+    private BoardService board;
+    private PerformanceService performance;
+    private TenantService tenant;
     private DocxService docx;
+    private ImService im;
+    private AdminService admin;
+    private SearchService search;
+    private HireService hire;
+    private MeetingRoomService meetingRoom;
+    private VcService vc;
+    private AcsService acs;
+    private MdmService mdm;
+    private PassportService passport;
+    private BitableService bitable;
+    private LingoService lingo;
+    private CompensationService compensation;
+    private HumanAuthenticationService humanAuthentication;
+    private ReportService report;
+    private AttendanceService attendance;
+    private AuthenService authen;
+    private SpeechToTextService speechToText;
+    private DriveService drive;
+    private PersonalSettingsService personalSettings;
+    private SecurityAndComplianceService securityAndCompliance;
+    private ContactService contact;
+    private CorehrService corehr;
+    private DocumentAiService documentAi;
+    private EventService event;
+    private MinutesService minutes;
+    private OkrService okr;
+    private AuthService auth;
+    private BaikeService baike;
+    private CalendarService calendar;
+    private MomentsService moments;
+    private OpticalCharRecognitionService opticalCharRecognition;
+    private SheetsService sheets;
+    private ApaasService apaas;
+    private BaseService base;
+    private DocsService docs;
+    private AilyService aily;
+    private ApprovalService approval;
+    private EhrService ehr;
+    private BlockService block;
 
     private ExtService extService;
 
@@ -174,216 +174,216 @@ public class Client {
         this.config = config;
     }
 
-    public OpticalCharRecognitionService opticalCharRecognition() {
-        return opticalCharRecognition;
-    }
-
-    public AuthenService authen() {
-        return authen;
-    }
-
-    public DocumentAiService documentAi() {
-        return documentAi;
-    }
-
-    public MeetingRoomService meetingRoom() {
-        return meetingRoom;
-    }
-
-    public OkrService okr() {
-        return okr;
-    }
-
-    public BlockService block() {
-        return block;
-    }
-
-    public CompensationService compensation() {
-        return compensation;
-    }
-
-    public DocsService docs() {
-        return docs;
-    }
-
-    public SpeechToTextService speechToText() {
-        return speechToText;
-    }
-
-    public BitableService bitable() {
-        return bitable;
-    }
-
-    public CardkitService cardkit() {
-        return cardkit;
-    }
-
-    public AcsService acs() {
-        return acs;
-    }
-
-    public ContactService contact() {
-        return contact;
-    }
-
-    public LingoService lingo() {
-        return lingo;
-    }
-
-    public DriveService drive() {
-        return drive;
-    }
-
-    public PerformanceService performance() {
-        return performance;
-    }
-
-    public SheetsService sheets() {
-        return sheets;
-    }
-
-    public CorehrService corehr() {
-        return corehr;
-    }
-
-    public PassportService passport() {
-        return passport;
-    }
-
-    public BaikeService baike() {
-        return baike;
-    }
-
-    public BoardService board() {
-        return board;
-    }
-
-    public ImService im() {
-        return im;
-    }
-
-    public SearchService search() {
-        return search;
-    }
-
-    public VerificationService verification() {
-        return verification;
-    }
-
-    public TranslationService translation() {
-        return translation;
-    }
-
-    public AttendanceService attendance() {
-        return attendance;
-    }
-
-    public HireService hire() {
-        return hire;
-    }
-
-    public PayrollService payroll() {
-        return payroll;
-    }
-
-    public SecurityAndComplianceService securityAndCompliance() {
-        return securityAndCompliance;
-    }
-
-    public TaskService task() {
-        return task;
-    }
-
-    public MinutesService minutes() {
-        return minutes;
-    }
-
-    public MomentsService moments() {
-        return moments;
-    }
-
-    public VcService vc() {
-        return vc;
-    }
-
-    public HumanAuthenticationService humanAuthentication() {
-        return humanAuthentication;
-    }
-
-    public CalendarService calendar() {
-        return calendar;
-    }
-
-    public AdminService admin() {
-        return admin;
-    }
-
-    public ApplicationService application() {
-        return application;
-    }
-
-    public ApprovalService approval() {
-        return approval;
-    }
-
-    public BaseService base() {
-        return base;
-    }
-
-    public EhrService ehr() {
-        return ehr;
-    }
-
-    public HelpdeskService helpdesk() {
-        return helpdesk;
+    public MailService mail() {
+        return mail;
     }
 
     public WikiService wiki() {
         return wiki;
     }
 
-    public AilyService aily() {
-        return aily;
-    }
-
-    public ApaasService apaas() {
-        return apaas;
-    }
-
-    public EventService event() {
-        return event;
-    }
-
-    public ReportService report() {
-        return report;
-    }
-
     public WorkplaceService workplace() {
         return workplace;
+    }
+
+    public CardkitService cardkit() {
+        return cardkit;
+    }
+
+    public HelpdeskService helpdesk() {
+        return helpdesk;
+    }
+
+    public VerificationService verification() {
+        return verification;
+    }
+
+    public PayrollService payroll() {
+        return payroll;
+    }
+
+    public TaskService task() {
+        return task;
+    }
+
+    public TranslationService translation() {
+        return translation;
+    }
+
+    public ApplicationService application() {
+        return application;
+    }
+
+    public BoardService board() {
+        return board;
+    }
+
+    public PerformanceService performance() {
+        return performance;
     }
 
     public TenantService tenant() {
         return tenant;
     }
 
-    public MailService mail() {
-        return mail;
+    public DocxService docx() {
+        return docx;
+    }
+
+    public ImService im() {
+        return im;
+    }
+
+    public AdminService admin() {
+        return admin;
+    }
+
+    public SearchService search() {
+        return search;
+    }
+
+    public HireService hire() {
+        return hire;
+    }
+
+    public MeetingRoomService meetingRoom() {
+        return meetingRoom;
+    }
+
+    public VcService vc() {
+        return vc;
+    }
+
+    public AcsService acs() {
+        return acs;
     }
 
     public MdmService mdm() {
         return mdm;
     }
 
+    public PassportService passport() {
+        return passport;
+    }
+
+    public BitableService bitable() {
+        return bitable;
+    }
+
+    public LingoService lingo() {
+        return lingo;
+    }
+
+    public CompensationService compensation() {
+        return compensation;
+    }
+
+    public HumanAuthenticationService humanAuthentication() {
+        return humanAuthentication;
+    }
+
+    public ReportService report() {
+        return report;
+    }
+
+    public AttendanceService attendance() {
+        return attendance;
+    }
+
+    public AuthenService authen() {
+        return authen;
+    }
+
+    public SpeechToTextService speechToText() {
+        return speechToText;
+    }
+
+    public DriveService drive() {
+        return drive;
+    }
+
     public PersonalSettingsService personalSettings() {
         return personalSettings;
+    }
+
+    public SecurityAndComplianceService securityAndCompliance() {
+        return securityAndCompliance;
+    }
+
+    public ContactService contact() {
+        return contact;
+    }
+
+    public CorehrService corehr() {
+        return corehr;
+    }
+
+    public DocumentAiService documentAi() {
+        return documentAi;
+    }
+
+    public EventService event() {
+        return event;
+    }
+
+    public MinutesService minutes() {
+        return minutes;
+    }
+
+    public OkrService okr() {
+        return okr;
     }
 
     public AuthService auth() {
         return auth;
     }
 
-    public DocxService docx() {
-        return docx;
+    public BaikeService baike() {
+        return baike;
+    }
+
+    public CalendarService calendar() {
+        return calendar;
+    }
+
+    public MomentsService moments() {
+        return moments;
+    }
+
+    public OpticalCharRecognitionService opticalCharRecognition() {
+        return opticalCharRecognition;
+    }
+
+    public SheetsService sheets() {
+        return sheets;
+    }
+
+    public ApaasService apaas() {
+        return apaas;
+    }
+
+    public BaseService base() {
+        return base;
+    }
+
+    public DocsService docs() {
+        return docs;
+    }
+
+    public AilyService aily() {
+        return aily;
+    }
+
+    public ApprovalService approval() {
+        return approval;
+    }
+
+    public EhrService ehr() {
+        return ehr;
+    }
+
+    public BlockService block() {
+        return block;
     }
 
     public RawResponse post(String httpPath
@@ -557,59 +557,59 @@ public class Client {
             initCache(config);
             initHttpTransport(config);
             client.extService = new ExtService(config);
-            client.opticalCharRecognition = new OpticalCharRecognitionService(config);
-            client.authen = new AuthenService(config);
-            client.documentAi = new DocumentAiService(config);
-            client.meetingRoom = new MeetingRoomService(config);
-            client.okr = new OkrService(config);
-            client.block = new BlockService(config);
-            client.compensation = new CompensationService(config);
-            client.docs = new DocsService(config);
-            client.speechToText = new SpeechToTextService(config);
-            client.bitable = new BitableService(config);
-            client.cardkit = new CardkitService(config);
-            client.acs = new AcsService(config);
-            client.contact = new ContactService(config);
-            client.lingo = new LingoService(config);
-            client.drive = new DriveService(config);
-            client.performance = new PerformanceService(config);
-            client.sheets = new SheetsService(config);
-            client.corehr = new CorehrService(config);
-            client.passport = new PassportService(config);
-            client.baike = new BaikeService(config);
-            client.board = new BoardService(config);
-            client.im = new ImService(config);
-            client.search = new SearchService(config);
-            client.verification = new VerificationService(config);
-            client.translation = new TranslationService(config);
-            client.attendance = new AttendanceService(config);
-            client.hire = new HireService(config);
-            client.payroll = new PayrollService(config);
-            client.securityAndCompliance = new SecurityAndComplianceService(config);
-            client.task = new TaskService(config);
-            client.minutes = new MinutesService(config);
-            client.moments = new MomentsService(config);
-            client.vc = new VcService(config);
-            client.humanAuthentication = new HumanAuthenticationService(config);
-            client.calendar = new CalendarService(config);
-            client.admin = new AdminService(config);
-            client.application = new ApplicationService(config);
-            client.approval = new ApprovalService(config);
-            client.base = new BaseService(config);
-            client.ehr = new EhrService(config);
-            client.helpdesk = new HelpdeskService(config);
-            client.wiki = new WikiService(config);
-            client.aily = new AilyService(config);
-            client.apaas = new ApaasService(config);
-            client.event = new EventService(config);
-            client.report = new ReportService(config);
-            client.workplace = new WorkplaceService(config);
-            client.tenant = new TenantService(config);
             client.mail = new MailService(config);
-            client.mdm = new MdmService(config);
-            client.personalSettings = new PersonalSettingsService(config);
-            client.auth = new AuthService(config);
+            client.wiki = new WikiService(config);
+            client.workplace = new WorkplaceService(config);
+            client.cardkit = new CardkitService(config);
+            client.helpdesk = new HelpdeskService(config);
+            client.verification = new VerificationService(config);
+            client.payroll = new PayrollService(config);
+            client.task = new TaskService(config);
+            client.translation = new TranslationService(config);
+            client.application = new ApplicationService(config);
+            client.board = new BoardService(config);
+            client.performance = new PerformanceService(config);
+            client.tenant = new TenantService(config);
             client.docx = new DocxService(config);
+            client.im = new ImService(config);
+            client.admin = new AdminService(config);
+            client.search = new SearchService(config);
+            client.hire = new HireService(config);
+            client.meetingRoom = new MeetingRoomService(config);
+            client.vc = new VcService(config);
+            client.acs = new AcsService(config);
+            client.mdm = new MdmService(config);
+            client.passport = new PassportService(config);
+            client.bitable = new BitableService(config);
+            client.lingo = new LingoService(config);
+            client.compensation = new CompensationService(config);
+            client.humanAuthentication = new HumanAuthenticationService(config);
+            client.report = new ReportService(config);
+            client.attendance = new AttendanceService(config);
+            client.authen = new AuthenService(config);
+            client.speechToText = new SpeechToTextService(config);
+            client.drive = new DriveService(config);
+            client.personalSettings = new PersonalSettingsService(config);
+            client.securityAndCompliance = new SecurityAndComplianceService(config);
+            client.contact = new ContactService(config);
+            client.corehr = new CorehrService(config);
+            client.documentAi = new DocumentAiService(config);
+            client.event = new EventService(config);
+            client.minutes = new MinutesService(config);
+            client.okr = new OkrService(config);
+            client.auth = new AuthService(config);
+            client.baike = new BaikeService(config);
+            client.calendar = new CalendarService(config);
+            client.moments = new MomentsService(config);
+            client.opticalCharRecognition = new OpticalCharRecognitionService(config);
+            client.sheets = new SheetsService(config);
+            client.apaas = new ApaasService(config);
+            client.base = new BaseService(config);
+            client.docs = new DocsService(config);
+            client.aily = new AilyService(config);
+            client.approval = new ApprovalService(config);
+            client.ehr = new EhrService(config);
+            client.block = new BlockService(config);
 
             return client;
         }

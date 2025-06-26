@@ -377,6 +377,18 @@ public class OfferInfoUpdate {
      */
     @SerializedName("cost_allocation")
     private CostAllocation costAllocation;
+    /**
+     * 是否复用飞书账号
+     * <p> 示例值：reuse
+     */
+    @SerializedName("reuse_feishu_account")
+    private String reuseFeishuAccount;
+    /**
+     * 复用的飞书账号
+     * <p> 示例值：7032210902531327521
+     */
+    @SerializedName("reused_feishu_account_id")
+    private String reusedFeishuAccountId;
 
     // builder 开始
     public OfferInfoUpdate() {
@@ -673,6 +685,16 @@ public class OfferInfoUpdate {
          * <p> 示例值：
          */
         this.costAllocation = builder.costAllocation;
+        /**
+         * 是否复用飞书账号
+         * <p> 示例值：reuse
+         */
+        this.reuseFeishuAccount = builder.reuseFeishuAccount;
+        /**
+         * 复用的飞书账号
+         * <p> 示例值：7032210902531327521
+         */
+        this.reusedFeishuAccountId = builder.reusedFeishuAccountId;
     }
 
     public static Builder newBuilder() {
@@ -1143,6 +1165,22 @@ public class OfferInfoUpdate {
         this.costAllocation = costAllocation;
     }
 
+    public String getReuseFeishuAccount() {
+        return this.reuseFeishuAccount;
+    }
+
+    public void setReuseFeishuAccount(String reuseFeishuAccount) {
+        this.reuseFeishuAccount = reuseFeishuAccount;
+    }
+
+    public String getReusedFeishuAccountId() {
+        return this.reusedFeishuAccountId;
+    }
+
+    public void setReusedFeishuAccountId(String reusedFeishuAccountId) {
+        this.reusedFeishuAccountId = reusedFeishuAccountId;
+    }
+
     public static class Builder {
         /**
          * 入职日期
@@ -1434,6 +1472,16 @@ public class OfferInfoUpdate {
          * <p> 示例值：
          */
         private CostAllocation costAllocation;
+        /**
+         * 是否复用飞书账号
+         * <p> 示例值：reuse
+         */
+        private String reuseFeishuAccount;
+        /**
+         * 复用的飞书账号
+         * <p> 示例值：7032210902531327521
+         */
+        private String reusedFeishuAccountId;
 
         /**
          * 入职日期
@@ -2185,6 +2233,32 @@ public class OfferInfoUpdate {
          */
         public Builder costAllocation(CostAllocation costAllocation) {
             this.costAllocation = costAllocation;
+            return this;
+        }
+
+
+        /**
+         * 是否复用飞书账号
+         * <p> 示例值：reuse
+         *
+         * @param reuseFeishuAccount
+         * @return
+         */
+        public Builder reuseFeishuAccount(String reuseFeishuAccount) {
+            this.reuseFeishuAccount = reuseFeishuAccount;
+            return this;
+        }
+
+
+        /**
+         * 复用的飞书账号
+         * <p> 示例值：7032210902531327521
+         *
+         * @param reusedFeishuAccountId
+         * @return
+         */
+        public Builder reusedFeishuAccountId(String reusedFeishuAccountId) {
+            this.reusedFeishuAccountId = reusedFeishuAccountId;
             return this;
         }
 
