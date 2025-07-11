@@ -56,7 +56,7 @@ public class ImService {
     private final ChatTopNotice chatTopNotice; // chat.top_notice
     private final File file; // 消息 - 文件信息
     private final Image image; // 消息 - 图片信息
-    private final Message message; // 消息加急
+    private final Message message; // 消息
     private final MessageReaction messageReaction; // 消息 - 表情回复
     private final MessageResource messageResource; // message.resource
     private final Pin pin; // 消息 - Pin
@@ -266,7 +266,6 @@ public class ImService {
             return new P2MessageReactionDeletedV1();
         }
     }
-
 
     public abstract static class P1MessageReadV1Handler implements IEventHandler<P1MessageReadV1> {
 

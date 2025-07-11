@@ -90,10 +90,10 @@ public class OfferApplyFormObjectInfo {
     private Integer objectType;
     /**
      * 字段类型枚举
-     * <p> 示例值：1
+     * <p> 示例值：default
      */
     @SerializedName("object_type_v2")
-    private Integer objectTypeV2;
+    private String objectTypeV2;
     /**
      * 配置信息
      * <p> 示例值：
@@ -158,7 +158,7 @@ public class OfferApplyFormObjectInfo {
         this.objectType = builder.objectType;
         /**
          * 字段类型枚举
-         * <p> 示例值：1
+         * <p> 示例值：default
          */
         this.objectTypeV2 = builder.objectTypeV2;
         /**
@@ -252,11 +252,11 @@ public class OfferApplyFormObjectInfo {
         this.objectType = objectType;
     }
 
-    public Integer getObjectTypeV2() {
+    public String getObjectTypeV2() {
         return this.objectTypeV2;
     }
 
-    public void setObjectTypeV2(Integer objectTypeV2) {
+    public void setObjectTypeV2(String objectTypeV2) {
         this.objectTypeV2 = objectTypeV2;
     }
 
@@ -321,9 +321,9 @@ public class OfferApplyFormObjectInfo {
         private Integer objectType;
         /**
          * 字段类型枚举
-         * <p> 示例值：1
+         * <p> 示例值：default
          */
-        private Integer objectTypeV2;
+        private String objectTypeV2;
         /**
          * 配置信息
          * <p> 示例值：
@@ -462,12 +462,12 @@ public class OfferApplyFormObjectInfo {
 
         /**
          * 字段类型枚举
-         * <p> 示例值：1
+         * <p> 示例值：default
          *
          * @param objectTypeV2
          * @return
          */
-        public Builder objectTypeV2(Integer objectTypeV2) {
+        public Builder objectTypeV2(String objectTypeV2) {
             this.objectTypeV2 = objectTypeV2;
             return this;
         }

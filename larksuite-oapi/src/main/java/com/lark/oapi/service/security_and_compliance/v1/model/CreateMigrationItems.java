@@ -144,10 +144,10 @@ public class CreateMigrationItems {
          * 任务状态。任务创建成功固定返回 create ，若已存在其他待执行任务，则返回已存在任务的状态
          * <p> 示例值：create
          *
-         * @param taskStatus {@link com.lark.oapi.service.security_and_compliance.v1.enums.CreateMigrationItemsTaskStatusEnum}
+         * @param taskStatus {@link com.lark.oapi.service.security_and_compliance.v1.enums.CreateMigrationItemsTaskStatusEnumEnum}
          * @return
          */
-        public Builder taskStatus(com.lark.oapi.service.security_and_compliance.v1.enums.CreateMigrationItemsTaskStatusEnum taskStatus) {
+        public Builder taskStatus(com.lark.oapi.service.security_and_compliance.v1.enums.CreateMigrationItemsTaskStatusEnumEnum taskStatus) {
             this.taskStatus = taskStatus.getValue();
             return this;
         }

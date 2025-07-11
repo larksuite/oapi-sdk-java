@@ -31,37 +31,37 @@ import com.lark.oapi.core.response.BaseResponse;
 public class VaultTask {
     /**
      * 任务id
-     * <p> 示例值：
+     * <p> 示例值：123
      */
     @SerializedName("task_id")
     private String taskId;
     /**
      * 任务名
-     * <p> 示例值：
+     * <p> 示例值：任务名称
      */
     @SerializedName("name")
     private String name;
     /**
      * 任务文件总大小
-     * <p> 示例值：
+     * <p> 示例值：10
      */
     @SerializedName("size")
     private String size;
     /**
      * 任务有效天数
-     * <p> 示例值：
+     * <p> 示例值：1
      */
     @SerializedName("valid_days")
     private Integer validDays;
     /**
      * 任务创建时间戳
-     * <p> 示例值：
+     * <p> 示例值：2025
      */
     @SerializedName("create_time")
     private String createTime;
     /**
      * 文件包解压密码
-     * <p> 示例值：
+     * <p> 示例值：123
      */
     @SerializedName("extract_key")
     private String extractKey;
@@ -79,10 +79,10 @@ public class VaultTask {
     private VaultExportFile[] files;
     /**
      * 导出任务状态信息
-     * <p> 示例值：
+     * <p> 示例值：stop
      */
     @SerializedName("status")
-    private TaskStatus status;
+    private String status;
 
     // builder 开始
     public VaultTask() {
@@ -91,32 +91,32 @@ public class VaultTask {
     public VaultTask(Builder builder) {
         /**
          * 任务id
-         * <p> 示例值：
+         * <p> 示例值：123
          */
         this.taskId = builder.taskId;
         /**
          * 任务名
-         * <p> 示例值：
+         * <p> 示例值：任务名称
          */
         this.name = builder.name;
         /**
          * 任务文件总大小
-         * <p> 示例值：
+         * <p> 示例值：10
          */
         this.size = builder.size;
         /**
          * 任务有效天数
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         this.validDays = builder.validDays;
         /**
          * 任务创建时间戳
-         * <p> 示例值：
+         * <p> 示例值：2025
          */
         this.createTime = builder.createTime;
         /**
          * 文件包解压密码
-         * <p> 示例值：
+         * <p> 示例值：123
          */
         this.extractKey = builder.extractKey;
         /**
@@ -131,7 +131,7 @@ public class VaultTask {
         this.files = builder.files;
         /**
          * 导出任务状态信息
-         * <p> 示例值：
+         * <p> 示例值：stop
          */
         this.status = builder.status;
     }
@@ -204,43 +204,43 @@ public class VaultTask {
         this.files = files;
     }
 
-    public TaskStatus getStatus() {
+    public String getStatus() {
         return this.status;
     }
 
-    public void setStatus(TaskStatus status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
     public static class Builder {
         /**
          * 任务id
-         * <p> 示例值：
+         * <p> 示例值：123
          */
         private String taskId;
         /**
          * 任务名
-         * <p> 示例值：
+         * <p> 示例值：任务名称
          */
         private String name;
         /**
          * 任务文件总大小
-         * <p> 示例值：
+         * <p> 示例值：10
          */
         private String size;
         /**
          * 任务有效天数
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         private Integer validDays;
         /**
          * 任务创建时间戳
-         * <p> 示例值：
+         * <p> 示例值：2025
          */
         private String createTime;
         /**
          * 文件包解压密码
-         * <p> 示例值：
+         * <p> 示例值：123
          */
         private String extractKey;
         /**
@@ -255,13 +255,13 @@ public class VaultTask {
         private VaultExportFile[] files;
         /**
          * 导出任务状态信息
-         * <p> 示例值：
+         * <p> 示例值：stop
          */
-        private TaskStatus status;
+        private String status;
 
         /**
          * 任务id
-         * <p> 示例值：
+         * <p> 示例值：123
          *
          * @param taskId
          * @return
@@ -274,7 +274,7 @@ public class VaultTask {
 
         /**
          * 任务名
-         * <p> 示例值：
+         * <p> 示例值：任务名称
          *
          * @param name
          * @return
@@ -287,7 +287,7 @@ public class VaultTask {
 
         /**
          * 任务文件总大小
-         * <p> 示例值：
+         * <p> 示例值：10
          *
          * @param size
          * @return
@@ -300,7 +300,7 @@ public class VaultTask {
 
         /**
          * 任务有效天数
-         * <p> 示例值：
+         * <p> 示例值：1
          *
          * @param validDays
          * @return
@@ -313,7 +313,7 @@ public class VaultTask {
 
         /**
          * 任务创建时间戳
-         * <p> 示例值：
+         * <p> 示例值：2025
          *
          * @param createTime
          * @return
@@ -326,7 +326,7 @@ public class VaultTask {
 
         /**
          * 文件包解压密码
-         * <p> 示例值：
+         * <p> 示例值：123
          *
          * @param extractKey
          * @return
@@ -365,12 +365,12 @@ public class VaultTask {
 
         /**
          * 导出任务状态信息
-         * <p> 示例值：
+         * <p> 示例值：stop
          *
          * @param status
          * @return
          */
-        public Builder status(TaskStatus status) {
+        public Builder status(String status) {
             this.status = status;
             return this;
         }

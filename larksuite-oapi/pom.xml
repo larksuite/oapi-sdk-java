@@ -22,7 +22,7 @@
                 <artifactId>nexus-staging-maven-plugin</artifactId>
                 <configuration>
                     <autoReleaseAfterClose>true</autoReleaseAfterClose>
-                    <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
+                    <nexusUrl>https://ossrh-staging-api.central.sonatype.com/</nexusUrl>
                     <serverId>ossrh</serverId>
                 </configuration>
                 <extensions>true</extensions>
@@ -215,11 +215,11 @@
     <distributionManagement>
         <repository>
             <id>ossrh</id>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+            <url>https://ossrh-staging-api.central.sonatype.com/service/local/</url>
         </repository>
         <snapshotRepository>
             <id>ossrh</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+            <url>https://central.sonatype.com/repository/maven-snapshots/</url>
         </snapshotRepository>
     </distributionManagement>
     <groupId>com.larksuite.oapi</groupId>
@@ -258,5 +258,5 @@
 
     <url>https://github.com/larksuite/oapi-sdk-java</url>
 
-    <version>2.4.19</version>
+    <version>2.4.20</version>
 </project>

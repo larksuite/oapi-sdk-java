@@ -179,7 +179,7 @@ public class JobRequirement {
     @SerializedName("job_type_id")
     private String jobTypeId;
     /**
-     * 关联的职位 ID 列表
+     * 关联的职位 ID 列表。注：若企业开启了“招聘需求审批”，未通过审批的需求无法关联职位，请勿传入该字段。
      * <p> 示例值：
      */
     @SerializedName("job_id_list")
@@ -334,7 +334,7 @@ public class JobRequirement {
          */
         this.jobTypeId = builder.jobTypeId;
         /**
-         * 关联的职位 ID 列表
+         * 关联的职位 ID 列表。注：若企业开启了“招聘需求审批”，未通过审批的需求无法关联职位，请勿传入该字段。
          * <p> 示例值：
          */
         this.jobIdList = builder.jobIdList;
@@ -718,7 +718,7 @@ public class JobRequirement {
          */
         private String jobTypeId;
         /**
-         * 关联的职位 ID 列表
+         * 关联的职位 ID 列表。注：若企业开启了“招聘需求审批”，未通过审批的需求无法关联职位，请勿传入该字段。
          * <p> 示例值：
          */
         private String[] jobIdList;
@@ -1064,7 +1064,7 @@ public class JobRequirement {
 
 
         /**
-         * 关联的职位 ID 列表
+         * 关联的职位 ID 列表。注：若企业开启了“招聘需求审批”，未通过审批的需求无法关联职位，请勿传入该字段。
          * <p> 示例值：
          *
          * @param jobIdList

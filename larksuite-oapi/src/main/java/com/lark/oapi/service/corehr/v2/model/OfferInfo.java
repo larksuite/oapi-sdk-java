@@ -36,6 +36,12 @@ public class OfferInfo {
     @SerializedName("offer_id")
     private String offerId;
     /**
+     * Offer id查找类型ID
+     * <p> 示例值：7032210902531327521
+     */
+    @SerializedName("offer")
+    private String offer;
+    /**
      * Offer hr id
      * <p> 示例值：7032210902531327521
      */
@@ -419,6 +425,11 @@ public class OfferInfo {
          */
         this.offerId = builder.offerId;
         /**
+         * Offer id查找类型ID
+         * <p> 示例值：7032210902531327521
+         */
+        this.offer = builder.offer;
+        /**
          * Offer hr id
          * <p> 示例值：7032210902531327521
          */
@@ -740,6 +751,14 @@ public class OfferInfo {
 
     public void setOfferId(String offerId) {
         this.offerId = offerId;
+    }
+
+    public String getOffer() {
+        return this.offer;
+    }
+
+    public void setOffer(String offer) {
+        this.offer = offer;
     }
 
     public String getOfferHrId() {
@@ -1245,6 +1264,11 @@ public class OfferInfo {
          */
         private String offerId;
         /**
+         * Offer id查找类型ID
+         * <p> 示例值：7032210902531327521
+         */
+        private String offer;
+        /**
          * Offer hr id
          * <p> 示例值：7032210902531327521
          */
@@ -1564,6 +1588,19 @@ public class OfferInfo {
          */
         public Builder offerId(String offerId) {
             this.offerId = offerId;
+            return this;
+        }
+
+
+        /**
+         * Offer id查找类型ID
+         * <p> 示例值：7032210902531327521
+         *
+         * @param offer
+         * @return
+         */
+        public Builder offer(String offer) {
+            this.offer = offer;
             return this;
         }
 

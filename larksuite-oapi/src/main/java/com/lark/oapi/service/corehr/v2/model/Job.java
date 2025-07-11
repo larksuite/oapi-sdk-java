@@ -107,6 +107,30 @@ public class Job {
      */
     @SerializedName("custom_fields")
     private ObjectFieldData[] customFields;
+    /**
+     * 创建人
+     * <p> 示例值：4719519211875096301
+     */
+    @SerializedName("created_by")
+    private String createdBy;
+    /**
+     * 创建时间
+     * <p> 示例值：2021-01-01 00:00:00
+     */
+    @SerializedName("created_time")
+    private String createdTime;
+    /**
+     * 更新人
+     * <p> 示例值：2415132452875096301
+     */
+    @SerializedName("updated_by")
+    private String updatedBy;
+    /**
+     * 更新时间
+     * <p> 示例值：2021-01-01 00:00:00
+     */
+    @SerializedName("updated_time")
+    private String updatedTime;
 
     // builder 开始
     public Job() {
@@ -178,6 +202,26 @@ public class Job {
          * <p> 示例值：
          */
         this.customFields = builder.customFields;
+        /**
+         * 创建人
+         * <p> 示例值：4719519211875096301
+         */
+        this.createdBy = builder.createdBy;
+        /**
+         * 创建时间
+         * <p> 示例值：2021-01-01 00:00:00
+         */
+        this.createdTime = builder.createdTime;
+        /**
+         * 更新人
+         * <p> 示例值：2415132452875096301
+         */
+        this.updatedBy = builder.updatedBy;
+        /**
+         * 更新时间
+         * <p> 示例值：2021-01-01 00:00:00
+         */
+        this.updatedTime = builder.updatedTime;
     }
 
     public static Builder newBuilder() {
@@ -288,6 +332,38 @@ public class Job {
         this.customFields = customFields;
     }
 
+    public String getCreatedBy() {
+        return this.createdBy;
+    }
+
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
+    }
+
+    public String getCreatedTime() {
+        return this.createdTime;
+    }
+
+    public void setCreatedTime(String createdTime) {
+        this.createdTime = createdTime;
+    }
+
+    public String getUpdatedBy() {
+        return this.updatedBy;
+    }
+
+    public void setUpdatedBy(String updatedBy) {
+        this.updatedBy = updatedBy;
+    }
+
+    public String getUpdatedTime() {
+        return this.updatedTime;
+    }
+
+    public void setUpdatedTime(String updatedTime) {
+        this.updatedTime = updatedTime;
+    }
+
     public static class Builder {
         /**
          * 实体在CoreHR内部的唯一键
@@ -354,6 +430,26 @@ public class Job {
          * <p> 示例值：
          */
         private ObjectFieldData[] customFields;
+        /**
+         * 创建人
+         * <p> 示例值：4719519211875096301
+         */
+        private String createdBy;
+        /**
+         * 创建时间
+         * <p> 示例值：2021-01-01 00:00:00
+         */
+        private String createdTime;
+        /**
+         * 更新人
+         * <p> 示例值：2415132452875096301
+         */
+        private String updatedBy;
+        /**
+         * 更新时间
+         * <p> 示例值：2021-01-01 00:00:00
+         */
+        private String updatedTime;
 
         /**
          * 实体在CoreHR内部的唯一键
@@ -520,6 +616,58 @@ public class Job {
          */
         public Builder customFields(ObjectFieldData[] customFields) {
             this.customFields = customFields;
+            return this;
+        }
+
+
+        /**
+         * 创建人
+         * <p> 示例值：4719519211875096301
+         *
+         * @param createdBy
+         * @return
+         */
+        public Builder createdBy(String createdBy) {
+            this.createdBy = createdBy;
+            return this;
+        }
+
+
+        /**
+         * 创建时间
+         * <p> 示例值：2021-01-01 00:00:00
+         *
+         * @param createdTime
+         * @return
+         */
+        public Builder createdTime(String createdTime) {
+            this.createdTime = createdTime;
+            return this;
+        }
+
+
+        /**
+         * 更新人
+         * <p> 示例值：2415132452875096301
+         *
+         * @param updatedBy
+         * @return
+         */
+        public Builder updatedBy(String updatedBy) {
+            this.updatedBy = updatedBy;
+            return this;
+        }
+
+
+        /**
+         * 更新时间
+         * <p> 示例值：2021-01-01 00:00:00
+         *
+         * @param updatedTime
+         * @return
+         */
+        public Builder updatedTime(String updatedTime) {
+            this.updatedTime = updatedTime;
             return this;
         }
 

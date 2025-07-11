@@ -23,6 +23,7 @@ public class CreatePreHireSample {
                         .educationInfo(new EducationInfo[]{})
                         .workExperience(new WorkExperience[]{})
                         .atsApplicationId("7140946969586010376")
+                        .application("7140946969586010376")
                         .outBizId("7140946969586010376")
                         .build())
                 .build();

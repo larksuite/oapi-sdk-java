@@ -131,10 +131,10 @@ public class FileRiskDetectionRecordResult {
          * 检测状态
          * <p> 示例值：FINISHED
          *
-         * @param status {@link com.lark.oapi.service.security_and_compliance.v1.enums.FileRiskDetectionRecordResultStatusEnum}
+         * @param status {@link com.lark.oapi.service.security_and_compliance.v1.enums.FileRiskDetectionRecordResultFileRiskDetectionRecordResultStatusEnum}
          * @return
          */
-        public Builder status(com.lark.oapi.service.security_and_compliance.v1.enums.FileRiskDetectionRecordResultStatusEnum status) {
+        public Builder status(com.lark.oapi.service.security_and_compliance.v1.enums.FileRiskDetectionRecordResultFileRiskDetectionRecordResultStatusEnum status) {
             this.status = status.getValue();
             return this;
         }
@@ -156,10 +156,10 @@ public class FileRiskDetectionRecordResult {
          * 风险类型
          * <p> 示例值：RISK
          *
-         * @param riskTag {@link com.lark.oapi.service.security_and_compliance.v1.enums.FileRiskDetectionRecordResultRiskTagEnum}
+         * @param riskTag {@link com.lark.oapi.service.security_and_compliance.v1.enums.FileRiskDetectionRecordResultFileRiskDetectionRecordResultRiskTagEnum}
          * @return
          */
-        public Builder riskTag(com.lark.oapi.service.security_and_compliance.v1.enums.FileRiskDetectionRecordResultRiskTagEnum riskTag) {
+        public Builder riskTag(com.lark.oapi.service.security_and_compliance.v1.enums.FileRiskDetectionRecordResultFileRiskDetectionRecordResultRiskTagEnum riskTag) {
             this.riskTag = riskTag.getValue();
             return this;
         }

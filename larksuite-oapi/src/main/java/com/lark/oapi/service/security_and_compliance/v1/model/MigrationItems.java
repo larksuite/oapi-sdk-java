@@ -168,10 +168,10 @@ public class MigrationItems {
          * 任务状态
          * <p> 示例值：create
          *
-         * @param taskStatus {@link com.lark.oapi.service.security_and_compliance.v1.enums.MigrationItemsTaskStatusEnum}
+         * @param taskStatus {@link com.lark.oapi.service.security_and_compliance.v1.enums.MigrationItemsTaskStatusEnumEnum}
          * @return
          */
-        public Builder taskStatus(com.lark.oapi.service.security_and_compliance.v1.enums.MigrationItemsTaskStatusEnum taskStatus) {
+        public Builder taskStatus(com.lark.oapi.service.security_and_compliance.v1.enums.MigrationItemsTaskStatusEnumEnum taskStatus) {
             this.taskStatus = taskStatus.getValue();
             return this;
         }
