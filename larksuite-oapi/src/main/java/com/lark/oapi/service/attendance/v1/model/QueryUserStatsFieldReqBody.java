@@ -155,10 +155,10 @@ public class QueryUserStatsFieldReqBody {
          * 语言类型
          * <p> 示例值：zh
          *
-         * @param locale {@link com.lark.oapi.service.attendance.v1.enums.QueryUserStatsFieldLocaleEnum}
+         * @param locale {@link com.lark.oapi.service.attendance.v1.enums.QueryUserStatsFieldQueryUserFieldLocaleEnum}
          * @return
          */
-        public Builder locale(com.lark.oapi.service.attendance.v1.enums.QueryUserStatsFieldLocaleEnum locale) {
+        public Builder locale(com.lark.oapi.service.attendance.v1.enums.QueryUserStatsFieldQueryUserFieldLocaleEnum locale) {
             this.locale = locale.getValue();
             return this;
         }
@@ -180,10 +180,10 @@ public class QueryUserStatsFieldReqBody {
          * 统计类型
          * <p> 示例值：daily
          *
-         * @param statsType {@link com.lark.oapi.service.attendance.v1.enums.QueryUserStatsFieldStatsTypeEnum}
+         * @param statsType {@link com.lark.oapi.service.attendance.v1.enums.QueryUserStatsFieldQueryUserFieldStatsTypeEnum}
          * @return
          */
-        public Builder statsType(com.lark.oapi.service.attendance.v1.enums.QueryUserStatsFieldStatsTypeEnum statsType) {
+        public Builder statsType(com.lark.oapi.service.attendance.v1.enums.QueryUserStatsFieldQueryUserFieldStatsTypeEnum statsType) {
             this.statsType = statsType.getValue();
             return this;
         }

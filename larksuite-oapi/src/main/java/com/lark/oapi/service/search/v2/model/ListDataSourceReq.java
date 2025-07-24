@@ -121,10 +121,10 @@ public class ListDataSourceReq {
          * 回包数据格式，0-全量数据；1-摘要数据。;;**注**：摘要数据仅包含"id"，"name"，"state"。
          * <p> 示例值：0
          *
-         * @param view {@link com.lark.oapi.service.search.v2.enums.ListDataSourceViewEnum}
+         * @param view {@link com.lark.oapi.service.search.v2.enums.ListDataSourceListDataSourceViewEnum}
          * @return
          */
-        public Builder view(com.lark.oapi.service.search.v2.enums.ListDataSourceViewEnum view) {
+        public Builder view(com.lark.oapi.service.search.v2.enums.ListDataSourceListDataSourceViewEnum view) {
             this.view = view.getValue();
             return this;
         }

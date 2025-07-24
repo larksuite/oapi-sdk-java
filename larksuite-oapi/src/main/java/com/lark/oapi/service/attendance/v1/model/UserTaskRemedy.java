@@ -425,10 +425,10 @@ public class UserTaskRemedy {
          * 补卡状态（默认为审批中）
          * <p> 示例值：2
          *
-         * @param status {@link com.lark.oapi.service.attendance.v1.enums.UserTaskRemedyStatusEnum}
+         * @param status {@link com.lark.oapi.service.attendance.v1.enums.UserTaskRemedyUserTaskRemedyStatusEnum}
          * @return
          */
-        public Builder status(com.lark.oapi.service.attendance.v1.enums.UserTaskRemedyStatusEnum status) {
+        public Builder status(com.lark.oapi.service.attendance.v1.enums.UserTaskRemedyUserTaskRemedyStatusEnum status) {
             this.status = status.getValue();
             return this;
         }

@@ -133,10 +133,10 @@ public class QueryUserTaskReq {
          * 员工工号类型
          * <p> 示例值：employee_id
          *
-         * @param employeeType {@link com.lark.oapi.service.attendance.v1.enums.QueryUserTaskEmployeeTypeEnum}
+         * @param employeeType {@link com.lark.oapi.service.attendance.v1.enums.QueryUserTaskGetUserTaskClockInFlowsEmployeeTypeEnum}
          * @return
          */
-        public Builder employeeType(com.lark.oapi.service.attendance.v1.enums.QueryUserTaskEmployeeTypeEnum employeeType) {
+        public Builder employeeType(com.lark.oapi.service.attendance.v1.enums.QueryUserTaskGetUserTaskClockInFlowsEmployeeTypeEnum employeeType) {
             this.employeeType = employeeType.getValue();
             return this;
         }

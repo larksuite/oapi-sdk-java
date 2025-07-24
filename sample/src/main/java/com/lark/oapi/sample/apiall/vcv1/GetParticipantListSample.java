@@ -23,6 +23,7 @@ public class GetParticipantListSample {
                 .roomId("omm_eada1d61a550955240c28757e7dec3af")
                 .pageSize(20)
                 .pageToken("")
+                .webinarUserRole("0")
                 .userIdType("user_id")
                 .build();
 

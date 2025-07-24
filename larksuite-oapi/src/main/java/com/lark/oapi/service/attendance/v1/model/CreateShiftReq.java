@@ -91,10 +91,10 @@ public class CreateShiftReq {
          * 用户 ID 的类型 不提供则用户相关字段无效
          * <p> 示例值：
          *
-         * @param employeeType {@link com.lark.oapi.service.attendance.v1.enums.CreateShiftEmployeeTypeEnum}
+         * @param employeeType {@link com.lark.oapi.service.attendance.v1.enums.CreateShiftCreateShiftEmployeeTypeEnum}
          * @return
          */
-        public Builder employeeType(com.lark.oapi.service.attendance.v1.enums.CreateShiftEmployeeTypeEnum employeeType) {
+        public Builder employeeType(com.lark.oapi.service.attendance.v1.enums.CreateShiftCreateShiftEmployeeTypeEnum employeeType) {
             this.employeeType = employeeType.getValue();
             return this;
         }

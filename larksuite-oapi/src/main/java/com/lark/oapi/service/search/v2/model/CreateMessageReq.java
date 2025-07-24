@@ -133,10 +133,10 @@ public class CreateMessageReq {
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
          *
-         * @param userIdType {@link com.lark.oapi.service.search.v2.enums.CreateMessageUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.search.v2.enums.CreateMessageSearchMessageUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.search.v2.enums.CreateMessageUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.search.v2.enums.CreateMessageSearchMessageUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }

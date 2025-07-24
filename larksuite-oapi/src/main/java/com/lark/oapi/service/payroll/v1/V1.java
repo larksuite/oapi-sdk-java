@@ -18,6 +18,7 @@ import com.lark.oapi.service.payroll.v1.resource.*;
 
 public class V1 {
     private final AcctItem acctItem; // acct_item
+    private final CostAllocationDetail costAllocationDetail; // cost_allocation_detail
     private final CostAllocationPlan costAllocationPlan; // cost_allocation_plan
     private final CostAllocationReport costAllocationReport; // cost_allocation_report
     private final Datasource datasource; // datasource
@@ -29,6 +30,7 @@ public class V1 {
 
     public V1(Config config) {
         this.acctItem = new AcctItem(config);
+        this.costAllocationDetail = new CostAllocationDetail(config);
         this.costAllocationPlan = new CostAllocationPlan(config);
         this.costAllocationReport = new CostAllocationReport(config);
         this.datasource = new Datasource(config);
@@ -41,6 +43,10 @@ public class V1 {
 
     public AcctItem acctItem() {
         return acctItem;
+    }
+
+    public CostAllocationDetail costAllocationDetail() {
+        return costAllocationDetail;
     }
 
     public CostAllocationPlan costAllocationPlan() {

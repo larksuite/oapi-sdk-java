@@ -100,10 +100,10 @@ public class GetUserFlowReq {
          * 响应体中的 user_id 和 creator_id 的员工工号类型
          * <p> 示例值：employee_id
          *
-         * @param employeeType {@link com.lark.oapi.service.attendance.v1.enums.GetUserFlowEmployeeTypeEnum}
+         * @param employeeType {@link com.lark.oapi.service.attendance.v1.enums.GetUserFlowGetUserClockInFlowDetailEmployeeTypeEnum}
          * @return
          */
-        public Builder employeeType(com.lark.oapi.service.attendance.v1.enums.GetUserFlowEmployeeTypeEnum employeeType) {
+        public Builder employeeType(com.lark.oapi.service.attendance.v1.enums.GetUserFlowGetUserClockInFlowDetailEmployeeTypeEnum employeeType) {
             this.employeeType = employeeType.getValue();
             return this;
         }

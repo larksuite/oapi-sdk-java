@@ -47,6 +47,12 @@ public class ProgressRecord {
      */
     @SerializedName("content")
     private ContentBlock content;
+    /**
+     * 进展，包括百分比和状态
+     * <p> 示例值：
+     */
+    @SerializedName("progress_rate")
+    private ProgressRateNew progressRate;
 
     // builder 开始
     public ProgressRecord() {
@@ -68,6 +74,11 @@ public class ProgressRecord {
          * <p> 示例值：
          */
         this.content = builder.content;
+        /**
+         * 进展，包括百分比和状态
+         * <p> 示例值：
+         */
+        this.progressRate = builder.progressRate;
     }
 
     public static Builder newBuilder() {
@@ -98,6 +109,14 @@ public class ProgressRecord {
         this.content = content;
     }
 
+    public ProgressRateNew getProgressRate() {
+        return this.progressRate;
+    }
+
+    public void setProgressRate(ProgressRateNew progressRate) {
+        this.progressRate = progressRate;
+    }
+
     public static class Builder {
         /**
          * OKR 进展ID
@@ -114,6 +133,11 @@ public class ProgressRecord {
          * <p> 示例值：
          */
         private ContentBlock content;
+        /**
+         * 进展，包括百分比和状态
+         * <p> 示例值：
+         */
+        private ProgressRateNew progressRate;
 
         /**
          * OKR 进展ID
@@ -150,6 +174,19 @@ public class ProgressRecord {
          */
         public Builder content(ContentBlock content) {
             this.content = content;
+            return this;
+        }
+
+
+        /**
+         * 进展，包括百分比和状态
+         * <p> 示例值：
+         *
+         * @param progressRate
+         * @return
+         */
+        public Builder progressRate(ProgressRateNew progressRate) {
+            this.progressRate = progressRate;
             return this;
         }
 

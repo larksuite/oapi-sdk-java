@@ -46,6 +46,12 @@ public class UpdateProgressRecordRespBody {
      */
     @SerializedName("content")
     private ContentBlock content;
+    /**
+     * 进展，包括百分比和状态
+     * <p> 示例值：
+     */
+    @SerializedName("progress_rate")
+    private ProgressRateNew progressRate;
 
     public String getProgressId() {
         return this.progressId;
@@ -69,6 +75,14 @@ public class UpdateProgressRecordRespBody {
 
     public void setContent(ContentBlock content) {
         this.content = content;
+    }
+
+    public ProgressRateNew getProgressRate() {
+        return this.progressRate;
+    }
+
+    public void setProgressRate(ProgressRateNew progressRate) {
+        this.progressRate = progressRate;
     }
 
 }

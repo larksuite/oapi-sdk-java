@@ -112,10 +112,10 @@ public class PatchLeaveAccrualRecordReq {
          * 用户 ID 类型
          * <p> 示例值：open_id
          *
-         * @param userIdType {@link com.lark.oapi.service.attendance.v1.enums.PatchLeaveAccrualRecordUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.attendance.v1.enums.PatchLeaveAccrualRecordPatchLeaveAccrualRecordUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.attendance.v1.enums.PatchLeaveAccrualRecordUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.attendance.v1.enums.PatchLeaveAccrualRecordPatchLeaveAccrualRecordUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }

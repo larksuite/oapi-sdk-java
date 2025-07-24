@@ -133,10 +133,10 @@ public class CreateAppReq {
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
          *
-         * @param userIdType {@link com.lark.oapi.service.search.v2.enums.CreateAppUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.search.v2.enums.CreateAppSearchAppUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.search.v2.enums.CreateAppUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.search.v2.enums.CreateAppSearchAppUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }

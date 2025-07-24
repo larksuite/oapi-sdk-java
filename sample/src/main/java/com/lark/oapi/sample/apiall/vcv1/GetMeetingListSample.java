@@ -24,6 +24,8 @@ public class GetMeetingListSample {
                 .meetingType(2)
                 .pageSize(20)
                 .pageToken("")
+                .includeExternalMeetings(false)
+                .includeWebinar(false)
                 .userIdType("user_id")
                 .build();
 

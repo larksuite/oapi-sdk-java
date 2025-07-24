@@ -102,7 +102,7 @@ public class MeetingInfo {
     @SerializedName("meeting_duration")
     private String meetingDuration;
     /**
-     * 参会人数
+     * 参会人数（网络研讨会时，为嘉宾人数）
      * <p> 示例值：1
      */
     @SerializedName("number_of_participants")
@@ -155,6 +155,36 @@ public class MeetingInfo {
      */
     @SerializedName("has_related_document")
     private Boolean hasRelatedDocument;
+    /**
+     * 是否使用AI纪要
+     * <p> 示例值：false
+     */
+    @SerializedName("ai_note")
+    private Boolean aiNote;
+    /**
+     * 是否为外部会议
+     * <p> 示例值：false
+     */
+    @SerializedName("is_external")
+    private Boolean isExternal;
+    /**
+     * 会议子类型
+     * <p> 示例值：1
+     */
+    @SerializedName("meeting_subtype")
+    private Integer meetingSubtype;
+    /**
+     * 唯一会议ID
+     * <p> 示例值：7529416531681214468
+     */
+    @SerializedName("meeting_instance_id")
+    private String meetingInstanceId;
+    /**
+     * 网络研讨会观众人数
+     * <p> 示例值：1
+     */
+    @SerializedName("number_of_webinar_viewers")
+    private String numberOfWebinarViewers;
 
     // builder 开始
     public MeetingInfo() {
@@ -222,7 +252,7 @@ public class MeetingInfo {
          */
         this.meetingDuration = builder.meetingDuration;
         /**
-         * 参会人数
+         * 参会人数（网络研讨会时，为嘉宾人数）
          * <p> 示例值：1
          */
         this.numberOfParticipants = builder.numberOfParticipants;
@@ -266,6 +296,31 @@ public class MeetingInfo {
          * <p> 示例值：false
          */
         this.hasRelatedDocument = builder.hasRelatedDocument;
+        /**
+         * 是否使用AI纪要
+         * <p> 示例值：false
+         */
+        this.aiNote = builder.aiNote;
+        /**
+         * 是否为外部会议
+         * <p> 示例值：false
+         */
+        this.isExternal = builder.isExternal;
+        /**
+         * 会议子类型
+         * <p> 示例值：1
+         */
+        this.meetingSubtype = builder.meetingSubtype;
+        /**
+         * 唯一会议ID
+         * <p> 示例值：7529416531681214468
+         */
+        this.meetingInstanceId = builder.meetingInstanceId;
+        /**
+         * 网络研讨会观众人数
+         * <p> 示例值：1
+         */
+        this.numberOfWebinarViewers = builder.numberOfWebinarViewers;
     }
 
     public static Builder newBuilder() {
@@ -440,6 +495,46 @@ public class MeetingInfo {
         this.hasRelatedDocument = hasRelatedDocument;
     }
 
+    public Boolean getAiNote() {
+        return this.aiNote;
+    }
+
+    public void setAiNote(Boolean aiNote) {
+        this.aiNote = aiNote;
+    }
+
+    public Boolean getIsExternal() {
+        return this.isExternal;
+    }
+
+    public void setIsExternal(Boolean isExternal) {
+        this.isExternal = isExternal;
+    }
+
+    public Integer getMeetingSubtype() {
+        return this.meetingSubtype;
+    }
+
+    public void setMeetingSubtype(Integer meetingSubtype) {
+        this.meetingSubtype = meetingSubtype;
+    }
+
+    public String getMeetingInstanceId() {
+        return this.meetingInstanceId;
+    }
+
+    public void setMeetingInstanceId(String meetingInstanceId) {
+        this.meetingInstanceId = meetingInstanceId;
+    }
+
+    public String getNumberOfWebinarViewers() {
+        return this.numberOfWebinarViewers;
+    }
+
+    public void setNumberOfWebinarViewers(String numberOfWebinarViewers) {
+        this.numberOfWebinarViewers = numberOfWebinarViewers;
+    }
+
     public static class Builder {
         /**
          * 9位会议号
@@ -502,7 +597,7 @@ public class MeetingInfo {
          */
         private String meetingDuration;
         /**
-         * 参会人数
+         * 参会人数（网络研讨会时，为嘉宾人数）
          * <p> 示例值：1
          */
         private String numberOfParticipants;
@@ -546,6 +641,31 @@ public class MeetingInfo {
          * <p> 示例值：false
          */
         private Boolean hasRelatedDocument;
+        /**
+         * 是否使用AI纪要
+         * <p> 示例值：false
+         */
+        private Boolean aiNote;
+        /**
+         * 是否为外部会议
+         * <p> 示例值：false
+         */
+        private Boolean isExternal;
+        /**
+         * 会议子类型
+         * <p> 示例值：1
+         */
+        private Integer meetingSubtype;
+        /**
+         * 唯一会议ID
+         * <p> 示例值：7529416531681214468
+         */
+        private String meetingInstanceId;
+        /**
+         * 网络研讨会观众人数
+         * <p> 示例值：1
+         */
+        private String numberOfWebinarViewers;
 
         /**
          * 9位会议号
@@ -716,7 +836,7 @@ public class MeetingInfo {
 
 
         /**
-         * 参会人数
+         * 参会人数（网络研讨会时，为嘉宾人数）
          * <p> 示例值：1
          *
          * @param numberOfParticipants
@@ -828,6 +948,83 @@ public class MeetingInfo {
          */
         public Builder hasRelatedDocument(Boolean hasRelatedDocument) {
             this.hasRelatedDocument = hasRelatedDocument;
+            return this;
+        }
+
+
+        /**
+         * 是否使用AI纪要
+         * <p> 示例值：false
+         *
+         * @param aiNote
+         * @return
+         */
+        public Builder aiNote(Boolean aiNote) {
+            this.aiNote = aiNote;
+            return this;
+        }
+
+
+        /**
+         * 是否为外部会议
+         * <p> 示例值：false
+         *
+         * @param isExternal
+         * @return
+         */
+        public Builder isExternal(Boolean isExternal) {
+            this.isExternal = isExternal;
+            return this;
+        }
+
+
+        /**
+         * 会议子类型
+         * <p> 示例值：1
+         *
+         * @param meetingSubtype
+         * @return
+         */
+        public Builder meetingSubtype(Integer meetingSubtype) {
+            this.meetingSubtype = meetingSubtype;
+            return this;
+        }
+
+        /**
+         * 会议子类型
+         * <p> 示例值：1
+         *
+         * @param meetingSubtype {@link com.lark.oapi.service.vc.v1.enums.MeetingInfoMeetingSubtypeEnum}
+         * @return
+         */
+        public Builder meetingSubtype(com.lark.oapi.service.vc.v1.enums.MeetingInfoMeetingSubtypeEnum meetingSubtype) {
+            this.meetingSubtype = meetingSubtype.getValue();
+            return this;
+        }
+
+
+        /**
+         * 唯一会议ID
+         * <p> 示例值：7529416531681214468
+         *
+         * @param meetingInstanceId
+         * @return
+         */
+        public Builder meetingInstanceId(String meetingInstanceId) {
+            this.meetingInstanceId = meetingInstanceId;
+            return this;
+        }
+
+
+        /**
+         * 网络研讨会观众人数
+         * <p> 示例值：1
+         *
+         * @param numberOfWebinarViewers
+         * @return
+         */
+        public Builder numberOfWebinarViewers(String numberOfWebinarViewers) {
+            this.numberOfWebinarViewers = numberOfWebinarViewers;
             return this;
         }
 

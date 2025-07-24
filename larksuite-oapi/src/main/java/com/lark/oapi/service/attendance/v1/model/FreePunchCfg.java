@@ -65,6 +65,12 @@ public class FreePunchCfg {
      */
     @SerializedName("work_hours")
     private Integer workHours;
+    /**
+     * 自由班制的打卡配置
+     * <p> 示例值：
+     */
+    @SerializedName("free_clock_setting")
+    private FreeClockSetting freeClockSetting;
 
     // builder 开始
     public FreePunchCfg() {
@@ -101,6 +107,11 @@ public class FreePunchCfg {
          * <p> 示例值：480
          */
         this.workHours = builder.workHours;
+        /**
+         * 自由班制的打卡配置
+         * <p> 示例值：
+         */
+        this.freeClockSetting = builder.freeClockSetting;
     }
 
     public static Builder newBuilder() {
@@ -155,6 +166,14 @@ public class FreePunchCfg {
         this.workHours = workHours;
     }
 
+    public FreeClockSetting getFreeClockSetting() {
+        return this.freeClockSetting;
+    }
+
+    public void setFreeClockSetting(FreeClockSetting freeClockSetting) {
+        this.freeClockSetting = freeClockSetting;
+    }
+
     public static class Builder {
         /**
          * 自由班制打卡开始时间
@@ -186,6 +205,11 @@ public class FreePunchCfg {
          * <p> 示例值：480
          */
         private Integer workHours;
+        /**
+         * 自由班制的打卡配置
+         * <p> 示例值：
+         */
+        private FreeClockSetting freeClockSetting;
 
         /**
          * 自由班制打卡开始时间
@@ -261,6 +285,19 @@ public class FreePunchCfg {
          */
         public Builder workHours(Integer workHours) {
             this.workHours = workHours;
+            return this;
+        }
+
+
+        /**
+         * 自由班制的打卡配置
+         * <p> 示例值：
+         *
+         * @param freeClockSetting
+         * @return
+         */
+        public Builder freeClockSetting(FreeClockSetting freeClockSetting) {
+            this.freeClockSetting = freeClockSetting;
             return this;
         }
 

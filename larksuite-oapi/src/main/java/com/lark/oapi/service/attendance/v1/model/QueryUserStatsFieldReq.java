@@ -91,10 +91,10 @@ public class QueryUserStatsFieldReq {
          * 响应体中的 user_id 的员工工号类型
          * <p> 示例值：employee_id
          *
-         * @param employeeType {@link com.lark.oapi.service.attendance.v1.enums.QueryUserStatsFieldEmployeeTypeEnum}
+         * @param employeeType {@link com.lark.oapi.service.attendance.v1.enums.QueryUserStatsFieldQueryUserFieldEmployeeTypeEnum}
          * @return
          */
-        public Builder employeeType(com.lark.oapi.service.attendance.v1.enums.QueryUserStatsFieldEmployeeTypeEnum employeeType) {
+        public Builder employeeType(com.lark.oapi.service.attendance.v1.enums.QueryUserStatsFieldQueryUserFieldEmployeeTypeEnum employeeType) {
             this.employeeType = employeeType.getValue();
             return this;
         }

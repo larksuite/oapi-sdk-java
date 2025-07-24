@@ -36,7 +36,7 @@ import com.lark.oapi.service.drive.v2.model.*;
 public class DriveService {
     private final V1 v1;
     private final ExportTask exportTask; // 导出
-    private final File file; // 事件
+    private final File file; // 文件夹
     private final FileComment fileComment; // 评论
     private final FileCommentReply fileCommentReply; // 评论
     private final FileStatistics fileStatistics; // file.statistics
@@ -44,7 +44,7 @@ public class DriveService {
     private final FileVersion fileVersion; // 文档版本
     private final FileViewRecord fileViewRecord; // file.view_record
     private final ImportTask importTask; // 导入
-    private final Media media; // 分片上传
+    private final Media media; // 素材
     private final Meta meta; // meta
     private final PermissionMember permissionMember; // 成员
     private final PermissionPublic permissionPublic; // 设置

@@ -185,6 +185,18 @@ public class Participant {
      */
     @SerializedName("accept_status")
     private Integer acceptStatus;
+    /**
+     * 是否为外部参会人
+     * <p> 示例值：false
+     */
+    @SerializedName("is_external")
+    private Boolean isExternal;
+    /**
+     * 网络研讨会中的角色
+     * <p> 示例值：0
+     */
+    @SerializedName("webinar_user_role")
+    private String webinarUserRole;
 
     // builder 开始
     public Participant() {
@@ -321,6 +333,16 @@ public class Participant {
          * <p> 示例值：
          */
         this.acceptStatus = builder.acceptStatus;
+        /**
+         * 是否为外部参会人
+         * <p> 示例值：false
+         */
+        this.isExternal = builder.isExternal;
+        /**
+         * 网络研讨会中的角色
+         * <p> 示例值：0
+         */
+        this.webinarUserRole = builder.webinarUserRole;
     }
 
     public static Builder newBuilder() {
@@ -535,6 +557,22 @@ public class Participant {
         this.acceptStatus = acceptStatus;
     }
 
+    public Boolean getIsExternal() {
+        return this.isExternal;
+    }
+
+    public void setIsExternal(Boolean isExternal) {
+        this.isExternal = isExternal;
+    }
+
+    public String getWebinarUserRole() {
+        return this.webinarUserRole;
+    }
+
+    public void setWebinarUserRole(String webinarUserRole) {
+        this.webinarUserRole = webinarUserRole;
+    }
+
     public static class Builder {
         /**
          * 参会者
@@ -666,6 +704,16 @@ public class Participant {
          * <p> 示例值：
          */
         private Integer acceptStatus;
+        /**
+         * 是否为外部参会人
+         * <p> 示例值：false
+         */
+        private Boolean isExternal;
+        /**
+         * 网络研讨会中的角色
+         * <p> 示例值：0
+         */
+        private String webinarUserRole;
 
         /**
          * 参会者
@@ -1013,6 +1061,32 @@ public class Participant {
          */
         public Builder acceptStatus(com.lark.oapi.service.vc.v1.enums.ParticipantAcceptStatusEnum acceptStatus) {
             this.acceptStatus = acceptStatus.getValue();
+            return this;
+        }
+
+
+        /**
+         * 是否为外部参会人
+         * <p> 示例值：false
+         *
+         * @param isExternal
+         * @return
+         */
+        public Builder isExternal(Boolean isExternal) {
+            this.isExternal = isExternal;
+            return this;
+        }
+
+
+        /**
+         * 网络研讨会中的角色
+         * <p> 示例值：0
+         *
+         * @param webinarUserRole
+         * @return
+         */
+        public Builder webinarUserRole(String webinarUserRole) {
+            this.webinarUserRole = webinarUserRole;
             return this;
         }
 

@@ -24,6 +24,7 @@ public class CreateProgressRecordSample {
                         .content(ContentBlock.newBuilder().build())
                         .sourceUrlPc("open.feishu.cn")
                         .sourceUrlMobile("open.feishu.cn")
+                        .progressRate(ProgressRateNew.newBuilder().build())
                         .build())
                 .build();
 

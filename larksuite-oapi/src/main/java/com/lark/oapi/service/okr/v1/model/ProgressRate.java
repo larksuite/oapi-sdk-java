@@ -37,7 +37,7 @@ public class ProgressRate {
     private Integer percent;
     /**
      * 状态
-     * <p> 示例值：
+     * <p> 示例值：0
      */
     @SerializedName("status")
     private Integer status;
@@ -54,7 +54,7 @@ public class ProgressRate {
         this.percent = builder.percent;
         /**
          * 状态
-         * <p> 示例值：
+         * <p> 示例值：0
          */
         this.status = builder.status;
     }
@@ -87,7 +87,7 @@ public class ProgressRate {
         private Integer percent;
         /**
          * 状态
-         * <p> 示例值：
+         * <p> 示例值：0
          */
         private Integer status;
 
@@ -106,13 +106,25 @@ public class ProgressRate {
 
         /**
          * 状态
-         * <p> 示例值：
+         * <p> 示例值：0
          *
          * @param status
          * @return
          */
         public Builder status(Integer status) {
             this.status = status;
+            return this;
+        }
+
+        /**
+         * 状态
+         * <p> 示例值：0
+         *
+         * @param status {@link com.lark.oapi.service.okr.v1.enums.ProgressRateStatusEnum}
+         * @return
+         */
+        public Builder status(com.lark.oapi.service.okr.v1.enums.ProgressRateStatusEnum status) {
+            this.status = status.getValue();
             return this;
         }
 

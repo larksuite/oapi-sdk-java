@@ -91,10 +91,10 @@ public class QueryUserAllowedRemedysUserTaskRemedyReq {
          * 请求体和响应体中的 user_id 的员工工号类型
          * <p> 示例值：employee_id
          *
-         * @param employeeType {@link com.lark.oapi.service.attendance.v1.enums.QueryUserAllowedRemedysUserTaskRemedyEmployeeTypeEnum}
+         * @param employeeType {@link com.lark.oapi.service.attendance.v1.enums.QueryUserAllowedRemedysUserTaskRemedyQueryUserAllowedRemedysEmployeeTypeEnum}
          * @return
          */
-        public Builder employeeType(com.lark.oapi.service.attendance.v1.enums.QueryUserAllowedRemedysUserTaskRemedyEmployeeTypeEnum employeeType) {
+        public Builder employeeType(com.lark.oapi.service.attendance.v1.enums.QueryUserAllowedRemedysUserTaskRemedyQueryUserAllowedRemedysEmployeeTypeEnum employeeType) {
             this.employeeType = employeeType.getValue();
             return this;
         }

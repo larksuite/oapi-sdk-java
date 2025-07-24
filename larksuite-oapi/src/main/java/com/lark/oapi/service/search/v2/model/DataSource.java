@@ -493,10 +493,10 @@ public class DataSource {
          * 数据源状态，0-已上线，1-未上线。如果未填，默认是未上线状态。
          * <p> 示例值：0
          *
-         * @param state {@link com.lark.oapi.service.search.v2.enums.DataSourceStateEnum}
+         * @param state {@link com.lark.oapi.service.search.v2.enums.DataSourceDataSourceStateEnum}
          * @return
          */
-        public Builder state(com.lark.oapi.service.search.v2.enums.DataSourceStateEnum state) {
+        public Builder state(com.lark.oapi.service.search.v2.enums.DataSourceDataSourceStateEnum state) {
             this.state = state.getValue();
             return this;
         }

@@ -157,10 +157,10 @@ public class UploadImageReqBody {
          * 图片使用的目标类型
          * <p> 示例值：1
          *
-         * @param targetType {@link com.lark.oapi.service.okr.v1.enums.UploadImageTargetTypeEnum}
+         * @param targetType {@link com.lark.oapi.service.okr.v1.enums.UploadImageOpenAPIUploadImageTargetTypeEnum}
          * @return
          */
-        public Builder targetType(com.lark.oapi.service.okr.v1.enums.UploadImageTargetTypeEnum targetType) {
+        public Builder targetType(com.lark.oapi.service.okr.v1.enums.UploadImageOpenAPIUploadImageTargetTypeEnum targetType) {
             this.targetType = targetType.getValue();
             return this;
         }

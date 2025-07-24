@@ -121,10 +121,10 @@ public class BatchGetOkrReq {
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
          *
-         * @param userIdType {@link com.lark.oapi.service.okr.v1.enums.BatchGetOkrUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.okr.v1.enums.BatchGetOkrOpenAPIBatchGetOkrUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.okr.v1.enums.BatchGetOkrUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.okr.v1.enums.BatchGetOkrOpenAPIBatchGetOkrUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }

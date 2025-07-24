@@ -92,6 +92,20 @@ public class GetMeetingListReq {
     @SerializedName("page_token")
     private String pageToken;
     /**
+     * 是否查询外部会议（不传默认为不查询）
+     * <p> 示例值：false
+     */
+    @Query
+    @SerializedName("include_external_meetings")
+    private Boolean includeExternalMeetings;
+    /**
+     * 是否查询网络研讨会（不传默认为不查询）
+     * <p> 示例值：false
+     */
+    @Query
+    @SerializedName("include_webinar")
+    private Boolean includeWebinar;
+    /**
      * 此次调用中使用的用户ID的类型
      * <p> 示例值：
      */
@@ -149,6 +163,16 @@ public class GetMeetingListReq {
          * <p> 示例值：
          */
         this.pageToken = builder.pageToken;
+        /**
+         * 是否查询外部会议（不传默认为不查询）
+         * <p> 示例值：false
+         */
+        this.includeExternalMeetings = builder.includeExternalMeetings;
+        /**
+         * 是否查询网络研讨会（不传默认为不查询）
+         * <p> 示例值：false
+         */
+        this.includeWebinar = builder.includeWebinar;
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
@@ -232,6 +256,22 @@ public class GetMeetingListReq {
         this.pageToken = pageToken;
     }
 
+    public Boolean getIncludeExternalMeetings() {
+        return this.includeExternalMeetings;
+    }
+
+    public void setIncludeExternalMeetings(Boolean includeExternalMeetings) {
+        this.includeExternalMeetings = includeExternalMeetings;
+    }
+
+    public Boolean getIncludeWebinar() {
+        return this.includeWebinar;
+    }
+
+    public void setIncludeWebinar(Boolean includeWebinar) {
+        this.includeWebinar = includeWebinar;
+    }
+
     public String getUserIdType() {
         return this.userIdType;
     }
@@ -250,6 +290,8 @@ public class GetMeetingListReq {
         private Integer meetingType; // 按会议类型筛选（最多一个筛选条件）
         private Integer pageSize; // 分页尺寸大小
         private String pageToken; // 分页标记,第一次请求不填,表示从头开始遍历.下次遍历可采用该 page_token获取查询结果
+        private Boolean includeExternalMeetings; // 是否查询外部会议（不传默认为不查询）
+        private Boolean includeWebinar; // 是否查询网络研讨会（不传默认为不查询）
         private String userIdType; // 此次调用中使用的用户ID的类型
 
         /**
@@ -389,6 +431,32 @@ public class GetMeetingListReq {
          */
         public Builder pageToken(String pageToken) {
             this.pageToken = pageToken;
+            return this;
+        }
+
+
+        /**
+         * 是否查询外部会议（不传默认为不查询）
+         * <p> 示例值：false
+         *
+         * @param includeExternalMeetings
+         * @return
+         */
+        public Builder includeExternalMeetings(Boolean includeExternalMeetings) {
+            this.includeExternalMeetings = includeExternalMeetings;
+            return this;
+        }
+
+
+        /**
+         * 是否查询网络研讨会（不传默认为不查询）
+         * <p> 示例值：false
+         *
+         * @param includeWebinar
+         * @return
+         */
+        public Builder includeWebinar(Boolean includeWebinar) {
+            this.includeWebinar = includeWebinar;
             return this;
         }
 

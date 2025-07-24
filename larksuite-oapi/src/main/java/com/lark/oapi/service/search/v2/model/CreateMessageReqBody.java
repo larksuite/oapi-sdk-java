@@ -314,10 +314,10 @@ public class CreateMessageReqBody {
          * 消息类型(file/image/media)
          * <p> 示例值：
          *
-         * @param messageType {@link com.lark.oapi.service.search.v2.enums.CreateMessageMessageTypeEnum}
+         * @param messageType {@link com.lark.oapi.service.search.v2.enums.CreateMessageSearchMessageMessageTypeEnum}
          * @return
          */
-        public Builder messageType(com.lark.oapi.service.search.v2.enums.CreateMessageMessageTypeEnum messageType) {
+        public Builder messageType(com.lark.oapi.service.search.v2.enums.CreateMessageSearchMessageMessageTypeEnum messageType) {
             this.messageType = messageType.getValue();
             return this;
         }
@@ -352,10 +352,10 @@ public class CreateMessageReqBody {
          * 消息来自类型(bot/user)
          * <p> 示例值：
          *
-         * @param fromType {@link com.lark.oapi.service.search.v2.enums.CreateMessageFromTypeEnum}
+         * @param fromType {@link com.lark.oapi.service.search.v2.enums.CreateMessageSearchMessageFromTypeEnum}
          * @return
          */
-        public Builder fromType(com.lark.oapi.service.search.v2.enums.CreateMessageFromTypeEnum fromType) {
+        public Builder fromType(com.lark.oapi.service.search.v2.enums.CreateMessageSearchMessageFromTypeEnum fromType) {
             this.fromType = fromType.getValue();
             return this;
         }
@@ -377,10 +377,10 @@ public class CreateMessageReqBody {
          * 会话类型(group_chat/p2p_chat)
          * <p> 示例值：
          *
-         * @param chatType {@link com.lark.oapi.service.search.v2.enums.CreateMessageChatTypeEnum}
+         * @param chatType {@link com.lark.oapi.service.search.v2.enums.CreateMessageSearchMessageChatTypeEnum}
          * @return
          */
-        public Builder chatType(com.lark.oapi.service.search.v2.enums.CreateMessageChatTypeEnum chatType) {
+        public Builder chatType(com.lark.oapi.service.search.v2.enums.CreateMessageSearchMessageChatTypeEnum chatType) {
             this.chatType = chatType.getValue();
             return this;
         }

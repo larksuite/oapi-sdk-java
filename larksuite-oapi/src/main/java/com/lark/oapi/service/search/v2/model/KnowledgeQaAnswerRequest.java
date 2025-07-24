@@ -229,10 +229,10 @@ public class KnowledgeQaAnswerRequest {
          * 指定答案生成的知识范围
          * <p> 示例值：enterprise
          *
-         * @param knowledgeScope {@link com.lark.oapi.service.search.v2.enums.KnowledgeQaAnswerRequestKnowledgeScopeEnum}
+         * @param knowledgeScope {@link com.lark.oapi.service.search.v2.enums.KnowledgeQaAnswerRequestKnowledgeQaAnswerRequestKnowledgeScopeEnum}
          * @return
          */
-        public Builder knowledgeScope(com.lark.oapi.service.search.v2.enums.KnowledgeQaAnswerRequestKnowledgeScopeEnum knowledgeScope) {
+        public Builder knowledgeScope(com.lark.oapi.service.search.v2.enums.KnowledgeQaAnswerRequestKnowledgeQaAnswerRequestKnowledgeScopeEnum knowledgeScope) {
             this.knowledgeScope = knowledgeScope.getValue();
             return this;
         }
@@ -280,10 +280,10 @@ public class KnowledgeQaAnswerRequest {
          * 大模型种类
          * <p> 示例值：doubao
          *
-         * @param modelType {@link com.lark.oapi.service.search.v2.enums.KnowledgeQaAnswerRequestModelTypeEnum}
+         * @param modelType {@link com.lark.oapi.service.search.v2.enums.KnowledgeQaAnswerRequestKnowledgeQaAnswerRequestModelTypeEnum}
          * @return
          */
-        public Builder modelType(com.lark.oapi.service.search.v2.enums.KnowledgeQaAnswerRequestModelTypeEnum modelType) {
+        public Builder modelType(com.lark.oapi.service.search.v2.enums.KnowledgeQaAnswerRequestKnowledgeQaAnswerRequestModelTypeEnum modelType) {
             this.modelType = modelType.getValue();
             return this;
         }

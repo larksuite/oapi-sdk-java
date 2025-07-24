@@ -85,6 +85,13 @@ public class GetParticipantListReq {
     @SerializedName("page_token")
     private String pageToken;
     /**
+     * 查询网络研讨会时的观众类型,"0"为嘉宾，"3"为观众
+     * <p> 示例值：0
+     */
+    @Query
+    @SerializedName("webinar_user_role")
+    private String webinarUserRole;
+    /**
      * 此次调用中使用的用户ID的类型
      * <p> 示例值：
      */
@@ -137,6 +144,11 @@ public class GetParticipantListReq {
          * <p> 示例值：
          */
         this.pageToken = builder.pageToken;
+        /**
+         * 查询网络研讨会时的观众类型,"0"为嘉宾，"3"为观众
+         * <p> 示例值：0
+         */
+        this.webinarUserRole = builder.webinarUserRole;
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
@@ -212,6 +224,14 @@ public class GetParticipantListReq {
         this.pageToken = pageToken;
     }
 
+    public String getWebinarUserRole() {
+        return this.webinarUserRole;
+    }
+
+    public void setWebinarUserRole(String webinarUserRole) {
+        this.webinarUserRole = webinarUserRole;
+    }
+
     public String getUserIdType() {
         return this.userIdType;
     }
@@ -229,6 +249,7 @@ public class GetParticipantListReq {
         private String roomId; // 按参会Rooms筛选（最多一个筛选条件）
         private Integer pageSize; // 分页尺寸大小
         private String pageToken; // 分页标记,第一次请求不填,表示从头开始遍历.下次遍历可采用该 page_token获取查询结果
+        private String webinarUserRole; // 查询网络研讨会时的观众类型,"0"为嘉宾，"3"为观众
         private String userIdType; // 此次调用中使用的用户ID的类型
 
         /**
@@ -343,6 +364,19 @@ public class GetParticipantListReq {
          */
         public Builder pageToken(String pageToken) {
             this.pageToken = pageToken;
+            return this;
+        }
+
+
+        /**
+         * 查询网络研讨会时的观众类型,"0"为嘉宾，"3"为观众
+         * <p> 示例值：0
+         *
+         * @param webinarUserRole
+         * @return
+         */
+        public Builder webinarUserRole(String webinarUserRole) {
+            this.webinarUserRole = webinarUserRole;
             return this;
         }
 

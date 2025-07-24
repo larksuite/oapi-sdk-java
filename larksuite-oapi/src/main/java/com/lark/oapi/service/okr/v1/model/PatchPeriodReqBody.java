@@ -83,10 +83,10 @@ public class PatchPeriodReqBody {
          * 周期显示状态
          * <p> 示例值：1
          *
-         * @param status {@link com.lark.oapi.service.okr.v1.enums.PatchPeriodStatusEnum}
+         * @param status {@link com.lark.oapi.service.okr.v1.enums.PatchPeriodOpenAPIPatchPeriodStatusEnum}
          * @return
          */
-        public Builder status(com.lark.oapi.service.okr.v1.enums.PatchPeriodStatusEnum status) {
+        public Builder status(com.lark.oapi.service.okr.v1.enums.PatchPeriodOpenAPIPatchPeriodStatusEnum status) {
             this.status = status.getValue();
             return this;
         }

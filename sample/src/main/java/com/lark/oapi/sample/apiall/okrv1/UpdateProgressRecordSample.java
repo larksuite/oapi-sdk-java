@@ -19,6 +19,7 @@ public class UpdateProgressRecordSample {
                 .userIdType("user_id")
                 .updateProgressRecordReqBody(UpdateProgressRecordReqBody.newBuilder()
                         .content(ContentBlock.newBuilder().build())
+                        .progressRate(ProgressRateNew.newBuilder().build())
                         .build())
                 .build();
 

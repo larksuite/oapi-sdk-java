@@ -21,8 +21,8 @@ public class UpdateJobRequirementSample {
                 .jobLevelIdType("people_admin_job_level_id")
                 .jobFamilyIdType("people_admin_job_category_id")
                 .employeeTypeIdType("people_admin_employee_type_id")
-                .jobRequirement(JobRequirement.newBuilder()
-                        .name("test")
+                .updateJobRequirementReqBody(UpdateJobRequirementReqBody.newBuilder()
+                        .name("HR部门春季招聘需求")
                         .displayProgress(1)
                         .headCount(11)
                         .recruitmentTypeId("1618209327096")
@@ -49,7 +49,6 @@ public class UpdateJobRequirementSample {
                         .jobIdList(new String[]{})
                         .employmentJobId("123")
                         .positionId("123")
-                        .updateOption(JobRequirementUpdateOption.newBuilder().build())
                         .build())
                 .build();
 

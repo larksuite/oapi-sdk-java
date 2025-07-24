@@ -19,6 +19,7 @@ package com.lark.oapi.service.wiki.v2.enums;
 public enum SpaceSpaceTypeEnum {
     TEAM("team"), // 团队空间
     PERSON("person"), // 个人空间
+    MYLIBRARY("my_library"), // 我的文档库
     ;
     private String value;
 

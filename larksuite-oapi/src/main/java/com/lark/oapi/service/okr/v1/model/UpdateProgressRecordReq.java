@@ -112,10 +112,10 @@ public class UpdateProgressRecordReq {
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
          *
-         * @param userIdType {@link com.lark.oapi.service.okr.v1.enums.UpdateProgressRecordUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.okr.v1.enums.UpdateProgressRecordOpenAPIUpdateProgressRecordUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.okr.v1.enums.UpdateProgressRecordUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.okr.v1.enums.UpdateProgressRecordOpenAPIUpdateProgressRecordUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }

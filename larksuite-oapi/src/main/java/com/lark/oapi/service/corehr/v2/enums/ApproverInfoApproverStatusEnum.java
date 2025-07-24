@@ -29,6 +29,7 @@ public enum ApproverInfoApproverStatusEnum {
     FAILED(12), // 失败
     ROLLEDBACK(14), // 已回退
     REVOKE(16), // 发起撤销
+    INTERVENED(18), // 已干预
     ;
     private Integer value;
 

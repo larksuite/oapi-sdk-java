@@ -264,10 +264,10 @@ public class PatchDataSourceReqBody {
          * 数据源状态，0-已上线，1-未上线
          * <p> 示例值：0
          *
-         * @param state {@link com.lark.oapi.service.search.v2.enums.PatchDataSourceStateEnum}
+         * @param state {@link com.lark.oapi.service.search.v2.enums.PatchDataSourcePatchDataSourceStateEnum}
          * @return
          */
-        public Builder state(com.lark.oapi.service.search.v2.enums.PatchDataSourceStateEnum state) {
+        public Builder state(com.lark.oapi.service.search.v2.enums.PatchDataSourcePatchDataSourceStateEnum state) {
             this.state = state.getValue();
             return this;
         }

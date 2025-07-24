@@ -70,7 +70,7 @@ public class UpdateJobRequirementReq {
     @SerializedName("job_requirement_id")
     private String jobRequirementId;
     @Body
-    private JobRequirement body;
+    private UpdateJobRequirementReqBody body;
 
     // builder 开始
     public UpdateJobRequirementReq() {
@@ -162,11 +162,11 @@ public class UpdateJobRequirementReq {
         this.jobRequirementId = jobRequirementId;
     }
 
-    public JobRequirement getJobRequirement() {
+    public UpdateJobRequirementReqBody getUpdateJobRequirementReqBody() {
         return this.body;
     }
 
-    public void setJobRequirement(JobRequirement body) {
+    public void setUpdateJobRequirementReqBody(UpdateJobRequirementReqBody body) {
         this.body = body;
     }
 
@@ -177,7 +177,7 @@ public class UpdateJobRequirementReq {
         private String jobFamilyIdType; // 此次调用中使用的「序列 ID」的类型
         private String employeeTypeIdType; // 此次调用中使用的「人员类型 ID」的类型
         private String jobRequirementId; // 招聘需求ID
-        private JobRequirement body;
+        private UpdateJobRequirementReqBody body;
 
         /**
          * 此次调用中使用的用户ID的类型
@@ -251,7 +251,7 @@ public class UpdateJobRequirementReq {
             return this;
         }
 
-        public JobRequirement getJobRequirement() {
+        public UpdateJobRequirementReqBody getUpdateJobRequirementReqBody() {
             return this.body;
         }
 
@@ -261,7 +261,7 @@ public class UpdateJobRequirementReq {
          * @param body
          * @return
          */
-        public Builder jobRequirement(JobRequirement body) {
+        public Builder updateJobRequirementReqBody(UpdateJobRequirementReqBody body) {
             this.body = body;
             return this;
         }

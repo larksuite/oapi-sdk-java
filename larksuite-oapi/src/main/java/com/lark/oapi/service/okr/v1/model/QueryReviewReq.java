@@ -121,10 +121,10 @@ public class QueryReviewReq {
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
          *
-         * @param userIdType {@link com.lark.oapi.service.okr.v1.enums.QueryReviewUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.okr.v1.enums.QueryReviewOpenAPIQueryReviewUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.okr.v1.enums.QueryReviewUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.okr.v1.enums.QueryReviewOpenAPIQueryReviewUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }

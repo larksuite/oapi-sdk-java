@@ -36,7 +36,7 @@ public class SocialArchiveEventDetail {
     @SerializedName("insurance_type")
     private String insuranceType;
     /**
-     * 档案变更类型。add新增、modify更正、delete删除
+     * 档案变更类型。add新增、modify调整、delete删除
      * <p> 示例值：add
      */
     @SerializedName("operate_type")
@@ -71,7 +71,7 @@ public class SocialArchiveEventDetail {
          */
         this.insuranceType = builder.insuranceType;
         /**
-         * 档案变更类型。add新增、modify更正、delete删除
+         * 档案变更类型。add新增、modify调整、delete删除
          * <p> 示例值：add
          */
         this.operateType = builder.operateType;
@@ -143,7 +143,7 @@ public class SocialArchiveEventDetail {
          */
         private String insuranceType;
         /**
-         * 档案变更类型。add新增、modify更正、delete删除
+         * 档案变更类型。add新增、modify调整、delete删除
          * <p> 示例值：add
          */
         private String operateType;
@@ -175,9 +175,21 @@ public class SocialArchiveEventDetail {
             return this;
         }
 
+        /**
+         * 社保档案类型。social_insurance社保、provident_fund公积金
+         * <p> 示例值：social_insurance
+         *
+         * @param insuranceType {@link com.lark.oapi.service.compensation.v1.enums.SocialArchiveEventDetailInsuranceTypeEnum}
+         * @return
+         */
+        public Builder insuranceType(com.lark.oapi.service.compensation.v1.enums.SocialArchiveEventDetailInsuranceTypeEnum insuranceType) {
+            this.insuranceType = insuranceType.getValue();
+            return this;
+        }
+
 
         /**
-         * 档案变更类型。add新增、modify更正、delete删除
+         * 档案变更类型。add新增、modify调整、delete删除
          * <p> 示例值：add
          *
          * @param operateType
@@ -185,6 +197,18 @@ public class SocialArchiveEventDetail {
          */
         public Builder operateType(String operateType) {
             this.operateType = operateType;
+            return this;
+        }
+
+        /**
+         * 档案变更类型。add新增、modify调整、delete删除
+         * <p> 示例值：add
+         *
+         * @param operateType {@link com.lark.oapi.service.compensation.v1.enums.SocialArchiveEventDetailOperateTypeEnum}
+         * @return
+         */
+        public Builder operateType(com.lark.oapi.service.compensation.v1.enums.SocialArchiveEventDetailOperateTypeEnum operateType) {
+            this.operateType = operateType.getValue();
             return this;
         }
 
@@ -198,6 +222,18 @@ public class SocialArchiveEventDetail {
          */
         public Builder sourceType(String sourceType) {
             this.sourceType = sourceType;
+            return this;
+        }
+
+        /**
+         * 变更事件来源。new_join增员、intern_to_official实习生转正、employee_type_change雇员类型变更、dismission离职、job_change变更、import_increase增员导入、import_adjust调整导入、manual_edit手动编辑、manual_adjust手动调整、manual_delete手动删除、to_attrition_import待减员导入新增、plan_sync_arc方案同步档案
+         * <p> 示例值：new_join
+         *
+         * @param sourceType {@link com.lark.oapi.service.compensation.v1.enums.SocialArchiveEventDetailSourceTypeEnum}
+         * @return
+         */
+        public Builder sourceType(com.lark.oapi.service.compensation.v1.enums.SocialArchiveEventDetailSourceTypeEnum sourceType) {
+            this.sourceType = sourceType.getValue();
             return this;
         }
 

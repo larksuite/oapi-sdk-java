@@ -71,6 +71,12 @@ public class CreateProgressRecordReqBody {
      */
     @SerializedName("source_url_mobile")
     private String sourceUrlMobile;
+    /**
+     * 进展，包括百分比和状态
+     * <p> 示例值：
+     */
+    @SerializedName("progress_rate")
+    private ProgressRateNew progressRate;
 
     // builder 开始
     public CreateProgressRecordReqBody() {
@@ -112,6 +118,11 @@ public class CreateProgressRecordReqBody {
          * <p> 示例值：open.feishu.cn
          */
         this.sourceUrlMobile = builder.sourceUrlMobile;
+        /**
+         * 进展，包括百分比和状态
+         * <p> 示例值：
+         */
+        this.progressRate = builder.progressRate;
     }
 
     public static Builder newBuilder() {
@@ -174,6 +185,14 @@ public class CreateProgressRecordReqBody {
         this.sourceUrlMobile = sourceUrlMobile;
     }
 
+    public ProgressRateNew getProgressRate() {
+        return this.progressRate;
+    }
+
+    public void setProgressRate(ProgressRateNew progressRate) {
+        this.progressRate = progressRate;
+    }
+
     public static class Builder {
         /**
          * 进展来源
@@ -210,6 +229,11 @@ public class CreateProgressRecordReqBody {
          * <p> 示例值：open.feishu.cn
          */
         private String sourceUrlMobile;
+        /**
+         * 进展，包括百分比和状态
+         * <p> 示例值：
+         */
+        private ProgressRateNew progressRate;
 
         /**
          * 进展来源
@@ -266,10 +290,10 @@ public class CreateProgressRecordReqBody {
          * 目标类型
          * <p> 示例值：1
          *
-         * @param targetType {@link com.lark.oapi.service.okr.v1.enums.CreateProgressRecordTargetTypeEnum}
+         * @param targetType {@link com.lark.oapi.service.okr.v1.enums.CreateProgressRecordOpenAPICreateProgressRecordTargetTypeEnum}
          * @return
          */
-        public Builder targetType(com.lark.oapi.service.okr.v1.enums.CreateProgressRecordTargetTypeEnum targetType) {
+        public Builder targetType(com.lark.oapi.service.okr.v1.enums.CreateProgressRecordOpenAPICreateProgressRecordTargetTypeEnum targetType) {
             this.targetType = targetType.getValue();
             return this;
         }
@@ -310,6 +334,19 @@ public class CreateProgressRecordReqBody {
          */
         public Builder sourceUrlMobile(String sourceUrlMobile) {
             this.sourceUrlMobile = sourceUrlMobile;
+            return this;
+        }
+
+
+        /**
+         * 进展，包括百分比和状态
+         * <p> 示例值：
+         *
+         * @param progressRate
+         * @return
+         */
+        public Builder progressRate(ProgressRateNew progressRate) {
+            this.progressRate = progressRate;
             return this;
         }
 

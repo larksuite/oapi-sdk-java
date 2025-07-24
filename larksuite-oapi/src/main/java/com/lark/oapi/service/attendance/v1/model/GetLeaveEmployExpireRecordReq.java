@@ -112,10 +112,10 @@ public class GetLeaveEmployExpireRecordReq {
          * 用户 ID 类型
          * <p> 示例值：open_id
          *
-         * @param userIdType {@link com.lark.oapi.service.attendance.v1.enums.GetLeaveEmployExpireRecordUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.attendance.v1.enums.GetLeaveEmployExpireRecordGetLeaveEmployExpireRecordUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.attendance.v1.enums.GetLeaveEmployExpireRecordUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.attendance.v1.enums.GetLeaveEmployExpireRecordGetLeaveEmployExpireRecordUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }

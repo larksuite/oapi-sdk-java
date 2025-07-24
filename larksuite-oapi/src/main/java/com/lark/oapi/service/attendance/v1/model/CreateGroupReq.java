@@ -112,10 +112,10 @@ public class CreateGroupReq {
          * 用户 ID 的类型
          * <p> 示例值：employee_id
          *
-         * @param employeeType {@link com.lark.oapi.service.attendance.v1.enums.CreateGroupEmployeeTypeEnum}
+         * @param employeeType {@link com.lark.oapi.service.attendance.v1.enums.CreateGroupCreateGroupEmployeeTypeEnum}
          * @return
          */
-        public Builder employeeType(com.lark.oapi.service.attendance.v1.enums.CreateGroupEmployeeTypeEnum employeeType) {
+        public Builder employeeType(com.lark.oapi.service.attendance.v1.enums.CreateGroupCreateGroupEmployeeTypeEnum employeeType) {
             this.employeeType = employeeType.getValue();
             return this;
         }
@@ -136,10 +136,10 @@ public class CreateGroupReq {
          * 部门 ID 的类型
          * <p> 示例值：od-fcb45c28a45311afd441b8869541ece8
          *
-         * @param deptType {@link com.lark.oapi.service.attendance.v1.enums.CreateGroupDeptTypeEnum}
+         * @param deptType {@link com.lark.oapi.service.attendance.v1.enums.CreateGroupCreateGroupDeptTypeEnum}
          * @return
          */
-        public Builder deptType(com.lark.oapi.service.attendance.v1.enums.CreateGroupDeptTypeEnum deptType) {
+        public Builder deptType(com.lark.oapi.service.attendance.v1.enums.CreateGroupCreateGroupDeptTypeEnum deptType) {
             this.deptType = deptType.getValue();
             return this;
         }

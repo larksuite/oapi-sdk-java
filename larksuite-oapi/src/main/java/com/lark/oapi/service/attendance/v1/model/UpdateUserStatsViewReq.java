@@ -112,10 +112,10 @@ public class UpdateUserStatsViewReq {
          * 员工工号类型
          * <p> 示例值：employee_id
          *
-         * @param employeeType {@link com.lark.oapi.service.attendance.v1.enums.UpdateUserStatsViewEmployeeTypeEnum}
+         * @param employeeType {@link com.lark.oapi.service.attendance.v1.enums.UpdateUserStatsViewUpdateViewEmployeeTypeEnum}
          * @return
          */
-        public Builder employeeType(com.lark.oapi.service.attendance.v1.enums.UpdateUserStatsViewEmployeeTypeEnum employeeType) {
+        public Builder employeeType(com.lark.oapi.service.attendance.v1.enums.UpdateUserStatsViewUpdateViewEmployeeTypeEnum employeeType) {
             this.employeeType = employeeType.getValue();
             return this;
         }

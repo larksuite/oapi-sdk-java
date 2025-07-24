@@ -17,6 +17,7 @@ import com.lark.oapi.core.Config;
 import com.lark.oapi.service.apaas.v1.resource.*;
 
 public class V1 {
+    private final App app; // app
     private final ApplicationAuditLog applicationAuditLog; // application.audit_log
     private final ApplicationEnvironmentVariable applicationEnvironmentVariable; // application.environment_variable
     private final ApplicationFlow applicationFlow; // application.flow
@@ -32,6 +33,7 @@ public class V1 {
     private final UserTask userTask; // user_task
 
     public V1(Config config) {
+        this.app = new App(config);
         this.applicationAuditLog = new ApplicationAuditLog(config);
         this.applicationEnvironmentVariable = new ApplicationEnvironmentVariable(config);
         this.applicationFlow = new ApplicationFlow(config);
@@ -45,6 +47,10 @@ public class V1 {
         this.seatActivity = new SeatActivity(config);
         this.seatAssignment = new SeatAssignment(config);
         this.userTask = new UserTask(config);
+    }
+
+    public App app() {
+        return app;
     }
 
     public ApplicationAuditLog applicationAuditLog() {

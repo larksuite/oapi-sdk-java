@@ -647,10 +647,10 @@ public class UserFlow {
          * 记录生成方式
          * <p> 示例值：在开放平台调用时，此参数无效，内部值始终是7
          *
-         * @param type {@link com.lark.oapi.service.attendance.v1.enums.UserFlowTypeEnum}
+         * @param type {@link com.lark.oapi.service.attendance.v1.enums.UserFlowUserFlowTypeEnum}
          * @return
          */
-        public Builder type(com.lark.oapi.service.attendance.v1.enums.UserFlowTypeEnum type) {
+        public Builder type(com.lark.oapi.service.attendance.v1.enums.UserFlowUserFlowTypeEnum type) {
             this.type = type.getValue();
             return this;
         }
@@ -698,10 +698,10 @@ public class UserFlow {
          * 打卡结果
          * <p> 示例值：Invalid
          *
-         * @param checkResult {@link com.lark.oapi.service.attendance.v1.enums.UserFlowCheckResultEnum}
+         * @param checkResult {@link com.lark.oapi.service.attendance.v1.enums.UserFlowUserFlowCheckResultEnum}
          * @return
          */
-        public Builder checkResult(com.lark.oapi.service.attendance.v1.enums.UserFlowCheckResultEnum checkResult) {
+        public Builder checkResult(com.lark.oapi.service.attendance.v1.enums.UserFlowUserFlowCheckResultEnum checkResult) {
             this.checkResult = checkResult.getValue();
             return this;
         }

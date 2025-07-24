@@ -91,10 +91,10 @@ public class CreateUserTaskRemedyReq {
          * 请求体和响应体中的 user_id 的员工工号类型
          * <p> 示例值：employee_id
          *
-         * @param employeeType {@link com.lark.oapi.service.attendance.v1.enums.CreateUserTaskRemedyEmployeeTypeEnum}
+         * @param employeeType {@link com.lark.oapi.service.attendance.v1.enums.CreateUserTaskRemedyCreateRemedyPunchEmployeeTypeEnum}
          * @return
          */
-        public Builder employeeType(com.lark.oapi.service.attendance.v1.enums.CreateUserTaskRemedyEmployeeTypeEnum employeeType) {
+        public Builder employeeType(com.lark.oapi.service.attendance.v1.enums.CreateUserTaskRemedyCreateRemedyPunchEmployeeTypeEnum employeeType) {
             this.employeeType = employeeType.getValue();
             return this;
         }
