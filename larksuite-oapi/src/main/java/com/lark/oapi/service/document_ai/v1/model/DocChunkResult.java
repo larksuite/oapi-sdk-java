@@ -103,10 +103,34 @@ public class DocChunkResult {
     private ImageDetail imageDetail;
     /**
      * pptx文件里面的页码
-     * <p> 示例值：1
+     * <p> 示例值：0
      */
     @SerializedName("slide_index")
-    private String slideIndex;
+    private Integer slideIndex;
+    /**
+     * 若to_md设置为true, md_collapsed设置为false, 各chunk转成markdown的结果；若chunk为表格，不管开启与否返回的都是表格的markdown结果
+     * <p> 示例值：本项目旨在提供一个简洁高效的视频处理服务，支持以下功能：  - 视频分段切片 - 精准帧抽取 - 帧图重命名与排序 - 多线程并发处理 - 抽帧结果打包上传
+     */
+    @SerializedName("md_text")
+    private String mdText;
+    /**
+     * 当chunk为表格的情况下，返回html的结果
+     * <p> 示例值：<table border="1">   <thead>     <tr>       <th>用户名</th>       <th>年龄</th>       <th>邮箱</th>       <th>状态</th>     </tr>   </thead>   <tbody>     <tr>       <td>Alice</td>       <td>24</td>       <td>alice@example.com</td>       <td>启用</td>     </tr>     <tr>       <td>Bob</td>       <td>30</td>       <td>bob@example.com</td>       <td>禁用</td>     </tr>     <tr>       <td>Charlie</td>       <td>28</td>       <td>charlie@example.com</td>       <td>启用</td>     </tr>   </tbody> </table>
+     */
+    @SerializedName("html_text")
+    private String htmlText;
+    /**
+     * 文件信息 在type为file时用来表示文件信息
+     * <p> 示例值：
+     */
+    @SerializedName("file_detail")
+    private FileDetail fileDetail;
+    /**
+     * 飞书云文档返回的代码块信息
+     * <p> 示例值：
+     */
+    @SerializedName("code_detail")
+    private CodeDetail codeDetail;
 
     // builder 开始
     public DocChunkResult() {
@@ -175,9 +199,29 @@ public class DocChunkResult {
         this.imageDetail = builder.imageDetail;
         /**
          * pptx文件里面的页码
-         * <p> 示例值：1
+         * <p> 示例值：0
          */
         this.slideIndex = builder.slideIndex;
+        /**
+         * 若to_md设置为true, md_collapsed设置为false, 各chunk转成markdown的结果；若chunk为表格，不管开启与否返回的都是表格的markdown结果
+         * <p> 示例值：本项目旨在提供一个简洁高效的视频处理服务，支持以下功能：  - 视频分段切片 - 精准帧抽取 - 帧图重命名与排序 - 多线程并发处理 - 抽帧结果打包上传
+         */
+        this.mdText = builder.mdText;
+        /**
+         * 当chunk为表格的情况下，返回html的结果
+         * <p> 示例值：<table border="1">   <thead>     <tr>       <th>用户名</th>       <th>年龄</th>       <th>邮箱</th>       <th>状态</th>     </tr>   </thead>   <tbody>     <tr>       <td>Alice</td>       <td>24</td>       <td>alice@example.com</td>       <td>启用</td>     </tr>     <tr>       <td>Bob</td>       <td>30</td>       <td>bob@example.com</td>       <td>禁用</td>     </tr>     <tr>       <td>Charlie</td>       <td>28</td>       <td>charlie@example.com</td>       <td>启用</td>     </tr>   </tbody> </table>
+         */
+        this.htmlText = builder.htmlText;
+        /**
+         * 文件信息 在type为file时用来表示文件信息
+         * <p> 示例值：
+         */
+        this.fileDetail = builder.fileDetail;
+        /**
+         * 飞书云文档返回的代码块信息
+         * <p> 示例值：
+         */
+        this.codeDetail = builder.codeDetail;
     }
 
     public static Builder newBuilder() {
@@ -280,12 +324,44 @@ public class DocChunkResult {
         this.imageDetail = imageDetail;
     }
 
-    public String getSlideIndex() {
+    public Integer getSlideIndex() {
         return this.slideIndex;
     }
 
-    public void setSlideIndex(String slideIndex) {
+    public void setSlideIndex(Integer slideIndex) {
         this.slideIndex = slideIndex;
+    }
+
+    public String getMdText() {
+        return this.mdText;
+    }
+
+    public void setMdText(String mdText) {
+        this.mdText = mdText;
+    }
+
+    public String getHtmlText() {
+        return this.htmlText;
+    }
+
+    public void setHtmlText(String htmlText) {
+        this.htmlText = htmlText;
+    }
+
+    public FileDetail getFileDetail() {
+        return this.fileDetail;
+    }
+
+    public void setFileDetail(FileDetail fileDetail) {
+        this.fileDetail = fileDetail;
+    }
+
+    public CodeDetail getCodeDetail() {
+        return this.codeDetail;
+    }
+
+    public void setCodeDetail(CodeDetail codeDetail) {
+        this.codeDetail = codeDetail;
     }
 
     public static class Builder {
@@ -351,9 +427,29 @@ public class DocChunkResult {
         private ImageDetail imageDetail;
         /**
          * pptx文件里面的页码
-         * <p> 示例值：1
+         * <p> 示例值：0
          */
-        private String slideIndex;
+        private Integer slideIndex;
+        /**
+         * 若to_md设置为true, md_collapsed设置为false, 各chunk转成markdown的结果；若chunk为表格，不管开启与否返回的都是表格的markdown结果
+         * <p> 示例值：本项目旨在提供一个简洁高效的视频处理服务，支持以下功能：  - 视频分段切片 - 精准帧抽取 - 帧图重命名与排序 - 多线程并发处理 - 抽帧结果打包上传
+         */
+        private String mdText;
+        /**
+         * 当chunk为表格的情况下，返回html的结果
+         * <p> 示例值：<table border="1">   <thead>     <tr>       <th>用户名</th>       <th>年龄</th>       <th>邮箱</th>       <th>状态</th>     </tr>   </thead>   <tbody>     <tr>       <td>Alice</td>       <td>24</td>       <td>alice@example.com</td>       <td>启用</td>     </tr>     <tr>       <td>Bob</td>       <td>30</td>       <td>bob@example.com</td>       <td>禁用</td>     </tr>     <tr>       <td>Charlie</td>       <td>28</td>       <td>charlie@example.com</td>       <td>启用</td>     </tr>   </tbody> </table>
+         */
+        private String htmlText;
+        /**
+         * 文件信息 在type为file时用来表示文件信息
+         * <p> 示例值：
+         */
+        private FileDetail fileDetail;
+        /**
+         * 飞书云文档返回的代码块信息
+         * <p> 示例值：
+         */
+        private CodeDetail codeDetail;
 
         /**
          * 段落索引
@@ -525,13 +621,65 @@ public class DocChunkResult {
 
         /**
          * pptx文件里面的页码
-         * <p> 示例值：1
+         * <p> 示例值：0
          *
          * @param slideIndex
          * @return
          */
-        public Builder slideIndex(String slideIndex) {
+        public Builder slideIndex(Integer slideIndex) {
             this.slideIndex = slideIndex;
+            return this;
+        }
+
+
+        /**
+         * 若to_md设置为true, md_collapsed设置为false, 各chunk转成markdown的结果；若chunk为表格，不管开启与否返回的都是表格的markdown结果
+         * <p> 示例值：本项目旨在提供一个简洁高效的视频处理服务，支持以下功能：  - 视频分段切片 - 精准帧抽取 - 帧图重命名与排序 - 多线程并发处理 - 抽帧结果打包上传
+         *
+         * @param mdText
+         * @return
+         */
+        public Builder mdText(String mdText) {
+            this.mdText = mdText;
+            return this;
+        }
+
+
+        /**
+         * 当chunk为表格的情况下，返回html的结果
+         * <p> 示例值：<table border="1">   <thead>     <tr>       <th>用户名</th>       <th>年龄</th>       <th>邮箱</th>       <th>状态</th>     </tr>   </thead>   <tbody>     <tr>       <td>Alice</td>       <td>24</td>       <td>alice@example.com</td>       <td>启用</td>     </tr>     <tr>       <td>Bob</td>       <td>30</td>       <td>bob@example.com</td>       <td>禁用</td>     </tr>     <tr>       <td>Charlie</td>       <td>28</td>       <td>charlie@example.com</td>       <td>启用</td>     </tr>   </tbody> </table>
+         *
+         * @param htmlText
+         * @return
+         */
+        public Builder htmlText(String htmlText) {
+            this.htmlText = htmlText;
+            return this;
+        }
+
+
+        /**
+         * 文件信息 在type为file时用来表示文件信息
+         * <p> 示例值：
+         *
+         * @param fileDetail
+         * @return
+         */
+        public Builder fileDetail(FileDetail fileDetail) {
+            this.fileDetail = fileDetail;
+            return this;
+        }
+
+
+        /**
+         * 飞书云文档返回的代码块信息
+         * <p> 示例值：
+         *
+         * @param codeDetail
+         * @return
+         */
+        public Builder codeDetail(CodeDetail codeDetail) {
+            this.codeDetail = codeDetail;
             return this;
         }
 

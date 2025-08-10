@@ -100,6 +100,12 @@ public class InterviewFeedbackFormDimension {
      */
     @SerializedName("ability_list")
     private DimensionAbility[] abilityList;
+    /**
+     * 维度间关联配置
+     * <p> 示例值：
+     */
+    @SerializedName("related_dimension_config")
+    private RelatedDimensionConfig relatedDimensionConfig;
 
     // builder 开始
     public InterviewFeedbackFormDimension() {
@@ -166,6 +172,11 @@ public class InterviewFeedbackFormDimension {
          * <p> 示例值：
          */
         this.abilityList = builder.abilityList;
+        /**
+         * 维度间关联配置
+         * <p> 示例值：
+         */
+        this.relatedDimensionConfig = builder.relatedDimensionConfig;
     }
 
     public static Builder newBuilder() {
@@ -268,6 +279,14 @@ public class InterviewFeedbackFormDimension {
         this.abilityList = abilityList;
     }
 
+    public RelatedDimensionConfig getRelatedDimensionConfig() {
+        return this.relatedDimensionConfig;
+    }
+
+    public void setRelatedDimensionConfig(RelatedDimensionConfig relatedDimensionConfig) {
+        this.relatedDimensionConfig = relatedDimensionConfig;
+    }
+
     public static class Builder {
         /**
          * 模块维度ID
@@ -329,6 +348,11 @@ public class InterviewFeedbackFormDimension {
          * <p> 示例值：
          */
         private DimensionAbility[] abilityList;
+        /**
+         * 维度间关联配置
+         * <p> 示例值：
+         */
+        private RelatedDimensionConfig relatedDimensionConfig;
 
         /**
          * 模块维度ID
@@ -482,6 +506,19 @@ public class InterviewFeedbackFormDimension {
          */
         public Builder abilityList(DimensionAbility[] abilityList) {
             this.abilityList = abilityList;
+            return this;
+        }
+
+
+        /**
+         * 维度间关联配置
+         * <p> 示例值：
+         *
+         * @param relatedDimensionConfig
+         * @return
+         */
+        public Builder relatedDimensionConfig(RelatedDimensionConfig relatedDimensionConfig) {
+            this.relatedDimensionConfig = relatedDimensionConfig;
             return this;
         }
 

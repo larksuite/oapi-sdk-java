@@ -1680,6 +1680,51 @@ public class EventDispatcher implements IHandler {
          * @param handler
          * @return
          */
+        public Builder onP2PathwayCreatedV2(CorehrService.P2PathwayCreatedV2Handler handler) {
+            if (eventType2EventHandler.containsKey("corehr.pathway.created_v2")) {
+                throw new EventTypeAlreadyHasHandlerException("corehr.pathway.created_v2");
+            }
+            eventType2EventHandler.put("corehr.pathway.created_v2", handler);
+            return this;
+        }
+
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2PathwayDeletedV2(CorehrService.P2PathwayDeletedV2Handler handler) {
+            if (eventType2EventHandler.containsKey("corehr.pathway.deleted_v2")) {
+                throw new EventTypeAlreadyHasHandlerException("corehr.pathway.deleted_v2");
+            }
+            eventType2EventHandler.put("corehr.pathway.deleted_v2", handler);
+            return this;
+        }
+
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2PathwayUpdatedV2(CorehrService.P2PathwayUpdatedV2Handler handler) {
+            if (eventType2EventHandler.containsKey("corehr.pathway.updated_v2")) {
+                throw new EventTypeAlreadyHasHandlerException("corehr.pathway.updated_v2");
+            }
+            eventType2EventHandler.put("corehr.pathway.updated_v2", handler);
+            return this;
+        }
+
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
         public Builder onP2PreHireOnboardingTaskChangedV2(CorehrService.P2PreHireOnboardingTaskChangedV2Handler handler) {
             if (eventType2EventHandler.containsKey("corehr.pre_hire.onboarding_task_changed_v2")) {
                 throw new EventTypeAlreadyHasHandlerException("corehr.pre_hire.onboarding_task_changed_v2");

@@ -166,6 +166,12 @@ public class OfferBasicInfo {
      */
     @SerializedName("job_grade_id")
     private String jobGradeId;
+    /**
+     * 通道 ID
+     * <p> 示例值：6897079709306259719
+     */
+    @SerializedName("pathway_id")
+    private String pathwayId;
 
     // builder 开始
     public OfferBasicInfo() {
@@ -287,6 +293,11 @@ public class OfferBasicInfo {
          * <p> 示例值：6897079709306259720
          */
         this.jobGradeId = builder.jobGradeId;
+        /**
+         * 通道 ID
+         * <p> 示例值：6897079709306259719
+         */
+        this.pathwayId = builder.pathwayId;
     }
 
     public static Builder newBuilder() {
@@ -477,6 +488,14 @@ public class OfferBasicInfo {
         this.jobGradeId = jobGradeId;
     }
 
+    public String getPathwayId() {
+        return this.pathwayId;
+    }
+
+    public void setPathwayId(String pathwayId) {
+        this.pathwayId = pathwayId;
+    }
+
     public static class Builder {
         /**
          * 部门 ID
@@ -593,6 +612,11 @@ public class OfferBasicInfo {
          * <p> 示例值：6897079709306259720
          */
         private String jobGradeId;
+        /**
+         * 通道 ID
+         * <p> 示例值：6897079709306259719
+         */
+        private String pathwayId;
 
         /**
          * 部门 ID
@@ -889,6 +913,19 @@ public class OfferBasicInfo {
          */
         public Builder jobGradeId(String jobGradeId) {
             this.jobGradeId = jobGradeId;
+            return this;
+        }
+
+
+        /**
+         * 通道 ID
+         * <p> 示例值：6897079709306259719
+         *
+         * @param pathwayId
+         * @return
+         */
+        public Builder pathwayId(String pathwayId) {
+            this.pathwayId = pathwayId;
             return this;
         }
 

@@ -14,11 +14,11 @@
 package com.lark.oapi.service.compensation.v1.enums;
 
 /**
- * 档案变更类型。add新增、modify调整、delete删除
+ * 档案变更类型。increase新增、adjust调整、delete删除
  */
 public enum SocialArchiveEventDetailOperateTypeEnum {
-    ADD("add"), // 新增
-    MODIFY("modify"), // 调整
+    INCREASE("increase"), // 新增
+    ADJUST("adjust"), // 调整
     DELETE("delete"), // 删除
     ;
     private String value;

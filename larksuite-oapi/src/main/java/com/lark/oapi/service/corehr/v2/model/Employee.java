@@ -491,6 +491,12 @@ public class Employee {
      */
     @SerializedName("attendance_group_id")
     private String attendanceGroupId;
+    /**
+     * 员工是否占用编制
+     * <p> 示例值：with_headcount
+     */
+    @SerializedName("individuals_with_headcount_or_not")
+    private Enum individualsWithHeadcountOrNot;
 
     // builder 开始
     public Employee() {
@@ -882,6 +888,11 @@ public class Employee {
          * <p> 示例值：123456789
          */
         this.attendanceGroupId = builder.attendanceGroupId;
+        /**
+         * 员工是否占用编制
+         * <p> 示例值：with_headcount
+         */
+        this.individualsWithHeadcountOrNot = builder.individualsWithHeadcountOrNot;
     }
 
     public static Builder newBuilder() {
@@ -1504,6 +1515,14 @@ public class Employee {
         this.attendanceGroupId = attendanceGroupId;
     }
 
+    public Enum getIndividualsWithHeadcountOrNot() {
+        return this.individualsWithHeadcountOrNot;
+    }
+
+    public void setIndividualsWithHeadcountOrNot(Enum individualsWithHeadcountOrNot) {
+        this.individualsWithHeadcountOrNot = individualsWithHeadcountOrNot;
+    }
+
     public static class Builder {
         /**
          * 雇佣 ID;- 类型与 user_id_type 一致;- 请使用 employment_id_v2
@@ -1890,6 +1909,11 @@ public class Employee {
          * <p> 示例值：123456789
          */
         private String attendanceGroupId;
+        /**
+         * 员工是否占用编制
+         * <p> 示例值：with_headcount
+         */
+        private Enum individualsWithHeadcountOrNot;
 
         /**
          * 雇佣 ID;- 类型与 user_id_type 一致;- 请使用 employment_id_v2
@@ -2888,6 +2912,19 @@ public class Employee {
          */
         public Builder attendanceGroupId(String attendanceGroupId) {
             this.attendanceGroupId = attendanceGroupId;
+            return this;
+        }
+
+
+        /**
+         * 员工是否占用编制
+         * <p> 示例值：with_headcount
+         *
+         * @param individualsWithHeadcountOrNot
+         * @return
+         */
+        public Builder individualsWithHeadcountOrNot(Enum individualsWithHeadcountOrNot) {
+            this.individualsWithHeadcountOrNot = individualsWithHeadcountOrNot;
             return this;
         }
 

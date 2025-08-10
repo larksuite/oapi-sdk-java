@@ -34,6 +34,11 @@ public class GetMeetingRespBody {
      */
     @SerializedName("meeting")
     private Meeting meeting;
+    /**
+     * <p> 示例值：
+     */
+    @SerializedName("related_artifacts")
+    private MeetingRelatedArtifacts relatedArtifacts;
 
     public Meeting getMeeting() {
         return this.meeting;
@@ -41,6 +46,14 @@ public class GetMeetingRespBody {
 
     public void setMeeting(Meeting meeting) {
         this.meeting = meeting;
+    }
+
+    public MeetingRelatedArtifacts getRelatedArtifacts() {
+        return this.relatedArtifacts;
+    }
+
+    public void setRelatedArtifacts(MeetingRelatedArtifacts relatedArtifacts) {
+        this.relatedArtifacts = relatedArtifacts;
     }
 
 }

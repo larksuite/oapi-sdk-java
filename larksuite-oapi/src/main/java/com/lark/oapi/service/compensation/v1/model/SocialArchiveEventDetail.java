@@ -36,7 +36,7 @@ public class SocialArchiveEventDetail {
     @SerializedName("insurance_type")
     private String insuranceType;
     /**
-     * 档案变更类型。add新增、modify调整、delete删除
+     * 档案变更类型。increase新增、adjust调整、delete删除
      * <p> 示例值：add
      */
     @SerializedName("operate_type")
@@ -71,7 +71,7 @@ public class SocialArchiveEventDetail {
          */
         this.insuranceType = builder.insuranceType;
         /**
-         * 档案变更类型。add新增、modify调整、delete删除
+         * 档案变更类型。increase新增、adjust调整、delete删除
          * <p> 示例值：add
          */
         this.operateType = builder.operateType;
@@ -143,7 +143,7 @@ public class SocialArchiveEventDetail {
          */
         private String insuranceType;
         /**
-         * 档案变更类型。add新增、modify调整、delete删除
+         * 档案变更类型。increase新增、adjust调整、delete删除
          * <p> 示例值：add
          */
         private String operateType;
@@ -189,7 +189,7 @@ public class SocialArchiveEventDetail {
 
 
         /**
-         * 档案变更类型。add新增、modify调整、delete删除
+         * 档案变更类型。increase新增、adjust调整、delete删除
          * <p> 示例值：add
          *
          * @param operateType
@@ -201,7 +201,7 @@ public class SocialArchiveEventDetail {
         }
 
         /**
-         * 档案变更类型。add新增、modify调整、delete删除
+         * 档案变更类型。increase新增、adjust调整、delete删除
          * <p> 示例值：add
          *
          * @param operateType {@link com.lark.oapi.service.compensation.v1.enums.SocialArchiveEventDetailOperateTypeEnum}

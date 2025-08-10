@@ -71,6 +71,12 @@ public class Vchat {
      */
     @SerializedName("meeting_settings")
     private MeetingSettings meetingSettings;
+    /**
+     * 三方会议设置
+     * <p> 示例值：
+     */
+    @SerializedName("third_party_meeting_settings")
+    private ThirdPartyMeetingSettings thirdPartyMeetingSettings;
 
     // builder 开始
     public Vchat() {
@@ -112,6 +118,11 @@ public class Vchat {
          * <p> 示例值：
          */
         this.meetingSettings = builder.meetingSettings;
+        /**
+         * 三方会议设置
+         * <p> 示例值：
+         */
+        this.thirdPartyMeetingSettings = builder.thirdPartyMeetingSettings;
     }
 
     public static Builder newBuilder() {
@@ -174,6 +185,14 @@ public class Vchat {
         this.meetingSettings = meetingSettings;
     }
 
+    public ThirdPartyMeetingSettings getThirdPartyMeetingSettings() {
+        return this.thirdPartyMeetingSettings;
+    }
+
+    public void setThirdPartyMeetingSettings(ThirdPartyMeetingSettings thirdPartyMeetingSettings) {
+        this.thirdPartyMeetingSettings = thirdPartyMeetingSettings;
+    }
+
     public static class Builder {
         /**
          * 视频会议类型
@@ -210,6 +229,11 @@ public class Vchat {
          * <p> 示例值：
          */
         private MeetingSettings meetingSettings;
+        /**
+         * 三方会议设置
+         * <p> 示例值：
+         */
+        private ThirdPartyMeetingSettings thirdPartyMeetingSettings;
 
         /**
          * 视频会议类型
@@ -322,6 +346,19 @@ public class Vchat {
          */
         public Builder meetingSettings(MeetingSettings meetingSettings) {
             this.meetingSettings = meetingSettings;
+            return this;
+        }
+
+
+        /**
+         * 三方会议设置
+         * <p> 示例值：
+         *
+         * @param thirdPartyMeetingSettings
+         * @return
+         */
+        public Builder thirdPartyMeetingSettings(ThirdPartyMeetingSettings thirdPartyMeetingSettings) {
+            this.thirdPartyMeetingSettings = thirdPartyMeetingSettings;
             return this;
         }
 

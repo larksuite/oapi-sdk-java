@@ -47,6 +47,12 @@ public class ImageDetail {
      */
     @SerializedName("links")
     private String[] links;
+    /**
+     * 飞书云文档内部对图片的标记
+     * <p> 示例值：DkHObJB33orSVixjfEab3ZMDcre
+     */
+    @SerializedName("token")
+    private String token;
 
     // builder 开始
     public ImageDetail() {
@@ -68,6 +74,11 @@ public class ImageDetail {
          * <p> 示例值：
          */
         this.links = builder.links;
+        /**
+         * 飞书云文档内部对图片的标记
+         * <p> 示例值：DkHObJB33orSVixjfEab3ZMDcre
+         */
+        this.token = builder.token;
     }
 
     public static Builder newBuilder() {
@@ -98,6 +109,14 @@ public class ImageDetail {
         this.links = links;
     }
 
+    public String getToken() {
+        return this.token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
     public static class Builder {
         /**
          * 图片完整内容base64字符串
@@ -114,6 +133,11 @@ public class ImageDetail {
          * <p> 示例值：
          */
         private String[] links;
+        /**
+         * 飞书云文档内部对图片的标记
+         * <p> 示例值：DkHObJB33orSVixjfEab3ZMDcre
+         */
+        private String token;
 
         /**
          * 图片完整内容base64字符串
@@ -150,6 +174,19 @@ public class ImageDetail {
          */
         public Builder links(String[] links) {
             this.links = links;
+            return this;
+        }
+
+
+        /**
+         * 飞书云文档内部对图片的标记
+         * <p> 示例值：DkHObJB33orSVixjfEab3ZMDcre
+         *
+         * @param token
+         * @return
+         */
+        public Builder token(String token) {
+            this.token = token;
             return this;
         }
 

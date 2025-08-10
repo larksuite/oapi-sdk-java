@@ -172,6 +172,12 @@ public class ApplicationOfferBasicInfo {
      */
     @SerializedName("common_attachment_id_list")
     private String[] commonAttachmentIdList;
+    /**
+     * 通道 ID
+     * <p> 示例值：123456
+     */
+    @SerializedName("pathway_id")
+    private String pathwayId;
 
     // builder 开始
     public ApplicationOfferBasicInfo() {
@@ -298,6 +304,11 @@ public class ApplicationOfferBasicInfo {
          * <p> 示例值：
          */
         this.commonAttachmentIdList = builder.commonAttachmentIdList;
+        /**
+         * 通道 ID
+         * <p> 示例值：123456
+         */
+        this.pathwayId = builder.pathwayId;
     }
 
     public static Builder newBuilder() {
@@ -496,6 +507,14 @@ public class ApplicationOfferBasicInfo {
         this.commonAttachmentIdList = commonAttachmentIdList;
     }
 
+    public String getPathwayId() {
+        return this.pathwayId;
+    }
+
+    public void setPathwayId(String pathwayId) {
+        this.pathwayId = pathwayId;
+    }
+
     public static class Builder {
         /**
          * Offer 类型
@@ -617,6 +636,11 @@ public class ApplicationOfferBasicInfo {
          * <p> 示例值：
          */
         private String[] commonAttachmentIdList;
+        /**
+         * 通道 ID
+         * <p> 示例值：123456
+         */
+        private String pathwayId;
 
         /**
          * Offer 类型
@@ -926,6 +950,19 @@ public class ApplicationOfferBasicInfo {
          */
         public Builder commonAttachmentIdList(String[] commonAttachmentIdList) {
             this.commonAttachmentIdList = commonAttachmentIdList;
+            return this;
+        }
+
+
+        /**
+         * 通道 ID
+         * <p> 示例值：123456
+         *
+         * @param pathwayId
+         * @return
+         */
+        public Builder pathwayId(String pathwayId) {
+            this.pathwayId = pathwayId;
             return this;
         }
 

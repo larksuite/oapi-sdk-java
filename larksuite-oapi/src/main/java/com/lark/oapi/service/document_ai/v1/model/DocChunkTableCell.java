@@ -90,11 +90,29 @@ public class DocChunkTableCell {
     @SerializedName("col_span")
     private Integer colSpan;
     /**
-     * 是否合并单元格
-     * <p> 示例值：true
+     * 是否为合并单元格
+     * <p> 示例值：
      */
     @SerializedName("is_merge_cell")
     private Boolean isMergeCell;
+    /**
+     * 单元格内部图片列表（base64 / 文件token）
+     * <p> 示例值：
+     */
+    @SerializedName("images")
+    private String[] images;
+    /**
+     * 单元格内部文件列表（临时链接 / 文件token）
+     * <p> 示例值：
+     */
+    @SerializedName("files")
+    private String[] files;
+    /**
+     * 是否是表头
+     * <p> 示例值：
+     */
+    @SerializedName("is_header")
+    private Boolean isHeader;
 
     // builder 开始
     public DocChunkTableCell() {
@@ -152,10 +170,25 @@ public class DocChunkTableCell {
          */
         this.colSpan = builder.colSpan;
         /**
-         * 是否合并单元格
-         * <p> 示例值：true
+         * 是否为合并单元格
+         * <p> 示例值：
          */
         this.isMergeCell = builder.isMergeCell;
+        /**
+         * 单元格内部图片列表（base64 / 文件token）
+         * <p> 示例值：
+         */
+        this.images = builder.images;
+        /**
+         * 单元格内部文件列表（临时链接 / 文件token）
+         * <p> 示例值：
+         */
+        this.files = builder.files;
+        /**
+         * 是否是表头
+         * <p> 示例值：
+         */
+        this.isHeader = builder.isHeader;
     }
 
     public static Builder newBuilder() {
@@ -250,6 +283,30 @@ public class DocChunkTableCell {
         this.isMergeCell = isMergeCell;
     }
 
+    public String[] getImages() {
+        return this.images;
+    }
+
+    public void setImages(String[] images) {
+        this.images = images;
+    }
+
+    public String[] getFiles() {
+        return this.files;
+    }
+
+    public void setFiles(String[] files) {
+        this.files = files;
+    }
+
+    public Boolean getIsHeader() {
+        return this.isHeader;
+    }
+
+    public void setIsHeader(Boolean isHeader) {
+        this.isHeader = isHeader;
+    }
+
     public static class Builder {
         /**
          * 现在只有paragraph，目前只支持文本形式的单元格内容返回
@@ -302,10 +359,25 @@ public class DocChunkTableCell {
          */
         private Integer colSpan;
         /**
-         * 是否合并单元格
-         * <p> 示例值：true
+         * 是否为合并单元格
+         * <p> 示例值：
          */
         private Boolean isMergeCell;
+        /**
+         * 单元格内部图片列表（base64 / 文件token）
+         * <p> 示例值：
+         */
+        private String[] images;
+        /**
+         * 单元格内部文件列表（临时链接 / 文件token）
+         * <p> 示例值：
+         */
+        private String[] files;
+        /**
+         * 是否是表头
+         * <p> 示例值：
+         */
+        private Boolean isHeader;
 
         /**
          * 现在只有paragraph，目前只支持文本形式的单元格内容返回
@@ -438,14 +510,53 @@ public class DocChunkTableCell {
 
 
         /**
-         * 是否合并单元格
-         * <p> 示例值：true
+         * 是否为合并单元格
+         * <p> 示例值：
          *
          * @param isMergeCell
          * @return
          */
         public Builder isMergeCell(Boolean isMergeCell) {
             this.isMergeCell = isMergeCell;
+            return this;
+        }
+
+
+        /**
+         * 单元格内部图片列表（base64 / 文件token）
+         * <p> 示例值：
+         *
+         * @param images
+         * @return
+         */
+        public Builder images(String[] images) {
+            this.images = images;
+            return this;
+        }
+
+
+        /**
+         * 单元格内部文件列表（临时链接 / 文件token）
+         * <p> 示例值：
+         *
+         * @param files
+         * @return
+         */
+        public Builder files(String[] files) {
+            this.files = files;
+            return this;
+        }
+
+
+        /**
+         * 是否是表头
+         * <p> 示例值：
+         *
+         * @param isHeader
+         * @return
+         */
+        public Builder isHeader(Boolean isHeader) {
+            this.isHeader = isHeader;
             return this;
         }
 

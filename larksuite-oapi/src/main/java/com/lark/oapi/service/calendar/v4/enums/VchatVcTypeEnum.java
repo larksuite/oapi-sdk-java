@@ -22,6 +22,7 @@ public enum VchatVcTypeEnum {
     NOMEETING("no_meeting"), // 无视频会议
     LARKLIVE("lark_live"), // Lark直播
     UNKNOWN("unknown"), // 未知类型
+    THIRDPARTYMEETING("third_party_meeting"), // 三方会议类型
     ;
     private String value;
 

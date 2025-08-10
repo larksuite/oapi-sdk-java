@@ -50,6 +50,13 @@ public class GetMeetingReq {
     @SerializedName("user_id_type")
     private String userIdType;
     /**
+     * 此次查询的查询模式，不传，或传0，只查询会议信息；传1，只查询会议产物
+     * <p> 示例值：
+     */
+    @Query
+    @SerializedName("query_mode")
+    private Integer queryMode;
+    /**
      * 会议ID（视频会议的唯一标识，视频会议开始后才会产生）
      * <p> 示例值：6911188411932033028
      */
@@ -77,6 +84,11 @@ public class GetMeetingReq {
          * <p> 示例值：
          */
         this.userIdType = builder.userIdType;
+        /**
+         * 此次查询的查询模式，不传，或传0，只查询会议信息；传1，只查询会议产物
+         * <p> 示例值：
+         */
+        this.queryMode = builder.queryMode;
         /**
          * 会议ID（视频会议的唯一标识，视频会议开始后才会产生）
          * <p> 示例值：6911188411932033028
@@ -112,6 +124,14 @@ public class GetMeetingReq {
         this.userIdType = userIdType;
     }
 
+    public Integer getQueryMode() {
+        return this.queryMode;
+    }
+
+    public void setQueryMode(Integer queryMode) {
+        this.queryMode = queryMode;
+    }
+
     public String getMeetingId() {
         return this.meetingId;
     }
@@ -124,6 +144,7 @@ public class GetMeetingReq {
         private Boolean withParticipants; // 是否需要参会人列表
         private Boolean withMeetingAbility; // 是否需要会中使用能力统计（仅限tenant_access_token）
         private String userIdType; // 此次调用中使用的用户ID的类型，默认使用open_id可不填
+        private Integer queryMode; // 此次查询的查询模式，不传，或传0，只查询会议信息；传1，只查询会议产物
         private String meetingId; // 会议ID（视频会议的唯一标识，视频会议开始后才会产生）
 
         /**
@@ -171,6 +192,30 @@ public class GetMeetingReq {
          */
         public Builder userIdType(com.lark.oapi.service.vc.v1.enums.GetMeetingUserIdTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
+            return this;
+        }
+
+        /**
+         * 此次查询的查询模式，不传，或传0，只查询会议信息；传1，只查询会议产物
+         * <p> 示例值：
+         *
+         * @param queryMode
+         * @return
+         */
+        public Builder queryMode(Integer queryMode) {
+            this.queryMode = queryMode;
+            return this;
+        }
+
+        /**
+         * 此次查询的查询模式，不传，或传0，只查询会议信息；传1，只查询会议产物
+         * <p> 示例值：
+         *
+         * @param queryMode {@link com.lark.oapi.service.vc.v1.enums.GetMeetingGetMeetingByIdQueryModeEnum}
+         * @return
+         */
+        public Builder queryMode(com.lark.oapi.service.vc.v1.enums.GetMeetingGetMeetingByIdQueryModeEnum queryMode) {
+            this.queryMode = queryMode.getValue();
             return this;
         }
 

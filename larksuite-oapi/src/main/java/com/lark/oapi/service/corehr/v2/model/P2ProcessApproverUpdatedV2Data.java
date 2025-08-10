@@ -71,11 +71,17 @@ public class P2ProcessApproverUpdatedV2Data {
     @SerializedName("node_definition_id")
     private String nodeDefinitionId;
     /**
-     * 节点id
+     * 节点id（废弃，请使用node_id_str）
      * <p> 示例值：7369419552616089132
      */
     @SerializedName("node_id")
     private String nodeId;
+    /**
+     * 节点id
+     * <p> 示例值：7369419552616089132
+     */
+    @SerializedName("node_id_str")
+    private String nodeIdStr;
 
     public String getProcessId() {
         return this.processId;
@@ -139,6 +145,14 @@ public class P2ProcessApproverUpdatedV2Data {
 
     public void setNodeId(String nodeId) {
         this.nodeId = nodeId;
+    }
+
+    public String getNodeIdStr() {
+        return this.nodeIdStr;
+    }
+
+    public void setNodeIdStr(String nodeIdStr) {
+        this.nodeIdStr = nodeIdStr;
     }
 
 }

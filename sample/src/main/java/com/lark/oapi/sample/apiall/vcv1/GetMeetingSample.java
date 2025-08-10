@@ -19,6 +19,7 @@ public class GetMeetingSample {
                 .withParticipants(false)
                 .withMeetingAbility(false)
                 .userIdType("user_id")
+                .queryMode(0)
                 .build();
 
         // 发起请求

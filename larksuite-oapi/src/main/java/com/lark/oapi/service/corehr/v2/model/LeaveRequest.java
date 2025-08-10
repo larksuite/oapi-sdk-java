@@ -203,6 +203,12 @@ public class LeaveRequest {
      */
     @SerializedName("leave_correct_process_info")
     private LeaveProcessInfo[] leaveCorrectProcessInfo;
+    /**
+     * workday扩展字段信息
+     * <p> 示例值：
+     */
+    @SerializedName("workday_extend_infos")
+    private LeaveExtendItem[] workdayExtendInfos;
 
     // builder 开始
     public LeaveRequest() {
@@ -354,6 +360,11 @@ public class LeaveRequest {
          * <p> 示例值：
          */
         this.leaveCorrectProcessInfo = builder.leaveCorrectProcessInfo;
+        /**
+         * workday扩展字段信息
+         * <p> 示例值：
+         */
+        this.workdayExtendInfos = builder.workdayExtendInfos;
     }
 
     public static Builder newBuilder() {
@@ -592,6 +603,14 @@ public class LeaveRequest {
         this.leaveCorrectProcessInfo = leaveCorrectProcessInfo;
     }
 
+    public LeaveExtendItem[] getWorkdayExtendInfos() {
+        return this.workdayExtendInfos;
+    }
+
+    public void setWorkdayExtendInfos(LeaveExtendItem[] workdayExtendInfos) {
+        this.workdayExtendInfos = workdayExtendInfos;
+    }
+
     public static class Builder {
         /**
          * 请假记录ID
@@ -738,6 +757,11 @@ public class LeaveRequest {
          * <p> 示例值：
          */
         private LeaveProcessInfo[] leaveCorrectProcessInfo;
+        /**
+         * workday扩展字段信息
+         * <p> 示例值：
+         */
+        private LeaveExtendItem[] workdayExtendInfos;
 
         /**
          * 请假记录ID
@@ -1112,6 +1136,19 @@ public class LeaveRequest {
          */
         public Builder leaveCorrectProcessInfo(LeaveProcessInfo[] leaveCorrectProcessInfo) {
             this.leaveCorrectProcessInfo = leaveCorrectProcessInfo;
+            return this;
+        }
+
+
+        /**
+         * workday扩展字段信息
+         * <p> 示例值：
+         *
+         * @param workdayExtendInfos
+         * @return
+         */
+        public Builder workdayExtendInfos(LeaveExtendItem[] workdayExtendInfos) {
+            this.workdayExtendInfos = workdayExtendInfos;
             return this;
         }
 

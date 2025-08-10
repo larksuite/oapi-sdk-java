@@ -673,6 +673,27 @@ public class CorehrService {
         }
     }
 
+    public abstract static class P2PathwayCreatedV2Handler implements IEventHandler<P2PathwayCreatedV2> {
+        @Override
+        public P2PathwayCreatedV2 getEvent() {
+            return new P2PathwayCreatedV2();
+        }
+    }
+
+    public abstract static class P2PathwayDeletedV2Handler implements IEventHandler<P2PathwayDeletedV2> {
+        @Override
+        public P2PathwayDeletedV2 getEvent() {
+            return new P2PathwayDeletedV2();
+        }
+    }
+
+    public abstract static class P2PathwayUpdatedV2Handler implements IEventHandler<P2PathwayUpdatedV2> {
+        @Override
+        public P2PathwayUpdatedV2 getEvent() {
+            return new P2PathwayUpdatedV2();
+        }
+    }
+
     public abstract static class P2PreHireOnboardingTaskChangedV2Handler implements IEventHandler<P2PreHireOnboardingTaskChangedV2> {
         @Override
         public P2PreHireOnboardingTaskChangedV2 getEvent() {

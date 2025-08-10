@@ -425,6 +425,12 @@ public class EmployeeBt {
      */
     @SerializedName("whether_returnee")
     private Boolean whetherReturnee;
+    /**
+     * 员工是否占用编制
+     * <p> 示例值：with_headcount
+     */
+    @SerializedName("individuals_with_headcount_or_not")
+    private Enum individualsWithHeadcountOrNot;
 
     // builder 开始
     public EmployeeBt() {
@@ -761,6 +767,11 @@ public class EmployeeBt {
          * <p> 示例值：true
          */
         this.whetherReturnee = builder.whetherReturnee;
+        /**
+         * 员工是否占用编制
+         * <p> 示例值：with_headcount
+         */
+        this.individualsWithHeadcountOrNot = builder.individualsWithHeadcountOrNot;
     }
 
     public static Builder newBuilder() {
@@ -1295,6 +1306,14 @@ public class EmployeeBt {
         this.whetherReturnee = whetherReturnee;
     }
 
+    public Enum getIndividualsWithHeadcountOrNot() {
+        return this.individualsWithHeadcountOrNot;
+    }
+
+    public void setIndividualsWithHeadcountOrNot(Enum individualsWithHeadcountOrNot) {
+        this.individualsWithHeadcountOrNot = individualsWithHeadcountOrNot;
+    }
+
     public static class Builder {
         /**
          * 雇佣 ID;- 类型与 user_id_type 一致
@@ -1626,6 +1645,11 @@ public class EmployeeBt {
          * <p> 示例值：true
          */
         private Boolean whetherReturnee;
+        /**
+         * 员工是否占用编制
+         * <p> 示例值：with_headcount
+         */
+        private Enum individualsWithHeadcountOrNot;
 
         /**
          * 雇佣 ID;- 类型与 user_id_type 一致
@@ -2481,6 +2505,19 @@ public class EmployeeBt {
          */
         public Builder whetherReturnee(Boolean whetherReturnee) {
             this.whetherReturnee = whetherReturnee;
+            return this;
+        }
+
+
+        /**
+         * 员工是否占用编制
+         * <p> 示例值：with_headcount
+         *
+         * @param individualsWithHeadcountOrNot
+         * @return
+         */
+        public Builder individualsWithHeadcountOrNot(Enum individualsWithHeadcountOrNot) {
+            this.individualsWithHeadcountOrNot = individualsWithHeadcountOrNot;
             return this;
         }
 

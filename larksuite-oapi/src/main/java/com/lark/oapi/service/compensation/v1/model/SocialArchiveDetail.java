@@ -85,7 +85,7 @@ public class SocialArchiveDetail {
     private String companyId;
     /**
      * 社保账户类型
-     * <p> 示例值：123456
+     * <p> 示例值：supplier
      */
     @SerializedName("account_type")
     private String accountType;
@@ -166,7 +166,7 @@ public class SocialArchiveDetail {
         this.companyId = builder.companyId;
         /**
          * 社保账户类型
-         * <p> 示例值：123456
+         * <p> 示例值：supplier
          */
         this.accountType = builder.accountType;
         /**
@@ -355,7 +355,7 @@ public class SocialArchiveDetail {
         private String companyId;
         /**
          * 社保账户类型
-         * <p> 示例值：123456
+         * <p> 示例值：supplier
          */
         private String accountType;
         /**
@@ -522,13 +522,25 @@ public class SocialArchiveDetail {
 
         /**
          * 社保账户类型
-         * <p> 示例值：123456
+         * <p> 示例值：supplier
          *
          * @param accountType
          * @return
          */
         public Builder accountType(String accountType) {
             this.accountType = accountType;
+            return this;
+        }
+
+        /**
+         * 社保账户类型
+         * <p> 示例值：supplier
+         *
+         * @param accountType {@link com.lark.oapi.service.compensation.v1.enums.SocialArchiveDetailAccountTypeEnum}
+         * @return
+         */
+        public Builder accountType(com.lark.oapi.service.compensation.v1.enums.SocialArchiveDetailAccountTypeEnum accountType) {
+            this.accountType = accountType.getValue();
             return this;
         }
 

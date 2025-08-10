@@ -54,6 +54,7 @@ public class V2 {
     private final Location location; // location
     private final LocationAddress locationAddress; // location.address
     private final Offboarding offboarding; // offboarding
+    private final Pathway pathway; // pathway
     private final Person person; // person
     private final PreHire preHire; // 待入职
     private final Probation probation; // probation
@@ -109,6 +110,7 @@ public class V2 {
         this.location = new Location(config);
         this.locationAddress = new LocationAddress(config);
         this.offboarding = new Offboarding(config);
+        this.pathway = new Pathway(config);
         this.person = new Person(config);
         this.preHire = new PreHire(config);
         this.probation = new Probation(config);
@@ -267,6 +269,10 @@ public class V2 {
 
     public Offboarding offboarding() {
         return offboarding;
+    }
+
+    public Pathway pathway() {
+        return pathway;
     }
 
     public Person person() {
