@@ -28,99 +28,99 @@ import java.io.IOException;
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class MatchingRuleItem {
+public class QueryPositionReqBody {
     /**
-     * 匹配规则 ID
-     * <p> 示例值：77456335345
+     * 部门 ID 列表
+     * <p> 示例值：
      */
-    @SerializedName("matching_rule_id")
-    private String matchingRuleId;
+    @SerializedName("department_ids")
+    private String[] departmentIds;
     /**
-     * 匹配的公司 ID
-     * <p> 示例值：77456435345
+     * 生效日期
+     * <p> 示例值：2020-01-01
      */
-    @SerializedName("company_id")
-    private String companyId;
+    @SerializedName("effective_time")
+    private String effectiveTime;
     /**
      * 启停用状态
-     * <p> 示例值：false
+     * <p> 示例值：true
      */
     @SerializedName("active")
     private Boolean active;
     /**
-     * 优先级
-     * <p> 示例值：10
-     */
-    @SerializedName("priority")
-    private Integer priority;
-    /**
-     * 维度设置
+     * 返回数据的字段列表
      * <p> 示例值：
      */
-    @SerializedName("scope_setting")
-    private MatchingRuleScopeSetting scopeSetting;
+    @SerializedName("fields")
+    private String[] fields;
     /**
-     * 描述
+     * 岗位 ID 列表
      * <p> 示例值：
      */
-    @SerializedName("descriptions")
-    private I18n[] descriptions;
+    @SerializedName("position_ids")
+    private String[] positionIds;
+    /**
+     * 岗位 Code 列表
+     * <p> 示例值：
+     */
+    @SerializedName("position_codes")
+    private String[] positionCodes;
 
     // builder 开始
-    public MatchingRuleItem() {
+    public QueryPositionReqBody() {
     }
 
-    public MatchingRuleItem(Builder builder) {
+    public QueryPositionReqBody(Builder builder) {
         /**
-         * 匹配规则 ID
-         * <p> 示例值：77456335345
+         * 部门 ID 列表
+         * <p> 示例值：
          */
-        this.matchingRuleId = builder.matchingRuleId;
+        this.departmentIds = builder.departmentIds;
         /**
-         * 匹配的公司 ID
-         * <p> 示例值：77456435345
+         * 生效日期
+         * <p> 示例值：2020-01-01
          */
-        this.companyId = builder.companyId;
+        this.effectiveTime = builder.effectiveTime;
         /**
          * 启停用状态
-         * <p> 示例值：false
+         * <p> 示例值：true
          */
         this.active = builder.active;
         /**
-         * 优先级
-         * <p> 示例值：10
-         */
-        this.priority = builder.priority;
-        /**
-         * 维度设置
+         * 返回数据的字段列表
          * <p> 示例值：
          */
-        this.scopeSetting = builder.scopeSetting;
+        this.fields = builder.fields;
         /**
-         * 描述
+         * 岗位 ID 列表
          * <p> 示例值：
          */
-        this.descriptions = builder.descriptions;
+        this.positionIds = builder.positionIds;
+        /**
+         * 岗位 Code 列表
+         * <p> 示例值：
+         */
+        this.positionCodes = builder.positionCodes;
     }
 
     public static Builder newBuilder() {
         return new Builder();
     }
 
-    public String getMatchingRuleId() {
-        return this.matchingRuleId;
+    public String[] getDepartmentIds() {
+        return this.departmentIds;
     }
 
-    public void setMatchingRuleId(String matchingRuleId) {
-        this.matchingRuleId = matchingRuleId;
+    public void setDepartmentIds(String[] departmentIds) {
+        this.departmentIds = departmentIds;
     }
 
-    public String getCompanyId() {
-        return this.companyId;
+    public String getEffectiveTime() {
+        return this.effectiveTime;
     }
 
-    public void setCompanyId(String companyId) {
-        this.companyId = companyId;
+    public void setEffectiveTime(String effectiveTime) {
+        this.effectiveTime = effectiveTime;
     }
 
     public Boolean getActive() {
@@ -131,91 +131,91 @@ public class MatchingRuleItem {
         this.active = active;
     }
 
-    public Integer getPriority() {
-        return this.priority;
+    public String[] getFields() {
+        return this.fields;
     }
 
-    public void setPriority(Integer priority) {
-        this.priority = priority;
+    public void setFields(String[] fields) {
+        this.fields = fields;
     }
 
-    public MatchingRuleScopeSetting getScopeSetting() {
-        return this.scopeSetting;
+    public String[] getPositionIds() {
+        return this.positionIds;
     }
 
-    public void setScopeSetting(MatchingRuleScopeSetting scopeSetting) {
-        this.scopeSetting = scopeSetting;
+    public void setPositionIds(String[] positionIds) {
+        this.positionIds = positionIds;
     }
 
-    public I18n[] getDescriptions() {
-        return this.descriptions;
+    public String[] getPositionCodes() {
+        return this.positionCodes;
     }
 
-    public void setDescriptions(I18n[] descriptions) {
-        this.descriptions = descriptions;
+    public void setPositionCodes(String[] positionCodes) {
+        this.positionCodes = positionCodes;
     }
 
     public static class Builder {
         /**
-         * 匹配规则 ID
-         * <p> 示例值：77456335345
+         * 部门 ID 列表
+         * <p> 示例值：
          */
-        private String matchingRuleId;
+        private String[] departmentIds;
         /**
-         * 匹配的公司 ID
-         * <p> 示例值：77456435345
+         * 生效日期
+         * <p> 示例值：2020-01-01
          */
-        private String companyId;
+        private String effectiveTime;
         /**
          * 启停用状态
-         * <p> 示例值：false
+         * <p> 示例值：true
          */
         private Boolean active;
         /**
-         * 优先级
-         * <p> 示例值：10
-         */
-        private Integer priority;
-        /**
-         * 维度设置
+         * 返回数据的字段列表
          * <p> 示例值：
          */
-        private MatchingRuleScopeSetting scopeSetting;
+        private String[] fields;
         /**
-         * 描述
+         * 岗位 ID 列表
          * <p> 示例值：
          */
-        private I18n[] descriptions;
+        private String[] positionIds;
+        /**
+         * 岗位 Code 列表
+         * <p> 示例值：
+         */
+        private String[] positionCodes;
 
         /**
-         * 匹配规则 ID
-         * <p> 示例值：77456335345
+         * 部门 ID 列表
+         * <p> 示例值：
          *
-         * @param matchingRuleId
+         * @param departmentIds
          * @return
          */
-        public Builder matchingRuleId(String matchingRuleId) {
-            this.matchingRuleId = matchingRuleId;
+        public Builder departmentIds(String[] departmentIds) {
+            this.departmentIds = departmentIds;
             return this;
         }
 
 
         /**
-         * 匹配的公司 ID
-         * <p> 示例值：77456435345
+         * 生效日期
+         * <p> 示例值：2020-01-01
          *
-         * @param companyId
+         * @param effectiveTime
          * @return
          */
-        public Builder companyId(String companyId) {
-            this.companyId = companyId;
+        public Builder effectiveTime(String effectiveTime) {
+            this.effectiveTime = effectiveTime;
             return this;
         }
 
 
         /**
          * 启停用状态
-         * <p> 示例值：false
+         * <p> 示例值：true
          *
          * @param active
          * @return
@@ -227,46 +227,46 @@ public class MatchingRuleItem {
 
 
         /**
-         * 优先级
-         * <p> 示例值：10
+         * 返回数据的字段列表
+         * <p> 示例值：
          *
-         * @param priority
+         * @param fields
          * @return
          */
-        public Builder priority(Integer priority) {
-            this.priority = priority;
+        public Builder fields(String[] fields) {
+            this.fields = fields;
             return this;
         }
 
 
         /**
-         * 维度设置
+         * 岗位 ID 列表
          * <p> 示例值：
          *
-         * @param scopeSetting
+         * @param positionIds
          * @return
          */
-        public Builder scopeSetting(MatchingRuleScopeSetting scopeSetting) {
-            this.scopeSetting = scopeSetting;
+        public Builder positionIds(String[] positionIds) {
+            this.positionIds = positionIds;
             return this;
         }
 
 
         /**
-         * 描述
+         * 岗位 Code 列表
          * <p> 示例值：
          *
-         * @param descriptions
+         * @param positionCodes
          * @return
          */
-        public Builder descriptions(I18n[] descriptions) {
-            this.descriptions = descriptions;
+        public Builder positionCodes(String[] positionCodes) {
+            this.positionCodes = positionCodes;
             return this;
         }
 
 
-        public MatchingRuleItem build() {
-            return new MatchingRuleItem(this);
+        public QueryPositionReqBody build() {
+            return new QueryPositionReqBody(this);
         }
     }
 }

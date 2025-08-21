@@ -232,6 +232,12 @@ public class JobRequirementDto {
      */
     @SerializedName("approval_status")
     private Integer approvalStatus;
+    /**
+     * 招聘需求招聘进展统计数值
+     * <p> 示例值：
+     */
+    @SerializedName("count_data")
+    private JrCountDataInfo countData;
 
     // builder 开始
     public JobRequirementDto() {
@@ -408,6 +414,11 @@ public class JobRequirementDto {
          * <p> 示例值：1
          */
         this.approvalStatus = builder.approvalStatus;
+        /**
+         * 招聘需求招聘进展统计数值
+         * <p> 示例值：
+         */
+        this.countData = builder.countData;
     }
 
     public static Builder newBuilder() {
@@ -686,6 +697,14 @@ public class JobRequirementDto {
         this.approvalStatus = approvalStatus;
     }
 
+    public JrCountDataInfo getCountData() {
+        return this.countData;
+    }
+
+    public void setCountData(JrCountDataInfo countData) {
+        this.countData = countData;
+    }
+
     public static class Builder {
         /**
          * 招聘需求 ID
@@ -857,6 +876,11 @@ public class JobRequirementDto {
          * <p> 示例值：1
          */
         private Integer approvalStatus;
+        /**
+         * 招聘需求招聘进展统计数值
+         * <p> 示例值：
+         */
+        private JrCountDataInfo countData;
 
         /**
          * 招聘需求 ID
@@ -1296,6 +1320,19 @@ public class JobRequirementDto {
          */
         public Builder approvalStatus(Integer approvalStatus) {
             this.approvalStatus = approvalStatus;
+            return this;
+        }
+
+
+        /**
+         * 招聘需求招聘进展统计数值
+         * <p> 示例值：
+         *
+         * @param countData
+         * @return
+         */
+        public Builder countData(JrCountDataInfo countData) {
+            this.countData = countData;
             return this;
         }
 

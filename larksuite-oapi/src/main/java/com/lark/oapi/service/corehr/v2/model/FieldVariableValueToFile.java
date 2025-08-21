@@ -46,7 +46,7 @@ public class FieldVariableValueToFile {
      * <p> 示例值：65535
      */
     @SerializedName("length")
-    private String length;
+    private Integer length;
     /**
      * 文件类型，如`application/pdf`
      * <p> 示例值：application/pdf
@@ -101,11 +101,11 @@ public class FieldVariableValueToFile {
         this.fileName = fileName;
     }
 
-    public String getLength() {
+    public Integer getLength() {
         return this.length;
     }
 
-    public void setLength(String length) {
+    public void setLength(Integer length) {
         this.length = length;
     }
 
@@ -132,7 +132,7 @@ public class FieldVariableValueToFile {
          * 文件大小，单位：Byte
          * <p> 示例值：65535
          */
-        private String length;
+        private Integer length;
         /**
          * 文件类型，如`application/pdf`
          * <p> 示例值：application/pdf
@@ -172,7 +172,7 @@ public class FieldVariableValueToFile {
          * @param length
          * @return
          */
-        public Builder length(String length) {
+        public Builder length(Integer length) {
             this.length = length;
             return this;
         }

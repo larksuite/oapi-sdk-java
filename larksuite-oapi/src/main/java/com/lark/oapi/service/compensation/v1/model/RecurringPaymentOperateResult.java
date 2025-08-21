@@ -178,7 +178,6 @@ public class RecurringPaymentOperateResult {
         }
 
 
-
         /**
          * 操作结果描述
          * <p> 示例值：uqniue id conflict

@@ -65,8 +65,10 @@ import com.lark.oapi.service.hire.v1.resource.Minutes;
 import com.lark.oapi.service.hire.v1.resource.Note;
 import com.lark.oapi.service.hire.v1.resource.Offer;
 import com.lark.oapi.service.hire.v1.resource.OfferApplicationForm;
+import com.lark.oapi.service.hire.v1.resource.OfferApprovalTemplate;
 import com.lark.oapi.service.hire.v1.resource.OfferCustomField;
 import com.lark.oapi.service.hire.v1.resource.OfferSchema;
+import com.lark.oapi.service.hire.v1.resource.PortalApplySchema;
 import com.lark.oapi.service.hire.v1.resource.Questionnaire;
 import com.lark.oapi.service.hire.v1.resource.Referral;
 import com.lark.oapi.service.hire.v1.resource.ReferralAccount;
@@ -101,7 +103,7 @@ public class HireService {
     private final V1 v1;
     private final Advertisement advertisement; // advertisement
     private final Agency agency; // 猎头（灰度租户可见）
-    private final Application application; // 投递
+    private final Application application; // 入职
     private final ApplicationInterview applicationInterview; // application.interview
     private final Attachment attachment; // 附件
     private final BackgroundCheckOrder backgroundCheckOrder; // 背调 （灰度租户可见）
@@ -148,8 +150,10 @@ public class HireService {
     private final Note note; // 备注
     private final Offer offer; // Offer
     private final OfferApplicationForm offerApplicationForm; // Offer 申请表（灰度租户可见）
+    private final OfferApprovalTemplate offerApprovalTemplate; // Offer 审批流配置（灰度租户可见）
     private final OfferCustomField offerCustomField; // offer_custom_field
     private final OfferSchema offerSchema; // offer_schema
+    private final PortalApplySchema portalApplySchema; // portal_apply_schema
     private final Questionnaire questionnaire; // 问卷（灰度租户可见）
     private final Referral referral; // 内推
     private final ReferralAccount referralAccount; // referral_account
@@ -230,8 +234,10 @@ public class HireService {
         this.note = new Note(config);
         this.offer = new Offer(config);
         this.offerApplicationForm = new OfferApplicationForm(config);
+        this.offerApprovalTemplate = new OfferApprovalTemplate(config);
         this.offerCustomField = new OfferCustomField(config);
         this.offerSchema = new OfferSchema(config);
+        this.portalApplySchema = new PortalApplySchema(config);
         this.questionnaire = new Questionnaire(config);
         this.referral = new Referral(config);
         this.referralAccount = new ReferralAccount(config);
@@ -462,12 +468,20 @@ public class HireService {
         return offerApplicationForm;
     }
 
+    public OfferApprovalTemplate offerApprovalTemplate() {
+        return offerApprovalTemplate;
+    }
+
     public OfferCustomField offerCustomField() {
         return offerCustomField;
     }
 
     public OfferSchema offerSchema() {
         return offerSchema;
+    }
+
+    public PortalApplySchema portalApplySchema() {
+        return portalApplySchema;
     }
 
     public Questionnaire questionnaire() {

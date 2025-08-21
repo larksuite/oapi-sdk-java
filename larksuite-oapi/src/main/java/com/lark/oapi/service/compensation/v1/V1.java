@@ -22,6 +22,7 @@ public class V1 {
     private final Indicator indicator; // indicator
     private final Item item; // item
     private final ItemCategory itemCategory; // item_category
+    private final LumpSumPayment lumpSumPayment; // lump_sum_payment
     private final Plan plan; // plan
 
     public V1(Config config) {
@@ -30,6 +31,7 @@ public class V1 {
         this.indicator = new Indicator(config);
         this.item = new Item(config);
         this.itemCategory = new ItemCategory(config);
+        this.lumpSumPayment = new LumpSumPayment(config);
         this.plan = new Plan(config);
     }
 
@@ -51,6 +53,10 @@ public class V1 {
 
     public ItemCategory itemCategory() {
         return itemCategory;
+    }
+
+    public LumpSumPayment lumpSumPayment() {
+        return lumpSumPayment;
     }
 
     public Plan plan() {

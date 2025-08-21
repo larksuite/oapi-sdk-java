@@ -56,6 +56,7 @@ public class V2 {
     private final Offboarding offboarding; // offboarding
     private final Pathway pathway; // pathway
     private final Person person; // person
+    private final Position position; // position
     private final PreHire preHire; // 待入职
     private final Probation probation; // probation
     private final ProbationAssessment probationAssessment; // probation.assessment
@@ -112,6 +113,7 @@ public class V2 {
         this.offboarding = new Offboarding(config);
         this.pathway = new Pathway(config);
         this.person = new Person(config);
+        this.position = new Position(config);
         this.preHire = new PreHire(config);
         this.probation = new Probation(config);
         this.probationAssessment = new ProbationAssessment(config);
@@ -277,6 +279,10 @@ public class V2 {
 
     public Person person() {
         return person;
+    }
+
+    public Position position() {
+        return position;
     }
 
     public PreHire preHire() {

@@ -47,6 +47,12 @@ public class OperationLogEntityField {
      */
     @SerializedName("after")
     private String after;
+    /**
+     * 额外字段信息
+     * <p> 示例值：
+     */
+    @SerializedName("ext")
+    private OperationLogEntityFieldExt ext;
 
     // builder 开始
     public OperationLogEntityField() {
@@ -68,6 +74,11 @@ public class OperationLogEntityField {
          * <p> 示例值：{\"type\":\"text\",\"value\":\"1\"}
          */
         this.after = builder.after;
+        /**
+         * 额外字段信息
+         * <p> 示例值：
+         */
+        this.ext = builder.ext;
     }
 
     public static Builder newBuilder() {
@@ -98,6 +109,14 @@ public class OperationLogEntityField {
         this.after = after;
     }
 
+    public OperationLogEntityFieldExt getExt() {
+        return this.ext;
+    }
+
+    public void setExt(OperationLogEntityFieldExt ext) {
+        this.ext = ext;
+    }
+
     public static class Builder {
         /**
          * 变更字段
@@ -114,6 +133,11 @@ public class OperationLogEntityField {
          * <p> 示例值：{\"type\":\"text\",\"value\":\"1\"}
          */
         private String after;
+        /**
+         * 额外字段信息
+         * <p> 示例值：
+         */
+        private OperationLogEntityFieldExt ext;
 
         /**
          * 变更字段
@@ -150,6 +174,19 @@ public class OperationLogEntityField {
          */
         public Builder after(String after) {
             this.after = after;
+            return this;
+        }
+
+
+        /**
+         * 额外字段信息
+         * <p> 示例值：
+         *
+         * @param ext
+         * @return
+         */
+        public Builder ext(OperationLogEntityFieldExt ext) {
+            this.ext = ext;
             return this;
         }
 
