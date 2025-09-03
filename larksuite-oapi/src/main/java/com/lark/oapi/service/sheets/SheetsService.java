@@ -14,6 +14,7 @@ package com.lark.oapi.service.sheets;
 
 import com.lark.oapi.core.Config;
 import com.lark.oapi.event.IEventHandler;
+import com.lark.oapi.service.sheets.v2.V2;
 import com.lark.oapi.service.sheets.v3.V3;
 import com.lark.oapi.service.sheets.v3.model.*;
 import com.lark.oapi.service.sheets.v3.resource.Spreadsheet;
@@ -24,6 +25,7 @@ import com.lark.oapi.service.sheets.v3.resource.SpreadsheetSheetFilterViewCondit
 import com.lark.oapi.service.sheets.v3.resource.SpreadsheetSheetFloatImage;
 
 public class SheetsService {
+    private final V2 v2;
     private final V3 v3;
     private final Spreadsheet spreadsheet; // 表格
     private final SpreadsheetSheet spreadsheetSheet; // 工作表
@@ -33,6 +35,7 @@ public class SheetsService {
     private final SpreadsheetSheetFloatImage spreadsheetSheetFloatImage; // 浮动图片
 
     public SheetsService(Config config) {
+        this.v2 = new V2(config);
         this.v3 = new V3(config);
         this.spreadsheet = new Spreadsheet(config);
         this.spreadsheetSheet = new SpreadsheetSheet(config);
@@ -40,6 +43,10 @@ public class SheetsService {
         this.spreadsheetSheetFilterView = new SpreadsheetSheetFilterView(config);
         this.spreadsheetSheetFilterViewCondition = new SpreadsheetSheetFilterViewCondition(config);
         this.spreadsheetSheetFloatImage = new SpreadsheetSheetFloatImage(config);
+    }
+
+    public V2 v2() {
+        return v2;
     }
 
     public V3 v3() {
