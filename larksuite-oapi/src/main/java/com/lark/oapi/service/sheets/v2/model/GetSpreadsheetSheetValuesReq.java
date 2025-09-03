@@ -16,6 +16,9 @@ package com.lark.oapi.service.sheets.v2.model;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+import com.lark.oapi.service.sheets.v2.enums.ValueRenderOptionEnum;
+import com.lark.oapi.service.sheets.v2.enums.DateTimeRenderOptionEnum;
+import com.lark.oapi.service.sheets.v2.enums.UserIdTypeEnum;
 
 public class GetSpreadsheetSheetValuesReq {
     /**
@@ -33,14 +36,14 @@ public class GetSpreadsheetSheetValuesReq {
     @SerializedName("range")
     private String range;
     /**
-     * 值渲染选项，默认值：ToString
+     * 值渲染选项
      * <p> 示例值：ToString
      */
     @Query
     @SerializedName("valueRenderOption")
     private String valueRenderOption;
     /**
-     * 日期时间渲染选项，默认值：FormattedString
+     * 日期时间渲染选项
      * <p> 示例值：FormattedString
      */
     @Query
@@ -52,7 +55,7 @@ public class GetSpreadsheetSheetValuesReq {
      */
     @Query
     @SerializedName("user_id_type")
-    private String userIdType;
+    private String userIdType = UserIdTypeEnum.LARK_ID.getValue();
 
     // 意见反馈: https://github.com/larksuite/oapi-sdk-java/issues
     public GetSpreadsheetSheetValuesReq() {
@@ -127,7 +130,7 @@ public class GetSpreadsheetSheetValuesReq {
     }
 
     /**
-     * 值渲染选项，默认值：ToString
+     * 值渲染选项
      * <p> 示例值：ToString
      *
      * @param valueRenderOption
@@ -139,7 +142,19 @@ public class GetSpreadsheetSheetValuesReq {
     }
 
     /**
-     * 值渲染选项，默认值：ToString
+     * 值渲染选项
+     * <p> 示例值：ToString
+     *
+     * @param valueRenderOption
+     * @return
+     */
+    public GetSpreadsheetSheetValuesReq valueRenderOption(ValueRenderOptionEnum valueRenderOption) {
+        this.valueRenderOption = valueRenderOption != null ? valueRenderOption.getValue() : null;
+        return this;
+    }
+
+    /**
+     * 值渲染选项
      * <p> 示例值：ToString
      *
      * @param valueRenderOption
@@ -151,7 +166,7 @@ public class GetSpreadsheetSheetValuesReq {
     }
 
     /**
-     * 值渲染选项，默认值：ToString
+     * 值渲染选项
      * <p> 示例值：ToString
      *
      * @return
@@ -161,7 +176,7 @@ public class GetSpreadsheetSheetValuesReq {
     }
 
     /**
-     * 日期时间渲染选项，默认值：FormattedString
+     * 日期时间渲染选项
      * <p> 示例值：FormattedString
      *
      * @param dateTimeRenderOption
@@ -173,7 +188,19 @@ public class GetSpreadsheetSheetValuesReq {
     }
 
     /**
-     * 日期时间渲染选项，默认值：FormattedString
+     * 日期时间渲染选项
+     * <p> 示例值：FormattedString
+     *
+     * @param dateTimeRenderOption
+     * @return
+     */
+    public GetSpreadsheetSheetValuesReq dateTimeRenderOption(DateTimeRenderOptionEnum dateTimeRenderOption) {
+        this.dateTimeRenderOption = dateTimeRenderOption != null ? dateTimeRenderOption.getValue() : null;
+        return this;
+    }
+
+    /**
+     * 日期时间渲染选项
      * <p> 示例值：FormattedString
      *
      * @param dateTimeRenderOption
@@ -185,7 +212,7 @@ public class GetSpreadsheetSheetValuesReq {
     }
 
     /**
-     * 日期时间渲染选项，默认值：FormattedString
+     * 日期时间渲染选项
      * <p> 示例值：FormattedString
      *
      * @return
@@ -203,6 +230,18 @@ public class GetSpreadsheetSheetValuesReq {
      */
     public GetSpreadsheetSheetValuesReq userIdType(String userIdType) {
         this.userIdType = userIdType;
+        return this;
+    }
+
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：open_id
+     *
+     * @param userIdType
+     * @return
+     */
+    public GetSpreadsheetSheetValuesReq userIdType(UserIdTypeEnum userIdType) {
+        this.userIdType = userIdType != null ? userIdType.getValue() : null;
         return this;
     }
 
@@ -237,7 +276,7 @@ public class GetSpreadsheetSheetValuesReq {
         private String range;
         private String valueRenderOption;
         private String dateTimeRenderOption;
-        private String userIdType;
+        private String userIdType = UserIdTypeEnum.LARK_ID.getValue();
 
         /**
          * 表格 token
@@ -264,7 +303,7 @@ public class GetSpreadsheetSheetValuesReq {
         }
 
         /**
-         * 值渲染选项，默认值：ToString
+         * 值渲染选项
          * <p> 示例值：ToString
          *
          * @param valueRenderOption
@@ -276,7 +315,19 @@ public class GetSpreadsheetSheetValuesReq {
         }
 
         /**
-         * 日期时间渲染选项，默认值：FormattedString
+         * 值渲染选项
+         * <p> 示例值：ToString
+         *
+         * @param valueRenderOption
+         * @return
+         */
+        public Builder valueRenderOption(ValueRenderOptionEnum valueRenderOption) {
+            this.valueRenderOption = valueRenderOption != null ? valueRenderOption.getValue() : null;
+            return this;
+        }
+
+        /**
+         * 日期时间渲染选项
          * <p> 示例值：FormattedString
          *
          * @param dateTimeRenderOption
@@ -284,6 +335,18 @@ public class GetSpreadsheetSheetValuesReq {
          */
         public Builder dateTimeRenderOption(String dateTimeRenderOption) {
             this.dateTimeRenderOption = dateTimeRenderOption;
+            return this;
+        }
+
+        /**
+         * 日期时间渲染选项
+         * <p> 示例值：FormattedString
+         *
+         * @param dateTimeRenderOption
+         * @return
+         */
+        public Builder dateTimeRenderOption(DateTimeRenderOptionEnum dateTimeRenderOption) {
+            this.dateTimeRenderOption = dateTimeRenderOption != null ? dateTimeRenderOption.getValue() : null;
             return this;
         }
 
@@ -296,6 +359,18 @@ public class GetSpreadsheetSheetValuesReq {
          */
         public Builder userIdType(String userIdType) {
             this.userIdType = userIdType;
+            return this;
+        }
+
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：open_id
+         *
+         * @param userIdType
+         * @return
+         */
+        public Builder userIdType(UserIdTypeEnum userIdType) {
+            this.userIdType = userIdType != null ? userIdType.getValue() : null;
             return this;
         }
 
