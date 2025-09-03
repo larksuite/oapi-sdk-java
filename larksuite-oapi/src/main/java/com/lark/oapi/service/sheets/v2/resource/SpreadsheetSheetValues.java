@@ -23,6 +23,8 @@ import com.lark.oapi.core.utils.Sets;
 import com.lark.oapi.core.utils.UnmarshalRespUtil;
 import com.lark.oapi.service.sheets.v2.model.GetSpreadsheetSheetValuesReq;
 import com.lark.oapi.service.sheets.v2.model.GetSpreadsheetSheetValuesResp;
+import com.lark.oapi.service.sheets.v2.model.BatchGetSpreadsheetSheetValuesReq;
+import com.lark.oapi.service.sheets.v2.model.BatchGetSpreadsheetSheetValuesResp;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -90,6 +92,73 @@ public class SpreadsheetSheetValues {
         if (resp == null) {
             log.error(String.format(
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/sheets/v2/spreadsheets/:spreadsheet_token/values/:range"
+                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                            StandardCharsets.UTF_8)));
+            throw new IllegalArgumentException("The result returned by the server is illegal");
+        }
+
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
+    }
+
+
+    /**
+     * 批量读取多个范围，该接口用于根据 spreadsheet_token 批量读取表格多个范围的值。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/server-docs/docs/sheets-v3/data-operation/reading-multiple-ranges">https://open.feishu.cn/document/server-docs/docs/sheets-v3/data-operation/reading-multiple-ranges</a> ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv2/BatchGetSpreadsheetSheetValuesSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv2/BatchGetSpreadsheetSheetValuesSample.java</a> ;
+     */
+    public BatchGetSpreadsheetSheetValuesResp batchGet(BatchGetSpreadsheetSheetValuesReq req, RequestOptions reqOptions) throws Exception {
+        // 请求参数选项
+        if (reqOptions == null) {
+            reqOptions = new RequestOptions();
+        }
+
+        // 发起请求
+        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                , "/open-apis/sheets/v2/spreadsheets/:spreadsheet_token/values_batch_get"
+                , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                , req);
+
+        // 反序列化
+        BatchGetSpreadsheetSheetValuesResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchGetSpreadsheetSheetValuesResp.class);
+        if (resp == null) {
+            log.error(String.format(
+                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/sheets/v2/spreadsheets/:spreadsheet_token/values_batch_get"
+                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                            StandardCharsets.UTF_8)));
+            throw new IllegalArgumentException("The result returned by the server is illegal");
+        }
+
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
+    }
+
+    /**
+     * 批量读取多个范围，该接口用于根据 spreadsheet_token 批量读取表格多个范围的值。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/server-docs/docs/sheets-v3/data-operation/reading-multiple-ranges">https://open.feishu.cn/document/server-docs/docs/sheets-v3/data-operation/reading-multiple-ranges</a> ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv2/BatchGetSpreadsheetSheetValuesSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv2/BatchGetSpreadsheetSheetValuesSample.java</a> ;
+     */
+    public BatchGetSpreadsheetSheetValuesResp batchGet(BatchGetSpreadsheetSheetValuesReq req) throws Exception {
+        // 请求参数选项
+        RequestOptions reqOptions = new RequestOptions();
+
+        // 发起请求
+        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                , "/open-apis/sheets/v2/spreadsheets/:spreadsheet_token/values_batch_get"
+                , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                , req);
+
+        // 反序列化
+        BatchGetSpreadsheetSheetValuesResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchGetSpreadsheetSheetValuesResp.class);
+        if (resp == null) {
+            log.error(String.format(
+                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/sheets/v2/spreadsheets/:spreadsheet_token/values_batch_get"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
                             StandardCharsets.UTF_8)));
