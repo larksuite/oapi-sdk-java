@@ -59,6 +59,54 @@ public class Text {
      */
     @SerializedName("vertical_align")
     private String verticalAlign;
+    /**
+     * 文字颜色，16 进制 rgb 值
+     * <p> 示例值：#6db5a3
+     */
+    @SerializedName("text_color")
+    private String textColor;
+    /**
+     * 文字背景色，16 进制 rgb 值
+     * <p> 示例值：#6db5a3
+     */
+    @SerializedName("text_background_color")
+    private String textBackgroundColor;
+    /**
+     * 是否存在删除线
+     * <p> 示例值：true
+     */
+    @SerializedName("line_through")
+    private Boolean lineThrough;
+    /**
+     * 是否存在下划线
+     * <p> 示例值：true
+     */
+    @SerializedName("underline")
+    private Boolean underline;
+    /**
+     * 是否斜体
+     * <p> 示例值：true
+     */
+    @SerializedName("italic")
+    private Boolean italic;
+    /**
+     * 文字旋转角度
+     * <p> 示例值：90
+     */
+    @SerializedName("angle")
+    private Integer angle;
+    /**
+     * 文字颜色主题配色编码值
+     * <p> 示例值：0
+     */
+    @SerializedName("theme_text_color_code")
+    private Integer themeTextColorCode;
+    /**
+     * 文字背景颜色主题配色编码值
+     * <p> 示例值：-1
+     */
+    @SerializedName("theme_text_background_color_code")
+    private Integer themeTextBackgroundColorCode;
 
     // builder 开始
     public Text() {
@@ -90,6 +138,46 @@ public class Text {
          * <p> 示例值：
          */
         this.verticalAlign = builder.verticalAlign;
+        /**
+         * 文字颜色，16 进制 rgb 值
+         * <p> 示例值：#6db5a3
+         */
+        this.textColor = builder.textColor;
+        /**
+         * 文字背景色，16 进制 rgb 值
+         * <p> 示例值：#6db5a3
+         */
+        this.textBackgroundColor = builder.textBackgroundColor;
+        /**
+         * 是否存在删除线
+         * <p> 示例值：true
+         */
+        this.lineThrough = builder.lineThrough;
+        /**
+         * 是否存在下划线
+         * <p> 示例值：true
+         */
+        this.underline = builder.underline;
+        /**
+         * 是否斜体
+         * <p> 示例值：true
+         */
+        this.italic = builder.italic;
+        /**
+         * 文字旋转角度
+         * <p> 示例值：90
+         */
+        this.angle = builder.angle;
+        /**
+         * 文字颜色主题配色编码值
+         * <p> 示例值：0
+         */
+        this.themeTextColorCode = builder.themeTextColorCode;
+        /**
+         * 文字背景颜色主题配色编码值
+         * <p> 示例值：-1
+         */
+        this.themeTextBackgroundColorCode = builder.themeTextBackgroundColorCode;
     }
 
     public static Builder newBuilder() {
@@ -136,6 +224,70 @@ public class Text {
         this.verticalAlign = verticalAlign;
     }
 
+    public String getTextColor() {
+        return this.textColor;
+    }
+
+    public void setTextColor(String textColor) {
+        this.textColor = textColor;
+    }
+
+    public String getTextBackgroundColor() {
+        return this.textBackgroundColor;
+    }
+
+    public void setTextBackgroundColor(String textBackgroundColor) {
+        this.textBackgroundColor = textBackgroundColor;
+    }
+
+    public Boolean getLineThrough() {
+        return this.lineThrough;
+    }
+
+    public void setLineThrough(Boolean lineThrough) {
+        this.lineThrough = lineThrough;
+    }
+
+    public Boolean getUnderline() {
+        return this.underline;
+    }
+
+    public void setUnderline(Boolean underline) {
+        this.underline = underline;
+    }
+
+    public Boolean getItalic() {
+        return this.italic;
+    }
+
+    public void setItalic(Boolean italic) {
+        this.italic = italic;
+    }
+
+    public Integer getAngle() {
+        return this.angle;
+    }
+
+    public void setAngle(Integer angle) {
+        this.angle = angle;
+    }
+
+    public Integer getThemeTextColorCode() {
+        return this.themeTextColorCode;
+    }
+
+    public void setThemeTextColorCode(Integer themeTextColorCode) {
+        this.themeTextColorCode = themeTextColorCode;
+    }
+
+    public Integer getThemeTextBackgroundColorCode() {
+        return this.themeTextBackgroundColorCode;
+    }
+
+    public void setThemeTextBackgroundColorCode(Integer themeTextBackgroundColorCode) {
+        this.themeTextBackgroundColorCode = themeTextBackgroundColorCode;
+    }
+
     public static class Builder {
         /**
          * 文字内容
@@ -162,6 +314,46 @@ public class Text {
          * <p> 示例值：
          */
         private String verticalAlign;
+        /**
+         * 文字颜色，16 进制 rgb 值
+         * <p> 示例值：#6db5a3
+         */
+        private String textColor;
+        /**
+         * 文字背景色，16 进制 rgb 值
+         * <p> 示例值：#6db5a3
+         */
+        private String textBackgroundColor;
+        /**
+         * 是否存在删除线
+         * <p> 示例值：true
+         */
+        private Boolean lineThrough;
+        /**
+         * 是否存在下划线
+         * <p> 示例值：true
+         */
+        private Boolean underline;
+        /**
+         * 是否斜体
+         * <p> 示例值：true
+         */
+        private Boolean italic;
+        /**
+         * 文字旋转角度
+         * <p> 示例值：90
+         */
+        private Integer angle;
+        /**
+         * 文字颜色主题配色编码值
+         * <p> 示例值：0
+         */
+        private Integer themeTextColorCode;
+        /**
+         * 文字背景颜色主题配色编码值
+         * <p> 示例值：-1
+         */
+        private Integer themeTextBackgroundColorCode;
 
         /**
          * 文字内容
@@ -260,6 +452,122 @@ public class Text {
          */
         public Builder verticalAlign(com.lark.oapi.service.board.v1.enums.TextVerticalAlignEnum verticalAlign) {
             this.verticalAlign = verticalAlign.getValue();
+            return this;
+        }
+
+
+        /**
+         * 文字颜色，16 进制 rgb 值
+         * <p> 示例值：#6db5a3
+         *
+         * @param textColor
+         * @return
+         */
+        public Builder textColor(String textColor) {
+            this.textColor = textColor;
+            return this;
+        }
+
+
+        /**
+         * 文字背景色，16 进制 rgb 值
+         * <p> 示例值：#6db5a3
+         *
+         * @param textBackgroundColor
+         * @return
+         */
+        public Builder textBackgroundColor(String textBackgroundColor) {
+            this.textBackgroundColor = textBackgroundColor;
+            return this;
+        }
+
+
+        /**
+         * 是否存在删除线
+         * <p> 示例值：true
+         *
+         * @param lineThrough
+         * @return
+         */
+        public Builder lineThrough(Boolean lineThrough) {
+            this.lineThrough = lineThrough;
+            return this;
+        }
+
+
+        /**
+         * 是否存在下划线
+         * <p> 示例值：true
+         *
+         * @param underline
+         * @return
+         */
+        public Builder underline(Boolean underline) {
+            this.underline = underline;
+            return this;
+        }
+
+
+        /**
+         * 是否斜体
+         * <p> 示例值：true
+         *
+         * @param italic
+         * @return
+         */
+        public Builder italic(Boolean italic) {
+            this.italic = italic;
+            return this;
+        }
+
+
+        /**
+         * 文字旋转角度
+         * <p> 示例值：90
+         *
+         * @param angle
+         * @return
+         */
+        public Builder angle(Integer angle) {
+            this.angle = angle;
+            return this;
+        }
+
+        /**
+         * 文字旋转角度
+         * <p> 示例值：90
+         *
+         * @param angle {@link com.lark.oapi.service.board.v1.enums.TextTextAngleEnum}
+         * @return
+         */
+        public Builder angle(com.lark.oapi.service.board.v1.enums.TextTextAngleEnum angle) {
+            this.angle = angle.getValue();
+            return this;
+        }
+
+
+        /**
+         * 文字颜色主题配色编码值
+         * <p> 示例值：0
+         *
+         * @param themeTextColorCode
+         * @return
+         */
+        public Builder themeTextColorCode(Integer themeTextColorCode) {
+            this.themeTextColorCode = themeTextColorCode;
+            return this;
+        }
+
+
+        /**
+         * 文字背景颜色主题配色编码值
+         * <p> 示例值：-1
+         *
+         * @param themeTextBackgroundColorCode
+         * @return
+         */
+        public Builder themeTextBackgroundColorCode(Integer themeTextBackgroundColorCode) {
+            this.themeTextBackgroundColorCode = themeTextBackgroundColorCode;
             return this;
         }
 

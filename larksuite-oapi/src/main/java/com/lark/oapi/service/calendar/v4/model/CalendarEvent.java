@@ -185,6 +185,12 @@ public class CalendarEvent {
      */
     @SerializedName("event_check_in")
     private EventCheckIn eventCheckIn;
+    /**
+     * 日程source
+     * <p> 示例值：source
+     */
+    @SerializedName("source")
+    private String source;
 
     // builder 开始
     public CalendarEvent() {
@@ -321,6 +327,11 @@ public class CalendarEvent {
          * <p> 示例值：
          */
         this.eventCheckIn = builder.eventCheckIn;
+        /**
+         * 日程source
+         * <p> 示例值：source
+         */
+        this.source = builder.source;
     }
 
     public static Builder newBuilder() {
@@ -535,6 +546,14 @@ public class CalendarEvent {
         this.eventCheckIn = eventCheckIn;
     }
 
+    public String getSource() {
+        return this.source;
+    }
+
+    public void setSource(String source) {
+        this.source = source;
+    }
+
     public static class Builder {
         /**
          * 日程ID。参见[日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)
@@ -666,6 +685,11 @@ public class CalendarEvent {
          * <p> 示例值：
          */
         private EventCheckIn eventCheckIn;
+        /**
+         * 日程source
+         * <p> 示例值：source
+         */
+        private String source;
 
         /**
          * 日程ID。参见[日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)
@@ -1049,6 +1073,19 @@ public class CalendarEvent {
          */
         public Builder eventCheckIn(EventCheckIn eventCheckIn) {
             this.eventCheckIn = eventCheckIn;
+            return this;
+        }
+
+
+        /**
+         * 日程source
+         * <p> 示例值：source
+         *
+         * @param source
+         * @return
+         */
+        public Builder source(String source) {
+            this.source = source;
             return this;
         }
 

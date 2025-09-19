@@ -35,6 +35,12 @@ public class CompositeShape {
      */
     @SerializedName("type")
     private String type;
+    /**
+     * 饼图属性，type=pie时需要设置
+     * <p> 示例值：
+     */
+    @SerializedName("pie")
+    private Pie pie;
 
     // builder 开始
     public CompositeShape() {
@@ -46,6 +52,11 @@ public class CompositeShape {
          * <p> 示例值：
          */
         this.type = builder.type;
+        /**
+         * 饼图属性，type=pie时需要设置
+         * <p> 示例值：
+         */
+        this.pie = builder.pie;
     }
 
     public static Builder newBuilder() {
@@ -60,12 +71,25 @@ public class CompositeShape {
         this.type = type;
     }
 
+    public Pie getPie() {
+        return this.pie;
+    }
+
+    public void setPie(Pie pie) {
+        this.pie = pie;
+    }
+
     public static class Builder {
         /**
          * 基础图形的具体类型
          * <p> 示例值：
          */
         private String type;
+        /**
+         * 饼图属性，type=pie时需要设置
+         * <p> 示例值：
+         */
+        private Pie pie;
 
         /**
          * 基础图形的具体类型
@@ -88,6 +112,19 @@ public class CompositeShape {
          */
         public Builder type(com.lark.oapi.service.board.v1.enums.CompositeShapeCompositeShapeTypeEnum type) {
             this.type = type.getValue();
+            return this;
+        }
+
+
+        /**
+         * 饼图属性，type=pie时需要设置
+         * <p> 示例值：
+         *
+         * @param pie
+         * @return
+         */
+        public Builder pie(Pie pie) {
+            this.pie = pie;
             return this;
         }
 

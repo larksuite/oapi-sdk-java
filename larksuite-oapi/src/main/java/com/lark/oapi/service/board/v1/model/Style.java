@@ -30,6 +30,12 @@ import com.lark.oapi.core.response.BaseResponse;
 
 public class Style {
     /**
+     * 填充颜色，16 进制 rbg 值
+     * <p> 示例值：#6db5a3
+     */
+    @SerializedName("fill_color")
+    private String fillColor;
+    /**
      * 填充透明度
      * <p> 示例值：50
      */
@@ -65,12 +71,35 @@ public class Style {
      */
     @SerializedName("v_flip")
     private Boolean vFlip;
+    /**
+     * 边框颜色，16 进制 rgb 值
+     * <p> 示例值：#6db5a3
+     */
+    @SerializedName("border_color")
+    private String borderColor;
+    /**
+     * 填充颜色主题配色编码值
+     * <p> 示例值：3
+     */
+    @SerializedName("theme_fill_color_code")
+    private Integer themeFillColorCode;
+    /**
+     * 边框颜色主题配色编码值
+     * <p> 示例值：4
+     */
+    @SerializedName("theme_border_color_code")
+    private Integer themeBorderColorCode;
 
     // builder 开始
     public Style() {
     }
 
     public Style(Builder builder) {
+        /**
+         * 填充颜色，16 进制 rbg 值
+         * <p> 示例值：#6db5a3
+         */
+        this.fillColor = builder.fillColor;
         /**
          * 填充透明度
          * <p> 示例值：50
@@ -101,10 +130,33 @@ public class Style {
          * <p> 示例值：false
          */
         this.vFlip = builder.vFlip;
+        /**
+         * 边框颜色，16 进制 rgb 值
+         * <p> 示例值：#6db5a3
+         */
+        this.borderColor = builder.borderColor;
+        /**
+         * 填充颜色主题配色编码值
+         * <p> 示例值：3
+         */
+        this.themeFillColorCode = builder.themeFillColorCode;
+        /**
+         * 边框颜色主题配色编码值
+         * <p> 示例值：4
+         */
+        this.themeBorderColorCode = builder.themeBorderColorCode;
     }
 
     public static Builder newBuilder() {
         return new Builder();
+    }
+
+    public String getFillColor() {
+        return this.fillColor;
+    }
+
+    public void setFillColor(String fillColor) {
+        this.fillColor = fillColor;
     }
 
     public Double getFillOpacity() {
@@ -155,7 +207,36 @@ public class Style {
         this.vFlip = vFlip;
     }
 
+    public String getBorderColor() {
+        return this.borderColor;
+    }
+
+    public void setBorderColor(String borderColor) {
+        this.borderColor = borderColor;
+    }
+
+    public Integer getThemeFillColorCode() {
+        return this.themeFillColorCode;
+    }
+
+    public void setThemeFillColorCode(Integer themeFillColorCode) {
+        this.themeFillColorCode = themeFillColorCode;
+    }
+
+    public Integer getThemeBorderColorCode() {
+        return this.themeBorderColorCode;
+    }
+
+    public void setThemeBorderColorCode(Integer themeBorderColorCode) {
+        this.themeBorderColorCode = themeBorderColorCode;
+    }
+
     public static class Builder {
+        /**
+         * 填充颜色，16 进制 rbg 值
+         * <p> 示例值：#6db5a3
+         */
+        private String fillColor;
         /**
          * 填充透明度
          * <p> 示例值：50
@@ -186,6 +267,34 @@ public class Style {
          * <p> 示例值：false
          */
         private Boolean vFlip;
+        /**
+         * 边框颜色，16 进制 rgb 值
+         * <p> 示例值：#6db5a3
+         */
+        private String borderColor;
+        /**
+         * 填充颜色主题配色编码值
+         * <p> 示例值：3
+         */
+        private Integer themeFillColorCode;
+        /**
+         * 边框颜色主题配色编码值
+         * <p> 示例值：4
+         */
+        private Integer themeBorderColorCode;
+
+        /**
+         * 填充颜色，16 进制 rbg 值
+         * <p> 示例值：#6db5a3
+         *
+         * @param fillColor
+         * @return
+         */
+        public Builder fillColor(String fillColor) {
+            this.fillColor = fillColor;
+            return this;
+        }
+
 
         /**
          * 填充透明度
@@ -285,6 +394,45 @@ public class Style {
          */
         public Builder vFlip(Boolean vFlip) {
             this.vFlip = vFlip;
+            return this;
+        }
+
+
+        /**
+         * 边框颜色，16 进制 rgb 值
+         * <p> 示例值：#6db5a3
+         *
+         * @param borderColor
+         * @return
+         */
+        public Builder borderColor(String borderColor) {
+            this.borderColor = borderColor;
+            return this;
+        }
+
+
+        /**
+         * 填充颜色主题配色编码值
+         * <p> 示例值：3
+         *
+         * @param themeFillColorCode
+         * @return
+         */
+        public Builder themeFillColorCode(Integer themeFillColorCode) {
+            this.themeFillColorCode = themeFillColorCode;
+            return this;
+        }
+
+
+        /**
+         * 边框颜色主题配色编码值
+         * <p> 示例值：4
+         *
+         * @param themeBorderColorCode
+         * @return
+         */
+        public Builder themeBorderColorCode(Integer themeBorderColorCode) {
+            this.themeBorderColorCode = themeBorderColorCode;
             return this;
         }
 

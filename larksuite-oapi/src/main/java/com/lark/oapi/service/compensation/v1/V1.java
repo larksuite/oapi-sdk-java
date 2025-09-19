@@ -24,6 +24,11 @@ public class V1 {
     private final ItemCategory itemCategory; // item_category
     private final LumpSumPayment lumpSumPayment; // lump_sum_payment
     private final Plan plan; // plan
+    private final RecurringPayment recurringPayment; // recurring_payment
+    private final SocialArchive socialArchive; // social_archive
+    private final SocialArchiveAdjustRecord socialArchiveAdjustRecord; // social_archive_adjust_record
+    private final SocialInsurance socialInsurance; // social_insurance
+    private final SocialPlan socialPlan; // social_plan
 
     public V1(Config config) {
         this.archive = new Archive(config);
@@ -33,6 +38,11 @@ public class V1 {
         this.itemCategory = new ItemCategory(config);
         this.lumpSumPayment = new LumpSumPayment(config);
         this.plan = new Plan(config);
+        this.recurringPayment = new RecurringPayment(config);
+        this.socialArchive = new SocialArchive(config);
+        this.socialArchiveAdjustRecord = new SocialArchiveAdjustRecord(config);
+        this.socialInsurance = new SocialInsurance(config);
+        this.socialPlan = new SocialPlan(config);
     }
 
     public Archive archive() {
@@ -61,5 +71,25 @@ public class V1 {
 
     public Plan plan() {
         return plan;
+    }
+
+    public RecurringPayment recurringPayment() {
+        return recurringPayment;
+    }
+
+    public SocialArchive socialArchive() {
+        return socialArchive;
+    }
+
+    public SocialArchiveAdjustRecord socialArchiveAdjustRecord() {
+        return socialArchiveAdjustRecord;
+    }
+
+    public SocialInsurance socialInsurance() {
+        return socialInsurance;
+    }
+
+    public SocialPlan socialPlan() {
+        return socialPlan;
     }
 }

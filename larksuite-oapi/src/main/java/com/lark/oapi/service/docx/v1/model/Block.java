@@ -377,6 +377,18 @@ public class Block {
      */
     @SerializedName("ai_template")
     private AiTemplate aiTemplate;
+    /**
+     * 引用的多维表格
+     * <p> 示例值：
+     */
+    @SerializedName("reference_base")
+    private ReferenceBase referenceBase;
+    /**
+     * 飞书项目
+     * <p> 示例值：
+     */
+    @SerializedName("project")
+    private Project project;
 
     // builder 开始
     public Block() {
@@ -673,6 +685,16 @@ public class Block {
          * <p> 示例值：
          */
         this.aiTemplate = builder.aiTemplate;
+        /**
+         * 引用的多维表格
+         * <p> 示例值：
+         */
+        this.referenceBase = builder.referenceBase;
+        /**
+         * 飞书项目
+         * <p> 示例值：
+         */
+        this.project = builder.project;
     }
 
     public static Builder newBuilder() {
@@ -1143,6 +1165,22 @@ public class Block {
         this.aiTemplate = aiTemplate;
     }
 
+    public ReferenceBase getReferenceBase() {
+        return this.referenceBase;
+    }
+
+    public void setReferenceBase(ReferenceBase referenceBase) {
+        this.referenceBase = referenceBase;
+    }
+
+    public Project getProject() {
+        return this.project;
+    }
+
+    public void setProject(Project project) {
+        this.project = project;
+    }
+
     public static class Builder {
         /**
          * Block 唯一标识
@@ -1434,6 +1472,16 @@ public class Block {
          * <p> 示例值：
          */
         private AiTemplate aiTemplate;
+        /**
+         * 引用的多维表格
+         * <p> 示例值：
+         */
+        private ReferenceBase referenceBase;
+        /**
+         * 飞书项目
+         * <p> 示例值：
+         */
+        private Project project;
 
         /**
          * Block 唯一标识
@@ -2197,6 +2245,32 @@ public class Block {
          */
         public Builder aiTemplate(AiTemplate aiTemplate) {
             this.aiTemplate = aiTemplate;
+            return this;
+        }
+
+
+        /**
+         * 引用的多维表格
+         * <p> 示例值：
+         *
+         * @param referenceBase
+         * @return
+         */
+        public Builder referenceBase(ReferenceBase referenceBase) {
+            this.referenceBase = referenceBase;
+            return this;
+        }
+
+
+        /**
+         * 飞书项目
+         * <p> 示例值：
+         *
+         * @param project
+         * @return
+         */
+        public Builder project(Project project) {
+            this.project = project;
             return this;
         }
 

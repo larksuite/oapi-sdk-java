@@ -36,7 +36,7 @@ public class WhiteboardNode {
     @SerializedName("id")
     private String id;
     /**
-     * 节点图形类型，目前创建节点仅支持创建图片、文本、基础图形等类型，读取到不支持创建的图形时只返回一些基础信息，如 id、type、text、style 等
+     * 节点图形类型，目前创建节点仅支持创建图片、文本、基础图形等类型
      * <p> 示例值：
      */
     @SerializedName("type")
@@ -71,12 +71,6 @@ public class WhiteboardNode {
      */
     @SerializedName("angle")
     private Double angle;
-    /**
-     * 图形宽度，单位为 px
-     * <p> 示例值：100
-     */
-    @SerializedName("width")
-    private Double width;
     /**
      * 图形高度，单位为 px
      * <p> 示例值：100
@@ -114,6 +108,12 @@ public class WhiteboardNode {
     @SerializedName("connector")
     private Connector connector;
     /**
+     * 图形宽度，单位为 px
+     * <p> 示例值：100
+     */
+    @SerializedName("width")
+    private Double width;
+    /**
      * 分区属性
      * <p> 示例值：
      */
@@ -126,7 +126,55 @@ public class WhiteboardNode {
     @SerializedName("table")
     private Table table;
     /**
-     * 思维导图属性
+     * 图形是否锁定
+     * <p> 示例值：true
+     */
+    @SerializedName("locked")
+    private Boolean locked;
+    /**
+     * 图形在兄弟节点中的层级，层级大的会覆盖层级小的
+     * <p> 示例值：1
+     */
+    @SerializedName("z_index")
+    private Integer zIndex;
+    /**
+     * 生命对象属性
+     * <p> 示例值：
+     */
+    @SerializedName("lifeline")
+    private Lifeline lifeline;
+    /**
+     * 画笔属性
+     * <p> 示例值：
+     */
+    @SerializedName("paint")
+    private Paint paint;
+    /**
+     * svg图形属性
+     * <p> 示例值：
+     */
+    @SerializedName("svg")
+    private Svg svg;
+    /**
+     * 便签图形属性
+     * <p> 示例值：
+     */
+    @SerializedName("sticky_note")
+    private StickyNote stickyNote;
+    /**
+     * 思维导图节点属性
+     * <p> 示例值：
+     */
+    @SerializedName("mind_map_node")
+    private MindMapNode mindMapNode;
+    /**
+     * 思维导图根节点属性
+     * <p> 示例值：
+     */
+    @SerializedName("mind_map_root")
+    private MindMapRoot mindMapRoot;
+    /**
+     * 思维导图节点（v1版本，只读，写操作请使用mind_map_root/mind_map_node结构）
      * <p> 示例值：
      */
     @SerializedName("mind_map")
@@ -143,7 +191,7 @@ public class WhiteboardNode {
          */
         this.id = builder.id;
         /**
-         * 节点图形类型，目前创建节点仅支持创建图片、文本、基础图形等类型，读取到不支持创建的图形时只返回一些基础信息，如 id、type、text、style 等
+         * 节点图形类型，目前创建节点仅支持创建图片、文本、基础图形等类型
          * <p> 示例值：
          */
         this.type = builder.type;
@@ -172,11 +220,6 @@ public class WhiteboardNode {
          * <p> 示例值：100
          */
         this.angle = builder.angle;
-        /**
-         * 图形宽度，单位为 px
-         * <p> 示例值：100
-         */
-        this.width = builder.width;
         /**
          * 图形高度，单位为 px
          * <p> 示例值：100
@@ -208,6 +251,11 @@ public class WhiteboardNode {
          */
         this.connector = builder.connector;
         /**
+         * 图形宽度，单位为 px
+         * <p> 示例值：100
+         */
+        this.width = builder.width;
+        /**
          * 分区属性
          * <p> 示例值：
          */
@@ -218,7 +266,47 @@ public class WhiteboardNode {
          */
         this.table = builder.table;
         /**
-         * 思维导图属性
+         * 图形是否锁定
+         * <p> 示例值：true
+         */
+        this.locked = builder.locked;
+        /**
+         * 图形在兄弟节点中的层级，层级大的会覆盖层级小的
+         * <p> 示例值：1
+         */
+        this.zIndex = builder.zIndex;
+        /**
+         * 生命对象属性
+         * <p> 示例值：
+         */
+        this.lifeline = builder.lifeline;
+        /**
+         * 画笔属性
+         * <p> 示例值：
+         */
+        this.paint = builder.paint;
+        /**
+         * svg图形属性
+         * <p> 示例值：
+         */
+        this.svg = builder.svg;
+        /**
+         * 便签图形属性
+         * <p> 示例值：
+         */
+        this.stickyNote = builder.stickyNote;
+        /**
+         * 思维导图节点属性
+         * <p> 示例值：
+         */
+        this.mindMapNode = builder.mindMapNode;
+        /**
+         * 思维导图根节点属性
+         * <p> 示例值：
+         */
+        this.mindMapRoot = builder.mindMapRoot;
+        /**
+         * 思维导图节点（v1版本，只读，写操作请使用mind_map_root/mind_map_node结构）
          * <p> 示例值：
          */
         this.mindMap = builder.mindMap;
@@ -284,14 +372,6 @@ public class WhiteboardNode {
         this.angle = angle;
     }
 
-    public Double getWidth() {
-        return this.width;
-    }
-
-    public void setWidth(Double width) {
-        this.width = width;
-    }
-
     public Double getHeight() {
         return this.height;
     }
@@ -340,6 +420,14 @@ public class WhiteboardNode {
         this.connector = connector;
     }
 
+    public Double getWidth() {
+        return this.width;
+    }
+
+    public void setWidth(Double width) {
+        this.width = width;
+    }
+
     public Section getSection() {
         return this.section;
     }
@@ -354,6 +442,70 @@ public class WhiteboardNode {
 
     public void setTable(Table table) {
         this.table = table;
+    }
+
+    public Boolean getLocked() {
+        return this.locked;
+    }
+
+    public void setLocked(Boolean locked) {
+        this.locked = locked;
+    }
+
+    public Integer getZIndex() {
+        return this.zIndex;
+    }
+
+    public void setZIndex(Integer zIndex) {
+        this.zIndex = zIndex;
+    }
+
+    public Lifeline getLifeline() {
+        return this.lifeline;
+    }
+
+    public void setLifeline(Lifeline lifeline) {
+        this.lifeline = lifeline;
+    }
+
+    public Paint getPaint() {
+        return this.paint;
+    }
+
+    public void setPaint(Paint paint) {
+        this.paint = paint;
+    }
+
+    public Svg getSvg() {
+        return this.svg;
+    }
+
+    public void setSvg(Svg svg) {
+        this.svg = svg;
+    }
+
+    public StickyNote getStickyNote() {
+        return this.stickyNote;
+    }
+
+    public void setStickyNote(StickyNote stickyNote) {
+        this.stickyNote = stickyNote;
+    }
+
+    public MindMapNode getMindMapNode() {
+        return this.mindMapNode;
+    }
+
+    public void setMindMapNode(MindMapNode mindMapNode) {
+        this.mindMapNode = mindMapNode;
+    }
+
+    public MindMapRoot getMindMapRoot() {
+        return this.mindMapRoot;
+    }
+
+    public void setMindMapRoot(MindMapRoot mindMapRoot) {
+        this.mindMapRoot = mindMapRoot;
     }
 
     public MindMap getMindMap() {
@@ -371,7 +523,7 @@ public class WhiteboardNode {
          */
         private String id;
         /**
-         * 节点图形类型，目前创建节点仅支持创建图片、文本、基础图形等类型，读取到不支持创建的图形时只返回一些基础信息，如 id、type、text、style 等
+         * 节点图形类型，目前创建节点仅支持创建图片、文本、基础图形等类型
          * <p> 示例值：
          */
         private String type;
@@ -400,11 +552,6 @@ public class WhiteboardNode {
          * <p> 示例值：100
          */
         private Double angle;
-        /**
-         * 图形宽度，单位为 px
-         * <p> 示例值：100
-         */
-        private Double width;
         /**
          * 图形高度，单位为 px
          * <p> 示例值：100
@@ -436,6 +583,11 @@ public class WhiteboardNode {
          */
         private Connector connector;
         /**
+         * 图形宽度，单位为 px
+         * <p> 示例值：100
+         */
+        private Double width;
+        /**
          * 分区属性
          * <p> 示例值：
          */
@@ -446,7 +598,47 @@ public class WhiteboardNode {
          */
         private Table table;
         /**
-         * 思维导图属性
+         * 图形是否锁定
+         * <p> 示例值：true
+         */
+        private Boolean locked;
+        /**
+         * 图形在兄弟节点中的层级，层级大的会覆盖层级小的
+         * <p> 示例值：1
+         */
+        private Integer zIndex;
+        /**
+         * 生命对象属性
+         * <p> 示例值：
+         */
+        private Lifeline lifeline;
+        /**
+         * 画笔属性
+         * <p> 示例值：
+         */
+        private Paint paint;
+        /**
+         * svg图形属性
+         * <p> 示例值：
+         */
+        private Svg svg;
+        /**
+         * 便签图形属性
+         * <p> 示例值：
+         */
+        private StickyNote stickyNote;
+        /**
+         * 思维导图节点属性
+         * <p> 示例值：
+         */
+        private MindMapNode mindMapNode;
+        /**
+         * 思维导图根节点属性
+         * <p> 示例值：
+         */
+        private MindMapRoot mindMapRoot;
+        /**
+         * 思维导图节点（v1版本，只读，写操作请使用mind_map_root/mind_map_node结构）
          * <p> 示例值：
          */
         private MindMap mindMap;
@@ -465,7 +657,7 @@ public class WhiteboardNode {
 
 
         /**
-         * 节点图形类型，目前创建节点仅支持创建图片、文本、基础图形等类型，读取到不支持创建的图形时只返回一些基础信息，如 id、type、text、style 等
+         * 节点图形类型，目前创建节点仅支持创建图片、文本、基础图形等类型
          * <p> 示例值：
          *
          * @param type
@@ -477,7 +669,7 @@ public class WhiteboardNode {
         }
 
         /**
-         * 节点图形类型，目前创建节点仅支持创建图片、文本、基础图形等类型，读取到不支持创建的图形时只返回一些基础信息，如 id、type、text、style 等
+         * 节点图形类型，目前创建节点仅支持创建图片、文本、基础图形等类型
          * <p> 示例值：
          *
          * @param type {@link com.lark.oapi.service.board.v1.enums.WhiteboardNodeNodeTypeEnum}
@@ -550,19 +742,6 @@ public class WhiteboardNode {
          */
         public Builder angle(Double angle) {
             this.angle = angle;
-            return this;
-        }
-
-
-        /**
-         * 图形宽度，单位为 px
-         * <p> 示例值：100
-         *
-         * @param width
-         * @return
-         */
-        public Builder width(Double width) {
-            this.width = width;
             return this;
         }
 
@@ -646,6 +825,19 @@ public class WhiteboardNode {
 
 
         /**
+         * 图形宽度，单位为 px
+         * <p> 示例值：100
+         *
+         * @param width
+         * @return
+         */
+        public Builder width(Double width) {
+            this.width = width;
+            return this;
+        }
+
+
+        /**
          * 分区属性
          * <p> 示例值：
          *
@@ -672,7 +864,111 @@ public class WhiteboardNode {
 
 
         /**
-         * 思维导图属性
+         * 图形是否锁定
+         * <p> 示例值：true
+         *
+         * @param locked
+         * @return
+         */
+        public Builder locked(Boolean locked) {
+            this.locked = locked;
+            return this;
+        }
+
+
+        /**
+         * 图形在兄弟节点中的层级，层级大的会覆盖层级小的
+         * <p> 示例值：1
+         *
+         * @param zIndex
+         * @return
+         */
+        public Builder zIndex(Integer zIndex) {
+            this.zIndex = zIndex;
+            return this;
+        }
+
+
+        /**
+         * 生命对象属性
+         * <p> 示例值：
+         *
+         * @param lifeline
+         * @return
+         */
+        public Builder lifeline(Lifeline lifeline) {
+            this.lifeline = lifeline;
+            return this;
+        }
+
+
+        /**
+         * 画笔属性
+         * <p> 示例值：
+         *
+         * @param paint
+         * @return
+         */
+        public Builder paint(Paint paint) {
+            this.paint = paint;
+            return this;
+        }
+
+
+        /**
+         * svg图形属性
+         * <p> 示例值：
+         *
+         * @param svg
+         * @return
+         */
+        public Builder svg(Svg svg) {
+            this.svg = svg;
+            return this;
+        }
+
+
+        /**
+         * 便签图形属性
+         * <p> 示例值：
+         *
+         * @param stickyNote
+         * @return
+         */
+        public Builder stickyNote(StickyNote stickyNote) {
+            this.stickyNote = stickyNote;
+            return this;
+        }
+
+
+        /**
+         * 思维导图节点属性
+         * <p> 示例值：
+         *
+         * @param mindMapNode
+         * @return
+         */
+        public Builder mindMapNode(MindMapNode mindMapNode) {
+            this.mindMapNode = mindMapNode;
+            return this;
+        }
+
+
+        /**
+         * 思维导图根节点属性
+         * <p> 示例值：
+         *
+         * @param mindMapRoot
+         * @return
+         */
+        public Builder mindMapRoot(MindMapRoot mindMapRoot) {
+            this.mindMapRoot = mindMapRoot;
+            return this;
+        }
+
+
+        /**
+         * 思维导图节点（v1版本，只读，写操作请使用mind_map_root/mind_map_node结构）
          * <p> 示例值：
          *
          * @param mindMap

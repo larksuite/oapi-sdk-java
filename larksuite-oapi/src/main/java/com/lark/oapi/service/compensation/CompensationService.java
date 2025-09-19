@@ -27,4 +27,11 @@ public class CompensationService {
     public V1 v1() {
         return v1;
     }
+
+    public abstract static class P2ArchiveChangedV1Handler implements IEventHandler<P2ArchiveChangedV1> {
+        @Override
+        public P2ArchiveChangedV1 getEvent() {
+            return new P2ArchiveChangedV1();
+        }
+    }
 }

@@ -68,6 +68,8 @@ public enum BlockBlockTypeEnum {
     REFERENCESYNCED(50), // 引用同步块
     SUBPAGELIST(51), // 新版 Wiki 子目录 Block
     AITEMPLATE(52), // AI 模板 Block
+    REFERENCEBASE(53), // 引用的多维表格
+    PROJECT(54), // 飞书项目
     UNDEFINED(999), // 未支持 Block
     ;
     private Integer value;

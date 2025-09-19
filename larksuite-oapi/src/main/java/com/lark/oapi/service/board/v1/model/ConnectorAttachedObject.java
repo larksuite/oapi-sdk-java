@@ -35,6 +35,18 @@ public class ConnectorAttachedObject {
      */
     @SerializedName("id")
     private String id;
+    /**
+     * 连接图形的方向
+     * <p> 示例值：auto
+     */
+    @SerializedName("snap_to")
+    private String snapTo;
+    /**
+     * 连接图形的相对坐标，0-1
+     * <p> 示例值：
+     */
+    @SerializedName("position")
+    private Point position;
 
     // builder 开始
     public ConnectorAttachedObject() {
@@ -46,6 +58,16 @@ public class ConnectorAttachedObject {
          * <p> 示例值：o1:1
          */
         this.id = builder.id;
+        /**
+         * 连接图形的方向
+         * <p> 示例值：auto
+         */
+        this.snapTo = builder.snapTo;
+        /**
+         * 连接图形的相对坐标，0-1
+         * <p> 示例值：
+         */
+        this.position = builder.position;
     }
 
     public static Builder newBuilder() {
@@ -60,12 +82,38 @@ public class ConnectorAttachedObject {
         this.id = id;
     }
 
+    public String getSnapTo() {
+        return this.snapTo;
+    }
+
+    public void setSnapTo(String snapTo) {
+        this.snapTo = snapTo;
+    }
+
+    public Point getPosition() {
+        return this.position;
+    }
+
+    public void setPosition(Point position) {
+        this.position = position;
+    }
+
     public static class Builder {
         /**
          * 连接图形的 id
          * <p> 示例值：o1:1
          */
         private String id;
+        /**
+         * 连接图形的方向
+         * <p> 示例值：auto
+         */
+        private String snapTo;
+        /**
+         * 连接图形的相对坐标，0-1
+         * <p> 示例值：
+         */
+        private Point position;
 
         /**
          * 连接图形的 id
@@ -76,6 +124,44 @@ public class ConnectorAttachedObject {
          */
         public Builder id(String id) {
             this.id = id;
+            return this;
+        }
+
+
+        /**
+         * 连接图形的方向
+         * <p> 示例值：auto
+         *
+         * @param snapTo
+         * @return
+         */
+        public Builder snapTo(String snapTo) {
+            this.snapTo = snapTo;
+            return this;
+        }
+
+        /**
+         * 连接图形的方向
+         * <p> 示例值：auto
+         *
+         * @param snapTo {@link com.lark.oapi.service.board.v1.enums.ConnectorAttachedObjectSnapToEnum}
+         * @return
+         */
+        public Builder snapTo(com.lark.oapi.service.board.v1.enums.ConnectorAttachedObjectSnapToEnum snapTo) {
+            this.snapTo = snapTo.getValue();
+            return this;
+        }
+
+
+        /**
+         * 连接图形的相对坐标，0-1
+         * <p> 示例值：
+         *
+         * @param position
+         * @return
+         */
+        public Builder position(Point position) {
+            this.position = position;
             return this;
         }
 

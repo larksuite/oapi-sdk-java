@@ -59,6 +59,12 @@ public class TableCell {
      */
     @SerializedName("text")
     private Text text;
+    /**
+     * 单元格样式，设置后会覆盖表格样式
+     * <p> 示例值：
+     */
+    @SerializedName("style")
+    private Style style;
 
     // builder 开始
     public TableCell() {
@@ -90,6 +96,11 @@ public class TableCell {
          * <p> 示例值：
          */
         this.text = builder.text;
+        /**
+         * 单元格样式，设置后会覆盖表格样式
+         * <p> 示例值：
+         */
+        this.style = builder.style;
     }
 
     public static Builder newBuilder() {
@@ -136,6 +147,14 @@ public class TableCell {
         this.text = text;
     }
 
+    public Style getStyle() {
+        return this.style;
+    }
+
+    public void setStyle(Style style) {
+        this.style = style;
+    }
+
     public static class Builder {
         /**
          * 行下标，从 1 开始
@@ -162,6 +181,11 @@ public class TableCell {
          * <p> 示例值：
          */
         private Text text;
+        /**
+         * 单元格样式，设置后会覆盖表格样式
+         * <p> 示例值：
+         */
+        private Style style;
 
         /**
          * 行下标，从 1 开始
@@ -224,6 +248,19 @@ public class TableCell {
          */
         public Builder text(Text text) {
             this.text = text;
+            return this;
+        }
+
+
+        /**
+         * 单元格样式，设置后会覆盖表格样式
+         * <p> 示例值：
+         *
+         * @param style
+         * @return
+         */
+        public Builder style(Style style) {
+            this.style = style;
             return this;
         }
 

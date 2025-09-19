@@ -83,6 +83,18 @@ public enum CompositeShapeCompositeShapeTypeEnum {
     COMPONENTREQUIREDINTERFACE("component_required_interface"), // 组件，需求接口
     COMPONENTASSEMBLY("component_assembly"), // 组件，组装
     CUBE("cube"), // 立方体
+    BOUNDARY("boundary"), // 边界
+    CONTROL("control"), // 控制
+    ENTITY("entity"), // 实体
+    DATABASE("data_base"), // 数据库
+    BOUNDARY1("boundary"), // 边界
+    QUEUE("queue"), // 队列
+    COLLECTION("collection"), // 集合
+    ACTORLIFELINE("actor_lifeline"), // 角色生命线
+    OBJECTLIFELINE("object_lifeline"), // 对象生命线
+    MINDNODEFULLROUNDRECT("mind_node_full_round_rect"), // 思维导图全圆角矩形
+    MINDNODEROUNDRECT("mind_node_round_rect"), // 思维导图圆角矩形
+    MINDNODETEXT("mind_node_text"), // 思维导图文本图形
     ;
     private String value;
 

@@ -203,6 +203,18 @@ public class DlpExecuteLog {
      */
     @SerializedName("chat_type")
     private String chatType;
+    /**
+     * 群主名称
+     * <p> 示例值：李四
+     */
+    @SerializedName("group_owner_name")
+    private String groupOwnerName;
+    /**
+     * 群主ID
+     * <p> 示例值：983749203223
+     */
+    @SerializedName("group_owner_id")
+    private String groupOwnerId;
 
     // builder 开始
     public DlpExecuteLog() {
@@ -354,6 +366,16 @@ public class DlpExecuteLog {
          * <p> 示例值：1
          */
         this.chatType = builder.chatType;
+        /**
+         * 群主名称
+         * <p> 示例值：李四
+         */
+        this.groupOwnerName = builder.groupOwnerName;
+        /**
+         * 群主ID
+         * <p> 示例值：983749203223
+         */
+        this.groupOwnerId = builder.groupOwnerId;
     }
 
     public static Builder newBuilder() {
@@ -592,6 +614,22 @@ public class DlpExecuteLog {
         this.chatType = chatType;
     }
 
+    public String getGroupOwnerName() {
+        return this.groupOwnerName;
+    }
+
+    public void setGroupOwnerName(String groupOwnerName) {
+        this.groupOwnerName = groupOwnerName;
+    }
+
+    public String getGroupOwnerId() {
+        return this.groupOwnerId;
+    }
+
+    public void setGroupOwnerId(String groupOwnerId) {
+        this.groupOwnerId = groupOwnerId;
+    }
+
     public static class Builder {
         /**
          * 应用业务线
@@ -738,6 +776,16 @@ public class DlpExecuteLog {
          * <p> 示例值：1
          */
         private String chatType;
+        /**
+         * 群主名称
+         * <p> 示例值：李四
+         */
+        private String groupOwnerName;
+        /**
+         * 群主ID
+         * <p> 示例值：983749203223
+         */
+        private String groupOwnerId;
 
         /**
          * 应用业务线
@@ -1112,6 +1160,32 @@ public class DlpExecuteLog {
          */
         public Builder chatType(String chatType) {
             this.chatType = chatType;
+            return this;
+        }
+
+
+        /**
+         * 群主名称
+         * <p> 示例值：李四
+         *
+         * @param groupOwnerName
+         * @return
+         */
+        public Builder groupOwnerName(String groupOwnerName) {
+            this.groupOwnerName = groupOwnerName;
+            return this;
+        }
+
+
+        /**
+         * 群主ID
+         * <p> 示例值：983749203223
+         *
+         * @param groupOwnerId
+         * @return
+         */
+        public Builder groupOwnerId(String groupOwnerId) {
+            this.groupOwnerId = groupOwnerId;
             return this;
         }
 

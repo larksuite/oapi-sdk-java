@@ -75,6 +75,12 @@ public class TextElement {
      */
     @SerializedName("equation")
     private Equation equation;
+    /**
+     * 链接预览
+     * <p> 示例值：
+     */
+    @SerializedName("link_preview")
+    private InlineLinkPreview linkPreview;
 
     // builder 开始
     public TextElement() {
@@ -121,6 +127,11 @@ public class TextElement {
          * <p> 示例值：
          */
         this.equation = builder.equation;
+        /**
+         * 链接预览
+         * <p> 示例值：
+         */
+        this.linkPreview = builder.linkPreview;
     }
 
     public static Builder newBuilder() {
@@ -191,6 +202,14 @@ public class TextElement {
         this.equation = equation;
     }
 
+    public InlineLinkPreview getLinkPreview() {
+        return this.linkPreview;
+    }
+
+    public void setLinkPreview(InlineLinkPreview linkPreview) {
+        this.linkPreview = linkPreview;
+    }
+
     public static class Builder {
         /**
          * 文字
@@ -230,6 +249,11 @@ public class TextElement {
          * <p> 示例值：
          */
         private Equation equation;
+        /**
+         * 链接预览
+         * <p> 示例值：
+         */
+        private InlineLinkPreview linkPreview;
 
         /**
          * 文字
@@ -327,6 +351,19 @@ public class TextElement {
          */
         public Builder equation(Equation equation) {
             this.equation = equation;
+            return this;
+        }
+
+
+        /**
+         * 链接预览
+         * <p> 示例值：
+         *
+         * @param linkPreview
+         * @return
+         */
+        public Builder linkPreview(InlineLinkPreview linkPreview) {
+            this.linkPreview = linkPreview;
             return this;
         }
 

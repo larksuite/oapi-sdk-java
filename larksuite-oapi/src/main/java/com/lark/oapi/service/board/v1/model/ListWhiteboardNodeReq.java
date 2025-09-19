@@ -29,6 +29,13 @@ import com.lark.oapi.core.response.BaseResponse;
 
 public class ListWhiteboardNodeReq {
     /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     */
+    @Query
+    @SerializedName("user_id_type")
+    private String userIdType;
+    /**
      * 画板唯一标识
      * <p> 示例值：Ru8nwrWFOhEmaFbEU2VbPRsHcxb
      */
@@ -42,6 +49,11 @@ public class ListWhiteboardNodeReq {
 
     public ListWhiteboardNodeReq(Builder builder) {
         /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         */
+        this.userIdType = builder.userIdType;
+        /**
          * 画板唯一标识
          * <p> 示例值：Ru8nwrWFOhEmaFbEU2VbPRsHcxb
          */
@@ -50,6 +62,14 @@ public class ListWhiteboardNodeReq {
 
     public static Builder newBuilder() {
         return new Builder();
+    }
+
+    public String getUserIdType() {
+        return this.userIdType;
+    }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
     }
 
     public String getWhiteboardId() {
@@ -61,8 +81,32 @@ public class ListWhiteboardNodeReq {
     }
 
     public static class Builder {
-
+        private String userIdType; // 此次调用中使用的用户ID的类型
         private String whiteboardId; // 画板唯一标识
+
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         *
+         * @param userIdType
+         * @return
+         */
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
+
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         *
+         * @param userIdType {@link com.lark.oapi.service.board.v1.enums.ListWhiteboardNodeUserIdTypeEnum}
+         * @return
+         */
+        public Builder userIdType(com.lark.oapi.service.board.v1.enums.ListWhiteboardNodeUserIdTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
+            return this;
+        }
 
         /**
          * 画板唯一标识

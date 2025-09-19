@@ -617,6 +617,21 @@ public class EventDispatcher implements IHandler {
 
 
         /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2ArchiveChangedV1(CompensationService.P2ArchiveChangedV1Handler handler) {
+            if (eventType2EventHandler.containsKey("compensation.archive.changed_v1")) {
+                throw new EventTypeAlreadyHasHandlerException("compensation.archive.changed_v1");
+            }
+            eventType2EventHandler.put("compensation.archive.changed_v1", handler);
+            return this;
+        }
+
+        /**
          * <p> 成员字段变更,通过该事件订阅成员字段变更。old_object 展示更新字段的原始值。
          * <p> 触发事件的动作有「打开/关闭」开关、「增加/删除」成员字段。
          * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/custom_attr_event/events/updated">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/custom_attr_event/events/updated</a>

@@ -124,6 +124,12 @@ public class Employee {
      */
     @SerializedName("job_requirement_id")
     private String jobRequirementId;
+    /**
+     * 飞书人事的雇佣ID
+     * <p> 示例值：6969595949493939291
+     */
+    @SerializedName("external_employment_id")
+    private String externalEmploymentId;
 
     // builder 开始
     public Employee() {
@@ -210,6 +216,11 @@ public class Employee {
          * <p> 示例值：123123123213
          */
         this.jobRequirementId = builder.jobRequirementId;
+        /**
+         * 飞书人事的雇佣ID
+         * <p> 示例值：6969595949493939291
+         */
+        this.externalEmploymentId = builder.externalEmploymentId;
     }
 
     public static Builder newBuilder() {
@@ -344,6 +355,14 @@ public class Employee {
         this.jobRequirementId = jobRequirementId;
     }
 
+    public String getExternalEmploymentId() {
+        return this.externalEmploymentId;
+    }
+
+    public void setExternalEmploymentId(String externalEmploymentId) {
+        this.externalEmploymentId = externalEmploymentId;
+    }
+
     public static class Builder {
         /**
          * 员工ID
@@ -425,6 +444,11 @@ public class Employee {
          * <p> 示例值：123123123213
          */
         private String jobRequirementId;
+        /**
+         * 飞书人事的雇佣ID
+         * <p> 示例值：6969595949493939291
+         */
+        private String externalEmploymentId;
 
         /**
          * 员工ID
@@ -630,6 +654,19 @@ public class Employee {
          */
         public Builder jobRequirementId(String jobRequirementId) {
             this.jobRequirementId = jobRequirementId;
+            return this;
+        }
+
+
+        /**
+         * 飞书人事的雇佣ID
+         * <p> 示例值：6969595949493939291
+         *
+         * @param externalEmploymentId
+         * @return
+         */
+        public Builder externalEmploymentId(String externalEmploymentId) {
+            this.externalEmploymentId = externalEmploymentId;
             return this;
         }
 

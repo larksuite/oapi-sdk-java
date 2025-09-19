@@ -16,6 +16,7 @@ public class ListWhiteboardNodeSample {
         // 创建请求对象
         ListWhiteboardNodeReq req = ListWhiteboardNodeReq.newBuilder()
                 .whiteboardId("Ru8nwrWFOhEmaFbEU2VbPRsHcxb")
+                .userIdType("user_id")
                 .build();
 
         // 发起请求

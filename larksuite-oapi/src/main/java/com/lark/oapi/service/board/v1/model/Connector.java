@@ -30,23 +30,47 @@ import com.lark.oapi.core.response.BaseResponse;
 
 public class Connector {
     /**
-     * 连线连接的起点图形
+     * 开始连接节点信息（兼容线上数据，只读，写操作使用 start 字段）
      * <p> 示例值：
      */
     @SerializedName("start_object")
     private ConnectorAttachedObject startObject;
     /**
-     * 连线连接的终点图形
+     * 结束连接点信息（兼容线上数据， 只读，写操作使用 end 字段）
      * <p> 示例值：
      */
     @SerializedName("end_object")
     private ConnectorAttachedObject endObject;
+    /**
+     * 连线端点信息
+     * <p> 示例值：
+     */
+    @SerializedName("start")
+    private ConnectorInfo start;
+    /**
+     * 连线端点信息
+     * <p> 示例值：
+     */
+    @SerializedName("end")
+    private ConnectorInfo end;
     /**
      * 连线文本
      * <p> 示例值：
      */
     @SerializedName("captions")
     private ConnectorCaption captions;
+    /**
+     * 连线类型
+     * <p> 示例值：straight
+     */
+    @SerializedName("shape")
+    private String shape;
+    /**
+     * 连线转向点
+     * <p> 示例值：
+     */
+    @SerializedName("turning_points")
+    private Point[] turningPoints;
 
     // builder 开始
     public Connector() {
@@ -54,20 +78,40 @@ public class Connector {
 
     public Connector(Builder builder) {
         /**
-         * 连线连接的起点图形
+         * 开始连接节点信息（兼容线上数据，只读，写操作使用 start 字段）
          * <p> 示例值：
          */
         this.startObject = builder.startObject;
         /**
-         * 连线连接的终点图形
+         * 结束连接点信息（兼容线上数据， 只读，写操作使用 end 字段）
          * <p> 示例值：
          */
         this.endObject = builder.endObject;
+        /**
+         * 连线端点信息
+         * <p> 示例值：
+         */
+        this.start = builder.start;
+        /**
+         * 连线端点信息
+         * <p> 示例值：
+         */
+        this.end = builder.end;
         /**
          * 连线文本
          * <p> 示例值：
          */
         this.captions = builder.captions;
+        /**
+         * 连线类型
+         * <p> 示例值：straight
+         */
+        this.shape = builder.shape;
+        /**
+         * 连线转向点
+         * <p> 示例值：
+         */
+        this.turningPoints = builder.turningPoints;
     }
 
     public static Builder newBuilder() {
@@ -90,6 +134,22 @@ public class Connector {
         this.endObject = endObject;
     }
 
+    public ConnectorInfo getStart() {
+        return this.start;
+    }
+
+    public void setStart(ConnectorInfo start) {
+        this.start = start;
+    }
+
+    public ConnectorInfo getEnd() {
+        return this.end;
+    }
+
+    public void setEnd(ConnectorInfo end) {
+        this.end = end;
+    }
+
     public ConnectorCaption getCaptions() {
         return this.captions;
     }
@@ -98,25 +158,61 @@ public class Connector {
         this.captions = captions;
     }
 
+    public String getShape() {
+        return this.shape;
+    }
+
+    public void setShape(String shape) {
+        this.shape = shape;
+    }
+
+    public Point[] getTurningPoints() {
+        return this.turningPoints;
+    }
+
+    public void setTurningPoints(Point[] turningPoints) {
+        this.turningPoints = turningPoints;
+    }
+
     public static class Builder {
         /**
-         * 连线连接的起点图形
+         * 开始连接节点信息（兼容线上数据，只读，写操作使用 start 字段）
          * <p> 示例值：
          */
         private ConnectorAttachedObject startObject;
         /**
-         * 连线连接的终点图形
+         * 结束连接点信息（兼容线上数据， 只读，写操作使用 end 字段）
          * <p> 示例值：
          */
         private ConnectorAttachedObject endObject;
+        /**
+         * 连线端点信息
+         * <p> 示例值：
+         */
+        private ConnectorInfo start;
+        /**
+         * 连线端点信息
+         * <p> 示例值：
+         */
+        private ConnectorInfo end;
         /**
          * 连线文本
          * <p> 示例值：
          */
         private ConnectorCaption captions;
+        /**
+         * 连线类型
+         * <p> 示例值：straight
+         */
+        private String shape;
+        /**
+         * 连线转向点
+         * <p> 示例值：
+         */
+        private Point[] turningPoints;
 
         /**
-         * 连线连接的起点图形
+         * 开始连接节点信息（兼容线上数据，只读，写操作使用 start 字段）
          * <p> 示例值：
          *
          * @param startObject
@@ -129,7 +225,7 @@ public class Connector {
 
 
         /**
-         * 连线连接的终点图形
+         * 结束连接点信息（兼容线上数据， 只读，写操作使用 end 字段）
          * <p> 示例值：
          *
          * @param endObject
@@ -137,6 +233,32 @@ public class Connector {
          */
         public Builder endObject(ConnectorAttachedObject endObject) {
             this.endObject = endObject;
+            return this;
+        }
+
+
+        /**
+         * 连线端点信息
+         * <p> 示例值：
+         *
+         * @param start
+         * @return
+         */
+        public Builder start(ConnectorInfo start) {
+            this.start = start;
+            return this;
+        }
+
+
+        /**
+         * 连线端点信息
+         * <p> 示例值：
+         *
+         * @param end
+         * @return
+         */
+        public Builder end(ConnectorInfo end) {
+            this.end = end;
             return this;
         }
 
@@ -150,6 +272,44 @@ public class Connector {
          */
         public Builder captions(ConnectorCaption captions) {
             this.captions = captions;
+            return this;
+        }
+
+
+        /**
+         * 连线类型
+         * <p> 示例值：straight
+         *
+         * @param shape
+         * @return
+         */
+        public Builder shape(String shape) {
+            this.shape = shape;
+            return this;
+        }
+
+        /**
+         * 连线类型
+         * <p> 示例值：straight
+         *
+         * @param shape {@link com.lark.oapi.service.board.v1.enums.ConnectorConnectorLineShapeEnum}
+         * @return
+         */
+        public Builder shape(com.lark.oapi.service.board.v1.enums.ConnectorConnectorLineShapeEnum shape) {
+            this.shape = shape.getValue();
+            return this;
+        }
+
+
+        /**
+         * 连线转向点
+         * <p> 示例值：
+         *
+         * @param turningPoints
+         * @return
+         */
+        public Builder turningPoints(Point[] turningPoints) {
+            this.turningPoints = turningPoints;
             return this;
         }
 

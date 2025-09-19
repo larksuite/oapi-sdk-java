@@ -14,7 +14,7 @@
 package com.lark.oapi.service.board.v1.enums;
 
 /**
- * 节点图形类型，目前创建节点仅支持创建图片、文本、基础图形等类型，读取到不支持创建的图形时只返回一些基础信息，如 id、type、text、style 等
+ * 节点图形类型，目前创建节点仅支持创建图片、文本、基础图形等类型
  */
 public enum WhiteboardNodeNodeTypeEnum {
     IMAGE("image"), // 图片
@@ -32,6 +32,9 @@ public enum WhiteboardNodeNodeTypeEnum {
     STICKYNOTE("sticky_note"), // 便签
     MINDMAP("mind_map"), // 思维导图
     PAINT("paint"), // 画笔
+    COMBINEDFRAGMENT("combined_fragment"), // 组合片段
+    MINDMAPROOT("mind_map_root"), // 思维导图根节点属性
+    MINDMAPNODE("mind_map_node"), // 思维导图节点属性
     ;
     private String value;
 

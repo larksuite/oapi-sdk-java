@@ -47,7 +47,7 @@ public class P2ApplicationStageChangedV1Data {
      * <p> 示例值：
      */
     @SerializedName("update_time")
-    private Integer updateTime;
+    private Long updateTime;
 
     public String getApplicationId() {
         return this.applicationId;
@@ -73,11 +73,11 @@ public class P2ApplicationStageChangedV1Data {
         this.targetStageId = targetStageId;
     }
 
-    public Integer getUpdateTime() {
+    public Long getUpdateTime() {
         return this.updateTime;
     }
 
-    public void setUpdateTime(Integer updateTime) {
+    public void setUpdateTime(Long updateTime) {
         this.updateTime = updateTime;
     }
 

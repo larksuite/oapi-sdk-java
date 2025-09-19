@@ -30,7 +30,7 @@ import com.lark.oapi.core.response.BaseResponse;
 
 public class MindMap {
     /**
-     * 思维导图父节点 id ，为空表示是思维导图的根节点
+     * 父节点id
      * <p> 示例值：z1:1
      */
     @SerializedName("parent_id")
@@ -42,7 +42,7 @@ public class MindMap {
 
     public MindMap(Builder builder) {
         /**
-         * 思维导图父节点 id ，为空表示是思维导图的根节点
+         * 父节点id
          * <p> 示例值：z1:1
          */
         this.parentId = builder.parentId;
@@ -62,13 +62,13 @@ public class MindMap {
 
     public static class Builder {
         /**
-         * 思维导图父节点 id ，为空表示是思维导图的根节点
+         * 父节点id
          * <p> 示例值：z1:1
          */
         private String parentId;
 
         /**
-         * 思维导图父节点 id ，为空表示是思维导图的根节点
+         * 父节点id
          * <p> 示例值：z1:1
          *
          * @param parentId

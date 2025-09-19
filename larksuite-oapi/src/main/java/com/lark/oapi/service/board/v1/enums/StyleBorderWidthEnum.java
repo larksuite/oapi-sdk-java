@@ -20,7 +20,7 @@ public enum StyleBorderWidthEnum {
     EXTRANARROW("extra_narrow"), // 极细
     NARROW("narrow"), // 细
     MEDIUM("medium"), // 中
-    WIDE("wide"), // 粗
+    BOLD("bold"), // 粗
     ;
     private String value;
 
