@@ -43,7 +43,7 @@ public class FormData {
 
     public void addFile(String field, File file) {
         FormDataFile formDataFile = new FormDataFile();
-        formDataFile.setFileName(field);
+        formDataFile.setFieldName(field);
         formDataFile.setFile(file);
         this.files.add(formDataFile);
     }
