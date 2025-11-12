@@ -107,6 +107,24 @@ public class Text {
      */
     @SerializedName("theme_text_background_color_code")
     private Integer themeTextBackgroundColorCode;
+    /**
+     * 富文本
+     * <p> 示例值：
+     */
+    @SerializedName("rich_text")
+    private RichText richText;
+    /**
+     * 文字颜色类型，0=系统颜色，1=自定义颜色
+     * <p> 示例值：
+     */
+    @SerializedName("text_color_type")
+    private Integer textColorType;
+    /**
+     * 文字背景颜色类型，0=系统颜色，1=自定义颜色
+     * <p> 示例值：
+     */
+    @SerializedName("text_background_color_type")
+    private Integer textBackgroundColorType;
 
     // builder 开始
     public Text() {
@@ -178,6 +196,21 @@ public class Text {
          * <p> 示例值：-1
          */
         this.themeTextBackgroundColorCode = builder.themeTextBackgroundColorCode;
+        /**
+         * 富文本
+         * <p> 示例值：
+         */
+        this.richText = builder.richText;
+        /**
+         * 文字颜色类型，0=系统颜色，1=自定义颜色
+         * <p> 示例值：
+         */
+        this.textColorType = builder.textColorType;
+        /**
+         * 文字背景颜色类型，0=系统颜色，1=自定义颜色
+         * <p> 示例值：
+         */
+        this.textBackgroundColorType = builder.textBackgroundColorType;
     }
 
     public static Builder newBuilder() {
@@ -288,6 +321,30 @@ public class Text {
         this.themeTextBackgroundColorCode = themeTextBackgroundColorCode;
     }
 
+    public RichText getRichText() {
+        return this.richText;
+    }
+
+    public void setRichText(RichText richText) {
+        this.richText = richText;
+    }
+
+    public Integer getTextColorType() {
+        return this.textColorType;
+    }
+
+    public void setTextColorType(Integer textColorType) {
+        this.textColorType = textColorType;
+    }
+
+    public Integer getTextBackgroundColorType() {
+        return this.textBackgroundColorType;
+    }
+
+    public void setTextBackgroundColorType(Integer textBackgroundColorType) {
+        this.textBackgroundColorType = textBackgroundColorType;
+    }
+
     public static class Builder {
         /**
          * 文字内容
@@ -354,6 +411,21 @@ public class Text {
          * <p> 示例值：-1
          */
         private Integer themeTextBackgroundColorCode;
+        /**
+         * 富文本
+         * <p> 示例值：
+         */
+        private RichText richText;
+        /**
+         * 文字颜色类型，0=系统颜色，1=自定义颜色
+         * <p> 示例值：
+         */
+        private Integer textColorType;
+        /**
+         * 文字背景颜色类型，0=系统颜色，1=自定义颜色
+         * <p> 示例值：
+         */
+        private Integer textBackgroundColorType;
 
         /**
          * 文字内容
@@ -568,6 +640,69 @@ public class Text {
          */
         public Builder themeTextBackgroundColorCode(Integer themeTextBackgroundColorCode) {
             this.themeTextBackgroundColorCode = themeTextBackgroundColorCode;
+            return this;
+        }
+
+
+        /**
+         * 富文本
+         * <p> 示例值：
+         *
+         * @param richText
+         * @return
+         */
+        public Builder richText(RichText richText) {
+            this.richText = richText;
+            return this;
+        }
+
+
+        /**
+         * 文字颜色类型，0=系统颜色，1=自定义颜色
+         * <p> 示例值：
+         *
+         * @param textColorType
+         * @return
+         */
+        public Builder textColorType(Integer textColorType) {
+            this.textColorType = textColorType;
+            return this;
+        }
+
+        /**
+         * 文字颜色类型，0=系统颜色，1=自定义颜色
+         * <p> 示例值：
+         *
+         * @param textColorType {@link com.lark.oapi.service.board.v1.enums.TextColorTypeEnum}
+         * @return
+         */
+        public Builder textColorType(com.lark.oapi.service.board.v1.enums.TextColorTypeEnum textColorType) {
+            this.textColorType = textColorType.getValue();
+            return this;
+        }
+
+
+        /**
+         * 文字背景颜色类型，0=系统颜色，1=自定义颜色
+         * <p> 示例值：
+         *
+         * @param textBackgroundColorType
+         * @return
+         */
+        public Builder textBackgroundColorType(Integer textBackgroundColorType) {
+            this.textBackgroundColorType = textBackgroundColorType;
+            return this;
+        }
+
+        /**
+         * 文字背景颜色类型，0=系统颜色，1=自定义颜色
+         * <p> 示例值：
+         *
+         * @param textBackgroundColorType {@link com.lark.oapi.service.board.v1.enums.TextColorTypeEnum}
+         * @return
+         */
+        public Builder textBackgroundColorType(com.lark.oapi.service.board.v1.enums.TextColorTypeEnum textBackgroundColorType) {
+            this.textBackgroundColorType = textBackgroundColorType.getValue();
             return this;
         }
 

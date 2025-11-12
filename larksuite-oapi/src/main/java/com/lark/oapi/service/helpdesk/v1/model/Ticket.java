@@ -52,7 +52,7 @@ public class Ticket {
      * <p> 示例值：
      */
     @SerializedName("comments")
-    private Comments comments;
+    private Comments[] comments;
     /**
      * 工单阶段：1. 机器人 2. 人工
      * <p> 示例值：1
@@ -351,11 +351,11 @@ public class Ticket {
         this.guest = guest;
     }
 
-    public Comments getComments() {
+    public Comments[] getComments() {
         return this.comments;
     }
 
-    public void setComments(Comments comments) {
+    public void setComments(Comments[] comments) {
         this.comments = comments;
     }
 
@@ -555,7 +555,7 @@ public class Ticket {
          * 备注
          * <p> 示例值：
          */
-        private Comments comments;
+        private Comments[] comments;
         /**
          * 工单阶段：1. 机器人 2. 人工
          * <p> 示例值：1
@@ -713,7 +713,7 @@ public class Ticket {
          * @param comments
          * @return
          */
-        public Builder comments(Comments comments) {
+        public Builder comments(Comments[] comments) {
             this.comments = comments;
             return this;
         }

@@ -91,10 +91,10 @@ public class CreateBotMessageReq {
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
          *
-         * @param userIdType {@link com.lark.oapi.service.helpdesk.v1.enums.CreateBotMessageUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.helpdesk.v1.enums.CreateBotMessageCreateBotMessageUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.helpdesk.v1.enums.CreateBotMessageUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.helpdesk.v1.enums.CreateBotMessageCreateBotMessageUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }

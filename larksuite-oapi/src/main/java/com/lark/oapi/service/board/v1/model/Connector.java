@@ -71,6 +71,24 @@ public class Connector {
      */
     @SerializedName("turning_points")
     private Point[] turningPoints;
+    /**
+     * 连线上的文本方向是否自动跟随连线方向
+     * <p> 示例值：true
+     */
+    @SerializedName("caption_auto_direction")
+    private Boolean captionAutoDirection;
+    /**
+     * 文本在连线上的相对位置，范围0-1，0表示在连线的起始点，1表示在连线的终点
+     * <p> 示例值：0.5
+     */
+    @SerializedName("caption_position")
+    private Double captionPosition;
+    /**
+     * 指定连线坐标及长宽。为 true 时需要用户设置连线的坐标及长宽信息。为 false 时会根据连线的开始、结束端点自动计算连线的坐标及长宽信息
+     * <p> 示例值：
+     */
+    @SerializedName("specified_coordinate")
+    private Boolean specifiedCoordinate;
 
     // builder 开始
     public Connector() {
@@ -112,6 +130,21 @@ public class Connector {
          * <p> 示例值：
          */
         this.turningPoints = builder.turningPoints;
+        /**
+         * 连线上的文本方向是否自动跟随连线方向
+         * <p> 示例值：true
+         */
+        this.captionAutoDirection = builder.captionAutoDirection;
+        /**
+         * 文本在连线上的相对位置，范围0-1，0表示在连线的起始点，1表示在连线的终点
+         * <p> 示例值：0.5
+         */
+        this.captionPosition = builder.captionPosition;
+        /**
+         * 指定连线坐标及长宽。为 true 时需要用户设置连线的坐标及长宽信息。为 false 时会根据连线的开始、结束端点自动计算连线的坐标及长宽信息
+         * <p> 示例值：
+         */
+        this.specifiedCoordinate = builder.specifiedCoordinate;
     }
 
     public static Builder newBuilder() {
@@ -174,6 +207,30 @@ public class Connector {
         this.turningPoints = turningPoints;
     }
 
+    public Boolean getCaptionAutoDirection() {
+        return this.captionAutoDirection;
+    }
+
+    public void setCaptionAutoDirection(Boolean captionAutoDirection) {
+        this.captionAutoDirection = captionAutoDirection;
+    }
+
+    public Double getCaptionPosition() {
+        return this.captionPosition;
+    }
+
+    public void setCaptionPosition(Double captionPosition) {
+        this.captionPosition = captionPosition;
+    }
+
+    public Boolean getSpecifiedCoordinate() {
+        return this.specifiedCoordinate;
+    }
+
+    public void setSpecifiedCoordinate(Boolean specifiedCoordinate) {
+        this.specifiedCoordinate = specifiedCoordinate;
+    }
+
     public static class Builder {
         /**
          * 开始连接节点信息（兼容线上数据，只读，写操作使用 start 字段）
@@ -210,6 +267,21 @@ public class Connector {
          * <p> 示例值：
          */
         private Point[] turningPoints;
+        /**
+         * 连线上的文本方向是否自动跟随连线方向
+         * <p> 示例值：true
+         */
+        private Boolean captionAutoDirection;
+        /**
+         * 文本在连线上的相对位置，范围0-1，0表示在连线的起始点，1表示在连线的终点
+         * <p> 示例值：0.5
+         */
+        private Double captionPosition;
+        /**
+         * 指定连线坐标及长宽。为 true 时需要用户设置连线的坐标及长宽信息。为 false 时会根据连线的开始、结束端点自动计算连线的坐标及长宽信息
+         * <p> 示例值：
+         */
+        private Boolean specifiedCoordinate;
 
         /**
          * 开始连接节点信息（兼容线上数据，只读，写操作使用 start 字段）
@@ -310,6 +382,45 @@ public class Connector {
          */
         public Builder turningPoints(Point[] turningPoints) {
             this.turningPoints = turningPoints;
+            return this;
+        }
+
+
+        /**
+         * 连线上的文本方向是否自动跟随连线方向
+         * <p> 示例值：true
+         *
+         * @param captionAutoDirection
+         * @return
+         */
+        public Builder captionAutoDirection(Boolean captionAutoDirection) {
+            this.captionAutoDirection = captionAutoDirection;
+            return this;
+        }
+
+
+        /**
+         * 文本在连线上的相对位置，范围0-1，0表示在连线的起始点，1表示在连线的终点
+         * <p> 示例值：0.5
+         *
+         * @param captionPosition
+         * @return
+         */
+        public Builder captionPosition(Double captionPosition) {
+            this.captionPosition = captionPosition;
+            return this;
+        }
+
+
+        /**
+         * 指定连线坐标及长宽。为 true 时需要用户设置连线的坐标及长宽信息。为 false 时会根据连线的开始、结束端点自动计算连线的坐标及长宽信息
+         * <p> 示例值：
+         *
+         * @param specifiedCoordinate
+         * @return
+         */
+        public Builder specifiedCoordinate(Boolean specifiedCoordinate) {
+            this.specifiedCoordinate = specifiedCoordinate;
             return this;
         }
 

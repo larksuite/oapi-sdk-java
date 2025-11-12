@@ -20,6 +20,7 @@ public enum KnowledgeQaAnswerRequestKnowledgeQaAnswerRequestKnowledgeScopeEnum {
     ENTERPRISE("enterprise"), // 企业内知识
     INTERNET("internet"), // 联网搜索
     LLM("llm"), // 仅大模型
+    HYBRID("hybrid"), // 企业内知识和互联网知识融合
     ;
     private String value;
 

@@ -59,6 +59,12 @@ public class MindMapNode {
      */
     @SerializedName("children")
     private String[] children;
+    /**
+     * 是否收起子节点
+     * <p> 示例值：
+     */
+    @SerializedName("collapsed")
+    private Boolean collapsed;
 
     // builder 开始
     public MindMapNode() {
@@ -90,6 +96,11 @@ public class MindMapNode {
          * <p> 示例值：
          */
         this.children = builder.children;
+        /**
+         * 是否收起子节点
+         * <p> 示例值：
+         */
+        this.collapsed = builder.collapsed;
     }
 
     public static Builder newBuilder() {
@@ -136,6 +147,14 @@ public class MindMapNode {
         this.children = children;
     }
 
+    public Boolean getCollapsed() {
+        return this.collapsed;
+    }
+
+    public void setCollapsed(Boolean collapsed) {
+        this.collapsed = collapsed;
+    }
+
     public static class Builder {
         /**
          * 思维导图节点的父节点，必须为思维导图节点
@@ -162,6 +181,11 @@ public class MindMapNode {
          * <p> 示例值：
          */
         private String[] children;
+        /**
+         * 是否收起子节点
+         * <p> 示例值：
+         */
+        private Boolean collapsed;
 
         /**
          * 思维导图节点的父节点，必须为思维导图节点
@@ -248,6 +272,19 @@ public class MindMapNode {
          */
         public Builder children(String[] children) {
             this.children = children;
+            return this;
+        }
+
+
+        /**
+         * 是否收起子节点
+         * <p> 示例值：
+         *
+         * @param collapsed
+         * @return
+         */
+        public Builder collapsed(Boolean collapsed) {
+            this.collapsed = collapsed;
             return this;
         }
 

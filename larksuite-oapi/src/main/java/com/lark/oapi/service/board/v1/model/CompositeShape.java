@@ -41,6 +41,24 @@ public class CompositeShape {
      */
     @SerializedName("pie")
     private Pie pie;
+    /**
+     * 圆环属性，type=circular_ring时需要设置
+     * <p> 示例值：
+     */
+    @SerializedName("circular_ring")
+    private Pie circularRing;
+    /**
+     * 梯形属性，type=trapezoid时可以设置
+     * <p> 示例值：
+     */
+    @SerializedName("trapezoid")
+    private Trapezoid trapezoid;
+    /**
+     * 六面体属性，type=cube时可以设置
+     * <p> 示例值：
+     */
+    @SerializedName("cube")
+    private Cube cube;
 
     // builder 开始
     public CompositeShape() {
@@ -57,6 +75,21 @@ public class CompositeShape {
          * <p> 示例值：
          */
         this.pie = builder.pie;
+        /**
+         * 圆环属性，type=circular_ring时需要设置
+         * <p> 示例值：
+         */
+        this.circularRing = builder.circularRing;
+        /**
+         * 梯形属性，type=trapezoid时可以设置
+         * <p> 示例值：
+         */
+        this.trapezoid = builder.trapezoid;
+        /**
+         * 六面体属性，type=cube时可以设置
+         * <p> 示例值：
+         */
+        this.cube = builder.cube;
     }
 
     public static Builder newBuilder() {
@@ -79,6 +112,30 @@ public class CompositeShape {
         this.pie = pie;
     }
 
+    public Pie getCircularRing() {
+        return this.circularRing;
+    }
+
+    public void setCircularRing(Pie circularRing) {
+        this.circularRing = circularRing;
+    }
+
+    public Trapezoid getTrapezoid() {
+        return this.trapezoid;
+    }
+
+    public void setTrapezoid(Trapezoid trapezoid) {
+        this.trapezoid = trapezoid;
+    }
+
+    public Cube getCube() {
+        return this.cube;
+    }
+
+    public void setCube(Cube cube) {
+        this.cube = cube;
+    }
+
     public static class Builder {
         /**
          * 基础图形的具体类型
@@ -90,6 +147,21 @@ public class CompositeShape {
          * <p> 示例值：
          */
         private Pie pie;
+        /**
+         * 圆环属性，type=circular_ring时需要设置
+         * <p> 示例值：
+         */
+        private Pie circularRing;
+        /**
+         * 梯形属性，type=trapezoid时可以设置
+         * <p> 示例值：
+         */
+        private Trapezoid trapezoid;
+        /**
+         * 六面体属性，type=cube时可以设置
+         * <p> 示例值：
+         */
+        private Cube cube;
 
         /**
          * 基础图形的具体类型
@@ -125,6 +197,45 @@ public class CompositeShape {
          */
         public Builder pie(Pie pie) {
             this.pie = pie;
+            return this;
+        }
+
+
+        /**
+         * 圆环属性，type=circular_ring时需要设置
+         * <p> 示例值：
+         *
+         * @param circularRing
+         * @return
+         */
+        public Builder circularRing(Pie circularRing) {
+            this.circularRing = circularRing;
+            return this;
+        }
+
+
+        /**
+         * 梯形属性，type=trapezoid时可以设置
+         * <p> 示例值：
+         *
+         * @param trapezoid
+         * @return
+         */
+        public Builder trapezoid(Trapezoid trapezoid) {
+            this.trapezoid = trapezoid;
+            return this;
+        }
+
+
+        /**
+         * 六面体属性，type=cube时可以设置
+         * <p> 示例值：
+         *
+         * @param cube
+         * @return
+         */
+        public Builder cube(Cube cube) {
+            this.cube = cube;
             return this;
         }
 

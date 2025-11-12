@@ -16,11 +16,12 @@ public class UpdateResultEcoExamSample {
         // 创建请求对象
         UpdateResultEcoExamReq req = UpdateResultEcoExamReq.newBuilder()
                 .examId("7178536692385679677")
-                .ecoExamResult(EcoExamResult.newBuilder()
+                .updateResultEcoExamReqBody(UpdateResultEcoExamReqBody.newBuilder()
                         .result("60.5")
                         .resultTime("1658676234053")
                         .reportList(new EcoExamResultReport[]{})
                         .detailList(new EcoExamResultDetail[]{})
+                        .status(1)
                         .build())
                 .build();
 

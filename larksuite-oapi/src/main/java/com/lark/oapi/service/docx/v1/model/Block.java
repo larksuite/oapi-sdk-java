@@ -389,6 +389,12 @@ public class Block {
      */
     @SerializedName("project")
     private Project project;
+    /**
+     * 智能会议纪要 Block
+     * <p> 示例值：
+     */
+    @SerializedName("meeting_notes_qa")
+    private MeetingNotesQa meetingNotesQa;
 
     // builder 开始
     public Block() {
@@ -695,6 +701,11 @@ public class Block {
          * <p> 示例值：
          */
         this.project = builder.project;
+        /**
+         * 智能会议纪要 Block
+         * <p> 示例值：
+         */
+        this.meetingNotesQa = builder.meetingNotesQa;
     }
 
     public static Builder newBuilder() {
@@ -1181,6 +1192,14 @@ public class Block {
         this.project = project;
     }
 
+    public MeetingNotesQa getMeetingNotesQa() {
+        return this.meetingNotesQa;
+    }
+
+    public void setMeetingNotesQa(MeetingNotesQa meetingNotesQa) {
+        this.meetingNotesQa = meetingNotesQa;
+    }
+
     public static class Builder {
         /**
          * Block 唯一标识
@@ -1482,6 +1501,11 @@ public class Block {
          * <p> 示例值：
          */
         private Project project;
+        /**
+         * 智能会议纪要 Block
+         * <p> 示例值：
+         */
+        private MeetingNotesQa meetingNotesQa;
 
         /**
          * Block 唯一标识
@@ -2271,6 +2295,19 @@ public class Block {
          */
         public Builder project(Project project) {
             this.project = project;
+            return this;
+        }
+
+
+        /**
+         * 智能会议纪要 Block
+         * <p> 示例值：
+         *
+         * @param meetingNotesQa
+         * @return
+         */
+        public Builder meetingNotesQa(MeetingNotesQa meetingNotesQa) {
+            this.meetingNotesQa = meetingNotesQa;
             return this;
         }
 

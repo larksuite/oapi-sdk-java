@@ -95,6 +95,12 @@ public class LumpSumPaymentForCreate {
      */
     @SerializedName("remark")
     private String remark;
+    /**
+     * 绑定期带小数
+     * <p> 示例值：12.56
+     */
+    @SerializedName("binding_period_decimal")
+    private String bindingPeriodDecimal;
 
     // builder 开始
     public LumpSumPaymentForCreate() {
@@ -156,6 +162,11 @@ public class LumpSumPaymentForCreate {
          * <p> 示例值：备注
          */
         this.remark = builder.remark;
+        /**
+         * 绑定期带小数
+         * <p> 示例值：12.56
+         */
+        this.bindingPeriodDecimal = builder.bindingPeriodDecimal;
     }
 
     public static Builder newBuilder() {
@@ -250,6 +261,14 @@ public class LumpSumPaymentForCreate {
         this.remark = remark;
     }
 
+    public String getBindingPeriodDecimal() {
+        return this.bindingPeriodDecimal;
+    }
+
+    public void setBindingPeriodDecimal(String bindingPeriodDecimal) {
+        this.bindingPeriodDecimal = bindingPeriodDecimal;
+    }
+
     public static class Builder {
         /**
          * 外部幂等id，由上游业务决定
@@ -306,6 +325,11 @@ public class LumpSumPaymentForCreate {
          * <p> 示例值：备注
          */
         private String remark;
+        /**
+         * 绑定期带小数
+         * <p> 示例值：12.56
+         */
+        private String bindingPeriodDecimal;
 
         /**
          * 外部幂等id，由上游业务决定
@@ -446,6 +470,19 @@ public class LumpSumPaymentForCreate {
          */
         public Builder remark(String remark) {
             this.remark = remark;
+            return this;
+        }
+
+
+        /**
+         * 绑定期带小数
+         * <p> 示例值：12.56
+         *
+         * @param bindingPeriodDecimal
+         * @return
+         */
+        public Builder bindingPeriodDecimal(String bindingPeriodDecimal) {
+            this.bindingPeriodDecimal = bindingPeriodDecimal;
             return this;
         }
 

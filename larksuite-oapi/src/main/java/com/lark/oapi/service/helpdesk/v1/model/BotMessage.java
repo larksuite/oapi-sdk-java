@@ -155,10 +155,10 @@ public class BotMessage {
          * 消息类型
          * <p> 示例值：post
          *
-         * @param msgType {@link com.lark.oapi.service.helpdesk.v1.enums.BotMessageMsgTypeEnum}
+         * @param msgType {@link com.lark.oapi.service.helpdesk.v1.enums.BotMessageBotMessageMsgTypeEnum}
          * @return
          */
-        public Builder msgType(com.lark.oapi.service.helpdesk.v1.enums.BotMessageMsgTypeEnum msgType) {
+        public Builder msgType(com.lark.oapi.service.helpdesk.v1.enums.BotMessageBotMessageMsgTypeEnum msgType) {
             this.msgType = msgType.getValue();
             return this;
         }
@@ -206,10 +206,10 @@ public class BotMessage {
          * 接收消息方式，chat(服务台专属服务群)或user(服务台机器人私聊)。若选择专属服务群，用户有正在处理的工单将会发送失败。默认以chat方式发送。
          * <p> 示例值：chat
          *
-         * @param receiveType {@link com.lark.oapi.service.helpdesk.v1.enums.BotMessageReceiveTypeEnum}
+         * @param receiveType {@link com.lark.oapi.service.helpdesk.v1.enums.BotMessageBotMessageReceiveTypeEnum}
          * @return
          */
-        public Builder receiveType(com.lark.oapi.service.helpdesk.v1.enums.BotMessageReceiveTypeEnum receiveType) {
+        public Builder receiveType(com.lark.oapi.service.helpdesk.v1.enums.BotMessageBotMessageReceiveTypeEnum receiveType) {
             this.receiveType = receiveType.getValue();
             return this;
         }

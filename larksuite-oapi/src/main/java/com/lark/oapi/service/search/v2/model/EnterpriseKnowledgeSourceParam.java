@@ -59,6 +59,24 @@ public class EnterpriseKnowledgeSourceParam {
      */
     @SerializedName("lingo")
     private EnterpriseKnowledgeSourceLingoParam lingo;
+    /**
+     * 文档评论
+     * <p> 示例值：
+     */
+    @SerializedName("comment")
+    private EnterpriseKnowledgeSourceCommentParam comment;
+    /**
+     * 飞书妙记
+     * <p> 示例值：
+     */
+    @SerializedName("minutes")
+    private EnterpriseKnowledgeSourceMinutesParam minutes;
+    /**
+     * 邮件
+     * <p> 示例值：
+     */
+    @SerializedName("mail")
+    private EnterpriseKnowledgeSourceMailParam mail;
 
     // builder 开始
     public EnterpriseKnowledgeSourceParam() {
@@ -90,6 +108,21 @@ public class EnterpriseKnowledgeSourceParam {
          * <p> 示例值：
          */
         this.lingo = builder.lingo;
+        /**
+         * 文档评论
+         * <p> 示例值：
+         */
+        this.comment = builder.comment;
+        /**
+         * 飞书妙记
+         * <p> 示例值：
+         */
+        this.minutes = builder.minutes;
+        /**
+         * 邮件
+         * <p> 示例值：
+         */
+        this.mail = builder.mail;
     }
 
     public static Builder newBuilder() {
@@ -136,6 +169,30 @@ public class EnterpriseKnowledgeSourceParam {
         this.lingo = lingo;
     }
 
+    public EnterpriseKnowledgeSourceCommentParam getComment() {
+        return this.comment;
+    }
+
+    public void setComment(EnterpriseKnowledgeSourceCommentParam comment) {
+        this.comment = comment;
+    }
+
+    public EnterpriseKnowledgeSourceMinutesParam getMinutes() {
+        return this.minutes;
+    }
+
+    public void setMinutes(EnterpriseKnowledgeSourceMinutesParam minutes) {
+        this.minutes = minutes;
+    }
+
+    public EnterpriseKnowledgeSourceMailParam getMail() {
+        return this.mail;
+    }
+
+    public void setMail(EnterpriseKnowledgeSourceMailParam mail) {
+        this.mail = mail;
+    }
+
     public static class Builder {
         /**
          * 云空间文档
@@ -162,6 +219,21 @@ public class EnterpriseKnowledgeSourceParam {
          * <p> 示例值：
          */
         private EnterpriseKnowledgeSourceLingoParam lingo;
+        /**
+         * 文档评论
+         * <p> 示例值：
+         */
+        private EnterpriseKnowledgeSourceCommentParam comment;
+        /**
+         * 飞书妙记
+         * <p> 示例值：
+         */
+        private EnterpriseKnowledgeSourceMinutesParam minutes;
+        /**
+         * 邮件
+         * <p> 示例值：
+         */
+        private EnterpriseKnowledgeSourceMailParam mail;
 
         /**
          * 云空间文档
@@ -224,6 +296,45 @@ public class EnterpriseKnowledgeSourceParam {
          */
         public Builder lingo(EnterpriseKnowledgeSourceLingoParam lingo) {
             this.lingo = lingo;
+            return this;
+        }
+
+
+        /**
+         * 文档评论
+         * <p> 示例值：
+         *
+         * @param comment
+         * @return
+         */
+        public Builder comment(EnterpriseKnowledgeSourceCommentParam comment) {
+            this.comment = comment;
+            return this;
+        }
+
+
+        /**
+         * 飞书妙记
+         * <p> 示例值：
+         *
+         * @param minutes
+         * @return
+         */
+        public Builder minutes(EnterpriseKnowledgeSourceMinutesParam minutes) {
+            this.minutes = minutes;
+            return this;
+        }
+
+
+        /**
+         * 邮件
+         * <p> 示例值：
+         *
+         * @param mail
+         * @return
+         */
+        public Builder mail(EnterpriseKnowledgeSourceMailParam mail) {
+            this.mail = mail;
             return this;
         }
 

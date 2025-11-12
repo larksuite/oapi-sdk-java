@@ -71,6 +71,12 @@ public class AgentSkill {
      */
     @SerializedName("agents")
     private Agent[] agents;
+    /**
+     * agent skill id
+     * <p> 示例值：
+     */
+    @SerializedName("agent_skill_id")
+    private String agentSkillId;
 
     // builder 开始
     public AgentSkill() {
@@ -112,6 +118,11 @@ public class AgentSkill {
          * <p> 示例值：
          */
         this.agents = builder.agents;
+        /**
+         * agent skill id
+         * <p> 示例值：
+         */
+        this.agentSkillId = builder.agentSkillId;
     }
 
     public static Builder newBuilder() {
@@ -174,6 +185,14 @@ public class AgentSkill {
         this.agents = agents;
     }
 
+    public String getAgentSkillId() {
+        return this.agentSkillId;
+    }
+
+    public void setAgentSkillId(String agentSkillId) {
+        this.agentSkillId = agentSkillId;
+    }
+
     public static class Builder {
         /**
          * 技能id
@@ -210,6 +229,11 @@ public class AgentSkill {
          * <p> 示例值：
          */
         private Agent[] agents;
+        /**
+         * agent skill id
+         * <p> 示例值：
+         */
+        private String agentSkillId;
 
         /**
          * 技能id
@@ -298,6 +322,19 @@ public class AgentSkill {
          */
         public Builder agents(Agent[] agents) {
             this.agents = agents;
+            return this;
+        }
+
+
+        /**
+         * agent skill id
+         * <p> 示例值：
+         *
+         * @param agentSkillId
+         * @return
+         */
+        public Builder agentSkillId(String agentSkillId) {
+            this.agentSkillId = agentSkillId;
             return this;
         }
 

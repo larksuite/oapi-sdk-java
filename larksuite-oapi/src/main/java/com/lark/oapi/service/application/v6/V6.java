@@ -19,7 +19,7 @@ import com.lark.oapi.service.application.v6.resource.*;
 public class V6 {
     private final AppBadge appBadge; // 应用红点
     private final AppRecommendRule appRecommendRule; // 我的常用推荐规则
-    private final Application application; // 应用
+    private final Application application; // 应用管理
     private final ApplicationAppUsage applicationAppUsage; // 应用使用情况
     private final ApplicationAppVersion applicationAppVersion; // 事件
     private final ApplicationCollaborators applicationCollaborators; // application.collaborators

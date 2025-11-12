@@ -20,9 +20,11 @@ public enum KnowledgeQaEnterpriseReferenceSourceTypeEnum {
     HELPDESK(1), // 服务台
     WIKI(2), // wiki
     DOC(3), // doc
-    WEB(4), // web
     LINGO(5), // lingo
     MESSAGE(6), // message
+    COMMENT(7), // 文档评论
+    MINUTES(8), // 飞书妙记
+    MAIL(9), // 邮件
     ;
     private Integer value;
 

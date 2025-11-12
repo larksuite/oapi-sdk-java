@@ -35,7 +35,7 @@ public class UpdateResultEcoExamReq {
     @SerializedName("exam_id")
     private String examId;
     @Body
-    private EcoExamResult body;
+    private UpdateResultEcoExamReqBody body;
 
     // builder 开始
     public UpdateResultEcoExamReq() {
@@ -62,18 +62,18 @@ public class UpdateResultEcoExamReq {
         this.examId = examId;
     }
 
-    public EcoExamResult getEcoExamResult() {
+    public UpdateResultEcoExamReqBody getUpdateResultEcoExamReqBody() {
         return this.body;
     }
 
-    public void setEcoExamResult(EcoExamResult body) {
+    public void setUpdateResultEcoExamReqBody(UpdateResultEcoExamReqBody body) {
         this.body = body;
     }
 
     public static class Builder {
 
         private String examId; // exam id
-        private EcoExamResult body;
+        private UpdateResultEcoExamReqBody body;
 
         /**
          * exam id
@@ -87,7 +87,7 @@ public class UpdateResultEcoExamReq {
             return this;
         }
 
-        public EcoExamResult getEcoExamResult() {
+        public UpdateResultEcoExamReqBody getUpdateResultEcoExamReqBody() {
             return this.body;
         }
 
@@ -97,7 +97,7 @@ public class UpdateResultEcoExamReq {
          * @param body
          * @return
          */
-        public Builder ecoExamResult(EcoExamResult body) {
+        public Builder updateResultEcoExamReqBody(UpdateResultEcoExamReqBody body) {
             this.body = body;
             return this;
         }

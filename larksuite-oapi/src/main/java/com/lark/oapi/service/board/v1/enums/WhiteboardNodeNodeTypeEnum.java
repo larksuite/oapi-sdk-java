@@ -33,8 +33,6 @@ public enum WhiteboardNodeNodeTypeEnum {
     MINDMAP("mind_map"), // 思维导图
     PAINT("paint"), // 画笔
     COMBINEDFRAGMENT("combined_fragment"), // 组合片段
-    MINDMAPROOT("mind_map_root"), // 思维导图根节点属性
-    MINDMAPNODE("mind_map_node"), // 思维导图节点属性
     ;
     private String value;
 

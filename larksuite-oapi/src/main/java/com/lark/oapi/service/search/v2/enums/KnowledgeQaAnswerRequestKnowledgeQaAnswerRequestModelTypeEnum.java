@@ -19,6 +19,8 @@ package com.lark.oapi.service.search.v2.enums;
 public enum KnowledgeQaAnswerRequestKnowledgeQaAnswerRequestModelTypeEnum {
     DOUBAO("doubao"), // 豆包大模型
     DEEPSEEK("deepseek"), // DeepSeek-R1大模型
+    DOUBAO_THINKING("doubao_thinking"), // 豆包思考模型
+    DOUBAO_AUTO_THINKING("doubao_auto_thinking"), // 豆包大模型，智能匹配最佳模型。
     ;
     private String value;
 

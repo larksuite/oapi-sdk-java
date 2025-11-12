@@ -47,6 +47,12 @@ public class SocialArchiveAdjustRecord {
      */
     @SerializedName("details")
     private SocialArchiveDetail[] details;
+    /**
+     * 增减员记录ID
+     * <p> 示例值：7480742425276139052
+     */
+    @SerializedName("record_id")
+    private String recordId;
 
     // builder 开始
     public SocialArchiveAdjustRecord() {
@@ -68,6 +74,11 @@ public class SocialArchiveAdjustRecord {
          * <p> 示例值：
          */
         this.details = builder.details;
+        /**
+         * 增减员记录ID
+         * <p> 示例值：7480742425276139052
+         */
+        this.recordId = builder.recordId;
     }
 
     public static Builder newBuilder() {
@@ -98,6 +109,14 @@ public class SocialArchiveAdjustRecord {
         this.details = details;
     }
 
+    public String getRecordId() {
+        return this.recordId;
+    }
+
+    public void setRecordId(String recordId) {
+        this.recordId = recordId;
+    }
+
     public static class Builder {
         /**
          * 员工ID
@@ -114,6 +133,11 @@ public class SocialArchiveAdjustRecord {
          * <p> 示例值：
          */
         private SocialArchiveDetail[] details;
+        /**
+         * 增减员记录ID
+         * <p> 示例值：7480742425276139052
+         */
+        private String recordId;
 
         /**
          * 员工ID
@@ -162,6 +186,19 @@ public class SocialArchiveAdjustRecord {
          */
         public Builder details(SocialArchiveDetail[] details) {
             this.details = details;
+            return this;
+        }
+
+
+        /**
+         * 增减员记录ID
+         * <p> 示例值：7480742425276139052
+         *
+         * @param recordId
+         * @return
+         */
+        public Builder recordId(String recordId) {
+            this.recordId = recordId;
             return this;
         }
 

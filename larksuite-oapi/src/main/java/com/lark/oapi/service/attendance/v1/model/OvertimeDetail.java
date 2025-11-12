@@ -113,6 +113,12 @@ public class OvertimeDetail {
      */
     @SerializedName("instance_id")
     private String instanceId;
+    /**
+     * 加班明细对应的审批状态
+     * <p> 示例值：0
+     */
+    @SerializedName("overtime_approval_status")
+    private Integer overtimeApprovalStatus;
 
     // builder 开始
     public OvertimeDetail() {
@@ -189,6 +195,11 @@ public class OvertimeDetail {
          * <p> 示例值：1234
          */
         this.instanceId = builder.instanceId;
+        /**
+         * 加班明细对应的审批状态
+         * <p> 示例值：0
+         */
+        this.overtimeApprovalStatus = builder.overtimeApprovalStatus;
     }
 
     public static Builder newBuilder() {
@@ -307,6 +318,14 @@ public class OvertimeDetail {
         this.instanceId = instanceId;
     }
 
+    public Integer getOvertimeApprovalStatus() {
+        return this.overtimeApprovalStatus;
+    }
+
+    public void setOvertimeApprovalStatus(Integer overtimeApprovalStatus) {
+        this.overtimeApprovalStatus = overtimeApprovalStatus;
+    }
+
     public static class Builder {
         /**
          * 加班明细ID
@@ -378,6 +397,11 @@ public class OvertimeDetail {
          * <p> 示例值：1234
          */
         private String instanceId;
+        /**
+         * 加班明细对应的审批状态
+         * <p> 示例值：0
+         */
+        private Integer overtimeApprovalStatus;
 
         /**
          * 加班明细ID
@@ -593,6 +617,31 @@ public class OvertimeDetail {
          */
         public Builder instanceId(String instanceId) {
             this.instanceId = instanceId;
+            return this;
+        }
+
+
+        /**
+         * 加班明细对应的审批状态
+         * <p> 示例值：0
+         *
+         * @param overtimeApprovalStatus
+         * @return
+         */
+        public Builder overtimeApprovalStatus(Integer overtimeApprovalStatus) {
+            this.overtimeApprovalStatus = overtimeApprovalStatus;
+            return this;
+        }
+
+        /**
+         * 加班明细对应的审批状态
+         * <p> 示例值：0
+         *
+         * @param overtimeApprovalStatus {@link com.lark.oapi.service.attendance.v1.enums.OvertimeDetailOvertimeApprovalStatusEnum}
+         * @return
+         */
+        public Builder overtimeApprovalStatus(com.lark.oapi.service.attendance.v1.enums.OvertimeDetailOvertimeApprovalStatusEnum overtimeApprovalStatus) {
+            this.overtimeApprovalStatus = overtimeApprovalStatus.getValue();
             return this;
         }
 

@@ -89,6 +89,18 @@ public class Style {
      */
     @SerializedName("theme_border_color_code")
     private Integer themeBorderColorCode;
+    /**
+     * 填充颜色类型：0=系统颜色，取theme_fill_color_code，1=自定义颜色，取fill_color
+     * <p> 示例值：
+     */
+    @SerializedName("fill_color_type")
+    private Integer fillColorType;
+    /**
+     * 边框颜色类型：0=系统颜色，取theme_border_color_code，1=自定义颜色，取border_color
+     * <p> 示例值：
+     */
+    @SerializedName("border_color_type")
+    private Integer borderColorType;
 
     // builder 开始
     public Style() {
@@ -145,6 +157,16 @@ public class Style {
          * <p> 示例值：4
          */
         this.themeBorderColorCode = builder.themeBorderColorCode;
+        /**
+         * 填充颜色类型：0=系统颜色，取theme_fill_color_code，1=自定义颜色，取fill_color
+         * <p> 示例值：
+         */
+        this.fillColorType = builder.fillColorType;
+        /**
+         * 边框颜色类型：0=系统颜色，取theme_border_color_code，1=自定义颜色，取border_color
+         * <p> 示例值：
+         */
+        this.borderColorType = builder.borderColorType;
     }
 
     public static Builder newBuilder() {
@@ -231,6 +253,22 @@ public class Style {
         this.themeBorderColorCode = themeBorderColorCode;
     }
 
+    public Integer getFillColorType() {
+        return this.fillColorType;
+    }
+
+    public void setFillColorType(Integer fillColorType) {
+        this.fillColorType = fillColorType;
+    }
+
+    public Integer getBorderColorType() {
+        return this.borderColorType;
+    }
+
+    public void setBorderColorType(Integer borderColorType) {
+        this.borderColorType = borderColorType;
+    }
+
     public static class Builder {
         /**
          * 填充颜色，16 进制 rbg 值
@@ -282,6 +320,16 @@ public class Style {
          * <p> 示例值：4
          */
         private Integer themeBorderColorCode;
+        /**
+         * 填充颜色类型：0=系统颜色，取theme_fill_color_code，1=自定义颜色，取fill_color
+         * <p> 示例值：
+         */
+        private Integer fillColorType;
+        /**
+         * 边框颜色类型：0=系统颜色，取theme_border_color_code，1=自定义颜色，取border_color
+         * <p> 示例值：
+         */
+        private Integer borderColorType;
 
         /**
          * 填充颜色，16 进制 rbg 值
@@ -433,6 +481,56 @@ public class Style {
          */
         public Builder themeBorderColorCode(Integer themeBorderColorCode) {
             this.themeBorderColorCode = themeBorderColorCode;
+            return this;
+        }
+
+
+        /**
+         * 填充颜色类型：0=系统颜色，取theme_fill_color_code，1=自定义颜色，取fill_color
+         * <p> 示例值：
+         *
+         * @param fillColorType
+         * @return
+         */
+        public Builder fillColorType(Integer fillColorType) {
+            this.fillColorType = fillColorType;
+            return this;
+        }
+
+        /**
+         * 填充颜色类型：0=系统颜色，取theme_fill_color_code，1=自定义颜色，取fill_color
+         * <p> 示例值：
+         *
+         * @param fillColorType {@link com.lark.oapi.service.board.v1.enums.StyleColorTypeEnum}
+         * @return
+         */
+        public Builder fillColorType(com.lark.oapi.service.board.v1.enums.StyleColorTypeEnum fillColorType) {
+            this.fillColorType = fillColorType.getValue();
+            return this;
+        }
+
+
+        /**
+         * 边框颜色类型：0=系统颜色，取theme_border_color_code，1=自定义颜色，取border_color
+         * <p> 示例值：
+         *
+         * @param borderColorType
+         * @return
+         */
+        public Builder borderColorType(Integer borderColorType) {
+            this.borderColorType = borderColorType;
+            return this;
+        }
+
+        /**
+         * 边框颜色类型：0=系统颜色，取theme_border_color_code，1=自定义颜色，取border_color
+         * <p> 示例值：
+         *
+         * @param borderColorType {@link com.lark.oapi.service.board.v1.enums.StyleColorTypeEnum}
+         * @return
+         */
+        public Builder borderColorType(com.lark.oapi.service.board.v1.enums.StyleColorTypeEnum borderColorType) {
+            this.borderColorType = borderColorType.getValue();
             return this;
         }
 

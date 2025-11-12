@@ -53,6 +53,12 @@ public class WorkTime {
      */
     @SerializedName("check_fail_reason")
     private String checkFailReason;
+    /**
+     * 指定加班日期
+     * <p> 示例值：2006-01-02
+     */
+    @SerializedName("overtime_date")
+    private String overtimeDate;
 
     // builder 开始
     public WorkTime() {
@@ -79,6 +85,11 @@ public class WorkTime {
          * <p> 示例值：校验没通过
          */
         this.checkFailReason = builder.checkFailReason;
+        /**
+         * 指定加班日期
+         * <p> 示例值：2006-01-02
+         */
+        this.overtimeDate = builder.overtimeDate;
     }
 
     public static Builder newBuilder() {
@@ -117,6 +128,14 @@ public class WorkTime {
         this.checkFailReason = checkFailReason;
     }
 
+    public String getOvertimeDate() {
+        return this.overtimeDate;
+    }
+
+    public void setOvertimeDate(String overtimeDate) {
+        this.overtimeDate = overtimeDate;
+    }
+
     public static class Builder {
         /**
          * 加班开始时间,时间格式为 yyyy-MM-dd HH:mm
@@ -138,6 +157,11 @@ public class WorkTime {
          * <p> 示例值：校验没通过
          */
         private String checkFailReason;
+        /**
+         * 指定加班日期
+         * <p> 示例值：2006-01-02
+         */
+        private String overtimeDate;
 
         /**
          * 加班开始时间,时间格式为 yyyy-MM-dd HH:mm
@@ -187,6 +211,19 @@ public class WorkTime {
          */
         public Builder checkFailReason(String checkFailReason) {
             this.checkFailReason = checkFailReason;
+            return this;
+        }
+
+
+        /**
+         * 指定加班日期
+         * <p> 示例值：2006-01-02
+         *
+         * @param overtimeDate
+         * @return
+         */
+        public Builder overtimeDate(String overtimeDate) {
+            this.overtimeDate = overtimeDate;
             return this;
         }
 

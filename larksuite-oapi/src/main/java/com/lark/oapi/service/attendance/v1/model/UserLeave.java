@@ -101,6 +101,12 @@ public class UserLeave {
      */
     @SerializedName("idempotent_id")
     private String idempotentId;
+    /**
+     * 根据班次计算出来的请假具体时间，格式为list
+     * <p> 示例值：
+     */
+    @SerializedName("leave_detail_range_objs")
+    private TimeRangeList[] leaveDetailRangeObjs;
 
     // builder 开始
     public UserLeave() {
@@ -167,6 +173,11 @@ public class UserLeave {
          * <p> 示例值：1233432312
          */
         this.idempotentId = builder.idempotentId;
+        /**
+         * 根据班次计算出来的请假具体时间，格式为list
+         * <p> 示例值：
+         */
+        this.leaveDetailRangeObjs = builder.leaveDetailRangeObjs;
     }
 
     public static Builder newBuilder() {
@@ -269,6 +280,14 @@ public class UserLeave {
         this.idempotentId = idempotentId;
     }
 
+    public TimeRangeList[] getLeaveDetailRangeObjs() {
+        return this.leaveDetailRangeObjs;
+    }
+
+    public void setLeaveDetailRangeObjs(TimeRangeList[] leaveDetailRangeObjs) {
+        this.leaveDetailRangeObjs = leaveDetailRangeObjs;
+    }
+
     public static class Builder {
         /**
          * 审批实例 ID
@@ -330,6 +349,11 @@ public class UserLeave {
          * <p> 示例值：1233432312
          */
         private String idempotentId;
+        /**
+         * 根据班次计算出来的请假具体时间，格式为list
+         * <p> 示例值：
+         */
+        private TimeRangeList[] leaveDetailRangeObjs;
 
         /**
          * 审批实例 ID
@@ -507,6 +531,19 @@ public class UserLeave {
          */
         public Builder idempotentId(String idempotentId) {
             this.idempotentId = idempotentId;
+            return this;
+        }
+
+
+        /**
+         * 根据班次计算出来的请假具体时间，格式为list
+         * <p> 示例值：
+         *
+         * @param leaveDetailRangeObjs
+         * @return
+         */
+        public Builder leaveDetailRangeObjs(TimeRangeList[] leaveDetailRangeObjs) {
+            this.leaveDetailRangeObjs = leaveDetailRangeObjs;
             return this;
         }
 

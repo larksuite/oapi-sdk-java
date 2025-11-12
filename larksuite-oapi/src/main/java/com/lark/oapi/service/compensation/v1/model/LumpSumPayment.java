@@ -143,6 +143,12 @@ public class LumpSumPayment {
      */
     @SerializedName("details")
     private LumpSumPaymentDetail[] details;
+    /**
+     * 绑定期带小数
+     * <p> 示例值：12
+     */
+    @SerializedName("binding_period_decimal")
+    private String bindingPeriodDecimal;
 
     // builder 开始
     public LumpSumPayment() {
@@ -244,6 +250,11 @@ public class LumpSumPayment {
          * <p> 示例值：
          */
         this.details = builder.details;
+        /**
+         * 绑定期带小数
+         * <p> 示例值：12
+         */
+        this.bindingPeriodDecimal = builder.bindingPeriodDecimal;
     }
 
     public static Builder newBuilder() {
@@ -402,6 +413,14 @@ public class LumpSumPayment {
         this.details = details;
     }
 
+    public String getBindingPeriodDecimal() {
+        return this.bindingPeriodDecimal;
+    }
+
+    public void setBindingPeriodDecimal(String bindingPeriodDecimal) {
+        this.bindingPeriodDecimal = bindingPeriodDecimal;
+    }
+
     public static class Builder {
         /**
          * 一次性支付记录id
@@ -498,6 +517,11 @@ public class LumpSumPayment {
          * <p> 示例值：
          */
         private LumpSumPaymentDetail[] details;
+        /**
+         * 绑定期带小数
+         * <p> 示例值：12
+         */
+        private String bindingPeriodDecimal;
 
         /**
          * 一次性支付记录id
@@ -766,6 +790,19 @@ public class LumpSumPayment {
          */
         public Builder details(LumpSumPaymentDetail[] details) {
             this.details = details;
+            return this;
+        }
+
+
+        /**
+         * 绑定期带小数
+         * <p> 示例值：12
+         *
+         * @param bindingPeriodDecimal
+         * @return
+         */
+        public Builder bindingPeriodDecimal(String bindingPeriodDecimal) {
+            this.bindingPeriodDecimal = bindingPeriodDecimal;
             return this;
         }
 

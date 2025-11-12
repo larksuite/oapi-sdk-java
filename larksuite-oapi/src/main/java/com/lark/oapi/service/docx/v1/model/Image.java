@@ -59,6 +59,12 @@ public class Image {
      */
     @SerializedName("caption")
     private Caption caption;
+    /**
+     * 图片缩放比例，图片会根据宽高*scale等比例缩放进行展示。
+     * <p> 示例值：0.8427495291902072
+     */
+    @SerializedName("scale")
+    private Double scale;
 
     // builder 开始
     public Image() {
@@ -90,6 +96,11 @@ public class Image {
          * <p> 示例值：
          */
         this.caption = builder.caption;
+        /**
+         * 图片缩放比例，图片会根据宽高*scale等比例缩放进行展示。
+         * <p> 示例值：0.8427495291902072
+         */
+        this.scale = builder.scale;
     }
 
     public static Builder newBuilder() {
@@ -136,6 +147,14 @@ public class Image {
         this.caption = caption;
     }
 
+    public Double getScale() {
+        return this.scale;
+    }
+
+    public void setScale(Double scale) {
+        this.scale = scale;
+    }
+
     public static class Builder {
         /**
          * 宽度单位 px
@@ -162,6 +181,11 @@ public class Image {
          * <p> 示例值：
          */
         private Caption caption;
+        /**
+         * 图片缩放比例，图片会根据宽高*scale等比例缩放进行展示。
+         * <p> 示例值：0.8427495291902072
+         */
+        private Double scale;
 
         /**
          * 宽度单位 px
@@ -236,6 +260,19 @@ public class Image {
          */
         public Builder caption(Caption caption) {
             this.caption = caption;
+            return this;
+        }
+
+
+        /**
+         * 图片缩放比例，图片会根据宽高*scale等比例缩放进行展示。
+         * <p> 示例值：0.8427495291902072
+         *
+         * @param scale
+         * @return
+         */
+        public Builder scale(Double scale) {
+            this.scale = scale;
             return this;
         }
 

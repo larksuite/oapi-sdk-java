@@ -263,7 +263,6 @@ public class InvitedReviewRecordInfo {
         }
 
 
-
         /**
          * 360° 评估人的评估尺度数值
          * <p> 示例值：1.23

@@ -70,6 +70,7 @@ public enum BlockBlockTypeEnum {
     AITEMPLATE(52), // AI 模板 Block
     REFERENCEBASE(53), // 引用的多维表格
     PROJECT(54), // 飞书项目
+    MEETINGNOTESQA(55), // 智能会议纪要 Block
     UNDEFINED(999), // 未支持 Block
     ;
     private Integer value;
