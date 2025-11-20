@@ -157,10 +157,10 @@ public class SearchContractReq {
          * 用户 ID 类型
          * <p> 示例值：open_id
          *
-         * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.SearchContractUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.SearchContractSearchContractV2UserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.SearchContractUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.SearchContractSearchContractV2UserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }

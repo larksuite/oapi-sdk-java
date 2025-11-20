@@ -53,6 +53,30 @@ public class ProcessCommentInfo {
      */
     @SerializedName("comment_msg")
     private String commentMsg;
+    /**
+     * 在评论中被提及（@）到的人的id列表
+     * <p> 示例值：
+     */
+    @SerializedName("at_user_ids")
+    private String[] atUserIds;
+    /**
+     * 评论中附件数量
+     * <p> 示例值：10
+     */
+    @SerializedName("file_count")
+    private Integer fileCount;
+    /**
+     * 评论中图片数量
+     * <p> 示例值：10
+     */
+    @SerializedName("image_count")
+    private Integer imageCount;
+    /**
+     * 一条评论的唯一id
+     * <p> 示例值：7355397217231831060
+     */
+    @SerializedName("comment_id")
+    private String commentId;
 
     // builder 开始
     public ProcessCommentInfo() {
@@ -79,6 +103,26 @@ public class ProcessCommentInfo {
          * <p> 示例值：评论内容
          */
         this.commentMsg = builder.commentMsg;
+        /**
+         * 在评论中被提及（@）到的人的id列表
+         * <p> 示例值：
+         */
+        this.atUserIds = builder.atUserIds;
+        /**
+         * 评论中附件数量
+         * <p> 示例值：10
+         */
+        this.fileCount = builder.fileCount;
+        /**
+         * 评论中图片数量
+         * <p> 示例值：10
+         */
+        this.imageCount = builder.imageCount;
+        /**
+         * 一条评论的唯一id
+         * <p> 示例值：7355397217231831060
+         */
+        this.commentId = builder.commentId;
     }
 
     public static Builder newBuilder() {
@@ -117,6 +161,38 @@ public class ProcessCommentInfo {
         this.commentMsg = commentMsg;
     }
 
+    public String[] getAtUserIds() {
+        return this.atUserIds;
+    }
+
+    public void setAtUserIds(String[] atUserIds) {
+        this.atUserIds = atUserIds;
+    }
+
+    public Integer getFileCount() {
+        return this.fileCount;
+    }
+
+    public void setFileCount(Integer fileCount) {
+        this.fileCount = fileCount;
+    }
+
+    public Integer getImageCount() {
+        return this.imageCount;
+    }
+
+    public void setImageCount(Integer imageCount) {
+        this.imageCount = imageCount;
+    }
+
+    public String getCommentId() {
+        return this.commentId;
+    }
+
+    public void setCommentId(String commentId) {
+        this.commentId = commentId;
+    }
+
     public static class Builder {
         /**
          * 评论人id
@@ -138,6 +214,26 @@ public class ProcessCommentInfo {
          * <p> 示例值：评论内容
          */
         private String commentMsg;
+        /**
+         * 在评论中被提及（@）到的人的id列表
+         * <p> 示例值：
+         */
+        private String[] atUserIds;
+        /**
+         * 评论中附件数量
+         * <p> 示例值：10
+         */
+        private Integer fileCount;
+        /**
+         * 评论中图片数量
+         * <p> 示例值：10
+         */
+        private Integer imageCount;
+        /**
+         * 一条评论的唯一id
+         * <p> 示例值：7355397217231831060
+         */
+        private String commentId;
 
         /**
          * 评论人id
@@ -187,6 +283,58 @@ public class ProcessCommentInfo {
          */
         public Builder commentMsg(String commentMsg) {
             this.commentMsg = commentMsg;
+            return this;
+        }
+
+
+        /**
+         * 在评论中被提及（@）到的人的id列表
+         * <p> 示例值：
+         *
+         * @param atUserIds
+         * @return
+         */
+        public Builder atUserIds(String[] atUserIds) {
+            this.atUserIds = atUserIds;
+            return this;
+        }
+
+
+        /**
+         * 评论中附件数量
+         * <p> 示例值：10
+         *
+         * @param fileCount
+         * @return
+         */
+        public Builder fileCount(Integer fileCount) {
+            this.fileCount = fileCount;
+            return this;
+        }
+
+
+        /**
+         * 评论中图片数量
+         * <p> 示例值：10
+         *
+         * @param imageCount
+         * @return
+         */
+        public Builder imageCount(Integer imageCount) {
+            this.imageCount = imageCount;
+            return this;
+        }
+
+
+        /**
+         * 一条评论的唯一id
+         * <p> 示例值：7355397217231831060
+         *
+         * @param commentId
+         * @return
+         */
+        public Builder commentId(String commentId) {
+            this.commentId = commentId;
             return this;
         }
 

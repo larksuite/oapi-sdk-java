@@ -112,10 +112,10 @@ public class UpdateProcessExtraReq {
          * 用户 ID 类型
          * <p> 示例值：open_id
          *
-         * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.UpdateProcessExtraUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.UpdateProcessExtraOpenApproverExtraUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.UpdateProcessExtraUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.UpdateProcessExtraOpenApproverExtraUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }

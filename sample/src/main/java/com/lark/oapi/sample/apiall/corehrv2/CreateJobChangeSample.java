@@ -29,6 +29,8 @@ public class CreateJobChangeSample {
                         .transferKey("transfer_3627531")
                         .initiatorId("ou_a294793e8fa21529f2a60e3e9de45520")
                         .transferReasonUniqueIdentifier("involuntary_transfer")
+                        .updateMethod("update_all")
+                        .updateMethodOffboarding("update_all")
                         .build())
                 .build();
 

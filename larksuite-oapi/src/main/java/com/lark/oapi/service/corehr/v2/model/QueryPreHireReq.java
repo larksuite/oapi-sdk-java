@@ -178,10 +178,10 @@ public class QueryPreHireReq {
          * 用户 ID 类型
          * <p> 示例值：open_id
          *
-         * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.QueryPreHireUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.QueryPreHireListPreHireV2UserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.QueryPreHireUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.QueryPreHireListPreHireV2UserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }
@@ -202,10 +202,10 @@ public class QueryPreHireReq {
          * 此次调用中使用的部门 ID 类型
          * <p> 示例值：open_department_id
          *
-         * @param departmentIdType {@link com.lark.oapi.service.corehr.v2.enums.QueryPreHireDepartmentIdTypeEnum}
+         * @param departmentIdType {@link com.lark.oapi.service.corehr.v2.enums.QueryPreHireListPreHireV2DepartmentIDTypeEnum}
          * @return
          */
-        public Builder departmentIdType(com.lark.oapi.service.corehr.v2.enums.QueryPreHireDepartmentIdTypeEnum departmentIdType) {
+        public Builder departmentIdType(com.lark.oapi.service.corehr.v2.enums.QueryPreHireListPreHireV2DepartmentIDTypeEnum departmentIdType) {
             this.departmentIdType = departmentIdType.getValue();
             return this;
         }

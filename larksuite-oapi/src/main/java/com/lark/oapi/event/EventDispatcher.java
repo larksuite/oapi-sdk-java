@@ -1740,6 +1740,51 @@ public class EventDispatcher implements IHandler {
          * @param handler
          * @return
          */
+        public Builder onP2PositionCreatedV2(CorehrService.P2PositionCreatedV2Handler handler) {
+            if (eventType2EventHandler.containsKey("corehr.position.created_v2")) {
+                throw new EventTypeAlreadyHasHandlerException("corehr.position.created_v2");
+            }
+            eventType2EventHandler.put("corehr.position.created_v2", handler);
+            return this;
+        }
+
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2PositionDeletedV2(CorehrService.P2PositionDeletedV2Handler handler) {
+            if (eventType2EventHandler.containsKey("corehr.position.deleted_v2")) {
+                throw new EventTypeAlreadyHasHandlerException("corehr.position.deleted_v2");
+            }
+            eventType2EventHandler.put("corehr.position.deleted_v2", handler);
+            return this;
+        }
+
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2PositionUpdatedV2(CorehrService.P2PositionUpdatedV2Handler handler) {
+            if (eventType2EventHandler.containsKey("corehr.position.updated_v2")) {
+                throw new EventTypeAlreadyHasHandlerException("corehr.position.updated_v2");
+            }
+            eventType2EventHandler.put("corehr.position.updated_v2", handler);
+            return this;
+        }
+
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
         public Builder onP2PreHireOnboardingTaskChangedV2(CorehrService.P2PreHireOnboardingTaskChangedV2Handler handler) {
             if (eventType2EventHandler.containsKey("corehr.pre_hire.onboarding_task_changed_v2")) {
                 throw new EventTypeAlreadyHasHandlerException("corehr.pre_hire.onboarding_task_changed_v2");
@@ -1835,6 +1880,21 @@ public class EventDispatcher implements IHandler {
                 throw new EventTypeAlreadyHasHandlerException("corehr.process.status.update_v2");
             }
             eventType2EventHandler.put("corehr.process.status.update_v2", handler);
+            return this;
+        }
+
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2ProcessCommentInfoUpdatedV2(CorehrService.P2ProcessCommentInfoUpdatedV2Handler handler) {
+            if (eventType2EventHandler.containsKey("corehr.process_comment_info.updated_v2")) {
+                throw new EventTypeAlreadyHasHandlerException("corehr.process_comment_info.updated_v2");
+            }
+            eventType2EventHandler.put("corehr.process_comment_info.updated_v2", handler);
             return this;
         }
 

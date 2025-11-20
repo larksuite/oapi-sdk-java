@@ -124,10 +124,10 @@ public class RemoveVersionDefaultCostCenterReq {
          * 用户 ID 类型
          * <p> 示例值：open_id
          *
-         * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.RemoveVersionDefaultCostCenterUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.RemoveVersionDefaultCostCenterRemoveVersionDefaultCostCenterUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.RemoveVersionDefaultCostCenterUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.RemoveVersionDefaultCostCenterRemoveVersionDefaultCostCenterUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }

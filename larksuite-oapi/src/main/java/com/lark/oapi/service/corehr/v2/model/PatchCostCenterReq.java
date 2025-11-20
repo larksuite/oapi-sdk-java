@@ -112,10 +112,10 @@ public class PatchCostCenterReq {
          * 用户 ID 类型
          * <p> 示例值：people_corehr_id
          *
-         * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.PatchCostCenterUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.PatchCostCenterPatchCostCenterV2UserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.PatchCostCenterUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.PatchCostCenterPatchCostCenterV2UserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }

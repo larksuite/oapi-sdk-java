@@ -112,10 +112,10 @@ public class CreateVersionCostAllocationReq {
          * 用户 ID 类型
          * <p> 示例值：open_id
          *
-         * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.CreateVersionCostAllocationUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.CreateVersionCostAllocationCreateVersionCostAllocationUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.CreateVersionCostAllocationUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.CreateVersionCostAllocationCreateVersionCostAllocationUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }

@@ -95,6 +95,12 @@ public class DepartmentTimeline {
      */
     @SerializedName("custom_fields")
     private CustomFieldData[] customFields;
+    /**
+     * 失效时间
+     * <p> 示例值：2020-05-02
+     */
+    @SerializedName("expiration_date")
+    private String expirationDate;
 
     // builder 开始
     public DepartmentTimeline() {
@@ -156,6 +162,11 @@ public class DepartmentTimeline {
          * <p> 示例值：
          */
         this.customFields = builder.customFields;
+        /**
+         * 失效时间
+         * <p> 示例值：2020-05-02
+         */
+        this.expirationDate = builder.expirationDate;
     }
 
     public static Builder newBuilder() {
@@ -250,6 +261,14 @@ public class DepartmentTimeline {
         this.customFields = customFields;
     }
 
+    public String getExpirationDate() {
+        return this.expirationDate;
+    }
+
+    public void setExpirationDate(String expirationDate) {
+        this.expirationDate = expirationDate;
+    }
+
     public static class Builder {
         /**
          * 部门 ID
@@ -306,6 +325,11 @@ public class DepartmentTimeline {
          * <p> 示例值：
          */
         private CustomFieldData[] customFields;
+        /**
+         * 失效时间
+         * <p> 示例值：2020-05-02
+         */
+        private String expirationDate;
 
         /**
          * 部门 ID
@@ -446,6 +470,19 @@ public class DepartmentTimeline {
          */
         public Builder customFields(CustomFieldData[] customFields) {
             this.customFields = customFields;
+            return this;
+        }
+
+
+        /**
+         * 失效时间
+         * <p> 示例值：2020-05-02
+         *
+         * @param expirationDate
+         * @return
+         */
+        public Builder expirationDate(String expirationDate) {
+            this.expirationDate = expirationDate;
             return this;
         }
 

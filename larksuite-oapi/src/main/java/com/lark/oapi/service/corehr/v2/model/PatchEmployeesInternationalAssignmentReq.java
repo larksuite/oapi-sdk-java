@@ -166,10 +166,10 @@ public class PatchEmployeesInternationalAssignmentReq {
          * 用户 ID 类型
          * <p> 示例值：open_id
          *
-         * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.PatchEmployeesInternationalAssignmentUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.PatchEmployeesInternationalAssignmentPatchEmployeesInternationalAssignmentUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.PatchEmployeesInternationalAssignmentUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.PatchEmployeesInternationalAssignmentPatchEmployeesInternationalAssignmentUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }
@@ -190,10 +190,10 @@ public class PatchEmployeesInternationalAssignmentReq {
          * 此次调用中使用的部门 ID 类型
          * <p> 示例值：open_department_id
          *
-         * @param departmentIdType {@link com.lark.oapi.service.corehr.v2.enums.PatchEmployeesInternationalAssignmentDepartmentIdTypeEnum}
+         * @param departmentIdType {@link com.lark.oapi.service.corehr.v2.enums.PatchEmployeesInternationalAssignmentPatchEmployeesInternationalAssignmentDepartmentIDTypeEnum}
          * @return
          */
-        public Builder departmentIdType(com.lark.oapi.service.corehr.v2.enums.PatchEmployeesInternationalAssignmentDepartmentIdTypeEnum departmentIdType) {
+        public Builder departmentIdType(com.lark.oapi.service.corehr.v2.enums.PatchEmployeesInternationalAssignmentPatchEmployeesInternationalAssignmentDepartmentIDTypeEnum departmentIdType) {
             this.departmentIdType = departmentIdType.getValue();
             return this;
         }

@@ -125,6 +125,12 @@ public class PreHireOnboardingInfo {
      */
     @SerializedName("check_in_method")
     private Enum checkInMethod;
+    /**
+     * 撤销原因：当流程状态为撤销时,在fields中传入onboarding_info.withdrawn_reason字段，可获取撤销原因
+     * <p> 示例值：撤销原因
+     */
+    @SerializedName("withdrawn_reason")
+    private String withdrawnReason;
 
     // builder 开始
     public PreHireOnboardingInfo() {
@@ -211,6 +217,11 @@ public class PreHireOnboardingInfo {
          * <p> 示例值：
          */
         this.checkInMethod = builder.checkInMethod;
+        /**
+         * 撤销原因：当流程状态为撤销时,在fields中传入onboarding_info.withdrawn_reason字段，可获取撤销原因
+         * <p> 示例值：撤销原因
+         */
+        this.withdrawnReason = builder.withdrawnReason;
     }
 
     public static Builder newBuilder() {
@@ -345,6 +356,14 @@ public class PreHireOnboardingInfo {
         this.checkInMethod = checkInMethod;
     }
 
+    public String getWithdrawnReason() {
+        return this.withdrawnReason;
+    }
+
+    public void setWithdrawnReason(String withdrawnReason) {
+        this.withdrawnReason = withdrawnReason;
+    }
+
     public static class Builder {
         /**
          * Offer id , 可以通过招聘【获取 Offer 列表】接口获取
@@ -426,6 +445,11 @@ public class PreHireOnboardingInfo {
          * <p> 示例值：
          */
         private Enum checkInMethod;
+        /**
+         * 撤销原因：当流程状态为撤销时,在fields中传入onboarding_info.withdrawn_reason字段，可获取撤销原因
+         * <p> 示例值：撤销原因
+         */
+        private String withdrawnReason;
 
         /**
          * Offer id , 可以通过招聘【获取 Offer 列表】接口获取
@@ -631,6 +655,19 @@ public class PreHireOnboardingInfo {
          */
         public Builder checkInMethod(Enum checkInMethod) {
             this.checkInMethod = checkInMethod;
+            return this;
+        }
+
+
+        /**
+         * 撤销原因：当流程状态为撤销时,在fields中传入onboarding_info.withdrawn_reason字段，可获取撤销原因
+         * <p> 示例值：撤销原因
+         *
+         * @param withdrawnReason
+         * @return
+         */
+        public Builder withdrawnReason(String withdrawnReason) {
+            this.withdrawnReason = withdrawnReason;
             return this;
         }
 

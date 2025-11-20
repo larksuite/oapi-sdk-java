@@ -91,10 +91,10 @@ public class BatchGetJobReq {
          * 用户 ID 类型
          * <p> 示例值：open_id
          *
-         * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.BatchGetJobUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.BatchGetJobBatchGetJobUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.BatchGetJobUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.BatchGetJobBatchGetJobUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }

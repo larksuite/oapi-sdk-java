@@ -40,6 +40,7 @@ public class V2 {
     private final CustomOrg customOrg; // custom_org
     private final DefaultCostCenter defaultCostCenter; // default_cost_center
     private final Department department; // department
+    private final Draft draft; // draft
     private final Employee employee; // employee
     private final EmployeesAdditionalJob employeesAdditionalJob; // employees.additional_job
     private final EmployeesBp employeesBp; // employees.bp
@@ -68,6 +69,7 @@ public class V2 {
     private final ProcessNode processNode; // process.node
     private final ProcessStatus processStatus; // process.status
     private final ProcessTransfer processTransfer; // process.transfer
+    private final ProcessCommentInfo processCommentInfo; // process_comment_info
     private final ProcessRevoke processRevoke; // process_revoke
     private final ProcessWithdraw processWithdraw; // process_withdraw
     private final ReportDetailRow reportDetailRow; // report_detail_row
@@ -97,6 +99,7 @@ public class V2 {
         this.customOrg = new CustomOrg(config);
         this.defaultCostCenter = new DefaultCostCenter(config);
         this.department = new Department(config);
+        this.draft = new Draft(config);
         this.employee = new Employee(config);
         this.employeesAdditionalJob = new EmployeesAdditionalJob(config);
         this.employeesBp = new EmployeesBp(config);
@@ -125,6 +128,7 @@ public class V2 {
         this.processNode = new ProcessNode(config);
         this.processStatus = new ProcessStatus(config);
         this.processTransfer = new ProcessTransfer(config);
+        this.processCommentInfo = new ProcessCommentInfo(config);
         this.processRevoke = new ProcessRevoke(config);
         this.processWithdraw = new ProcessWithdraw(config);
         this.reportDetailRow = new ReportDetailRow(config);
@@ -215,6 +219,10 @@ public class V2 {
 
     public Department department() {
         return department;
+    }
+
+    public Draft draft() {
+        return draft;
     }
 
     public Employee employee() {
@@ -327,6 +335,10 @@ public class V2 {
 
     public ProcessTransfer processTransfer() {
         return processTransfer;
+    }
+
+    public ProcessCommentInfo processCommentInfo() {
+        return processCommentInfo;
     }
 
     public ProcessRevoke processRevoke() {

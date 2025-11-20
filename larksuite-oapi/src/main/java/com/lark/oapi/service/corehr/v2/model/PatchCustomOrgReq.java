@@ -145,10 +145,10 @@ public class PatchCustomOrgReq {
          * 用户 ID 类型
          * <p> 示例值：people_corehr_id
          *
-         * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.PatchCustomOrgUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.PatchCustomOrgPatchCustomOrgUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.PatchCustomOrgUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.PatchCustomOrgPatchCustomOrgUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }

@@ -91,10 +91,10 @@ public class BatchQueryCostAllocationReq {
          * 用户 ID 类型
          * <p> 示例值：open_id
          *
-         * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.BatchQueryCostAllocationUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.BatchQueryCostAllocationBatchQueryCostAllocationUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.BatchQueryCostAllocationUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.BatchQueryCostAllocationBatchQueryCostAllocationUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }

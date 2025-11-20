@@ -124,10 +124,10 @@ public class SubmitProbationReq {
          * 用户 ID 类型
          * <p> 示例值：open_id
          *
-         * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.SubmitProbationUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.SubmitProbationSubmitProbationUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.SubmitProbationUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.SubmitProbationSubmitProbationUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }

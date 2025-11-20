@@ -101,6 +101,12 @@ public class JobChange {
      */
     @SerializedName("custom_fields")
     private CustomFieldData[] customFields;
+    /**
+     * 异动变更内容
+     * <p> 示例值：
+     */
+    @SerializedName("details_of_job_status_change")
+    private String[] detailsOfJobStatusChange;
 
     // builder 开始
     public JobChange() {
@@ -167,6 +173,11 @@ public class JobChange {
          * <p> 示例值：
          */
         this.customFields = builder.customFields;
+        /**
+         * 异动变更内容
+         * <p> 示例值：
+         */
+        this.detailsOfJobStatusChange = builder.detailsOfJobStatusChange;
     }
 
     public static Builder newBuilder() {
@@ -269,6 +280,14 @@ public class JobChange {
         this.customFields = customFields;
     }
 
+    public String[] getDetailsOfJobStatusChange() {
+        return this.detailsOfJobStatusChange;
+    }
+
+    public void setDetailsOfJobStatusChange(String[] detailsOfJobStatusChange) {
+        this.detailsOfJobStatusChange = detailsOfJobStatusChange;
+    }
+
     public static class Builder {
         /**
          * 异动记录 id
@@ -330,6 +349,11 @@ public class JobChange {
          * <p> 示例值：
          */
         private CustomFieldData[] customFields;
+        /**
+         * 异动变更内容
+         * <p> 示例值：
+         */
+        private String[] detailsOfJobStatusChange;
 
         /**
          * 异动记录 id
@@ -495,6 +519,19 @@ public class JobChange {
          */
         public Builder customFields(CustomFieldData[] customFields) {
             this.customFields = customFields;
+            return this;
+        }
+
+
+        /**
+         * 异动变更内容
+         * <p> 示例值：
+         *
+         * @param detailsOfJobStatusChange
+         * @return
+         */
+        public Builder detailsOfJobStatusChange(String[] detailsOfJobStatusChange) {
+            this.detailsOfJobStatusChange = detailsOfJobStatusChange;
             return this;
         }
 

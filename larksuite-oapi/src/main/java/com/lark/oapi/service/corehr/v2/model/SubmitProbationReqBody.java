@@ -290,10 +290,10 @@ public class SubmitProbationReqBody {
          * 发起方
          * <p> 示例值：system
          *
-         * @param submissionType {@link com.lark.oapi.service.corehr.v2.enums.SubmitProbationSubmissionTypeEnum}
+         * @param submissionType {@link com.lark.oapi.service.corehr.v2.enums.SubmitProbationSubmitProbationSubmissionTypeEnum}
          * @return
          */
-        public Builder submissionType(com.lark.oapi.service.corehr.v2.enums.SubmitProbationSubmissionTypeEnum submissionType) {
+        public Builder submissionType(com.lark.oapi.service.corehr.v2.enums.SubmitProbationSubmitProbationSubmissionTypeEnum submissionType) {
             this.submissionType = submissionType.getValue();
             return this;
         }

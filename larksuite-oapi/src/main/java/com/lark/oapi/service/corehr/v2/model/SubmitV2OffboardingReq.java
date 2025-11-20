@@ -91,10 +91,10 @@ public class SubmitV2OffboardingReq {
          * 用户 ID 类型
          * <p> 示例值：people_corehr_id
          *
-         * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.SubmitV2OffboardingUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.SubmitV2OffboardingSubmitV2OffboardingUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.SubmitV2OffboardingUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.SubmitV2OffboardingSubmitV2OffboardingUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }

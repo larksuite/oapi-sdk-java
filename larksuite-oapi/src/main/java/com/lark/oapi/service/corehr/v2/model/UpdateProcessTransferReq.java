@@ -112,10 +112,10 @@ public class UpdateProcessTransferReq {
          * 用户 ID 类型
          * <p> 示例值：open_id
          *
-         * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.UpdateProcessTransferUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.UpdateProcessTransferOpenApproverTransferUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.UpdateProcessTransferUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.UpdateProcessTransferOpenApproverTransferUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }

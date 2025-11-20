@@ -227,10 +227,10 @@ public class AssessmentForCreate {
          * 考核状态
          * <p> 示例值：completed
          *
-         * @param assessmentStatus {@link com.lark.oapi.service.corehr.v2.enums.AssessmentForCreateAssessmentStatusEnum}
+         * @param assessmentStatus {@link com.lark.oapi.service.corehr.v2.enums.AssessmentForCreateAssessmentForCreateAssessmentStatusEnum}
          * @return
          */
-        public Builder assessmentStatus(com.lark.oapi.service.corehr.v2.enums.AssessmentForCreateAssessmentStatusEnum assessmentStatus) {
+        public Builder assessmentStatus(com.lark.oapi.service.corehr.v2.enums.AssessmentForCreateAssessmentForCreateAssessmentStatusEnum assessmentStatus) {
             this.assessmentStatus = assessmentStatus.getValue();
             return this;
         }
@@ -252,10 +252,10 @@ public class AssessmentForCreate {
          * 试用期考核结果
          * <p> 示例值：approved
          *
-         * @param assessmentResult {@link com.lark.oapi.service.corehr.v2.enums.AssessmentForCreateAssessmentResultEnum}
+         * @param assessmentResult {@link com.lark.oapi.service.corehr.v2.enums.AssessmentForCreateAssessmentForCreateAssessmentResultEnum}
          * @return
          */
-        public Builder assessmentResult(com.lark.oapi.service.corehr.v2.enums.AssessmentForCreateAssessmentResultEnum assessmentResult) {
+        public Builder assessmentResult(com.lark.oapi.service.corehr.v2.enums.AssessmentForCreateAssessmentForCreateAssessmentResultEnum assessmentResult) {
             this.assessmentResult = assessmentResult.getValue();
             return this;
         }

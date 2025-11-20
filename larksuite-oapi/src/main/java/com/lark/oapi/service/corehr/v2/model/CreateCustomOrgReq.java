@@ -124,10 +124,10 @@ public class CreateCustomOrgReq {
          * 用户 ID 类型
          * <p> 示例值：people_corehr_id
          *
-         * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.CreateCustomOrgUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.CreateCustomOrgCreateCustomOrgUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.CreateCustomOrgUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.CreateCustomOrgCreateCustomOrgUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }

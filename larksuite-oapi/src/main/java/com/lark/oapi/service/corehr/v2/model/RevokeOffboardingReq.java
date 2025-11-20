@@ -91,10 +91,10 @@ public class RevokeOffboardingReq {
          * 用户 ID 类型
          * <p> 示例值：people_corehr_id
          *
-         * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.RevokeOffboardingUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.RevokeOffboardingRevokeOffboardingUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.RevokeOffboardingUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.RevokeOffboardingRevokeOffboardingUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }

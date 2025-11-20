@@ -290,10 +290,10 @@ public class ProcessExtra {
          * 加签方式
          * <p> 示例值：1
          *
-         * @param extraType {@link com.lark.oapi.service.corehr.v2.enums.ProcessExtraExtraTypeEnum}
+         * @param extraType {@link com.lark.oapi.service.corehr.v2.enums.ProcessExtraProcessExtraExtraTypeEnum}
          * @return
          */
-        public Builder extraType(com.lark.oapi.service.corehr.v2.enums.ProcessExtraExtraTypeEnum extraType) {
+        public Builder extraType(com.lark.oapi.service.corehr.v2.enums.ProcessExtraProcessExtraExtraTypeEnum extraType) {
             this.extraType = extraType.getValue();
             return this;
         }
@@ -315,10 +315,10 @@ public class ProcessExtra {
          * 多人加签时的审批方式
          * <p> 示例值：1
          *
-         * @param approvalType {@link com.lark.oapi.service.corehr.v2.enums.ProcessExtraApprovalTypeEnum}
+         * @param approvalType {@link com.lark.oapi.service.corehr.v2.enums.ProcessExtraProcessExtraApprovalTypeEnum}
          * @return
          */
-        public Builder approvalType(com.lark.oapi.service.corehr.v2.enums.ProcessExtraApprovalTypeEnum approvalType) {
+        public Builder approvalType(com.lark.oapi.service.corehr.v2.enums.ProcessExtraProcessExtraApprovalTypeEnum approvalType) {
             this.approvalType = approvalType.getValue();
             return this;
         }

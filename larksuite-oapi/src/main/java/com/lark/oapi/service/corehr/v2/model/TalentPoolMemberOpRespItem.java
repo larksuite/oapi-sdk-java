@@ -37,7 +37,7 @@ public class TalentPoolMemberOpRespItem {
     private String employmentId;
     /**
      * 人才池ref id
-     * <p> 示例值：7345313696725173804
+     * <p> 示例值：7345313696725173123
      */
     @SerializedName("talent_pool_ref")
     private String talentPoolRef;
@@ -48,17 +48,11 @@ public class TalentPoolMemberOpRespItem {
     @SerializedName("success")
     private Boolean success;
     /**
-     * 错误信息
-     * <p> 示例值：入池时间晚于出池时间
+     * 错误信息列表
+     * <p> 示例值：
      */
-    @SerializedName("err_msg")
-    private String errMsg;
-    /**
-     * 错误码
-     * <p> 示例值：3000001
-     */
-    @SerializedName("err_code")
-    private Integer errCode;
+    @SerializedName("errs")
+    private ErrorInfo[] errs;
 
     // builder 开始
     public TalentPoolMemberOpRespItem() {
@@ -72,7 +66,7 @@ public class TalentPoolMemberOpRespItem {
         this.employmentId = builder.employmentId;
         /**
          * 人才池ref id
-         * <p> 示例值：7345313696725173804
+         * <p> 示例值：7345313696725173123
          */
         this.talentPoolRef = builder.talentPoolRef;
         /**
@@ -81,15 +75,10 @@ public class TalentPoolMemberOpRespItem {
          */
         this.success = builder.success;
         /**
-         * 错误信息
-         * <p> 示例值：入池时间晚于出池时间
+         * 错误信息列表
+         * <p> 示例值：
          */
-        this.errMsg = builder.errMsg;
-        /**
-         * 错误码
-         * <p> 示例值：3000001
-         */
-        this.errCode = builder.errCode;
+        this.errs = builder.errs;
     }
 
     public static Builder newBuilder() {
@@ -120,20 +109,12 @@ public class TalentPoolMemberOpRespItem {
         this.success = success;
     }
 
-    public String getErrMsg() {
-        return this.errMsg;
+    public ErrorInfo[] getErrs() {
+        return this.errs;
     }
 
-    public void setErrMsg(String errMsg) {
-        this.errMsg = errMsg;
-    }
-
-    public Integer getErrCode() {
-        return this.errCode;
-    }
-
-    public void setErrCode(Integer errCode) {
-        this.errCode = errCode;
+    public void setErrs(ErrorInfo[] errs) {
+        this.errs = errs;
     }
 
     public static class Builder {
@@ -144,7 +125,7 @@ public class TalentPoolMemberOpRespItem {
         private String employmentId;
         /**
          * 人才池ref id
-         * <p> 示例值：7345313696725173804
+         * <p> 示例值：7345313696725173123
          */
         private String talentPoolRef;
         /**
@@ -153,15 +134,10 @@ public class TalentPoolMemberOpRespItem {
          */
         private Boolean success;
         /**
-         * 错误信息
-         * <p> 示例值：入池时间晚于出池时间
+         * 错误信息列表
+         * <p> 示例值：
          */
-        private String errMsg;
-        /**
-         * 错误码
-         * <p> 示例值：3000001
-         */
-        private Integer errCode;
+        private ErrorInfo[] errs;
 
         /**
          * 员工id
@@ -178,7 +154,7 @@ public class TalentPoolMemberOpRespItem {
 
         /**
          * 人才池ref id
-         * <p> 示例值：7345313696725173804
+         * <p> 示例值：7345313696725173123
          *
          * @param talentPoolRef
          * @return
@@ -203,27 +179,14 @@ public class TalentPoolMemberOpRespItem {
 
 
         /**
-         * 错误信息
-         * <p> 示例值：入池时间晚于出池时间
+         * 错误信息列表
+         * <p> 示例值：
          *
-         * @param errMsg
+         * @param errs
          * @return
          */
-        public Builder errMsg(String errMsg) {
-            this.errMsg = errMsg;
-            return this;
-        }
-
-
-        /**
-         * 错误码
-         * <p> 示例值：3000001
-         *
-         * @param errCode
-         * @return
-         */
-        public Builder errCode(Integer errCode) {
-            this.errCode = errCode;
+        public Builder errs(ErrorInfo[] errs) {
+            this.errs = errs;
             return this;
         }
 

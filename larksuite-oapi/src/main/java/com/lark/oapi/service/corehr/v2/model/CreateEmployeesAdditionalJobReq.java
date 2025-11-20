@@ -145,10 +145,10 @@ public class CreateEmployeesAdditionalJobReq {
          * 用户 ID 类型
          * <p> 示例值：open_id
          *
-         * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.CreateEmployeesAdditionalJobUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.CreateEmployeesAdditionalJobCreateEmployeesAdditionalJobUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.CreateEmployeesAdditionalJobUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.CreateEmployeesAdditionalJobCreateEmployeesAdditionalJobUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }
@@ -169,10 +169,10 @@ public class CreateEmployeesAdditionalJobReq {
          * 此次调用中使用的部门 ID 类型
          * <p> 示例值：open_department_id
          *
-         * @param departmentIdType {@link com.lark.oapi.service.corehr.v2.enums.CreateEmployeesAdditionalJobDepartmentIdTypeEnum}
+         * @param departmentIdType {@link com.lark.oapi.service.corehr.v2.enums.CreateEmployeesAdditionalJobCreateEmployeesAdditionalJobDepartmentIDTypeEnum}
          * @return
          */
-        public Builder departmentIdType(com.lark.oapi.service.corehr.v2.enums.CreateEmployeesAdditionalJobDepartmentIdTypeEnum departmentIdType) {
+        public Builder departmentIdType(com.lark.oapi.service.corehr.v2.enums.CreateEmployeesAdditionalJobCreateEmployeesAdditionalJobDepartmentIDTypeEnum departmentIdType) {
             this.departmentIdType = departmentIdType.getValue();
             return this;
         }

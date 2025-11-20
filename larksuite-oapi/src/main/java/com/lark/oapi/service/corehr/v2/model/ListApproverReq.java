@@ -189,10 +189,10 @@ public class ListApproverReq {
          * 用户 ID 类型
          * <p> 示例值：open_id
          *
-         * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.ListApproverUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.ListApproverOpenGetApproverListUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.ListApproverUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.ListApproverOpenGetApproverListUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }

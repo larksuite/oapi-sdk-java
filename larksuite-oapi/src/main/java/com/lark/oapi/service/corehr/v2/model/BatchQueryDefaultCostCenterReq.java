@@ -91,10 +91,10 @@ public class BatchQueryDefaultCostCenterReq {
          * 用户 ID 类型
          * <p> 示例值：open_id
          *
-         * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.BatchQueryDefaultCostCenterUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.BatchQueryDefaultCostCenterBatchQueryDefaultCostCenterUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.BatchQueryDefaultCostCenterUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.BatchQueryDefaultCostCenterBatchQueryDefaultCostCenterUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }

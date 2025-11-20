@@ -124,10 +124,10 @@ public class CreateVersionDefaultCostCenterReq {
          * 用户 ID 类型
          * <p> 示例值：open_id
          *
-         * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.CreateVersionDefaultCostCenterUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.CreateVersionDefaultCostCenterCreateVersionDefaultCostCenterUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.CreateVersionDefaultCostCenterUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.CreateVersionDefaultCostCenterCreateVersionDefaultCostCenterUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }

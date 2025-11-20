@@ -83,6 +83,18 @@ public class CreateJobChangeReqBody {
      */
     @SerializedName("transfer_reason_unique_identifier")
     private String transferReasonUniqueIdentifier;
+    /**
+     * 是否穿透更新异动类任职记录
+     * <p> 示例值：update_all
+     */
+    @SerializedName("update_method")
+    private String updateMethod;
+    /**
+     * 是否穿透更新离职类任职记录
+     * <p> 示例值：update_all
+     */
+    @SerializedName("update_method_offboarding")
+    private String updateMethodOffboarding;
 
     // builder 开始
     public CreateJobChangeReqBody() {
@@ -134,6 +146,16 @@ public class CreateJobChangeReqBody {
          * <p> 示例值：involuntary_transfer
          */
         this.transferReasonUniqueIdentifier = builder.transferReasonUniqueIdentifier;
+        /**
+         * 是否穿透更新异动类任职记录
+         * <p> 示例值：update_all
+         */
+        this.updateMethod = builder.updateMethod;
+        /**
+         * 是否穿透更新离职类任职记录
+         * <p> 示例值：update_all
+         */
+        this.updateMethodOffboarding = builder.updateMethodOffboarding;
     }
 
     public static Builder newBuilder() {
@@ -212,6 +234,22 @@ public class CreateJobChangeReqBody {
         this.transferReasonUniqueIdentifier = transferReasonUniqueIdentifier;
     }
 
+    public String getUpdateMethod() {
+        return this.updateMethod;
+    }
+
+    public void setUpdateMethod(String updateMethod) {
+        this.updateMethod = updateMethod;
+    }
+
+    public String getUpdateMethodOffboarding() {
+        return this.updateMethodOffboarding;
+    }
+
+    public void setUpdateMethodOffboarding(String updateMethodOffboarding) {
+        this.updateMethodOffboarding = updateMethodOffboarding;
+    }
+
     public static class Builder {
         /**
          * 异动方式
@@ -258,6 +296,16 @@ public class CreateJobChangeReqBody {
          * <p> 示例值：involuntary_transfer
          */
         private String transferReasonUniqueIdentifier;
+        /**
+         * 是否穿透更新异动类任职记录
+         * <p> 示例值：update_all
+         */
+        private String updateMethod;
+        /**
+         * 是否穿透更新离职类任职记录
+         * <p> 示例值：update_all
+         */
+        private String updateMethodOffboarding;
 
         /**
          * 异动方式
@@ -268,6 +316,18 @@ public class CreateJobChangeReqBody {
          */
         public Builder transferMode(Integer transferMode) {
             this.transferMode = transferMode;
+            return this;
+        }
+
+        /**
+         * 异动方式
+         * <p> 示例值：2
+         *
+         * @param transferMode {@link com.lark.oapi.service.corehr.v2.enums.CreateJobChangeCreateJobChangeV2TransferModeEnum}
+         * @return
+         */
+        public Builder transferMode(com.lark.oapi.service.corehr.v2.enums.CreateJobChangeCreateJobChangeV2TransferModeEnum transferMode) {
+            this.transferMode = transferMode.getValue();
             return this;
         }
 
@@ -372,6 +432,32 @@ public class CreateJobChangeReqBody {
          */
         public Builder transferReasonUniqueIdentifier(String transferReasonUniqueIdentifier) {
             this.transferReasonUniqueIdentifier = transferReasonUniqueIdentifier;
+            return this;
+        }
+
+
+        /**
+         * 是否穿透更新异动类任职记录
+         * <p> 示例值：update_all
+         *
+         * @param updateMethod
+         * @return
+         */
+        public Builder updateMethod(String updateMethod) {
+            this.updateMethod = updateMethod;
+            return this;
+        }
+
+
+        /**
+         * 是否穿透更新离职类任职记录
+         * <p> 示例值：update_all
+         *
+         * @param updateMethodOffboarding
+         * @return
+         */
+        public Builder updateMethodOffboarding(String updateMethodOffboarding) {
+            this.updateMethodOffboarding = updateMethodOffboarding;
             return this;
         }
 

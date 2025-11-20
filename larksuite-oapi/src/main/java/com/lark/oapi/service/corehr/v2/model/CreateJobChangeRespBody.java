@@ -94,6 +94,12 @@ public class CreateJobChangeRespBody {
      */
     @SerializedName("custom_fields")
     private CustomFieldData[] customFields;
+    /**
+     * 异动变更内容
+     * <p> 示例值：
+     */
+    @SerializedName("details_of_job_status_change")
+    private String[] detailsOfJobStatusChange;
 
     public String getJobChangeId() {
         return this.jobChangeId;
@@ -181,6 +187,14 @@ public class CreateJobChangeRespBody {
 
     public void setCustomFields(CustomFieldData[] customFields) {
         this.customFields = customFields;
+    }
+
+    public String[] getDetailsOfJobStatusChange() {
+        return this.detailsOfJobStatusChange;
+    }
+
+    public void setDetailsOfJobStatusChange(String[] detailsOfJobStatusChange) {
+        this.detailsOfJobStatusChange = detailsOfJobStatusChange;
     }
 
 }

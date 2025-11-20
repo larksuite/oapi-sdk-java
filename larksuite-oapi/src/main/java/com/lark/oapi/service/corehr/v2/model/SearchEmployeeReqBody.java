@@ -1121,10 +1121,10 @@ public class SearchEmployeeReqBody {
          * 雇佣状态
          * <p> 示例值：
          *
-         * @param employmentStatus {@link com.lark.oapi.service.corehr.v2.enums.SearchEmployeeEmploymentStatusEnum}
+         * @param employmentStatus {@link com.lark.oapi.service.corehr.v2.enums.SearchEmployeeSearchEmployeeEmploymentStatusEnum}
          * @return
          */
-        public Builder employmentStatus(com.lark.oapi.service.corehr.v2.enums.SearchEmployeeEmploymentStatusEnum employmentStatus) {
+        public Builder employmentStatus(com.lark.oapi.service.corehr.v2.enums.SearchEmployeeSearchEmployeeEmploymentStatusEnum employmentStatus) {
             this.employmentStatus = employmentStatus.getValue();
             return this;
         }

@@ -595,10 +595,10 @@ public class SearchPreHireReqBody {
          * 入职状态
          * <p> 示例值：待入职(preboarding)
          *
-         * @param onboardingStatus {@link com.lark.oapi.service.corehr.v2.enums.SearchPreHireOnboardingStatusEnum}
+         * @param onboardingStatus {@link com.lark.oapi.service.corehr.v2.enums.SearchPreHireSearchPreHireOnboardingStatusEnum}
          * @return
          */
-        public Builder onboardingStatus(com.lark.oapi.service.corehr.v2.enums.SearchPreHireOnboardingStatusEnum onboardingStatus) {
+        public Builder onboardingStatus(com.lark.oapi.service.corehr.v2.enums.SearchPreHireSearchPreHireOnboardingStatusEnum onboardingStatus) {
             this.onboardingStatus = onboardingStatus.getValue();
             return this;
         }
@@ -711,10 +711,10 @@ public class SearchPreHireReqBody {
          * 是否离职重聘
          * <p> 示例值：张三
          *
-         * @param rehire {@link com.lark.oapi.service.corehr.v2.enums.SearchPreHireRehireEnum}
+         * @param rehire {@link com.lark.oapi.service.corehr.v2.enums.SearchPreHireSearchPreHireRehireEnum}
          * @return
          */
-        public Builder rehire(com.lark.oapi.service.corehr.v2.enums.SearchPreHireRehireEnum rehire) {
+        public Builder rehire(com.lark.oapi.service.corehr.v2.enums.SearchPreHireSearchPreHireRehireEnum rehire) {
             this.rehire = rehire.getValue();
             return this;
         }

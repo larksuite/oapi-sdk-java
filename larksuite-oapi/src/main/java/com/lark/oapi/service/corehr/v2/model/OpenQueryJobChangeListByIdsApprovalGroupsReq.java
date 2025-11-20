@@ -145,10 +145,10 @@ public class OpenQueryJobChangeListByIdsApprovalGroupsReq {
          * 用户 ID 类型
          * <p> 示例值：open_id
          *
-         * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.OpenQueryJobChangeListByIdsApprovalGroupsUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.OpenQueryJobChangeListByIdsApprovalGroupsOpenQueryJobChangeListByIdsApprovalGroupsUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.OpenQueryJobChangeListByIdsApprovalGroupsUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.OpenQueryJobChangeListByIdsApprovalGroupsOpenQueryJobChangeListByIdsApprovalGroupsUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }
@@ -169,10 +169,10 @@ public class OpenQueryJobChangeListByIdsApprovalGroupsReq {
          * 此次调用中使用的部门 ID 类型
          * <p> 示例值：open_department_id
          *
-         * @param departmentIdType {@link com.lark.oapi.service.corehr.v2.enums.OpenQueryJobChangeListByIdsApprovalGroupsDepartmentIdTypeEnum}
+         * @param departmentIdType {@link com.lark.oapi.service.corehr.v2.enums.OpenQueryJobChangeListByIdsApprovalGroupsOpenQueryJobChangeListByIdsApprovalGroupsDepartmentIDTypeEnum}
          * @return
          */
-        public Builder departmentIdType(com.lark.oapi.service.corehr.v2.enums.OpenQueryJobChangeListByIdsApprovalGroupsDepartmentIdTypeEnum departmentIdType) {
+        public Builder departmentIdType(com.lark.oapi.service.corehr.v2.enums.OpenQueryJobChangeListByIdsApprovalGroupsOpenQueryJobChangeListByIdsApprovalGroupsDepartmentIDTypeEnum departmentIdType) {
             this.departmentIdType = departmentIdType.getValue();
             return this;
         }

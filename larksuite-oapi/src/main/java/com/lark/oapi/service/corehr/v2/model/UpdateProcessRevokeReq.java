@@ -112,10 +112,10 @@ public class UpdateProcessRevokeReq {
          * 用户 ID 类型
          * <p> 示例值：open_id
          *
-         * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.UpdateProcessRevokeUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.UpdateProcessRevokeUpdateProcessRevokeUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.UpdateProcessRevokeUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.UpdateProcessRevokeUpdateProcessRevokeUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }

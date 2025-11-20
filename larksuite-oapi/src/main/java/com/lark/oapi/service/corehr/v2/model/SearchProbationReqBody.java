@@ -501,10 +501,10 @@ public class SearchProbationReqBody {
          * 试用期状态
          * <p> 示例值：approved
          *
-         * @param probationStatus {@link com.lark.oapi.service.corehr.v2.enums.SearchProbationProbationStatusEnum}
+         * @param probationStatus {@link com.lark.oapi.service.corehr.v2.enums.SearchProbationSearchProbationProbationStatusEnum}
          * @return
          */
-        public Builder probationStatus(com.lark.oapi.service.corehr.v2.enums.SearchProbationProbationStatusEnum probationStatus) {
+        public Builder probationStatus(com.lark.oapi.service.corehr.v2.enums.SearchProbationSearchProbationProbationStatusEnum probationStatus) {
             this.probationStatus = probationStatus.getValue();
             return this;
         }
@@ -526,10 +526,10 @@ public class SearchProbationReqBody {
          * 试用期最终考核结果
          * <p> 示例值：approved
          *
-         * @param finalAssessmentResult {@link com.lark.oapi.service.corehr.v2.enums.SearchProbationFinalAssessmentResultEnum}
+         * @param finalAssessmentResult {@link com.lark.oapi.service.corehr.v2.enums.SearchProbationSearchProbationFinalAssessmentResultEnum}
          * @return
          */
-        public Builder finalAssessmentResult(com.lark.oapi.service.corehr.v2.enums.SearchProbationFinalAssessmentResultEnum finalAssessmentResult) {
+        public Builder finalAssessmentResult(com.lark.oapi.service.corehr.v2.enums.SearchProbationSearchProbationFinalAssessmentResultEnum finalAssessmentResult) {
             this.finalAssessmentResult = finalAssessmentResult.getValue();
             return this;
         }

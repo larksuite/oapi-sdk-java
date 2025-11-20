@@ -112,10 +112,10 @@ public class CreateCostCenterVersionReq {
          * 用户 ID 类型
          * <p> 示例值：people_corehr_id
          *
-         * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.CreateCostCenterVersionUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.CreateCostCenterVersionCreateCostCenterVersionUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.CreateCostCenterVersionUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.CreateCostCenterVersionCreateCostCenterVersionUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }

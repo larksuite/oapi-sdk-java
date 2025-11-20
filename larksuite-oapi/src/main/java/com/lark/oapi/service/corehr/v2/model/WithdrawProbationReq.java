@@ -124,10 +124,10 @@ public class WithdrawProbationReq {
          * 用户 ID 类型
          * <p> 示例值：open_id
          *
-         * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.WithdrawProbationUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.WithdrawProbationWithdrawProbationUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.WithdrawProbationUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.WithdrawProbationWithdrawProbationUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }

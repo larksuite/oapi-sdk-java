@@ -179,10 +179,10 @@ public class ProcessApprover {
          * 将审批任务修改为同意/拒绝
          * <p> 示例值：2
          *
-         * @param status {@link com.lark.oapi.service.corehr.v2.enums.ProcessApproverStatusEnum}
+         * @param status {@link com.lark.oapi.service.corehr.v2.enums.ProcessApproverProcessApproverStatusEnum}
          * @return
          */
-        public Builder status(com.lark.oapi.service.corehr.v2.enums.ProcessApproverStatusEnum status) {
+        public Builder status(com.lark.oapi.service.corehr.v2.enums.ProcessApproverProcessApproverStatusEnum status) {
             this.status = status.getValue();
             return this;
         }

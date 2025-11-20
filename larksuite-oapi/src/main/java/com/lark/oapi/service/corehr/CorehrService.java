@@ -694,6 +694,27 @@ public class CorehrService {
         }
     }
 
+    public abstract static class P2PositionCreatedV2Handler implements IEventHandler<P2PositionCreatedV2> {
+        @Override
+        public P2PositionCreatedV2 getEvent() {
+            return new P2PositionCreatedV2();
+        }
+    }
+
+    public abstract static class P2PositionDeletedV2Handler implements IEventHandler<P2PositionDeletedV2> {
+        @Override
+        public P2PositionDeletedV2 getEvent() {
+            return new P2PositionDeletedV2();
+        }
+    }
+
+    public abstract static class P2PositionUpdatedV2Handler implements IEventHandler<P2PositionUpdatedV2> {
+        @Override
+        public P2PositionUpdatedV2 getEvent() {
+            return new P2PositionUpdatedV2();
+        }
+    }
+
     public abstract static class P2PreHireOnboardingTaskChangedV2Handler implements IEventHandler<P2PreHireOnboardingTaskChangedV2> {
         @Override
         public P2PreHireOnboardingTaskChangedV2 getEvent() {
@@ -740,6 +761,13 @@ public class CorehrService {
         @Override
         public P2ProcessStatusUpdateV2 getEvent() {
             return new P2ProcessStatusUpdateV2();
+        }
+    }
+
+    public abstract static class P2ProcessCommentInfoUpdatedV2Handler implements IEventHandler<P2ProcessCommentInfoUpdatedV2> {
+        @Override
+        public P2ProcessCommentInfoUpdatedV2 getEvent() {
+            return new P2ProcessCommentInfoUpdatedV2();
         }
     }
 }

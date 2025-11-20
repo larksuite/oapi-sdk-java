@@ -31,7 +31,7 @@ import com.lark.oapi.core.response.BaseResponse;
 public class TalentPoolMemberOpReqItem {
     /**
      * 员工ID
-     * <p> 示例值：1230000001
+     * <p> 示例值：7345313696725172304
      */
     @SerializedName("employment_id")
     private String employmentId;
@@ -43,10 +43,10 @@ public class TalentPoolMemberOpReqItem {
     private String date;
     /**
      * 出入池原因
-     * <p> 示例值：示例原因
+     * <p> 示例值：
      */
     @SerializedName("reason")
-    private String reason;
+    private I18n[] reason;
     /**
      * 自定义字段列表
      * <p> 示例值：
@@ -61,7 +61,7 @@ public class TalentPoolMemberOpReqItem {
     public TalentPoolMemberOpReqItem(Builder builder) {
         /**
          * 员工ID
-         * <p> 示例值：1230000001
+         * <p> 示例值：7345313696725172304
          */
         this.employmentId = builder.employmentId;
         /**
@@ -71,7 +71,7 @@ public class TalentPoolMemberOpReqItem {
         this.date = builder.date;
         /**
          * 出入池原因
-         * <p> 示例值：示例原因
+         * <p> 示例值：
          */
         this.reason = builder.reason;
         /**
@@ -101,11 +101,11 @@ public class TalentPoolMemberOpReqItem {
         this.date = date;
     }
 
-    public String getReason() {
+    public I18n[] getReason() {
         return this.reason;
     }
 
-    public void setReason(String reason) {
+    public void setReason(I18n[] reason) {
         this.reason = reason;
     }
 
@@ -120,7 +120,7 @@ public class TalentPoolMemberOpReqItem {
     public static class Builder {
         /**
          * 员工ID
-         * <p> 示例值：1230000001
+         * <p> 示例值：7345313696725172304
          */
         private String employmentId;
         /**
@@ -130,9 +130,9 @@ public class TalentPoolMemberOpReqItem {
         private String date;
         /**
          * 出入池原因
-         * <p> 示例值：示例原因
+         * <p> 示例值：
          */
-        private String reason;
+        private I18n[] reason;
         /**
          * 自定义字段列表
          * <p> 示例值：
@@ -141,7 +141,7 @@ public class TalentPoolMemberOpReqItem {
 
         /**
          * 员工ID
-         * <p> 示例值：1230000001
+         * <p> 示例值：7345313696725172304
          *
          * @param employmentId
          * @return
@@ -167,12 +167,12 @@ public class TalentPoolMemberOpReqItem {
 
         /**
          * 出入池原因
-         * <p> 示例值：示例原因
+         * <p> 示例值：
          *
          * @param reason
          * @return
          */
-        public Builder reason(String reason) {
+        public Builder reason(I18n[] reason) {
             this.reason = reason;
             return this;
         }

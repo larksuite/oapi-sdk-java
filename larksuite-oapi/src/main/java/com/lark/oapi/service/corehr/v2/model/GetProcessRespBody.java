@@ -154,6 +154,12 @@ public class GetProcessRespBody {
      */
     @SerializedName("is_last_completed_correct_process")
     private Boolean isLastCompletedCorrectProcess;
+    /**
+     * 流程实例名称，取流程发起时的流程定义名称
+     * <p> 示例值：
+     */
+    @SerializedName("process_name")
+    private DataengineI18n processName;
 
     public String getProcessId() {
         return this.processId;
@@ -321,6 +327,14 @@ public class GetProcessRespBody {
 
     public void setIsLastCompletedCorrectProcess(Boolean isLastCompletedCorrectProcess) {
         this.isLastCompletedCorrectProcess = isLastCompletedCorrectProcess;
+    }
+
+    public DataengineI18n getProcessName() {
+        return this.processName;
+    }
+
+    public void setProcessName(DataengineI18n processName) {
+        this.processName = processName;
     }
 
 }

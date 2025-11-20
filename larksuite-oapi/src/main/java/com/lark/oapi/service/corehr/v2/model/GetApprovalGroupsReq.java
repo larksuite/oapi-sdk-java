@@ -100,10 +100,10 @@ public class GetApprovalGroupsReq {
          * 用户 ID 类型
          * <p> 示例值：open_id
          *
-         * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.GetApprovalGroupsUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.GetApprovalGroupsGetApprovalGroupsUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.GetApprovalGroupsUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.GetApprovalGroupsGetApprovalGroupsUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }

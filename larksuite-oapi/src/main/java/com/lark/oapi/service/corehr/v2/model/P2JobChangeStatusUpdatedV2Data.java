@@ -83,11 +83,23 @@ public class P2JobChangeStatusUpdatedV2Data {
     @SerializedName("status")
     private Integer status;
     /**
+     * 原异动状态
+     * <p> 示例值：1
+     */
+    @SerializedName("original_status")
+    private Integer originalStatus;
+    /**
      * 异动记录标识符
      * <p> 示例值：transfer_3627531
      */
     @SerializedName("transfer_key")
     private String transferKey;
+    /**
+     * 异动变更内容
+     * <p> 示例值：
+     */
+    @SerializedName("details_of_job_status_change")
+    private String[] detailsOfJobStatusChange;
 
     public String getEmploymentId() {
         return this.employmentId;
@@ -161,12 +173,28 @@ public class P2JobChangeStatusUpdatedV2Data {
         this.status = status;
     }
 
+    public Integer getOriginalStatus() {
+        return this.originalStatus;
+    }
+
+    public void setOriginalStatus(Integer originalStatus) {
+        this.originalStatus = originalStatus;
+    }
+
     public String getTransferKey() {
         return this.transferKey;
     }
 
     public void setTransferKey(String transferKey) {
         this.transferKey = transferKey;
+    }
+
+    public String[] getDetailsOfJobStatusChange() {
+        return this.detailsOfJobStatusChange;
+    }
+
+    public void setDetailsOfJobStatusChange(String[] detailsOfJobStatusChange) {
+        this.detailsOfJobStatusChange = detailsOfJobStatusChange;
     }
 
 }

@@ -100,10 +100,10 @@ public class GetProcessReq {
          * 用户 ID 类型
          * <p> 示例值：open_id
          *
-         * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.GetProcessUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.GetProcessGetProcessUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.GetProcessUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.GetProcessGetProcessUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }

@@ -91,10 +91,10 @@ public class CreateCostCenterReq {
          * 用户 ID 类型
          * <p> 示例值：people_corehr_id
          *
-         * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.CreateCostCenterUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.CreateCostCenterCreateCostCenterV2UserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.CreateCostCenterUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.CreateCostCenterCreateCostCenterV2UserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }
