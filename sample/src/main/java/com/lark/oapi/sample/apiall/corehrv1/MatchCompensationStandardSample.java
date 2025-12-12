@@ -34,6 +34,14 @@ public class MatchCompensationStandardSample {
                 .cpstPlanId("6967639606963471118")
                 .cpstSalaryLevelId("6967639606963471119")
                 .effectiveTime("1660924800000")
+                .performanceReviewPeriodId("7527790505990932012")
+                .performanceIndicatorId("7382324314454492716")
+                .performanceScoreGradeId("7382324475995670060")
+                .customOrg1Ids("7530538330711508524")
+                .customOrg2Ids("7530538330711508524")
+                .customOrg3Ids("7530538330711508524")
+                .customOrg4Ids("7530538330711508524")
+                .customOrg5Ids("7530538330711508524")
                 .build();
 
         // 发起请求

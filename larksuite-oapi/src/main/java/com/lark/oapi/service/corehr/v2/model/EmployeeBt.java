@@ -431,6 +431,24 @@ public class EmployeeBt {
      */
     @SerializedName("individuals_with_headcount_or_not")
     private Enum individualsWithHeadcountOrNot;
+    /**
+     * hrbp列表
+     * <p> 示例值：
+     */
+    @SerializedName("hrbp")
+    private String[] hrbp;
+    /**
+     * 全部hrbp
+     * <p> 示例值：
+     */
+    @SerializedName("all_hrbp")
+    private String[] allHrbp;
+    /**
+     * hrbp详情
+     * <p> 示例值：
+     */
+    @SerializedName("hrbp_info")
+    private HrbpInfo[] hrbpInfo;
 
     // builder 开始
     public EmployeeBt() {
@@ -772,6 +790,21 @@ public class EmployeeBt {
          * <p> 示例值：with_headcount
          */
         this.individualsWithHeadcountOrNot = builder.individualsWithHeadcountOrNot;
+        /**
+         * hrbp列表
+         * <p> 示例值：
+         */
+        this.hrbp = builder.hrbp;
+        /**
+         * 全部hrbp
+         * <p> 示例值：
+         */
+        this.allHrbp = builder.allHrbp;
+        /**
+         * hrbp详情
+         * <p> 示例值：
+         */
+        this.hrbpInfo = builder.hrbpInfo;
     }
 
     public static Builder newBuilder() {
@@ -1314,6 +1347,30 @@ public class EmployeeBt {
         this.individualsWithHeadcountOrNot = individualsWithHeadcountOrNot;
     }
 
+    public String[] getHrbp() {
+        return this.hrbp;
+    }
+
+    public void setHrbp(String[] hrbp) {
+        this.hrbp = hrbp;
+    }
+
+    public String[] getAllHrbp() {
+        return this.allHrbp;
+    }
+
+    public void setAllHrbp(String[] allHrbp) {
+        this.allHrbp = allHrbp;
+    }
+
+    public HrbpInfo[] getHrbpInfo() {
+        return this.hrbpInfo;
+    }
+
+    public void setHrbpInfo(HrbpInfo[] hrbpInfo) {
+        this.hrbpInfo = hrbpInfo;
+    }
+
     public static class Builder {
         /**
          * 雇佣 ID;- 类型与 user_id_type 一致
@@ -1650,6 +1707,21 @@ public class EmployeeBt {
          * <p> 示例值：with_headcount
          */
         private Enum individualsWithHeadcountOrNot;
+        /**
+         * hrbp列表
+         * <p> 示例值：
+         */
+        private String[] hrbp;
+        /**
+         * 全部hrbp
+         * <p> 示例值：
+         */
+        private String[] allHrbp;
+        /**
+         * hrbp详情
+         * <p> 示例值：
+         */
+        private HrbpInfo[] hrbpInfo;
 
         /**
          * 雇佣 ID;- 类型与 user_id_type 一致
@@ -2518,6 +2590,45 @@ public class EmployeeBt {
          */
         public Builder individualsWithHeadcountOrNot(Enum individualsWithHeadcountOrNot) {
             this.individualsWithHeadcountOrNot = individualsWithHeadcountOrNot;
+            return this;
+        }
+
+
+        /**
+         * hrbp列表
+         * <p> 示例值：
+         *
+         * @param hrbp
+         * @return
+         */
+        public Builder hrbp(String[] hrbp) {
+            this.hrbp = hrbp;
+            return this;
+        }
+
+
+        /**
+         * 全部hrbp
+         * <p> 示例值：
+         *
+         * @param allHrbp
+         * @return
+         */
+        public Builder allHrbp(String[] allHrbp) {
+            this.allHrbp = allHrbp;
+            return this;
+        }
+
+
+        /**
+         * hrbp详情
+         * <p> 示例值：
+         *
+         * @param hrbpInfo
+         * @return
+         */
+        public Builder hrbpInfo(HrbpInfo[] hrbpInfo) {
+            this.hrbpInfo = hrbpInfo;
             return this;
         }
 

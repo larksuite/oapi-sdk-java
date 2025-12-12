@@ -181,10 +181,10 @@ public class LeaveTypesLeaveReq {
          * 用户 ID 类型
          * <p> 示例值：people_corehr_id
          *
-         * @param userIdType {@link com.lark.oapi.service.corehr.v1.enums.LeaveTypesLeaveUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.corehr.v1.enums.LeaveTypesLeaveLeaveTypesLeaveUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.corehr.v1.enums.LeaveTypesLeaveUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.corehr.v1.enums.LeaveTypesLeaveLeaveTypesLeaveUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }

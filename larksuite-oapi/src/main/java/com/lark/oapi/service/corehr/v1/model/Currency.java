@@ -59,6 +59,12 @@ public class Currency {
      */
     @SerializedName("currency_alpha_3_code")
     private String currencyAlpha3Code;
+    /**
+     * 货币所属国家/地区 ID 列表，详细信息可通过[查询国家/地区信息]接口查询获得
+     * <p> 示例值：
+     */
+    @SerializedName("country_region_id_list")
+    private String[] countryRegionIdList;
 
     // builder 开始
     public Currency() {
@@ -90,6 +96,11 @@ public class Currency {
          * <p> 示例值：12
          */
         this.currencyAlpha3Code = builder.currencyAlpha3Code;
+        /**
+         * 货币所属国家/地区 ID 列表，详细信息可通过[查询国家/地区信息]接口查询获得
+         * <p> 示例值：
+         */
+        this.countryRegionIdList = builder.countryRegionIdList;
     }
 
     public static Builder newBuilder() {
@@ -136,6 +147,14 @@ public class Currency {
         this.currencyAlpha3Code = currencyAlpha3Code;
     }
 
+    public String[] getCountryRegionIdList() {
+        return this.countryRegionIdList;
+    }
+
+    public void setCountryRegionIdList(String[] countryRegionIdList) {
+        this.countryRegionIdList = countryRegionIdList;
+    }
+
     public static class Builder {
         /**
          * 货币id
@@ -162,6 +181,11 @@ public class Currency {
          * <p> 示例值：12
          */
         private String currencyAlpha3Code;
+        /**
+         * 货币所属国家/地区 ID 列表，详细信息可通过[查询国家/地区信息]接口查询获得
+         * <p> 示例值：
+         */
+        private String[] countryRegionIdList;
 
         /**
          * 货币id
@@ -224,6 +248,19 @@ public class Currency {
          */
         public Builder currencyAlpha3Code(String currencyAlpha3Code) {
             this.currencyAlpha3Code = currencyAlpha3Code;
+            return this;
+        }
+
+
+        /**
+         * 货币所属国家/地区 ID 列表，详细信息可通过[查询国家/地区信息]接口查询获得
+         * <p> 示例值：
+         *
+         * @param countryRegionIdList
+         * @return
+         */
+        public Builder countryRegionIdList(String[] countryRegionIdList) {
+            this.countryRegionIdList = countryRegionIdList;
             return this;
         }
 

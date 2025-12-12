@@ -41,6 +41,12 @@ public class FilterExpression {
      */
     @SerializedName("expression")
     private String expression;
+    /**
+     * 表达式
+     * <p> 示例值：1 and 2
+     */
+    @SerializedName("logic_expression")
+    private String logicExpression;
 
     // builder 开始
     public FilterExpression() {
@@ -57,6 +63,11 @@ public class FilterExpression {
          * <p> 示例值：1 and 2
          */
         this.expression = builder.expression;
+        /**
+         * 表达式
+         * <p> 示例值：1 and 2
+         */
+        this.logicExpression = builder.logicExpression;
     }
 
     public static Builder newBuilder() {
@@ -79,6 +90,14 @@ public class FilterExpression {
         this.expression = expression;
     }
 
+    public String getLogicExpression() {
+        return this.logicExpression;
+    }
+
+    public void setLogicExpression(String logicExpression) {
+        this.logicExpression = logicExpression;
+    }
+
     public static class Builder {
         /**
          * 规则
@@ -90,6 +109,11 @@ public class FilterExpression {
          * <p> 示例值：1 and 2
          */
         private String expression;
+        /**
+         * 表达式
+         * <p> 示例值：1 and 2
+         */
+        private String logicExpression;
 
         /**
          * 规则
@@ -113,6 +137,19 @@ public class FilterExpression {
          */
         public Builder expression(String expression) {
             this.expression = expression;
+            return this;
+        }
+
+
+        /**
+         * 表达式
+         * <p> 示例值：1 and 2
+         *
+         * @param logicExpression
+         * @return
+         */
+        public Builder logicExpression(String logicExpression) {
+            this.logicExpression = logicExpression;
             return this;
         }
 

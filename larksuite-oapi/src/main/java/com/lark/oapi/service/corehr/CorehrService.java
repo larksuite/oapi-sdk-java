@@ -274,6 +274,13 @@ public class CorehrService {
         return v2;
     }
 
+    public abstract static class P2CommonDataIdUserMappingChangedV1Handler implements IEventHandler<P2CommonDataIdUserMappingChangedV1> {
+        @Override
+        public P2CommonDataIdUserMappingChangedV1 getEvent() {
+            return new P2CommonDataIdUserMappingChangedV1();
+        }
+    }
+
     public abstract static class P2CommonDataMetaDataUpdatedV1Handler implements IEventHandler<P2CommonDataMetaDataUpdatedV1> {
         @Override
         public P2CommonDataMetaDataUpdatedV1 getEvent() {
@@ -768,6 +775,13 @@ public class CorehrService {
         @Override
         public P2ProcessCommentInfoUpdatedV2 getEvent() {
             return new P2ProcessCommentInfoUpdatedV2();
+        }
+    }
+
+    public abstract static class P2SignatureFileStatusUpdatedV2Handler implements IEventHandler<P2SignatureFileStatusUpdatedV2> {
+        @Override
+        public P2SignatureFileStatusUpdatedV2 getEvent() {
+            return new P2SignatureFileStatusUpdatedV2();
         }
     }
 }

@@ -672,10 +672,10 @@ public class ExternalInstance {
          * 审批实例状态
          * <p> 示例值：PENDING
          *
-         * @param status {@link com.lark.oapi.service.approval.v4.enums.ExternalInstanceStatusEnum}
+         * @param status {@link com.lark.oapi.service.approval.v4.enums.ExternalInstanceExternalInstanceStatusEnum}
          * @return
          */
-        public Builder status(com.lark.oapi.service.approval.v4.enums.ExternalInstanceStatusEnum status) {
+        public Builder status(com.lark.oapi.service.approval.v4.enums.ExternalInstanceExternalInstanceStatusEnum status) {
             this.status = status.getValue();
             return this;
         }
@@ -866,10 +866,10 @@ public class ExternalInstance {
          * 列表页打开审批实例的方式
          * <p> 示例值：BROWSER
          *
-         * @param displayMethod {@link com.lark.oapi.service.approval.v4.enums.ExternalInstanceDisplayMethodEnum}
+         * @param displayMethod {@link com.lark.oapi.service.approval.v4.enums.ExternalInstanceExternalInstanceDisplayMethodEnum}
          * @return
          */
-        public Builder displayMethod(com.lark.oapi.service.approval.v4.enums.ExternalInstanceDisplayMethodEnum displayMethod) {
+        public Builder displayMethod(com.lark.oapi.service.approval.v4.enums.ExternalInstanceExternalInstanceDisplayMethodEnum displayMethod) {
             this.displayMethod = displayMethod.getValue();
             return this;
         }
@@ -891,10 +891,10 @@ public class ExternalInstance {
          * 更新方式， 当 update_mode=REPLACE时，每次都以当前推送的数据为最终数据，会删掉审批中心中多余的任务、抄送数据（不在这次推送的数据中）; 当 update_mode=UPDATE时，则不会删除审批中心的数据，而只是进行新增和更新实例、任务数据
          * <p> 示例值：UPDATE
          *
-         * @param updateMode {@link com.lark.oapi.service.approval.v4.enums.ExternalInstanceUpdateModeEnum}
+         * @param updateMode {@link com.lark.oapi.service.approval.v4.enums.ExternalInstanceExternalInstanceUpdateModeEnum}
          * @return
          */
-        public Builder updateMode(com.lark.oapi.service.approval.v4.enums.ExternalInstanceUpdateModeEnum updateMode) {
+        public Builder updateMode(com.lark.oapi.service.approval.v4.enums.ExternalInstanceExternalInstanceUpdateModeEnum updateMode) {
             this.updateMode = updateMode.getValue();
             return this;
         }

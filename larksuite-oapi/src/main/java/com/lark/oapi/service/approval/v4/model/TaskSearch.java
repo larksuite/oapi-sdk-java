@@ -449,10 +449,10 @@ public class TaskSearch {
          * 审批任务状态，注：若不设置，查询全部状态 若不在集合中，报错
          * <p> 示例值：PENDING
          *
-         * @param taskStatus {@link com.lark.oapi.service.approval.v4.enums.TaskSearchTaskStatusEnum}
+         * @param taskStatus {@link com.lark.oapi.service.approval.v4.enums.TaskSearchTaskSearchTaskStatusEnum}
          * @return
          */
-        public Builder taskStatus(com.lark.oapi.service.approval.v4.enums.TaskSearchTaskStatusEnum taskStatus) {
+        public Builder taskStatus(com.lark.oapi.service.approval.v4.enums.TaskSearchTaskSearchTaskStatusEnum taskStatus) {
             this.taskStatus = taskStatus.getValue();
             return this;
         }
@@ -500,10 +500,10 @@ public class TaskSearch {
          * 地区
          * <p> 示例值：zh-CN
          *
-         * @param locale {@link com.lark.oapi.service.approval.v4.enums.TaskSearchLocaleEnum}
+         * @param locale {@link com.lark.oapi.service.approval.v4.enums.TaskSearchTaskSearchLocaleEnum}
          * @return
          */
-        public Builder locale(com.lark.oapi.service.approval.v4.enums.TaskSearchLocaleEnum locale) {
+        public Builder locale(com.lark.oapi.service.approval.v4.enums.TaskSearchTaskSearchLocaleEnum locale) {
             this.locale = locale.getValue();
             return this;
         }
@@ -538,10 +538,10 @@ public class TaskSearch {
          * 按任务时间排序
          * <p> 示例值：2
          *
-         * @param order {@link com.lark.oapi.service.approval.v4.enums.TaskSearchOrderEnum}
+         * @param order {@link com.lark.oapi.service.approval.v4.enums.TaskSearchTaskSearchOrderEnum}
          * @return
          */
-        public Builder order(com.lark.oapi.service.approval.v4.enums.TaskSearchOrderEnum order) {
+        public Builder order(com.lark.oapi.service.approval.v4.enums.TaskSearchTaskSearchOrderEnum order) {
             this.order = order.getValue();
             return this;
         }

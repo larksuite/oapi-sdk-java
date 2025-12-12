@@ -34,6 +34,7 @@ public class CreateInstanceSample {
                         .title("@i18n@1")
                         .titleDisplayMethod(0)
                         .nodeAutoApprovalList(new NodeAutoApproval[]{})
+                        .withLink(false)
                         .build())
                 .build();
 

@@ -53,6 +53,18 @@ public class RecRule {
      */
     @SerializedName("other_perm")
     private Integer otherPerm;
+    /**
+     * 条件组
+     * <p> 示例值：
+     */
+    @SerializedName("condition_groups")
+    private ConditionGroup[] conditionGroups;
+    /**
+     * 条件版本
+     * <p> 示例值：1
+     */
+    @SerializedName("display_rec_rule_version")
+    private Integer displayRecRuleVersion;
 
     // builder 开始
     public RecRule() {
@@ -79,6 +91,16 @@ public class RecRule {
          * <p> 示例值：1
          */
         this.otherPerm = builder.otherPerm;
+        /**
+         * 条件组
+         * <p> 示例值：
+         */
+        this.conditionGroups = builder.conditionGroups;
+        /**
+         * 条件版本
+         * <p> 示例值：1
+         */
+        this.displayRecRuleVersion = builder.displayRecRuleVersion;
     }
 
     public static Builder newBuilder() {
@@ -117,6 +139,22 @@ public class RecRule {
         this.otherPerm = otherPerm;
     }
 
+    public ConditionGroup[] getConditionGroups() {
+        return this.conditionGroups;
+    }
+
+    public void setConditionGroups(ConditionGroup[] conditionGroups) {
+        this.conditionGroups = conditionGroups;
+    }
+
+    public Integer getDisplayRecRuleVersion() {
+        return this.displayRecRuleVersion;
+    }
+
+    public void setDisplayRecRuleVersion(Integer displayRecRuleVersion) {
+        this.displayRecRuleVersion = displayRecRuleVersion;
+    }
+
     public static class Builder {
         /**
          * 记录筛选条件
@@ -138,6 +176,16 @@ public class RecRule {
          * <p> 示例值：1
          */
         private Integer otherPerm;
+        /**
+         * 条件组
+         * <p> 示例值：
+         */
+        private ConditionGroup[] conditionGroups;
+        /**
+         * 条件版本
+         * <p> 示例值：1
+         */
+        private Integer displayRecRuleVersion;
 
         /**
          * 记录筛选条件
@@ -223,6 +271,44 @@ public class RecRule {
          */
         public Builder otherPerm(com.lark.oapi.service.base.v2.enums.RecRuleOtherPermEnum otherPerm) {
             this.otherPerm = otherPerm.getValue();
+            return this;
+        }
+
+
+        /**
+         * 条件组
+         * <p> 示例值：
+         *
+         * @param conditionGroups
+         * @return
+         */
+        public Builder conditionGroups(ConditionGroup[] conditionGroups) {
+            this.conditionGroups = conditionGroups;
+            return this;
+        }
+
+
+        /**
+         * 条件版本
+         * <p> 示例值：1
+         *
+         * @param displayRecRuleVersion
+         * @return
+         */
+        public Builder displayRecRuleVersion(Integer displayRecRuleVersion) {
+            this.displayRecRuleVersion = displayRecRuleVersion;
+            return this;
+        }
+
+        /**
+         * 条件版本
+         * <p> 示例值：1
+         *
+         * @param displayRecRuleVersion {@link com.lark.oapi.service.base.v2.enums.RecRuleDisplayRecRuleVersionEnum}
+         * @return
+         */
+        public Builder displayRecRuleVersion(com.lark.oapi.service.base.v2.enums.RecRuleDisplayRecRuleVersionEnum displayRecRuleVersion) {
+            this.displayRecRuleVersion = displayRecRuleVersion.getValue();
             return this;
         }
 

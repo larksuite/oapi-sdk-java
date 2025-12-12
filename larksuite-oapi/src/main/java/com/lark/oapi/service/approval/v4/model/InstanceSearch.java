@@ -401,10 +401,10 @@ public class InstanceSearch {
          * 审批实例状态，注：若不设置，查询全部状态 若不在集合中，报错
          * <p> 示例值：PENDING
          *
-         * @param instanceStatus {@link com.lark.oapi.service.approval.v4.enums.InstanceSearchInstanceStatusEnum}
+         * @param instanceStatus {@link com.lark.oapi.service.approval.v4.enums.InstanceSearchInstanceSearchInstanceStatusEnum}
          * @return
          */
-        public Builder instanceStatus(com.lark.oapi.service.approval.v4.enums.InstanceSearchInstanceStatusEnum instanceStatus) {
+        public Builder instanceStatus(com.lark.oapi.service.approval.v4.enums.InstanceSearchInstanceSearchInstanceStatusEnum instanceStatus) {
             this.instanceStatus = instanceStatus.getValue();
             return this;
         }
@@ -452,10 +452,10 @@ public class InstanceSearch {
          * 地区
          * <p> 示例值：zh-CN
          *
-         * @param locale {@link com.lark.oapi.service.approval.v4.enums.InstanceSearchLocaleEnum}
+         * @param locale {@link com.lark.oapi.service.approval.v4.enums.InstanceSearchInstanceSearchLocaleEnum}
          * @return
          */
-        public Builder locale(com.lark.oapi.service.approval.v4.enums.InstanceSearchLocaleEnum locale) {
+        public Builder locale(com.lark.oapi.service.approval.v4.enums.InstanceSearchInstanceSearchLocaleEnum locale) {
             this.locale = locale.getValue();
             return this;
         }

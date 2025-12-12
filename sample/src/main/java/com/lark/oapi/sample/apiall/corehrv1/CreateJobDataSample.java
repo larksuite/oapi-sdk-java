@@ -44,6 +44,7 @@ public class CreateJobDataSample {
                         .workShift(Enum.newBuilder().build())
                         .compensationType(Enum.newBuilder().build())
                         .serviceCompany("6890452208593372680")
+                        .employeeSubtypeId("6890452208593372680")
                         .positionId("6890452208593372679")
                         .pathwayId("6890452208593372671")
                         .build())

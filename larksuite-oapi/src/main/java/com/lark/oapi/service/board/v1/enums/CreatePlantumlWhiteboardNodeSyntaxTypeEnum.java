@@ -17,7 +17,7 @@ package com.lark.oapi.service.board.v1.enums;
  * 语法类型
  */
 public enum CreatePlantumlWhiteboardNodeSyntaxTypeEnum {
-    UNKOWN(0), // 未知
+    UNKNOWN(0), // 未知
     PLANT_UML(1), // Plantuml解析
     MERMAID(2), // Mermaid解析
     ;

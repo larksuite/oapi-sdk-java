@@ -34,6 +34,12 @@ public class CreateExternalInstanceRespBody {
      */
     @SerializedName("data")
     private ExternalInstance data;
+    /**
+     * 本次变更信息
+     * <p> 示例值：
+     */
+    @SerializedName("process_record")
+    private ProcessRecord processRecord;
 
     public ExternalInstance getData() {
         return this.data;
@@ -41,6 +47,14 @@ public class CreateExternalInstanceRespBody {
 
     public void setData(ExternalInstance data) {
         this.data = data;
+    }
+
+    public ProcessRecord getProcessRecord() {
+        return this.processRecord;
+    }
+
+    public void setProcessRecord(ProcessRecord processRecord) {
+        this.processRecord = processRecord;
     }
 
 }

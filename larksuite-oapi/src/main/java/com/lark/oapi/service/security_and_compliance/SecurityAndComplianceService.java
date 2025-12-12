@@ -17,14 +17,18 @@ import com.lark.oapi.event.IEventHandler;
 import com.lark.oapi.service.security_and_compliance.v1.V1;
 import com.lark.oapi.service.security_and_compliance.v1.model.*;
 import com.lark.oapi.service.security_and_compliance.v1.resource.OpenapiLog;
+import com.lark.oapi.service.security_and_compliance.v2.V2;
+import com.lark.oapi.service.security_and_compliance.v2.model.*;
 
 public class SecurityAndComplianceService {
     private final V1 v1;
     private final OpenapiLog openapiLog; // openapi_log
+    private final V2 v2;
 
     public SecurityAndComplianceService(Config config) {
         this.v1 = new V1(config);
         this.openapiLog = new OpenapiLog(config);
+        this.v2 = new V2(config);
     }
 
     public V1 v1() {
@@ -33,5 +37,23 @@ public class SecurityAndComplianceService {
 
     public OpenapiLog openapiLog() {
         return openapiLog;
+    }
+
+    public V2 v2() {
+        return v2;
+    }
+
+    public abstract static class P2DeviceApplyRecordDeviceApplyEventV2Handler implements IEventHandler<P2DeviceApplyRecordDeviceApplyEventV2> {
+        @Override
+        public P2DeviceApplyRecordDeviceApplyEventV2 getEvent() {
+            return new P2DeviceApplyRecordDeviceApplyEventV2();
+        }
+    }
+
+    public abstract static class P2DeviceRecordDeviceChangeEventV2Handler implements IEventHandler<P2DeviceRecordDeviceChangeEventV2> {
+        @Override
+        public P2DeviceRecordDeviceChangeEventV2 getEvent() {
+            return new P2DeviceRecordDeviceChangeEventV2();
+        }
     }
 }

@@ -53,6 +53,18 @@ public class Attachment {
      */
     @SerializedName("attachment_type")
     private Integer attachmentType;
+    /**
+     * 是否为内联图片，true 表示是内联图片
+     * <p> 示例值：false
+     */
+    @SerializedName("is_inline")
+    private Boolean isInline;
+    /**
+     * 内容 ID，HTML 中通过 cid: 协议引用该图片
+     * <p> 示例值：image1@example.com
+     */
+    @SerializedName("cid")
+    private String cid;
 
     // builder 开始
     public Attachment() {
@@ -79,6 +91,16 @@ public class Attachment {
          * <p> 示例值：1
          */
         this.attachmentType = builder.attachmentType;
+        /**
+         * 是否为内联图片，true 表示是内联图片
+         * <p> 示例值：false
+         */
+        this.isInline = builder.isInline;
+        /**
+         * 内容 ID，HTML 中通过 cid: 协议引用该图片
+         * <p> 示例值：image1@example.com
+         */
+        this.cid = builder.cid;
     }
 
     public static Builder newBuilder() {
@@ -117,6 +139,22 @@ public class Attachment {
         this.attachmentType = attachmentType;
     }
 
+    public Boolean getIsInline() {
+        return this.isInline;
+    }
+
+    public void setIsInline(Boolean isInline) {
+        this.isInline = isInline;
+    }
+
+    public String getCid() {
+        return this.cid;
+    }
+
+    public void setCid(String cid) {
+        this.cid = cid;
+    }
+
     public static class Builder {
         /**
          * 附件的正文，使用 base64url 编码（支持的文件最大 37MB）
@@ -138,6 +176,16 @@ public class Attachment {
          * <p> 示例值：1
          */
         private Integer attachmentType;
+        /**
+         * 是否为内联图片，true 表示是内联图片
+         * <p> 示例值：false
+         */
+        private Boolean isInline;
+        /**
+         * 内容 ID，HTML 中通过 cid: 协议引用该图片
+         * <p> 示例值：image1@example.com
+         */
+        private String cid;
 
         /**
          * 附件的正文，使用 base64url 编码（支持的文件最大 37MB）
@@ -199,6 +247,32 @@ public class Attachment {
          */
         public Builder attachmentType(com.lark.oapi.service.mail.v1.enums.AttachmentAttachmentTypeEnum attachmentType) {
             this.attachmentType = attachmentType.getValue();
+            return this;
+        }
+
+
+        /**
+         * 是否为内联图片，true 表示是内联图片
+         * <p> 示例值：false
+         *
+         * @param isInline
+         * @return
+         */
+        public Builder isInline(Boolean isInline) {
+            this.isInline = isInline;
+            return this;
+        }
+
+
+        /**
+         * 内容 ID，HTML 中通过 cid: 协议引用该图片
+         * <p> 示例值：image1@example.com
+         *
+         * @param cid
+         * @return
+         */
+        public Builder cid(String cid) {
+            this.cid = cid;
             return this;
         }
 

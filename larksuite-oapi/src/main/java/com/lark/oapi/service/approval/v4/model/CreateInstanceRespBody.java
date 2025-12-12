@@ -34,6 +34,12 @@ public class CreateInstanceRespBody {
      */
     @SerializedName("instance_code")
     private String instanceCode;
+    /**
+     * 审批实例链接
+     * <p> 示例值：https://go.feishu.cn/approval/s/iu848mdm/
+     */
+    @SerializedName("instance_link")
+    private String instanceLink;
 
     public String getInstanceCode() {
         return this.instanceCode;
@@ -41,6 +47,14 @@ public class CreateInstanceRespBody {
 
     public void setInstanceCode(String instanceCode) {
         this.instanceCode = instanceCode;
+    }
+
+    public String getInstanceLink() {
+        return this.instanceLink;
+    }
+
+    public void setInstanceLink(String instanceLink) {
+        this.instanceLink = instanceLink;
     }
 
 }

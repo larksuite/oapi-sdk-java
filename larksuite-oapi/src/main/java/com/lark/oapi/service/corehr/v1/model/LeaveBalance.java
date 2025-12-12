@@ -113,6 +113,18 @@ public class LeaveBalance {
      */
     @SerializedName("offboarding_granted")
     private String offboardingGranted;
+    /**
+     * 假期余额（不包含审批中）
+     * <p> 示例值：0
+     */
+    @SerializedName("leave_balance_excluding_under_approval")
+    private String leaveBalanceExcludingUnderApproval;
+    /**
+     * 审批中额度
+     * <p> 示例值：0
+     */
+    @SerializedName("leave_quantity_under_approval")
+    private String leaveQuantityUnderApproval;
 
     // builder 开始
     public LeaveBalance() {
@@ -189,6 +201,16 @@ public class LeaveBalance {
          * <p> 示例值：0
          */
         this.offboardingGranted = builder.offboardingGranted;
+        /**
+         * 假期余额（不包含审批中）
+         * <p> 示例值：0
+         */
+        this.leaveBalanceExcludingUnderApproval = builder.leaveBalanceExcludingUnderApproval;
+        /**
+         * 审批中额度
+         * <p> 示例值：0
+         */
+        this.leaveQuantityUnderApproval = builder.leaveQuantityUnderApproval;
     }
 
     public static Builder newBuilder() {
@@ -307,6 +329,22 @@ public class LeaveBalance {
         this.offboardingGranted = offboardingGranted;
     }
 
+    public String getLeaveBalanceExcludingUnderApproval() {
+        return this.leaveBalanceExcludingUnderApproval;
+    }
+
+    public void setLeaveBalanceExcludingUnderApproval(String leaveBalanceExcludingUnderApproval) {
+        this.leaveBalanceExcludingUnderApproval = leaveBalanceExcludingUnderApproval;
+    }
+
+    public String getLeaveQuantityUnderApproval() {
+        return this.leaveQuantityUnderApproval;
+    }
+
+    public void setLeaveQuantityUnderApproval(String leaveQuantityUnderApproval) {
+        this.leaveQuantityUnderApproval = leaveQuantityUnderApproval;
+    }
+
     public static class Builder {
         /**
          * 假期类型ID
@@ -378,6 +416,16 @@ public class LeaveBalance {
          * <p> 示例值：0
          */
         private String offboardingGranted;
+        /**
+         * 假期余额（不包含审批中）
+         * <p> 示例值：0
+         */
+        private String leaveBalanceExcludingUnderApproval;
+        /**
+         * 审批中额度
+         * <p> 示例值：0
+         */
+        private String leaveQuantityUnderApproval;
 
         /**
          * 假期类型ID
@@ -557,6 +605,32 @@ public class LeaveBalance {
          */
         public Builder offboardingGranted(String offboardingGranted) {
             this.offboardingGranted = offboardingGranted;
+            return this;
+        }
+
+
+        /**
+         * 假期余额（不包含审批中）
+         * <p> 示例值：0
+         *
+         * @param leaveBalanceExcludingUnderApproval
+         * @return
+         */
+        public Builder leaveBalanceExcludingUnderApproval(String leaveBalanceExcludingUnderApproval) {
+            this.leaveBalanceExcludingUnderApproval = leaveBalanceExcludingUnderApproval;
+            return this;
+        }
+
+
+        /**
+         * 审批中额度
+         * <p> 示例值：0
+         *
+         * @param leaveQuantityUnderApproval
+         * @return
+         */
+        public Builder leaveQuantityUnderApproval(String leaveQuantityUnderApproval) {
+            this.leaveQuantityUnderApproval = leaveQuantityUnderApproval;
             return this;
         }
 

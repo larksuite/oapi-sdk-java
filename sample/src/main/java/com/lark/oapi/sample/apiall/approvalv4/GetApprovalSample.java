@@ -19,6 +19,8 @@ public class GetApprovalSample {
                 .locale("zh-CN")
                 .withAdminId(false)
                 .userIdType("user_id")
+                .withOption(false)
+                .userId("ou_7a4aaac5650dc0b77e85e96e7476ff1d")
                 .build();
 
         // 发起请求

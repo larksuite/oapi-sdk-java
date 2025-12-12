@@ -157,10 +157,10 @@ public class SearchOffboardingReq {
          * 用户 ID 类型
          * <p> 示例值：open_id
          *
-         * @param userIdType {@link com.lark.oapi.service.corehr.v1.enums.SearchOffboardingUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.corehr.v1.enums.SearchOffboardingSearchOffboardingUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.corehr.v1.enums.SearchOffboardingUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.corehr.v1.enums.SearchOffboardingSearchOffboardingUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }

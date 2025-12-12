@@ -77,6 +77,12 @@ public class EmploymentDefaultCostCenter {
      */
     @SerializedName("reason")
     private String reason;
+    /**
+     * 创建时间
+     * <p> 示例值：2024-12-01 00:00:00
+     */
+    @SerializedName("wk_created_at")
+    private String wkCreatedAt;
 
     // builder 开始
     public EmploymentDefaultCostCenter() {
@@ -123,6 +129,11 @@ public class EmploymentDefaultCostCenter {
          * <p> 示例值：异动
          */
         this.reason = builder.reason;
+        /**
+         * 创建时间
+         * <p> 示例值：2024-12-01 00:00:00
+         */
+        this.wkCreatedAt = builder.wkCreatedAt;
     }
 
     public static Builder newBuilder() {
@@ -193,6 +204,14 @@ public class EmploymentDefaultCostCenter {
         this.reason = reason;
     }
 
+    public String getWkCreatedAt() {
+        return this.wkCreatedAt;
+    }
+
+    public void setWkCreatedAt(String wkCreatedAt) {
+        this.wkCreatedAt = wkCreatedAt;
+    }
+
     public static class Builder {
         /**
          * id
@@ -234,6 +253,11 @@ public class EmploymentDefaultCostCenter {
          * <p> 示例值：异动
          */
         private String reason;
+        /**
+         * 创建时间
+         * <p> 示例值：2024-12-01 00:00:00
+         */
+        private String wkCreatedAt;
 
         /**
          * id
@@ -335,6 +359,19 @@ public class EmploymentDefaultCostCenter {
          */
         public Builder reason(String reason) {
             this.reason = reason;
+            return this;
+        }
+
+
+        /**
+         * 创建时间
+         * <p> 示例值：2024-12-01 00:00:00
+         *
+         * @param wkCreatedAt
+         * @return
+         */
+        public Builder wkCreatedAt(String wkCreatedAt) {
+            this.wkCreatedAt = wkCreatedAt;
             return this;
         }
 

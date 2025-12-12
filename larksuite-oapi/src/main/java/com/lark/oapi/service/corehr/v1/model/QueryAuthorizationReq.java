@@ -257,10 +257,10 @@ public class QueryAuthorizationReq {
          * 用户 ID 类型
          * <p> 示例值：people_corehr_id
          *
-         * @param userIdType {@link com.lark.oapi.service.corehr.v1.enums.QueryAuthorizationUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.corehr.v1.enums.QueryAuthorizationQueryAuthorizationUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.corehr.v1.enums.QueryAuthorizationUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.corehr.v1.enums.QueryAuthorizationQueryAuthorizationUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }

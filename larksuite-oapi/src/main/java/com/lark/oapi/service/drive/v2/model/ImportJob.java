@@ -352,10 +352,10 @@ public class ImportJob {
          * 任务状态
          * <p> 示例值：
          *
-         * @param jobStatus {@link com.lark.oapi.service.drive.v2.enums.ImportJobJobStatusEnum}
+         * @param jobStatus {@link com.lark.oapi.service.drive.v2.enums.ImportJobImportJobJobStatusEnum}
          * @return
          */
-        public Builder jobStatus(com.lark.oapi.service.drive.v2.enums.ImportJobJobStatusEnum jobStatus) {
+        public Builder jobStatus(com.lark.oapi.service.drive.v2.enums.ImportJobImportJobJobStatusEnum jobStatus) {
             this.jobStatus = jobStatus.getValue();
             return this;
         }

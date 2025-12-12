@@ -718,10 +718,10 @@ public class LeaveRequestHistoryLeaveReq {
          * 用户 ID 类型
          * <p> 示例值：people_corehr_id
          *
-         * @param userIdType {@link com.lark.oapi.service.corehr.v1.enums.LeaveRequestHistoryLeaveUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.corehr.v1.enums.LeaveRequestHistoryLeaveLeaveRequestHistoryLeaveUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.corehr.v1.enums.LeaveRequestHistoryLeaveUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.corehr.v1.enums.LeaveRequestHistoryLeaveLeaveRequestHistoryLeaveUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }

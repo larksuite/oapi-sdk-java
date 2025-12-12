@@ -401,10 +401,10 @@ public class CcSearch {
          * 审批抄送状态，注：若不设置，查询全部状态 若不在集合中，报错
          * <p> 示例值：read
          *
-         * @param readStatus {@link com.lark.oapi.service.approval.v4.enums.CcSearchReadStatusEnum}
+         * @param readStatus {@link com.lark.oapi.service.approval.v4.enums.CcSearchCcSearchReadStatusEnum}
          * @return
          */
-        public Builder readStatus(com.lark.oapi.service.approval.v4.enums.CcSearchReadStatusEnum readStatus) {
+        public Builder readStatus(com.lark.oapi.service.approval.v4.enums.CcSearchCcSearchReadStatusEnum readStatus) {
             this.readStatus = readStatus.getValue();
             return this;
         }
@@ -452,10 +452,10 @@ public class CcSearch {
          * 地区
          * <p> 示例值：zh-CN
          *
-         * @param locale {@link com.lark.oapi.service.approval.v4.enums.CcSearchLocaleEnum}
+         * @param locale {@link com.lark.oapi.service.approval.v4.enums.CcSearchCcSearchLocaleEnum}
          * @return
          */
-        public Builder locale(com.lark.oapi.service.approval.v4.enums.CcSearchLocaleEnum locale) {
+        public Builder locale(com.lark.oapi.service.approval.v4.enums.CcSearchCcSearchLocaleEnum locale) {
             this.locale = locale.getValue();
             return this;
         }

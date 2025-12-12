@@ -1,29 +1,22 @@
-package com.lark.oapi.sample.apiall.approvalv4;
+package com.lark.oapi.sample.apiall.security_and_compliancev2;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.approval.v4.model.*;
+import com.lark.oapi.service.security_and_compliance.v2.model.*;
 
 import java.util.HashMap;
 
-// GET /open-apis/approval/v4/instances
-public class ListInstanceSample {
+// GET /open-apis/security_and_compliance/v2/device_records/mine
+public class MineDeviceRecordSample {
 
     public static void main(String arg[]) throws Exception {
         // 构建client
         Client client = Client.newBuilder("appId", "appSecret").build();
 
         // 创建请求对象
-        ListInstanceReq req = ListInstanceReq.newBuilder()
-                .pageSize(100)
-                .pageToken("nF1ZXJ5VGhlbkZldGNoCgAAAAAA6PZwFmUzSldvTC1yU")
-                .approvalCode("7C468A54-8745-2245-9675-08B7C63E7A85")
-                .startTime("1567690398020")
-                .endTime("1567690398020")
-                .build();
 
         // 发起请求
-        ListInstanceResp resp = client.approval().v4().instance().list(req);
+        MineDeviceRecordResp resp = client.securityAndCompliance().v2().deviceRecord().mine();
 
         // 处理服务端错误
         if (!resp.success()) {

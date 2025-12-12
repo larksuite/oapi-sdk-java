@@ -145,10 +145,10 @@ public class AddRoleAssignAuthorizationReq {
          * 用户 ID 类型
          * <p> 示例值：people_corehr_id
          *
-         * @param userIdType {@link com.lark.oapi.service.corehr.v1.enums.AddRoleAssignAuthorizationUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.corehr.v1.enums.AddRoleAssignAuthorizationAddRoleAssignAuthorizationUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.corehr.v1.enums.AddRoleAssignAuthorizationUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.corehr.v1.enums.AddRoleAssignAuthorizationAddRoleAssignAuthorizationUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }

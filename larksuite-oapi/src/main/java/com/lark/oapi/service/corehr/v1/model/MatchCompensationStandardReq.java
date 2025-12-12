@@ -147,6 +147,62 @@ public class MatchCompensationStandardReq {
     @Query
     @SerializedName("effective_time")
     private String effectiveTime;
+    /**
+     * 绩效周期ID
+     * <p> 示例值：7527790505990932012
+     */
+    @Query
+    @SerializedName("performance_review_period_id")
+    private String performanceReviewPeriodId;
+    /**
+     * 绩效评估项ID
+     * <p> 示例值：7382324314454492716
+     */
+    @Query
+    @SerializedName("performance_indicator_id")
+    private String performanceIndicatorId;
+    /**
+     * 绩效等级ID
+     * <p> 示例值：7382324475995670060
+     */
+    @Query
+    @SerializedName("performance_score_grade_id")
+    private String performanceScoreGradeId;
+    /**
+     * 自定义组织1 IDs
+     * <p> 示例值：7530538330711508524
+     */
+    @Query
+    @SerializedName("custom_org_1_ids")
+    private String customOrg1Ids;
+    /**
+     * 自定义组织2 IDs
+     * <p> 示例值：7530538330711508524
+     */
+    @Query
+    @SerializedName("custom_org_2_ids")
+    private String customOrg2Ids;
+    /**
+     * 自定义组织3 IDs
+     * <p> 示例值：7530538330711508524
+     */
+    @Query
+    @SerializedName("custom_org_3_ids")
+    private String customOrg3Ids;
+    /**
+     * 自定义组织4 IDs
+     * <p> 示例值：7530538330711508524
+     */
+    @Query
+    @SerializedName("custom_org_4_ids")
+    private String customOrg4Ids;
+    /**
+     * 自定义组织5 IDs
+     * <p> 示例值：7530538330711508524
+     */
+    @Query
+    @SerializedName("custom_org_5_ids")
+    private String customOrg5Ids;
 
     // builder 开始
     public MatchCompensationStandardReq() {
@@ -238,6 +294,46 @@ public class MatchCompensationStandardReq {
          * <p> 示例值：1660924800000
          */
         this.effectiveTime = builder.effectiveTime;
+        /**
+         * 绩效周期ID
+         * <p> 示例值：7527790505990932012
+         */
+        this.performanceReviewPeriodId = builder.performanceReviewPeriodId;
+        /**
+         * 绩效评估项ID
+         * <p> 示例值：7382324314454492716
+         */
+        this.performanceIndicatorId = builder.performanceIndicatorId;
+        /**
+         * 绩效等级ID
+         * <p> 示例值：7382324475995670060
+         */
+        this.performanceScoreGradeId = builder.performanceScoreGradeId;
+        /**
+         * 自定义组织1 IDs
+         * <p> 示例值：7530538330711508524
+         */
+        this.customOrg1Ids = builder.customOrg1Ids;
+        /**
+         * 自定义组织2 IDs
+         * <p> 示例值：7530538330711508524
+         */
+        this.customOrg2Ids = builder.customOrg2Ids;
+        /**
+         * 自定义组织3 IDs
+         * <p> 示例值：7530538330711508524
+         */
+        this.customOrg3Ids = builder.customOrg3Ids;
+        /**
+         * 自定义组织4 IDs
+         * <p> 示例值：7530538330711508524
+         */
+        this.customOrg4Ids = builder.customOrg4Ids;
+        /**
+         * 自定义组织5 IDs
+         * <p> 示例值：7530538330711508524
+         */
+        this.customOrg5Ids = builder.customOrg5Ids;
     }
 
     public static Builder newBuilder() {
@@ -380,6 +476,70 @@ public class MatchCompensationStandardReq {
         this.effectiveTime = effectiveTime;
     }
 
+    public String getPerformanceReviewPeriodId() {
+        return this.performanceReviewPeriodId;
+    }
+
+    public void setPerformanceReviewPeriodId(String performanceReviewPeriodId) {
+        this.performanceReviewPeriodId = performanceReviewPeriodId;
+    }
+
+    public String getPerformanceIndicatorId() {
+        return this.performanceIndicatorId;
+    }
+
+    public void setPerformanceIndicatorId(String performanceIndicatorId) {
+        this.performanceIndicatorId = performanceIndicatorId;
+    }
+
+    public String getPerformanceScoreGradeId() {
+        return this.performanceScoreGradeId;
+    }
+
+    public void setPerformanceScoreGradeId(String performanceScoreGradeId) {
+        this.performanceScoreGradeId = performanceScoreGradeId;
+    }
+
+    public String getCustomOrg1Ids() {
+        return this.customOrg1Ids;
+    }
+
+    public void setCustomOrg1Ids(String customOrg1Ids) {
+        this.customOrg1Ids = customOrg1Ids;
+    }
+
+    public String getCustomOrg2Ids() {
+        return this.customOrg2Ids;
+    }
+
+    public void setCustomOrg2Ids(String customOrg2Ids) {
+        this.customOrg2Ids = customOrg2Ids;
+    }
+
+    public String getCustomOrg3Ids() {
+        return this.customOrg3Ids;
+    }
+
+    public void setCustomOrg3Ids(String customOrg3Ids) {
+        this.customOrg3Ids = customOrg3Ids;
+    }
+
+    public String getCustomOrg4Ids() {
+        return this.customOrg4Ids;
+    }
+
+    public void setCustomOrg4Ids(String customOrg4Ids) {
+        this.customOrg4Ids = customOrg4Ids;
+    }
+
+    public String getCustomOrg5Ids() {
+        return this.customOrg5Ids;
+    }
+
+    public void setCustomOrg5Ids(String customOrg5Ids) {
+        this.customOrg5Ids = customOrg5Ids;
+    }
+
     public static class Builder {
         private String userIdType; // 此次调用中使用的用户ID的类型
         private String departmentIdType; // 此次调用中使用的部门 ID 类型
@@ -398,6 +558,14 @@ public class MatchCompensationStandardReq {
         private String cpstPlanId; // 薪资方案ID
         private String cpstSalaryLevelId; // 薪级薪等ID
         private String effectiveTime; // 生效时间
+        private String performanceReviewPeriodId; // 绩效周期ID
+        private String performanceIndicatorId; // 绩效评估项ID
+        private String performanceScoreGradeId; // 绩效等级ID
+        private String customOrg1Ids; // 自定义组织1 IDs
+        private String customOrg2Ids; // 自定义组织2 IDs
+        private String customOrg3Ids; // 自定义组织3 IDs
+        private String customOrg4Ids; // 自定义组织4 IDs
+        private String customOrg5Ids; // 自定义组织5 IDs
 
         /**
          * 此次调用中使用的用户ID的类型
@@ -415,10 +583,10 @@ public class MatchCompensationStandardReq {
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：open_id
          *
-         * @param userIdType {@link com.lark.oapi.service.corehr.v1.enums.MatchCompensationStandardUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.corehr.v1.enums.MatchCompensationStandardMatchCompensationStandardUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.corehr.v1.enums.MatchCompensationStandardUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.corehr.v1.enums.MatchCompensationStandardMatchCompensationStandardUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }
@@ -440,10 +608,10 @@ public class MatchCompensationStandardReq {
          * 此次调用中使用的部门 ID 类型
          * <p> 示例值：
          *
-         * @param departmentIdType {@link com.lark.oapi.service.corehr.v1.enums.MatchCompensationStandardDepartmentIdTypeEnum}
+         * @param departmentIdType {@link com.lark.oapi.service.corehr.v1.enums.MatchCompensationStandardMatchCompensationStandardDepartmentIDTypeEnum}
          * @return
          */
-        public Builder departmentIdType(com.lark.oapi.service.corehr.v1.enums.MatchCompensationStandardDepartmentIdTypeEnum departmentIdType) {
+        public Builder departmentIdType(com.lark.oapi.service.corehr.v1.enums.MatchCompensationStandardMatchCompensationStandardDepartmentIDTypeEnum departmentIdType) {
             this.departmentIdType = departmentIdType.getValue();
             return this;
         }
@@ -478,10 +646,10 @@ public class MatchCompensationStandardReq {
          * 薪资标准的关联对象，项目或者指标
          * <p> 示例值：
          *
-         * @param referenceObjectApi {@link com.lark.oapi.service.corehr.v1.enums.MatchCompensationStandardReferenceObjectApiEnum}
+         * @param referenceObjectApi {@link com.lark.oapi.service.corehr.v1.enums.MatchCompensationStandardMatchCompensationStandardReferenceObjectApiEnum}
          * @return
          */
-        public Builder referenceObjectApi(com.lark.oapi.service.corehr.v1.enums.MatchCompensationStandardReferenceObjectApiEnum referenceObjectApi) {
+        public Builder referenceObjectApi(com.lark.oapi.service.corehr.v1.enums.MatchCompensationStandardMatchCompensationStandardReferenceObjectApiEnum referenceObjectApi) {
             this.referenceObjectApi = referenceObjectApi.getValue();
             return this;
         }
@@ -607,10 +775,10 @@ public class MatchCompensationStandardReq {
          * 招聘类型
          * <p> 示例值：experienced_professionals
          *
-         * @param recruitmentType {@link com.lark.oapi.service.corehr.v1.enums.MatchCompensationStandardRecruitmentTypeEnum}
+         * @param recruitmentType {@link com.lark.oapi.service.corehr.v1.enums.MatchCompensationStandardMatchCompensationStandardRecruitmentTypeEnum}
          * @return
          */
-        public Builder recruitmentType(com.lark.oapi.service.corehr.v1.enums.MatchCompensationStandardRecruitmentTypeEnum recruitmentType) {
+        public Builder recruitmentType(com.lark.oapi.service.corehr.v1.enums.MatchCompensationStandardMatchCompensationStandardRecruitmentTypeEnum recruitmentType) {
             this.recruitmentType = recruitmentType.getValue();
             return this;
         }
@@ -664,6 +832,110 @@ public class MatchCompensationStandardReq {
          */
         public Builder effectiveTime(String effectiveTime) {
             this.effectiveTime = effectiveTime;
+            return this;
+        }
+
+
+        /**
+         * 绩效周期ID
+         * <p> 示例值：7527790505990932012
+         *
+         * @param performanceReviewPeriodId
+         * @return
+         */
+        public Builder performanceReviewPeriodId(String performanceReviewPeriodId) {
+            this.performanceReviewPeriodId = performanceReviewPeriodId;
+            return this;
+        }
+
+
+        /**
+         * 绩效评估项ID
+         * <p> 示例值：7382324314454492716
+         *
+         * @param performanceIndicatorId
+         * @return
+         */
+        public Builder performanceIndicatorId(String performanceIndicatorId) {
+            this.performanceIndicatorId = performanceIndicatorId;
+            return this;
+        }
+
+
+        /**
+         * 绩效等级ID
+         * <p> 示例值：7382324475995670060
+         *
+         * @param performanceScoreGradeId
+         * @return
+         */
+        public Builder performanceScoreGradeId(String performanceScoreGradeId) {
+            this.performanceScoreGradeId = performanceScoreGradeId;
+            return this;
+        }
+
+
+        /**
+         * 自定义组织1 IDs
+         * <p> 示例值：7530538330711508524
+         *
+         * @param customOrg1Ids
+         * @return
+         */
+        public Builder customOrg1Ids(String customOrg1Ids) {
+            this.customOrg1Ids = customOrg1Ids;
+            return this;
+        }
+
+
+        /**
+         * 自定义组织2 IDs
+         * <p> 示例值：7530538330711508524
+         *
+         * @param customOrg2Ids
+         * @return
+         */
+        public Builder customOrg2Ids(String customOrg2Ids) {
+            this.customOrg2Ids = customOrg2Ids;
+            return this;
+        }
+
+
+        /**
+         * 自定义组织3 IDs
+         * <p> 示例值：7530538330711508524
+         *
+         * @param customOrg3Ids
+         * @return
+         */
+        public Builder customOrg3Ids(String customOrg3Ids) {
+            this.customOrg3Ids = customOrg3Ids;
+            return this;
+        }
+
+
+        /**
+         * 自定义组织4 IDs
+         * <p> 示例值：7530538330711508524
+         *
+         * @param customOrg4Ids
+         * @return
+         */
+        public Builder customOrg4Ids(String customOrg4Ids) {
+            this.customOrg4Ids = customOrg4Ids;
+            return this;
+        }
+
+
+        /**
+         * 自定义组织5 IDs
+         * <p> 示例值：7530538330711508524
+         *
+         * @param customOrg5Ids
+         * @return
+         */
+        public Builder customOrg5Ids(String customOrg5Ids) {
+            this.customOrg5Ids = customOrg5Ids;
             return this;
         }
 

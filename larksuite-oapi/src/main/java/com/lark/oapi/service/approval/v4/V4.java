@@ -21,7 +21,7 @@ public class V4 {
     private final ExternalApproval externalApproval; // 三方审批定义
     private final ExternalInstance externalInstance; // 三方审批实例
     private final ExternalTask externalTask; // 三方审批任务
-    private final Instance instance; // 审批查询
+    private final Instance instance; // 原生审批实例
     private final InstanceComment instanceComment; // 原生审批评论
     private final Task task; // 原生审批任务
 

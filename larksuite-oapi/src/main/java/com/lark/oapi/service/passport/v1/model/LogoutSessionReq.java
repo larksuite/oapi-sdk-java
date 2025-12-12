@@ -91,10 +91,10 @@ public class LogoutSessionReq {
          * user_id_type
          * <p> 示例值：open_id
          *
-         * @param userIdType {@link com.lark.oapi.service.passport.v1.enums.LogoutSessionUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.passport.v1.enums.LogoutSessionLogoutUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.passport.v1.enums.LogoutSessionUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.passport.v1.enums.LogoutSessionLogoutUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }

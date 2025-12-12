@@ -91,10 +91,10 @@ public class SearchAssignedUserReq {
          * 用户 ID 类型
          * <p> 示例值：people_corehr_id
          *
-         * @param userIdType {@link com.lark.oapi.service.corehr.v1.enums.SearchAssignedUserUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.corehr.v1.enums.SearchAssignedUserSearchAssignedUserUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.corehr.v1.enums.SearchAssignedUserUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.corehr.v1.enums.SearchAssignedUserSearchAssignedUserUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }

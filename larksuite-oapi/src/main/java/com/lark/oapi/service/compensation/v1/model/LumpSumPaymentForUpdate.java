@@ -89,6 +89,12 @@ public class LumpSumPaymentForUpdate {
      */
     @SerializedName("binding_period_decimal")
     private String bindingPeriodDecimal;
+    /**
+     * 操作来源
+     * <p> 示例值：apaas_spot
+     */
+    @SerializedName("operation_source")
+    private String operationSource;
 
     // builder 开始
     public LumpSumPaymentForUpdate() {
@@ -145,6 +151,11 @@ public class LumpSumPaymentForUpdate {
          * <p> 示例值：12
          */
         this.bindingPeriodDecimal = builder.bindingPeriodDecimal;
+        /**
+         * 操作来源
+         * <p> 示例值：apaas_spot
+         */
+        this.operationSource = builder.operationSource;
     }
 
     public static Builder newBuilder() {
@@ -231,6 +242,14 @@ public class LumpSumPaymentForUpdate {
         this.bindingPeriodDecimal = bindingPeriodDecimal;
     }
 
+    public String getOperationSource() {
+        return this.operationSource;
+    }
+
+    public void setOperationSource(String operationSource) {
+        this.operationSource = operationSource;
+    }
+
     public static class Builder {
         /**
          * 一次性支付记录id
@@ -282,6 +301,11 @@ public class LumpSumPaymentForUpdate {
          * <p> 示例值：12
          */
         private String bindingPeriodDecimal;
+        /**
+         * 操作来源
+         * <p> 示例值：apaas_spot
+         */
+        private String operationSource;
 
         /**
          * 一次性支付记录id
@@ -409,6 +433,19 @@ public class LumpSumPaymentForUpdate {
          */
         public Builder bindingPeriodDecimal(String bindingPeriodDecimal) {
             this.bindingPeriodDecimal = bindingPeriodDecimal;
+            return this;
+        }
+
+
+        /**
+         * 操作来源
+         * <p> 示例值：apaas_spot
+         *
+         * @param operationSource
+         * @return
+         */
+        public Builder operationSource(String operationSource) {
+            this.operationSource = operationSource;
             return this;
         }
 

@@ -91,10 +91,10 @@ public class QuerySessionReq {
          * 用户id类型
          * <p> 示例值：open_id
          *
-         * @param userIdType {@link com.lark.oapi.service.passport.v1.enums.QuerySessionUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.passport.v1.enums.QuerySessionMGetMaskSessionsByUserIDsUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.passport.v1.enums.QuerySessionUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.passport.v1.enums.QuerySessionMGetMaskSessionsByUserIDsUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }

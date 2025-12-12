@@ -36,6 +36,13 @@ public class PatchLocationAddressReq {
     @SerializedName("client_token")
     private String clientToken;
     /**
+     * 是否需要自定义传入国际化拉丁语系地址。如果传入true能够自定义传入address_line_xx的值，否则address_line_xx跟随local_address_line_xx的值
+     * <p> 示例值：true
+     */
+    @Query
+    @SerializedName("need_custom_latin_address")
+    private Boolean needCustomLatinAddress;
+    /**
      * 地点 ID
      * <p> 示例值：1616161616
      */
@@ -51,6 +58,7 @@ public class PatchLocationAddressReq {
     private String addressId;
     @Body
     private LocationAddressUpdate body;
+
     // builder 开始
     public PatchLocationAddressReq() {
     }
@@ -61,6 +69,11 @@ public class PatchLocationAddressReq {
          * <p> 示例值：12454646
          */
         this.clientToken = builder.clientToken;
+        /**
+         * 是否需要自定义传入国际化拉丁语系地址。如果传入true能够自定义传入address_line_xx的值，否则address_line_xx跟随local_address_line_xx的值
+         * <p> 示例值：true
+         */
+        this.needCustomLatinAddress = builder.needCustomLatinAddress;
         /**
          * 地点 ID
          * <p> 示例值：1616161616
@@ -84,6 +97,14 @@ public class PatchLocationAddressReq {
 
     public void setClientToken(String clientToken) {
         this.clientToken = clientToken;
+    }
+
+    public Boolean getNeedCustomLatinAddress() {
+        return this.needCustomLatinAddress;
+    }
+
+    public void setNeedCustomLatinAddress(Boolean needCustomLatinAddress) {
+        this.needCustomLatinAddress = needCustomLatinAddress;
     }
 
     public String getLocationId() {
@@ -112,6 +133,7 @@ public class PatchLocationAddressReq {
 
     public static class Builder {
         private String clientToken; // 根据 client_token 是否一致来判断是否为同一请求
+        private Boolean needCustomLatinAddress; // 是否需要自定义传入国际化拉丁语系地址。如果传入true能够自定义传入address_line_xx的值，否则address_line_xx跟随local_address_line_xx的值
         private String locationId; // 地点 ID
         private String addressId; // 地址 ID
         private LocationAddressUpdate body;
@@ -125,6 +147,18 @@ public class PatchLocationAddressReq {
          */
         public Builder clientToken(String clientToken) {
             this.clientToken = clientToken;
+            return this;
+        }
+
+        /**
+         * 是否需要自定义传入国际化拉丁语系地址。如果传入true能够自定义传入address_line_xx的值，否则address_line_xx跟随local_address_line_xx的值
+         * <p> 示例值：true
+         *
+         * @param needCustomLatinAddress
+         * @return
+         */
+        public Builder needCustomLatinAddress(Boolean needCustomLatinAddress) {
+            this.needCustomLatinAddress = needCustomLatinAddress;
             return this;
         }
 

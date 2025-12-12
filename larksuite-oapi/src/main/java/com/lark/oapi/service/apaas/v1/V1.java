@@ -31,6 +31,9 @@ public class V1 {
     private final SeatActivity seatActivity; // seat_activity
     private final SeatAssignment seatAssignment; // seat_assignment
     private final UserTask userTask; // user_task
+    private final Workspace workspace; // workspace
+    private final WorkspaceTable workspaceTable; // workspace.table
+    private final WorkspaceView workspaceView; // workspace.view
 
     public V1(Config config) {
         this.app = new App(config);
@@ -47,6 +50,9 @@ public class V1 {
         this.seatActivity = new SeatActivity(config);
         this.seatAssignment = new SeatAssignment(config);
         this.userTask = new UserTask(config);
+        this.workspace = new Workspace(config);
+        this.workspaceTable = new WorkspaceTable(config);
+        this.workspaceView = new WorkspaceView(config);
     }
 
     public App app() {
@@ -103,5 +109,17 @@ public class V1 {
 
     public UserTask userTask() {
         return userTask;
+    }
+
+    public Workspace workspace() {
+        return workspace;
+    }
+
+    public WorkspaceTable workspaceTable() {
+        return workspaceTable;
+    }
+
+    public WorkspaceView workspaceView() {
+        return workspaceView;
     }
 }

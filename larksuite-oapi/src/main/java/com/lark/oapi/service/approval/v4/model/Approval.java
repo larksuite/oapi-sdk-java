@@ -47,6 +47,42 @@ public class Approval {
      */
     @SerializedName("status")
     private String status;
+    /**
+     * 审批定义id
+     * <p> 示例值：
+     */
+    @SerializedName("id")
+    private String id;
+    /**
+     * 审批定义版本id
+     * <p> 示例值：
+     */
+    @SerializedName("version_id")
+    private String versionId;
+    /**
+     * 审批定义描述
+     * <p> 示例值：
+     */
+    @SerializedName("description")
+    private String description;
+    /**
+     * 三方审批定义id
+     * <p> 示例值：
+     */
+    @SerializedName("external_id")
+    private String externalId;
+    /**
+     * 三方审批定义创建链接
+     * <p> 示例值：
+     */
+    @SerializedName("create_link")
+    private String createLink;
+    /**
+     * 历史提单次数（T+1）
+     * <p> 示例值：
+     */
+    @SerializedName("create_count")
+    private String createCount;
 
     // builder 开始
     public Approval() {
@@ -68,6 +104,36 @@ public class Approval {
          * <p> 示例值：ACTIVE
          */
         this.status = builder.status;
+        /**
+         * 审批定义id
+         * <p> 示例值：
+         */
+        this.id = builder.id;
+        /**
+         * 审批定义版本id
+         * <p> 示例值：
+         */
+        this.versionId = builder.versionId;
+        /**
+         * 审批定义描述
+         * <p> 示例值：
+         */
+        this.description = builder.description;
+        /**
+         * 三方审批定义id
+         * <p> 示例值：
+         */
+        this.externalId = builder.externalId;
+        /**
+         * 三方审批定义创建链接
+         * <p> 示例值：
+         */
+        this.createLink = builder.createLink;
+        /**
+         * 历史提单次数（T+1）
+         * <p> 示例值：
+         */
+        this.createCount = builder.createCount;
     }
 
     public static Builder newBuilder() {
@@ -98,6 +164,54 @@ public class Approval {
         this.status = status;
     }
 
+    public String getId() {
+        return this.id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getVersionId() {
+        return this.versionId;
+    }
+
+    public void setVersionId(String versionId) {
+        this.versionId = versionId;
+    }
+
+    public String getDescription() {
+        return this.description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getExternalId() {
+        return this.externalId;
+    }
+
+    public void setExternalId(String externalId) {
+        this.externalId = externalId;
+    }
+
+    public String getCreateLink() {
+        return this.createLink;
+    }
+
+    public void setCreateLink(String createLink) {
+        this.createLink = createLink;
+    }
+
+    public String getCreateCount() {
+        return this.createCount;
+    }
+
+    public void setCreateCount(String createCount) {
+        this.createCount = createCount;
+    }
+
     public static class Builder {
         /**
          * 审批定义code
@@ -114,6 +228,36 @@ public class Approval {
          * <p> 示例值：ACTIVE
          */
         private String status;
+        /**
+         * 审批定义id
+         * <p> 示例值：
+         */
+        private String id;
+        /**
+         * 审批定义版本id
+         * <p> 示例值：
+         */
+        private String versionId;
+        /**
+         * 审批定义描述
+         * <p> 示例值：
+         */
+        private String description;
+        /**
+         * 三方审批定义id
+         * <p> 示例值：
+         */
+        private String externalId;
+        /**
+         * 三方审批定义创建链接
+         * <p> 示例值：
+         */
+        private String createLink;
+        /**
+         * 历史提单次数（T+1）
+         * <p> 示例值：
+         */
+        private String createCount;
 
         /**
          * 审批定义code
@@ -162,6 +306,84 @@ public class Approval {
          */
         public Builder status(com.lark.oapi.service.approval.v4.enums.ApprovalOpenApiApprovalStatusEnum status) {
             this.status = status.getValue();
+            return this;
+        }
+
+
+        /**
+         * 审批定义id
+         * <p> 示例值：
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        /**
+         * 审批定义版本id
+         * <p> 示例值：
+         *
+         * @param versionId
+         * @return
+         */
+        public Builder versionId(String versionId) {
+            this.versionId = versionId;
+            return this;
+        }
+
+
+        /**
+         * 审批定义描述
+         * <p> 示例值：
+         *
+         * @param description
+         * @return
+         */
+        public Builder description(String description) {
+            this.description = description;
+            return this;
+        }
+
+
+        /**
+         * 三方审批定义id
+         * <p> 示例值：
+         *
+         * @param externalId
+         * @return
+         */
+        public Builder externalId(String externalId) {
+            this.externalId = externalId;
+            return this;
+        }
+
+
+        /**
+         * 三方审批定义创建链接
+         * <p> 示例值：
+         *
+         * @param createLink
+         * @return
+         */
+        public Builder createLink(String createLink) {
+            this.createLink = createLink;
+            return this;
+        }
+
+
+        /**
+         * 历史提单次数（T+1）
+         * <p> 示例值：
+         *
+         * @param createCount
+         * @return
+         */
+        public Builder createCount(String createCount) {
+            this.createCount = createCount;
             return this;
         }
 

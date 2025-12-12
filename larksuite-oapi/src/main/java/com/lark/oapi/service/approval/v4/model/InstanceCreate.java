@@ -143,6 +143,12 @@ public class InstanceCreate {
      */
     @SerializedName("byte_extra")
     private String byteExtra;
+    /**
+     * 是否可选返回链接
+     * <p> 示例值：
+     */
+    @SerializedName("with_link")
+    private Boolean withLink;
 
     // builder 开始
     public InstanceCreate() {
@@ -244,6 +250,11 @@ public class InstanceCreate {
          * <p> 示例值：{}
          */
         this.byteExtra = builder.byteExtra;
+        /**
+         * 是否可选返回链接
+         * <p> 示例值：
+         */
+        this.withLink = builder.withLink;
     }
 
     public static Builder newBuilder() {
@@ -402,6 +413,14 @@ public class InstanceCreate {
         this.byteExtra = byteExtra;
     }
 
+    public Boolean getWithLink() {
+        return this.withLink;
+    }
+
+    public void setWithLink(Boolean withLink) {
+        this.withLink = withLink;
+    }
+
     public static class Builder {
         /**
          * 审批定义 code
@@ -498,6 +517,11 @@ public class InstanceCreate {
          * <p> 示例值：{}
          */
         private String byteExtra;
+        /**
+         * 是否可选返回链接
+         * <p> 示例值：
+         */
+        private Boolean withLink;
 
         /**
          * 审批定义 code
@@ -723,10 +747,10 @@ public class InstanceCreate {
          * 详情页title展示模式
          * <p> 示例值：0
          *
-         * @param titleDisplayMethod {@link com.lark.oapi.service.approval.v4.enums.InstanceCreateTitleDisplayMethodEnum}
+         * @param titleDisplayMethod {@link com.lark.oapi.service.approval.v4.enums.InstanceCreateInstanceCreateTitleDisplayMethodEnum}
          * @return
          */
-        public Builder titleDisplayMethod(com.lark.oapi.service.approval.v4.enums.InstanceCreateTitleDisplayMethodEnum titleDisplayMethod) {
+        public Builder titleDisplayMethod(com.lark.oapi.service.approval.v4.enums.InstanceCreateInstanceCreateTitleDisplayMethodEnum titleDisplayMethod) {
             this.titleDisplayMethod = titleDisplayMethod.getValue();
             return this;
         }
@@ -754,6 +778,19 @@ public class InstanceCreate {
          */
         public Builder byteExtra(String byteExtra) {
             this.byteExtra = byteExtra;
+            return this;
+        }
+
+
+        /**
+         * 是否可选返回链接
+         * <p> 示例值：
+         *
+         * @param withLink
+         * @return
+         */
+        public Builder withLink(Boolean withLink) {
+            this.withLink = withLink;
             return this;
         }
 

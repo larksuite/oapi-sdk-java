@@ -36,7 +36,7 @@ public class SendUserMailboxMessageReq {
     @SerializedName("user_mailbox_id")
     private String userMailboxId;
     @Body
-    private Message body;
+    private SendUserMailboxMessageReqBody body;
 
     // builder 开始
     public SendUserMailboxMessageReq() {
@@ -63,18 +63,18 @@ public class SendUserMailboxMessageReq {
         this.userMailboxId = userMailboxId;
     }
 
-    public Message getMessage() {
+    public SendUserMailboxMessageReqBody getSendUserMailboxMessageReqBody() {
         return this.body;
     }
 
-    public void setMessage(Message body) {
+    public void setSendUserMailboxMessageReqBody(SendUserMailboxMessageReqBody body) {
         this.body = body;
     }
 
     public static class Builder {
 
         private String userMailboxId; // 用户邮箱地址 或 输入me代表当前调用接口用户
-        private Message body;
+        private SendUserMailboxMessageReqBody body;
 
         /**
          * 用户邮箱地址 或 输入me代表当前调用接口用户
@@ -88,7 +88,7 @@ public class SendUserMailboxMessageReq {
             return this;
         }
 
-        public Message getMessage() {
+        public SendUserMailboxMessageReqBody getSendUserMailboxMessageReqBody() {
             return this.body;
         }
 
@@ -98,7 +98,7 @@ public class SendUserMailboxMessageReq {
          * @param body
          * @return
          */
-        public Builder message(Message body) {
+        public Builder sendUserMailboxMessageReqBody(SendUserMailboxMessageReqBody body) {
             this.body = body;
             return this;
         }

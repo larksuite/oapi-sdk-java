@@ -17,7 +17,7 @@ package com.lark.oapi.service.board.v1.enums;
  *
  */
 public enum CreatePlantumlWhiteboardNodeDiagramTypeEnum {
-    UNKOWN(0), // 未知
+    UNKNOWN(0), // 未知
     MIND_MAP(1), // 思维导图
     SEQUENCE(2), // 时序图
     ACTIVITY(3), // 活动图

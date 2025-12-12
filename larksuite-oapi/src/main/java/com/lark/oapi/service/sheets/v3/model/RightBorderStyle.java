@@ -107,10 +107,10 @@ public class RightBorderStyle {
          * 边框样式
          * <p> 示例值：
          *
-         * @param style {@link com.lark.oapi.service.sheets.v3.enums.RightBorderStyleBorderStyleEnum}
+         * @param style {@link com.lark.oapi.service.sheets.v3.enums.RightBorderStyleBorderStyleTypeEnum}
          * @return
          */
-        public Builder style(com.lark.oapi.service.sheets.v3.enums.RightBorderStyleBorderStyleEnum style) {
+        public Builder style(com.lark.oapi.service.sheets.v3.enums.RightBorderStyleBorderStyleTypeEnum style) {
             this.style = style.getValue();
             return this;
         }

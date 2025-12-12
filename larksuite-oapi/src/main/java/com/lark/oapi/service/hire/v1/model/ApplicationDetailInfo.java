@@ -59,7 +59,7 @@ public class ApplicationDetailInfo {
     @SerializedName("interview_aggregation")
     private InterviewAggregation interviewAggregation;
     /**
-     * 投递 Offer 信息
+     * 投递 Offer 信息（正式offer）
      * <p> 示例值：
      */
     @SerializedName("offer")
@@ -120,7 +120,7 @@ public class ApplicationDetailInfo {
          */
         this.interviewAggregation = builder.interviewAggregation;
         /**
-         * 投递 Offer 信息
+         * 投递 Offer 信息（正式offer）
          * <p> 示例值：
          */
         this.offer = builder.offer;
@@ -257,7 +257,7 @@ public class ApplicationDetailInfo {
          */
         private InterviewAggregation interviewAggregation;
         /**
-         * 投递 Offer 信息
+         * 投递 Offer 信息（正式offer）
          * <p> 示例值：
          */
         private OfferInfoV2 offer;
@@ -348,7 +348,7 @@ public class ApplicationDetailInfo {
 
 
         /**
-         * 投递 Offer 信息
+         * 投递 Offer 信息（正式offer）
          * <p> 示例值：
          *
          * @param offer

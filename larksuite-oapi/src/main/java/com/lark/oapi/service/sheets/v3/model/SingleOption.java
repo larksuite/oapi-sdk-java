@@ -155,10 +155,10 @@ public class SingleOption {
          * 单选类型
          * <p> 示例值：OneOfList
          *
-         * @param type {@link com.lark.oapi.service.sheets.v3.enums.SingleOptionSingleOptionEnum}
+         * @param type {@link com.lark.oapi.service.sheets.v3.enums.SingleOptionSingleOptionTypeEnum}
          * @return
          */
-        public Builder type(com.lark.oapi.service.sheets.v3.enums.SingleOptionSingleOptionEnum type) {
+        public Builder type(com.lark.oapi.service.sheets.v3.enums.SingleOptionSingleOptionTypeEnum type) {
             this.type = type.getValue();
             return this;
         }

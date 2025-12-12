@@ -142,10 +142,10 @@ public class GetInstanceReq {
          * 语言
          * <p> 示例值：zh-CN
          *
-         * @param locale {@link com.lark.oapi.service.approval.v4.enums.GetInstanceLocaleEnum}
+         * @param locale {@link com.lark.oapi.service.approval.v4.enums.GetInstanceGetInstanceV4LocaleEnum}
          * @return
          */
-        public Builder locale(com.lark.oapi.service.approval.v4.enums.GetInstanceLocaleEnum locale) {
+        public Builder locale(com.lark.oapi.service.approval.v4.enums.GetInstanceGetInstanceV4LocaleEnum locale) {
             this.locale = locale.getValue();
             return this;
         }
@@ -178,10 +178,10 @@ public class GetInstanceReq {
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：user_id
          *
-         * @param userIdType {@link com.lark.oapi.service.approval.v4.enums.GetInstanceUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.approval.v4.enums.GetInstanceGetInstanceV4UserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.approval.v4.enums.GetInstanceUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.approval.v4.enums.GetInstanceGetInstanceV4UserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }

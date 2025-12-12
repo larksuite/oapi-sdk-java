@@ -100,10 +100,10 @@ public class GetExternalApprovalReq {
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
          *
-         * @param userIdType {@link com.lark.oapi.service.approval.v4.enums.GetExternalApprovalUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.approval.v4.enums.GetExternalApprovalGetExternalApprovalV4UserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.approval.v4.enums.GetExternalApprovalUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.approval.v4.enums.GetExternalApprovalGetExternalApprovalV4UserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }

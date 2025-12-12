@@ -100,10 +100,10 @@ public class GetSpreadsheetReq {
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
          *
-         * @param userIdType {@link com.lark.oapi.service.sheets.v3.enums.GetSpreadsheetUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.sheets.v3.enums.GetSpreadsheetGetSpreadsheetUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.sheets.v3.enums.GetSpreadsheetUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.sheets.v3.enums.GetSpreadsheetGetSpreadsheetUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }

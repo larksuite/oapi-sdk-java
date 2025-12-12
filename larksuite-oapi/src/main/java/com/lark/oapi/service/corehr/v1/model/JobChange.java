@@ -325,10 +325,10 @@ public class JobChange {
          * 异动状态
          * <p> 示例值：4
          *
-         * @param status {@link com.lark.oapi.service.corehr.v1.enums.JobChangeStatusEnum}
+         * @param status {@link com.lark.oapi.service.corehr.v1.enums.JobChangeJobChangeStatusEnum}
          * @return
          */
-        public Builder status(com.lark.oapi.service.corehr.v1.enums.JobChangeStatusEnum status) {
+        public Builder status(com.lark.oapi.service.corehr.v1.enums.JobChangeJobChangeStatusEnum status) {
             this.status = status.getValue();
             return this;
         }

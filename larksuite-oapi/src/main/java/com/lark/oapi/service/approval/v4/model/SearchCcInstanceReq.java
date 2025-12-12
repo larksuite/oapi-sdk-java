@@ -157,10 +157,10 @@ public class SearchCcInstanceReq {
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
          *
-         * @param userIdType {@link com.lark.oapi.service.approval.v4.enums.SearchCcInstanceUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.approval.v4.enums.SearchCcInstanceSearchCcInstanceV4UserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.approval.v4.enums.SearchCcInstanceUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.approval.v4.enums.SearchCcInstanceSearchCcInstanceV4UserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }

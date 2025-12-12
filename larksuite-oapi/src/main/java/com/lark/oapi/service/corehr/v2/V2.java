@@ -73,6 +73,10 @@ public class V2 {
     private final ProcessRevoke processRevoke; // process_revoke
     private final ProcessWithdraw processWithdraw; // process_withdraw
     private final ReportDetailRow reportDetailRow; // report_detail_row
+    private final SignatureFile signatureFile; // signature_file
+    private final SignatureNode signatureNode; // signature_node
+    private final SignatureTemplate signatureTemplate; // signature_template
+    private final SignatureTemplateInfoWithThumbnail signatureTemplateInfoWithThumbnail; // signature_template_info_with_thumbnail
     private final WorkforcePlan workforcePlan; // workforce_plan
     private final WorkforcePlanDetail workforcePlanDetail; // workforce_plan_detail
     private final WorkforcePlanDetailRow workforcePlanDetailRow; // workforce_plan_detail_row
@@ -132,6 +136,10 @@ public class V2 {
         this.processRevoke = new ProcessRevoke(config);
         this.processWithdraw = new ProcessWithdraw(config);
         this.reportDetailRow = new ReportDetailRow(config);
+        this.signatureFile = new SignatureFile(config);
+        this.signatureNode = new SignatureNode(config);
+        this.signatureTemplate = new SignatureTemplate(config);
+        this.signatureTemplateInfoWithThumbnail = new SignatureTemplateInfoWithThumbnail(config);
         this.workforcePlan = new WorkforcePlan(config);
         this.workforcePlanDetail = new WorkforcePlanDetail(config);
         this.workforcePlanDetailRow = new WorkforcePlanDetailRow(config);
@@ -351,6 +359,22 @@ public class V2 {
 
     public ReportDetailRow reportDetailRow() {
         return reportDetailRow;
+    }
+
+    public SignatureFile signatureFile() {
+        return signatureFile;
+    }
+
+    public SignatureNode signatureNode() {
+        return signatureNode;
+    }
+
+    public SignatureTemplate signatureTemplate() {
+        return signatureTemplate;
+    }
+
+    public SignatureTemplateInfoWithThumbnail signatureTemplateInfoWithThumbnail() {
+        return signatureTemplateInfoWithThumbnail;
     }
 
     public WorkforcePlan workforcePlan() {

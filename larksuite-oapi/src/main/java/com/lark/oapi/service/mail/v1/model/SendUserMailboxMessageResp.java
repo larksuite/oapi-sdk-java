@@ -26,5 +26,5 @@ import java.io.IOException;
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class SendUserMailboxMessageResp extends BaseResponse<EmptyData> {
+public class SendUserMailboxMessageResp extends BaseResponse<SendUserMailboxMessageRespBody> {
 }

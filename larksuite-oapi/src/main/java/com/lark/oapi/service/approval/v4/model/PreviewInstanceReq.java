@@ -91,10 +91,10 @@ public class PreviewInstanceReq {
          * open_id(ou_开头)，union_id(on_开头)，user_id(字符串)。user_id_type不填默认为open_id
          * <p> 示例值：open_id
          *
-         * @param userIdType {@link com.lark.oapi.service.approval.v4.enums.PreviewInstanceUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.approval.v4.enums.PreviewInstancePreviewInstanceUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.approval.v4.enums.PreviewInstanceUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.approval.v4.enums.PreviewInstancePreviewInstanceUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }

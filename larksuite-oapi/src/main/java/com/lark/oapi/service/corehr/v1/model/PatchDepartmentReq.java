@@ -166,10 +166,10 @@ public class PatchDepartmentReq {
          * 用户 ID 类型
          * <p> 示例值：people_corehr_id
          *
-         * @param userIdType {@link com.lark.oapi.service.corehr.v1.enums.PatchDepartmentUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.corehr.v1.enums.PatchDepartmentPatchDepartmentUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.corehr.v1.enums.PatchDepartmentUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.corehr.v1.enums.PatchDepartmentPatchDepartmentUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }
@@ -190,10 +190,10 @@ public class PatchDepartmentReq {
          * 此次调用中使用的部门 ID 类型
          * <p> 示例值：people_corehr_department_id
          *
-         * @param departmentIdType {@link com.lark.oapi.service.corehr.v1.enums.PatchDepartmentDepartmentIdTypeEnum}
+         * @param departmentIdType {@link com.lark.oapi.service.corehr.v1.enums.PatchDepartmentPatchDepartmentDepartmentIDTypeEnum}
          * @return
          */
-        public Builder departmentIdType(com.lark.oapi.service.corehr.v1.enums.PatchDepartmentDepartmentIdTypeEnum departmentIdType) {
+        public Builder departmentIdType(com.lark.oapi.service.corehr.v1.enums.PatchDepartmentPatchDepartmentDepartmentIDTypeEnum departmentIdType) {
             this.departmentIdType = departmentIdType.getValue();
             return this;
         }

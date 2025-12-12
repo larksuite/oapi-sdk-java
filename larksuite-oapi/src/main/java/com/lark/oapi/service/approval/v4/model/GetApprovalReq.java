@@ -50,6 +50,20 @@ public class GetApprovalReq {
     @SerializedName("user_id_type")
     private String userIdType;
     /**
+     * 可选是否返回外部数据源和假勤控件选项
+     * <p> 示例值：false
+     */
+    @Query
+    @SerializedName("with_option")
+    private Boolean withOption;
+    /**
+     * 用户id
+     * <p> 示例值：ou_7a4aaac5650dc0b77e85e96e7476ff1d
+     */
+    @Query
+    @SerializedName("user_id")
+    private String userId;
+    /**
      * 审批定义 Code
      * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
      */
@@ -77,6 +91,16 @@ public class GetApprovalReq {
          * <p> 示例值：
          */
         this.userIdType = builder.userIdType;
+        /**
+         * 可选是否返回外部数据源和假勤控件选项
+         * <p> 示例值：false
+         */
+        this.withOption = builder.withOption;
+        /**
+         * 用户id
+         * <p> 示例值：ou_7a4aaac5650dc0b77e85e96e7476ff1d
+         */
+        this.userId = builder.userId;
         /**
          * 审批定义 Code
          * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
@@ -112,6 +136,22 @@ public class GetApprovalReq {
         this.userIdType = userIdType;
     }
 
+    public Boolean getWithOption() {
+        return this.withOption;
+    }
+
+    public void setWithOption(Boolean withOption) {
+        this.withOption = withOption;
+    }
+
+    public String getUserId() {
+        return this.userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
     public String getApprovalCode() {
         return this.approvalCode;
     }
@@ -124,6 +164,8 @@ public class GetApprovalReq {
         private String locale; // 语言可选值
         private Boolean withAdminId; // 可选是否返回有数据权限审批流程管理员ID列表
         private String userIdType; // 此次调用中使用的用户ID的类型
+        private Boolean withOption; // 可选是否返回外部数据源和假勤控件选项
+        private String userId; // 用户id
         private String approvalCode; // 审批定义 Code
 
         /**
@@ -142,10 +184,10 @@ public class GetApprovalReq {
          * 语言可选值
          * <p> 示例值：zh-CN
          *
-         * @param locale {@link com.lark.oapi.service.approval.v4.enums.GetApprovalLocaleEnum}
+         * @param locale {@link com.lark.oapi.service.approval.v4.enums.GetApprovalGetApprovalV4LocaleEnum}
          * @return
          */
-        public Builder locale(com.lark.oapi.service.approval.v4.enums.GetApprovalLocaleEnum locale) {
+        public Builder locale(com.lark.oapi.service.approval.v4.enums.GetApprovalGetApprovalV4LocaleEnum locale) {
             this.locale = locale.getValue();
             return this;
         }
@@ -178,11 +220,35 @@ public class GetApprovalReq {
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
          *
-         * @param userIdType {@link com.lark.oapi.service.approval.v4.enums.GetApprovalUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.approval.v4.enums.GetApprovalGetApprovalV4UserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.approval.v4.enums.GetApprovalUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.approval.v4.enums.GetApprovalGetApprovalV4UserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
+            return this;
+        }
+
+        /**
+         * 可选是否返回外部数据源和假勤控件选项
+         * <p> 示例值：false
+         *
+         * @param withOption
+         * @return
+         */
+        public Builder withOption(Boolean withOption) {
+            this.withOption = withOption;
+            return this;
+        }
+
+        /**
+         * 用户id
+         * <p> 示例值：ou_7a4aaac5650dc0b77e85e96e7476ff1d
+         *
+         * @param userId
+         * @return
+         */
+        public Builder userId(String userId) {
+            this.userId = userId;
             return this;
         }
 

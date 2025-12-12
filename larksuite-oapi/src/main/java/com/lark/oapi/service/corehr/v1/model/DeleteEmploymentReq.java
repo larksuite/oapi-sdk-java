@@ -100,10 +100,10 @@ public class DeleteEmploymentReq {
          * 用户 ID 类型
          * <p> 示例值：people_corehr_id
          *
-         * @param userIdType {@link com.lark.oapi.service.corehr.v1.enums.DeleteEmploymentUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.corehr.v1.enums.DeleteEmploymentDeleteEmploymentUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.corehr.v1.enums.DeleteEmploymentUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.corehr.v1.enums.DeleteEmploymentDeleteEmploymentUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }

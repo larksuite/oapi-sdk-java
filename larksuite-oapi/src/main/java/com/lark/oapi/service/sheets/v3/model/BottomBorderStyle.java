@@ -107,10 +107,10 @@ public class BottomBorderStyle {
          * 边框样式
          * <p> 示例值：
          *
-         * @param style {@link com.lark.oapi.service.sheets.v3.enums.BottomBorderStyleBorderStyleEnum}
+         * @param style {@link com.lark.oapi.service.sheets.v3.enums.BottomBorderStyleBorderStyleTypeEnum}
          * @return
          */
-        public Builder style(com.lark.oapi.service.sheets.v3.enums.BottomBorderStyleBorderStyleEnum style) {
+        public Builder style(com.lark.oapi.service.sheets.v3.enums.BottomBorderStyleBorderStyleTypeEnum style) {
             this.style = style.getValue();
             return this;
         }

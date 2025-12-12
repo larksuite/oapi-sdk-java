@@ -31,6 +31,7 @@ public enum MediaUploadInfoParentTypeEnum {
     CALENDAR("calendar"), // 日历文件
     BASE_GLOBAL("base_global"), // base文件
     LARK_AI_MEDIA_ANALYSIS("lark_ai_media_analysis"), // ai素材
+    WHITEBOARD("whiteboard"), // 白板文件
     ;
     private String value;
 

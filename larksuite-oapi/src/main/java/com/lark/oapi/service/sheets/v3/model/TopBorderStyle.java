@@ -107,10 +107,10 @@ public class TopBorderStyle {
          * 边框样式
          * <p> 示例值：
          *
-         * @param style {@link com.lark.oapi.service.sheets.v3.enums.TopBorderStyleBorderStyleEnum}
+         * @param style {@link com.lark.oapi.service.sheets.v3.enums.TopBorderStyleBorderStyleTypeEnum}
          * @return
          */
-        public Builder style(com.lark.oapi.service.sheets.v3.enums.TopBorderStyleBorderStyleEnum style) {
+        public Builder style(com.lark.oapi.service.sheets.v3.enums.TopBorderStyleBorderStyleTypeEnum style) {
             this.style = style.getValue();
             return this;
         }

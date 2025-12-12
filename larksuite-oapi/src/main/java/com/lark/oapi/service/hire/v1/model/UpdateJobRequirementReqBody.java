@@ -41,7 +41,7 @@ public class UpdateJobRequirementReqBody {
     @SerializedName("display_progress")
     private Integer displayProgress;
     /**
-     * 需求人数
+     * 需求人数，取值范围需大于 0
      * <p> 示例值：11
      */
     @SerializedName("head_count")
@@ -213,7 +213,7 @@ public class UpdateJobRequirementReqBody {
          */
         this.displayProgress = builder.displayProgress;
         /**
-         * 需求人数
+         * 需求人数，取值范围需大于 0
          * <p> 示例值：11
          */
         this.headCount = builder.headCount;
@@ -584,7 +584,7 @@ public class UpdateJobRequirementReqBody {
          */
         private Integer displayProgress;
         /**
-         * 需求人数
+         * 需求人数，取值范围需大于 0
          * <p> 示例值：11
          */
         private Integer headCount;
@@ -741,7 +741,7 @@ public class UpdateJobRequirementReqBody {
 
 
         /**
-         * 需求人数
+         * 需求人数，取值范围需大于 0
          * <p> 示例值：11
          *
          * @param headCount

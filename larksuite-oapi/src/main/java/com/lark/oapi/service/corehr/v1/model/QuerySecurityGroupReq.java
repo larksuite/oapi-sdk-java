@@ -91,10 +91,10 @@ public class QuerySecurityGroupReq {
          * 此次调用中使用的部门 ID 类型
          * <p> 示例值：people_corehr_department_id
          *
-         * @param departmentIdType {@link com.lark.oapi.service.corehr.v1.enums.QuerySecurityGroupDepartmentIdTypeEnum}
+         * @param departmentIdType {@link com.lark.oapi.service.corehr.v1.enums.QuerySecurityGroupQuerySecurityGroupDepartmentIDTypeEnum}
          * @return
          */
-        public Builder departmentIdType(com.lark.oapi.service.corehr.v1.enums.QuerySecurityGroupDepartmentIdTypeEnum departmentIdType) {
+        public Builder departmentIdType(com.lark.oapi.service.corehr.v1.enums.QuerySecurityGroupQuerySecurityGroupDepartmentIDTypeEnum departmentIdType) {
             this.departmentIdType = departmentIdType.getValue();
             return this;
         }

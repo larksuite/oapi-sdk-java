@@ -133,10 +133,10 @@ public class CreateInstanceCommentReq {
          * 用户ID类型，不填默认为open_id
          * <p> 示例值：user_id
          *
-         * @param userIdType {@link com.lark.oapi.service.approval.v4.enums.CreateInstanceCommentUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.approval.v4.enums.CreateInstanceCommentCreateInstanceCommentUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.approval.v4.enums.CreateInstanceCommentUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.approval.v4.enums.CreateInstanceCommentCreateInstanceCommentUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }

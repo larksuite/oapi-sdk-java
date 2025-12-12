@@ -134,10 +134,10 @@ public class RemoveRoleAssignAuthorizationReq {
          * 用户 ID 类型
          * <p> 示例值：people_corehr_id
          *
-         * @param userIdType {@link com.lark.oapi.service.corehr.v1.enums.RemoveRoleAssignAuthorizationUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.corehr.v1.enums.RemoveRoleAssignAuthorizationRemoveRoleAssignAuthorizationUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.corehr.v1.enums.RemoveRoleAssignAuthorizationUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.corehr.v1.enums.RemoveRoleAssignAuthorizationRemoveRoleAssignAuthorizationUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }

@@ -53,6 +53,12 @@ public class Template {
      */
     @SerializedName("review_stage_role")
     private String reviewStageRole;
+    /**
+     * 评估型环节评估模式
+     * <p> 示例值：cooperate,independent
+     */
+    @SerializedName("review_stage_data_write_mode")
+    private String reviewStageDataWriteMode;
 
     // builder 开始
     public Template() {
@@ -79,6 +85,11 @@ public class Template {
          * <p> 示例值：reviewee
          */
         this.reviewStageRole = builder.reviewStageRole;
+        /**
+         * 评估型环节评估模式
+         * <p> 示例值：cooperate,independent
+         */
+        this.reviewStageDataWriteMode = builder.reviewStageDataWriteMode;
     }
 
     public static Builder newBuilder() {
@@ -117,6 +128,14 @@ public class Template {
         this.reviewStageRole = reviewStageRole;
     }
 
+    public String getReviewStageDataWriteMode() {
+        return this.reviewStageDataWriteMode;
+    }
+
+    public void setReviewStageDataWriteMode(String reviewStageDataWriteMode) {
+        this.reviewStageDataWriteMode = reviewStageDataWriteMode;
+    }
+
     public static class Builder {
         /**
          * 环节模板 ID
@@ -138,6 +157,11 @@ public class Template {
          * <p> 示例值：reviewee
          */
         private String reviewStageRole;
+        /**
+         * 评估型环节评估模式
+         * <p> 示例值：cooperate,independent
+         */
+        private String reviewStageDataWriteMode;
 
         /**
          * 环节模板 ID
@@ -187,6 +211,19 @@ public class Template {
          */
         public Builder reviewStageRole(String reviewStageRole) {
             this.reviewStageRole = reviewStageRole;
+            return this;
+        }
+
+
+        /**
+         * 评估型环节评估模式
+         * <p> 示例值：cooperate,independent
+         *
+         * @param reviewStageDataWriteMode
+         * @return
+         */
+        public Builder reviewStageDataWriteMode(String reviewStageDataWriteMode) {
+            this.reviewStageDataWriteMode = reviewStageDataWriteMode;
             return this;
         }
 

@@ -299,10 +299,10 @@ public class SubmitOffboardingReqBody {
          * 离职方式
          * <p> 示例值：1
          *
-         * @param offboardingMode {@link com.lark.oapi.service.corehr.v1.enums.SubmitOffboardingOffboardingModeEnum}
+         * @param offboardingMode {@link com.lark.oapi.service.corehr.v1.enums.SubmitOffboardingSubmitOffboardingOffboardingModeEnum}
          * @return
          */
-        public Builder offboardingMode(com.lark.oapi.service.corehr.v1.enums.SubmitOffboardingOffboardingModeEnum offboardingMode) {
+        public Builder offboardingMode(com.lark.oapi.service.corehr.v1.enums.SubmitOffboardingSubmitOffboardingOffboardingModeEnum offboardingMode) {
             this.offboardingMode = offboardingMode.getValue();
             return this;
         }

@@ -62,6 +62,7 @@ import com.lark.oapi.service.personal_settings.PersonalSettingsService;
 import com.lark.oapi.service.report.ReportService;
 import com.lark.oapi.service.search.SearchService;
 import com.lark.oapi.service.security_and_compliance.SecurityAndComplianceService;
+import com.lark.oapi.service.security_and_compliance.SecurityAndComplianceService;
 import com.lark.oapi.service.sheets.SheetsService;
 import com.lark.oapi.service.speech_to_text.SpeechToTextService;
 import com.lark.oapi.service.task.TaskService;
@@ -830,6 +831,21 @@ public class EventDispatcher implements IHandler {
                 throw new EventTypeAlreadyHasHandlerException("contact.user.updated_v3");
             }
             eventType2EventHandler.put("contact.user.updated_v3", handler);
+            return this;
+        }
+
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2CommonDataIdUserMappingChangedV1(CorehrService.P2CommonDataIdUserMappingChangedV1Handler handler) {
+            if (eventType2EventHandler.containsKey("corehr.common_data.id.user_mapping_changed_v1")) {
+                throw new EventTypeAlreadyHasHandlerException("corehr.common_data.id.user_mapping_changed_v1");
+            }
+            eventType2EventHandler.put("corehr.common_data.id.user_mapping_changed_v1", handler);
             return this;
         }
 
@@ -1898,6 +1914,21 @@ public class EventDispatcher implements IHandler {
             return this;
         }
 
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2SignatureFileStatusUpdatedV2(CorehrService.P2SignatureFileStatusUpdatedV2Handler handler) {
+            if (eventType2EventHandler.containsKey("corehr.signature_file.status_updated_v2")) {
+                throw new EventTypeAlreadyHasHandlerException("corehr.signature_file.status_updated_v2");
+            }
+            eventType2EventHandler.put("corehr.signature_file.status_updated_v2", handler);
+            return this;
+        }
+
 
         /**
          * <p> 多维表格字段变更,多维表格字段变更
@@ -2754,6 +2785,37 @@ public class EventDispatcher implements IHandler {
                 throw new EventTypeAlreadyHasHandlerException("performance.stage_task.open_result_v2");
             }
             eventType2EventHandler.put("performance.stage_task.open_result_v2", handler);
+            return this;
+        }
+
+
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2DeviceApplyRecordDeviceApplyEventV2(SecurityAndComplianceService.P2DeviceApplyRecordDeviceApplyEventV2Handler handler) {
+            if (eventType2EventHandler.containsKey("security_and_compliance.device_apply_record.device_apply_event_v2")) {
+                throw new EventTypeAlreadyHasHandlerException("security_and_compliance.device_apply_record.device_apply_event_v2");
+            }
+            eventType2EventHandler.put("security_and_compliance.device_apply_record.device_apply_event_v2", handler);
+            return this;
+        }
+
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2DeviceRecordDeviceChangeEventV2(SecurityAndComplianceService.P2DeviceRecordDeviceChangeEventV2Handler handler) {
+            if (eventType2EventHandler.containsKey("security_and_compliance.device_record.device_change_event_v2")) {
+                throw new EventTypeAlreadyHasHandlerException("security_and_compliance.device_record.device_change_event_v2");
+            }
+            eventType2EventHandler.put("security_and_compliance.device_record.device_change_event_v2", handler);
             return this;
         }
 

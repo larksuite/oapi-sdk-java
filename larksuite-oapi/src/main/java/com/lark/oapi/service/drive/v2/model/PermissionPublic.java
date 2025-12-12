@@ -251,10 +251,10 @@ public class PermissionPublic {
          * 允许内容被分享到组织外
          * <p> 示例值：open
          *
-         * @param externalAccessEntity {@link com.lark.oapi.service.drive.v2.enums.PermissionPublicExternalAccessEntityEnum}
+         * @param externalAccessEntity {@link com.lark.oapi.service.drive.v2.enums.PermissionPublicPermissionPublicExternalAccessEntityEnum}
          * @return
          */
-        public Builder externalAccessEntity(com.lark.oapi.service.drive.v2.enums.PermissionPublicExternalAccessEntityEnum externalAccessEntity) {
+        public Builder externalAccessEntity(com.lark.oapi.service.drive.v2.enums.PermissionPublicPermissionPublicExternalAccessEntityEnum externalAccessEntity) {
             this.externalAccessEntity = externalAccessEntity.getValue();
             return this;
         }
@@ -276,10 +276,10 @@ public class PermissionPublic {
          * 谁可以创建副本、打印、下载
          * <p> 示例值：anyone_can_view
          *
-         * @param securityEntity {@link com.lark.oapi.service.drive.v2.enums.PermissionPublicSecurityEntityEnum}
+         * @param securityEntity {@link com.lark.oapi.service.drive.v2.enums.PermissionPublicPermissionPublicSecurityEntityEnum}
          * @return
          */
-        public Builder securityEntity(com.lark.oapi.service.drive.v2.enums.PermissionPublicSecurityEntityEnum securityEntity) {
+        public Builder securityEntity(com.lark.oapi.service.drive.v2.enums.PermissionPublicPermissionPublicSecurityEntityEnum securityEntity) {
             this.securityEntity = securityEntity.getValue();
             return this;
         }
@@ -301,10 +301,10 @@ public class PermissionPublic {
          * 谁可以评论
          * <p> 示例值：anyone_can_view
          *
-         * @param commentEntity {@link com.lark.oapi.service.drive.v2.enums.PermissionPublicCommentEntityEnum}
+         * @param commentEntity {@link com.lark.oapi.service.drive.v2.enums.PermissionPublicPermissionPublicCommentEntityEnum}
          * @return
          */
-        public Builder commentEntity(com.lark.oapi.service.drive.v2.enums.PermissionPublicCommentEntityEnum commentEntity) {
+        public Builder commentEntity(com.lark.oapi.service.drive.v2.enums.PermissionPublicPermissionPublicCommentEntityEnum commentEntity) {
             this.commentEntity = commentEntity.getValue();
             return this;
         }
@@ -326,10 +326,10 @@ public class PermissionPublic {
          * 谁可以添加和管理协作者-组织维度
          * <p> 示例值：anyone
          *
-         * @param shareEntity {@link com.lark.oapi.service.drive.v2.enums.PermissionPublicShareEntityEnum}
+         * @param shareEntity {@link com.lark.oapi.service.drive.v2.enums.PermissionPublicPermissionPublicShareEntityEnum}
          * @return
          */
-        public Builder shareEntity(com.lark.oapi.service.drive.v2.enums.PermissionPublicShareEntityEnum shareEntity) {
+        public Builder shareEntity(com.lark.oapi.service.drive.v2.enums.PermissionPublicPermissionPublicShareEntityEnum shareEntity) {
             this.shareEntity = shareEntity.getValue();
             return this;
         }
@@ -351,10 +351,10 @@ public class PermissionPublic {
          * 谁可以添加和管理协作者-协作者维度
          * <p> 示例值：collaborator_can_view
          *
-         * @param manageCollaboratorEntity {@link com.lark.oapi.service.drive.v2.enums.PermissionPublicManageCollaboratorEntityEnum}
+         * @param manageCollaboratorEntity {@link com.lark.oapi.service.drive.v2.enums.PermissionPublicPermissionPublicManageCollaboratorEntityEnum}
          * @return
          */
-        public Builder manageCollaboratorEntity(com.lark.oapi.service.drive.v2.enums.PermissionPublicManageCollaboratorEntityEnum manageCollaboratorEntity) {
+        public Builder manageCollaboratorEntity(com.lark.oapi.service.drive.v2.enums.PermissionPublicPermissionPublicManageCollaboratorEntityEnum manageCollaboratorEntity) {
             this.manageCollaboratorEntity = manageCollaboratorEntity.getValue();
             return this;
         }
@@ -376,10 +376,10 @@ public class PermissionPublic {
          * 链接分享设置
          * <p> 示例值：tenant_readable
          *
-         * @param linkShareEntity {@link com.lark.oapi.service.drive.v2.enums.PermissionPublicLinkShareEntityEnum}
+         * @param linkShareEntity {@link com.lark.oapi.service.drive.v2.enums.PermissionPublicPermissionPublicLinkShareEntityEnum}
          * @return
          */
-        public Builder linkShareEntity(com.lark.oapi.service.drive.v2.enums.PermissionPublicLinkShareEntityEnum linkShareEntity) {
+        public Builder linkShareEntity(com.lark.oapi.service.drive.v2.enums.PermissionPublicPermissionPublicLinkShareEntityEnum linkShareEntity) {
             this.linkShareEntity = linkShareEntity.getValue();
             return this;
         }
@@ -401,10 +401,10 @@ public class PermissionPublic {
          * 谁可以复制内容
          * <p> 示例值：anyone_can_view
          *
-         * @param copyEntity {@link com.lark.oapi.service.drive.v2.enums.PermissionPublicCopyEntityEnum}
+         * @param copyEntity {@link com.lark.oapi.service.drive.v2.enums.PermissionPublicPermissionPublicCopyEntityEnum}
          * @return
          */
-        public Builder copyEntity(com.lark.oapi.service.drive.v2.enums.PermissionPublicCopyEntityEnum copyEntity) {
+        public Builder copyEntity(com.lark.oapi.service.drive.v2.enums.PermissionPublicPermissionPublicCopyEntityEnum copyEntity) {
             this.copyEntity = copyEntity.getValue();
             return this;
         }

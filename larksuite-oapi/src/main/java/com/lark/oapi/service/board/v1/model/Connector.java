@@ -89,6 +89,12 @@ public class Connector {
      */
     @SerializedName("specified_coordinate")
     private Boolean specifiedCoordinate;
+    /**
+     * 文字相对连线的位置类型，0=OnLine，表示文字在连线那不；1=AboveLine，文字在连线的上方，文字在线的上方，连线走向的上边或左边；2=BellowLine，文字在连线的下方，文字在线的上方，连线走向的下边或右边
+     * <p> 示例值：
+     */
+    @SerializedName("caption_position_type")
+    private Integer captionPositionType;
 
     // builder 开始
     public Connector() {
@@ -145,6 +151,11 @@ public class Connector {
          * <p> 示例值：
          */
         this.specifiedCoordinate = builder.specifiedCoordinate;
+        /**
+         * 文字相对连线的位置类型，0=OnLine，表示文字在连线那不；1=AboveLine，文字在连线的上方，文字在线的上方，连线走向的上边或左边；2=BellowLine，文字在连线的下方，文字在线的上方，连线走向的下边或右边
+         * <p> 示例值：
+         */
+        this.captionPositionType = builder.captionPositionType;
     }
 
     public static Builder newBuilder() {
@@ -231,6 +242,14 @@ public class Connector {
         this.specifiedCoordinate = specifiedCoordinate;
     }
 
+    public Integer getCaptionPositionType() {
+        return this.captionPositionType;
+    }
+
+    public void setCaptionPositionType(Integer captionPositionType) {
+        this.captionPositionType = captionPositionType;
+    }
+
     public static class Builder {
         /**
          * 开始连接节点信息（兼容线上数据，只读，写操作使用 start 字段）
@@ -282,6 +301,11 @@ public class Connector {
          * <p> 示例值：
          */
         private Boolean specifiedCoordinate;
+        /**
+         * 文字相对连线的位置类型，0=OnLine，表示文字在连线那不；1=AboveLine，文字在连线的上方，文字在线的上方，连线走向的上边或左边；2=BellowLine，文字在连线的下方，文字在线的上方，连线走向的下边或右边
+         * <p> 示例值：
+         */
+        private Integer captionPositionType;
 
         /**
          * 开始连接节点信息（兼容线上数据，只读，写操作使用 start 字段）
@@ -421,6 +445,31 @@ public class Connector {
          */
         public Builder specifiedCoordinate(Boolean specifiedCoordinate) {
             this.specifiedCoordinate = specifiedCoordinate;
+            return this;
+        }
+
+
+        /**
+         * 文字相对连线的位置类型，0=OnLine，表示文字在连线那不；1=AboveLine，文字在连线的上方，文字在线的上方，连线走向的上边或左边；2=BellowLine，文字在连线的下方，文字在线的上方，连线走向的下边或右边
+         * <p> 示例值：
+         *
+         * @param captionPositionType
+         * @return
+         */
+        public Builder captionPositionType(Integer captionPositionType) {
+            this.captionPositionType = captionPositionType;
+            return this;
+        }
+
+        /**
+         * 文字相对连线的位置类型，0=OnLine，表示文字在连线那不；1=AboveLine，文字在连线的上方，文字在线的上方，连线走向的上边或左边；2=BellowLine，文字在连线的下方，文字在线的上方，连线走向的下边或右边
+         * <p> 示例值：
+         *
+         * @param captionPositionType {@link com.lark.oapi.service.board.v1.enums.ConnectorCaptionPositionTypeEnum}
+         * @return
+         */
+        public Builder captionPositionType(com.lark.oapi.service.board.v1.enums.ConnectorCaptionPositionTypeEnum captionPositionType) {
+            this.captionPositionType = captionPositionType.getValue();
             return this;
         }
 

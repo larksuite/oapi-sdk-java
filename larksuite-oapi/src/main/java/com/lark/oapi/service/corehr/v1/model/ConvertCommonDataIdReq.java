@@ -154,10 +154,10 @@ public class ConvertCommonDataIdReq {
          * ID 转换类型
          * <p> 示例值：1
          *
-         * @param idTransformType {@link com.lark.oapi.service.corehr.v1.enums.ConvertCommonDataIdIdTransformTypeEnum}
+         * @param idTransformType {@link com.lark.oapi.service.corehr.v1.enums.ConvertCommonDataIdConvertCommonDataIdIDTransformTypeEnum}
          * @return
          */
-        public Builder idTransformType(com.lark.oapi.service.corehr.v1.enums.ConvertCommonDataIdIdTransformTypeEnum idTransformType) {
+        public Builder idTransformType(com.lark.oapi.service.corehr.v1.enums.ConvertCommonDataIdConvertCommonDataIdIDTransformTypeEnum idTransformType) {
             this.idTransformType = idTransformType.getValue();
             return this;
         }
@@ -178,10 +178,10 @@ public class ConvertCommonDataIdReq {
          * 要转换的ID类型
          * <p> 示例值：employment_id
          *
-         * @param idType {@link com.lark.oapi.service.corehr.v1.enums.ConvertCommonDataIdIdTypeEnum}
+         * @param idType {@link com.lark.oapi.service.corehr.v1.enums.ConvertCommonDataIdConvertCommonDataIdIDTypeEnum}
          * @return
          */
-        public Builder idType(com.lark.oapi.service.corehr.v1.enums.ConvertCommonDataIdIdTypeEnum idType) {
+        public Builder idType(com.lark.oapi.service.corehr.v1.enums.ConvertCommonDataIdConvertCommonDataIdIDTypeEnum idType) {
             this.idType = idType.getValue();
             return this;
         }
@@ -202,10 +202,10 @@ public class ConvertCommonDataIdReq {
          * 用户 ID 类型
          * <p> 示例值：open_id
          *
-         * @param feishuUserIdType {@link com.lark.oapi.service.corehr.v1.enums.ConvertCommonDataIdFeishuUserIdTypeEnum}
+         * @param feishuUserIdType {@link com.lark.oapi.service.corehr.v1.enums.ConvertCommonDataIdConvertCommonDataIdFeishuUserIDTypeEnum}
          * @return
          */
-        public Builder feishuUserIdType(com.lark.oapi.service.corehr.v1.enums.ConvertCommonDataIdFeishuUserIdTypeEnum feishuUserIdType) {
+        public Builder feishuUserIdType(com.lark.oapi.service.corehr.v1.enums.ConvertCommonDataIdConvertCommonDataIdFeishuUserIDTypeEnum feishuUserIdType) {
             this.feishuUserIdType = feishuUserIdType.getValue();
             return this;
         }
@@ -226,10 +226,10 @@ public class ConvertCommonDataIdReq {
          * 此次调用中使用的部门 ID 类型
          * <p> 示例值：open_department_id
          *
-         * @param feishuDepartmentIdType {@link com.lark.oapi.service.corehr.v1.enums.ConvertCommonDataIdFeishuDepartmentIdTypeEnum}
+         * @param feishuDepartmentIdType {@link com.lark.oapi.service.corehr.v1.enums.ConvertCommonDataIdConvertCommonDataIdFeishuDepartmentIDTypeEnum}
          * @return
          */
-        public Builder feishuDepartmentIdType(com.lark.oapi.service.corehr.v1.enums.ConvertCommonDataIdFeishuDepartmentIdTypeEnum feishuDepartmentIdType) {
+        public Builder feishuDepartmentIdType(com.lark.oapi.service.corehr.v1.enums.ConvertCommonDataIdConvertCommonDataIdFeishuDepartmentIDTypeEnum feishuDepartmentIdType) {
             this.feishuDepartmentIdType = feishuDepartmentIdType.getValue();
             return this;
         }

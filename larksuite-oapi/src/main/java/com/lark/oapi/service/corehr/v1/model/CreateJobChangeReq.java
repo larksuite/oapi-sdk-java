@@ -112,10 +112,10 @@ public class CreateJobChangeReq {
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：open_id
          *
-         * @param userIdType {@link com.lark.oapi.service.corehr.v1.enums.CreateJobChangeUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.corehr.v1.enums.CreateJobChangeCreateJobChangeUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.corehr.v1.enums.CreateJobChangeUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.corehr.v1.enums.CreateJobChangeCreateJobChangeUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }
@@ -136,10 +136,10 @@ public class CreateJobChangeReq {
          * 此次调用中使用的部门 ID 类型
          * <p> 示例值：people_corehr_department_id
          *
-         * @param departmentIdType {@link com.lark.oapi.service.corehr.v1.enums.CreateJobChangeDepartmentIdTypeEnum}
+         * @param departmentIdType {@link com.lark.oapi.service.corehr.v1.enums.CreateJobChangeCreateJobChangeDepartmentIDTypeEnum}
          * @return
          */
-        public Builder departmentIdType(com.lark.oapi.service.corehr.v1.enums.CreateJobChangeDepartmentIdTypeEnum departmentIdType) {
+        public Builder departmentIdType(com.lark.oapi.service.corehr.v1.enums.CreateJobChangeCreateJobChangeDepartmentIDTypeEnum departmentIdType) {
             this.departmentIdType = departmentIdType.getValue();
             return this;
         }
