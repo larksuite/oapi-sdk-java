@@ -91,10 +91,10 @@ public class ParticipantListExportReq {
          * 此次调用中使用的用户ID的类型，默认使用open_id可不填
          * <p> 示例值：
          *
-         * @param userIdType {@link com.lark.oapi.service.vc.v1.enums.ParticipantListExportUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.vc.v1.enums.ParticipantListExportExportParticipantListUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.vc.v1.enums.ParticipantListExportUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.vc.v1.enums.ParticipantListExportExportParticipantListUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }

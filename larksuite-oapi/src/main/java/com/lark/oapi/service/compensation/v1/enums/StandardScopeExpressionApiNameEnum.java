@@ -29,6 +29,11 @@ public enum StandardScopeExpressionApiNameEnum {
     CPST_PLAN("cpst_plan"), // 薪资方案
     SALARY_LEVEL("salary_level"), // 薪级薪等
     CPST_CHANGE_REASON("cpst_change_reason"), // 定调薪原因
+    CUSTOM_ORG_01("custom_org_01"), // 自定义组织1
+    CUSTOM_ORG_02("custom_org_02"), // 自定义组织2
+    CUSTOM_ORG_03("custom_org_03"), // 自定义组织3
+    CUSTOM_ORG_04("custom_org_04"), // 自定义组织4
+    CUSTOM_ORG_05("custom_org_05"), // 自定义组织5
     ;
     private String value;
 

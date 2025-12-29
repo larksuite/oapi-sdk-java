@@ -23,6 +23,7 @@ public class ListFreebusySample {
                         .roomId("omm_xxxxxxxxxx")
                         .includeExternalCalendar(true)
                         .onlyBusy(true)
+                        .needRsvpStatus(true)
                         .build())
                 .build();
 

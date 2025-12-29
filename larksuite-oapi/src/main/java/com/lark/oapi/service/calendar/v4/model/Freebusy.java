@@ -41,6 +41,12 @@ public class Freebusy {
      */
     @SerializedName("end_time")
     private String endTime;
+    /**
+     * 参与人RSVP状态
+     * <p> 示例值：
+     */
+    @SerializedName("rsvp_status")
+    private String rsvpStatus;
 
     // builder 开始
     public Freebusy() {
@@ -57,6 +63,11 @@ public class Freebusy {
          * <p> 示例值：2020-10-28T22:45:00+08:00
          */
         this.endTime = builder.endTime;
+        /**
+         * 参与人RSVP状态
+         * <p> 示例值：
+         */
+        this.rsvpStatus = builder.rsvpStatus;
     }
 
     public static Builder newBuilder() {
@@ -79,6 +90,14 @@ public class Freebusy {
         this.endTime = endTime;
     }
 
+    public String getRsvpStatus() {
+        return this.rsvpStatus;
+    }
+
+    public void setRsvpStatus(String rsvpStatus) {
+        this.rsvpStatus = rsvpStatus;
+    }
+
     public static class Builder {
         /**
          * 忙闲信息开始时间，RFC3339 date_time 格式
@@ -90,6 +109,11 @@ public class Freebusy {
          * <p> 示例值：2020-10-28T22:45:00+08:00
          */
         private String endTime;
+        /**
+         * 参与人RSVP状态
+         * <p> 示例值：
+         */
+        private String rsvpStatus;
 
         /**
          * 忙闲信息开始时间，RFC3339 date_time 格式
@@ -113,6 +137,31 @@ public class Freebusy {
          */
         public Builder endTime(String endTime) {
             this.endTime = endTime;
+            return this;
+        }
+
+
+        /**
+         * 参与人RSVP状态
+         * <p> 示例值：
+         *
+         * @param rsvpStatus
+         * @return
+         */
+        public Builder rsvpStatus(String rsvpStatus) {
+            this.rsvpStatus = rsvpStatus;
+            return this;
+        }
+
+        /**
+         * 参与人RSVP状态
+         * <p> 示例值：
+         *
+         * @param rsvpStatus {@link com.lark.oapi.service.calendar.v4.enums.FreebusyRsvpStatusEnum}
+         * @return
+         */
+        public Builder rsvpStatus(com.lark.oapi.service.calendar.v4.enums.FreebusyRsvpStatusEnum rsvpStatus) {
+            this.rsvpStatus = rsvpStatus.getValue();
             return this;
         }
 

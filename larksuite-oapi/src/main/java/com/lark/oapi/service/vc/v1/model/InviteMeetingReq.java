@@ -112,10 +112,10 @@ public class InviteMeetingReq {
          * 此次调用中使用的用户ID的类型，默认使用open_id可不填
          * <p> 示例值：
          *
-         * @param userIdType {@link com.lark.oapi.service.vc.v1.enums.InviteMeetingUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.vc.v1.enums.InviteMeetingInviteParticipantUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.vc.v1.enums.InviteMeetingUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.vc.v1.enums.InviteMeetingInviteParticipantUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }

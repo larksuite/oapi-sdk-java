@@ -88,6 +88,12 @@ public class DimensionAssessment {
      */
     @SerializedName("question_assessments")
     private QuestionAssessment[] questionAssessments;
+    /**
+     * 能力项评价
+     * <p> 示例值：
+     */
+    @SerializedName("ability_assessments")
+    private AbilityAssessment[] abilityAssessments;
 
     // builder 开始
     public DimensionAssessment() {
@@ -144,6 +150,11 @@ public class DimensionAssessment {
          * <p> 示例值：
          */
         this.questionAssessments = builder.questionAssessments;
+        /**
+         * 能力项评价
+         * <p> 示例值：
+         */
+        this.abilityAssessments = builder.abilityAssessments;
     }
 
     public static Builder newBuilder() {
@@ -230,6 +241,14 @@ public class DimensionAssessment {
         this.questionAssessments = questionAssessments;
     }
 
+    public AbilityAssessment[] getAbilityAssessments() {
+        return this.abilityAssessments;
+    }
+
+    public void setAbilityAssessments(AbilityAssessment[] abilityAssessments) {
+        this.abilityAssessments = abilityAssessments;
+    }
+
     public static class Builder {
         /**
          * 对应模版中维度ID
@@ -281,6 +300,11 @@ public class DimensionAssessment {
          * <p> 示例值：
          */
         private QuestionAssessment[] questionAssessments;
+        /**
+         * 能力项评价
+         * <p> 示例值：
+         */
+        private AbilityAssessment[] abilityAssessments;
 
         /**
          * 对应模版中维度ID
@@ -408,6 +432,19 @@ public class DimensionAssessment {
          */
         public Builder questionAssessments(QuestionAssessment[] questionAssessments) {
             this.questionAssessments = questionAssessments;
+            return this;
+        }
+
+
+        /**
+         * 能力项评价
+         * <p> 示例值：
+         *
+         * @param abilityAssessments
+         * @return
+         */
+        public Builder abilityAssessments(AbilityAssessment[] abilityAssessments) {
+            this.abilityAssessments = abilityAssessments;
             return this;
         }
 

@@ -29,7 +29,6 @@ public enum StandardDimensionApiNameEnum {
     CPST_PLAN("cpst_plan"), // 薪资方案
     SALARY_LEVEL("salary_level"), // 薪级薪等
     CPST_CHANGE_REASON("cpst_change_reason"), // 定调薪原因
-    PERFORMANCE_REVIEW_PERIOD("performance_review_period"), // 绩效周期
     INDICATOR("indicator"), // 绩效评估项
     SCORE_GRADE("score_grade"), // 绩效等级
     CUSTOM_ORG_01("custom_org_01"), // 自定义组织01

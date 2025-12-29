@@ -133,10 +133,10 @@ public class GetActiveMeetingReserveReq {
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
          *
-         * @param userIdType {@link com.lark.oapi.service.vc.v1.enums.GetActiveMeetingReserveUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.vc.v1.enums.GetActiveMeetingReserveGetActiveMeetingByReserveIDUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.vc.v1.enums.GetActiveMeetingReserveUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.vc.v1.enums.GetActiveMeetingReserveGetActiveMeetingByReserveIDUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }

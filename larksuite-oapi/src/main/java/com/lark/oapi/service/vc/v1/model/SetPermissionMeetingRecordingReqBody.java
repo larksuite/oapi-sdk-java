@@ -120,10 +120,10 @@ public class SetPermissionMeetingRecordingReqBody {
          * 授权或者取消授权，默认授权
          * <p> 示例值：1
          *
-         * @param actionType {@link com.lark.oapi.service.vc.v1.enums.SetPermissionMeetingRecordingActionTypeEnum}
+         * @param actionType {@link com.lark.oapi.service.vc.v1.enums.SetPermissionMeetingRecordingSetRecordingPermissionActionTypeEnum}
          * @return
          */
-        public Builder actionType(com.lark.oapi.service.vc.v1.enums.SetPermissionMeetingRecordingActionTypeEnum actionType) {
+        public Builder actionType(com.lark.oapi.service.vc.v1.enums.SetPermissionMeetingRecordingSetRecordingPermissionActionTypeEnum actionType) {
             this.actionType = actionType.getValue();
             return this;
         }

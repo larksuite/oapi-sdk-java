@@ -36,6 +36,13 @@ public class RecordsPostWorkspaceTableReq {
     @SerializedName("columns")
     private String columns;
     /**
+     * UPSERT 时使用，指定使用哪一个或多个具有唯一约束的字段作为冲突判断依据，默认为表主键。;假设 user_products 表有一个由 user_id 和 product_id 组成的复合唯一约束。
+     * <p> 示例值：user_id,product_id
+     */
+    @Query
+    @SerializedName("on_conflict")
+    private String onConflict;
+    /**
      * 工作空间id
      * <p> 示例值：workspace_abc
      */
@@ -51,6 +58,7 @@ public class RecordsPostWorkspaceTableReq {
     private String tableName;
     @Body
     private RecordsPostWorkspaceTableReqBody body;
+
     // builder 开始
     public RecordsPostWorkspaceTableReq() {
     }
@@ -61,6 +69,11 @@ public class RecordsPostWorkspaceTableReq {
          * <p> 示例值：name,age
          */
         this.columns = builder.columns;
+        /**
+         * UPSERT 时使用，指定使用哪一个或多个具有唯一约束的字段作为冲突判断依据，默认为表主键。;假设 user_products 表有一个由 user_id 和 product_id 组成的复合唯一约束。
+         * <p> 示例值：user_id,product_id
+         */
+        this.onConflict = builder.onConflict;
         /**
          * 工作空间id
          * <p> 示例值：workspace_abc
@@ -84,6 +97,14 @@ public class RecordsPostWorkspaceTableReq {
 
     public void setColumns(String columns) {
         this.columns = columns;
+    }
+
+    public String getOnConflict() {
+        return this.onConflict;
+    }
+
+    public void setOnConflict(String onConflict) {
+        this.onConflict = onConflict;
     }
 
     public String getWorkspaceId() {
@@ -112,6 +133,7 @@ public class RecordsPostWorkspaceTableReq {
 
     public static class Builder {
         private String columns; // UPSERT 时使用，指定列，多列英文逗号拼接
+        private String onConflict; // UPSERT 时使用，指定使用哪一个或多个具有唯一约束的字段作为冲突判断依据，默认为表主键。;假设 user_products 表有一个由 user_id 和 product_id 组成的复合唯一约束。
         private String workspaceId; // 工作空间id
         private String tableName; // 数据表表名
         private RecordsPostWorkspaceTableReqBody body;
@@ -125,6 +147,18 @@ public class RecordsPostWorkspaceTableReq {
          */
         public Builder columns(String columns) {
             this.columns = columns;
+            return this;
+        }
+
+        /**
+         * UPSERT 时使用，指定使用哪一个或多个具有唯一约束的字段作为冲突判断依据，默认为表主键。;假设 user_products 表有一个由 user_id 和 product_id 组成的复合唯一约束。
+         * <p> 示例值：user_id,product_id
+         *
+         * @param onConflict
+         * @return
+         */
+        public Builder onConflict(String onConflict) {
+            this.onConflict = onConflict;
             return this;
         }
 

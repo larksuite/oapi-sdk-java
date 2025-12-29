@@ -148,13 +148,6 @@ public class MatchCompensationStandardReq {
     @SerializedName("effective_time")
     private String effectiveTime;
     /**
-     * 绩效周期ID
-     * <p> 示例值：7527790505990932012
-     */
-    @Query
-    @SerializedName("performance_review_period_id")
-    private String performanceReviewPeriodId;
-    /**
      * 绩效评估项ID
      * <p> 示例值：7382324314454492716
      */
@@ -294,11 +287,6 @@ public class MatchCompensationStandardReq {
          * <p> 示例值：1660924800000
          */
         this.effectiveTime = builder.effectiveTime;
-        /**
-         * 绩效周期ID
-         * <p> 示例值：7527790505990932012
-         */
-        this.performanceReviewPeriodId = builder.performanceReviewPeriodId;
         /**
          * 绩效评估项ID
          * <p> 示例值：7382324314454492716
@@ -476,14 +464,6 @@ public class MatchCompensationStandardReq {
         this.effectiveTime = effectiveTime;
     }
 
-    public String getPerformanceReviewPeriodId() {
-        return this.performanceReviewPeriodId;
-    }
-
-    public void setPerformanceReviewPeriodId(String performanceReviewPeriodId) {
-        this.performanceReviewPeriodId = performanceReviewPeriodId;
-    }
-
     public String getPerformanceIndicatorId() {
         return this.performanceIndicatorId;
     }
@@ -558,7 +538,6 @@ public class MatchCompensationStandardReq {
         private String cpstPlanId; // 薪资方案ID
         private String cpstSalaryLevelId; // 薪级薪等ID
         private String effectiveTime; // 生效时间
-        private String performanceReviewPeriodId; // 绩效周期ID
         private String performanceIndicatorId; // 绩效评估项ID
         private String performanceScoreGradeId; // 绩效等级ID
         private String customOrg1Ids; // 自定义组织1 IDs
@@ -832,19 +811,6 @@ public class MatchCompensationStandardReq {
          */
         public Builder effectiveTime(String effectiveTime) {
             this.effectiveTime = effectiveTime;
-            return this;
-        }
-
-
-        /**
-         * 绩效周期ID
-         * <p> 示例值：7527790505990932012
-         *
-         * @param performanceReviewPeriodId
-         * @return
-         */
-        public Builder performanceReviewPeriodId(String performanceReviewPeriodId) {
-            this.performanceReviewPeriodId = performanceReviewPeriodId;
             return this;
         }
 

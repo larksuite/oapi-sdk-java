@@ -247,10 +247,10 @@ public class ListAdminDeptStatReq {
          * 部门ID类型
          * <p> 示例值：open_department_id
          *
-         * @param departmentIdType {@link com.lark.oapi.service.admin.v1.enums.ListAdminDeptStatDepartmentIdTypeEnum}
+         * @param departmentIdType {@link com.lark.oapi.service.admin.v1.enums.ListAdminDeptStatApiMGetDepartmentDailyStatisticsDepartmentIDTypeEnum}
          * @return
          */
-        public Builder departmentIdType(com.lark.oapi.service.admin.v1.enums.ListAdminDeptStatDepartmentIdTypeEnum departmentIdType) {
+        public Builder departmentIdType(com.lark.oapi.service.admin.v1.enums.ListAdminDeptStatApiMGetDepartmentDailyStatisticsDepartmentIDTypeEnum departmentIdType) {
             this.departmentIdType = departmentIdType.getValue();
             return this;
         }

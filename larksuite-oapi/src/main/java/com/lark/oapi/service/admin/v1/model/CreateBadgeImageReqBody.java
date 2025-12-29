@@ -120,10 +120,10 @@ public class CreateBadgeImageReqBody {
          * 图片的类型
          * <p> 示例值：1
          *
-         * @param imageType {@link com.lark.oapi.service.admin.v1.enums.CreateBadgeImageImageTypeEnum}
+         * @param imageType {@link com.lark.oapi.service.admin.v1.enums.CreateBadgeImageUploadBadgeImageImageTypeEnum}
          * @return
          */
-        public Builder imageType(com.lark.oapi.service.admin.v1.enums.CreateBadgeImageImageTypeEnum imageType) {
+        public Builder imageType(com.lark.oapi.service.admin.v1.enums.CreateBadgeImageUploadBadgeImageImageTypeEnum imageType) {
             this.imageType = imageType.getValue();
             return this;
         }

@@ -106,6 +106,12 @@ public class InterviewFeedbackFormDimension {
      */
     @SerializedName("related_dimension_config")
     private RelatedDimensionConfig relatedDimensionConfig;
+    /**
+     * 能力项关联配置
+     * <p> 示例值：
+     */
+    @SerializedName("dimension_ability_args")
+    private DimensionAbilityArgs[] dimensionAbilityArgs;
 
     // builder 开始
     public InterviewFeedbackFormDimension() {
@@ -177,6 +183,11 @@ public class InterviewFeedbackFormDimension {
          * <p> 示例值：
          */
         this.relatedDimensionConfig = builder.relatedDimensionConfig;
+        /**
+         * 能力项关联配置
+         * <p> 示例值：
+         */
+        this.dimensionAbilityArgs = builder.dimensionAbilityArgs;
     }
 
     public static Builder newBuilder() {
@@ -287,6 +298,14 @@ public class InterviewFeedbackFormDimension {
         this.relatedDimensionConfig = relatedDimensionConfig;
     }
 
+    public DimensionAbilityArgs[] getDimensionAbilityArgs() {
+        return this.dimensionAbilityArgs;
+    }
+
+    public void setDimensionAbilityArgs(DimensionAbilityArgs[] dimensionAbilityArgs) {
+        this.dimensionAbilityArgs = dimensionAbilityArgs;
+    }
+
     public static class Builder {
         /**
          * 模块维度ID
@@ -353,6 +372,11 @@ public class InterviewFeedbackFormDimension {
          * <p> 示例值：
          */
         private RelatedDimensionConfig relatedDimensionConfig;
+        /**
+         * 能力项关联配置
+         * <p> 示例值：
+         */
+        private DimensionAbilityArgs[] dimensionAbilityArgs;
 
         /**
          * 模块维度ID
@@ -519,6 +543,19 @@ public class InterviewFeedbackFormDimension {
          */
         public Builder relatedDimensionConfig(RelatedDimensionConfig relatedDimensionConfig) {
             this.relatedDimensionConfig = relatedDimensionConfig;
+            return this;
+        }
+
+
+        /**
+         * 能力项关联配置
+         * <p> 示例值：
+         *
+         * @param dimensionAbilityArgs
+         * @return
+         */
+        public Builder dimensionAbilityArgs(DimensionAbilityArgs[] dimensionAbilityArgs) {
+            this.dimensionAbilityArgs = dimensionAbilityArgs;
             return this;
         }
 

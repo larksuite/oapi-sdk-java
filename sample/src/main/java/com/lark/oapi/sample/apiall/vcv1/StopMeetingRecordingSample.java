@@ -15,7 +15,6 @@ public class StopMeetingRecordingSample {
 
         // 创建请求对象
         StopMeetingRecordingReq req = StopMeetingRecordingReq.newBuilder()
-                .meetingId("6911188411932033028")
                 .build();
 
         // 发起请求

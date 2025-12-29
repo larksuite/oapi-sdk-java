@@ -208,10 +208,10 @@ public class ListBadgeGrantReq {
          * 用户 ID 类型
          * <p> 示例值：open_id
          *
-         * @param userIdType {@link com.lark.oapi.service.admin.v1.enums.ListBadgeGrantUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.admin.v1.enums.ListBadgeGrantScanGrantsUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.admin.v1.enums.ListBadgeGrantUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.admin.v1.enums.ListBadgeGrantScanGrantsUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }
@@ -232,10 +232,10 @@ public class ListBadgeGrantReq {
          * 此次调用中使用的部门ID的类型。
          * <p> 示例值：open_department_id
          *
-         * @param departmentIdType {@link com.lark.oapi.service.admin.v1.enums.ListBadgeGrantDepartmentIdTypeEnum}
+         * @param departmentIdType {@link com.lark.oapi.service.admin.v1.enums.ListBadgeGrantScanGrantsDepartmentIDTypeEnum}
          * @return
          */
-        public Builder departmentIdType(com.lark.oapi.service.admin.v1.enums.ListBadgeGrantDepartmentIdTypeEnum departmentIdType) {
+        public Builder departmentIdType(com.lark.oapi.service.admin.v1.enums.ListBadgeGrantScanGrantsDepartmentIDTypeEnum departmentIdType) {
             this.departmentIdType = departmentIdType.getValue();
             return this;
         }

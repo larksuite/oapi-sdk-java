@@ -112,10 +112,10 @@ public class KickoutMeetingReq {
          * 此次调用中使用的用户ID的类型，默认使用open_id可不填
          * <p> 示例值：
          *
-         * @param userIdType {@link com.lark.oapi.service.vc.v1.enums.KickoutMeetingUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.vc.v1.enums.KickoutMeetingKickoutParticipantUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.vc.v1.enums.KickoutMeetingUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.vc.v1.enums.KickoutMeetingKickoutParticipantUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }

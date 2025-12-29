@@ -59,6 +59,12 @@ public class BatchFreebusyReqBody {
      */
     @SerializedName("only_busy")
     private Boolean onlyBusy;
+    /**
+     * 是否需要RSVP状态信息
+     * <p> 示例值：true
+     */
+    @SerializedName("need_rsvp_status")
+    private Boolean needRsvpStatus;
 
     // builder 开始
     public BatchFreebusyReqBody() {
@@ -90,6 +96,11 @@ public class BatchFreebusyReqBody {
          * <p> 示例值：true
          */
         this.onlyBusy = builder.onlyBusy;
+        /**
+         * 是否需要RSVP状态信息
+         * <p> 示例值：true
+         */
+        this.needRsvpStatus = builder.needRsvpStatus;
     }
 
     public static Builder newBuilder() {
@@ -136,6 +147,14 @@ public class BatchFreebusyReqBody {
         this.onlyBusy = onlyBusy;
     }
 
+    public Boolean getNeedRsvpStatus() {
+        return this.needRsvpStatus;
+    }
+
+    public void setNeedRsvpStatus(Boolean needRsvpStatus) {
+        this.needRsvpStatus = needRsvpStatus;
+    }
+
     public static class Builder {
         /**
          * 获取忙闲信息的开始时间，RFC3339 date_time格式；time_min与time_max的时间区间不能超过3个月。
@@ -162,6 +181,11 @@ public class BatchFreebusyReqBody {
          * <p> 示例值：true
          */
         private Boolean onlyBusy;
+        /**
+         * 是否需要RSVP状态信息
+         * <p> 示例值：true
+         */
+        private Boolean needRsvpStatus;
 
         /**
          * 获取忙闲信息的开始时间，RFC3339 date_time格式；time_min与time_max的时间区间不能超过3个月。
@@ -224,6 +248,19 @@ public class BatchFreebusyReqBody {
          */
         public Builder onlyBusy(Boolean onlyBusy) {
             this.onlyBusy = onlyBusy;
+            return this;
+        }
+
+
+        /**
+         * 是否需要RSVP状态信息
+         * <p> 示例值：true
+         *
+         * @param needRsvpStatus
+         * @return
+         */
+        public Builder needRsvpStatus(Boolean needRsvpStatus) {
+            this.needRsvpStatus = needRsvpStatus;
             return this;
         }
 

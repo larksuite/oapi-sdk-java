@@ -331,10 +331,10 @@ public class ListAuditInfoReq {
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：user_id
          *
-         * @param userIdType {@link com.lark.oapi.service.admin.v1.enums.ListAuditInfoUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.admin.v1.enums.ListAuditInfoGetAuditInfoListUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.admin.v1.enums.ListAuditInfoUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.admin.v1.enums.ListAuditInfoGetAuditInfoListUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }
@@ -395,10 +395,10 @@ public class ListAuditInfoReq {
          * 过滤操作者: 操作者类型. 与 operator_value 配合使用
          * <p> 示例值：
          *
-         * @param operatorType {@link com.lark.oapi.service.admin.v1.enums.ListAuditInfoOperatorTypeEnum}
+         * @param operatorType {@link com.lark.oapi.service.admin.v1.enums.ListAuditInfoGetAuditInfoListOperatorTypeEnum}
          * @return
          */
-        public Builder operatorType(com.lark.oapi.service.admin.v1.enums.ListAuditInfoOperatorTypeEnum operatorType) {
+        public Builder operatorType(com.lark.oapi.service.admin.v1.enums.ListAuditInfoGetAuditInfoListOperatorTypeEnum operatorType) {
             this.operatorType = operatorType.getValue();
             return this;
         }
@@ -472,10 +472,10 @@ public class ListAuditInfoReq {
          * 过滤用户类型. 仅当 operator_type=user 时生效
          * <p> 示例值：
          *
-         * @param userType {@link com.lark.oapi.service.admin.v1.enums.ListAuditInfoUserTypeEnum}
+         * @param userType {@link com.lark.oapi.service.admin.v1.enums.ListAuditInfoGetAuditInfoListUserTypeEnum}
          * @return
          */
-        public Builder userType(com.lark.oapi.service.admin.v1.enums.ListAuditInfoUserTypeEnum userType) {
+        public Builder userType(com.lark.oapi.service.admin.v1.enums.ListAuditInfoGetAuditInfoListUserTypeEnum userType) {
             this.userType = userType.getValue();
             return this;
         }

@@ -15,7 +15,6 @@ public class SetPermissionMeetingRecordingSample {
 
         // 创建请求对象
         SetPermissionMeetingRecordingReq req = SetPermissionMeetingRecordingReq.newBuilder()
-                .meetingId("6911188411932033028")
                 .userIdType("user_id")
                 .setPermissionMeetingRecordingReqBody(SetPermissionMeetingRecordingReqBody.newBuilder()
                         .permissionObjects(new RecordingPermissionObject[]{})

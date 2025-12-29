@@ -18,6 +18,7 @@ public class RecordsPostWorkspaceTableSample {
                 .workspaceId("workspace_abc")
                 .tableName("table_name_1")
                 .columns("name,age")
+                .onConflict("user_id,product_id")
                 .recordsPostWorkspaceTableReqBody(RecordsPostWorkspaceTableReqBody.newBuilder()
                         .records("")
                         .build())

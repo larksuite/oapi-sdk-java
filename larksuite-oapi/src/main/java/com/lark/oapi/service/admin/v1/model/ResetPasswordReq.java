@@ -91,10 +91,10 @@ public class ResetPasswordReq {
          * 用户ID类型
          * <p> 示例值：user_id
          *
-         * @param userIdType {@link com.lark.oapi.service.admin.v1.enums.ResetPasswordUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.admin.v1.enums.ResetPasswordResetPasswordOapiUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.admin.v1.enums.ResetPasswordUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.admin.v1.enums.ResetPasswordResetPasswordOapiUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }

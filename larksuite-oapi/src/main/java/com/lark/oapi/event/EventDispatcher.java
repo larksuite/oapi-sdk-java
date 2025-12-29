@@ -33,6 +33,7 @@ import com.lark.oapi.service.compensation.CompensationService;
 import com.lark.oapi.service.contact.ContactService;
 import com.lark.oapi.service.corehr.CorehrService;
 import com.lark.oapi.service.corehr.CorehrService;
+import com.lark.oapi.service.directory.DirectoryService;
 import com.lark.oapi.service.docs.DocsService;
 import com.lark.oapi.service.document_ai.DocumentAiService;
 import com.lark.oapi.service.docx.DocxService;

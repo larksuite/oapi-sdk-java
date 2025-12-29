@@ -91,10 +91,10 @@ public class MgetRoomReq {
          * 此次调用中使用的用户ID的类型，默认使用open_id可不填
          * <p> 示例值：
          *
-         * @param userIdType {@link com.lark.oapi.service.vc.v1.enums.MgetRoomUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.vc.v1.enums.MgetRoomMGetRoomByIDsUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.vc.v1.enums.MgetRoomUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.vc.v1.enums.MgetRoomMGetRoomByIDsUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }

@@ -338,10 +338,10 @@ public class Grant {
          * 授予名单类型
          * <p> 示例值：0
          *
-         * @param grantType {@link com.lark.oapi.service.admin.v1.enums.GrantGrantTypeEnum}
+         * @param grantType {@link com.lark.oapi.service.admin.v1.enums.GrantGrantGrantTypeEnum}
          * @return
          */
-        public Builder grantType(com.lark.oapi.service.admin.v1.enums.GrantGrantTypeEnum grantType) {
+        public Builder grantType(com.lark.oapi.service.admin.v1.enums.GrantGrantGrantTypeEnum grantType) {
             this.grantType = grantType.getValue();
             return this;
         }

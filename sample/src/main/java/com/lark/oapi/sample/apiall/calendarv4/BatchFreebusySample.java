@@ -22,6 +22,7 @@ public class BatchFreebusySample {
                         .userIds(new String[]{})
                         .includeExternalCalendar(true)
                         .onlyBusy(true)
+                        .needRsvpStatus(true)
                         .build())
                 .build();
 

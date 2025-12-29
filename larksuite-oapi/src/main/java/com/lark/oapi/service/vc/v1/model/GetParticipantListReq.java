@@ -397,10 +397,10 @@ public class GetParticipantListReq {
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
          *
-         * @param userIdType {@link com.lark.oapi.service.vc.v1.enums.GetParticipantListUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.vc.v1.enums.GetParticipantListGetParticipantListUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.vc.v1.enums.GetParticipantListUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.vc.v1.enums.GetParticipantListGetParticipantListUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }

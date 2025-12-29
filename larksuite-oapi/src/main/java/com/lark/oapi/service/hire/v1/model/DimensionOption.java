@@ -46,6 +46,12 @@ public class DimensionOption {
      */
     @SerializedName("score_val")
     private Integer scoreVal;
+    /**
+     * 选项全称
+     * <p> 示例值：
+     */
+    @SerializedName("alias_name")
+    private I18n aliasName;
 
     // builder 开始
     public DimensionOption() {
@@ -67,6 +73,11 @@ public class DimensionOption {
          * <p> 示例值：10
          */
         this.scoreVal = builder.scoreVal;
+        /**
+         * 选项全称
+         * <p> 示例值：
+         */
+        this.aliasName = builder.aliasName;
     }
 
     public static Builder newBuilder() {
@@ -97,6 +108,14 @@ public class DimensionOption {
         this.scoreVal = scoreVal;
     }
 
+    public I18n getAliasName() {
+        return this.aliasName;
+    }
+
+    public void setAliasName(I18n aliasName) {
+        this.aliasName = aliasName;
+    }
+
     public static class Builder {
         /**
          * 选项ID
@@ -113,6 +132,11 @@ public class DimensionOption {
          * <p> 示例值：10
          */
         private Integer scoreVal;
+        /**
+         * 选项全称
+         * <p> 示例值：
+         */
+        private I18n aliasName;
 
         /**
          * 选项ID
@@ -149,6 +173,19 @@ public class DimensionOption {
          */
         public Builder scoreVal(Integer scoreVal) {
             this.scoreVal = scoreVal;
+            return this;
+        }
+
+
+        /**
+         * 选项全称
+         * <p> 示例值：
+         *
+         * @param aliasName
+         * @return
+         */
+        public Builder aliasName(I18n aliasName) {
+            this.aliasName = aliasName;
             return this;
         }
 

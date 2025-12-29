@@ -210,10 +210,10 @@ public class ListAlertReq {
          * 查询对象类型，不填返回所有
          * <p> 示例值：1
          *
-         * @param queryType {@link com.lark.oapi.service.vc.v1.enums.ListAlertQueryTypeEnum}
+         * @param queryType {@link com.lark.oapi.service.vc.v1.enums.ListAlertGetAlertHistoryQueryTypeEnum}
          * @return
          */
-        public Builder queryType(com.lark.oapi.service.vc.v1.enums.ListAlertQueryTypeEnum queryType) {
+        public Builder queryType(com.lark.oapi.service.vc.v1.enums.ListAlertGetAlertHistoryQueryTypeEnum queryType) {
             this.queryType = queryType.getValue();
             return this;
         }

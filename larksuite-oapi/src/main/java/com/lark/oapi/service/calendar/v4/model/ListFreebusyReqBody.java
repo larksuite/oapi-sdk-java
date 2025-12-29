@@ -65,6 +65,12 @@ public class ListFreebusyReqBody {
      */
     @SerializedName("only_busy")
     private Boolean onlyBusy;
+    /**
+     * 是否需要RSVP状态信息
+     * <p> 示例值：true
+     */
+    @SerializedName("need_rsvp_status")
+    private Boolean needRsvpStatus;
 
     // builder 开始
     public ListFreebusyReqBody() {
@@ -101,6 +107,11 @@ public class ListFreebusyReqBody {
          * <p> 示例值：true
          */
         this.onlyBusy = builder.onlyBusy;
+        /**
+         * 是否需要RSVP状态信息
+         * <p> 示例值：true
+         */
+        this.needRsvpStatus = builder.needRsvpStatus;
     }
 
     public static Builder newBuilder() {
@@ -155,6 +166,14 @@ public class ListFreebusyReqBody {
         this.onlyBusy = onlyBusy;
     }
 
+    public Boolean getNeedRsvpStatus() {
+        return this.needRsvpStatus;
+    }
+
+    public void setNeedRsvpStatus(Boolean needRsvpStatus) {
+        this.needRsvpStatus = needRsvpStatus;
+    }
+
     public static class Builder {
         /**
          * 查询时段开始时间，需要url编码
@@ -186,6 +205,11 @@ public class ListFreebusyReqBody {
          * <p> 示例值：true
          */
         private Boolean onlyBusy;
+        /**
+         * 是否需要RSVP状态信息
+         * <p> 示例值：true
+         */
+        private Boolean needRsvpStatus;
 
         /**
          * 查询时段开始时间，需要url编码
@@ -261,6 +285,19 @@ public class ListFreebusyReqBody {
          */
         public Builder onlyBusy(Boolean onlyBusy) {
             this.onlyBusy = onlyBusy;
+            return this;
+        }
+
+
+        /**
+         * 是否需要RSVP状态信息
+         * <p> 示例值：true
+         *
+         * @param needRsvpStatus
+         * @return
+         */
+        public Builder needRsvpStatus(Boolean needRsvpStatus) {
+            this.needRsvpStatus = needRsvpStatus;
             return this;
         }
 

@@ -15,7 +15,6 @@ public class StartMeetingRecordingSample {
 
         // 创建请求对象
         StartMeetingRecordingReq req = StartMeetingRecordingReq.newBuilder()
-                .meetingId("6911188411932033028")
                 .startMeetingRecordingReqBody(StartMeetingRecordingReqBody.newBuilder()
                         .timezone(8)
                         .build())

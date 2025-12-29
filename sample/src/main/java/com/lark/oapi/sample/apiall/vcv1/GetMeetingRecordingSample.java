@@ -15,7 +15,6 @@ public class GetMeetingRecordingSample {
 
         // 创建请求对象
         GetMeetingRecordingReq req = GetMeetingRecordingReq.newBuilder()
-                .meetingId("6911188411932033028")
                 .build();
 
         // 发起请求

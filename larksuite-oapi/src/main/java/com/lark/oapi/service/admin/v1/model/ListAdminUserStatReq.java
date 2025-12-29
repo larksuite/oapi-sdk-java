@@ -247,10 +247,10 @@ public class ListAdminUserStatReq {
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
          *
-         * @param userIdType {@link com.lark.oapi.service.admin.v1.enums.ListAdminUserStatUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.admin.v1.enums.ListAdminUserStatApiMGetUserDailyStatisticsUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.admin.v1.enums.ListAdminUserStatUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.admin.v1.enums.ListAdminUserStatApiMGetUserDailyStatisticsUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }
@@ -272,10 +272,10 @@ public class ListAdminUserStatReq {
          * 部门ID类型
          * <p> 示例值：open_department_id
          *
-         * @param departmentIdType {@link com.lark.oapi.service.admin.v1.enums.ListAdminUserStatDepartmentIdTypeEnum}
+         * @param departmentIdType {@link com.lark.oapi.service.admin.v1.enums.ListAdminUserStatApiMGetUserDailyStatisticsDepartmentIDTypeEnum}
          * @return
          */
-        public Builder departmentIdType(com.lark.oapi.service.admin.v1.enums.ListAdminUserStatDepartmentIdTypeEnum departmentIdType) {
+        public Builder departmentIdType(com.lark.oapi.service.admin.v1.enums.ListAdminUserStatApiMGetUserDailyStatisticsDepartmentIDTypeEnum departmentIdType) {
             this.departmentIdType = departmentIdType.getValue();
             return this;
         }

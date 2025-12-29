@@ -303,10 +303,10 @@ public class Task {
          * 任务状态
          * <p> 示例值：1,2
          *
-         * @param status {@link com.lark.oapi.service.admin.v1.enums.TaskStatusEnum}
+         * @param status {@link com.lark.oapi.service.admin.v1.enums.TaskTaskStatusEnum}
          * @return
          */
-        public Builder status(com.lark.oapi.service.admin.v1.enums.TaskStatusEnum status) {
+        public Builder status(com.lark.oapi.service.admin.v1.enums.TaskTaskStatusEnum status) {
             this.status = status.getValue();
             return this;
         }
@@ -354,10 +354,10 @@ public class Task {
          * 任务类型
          * <p> 示例值：1,2
          *
-         * @param type {@link com.lark.oapi.service.admin.v1.enums.TaskTypeEnum}
+         * @param type {@link com.lark.oapi.service.admin.v1.enums.TaskTaskTypeEnum}
          * @return
          */
-        public Builder type(com.lark.oapi.service.admin.v1.enums.TaskTypeEnum type) {
+        public Builder type(com.lark.oapi.service.admin.v1.enums.TaskTaskTypeEnum type) {
             this.type = type.getValue();
             return this;
         }

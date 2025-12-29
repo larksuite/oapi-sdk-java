@@ -133,10 +133,10 @@ public class GetReserveConfigDisableInformReq {
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
          *
-         * @param userIdType {@link com.lark.oapi.service.vc.v1.enums.GetReserveConfigDisableInformUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.vc.v1.enums.GetReserveConfigDisableInformGetDisableInformUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.vc.v1.enums.GetReserveConfigDisableInformUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.vc.v1.enums.GetReserveConfigDisableInformGetDisableInformUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }
