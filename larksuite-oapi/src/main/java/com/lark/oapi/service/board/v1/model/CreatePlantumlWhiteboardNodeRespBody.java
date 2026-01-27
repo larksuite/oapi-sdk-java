@@ -25,6 +25,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 import com.lark.oapi.core.utils.Strings;
+
+import java.util.Map;
+
 import com.lark.oapi.core.response.BaseResponse;
 
 public class CreatePlantumlWhiteboardNodeRespBody {
@@ -34,6 +37,12 @@ public class CreatePlantumlWhiteboardNodeRespBody {
      */
     @SerializedName("node_id")
     private String nodeId;
+    /**
+     * 额外的解析信息
+     * <p> 示例值：
+     */
+    @SerializedName("extra")
+    private Map<String, String[]> extra;
 
     public String getNodeId() {
         return this.nodeId;
@@ -41,6 +50,14 @@ public class CreatePlantumlWhiteboardNodeRespBody {
 
     public void setNodeId(String nodeId) {
         this.nodeId = nodeId;
+    }
+
+    public Map<String, String[]> getExtra() {
+        return this.extra;
+    }
+
+    public void setExtra(Map<String, String[]> extra) {
+        this.extra = extra;
     }
 
 }

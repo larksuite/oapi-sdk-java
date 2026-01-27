@@ -418,6 +418,21 @@ public class EventDispatcher implements IHandler {
 
 
         /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2WorkspaceRecordChangeV1(ApaasService.P2WorkspaceRecordChangeV1Handler handler) {
+            if (eventType2EventHandler.containsKey("apaas.workspace.record_change_v1")) {
+                throw new EventTypeAlreadyHasHandlerException("apaas.workspace.record_change_v1");
+            }
+            eventType2EventHandler.put("apaas.workspace.record_change_v1", handler);
+            return this;
+        }
+
+        /**
          * <p> 应用创建,当企业内有新的应用被创建时推送此事件
          * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application/events/created">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application/events/created</a>
          *

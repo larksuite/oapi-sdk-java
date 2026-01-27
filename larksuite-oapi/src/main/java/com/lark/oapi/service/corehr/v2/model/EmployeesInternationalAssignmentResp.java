@@ -185,6 +185,18 @@ public class EmployeesInternationalAssignmentResp {
      */
     @SerializedName("id")
     private String id;
+    /**
+     * 是否提供住宿
+     * <p> 示例值：true
+     */
+    @SerializedName("accommodation")
+    private Boolean accommodation;
+    /**
+     * 是否享有派驻津贴
+     * <p> 示例值：true
+     */
+    @SerializedName("international_assignment_allowance")
+    private Boolean internationalAssignmentAllowance;
 
     // builder 开始
     public EmployeesInternationalAssignmentResp() {
@@ -321,6 +333,16 @@ public class EmployeesInternationalAssignmentResp {
          * <p> 示例值：7127921432117937708
          */
         this.id = builder.id;
+        /**
+         * 是否提供住宿
+         * <p> 示例值：true
+         */
+        this.accommodation = builder.accommodation;
+        /**
+         * 是否享有派驻津贴
+         * <p> 示例值：true
+         */
+        this.internationalAssignmentAllowance = builder.internationalAssignmentAllowance;
     }
 
     public static Builder newBuilder() {
@@ -535,6 +557,22 @@ public class EmployeesInternationalAssignmentResp {
         this.id = id;
     }
 
+    public Boolean getAccommodation() {
+        return this.accommodation;
+    }
+
+    public void setAccommodation(Boolean accommodation) {
+        this.accommodation = accommodation;
+    }
+
+    public Boolean getInternationalAssignmentAllowance() {
+        return this.internationalAssignmentAllowance;
+    }
+
+    public void setInternationalAssignmentAllowance(Boolean internationalAssignmentAllowance) {
+        this.internationalAssignmentAllowance = internationalAssignmentAllowance;
+    }
+
     public static class Builder {
         /**
          * 外派工作地点 ID;  - 可通过[【查询单个地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/get)获取详细信息
@@ -666,6 +704,16 @@ public class EmployeesInternationalAssignmentResp {
          * <p> 示例值：7127921432117937708
          */
         private String id;
+        /**
+         * 是否提供住宿
+         * <p> 示例值：true
+         */
+        private Boolean accommodation;
+        /**
+         * 是否享有派驻津贴
+         * <p> 示例值：true
+         */
+        private Boolean internationalAssignmentAllowance;
 
         /**
          * 外派工作地点 ID;  - 可通过[【查询单个地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/get)获取详细信息
@@ -1001,6 +1049,32 @@ public class EmployeesInternationalAssignmentResp {
          */
         public Builder id(String id) {
             this.id = id;
+            return this;
+        }
+
+
+        /**
+         * 是否提供住宿
+         * <p> 示例值：true
+         *
+         * @param accommodation
+         * @return
+         */
+        public Builder accommodation(Boolean accommodation) {
+            this.accommodation = accommodation;
+            return this;
+        }
+
+
+        /**
+         * 是否享有派驻津贴
+         * <p> 示例值：true
+         *
+         * @param internationalAssignmentAllowance
+         * @return
+         */
+        public Builder internationalAssignmentAllowance(Boolean internationalAssignmentAllowance) {
+            this.internationalAssignmentAllowance = internationalAssignmentAllowance;
             return this;
         }
 

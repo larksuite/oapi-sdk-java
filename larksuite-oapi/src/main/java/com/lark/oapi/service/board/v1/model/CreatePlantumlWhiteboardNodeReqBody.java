@@ -51,6 +51,18 @@ public class CreatePlantumlWhiteboardNodeReqBody {
      */
     @SerializedName("diagram_type")
     private Integer diagramType;
+    /**
+     * 是否覆盖画板内容：true=覆盖，会将画板当前内容清除再写入；false=不覆盖，直接写入画板。默认为 false
+     * <p> 示例值：
+     */
+    @SerializedName("overwrite")
+    private Boolean overwrite;
+    /**
+     * 解析模式
+     * <p> 示例值：0
+     */
+    @SerializedName("parse_mode")
+    private Integer parseMode;
 
     // builder 开始
     public CreatePlantumlWhiteboardNodeReqBody() {
@@ -77,6 +89,16 @@ public class CreatePlantumlWhiteboardNodeReqBody {
          * <p> 示例值：
          */
         this.diagramType = builder.diagramType;
+        /**
+         * 是否覆盖画板内容：true=覆盖，会将画板当前内容清除再写入；false=不覆盖，直接写入画板。默认为 false
+         * <p> 示例值：
+         */
+        this.overwrite = builder.overwrite;
+        /**
+         * 解析模式
+         * <p> 示例值：0
+         */
+        this.parseMode = builder.parseMode;
     }
 
     public static Builder newBuilder() {
@@ -115,6 +137,22 @@ public class CreatePlantumlWhiteboardNodeReqBody {
         this.diagramType = diagramType;
     }
 
+    public Boolean getOverwrite() {
+        return this.overwrite;
+    }
+
+    public void setOverwrite(Boolean overwrite) {
+        this.overwrite = overwrite;
+    }
+
+    public Integer getParseMode() {
+        return this.parseMode;
+    }
+
+    public void setParseMode(Integer parseMode) {
+        this.parseMode = parseMode;
+    }
+
     public static class Builder {
         /**
          * plant uml 代码
@@ -134,6 +172,16 @@ public class CreatePlantumlWhiteboardNodeReqBody {
          * <p> 示例值：
          */
         private Integer diagramType;
+        /**
+         * 是否覆盖画板内容：true=覆盖，会将画板当前内容清除再写入；false=不覆盖，直接写入画板。默认为 false
+         * <p> 示例值：
+         */
+        private Boolean overwrite;
+        /**
+         * 解析模式
+         * <p> 示例值：0
+         */
+        private Integer parseMode;
 
         /**
          * plant uml 代码
@@ -215,6 +263,44 @@ public class CreatePlantumlWhiteboardNodeReqBody {
          */
         public Builder diagramType(com.lark.oapi.service.board.v1.enums.CreatePlantumlWhiteboardNodeDiagramTypeEnum diagramType) {
             this.diagramType = diagramType.getValue();
+            return this;
+        }
+
+
+        /**
+         * 是否覆盖画板内容：true=覆盖，会将画板当前内容清除再写入；false=不覆盖，直接写入画板。默认为 false
+         * <p> 示例值：
+         *
+         * @param overwrite
+         * @return
+         */
+        public Builder overwrite(Boolean overwrite) {
+            this.overwrite = overwrite;
+            return this;
+        }
+
+
+        /**
+         * 解析模式
+         * <p> 示例值：0
+         *
+         * @param parseMode
+         * @return
+         */
+        public Builder parseMode(Integer parseMode) {
+            this.parseMode = parseMode;
+            return this;
+        }
+
+        /**
+         * 解析模式
+         * <p> 示例值：0
+         *
+         * @param parseMode {@link com.lark.oapi.service.board.v1.enums.CreatePlantumlWhiteboardNodeParseModeEnum}
+         * @return
+         */
+        public Builder parseMode(com.lark.oapi.service.board.v1.enums.CreatePlantumlWhiteboardNodeParseModeEnum parseMode) {
+            this.parseMode = parseMode.getValue();
             return this;
         }
 

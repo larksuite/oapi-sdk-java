@@ -54,8 +54,9 @@ public class GuestTraceInfo {
     @SerializedName("invite_option")
     private InviteOption inviteOption;
     /**
-     * 客户端的IP
-      * <p>示例值：1.1.1.1*/
+     * 客户端的IP *
+      * <p>示例值：1.1.1.1
+     */
     @SerializedName("client_ip")
     private String clientIp;
 
@@ -85,10 +86,10 @@ public class GuestTraceInfo {
          */
         this.inviteOption = builder.inviteOption;
         /**
-         * 客户端的IP *
+         * 客户端的IP
           * <p > 示例值：1.1 .1 .1
-                */
-                this.clientIp = builder.clientIp;
+          */
+        this.clientIp = builder.clientIp;
     }
 
     public static Builder newBuilder() {
@@ -217,11 +218,10 @@ public class GuestTraceInfo {
         /**
          * 客户端的IP *
          * <p>示例值：1.1.1.1
-                *
         @param
         clientIp
          *@return
-                 */
+         */
 
         public Builder clientIp(String clientIp) {
             this.clientIp = clientIp;

@@ -137,6 +137,66 @@ public class AddressForUpdate {
      */
     @SerializedName("district_id_v2")
     private String districtIdV2;
+    /**
+     * 自定义字段
+     * <p> 示例值：
+     */
+    @SerializedName("custom_fields")
+    private ObjectFieldData[] customFields;
+    /**
+     * 地址行 1
+     * <p> 示例值：丹佛测试地址-纽埃时区
+     */
+    @SerializedName("address_line1")
+    private String addressLine1;
+    /**
+     * 地址行 2
+     * <p> 示例值：PoewH
+     */
+    @SerializedName("address_line2")
+    private String addressLine2;
+    /**
+     * 地址行 3
+     * <p> 示例值：PoewH
+     */
+    @SerializedName("address_line3")
+    private String addressLine3;
+    /**
+     * 地址行 4
+     * <p> 示例值：jmwJc
+     */
+    @SerializedName("address_line4")
+    private String addressLine4;
+    /**
+     * 地址行 5
+     * <p> 示例值：jmwJc
+     */
+    @SerializedName("address_line5")
+    private String addressLine5;
+    /**
+     * 地址行 6
+     * <p> 示例值：jmwJc
+     */
+    @SerializedName("address_line6")
+    private String addressLine6;
+    /**
+     * 地址行 7
+     * <p> 示例值：jmwJc
+     */
+    @SerializedName("address_line7")
+    private String addressLine7;
+    /**
+     * 地址行 8
+     * <p> 示例值：rafSu
+     */
+    @SerializedName("address_line8")
+    private String addressLine8;
+    /**
+     * 地址行 9
+     * <p> 示例值：McPRG
+     */
+    @SerializedName("address_line9")
+    private String addressLine9;
 
     // builder 开始
     public AddressForUpdate() {
@@ -233,6 +293,56 @@ public class AddressForUpdate {
          * <p> 示例值：6863333516579440141
          */
         this.districtIdV2 = builder.districtIdV2;
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
+        this.customFields = builder.customFields;
+        /**
+         * 地址行 1
+         * <p> 示例值：丹佛测试地址-纽埃时区
+         */
+        this.addressLine1 = builder.addressLine1;
+        /**
+         * 地址行 2
+         * <p> 示例值：PoewH
+         */
+        this.addressLine2 = builder.addressLine2;
+        /**
+         * 地址行 3
+         * <p> 示例值：PoewH
+         */
+        this.addressLine3 = builder.addressLine3;
+        /**
+         * 地址行 4
+         * <p> 示例值：jmwJc
+         */
+        this.addressLine4 = builder.addressLine4;
+        /**
+         * 地址行 5
+         * <p> 示例值：jmwJc
+         */
+        this.addressLine5 = builder.addressLine5;
+        /**
+         * 地址行 6
+         * <p> 示例值：jmwJc
+         */
+        this.addressLine6 = builder.addressLine6;
+        /**
+         * 地址行 7
+         * <p> 示例值：jmwJc
+         */
+        this.addressLine7 = builder.addressLine7;
+        /**
+         * 地址行 8
+         * <p> 示例值：rafSu
+         */
+        this.addressLine8 = builder.addressLine8;
+        /**
+         * 地址行 9
+         * <p> 示例值：McPRG
+         */
+        this.addressLine9 = builder.addressLine9;
     }
 
     public static Builder newBuilder() {
@@ -383,6 +493,86 @@ public class AddressForUpdate {
         this.districtIdV2 = districtIdV2;
     }
 
+    public ObjectFieldData[] getCustomFields() {
+        return this.customFields;
+    }
+
+    public void setCustomFields(ObjectFieldData[] customFields) {
+        this.customFields = customFields;
+    }
+
+    public String getAddressLine1() {
+        return this.addressLine1;
+    }
+
+    public void setAddressLine1(String addressLine1) {
+        this.addressLine1 = addressLine1;
+    }
+
+    public String getAddressLine2() {
+        return this.addressLine2;
+    }
+
+    public void setAddressLine2(String addressLine2) {
+        this.addressLine2 = addressLine2;
+    }
+
+    public String getAddressLine3() {
+        return this.addressLine3;
+    }
+
+    public void setAddressLine3(String addressLine3) {
+        this.addressLine3 = addressLine3;
+    }
+
+    public String getAddressLine4() {
+        return this.addressLine4;
+    }
+
+    public void setAddressLine4(String addressLine4) {
+        this.addressLine4 = addressLine4;
+    }
+
+    public String getAddressLine5() {
+        return this.addressLine5;
+    }
+
+    public void setAddressLine5(String addressLine5) {
+        this.addressLine5 = addressLine5;
+    }
+
+    public String getAddressLine6() {
+        return this.addressLine6;
+    }
+
+    public void setAddressLine6(String addressLine6) {
+        this.addressLine6 = addressLine6;
+    }
+
+    public String getAddressLine7() {
+        return this.addressLine7;
+    }
+
+    public void setAddressLine7(String addressLine7) {
+        this.addressLine7 = addressLine7;
+    }
+
+    public String getAddressLine8() {
+        return this.addressLine8;
+    }
+
+    public void setAddressLine8(String addressLine8) {
+        this.addressLine8 = addressLine8;
+    }
+
+    public String getAddressLine9() {
+        return this.addressLine9;
+    }
+
+    public void setAddressLine9(String addressLine9) {
+        this.addressLine9 = addressLine9;
+    }
+
     public static class Builder {
         /**
          * 地址 ID
@@ -474,6 +664,56 @@ public class AddressForUpdate {
          * <p> 示例值：6863333516579440141
          */
         private String districtIdV2;
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
+        private ObjectFieldData[] customFields;
+        /**
+         * 地址行 1
+         * <p> 示例值：丹佛测试地址-纽埃时区
+         */
+        private String addressLine1;
+        /**
+         * 地址行 2
+         * <p> 示例值：PoewH
+         */
+        private String addressLine2;
+        /**
+         * 地址行 3
+         * <p> 示例值：PoewH
+         */
+        private String addressLine3;
+        /**
+         * 地址行 4
+         * <p> 示例值：jmwJc
+         */
+        private String addressLine4;
+        /**
+         * 地址行 5
+         * <p> 示例值：jmwJc
+         */
+        private String addressLine5;
+        /**
+         * 地址行 6
+         * <p> 示例值：jmwJc
+         */
+        private String addressLine6;
+        /**
+         * 地址行 7
+         * <p> 示例值：jmwJc
+         */
+        private String addressLine7;
+        /**
+         * 地址行 8
+         * <p> 示例值：rafSu
+         */
+        private String addressLine8;
+        /**
+         * 地址行 9
+         * <p> 示例值：McPRG
+         */
+        private String addressLine9;
 
         /**
          * 地址 ID
@@ -705,6 +945,136 @@ public class AddressForUpdate {
          */
         public Builder districtIdV2(String districtIdV2) {
             this.districtIdV2 = districtIdV2;
+            return this;
+        }
+
+
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         *
+         * @param customFields
+         * @return
+         */
+        public Builder customFields(ObjectFieldData[] customFields) {
+            this.customFields = customFields;
+            return this;
+        }
+
+
+        /**
+         * 地址行 1
+         * <p> 示例值：丹佛测试地址-纽埃时区
+         *
+         * @param addressLine1
+         * @return
+         */
+        public Builder addressLine1(String addressLine1) {
+            this.addressLine1 = addressLine1;
+            return this;
+        }
+
+
+        /**
+         * 地址行 2
+         * <p> 示例值：PoewH
+         *
+         * @param addressLine2
+         * @return
+         */
+        public Builder addressLine2(String addressLine2) {
+            this.addressLine2 = addressLine2;
+            return this;
+        }
+
+
+        /**
+         * 地址行 3
+         * <p> 示例值：PoewH
+         *
+         * @param addressLine3
+         * @return
+         */
+        public Builder addressLine3(String addressLine3) {
+            this.addressLine3 = addressLine3;
+            return this;
+        }
+
+
+        /**
+         * 地址行 4
+         * <p> 示例值：jmwJc
+         *
+         * @param addressLine4
+         * @return
+         */
+        public Builder addressLine4(String addressLine4) {
+            this.addressLine4 = addressLine4;
+            return this;
+        }
+
+
+        /**
+         * 地址行 5
+         * <p> 示例值：jmwJc
+         *
+         * @param addressLine5
+         * @return
+         */
+        public Builder addressLine5(String addressLine5) {
+            this.addressLine5 = addressLine5;
+            return this;
+        }
+
+
+        /**
+         * 地址行 6
+         * <p> 示例值：jmwJc
+         *
+         * @param addressLine6
+         * @return
+         */
+        public Builder addressLine6(String addressLine6) {
+            this.addressLine6 = addressLine6;
+            return this;
+        }
+
+
+        /**
+         * 地址行 7
+         * <p> 示例值：jmwJc
+         *
+         * @param addressLine7
+         * @return
+         */
+        public Builder addressLine7(String addressLine7) {
+            this.addressLine7 = addressLine7;
+            return this;
+        }
+
+
+        /**
+         * 地址行 8
+         * <p> 示例值：rafSu
+         *
+         * @param addressLine8
+         * @return
+         */
+        public Builder addressLine8(String addressLine8) {
+            this.addressLine8 = addressLine8;
+            return this;
+        }
+
+
+        /**
+         * 地址行 9
+         * <p> 示例值：McPRG
+         *
+         * @param addressLine9
+         * @return
+         */
+        public Builder addressLine9(String addressLine9) {
+            this.addressLine9 = addressLine9;
             return this;
         }
 

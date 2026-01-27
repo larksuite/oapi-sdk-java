@@ -173,6 +173,18 @@ public class EmployeesInternationalAssignmentReq {
      */
     @SerializedName("expiration_time")
     private String expirationTime;
+    /**
+     * 是否享有派驻津贴
+     * <p> 示例值：true
+     */
+    @SerializedName("international_assignment_allowance")
+    private Boolean internationalAssignmentAllowance;
+    /**
+     * 是否提供住宿
+     * <p> 示例值：true
+     */
+    @SerializedName("accommodation")
+    private Boolean accommodation;
 
     // builder 开始
     public EmployeesInternationalAssignmentReq() {
@@ -299,6 +311,16 @@ public class EmployeesInternationalAssignmentReq {
          * <p> 示例值：2024-01-02
          */
         this.expirationTime = builder.expirationTime;
+        /**
+         * 是否享有派驻津贴
+         * <p> 示例值：true
+         */
+        this.internationalAssignmentAllowance = builder.internationalAssignmentAllowance;
+        /**
+         * 是否提供住宿
+         * <p> 示例值：true
+         */
+        this.accommodation = builder.accommodation;
     }
 
     public static Builder newBuilder() {
@@ -497,6 +519,22 @@ public class EmployeesInternationalAssignmentReq {
         this.expirationTime = expirationTime;
     }
 
+    public Boolean getInternationalAssignmentAllowance() {
+        return this.internationalAssignmentAllowance;
+    }
+
+    public void setInternationalAssignmentAllowance(Boolean internationalAssignmentAllowance) {
+        this.internationalAssignmentAllowance = internationalAssignmentAllowance;
+    }
+
+    public Boolean getAccommodation() {
+        return this.accommodation;
+    }
+
+    public void setAccommodation(Boolean accommodation) {
+        this.accommodation = accommodation;
+    }
+
     public static class Builder {
         /**
          * 外派工作地点 ID;  - 可通过[【批量查询地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)获取
@@ -618,6 +656,16 @@ public class EmployeesInternationalAssignmentReq {
          * <p> 示例值：2024-01-02
          */
         private String expirationTime;
+        /**
+         * 是否享有派驻津贴
+         * <p> 示例值：true
+         */
+        private Boolean internationalAssignmentAllowance;
+        /**
+         * 是否提供住宿
+         * <p> 示例值：true
+         */
+        private Boolean accommodation;
 
         /**
          * 外派工作地点 ID;  - 可通过[【批量查询地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)获取
@@ -927,6 +975,32 @@ public class EmployeesInternationalAssignmentReq {
          */
         public Builder expirationTime(String expirationTime) {
             this.expirationTime = expirationTime;
+            return this;
+        }
+
+
+        /**
+         * 是否享有派驻津贴
+         * <p> 示例值：true
+         *
+         * @param internationalAssignmentAllowance
+         * @return
+         */
+        public Builder internationalAssignmentAllowance(Boolean internationalAssignmentAllowance) {
+            this.internationalAssignmentAllowance = internationalAssignmentAllowance;
+            return this;
+        }
+
+
+        /**
+         * 是否提供住宿
+         * <p> 示例值：true
+         *
+         * @param accommodation
+         * @return
+         */
+        public Builder accommodation(Boolean accommodation) {
+            this.accommodation = accommodation;
             return this;
         }
 

@@ -32,6 +32,7 @@ public class V2 {
     private final Reviewee reviewee; // reviewee
     private final StageTask stageTask; // stage_task
     private final UserGroupUserRel userGroupUserRel; // user_group_user_rel
+    private final UserInfo userInfo; // user_info
 
     public V2(Config config) {
         this.activity = new Activity(config);
@@ -49,6 +50,7 @@ public class V2 {
         this.reviewee = new Reviewee(config);
         this.stageTask = new StageTask(config);
         this.userGroupUserRel = new UserGroupUserRel(config);
+        this.userInfo = new UserInfo(config);
     }
 
     public Activity activity() {
@@ -109,5 +111,9 @@ public class V2 {
 
     public UserGroupUserRel userGroupUserRel() {
         return userGroupUserRel;
+    }
+
+    public UserInfo userInfo() {
+        return userInfo;
     }
 }

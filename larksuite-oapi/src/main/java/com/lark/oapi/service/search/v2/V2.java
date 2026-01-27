@@ -20,6 +20,7 @@ public class V2 {
     private final App app; // app
     private final DataSource dataSource; // 数据源
     private final DataSourceItem dataSourceItem; // 数据项
+    private final DocWiki docWiki; // doc_wiki
     private final Message message; // message
     private final Schema schema; // 数据范式
 
@@ -27,6 +28,7 @@ public class V2 {
         this.app = new App(config);
         this.dataSource = new DataSource(config);
         this.dataSourceItem = new DataSourceItem(config);
+        this.docWiki = new DocWiki(config);
         this.message = new Message(config);
         this.schema = new Schema(config);
     }
@@ -41,6 +43,10 @@ public class V2 {
 
     public DataSourceItem dataSourceItem() {
         return dataSourceItem;
+    }
+
+    public DocWiki docWiki() {
+        return docWiki;
     }
 
     public Message message() {

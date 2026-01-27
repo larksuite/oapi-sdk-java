@@ -48,6 +48,72 @@ public class WorkspaceTable {
 
 
     /**
+     * ，获取工作空间下的数据表列表
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=apaas&resource=workspace.table&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=apaas&resource=workspace.table&version=v1</a> ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/apaasv1/ListWorkspaceTableSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/apaasv1/ListWorkspaceTableSample.java</a> ;
+     */
+    public ListWorkspaceTableResp list(ListWorkspaceTableReq req, RequestOptions reqOptions) throws Exception {
+        // 请求参数选项
+        if (reqOptions == null) {
+            reqOptions = new RequestOptions();
+        }
+
+        // 发起请求
+        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                , "/open-apis/apaas/v1/workspaces/:workspace_id/tables"
+                , Sets.newHashSet(AccessTokenType.User)
+                , req);
+
+        // 反序列化
+        ListWorkspaceTableResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListWorkspaceTableResp.class);
+        if (resp == null) {
+            log.error(String.format(
+                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/apaas/v1/workspaces/:workspace_id/tables"
+                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                            StandardCharsets.UTF_8)));
+            throw new IllegalArgumentException("The result returned by the server is illegal");
+        }
+
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
+    }
+
+    /**
+     * ，获取工作空间下的数据表列表
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=apaas&resource=workspace.table&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=apaas&resource=workspace.table&version=v1</a> ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/apaasv1/ListWorkspaceTableSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/apaasv1/ListWorkspaceTableSample.java</a> ;
+     */
+    public ListWorkspaceTableResp list(ListWorkspaceTableReq req) throws Exception {
+        // 请求参数选项
+        RequestOptions reqOptions = new RequestOptions();
+
+        // 发起请求
+        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                , "/open-apis/apaas/v1/workspaces/:workspace_id/tables"
+                , Sets.newHashSet(AccessTokenType.User)
+                , req);
+
+        // 反序列化
+        ListWorkspaceTableResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListWorkspaceTableResp.class);
+        if (resp == null) {
+            log.error(String.format(
+                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/apaas/v1/workspaces/:workspace_id/tables"
+                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                            StandardCharsets.UTF_8)));
+            throw new IllegalArgumentException("The result returned by the server is illegal");
+        }
+
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
+    }
+
+    /**
      * ，批量更新数据表中的记录
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=records_batch_update&project=apaas&resource=workspace.table&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=records_batch_update&project=apaas&resource=workspace.table&version=v1</a> ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/apaasv1/RecordsBatchUpdateWorkspaceTableSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/apaasv1/RecordsBatchUpdateWorkspaceTableSample.java</a> ;
@@ -365,6 +431,72 @@ public class WorkspaceTable {
         if (resp == null) {
             log.error(String.format(
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/apaas/v1/workspaces/:workspace_id/tables/:table_name/records"
+                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                            StandardCharsets.UTF_8)));
+            throw new IllegalArgumentException("The result returned by the server is illegal");
+        }
+
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
+    }
+
+    /**
+     * ，获取数据表详细信息
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=table_get&project=apaas&resource=workspace.table&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=table_get&project=apaas&resource=workspace.table&version=v1</a> ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/apaasv1/TableGetWorkspaceTableSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/apaasv1/TableGetWorkspaceTableSample.java</a> ;
+     */
+    public TableGetWorkspaceTableResp tableGet(TableGetWorkspaceTableReq req, RequestOptions reqOptions) throws Exception {
+        // 请求参数选项
+        if (reqOptions == null) {
+            reqOptions = new RequestOptions();
+        }
+
+        // 发起请求
+        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                , "/open-apis/apaas/v1/workspaces/:workspace_id/tables/:table_name"
+                , Sets.newHashSet(AccessTokenType.User)
+                , req);
+
+        // 反序列化
+        TableGetWorkspaceTableResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, TableGetWorkspaceTableResp.class);
+        if (resp == null) {
+            log.error(String.format(
+                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/apaas/v1/workspaces/:workspace_id/tables/:table_name"
+                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                            StandardCharsets.UTF_8)));
+            throw new IllegalArgumentException("The result returned by the server is illegal");
+        }
+
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
+    }
+
+    /**
+     * ，获取数据表详细信息
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=table_get&project=apaas&resource=workspace.table&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=table_get&project=apaas&resource=workspace.table&version=v1</a> ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/apaasv1/TableGetWorkspaceTableSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/apaasv1/TableGetWorkspaceTableSample.java</a> ;
+     */
+    public TableGetWorkspaceTableResp tableGet(TableGetWorkspaceTableReq req) throws Exception {
+        // 请求参数选项
+        RequestOptions reqOptions = new RequestOptions();
+
+        // 发起请求
+        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                , "/open-apis/apaas/v1/workspaces/:workspace_id/tables/:table_name"
+                , Sets.newHashSet(AccessTokenType.User)
+                , req);
+
+        // 反序列化
+        TableGetWorkspaceTableResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, TableGetWorkspaceTableResp.class);
+        if (resp == null) {
+            log.error(String.format(
+                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/apaas/v1/workspaces/:workspace_id/tables/:table_name"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
                             StandardCharsets.UTF_8)));

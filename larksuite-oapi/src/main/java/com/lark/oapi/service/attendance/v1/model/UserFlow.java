@@ -137,6 +137,12 @@ public class UserFlow {
      */
     @SerializedName("idempotent_id")
     private String idempotentId;
+    /**
+     * 创建时间
+     * <p> 示例值：
+     */
+    @SerializedName("create_time")
+    private String createTime;
 
     // builder 开始
     public UserFlow() {
@@ -233,6 +239,11 @@ public class UserFlow {
          * <p> 示例值：****_***
          */
         this.idempotentId = builder.idempotentId;
+        /**
+         * 创建时间
+         * <p> 示例值：
+         */
+        this.createTime = builder.createTime;
     }
 
     public static Builder newBuilder() {
@@ -383,6 +394,14 @@ public class UserFlow {
         this.idempotentId = idempotentId;
     }
 
+    public String getCreateTime() {
+        return this.createTime;
+    }
+
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
+    }
+
     public static class Builder {
         /**
          * 用户 ID
@@ -474,6 +493,11 @@ public class UserFlow {
          * <p> 示例值：****_***
          */
         private String idempotentId;
+        /**
+         * 创建时间
+         * <p> 示例值：
+         */
+        private String createTime;
 
         /**
          * 用户 ID
@@ -729,6 +753,19 @@ public class UserFlow {
          */
         public Builder idempotentId(String idempotentId) {
             this.idempotentId = idempotentId;
+            return this;
+        }
+
+
+        /**
+         * 创建时间
+         * <p> 示例值：
+         *
+         * @param createTime
+         * @return
+         */
+        public Builder createTime(String createTime) {
+            this.createTime = createTime;
             return this;
         }
 

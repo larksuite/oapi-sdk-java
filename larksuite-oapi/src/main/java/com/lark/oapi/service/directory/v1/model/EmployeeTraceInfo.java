@@ -54,7 +54,7 @@ public class EmployeeTraceInfo {
     @SerializedName("invite_option")
     private InviteOption inviteOption;
     /**
-     * 用户客户端的IP
+     * 用户客户端的IP *
       * <p>示例值：1.1.1.1
             */
     @SerializedName("client_ip")

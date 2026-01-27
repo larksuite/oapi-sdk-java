@@ -21,6 +21,8 @@ public class CreatePlantumlWhiteboardNodeSample {
                         .styleType(1)
                         .syntaxType(0)
                         .diagramType(0)
+                        .overwrite(false)
+                        .parseMode(0)
                         .build())
                 .build();
 

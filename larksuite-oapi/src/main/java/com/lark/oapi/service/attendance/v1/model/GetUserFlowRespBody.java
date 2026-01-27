@@ -136,6 +136,12 @@ public class GetUserFlowRespBody {
      */
     @SerializedName("idempotent_id")
     private String idempotentId;
+    /**
+     * 创建时间
+     * <p> 示例值：
+     */
+    @SerializedName("create_time")
+    private String createTime;
 
     public String getUserId() {
         return this.userId;
@@ -279,6 +285,14 @@ public class GetUserFlowRespBody {
 
     public void setIdempotentId(String idempotentId) {
         this.idempotentId = idempotentId;
+    }
+
+    public String getCreateTime() {
+        return this.createTime;
+    }
+
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
     }
 
 }

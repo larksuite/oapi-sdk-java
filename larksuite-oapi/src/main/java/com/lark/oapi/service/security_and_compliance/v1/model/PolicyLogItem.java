@@ -77,6 +77,30 @@ public class PolicyLogItem {
      */
     @SerializedName("system_action")
     private String systemAction;
+    /**
+     * 命中的内容信息
+     * <p> 示例值：
+     */
+    @SerializedName("hit_contents")
+    private HitContent[] hitContents;
+    /**
+     * 证据详情
+     * <p> 示例值：
+     */
+    @SerializedName("proof_details")
+    private ProofContentDetail[] proofDetails;
+    /**
+     * 命中的检测规则
+     * <p> 示例值：
+     */
+    @SerializedName("detect_rules")
+    private DetectRule[] detectRules;
+    /**
+     * 管控场景的资源属性
+     * <p> 示例值：
+     */
+    @SerializedName("resource_attributes")
+    private ResourceAttribute[] resourceAttributes;
 
     // builder 开始
     public PolicyLogItem() {
@@ -123,6 +147,26 @@ public class PolicyLogItem {
          * <p> 示例值：DENY_WITHOUT_APPROVAL
          */
         this.systemAction = builder.systemAction;
+        /**
+         * 命中的内容信息
+         * <p> 示例值：
+         */
+        this.hitContents = builder.hitContents;
+        /**
+         * 证据详情
+         * <p> 示例值：
+         */
+        this.proofDetails = builder.proofDetails;
+        /**
+         * 命中的检测规则
+         * <p> 示例值：
+         */
+        this.detectRules = builder.detectRules;
+        /**
+         * 管控场景的资源属性
+         * <p> 示例值：
+         */
+        this.resourceAttributes = builder.resourceAttributes;
     }
 
     public static Builder newBuilder() {
@@ -193,6 +237,38 @@ public class PolicyLogItem {
         this.systemAction = systemAction;
     }
 
+    public HitContent[] getHitContents() {
+        return this.hitContents;
+    }
+
+    public void setHitContents(HitContent[] hitContents) {
+        this.hitContents = hitContents;
+    }
+
+    public ProofContentDetail[] getProofDetails() {
+        return this.proofDetails;
+    }
+
+    public void setProofDetails(ProofContentDetail[] proofDetails) {
+        this.proofDetails = proofDetails;
+    }
+
+    public DetectRule[] getDetectRules() {
+        return this.detectRules;
+    }
+
+    public void setDetectRules(DetectRule[] detectRules) {
+        this.detectRules = detectRules;
+    }
+
+    public ResourceAttribute[] getResourceAttributes() {
+        return this.resourceAttributes;
+    }
+
+    public void setResourceAttributes(ResourceAttribute[] resourceAttributes) {
+        this.resourceAttributes = resourceAttributes;
+    }
+
     public static class Builder {
         /**
          * 用户ID
@@ -234,6 +310,26 @@ public class PolicyLogItem {
          * <p> 示例值：DENY_WITHOUT_APPROVAL
          */
         private String systemAction;
+        /**
+         * 命中的内容信息
+         * <p> 示例值：
+         */
+        private HitContent[] hitContents;
+        /**
+         * 证据详情
+         * <p> 示例值：
+         */
+        private ProofContentDetail[] proofDetails;
+        /**
+         * 命中的检测规则
+         * <p> 示例值：
+         */
+        private DetectRule[] detectRules;
+        /**
+         * 管控场景的资源属性
+         * <p> 示例值：
+         */
+        private ResourceAttribute[] resourceAttributes;
 
         /**
          * 用户ID
@@ -335,6 +431,58 @@ public class PolicyLogItem {
          */
         public Builder systemAction(String systemAction) {
             this.systemAction = systemAction;
+            return this;
+        }
+
+
+        /**
+         * 命中的内容信息
+         * <p> 示例值：
+         *
+         * @param hitContents
+         * @return
+         */
+        public Builder hitContents(HitContent[] hitContents) {
+            this.hitContents = hitContents;
+            return this;
+        }
+
+
+        /**
+         * 证据详情
+         * <p> 示例值：
+         *
+         * @param proofDetails
+         * @return
+         */
+        public Builder proofDetails(ProofContentDetail[] proofDetails) {
+            this.proofDetails = proofDetails;
+            return this;
+        }
+
+
+        /**
+         * 命中的检测规则
+         * <p> 示例值：
+         *
+         * @param detectRules
+         * @return
+         */
+        public Builder detectRules(DetectRule[] detectRules) {
+            this.detectRules = detectRules;
+            return this;
+        }
+
+
+        /**
+         * 管控场景的资源属性
+         * <p> 示例值：
+         *
+         * @param resourceAttributes
+         * @return
+         */
+        public Builder resourceAttributes(ResourceAttribute[] resourceAttributes) {
+            this.resourceAttributes = resourceAttributes;
             return this;
         }
 

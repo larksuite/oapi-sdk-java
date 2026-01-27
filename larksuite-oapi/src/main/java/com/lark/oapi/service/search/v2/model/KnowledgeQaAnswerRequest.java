@@ -65,6 +65,12 @@ public class KnowledgeQaAnswerRequest {
      */
     @SerializedName("model_type")
     private String modelType;
+    /**
+     * 用户在同一会话内的历史对话
+     * <p> 示例值：
+     */
+    @SerializedName("history_messages")
+    private KnowledgeQaMessage[] historyMessages;
 
     // builder 开始
     public KnowledgeQaAnswerRequest() {
@@ -101,6 +107,11 @@ public class KnowledgeQaAnswerRequest {
          * <p> 示例值：doubao
          */
         this.modelType = builder.modelType;
+        /**
+         * 用户在同一会话内的历史对话
+         * <p> 示例值：
+         */
+        this.historyMessages = builder.historyMessages;
     }
 
     public static Builder newBuilder() {
@@ -155,6 +166,14 @@ public class KnowledgeQaAnswerRequest {
         this.modelType = modelType;
     }
 
+    public KnowledgeQaMessage[] getHistoryMessages() {
+        return this.historyMessages;
+    }
+
+    public void setHistoryMessages(KnowledgeQaMessage[] historyMessages) {
+        this.historyMessages = historyMessages;
+    }
+
     public static class Builder {
         /**
          * 用户问题
@@ -186,6 +205,11 @@ public class KnowledgeQaAnswerRequest {
          * <p> 示例值：doubao
          */
         private String modelType;
+        /**
+         * 用户在同一会话内的历史对话
+         * <p> 示例值：
+         */
+        private KnowledgeQaMessage[] historyMessages;
 
         /**
          * 用户问题
@@ -285,6 +309,19 @@ public class KnowledgeQaAnswerRequest {
          */
         public Builder modelType(com.lark.oapi.service.search.v2.enums.KnowledgeQaAnswerRequestKnowledgeQaAnswerRequestModelTypeEnum modelType) {
             this.modelType = modelType.getValue();
+            return this;
+        }
+
+
+        /**
+         * 用户在同一会话内的历史对话
+         * <p> 示例值：
+         *
+         * @param historyMessages
+         * @return
+         */
+        public Builder historyMessages(KnowledgeQaMessage[] historyMessages) {
+            this.historyMessages = historyMessages;
             return this;
         }
 

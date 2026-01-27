@@ -27,4 +27,11 @@ public class ApaasService {
     public V1 v1() {
         return v1;
     }
+
+    public abstract static class P2WorkspaceRecordChangeV1Handler implements IEventHandler<P2WorkspaceRecordChangeV1> {
+        @Override
+        public P2WorkspaceRecordChangeV1 getEvent() {
+            return new P2WorkspaceRecordChangeV1();
+        }
+    }
 }

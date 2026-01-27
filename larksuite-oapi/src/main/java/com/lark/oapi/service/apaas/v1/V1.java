@@ -32,6 +32,7 @@ public class V1 {
     private final SeatAssignment seatAssignment; // seat_assignment
     private final UserTask userTask; // user_task
     private final Workspace workspace; // workspace
+    private final WorkspaceEnum workspaceEnum; // workspace.enum
     private final WorkspaceTable workspaceTable; // workspace.table
     private final WorkspaceView workspaceView; // workspace.view
 
@@ -51,6 +52,7 @@ public class V1 {
         this.seatAssignment = new SeatAssignment(config);
         this.userTask = new UserTask(config);
         this.workspace = new Workspace(config);
+        this.workspaceEnum = new WorkspaceEnum(config);
         this.workspaceTable = new WorkspaceTable(config);
         this.workspaceView = new WorkspaceView(config);
     }
@@ -113,6 +115,10 @@ public class V1 {
 
     public Workspace workspace() {
         return workspace;
+    }
+
+    public WorkspaceEnum workspaceEnum() {
+        return workspaceEnum;
     }
 
     public WorkspaceTable workspaceTable() {

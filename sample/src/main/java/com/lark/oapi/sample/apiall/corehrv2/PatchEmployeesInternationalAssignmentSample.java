@@ -45,6 +45,8 @@ public class PatchEmployeesInternationalAssignmentSample {
                         .internationalAssignmentType("global_assignment")
                         .effectiveTime("2024-01-02")
                         .expirationTime("2024-01-02")
+                        .internationalAssignmentAllowance(true)
+                        .accommodation(true)
                         .build())
                 .build();
 

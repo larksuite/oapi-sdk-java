@@ -46,6 +46,12 @@ public class PayGroup {
      */
     @SerializedName("country_region")
     private CountryRegion countryRegion;
+    /**
+     * 是否适用全球
+     * <p> 示例值：
+     */
+    @SerializedName("is_global_region")
+    private Boolean isGlobalRegion;
 
     // builder 开始
     public PayGroup() {
@@ -77,6 +83,11 @@ public class PayGroup {
          * <p> 示例值：
          */
         this.countryRegion = builder.countryRegion;
+        /**
+         * 是否适用全球
+         * <p> 示例值：
+         */
+        this.isGlobalRegion = builder.isGlobalRegion;
     }
 
     public static Builder newBuilder() {
@@ -123,6 +134,14 @@ public class PayGroup {
         this.countryRegion = countryRegion;
     }
 
+    public Boolean getIsGlobalRegion() {
+        return this.isGlobalRegion;
+    }
+
+    public void setIsGlobalRegion(Boolean isGlobalRegion) {
+        this.isGlobalRegion = isGlobalRegion;
+    }
+
     public static class Builder {
         /**
          * 薪资组ID
@@ -149,6 +168,11 @@ public class PayGroup {
          * <p> 示例值：
          */
         private CountryRegion countryRegion;
+        /**
+         * 是否适用全球
+         * <p> 示例值：
+         */
+        private Boolean isGlobalRegion;
 
         /**
          * 薪资组ID
@@ -223,6 +247,19 @@ public class PayGroup {
          */
         public Builder countryRegion(CountryRegion countryRegion) {
             this.countryRegion = countryRegion;
+            return this;
+        }
+
+
+        /**
+         * 是否适用全球
+         * <p> 示例值：
+         *
+         * @param isGlobalRegion
+         * @return
+         */
+        public Builder isGlobalRegion(Boolean isGlobalRegion) {
+            this.isGlobalRegion = isGlobalRegion;
             return this;
         }
 
