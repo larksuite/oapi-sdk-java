@@ -29,14 +29,14 @@ import com.lark.oapi.core.response.BaseResponse;
 
 public class ListUserMailboxFolderReq {
     /**
-     * 文件夹类型
+     * 文件夹类型。支持填写1（系统文件夹）、2（用户文件夹）
      * <p> 示例值：1
      */
     @Query
     @SerializedName("folder_type")
     private Integer folderType;
     /**
-     * 用户邮箱地址 或 输入me代表当前调用接口用户
+     * 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户;
      * <p> 示例值：user@xxx.xx 或 me
      */
     @Path
@@ -49,12 +49,12 @@ public class ListUserMailboxFolderReq {
 
     public ListUserMailboxFolderReq(Builder builder) {
         /**
-         * 文件夹类型
+         * 文件夹类型。支持填写1（系统文件夹）、2（用户文件夹）
          * <p> 示例值：1
          */
         this.folderType = builder.folderType;
         /**
-         * 用户邮箱地址 或 输入me代表当前调用接口用户
+         * 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户;
          * <p> 示例值：user@xxx.xx 或 me
          */
         this.userMailboxId = builder.userMailboxId;
@@ -81,11 +81,11 @@ public class ListUserMailboxFolderReq {
     }
 
     public static class Builder {
-        private Integer folderType; // 文件夹类型
-        private String userMailboxId; // 用户邮箱地址 或 输入me代表当前调用接口用户
+        private Integer folderType; // 文件夹类型。支持填写1（系统文件夹）、2（用户文件夹）
+        private String userMailboxId; // 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户;
 
         /**
-         * 文件夹类型
+         * 文件夹类型。支持填写1（系统文件夹）、2（用户文件夹）
          * <p> 示例值：1
          *
          * @param folderType
@@ -97,7 +97,7 @@ public class ListUserMailboxFolderReq {
         }
 
         /**
-         * 文件夹类型
+         * 文件夹类型。支持填写1（系统文件夹）、2（用户文件夹）
          * <p> 示例值：1
          *
          * @param folderType {@link com.lark.oapi.service.mail.v1.enums.ListUserMailboxFolderFolderTypeEnum}
@@ -109,7 +109,7 @@ public class ListUserMailboxFolderReq {
         }
 
         /**
-         * 用户邮箱地址 或 输入me代表当前调用接口用户
+         * 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户;
          * <p> 示例值：user@xxx.xx 或 me
          *
          * @param userMailboxId

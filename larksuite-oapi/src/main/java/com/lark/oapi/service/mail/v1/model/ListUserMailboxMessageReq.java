@@ -43,7 +43,7 @@ public class ListUserMailboxMessageReq {
     @SerializedName("page_token")
     private String pageToken;
     /**
-     * 文件夹 id
+     * 文件夹 id，支持INBOX、SENT、SPAM、ARCHIVED、SCHEDULED、SCHEDULED、TRASH、DRAFT以及自定义文件夹ID
      * <p> 示例值：INBOX 或者用户文件夹 id
      */
     @Query
@@ -56,6 +56,13 @@ public class ListUserMailboxMessageReq {
     @Query
     @SerializedName("only_unread")
     private Boolean onlyUnread;
+    /**
+     * 标签id，支持IMPORTANT、OTHER、FLAGGED、SCHEDULED以及自定义文件夹标签
+     * <p> 示例值：FLAGGED
+     */
+    @Query
+    @SerializedName("label_id")
+    private String labelId;
     /**
      * 用户邮箱地址 或 输入me代表当前调用接口用户
      * <p> 示例值：user@xxx.xx 或 me
@@ -80,7 +87,7 @@ public class ListUserMailboxMessageReq {
          */
         this.pageToken = builder.pageToken;
         /**
-         * 文件夹 id
+         * 文件夹 id，支持INBOX、SENT、SPAM、ARCHIVED、SCHEDULED、SCHEDULED、TRASH、DRAFT以及自定义文件夹ID
          * <p> 示例值：INBOX 或者用户文件夹 id
          */
         this.folderId = builder.folderId;
@@ -89,6 +96,11 @@ public class ListUserMailboxMessageReq {
          * <p> 示例值：true
          */
         this.onlyUnread = builder.onlyUnread;
+        /**
+         * 标签id，支持IMPORTANT、OTHER、FLAGGED、SCHEDULED以及自定义文件夹标签
+         * <p> 示例值：FLAGGED
+         */
+        this.labelId = builder.labelId;
         /**
          * 用户邮箱地址 或 输入me代表当前调用接口用户
          * <p> 示例值：user@xxx.xx 或 me
@@ -132,6 +144,14 @@ public class ListUserMailboxMessageReq {
         this.onlyUnread = onlyUnread;
     }
 
+    public String getLabelId() {
+        return this.labelId;
+    }
+
+    public void setLabelId(String labelId) {
+        this.labelId = labelId;
+    }
+
     public String getUserMailboxId() {
         return this.userMailboxId;
     }
@@ -143,8 +163,9 @@ public class ListUserMailboxMessageReq {
     public static class Builder {
         private Integer pageSize; // 分页大小
         private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-        private String folderId; // 文件夹 id
+        private String folderId; // 文件夹 id，支持INBOX、SENT、SPAM、ARCHIVED、SCHEDULED、SCHEDULED、TRASH、DRAFT以及自定义文件夹ID
         private Boolean onlyUnread; // 是否只查询未读邮件
+        private String labelId; // 标签id，支持IMPORTANT、OTHER、FLAGGED、SCHEDULED以及自定义文件夹标签
         private String userMailboxId; // 用户邮箱地址 或 输入me代表当前调用接口用户
 
         /**
@@ -172,7 +193,7 @@ public class ListUserMailboxMessageReq {
         }
 
         /**
-         * 文件夹 id
+         * 文件夹 id，支持INBOX、SENT、SPAM、ARCHIVED、SCHEDULED、SCHEDULED、TRASH、DRAFT以及自定义文件夹ID
          * <p> 示例值：INBOX 或者用户文件夹 id
          *
          * @param folderId
@@ -192,6 +213,18 @@ public class ListUserMailboxMessageReq {
          */
         public Builder onlyUnread(Boolean onlyUnread) {
             this.onlyUnread = onlyUnread;
+            return this;
+        }
+
+        /**
+         * 标签id，支持IMPORTANT、OTHER、FLAGGED、SCHEDULED以及自定义文件夹标签
+         * <p> 示例值：FLAGGED
+         *
+         * @param labelId
+         * @return
+         */
+        public Builder labelId(String labelId) {
+            this.labelId = labelId;
             return this;
         }
 

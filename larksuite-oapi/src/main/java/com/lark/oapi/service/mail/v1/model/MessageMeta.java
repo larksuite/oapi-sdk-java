@@ -43,7 +43,7 @@ public class MessageMeta {
     private String threadId;
     /**
      * 邮件所属文件夹的ID
-     * <p> 示例值："INBOX"
+     * <p> 示例值：INBOX
      */
     @SerializedName("folder_id")
     private String folderId;
@@ -65,6 +65,12 @@ public class MessageMeta {
      */
     @SerializedName("message_state")
     private Integer messageState;
+    /**
+     * 使用format参数后返回的邮件内容
+     * <p> 示例值：
+     */
+    @SerializedName("message")
+    private Message message;
 
     // builder 开始
     public MessageMeta() {
@@ -83,7 +89,7 @@ public class MessageMeta {
         this.threadId = builder.threadId;
         /**
          * 邮件所属文件夹的ID
-         * <p> 示例值："INBOX"
+         * <p> 示例值：INBOX
          */
         this.folderId = builder.folderId;
         /**
@@ -101,6 +107,11 @@ public class MessageMeta {
          * <p> 示例值：1
          */
         this.messageState = builder.messageState;
+        /**
+         * 使用format参数后返回的邮件内容
+         * <p> 示例值：
+         */
+        this.message = builder.message;
     }
 
     public static Builder newBuilder() {
@@ -155,6 +166,14 @@ public class MessageMeta {
         this.messageState = messageState;
     }
 
+    public Message getMessage() {
+        return this.message;
+    }
+
+    public void setMessage(Message message) {
+        this.message = message;
+    }
+
     public static class Builder {
         /**
          * 邮件的唯一标识符
@@ -168,7 +187,7 @@ public class MessageMeta {
         private String threadId;
         /**
          * 邮件所属文件夹的ID
-         * <p> 示例值："INBOX"
+         * <p> 示例值：INBOX
          */
         private String folderId;
         /**
@@ -186,6 +205,11 @@ public class MessageMeta {
          * <p> 示例值：1
          */
         private Integer messageState;
+        /**
+         * 使用format参数后返回的邮件内容
+         * <p> 示例值：
+         */
+        private Message message;
 
         /**
          * 邮件的唯一标识符
@@ -215,7 +239,7 @@ public class MessageMeta {
 
         /**
          * 邮件所属文件夹的ID
-         * <p> 示例值："INBOX"
+         * <p> 示例值：INBOX
          *
          * @param folderId
          * @return
@@ -261,6 +285,19 @@ public class MessageMeta {
          */
         public Builder messageState(Integer messageState) {
             this.messageState = messageState;
+            return this;
+        }
+
+
+        /**
+         * 使用format参数后返回的邮件内容
+         * <p> 示例值：
+         *
+         * @param message
+         * @return
+         */
+        public Builder message(Message message) {
+            this.message = message;
             return this;
         }
 

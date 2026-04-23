@@ -48,7 +48,7 @@ public class UserMailboxMessageAttachment {
 
 
     /**
-     * ，
+     * ，获取附件下载链接
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=download_url&project=mail&resource=user_mailbox.message.attachment&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=download_url&project=mail&resource=user_mailbox.message.attachment&version=v1</a> ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1/DownloadUrlUserMailboxMessageAttachmentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1/DownloadUrlUserMailboxMessageAttachmentSample.java</a> ;
      */
@@ -82,7 +82,7 @@ public class UserMailboxMessageAttachment {
     }
 
     /**
-     * ，
+     * ，获取附件下载链接
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=download_url&project=mail&resource=user_mailbox.message.attachment&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=download_url&project=mail&resource=user_mailbox.message.attachment&version=v1</a> ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1/DownloadUrlUserMailboxMessageAttachmentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1/DownloadUrlUserMailboxMessageAttachmentSample.java</a> ;
      */

@@ -29,7 +29,7 @@ import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateUserMailboxFolderReq {
     /**
-     * 用户邮箱地址 或 输入me代表当前调用接口用户
+     * 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户
      * <p> 示例值：user@xxx.xx 或 me
      */
     @Path
@@ -44,7 +44,7 @@ public class CreateUserMailboxFolderReq {
 
     public CreateUserMailboxFolderReq(Builder builder) {
         /**
-         * 用户邮箱地址 或 输入me代表当前调用接口用户
+         * 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户
          * <p> 示例值：user@xxx.xx 或 me
          */
         this.userMailboxId = builder.userMailboxId;
@@ -73,11 +73,11 @@ public class CreateUserMailboxFolderReq {
 
     public static class Builder {
 
-        private String userMailboxId; // 用户邮箱地址 或 输入me代表当前调用接口用户
+        private String userMailboxId; // 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户
         private Folder body;
 
         /**
-         * 用户邮箱地址 或 输入me代表当前调用接口用户
+         * 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户
          * <p> 示例值：user@xxx.xx 或 me
          *
          * @param userMailboxId

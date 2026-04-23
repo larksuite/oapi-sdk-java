@@ -20,6 +20,7 @@ public class ListUserMailboxMessageSample {
                 .pageToken("xxx")
                 .folderId("INBOX 或者用户文件夹 id")
                 .onlyUnread(true)
+                .labelId("FLAGGED")
                 .build();
 
         // 发起请求

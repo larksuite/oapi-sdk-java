@@ -17,6 +17,7 @@ public class GetUserMailboxMessageSample {
         GetUserMailboxMessageReq req = GetUserMailboxMessageReq.newBuilder()
                 .userMailboxId("user@xxx.xx 或 me")
                 .messageId("TUlHc1NoWFhJMXgyUi9VZTNVL3h6UnlkRUdzPQ==")
+                .format("full")
                 .build();
 
         // 发起请求

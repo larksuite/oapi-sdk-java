@@ -48,6 +48,72 @@ public class UserMailbox {
 
 
     /**
+     * ，获取主账号的所有可访问邮箱，包括主邮箱和公共邮箱
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=accessible_mailboxes&project=mail&resource=user_mailbox&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=accessible_mailboxes&project=mail&resource=user_mailbox&version=v1</a> ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1/AccessibleMailboxesUserMailboxSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1/AccessibleMailboxesUserMailboxSample.java</a> ;
+     */
+    public AccessibleMailboxesUserMailboxResp accessibleMailboxes(AccessibleMailboxesUserMailboxReq req, RequestOptions reqOptions) throws Exception {
+        // 请求参数选项
+        if (reqOptions == null) {
+            reqOptions = new RequestOptions();
+        }
+
+        // 发起请求
+        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                , "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/accessible_mailboxes"
+                , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                , req);
+
+        // 反序列化
+        AccessibleMailboxesUserMailboxResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, AccessibleMailboxesUserMailboxResp.class);
+        if (resp == null) {
+            log.error(String.format(
+                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/accessible_mailboxes"
+                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                            StandardCharsets.UTF_8)));
+            throw new IllegalArgumentException("The result returned by the server is illegal");
+        }
+
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
+    }
+
+    /**
+     * ，获取主账号的所有可访问邮箱，包括主邮箱和公共邮箱
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=accessible_mailboxes&project=mail&resource=user_mailbox&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=accessible_mailboxes&project=mail&resource=user_mailbox&version=v1</a> ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1/AccessibleMailboxesUserMailboxSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1/AccessibleMailboxesUserMailboxSample.java</a> ;
+     */
+    public AccessibleMailboxesUserMailboxResp accessibleMailboxes(AccessibleMailboxesUserMailboxReq req) throws Exception {
+        // 请求参数选项
+        RequestOptions reqOptions = new RequestOptions();
+
+        // 发起请求
+        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                , "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/accessible_mailboxes"
+                , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                , req);
+
+        // 反序列化
+        AccessibleMailboxesUserMailboxResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, AccessibleMailboxesUserMailboxResp.class);
+        if (resp == null) {
+            log.error(String.format(
+                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/accessible_mailboxes"
+                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                            StandardCharsets.UTF_8)));
+            throw new IllegalArgumentException("The result returned by the server is illegal");
+        }
+
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
+    }
+
+    /**
      * 释放用户邮箱地址，该接口会永久删除用户邮箱地址。可用于删除位于邮箱回收站中的用户邮箱地址，一旦删除，将无法恢复。该接口支持邮件的转移，可以将被释放邮箱的邮件转移到另外一个可以使用的邮箱中。
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox/delete</a> ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1/DeleteUserMailboxSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1/DeleteUserMailboxSample.java</a> ;

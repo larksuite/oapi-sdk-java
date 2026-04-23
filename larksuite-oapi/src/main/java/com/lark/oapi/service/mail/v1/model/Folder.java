@@ -31,7 +31,7 @@ import com.lark.oapi.core.response.BaseResponse;
 public class Folder {
     /**
      * folder id
-     * <p> 示例值：12314123123123123
+     * <p> 示例值：7620095646711680541
      */
     @SerializedName("id")
     private String id;
@@ -73,7 +73,7 @@ public class Folder {
     public Folder(Builder builder) {
         /**
          * folder id
-         * <p> 示例值：12314123123123123
+         * <p> 示例值：7620095646711680541
          */
         this.id = builder.id;
         /**
@@ -158,7 +158,7 @@ public class Folder {
     public static class Builder {
         /**
          * folder id
-         * <p> 示例值：12314123123123123
+         * <p> 示例值：7620095646711680541
          */
         private String id;
         /**
@@ -189,7 +189,7 @@ public class Folder {
 
         /**
          * folder id
-         * <p> 示例值：12314123123123123
+         * <p> 示例值：7620095646711680541
          *
          * @param id
          * @return

@@ -40,6 +40,12 @@ public class DownloadUrlUserMailboxMessageAttachmentRespBody {
      */
     @SerializedName("failed_ids")
     private String[] failedIds;
+    /**
+     * 附件下载链接获取失败原因
+     * <p> 示例值：
+     */
+    @SerializedName("failed_reasons")
+    private AttachmentDownloadFailedReason[] failedReasons;
 
     public AttachmentDownloadUrlItem[] getDownloadUrls() {
         return this.downloadUrls;
@@ -55,6 +61,14 @@ public class DownloadUrlUserMailboxMessageAttachmentRespBody {
 
     public void setFailedIds(String[] failedIds) {
         this.failedIds = failedIds;
+    }
+
+    public AttachmentDownloadFailedReason[] getFailedReasons() {
+        return this.failedReasons;
+    }
+
+    public void setFailedReasons(AttachmentDownloadFailedReason[] failedReasons) {
+        this.failedReasons = failedReasons;
     }
 
 }

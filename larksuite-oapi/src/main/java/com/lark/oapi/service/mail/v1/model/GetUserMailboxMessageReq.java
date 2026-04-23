@@ -29,6 +29,13 @@ import com.lark.oapi.core.response.BaseResponse;
 
 public class GetUserMailboxMessageReq {
     /**
+     * 需要获取的邮件内容。支持选择full/plain_text_full/metadata
+     * <p> 示例值：full
+     */
+    @Query
+    @SerializedName("format")
+    private String format;
+    /**
      * 用户邮箱地址 或 输入me代表当前调用接口用户
      * <p> 示例值：user@xxx.xx 或 me
      */
@@ -36,7 +43,7 @@ public class GetUserMailboxMessageReq {
     @SerializedName("user_mailbox_id")
     private String userMailboxId;
     /**
-     * 用户邮件 id
+     * 用户邮件 id，可通过列出邮件列表获取
      * <p> 示例值：TUlHc1NoWFhJMXgyUi9VZTNVL3h6UnlkRUdzPQ==
      */
     @Path
@@ -46,15 +53,19 @@ public class GetUserMailboxMessageReq {
     // builder 开始
     public GetUserMailboxMessageReq() {
     }
-
     public GetUserMailboxMessageReq(Builder builder) {
+        /**
+         * 需要获取的邮件内容。支持选择full/plain_text_full/metadata
+         * <p> 示例值：full
+         */
+        this.format = builder.format;
         /**
          * 用户邮箱地址 或 输入me代表当前调用接口用户
          * <p> 示例值：user@xxx.xx 或 me
          */
         this.userMailboxId = builder.userMailboxId;
         /**
-         * 用户邮件 id
+         * 用户邮件 id，可通过列出邮件列表获取
          * <p> 示例值：TUlHc1NoWFhJMXgyUi9VZTNVL3h6UnlkRUdzPQ==
          */
         this.messageId = builder.messageId;
@@ -62,6 +73,14 @@ public class GetUserMailboxMessageReq {
 
     public static Builder newBuilder() {
         return new Builder();
+    }
+
+    public String getFormat() {
+        return this.format;
+    }
+
+    public void setFormat(String format) {
+        this.format = format;
     }
 
     public String getUserMailboxId() {
@@ -81,9 +100,33 @@ public class GetUserMailboxMessageReq {
     }
 
     public static class Builder {
-
+        private String format; // 需要获取的邮件内容。支持选择full/plain_text_full/metadata
         private String userMailboxId; // 用户邮箱地址 或 输入me代表当前调用接口用户
-        private String messageId; // 用户邮件 id
+        private String messageId; // 用户邮件 id，可通过列出邮件列表获取
+
+        /**
+         * 需要获取的邮件内容。支持选择full/plain_text_full/metadata
+         * <p> 示例值：full
+         *
+         * @param format
+         * @return
+         */
+        public Builder format(String format) {
+            this.format = format;
+            return this;
+        }
+
+        /**
+         * 需要获取的邮件内容。支持选择full/plain_text_full/metadata
+         * <p> 示例值：full
+         *
+         * @param format {@link com.lark.oapi.service.mail.v1.enums.GetUserMailboxMessageMailMessageFormatTypeEnum}
+         * @return
+         */
+        public Builder format(com.lark.oapi.service.mail.v1.enums.GetUserMailboxMessageMailMessageFormatTypeEnum format) {
+            this.format = format.getValue();
+            return this;
+        }
 
         /**
          * 用户邮箱地址 或 输入me代表当前调用接口用户
@@ -99,7 +142,7 @@ public class GetUserMailboxMessageReq {
 
 
         /**
-         * 用户邮件 id
+         * 用户邮件 id，可通过列出邮件列表获取
          * <p> 示例值：TUlHc1NoWFhJMXgyUi9VZTNVL3h6UnlkRUdzPQ==
          *
          * @param messageId

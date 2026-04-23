@@ -29,14 +29,14 @@ import com.lark.oapi.core.response.BaseResponse;
 
 public class PatchUserMailboxFolderReq {
     /**
-     * 用户邮箱地址 或 输入me代表当前调用接口用户
+     * 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户
      * <p> 示例值：user@xxx.xx 或 me
      */
     @Path
     @SerializedName("user_mailbox_id")
     private String userMailboxId;
     /**
-     * 文件夹 id
+     * 文件夹 id，可通过列出文件夹列表接口获取
      * <p> 示例值：111111
      */
     @Path
@@ -51,12 +51,12 @@ public class PatchUserMailboxFolderReq {
 
     public PatchUserMailboxFolderReq(Builder builder) {
         /**
-         * 用户邮箱地址 或 输入me代表当前调用接口用户
+         * 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户
          * <p> 示例值：user@xxx.xx 或 me
          */
         this.userMailboxId = builder.userMailboxId;
         /**
-         * 文件夹 id
+         * 文件夹 id，可通过列出文件夹列表接口获取
          * <p> 示例值：111111
          */
         this.folderId = builder.folderId;
@@ -93,12 +93,12 @@ public class PatchUserMailboxFolderReq {
 
     public static class Builder {
 
-        private String userMailboxId; // 用户邮箱地址 或 输入me代表当前调用接口用户
-        private String folderId; // 文件夹 id
+        private String userMailboxId; // 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户
+        private String folderId; // 文件夹 id，可通过列出文件夹列表接口获取
         private Folder body;
 
         /**
-         * 用户邮箱地址 或 输入me代表当前调用接口用户
+         * 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户
          * <p> 示例值：user@xxx.xx 或 me
          *
          * @param userMailboxId
@@ -110,7 +110,7 @@ public class PatchUserMailboxFolderReq {
         }
 
         /**
-         * 文件夹 id
+         * 文件夹 id，可通过列出文件夹列表接口获取
          * <p> 示例值：111111
          *
          * @param folderId

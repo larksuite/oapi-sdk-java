@@ -48,7 +48,205 @@ public class UserMailboxMessage {
 
 
     /**
-     * ，
+     * ，通过指定邮件ID，获取对应邮件的标签、文件夹、摘要、正文、html、附件等信息。注意，如需获取摘要、正文、主题或收发件人地址，需要申请对应的字段权限。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch_get&project=mail&resource=user_mailbox.message&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch_get&project=mail&resource=user_mailbox.message&version=v1</a> ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1/BatchGetUserMailboxMessageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1/BatchGetUserMailboxMessageSample.java</a> ;
+     */
+    public BatchGetUserMailboxMessageResp batchGet(BatchGetUserMailboxMessageReq req, RequestOptions reqOptions) throws Exception {
+        // 请求参数选项
+        if (reqOptions == null) {
+            reqOptions = new RequestOptions();
+        }
+
+        // 发起请求
+        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                , "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/messages/batch_get"
+                , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                , req);
+
+        // 反序列化
+        BatchGetUserMailboxMessageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchGetUserMailboxMessageResp.class);
+        if (resp == null) {
+            log.error(String.format(
+                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/messages/batch_get"
+                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                            StandardCharsets.UTF_8)));
+            throw new IllegalArgumentException("The result returned by the server is illegal");
+        }
+
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
+    }
+
+    /**
+     * ，通过指定邮件ID，获取对应邮件的标签、文件夹、摘要、正文、html、附件等信息。注意，如需获取摘要、正文、主题或收发件人地址，需要申请对应的字段权限。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch_get&project=mail&resource=user_mailbox.message&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch_get&project=mail&resource=user_mailbox.message&version=v1</a> ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1/BatchGetUserMailboxMessageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1/BatchGetUserMailboxMessageSample.java</a> ;
+     */
+    public BatchGetUserMailboxMessageResp batchGet(BatchGetUserMailboxMessageReq req) throws Exception {
+        // 请求参数选项
+        RequestOptions reqOptions = new RequestOptions();
+
+        // 发起请求
+        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                , "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/messages/batch_get"
+                , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                , req);
+
+        // 反序列化
+        BatchGetUserMailboxMessageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchGetUserMailboxMessageResp.class);
+        if (resp == null) {
+            log.error(String.format(
+                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/messages/batch_get"
+                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                            StandardCharsets.UTF_8)));
+            throw new IllegalArgumentException("The result returned by the server is illegal");
+        }
+
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
+    }
+
+    /**
+     * ，本接口提供修改邮件的能力，支持移动邮件的文件夹、给邮件添加和移除标签、标记邮件读和未读、移动邮件至垃圾邮件等能力。不支持移动邮件到已删除文件夹，如需，请使用批量删除邮件接口。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch_modify&project=mail&resource=user_mailbox.message&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch_modify&project=mail&resource=user_mailbox.message&version=v1</a> ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1/BatchModifyUserMailboxMessageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1/BatchModifyUserMailboxMessageSample.java</a> ;
+     */
+    public BatchModifyUserMailboxMessageResp batchModify(BatchModifyUserMailboxMessageReq req, RequestOptions reqOptions) throws Exception {
+        // 请求参数选项
+        if (reqOptions == null) {
+            reqOptions = new RequestOptions();
+        }
+
+        // 发起请求
+        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                , "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/messages/batch_modify"
+                , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                , req);
+
+        // 反序列化
+        BatchModifyUserMailboxMessageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchModifyUserMailboxMessageResp.class);
+        if (resp == null) {
+            log.error(String.format(
+                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/messages/batch_modify"
+                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                            StandardCharsets.UTF_8)));
+            throw new IllegalArgumentException("The result returned by the server is illegal");
+        }
+
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
+    }
+
+    /**
+     * ，本接口提供修改邮件的能力，支持移动邮件的文件夹、给邮件添加和移除标签、标记邮件读和未读、移动邮件至垃圾邮件等能力。不支持移动邮件到已删除文件夹，如需，请使用批量删除邮件接口。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch_modify&project=mail&resource=user_mailbox.message&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch_modify&project=mail&resource=user_mailbox.message&version=v1</a> ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1/BatchModifyUserMailboxMessageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1/BatchModifyUserMailboxMessageSample.java</a> ;
+     */
+    public BatchModifyUserMailboxMessageResp batchModify(BatchModifyUserMailboxMessageReq req) throws Exception {
+        // 请求参数选项
+        RequestOptions reqOptions = new RequestOptions();
+
+        // 发起请求
+        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                , "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/messages/batch_modify"
+                , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                , req);
+
+        // 反序列化
+        BatchModifyUserMailboxMessageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchModifyUserMailboxMessageResp.class);
+        if (resp == null) {
+            log.error(String.format(
+                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/messages/batch_modify"
+                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                            StandardCharsets.UTF_8)));
+            throw new IllegalArgumentException("The result returned by the server is illegal");
+        }
+
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
+    }
+
+    /**
+     * ，通过指定邮件ID，批量移动邮件到已删除文件夹
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch_trash&project=mail&resource=user_mailbox.message&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch_trash&project=mail&resource=user_mailbox.message&version=v1</a> ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1/BatchTrashUserMailboxMessageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1/BatchTrashUserMailboxMessageSample.java</a> ;
+     */
+    public BatchTrashUserMailboxMessageResp batchTrash(BatchTrashUserMailboxMessageReq req, RequestOptions reqOptions) throws Exception {
+        // 请求参数选项
+        if (reqOptions == null) {
+            reqOptions = new RequestOptions();
+        }
+
+        // 发起请求
+        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                , "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/messages/batch_trash"
+                , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                , req);
+
+        // 反序列化
+        BatchTrashUserMailboxMessageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchTrashUserMailboxMessageResp.class);
+        if (resp == null) {
+            log.error(String.format(
+                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/messages/batch_trash"
+                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                            StandardCharsets.UTF_8)));
+            throw new IllegalArgumentException("The result returned by the server is illegal");
+        }
+
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
+    }
+
+    /**
+     * ，通过指定邮件ID，批量移动邮件到已删除文件夹
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch_trash&project=mail&resource=user_mailbox.message&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch_trash&project=mail&resource=user_mailbox.message&version=v1</a> ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1/BatchTrashUserMailboxMessageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1/BatchTrashUserMailboxMessageSample.java</a> ;
+     */
+    public BatchTrashUserMailboxMessageResp batchTrash(BatchTrashUserMailboxMessageReq req) throws Exception {
+        // 请求参数选项
+        RequestOptions reqOptions = new RequestOptions();
+
+        // 发起请求
+        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                , "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/messages/batch_trash"
+                , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                , req);
+
+        // 反序列化
+        BatchTrashUserMailboxMessageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchTrashUserMailboxMessageResp.class);
+        if (resp == null) {
+            log.error(String.format(
+                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/messages/batch_trash"
+                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                            StandardCharsets.UTF_8)));
+            throw new IllegalArgumentException("The result returned by the server is illegal");
+        }
+
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
+    }
+
+    /**
+     * ，获取邮件详情
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=mail&resource=user_mailbox.message&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=mail&resource=user_mailbox.message&version=v1</a> ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1/GetUserMailboxMessageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1/GetUserMailboxMessageSample.java</a> ;
      */
@@ -82,7 +280,7 @@ public class UserMailboxMessage {
     }
 
     /**
-     * ，
+     * ，获取邮件详情
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=mail&resource=user_mailbox.message&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=mail&resource=user_mailbox.message&version=v1</a> ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1/GetUserMailboxMessageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1/GetUserMailboxMessageSample.java</a> ;
      */
@@ -180,7 +378,7 @@ public class UserMailboxMessage {
     }
 
     /**
-     * ，
+     * ，根据用户指定的标签或文件夹，列出对应位置下的邮件列表。注意，必须填写folder_id或label_id中的一个字段。
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=mail&resource=user_mailbox.message&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=mail&resource=user_mailbox.message&version=v1</a> ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1/ListUserMailboxMessageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1/ListUserMailboxMessageSample.java</a> ;
      */
@@ -214,7 +412,7 @@ public class UserMailboxMessage {
     }
 
     /**
-     * ，
+     * ，根据用户指定的标签或文件夹，列出对应位置下的邮件列表。注意，必须填写folder_id或label_id中的一个字段。
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=mail&resource=user_mailbox.message&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=mail&resource=user_mailbox.message&version=v1</a> ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1/ListUserMailboxMessageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1/ListUserMailboxMessageSample.java</a> ;
      */
@@ -233,6 +431,138 @@ public class UserMailboxMessage {
         if (resp == null) {
             log.error(String.format(
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/messages"
+                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                            StandardCharsets.UTF_8)));
+            throw new IllegalArgumentException("The result returned by the server is illegal");
+        }
+
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
+    }
+
+    /**
+     * ，通过用户邮箱地址和邮件会话ID，获取该会话下的所有邮件关键信息列表。如需查询主题、正文、摘要、收发件人信息，请申请字段权限。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list_thread_message&project=mail&resource=user_mailbox.message&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list_thread_message&project=mail&resource=user_mailbox.message&version=v1</a> ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1/ListThreadMessageUserMailboxMessageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1/ListThreadMessageUserMailboxMessageSample.java</a> ;
+     */
+    public ListThreadMessageUserMailboxMessageResp listThreadMessage(ListThreadMessageUserMailboxMessageReq req, RequestOptions reqOptions) throws Exception {
+        // 请求参数选项
+        if (reqOptions == null) {
+            reqOptions = new RequestOptions();
+        }
+
+        // 发起请求
+        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                , "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/threads/:thread_id/messages"
+                , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                , req);
+
+        // 反序列化
+        ListThreadMessageUserMailboxMessageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListThreadMessageUserMailboxMessageResp.class);
+        if (resp == null) {
+            log.error(String.format(
+                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/threads/:thread_id/messages"
+                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                            StandardCharsets.UTF_8)));
+            throw new IllegalArgumentException("The result returned by the server is illegal");
+        }
+
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
+    }
+
+    /**
+     * ，通过用户邮箱地址和邮件会话ID，获取该会话下的所有邮件关键信息列表。如需查询主题、正文、摘要、收发件人信息，请申请字段权限。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list_thread_message&project=mail&resource=user_mailbox.message&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list_thread_message&project=mail&resource=user_mailbox.message&version=v1</a> ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1/ListThreadMessageUserMailboxMessageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1/ListThreadMessageUserMailboxMessageSample.java</a> ;
+     */
+    public ListThreadMessageUserMailboxMessageResp listThreadMessage(ListThreadMessageUserMailboxMessageReq req) throws Exception {
+        // 请求参数选项
+        RequestOptions reqOptions = new RequestOptions();
+
+        // 发起请求
+        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                , "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/threads/:thread_id/messages"
+                , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                , req);
+
+        // 反序列化
+        ListThreadMessageUserMailboxMessageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListThreadMessageUserMailboxMessageResp.class);
+        if (resp == null) {
+            log.error(String.format(
+                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/threads/:thread_id/messages"
+                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                            StandardCharsets.UTF_8)));
+            throw new IllegalArgumentException("The result returned by the server is illegal");
+        }
+
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
+    }
+
+    /**
+     * ，本接口提供修改邮件的能力，支持移动邮件的文件夹、给邮件添加和移除标签、标记邮件已读和未读、移动邮件至垃圾邮件等能力。不支持移动邮件到已删除文件夹，如需删除邮件，请使用删除邮件接口。至少填写add_label_ids、remove_label_ids、add_folder中的一个参数。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=modify&project=mail&resource=user_mailbox.message&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=modify&project=mail&resource=user_mailbox.message&version=v1</a> ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1/ModifyUserMailboxMessageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1/ModifyUserMailboxMessageSample.java</a> ;
+     */
+    public ModifyUserMailboxMessageResp modify(ModifyUserMailboxMessageReq req, RequestOptions reqOptions) throws Exception {
+        // 请求参数选项
+        if (reqOptions == null) {
+            reqOptions = new RequestOptions();
+        }
+
+        // 发起请求
+        RawResponse httpResponse = Transport.send(config, reqOptions, "PUT"
+                , "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/messages/:message_id/modify"
+                , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                , req);
+
+        // 反序列化
+        ModifyUserMailboxMessageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ModifyUserMailboxMessageResp.class);
+        if (resp == null) {
+            log.error(String.format(
+                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/messages/:message_id/modify"
+                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                            StandardCharsets.UTF_8)));
+            throw new IllegalArgumentException("The result returned by the server is illegal");
+        }
+
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
+    }
+
+    /**
+     * ，本接口提供修改邮件的能力，支持移动邮件的文件夹、给邮件添加和移除标签、标记邮件已读和未读、移动邮件至垃圾邮件等能力。不支持移动邮件到已删除文件夹，如需删除邮件，请使用删除邮件接口。至少填写add_label_ids、remove_label_ids、add_folder中的一个参数。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=modify&project=mail&resource=user_mailbox.message&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=modify&project=mail&resource=user_mailbox.message&version=v1</a> ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1/ModifyUserMailboxMessageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1/ModifyUserMailboxMessageSample.java</a> ;
+     */
+    public ModifyUserMailboxMessageResp modify(ModifyUserMailboxMessageReq req) throws Exception {
+        // 请求参数选项
+        RequestOptions reqOptions = new RequestOptions();
+
+        // 发起请求
+        RawResponse httpResponse = Transport.send(config, reqOptions, "PUT"
+                , "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/messages/:message_id/modify"
+                , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                , req);
+
+        // 反序列化
+        ModifyUserMailboxMessageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ModifyUserMailboxMessageResp.class);
+        if (resp == null) {
+            log.error(String.format(
+                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/messages/:message_id/modify"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
                             StandardCharsets.UTF_8)));
@@ -299,6 +629,72 @@ public class UserMailboxMessage {
         if (resp == null) {
             log.error(String.format(
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/messages/send"
+                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                            StandardCharsets.UTF_8)));
+            throw new IllegalArgumentException("The result returned by the server is illegal");
+        }
+
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
+    }
+
+    /**
+     * ，移动邮件到已删除文件夹。注意，该接口无法删除草稿，如需删除草稿，请使用删除草稿接口
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=trash&project=mail&resource=user_mailbox.message&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=trash&project=mail&resource=user_mailbox.message&version=v1</a> ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1/TrashUserMailboxMessageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1/TrashUserMailboxMessageSample.java</a> ;
+     */
+    public TrashUserMailboxMessageResp trash(TrashUserMailboxMessageReq req, RequestOptions reqOptions) throws Exception {
+        // 请求参数选项
+        if (reqOptions == null) {
+            reqOptions = new RequestOptions();
+        }
+
+        // 发起请求
+        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                , "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/messages/:message_id/trash"
+                , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                , req);
+
+        // 反序列化
+        TrashUserMailboxMessageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, TrashUserMailboxMessageResp.class);
+        if (resp == null) {
+            log.error(String.format(
+                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/messages/:message_id/trash"
+                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                            StandardCharsets.UTF_8)));
+            throw new IllegalArgumentException("The result returned by the server is illegal");
+        }
+
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
+    }
+
+    /**
+     * ，移动邮件到已删除文件夹。注意，该接口无法删除草稿，如需删除草稿，请使用删除草稿接口
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=trash&project=mail&resource=user_mailbox.message&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=trash&project=mail&resource=user_mailbox.message&version=v1</a> ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1/TrashUserMailboxMessageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1/TrashUserMailboxMessageSample.java</a> ;
+     */
+    public TrashUserMailboxMessageResp trash(TrashUserMailboxMessageReq req) throws Exception {
+        // 请求参数选项
+        RequestOptions reqOptions = new RequestOptions();
+
+        // 发起请求
+        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                , "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/messages/:message_id/trash"
+                , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                , req);
+
+        // 反序列化
+        TrashUserMailboxMessageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, TrashUserMailboxMessageResp.class);
+        if (resp == null) {
+            log.error(String.format(
+                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/messages/:message_id/trash"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
                             StandardCharsets.UTF_8)));

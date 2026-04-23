@@ -28,12 +28,16 @@ public class V1 {
     private final User user; // 邮箱地址
     private final UserMailbox userMailbox; // 用户邮箱
     private final UserMailboxAlias userMailboxAlias; // 用户邮箱别名
+    private final UserMailboxDraft userMailboxDraft; // user_mailbox.draft
     private final UserMailboxEvent userMailboxEvent; // user_mailbox.event
     private final UserMailboxFolder userMailboxFolder; // user_mailbox.folder
+    private final UserMailboxLabel userMailboxLabel; // user_mailbox.label
     private final UserMailboxMailContact userMailboxMailContact; // user_mailbox.mail_contact
     private final UserMailboxMessage userMailboxMessage; // user_mailbox.message
     private final UserMailboxMessageAttachment userMailboxMessageAttachment; // user_mailbox.message.attachment
     private final UserMailboxRule userMailboxRule; // user_mailbox.rule
+    private final UserMailboxSetting userMailboxSetting; // user_mailbox.setting
+    private final UserMailboxThread userMailboxThread; // user_mailbox.thread
 
     public V1(Config config) {
         this.mailgroup = new Mailgroup(config);
@@ -47,12 +51,16 @@ public class V1 {
         this.user = new User(config);
         this.userMailbox = new UserMailbox(config);
         this.userMailboxAlias = new UserMailboxAlias(config);
+        this.userMailboxDraft = new UserMailboxDraft(config);
         this.userMailboxEvent = new UserMailboxEvent(config);
         this.userMailboxFolder = new UserMailboxFolder(config);
+        this.userMailboxLabel = new UserMailboxLabel(config);
         this.userMailboxMailContact = new UserMailboxMailContact(config);
         this.userMailboxMessage = new UserMailboxMessage(config);
         this.userMailboxMessageAttachment = new UserMailboxMessageAttachment(config);
         this.userMailboxRule = new UserMailboxRule(config);
+        this.userMailboxSetting = new UserMailboxSetting(config);
+        this.userMailboxThread = new UserMailboxThread(config);
     }
 
     public Mailgroup mailgroup() {
@@ -99,12 +107,20 @@ public class V1 {
         return userMailboxAlias;
     }
 
+    public UserMailboxDraft userMailboxDraft() {
+        return userMailboxDraft;
+    }
+
     public UserMailboxEvent userMailboxEvent() {
         return userMailboxEvent;
     }
 
     public UserMailboxFolder userMailboxFolder() {
         return userMailboxFolder;
+    }
+
+    public UserMailboxLabel userMailboxLabel() {
+        return userMailboxLabel;
     }
 
     public UserMailboxMailContact userMailboxMailContact() {
@@ -121,5 +137,13 @@ public class V1 {
 
     public UserMailboxRule userMailboxRule() {
         return userMailboxRule;
+    }
+
+    public UserMailboxSetting userMailboxSetting() {
+        return userMailboxSetting;
+    }
+
+    public UserMailboxThread userMailboxThread() {
+        return userMailboxThread;
     }
 }
