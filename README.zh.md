@@ -80,6 +80,90 @@
   UserAccessToken")），具体请看 README.zh.md -> 如何构建请求（Request）
 - 更多使用示例，请看[ApiSample.java](sample/src/main/java/com/larksuite/oapi/sample/api/ApiSample.java)
 
+### 一键创建应用
+
+SDK 提供 `RegisterApp.register(...)` 能力，基于 OAuth 2.0 Device Authorization Grant（RFC 8628）协议实现一键创建应用。
+该方法会返回一个验证链接，用户在飞书/Lark 中打开该链接完成授权后，即可自动注册应用并获取凭据，无需手动到开发者后台创建。
+
+```java
+import com.lark.oapi.scene.registration.RegisterApp;
+import com.lark.oapi.scene.registration.RegisterAppException;
+import com.lark.oapi.scene.registration.RegisterAppOptions;
+import com.lark.oapi.scene.registration.RegisterAppResult;
+
+public class Sample {
+
+    public static void main(String[] args) {
+        try {
+            RegisterAppResult result = RegisterApp.register(
+                    RegisterAppOptions.newBuilder()
+                            .source("test")
+                            .onQRCode(info -> {
+                                System.out.println("Please scan the QR code:");
+                                System.out.println(info.getUrl());
+                                System.out.println(String.format("Link expires in %s seconds", info.getExpireIn()));
+                            })
+                            .onStatusChange(info -> System.out.println(
+                                    "status: " + info.getStatus()
+                                            + (info.getInterval() > 0
+                                            ? String.format(" (Interval: %s seconds)", info.getInterval())
+                                            : "")
+                            ))
+                            .build()
+            );
+
+            System.out.println("App ID: " + result.getClientId());
+            System.out.println("App Secret: " + result.getClientSecret());
+            System.out.println("User Info: " + result.getUserInfo());
+        } catch (RegisterAppException e) {
+            System.err.println("fail: " + e.getCode() + " " + e.getDescription());
+        }
+    }
+}
+```
+
+真实可运行示例：
+- [RegisterAppRealDemo](larksuite-oapi/src/test/java/com/lark/oapi/scene/registration/RegisterAppRealDemo.java)
+
+#### `RegisterAppOptions` 参数
+
+| 参数 | 描述 | 类型 | 必须 | 默认 |
+| ---- | ---- | ---- | ---- | ---- |
+| `source` | 来源标识，拼入二维码 URL 的 `source` 参数，格式为 `java-sdk/{source}` | `String` | 否 | - |
+| `domain` | 自定义飞书认证基地址 | `String` | 否 | `https://accounts.feishu.cn` |
+| `larkDomain` | 自定义 Lark 认证基地址，检测到 Lark 租户时自动切换 | `String` | 否 | `https://accounts.larksuite.com` |
+| `onQRCode` | 验证链接就绪时的回调，参数为 `QRCodeInfo`，包含 `url` 和 `expireIn` | `Consumer<QRCodeInfo>` | 是 | - |
+| `onStatusChange` | 轮询状态变化时的回调，参数为 `StatusChangeInfo` | `Consumer<StatusChangeInfo>` | 否 | - |
+
+#### 返回值
+
+| 字段 | 类型 | 描述 |
+| ---- | ---- | ---- |
+| `clientId` | `String` | App ID |
+| `clientSecret` | `String` | App Secret |
+| `userInfo` | `UserInfo` | 扫码用户信息 |
+| `userInfo.openId` | `String` | 用户的 `open_id` |
+| `userInfo.tenantBrand` | `String` | `"feishu"` 或 `"lark"` |
+
+#### 状态回调
+
+| 状态 | 描述 |
+| ---- | ---- |
+| `polling` | 仍在等待用户授权 |
+| `slow_down` | 服务端要求降低轮询频率，`interval` 为新的轮询间隔（秒） |
+| `domain_switched` | SDK 检测到 Lark 租户并切换到 `larkDomain` 继续轮询 |
+
+#### 错误处理
+
+`RegisterAppException` 包含 `code` 和 `description` 字段：
+
+| code | 描述 |
+| ---- | ---- |
+| `access_denied` | 用户拒绝了授权 |
+| `expired_token` | 二维码过期或轮询超时 |
+| `abort` | 通过线程中断取消了注册流程 |
+| `invalid_response` | 服务端返回了不符合预期的响应 |
+
 #### 使用`企业自建应用`访问 发送文本消息API 示例
 
 - 有些老版接口，没有直接可以使用的SDK，可以使用`原生`模式。
@@ -551,5 +635,4 @@ public static byte[]DownloadFile(String url)throws IOException{
 
 - 飞书：[服务端SDK](https://open.feishu.cn/document/ukTMukTMukTM/uETO1YjLxkTN24SM5UjN)
   页面右上角【这篇文档是否对你有帮助？】提交反馈
-
 

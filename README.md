@@ -14,6 +14,91 @@ To address these issues, Feishu Open Platform has developed the Open Interface S
 - [处理卡片回调 / Handle Card Callbacks](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/server-side-sdk/java-sdk-guide/handle-callback)
 - [常见问题 / SDK FAQs](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/server-side-sdk/faq)
 
+## App Registration 
+
+The SDK provides `RegisterApp.register(...)` for one-click app creation based on OAuth 2.0 Device Authorization Grant (RFC 8628).
+It returns a verification URL that users can open in Feishu/Lark to authorize and automatically register an app, then obtain the app credentials without manually creating one in the developer console.
+
+```java
+import com.lark.oapi.scene.registration.QRCodeInfo;
+import com.lark.oapi.scene.registration.RegisterApp;
+import com.lark.oapi.scene.registration.RegisterAppException;
+import com.lark.oapi.scene.registration.RegisterAppOptions;
+import com.lark.oapi.scene.registration.RegisterAppResult;
+
+public class Sample {
+
+    public static void main(String[] args) {
+        try {
+            RegisterAppResult result = RegisterApp.register(
+                    RegisterAppOptions.newBuilder()
+                            .source("test")
+                            .onQRCode(info -> {
+                                System.out.println("Please scan the QR code:");
+                                System.out.println(info.getUrl());
+                                System.out.println(String.format("Expires in %s seconds", info.getExpireIn()));
+                            })
+                            .onStatusChange(info -> System.out.println(
+                                    "Status: " + info.getStatus()
+                                            + (info.getInterval() > 0
+                                            ? String.format(" (interval: %ss)", info.getInterval())
+                                            : "")
+                            ))
+                            .build()
+            );
+
+            System.out.println("App ID: " + result.getClientId());
+            System.out.println("App Secret: " + result.getClientSecret());
+            System.out.println("User Info: " + result.getUserInfo());
+        } catch (RegisterAppException e) {
+            System.err.println("Failed: " + e.getCode() + " " + e.getDescription());
+        }
+    }
+}
+```
+
+Real runnable demo:
+- [RegisterAppRealDemo](larksuite-oapi/src/test/java/com/lark/oapi/scene/registration/RegisterAppRealDemo.java)
+
+### `RegisterAppOptions` parameters
+
+| Parameter | Description | Type | Required | Default |
+| ---- | ---- | ---- | ---- | ---- |
+| `source` | Source identifier, appended to the QR code URL `source` parameter as `java-sdk/{source}` | `String` | No | - |
+| `domain` | Custom Feishu accounts base URL | `String` | No | `https://accounts.feishu.cn` |
+| `larkDomain` | Custom Lark accounts base URL, used when tenant brand is detected as Lark | `String` | No | `https://accounts.larksuite.com` |
+| `onQRCode` | Callback when the verification URL is ready. Receives `QRCodeInfo` with `url` and `expireIn` | `Consumer<QRCodeInfo>` | Yes | - |
+| `onStatusChange` | Callback on polling status changes. Receives `StatusChangeInfo` | `Consumer<StatusChangeInfo>` | No | - |
+
+### Return value
+
+| Field | Type | Description |
+| ---- | ---- | ---- |
+| `clientId` | `String` | App ID |
+| `clientSecret` | `String` | App Secret |
+| `userInfo` | `UserInfo` | Scanning user info |
+| `userInfo.openId` | `String` | User's `open_id` |
+| `userInfo.tenantBrand` | `String` | `"feishu"` or `"lark"` |
+
+### Status callback
+
+| Status | Description |
+| ---- | ---- |
+| `polling` | Authorization is still pending |
+| `slow_down` | The server asks the client to slow down polling; `interval` contains the new interval in seconds |
+| `domain_switched` | The SDK detected a Lark tenant and switched polling to `larkDomain` |
+
+### Error handling
+
+`RegisterAppException` contains `code` and `description` fields:
+
+| code | Description |
+| ---- | ---- |
+| `access_denied` | User denied the authorization |
+| `expired_token` | QR code expired or polling timed out |
+| `abort` | Registration was canceled via thread interruption |
+| `invalid_response` | The service returned an unexpected response |
+
 ## 扩展示例
 我们还基于 SDK 封装了常用的 API 组合调用及业务场景示例，如：
 * 消息
@@ -37,6 +122,4 @@ To address these issues, Feishu Open Platform has developed the Open Interface S
 ## License
 
 使用 MIT
-
-
 
