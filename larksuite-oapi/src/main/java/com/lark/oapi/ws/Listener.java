@@ -25,6 +25,7 @@ public class Listener extends WebSocketListener {
     @Override
     public void onOpen(WebSocket webSocket, Response response) {
         this.cli.conn = webSocket;
+        this.cli.markConnected();
         log.info(cli.fmtLog("connected to %s", this.cli.connUrl));
     }
 
@@ -46,7 +47,7 @@ public class Listener extends WebSocketListener {
     @Override
     public void onClosed(WebSocket webSocket, int code, String reason) {
         this.cli.disconnect();
-        if (this.cli.autoReconnect) {
+        if (this.cli.shouldReconnect()) {
             this.cli.reconnect();
         }
     }
@@ -78,14 +79,16 @@ public class Listener extends WebSocketListener {
                     throw new ServerException(c, msg);
             }
         } catch (ClientException e) {
+            this.cli.markFailed(e);
             log.error(e.toString());
         } catch (Throwable e) {
+            this.cli.markFailed(e);
             log.error(e.toString());
             if (this.cli.isReconnecting) {
                 return;
             }
             this.cli.disconnect();
-            if (this.cli.autoReconnect) {
+            if (this.cli.shouldReconnect()) {
                 this.cli.reconnect();
             }
         }

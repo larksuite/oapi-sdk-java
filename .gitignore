@@ -34,4 +34,10 @@ hs_err_pid*
 sensitive_info_result.txt
 
 .env
+.agents
+.claude
+.coco
+.trae
+.trae-cn
+skills
 plan

@@ -80,6 +80,14 @@
   UserAccessToken")），具体请看 README.zh.md -> 如何构建请求（Request）
 - 更多使用示例，请看[ApiSample.java](sample/src/main/java/com/larksuite/oapi/sample/api/ApiSample.java)
 
+### Channel 与 Agent 接入
+
+SDK 提供 `LarkChannel` 高层会话通道，适用于 AI Agent、Bot、客服机器人等场景。它封装了 WebSocket/Webhook 事件接入、消息归一化、安全策略、回复发送、流式输出、资源上传下载、卡片动作和表情反应等能力。
+`LarkChannel` 主类按 lifecycle、event subscription、outbound、low-level、runtime config、bot identity & dispatch wiring 分层组织；不属于公开门面本身的逻辑已拆到对应协作类中，便于后续维护和测试。
+
+- 使用指南：[Java Channel 使用指南](CHANNEL.md)
+- 可运行示例：[ChannelSample.java](sample/src/main/java/com/lark/oapi/sample/channel/ChannelSample.java)
+
 ### 一键创建应用
 
 SDK 提供 `RegisterApp.register(...)` 能力，基于 OAuth 2.0 Device Authorization Grant（RFC 8628）协议实现一键创建应用。
@@ -635,4 +643,3 @@ public static byte[]DownloadFile(String url)throws IOException{
 
 - 飞书：[服务端SDK](https://open.feishu.cn/document/ukTMukTMukTM/uETO1YjLxkTN24SM5UjN)
   页面右上角【这篇文档是否对你有帮助？】提交反馈
-

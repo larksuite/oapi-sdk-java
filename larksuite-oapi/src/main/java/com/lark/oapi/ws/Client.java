@@ -26,9 +26,11 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 import java.util.Random;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeoutException;
 import java.util.concurrent.TimeUnit;
 
 import static com.lark.oapi.ws.Constant.*;
@@ -40,6 +42,7 @@ public class Client {
     protected WebSocket conn;
     protected String connUrl;
     protected volatile Boolean isReconnecting;
+    protected volatile boolean userClosed;
     private String appId;
     private String appSecret;
     private EventDispatcher eventHandler;
@@ -52,6 +55,9 @@ public class Client {
     private Integer pingInterval;
     private OkHttpClient httpClient;
     private Cache<String, byte[][]> cache;
+    private volatile CompletableFuture<Void> readyFuture;
+    private Runnable onReconnecting;
+    private Runnable onReconnected;
 
 
     private Client(Builder builder) {
@@ -66,23 +72,58 @@ public class Client {
         this.pingInterval = 120;
         this.httpClient = new OkHttpClient();
         this.isReconnecting = false;
+        this.userClosed = false;
         this.cache = CacheBuilder.newBuilder().expireAfterWrite(5, TimeUnit.MINUTES).build();
+        this.readyFuture = new CompletableFuture<Void>();
+        this.onReconnecting = builder.onReconnecting;
+        this.onReconnected = builder.onReconnected;
     }
 
     public void start() {
+        this.userClosed = false;
+        if (this.readyFuture.isDone()) {
+            this.readyFuture = new CompletableFuture<Void>();
+        }
         try {
             this.connect();
         } catch (ClientException e) {
+            markFailed(e);
             log.error(e.toString());
             throw e;
         } catch (Throwable t) {
+            markFailed(t);
             log.error(t.toString());
             this.disconnect();
-            if (this.autoReconnect) {
+            if (shouldReconnect()) {
                 this.reconnect();
             }
         }
         this.executor.execute(this::pingLoop);
+    }
+
+    public void awaitReady(long timeoutMs) throws Exception {
+        try {
+            this.readyFuture.get(timeoutMs, TimeUnit.MILLISECONDS);
+        } catch (TimeoutException e) {
+            throw new ServerUnreachableException(String.format("websocket handshake did not complete within %dms", timeoutMs));
+        } catch (java.util.concurrent.ExecutionException e) {
+            Throwable cause = e.getCause();
+            if (cause instanceof Exception) {
+                throw (Exception) cause;
+            }
+            throw new RuntimeException(cause);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            throw e;
+        }
+    }
+
+    public void close() {
+        this.userClosed = true;
+        if (!this.readyFuture.isDone()) {
+            this.readyFuture.completeExceptionally(new ServerUnreachableException("websocket client closed"));
+        }
+        this.disconnect();
     }
 
     private void pingLoop() {
@@ -121,6 +162,7 @@ public class Client {
         this.isReconnecting = true;
 
         try {
+            safeRun(this.onReconnecting);
             log.info("start reconnecting...");
             // 首次重连随机抖动
             if (this.reconnectNonce > 0) {
@@ -188,6 +230,26 @@ public class Client {
             log.error(t.toString());
             return false;
         }
+    }
+
+    protected void markConnected() {
+        if (Boolean.TRUE.equals(this.isReconnecting)) {
+            safeRun(this.onReconnected);
+        }
+        if (!this.readyFuture.isDone()) {
+            this.readyFuture.complete(null);
+        }
+    }
+
+    protected void markFailed(Throwable error) {
+        if (!this.readyFuture.isDone()) {
+            this.readyFuture.completeExceptionally(
+                    error instanceof Exception ? (Exception) error : new RuntimeException(error));
+        }
+    }
+
+    protected boolean shouldReconnect() {
+        return this.autoReconnect && !this.userClosed;
     }
 
     private String getConnUrl() throws IOException {
@@ -414,12 +476,24 @@ public class Client {
         }
     }
 
+    private void safeRun(Runnable callback) {
+        if (callback == null) {
+            return;
+        }
+        try {
+            callback.run();
+        } catch (Throwable ignored) {
+        }
+    }
+
     public static class Builder {
         private String appId;
         private String appSecret;
         private EventDispatcher eventHandler;
         private Boolean autoReconnect;
         private String domain;
+        private Runnable onReconnecting;
+        private Runnable onReconnected;
 
         public Builder(String appId, String appSecret) {
             this.appId = appId;
@@ -438,6 +512,16 @@ public class Client {
 
         public Builder domain(String domain) {
             this.domain = domain;
+            return this;
+        }
+
+        public Builder onReconnecting(Runnable onReconnecting) {
+            this.onReconnecting = onReconnecting;
+            return this;
+        }
+
+        public Builder onReconnected(Runnable onReconnected) {
+            this.onReconnected = onReconnected;
             return this;
         }
 

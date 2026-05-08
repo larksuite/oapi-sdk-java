@@ -13,6 +13,7 @@ To address these issues, Feishu Open Platform has developed the Open Interface S
 - [处理事件订阅 / Handle Events](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/server-side-sdk/java-sdk-guide/handle-events)
 - [处理卡片回调 / Handle Card Callbacks](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/server-side-sdk/java-sdk-guide/handle-callback)
 - [常见问题 / SDK FAQs](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/server-side-sdk/faq)
+- [Channel 与 Agent 接入 / Channel and Agent Integration](CHANNEL.md)
 
 ## App Registration 
 
