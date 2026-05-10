@@ -96,19 +96,37 @@ public class CardStreamControllerImpl implements CardStreamController {
     }
 
     private Map<String, Object> appendErrorFooter(Map<String, Object> card) {
-        Map<String, Object> copy = new LinkedHashMap<String, Object>(card == null ? new LinkedHashMap<String, Object>() : card);
+        Map<String, Object> copy = new LinkedHashMap<String, Object>();
+        if (card != null) {
+            copy.putAll(card);
+        }
         List<Object> elements = new ArrayList<Object>();
         Object bodyObject = copy.get("elements");
         if (bodyObject instanceof List) {
             elements.addAll((List<?>) bodyObject);
-        } else if (copy.get("body") instanceof Map && ((Map<?, ?>) copy.get("body")).get("elements") instanceof List) {
-            elements.addAll((List<?>) ((Map<?, ?>) copy.get("body")).get("elements"));
-            Map<String, Object> body = new LinkedHashMap<String, Object>((Map<String, Object>) copy.get("body"));
-            body.put("elements", appendWarning(elements));
-            copy.put("body", body);
-            return copy;
+        } else if (copy.get("body") instanceof Map) {
+            Map<?, ?> originalBody = (Map<?, ?>) copy.get("body");
+            Object bodyElements = originalBody.get("elements");
+            if (bodyElements instanceof List) {
+                elements.addAll((List<?>) bodyElements);
+                Map<String, Object> body = copyObjectMap(originalBody);
+                body.put("elements", appendWarning(elements));
+                copy.put("body", body);
+                return copy;
+            }
         }
         copy.put("elements", appendWarning(elements));
+        return copy;
+    }
+
+    private Map<String, Object> copyObjectMap(Map<?, ?> source) {
+        Map<String, Object> copy = new LinkedHashMap<String, Object>();
+        for (Map.Entry<?, ?> entry : source.entrySet()) {
+            Object key = entry.getKey();
+            if (key instanceof String) {
+                copy.put((String) key, entry.getValue());
+            }
+        }
         return copy;
     }
 

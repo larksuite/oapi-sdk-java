@@ -56,7 +56,7 @@ public class MediaUploader {
             return uploadFile(materialized, inferFileType(fileName), chooseName(fileName, "upload.bin"), null, "file");
         } finally {
             if (temporary && materialized != null) {
-                materialized.delete();
+                deleteTemporary(materialized);
             }
         }
     }
@@ -185,7 +185,9 @@ public class MediaUploader {
             URLConnection connection = url.openConnection();
             connection.setConnectTimeout(15000);
             connection.setReadTimeout(15000);
-            return readAll(connection.getInputStream(), MAX_URL_BYTES);
+            try (InputStream input = connection.getInputStream()) {
+                return readAll(input, MAX_URL_BYTES);
+            }
         } catch (LarkChannelException e) {
             throw e;
         } catch (Exception e) {
@@ -213,11 +215,8 @@ public class MediaUploader {
         try {
             String suffix = suffix(fileName);
             File temp = File.createTempFile("channel-upload-", suffix);
-            FileOutputStream output = new FileOutputStream(temp);
-            try {
+            try (FileOutputStream output = new FileOutputStream(temp)) {
                 output.write(data);
-            } finally {
-                output.close();
             }
             return temp;
         } catch (Exception e) {
@@ -282,6 +281,12 @@ public class MediaUploader {
         String chosen = chooseName(fileName, ".bin");
         int index = chosen.lastIndexOf('.');
         return index >= 0 ? chosen.substring(index) : ".bin";
+    }
+
+    private void deleteTemporary(File file) {
+        if (!file.delete()) {
+            file.deleteOnExit();
+        }
     }
 
     private LarkChannelException wrap(String message, Exception e) {

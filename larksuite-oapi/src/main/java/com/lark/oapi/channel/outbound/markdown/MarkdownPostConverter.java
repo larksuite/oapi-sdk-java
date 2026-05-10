@@ -1,7 +1,7 @@
 package com.lark.oapi.channel.outbound.markdown;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -11,17 +11,17 @@ public final class MarkdownPostConverter {
     }
 
     public static Map<String, Object> markdownToPost(String markdown, List<?> mentions) {
-        List<List<Map<String, Object>>> paragraphs = new ArrayList<List<Map<String, Object>>>();
+        List<List<Map<String, Object>>> paragraphs = new ArrayList<>();
         String[] lines = (markdown == null ? "" : markdown.replace("\r\n", "\n")).split("\n", -1);
         String fenceLang = null;
-        List<String> fenceBuffer = new ArrayList<String>();
+        List<String> fenceBuffer = new ArrayList<>();
         for (String line : lines) {
             String trimmed = line.trim();
             if (trimmed.matches("^```\\w*\\s*$")) {
                 if (fenceLang == null) {
                     fenceLang = trimmed.length() > 3 ? trimmed.substring(3).trim() : "";
                 } else {
-                    paragraphs.add(Arrays.asList(codeBlock(fenceLang, joinLines(fenceBuffer))));
+                    paragraphs.add(Collections.singletonList(codeBlock(fenceLang, joinLines(fenceBuffer))));
                     fenceLang = null;
                     fenceBuffer.clear();
                 }
@@ -32,33 +32,33 @@ public final class MarkdownPostConverter {
                 continue;
             }
             if (trimmed.isEmpty()) {
-                paragraphs.add(Arrays.asList(text("", null, false)));
+                paragraphs.add(Collections.singletonList(text("", null)));
                 continue;
             }
             if (trimmed.matches("^(-{3,}|_{3,}|\\*{3,})\\s*$")) {
-                paragraphs.add(Arrays.asList(text("\u2014\u2014\u2014", null, false)));
+                paragraphs.add(Collections.singletonList(text("\u2014\u2014\u2014", null)));
                 continue;
             }
             paragraphs.add(parseInline(line));
         }
         if (fenceLang != null) {
-            paragraphs.add(Arrays.asList(codeBlock(fenceLang, joinLines(fenceBuffer))));
+            paragraphs.add(Collections.singletonList(codeBlock(fenceLang, joinLines(fenceBuffer))));
         }
 
         List<Map<String, Object>> mentionElements = ComposeMentions.composePostMentionElements(mentions);
         if (!mentionElements.isEmpty()) {
-            List<Map<String, Object>> first = new ArrayList<Map<String, Object>>();
+            List<Map<String, Object>> first = new ArrayList<>();
             for (Map<String, Object> mention : mentionElements) {
                 first.add(mention);
-                first.add(text(" ", null, false));
+                first.add(text(" ", null));
             }
             paragraphs.add(0, first);
         }
 
-        Map<String, Object> locale = new LinkedHashMap<String, Object>();
+        Map<String, Object> locale = new LinkedHashMap<>();
         locale.put("title", "");
         locale.put("content", paragraphs);
-        Map<String, Object> post = new LinkedHashMap<String, Object>();
+        Map<String, Object> post = new LinkedHashMap<>();
         post.put("zh_cn", locale);
         return post;
     }
@@ -75,7 +75,7 @@ public final class MarkdownPostConverter {
         if (!(content instanceof List)) {
             return "";
         }
-        List<String> lines = new ArrayList<String>();
+        List<String> lines = new ArrayList<>();
         for (Object paragraph : (List<?>) content) {
             if (!(paragraph instanceof List)) {
                 continue;
@@ -89,7 +89,7 @@ public final class MarkdownPostConverter {
                 Object tag = item.get("tag");
                 if ("text".equals(tag) || "a".equals(tag)) {
                     if (item.get("text") != null) {
-                        line.append(String.valueOf(item.get("text")));
+                        line.append(item.get("text"));
                     }
                 } else if ("at".equals(tag)) {
                     Object userName = item.get("user_name");
@@ -100,11 +100,11 @@ public final class MarkdownPostConverter {
                     Object text = item.get("text");
                     line.append("```");
                     if (language != null) {
-                        line.append(String.valueOf(language));
+                        line.append(language);
                     }
                     line.append('\n');
                     if (text != null) {
-                        line.append(String.valueOf(text));
+                        line.append(text);
                     }
                     line.append("\n```");
                 }
@@ -115,53 +115,50 @@ public final class MarkdownPostConverter {
     }
 
     private static List<Map<String, Object>> parseInline(String line) {
-        List<Map<String, Object>> output = new ArrayList<Map<String, Object>>();
+        List<Map<String, Object>> output = new ArrayList<>();
         java.util.regex.Matcher heading = java.util.regex.Pattern.compile("^(#{1,6})\\s+(.*)$").matcher(line);
         if (heading.find()) {
-            output.add(text(heading.group(2), Arrays.asList("bold"), false));
+            output.add(text(heading.group(2), Collections.singletonList("bold")));
             return output;
         }
         java.util.regex.Pattern pattern = java.util.regex.Pattern.compile(
-                "(`[^`\\n]+`)|(\\[([^\\]]+)\\]\\(([^)]+)\\))|(\\*\\*[^*\\n]+\\*\\*)|(__[^_\\n]+__)|(\\*[^*\\n]+\\*)|(_[^_\\n]+_)");
+                "(`[^`\\n]+`)|(\\[([^\\]]+)]\\(([^)]+)\\))|(\\*\\*[^*\\n]+\\*\\*)|(__[^_\\n]+__)|(\\*[^*\\n]+\\*)|(_[^_\\n]+_)");
         java.util.regex.Matcher matcher = pattern.matcher(line);
         int last = 0;
         while (matcher.find()) {
             if (matcher.start() > last) {
-                output.add(text(line.substring(last, matcher.start()), null, false));
+                output.add(text(line.substring(last, matcher.start()), null));
             }
             String token = matcher.group();
             if (token.startsWith("`")) {
-                output.add(text(token.substring(1, token.length() - 1), Arrays.asList("code"), false));
+                output.add(text(token.substring(1, token.length() - 1), Collections.singletonList("code")));
             } else if (token.startsWith("[")) {
                 output.add(link(matcher.group(3), matcher.group(4)));
             } else if (token.startsWith("**") || token.startsWith("__")) {
-                output.add(text(token.substring(2, token.length() - 2), Arrays.asList("bold"), false));
+                output.add(text(token.substring(2, token.length() - 2), Collections.singletonList("bold")));
             } else {
-                output.add(text(token.substring(1, token.length() - 1), Arrays.asList("italic"), false));
+                output.add(text(token.substring(1, token.length() - 1), Collections.singletonList("italic")));
             }
             last = matcher.end();
         }
         if (last < line.length()) {
-            output.add(text(line.substring(last), null, false));
+            output.add(text(line.substring(last), null));
         }
-        return output.isEmpty() ? Arrays.asList(text("", null, false)) : output;
+        return output.isEmpty() ? Collections.singletonList(text("", null)) : output;
     }
 
-    private static Map<String, Object> text(String text, List<String> style, boolean unEscape) {
-        Map<String, Object> element = new LinkedHashMap<String, Object>();
+    private static Map<String, Object> text(String text, List<String> style) {
+        Map<String, Object> element = new LinkedHashMap<>();
         element.put("tag", "text");
         element.put("text", text);
         if (style != null && !style.isEmpty()) {
             element.put("style", style);
         }
-        if (unEscape) {
-            element.put("un_escape", true);
-        }
         return element;
     }
 
     private static Map<String, Object> codeBlock(String language, String code) {
-        Map<String, Object> element = new LinkedHashMap<String, Object>();
+        Map<String, Object> element = new LinkedHashMap<>();
         element.put("tag", "code_block");
         element.put("language", language == null ? "" : language);
         element.put("text", code == null ? "" : code);
@@ -169,7 +166,7 @@ public final class MarkdownPostConverter {
     }
 
     private static Map<String, Object> link(String text, String href) {
-        Map<String, Object> element = new LinkedHashMap<String, Object>();
+        Map<String, Object> element = new LinkedHashMap<>();
         element.put("tag", "a");
         element.put("text", text);
         element.put("href", href);

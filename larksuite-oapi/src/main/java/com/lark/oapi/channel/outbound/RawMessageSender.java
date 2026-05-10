@@ -53,7 +53,7 @@ class RawMessageSender {
             }
             if (OutboundErrors.isFormatError(error) && "post".equals(args.msgType)) {
                 String plainText = MarkdownPostConverter.postToPlainText(args.content);
-                if (plainText == null || plainText.isEmpty()) {
+                if (plainText.isEmpty()) {
                     plainText = "[message]";
                 }
                 return rawSendWithRetry(new RawSendArgs(args.to, args.idType, "text",
@@ -141,7 +141,7 @@ class RawMessageSender {
                 throw new LarkChannelException(LarkChannelErrorCode.UNKNOWN,
                         "create card failed: code=" + response.getCode() + ", msg=" + response.getMsg());
             }
-            String cardId = response != null && response.getData() != null ? response.getData().getCardId() : null;
+            String cardId = response.getData() != null ? response.getData().getCardId() : null;
             if (cardId == null || cardId.isEmpty()) {
                 throw new LarkChannelException(LarkChannelErrorCode.UNKNOWN, "card_id missing from create card response");
             }

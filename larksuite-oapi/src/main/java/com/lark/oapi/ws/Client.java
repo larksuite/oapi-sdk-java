@@ -24,8 +24,6 @@ import org.slf4j.LoggerFactory;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.Base64;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.Random;
@@ -59,6 +57,7 @@ public class Client {
     private volatile CompletableFuture<Void> readyFuture;
     private Runnable onReconnecting;
     private Runnable onReconnected;
+    private volatile boolean pingLoopRunning;
 
 
     private Client(Builder builder) {
@@ -78,6 +77,7 @@ public class Client {
         this.readyFuture = new CompletableFuture<Void>();
         this.onReconnecting = builder.onReconnecting;
         this.onReconnected = builder.onReconnected;
+        this.pingLoopRunning = false;
     }
 
     public void start() {
@@ -99,7 +99,7 @@ public class Client {
                 this.reconnect();
             }
         }
-        this.executor.execute(this::pingLoop);
+        startPingLoop();
     }
 
     public void awaitReady(long timeoutMs) throws Exception {
@@ -127,20 +127,32 @@ public class Client {
         this.disconnect();
     }
 
+    private synchronized void startPingLoop() {
+        if (this.pingLoopRunning) {
+            return;
+        }
+        this.pingLoopRunning = true;
+        this.executor.execute(this::pingLoop);
+    }
+
     private void pingLoop() {
-        this.sleep(2000);
-        while (true) {
-            try {
-                if (this.conn != null) {
-                    Pbbp2.Frame frame = newPingFrame(Integer.parseInt(this.serviceId));
-                    this.conn.send(com.lark.oapi.okio.ByteString.of(frame.toByteArray()));
-                    log.debug(fmtLog("ping success"));
+        try {
+            this.sleep(2000);
+            while (!this.userClosed) {
+                try {
+                    if (this.conn != null) {
+                        Pbbp2.Frame frame = newPingFrame(Integer.parseInt(this.serviceId));
+                        this.conn.send(com.lark.oapi.okio.ByteString.of(frame.toByteArray()));
+                        log.debug(fmtLog("ping success"));
+                    }
+                } catch (Throwable t) {
+                    log.warn(fmtLog("ping failed"), t);
+                } finally {
+                    this.sleep(this.pingInterval * 1000);
                 }
-            } catch (Throwable t) {
-                log.warn(fmtLog("ping failed"), t);
-            } finally {
-                this.sleep(this.pingInterval * 1000);
             }
+        } finally {
+            this.pingLoopRunning = false;
         }
     }
 
@@ -266,13 +278,11 @@ public class Client {
             }
 
             EndpointResp resp = Jsons.DEFAULT.fromJson(response.body().string(), EndpointResp.class);
-            if (resp.getCode() == OK) {
-                // do nothing
-            } else if (resp.getCode() == SYSTEM_BUSY) {
+            if (resp.getCode() == SYSTEM_BUSY) {
                 throw new ServerException(resp.getCode(), "system busy");
             } else if (resp.getCode() == INTERNAL_ERROR) {
                 throw new ServerException(resp.getCode(), resp.getMsg());
-            } else {
+            } else if (resp.getCode() != OK) {
                 throw new ClientException(resp.getCode(), resp.getMsg());
             }
 
