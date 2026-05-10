@@ -13,6 +13,8 @@ import com.lark.oapi.service.cardkit.v1.model.IdConvertCardResp;
 import com.lark.oapi.service.cardkit.v1.model.IdConvertCardRespBody;
 import com.lark.oapi.service.cardkit.v1.model.PatchCardElementReq;
 import com.lark.oapi.service.cardkit.v1.model.PatchCardElementResp;
+import com.lark.oapi.service.cardkit.v1.model.SettingsCardReq;
+import com.lark.oapi.service.cardkit.v1.model.SettingsCardResp;
 import com.lark.oapi.service.cardkit.v1.model.UpdateCardElementReq;
 import com.lark.oapi.service.cardkit.v1.model.UpdateCardElementResp;
 import com.lark.oapi.service.cardkit.v1.model.UpdateCardReq;
@@ -345,6 +347,7 @@ final class OutboundTestSupport {
     static class StubCardResource extends Card {
         CreateCardReq createReq;
         UpdateCardReq updateReq;
+        SettingsCardReq settingsReq;
         IdConvertCardReq idConvertReq;
         CreateCardResp createResp;
         IdConvertCardResp idConvertResp;
@@ -369,6 +372,12 @@ final class OutboundTestSupport {
         public UpdateCardResp update(UpdateCardReq req) {
             this.updateReq = req;
             return new UpdateCardResp();
+        }
+
+        @Override
+        public SettingsCardResp settings(SettingsCardReq req) {
+            this.settingsReq = req;
+            return new SettingsCardResp();
         }
     }
 

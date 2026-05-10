@@ -1,9 +1,11 @@
 package com.lark.oapi.channel;
 
 import com.lark.oapi.channel.config.LarkChannelOptions;
+import com.lark.oapi.channel.model.ChannelErrorEvent;
 import com.lark.oapi.channel.model.RejectReason;
 import com.lark.oapi.channel.model.SendInput;
 import com.lark.oapi.channel.model.SendResult;
+import com.lark.oapi.channel.exception.LarkChannelException;
 import com.lark.oapi.core.Config;
 import com.lark.oapi.core.httpclient.IHttpTransport;
 import com.lark.oapi.core.request.RawRequest;
@@ -52,6 +54,52 @@ import org.junit.Test;
 
 public class TestLarkChannel {
     @Test
+    public void testEventBusOverrideBatchUnsubscribeAndErrorIsolation() {
+        ChannelEventBus bus = new ChannelEventBus();
+        final AtomicInteger messageCount = new AtomicInteger();
+        final AtomicInteger errorCount = new AtomicInteger();
+
+        bus.on("message", new ChannelEventHandler<String>() {
+            @Override
+            public void handle(String event) {
+                messageCount.addAndGet(100);
+            }
+        });
+        bus.on("message", new ChannelEventHandler<String>() {
+            @Override
+            public void handle(String event) {
+                messageCount.incrementAndGet();
+                throw new RuntimeException("boom");
+            }
+        });
+        bus.on("error", new ChannelEventHandler<ChannelErrorEvent>() {
+            @Override
+            public void handle(ChannelErrorEvent event) {
+                errorCount.incrementAndGet();
+                Assert.assertEquals("message", event.getEventName());
+                Assert.assertEquals("payload", event.getEvent());
+            }
+        });
+
+        bus.emit("message", "payload");
+        Assert.assertEquals(1, messageCount.get());
+        Assert.assertEquals(1, errorCount.get());
+
+        java.util.Map<String, ChannelEventHandler<?>> batch = new java.util.LinkedHashMap<String, ChannelEventHandler<?>>();
+        batch.put("message", new ChannelEventHandler<String>() {
+            @Override
+            public void handle(String event) {
+                messageCount.addAndGet(10);
+            }
+        });
+        ChannelSubscription subscription = bus.on(batch);
+        bus.emit("message", "payload");
+        subscription.unsubscribe();
+        bus.emit("message", "payload");
+        Assert.assertEquals(11, messageCount.get());
+    }
+
+    @Test
     public void testEditMessageUsesUpdateNotPatch() throws Exception {
         StubMessage stubMessage = new StubMessage();
         LarkChannel channel = createChannel(stubMessage, new StubMessageReaction(), new StubImage(), new StubFile(), new StubChat());
@@ -63,6 +111,20 @@ public class TestLarkChannel {
         Assert.assertEquals("om_123", stubMessage.updateReq.getMessageId());
         Assert.assertEquals("text", stubMessage.updateReq.getUpdateMessageReqBody().getMsgType());
         Assert.assertEquals("{\"text\":\"new body\"}", stubMessage.updateReq.getUpdateMessageReqBody().getContent());
+    }
+
+    @Test
+    public void testUpdateCardUsesPatchWithInteractiveContent() throws Exception {
+        StubMessage stubMessage = new StubMessage();
+        LarkChannel channel = createChannel(stubMessage, new StubMessageReaction(), new StubImage(), new StubFile(), new StubChat());
+        java.util.Map<String, Object> card = new java.util.LinkedHashMap<String, Object>();
+        card.put("elements", java.util.Collections.singletonList(java.util.Collections.singletonMap("tag", "markdown")));
+
+        channel.updateCard("om_card", card).get();
+
+        Assert.assertNotNull(stubMessage.patchReq);
+        Assert.assertEquals("om_card", stubMessage.patchReq.getMessageId());
+        Assert.assertTrue(stubMessage.patchReq.getPatchMessageReqBody().getContent().contains("markdown"));
     }
 
     @Test
@@ -274,6 +336,31 @@ public class TestLarkChannel {
     }
 
     @Test
+    public void testConnectInvalidCredentialsFailsAndCanRetry() throws Exception {
+        LarkChannel channel = LarkChannelFactory.createLarkChannel(
+                LarkChannelOptions.newBuilder("cli_test", "bad_secret").transport("webhook").build()
+        );
+        StubRawClient stubClient = new StubRawClient();
+        RawResponse denied = new RawResponse();
+        denied.setStatusCode(403);
+        denied.setBody("{\"code\":99991401,\"msg\":\"permission denied\"}".getBytes(StandardCharsets.UTF_8));
+        stubClient.getResp = denied;
+        setField(channel, "rawClient", stubClient);
+
+        try {
+            channel.connect().get(3, TimeUnit.SECONDS);
+            Assert.fail("expected permission denied");
+        } catch (ExecutionException e) {
+            Assert.assertTrue(e.getCause() instanceof LarkChannelException);
+            Assert.assertEquals(com.lark.oapi.channel.exception.LarkChannelErrorCode.PERMISSION_DENIED.getValue(),
+                    ((LarkChannelException) e.getCause()).getCode());
+        }
+
+        Assert.assertNull(getField(channel, "connectPromise"));
+        Assert.assertEquals(Boolean.FALSE, getField(channel, "connected"));
+    }
+
+    @Test
     public void testWebSocketReconnectEventsAreForwarded() throws Exception {
         LarkChannel channel = LarkChannelFactory.createLarkChannel(
                 LarkChannelOptions.newBuilder("cli_test", "secret").transport("websocket").build()
@@ -365,7 +452,7 @@ public class TestLarkChannel {
                 null);
 
         Object result = checkPolicy.invoke(channel, message);
-        Assert.assertEquals(RejectReason.MENTION_ALL_BLOCKED, result);
+        Assert.assertEquals(RejectReason.NO_MENTION, result);
     }
 
     @Test

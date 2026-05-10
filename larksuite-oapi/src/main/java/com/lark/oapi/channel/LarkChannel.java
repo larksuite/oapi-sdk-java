@@ -5,6 +5,7 @@ import com.lark.oapi.channel.config.LarkChannelOptions;
 import com.lark.oapi.channel.model.BotIdentity;
 import com.lark.oapi.channel.model.ChatInfo;
 import com.lark.oapi.channel.model.NormalizedMessage;
+import com.lark.oapi.channel.model.RejectEvent;
 import com.lark.oapi.channel.model.RejectReason;
 import com.lark.oapi.channel.model.SendInput;
 import com.lark.oapi.channel.model.SendOptions;
@@ -12,7 +13,10 @@ import com.lark.oapi.channel.model.SendResult;
 import com.lark.oapi.channel.model.StreamInput;
 import com.lark.oapi.channel.normalize.ChannelNormalizer;
 import com.lark.oapi.channel.outbound.OutboundSender;
+import com.lark.oapi.channel.safety.OnMessageDispatch;
+import com.lark.oapi.channel.safety.OnReject;
 import com.lark.oapi.channel.safety.SafetyPipeline;
+import com.lark.oapi.channel.safety.SafetyPipelineOptions;
 import com.lark.oapi.event.EventDispatcher;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
@@ -40,7 +44,22 @@ public class LarkChannel {
         this.runtimeConfig = new ChannelRuntimeConfig(options);
 
         this.rawClient = ChannelClientFactory.createRawClient(options);
-        this.safetyPipeline = new SafetyPipeline(options.getSafety(), options.getPolicy(), options.getCache());
+        this.safetyPipeline = new SafetyPipeline(new SafetyPipelineOptions(
+                options.getSafety(),
+                options.getPolicy(),
+                options.getCache(),
+                new OnReject() {
+                    @Override
+                    public void onReject(RejectEvent event) {
+                        eventBus.emit("reject", event);
+                    }
+                },
+                new OnMessageDispatch() {
+                    @Override
+                    public void onMessage(NormalizedMessage message) {
+                        eventBus.emit("message", message);
+                    }
+                }));
         this.outboundSender = new OutboundSender(this.rawClient, options);
         this.inboundProcessor = createInboundProcessor();
         this.dispatcher = ChannelEventDispatcherFactory.create(options, inboundProcessor);
@@ -60,6 +79,7 @@ public class LarkChannel {
                 try {
                     BotIdentity identity = fetchBotIdentity();
                     botIdentity = identity;
+                    safetyPipeline.setBotIdentity(identity);
                     if (rawWsClient != null) {
                         rawWsClient.start();
                         awaitWebSocketReady(rawWsClient, 15000L);
@@ -95,8 +115,12 @@ public class LarkChannel {
         return eventBus.on(eventName, handler);
     }
 
-    public void on(Map<String, ChannelEventHandler<?>> batchHandlers) {
-        eventBus.on(batchHandlers);
+    public <T> ChannelSubscription onMany(String eventName, ChannelEventHandler<T> handler) {
+        return eventBus.onMany(eventName, handler);
+    }
+
+    public ChannelSubscription on(Map<String, ChannelEventHandler<?>> batchHandlers) {
+        return eventBus.on(batchHandlers);
     }
 
     public EventDispatcher createWebhookDispatcher() {

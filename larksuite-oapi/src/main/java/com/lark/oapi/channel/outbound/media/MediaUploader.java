@@ -25,6 +25,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class MediaUploader {
+    private static final long MAX_URL_BYTES = 50L * 1024L * 1024L;
     private static final List<String> POSIX_BLOCKED_PREFIXES =
             Arrays.asList("/etc/", "/proc/", "/sys/", "/dev/", "/private/etc/");
 
@@ -184,7 +185,7 @@ public class MediaUploader {
             URLConnection connection = url.openConnection();
             connection.setConnectTimeout(15000);
             connection.setReadTimeout(15000);
-            return readAll(connection.getInputStream());
+            return readAll(connection.getInputStream(), MAX_URL_BYTES);
         } catch (LarkChannelException e) {
             throw e;
         } catch (Exception e) {
@@ -199,14 +200,11 @@ public class MediaUploader {
         if (host == null || host.isEmpty()) {
             throw new LarkChannelException(LarkChannelErrorCode.SSRF_BLOCKED, "URL blocked: empty host");
         }
-        if (config != null && config.getSsrfAllowlist() != null && config.getSsrfAllowlist().contains(host)) {
-            return;
-        }
+        boolean allowlisted = config != null && config.getSsrfAllowlist() != null && config.getSsrfAllowlist().contains(host);
         InetAddress[] addresses = InetAddress.getAllByName(host);
-        for (InetAddress address : addresses) {
-            if (address.isAnyLocalAddress() || address.isLoopbackAddress() || address.isLinkLocalAddress()
-                    || address.isSiteLocalAddress() || address.isMulticastAddress()) {
-                throw new LarkChannelException(LarkChannelErrorCode.SSRF_BLOCKED, "URL blocked: private address");
+        if (!allowlisted) {
+            for (InetAddress address : addresses) {
+                SsrfGuard.assertAllowed(address);
             }
         }
     }
@@ -228,14 +226,26 @@ public class MediaUploader {
     }
 
     private byte[] readAll(InputStream input) {
+        return readAll(input, -1L);
+    }
+
+    private byte[] readAll(InputStream input, long maxBytes) {
         try {
             ByteArrayOutputStream output = new ByteArrayOutputStream();
             byte[] buffer = new byte[4096];
+            long total = 0L;
             int read;
             while ((read = input.read(buffer)) >= 0) {
+                total += read;
+                if (maxBytes > 0L && total > maxBytes) {
+                    throw new LarkChannelException(LarkChannelErrorCode.UPLOAD_FAILED,
+                            "source URL exceeds max size: " + maxBytes + " bytes");
+                }
                 output.write(buffer, 0, read);
             }
             return output.toByteArray();
+        } catch (LarkChannelException e) {
+            throw e;
         } catch (Exception e) {
             throw new LarkChannelException(LarkChannelErrorCode.UPLOAD_FAILED, "failed to read upload source", null, e);
         }

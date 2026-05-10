@@ -10,8 +10,8 @@ import com.lark.oapi.channel.model.CardActionEvent;
 import com.lark.oapi.channel.model.CommentEvent;
 import com.lark.oapi.channel.model.NormalizedMessage;
 import com.lark.oapi.channel.model.ReactionEvent;
-import com.lark.oapi.channel.model.RejectEvent;
-import com.lark.oapi.channel.model.RejectReason;
+import com.lark.oapi.channel.exception.LarkChannelErrorCode;
+import com.lark.oapi.channel.exception.LarkChannelException;
 import com.lark.oapi.channel.normalize.ChannelNormalizer;
 import com.lark.oapi.channel.normalize.NormalizeOptions;
 import com.lark.oapi.channel.safety.SafetyPipeline;
@@ -48,73 +48,84 @@ final class ChannelInboundProcessor {
     }
 
     void handleMessage(final P2MessageReceiveV1 event) {
-        final NormalizedMessage normalized = normalizeMessage(event);
-        pushMessage(normalized, event);
+        try {
+            final NormalizedMessage normalized = normalizeMessage(event);
+            if (normalized != null) {
+                pushMessage(normalized);
+            }
+        } catch (Throwable error) {
+            eventBus.emitError("message", error, event);
+        }
     }
 
-    private void pushMessage(final NormalizedMessage normalized, final Object rawEvent) {
-        safetyPipeline.pushMessage(
-                normalizer.buildMessageDedupKey(normalized),
-                normalized.getChatId(),
-                normalized,
-                new Runnable() {
-                    @Override
-                    public void run() {
-                        eventBus.emit("message", normalized);
-                    }
-                },
-                new SafetyPipeline.RejectListener() {
-                    @Override
-                    public void onReject(RejectReason reason, Object raw) {
-                        eventBus.emit("reject", new RejectEvent(reason, raw == null ? rawEvent : raw));
-                    }
-                });
+    private void pushMessage(final NormalizedMessage normalized) {
+        safetyPipeline.pushMessage(normalized);
     }
 
     void handleReactionCreated(P2MessageReactionCreatedV1 event) {
-        handleReaction(normalizer.normalizeReaction(event, "added"));
+        try {
+            handleReaction(normalizer.normalizeReaction(event, "added"));
+        } catch (Throwable error) {
+            eventBus.emitError("reaction", error, event);
+        }
     }
 
     void handleReactionDeleted(P2MessageReactionDeletedV1 event) {
-        handleReaction(normalizer.normalizeReaction(event, "removed"));
+        try {
+            handleReaction(normalizer.normalizeReaction(event, "removed"));
+        } catch (Throwable error) {
+            eventBus.emitError("reaction", error, event);
+        }
     }
 
     void handleBotAdded(P2ChatMemberBotAddedV1 event) {
-        BotAddedEvent normalized = normalizer.normalizeBotAdded(event);
-        if (normalized != null) {
-            eventBus.emit("botAdded", normalized);
+        try {
+            BotAddedEvent normalized = normalizer.normalizeBotAdded(event);
+            if (normalized != null) {
+                eventBus.emit("botAdded", normalized);
+            }
+        } catch (Throwable error) {
+            eventBus.emitError("botAdded", error, event);
         }
     }
 
     void handleCardAction(P2CardActionTrigger event) {
-        final CardActionEvent normalized = normalizer.normalizeCardAction(event);
-        if (normalized == null) {
-            return;
-        }
-        safetyPipeline.pushAction(normalizer.buildCardActionDedupKey(normalized), normalized.getChatId(), new Runnable() {
-            @Override
-            public void run() {
-                eventBus.emit("cardAction", normalized);
+        try {
+            final CardActionEvent normalized = normalizer.normalizeCardAction(event);
+            if (normalized == null) {
+                return;
             }
-        });
+            safetyPipeline.pushAction(normalizer.buildCardActionDedupKey(normalized), normalized.getChatId(), new Runnable() {
+                @Override
+                public void run() {
+                    eventBus.emit("cardAction", normalized);
+                }
+            });
+        } catch (Throwable error) {
+            eventBus.emitError("cardAction", error, event);
+        }
     }
 
     void handleComment(EventReq req) {
-        if (req == null || req.getBody() == null) {
-            return;
-        }
-        JsonObject root = JsonParser.parseString(new String(req.getBody(), StandardCharsets.UTF_8)).getAsJsonObject();
-        JsonObject payload = root.has("event") && root.get("event").isJsonObject() ? root.getAsJsonObject("event") : root;
-        final CommentEvent normalized = normalizer.normalizeComment(payload, options.isIncludeRawInMessage() ? root : payload);
-        if (normalized == null) {
-            return;
-        }
-        safetyPipeline.pushAction(normalizer.buildCommentDedupKey(normalized), normalized.getFileToken(), new Runnable() {
-            @Override
-            public void run() {
-                eventBus.emit("comment", normalized);
+        try {
+            if (req == null || req.getBody() == null) {
+                return;
             }
-        });
+            JsonObject root = JsonParser.parseString(new String(req.getBody(), StandardCharsets.UTF_8)).getAsJsonObject();
+            JsonObject payload = root.has("event") && root.get("event").isJsonObject() ? root.getAsJsonObject("event") : root;
+            final CommentEvent normalized = normalizer.normalizeComment(payload, options.isIncludeRawInMessage() ? root : payload);
+            if (normalized == null) {
+                return;
+            }
+            safetyPipeline.pushAction(normalizer.buildCommentDedupKey(normalized), normalized.getFileToken(), new Runnable() {
+                @Override
+                public void run() {
+                    eventBus.emit("comment", normalized);
+                }
+            });
+        } catch (Throwable error) {
+            eventBus.emitError("comment", error, req);
+        }
     }
 
     private void handleReaction(final ReactionEvent normalized) {
@@ -130,8 +141,13 @@ final class ChannelInboundProcessor {
     }
 
     private NormalizedMessage normalizeMessage(P2MessageReceiveV1 event) {
+        BotIdentity botIdentity = botIdentitySupplier.get();
+        if (botIdentity == null) {
+            throw new LarkChannelException(LarkChannelErrorCode.NOT_CONNECTED,
+                    "channel must connect before processing inbound message events");
+        }
         return normalizer.normalizeMessage(event, new NormalizeOptions(
-                botIdentitySupplier.get(),
+                botIdentity,
                 options.isIncludeRawInMessage(),
                 true,
                 new NormalizeOptions.SubMessageFetcher() {

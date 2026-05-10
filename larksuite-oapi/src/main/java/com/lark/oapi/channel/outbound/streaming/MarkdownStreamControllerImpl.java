@@ -145,12 +145,19 @@ public class MarkdownStreamControllerImpl implements MarkdownStreamController {
         Map<String, Object> body = new LinkedHashMap<String, Object>();
         body.put("elements", java.util.Collections.singletonList(markdown));
 
+        Map<String, Object> title = new LinkedHashMap<String, Object>();
+        title.put("tag", "plain_text");
+        title.put("content", "Streaming response");
+        Map<String, Object> header = new LinkedHashMap<String, Object>();
+        header.put("title", title);
+
         Map<String, Object> config = new LinkedHashMap<String, Object>();
         config.put("streaming_mode", streamingMode);
         config.put("summary", java.util.Collections.singletonMap("content", summary));
 
         Map<String, Object> card = new LinkedHashMap<String, Object>();
         card.put("schema", "2.0");
+        card.put("header", header);
         card.put("config", config);
         card.put("body", body);
         return card;

@@ -41,9 +41,13 @@ public class TestOutboundStreaming {
 
         Assert.assertEquals("om_stream", result.getMessageId());
         Assert.assertNotNull(card.createReq);
-        Assert.assertNotNull(cardElement.updateReq);
-        Assert.assertTrue(cardElement.updateReq.getUpdateCardElementReqBody().getElement().contains("hello world"));
-        Assert.assertNotNull(card.updateReq);
+        String cardData = card.createReq.getCreateCardReqBody().getData();
+        Assert.assertTrue(cardData.contains("\"header\""));
+        Assert.assertTrue(cardData.contains("\"body\""));
+        Assert.assertFalse(cardData.contains("streaming_config"));
+        Assert.assertNotNull(cardElement.patchReq);
+        Assert.assertTrue(cardElement.patchReq.getPatchCardElementReqBody().getPartialElement().contains("hello world"));
+        Assert.assertNotNull(card.settingsReq);
         Assert.assertEquals("om_parent", message.replyReq.getMessageId());
     }
 
@@ -92,8 +96,9 @@ public class TestOutboundStreaming {
             }), null);
             Assert.fail("expected exception");
         } catch (RuntimeException e) {
-            Assert.assertNotNull(card.updateReq);
-            Assert.assertTrue(card.updateReq.getUpdateCardReqBody().getCard().getData().contains("Generation interrupted"));
+            Assert.assertNotNull(cardElement.patchReq);
+            Assert.assertTrue(cardElement.patchReq.getPatchCardElementReqBody().getPartialElement().contains("Generation interrupted"));
+            Assert.assertNotNull(card.settingsReq);
         }
     }
 

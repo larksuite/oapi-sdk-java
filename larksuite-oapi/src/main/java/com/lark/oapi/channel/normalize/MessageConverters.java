@@ -8,8 +8,16 @@ public final class MessageConverters {
 
     public static ConvertResult convert(String messageType, String rawContent, MentionState mentionState,
                                         NormalizeOptions options, String messageId) {
+        return dispatchConvert(rawContent, messageType, new ConvertContext(messageId, mentionState, options));
+    }
+
+    /**
+     * Dispatch a message content to the matching converter, with uniform error
+     * containment. Any thrown error is trapped and the fallback converter is
+     * invoked instead so normalization never fails catastrophically.
+     */
+    public static ConvertResult dispatchConvert(String rawContent, String messageType, ConvertContext context) {
         String type = messageType == null ? "unknown" : messageType;
-        ConvertContext context = new ConvertContext(messageId, mentionState, options);
         ChannelMessageConverter converter = REGISTRY.get(type);
         if (converter == null) {
             converter = REGISTRY.get("unknown");

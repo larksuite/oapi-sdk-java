@@ -3,10 +3,14 @@ package com.lark.oapi.channel;
 import com.lark.oapi.channel.config.LarkChannelOptions;
 import com.lark.oapi.channel.model.BotIdentity;
 import com.lark.oapi.channel.model.NormalizedMessage;
+import com.lark.oapi.channel.model.RejectEvent;
 import com.lark.oapi.channel.model.RejectReason;
 import com.lark.oapi.channel.normalize.ChannelNormalizer;
 import com.lark.oapi.channel.normalize.NormalizeOptions;
+import com.lark.oapi.channel.safety.OnMessageDispatch;
+import com.lark.oapi.channel.safety.OnReject;
 import com.lark.oapi.channel.safety.SafetyPipeline;
+import com.lark.oapi.channel.safety.SafetyPipelineOptions;
 import com.lark.oapi.service.im.v1.model.EventMessage;
 import com.lark.oapi.service.im.v1.model.EventSender;
 import com.lark.oapi.service.im.v1.model.MentionEvent;
@@ -143,27 +147,26 @@ public class TestNormalizeAndSafety {
         LarkChannelOptions.PolicyConfig policy = new LarkChannelOptions.PolicyConfig();
         policy.setRequireMention(true);
         LarkChannelOptions.SafetyConfig safety = new LarkChannelOptions.SafetyConfig();
-        SafetyPipeline pipeline = new SafetyPipeline(safety, policy, null);
         final AtomicInteger executed = new AtomicInteger();
         final List<RejectReason> rejects = new ArrayList<RejectReason>();
-
-        pipeline.pushMessage("message:1", "oc_group", new NormalizedMessage(
-                        "om_1", "oc_group", "group", "ou_user", null, "hello", "text",
-                        Collections.<com.lark.oapi.channel.model.ResourceDescriptor>emptyList(),
-                        Collections.<com.lark.oapi.channel.model.MentionInfo>emptyList(),
-                        false, false, null, null, null, System.currentTimeMillis(), null),
-                new Runnable() {
+        SafetyPipeline pipeline = new SafetyPipeline(new SafetyPipelineOptions(
+                safety,
+                policy,
+                null,
+                new OnReject() {
                     @Override
-                    public void run() {
-                        executed.incrementAndGet();
+                    public void onReject(RejectEvent event) {
+                        rejects.add(event.getReason());
                     }
                 },
-                new SafetyPipeline.RejectListener() {
+                new OnMessageDispatch() {
                     @Override
-                    public void onReject(RejectReason reason, Object raw) {
-                        rejects.add(reason);
+                    public void onMessage(NormalizedMessage merged) {
+                        executed.incrementAndGet();
                     }
-                });
+                }));
+
+        pipeline.pushMessage(normalized("om_1", "oc_group", "hello"));
 
         Assert.assertEquals(0, executed.get());
         Assert.assertEquals(Collections.singletonList(RejectReason.NO_MENTION), rejects);
@@ -173,45 +176,105 @@ public class TestNormalizeAndSafety {
     public void testSafetyPushActionDeduplicatesAndStaleMessageIsSilent() {
         LarkChannelOptions.SafetyConfig safety = new LarkChannelOptions.SafetyConfig();
         safety.setStaleMessageWindowMs(1000L);
-        SafetyPipeline pipeline = new SafetyPipeline(safety, new LarkChannelOptions.PolicyConfig(), null);
         final AtomicInteger actionCount = new AtomicInteger();
         final AtomicInteger staleCount = new AtomicInteger();
         final AtomicInteger rejectCount = new AtomicInteger();
-
-        pipeline.pushAction("card:1", "oc_group", new Runnable() {
-            @Override
-            public void run() {
-                actionCount.incrementAndGet();
-            }
-        });
-        pipeline.pushAction("card:1", "oc_group", new Runnable() {
-            @Override
-            public void run() {
-                actionCount.incrementAndGet();
-            }
-        });
-
-        pipeline.pushMessage("message:stale", "oc_group", new NormalizedMessage(
-                        "om_old", "oc_group", "group", "ou_user", null, "@TestBot hi", "text",
-                        Collections.<com.lark.oapi.channel.model.ResourceDescriptor>emptyList(),
-                        Collections.<com.lark.oapi.channel.model.MentionInfo>emptyList(),
-                        false, true, null, null, null, System.currentTimeMillis() - 5000L, null),
-                new Runnable() {
+        SafetyPipeline pipeline = new SafetyPipeline(new SafetyPipelineOptions(
+                safety,
+                new LarkChannelOptions.PolicyConfig(),
+                null,
+                new OnReject() {
                     @Override
-                    public void run() {
-                        staleCount.incrementAndGet();
-                    }
-                },
-                new SafetyPipeline.RejectListener() {
-                    @Override
-                    public void onReject(RejectReason reason, Object raw) {
+                    public void onReject(RejectEvent event) {
                         rejectCount.incrementAndGet();
                     }
-                });
+                },
+                new OnMessageDispatch() {
+                    @Override
+                    public void onMessage(NormalizedMessage merged) {
+                        staleCount.incrementAndGet();
+                    }
+                }));
+
+        pipeline.pushAction("card:1", "oc_group", new Runnable() {
+            @Override
+            public void run() {
+                actionCount.incrementAndGet();
+            }
+        });
+        pipeline.pushAction("card:1", "oc_group", new Runnable() {
+            @Override
+            public void run() {
+                actionCount.incrementAndGet();
+            }
+        });
+
+        pipeline.pushMessage(new NormalizedMessage(
+                "om_old", "oc_group", "group", "ou_user", null, "@TestBot hi", "text",
+                Collections.<com.lark.oapi.channel.model.ResourceDescriptor>emptyList(),
+                Collections.<com.lark.oapi.channel.model.MentionInfo>emptyList(),
+                false, true, null, null, null, System.currentTimeMillis() - 5000L, null));
 
         Assert.assertEquals(1, actionCount.get());
         Assert.assertEquals(0, staleCount.get());
         Assert.assertEquals(0, rejectCount.get());
+    }
+
+    @Test
+    public void testSafetyOptionsPushMessageBatchesAndDispatchesInternally() {
+        LarkChannelOptions.SafetyConfig safety = new LarkChannelOptions.SafetyConfig();
+        safety.getBatchText().setMaxMessages(2);
+        LarkChannelOptions.PolicyConfig policy = new LarkChannelOptions.PolicyConfig();
+        policy.setRequireMention(false);
+        final List<NormalizedMessage> dispatched = new ArrayList<NormalizedMessage>();
+        SafetyPipeline pipeline = new SafetyPipeline(new SafetyPipelineOptions(
+                safety,
+                policy,
+                null,
+                null,
+                new OnMessageDispatch() {
+                    @Override
+                    public void onMessage(NormalizedMessage message) {
+                        dispatched.add(message);
+                    }
+                }));
+
+        pipeline.pushMessage(normalized("om_1", "oc_group", "first"));
+        pipeline.pushMessage(normalized("om_2", "oc_group", "second"));
+        pipeline.dispose();
+
+        Assert.assertEquals(1, dispatched.size());
+        Assert.assertEquals("om_2", dispatched.get(0).getMessageId());
+        Assert.assertEquals("first\n\nsecond", dispatched.get(0).getContent());
+    }
+
+    @Test
+    public void testSafetyOptionsPushMessageEmitsRejectCallback() {
+        LarkChannelOptions.PolicyConfig policy = new LarkChannelOptions.PolicyConfig();
+        policy.setRequireMention(true);
+        final List<RejectReason> rejects = new ArrayList<RejectReason>();
+        final AtomicInteger dispatched = new AtomicInteger();
+        SafetyPipeline pipeline = new SafetyPipeline(new SafetyPipelineOptions(
+                new LarkChannelOptions.SafetyConfig(),
+                policy,
+                null,
+                new OnReject() {
+                    @Override
+                    public void onReject(RejectEvent event) {
+                        rejects.add(event.getReason());
+                    }
+                },
+                new OnMessageDispatch() {
+                    @Override
+                    public void onMessage(NormalizedMessage message) {
+                        dispatched.incrementAndGet();
+                    }
+                }));
+
+        pipeline.pushMessage(normalized("om_reject", "oc_group", "hello"));
+
+        Assert.assertEquals(0, dispatched.get());
+        Assert.assertEquals(Collections.singletonList(RejectReason.NO_MENTION), rejects);
     }
 
     private P2MessageReceiveV1 buildMessageEvent(String messageId, String chatId, String chatType,
@@ -254,5 +317,25 @@ public class TestNormalizeAndSafety {
                 .sender(Sender.newBuilder().id(senderId).build())
                 .createTime(createTime)
                 .build();
+    }
+
+    private NormalizedMessage normalized(String messageId, String chatId, String content) {
+        return new NormalizedMessage(
+                messageId,
+                chatId,
+                "group",
+                "ou_user",
+                null,
+                content,
+                "text",
+                Collections.<com.lark.oapi.channel.model.ResourceDescriptor>emptyList(),
+                Collections.<com.lark.oapi.channel.model.MentionInfo>emptyList(),
+                false,
+                false,
+                null,
+                null,
+                null,
+                System.currentTimeMillis(),
+                null);
     }
 }

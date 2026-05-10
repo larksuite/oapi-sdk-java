@@ -116,7 +116,10 @@ public class CardStreamControllerImpl implements CardStreamController {
         List<Object> output = new ArrayList<Object>(elements);
         Map<String, Object> note = new LinkedHashMap<String, Object>();
         note.put("tag", "note");
-        note.put("elements", java.util.Collections.singletonList(java.util.Collections.singletonMap("tag", "plain_text")));
+        Map<String, Object> text = new LinkedHashMap<String, Object>();
+        text.put("tag", "plain_text");
+        text.put("content", "Generation interrupted");
+        note.put("elements", java.util.Collections.singletonList(text));
         output.add(note);
         return output;
     }

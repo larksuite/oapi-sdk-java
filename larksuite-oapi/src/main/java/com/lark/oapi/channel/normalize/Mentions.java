@@ -31,8 +31,9 @@ public final class Mentions {
                     continue;
                 }
                 String openId = mentionEvent.getId() == null ? null : mentionEvent.getId().getOpenId();
+                String userId = mentionEvent.getId() == null ? null : mentionEvent.getId().getUserId();
                 boolean isBot = botIdentity != null && openId != null && openId.equals(botIdentity.getOpenId());
-                MentionInfo info = new MentionInfo(mentionEvent.getKey(), openId, mentionEvent.getName(), isBot);
+                MentionInfo info = new MentionInfo(mentionEvent.getKey(), openId, userId, mentionEvent.getName(), isBot);
                 mentions.add(info);
                 if (info.getKey() != null && !info.getKey().isEmpty()) {
                     byKey.put(info.getKey(), info);
@@ -47,9 +48,6 @@ public final class Mentions {
         }
         if (!mentionAll && containsMentionAll(rawContent)) {
             mentionAll = true;
-        }
-        if (!mentionedBot && botIdentity != null && rawContent != null && rawContent.contains(botIdentity.getOpenId())) {
-            mentionedBot = true;
         }
         return new MentionState(mentions, byKey, byOpenId, mentionAll, mentionedBot);
     }
@@ -87,13 +85,26 @@ public final class Mentions {
         if (!mentionAll && containsMentionAll(rawContent)) {
             mentionAll = true;
         }
-        if (!mentionedBot && botIdentity != null && rawContent != null && rawContent.contains(botIdentity.getOpenId())) {
-            mentionedBot = true;
-        }
         return new MentionState(mentions, byKey, byOpenId, mentionAll, mentionedBot);
     }
 
     public static String replaceKeys(String text, MentionState mentionState, boolean stripBotMentions) {
+        return resolveMentions(text, mentionState, stripBotMentions);
+    }
+
+    /**
+     * Second-pass: replace placeholder keys in content with human-readable names
+     * or strip bot mentions if configured.
+     */
+    public static String resolveMentions(String text, ConvertContext context) {
+        return resolveMentions(text, context.getMentionState(), context.isStripBotMentions());
+    }
+
+    public static boolean detectMentionAllInContent(String rawContent) {
+        return containsMentionAll(rawContent);
+    }
+
+    private static String resolveMentions(String text, MentionState mentionState, boolean stripBotMentions) {
         if (text == null || text.isEmpty()) {
             return "";
         }

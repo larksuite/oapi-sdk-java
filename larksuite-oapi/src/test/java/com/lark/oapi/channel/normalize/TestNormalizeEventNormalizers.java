@@ -77,15 +77,24 @@ public class TestNormalizeEventNormalizers {
         ReactionNormalizer normalizer = new ReactionNormalizer();
         ReactionEvent added = normalizer.normalize(
                 NormalizeTestSupport.buildReactionCreated("om_1", "OK", "ou_alice", null, "1000000000000"), "added");
+        ReactionEvent removed = normalizer.normalize(
+                NormalizeTestSupport.buildReactionDeleted("om_1", "OK", "ou_alice", null, "1000000000001"), "removed");
 
         Assert.assertNotNull(added);
         Assert.assertEquals("added", added.getAction());
         Assert.assertEquals("OK", added.getEmojiType());
         Assert.assertEquals(1000000000000L, added.getActionTime());
+        Assert.assertNotNull(removed);
+        Assert.assertEquals("removed", removed.getAction());
+        Assert.assertEquals("om_1", removed.getMessageId());
+        Assert.assertEquals("ou_alice", removed.getOperatorId());
+        Assert.assertEquals(1000000000001L, removed.getActionTime());
         Assert.assertNull(normalizer.normalize(
                 NormalizeTestSupport.buildReactionCreated("om_1", null, "ou_alice", null, "1"), "added"));
         Assert.assertNull(normalizer.normalize(
                 NormalizeTestSupport.buildReactionCreated("om_1", "OK", null, null, "1"), "added"));
+        Assert.assertNull(normalizer.normalize(
+                NormalizeTestSupport.buildReactionDeleted("om_1", null, "ou_alice", null, "1"), "removed"));
     }
 
     @Test

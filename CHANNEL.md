@@ -10,7 +10,9 @@
 | --- | --- | --- |
 | lifecycle | `LarkChannel.connect` / `disconnect` | 获取机器人身份、启动或关闭 WebSocket、释放安全流水线 |
 | event subscription | `LarkChannel.on`、`ChannelEventHandler`、`ChannelSubscription`、`ChannelEventBus` | 注册、批量注册和取消事件监听 |
-| outbound | `OutboundSender` | 发送新消息和流式输出 |
+| normalize | `ChannelNormalizer`、`MessageNormalizer`、`MessageConverters`、`Mentions`、`NormalizeDedupKeys` | 入站消息与事件归一化、converter dispatch、@ 解析和 dedup key 生成 |
+| safety | `SafetyPipeline`、`SafetyPipelineOptions`、`ChatPipelineManager`、`ChatPipeline`、`PolicyGate` | stale/dedup/policy/lock/batch/queue 三层安全流水线 |
+| outbound | `OutboundSender`、`RawMessageSender`、`RawSendArgs`、`MediaUploader` | 发送新消息、raw send fallback/retry、媒体上传和流式输出 |
 | low-level | `ChannelLowLevelApi` | 编辑、更新卡片、撤回、下载资源、表情反应和 `getChatInfo` 等直接 API 操作 |
 | runtime config | `ChannelRuntimeConfig` | 运行时更新和读取安全策略 |
 | internals: bot identity & dispatch wiring | `BotIdentityResolver`、`ChannelEventDispatcherFactory`、`ChannelInboundProcessor` | 解析机器人身份、创建 Webhook dispatcher、处理入站事件归一化和安全策略 |
@@ -112,6 +114,8 @@ BotIdentity identity = channel.connect().get();
 System.out.println(identity.getOpenId());
 ```
 
+Java 版 `connect()` 保留返回 `CompletableFuture<BotIdentity>`，便于业务直接读取当前机器人身份；这与 NodeJS 版 `connect()` 返回 `Promise<void>` 略有差异，但身份同样会保存到 `channel.botIdentity`。Webhook 模式也建议先调用 `connect()`，否则入站消息在缺少 bot identity 时会触发 `error` 事件并报告 `not_connected`。
+
 退出应用时调用：
 
 ```java
@@ -172,6 +176,7 @@ EventDispatcher dispatcher = channel.createWebhookDispatcher();
 ```
 
 将 `dispatcher` 接到现有 HTTP 事件入口即可复用同一套 Channel handler。
+Webhook 传输不会创建 WebSocket 连接，`channel.rawWsClient` 在该模式下为 `null`；只有 `transport("websocket")` 时才会启动长连接。
 
 ## 事件监听
 
@@ -189,6 +194,8 @@ ChannelSubscription subscription = channel.on("message",
 subscription.unsubscribe();
 ```
 
+`on(event, handler)` 与 NodeJS 语义一致：同一事件新注册的 handler 会覆盖旧 handler。需要同一事件保留多个 handler 时，可使用 `onMany(event, handler)`。批量 `on(Map<String, ChannelEventHandler<?>>)` 会返回一个 `ChannelSubscription`，调用 `unsubscribe()` 可一次性取消本批 handler。
+
 支持事件：
 
 | 事件名 | 事件对象 | 说明 |
@@ -199,9 +206,16 @@ subscription.unsubscribe();
 | `botAdded` | `BotAddedEvent` | 机器人被加入群聊 |
 | `comment` | `CommentEvent` | 云文档评论新增事件 |
 | `reject` | `RejectEvent` | 消息被安全策略拒绝 |
-| `error` | `Object` | 预留错误事件 |
+| `error` | `ChannelErrorEvent` | 归一化、handler 或入站处理异常 |
 | `reconnecting` | `Object` | WebSocket 正在重连 |
 | `reconnected` | `Object` | WebSocket 重连成功 |
+
+事件处理顺序：
+
+1. `ChannelInboundProcessor` 接收入站事件。
+2. `ChannelNormalizer` 将原始事件归一化为 `NormalizedMessage`、`CardActionEvent`、`ReactionEvent` 等模型。
+3. `SafetyPipeline` 对消息执行 stale、dedup、policy、processing lock、chat batch/queue。
+4. 通过 `ChannelEventBus` 分发到用户注册的 handler；handler 异常会转成 `error` 事件，不会中断其他事件处理。
 
 `NormalizedMessage` 常用字段：
 
@@ -214,7 +228,7 @@ subscription.unsubscribe();
 | `content` | 归一化后的文本内容 |
 | `rawContentType` | 原始消息类型 |
 | `resources` | 图片、文件、音频、视频等资源描述 |
-| `mentions` | @ 用户列表 |
+| `mentions` | @ 用户列表，元素包含 `key`、`openId`、`userId`、`name`、`bot` |
 | `mentionedBot` | 是否 @ 当前机器人 |
 | `mentionAll` | 是否 @ 所有人 |
 | `rootId` / `threadId` / `replyToMessageId` | 回复与话题上下文 |
@@ -254,6 +268,8 @@ SendOptions options = SendOptions.newBuilder()
 channel.send("oc_xxx", SendInput.text("已收到"), options).get();
 ```
 
+如果需要指定 `userId`、展示名等更完整的 @ 信息，可使用 `mentionInfos(List<MentionInfo>)`。`SendInput.post(post)` 会按原始富文本对象发送，不会额外 prepend mentions；文本和 Markdown 会按 `SendOptions.mentions` / `mentionInfos` 处理 @ 前缀或富文本 at 元素。Java 发送 create/reply 时仍会附带随机 `uuid`，作为额外幂等增强。
+
 支持的 `SendInput`：
 
 | 方法 | 说明 |
@@ -264,11 +280,18 @@ channel.send("oc_xxx", SendInput.text("已收到"), options).get();
 | `SendInput.image(source)` | 图片，支持本地路径、`File`、`byte[]`、`InputStream`、HTTP(S) URL |
 | `SendInput.file(source, fileName)` | 文件 |
 | `SendInput.audio(source, duration)` | 音频 |
-| `SendInput.video(source, duration, coverImageKey)` | 视频 |
+| `SendInput.video(source, duration, coverImageKey)` | 视频，上传后按飞书 `media` 消息类型发送 |
 | `SendInput.card(card)` | 交互卡片 |
 | `SendInput.shareChat(chatId)` | 群名片 |
 | `SendInput.shareUser(userId)` | 个人名片 |
 | `SendInput.sticker(fileKey)` | 表情贴纸 |
+
+发送链路分层：
+
+- `OutboundSender`：公开发送 facade，负责 `SendInput` 类型分发、分片、Markdown 转 post、streaming helpers。
+- `RawMessageSender`：负责 raw send、reply/create 选择、retry、post -> text fallback、reply target vanished fallback。
+- `MediaUploader`：负责图片、文件、音频、视频上传及本地路径/URL 安全检查。
+- `OutboundLowLevelApi`：负责编辑、撤回、下载资源、表情反应等低阶操作。
 
 ## 流式输出
 
@@ -419,13 +442,14 @@ channel.on("reject", new ChannelEventHandler<RejectEvent>() {
 仓库提供了可运行示例：
 
 ```bash
-export APP_ID=cli_xxx
-export APP_SECRET=app_secret_xxx
-export CHANNEL_TRANSPORT=websocket
-export CHANNEL_RECEIVE_ID=oc_xxx
-export CHANNEL_KEEP_ALIVE_SECONDS=60
+cat > .env <<'EOF'
+APP_ID=cli_xxx
+APP_SECRET=app_secret_xxx
+CHANNEL_TRANSPORT=websocket
+CHANNEL_KEEP_ALIVE_SECONDS=0
+EOF
 
-mvn -pl sample -DskipTests exec:java \
+mvn -pl sample -am -DskipTests exec:java \
   -Dexec.mainClass=com.lark.oapi.sample.channel.ChannelSample
 ```
 
@@ -434,10 +458,11 @@ mvn -pl sample -DskipTests exec:java \
 | 变量 | 说明 |
 | --- | --- |
 | `CHANNEL_TRANSPORT` | `websocket` 或 `webhook`，默认 `websocket` |
-| `CHANNEL_RECEIVE_ID` | 用于主动发送测试消息的接收者 |
-| `CHANNEL_REPLY_TO` | 回复测试目标消息 ID |
-| `CHANNEL_MENTION_OPEN_ID` | @ 测试目标用户 open_id |
-| `CHANNEL_KEEP_ALIVE_SECONDS` | WebSocket 示例保持运行时间 |
+| `CHANNEL_KEEP_ALIVE_SECONDS` | WebSocket 示例保持运行时间；`0` 或负数表示一直监听直到手动停止 |
+
+`ChannelSample` 按“Agent 如何介入 Channel”的最小路径实现：创建 `LarkChannel`、监听 `message`、调用 `callAgent(...)`、再回复原消息。它不主动发送测试消息，也不承载完整配置矩阵。
+
+`ChannelSample` 会优先从当前工作目录及其父目录中的 `.env` 文件读取这些变量，找不到时再回退到系统环境变量。`.env` 支持 `KEY=value` 和 `export KEY=value` 两种写法。
 
 示例源码位于 `sample/src/main/java/com/lark/oapi/sample/channel/ChannelSample.java`。
 
@@ -458,6 +483,6 @@ Channel 相关自动化测试覆盖连接、事件归一化、消息发送路由
 可执行：
 
 ```bash
-mvn -pl larksuite-oapi -DskipTests=false -DfailIfNoTests=false \
-  -Dtest=TestLarkChannel,TestNormalizeAndSafety,TestNormalize,TestNormalizeConverters,TestNormalizeEventNormalizers,TestNormalizeMentions,TestNormalizeMergeForward,TestOutboundMarkdown,TestOutboundRouting,TestOutboundSenderFallback,TestOutboundStreaming,TestOutboundUploader test
+mvn -pl larksuite-oapi -DskipTests=false -Dmaven.test.skip=false \
+  '-Dtest=TestLarkChannel,TestNormalizeAndSafety,TestNormalize,TestNormalizeConverters,TestNormalizeEventNormalizers,TestNormalizeMentions,TestNormalizeMergeForward,TestSafetyPipeline,TestOutboundMarkdown,TestOutboundRouting,TestOutboundSenderFallback,TestOutboundStreaming,TestOutboundUploader' test
 ```

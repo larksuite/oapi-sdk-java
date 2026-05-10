@@ -6,6 +6,7 @@ import com.lark.oapi.google.protobuf.ByteString;
 import com.lark.oapi.core.enums.BaseUrlEnum;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.event.EventDispatcher;
+import com.lark.oapi.event.exception.HandlerNotFoundException;
 import com.lark.oapi.okhttp.*;
 import com.lark.oapi.ws.enums.FrameType;
 import com.lark.oapi.ws.enums.MessageType;
@@ -370,8 +371,13 @@ public class Client {
                     return;
             }
         } catch (Throwable e) {
-            log.error(fmtLog("handle message failed, message_type: %s, message_id: %s, trace_id: %s,",
-                    mt.getName(), msgId, traceId), e);
+            if (e instanceof HandlerNotFoundException) {
+                log.warn(fmtLog("handle message failed, message_type: %s, message_id: %s, trace_id: %s, err: %s",
+                        mt.getName(), msgId, traceId, e.getMessage()));
+            } else {
+                log.error(fmtLog("handle message failed, message_type: %s, message_id: %s, trace_id: %s,",
+                        mt.getName(), msgId, traceId), e);
+            }
             response = new com.lark.oapi.ws.model.Response(500);
         }
         long end = System.currentTimeMillis();

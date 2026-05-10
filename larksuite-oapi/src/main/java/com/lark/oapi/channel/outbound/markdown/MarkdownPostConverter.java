@@ -10,7 +10,7 @@ public final class MarkdownPostConverter {
     private MarkdownPostConverter() {
     }
 
-    public static Map<String, Object> markdownToPost(String markdown, List<String> mentions) {
+    public static Map<String, Object> markdownToPost(String markdown, List<?> mentions) {
         List<List<Map<String, Object>>> paragraphs = new ArrayList<List<Map<String, Object>>>();
         String[] lines = (markdown == null ? "" : markdown.replace("\r\n", "\n")).split("\n", -1);
         String fenceLang = null;
@@ -21,7 +21,7 @@ public final class MarkdownPostConverter {
                 if (fenceLang == null) {
                     fenceLang = trimmed.length() > 3 ? trimmed.substring(3).trim() : "";
                 } else {
-                    paragraphs.add(Arrays.asList(text(joinLines(fenceBuffer), null, true)));
+                    paragraphs.add(Arrays.asList(codeBlock(fenceLang, joinLines(fenceBuffer))));
                     fenceLang = null;
                     fenceBuffer.clear();
                 }
@@ -42,7 +42,7 @@ public final class MarkdownPostConverter {
             paragraphs.add(parseInline(line));
         }
         if (fenceLang != null) {
-            paragraphs.add(Arrays.asList(text(joinLines(fenceBuffer), null, true)));
+            paragraphs.add(Arrays.asList(codeBlock(fenceLang, joinLines(fenceBuffer))));
         }
 
         List<Map<String, Object>> mentionElements = ComposeMentions.composePostMentionElements(mentions);
@@ -95,6 +95,18 @@ public final class MarkdownPostConverter {
                     Object userName = item.get("user_name");
                     Object userId = item.get("user_id");
                     line.append("@").append(userName == null ? String.valueOf(userId) : String.valueOf(userName));
+                } else if ("code_block".equals(tag)) {
+                    Object language = item.get("language");
+                    Object text = item.get("text");
+                    line.append("```");
+                    if (language != null) {
+                        line.append(String.valueOf(language));
+                    }
+                    line.append('\n');
+                    if (text != null) {
+                        line.append(String.valueOf(text));
+                    }
+                    line.append("\n```");
                 }
             }
             lines.add(line.toString());
@@ -145,6 +157,14 @@ public final class MarkdownPostConverter {
         if (unEscape) {
             element.put("un_escape", true);
         }
+        return element;
+    }
+
+    private static Map<String, Object> codeBlock(String language, String code) {
+        Map<String, Object> element = new LinkedHashMap<String, Object>();
+        element.put("tag", "code_block");
+        element.put("language", language == null ? "" : language);
+        element.put("text", code == null ? "" : code);
         return element;
     }
 

@@ -20,6 +20,25 @@ public class TestNormalizeMentions {
     }
 
     @Test
+    public void testExtractMentionsKeepsUserIdAndDoesNotScanRawBotOpenId() {
+        com.lark.oapi.service.im.v1.model.MentionEvent event =
+                com.lark.oapi.service.im.v1.model.MentionEvent.newBuilder()
+                        .key("@_user_1")
+                        .name("Alice")
+                        .id(com.lark.oapi.service.im.v1.model.UserId.newBuilder()
+                                .openId("ou_alice")
+                                .userId("u_alice")
+                                .build())
+                        .build();
+
+        MentionState state = Mentions.extract(new com.lark.oapi.service.im.v1.model.MentionEvent[] {event},
+                "{\"text\":\"ou_bot appears as plain text\"}", new BotIdentity("ou_bot", "Bot"));
+
+        Assert.assertEquals("u_alice", state.getMentions().get(0).getUserId());
+        Assert.assertFalse(state.isMentionedBot());
+    }
+
+    @Test
     public void testResolveMentionsStripsBotByDefault() {
         MentionState state = Mentions.extract(new com.lark.oapi.service.im.v1.model.MentionEvent[] {
                 NormalizeTestSupport.mention("@_bot", "ou_bot", "Bot")

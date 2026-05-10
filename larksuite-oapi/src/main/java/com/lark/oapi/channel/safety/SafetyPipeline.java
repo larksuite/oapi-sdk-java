@@ -1,63 +1,119 @@
 package com.lark.oapi.channel.safety;
 
 import com.lark.oapi.channel.config.LarkChannelOptions;
+import com.lark.oapi.channel.model.BotIdentity;
 import com.lark.oapi.channel.model.NormalizedMessage;
+import com.lark.oapi.channel.model.RejectEvent;
 import com.lark.oapi.channel.model.RejectReason;
-import com.lark.oapi.core.cache.ICache;
+import java.util.List;
 
+/**
+ * Pipeline entry facade for the channel safety layer.
+ *
+ * Three tiers of protection, each targeting different event shapes:
+ * - pushMessage: full pipeline (stale + dedup + policy + lock + batch + queue)
+ * - pushAction: dedup + lock + queue, for card button clicks and doc comments
+ * - pushLight: dedup only, for reactions
+ */
 public class SafetyPipeline {
-    public interface RejectListener {
-        void onReject(RejectReason reason, Object raw);
-    }
-
-    private final LarkChannelOptions.SafetyConfig config;
     private final SeenCache seenCache;
-    private final ProcessingLock processingLock;
-    private final PolicyGate policyGate;
-    private final ChatPipeline chatPipeline;
+    private final ProcessingLock lock;
+    private final PolicyGate policy;
+    private final ChatPipelineManager manager;
+    private final long staleWindow;
+    private final boolean queueEnabled;
 
-    public SafetyPipeline(LarkChannelOptions.SafetyConfig config, LarkChannelOptions.PolicyConfig policy, ICache cache) {
-        this.config = config;
-        this.seenCache = new SeenCache(config, cache);
-        this.processingLock = new ProcessingLock(config.getProcessingLockTtlMs());
-        this.policyGate = new PolicyGate(policy);
-        this.chatPipeline = new ChatPipeline();
+    private final OnReject onReject;
+    private final OnMessageDispatch onMessage;
+
+    public SafetyPipeline(SafetyPipelineOptions opts) {
+        LarkChannelOptions.SafetyConfig config = opts.getConfig();
+        this.staleWindow = config.getStaleMessageWindowMs();
+        this.queueEnabled = config.isChatQueueEnabled();
+        this.onReject = opts.getOnReject();
+        this.onMessage = opts.getOnMessage();
+        this.seenCache = new SeenCache(config, opts.getCache());
+        this.lock = new ProcessingLock(config.getProcessingLockTtlMs());
+        this.policy = new PolicyGate(opts.getPolicy());
+        this.policy.setBotIdentity(opts.getBotIdentity());
+        this.manager = new ChatPipelineManager(config.getBatchText());
     }
 
-    public RejectReason checkPolicy(NormalizedMessage message) {
-        return policyGate.evaluate(message);
-    }
+    // tier 1: full pipeline for IM messages
 
-    public void pushMessage(String dedupKey, String scope, NormalizedMessage message, Runnable task, RejectListener rejectListener) {
-        if (isStale(message)) {
+    public void pushMessage(final NormalizedMessage msg) {
+        if (onMessage == null) {
+            throw new IllegalStateException("onMessage handler is not configured");
+        }
+        if (msg == null) {
             return;
         }
-        if (seenCache.contains(dedupKey)) {
+        final String eventId = eventId(msg);
+        if (isStale(msg)) {
             return;
         }
-        RejectReason rejectReason = policyGate.evaluate(message);
+        if (seenCache.contains(eventId)) {
+            return;
+        }
+        RejectReason rejectReason = policy.evaluate(msg);
         if (rejectReason != null) {
-            if (rejectListener != null) {
-                rejectListener.onReject(rejectReason, message == null ? null : message.getRaw());
+            if (onReject != null) {
+                onReject.onReject(new RejectEvent(rejectReason, msg.getRaw()));
             }
             return;
         }
-        runWithGuards(dedupKey, scope, task);
-    }
-
-    public void pushAction(String dedupKey, String scope, Runnable task) {
-        if (seenCache.contains(dedupKey)) {
+        if (!lock.tryAcquire(eventId)) {
             return;
         }
-        runWithGuards(dedupKey, scope, task);
-    }
 
-    public void pushLight(String dedupKey, Runnable task) {
-        if (seenCache.contains(dedupKey)) {
+        FlushHandler dispatchHandler = new FlushHandler() {
+            @Override
+            public void flush(BatchedDispatch batch) {
+                dispatchMessageBatch(batch);
+            }
+        };
+        if (queueEnabled && msg.getChatId() != null && !msg.getChatId().isEmpty()) {
+            manager.push(msg.getChatId(), msg, dispatchHandler);
             return;
         }
-        seenCache.mark(dedupKey);
+        dispatchHandler.flush(new BatchedDispatch(msg, java.util.Collections.singletonList(eventId)));
+    }
+
+    // tier 2: dedup + lock + queue for cardAction and comment
+
+    public void pushAction(String eventId, String queueScope, Runnable handler) {
+        if (seenCache.contains(eventId)) {
+            return;
+        }
+        if (!lock.tryAcquire(eventId)) {
+            return;
+        }
+        Runnable task = guardedTask(eventId, handler);
+        if (queueEnabled && queueScope != null && !queueScope.isEmpty()) {
+            manager.run(queueScope, task);
+            return;
+        }
         task.run();
+    }
+
+    // tier 3: dedup only for reactions
+
+    public void pushLight(String eventId, Runnable handler) {
+        if (seenCache.contains(eventId)) {
+            return;
+        }
+        seenCache.mark(eventId);
+        handler.run();
+    }
+
+    // runtime config
+
+    public RejectReason checkPolicy(NormalizedMessage message) {
+        return policy.evaluate(message);
+    }
+
+    public void setBotIdentity(BotIdentity botIdentity) {
+        policy.setBotIdentity(botIdentity);
     }
 
     public void clearSeen() {
@@ -65,39 +121,44 @@ public class SafetyPipeline {
     }
 
     public void dispose() {
-        chatPipeline.flushAll();
-        chatPipeline.clear();
-        processingLock.clear();
+        manager.dispose();
+        lock.clear();
         seenCache.clear();
     }
 
-    private void runWithGuards(String dedupKey, String scope, Runnable task) {
-        if (!processingLock.tryAcquire(dedupKey)) {
-            return;
+    private void dispatchMessageBatch(BatchedDispatch batch) {
+        try {
+            onMessage.onMessage(batch.getMessage());
+        } finally {
+            List<String> sourceIds = batch.getSourceIds();
+            for (String id : sourceIds) {
+                if (id != null) {
+                    seenCache.mark(id);
+                    lock.release(id);
+                }
+            }
         }
-        Runnable guarded = new Runnable() {
+    }
+
+    private Runnable guardedTask(final String eventId, final Runnable handler) {
+        return new Runnable() {
             @Override
             public void run() {
                 try {
-                    task.run();
-                    seenCache.mark(dedupKey);
+                    handler.run();
+                    seenCache.mark(eventId);
                 } finally {
-                    processingLock.release(dedupKey);
+                    lock.release(eventId);
                 }
             }
         };
-        if (config.isChatQueueEnabled() && scope != null && !scope.isEmpty()) {
-            chatPipeline.run(scope, guarded);
-            return;
-        }
-        guarded.run();
     }
 
     private boolean isStale(NormalizedMessage message) {
-        if (message == null || message.getCreateTime() <= 0L) {
-            return false;
-        }
-        long now = System.currentTimeMillis();
-        return now - message.getCreateTime() > config.getStaleMessageWindowMs();
+        return message.getCreateTime() > 0L && System.currentTimeMillis() - message.getCreateTime() > staleWindow;
+    }
+
+    private String eventId(NormalizedMessage msg) {
+        return msg.getMessageId() == null ? "" : msg.getMessageId();
     }
 }

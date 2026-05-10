@@ -1,14 +1,24 @@
 package com.lark.oapi.channel.safety;
 
 import com.lark.oapi.channel.config.LarkChannelOptions;
+import com.lark.oapi.channel.model.BotIdentity;
 import com.lark.oapi.channel.model.NormalizedMessage;
 import com.lark.oapi.channel.model.RejectReason;
 
 public class PolicyGate {
     private final LarkChannelOptions.PolicyConfig policy;
+    private volatile BotIdentity botIdentity;
 
     public PolicyGate(LarkChannelOptions.PolicyConfig policy) {
         this.policy = policy;
+    }
+
+    public BotIdentity getBotIdentity() {
+        return botIdentity;
+    }
+
+    public void setBotIdentity(BotIdentity botIdentity) {
+        this.botIdentity = botIdentity;
     }
 
     public RejectReason evaluate(NormalizedMessage message) {
@@ -19,11 +29,11 @@ public class PolicyGate {
             if (!policy.getGroupAllowlist().isEmpty() && !policy.getGroupAllowlist().contains(message.getChatId())) {
                 return RejectReason.GROUP_NOT_ALLOWED;
             }
-            if (message.isMentionAll() && !policy.isRespondToMentionAll()) {
-                return RejectReason.MENTION_ALL_BLOCKED;
-            }
             if (policy.isRequireMention() && !message.isMentionedBot()) {
                 return RejectReason.NO_MENTION;
+            }
+            if (message.isMentionAll() && !policy.isRespondToMentionAll()) {
+                return RejectReason.MENTION_ALL_BLOCKED;
             }
             return null;
         }

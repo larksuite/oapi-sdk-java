@@ -46,6 +46,31 @@ public class TestNormalize {
     }
 
     @Test
+    public void testShareCardMessagesAndChatTypeAreNormalized() {
+        NormalizedMessage shareChat = normalizer.normalizeMessage(
+                NormalizeTestSupport.buildMessageEvent("om_share_chat", "oc_group", "group", "share_chat",
+                        "{\"chat_id\":\"oc_target\"}", null),
+                new NormalizeOptions(botIdentity, false, true));
+        NormalizedMessage shareUser = normalizer.normalizeMessage(
+                NormalizeTestSupport.buildMessageEvent("om_share_user", "oc_group", "group", "share_user",
+                        "{\"user_id\":\"ou_target\"}", null),
+                new NormalizeOptions(botIdentity, false, true));
+        NormalizedMessage p2p = normalizer.normalizeMessage(
+                NormalizeTestSupport.buildMessageEvent("om_dm", "oc_dm", "p2p", "text",
+                        "{\"text\":\"direct\"}", null),
+                new NormalizeOptions(botIdentity, false, true));
+        NormalizedMessage group = normalizer.normalizeMessage(
+                NormalizeTestSupport.buildMessageEvent("om_group", "oc_group", "group", "text",
+                        "{\"text\":\"group\"}", null),
+                new NormalizeOptions(botIdentity, false, true));
+
+        Assert.assertEquals("<group_card id=\"oc_target\"/>", shareChat.getContent());
+        Assert.assertEquals("<contact_card id=\"ou_target\"/>", shareUser.getContent());
+        Assert.assertEquals("p2p", p2p.getChatType());
+        Assert.assertEquals("group", group.getChatType());
+    }
+
+    @Test
     public void testUnknownAndUnparseableFallback() {
         NormalizedMessage unknown = normalizer.normalizeMessage(
                 NormalizeTestSupport.buildMessageEvent("om_unknown", "oc_test", "group", "something_new", "{\"text\":\"sort of\"}", null),

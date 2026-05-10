@@ -9,15 +9,24 @@ public class NormalizeOptions {
         List<Message> fetch(String messageId);
     }
 
-    public interface SenderNameResolver {
+    public interface UserNameResolver {
         String resolve(String senderId);
+    }
+
+    public interface SenderNameResolver extends UserNameResolver {
+    }
+
+    public interface BatchResolveNames {
+        void resolve(List<String> openIds);
     }
 
     private final BotIdentity botIdentity;
     private final boolean includeRawInMessage;
     private final boolean stripBotMentions;
     private final SubMessageFetcher subMessageFetcher;
-    private final SenderNameResolver senderNameResolver;
+    private final UserNameResolver resolveUserName;
+    private final UserNameResolver resolveSenderName;
+    private final BatchResolveNames batchResolveNames;
 
     public NormalizeOptions(BotIdentity botIdentity, boolean includeRawInMessage, boolean stripBotMentions) {
         this(botIdentity, includeRawInMessage, stripBotMentions, null, null);
@@ -25,11 +34,20 @@ public class NormalizeOptions {
 
     public NormalizeOptions(BotIdentity botIdentity, boolean includeRawInMessage, boolean stripBotMentions,
                             SubMessageFetcher subMessageFetcher, SenderNameResolver senderNameResolver) {
+        this(botIdentity, includeRawInMessage, stripBotMentions, subMessageFetcher,
+                senderNameResolver, senderNameResolver, null);
+    }
+
+    public NormalizeOptions(BotIdentity botIdentity, boolean includeRaw, boolean stripBotMentions,
+                            SubMessageFetcher fetchSubMessages, UserNameResolver resolveUserName,
+                            UserNameResolver resolveSenderName, BatchResolveNames batchResolveNames) {
         this.botIdentity = botIdentity;
-        this.includeRawInMessage = includeRawInMessage;
+        this.includeRawInMessage = includeRaw;
         this.stripBotMentions = stripBotMentions;
-        this.subMessageFetcher = subMessageFetcher;
-        this.senderNameResolver = senderNameResolver;
+        this.subMessageFetcher = fetchSubMessages;
+        this.resolveUserName = resolveUserName;
+        this.resolveSenderName = resolveSenderName;
+        this.batchResolveNames = batchResolveNames;
     }
 
     public BotIdentity getBotIdentity() {
@@ -37,6 +55,10 @@ public class NormalizeOptions {
     }
 
     public boolean isIncludeRawInMessage() {
+        return includeRawInMessage;
+    }
+
+    public boolean isIncludeRaw() {
         return includeRawInMessage;
     }
 
@@ -48,7 +70,23 @@ public class NormalizeOptions {
         return subMessageFetcher;
     }
 
-    public SenderNameResolver getSenderNameResolver() {
-        return senderNameResolver;
+    public SubMessageFetcher getFetchSubMessages() {
+        return subMessageFetcher;
+    }
+
+    public UserNameResolver getSenderNameResolver() {
+        return resolveSenderName;
+    }
+
+    public UserNameResolver getResolveUserName() {
+        return resolveUserName;
+    }
+
+    public UserNameResolver getResolveSenderName() {
+        return resolveSenderName;
+    }
+
+    public BatchResolveNames getBatchResolveNames() {
+        return batchResolveNames;
     }
 }
