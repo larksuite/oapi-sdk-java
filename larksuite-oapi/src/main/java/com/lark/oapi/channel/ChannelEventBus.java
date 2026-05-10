@@ -16,23 +16,25 @@ final class ChannelEventBus {
             new ConcurrentHashMap<>();
 
     <T> ChannelSubscription on(String eventName, ChannelEventHandler<T> handler) {
+        final String canonicalEventName = canonicalEventName(eventName);
         final CopyOnWriteArrayList<ChannelEventHandler<?>> eventHandlers = new CopyOnWriteArrayList<>();
         eventHandlers.add(handler);
-        handlers.put(eventName, eventHandlers);
+        handlers.put(canonicalEventName, eventHandlers);
         final ChannelEventHandler<T> finalHandler = handler;
         return () -> {
-            CopyOnWriteArrayList<ChannelEventHandler<?>> current = handlers.get(eventName);
+            CopyOnWriteArrayList<ChannelEventHandler<?>> current = handlers.get(canonicalEventName);
             if (current == eventHandlers && current.remove(finalHandler)) {
-                handlers.remove(eventName, current);
+                handlers.remove(canonicalEventName, current);
             }
         };
     }
 
     <T> ChannelSubscription onMany(String eventName, ChannelEventHandler<T> handler) {
-        CopyOnWriteArrayList<ChannelEventHandler<?>> eventHandlers = handlers.get(eventName);
+        final String canonicalEventName = canonicalEventName(eventName);
+        CopyOnWriteArrayList<ChannelEventHandler<?>> eventHandlers = handlers.get(canonicalEventName);
         if (eventHandlers == null) {
             eventHandlers = new CopyOnWriteArrayList<>();
-            CopyOnWriteArrayList<ChannelEventHandler<?>> previous = handlers.putIfAbsent(eventName, eventHandlers);
+            CopyOnWriteArrayList<ChannelEventHandler<?>> previous = handlers.putIfAbsent(canonicalEventName, eventHandlers);
             if (previous != null) {
                 eventHandlers = previous;
             }
@@ -57,7 +59,8 @@ final class ChannelEventBus {
 
     @SuppressWarnings("unchecked")
     <T> void emit(String eventName, T event) {
-        CopyOnWriteArrayList<ChannelEventHandler<?>> eventHandlers = handlers.get(eventName);
+        String canonicalEventName = canonicalEventName(eventName);
+        CopyOnWriteArrayList<ChannelEventHandler<?>> eventHandlers = handlers.get(canonicalEventName);
         if (eventHandlers == null) {
             return;
         }
@@ -68,14 +71,14 @@ final class ChannelEventBus {
                 if ("error".equals(eventName)) {
                     LOGGER.warn("channel error handler failed", error);
                 } else {
-                    emitError(eventName, error, event);
+                    emitError(canonicalEventName, error, event);
                 }
             }
         }
     }
 
     boolean hasHandlers(String eventName) {
-        CopyOnWriteArrayList<ChannelEventHandler<?>> eventHandlers = handlers.get(eventName);
+        CopyOnWriteArrayList<ChannelEventHandler<?>> eventHandlers = handlers.get(canonicalEventName(eventName));
         return eventHandlers != null && !eventHandlers.isEmpty();
     }
 
@@ -91,5 +94,13 @@ final class ChannelEventBus {
         if (!hasHandlers("error")) {
             LOGGER.warn("unhandled channel error on event {}", eventName, error);
         }
+    }
+
+    private String canonicalEventName(String eventName) {
+        // The public event name is "cardAction". The raw Feishu event type is
+        // "card.action.trigger", and early Java discussions used
+        // "card.action" as shorthand. Accept the shorthand as an alias but
+        // keep "cardAction" as the single canonical handler key.
+        return "card.action".equals(eventName) ? "cardAction" : eventName;
     }
 }

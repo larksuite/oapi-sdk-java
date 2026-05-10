@@ -13,7 +13,20 @@ To address these issues, Feishu Open Platform has developed the Open Interface S
 - [处理事件订阅 / Handle Events](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/server-side-sdk/java-sdk-guide/handle-events)
 - [处理卡片回调 / Handle Card Callbacks](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/server-side-sdk/java-sdk-guide/handle-callback)
 - [常见问题 / SDK FAQs](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/server-side-sdk/faq)
-- [Channel 与 Agent 接入 / Channel and Agent Integration](CHANNEL.md)
+- [Channel 与 Agent 接入 / Channel and Agent Integration](CHANNEL.md) / [English](CHANNEL.en.md)
+
+## Channel and Agent Integration
+
+`LarkChannel` is a high-level facade for Agent and bot scenarios. It combines WebSocket/Webhook event intake, message normalization, safety policy gates, outbound sending, streaming replies, media upload/download, reactions and low-level escape hatches.
+
+Key entry points:
+- Create a channel with `LarkChannelFactory.createLarkChannel(LarkChannelOptions)`.
+- Call `connect()` before handling inbound events. It returns `CompletableFuture<BotIdentity>` so Java code can read the bot identity immediately after connection.
+- Use `channel.on("message", handler)` and `channel.on("cardAction", handler)` for canonical event names. `card.action` is accepted only as a compatibility alias.
+- Use `includeRawEvent(true)` when handlers need the original Feishu event body.
+- Use `getRawClient()`, `getRawWsClient()` and `getBotIdentity()` for raw SDK access and resolved bot identity.
+
+See [CHANNEL.en.md](CHANNEL.en.md) for the English guide and [CHANNEL.md](CHANNEL.md) for the Chinese guide.
 
 ## App Registration 
 
@@ -123,4 +136,3 @@ Real runnable demo:
 ## License
 
 使用 MIT
-

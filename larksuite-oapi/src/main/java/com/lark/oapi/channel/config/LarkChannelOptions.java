@@ -7,6 +7,12 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Configuration for {@code LarkChannel}.
+ *
+ * <p>The options keep Java SDK conventions such as builders and mutable nested
+ * config objects for runtime policy updates.
+ */
 public class LarkChannelOptions {
     private final String appId;
     private final String appSecret;
@@ -54,8 +60,22 @@ public class LarkChannelOptions {
     public IHttpTransport getHttpTransport() { return httpTransport; }
     public RequestOptions getHttpInstance() { return httpInstance; }
     public String getSource() { return source; }
+    /**
+     * Whether normalized events should carry the original Feishu event body.
+     *
+     * <p>This getter keeps the historical Java name. New code can configure
+     * the same flag with {@link Builder#includeRawEvent(boolean)}.
+     */
     public boolean isIncludeRawInMessage() { return includeRawInMessage; }
 
+    /**
+     * Preferred name for {@link #isIncludeRawInMessage()}.
+     */
+    public boolean isIncludeRawEvent() { return includeRawInMessage; }
+
+    /**
+     * Builder for immutable top-level channel options.
+     */
     public static final class Builder {
         private final String appId;
         private final String appSecret;
@@ -76,6 +96,10 @@ public class LarkChannelOptions {
             this.appSecret = appSecret;
         }
 
+        /**
+         * Set the inbound transport: {@code websocket} (default) or
+         * {@code webhook}.
+         */
         public Builder transport(String transport) { this.transport = transport; return this; }
         public Builder webhook(WebhookOptions webhook) { this.webhook = webhook; return this; }
         public Builder safety(SafetyConfig safety) { this.safety = safety; return this; }
@@ -86,10 +110,26 @@ public class LarkChannelOptions {
         public Builder httpTransport(IHttpTransport httpTransport) { this.httpTransport = httpTransport; return this; }
         public Builder httpInstance(RequestOptions httpInstance) { this.httpInstance = httpInstance; return this; }
         public Builder source(String source) { this.source = source; return this; }
+
+        /**
+         * Attach the raw Feishu event body to normalized events. Useful when a
+         * handler needs fields that the normalizer intentionally drops, such as
+         * tenant metadata or vendor extensions.
+         */
+        public Builder includeRawEvent(boolean includeRawEvent) { this.includeRawInMessage = includeRawEvent; return this; }
+
+        /**
+         * @deprecated Use {@link #includeRawEvent(boolean)}. Retained for
+         * compatibility with the first Java channel preview.
+         */
+        @Deprecated
         public Builder includeRawInMessage(boolean includeRawInMessage) { this.includeRawInMessage = includeRawInMessage; return this; }
         public LarkChannelOptions build() { return new LarkChannelOptions(this); }
     }
 
+    /**
+     * Webhook verification settings used by {@code createWebhookDispatcher()}.
+     */
     public static class WebhookOptions {
         private String verificationToken;
         private String encryptKey;
@@ -100,6 +140,10 @@ public class LarkChannelOptions {
         public void setEncryptKey(String encryptKey) { this.encryptKey = encryptKey; }
     }
 
+    /**
+     * Safety policy that decides whether inbound messages should be handled or
+     * rejected before user code runs.
+     */
     public static class PolicyConfig {
         private List<String> groupAllowlist = Collections.emptyList();
         private String dmMode = "open";
@@ -121,6 +165,10 @@ public class LarkChannelOptions {
         public void setRespondToMentionAll(boolean respondToMentionAll) { this.respondToMentionAll = respondToMentionAll; }
     }
 
+    /**
+     * Safety pipeline tuning: stale event filtering, deduplication, per-chat
+     * serialization and short-message batching.
+     */
     public static class SafetyConfig {
         private long dedupTtlMs = 12L * 60L * 60L * 1000L;
         private int dedupMaxEntries = 5000;
@@ -149,6 +197,9 @@ public class LarkChannelOptions {
         public void setBatchText(BatchTextConfig batchText) { this.batchText = batchText == null ? new BatchTextConfig() : batchText; }
     }
 
+    /**
+     * Text batching thresholds used by the message safety pipeline.
+     */
     public static class BatchTextConfig {
         private long delayMs = 600L;
         private int longThresholdChars = 1000;
@@ -168,6 +219,9 @@ public class LarkChannelOptions {
         public void setMaxChars(int maxChars) { this.maxChars = maxChars; }
     }
 
+    /**
+     * Outbound sending, media upload, streaming and retry configuration.
+     */
     public static class OutboundConfig {
         private int textChunkLimit = 3500;
         private int streamThrottleMs = 100;
@@ -196,6 +250,9 @@ public class LarkChannelOptions {
         public void setAllowedFileDirs(List<String> allowedFileDirs) { this.allowedFileDirs = allowedFileDirs == null ? Collections.<String>emptyList() : allowedFileDirs; }
     }
 
+    /**
+     * Retry configuration for retryable outbound API failures.
+     */
     public static class RetryConfig {
         private int maxAttempts = 3;
         private long baseDelayMs = 500L;

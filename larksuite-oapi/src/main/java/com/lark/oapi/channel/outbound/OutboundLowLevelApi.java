@@ -38,6 +38,10 @@ class OutboundLowLevelApi {
 
     void editMessage(String messageId, String text) {
         try {
+            // Feishu edit semantics are split: im.v1.message.update edits
+            // text/post content, while interactive cards must be patched via
+            // im.v1.message.patch. Keeping the methods separate produces a
+            // clearer failure when the wrong helper is used.
             client.im().message().update(UpdateMessageReq.newBuilder()
                     .messageId(messageId)
                     .updateMessageReqBody(UpdateMessageReqBody.newBuilder()
@@ -52,6 +56,8 @@ class OutboundLowLevelApi {
 
     void updateCard(String messageId, Map<String, Object> card) {
         try {
+            // Cards are updated by replacing the interactive message content
+            // through patch; update would target text/post messages only.
             client.im().message().patch(PatchMessageReq.newBuilder()
                     .messageId(messageId)
                     .patchMessageReqBody(PatchMessageReqBody.newBuilder()
@@ -121,6 +127,10 @@ class OutboundLowLevelApi {
 
     boolean removeReactionByEmoji(String messageId, String emojiType) {
         try {
+            // Raw reaction events do not include a stable reaction_id, but
+            // delete requires one. List reactions for the emoji and remove the
+            // reaction created by the app itself; Feishu does not allow bots to
+            // remove user-added reactions.
             ListMessageReactionResp response = client.im().messageReaction().list(ListMessageReactionReq.newBuilder()
                     .messageId(messageId)
                     .reactionType(emojiType)

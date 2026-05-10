@@ -33,7 +33,7 @@ public class TestLarkChannelIntegration {
         Assert.assertNotNull(identity);
         Assert.assertNotNull(identity.getOpenId());
         Assert.assertFalse(identity.getOpenId().isEmpty());
-        Assert.assertSame(identity, channel.botIdentity);
+        Assert.assertSame(identity, channel.getBotIdentity());
     }
 
     @Test
@@ -53,7 +53,7 @@ public class TestLarkChannelIntegration {
         Assert.assertNotNull(identity);
         Assert.assertNotNull(identity.getOpenId());
         Assert.assertFalse(identity.getOpenId().isEmpty());
-        Assert.assertSame(identity, channel.botIdentity);
+        Assert.assertSame(identity, channel.getBotIdentity());
     }
 
     private static void assumeIntegrationEnabled() {

@@ -48,10 +48,18 @@ class RawMessageSender {
         } catch (Exception e) {
             LarkChannelException error = OutboundErrors.classifyError(e, "send failed");
             if (OutboundErrors.isReplyTargetGone(error) && args.replyTo != null) {
+                // Feishu returns "message not found/revoked" when the message
+                // being replied to has disappeared. Preserve the user-visible
+                // answer by creating a new message in the target chat instead
+                // of failing the whole Agent turn.
                 return rawSendWithRetry(new RawSendArgs(args.to, args.idType, args.msgType, args.content, null,
                         args.replyInThread));
             }
             if (OutboundErrors.isFormatError(error) && "post".equals(args.msgType)) {
+                // Markdown is converted to Feishu post first for better rich
+                // rendering. Some post structures are rejected by Feishu even
+                // though the original text is still useful, so downgrade to
+                // plain text on format errors.
                 String plainText = MarkdownPostConverter.postToPlainText(args.content);
                 if (plainText.isEmpty()) {
                     plainText = "[message]";
@@ -70,6 +78,9 @@ class RawMessageSender {
     private String rawSend(RawSendArgs args) throws Exception {
         String contentJson = Jsons.DEFAULT.toJson(args.content);
         if (args.replyTo != null) {
+            // Reply and create are different Feishu endpoints. Reply uses the
+            // parent message id as the path parameter and does not accept
+            // receive_id/receive_id_type.
             com.lark.oapi.service.im.v1.model.ReplyMessageResp response = client.im().message().reply(
                     ReplyMessageReq.newBuilder()
                             .messageId(args.replyTo)
@@ -150,6 +161,9 @@ class RawMessageSender {
      * Send an interactive message that references a pre-created card instance by card_id.
      */
     String sendCardByReference(String to, OutboundRouting.ReceiveIdType idType, String cardId, SendOptions options) {
+        // Cardkit streaming updates operate on card_id, while im.message.create
+        // sends to a chat/open_id. The bridge is an interactive message whose
+        // content references the pre-created card instance.
         Map<String, Object> ref = new LinkedHashMap<>();
         ref.put("type", "card");
         ref.put("data", Collections.singletonMap("card_id", cardId));

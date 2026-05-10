@@ -100,6 +100,45 @@ public class TestLarkChannel {
     }
 
     @Test
+    public void testCardActionDottedAliasMapsToCanonicalEventName() {
+        ChannelEventBus bus = new ChannelEventBus();
+        final AtomicInteger calls = new AtomicInteger();
+
+        bus.on("card.action", new ChannelEventHandler<String>() {
+            @Override
+            public void handle(String event) {
+                calls.incrementAndGet();
+                Assert.assertEquals("payload", event);
+            }
+        });
+
+        bus.emit("cardAction", "payload");
+
+        Assert.assertEquals(1, calls.get());
+    }
+
+    @Test
+    public void testIncludeRawEventAliasMatchesLegacyOption() {
+        LarkChannelOptions options = LarkChannelOptions.newBuilder("cli_test", "secret")
+                .includeRawEvent(true)
+                .build();
+
+        Assert.assertTrue(options.isIncludeRawEvent());
+        Assert.assertTrue(options.isIncludeRawInMessage());
+    }
+
+    @Test
+    public void testLarkChannelExceptionPreservesCause() {
+        RuntimeException cause = new RuntimeException("root cause");
+        LarkChannelException error = new LarkChannelException(
+                com.lark.oapi.channel.exception.LarkChannelErrorCode.NOT_CONNECTED,
+                "connect failed",
+                cause);
+
+        Assert.assertSame(cause, error.getCause());
+    }
+
+    @Test
     public void testEditMessageUsesUpdateNotPatch() throws Exception {
         StubMessage stubMessage = new StubMessage();
         LarkChannel channel = createChannel(stubMessage, new StubMessageReaction(), new StubImage(), new StubFile(), new StubChat());
@@ -228,7 +267,7 @@ public class TestLarkChannel {
 
         channel.disconnect().get();
 
-        Assert.assertEquals(Boolean.TRUE, getField(channel.rawWsClient, "userClosed"));
+        Assert.assertEquals(Boolean.TRUE, getField(channel.getRawWsClient(), "userClosed"));
     }
 
     @Test
@@ -241,7 +280,7 @@ public class TestLarkChannel {
                         .build()
         );
 
-        Config config = (Config) getField(channel.rawClient, "config");
+        Config config = (Config) getField(channel.getRawClient(), "config");
         Assert.assertSame(transport, config.getHttpTransport());
     }
 
@@ -256,7 +295,7 @@ public class TestLarkChannel {
                         .build()
         );
 
-        channel.rawClient.get("/open-apis/test", null, AccessTokenType.None);
+        channel.getRawClient().get("/open-apis/test", null, AccessTokenType.None);
 
         Assert.assertEquals("oapi-sdk-java/v2.0.0 source/cursor-bot",
                 transport.lastRequest.getHeaders().get("User-Agent").get(0));
@@ -273,7 +312,7 @@ public class TestLarkChannel {
                         .build()
         );
 
-        channel.rawClient.get("/open-apis/test", null, AccessTokenType.None);
+        channel.getRawClient().get("/open-apis/test", null, AccessTokenType.None);
 
         Assert.assertEquals("oapi-sdk-java/v2.0.0",
                 transport.lastRequest.getHeaders().get("User-Agent").get(0));
@@ -331,8 +370,27 @@ public class TestLarkChannel {
         Assert.assertSame(first, second);
         Assert.assertEquals("ou_connect", identity.getOpenId());
         Assert.assertEquals("Connect Bot", identity.getName());
-        Assert.assertSame(identity, channel.botIdentity);
+        Assert.assertSame(identity, channel.getBotIdentity());
         Assert.assertEquals(Boolean.TRUE, getField(channel, "connected"));
+    }
+
+    @Test
+    public void testConnectSyncReturnsBotIdentity() throws Exception {
+        LarkChannel channel = LarkChannelFactory.createLarkChannel(
+                LarkChannelOptions.newBuilder("cli_test", "secret").transport("webhook").build()
+        );
+        StubRawClient stubClient = new StubRawClient();
+        RawResponse response = new RawResponse();
+        response.setStatusCode(200);
+        response.setBody("{\"code\":0,\"msg\":\"ok\",\"bot\":{\"open_id\":\"ou_sync\",\"app_name\":\"Sync Bot\"}}"
+                .getBytes(StandardCharsets.UTF_8));
+        stubClient.getResp = response;
+        setField(channel, "rawClient", stubClient);
+
+        com.lark.oapi.channel.model.BotIdentity identity = channel.connectSync();
+
+        Assert.assertEquals("ou_sync", identity.getOpenId());
+        Assert.assertSame(identity, channel.getBotIdentity());
     }
 
     @Test
@@ -380,8 +438,8 @@ public class TestLarkChannel {
             }
         });
 
-        Runnable onReconnecting = (Runnable) getField(channel.rawWsClient, "onReconnecting");
-        Runnable onReconnected = (Runnable) getField(channel.rawWsClient, "onReconnected");
+        Runnable onReconnecting = (Runnable) getField(channel.getRawWsClient(), "onReconnecting");
+        Runnable onReconnected = (Runnable) getField(channel.getRawWsClient(), "onReconnected");
         onReconnecting.run();
         onReconnected.run();
 
@@ -427,9 +485,9 @@ public class TestLarkChannel {
                         .policy(policy)
                         .build()
         );
-        channel.botIdentity = new com.lark.oapi.channel.model.BotIdentity("ou_bot", "TestBot");
+        setField(channel, "botIdentity", new com.lark.oapi.channel.model.BotIdentity("ou_bot", "TestBot"));
         StubImService imService = new StubImService(new StubMessage(), new StubMessageReaction(), new StubImage(), new StubFile(), new StubChat());
-        setField(channel.rawClient, "im", imService);
+        setField(channel.getRawClient(), "im", imService);
 
         Method checkPolicy = LarkChannel.class.getDeclaredMethod("checkPolicy", com.lark.oapi.channel.model.NormalizedMessage.class);
         checkPolicy.setAccessible(true);
@@ -516,9 +574,9 @@ public class TestLarkChannel {
         LarkChannel channel = LarkChannelFactory.createLarkChannel(
                 LarkChannelOptions.newBuilder("cli_test", "secret").transport("webhook").build()
         );
-        channel.botIdentity = new com.lark.oapi.channel.model.BotIdentity("ou_bot", "TestBot");
+        setField(channel, "botIdentity", new com.lark.oapi.channel.model.BotIdentity("ou_bot", "TestBot"));
         StubImService imService = new StubImService(message, messageReaction, image, file, chat);
-        setField(channel.rawClient, "im", imService);
+        setField(channel.getRawClient(), "im", imService);
         return channel;
     }
 

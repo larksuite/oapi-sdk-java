@@ -13,7 +13,7 @@ import com.lark.oapi.service.im.v1.model.P2MessageReceiveV1;
 /**
  * Facade for channel normalization.
  *
- * This mirrors the NodeJS normalize/index.ts shape:
+ * Responsibilities:
  * - normalizeMessage delegates to the message pipeline
  * - normalizeCardAction / normalizeReaction / normalizeBotAdded / normalizeComment stay as event normalizers
  * - build*DedupKey delegates to the dedicated dedup helper

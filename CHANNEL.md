@@ -4,7 +4,7 @@
 
 ## 内部职责分层
 
-`LarkChannel` 与 NodeJS Channel 保持一致的职责分区，主类只作为公开门面和生命周期编排入口：
+`LarkChannel` 按职责分区组织，主类只作为公开门面和生命周期编排入口：
 
 | 分区 | 主要 API / 文件 | 说明 |
 | --- | --- | --- |
@@ -114,7 +114,11 @@ BotIdentity identity = channel.connect().get();
 System.out.println(identity.getOpenId());
 ```
 
-Java 版 `connect()` 保留返回 `CompletableFuture<BotIdentity>`，便于业务直接读取当前机器人身份；这与 NodeJS 版 `connect()` 返回 `Promise<void>` 略有差异，但身份同样会保存到 `channel.botIdentity`。Webhook 模式也建议先调用 `connect()`，否则入站消息在缺少 bot identity 时会触发 `error` 事件并报告 `not_connected`。
+`connect()` 返回 `CompletableFuture<BotIdentity>`，便于业务直接读取当前机器人身份。连接完成后机器人身份已解析，WebSocket 模式下首个握手也已完成。身份也可通过 `channel.getBotIdentity()` 读取。
+
+如需底层逃生口或读取连接状态，使用 `getRawClient()`、`getRawWsClient()`、`getBotIdentity()`。
+
+Webhook 模式也建议先调用 `connect()`，否则入站消息在缺少 bot identity 时会触发 `error` 事件并报告 `not_connected`。
 
 退出应用时调用：
 
@@ -143,7 +147,7 @@ WebSocket 断线重连时会触发：
 
 `LarkChannelOptions` 支持以下 HTTP 相关配置：
 
-- `httpTransport(IHttpTransport)`：配置 raw `Client` 使用的 HTTP transport，等价于 NodeJS Channel 中 `httpInstance` 更接近的能力，适合替换底层 HTTP 客户端、代理、统一拦截器等场景。
+- `httpTransport(IHttpTransport)`：配置 raw `Client` 使用的 HTTP transport，适合替换底层 HTTP 客户端、代理、统一拦截器等场景。
 - `httpInstance(RequestOptions)`：配置单次 raw request 的请求选项，目前用于 `connect()` 拉取机器人身份等低层请求，不是底层 HTTP transport。
 - `source(String)`：拼装到 raw `Client` 的 User-Agent 中，格式为 `oapi-sdk-java/v2.0.0 source/<sanitized>`；空值或清理后为空的值只保留基础 User-Agent。
 
@@ -176,7 +180,7 @@ EventDispatcher dispatcher = channel.createWebhookDispatcher();
 ```
 
 将 `dispatcher` 接到现有 HTTP 事件入口即可复用同一套 Channel handler。
-Webhook 传输不会创建 WebSocket 连接，`channel.rawWsClient` 在该模式下为 `null`；只有 `transport("websocket")` 时才会启动长连接。
+Webhook 传输不会创建 WebSocket 连接，`channel.getRawWsClient()` 在该模式下为 `null`；只有 `transport("websocket")` 时才会启动长连接。
 
 ## 事件监听
 
@@ -194,7 +198,7 @@ ChannelSubscription subscription = channel.on("message",
 subscription.unsubscribe();
 ```
 
-`on(event, handler)` 与 NodeJS 语义一致：同一事件新注册的 handler 会覆盖旧 handler。需要同一事件保留多个 handler 时，可使用 `onMany(event, handler)`。批量 `on(Map<String, ChannelEventHandler<?>>)` 会返回一个 `ChannelSubscription`，调用 `unsubscribe()` 可一次性取消本批 handler。
+`on(event, handler)` 会覆盖同一事件的旧 handler。需要同一事件保留多个 handler 时，可使用 `onMany(event, handler)`。批量 `on(Map<String, ChannelEventHandler<?>>)` 会返回一个 `ChannelSubscription`，调用 `unsubscribe()` 可一次性取消本批 handler。
 
 支持事件：
 
@@ -209,6 +213,8 @@ subscription.unsubscribe();
 | `error` | `ChannelErrorEvent` | 归一化、handler 或入站处理异常 |
 | `reconnecting` | `Object` | WebSocket 正在重连 |
 | `reconnected` | `Object` | WebSocket 重连成功 |
+
+事件名统一使用 `cardAction`。Java 侧兼容早期讨论中出现的 `card.action` 写法，但它只是 alias，文档和示例都应使用 `cardAction`。
 
 事件处理顺序：
 
@@ -232,7 +238,9 @@ subscription.unsubscribe();
 | `mentionedBot` | 是否 @ 当前机器人 |
 | `mentionAll` | 是否 @ 所有人 |
 | `rootId` / `threadId` / `replyToMessageId` | 回复与话题上下文 |
-| `raw` | 原始事件，需设置 `includeRawInMessage(true)` 才会携带 |
+| `raw` | 原始事件，需设置 `includeRawEvent(true)` 才会携带 |
+
+推荐使用 `includeRawEvent(true)`；旧的 `includeRawInMessage(true)` 仍可使用，但建议新代码迁移到 `includeRawEvent(true)`。
 
 ## 消息发送
 
@@ -342,6 +350,22 @@ channel.recallMessage("om_xxx").get();
 - `updateCard` 使用卡片更新接口，适合 interactive 卡片。
 - `recallMessage` 撤回已发送消息。
 
+## 错误码
+
+Channel 运行时异常统一使用 `LarkChannelException`，可通过 `getCode()` 判断错误类型，通过 `getCause()` 追踪底层异常。
+
+| 错误码 | 典型场景 |
+| --- | --- |
+| `format_error` | 消息体格式错误，例如 Feishu 拒绝 post/card 内容 |
+| `target_revoked` | 回复目标消息已撤回、删除或不可见 |
+| `rate_limited` | Feishu 返回限流 |
+| `permission_denied` | 凭证错误、权限不足或应用未安装 |
+| `upload_failed` | 媒体上传或本地/URL 资源读取失败 |
+| `ssrf_blocked` | URL 命中 SSRF 防护规则 |
+| `send_timeout` | 发送或网络请求超时 |
+| `not_connected` | 连接或 bot identity 解析失败 |
+| `unknown` | 未能归类的底层异常 |
+
 ## 资源上传与下载
 
 发送图片或文件时，Channel 会先上传资源，再发送消息：
@@ -437,6 +461,28 @@ channel.on("reject", new ChannelEventHandler<RejectEvent>() {
 | `dm_disabled` | 单聊已关闭 |
 | `mention_all_blocked` | 命中 @ 所有人拦截 |
 
+## FAQ
+
+### 为什么 `connect()` 返回 `BotIdentity`？
+
+这是 Java 侧的强类型便利设计。连接完成后业务通常需要机器人 `openId`，直接返回 `BotIdentity` 可以少一次 getter 调用。
+
+### `cardAction` 和 `card.action` 应该用哪个？
+
+统一使用 `cardAction`。`card.action` 只是 Java 侧为了兼容早期讨论和旧代码提供的别名。
+
+### 什么时候使用 `includeRawEvent(true)`？
+
+当业务需要读取归一化模型未暴露的原始字段，例如 `tenant_key`、`host`、原始事件头或平台扩展字段时开启。默认关闭以减少 payload 体积和耦合。
+
+### `editMessage` 和 `updateCard` 有什么区别？
+
+`editMessage` 使用 Feishu 的 message update 接口，适合文本/富文本；`updateCard` 使用 message patch 接口，适合 interactive 卡片。卡片不要用 `editMessage` 更新。
+
+### URL 图片/文件为什么被拒绝？
+
+Channel 默认启用 SSRF 防护，会拒绝私网、回环、链路本地、多播、保留地址等非公网目标。可信域名可通过 `outbound.ssrfAllowlist` 放行。
+
 ## 完整示例
 
 仓库提供了可运行示例：
@@ -484,5 +530,5 @@ Channel 相关自动化测试覆盖连接、事件归一化、消息发送路由
 
 ```bash
 mvn -pl larksuite-oapi -DskipTests=false -Dmaven.test.skip=false \
-  '-Dtest=TestLarkChannel,TestNormalizeAndSafety,TestNormalize,TestNormalizeConverters,TestNormalizeEventNormalizers,TestNormalizeMentions,TestNormalizeMergeForward,TestSafetyPipeline,TestOutboundMarkdown,TestOutboundRouting,TestOutboundSenderFallback,TestOutboundStreaming,TestOutboundUploader' test
+  '-Dtest=TestLarkChannel,TestNormalizeAndSafety,TestNormalize,TestNormalizeConverters,TestNormalizeEventNormalizers,TestNormalizeMentions,TestNormalizeMergeForward,TestSafetyPipeline,TestOutboundMarkdown,TestOutboundRouting,TestOutboundSenderFallback,TestOutboundStreaming,TestOutboundUploader,TestOutboundErrors,TestOutboundRetry,TestSsrfGuard' test
 ```

@@ -95,6 +95,9 @@ final class ChannelInboundProcessor {
             if (normalized == null) {
                 return;
             }
+            // Include the action identity in the dedup key. Feishu may
+            // redeliver the same click, but different buttons on the same card
+            // from the same user must not collapse into one action.
             safetyPipeline.pushAction(normalizer.buildCardActionDedupKey(normalized), normalized.getChatId(),
                     () -> eventBus.emit("cardAction", normalized));
         } catch (Throwable error) {
@@ -140,6 +143,11 @@ final class ChannelInboundProcessor {
                 true,
                 messageId -> {
                     try {
+                        // Feishu returns merge_forward sub-messages from
+                        // im.v1.message.get(message_id) as a flat items list:
+                        // the parent first, followed by descendants linked via
+                        // upper_message_id. The merge-forward converter builds
+                        // the tree from that shape.
                         GetMessageResp response = client.im().message().get(GetMessageReq.newBuilder()
                                 .messageId(messageId)
                                 .userIdType("open_id")
