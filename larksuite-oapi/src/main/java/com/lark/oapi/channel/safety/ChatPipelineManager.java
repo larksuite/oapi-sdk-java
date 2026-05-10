@@ -7,7 +7,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 class ChatPipelineManager {
     private final LarkChannelOptions.BatchTextConfig config;
-    private final ConcurrentHashMap<String, ChatPipeline> pipelines = new ConcurrentHashMap<String, ChatPipeline>();
+    private final ConcurrentHashMap<String, ChatPipeline> pipelines = new ConcurrentHashMap<>();
 
     ChatPipelineManager(LarkChannelOptions.BatchTextConfig config) {
         this.config = config == null ? new LarkChannelOptions.BatchTextConfig() : config;

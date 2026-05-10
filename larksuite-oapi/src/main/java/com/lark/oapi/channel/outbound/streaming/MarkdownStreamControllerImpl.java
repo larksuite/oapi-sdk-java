@@ -30,12 +30,7 @@ public class MarkdownStreamControllerImpl implements MarkdownStreamController {
         this.to = to;
         this.idType = idType;
         this.options = options;
-        this.throttle = new Throttle(sender.getStreamThrottleMs(), sender.getStreamThrottleChars(), new Throttle.FireAction() {
-            @Override
-            public void fire() throws Exception {
-                pushContent();
-            }
-        });
+        this.throttle = new Throttle(sender.getStreamThrottleMs(), sender.getStreamThrottleChars(), this::pushContent);
     }
 
     @Override
@@ -96,12 +91,7 @@ public class MarkdownStreamControllerImpl implements MarkdownStreamController {
         }
         final String snapshot = content == null || content.isEmpty() ? "..." : content;
         final int nextSequence = ++sequence;
-        queue.enqueue(new UpdateQueue.QueueTask() {
-            @Override
-            public void run() throws Exception {
-                sender.updateCardElementContent(cardId, ELEMENT_ID, snapshot, nextSequence);
-            }
-        });
+        queue.enqueue(() -> sender.updateCardElementContent(cardId, ELEMENT_ID, snapshot, nextSequence));
     }
 
     private void completeTerminal() throws Exception {
@@ -137,25 +127,25 @@ public class MarkdownStreamControllerImpl implements MarkdownStreamController {
     }
 
     private Map<String, Object> buildStreamingCard(String text, boolean streamingMode, String summary) {
-        Map<String, Object> markdown = new LinkedHashMap<String, Object>();
+        Map<String, Object> markdown = new LinkedHashMap<>();
         markdown.put("tag", "markdown");
         markdown.put("element_id", ELEMENT_ID);
         markdown.put("content", text == null || text.isEmpty() ? "Thinking..." : text);
 
-        Map<String, Object> body = new LinkedHashMap<String, Object>();
+        Map<String, Object> body = new LinkedHashMap<>();
         body.put("elements", java.util.Collections.singletonList(markdown));
 
-        Map<String, Object> title = new LinkedHashMap<String, Object>();
+        Map<String, Object> title = new LinkedHashMap<>();
         title.put("tag", "plain_text");
         title.put("content", "Streaming response");
-        Map<String, Object> header = new LinkedHashMap<String, Object>();
+        Map<String, Object> header = new LinkedHashMap<>();
         header.put("title", title);
 
-        Map<String, Object> config = new LinkedHashMap<String, Object>();
+        Map<String, Object> config = new LinkedHashMap<>();
         config.put("streaming_mode", streamingMode);
         config.put("summary", java.util.Collections.singletonMap("content", summary));
 
-        Map<String, Object> card = new LinkedHashMap<String, Object>();
+        Map<String, Object> card = new LinkedHashMap<>();
         card.put("schema", "2.0");
         card.put("header", header);
         card.put("config", config);

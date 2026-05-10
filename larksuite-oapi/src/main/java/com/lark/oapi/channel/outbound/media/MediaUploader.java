@@ -131,7 +131,7 @@ public class MediaUploader {
             Path realPath = path.toRealPath();
             assertNotBlocked(realPath);
             if (config != null && config.getAllowedFileDirs() != null && !config.getAllowedFileDirs().isEmpty()) {
-                List<Path> allowed = new ArrayList<Path>();
+                List<Path> allowed = new ArrayList<>();
                 for (String dir : config.getAllowedFileDirs()) {
                     Path resolved = Paths.get(dir).toAbsolutePath().normalize();
                     try {

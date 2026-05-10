@@ -9,7 +9,6 @@ import java.util.List;
 
 /**
  * Pipeline entry facade for the channel safety layer.
- *
  * Three tiers of protection, each targeting different event shapes:
  * - pushMessage: full pipeline (stale + dedup + policy + lock + batch + queue)
  * - pushAction: dedup + lock + queue, for card button clicks and doc comments
@@ -66,12 +65,7 @@ public class SafetyPipeline {
             return;
         }
 
-        FlushHandler dispatchHandler = new FlushHandler() {
-            @Override
-            public void flush(BatchedDispatch batch) {
-                dispatchMessageBatch(batch);
-            }
-        };
+        FlushHandler dispatchHandler = this::dispatchMessageBatch;
         if (queueEnabled && msg.getChatId() != null && !msg.getChatId().isEmpty()) {
             manager.push(msg.getChatId(), msg, dispatchHandler);
             return;
@@ -141,15 +135,12 @@ public class SafetyPipeline {
     }
 
     private Runnable guardedTask(final String eventId, final Runnable handler) {
-        return new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    handler.run();
-                    seenCache.mark(eventId);
-                } finally {
-                    lock.release(eventId);
-                }
+        return () -> {
+            try {
+                handler.run();
+                seenCache.mark(eventId);
+            } finally {
+                lock.release(eventId);
             }
         };
     }

@@ -18,6 +18,7 @@ import com.lark.oapi.channel.outbound.streaming.MarkdownStreamControllerImpl;
 import com.lark.oapi.core.utils.Jsons;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -86,7 +87,7 @@ public class OutboundSender {
     private SendResult sendText(String to, OutboundRouting.ReceiveIdType idType, String text, SendOptions options) {
         String prefix = ComposeMentions.composeMentionsTextPrefix(options.getMentions());
         List<String> chunks = MarkdownSplitter.splitPlain(prefix + (text == null ? "" : text), chunkLimit);
-        List<String> ids = new ArrayList<String>();
+        List<String> ids = new ArrayList<>();
         for (int i = 0; i < chunks.size(); i++) {
             ids.add(sendOneWithFallback(new RawSendArgs(to, idType, "text",
                     Collections.<String, Object>singletonMap("text", chunks.get(i)),
@@ -97,7 +98,7 @@ public class OutboundSender {
 
     private SendResult sendMarkdown(String to, OutboundRouting.ReceiveIdType idType, String markdown, SendOptions options) {
         List<String> chunks = MarkdownSplitter.splitWithCodeFences(markdown == null ? "" : markdown, chunkLimit);
-        List<String> ids = new ArrayList<String>();
+        List<String> ids = new ArrayList<>();
         for (int i = 0; i < chunks.size(); i++) {
             Map<String, Object> post = convertMarkdown(chunks.get(i), i == 0 ? options.getMentions() : null);
             ids.add(sendOneWithFallback(new RawSendArgs(to, idType, "post", post,
@@ -126,7 +127,7 @@ public class OutboundSender {
         String fileName = asString(payload.get("fileName"));
         Integer duration = asInteger(payload.get("duration"));
         UploadResult uploaded = uploader.upload(kind, source, fileName, duration);
-        Map<String, Object> content = new java.util.LinkedHashMap<String, Object>();
+        Map<String, Object> content = new LinkedHashMap<>();
         if ("image".equals(kind)) {
             content.put("image_key", uploaded.getFileKey());
             return sendSingle(to, idType, "image", content, options);

@@ -47,9 +47,9 @@ final class ChannelInboundProcessor {
         this.botIdentitySupplier = botIdentitySupplier;
     }
 
-    void handleMessage(final P2MessageReceiveV1 event) {
+    void handleMessage(P2MessageReceiveV1 event) {
         try {
-            final NormalizedMessage normalized = normalizeMessage(event);
+            NormalizedMessage normalized = normalizeMessage(event);
             if (normalized != null) {
                 pushMessage(normalized);
             }
@@ -58,7 +58,7 @@ final class ChannelInboundProcessor {
         }
     }
 
-    private void pushMessage(final NormalizedMessage normalized) {
+    private void pushMessage(NormalizedMessage normalized) {
         safetyPipeline.pushMessage(normalized);
     }
 
@@ -91,16 +91,12 @@ final class ChannelInboundProcessor {
 
     void handleCardAction(P2CardActionTrigger event) {
         try {
-            final CardActionEvent normalized = normalizer.normalizeCardAction(event);
+            CardActionEvent normalized = normalizer.normalizeCardAction(event);
             if (normalized == null) {
                 return;
             }
-            safetyPipeline.pushAction(normalizer.buildCardActionDedupKey(normalized), normalized.getChatId(), new Runnable() {
-                @Override
-                public void run() {
-                    eventBus.emit("cardAction", normalized);
-                }
-            });
+            safetyPipeline.pushAction(normalizer.buildCardActionDedupKey(normalized), normalized.getChatId(),
+                    () -> eventBus.emit("cardAction", normalized));
         } catch (Throwable error) {
             eventBus.emitError("cardAction", error, event);
         }
@@ -113,31 +109,23 @@ final class ChannelInboundProcessor {
             }
             JsonObject root = JsonParser.parseString(new String(req.getBody(), StandardCharsets.UTF_8)).getAsJsonObject();
             JsonObject payload = root.has("event") && root.get("event").isJsonObject() ? root.getAsJsonObject("event") : root;
-            final CommentEvent normalized = normalizer.normalizeComment(payload, options.isIncludeRawInMessage() ? root : payload);
+            CommentEvent normalized = normalizer.normalizeComment(payload, options.isIncludeRawInMessage() ? root : payload);
             if (normalized == null) {
                 return;
             }
-            safetyPipeline.pushAction(normalizer.buildCommentDedupKey(normalized), normalized.getFileToken(), new Runnable() {
-                @Override
-                public void run() {
-                    eventBus.emit("comment", normalized);
-                }
-            });
+            safetyPipeline.pushAction(normalizer.buildCommentDedupKey(normalized), normalized.getFileToken(),
+                    () -> eventBus.emit("comment", normalized));
         } catch (Throwable error) {
             eventBus.emitError("comment", error, req);
         }
     }
 
-    private void handleReaction(final ReactionEvent normalized) {
+    private void handleReaction(ReactionEvent normalized) {
         if (normalized == null) {
             return;
         }
-        safetyPipeline.pushLight(normalizer.buildReactionDedupKey(normalized), new Runnable() {
-            @Override
-            public void run() {
-                eventBus.emit("reaction", normalized);
-            }
-        });
+        safetyPipeline.pushLight(normalizer.buildReactionDedupKey(normalized),
+                () -> eventBus.emit("reaction", normalized));
     }
 
     private NormalizedMessage normalizeMessage(P2MessageReceiveV1 event) {
@@ -150,20 +138,17 @@ final class ChannelInboundProcessor {
                 botIdentity,
                 options.isIncludeRawInMessage(),
                 true,
-                new NormalizeOptions.SubMessageFetcher() {
-                    @Override
-                    public List<com.lark.oapi.service.im.v1.model.Message> fetch(String messageId) {
-                        try {
-                            GetMessageResp response = client.im().message().get(GetMessageReq.newBuilder()
-                                    .messageId(messageId)
-                                    .userIdType("open_id")
-                                    .build());
-                            return response == null || response.getData() == null || response.getData().getItems() == null
-                                    ? Collections.<com.lark.oapi.service.im.v1.model.Message>emptyList()
-                                    : java.util.Arrays.asList(response.getData().getItems());
-                        } catch (Exception e) {
-                            return Collections.emptyList();
-                        }
+                messageId -> {
+                    try {
+                        GetMessageResp response = client.im().message().get(GetMessageReq.newBuilder()
+                                .messageId(messageId)
+                                .userIdType("open_id")
+                                .build());
+                        return response == null || response.getData() == null || response.getData().getItems() == null
+                                ? Collections.<com.lark.oapi.service.im.v1.model.Message>emptyList()
+                                : java.util.Arrays.asList(response.getData().getItems());
+                    } catch (Exception e) {
+                        return Collections.emptyList();
                     }
                 },
                 null));

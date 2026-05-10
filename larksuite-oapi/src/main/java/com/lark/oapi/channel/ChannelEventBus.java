@@ -13,20 +13,17 @@ final class ChannelEventBus {
     private static final Logger LOGGER = LoggerFactory.getLogger(ChannelEventBus.class);
 
     private final ConcurrentHashMap<String, CopyOnWriteArrayList<ChannelEventHandler<?>>> handlers =
-            new ConcurrentHashMap<String, CopyOnWriteArrayList<ChannelEventHandler<?>>>();
+            new ConcurrentHashMap<>();
 
     <T> ChannelSubscription on(String eventName, ChannelEventHandler<T> handler) {
-        final CopyOnWriteArrayList<ChannelEventHandler<?>> eventHandlers = new CopyOnWriteArrayList<ChannelEventHandler<?>>();
+        final CopyOnWriteArrayList<ChannelEventHandler<?>> eventHandlers = new CopyOnWriteArrayList<>();
         eventHandlers.add(handler);
         handlers.put(eventName, eventHandlers);
         final ChannelEventHandler<T> finalHandler = handler;
-        return new ChannelSubscription() {
-            @Override
-            public void unsubscribe() {
-                CopyOnWriteArrayList<ChannelEventHandler<?>> current = handlers.get(eventName);
-                if (current == eventHandlers && current.remove(finalHandler)) {
-                    handlers.remove(eventName, current);
-                }
+        return () -> {
+            CopyOnWriteArrayList<ChannelEventHandler<?>> current = handlers.get(eventName);
+            if (current == eventHandlers && current.remove(finalHandler)) {
+                handlers.remove(eventName, current);
             }
         };
     }
@@ -34,7 +31,7 @@ final class ChannelEventBus {
     <T> ChannelSubscription onMany(String eventName, ChannelEventHandler<T> handler) {
         CopyOnWriteArrayList<ChannelEventHandler<?>> eventHandlers = handlers.get(eventName);
         if (eventHandlers == null) {
-            eventHandlers = new CopyOnWriteArrayList<ChannelEventHandler<?>>();
+            eventHandlers = new CopyOnWriteArrayList<>();
             CopyOnWriteArrayList<ChannelEventHandler<?>> previous = handlers.putIfAbsent(eventName, eventHandlers);
             if (previous != null) {
                 eventHandlers = previous;
@@ -43,25 +40,17 @@ final class ChannelEventBus {
         eventHandlers.add(handler);
         final CopyOnWriteArrayList<ChannelEventHandler<?>> finalHandlers = eventHandlers;
         final ChannelEventHandler<T> finalHandler = handler;
-        return new ChannelSubscription() {
-            @Override
-            public void unsubscribe() {
-                finalHandlers.remove(finalHandler);
-            }
-        };
+        return () -> finalHandlers.remove(finalHandler);
     }
 
     ChannelSubscription on(Map<String, ChannelEventHandler<?>> batchHandlers) {
-        final List<ChannelSubscription> subscriptions = new ArrayList<ChannelSubscription>();
+        final List<ChannelSubscription> subscriptions = new ArrayList<>();
         for (Map.Entry<String, ChannelEventHandler<?>> entry : batchHandlers.entrySet()) {
             subscriptions.add(on(entry.getKey(), entry.getValue()));
         }
-        return new ChannelSubscription() {
-            @Override
-            public void unsubscribe() {
-                for (ChannelSubscription subscription : subscriptions) {
-                    subscription.unsubscribe();
-                }
+        return () -> {
+            for (ChannelSubscription subscription : subscriptions) {
+                subscription.unsubscribe();
             }
         };
     }

@@ -13,14 +13,11 @@ import com.lark.oapi.channel.model.SendResult;
 import com.lark.oapi.channel.model.StreamInput;
 import com.lark.oapi.channel.normalize.ChannelNormalizer;
 import com.lark.oapi.channel.outbound.OutboundSender;
-import com.lark.oapi.channel.safety.OnMessageDispatch;
-import com.lark.oapi.channel.safety.OnReject;
 import com.lark.oapi.channel.safety.SafetyPipeline;
 import com.lark.oapi.channel.safety.SafetyPipelineOptions;
 import com.lark.oapi.event.EventDispatcher;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
-import java.util.function.Supplier;
 
 public class LarkChannel {
     public final Client rawClient;
@@ -48,18 +45,8 @@ public class LarkChannel {
                 options.getSafety(),
                 options.getPolicy(),
                 options.getCache(),
-                new OnReject() {
-                    @Override
-                    public void onReject(RejectEvent event) {
-                        eventBus.emit("reject", event);
-                    }
-                },
-                new OnMessageDispatch() {
-                    @Override
-                    public void onMessage(NormalizedMessage message) {
-                        eventBus.emit("message", message);
-                    }
-                }));
+                event -> eventBus.emit("reject", event),
+                message -> eventBus.emit("message", message)));
         this.outboundSender = new OutboundSender(this.rawClient, options);
         this.inboundProcessor = createInboundProcessor();
         this.dispatcher = ChannelEventDispatcherFactory.create(options, inboundProcessor);
@@ -73,40 +60,38 @@ public class LarkChannel {
         if (connectPromise != null) {
             return connectPromise;
         }
-        connectPromise = CompletableFuture.supplyAsync(new java.util.function.Supplier<BotIdentity>() {
-            @Override
-            public BotIdentity get() {
-                try {
-                    BotIdentity identity = fetchBotIdentity();
-                    botIdentity = identity;
-                    safetyPipeline.setBotIdentity(identity);
-                    if (rawWsClient != null) {
-                        rawWsClient.start();
-                        awaitWebSocketReady(rawWsClient, 15000L);
-                    }
-                    connected = true;
-                    return identity;
-                } catch (RuntimeException e) {
-                    connectPromise = null;
-                    throw e;
+        connectPromise = CompletableFuture.supplyAsync(() -> {
+            try {
+                BotIdentity identity = fetchBotIdentity();
+                botIdentity = identity;
+                safetyPipeline.setBotIdentity(identity);
+                if (rawWsClient != null) {
+                    rawWsClient.start();
+                    awaitWebSocketReady(rawWsClient, 15000L);
                 }
+                connected = true;
+                return identity;
+            } catch (RuntimeException e) {
+                connectPromise = null;
+                throw e;
             }
         });
         return connectPromise;
     }
 
     public CompletableFuture<Void> disconnect() {
-        return CompletableFuture.runAsync(new Runnable() {
-            @Override
-            public void run() {
-                connected = false;
-                connectPromise = null;
-                if (rawWsClient != null) {
-                    rawWsClient.close();
-                }
-                safetyPipeline.dispose();
+        return CompletableFuture.runAsync(() -> {
+            connected = false;
+            connectPromise = null;
+            if (rawWsClient != null) {
+                rawWsClient.close();
             }
+            safetyPipeline.dispose();
         });
+    }
+
+    public boolean isConnected() {
+        return connected;
     }
 
     // event subscription
@@ -133,100 +118,50 @@ public class LarkChannel {
         return send(to, input, null);
     }
 
-    public CompletableFuture<SendResult> send(final String to, final SendInput input, final SendOptions sendOptions) {
-        return CompletableFuture.supplyAsync(new java.util.function.Supplier<SendResult>() {
-            @Override
-            public SendResult get() {
-                return outboundSender.send(to, input, sendOptions);
-            }
-        });
+    public CompletableFuture<SendResult> send(String to, SendInput input, SendOptions sendOptions) {
+        return CompletableFuture.supplyAsync(() -> outboundSender.send(to, input, sendOptions));
     }
 
     public CompletableFuture<SendResult> stream(String to, StreamInput input) {
         return stream(to, input, null);
     }
 
-    public CompletableFuture<SendResult> stream(final String to, final StreamInput input, final SendOptions sendOptions) {
-        return CompletableFuture.supplyAsync(new java.util.function.Supplier<SendResult>() {
-            @Override
-            public SendResult get() {
-                return outboundSender.stream(to, input, sendOptions);
-            }
-        });
+    public CompletableFuture<SendResult> stream(String to, StreamInput input, SendOptions sendOptions) {
+        return CompletableFuture.supplyAsync(() -> outboundSender.stream(to, input, sendOptions));
     }
 
     // low-level
 
-    public CompletableFuture<Void> editMessage(final String messageId, final String text) {
-        return CompletableFuture.runAsync(new Runnable() {
-            @Override
-            public void run() {
-                lowLevelApi.editMessage(messageId, text);
-            }
-        });
+    public CompletableFuture<Void> editMessage(String messageId, String text) {
+        return CompletableFuture.runAsync(() -> lowLevelApi.editMessage(messageId, text));
     }
 
-    public CompletableFuture<Void> updateCard(final String messageId, final Map<String, Object> card) {
-        return CompletableFuture.runAsync(new Runnable() {
-            @Override
-            public void run() {
-                lowLevelApi.updateCard(messageId, card);
-            }
-        });
+    public CompletableFuture<Void> updateCard(String messageId, Map<String, Object> card) {
+        return CompletableFuture.runAsync(() -> lowLevelApi.updateCard(messageId, card));
     }
 
-    public CompletableFuture<Void> recallMessage(final String messageId) {
-        return CompletableFuture.runAsync(new Runnable() {
-            @Override
-            public void run() {
-                lowLevelApi.recallMessage(messageId);
-            }
-        });
+    public CompletableFuture<Void> recallMessage(String messageId) {
+        return CompletableFuture.runAsync(() -> lowLevelApi.recallMessage(messageId));
     }
 
-    public CompletableFuture<byte[]> downloadResource(final String fileKey, final String type) {
-        return CompletableFuture.supplyAsync(new java.util.function.Supplier<byte[]>() {
-            @Override
-            public byte[] get() {
-                return lowLevelApi.downloadResource(fileKey, type);
-            }
-        });
+    public CompletableFuture<byte[]> downloadResource(String fileKey, String type) {
+        return CompletableFuture.supplyAsync(() -> lowLevelApi.downloadResource(fileKey, type));
     }
 
-    public CompletableFuture<String> addReaction(final String messageId, final String emojiType) {
-        return CompletableFuture.supplyAsync(new java.util.function.Supplier<String>() {
-            @Override
-            public String get() {
-                return lowLevelApi.addReaction(messageId, emojiType);
-            }
-        });
+    public CompletableFuture<String> addReaction(String messageId, String emojiType) {
+        return CompletableFuture.supplyAsync(() -> lowLevelApi.addReaction(messageId, emojiType));
     }
 
-    public CompletableFuture<Void> removeReaction(final String messageId, final String reactionId) {
-        return CompletableFuture.runAsync(new Runnable() {
-            @Override
-            public void run() {
-                lowLevelApi.removeReaction(messageId, reactionId);
-            }
-        });
+    public CompletableFuture<Void> removeReaction(String messageId, String reactionId) {
+        return CompletableFuture.runAsync(() -> lowLevelApi.removeReaction(messageId, reactionId));
     }
 
-    public CompletableFuture<Boolean> removeReactionByEmoji(final String messageId, final String emojiType) {
-        return CompletableFuture.supplyAsync(new java.util.function.Supplier<Boolean>() {
-            @Override
-            public Boolean get() {
-                return lowLevelApi.removeReactionByEmoji(messageId, emojiType);
-            }
-        });
+    public CompletableFuture<Boolean> removeReactionByEmoji(String messageId, String emojiType) {
+        return CompletableFuture.supplyAsync(() -> lowLevelApi.removeReactionByEmoji(messageId, emojiType));
     }
 
-    public CompletableFuture<ChatInfo> getChatInfo(final String chatId) {
-        return CompletableFuture.supplyAsync(new java.util.function.Supplier<ChatInfo>() {
-            @Override
-            public ChatInfo get() {
-                return lowLevelApi.getChatInfo(chatId);
-            }
-        });
+    public CompletableFuture<ChatInfo> getChatInfo(String chatId) {
+        return CompletableFuture.supplyAsync(() -> lowLevelApi.getChatInfo(chatId));
     }
 
     // runtime config
@@ -252,12 +187,7 @@ public class LarkChannel {
                 new ChannelNormalizer(),
                 safetyPipeline,
                 eventBus,
-                new Supplier<BotIdentity>() {
-                    @Override
-                    public BotIdentity get() {
-                        return botIdentity;
-                    }
-                });
+                () -> botIdentity);
     }
 
     private RejectReason checkPolicy(NormalizedMessage message) {

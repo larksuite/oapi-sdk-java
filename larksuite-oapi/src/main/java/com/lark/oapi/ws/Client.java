@@ -42,21 +42,21 @@ public class Client {
     protected String connUrl;
     protected volatile Boolean isReconnecting;
     protected volatile boolean userClosed;
-    private String appId;
-    private String appSecret;
-    private EventDispatcher eventHandler;
-    private String domain;
+    private final String appId;
+    private final String appSecret;
+    private final EventDispatcher eventHandler;
+    private final String domain;
     private String serviceId;
     private String connId;
     private Integer reconnectNonce;
     private Integer reconnectCount;
     private Integer reconnectInterval;
     private Integer pingInterval;
-    private OkHttpClient httpClient;
-    private Cache<String, byte[][]> cache;
+    private final OkHttpClient httpClient;
+    private final Cache<String, byte[][]> cache;
     private volatile CompletableFuture<Void> readyFuture;
-    private Runnable onReconnecting;
-    private Runnable onReconnected;
+    private final Runnable onReconnecting;
+    private final Runnable onReconnected;
     private volatile boolean pingLoopRunning;
 
 
@@ -74,7 +74,7 @@ public class Client {
         this.isReconnecting = false;
         this.userClosed = false;
         this.cache = CacheBuilder.newBuilder().expireAfterWrite(5, TimeUnit.MINUTES).build();
-        this.readyFuture = new CompletableFuture<Void>();
+        this.readyFuture = new CompletableFuture<>();
         this.onReconnecting = builder.onReconnecting;
         this.onReconnected = builder.onReconnected;
         this.pingLoopRunning = false;
@@ -83,7 +83,7 @@ public class Client {
     public void start() {
         this.userClosed = false;
         if (this.readyFuture.isDone()) {
-            this.readyFuture = new CompletableFuture<Void>();
+            this.readyFuture = new CompletableFuture<>();
         }
         try {
             this.connect();
@@ -256,8 +256,7 @@ public class Client {
 
     protected void markFailed(Throwable error) {
         if (!this.readyFuture.isDone()) {
-            this.readyFuture.completeExceptionally(
-                    error instanceof Exception ? (Exception) error : new RuntimeException(error));
+            this.readyFuture.completeExceptionally(error);
         }
     }
 
@@ -503,8 +502,8 @@ public class Client {
     }
 
     public static class Builder {
-        private String appId;
-        private String appSecret;
+        private final String appId;
+        private final String appSecret;
         private EventDispatcher eventHandler;
         private Boolean autoReconnect;
         private String domain;

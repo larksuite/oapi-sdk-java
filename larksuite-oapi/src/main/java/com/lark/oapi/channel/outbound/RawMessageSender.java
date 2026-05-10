@@ -63,13 +63,8 @@ class RawMessageSender {
         }
     }
 
-    String rawSendWithRetry(final RawSendArgs args) {
-        return OutboundRetry.retry(new OutboundRetry.RetryableOperation<String>() {
-            @Override
-            public String run(int attempt) throws Exception {
-                return rawSend(args);
-            }
-        }, config == null ? null : config.getRetry());
+    String rawSendWithRetry(RawSendArgs args) {
+        return OutboundRetry.retry(attempt -> rawSend(args), config == null ? null : config.getRetry());
     }
 
     private String rawSend(RawSendArgs args) throws Exception {
@@ -155,7 +150,7 @@ class RawMessageSender {
      * Send an interactive message that references a pre-created card instance by card_id.
      */
     String sendCardByReference(String to, OutboundRouting.ReceiveIdType idType, String cardId, SendOptions options) {
-        Map<String, Object> ref = new LinkedHashMap<String, Object>();
+        Map<String, Object> ref = new LinkedHashMap<>();
         ref.put("type", "card");
         ref.put("data", Collections.singletonMap("card_id", cardId));
         return rawSendWithRetry(new RawSendArgs(to, idType, "interactive", ref,
@@ -167,7 +162,7 @@ class RawMessageSender {
      */
     void updateCardElementContent(String cardId, String elementId, String content, int sequence) {
         try {
-            Map<String, Object> partial = new LinkedHashMap<String, Object>();
+            Map<String, Object> partial = new LinkedHashMap<>();
             partial.put("content", content);
             client.cardkit().v1().cardElement().patch(PatchCardElementReq.newBuilder()
                     .cardId(cardId)
@@ -189,7 +184,7 @@ class RawMessageSender {
     void finishStreamingCard(String cardId, Map<String, Object> card, int sequence) {
         try {
             Object configObject = card == null ? null : card.get("config");
-            Map<String, Object> settings = new LinkedHashMap<String, Object>();
+            Map<String, Object> settings = new LinkedHashMap<>();
             settings.put("config", configObject == null ? Collections.<String, Object>emptyMap() : configObject);
             client.cardkit().v1().card().settings(SettingsCardReq.newBuilder()
                     .cardId(cardId)

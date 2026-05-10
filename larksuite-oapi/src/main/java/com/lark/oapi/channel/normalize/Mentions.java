@@ -16,9 +16,9 @@ public final class Mentions {
     }
 
     public static MentionState extract(MentionEvent[] mentionEvents, String rawContent, BotIdentity botIdentity) {
-        List<MentionInfo> mentions = new ArrayList<MentionInfo>();
-        Map<String, MentionInfo> byKey = new LinkedHashMap<String, MentionInfo>();
-        Map<String, MentionInfo> byOpenId = new LinkedHashMap<String, MentionInfo>();
+        List<MentionInfo> mentions = new ArrayList<>();
+        Map<String, MentionInfo> byKey = new LinkedHashMap<>();
+        Map<String, MentionInfo> byOpenId = new LinkedHashMap<>();
         boolean mentionAll = false;
         boolean mentionedBot = false;
         if (mentionEvents != null) {
@@ -53,9 +53,9 @@ public final class Mentions {
     }
 
     public static MentionState extract(Mention[] mentionEvents, String rawContent, BotIdentity botIdentity) {
-        List<MentionInfo> mentions = new ArrayList<MentionInfo>();
-        Map<String, MentionInfo> byKey = new LinkedHashMap<String, MentionInfo>();
-        Map<String, MentionInfo> byOpenId = new LinkedHashMap<String, MentionInfo>();
+        List<MentionInfo> mentions = new ArrayList<>();
+        Map<String, MentionInfo> byKey = new LinkedHashMap<>();
+        Map<String, MentionInfo> byOpenId = new LinkedHashMap<>();
         boolean mentionAll = false;
         boolean mentionedBot = false;
         if (mentionEvents != null) {

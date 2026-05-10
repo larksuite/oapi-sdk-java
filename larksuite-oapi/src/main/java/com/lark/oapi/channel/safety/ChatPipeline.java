@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
-import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -21,16 +20,13 @@ import java.util.concurrent.TimeUnit;
 class ChatPipeline {
     private final LarkChannelOptions.BatchTextConfig config;
     private final boolean serialOnly;
-    private final ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor(new ThreadFactory() {
-        @Override
-        public Thread newThread(Runnable runnable) {
-            Thread thread = new Thread(runnable, "lark-channel-chat-pipeline");
-            thread.setDaemon(true);
-            return thread;
-        }
+    private final ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor(runnable -> {
+        Thread thread = new Thread(runnable, "lark-channel-chat-pipeline");
+        thread.setDaemon(true);
+        return thread;
     });
     private final Object lock = new Object();
-    private final List<NormalizedMessage> buffer = new ArrayList<NormalizedMessage>();
+    private final List<NormalizedMessage> buffer = new ArrayList<>();
     private int bufferChars;
     private ScheduledFuture<?> timer;
     private FlushHandler pendingHandler;
@@ -64,12 +60,7 @@ class ChatPipeline {
             long delay = bufferChars >= config.getLongThresholdChars()
                     ? config.getLongDelayMs()
                     : config.getDelayMs();
-            timer = scheduler.schedule(new Runnable() {
-                @Override
-                public void run() {
-                    flushNow();
-                }
-            }, Math.max(0L, delay), TimeUnit.MILLISECONDS);
+            timer = scheduler.schedule(this::flushNow, Math.max(0L, delay), TimeUnit.MILLISECONDS);
         }
     }
 
@@ -110,7 +101,7 @@ class ChatPipeline {
         if (buffer.isEmpty() || pendingHandler == null) {
             return;
         }
-        List<NormalizedMessage> batch = new ArrayList<NormalizedMessage>(buffer);
+        List<NormalizedMessage> batch = new ArrayList<>(buffer);
         FlushHandler handler = pendingHandler;
         buffer.clear();
         bufferChars = 0;
@@ -160,7 +151,7 @@ class ChatPipeline {
     }
 
     private static List<String> sourceIds(List<NormalizedMessage> batch) {
-        List<String> ids = new ArrayList<String>();
+        List<String> ids = new ArrayList<>();
         for (NormalizedMessage message : batch) {
             ids.add(message.getMessageId());
         }
@@ -168,8 +159,8 @@ class ChatPipeline {
     }
 
     private static List<ResourceDescriptor> mergeResources(List<NormalizedMessage> batch) {
-        List<ResourceDescriptor> merged = new ArrayList<ResourceDescriptor>();
-        HashSet<String> seen = new HashSet<String>();
+        List<ResourceDescriptor> merged = new ArrayList<>();
+        HashSet<String> seen = new HashSet<>();
         for (NormalizedMessage message : batch) {
             for (ResourceDescriptor resource : message.getResources()) {
                 String key = resource.getFileKey();
@@ -186,8 +177,8 @@ class ChatPipeline {
     }
 
     private static List<MentionInfo> mergeMentions(List<NormalizedMessage> batch) {
-        List<MentionInfo> merged = new ArrayList<MentionInfo>();
-        HashSet<String> seen = new HashSet<String>();
+        List<MentionInfo> merged = new ArrayList<>();
+        HashSet<String> seen = new HashSet<>();
         for (NormalizedMessage message : batch) {
             for (MentionInfo mention : message.getMentions()) {
                 String key = mention.getOpenId() != null ? mention.getOpenId() : mention.getKey();

@@ -27,19 +27,14 @@ public class CardStreamControllerImpl implements CardStreamController {
         this.to = to;
         this.idType = idType;
         this.options = options;
-        this.current = initial == null ? new LinkedHashMap<String, Object>() : new LinkedHashMap<String, Object>(initial);
-        this.throttle = new Throttle(sender.getStreamThrottleMs(), sender.getStreamThrottleChars(), new Throttle.FireAction() {
-            @Override
-            public void fire() throws Exception {
-                patch();
-            }
-        });
+        this.current = initial == null ? new LinkedHashMap<>() : new LinkedHashMap<>(initial);
+        this.throttle = new Throttle(sender.getStreamThrottleMs(), sender.getStreamThrottleChars(), this::patch);
     }
 
     @Override
     public void update(Map<String, Object> next) {
         try {
-            current = next == null ? new LinkedHashMap<String, Object>() : new LinkedHashMap<String, Object>(next);
+            current = next == null ? new LinkedHashMap<>() : new LinkedHashMap<>(next);
             throttle.note(sender.toJson(current).length());
         } catch (Exception e) {
             throw sender.wrapStreamingException("card stream update failed", e);
@@ -73,13 +68,8 @@ public class CardStreamControllerImpl implements CardStreamController {
     }
 
     private void patch() throws Exception {
-        final Map<String, Object> snapshot = new LinkedHashMap<String, Object>(current);
-        queue.enqueue(new UpdateQueue.QueueTask() {
-            @Override
-            public void run() throws Exception {
-                sender.patchCard(messageId, snapshot);
-            }
-        });
+        final Map<String, Object> snapshot = new LinkedHashMap<>(current);
+        queue.enqueue(() -> sender.patchCard(messageId, snapshot));
     }
 
     private void completeTerminal() throws Exception {
@@ -96,11 +86,11 @@ public class CardStreamControllerImpl implements CardStreamController {
     }
 
     private Map<String, Object> appendErrorFooter(Map<String, Object> card) {
-        Map<String, Object> copy = new LinkedHashMap<String, Object>();
+        Map<String, Object> copy = new LinkedHashMap<>();
         if (card != null) {
             copy.putAll(card);
         }
-        List<Object> elements = new ArrayList<Object>();
+        List<Object> elements = new ArrayList<>();
         Object bodyObject = copy.get("elements");
         if (bodyObject instanceof List) {
             elements.addAll((List<?>) bodyObject);
@@ -120,7 +110,7 @@ public class CardStreamControllerImpl implements CardStreamController {
     }
 
     private Map<String, Object> copyObjectMap(Map<?, ?> source) {
-        Map<String, Object> copy = new LinkedHashMap<String, Object>();
+        Map<String, Object> copy = new LinkedHashMap<>();
         for (Map.Entry<?, ?> entry : source.entrySet()) {
             Object key = entry.getKey();
             if (key instanceof String) {
@@ -131,10 +121,10 @@ public class CardStreamControllerImpl implements CardStreamController {
     }
 
     private List<Object> appendWarning(List<Object> elements) {
-        List<Object> output = new ArrayList<Object>(elements);
-        Map<String, Object> note = new LinkedHashMap<String, Object>();
+        List<Object> output = new ArrayList<>(elements);
+        Map<String, Object> note = new LinkedHashMap<>();
         note.put("tag", "note");
-        Map<String, Object> text = new LinkedHashMap<String, Object>();
+        Map<String, Object> text = new LinkedHashMap<>();
         text.put("tag", "plain_text");
         text.put("content", "Generation interrupted");
         note.put("elements", java.util.Collections.singletonList(text));

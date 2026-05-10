@@ -14,7 +14,7 @@ public final class ComposeMentions {
         if (mentions == null || mentions.isEmpty()) {
             return "";
         }
-        List<String> parts = new ArrayList<String>();
+        List<String> parts = new ArrayList<>();
         for (Object item : mentions) {
             MentionInfo mention = toMentionInfo(item);
             String userId = mentionUserId(mention);
@@ -24,11 +24,11 @@ public final class ComposeMentions {
             String name = mention.getName() == null ? "" : escape(mention.getName());
             parts.add("<at user_id=\"" + escape(userId) + "\">" + name + "</at>");
         }
-        return parts.isEmpty() ? "" : join(parts, " ") + " ";
+        return parts.isEmpty() ? "" : String.join(" ", parts) + " ";
     }
 
     public static List<Map<String, Object>> composePostMentionElements(List<?> mentions) {
-        List<Map<String, Object>> output = new ArrayList<Map<String, Object>>();
+        List<Map<String, Object>> output = new ArrayList<>();
         if (mentions == null) {
             return output;
         }
@@ -38,7 +38,7 @@ public final class ComposeMentions {
             if (userId == null || userId.isEmpty()) {
                 continue;
             }
-            Map<String, Object> element = new LinkedHashMap<String, Object>();
+            Map<String, Object> element = new LinkedHashMap<>();
             element.put("tag", "at");
             element.put("user_id", userId);
             if (mention.getName() != null && !mention.getName().isEmpty()) {
@@ -70,14 +70,4 @@ public final class ComposeMentions {
         return value.replace("&", "&amp;").replace("\"", "&quot;").replace("<", "&lt;").replace(">", "&gt;");
     }
 
-    private static String join(List<String> parts, String separator) {
-        StringBuilder builder = new StringBuilder();
-        for (int i = 0; i < parts.size(); i++) {
-            if (i > 0) {
-                builder.append(separator);
-            }
-            builder.append(parts.get(i));
-        }
-        return builder.toString();
-    }
 }
