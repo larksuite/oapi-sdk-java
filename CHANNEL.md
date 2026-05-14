@@ -126,6 +126,79 @@ Webhook 模式也建议先调用 `connect()`，否则入站消息在缺少 bot i
 channel.disconnect().get();
 ```
 
+## 配置参考
+
+顶层配置：
+
+| 字段 / Builder 方法 | 默认值 | 说明 |
+| --- | --- | --- |
+| `appId` | 必填 | 应用 ID |
+| `appSecret` | 必填 | 应用密钥 |
+| `transport(...)` | `websocket` | 入站传输模式，支持 `websocket` / `webhook` |
+| `webhook(...)` | 空配置 | Webhook verification token 与 encrypt key |
+| `policy(...)` | 见下表 | 入站消息处理策略，可运行时热更新 |
+| `safety(...)` | 见下表 | 去重、过期过滤、队列与批处理配置 |
+| `outbound(...)` | 见下表 | 发送、流式、SSRF 与重试配置 |
+| `cache(...)` | `null` | 外部 `ICache`，用于多实例共享去重 |
+| `domain(...)` | SDK 默认域名 | OpenAPI 请求域名 |
+| `httpTransport(...)` | `null` | 底层 HTTP transport |
+| `httpInstance(...)` | `null` | 单次 raw request 请求选项 |
+| `source(...)` | `null` | 追加到 User-Agent 的来源标识 |
+| `includeRawEvent(...)` | `false` | 是否在归一化事件中携带原始事件体 |
+
+`PolicyConfig`：
+
+| 字段 | 默认值 | 说明 |
+| --- | --- | --- |
+| `groupAllowlist` | 空列表 | 群聊白名单；空列表表示不限制群聊 |
+| `dmMode` | `open` | 单聊模式，`open` 允许单聊，其他值可用于关闭单聊 |
+| `dmAllowlist` | 空列表 | 单聊发送人白名单；空列表表示不限制发送人 |
+| `requireMention` | `true` | 群聊是否必须 @ 机器人 |
+| `respondToMentionAll` | `false` | 是否响应 @ 所有人 |
+
+`SafetyConfig`：
+
+| 字段 | 默认值 | 说明 |
+| --- | --- | --- |
+| `dedupTtlMs` | `43200000` | 去重记录保留时间，默认 12 小时 |
+| `dedupMaxEntries` | `5000` | 内存去重最大条目数 |
+| `dedupSweepMs` | `300000` | 内存去重清理周期 |
+| `staleMessageWindowMs` | `1800000` | 消息过期窗口，默认 30 分钟 |
+| `chatQueueEnabled` | `true` | 是否启用会话级串行队列 |
+| `processingLockTtlMs` | `300000` | 单事件处理锁 TTL |
+| `dedupNamespace` | `channel:seen` | 外部缓存去重 key 前缀 |
+| `batchText` | 见下表 | 短文本批处理配置 |
+
+`BatchTextConfig`：
+
+| 字段 | 默认值 | 说明 |
+| --- | --- | --- |
+| `delayMs` | `600` | 普通短文本批处理等待时间 |
+| `longThresholdChars` | `1000` | 长文本阈值 |
+| `longDelayMs` | `2000` | 长文本批处理等待时间 |
+| `maxMessages` | `8` | 单批最大消息数 |
+| `maxChars` | `4000` | 单批最大字符数 |
+
+`OutboundConfig`：
+
+| 字段 | 默认值 | 说明 |
+| --- | --- | --- |
+| `textChunkLimit` | `3500` | 文本/Markdown 分片字符上限 |
+| `streamThrottleMs` | `100` | 流式更新最小时间间隔 |
+| `streamThrottleChars` | `50` | 流式更新最小字符增量 |
+| `streamInitialText` | `Thinking...` | 流式消息初始文本 |
+| `ssrfGuardEnabled` | `true` | 是否启用 URL SSRF 防护 |
+| `ssrfAllowlist` | 空列表 | 允许绕过 SSRF 阻断的可信域名 |
+| `retry` | 见下表 | 可重试错误的重试配置 |
+| `allowedFileDirs` | 空列表 | 允许读取本地文件的目录白名单 |
+
+`RetryConfig`：
+
+| 字段 | 默认值 | 说明 |
+| --- | --- | --- |
+| `maxAttempts` | `3` | 最大尝试次数 |
+| `baseDelayMs` | `500` | 首次重试基础等待；后续按指数退避 |
+
 ## 传输模式
 
 ### WebSocket
@@ -327,6 +400,14 @@ channel.stream("oc_xxx", StreamInput.card(initialCard, controller -> {
 })).get();
 ```
 
+传统同步代码可以直接使用阻塞便捷方法：
+
+```java
+BotIdentity identity = channel.connectSync();
+SendResult result = channel.sendSync("oc_xxx", SendInput.text("hello"));
+channel.disconnectSync();
+```
+
 可通过 `LarkChannelOptions.OutboundConfig` 调整流式节流：
 
 ```java
@@ -499,18 +580,28 @@ mvn -pl sample -am -DskipTests exec:java \
   -Dexec.mainClass=com.lark.oapi.sample.channel.ChannelSample
 ```
 
+其他示例：
+
+| 示例类 | 场景 |
+| --- | --- |
+| `ChannelSample` | 最小 Agent Bot：监听消息并回复 |
+| `ChannelStreamingSample` | 流式 Markdown 回复 |
+| `ChannelPolicyHotUpdateSample` | 运行时更新安全策略 |
+| `ChannelRawClientSample` | 使用 `getRawClient()` 调用未封装的 OpenAPI |
+
 可选环境变量：
 
 | 变量 | 说明 |
 | --- | --- |
 | `CHANNEL_TRANSPORT` | `websocket` 或 `webhook`，默认 `websocket` |
 | `CHANNEL_KEEP_ALIVE_SECONDS` | WebSocket 示例保持运行时间；`0` 或负数表示一直监听直到手动停止 |
+| `CHANNEL_CHAT_ID` | 流式回复和策略热更示例使用的群聊 ID |
 
 `ChannelSample` 按“Agent 如何介入 Channel”的最小路径实现：创建 `LarkChannel`、监听 `message`、调用 `callAgent(...)`、再回复原消息。它不主动发送测试消息，也不承载完整配置矩阵。
 
 `ChannelSample` 会优先从当前工作目录及其父目录中的 `.env` 文件读取这些变量，找不到时再回退到系统环境变量。`.env` 支持 `KEY=value` 和 `export KEY=value` 两种写法。
 
-示例源码位于 `sample/src/main/java/com/lark/oapi/sample/channel/ChannelSample.java`。
+示例源码位于 `sample/src/main/java/com/lark/oapi/sample/channel/`。
 
 ## 应用配置建议
 

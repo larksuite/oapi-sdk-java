@@ -112,6 +112,48 @@ public class TestOutboundUploader {
     }
 
     @Test
+    public void testAudioParsesOpusDurationWhenMissing() throws Exception {
+        OutboundTestSupport.StubMessage message = new OutboundTestSupport.StubMessage();
+        message.createResp = OutboundTestSupport.okCreate("om_audio_parsed");
+        OutboundTestSupport.StubFile file = new OutboundTestSupport.StubFile();
+        file.createResp = OutboundTestSupport.okFile("file_audio_parsed");
+        OutboundSender sender = createSender(message, new OutboundTestSupport.StubImage(), file, null);
+
+        sender.send("oc_abc", SendInput.audio(opusPage(96000L), null), null);
+
+        Assert.assertEquals(Integer.valueOf(2000), file.createReq.getCreateFileReqBody().getDuration());
+        Assert.assertTrue(message.createReq.getCreateMessageReqBody().getContent().contains("2000"));
+    }
+
+    @Test
+    public void testVideoParsesMp4DurationWhenMissing() throws Exception {
+        OutboundTestSupport.StubMessage message = new OutboundTestSupport.StubMessage();
+        message.createResp = OutboundTestSupport.okCreate("om_video_parsed");
+        OutboundTestSupport.StubFile file = new OutboundTestSupport.StubFile();
+        file.createResp = OutboundTestSupport.okFile("file_video_parsed");
+        OutboundSender sender = createSender(message, new OutboundTestSupport.StubImage(), file, null);
+
+        sender.send("oc_abc", SendInput.video(mp4(1000, 3456), null, null), null);
+
+        Assert.assertEquals(Integer.valueOf(3456), file.createReq.getCreateFileReqBody().getDuration());
+        Assert.assertTrue(message.createReq.getCreateMessageReqBody().getContent().contains("3456"));
+    }
+
+    @Test
+    public void testAudioRequiresDurationWhenParserCannotDetermineIt() throws Exception {
+        OutboundSender sender = createSender(new OutboundTestSupport.StubMessage(),
+                new OutboundTestSupport.StubImage(), new OutboundTestSupport.StubFile(), null);
+
+        try {
+            sender.send("oc_abc", SendInput.audio("not ogg".getBytes("UTF-8"), null), null);
+            Assert.fail("expected upload_failed");
+        } catch (LarkChannelException e) {
+            Assert.assertEquals(LarkChannelErrorCode.UPLOAD_FAILED.getValue(), e.getCode());
+            Assert.assertTrue(e.getMessage().contains("duration could not be determined"));
+        }
+    }
+
+    @Test
     public void testImageUploadSupportsCommonLocalFormats() throws Exception {
         String[] suffixes = new String[] {".png", ".jpg", ".gif"};
         for (String suffix : suffixes) {
@@ -243,6 +285,41 @@ public class TestOutboundUploader {
             output.close();
         }
         return temp;
+    }
+
+    private byte[] opusPage(long granule) {
+        byte[] data = new byte[32];
+        data[0] = 0x4f;
+        data[1] = 0x67;
+        data[2] = 0x67;
+        data[3] = 0x53;
+        for (int i = 0; i < 8; i++) {
+            data[6 + i] = (byte) ((granule >> (8 * i)) & 0xff);
+        }
+        return data;
+    }
+
+    private byte[] mp4(long timescale, long duration) {
+        byte[] mvhdPayload = new byte[20];
+        writeUInt32(mvhdPayload, 12, timescale);
+        writeUInt32(mvhdPayload, 16, duration);
+        return box("moov", box("mvhd", mvhdPayload));
+    }
+
+    private byte[] box(String type, byte[] payload) {
+        byte[] data = new byte[8 + payload.length];
+        writeUInt32(data, 0, data.length);
+        byte[] name = type.getBytes(java.nio.charset.StandardCharsets.US_ASCII);
+        System.arraycopy(name, 0, data, 4, 4);
+        System.arraycopy(payload, 0, data, 8, payload.length);
+        return data;
+    }
+
+    private void writeUInt32(byte[] data, int offset, long value) {
+        data[offset] = (byte) ((value >> 24) & 0xff);
+        data[offset + 1] = (byte) ((value >> 16) & 0xff);
+        data[offset + 2] = (byte) ((value >> 8) & 0xff);
+        data[offset + 3] = (byte) (value & 0xff);
     }
 
     private OutboundSender createSender(OutboundTestSupport.StubMessage message, OutboundTestSupport.StubImage image,

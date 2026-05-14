@@ -14,15 +14,21 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.InetAddress;
+import java.net.InetSocketAddress;
+import java.net.Socket;
 import java.net.URL;
-import java.net.URLConnection;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLSession;
+import javax.net.ssl.SSLSocket;
+import javax.net.ssl.SSLSocketFactory;
 
 public class MediaUploader {
     private static final long MAX_URL_BYTES = 50L * 1024L * 1024L;
@@ -48,10 +54,12 @@ public class MediaUploader {
                 return uploadImage(materialized);
             }
             if ("audio".equals(kind)) {
-                return uploadFile(materialized, "opus", chooseName(fileName, "voice.opus"), durationMs, "audio");
+                return uploadFile(materialized, "opus", chooseName(fileName, "voice.opus"),
+                        resolveDuration(kind, materialized, durationMs), "audio");
             }
             if ("video".equals(kind)) {
-                return uploadFile(materialized, "mp4", chooseName(fileName, "video.mp4"), durationMs, "video");
+                return uploadFile(materialized, "mp4", chooseName(fileName, "video.mp4"),
+                        resolveDuration(kind, materialized, durationMs), "video");
             }
             return uploadFile(materialized, inferFileType(fileName), chooseName(fileName, "upload.bin"), null, "file");
         } finally {
@@ -181,13 +189,7 @@ public class MediaUploader {
     private byte[] fetchUrl(String source) {
         try {
             URL url = new URL(source);
-            assertPublicHost(url.getHost());
-            URLConnection connection = url.openConnection();
-            connection.setConnectTimeout(15000);
-            connection.setReadTimeout(15000);
-            try (InputStream input = connection.getInputStream()) {
-                return readAll(input, MAX_URL_BYTES);
-            }
+            return fetchPinned(url, 0);
         } catch (LarkChannelException e) {
             throw e;
         } catch (Exception e) {
@@ -195,20 +197,134 @@ public class MediaUploader {
         }
     }
 
-    private void assertPublicHost(String host) throws Exception {
+    private byte[] fetchPinned(URL url, int redirects) throws Exception {
+        if (redirects > 5) {
+            throw new LarkChannelException(LarkChannelErrorCode.UPLOAD_FAILED, "too many redirects while fetching URL");
+        }
+        SsrfGuard.Validation validation = validateUrl(url);
+        int port = url.getPort() >= 0 ? url.getPort() : url.getDefaultPort();
+        Socket socket = openSocket(url, validation.getResolvedAddress(), validation.getOriginalHost(), port);
+        try {
+            socket.setSoTimeout(15000);
+            OutputStream output = socket.getOutputStream();
+            output.write(buildGetRequest(url, validation.getOriginalHost()).getBytes("ISO-8859-1"));
+            output.flush();
+            InputStream input = socket.getInputStream();
+            int status = parseStatus(readLine(input));
+            Headers headers = readHeaders(input);
+            String location = headers.get("location");
+            if (status >= 300 && status < 400 && location != null && !location.isEmpty()) {
+                socket.close();
+                return fetchPinned(new URL(url, location), redirects + 1);
+            }
+            if ("chunked".equalsIgnoreCase(headers.get("transfer-encoding"))) {
+                return readChunked(input, MAX_URL_BYTES);
+            }
+            return readAll(input, MAX_URL_BYTES);
+        } finally {
+            socket.close();
+        }
+    }
+
+    private SsrfGuard.Validation validateUrl(URL url) throws Exception {
         if (config != null && !config.isSsrfGuardEnabled()) {
-            return;
+            String host = stripBrackets(url.getHost());
+            InetAddress[] addresses = InetAddress.getAllByName(host);
+            if (addresses.length == 0) {
+                throw new LarkChannelException(LarkChannelErrorCode.UPLOAD_FAILED,
+                        "URL host has no DNS records: " + host);
+            }
+            return new SsrfGuard.Validation(host, addresses[0]);
         }
-        if (host == null || host.isEmpty()) {
-            throw new LarkChannelException(LarkChannelErrorCode.SSRF_BLOCKED, "URL blocked: empty host");
+        List<String> allowlist = config == null ? null : config.getSsrfAllowlist();
+        return SsrfGuard.assertPublicUrl(url, allowlist);
+    }
+
+    private Socket openSocket(URL url, InetAddress address, String originalHost, int port) throws Exception {
+        Socket raw = new Socket();
+        raw.connect(new InetSocketAddress(address, port), 15000);
+        if (!"https".equalsIgnoreCase(url.getProtocol())) {
+            return raw;
         }
-        boolean allowlisted = config != null && config.getSsrfAllowlist() != null && config.getSsrfAllowlist().contains(host);
-        InetAddress[] addresses = InetAddress.getAllByName(host);
-        if (!allowlisted) {
-            for (InetAddress address : addresses) {
-                SsrfGuard.assertAllowed(address);
+        SSLSocketFactory factory = (SSLSocketFactory) SSLSocketFactory.getDefault();
+        SSLSocket ssl = (SSLSocket) factory.createSocket(raw, originalHost, port, true);
+        ssl.startHandshake();
+        SSLSession session = ssl.getSession();
+        if (!HttpsURLConnection.getDefaultHostnameVerifier().verify(originalHost, session)) {
+            throw new LarkChannelException(LarkChannelErrorCode.SSRF_BLOCKED,
+                    "URL blocked: TLS hostname verification failed for " + originalHost);
+        }
+        return ssl;
+    }
+
+    private String buildGetRequest(URL url, String originalHost) {
+        String path = url.getFile();
+        if (path == null || path.isEmpty()) {
+            path = "/";
+        }
+        return "GET " + path + " HTTP/1.1\r\n"
+                + "Host: " + hostHeader(url, originalHost) + "\r\n"
+                + "User-Agent: larksuite-oapi-java-channel\r\n"
+                + "Connection: close\r\n"
+                + "\r\n";
+    }
+
+    private String hostHeader(URL url, String originalHost) {
+        String host = originalHost.indexOf(':') >= 0 ? "[" + originalHost + "]" : originalHost;
+        int port = url.getPort();
+        if (port < 0 || port == url.getDefaultPort()) {
+            return host;
+        }
+        return host + ":" + port;
+    }
+
+    private String stripBrackets(String host) {
+        if (host != null && host.startsWith("[") && host.endsWith("]")) {
+            return host.substring(1, host.length() - 1);
+        }
+        return host;
+    }
+
+    private int parseStatus(String statusLine) {
+        if (statusLine == null || !statusLine.startsWith("HTTP/")) {
+            throw new LarkChannelException(LarkChannelErrorCode.UPLOAD_FAILED,
+                    "invalid HTTP response while fetching URL");
+        }
+        String[] parts = statusLine.split(" ", 3);
+        if (parts.length < 2) {
+            throw new LarkChannelException(LarkChannelErrorCode.UPLOAD_FAILED,
+                    "invalid HTTP status while fetching URL");
+        }
+        return Integer.parseInt(parts[1]);
+    }
+
+    private Headers readHeaders(InputStream input) throws Exception {
+        Headers headers = new Headers();
+        String line;
+        while ((line = readLine(input)) != null && !line.isEmpty()) {
+            int index = line.indexOf(':');
+            if (index > 0) {
+                headers.add(line.substring(0, index).trim(), line.substring(index + 1).trim());
             }
         }
+        return headers;
+    }
+
+    private String readLine(InputStream input) throws Exception {
+        ByteArrayOutputStream output = new ByteArrayOutputStream();
+        int ch;
+        while ((ch = input.read()) >= 0) {
+            if (ch == '\n') {
+                break;
+            }
+            if (ch != '\r') {
+                output.write(ch);
+            }
+        }
+        if (ch < 0 && output.size() == 0) {
+            return null;
+        }
+        return output.toString("ISO-8859-1");
     }
 
     private File writeTemp(byte[] data, String fileName) {
@@ -247,6 +363,80 @@ public class MediaUploader {
             throw e;
         } catch (Exception e) {
             throw new LarkChannelException(LarkChannelErrorCode.UPLOAD_FAILED, "failed to read upload source", null, e);
+        }
+    }
+
+    private byte[] readChunked(InputStream input, long maxBytes) {
+        try {
+            ByteArrayOutputStream output = new ByteArrayOutputStream();
+            long total = 0L;
+            while (true) {
+                String sizeLine = readLine(input);
+                if (sizeLine == null) {
+                    throw new LarkChannelException(LarkChannelErrorCode.UPLOAD_FAILED,
+                            "unexpected EOF in chunked response");
+                }
+                int semicolon = sizeLine.indexOf(';');
+                String sizeText = semicolon >= 0 ? sizeLine.substring(0, semicolon) : sizeLine;
+                int size = Integer.parseInt(sizeText.trim(), 16);
+                if (size == 0) {
+                    while (true) {
+                        String trailer = readLine(input);
+                        if (trailer == null || trailer.isEmpty()) {
+                            break;
+                        }
+                    }
+                    return output.toByteArray();
+                }
+                total += size;
+                if (maxBytes > 0L && total > maxBytes) {
+                    throw new LarkChannelException(LarkChannelErrorCode.UPLOAD_FAILED,
+                            "source URL exceeds max size: " + maxBytes + " bytes");
+                }
+                readExactly(input, output, size);
+                readLine(input);
+            }
+        } catch (LarkChannelException e) {
+            throw e;
+        } catch (Exception e) {
+            throw new LarkChannelException(LarkChannelErrorCode.UPLOAD_FAILED,
+                    "failed to read chunked upload source", null, e);
+        }
+    }
+
+    private void readExactly(InputStream input, ByteArrayOutputStream output, int size) throws Exception {
+        byte[] buffer = new byte[4096];
+        int remaining = size;
+        while (remaining > 0) {
+            int read = input.read(buffer, 0, Math.min(buffer.length, remaining));
+            if (read < 0) {
+                throw new LarkChannelException(LarkChannelErrorCode.UPLOAD_FAILED,
+                        "unexpected EOF in chunked response");
+            }
+            output.write(buffer, 0, read);
+            remaining -= read;
+        }
+    }
+
+    private Integer resolveDuration(String kind, File file, Integer explicitDurationMs) {
+        if (explicitDurationMs != null && explicitDurationMs.intValue() > 0) {
+            return explicitDurationMs;
+        }
+        try {
+            byte[] data = Files.readAllBytes(file.toPath());
+            Integer parsed = "audio".equals(kind)
+                    ? MediaDurationParser.parseOpusDurationMs(data)
+                    : MediaDurationParser.parseMp4DurationMs(data);
+            if (parsed != null) {
+                return parsed;
+            }
+            throw new LarkChannelException(LarkChannelErrorCode.UPLOAD_FAILED,
+                    "duration could not be determined for " + kind + "; pass it explicitly");
+        } catch (LarkChannelException e) {
+            throw e;
+        } catch (Exception e) {
+            throw new LarkChannelException(LarkChannelErrorCode.UPLOAD_FAILED,
+                    "duration could not be determined for " + kind + "; pass it explicitly", null, e);
         }
     }
 
@@ -303,6 +493,18 @@ public class MediaUploader {
         private SourceFile(File file, boolean temporary) {
             this.file = file;
             this.temporary = temporary;
+        }
+    }
+
+    private static final class Headers {
+        private final java.util.Map<String, String> values = new java.util.HashMap<String, String>();
+
+        private void add(String name, String value) {
+            values.put(name.toLowerCase(), value);
+        }
+
+        private String get(String name) {
+            return values.get(name.toLowerCase());
         }
     }
 }

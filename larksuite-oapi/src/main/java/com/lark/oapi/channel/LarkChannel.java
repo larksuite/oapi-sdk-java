@@ -44,11 +44,19 @@ public class LarkChannel {
     private volatile boolean connected;
 
     public LarkChannel(LarkChannelOptions options) {
+        this(options, ChannelClientFactory.createRawClient(options), null);
+    }
+
+    LarkChannel(LarkChannelOptions options, Client rawClient) {
+        this(options, rawClient, null);
+    }
+
+    LarkChannel(LarkChannelOptions options, Client rawClient, BotIdentity initialBotIdentity) {
         this.options = options;
         this.eventBus = new ChannelEventBus();
         this.runtimeConfig = new ChannelRuntimeConfig(options);
 
-        this.rawClient = ChannelClientFactory.createRawClient(options);
+        this.rawClient = rawClient;
         this.safetyPipeline = new SafetyPipeline(new SafetyPipelineOptions(
                 options.getSafety(),
                 options.getPolicy(),
@@ -60,6 +68,10 @@ public class LarkChannel {
         this.dispatcher = ChannelEventDispatcherFactory.create(options, inboundProcessor);
         this.lowLevelApi = new ChannelLowLevelApi(this.rawClient, this.outboundSender);
         this.rawWsClient = ChannelClientFactory.createWebSocketClient(options, dispatcher, eventBus);
+        if (initialBotIdentity != null) {
+            this.botIdentity = initialBotIdentity;
+            this.safetyPipeline.setBotIdentity(initialBotIdentity);
+        }
     }
 
     // lifecycle
@@ -346,7 +358,7 @@ public class LarkChannel {
                 () -> botIdentity);
     }
 
-    private RejectReason checkPolicy(NormalizedMessage message) {
+    RejectReason checkPolicy(NormalizedMessage message) {
         return safetyPipeline.checkPolicy(message);
     }
 

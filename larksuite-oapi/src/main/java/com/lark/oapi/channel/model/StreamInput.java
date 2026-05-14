@@ -2,7 +2,14 @@ package com.lark.oapi.channel.model;
 
 import java.util.Map;
 
+/**
+ * Streaming payload accepted by {@code LarkChannel.stream(...)}.
+ *
+ * <p>Markdown streams append generated text into a streaming card. Card
+ * streams start from an initial card JSON object and progressively patch it.
+ */
 public class StreamInput {
+    /** Supported streaming modes. */
     public enum Kind {
         MARKDOWN, CARD
     }
@@ -20,10 +27,16 @@ public class StreamInput {
         this.cardProducer = cardProducer;
     }
 
+    /**
+     * Create a Markdown streaming input.
+     */
     public static StreamInput markdown(MarkdownStreamProducer producer) {
         return new StreamInput(Kind.MARKDOWN, producer, null, null);
     }
 
+    /**
+     * Create an interactive-card streaming input.
+     */
     public static StreamInput card(Map<String, Object> initial, CardStreamProducer producer) {
         return new StreamInput(Kind.CARD, null, initial, producer);
     }

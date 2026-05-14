@@ -43,7 +43,6 @@ import com.lark.oapi.service.im.v1.resource.Message;
 import com.lark.oapi.service.im.v1.resource.MessageReaction;
 import java.io.ByteArrayOutputStream;
 import java.lang.reflect.Field;
-import java.lang.reflect.Method;
 import java.nio.charset.StandardCharsets;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -352,16 +351,14 @@ public class TestLarkChannel {
 
     @Test
     public void testConnectSetsBotIdentityAndCachesPromise() throws Exception {
-        LarkChannel channel = LarkChannelFactory.createLarkChannel(
-                LarkChannelOptions.newBuilder("cli_test", "secret").transport("webhook").build()
-        );
+        LarkChannelOptions options = LarkChannelOptions.newBuilder("cli_test", "secret").transport("webhook").build();
         StubRawClient stubClient = new StubRawClient();
         RawResponse response = new RawResponse();
         response.setStatusCode(200);
         response.setBody("{\"code\":0,\"msg\":\"ok\",\"bot\":{\"open_id\":\"ou_connect\",\"app_name\":\"Connect Bot\"}}"
                 .getBytes(StandardCharsets.UTF_8));
         stubClient.getResp = response;
-        setField(channel, "rawClient", stubClient);
+        LarkChannel channel = new LarkChannel(options, stubClient);
 
         CompletableFuture<com.lark.oapi.channel.model.BotIdentity> first = channel.connect();
         CompletableFuture<com.lark.oapi.channel.model.BotIdentity> second = channel.connect();
@@ -371,21 +368,19 @@ public class TestLarkChannel {
         Assert.assertEquals("ou_connect", identity.getOpenId());
         Assert.assertEquals("Connect Bot", identity.getName());
         Assert.assertSame(identity, channel.getBotIdentity());
-        Assert.assertEquals(Boolean.TRUE, getField(channel, "connected"));
+        Assert.assertTrue(channel.isConnected());
     }
 
     @Test
     public void testConnectSyncReturnsBotIdentity() throws Exception {
-        LarkChannel channel = LarkChannelFactory.createLarkChannel(
-                LarkChannelOptions.newBuilder("cli_test", "secret").transport("webhook").build()
-        );
+        LarkChannelOptions options = LarkChannelOptions.newBuilder("cli_test", "secret").transport("webhook").build();
         StubRawClient stubClient = new StubRawClient();
         RawResponse response = new RawResponse();
         response.setStatusCode(200);
         response.setBody("{\"code\":0,\"msg\":\"ok\",\"bot\":{\"open_id\":\"ou_sync\",\"app_name\":\"Sync Bot\"}}"
                 .getBytes(StandardCharsets.UTF_8));
         stubClient.getResp = response;
-        setField(channel, "rawClient", stubClient);
+        LarkChannel channel = new LarkChannel(options, stubClient);
 
         com.lark.oapi.channel.model.BotIdentity identity = channel.connectSync();
 
@@ -395,15 +390,13 @@ public class TestLarkChannel {
 
     @Test
     public void testConnectInvalidCredentialsFailsAndCanRetry() throws Exception {
-        LarkChannel channel = LarkChannelFactory.createLarkChannel(
-                LarkChannelOptions.newBuilder("cli_test", "bad_secret").transport("webhook").build()
-        );
+        LarkChannelOptions options = LarkChannelOptions.newBuilder("cli_test", "bad_secret").transport("webhook").build();
         StubRawClient stubClient = new StubRawClient();
         RawResponse denied = new RawResponse();
         denied.setStatusCode(403);
         denied.setBody("{\"code\":99991401,\"msg\":\"permission denied\"}".getBytes(StandardCharsets.UTF_8));
         stubClient.getResp = denied;
-        setField(channel, "rawClient", stubClient);
+        LarkChannel channel = new LarkChannel(options, stubClient);
 
         try {
             channel.connect().get(3, TimeUnit.SECONDS);
@@ -414,8 +407,11 @@ public class TestLarkChannel {
                     ((LarkChannelException) e.getCause()).getCode());
         }
 
-        Assert.assertNull(getField(channel, "connectPromise"));
-        Assert.assertEquals(Boolean.FALSE, getField(channel, "connected"));
+        denied.setStatusCode(200);
+        denied.setBody("{\"code\":0,\"msg\":\"ok\",\"bot\":{\"open_id\":\"ou_retry\",\"app_name\":\"Retry Bot\"}}"
+                .getBytes(StandardCharsets.UTF_8));
+        Assert.assertEquals("ou_retry", channel.connectSync().getOpenId());
+        Assert.assertTrue(channel.isConnected());
     }
 
     @Test
@@ -479,18 +475,16 @@ public class TestLarkChannel {
         policy.setRequireMention(true);
         policy.setRespondToMentionAll(false);
 
-        LarkChannel channel = LarkChannelFactory.createLarkChannel(
+        StubImService imService = new StubImService(new StubMessage(), new StubMessageReaction(), new StubImage(), new StubFile(), new StubChat());
+        StubRawClient stubClient = new StubRawClient();
+        stubClient.imService = imService;
+        LarkChannel channel = new LarkChannel(
                 LarkChannelOptions.newBuilder("cli_test", "secret")
                         .transport("webhook")
                         .policy(policy)
-                        .build()
-        );
-        setField(channel, "botIdentity", new com.lark.oapi.channel.model.BotIdentity("ou_bot", "TestBot"));
-        StubImService imService = new StubImService(new StubMessage(), new StubMessageReaction(), new StubImage(), new StubFile(), new StubChat());
-        setField(channel.getRawClient(), "im", imService);
-
-        Method checkPolicy = LarkChannel.class.getDeclaredMethod("checkPolicy", com.lark.oapi.channel.model.NormalizedMessage.class);
-        checkPolicy.setAccessible(true);
+                        .build(),
+                stubClient,
+                new com.lark.oapi.channel.model.BotIdentity("ou_bot", "TestBot"));
         com.lark.oapi.channel.model.NormalizedMessage message = new com.lark.oapi.channel.model.NormalizedMessage(
                 "om_mention_all",
                 "oc_group",
@@ -509,7 +503,7 @@ public class TestLarkChannel {
                 1L,
                 null);
 
-        Object result = checkPolicy.invoke(channel, message);
+        Object result = channel.checkPolicy(message);
         Assert.assertEquals(RejectReason.NO_MENTION, result);
     }
 
@@ -571,31 +565,14 @@ public class TestLarkChannel {
     }
 
     private LarkChannel createChannel(StubMessage message, StubMessageReaction messageReaction, StubImage image, StubFile file, StubChat chat) throws Exception {
-        LarkChannel channel = LarkChannelFactory.createLarkChannel(
-                LarkChannelOptions.newBuilder("cli_test", "secret").transport("webhook").build()
-        );
-        setField(channel, "botIdentity", new com.lark.oapi.channel.model.BotIdentity("ou_bot", "TestBot"));
         StubImService imService = new StubImService(message, messageReaction, image, file, chat);
-        setField(channel.getRawClient(), "im", imService);
+        StubRawClient stubClient = new StubRawClient();
+        stubClient.imService = imService;
+        LarkChannel channel = new LarkChannel(
+                LarkChannelOptions.newBuilder("cli_test", "secret").transport("webhook").build(),
+                stubClient,
+                new com.lark.oapi.channel.model.BotIdentity("ou_bot", "TestBot"));
         return channel;
-    }
-
-    private static void setField(Object target, String fieldName, Object value) throws Exception {
-        Field field = null;
-        Class<?> type = target.getClass();
-        while (type != null) {
-            try {
-                field = type.getDeclaredField(fieldName);
-                break;
-            } catch (NoSuchFieldException ignored) {
-                type = type.getSuperclass();
-            }
-        }
-        if (field == null) {
-            throw new IllegalStateException("field not found: " + fieldName);
-        }
-        field.setAccessible(true);
-        field.set(target, value);
     }
 
     private static Object getField(Object target, String fieldName) throws Exception {
@@ -622,11 +599,17 @@ public class TestLarkChannel {
 
     private static class StubRawClient extends com.lark.oapi.Client {
         private RawResponse getResp;
+        private StubImService imService;
 
         @Override
         public RawResponse get(String httpPath, Object body, com.lark.oapi.core.token.AccessTokenType accessTokenType,
                                com.lark.oapi.core.request.RequestOptions requestOptions) {
             return getResp;
+        }
+
+        @Override
+        public ImService im() {
+            return imService == null ? super.im() : imService;
         }
     }
 
