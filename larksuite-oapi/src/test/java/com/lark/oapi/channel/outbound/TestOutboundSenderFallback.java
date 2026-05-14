@@ -84,6 +84,24 @@ public class TestOutboundSenderFallback {
     }
 
     @Test
+    public void testCreateBusinessErrorPreservesCodeAndMessage() throws Exception {
+        OutboundTestSupport.StubMessage message = new OutboundTestSupport.StubMessage();
+        message.createResp = OutboundTestSupport.okCreate(null);
+        message.createResp.setCode(230001);
+        message.createResp.setMsg("invalid content");
+        OutboundSender sender = createSender(message);
+
+        try {
+            sender.send("oc_abc", SendInput.text("hi"), null);
+            Assert.fail("expected create business error");
+        } catch (LarkChannelException e) {
+            Assert.assertEquals(LarkChannelErrorCode.FORMAT_ERROR.getValue(), e.getCode());
+            Assert.assertTrue(e.getMessage().contains("create message failed: code=230001"));
+            Assert.assertTrue(e.getMessage().contains("invalid content"));
+        }
+    }
+
+    @Test
     public void testTextMentionsAndChunkingFlowThroughSender() throws Exception {
         OutboundTestSupport.StubMessage message = new OutboundTestSupport.StubMessage();
         message.createResp = OutboundTestSupport.okCreate("om_chunk_1");

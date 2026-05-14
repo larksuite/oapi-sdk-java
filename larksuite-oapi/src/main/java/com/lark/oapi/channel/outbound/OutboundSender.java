@@ -133,9 +133,6 @@ public class OutboundSender {
             return sendSingle(to, idType, "image", content, options);
         }
         content.put("file_key", uploaded.getFileKey());
-        if ("file".equals(kind) && fileName != null) {
-            content.put("file_name", fileName);
-        }
         if (uploaded.getDurationMs() != null) {
             content.put("duration", uploaded.getDurationMs());
         }

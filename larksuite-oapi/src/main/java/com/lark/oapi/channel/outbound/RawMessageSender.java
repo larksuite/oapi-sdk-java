@@ -91,6 +91,7 @@ class RawMessageSender {
                                     .uuid(UUID.randomUUID().toString())
                                     .build())
                             .build());
+            assertSuccessfulResponse(response, "reply message");
             String messageId = response != null && response.getData() != null ? response.getData().getMessageId() : null;
             if (messageId == null || messageId.isEmpty()) {
                 throw new LarkChannelException(LarkChannelErrorCode.UNKNOWN, "message_id missing from reply response");
@@ -108,11 +109,21 @@ class RawMessageSender {
                                 .uuid(UUID.randomUUID().toString())
                                 .build())
                         .build());
+        assertSuccessfulResponse(response, "create message");
         String messageId = response != null && response.getData() != null ? response.getData().getMessageId() : null;
         if (messageId == null || messageId.isEmpty()) {
             throw new LarkChannelException(LarkChannelErrorCode.UNKNOWN, "message_id missing from create response");
         }
         return messageId;
+    }
+
+    private void assertSuccessfulResponse(com.lark.oapi.core.response.BaseResponse<?> response, String action) {
+        if (response == null) {
+            throw new LarkChannelException(LarkChannelErrorCode.UNKNOWN, action + " returned null response");
+        }
+        if (!response.success()) {
+            throw new IllegalStateException(action + " failed: code=" + response.getCode() + ", msg=" + response.getMsg());
+        }
     }
 
     void patchCard(String messageId, Map<String, Object> card) {

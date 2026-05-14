@@ -50,7 +50,9 @@ public class TestOutboundUploader {
 
         Assert.assertNotNull(file.createReq);
         Assert.assertEquals("spec.pdf", file.createReq.getCreateFileReqBody().getFileName());
-        Assert.assertTrue(message.createReq.getCreateMessageReqBody().getContent().contains("file_v3_1"));
+        String content = message.createReq.getCreateMessageReqBody().getContent();
+        Assert.assertTrue(content.contains("file_v3_1"));
+        Assert.assertFalse(content.contains("file_name"));
         temp.delete();
     }
 
