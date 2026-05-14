@@ -301,6 +301,19 @@ public class TestLarkChannel {
     }
 
     @Test
+    public void testWebSocketClientReceivesConfiguredSource() throws Exception {
+        LarkChannel channel = LarkChannelFactory.createLarkChannel(
+                LarkChannelOptions.newBuilder("cli_test", "secret")
+                        .transport("websocket")
+                        .source("cursor bot")
+                        .build()
+        );
+
+        Assert.assertEquals("oapi-sdk-java/v2.0.0 source/cursor-bot",
+                getField(channel.getRawWsClient(), "userAgent"));
+    }
+
+    @Test
     public void testInvalidSourceKeepsBaseUserAgent() throws Exception {
         StubHttpTransport transport = new StubHttpTransport();
         LarkChannel channel = LarkChannelFactory.createLarkChannel(
@@ -440,6 +453,29 @@ public class TestLarkChannel {
         onReconnected.run();
 
         Assert.assertEquals(1, reconnecting.get());
+        Assert.assertEquals(1, reconnected.get());
+    }
+
+    @Test
+    public void testWebSocketReconnectCallbacksOnlyFireAfterFirstSuccessfulConnect() throws Exception {
+        final AtomicInteger reconnected = new AtomicInteger();
+        com.lark.oapi.ws.Client wsClient = new com.lark.oapi.ws.Client.Builder("cli_test", "secret")
+                .onReconnected(new Runnable() {
+                    @Override
+                    public void run() {
+                        reconnected.incrementAndGet();
+                    }
+                })
+                .build();
+
+        setField(wsClient, "isReconnecting", Boolean.TRUE);
+        invokeNoArg(wsClient, "markConnected");
+
+        Assert.assertEquals(0, reconnected.get());
+
+        setField(wsClient, "isReconnecting", Boolean.TRUE);
+        invokeNoArg(wsClient, "markConnected");
+
         Assert.assertEquals(1, reconnected.get());
     }
 
@@ -591,6 +627,42 @@ public class TestLarkChannel {
         }
         field.setAccessible(true);
         return field.get(target);
+    }
+
+    private static void setField(Object target, String fieldName, Object value) throws Exception {
+        Field field = null;
+        Class<?> type = target.getClass();
+        while (type != null) {
+            try {
+                field = type.getDeclaredField(fieldName);
+                break;
+            } catch (NoSuchFieldException ignored) {
+                type = type.getSuperclass();
+            }
+        }
+        if (field == null) {
+            throw new IllegalStateException("field not found: " + fieldName);
+        }
+        field.setAccessible(true);
+        field.set(target, value);
+    }
+
+    private static void invokeNoArg(Object target, String methodName) throws Exception {
+        java.lang.reflect.Method method = null;
+        Class<?> type = target.getClass();
+        while (type != null) {
+            try {
+                method = type.getDeclaredMethod(methodName);
+                break;
+            } catch (NoSuchMethodException ignored) {
+                type = type.getSuperclass();
+            }
+        }
+        if (method == null) {
+            throw new IllegalStateException("method not found: " + methodName);
+        }
+        method.setAccessible(true);
+        method.invoke(target);
     }
 
     private static class CommentEventHolder {
@@ -786,4 +858,5 @@ public class TestLarkChannel {
             return resp;
         }
     }
+
 }

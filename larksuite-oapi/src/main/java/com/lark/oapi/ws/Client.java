@@ -3,6 +3,7 @@ package com.lark.oapi.ws;
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
 import com.lark.oapi.google.protobuf.ByteString;
+import com.lark.oapi.core.UserAgent;
 import com.lark.oapi.core.enums.BaseUrlEnum;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.event.EventDispatcher;
@@ -46,6 +47,7 @@ public class Client {
     private final String appSecret;
     private final EventDispatcher eventHandler;
     private final String domain;
+    private final String userAgent;
     private String serviceId;
     private String connId;
     private Integer reconnectNonce;
@@ -58,6 +60,7 @@ public class Client {
     private final Runnable onReconnecting;
     private final Runnable onReconnected;
     private volatile boolean pingLoopRunning;
+    private volatile boolean hasEverConnected;
 
 
     private Client(Builder builder) {
@@ -66,6 +69,7 @@ public class Client {
         this.eventHandler = builder.eventHandler;
         this.autoReconnect = builder.autoReconnect != null ? builder.autoReconnect : true;
         this.domain = builder.domain != null ? builder.domain : BaseUrlEnum.FeiShu.getUrl();
+        this.userAgent = UserAgent.build(builder.source);
         this.reconnectNonce = 30;
         this.reconnectCount = -1;
         this.reconnectInterval = 120;
@@ -78,6 +82,7 @@ public class Client {
         this.onReconnecting = builder.onReconnecting;
         this.onReconnected = builder.onReconnected;
         this.pingLoopRunning = false;
+        this.hasEverConnected = false;
     }
 
     public void start() {
@@ -175,7 +180,9 @@ public class Client {
         this.isReconnecting = true;
 
         try {
-            safeRun(this.onReconnecting);
+            if (this.hasEverConnected) {
+                safeRun(this.onReconnecting);
+            }
             log.info("start reconnecting...");
             // 首次重连随机抖动
             if (this.reconnectNonce > 0) {
@@ -246,9 +253,10 @@ public class Client {
     }
 
     protected void markConnected() {
-        if (Boolean.TRUE.equals(this.isReconnecting)) {
+        if (Boolean.TRUE.equals(this.isReconnecting) && this.hasEverConnected) {
             safeRun(this.onReconnected);
         }
+        this.hasEverConnected = true;
         if (!this.readyFuture.isDone()) {
             this.readyFuture.complete(null);
         }
@@ -269,6 +277,7 @@ public class Client {
         Request request = new Request.Builder()
                 .url(this.domain + GEN_ENDPOINT_URI)
                 .addHeader("locale", "zh")
+                .addHeader("User-Agent", this.userAgent)
                 .post(RequestBody.create(MediaType.parse("application/json; charset=utf-8"), body))
                 .build();
         try (Response response = this.httpClient.newCall(request).execute()) {
@@ -305,6 +314,7 @@ public class Client {
 
         Request request = new Request.Builder()
                 .url(connUrl)
+                .addHeader("User-Agent", this.userAgent)
                 .build();
         this.httpClient.newWebSocket(request, new Listener(this));
     }
@@ -507,6 +517,7 @@ public class Client {
         private EventDispatcher eventHandler;
         private Boolean autoReconnect;
         private String domain;
+        private String source;
         private Runnable onReconnecting;
         private Runnable onReconnected;
 
@@ -527,6 +538,11 @@ public class Client {
 
         public Builder domain(String domain) {
             this.domain = domain;
+            return this;
+        }
+
+        public Builder source(String source) {
+            this.source = source;
             return this;
         }
 
