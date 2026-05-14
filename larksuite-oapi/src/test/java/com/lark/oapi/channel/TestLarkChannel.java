@@ -99,7 +99,7 @@ public class TestLarkChannel {
     }
 
     @Test
-    public void testCardActionDottedAliasMapsToCanonicalEventName() {
+    public void testCardActionDottedAliasDoesNotMapToCanonicalEventName() {
         ChannelEventBus bus = new ChannelEventBus();
         final AtomicInteger calls = new AtomicInteger();
 
@@ -113,7 +113,7 @@ public class TestLarkChannel {
 
         bus.emit("cardAction", "payload");
 
-        Assert.assertEquals(1, calls.get());
+        Assert.assertEquals(0, calls.get());
     }
 
     @Test

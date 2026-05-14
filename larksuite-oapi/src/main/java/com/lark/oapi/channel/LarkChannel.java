@@ -153,21 +153,12 @@ public class LarkChannel {
 
     /**
      * Register an event handler and replace any previous handler for the same
-     * event name. Use {@link #onMany(String, ChannelEventHandler)} when several
-     * handlers must observe the same event.
+     * event name, matching the NodeJS channel subscription semantics.
      *
-     * <p>The canonical card action event name is {@code cardAction}. The legacy
-     * alias {@code card.action} is accepted for compatibility.
+     * <p>The canonical card action event name is {@code cardAction}.
      */
     public <T> ChannelSubscription on(String eventName, ChannelEventHandler<T> handler) {
         return eventBus.on(eventName, handler);
-    }
-
-    /**
-     * Append an event handler without replacing existing handlers.
-     */
-    public <T> ChannelSubscription onMany(String eventName, ChannelEventHandler<T> handler) {
-        return eventBus.onMany(eventName, handler);
     }
 
     /**

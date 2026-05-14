@@ -22,7 +22,7 @@ To address these issues, Feishu Open Platform has developed the Open Interface S
 Key entry points:
 - Create a channel with `LarkChannelFactory.createLarkChannel(LarkChannelOptions)`.
 - Call `connect()` before handling inbound events. It returns `CompletableFuture<BotIdentity>` so Java code can read the bot identity immediately after connection.
-- Use `channel.on("message", handler)` and `channel.on("cardAction", handler)` for canonical event names. `card.action` is accepted only as a compatibility alias.
+- Use `channel.on("message", handler)` and `channel.on("cardAction", handler)` for public event names, matching the NodeJS channel semantics.
 - Use `includeRawEvent(true)` when handlers need the original Feishu event body.
 - Use `getRawClient()`, `getRawWsClient()` and `getBotIdentity()` for raw SDK access and resolved bot identity.
 

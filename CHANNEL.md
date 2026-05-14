@@ -271,7 +271,7 @@ ChannelSubscription subscription = channel.on("message",
 subscription.unsubscribe();
 ```
 
-`on(event, handler)` 会覆盖同一事件的旧 handler。需要同一事件保留多个 handler 时，可使用 `onMany(event, handler)`。批量 `on(Map<String, ChannelEventHandler<?>>)` 会返回一个 `ChannelSubscription`，调用 `unsubscribe()` 可一次性取消本批 handler。
+`on(event, handler)` 会覆盖同一事件的旧 handler，与 NodeJS channel 语义一致。批量 `on(Map<String, ChannelEventHandler<?>>)` 会返回一个 `ChannelSubscription`，调用 `unsubscribe()` 可一次性取消本批 handler。
 
 支持事件：
 
@@ -287,7 +287,7 @@ subscription.unsubscribe();
 | `reconnecting` | `Object` | WebSocket 正在重连 |
 | `reconnected` | `Object` | WebSocket 重连成功 |
 
-事件名统一使用 `cardAction`。Java 侧兼容早期讨论中出现的 `card.action` 写法，但它只是 alias，文档和示例都应使用 `cardAction`。
+事件名统一使用 `cardAction`，与 NodeJS channel 语义一致；`card.action` 是底层飞书原始事件类型的简称，不作为公开订阅事件名。
 
 事件处理顺序：
 
@@ -550,7 +550,7 @@ channel.on("reject", new ChannelEventHandler<RejectEvent>() {
 
 ### `cardAction` 和 `card.action` 应该用哪个？
 
-统一使用 `cardAction`。`card.action` 只是 Java 侧为了兼容早期讨论和旧代码提供的别名。
+统一使用 `cardAction`。`card.action` 是底层飞书原始事件类型的简称，不作为公开订阅事件名。
 
 ### 什么时候使用 `includeRawEvent(true)`？
 
