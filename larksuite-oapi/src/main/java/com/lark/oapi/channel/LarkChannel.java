@@ -39,7 +39,6 @@ public class LarkChannel {
     private final ChannelInboundProcessor inboundProcessor;
     private final EventDispatcher dispatcher;
     private final ChannelLowLevelApi lowLevelApi;
-    private final ChannelRuntimeConfig runtimeConfig;
     private volatile CompletableFuture<BotIdentity> connectPromise;
     private volatile boolean connected;
 
@@ -54,7 +53,6 @@ public class LarkChannel {
     LarkChannel(LarkChannelOptions options, Client rawClient, BotIdentity initialBotIdentity) {
         this.options = options;
         this.eventBus = new ChannelEventBus();
-        this.runtimeConfig = new ChannelRuntimeConfig(options);
 
         this.rawClient = rawClient;
         this.safetyPipeline = new SafetyPipeline(new SafetyPipelineOptions(
@@ -323,14 +321,25 @@ public class LarkChannel {
      * Hot-update policy settings used by the safety gate.
      */
     public void updatePolicy(LarkChannelOptions.PolicyConfig partial) {
-        runtimeConfig.updatePolicy(partial);
+        if (partial == null) {
+            return;
+        }
+        LarkChannelOptions.PolicyConfig policy = options.getPolicy();
+        if (policy == null) {
+            return;
+        }
+        policy.setGroupAllowlist(partial.getGroupAllowlist());
+        policy.setDmMode(partial.getDmMode());
+        policy.setDmAllowlist(partial.getDmAllowlist());
+        policy.setRequireMention(partial.isRequireMention());
+        policy.setRespondToMentionAll(partial.isRespondToMentionAll());
     }
 
     /**
      * Current policy settings used by the safety gate.
      */
     public LarkChannelOptions.PolicyConfig getPolicy() {
-        return runtimeConfig.getPolicy();
+        return options.getPolicy();
     }
 
     // internals: bot identity & dispatch wiring

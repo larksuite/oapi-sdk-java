@@ -14,7 +14,7 @@
 | safety | `SafetyPipeline`、`SafetyPipelineOptions`、`ChatPipelineManager`、`ChatPipeline`、`PolicyGate` | stale/dedup/policy/lock/batch/queue 三层安全流水线 |
 | outbound | `OutboundSender`、`RawMessageSender`、`RawSendArgs`、`MediaUploader` | 发送新消息、raw send fallback/retry、媒体上传和流式输出 |
 | low-level | `ChannelLowLevelApi` | 编辑、更新卡片、撤回、下载资源、表情反应和 `getChatInfo` 等直接 API 操作 |
-| runtime config | `ChannelRuntimeConfig` | 运行时更新和读取安全策略 |
+| runtime config | `LarkChannel` | 运行时更新和读取安全策略 |
 | internals: bot identity & dispatch wiring | `BotIdentityResolver`、`ChannelEventDispatcherFactory`、`ChannelInboundProcessor` | 解析机器人身份、创建 Webhook dispatcher、处理入站事件归一化和安全策略 |
 
 ## 适用场景
