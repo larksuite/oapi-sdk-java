@@ -11,9 +11,7 @@ import java.util.Map;
 
 public final class Mentions {
     private static final java.util.regex.Pattern MENTION_ALL_KEY_PATTERN =
-            java.util.regex.Pattern.compile("(^|[^A-Za-z0-9_])@_all([^A-Za-z0-9_]|$)");
-    private static final java.util.regex.Pattern MENTION_ALL_AT_TAG_PATTERN =
-            java.util.regex.Pattern.compile("<at\\s+user_id=\\\\?[\"']all\\\\?[\"'][^>]*>\\s*</at>");
+            java.util.regex.Pattern.compile("@_all\\b");
 
     private Mentions() {
     }
@@ -142,8 +140,6 @@ public final class Mentions {
     }
 
     private static boolean containsMentionAll(String rawContent) {
-        return rawContent != null
-                && (MENTION_ALL_KEY_PATTERN.matcher(rawContent).find()
-                || MENTION_ALL_AT_TAG_PATTERN.matcher(rawContent).find());
+        return rawContent != null && MENTION_ALL_KEY_PATTERN.matcher(rawContent).find();
     }
 }

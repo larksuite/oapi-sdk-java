@@ -506,7 +506,7 @@ public class TestLarkChannel {
     }
 
     @Test
-    public void testMentionAllRejectPrecedesNoMention() throws Exception {
+    public void testRequireMentionPrecedesMentionAllReject() throws Exception {
         LarkChannelOptions.PolicyConfig policy = new LarkChannelOptions.PolicyConfig();
         policy.setRequireMention(true);
         policy.setRespondToMentionAll(false);
@@ -540,7 +540,7 @@ public class TestLarkChannel {
                 null);
 
         Object result = channel.checkPolicy(message);
-        Assert.assertEquals(RejectReason.MENTION_ALL_BLOCKED, result);
+        Assert.assertEquals(RejectReason.NO_MENTION, result);
     }
 
     @Test

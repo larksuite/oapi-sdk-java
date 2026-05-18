@@ -157,24 +157,23 @@ public class TestSafetyPipeline {
     }
 
     @Test
-    public void testRequireMentionAllowsMentionedBotAndMentionAllPolicyAllowsAll() {
+    public void testMentionAllPolicyAllowsAllWhenRequireMentionDisabled() {
         LarkChannelOptions.PolicyConfig policy = new LarkChannelOptions.PolicyConfig();
-        policy.setRequireMention(true);
+        policy.setRequireMention(false);
         policy.setRespondToMentionAll(true);
         PolicyGate gate = new PolicyGate(policy);
 
-        Assert.assertNull(gate.evaluate(message("om_bot", "oc_group", "group", "ou_user", "@bot hello", true, false)));
         Assert.assertNull(gate.evaluate(message("om_all", "oc_group", "group", "ou_user", "@all hello", false, true)));
     }
 
     @Test
-    public void testMentionAllPolicyRejectsBeforeRequireMention() {
+    public void testRequireMentionRejectsBeforeMentionAllPolicy() {
         LarkChannelOptions.PolicyConfig policy = new LarkChannelOptions.PolicyConfig();
         policy.setRequireMention(true);
         policy.setRespondToMentionAll(false);
         PolicyGate gate = new PolicyGate(policy);
 
-        Assert.assertEquals(RejectReason.MENTION_ALL_BLOCKED,
+        Assert.assertEquals(RejectReason.NO_MENTION,
                 gate.evaluate(message("om_all_blocked", "oc_group", "group", "ou_user", "@all hello", false, true)));
     }
 

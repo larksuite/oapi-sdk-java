@@ -29,11 +29,11 @@ public class PolicyGate {
             if (!policy.getGroupAllowlist().isEmpty() && !policy.getGroupAllowlist().contains(message.getChatId())) {
                 return RejectReason.GROUP_NOT_ALLOWED;
             }
-            if (message.isMentionAll()) {
-                return policy.isRespondToMentionAll() ? null : RejectReason.MENTION_ALL_BLOCKED;
-            }
             if (policy.isRequireMention() && !message.isMentionedBot()) {
                 return RejectReason.NO_MENTION;
+            }
+            if (message.isMentionAll() && !policy.isRespondToMentionAll()) {
+                return RejectReason.MENTION_ALL_BLOCKED;
             }
             return null;
         }
