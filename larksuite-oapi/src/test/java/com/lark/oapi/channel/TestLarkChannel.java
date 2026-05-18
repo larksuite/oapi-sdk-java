@@ -540,7 +540,7 @@ public class TestLarkChannel {
                 null);
 
         Object result = channel.checkPolicy(message);
-        Assert.assertEquals(RejectReason.NO_MENTION, result);
+        Assert.assertEquals(RejectReason.MENTION_ALL_BLOCKED, result);
     }
 
     @Test

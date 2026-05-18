@@ -164,7 +164,18 @@ public class TestSafetyPipeline {
         PolicyGate gate = new PolicyGate(policy);
 
         Assert.assertNull(gate.evaluate(message("om_bot", "oc_group", "group", "ou_user", "@bot hello", true, false)));
-        Assert.assertNull(gate.evaluate(message("om_all", "oc_group", "group", "ou_user", "@all hello", true, true)));
+        Assert.assertNull(gate.evaluate(message("om_all", "oc_group", "group", "ou_user", "@all hello", false, true)));
+    }
+
+    @Test
+    public void testMentionAllPolicyRejectsBeforeRequireMention() {
+        LarkChannelOptions.PolicyConfig policy = new LarkChannelOptions.PolicyConfig();
+        policy.setRequireMention(true);
+        policy.setRespondToMentionAll(false);
+        PolicyGate gate = new PolicyGate(policy);
+
+        Assert.assertEquals(RejectReason.MENTION_ALL_BLOCKED,
+                gate.evaluate(message("om_all_blocked", "oc_group", "group", "ou_user", "@all hello", false, true)));
     }
 
     private NormalizedMessage message(String id, String content, List<ResourceDescriptor> resources,
