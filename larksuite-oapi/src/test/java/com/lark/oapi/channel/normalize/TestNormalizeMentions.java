@@ -52,10 +52,16 @@ public class TestNormalizeMentions {
     public void testMentionAllContentScanAvoidsFalsePositive() {
         MentionState positive = Mentions.extract((com.lark.oapi.service.im.v1.model.MentionEvent[]) null,
                 "{\"text\":\"@_all hello\"}", new BotIdentity("ou_bot", "Bot"));
+        MentionState atTagPositive = Mentions.extract((com.lark.oapi.service.im.v1.model.MentionEvent[]) null,
+                "{\"text\":\"<at user_id=\\\"all\\\"></at> hello\"}", new BotIdentity("ou_bot", "Bot"));
         MentionState negative = Mentions.extract((com.lark.oapi.service.im.v1.model.MentionEvent[]) null,
                 "{\"text\":\"@_allies hello\"}", new BotIdentity("ou_bot", "Bot"));
+        MentionState atTagNegative = Mentions.extract((com.lark.oapi.service.im.v1.model.MentionEvent[]) null,
+                "{\"text\":\"<at user_id=\\\"allies\\\"></at> hello\"}", new BotIdentity("ou_bot", "Bot"));
 
         Assert.assertTrue(positive.isMentionAll());
+        Assert.assertTrue(atTagPositive.isMentionAll());
         Assert.assertFalse(negative.isMentionAll());
+        Assert.assertFalse(atTagNegative.isMentionAll());
     }
 }

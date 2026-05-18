@@ -5,6 +5,7 @@ import com.lark.oapi.channel.model.NormalizedMessage;
 import com.lark.oapi.service.im.v1.model.Message;
 import com.lark.oapi.service.im.v1.model.MessageBody;
 import com.lark.oapi.service.im.v1.model.Sender;
+import com.lark.oapi.service.im.v1.model.ext.MessageText;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.Assert;
@@ -100,10 +101,15 @@ public class TestNormalize {
         NormalizedMessage mentionAll = normalizer.normalizeMessage(
                 NormalizeTestSupport.buildMessageEvent("om_all", "oc_test", "group", "text", "{\"text\":\"@_all hello everyone\"}", null),
                 new NormalizeOptions(botIdentity, false, true));
+        NormalizedMessage mentionAllAtTag = normalizer.normalizeMessage(
+                NormalizeTestSupport.buildMessageEvent("om_all_at_tag", "oc_test", "group", "text",
+                        MessageText.newBuilder().atAll().text(" hello everyone").build(), null),
+                new NormalizeOptions(botIdentity, false, true));
 
         Assert.assertTrue(merged.getContent().startsWith("<forwarded_messages>\n"));
         Assert.assertTrue(merged.getContent().contains("first child"));
         Assert.assertTrue(mentionAll.isMentionAll());
+        Assert.assertTrue(mentionAllAtTag.isMentionAll());
     }
 
     @Test
