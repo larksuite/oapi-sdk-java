@@ -3,6 +3,7 @@ package com.lark.oapi.channel.normalize;
 import com.lark.oapi.channel.model.NormalizedMessage;
 import com.lark.oapi.service.im.v1.model.EventMessage;
 import com.lark.oapi.service.im.v1.model.EventSender;
+import com.lark.oapi.service.im.v1.model.MentionEvent;
 import com.lark.oapi.service.im.v1.model.P2MessageReceiveV1;
 import com.lark.oapi.service.im.v1.model.UserId;
 
@@ -26,7 +27,17 @@ class MessageNormalizer {
         String botOpenId = opts.getBotIdentity() == null ? null : opts.getBotIdentity().getOpenId();
 
         MentionState mentionState = Mentions.extract(msg.getMentions(), msg.getContent(), opts.getBotIdentity());
-        boolean mentionAll = mentionState.isMentionAll() || Mentions.detectMentionAllInContent(msg.getContent());
+        boolean mentionAllFromRaw = mentionState.isMentionAll();
+        boolean mentionAllFromContent = Mentions.detectMentionAllInContent(msg.getContent());
+        boolean mentionAll = mentionAllFromRaw || mentionAllFromContent;
+        System.err.println("[ChannelMentionDebug] normalizer messageId=" + msg.getMessageId()
+                + ", rawContent=" + msg.getContent()
+                + ", mentionKeys=" + mentionKeys(msg.getMentions())
+                + ", mentionAllFromRaw=" + mentionAllFromRaw
+                + ", mentionAllFromContent=" + mentionAllFromContent
+                + ", mentionAll=" + mentionAll
+                + ", mentionedBotFromRaw=" + mentionState.isMentionedBot()
+                + ", botOpenId=" + botOpenId);
 
         ConvertContext ctx = new ConvertContext(msg.getMessageId(), mentionState, opts);
         ConvertResult converted = MessageConverters.dispatchConvert(msg.getContent(), msg.getMessageType(), ctx);
@@ -62,5 +73,20 @@ class MessageNormalizer {
             return null;
         }
         return NormalizeTexts.firstNonBlank(userId.getOpenId(), userId.getUserId(), userId.getUnionId());
+    }
+
+    private String mentionKeys(MentionEvent[] mentions) {
+        if (mentions == null || mentions.length == 0) {
+            return "[]";
+        }
+        StringBuilder builder = new StringBuilder("[");
+        for (int i = 0; i < mentions.length; i++) {
+            if (i > 0) {
+                builder.append(", ");
+            }
+            MentionEvent mention = mentions[i];
+            builder.append(mention == null ? "null" : mention.getKey());
+        }
+        return builder.append(']').toString();
     }
 }

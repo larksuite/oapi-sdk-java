@@ -26,6 +26,13 @@ public class PolicyGate {
             return null;
         }
         if ("group".equals(message.getChatType()) || "topic_group".equals(message.getChatType())) {
+            System.err.println("[ChannelMentionDebug] policy messageId=" + message.getMessageId()
+                    + ", chatType=" + message.getChatType()
+                    + ", content=" + message.getContent()
+                    + ", mentionAll=" + message.isMentionAll()
+                    + ", mentionedBot=" + message.isMentionedBot()
+                    + ", requireMention=" + policy.isRequireMention()
+                    + ", respondToMentionAll=" + policy.isRespondToMentionAll());
             if (!policy.getGroupAllowlist().isEmpty() && !policy.getGroupAllowlist().contains(message.getChatId())) {
                 return RejectReason.GROUP_NOT_ALLOWED;
             }
