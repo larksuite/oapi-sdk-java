@@ -62,7 +62,7 @@ Top-level options:
 | `dmMode` | `open` | Direct-message mode |
 | `dmAllowlist` | empty | Allowed direct-message senders; empty means no sender restriction |
 | `requireMention` | `true` | Require mentioning the bot in group chats |
-| `respondToMentionAll` | `false` | Respond to mention-all messages |
+| `respondToMentionAll` | `false` | Respond to mention-all messages, even when the bot is not directly mentioned |
 
 `SafetyConfig`:
 
@@ -120,6 +120,8 @@ Top-level options:
 | `error` | `ChannelErrorEvent` | Normalizer, handler or pipeline error |
 | `reconnecting` | `Object` | WebSocket reconnecting |
 | `reconnected` | `Object` | WebSocket reconnected |
+
+`RejectEvent` carries `messageId`, `chatId`, `senderId`, `reason`, and the raw event when `includeRawEvent(true)` is enabled.
 
 Use `cardAction` as the public event name. `card.action` is a shorthand for the raw Feishu event type, not a public subscription name.
 

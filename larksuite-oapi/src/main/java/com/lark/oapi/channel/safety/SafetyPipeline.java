@@ -57,7 +57,12 @@ public class SafetyPipeline {
         RejectReason rejectReason = policy.evaluate(msg);
         if (rejectReason != null) {
             if (onReject != null) {
-                onReject.onReject(new RejectEvent(rejectReason, msg.getRaw()));
+                onReject.onReject(new RejectEvent(
+                        rejectReason,
+                        msg.getMessageId(),
+                        msg.getChatId(),
+                        msg.getSenderId(),
+                        msg.getRaw()));
             }
             return;
         }

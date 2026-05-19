@@ -154,7 +154,7 @@ channel.disconnect().get();
 | `dmMode` | `open` | 单聊模式，`open` 允许单聊，其他值可用于关闭单聊 |
 | `dmAllowlist` | 空列表 | 单聊发送人白名单；空列表表示不限制发送人 |
 | `requireMention` | `true` | 群聊是否必须 @ 机器人 |
-| `respondToMentionAll` | `false` | 是否响应 @ 所有人 |
+| `respondToMentionAll` | `false` | 是否响应 @ 所有人；开启后，即使未单独 @ 机器人也会放行 @ 所有人消息 |
 
 `SafetyConfig`：
 
@@ -531,6 +531,8 @@ channel.on("reject", new ChannelEventHandler<RejectEvent>() {
     }
 });
 ```
+
+`RejectEvent` 会携带 `messageId`、`chatId`、`senderId`、`reason`，以及开启 `includeRawEvent(true)` 时的原始事件。
 
 拒绝原因：
 

@@ -98,7 +98,7 @@ public class TestSafetyPipeline {
     public void testPolicyRejectInvokesOnRejectWithoutDispatch() {
         LarkChannelOptions.PolicyConfig policy = new LarkChannelOptions.PolicyConfig();
         policy.setRequireMention(true);
-        final List<RejectReason> reasons = new ArrayList<RejectReason>();
+        final List<RejectEvent> rejects = new ArrayList<RejectEvent>();
         final AtomicInteger dispatched = new AtomicInteger();
         SafetyPipeline pipeline = new SafetyPipeline(new SafetyPipelineOptions(
                 new LarkChannelOptions.SafetyConfig(),
@@ -107,7 +107,7 @@ public class TestSafetyPipeline {
                 new OnReject() {
                     @Override
                     public void onReject(RejectEvent event) {
-                        reasons.add(event.getReason());
+                        rejects.add(event);
                     }
                 },
                 new OnMessageDispatch() {
@@ -121,7 +121,13 @@ public class TestSafetyPipeline {
                 Collections.<MentionInfo>emptyList()));
 
         Assert.assertEquals(0, dispatched.get());
-        Assert.assertEquals(Collections.singletonList(RejectReason.NO_MENTION), reasons);
+        Assert.assertEquals(1, rejects.size());
+        Assert.assertEquals(RejectReason.NO_MENTION, rejects.get(0).getReason());
+        Assert.assertEquals("no_mention", rejects.get(0).getReason().getValue());
+        Assert.assertEquals("no_mention", rejects.get(0).getReason().toString());
+        Assert.assertEquals("om_no_mention", rejects.get(0).getMessageId());
+        Assert.assertEquals("oc_group", rejects.get(0).getChatId());
+        Assert.assertEquals("ou_user", rejects.get(0).getSenderId());
     }
 
     @Test
@@ -167,13 +173,23 @@ public class TestSafetyPipeline {
     }
 
     @Test
-    public void testRequireMentionRejectsBeforeMentionAllPolicy() {
+    public void testMentionAllPolicyAllowsAllWhenRequireMentionEnabled() {
+        LarkChannelOptions.PolicyConfig policy = new LarkChannelOptions.PolicyConfig();
+        policy.setRequireMention(true);
+        policy.setRespondToMentionAll(true);
+        PolicyGate gate = new PolicyGate(policy);
+
+        Assert.assertNull(gate.evaluate(message("om_all", "oc_group", "group", "ou_user", "@all hello", false, true)));
+    }
+
+    @Test
+    public void testMentionAllPolicyRejectsBeforeRequireMention() {
         LarkChannelOptions.PolicyConfig policy = new LarkChannelOptions.PolicyConfig();
         policy.setRequireMention(true);
         policy.setRespondToMentionAll(false);
         PolicyGate gate = new PolicyGate(policy);
 
-        Assert.assertEquals(RejectReason.NO_MENTION,
+        Assert.assertEquals(RejectReason.MENTION_ALL_BLOCKED,
                 gate.evaluate(message("om_all_blocked", "oc_group", "group", "ou_user", "@all hello", false, true)));
     }
 
