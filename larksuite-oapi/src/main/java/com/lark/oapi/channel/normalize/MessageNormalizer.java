@@ -30,14 +30,6 @@ class MessageNormalizer {
         boolean mentionAllFromRaw = mentionState.isMentionAll();
         boolean mentionAllFromContent = Mentions.detectMentionAllInContent(msg.getContent());
         boolean mentionAll = mentionAllFromRaw || mentionAllFromContent;
-        System.err.println("[ChannelMentionDebug] normalizer messageId=" + msg.getMessageId()
-                + ", rawContent=" + msg.getContent()
-                + ", mentionKeys=" + mentionKeys(msg.getMentions())
-                + ", mentionAllFromRaw=" + mentionAllFromRaw
-                + ", mentionAllFromContent=" + mentionAllFromContent
-                + ", mentionAll=" + mentionAll
-                + ", mentionedBotFromRaw=" + mentionState.isMentionedBot()
-                + ", botOpenId=" + botOpenId);
 
         ConvertContext ctx = new ConvertContext(msg.getMessageId(), mentionState, opts);
         ConvertResult converted = MessageConverters.dispatchConvert(msg.getContent(), msg.getMessageType(), ctx);
