@@ -1,29 +1,29 @@
 # Java Channel 使用指南
 
-`LarkChannel` 是 Java SDK 面向 Agent / Bot 场景提供的高层会话通道封装。它把飞书/Lark 的长连接事件、Webhook 事件、消息归一化、发送回复、流式输出、资源上传下载、反应表情和安全策略组合成一个统一入口，让 Agent 可以专注于理解上下文并生成响应。
-
-## 内部职责分层
-
-`LarkChannel` 按职责分区组织，主类只作为公开门面和生命周期编排入口：
-
-| 分区 | 主要 API / 文件 | 说明 |
-| --- | --- | --- |
-| lifecycle | `LarkChannel.connect` / `disconnect` | 获取机器人身份、启动或关闭 WebSocket、释放安全流水线 |
-| event subscription | `LarkChannel.on`、`ChannelEventHandler`、`ChannelSubscription`、`ChannelEventBus` | 注册、批量注册和取消事件监听 |
-| normalize | `ChannelNormalizer`、`MessageNormalizer`、`MessageConverters`、`Mentions`、`NormalizeDedupKeys` | 入站消息与事件归一化、converter dispatch、@ 解析和 dedup key 生成 |
-| safety | `SafetyPipeline`、`SafetyPipelineOptions`、`ChatPipelineManager`、`ChatPipeline`、`PolicyGate` | stale/dedup/policy/lock/batch/queue 三层安全流水线 |
-| outbound | `OutboundSender`、`RawMessageSender`、`RawSendArgs`、`MediaUploader` | 发送新消息、raw send fallback/retry、媒体上传和流式输出 |
-| low-level | `ChannelLowLevelApi` | 编辑、更新卡片、撤回、下载资源、表情反应和 `getChatInfo` 等直接 API 操作 |
-| runtime config | `LarkChannel` | 运行时更新和读取安全策略 |
-| internals: bot identity & dispatch wiring | `BotIdentityResolver`、`ChannelEventDispatcherFactory`、`ChannelInboundProcessor` | 解析机器人身份、创建 Webhook dispatcher、处理入站事件归一化和安全策略 |
+`LarkChannel` 是 Java SDK 面向会话式机器人和 Agent 场景提供的高层通道。它把飞书/Lark 的 WebSocket/Webhook 事件接入、消息归一化、安全策略、回复发送、流式输出、资源上传下载、卡片动作和表情反应封装到同一个入口中，让业务代码专注于理解消息和生成响应。
 
 ## 适用场景
 
-- 在飞书/Lark 中接入 AI Agent、客服机器人、知识库问答机器人或自动化助手。
-- 同时处理单聊、群聊、卡片回调、表情反应、机器人进群和文档评论等事件。
-- 需要对消息做去重、过期过滤、群聊白名单、单聊白名单、必须 @ 机器人等安全控制。
-- 需要发送文本、Markdown、富文本、图片、文件、音频、视频、卡片、群名片、个人名片和贴纸。
-- 需要边生成边更新飞书消息，提供类似流式回答的体验。
+- 构建 AI Agent、客服助手、知识库问答机器人或自动化助手。
+- 需要长期监听单聊、群聊、卡片动作、表情反应、机器人进群和文档评论等事件。
+- 需要把原始飞书/Lark 消息转换成统一的 `NormalizedMessage`，再交给业务或模型处理。
+- 需要安全策略：去重、过期过滤、群聊白名单、单聊白名单、必须 @ 机器人、是否响应 @ 所有人。
+- 需要发送文本、Markdown、富文本、图片、文件、音频、视频、卡片、群名片、个人名片或贴纸。
+- 需要边生成边更新消息，提供流式回答体验。
+
+如果只是偶尔调用某个开放接口，直接使用 `Client` 更简单；如果业务以“接收消息 -> 处理上下文 -> 回复会话”为主，优先使用 Channel。
+
+## 核心能力
+
+| 能力 | 入口 | 说明 |
+| --- | --- | --- |
+| 生命周期 | `connect()` / `disconnect()` | 获取机器人身份，启动或关闭 WebSocket，释放安全流水线 |
+| 事件监听 | `on(...)` / `ChannelSubscription` | 监听消息、卡片动作、表情、进群、评论、拒绝和错误事件 |
+| 消息归一化 | `NormalizedMessage` | 统一文本、资源、@ 信息、回复关系和原始事件引用 |
+| 安全策略 | `PolicyConfig` / `SafetyConfig` | 控制群聊、单聊、@ 机器人、@ 所有人、去重、过期和队列 |
+| 消息发送 | `send(...)` / `SendInput` / `SendOptions` | 发送文本、Markdown、富文本、媒体、卡片和分享类消息 |
+| 流式输出 | `stream(...)` / `StreamInput` | 适合 Agent 边生成边更新消息 |
+| 资源与低阶能力 | `downloadResource(...)`、`editMessage(...)`、`updateCard(...)`、`recallMessage(...)` | 下载资源、编辑消息、更新卡片、撤回消息和管理表情 |
 
 ## Agent 如何介入 Channel
 
@@ -271,7 +271,7 @@ ChannelSubscription subscription = channel.on("message",
 subscription.unsubscribe();
 ```
 
-`on(event, handler)` 会覆盖同一事件的旧 handler，与 NodeJS channel 语义一致。批量 `on(Map<String, ChannelEventHandler<?>>)` 会返回一个 `ChannelSubscription`，调用 `unsubscribe()` 可一次性取消本批 handler。
+`on(event, handler)` 会覆盖同一事件的旧 handler。批量 `on(Map<String, ChannelEventHandler<?>>)` 会返回一个 `ChannelSubscription`，调用 `unsubscribe()` 可一次性取消本批 handler。
 
 支持事件：
 
@@ -287,7 +287,7 @@ subscription.unsubscribe();
 | `reconnecting` | `Object` | WebSocket 正在重连 |
 | `reconnected` | `Object` | WebSocket 重连成功 |
 
-事件名统一使用 `cardAction`，与 NodeJS channel 语义一致；`card.action` 是底层飞书原始事件类型的简称，不作为公开订阅事件名。
+事件名统一使用 `cardAction`；`card.action` 是底层飞书原始事件类型的简称，不作为公开订阅事件名。
 
 事件处理顺序：
 
@@ -496,6 +496,15 @@ boolean removed = channel.removeReactionByEmoji("om_xxx", "OK").get();
 - 不响应 @ 所有人，除非显式开启。
 - 单聊默认开放。
 - 对消息做去重、过期过滤和按会话串行处理。
+
+`requireMention` 和 `respondToMentionAll` 是两个独立开关：
+
+| 场景 | 默认行为 |
+| --- | --- |
+| 群聊普通消息，未 @ 机器人 | `requireMention=true` 时拒绝，原因是 `no_mention` |
+| 群聊消息明确 @ 机器人 | 放行 |
+| 群聊消息 @ 所有人 | `respondToMentionAll=false` 时拒绝，原因是 `mention_all_blocked` |
+| 群聊消息 @ 所有人，且 `respondToMentionAll=true` | 放行，即使没有单独 @ 机器人 |
 
 配置示例：
 

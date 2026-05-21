@@ -82,8 +82,18 @@
 
 ### Channel 与 Agent 接入
 
-SDK 提供 `LarkChannel` 高层会话通道，适用于 AI Agent、Bot、客服机器人等场景。它封装了 WebSocket/Webhook 事件接入、消息归一化、安全策略、回复发送、流式输出、资源上传下载、卡片动作和表情反应等能力。
-`LarkChannel` 主类按 lifecycle、event subscription、normalize、safety、outbound、low-level、runtime config、bot identity & dispatch wiring 分层组织；其中 runtime config 直接由 `LarkChannel` 自身负责，不属于公开门面本身的逻辑已拆到对应协作类中，便于后续维护和测试。
+SDK 提供 `LarkChannel` 高层会话通道，适用于 AI Agent、机器人、客服助手、知识库问答等会话场景。它把 WebSocket/Webhook 事件接入、消息归一化、安全策略、回复发送、流式输出、资源上传下载、卡片动作和表情反应封装到统一的 Java 入口中。
+
+如果只是偶尔调用开放接口，直接使用 `Client` 即可；如果需要长期监听消息、理解上下文并回写结果，建议使用 Channel 承担连接、归一化、去重、策略拦截和发送细节。
+
+核心入口：
+
+- 使用 `LarkChannelFactory.createLarkChannel(...)` 创建通道。
+- 调用 `connect()` 后再处理入站事件；返回值是 `CompletableFuture<BotIdentity>`，可直接读取机器人身份。
+- 使用 `channel.on("message", handler)`、`channel.on("cardAction", handler)`、`channel.on("reject", handler)` 等事件监听会话。
+- 使用 `send(...)` 回复消息，使用 `stream(...)` 输出流式结果，使用 `downloadResource(...)` 读取图片和文件内容。
+- 使用 `policy(...)` 配置群聊白名单、单聊模式、是否必须 @ 机器人、是否响应 @ 所有人等安全策略。
+- 只有确实需要原始事件字段时再开启 `includeRawEvent(true)`。
 
 - 使用指南：[Java Channel 使用指南](CHANNEL.md)
 - 可运行示例：[ChannelSample.java](sample/src/main/java/com/lark/oapi/sample/channel/ChannelSample.java)

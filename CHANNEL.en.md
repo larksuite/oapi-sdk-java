@@ -1,6 +1,8 @@
 # Java Channel Guide
 
-`LarkChannel` is the Java SDK facade for Agent and bot scenarios. It combines event intake, message normalization, safety gates, outbound sending, streaming replies, media upload/download, reactions and low-level escape hatches into one entry point.
+`LarkChannel` is the Java SDK facade for conversational bots and Agent scenarios. It combines WebSocket/Webhook event intake, message normalization, safety gates, replies, streaming output, media upload/download, card actions and reactions into one Java entry point.
+
+Use Channel when your application follows a chat workflow: receive an event, normalize the message, apply safety policy, call business or model logic, then reply in the same conversation. For occasional OpenAPI calls, use the regular `Client`; for long-running chat services, Channel handles the surrounding event and messaging plumbing.
 
 ## Quick Start
 
@@ -26,6 +28,18 @@ BotIdentity identity = channel.connect().get();
 ```
 
 `connect()` returns `CompletableFuture<BotIdentity>` so Java code can read the bot identity immediately after connection. After `connect()` completes, bot identity is resolved and the first WebSocket handshake has completed when websocket transport is used.
+
+## Core Capabilities
+
+| Capability | Entry point | Description |
+| --- | --- | --- |
+| Lifecycle | `connect()` / `disconnect()` | Resolve bot identity, start or stop WebSocket transport, release safety resources |
+| Event handling | `on(...)` / `ChannelSubscription` | Listen for messages, card actions, reactions, bot-added, comments, rejections and errors |
+| Normalization | `NormalizedMessage` | Unified content, resources, mentions, reply context and optional raw event |
+| Safety | `PolicyConfig` / `SafetyConfig` | Group/DM policy, mention policy, mention-all policy, dedup, stale filtering and queueing |
+| Sending | `send(...)` / `SendInput` / `SendOptions` | Text, Markdown, post, media, card and share payloads |
+| Streaming | `stream(...)` / `StreamInput` | Incrementally update a message while an Agent is generating output |
+| Helpers | `downloadResource(...)`, `editMessage(...)`, `updateCard(...)`, `recallMessage(...)` | Resource download, message edit, card patch, recall and reactions |
 
 ## Transport
 
@@ -125,7 +139,7 @@ Top-level options:
 
 Use `cardAction` as the public event name. `card.action` is a shorthand for the raw Feishu event type, not a public subscription name.
 
-`on(event, handler)` replaces the existing handler for that event, matching the NodeJS channel semantics.
+`on(event, handler)` replaces the existing handler for that event. Batch registration returns a `ChannelSubscription`; call `unsubscribe()` to remove that batch.
 
 ## Raw Event Payload
 
@@ -220,6 +234,15 @@ The default safety policy is Agent-oriented:
 - Mention-all is ignored unless explicitly enabled.
 - Direct messages are open by default.
 - Messages are deduplicated, stale events are dropped, and chat-scoped processing is serialized.
+
+`requireMention` and `respondToMentionAll` are independent switches:
+
+| Scenario | Default behavior |
+| --- | --- |
+| Group message without bot mention | Rejected as `no_mention` when `requireMention=true` |
+| Group message mentioning the bot | Allowed |
+| Group message mentioning all members | Rejected as `mention_all_blocked` when `respondToMentionAll=false` |
+| Group message mentioning all members with `respondToMentionAll=true` | Allowed, even without a direct bot mention |
 
 Policy can be updated at runtime:
 

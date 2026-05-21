@@ -17,14 +17,17 @@ To address these issues, Feishu Open Platform has developed the Open Interface S
 
 ## Channel and Agent Integration
 
-`LarkChannel` is a high-level facade for Agent and bot scenarios. It combines WebSocket/Webhook event intake, message normalization, safety policy gates, outbound sending, streaming replies, media upload/download, reactions and low-level escape hatches.
+`LarkChannel` is a high-level conversation facade for Agent and bot scenarios. It brings event intake, message normalization, safety policy gates, replies, streaming output, media upload/download, card actions and reactions into one Java entry point.
+
+Use Channel when you are building a conversational bot, AI Agent, support assistant, knowledge-base assistant or any service that needs to receive Feishu/Lark messages and reply in the same chat context. For small one-off API calls, use the regular `Client`; for long-running chat workflows, Channel handles the surrounding plumbing.
 
 Key entry points:
-- Create a channel with `LarkChannelFactory.createLarkChannel(LarkChannelOptions)`.
-- Call `connect()` before handling inbound events. It returns `CompletableFuture<BotIdentity>` so Java code can read the bot identity immediately after connection.
-- Use `channel.on("message", handler)` and `channel.on("cardAction", handler)` for public event names, matching the NodeJS channel semantics.
-- Use `includeRawEvent(true)` when handlers need the original Feishu event body.
-- Use `getRawClient()`, `getRawWsClient()` and `getBotIdentity()` for raw SDK access and resolved bot identity.
+- Create a channel with `LarkChannelFactory.createLarkChannel(...)`.
+- Call `connect()` before processing inbound events; it returns `CompletableFuture<BotIdentity>`.
+- Listen with `channel.on("message", handler)`, `channel.on("cardAction", handler)`, `channel.on("reject", handler)` and related event names.
+- Reply with `send(...)`, stream incremental output with `stream(...)`, and use `downloadResource(...)` for image/file content.
+- Configure `policy(...)` for group allowlists, direct-message behavior, mention requirements and mention-all handling.
+- Use `includeRawEvent(true)` only when handlers need the original event body.
 
 See [CHANNEL.en.md](CHANNEL.en.md) for the English guide and [CHANNEL.md](CHANNEL.md) for the Chinese guide.
 
