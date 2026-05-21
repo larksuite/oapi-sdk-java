@@ -13,6 +13,23 @@ To address these issues, Feishu Open Platform has developed the Open Interface S
 - [处理事件订阅 / Handle Events](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/server-side-sdk/java-sdk-guide/handle-events)
 - [处理卡片回调 / Handle Card Callbacks](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/server-side-sdk/java-sdk-guide/handle-callback)
 - [常见问题 / SDK FAQs](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/server-side-sdk/faq)
+- [Channel 与 Agent 接入 / Channel and Agent Integration](CHANNEL.md) / [English](CHANNEL.en.md)
+
+## Channel and Agent Integration
+
+`LarkChannel` is a high-level conversation facade for Agent and bot scenarios. It brings event intake, message normalization, safety policy gates, replies, streaming output, media upload/download, card actions and reactions into one Java entry point.
+
+Use Channel when you are building a conversational bot, AI Agent, support assistant, knowledge-base assistant or any service that needs to receive Feishu/Lark messages and reply in the same chat context. For small one-off API calls, use the regular `Client`; for long-running chat workflows, Channel handles the surrounding plumbing.
+
+Key entry points:
+- Create a channel with `LarkChannelFactory.createLarkChannel(...)`.
+- Call `connect()` before processing inbound events; it returns `CompletableFuture<BotIdentity>`.
+- Listen with `channel.on("message", handler)`, `channel.on("cardAction", handler)`, `channel.on("reject", handler)` and related event names.
+- Reply with `send(...)`, stream incremental output with `stream(...)`, and use `downloadResource(...)` for image/file content.
+- Configure `policy(...)` for group allowlists, direct-message behavior, mention requirements and mention-all handling.
+- Use `includeRawEvent(true)` only when handlers need the original event body.
+
+See [CHANNEL.en.md](CHANNEL.en.md) for the English guide and [CHANNEL.md](CHANNEL.md) for the Chinese guide.
 
 ## App Registration 
 
@@ -122,4 +139,3 @@ Real runnable demo:
 ## License
 
 使用 MIT
-

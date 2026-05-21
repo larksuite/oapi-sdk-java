@@ -3,9 +3,11 @@ package com.lark.oapi.ws;
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
 import com.lark.oapi.google.protobuf.ByteString;
+import com.lark.oapi.core.UserAgent;
 import com.lark.oapi.core.enums.BaseUrlEnum;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.event.EventDispatcher;
+import com.lark.oapi.event.exception.HandlerNotFoundException;
 import com.lark.oapi.okhttp.*;
 import com.lark.oapi.ws.enums.FrameType;
 import com.lark.oapi.ws.enums.MessageType;
@@ -23,14 +25,14 @@ import org.slf4j.LoggerFactory;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.Base64;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.CompletableFuture;
 import java.util.Random;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeoutException;
 import java.util.concurrent.TimeUnit;
 
 import static com.lark.oapi.ws.Constant.*;
@@ -42,19 +44,26 @@ public class Client {
     protected WebSocket conn;
     protected String connUrl;
     protected volatile Boolean isReconnecting;
-    private String appId;
-    private String appSecret;
-    private EventDispatcher eventHandler;
-    private String domain;
+    protected volatile boolean userClosed;
+    private final String appId;
+    private final String appSecret;
+    private final EventDispatcher eventHandler;
+    private final String domain;
+    private final String userAgent;
+    private final Map<String, String> headers;
     private String serviceId;
     private String connId;
-    private Map<String, String> headers;
     private Integer reconnectNonce;
     private Integer reconnectCount;
     private Integer reconnectInterval;
     private Integer pingInterval;
-    private OkHttpClient httpClient;
-    private Cache<String, byte[][]> cache;
+    private final OkHttpClient httpClient;
+    private final Cache<String, byte[][]> cache;
+    private volatile CompletableFuture<Void> readyFuture;
+    private final Runnable onReconnecting;
+    private final Runnable onReconnected;
+    private volatile boolean pingLoopRunning;
+    private volatile boolean hasEverConnected;
 
 
     private Client(Builder builder) {
@@ -63,6 +72,7 @@ public class Client {
         this.eventHandler = builder.eventHandler;
         this.autoReconnect = builder.autoReconnect != null ? builder.autoReconnect : true;
         this.domain = builder.domain != null ? builder.domain : BaseUrlEnum.FeiShu.getUrl();
+        this.userAgent = UserAgent.build(builder.source);
         this.headers = new HashMap<>();
         if (builder.headers != null) {
             this.headers.putAll(builder.headers);
@@ -73,39 +83,100 @@ public class Client {
         this.pingInterval = 120;
         this.httpClient = new OkHttpClient();
         this.isReconnecting = false;
+        this.userClosed = false;
         this.cache = CacheBuilder.newBuilder().expireAfterWrite(5, TimeUnit.MINUTES).build();
+        this.readyFuture = new CompletableFuture<>();
+        this.onReconnecting = builder.onReconnecting;
+        this.onReconnected = builder.onReconnected;
+        this.pingLoopRunning = false;
+        this.hasEverConnected = false;
     }
 
     public void start() {
+        this.userClosed = false;
+        if (this.readyFuture.isDone()) {
+            this.readyFuture = new CompletableFuture<>();
+        }
         try {
             this.connect();
         } catch (ClientException e) {
+            markFailed(e);
             log.error(e.toString());
             throw e;
         } catch (Throwable t) {
             log.error(t.toString());
             this.disconnect();
-            if (this.autoReconnect) {
-                this.reconnect();
+            if (shouldReconnect()) {
+                try {
+                    this.reconnect();
+                } catch (Throwable reconnectError) {
+                    markFailed(reconnectError);
+                    if (reconnectError instanceof RuntimeException) {
+                        throw (RuntimeException) reconnectError;
+                    }
+                    if (reconnectError instanceof Error) {
+                        throw (Error) reconnectError;
+                    }
+                    throw new RuntimeException(reconnectError);
+                }
+            } else {
+                markFailed(t);
             }
         }
+        startPingLoop();
+    }
+
+    public void awaitReady(long timeoutMs) throws Exception {
+        try {
+            this.readyFuture.get(timeoutMs, TimeUnit.MILLISECONDS);
+        } catch (TimeoutException e) {
+            throw new ServerUnreachableException(String.format("websocket handshake did not complete within %dms", timeoutMs));
+        } catch (java.util.concurrent.ExecutionException e) {
+            Throwable cause = e.getCause();
+            if (cause instanceof Exception) {
+                throw (Exception) cause;
+            }
+            throw new RuntimeException(cause);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            throw e;
+        }
+    }
+
+    public void close() {
+        this.userClosed = true;
+        if (!this.readyFuture.isDone()) {
+            this.readyFuture.completeExceptionally(new ServerUnreachableException("websocket client closed"));
+        }
+        this.disconnect();
+    }
+
+    private synchronized void startPingLoop() {
+        if (this.pingLoopRunning) {
+            return;
+        }
+        this.pingLoopRunning = true;
         this.executor.execute(this::pingLoop);
     }
 
     private void pingLoop() {
-        this.sleep(2000);
-        while (true) {
-            try {
-                if (this.conn != null) {
-                    Pbbp2.Frame frame = newPingFrame(Integer.parseInt(this.serviceId));
-                    this.conn.send(com.lark.oapi.okio.ByteString.of(frame.toByteArray()));
-                    log.debug(fmtLog("ping success"));
+        try {
+            this.sleep(2000);
+            while (!this.userClosed) {
+                try {
+                    if (this.conn != null) {
+                        Pbbp2.Frame frame = newPingFrame(Integer.parseInt(this.serviceId));
+                        this.conn.send(com.lark.oapi.okio.ByteString.of(frame.toByteArray()));
+                        log.debug(fmtLog("ping success"));
+                    }
+                } catch (Throwable t) {
+                    log.warn(fmtLog("ping failed"), t);
+                } finally {
+                    this.sleep(this.pingInterval * 1000);
                 }
-            } catch (Throwable t) {
-                log.warn(fmtLog("ping failed"), t);
-            } finally {
-                this.sleep(this.pingInterval * 1000);
             }
+        } finally {
+            this.pingLoopRunning = false;
         }
     }
 
@@ -128,6 +199,9 @@ public class Client {
         this.isReconnecting = true;
 
         try {
+            if (this.hasEverConnected) {
+                safeRun(this.onReconnecting);
+            }
             log.info("start reconnecting...");
             // 首次重连随机抖动
             if (this.reconnectNonce > 0) {
@@ -135,10 +209,13 @@ public class Client {
                 int nonce = rand.nextInt(this.reconnectNonce * 1000);
                 this.sleep(nonce);
             }
+            if (!shouldReconnect()) {
+                return;
+            }
 
             // 重连
             if (this.reconnectCount >= 0) {
-                for (int i = 0; i < this.reconnectCount; i++) {
+                for (int i = 0; i < this.reconnectCount && shouldReconnect(); i++) {
                     if (this.conn != null) {
                         return;
                     }
@@ -147,10 +224,13 @@ public class Client {
                     }
                     this.sleep(this.reconnectInterval * 1000);
                 }
+                if (!shouldReconnect()) {
+                    return;
+                }
                 throw new ServerUnreachableException(String.format("unable to connect to the server after trying %d times", this.reconnectCount));
             } else {
                 int i = 0;
-                while (true) {
+                while (shouldReconnect()) {
                     if (this.conn != null) {
                         return;
                     }
@@ -167,6 +247,9 @@ public class Client {
     }
 
     private boolean tryConnect(int cnt) {
+        if (!shouldReconnect()) {
+            return false;
+        }
         cnt++;
         String time;
         switch (cnt) {
@@ -197,16 +280,40 @@ public class Client {
         }
     }
 
+    protected void markConnected() {
+        if (this.userClosed) {
+            return;
+        }
+        if (this.readyFuture.isCompletedExceptionally()) {
+            this.readyFuture = new CompletableFuture<>();
+        }
+        if (Boolean.TRUE.equals(this.isReconnecting) && this.hasEverConnected) {
+            safeRun(this.onReconnected);
+        }
+        this.hasEverConnected = true;
+        if (!this.readyFuture.isDone()) {
+            this.readyFuture.complete(null);
+        }
+    }
+
+    protected void markFailed(Throwable error) {
+        if (!this.readyFuture.isDone()) {
+            this.readyFuture.completeExceptionally(error);
+        }
+    }
+
+    protected boolean shouldReconnect() {
+        return this.autoReconnect && !this.userClosed;
+    }
+
     private String getConnUrl() throws IOException {
         String body = String.format("{\"AppID\": \"%s\", \"AppSecret\": \"%s\"}", this.appId, this.appSecret);
-        Request.Builder requestBuilder = new Request.Builder().url(this.domain + GEN_ENDPOINT_URI);
-        for (Map.Entry<String, String> header : this.headers.entrySet()) {
-            if (header.getKey() != null && header.getValue() != null) {
-                requestBuilder.addHeader(header.getKey(), header.getValue());
-            }
-        }
+        Request.Builder requestBuilder = new Request.Builder()
+                .url(this.domain + GEN_ENDPOINT_URI);
+        applyHeaders(requestBuilder);
         Request request = requestBuilder
                 .header("locale", "zh")
+                .header("User-Agent", resolvedUserAgent())
                 .post(RequestBody.create(MediaType.parse("application/json; charset=utf-8"), body))
                 .build();
         try (Response response = this.httpClient.newCall(request).execute()) {
@@ -215,13 +322,11 @@ public class Client {
             }
 
             EndpointResp resp = Jsons.DEFAULT.fromJson(response.body().string(), EndpointResp.class);
-            if (resp.getCode() == OK) {
-                // do nothing
-            } else if (resp.getCode() == SYSTEM_BUSY) {
+            if (resp.getCode() == SYSTEM_BUSY) {
                 throw new ServerException(resp.getCode(), "system busy");
             } else if (resp.getCode() == INTERNAL_ERROR) {
                 throw new ServerException(resp.getCode(), resp.getMsg());
-            } else {
+            } else if (resp.getCode() != OK) {
                 throw new ClientException(resp.getCode(), resp.getMsg());
             }
 
@@ -245,6 +350,7 @@ public class Client {
 
         Request request = new Request.Builder()
                 .url(connUrl)
+                .header("User-Agent", resolvedUserAgent())
                 .build();
         this.httpClient.newWebSocket(request, new Listener(this));
     }
@@ -320,8 +426,13 @@ public class Client {
                     return;
             }
         } catch (Throwable e) {
-            log.error(fmtLog("handle message failed, message_type: %s, message_id: %s, trace_id: %s,",
-                    mt.getName(), msgId, traceId), e);
+            if (e instanceof HandlerNotFoundException) {
+                log.warn(fmtLog("handle message failed, message_type: %s, message_id: %s, trace_id: %s, err: %s",
+                        mt.getName(), msgId, traceId, e.getMessage()));
+            } else {
+                log.error(fmtLog("handle message failed, message_type: %s, message_id: %s, trace_id: %s,",
+                        mt.getName(), msgId, traceId), e);
+            }
             response = new com.lark.oapi.ws.model.Response(500);
         }
         long end = System.currentTimeMillis();
@@ -426,13 +537,45 @@ public class Client {
         }
     }
 
+    private void safeRun(Runnable callback) {
+        if (callback == null) {
+            return;
+        }
+        try {
+            callback.run();
+        } catch (Throwable ignored) {
+        }
+    }
+
+    private void applyHeaders(Request.Builder requestBuilder) {
+        for (Map.Entry<String, String> header : this.headers.entrySet()) {
+            if (header.getKey() != null && header.getValue() != null) {
+                requestBuilder.addHeader(header.getKey(), header.getValue());
+            }
+        }
+    }
+
+    private String resolvedUserAgent() {
+        for (Map.Entry<String, String> header : this.headers.entrySet()) {
+            if (header.getKey() != null
+                    && header.getValue() != null
+                    && "User-Agent".equalsIgnoreCase(header.getKey())) {
+                return header.getValue();
+            }
+        }
+        return this.userAgent;
+    }
+
     public static class Builder {
-        private String appId;
-        private String appSecret;
+        private final String appId;
+        private final String appSecret;
         private EventDispatcher eventHandler;
         private Boolean autoReconnect;
         private String domain;
         private Map<String, String> headers;
+        private String source;
+        private Runnable onReconnecting;
+        private Runnable onReconnected;
 
         public Builder(String appId, String appSecret) {
             this.appId = appId;
@@ -464,6 +607,21 @@ public class Client {
                 this.headers = new HashMap<>();
             }
             this.headers.put(key, value);
+            return this;
+        }
+
+        public Builder source(String source) {
+            this.source = source;
+            return this;
+        }
+
+        public Builder onReconnecting(Runnable onReconnecting) {
+            this.onReconnecting = onReconnecting;
+            return this;
+        }
+
+        public Builder onReconnected(Runnable onReconnected) {
+            this.onReconnected = onReconnected;
             return this;
         }
 

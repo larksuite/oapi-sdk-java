@@ -80,6 +80,24 @@
   UserAccessToken")），具体请看 README.zh.md -> 如何构建请求（Request）
 - 更多使用示例，请看[ApiSample.java](sample/src/main/java/com/larksuite/oapi/sample/api/ApiSample.java)
 
+### Channel 与 Agent 接入
+
+SDK 提供 `LarkChannel` 高层会话通道，适用于 AI Agent、机器人、客服助手、知识库问答等会话场景。它把 WebSocket/Webhook 事件接入、消息归一化、安全策略、回复发送、流式输出、资源上传下载、卡片动作和表情反应封装到统一的 Java 入口中。
+
+如果只是偶尔调用开放接口，直接使用 `Client` 即可；如果需要长期监听消息、理解上下文并回写结果，建议使用 Channel 承担连接、归一化、去重、策略拦截和发送细节。
+
+核心入口：
+
+- 使用 `LarkChannelFactory.createLarkChannel(...)` 创建通道。
+- 调用 `connect()` 后再处理入站事件；返回值是 `CompletableFuture<BotIdentity>`，可直接读取机器人身份。
+- 使用 `channel.on("message", handler)`、`channel.on("cardAction", handler)`、`channel.on("reject", handler)` 等事件监听会话。
+- 使用 `send(...)` 回复消息，使用 `stream(...)` 输出流式结果，使用 `downloadResource(...)` 读取图片和文件内容。
+- 使用 `policy(...)` 配置群聊白名单、单聊模式、是否必须 @ 机器人、是否响应 @ 所有人等安全策略。
+- 只有确实需要原始事件字段时再开启 `includeRawEvent(true)`。
+
+- 使用指南：[Java Channel 使用指南](CHANNEL.md)
+- 可运行示例：[ChannelSample.java](sample/src/main/java/com/lark/oapi/sample/channel/ChannelSample.java)
+
 ### 一键创建应用
 
 SDK 提供 `RegisterApp.register(...)` 能力，基于 OAuth 2.0 Device Authorization Grant（RFC 8628）协议实现一键创建应用。
@@ -635,4 +653,3 @@ public static byte[]DownloadFile(String url)throws IOException{
 
 - 飞书：[服务端SDK](https://open.feishu.cn/document/ukTMukTMukTM/uETO1YjLxkTN24SM5UjN)
   页面右上角【这篇文档是否对你有帮助？】提交反馈
-
