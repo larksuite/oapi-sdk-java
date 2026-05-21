@@ -35,3 +35,10 @@ sensitive_info_result.txt
 
 .env
 plan
+.agents
+.claude
+.coco
+.trae
+.trae-cn
+channel-diff-tasks
+skills

@@ -25,7 +25,9 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Base64;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -46,6 +48,7 @@ public class Client {
     private String domain;
     private String serviceId;
     private String connId;
+    private Map<String, String> headers;
     private Integer reconnectNonce;
     private Integer reconnectCount;
     private Integer reconnectInterval;
@@ -60,6 +63,10 @@ public class Client {
         this.eventHandler = builder.eventHandler;
         this.autoReconnect = builder.autoReconnect != null ? builder.autoReconnect : true;
         this.domain = builder.domain != null ? builder.domain : BaseUrlEnum.FeiShu.getUrl();
+        this.headers = new HashMap<>();
+        if (builder.headers != null) {
+            this.headers.putAll(builder.headers);
+        }
         this.reconnectNonce = 30;
         this.reconnectCount = -1;
         this.reconnectInterval = 120;
@@ -192,9 +199,14 @@ public class Client {
 
     private String getConnUrl() throws IOException {
         String body = String.format("{\"AppID\": \"%s\", \"AppSecret\": \"%s\"}", this.appId, this.appSecret);
-        Request request = new Request.Builder()
-                .url(this.domain + GEN_ENDPOINT_URI)
-                .addHeader("locale", "zh")
+        Request.Builder requestBuilder = new Request.Builder().url(this.domain + GEN_ENDPOINT_URI);
+        for (Map.Entry<String, String> header : this.headers.entrySet()) {
+            if (header.getKey() != null && header.getValue() != null) {
+                requestBuilder.addHeader(header.getKey(), header.getValue());
+            }
+        }
+        Request request = requestBuilder
+                .header("locale", "zh")
                 .post(RequestBody.create(MediaType.parse("application/json; charset=utf-8"), body))
                 .build();
         try (Response response = this.httpClient.newCall(request).execute()) {
@@ -420,6 +432,7 @@ public class Client {
         private EventDispatcher eventHandler;
         private Boolean autoReconnect;
         private String domain;
+        private Map<String, String> headers;
 
         public Builder(String appId, String appSecret) {
             this.appId = appId;
@@ -438,6 +451,19 @@ public class Client {
 
         public Builder domain(String domain) {
             this.domain = domain;
+            return this;
+        }
+
+        public Builder headers(Map<String, String> headers) {
+            this.headers = headers;
+            return this;
+        }
+
+        public Builder header(String key, String value) {
+            if (this.headers == null) {
+                this.headers = new HashMap<>();
+            }
+            this.headers.put(key, value);
             return this;
         }
 
