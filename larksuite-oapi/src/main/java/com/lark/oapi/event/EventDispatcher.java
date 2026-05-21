@@ -370,14 +370,6 @@ public class EventDispatcher implements IHandler {
             return new EventDispatcher(this);
         }
 
-        public Builder onCustomEvent(String eventType, CustomEventHandler handler) {
-            if (eventType2EventHandler.containsKey(eventType)) {
-                throw new EventTypeAlreadyHasHandlerException(eventType);
-            }
-            eventType2EventHandler.put(eventType, handler);
-            return this;
-        }
-
         public Builder onP2CardActionTrigger(P2CardActionTriggerHandler handler) {
             if (eventType2CardCallbackHandler.containsKey("card.action.trigger")) {
                 throw new EventTypeAlreadyHasHandlerException("card.action.trigger");
@@ -3431,4 +3423,3 @@ public class EventDispatcher implements IHandler {
     }
 
 }
-

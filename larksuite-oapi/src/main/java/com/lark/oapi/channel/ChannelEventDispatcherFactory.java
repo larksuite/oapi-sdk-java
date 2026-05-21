@@ -64,7 +64,7 @@ final class ChannelEventDispatcherFactory {
                 return response;
             }
         });
-        builder.onCustomEvent("drive.notice.comment_add_v1", new CustomEventHandler() {
+        builder.onCustomizedEvent("drive.notice.comment_add_v1", new CustomEventHandler() {
             @Override
             public void handle(EventReq req) {
                 processor.handleComment(req);
