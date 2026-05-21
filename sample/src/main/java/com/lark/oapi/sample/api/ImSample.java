@@ -139,7 +139,7 @@ public class ImSample {
         CreateMessageReq req = CreateMessageReq.newBuilder()
                 .receiveIdType(ReceiveIdTypeEnum.OPEN_ID.getValue())
                 .createMessageReqBody(CreateMessageReqBody.newBuilder()
-                        .receiveId("ou_e3f3fca5204cdf7552531c84a32f60d1")
+                        .receiveId("ou_e7dae3dd13a73c25142e5776fece7732")
                         .msgType(MsgTypeEnum.MSG_TYPE_TEXT.getValue())
                         .content(MessageText.newBuilder()
                                 .atUser("ou_155184d1e73cbfb8973e5a9e698e74f2", "tom")
@@ -263,7 +263,7 @@ public class ImSample {
                         MessageCardField.newBuilder()
                                 .isShort(true)
                                 .text(MessageCardLarkMd.newBuilder()
-                                        .content("**👤 一级值班：**\n<at id=ou_e3f3fca5204cdf7552531c84a32f60d1>加多</at>")
+                                        .content("**👤 一级值班：**\n<at id=ou_e7dae3dd13a73c25142e5776fece7732>加多</at>")
                                         .build())
                                 .build(),
                         MessageCardField.newBuilder()
@@ -275,7 +275,7 @@ public class ImSample {
                         MessageCardField.newBuilder()
                                 .isShort(true)
                                 .text(MessageCardLarkMd.newBuilder()
-                                        .content("**👤 二级值班：**\n<at id=ou_e3f3fca5204cdf7552531c84a32f60d1>加多</at>")
+                                        .content("**👤 二级值班：**\n<at id=ou_e7dae3dd13a73c25142e5776fece7732>加多</at>")
                                         .build())
                                 .build()
                 })
@@ -397,7 +397,7 @@ public class ImSample {
         CreateMessageReq req = CreateMessageReq.newBuilder()
                 .receiveIdType(ReceiveIdTypeEnum.OPEN_ID.getValue())
                 .createMessageReqBody(CreateMessageReqBody.newBuilder()
-                        .receiveId("ou_e3f3fca5204cdf7552531c84a32f60d1")
+                        .receiveId("ou_e7dae3dd13a73c25142e5776fece7732")
                         .msgType(MsgTypeEnum.MSG_TYPE_INTERACTIVE.getValue())
                         .content(card.String())
                         .build())
@@ -718,7 +718,7 @@ public class ImSample {
 
         // 创建At元素
         MessagePostAt at = MessagePostAt.newBuilder()
-                .userName("ou_e3f3fca5204cdf7552531c84a32f60d1")
+                .userName("ou_e7dae3dd13a73c25142e5776fece7732")
                 .userId("jiaduo")
                 .build();
 
@@ -778,7 +778,7 @@ public class ImSample {
         CreateMessageReq req = CreateMessageReq.newBuilder()
                 .receiveIdType(ReceiveIdTypeEnum.OPEN_ID.getValue())
                 .createMessageReqBody(CreateMessageReqBody.newBuilder()
-                        .receiveId("ou_e3f3fca5204cdf7552531c84a32f60d1")
+                        .receiveId("ou_e7dae3dd13a73c25142e5776fece7732")
                         .msgType(MsgTypeEnum.MSG_TYPE_POST.getValue())
                         .content(postContent)
                         .build())

@@ -536,6 +536,11 @@ public class Client {
             return this;
         }
 
+        public Builder source(String source) {
+            config.setSource(source);
+            return this;
+        }
+
         private void initCache(Config config) {
             if (config.getCache() != null) {
                 GlobalAppTicketManager.setAppTicketManager(new AppTicketManager(config.getCache()));
@@ -622,4 +627,3 @@ public class Client {
         }
     }
 }
-

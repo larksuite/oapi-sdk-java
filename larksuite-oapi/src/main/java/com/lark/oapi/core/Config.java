@@ -36,6 +36,7 @@ public class Config {
     private String appSecret;
     private IHttpTransport httpTransport;
     private boolean logReqAtDebug;
+    private String source;
 
     public Config() {
         this.baseUrl = BaseUrlEnum.FeiShu.getUrl();
@@ -156,6 +157,14 @@ public class Config {
 
     public void setAppSecret(String appSecret) {
         this.appSecret = appSecret;
+    }
+
+    public String getSource() {
+        return source;
+    }
+
+    public void setSource(String source) {
+        this.source = source;
     }
 
 }

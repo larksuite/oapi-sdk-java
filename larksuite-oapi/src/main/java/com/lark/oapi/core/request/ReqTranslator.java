@@ -15,6 +15,7 @@ package com.lark.oapi.core.request;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.Config;
 import com.lark.oapi.core.Constants;
+import com.lark.oapi.core.UserAgent;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
@@ -61,7 +62,7 @@ public class ReqTranslator {
             headers = new HashMap<>();
         }
 
-        headers.put("User-Agent", Lists.newArrayList("oapi-sdk-java/" + Constants.VERSION));
+        headers.put("User-Agent", Lists.newArrayList(UserAgent.build(config.getSource())));
 
         if (Strings.isNotEmpty(requestOptions.getRequestId())) {
             headers.put(Constants.CUSTOM_REQUEST_ID, Lists.newArrayList(requestOptions.getRequestId()));
