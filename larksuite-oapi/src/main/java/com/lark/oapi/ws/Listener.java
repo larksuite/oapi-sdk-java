@@ -82,14 +82,20 @@ public class Listener extends WebSocketListener {
             this.cli.markFailed(e);
             log.error(e.toString());
         } catch (Throwable e) {
-            this.cli.markFailed(e);
             log.error(e.toString());
             if (this.cli.isReconnecting) {
                 return;
             }
             this.cli.disconnect();
             if (this.cli.shouldReconnect()) {
-                this.cli.reconnect();
+                try {
+                    this.cli.reconnect();
+                } catch (Throwable reconnectError) {
+                    this.cli.markFailed(reconnectError);
+                    log.error(reconnectError.toString());
+                }
+            } else {
+                this.cli.markFailed(e);
             }
         }
     }

@@ -25,7 +25,9 @@ import org.slf4j.LoggerFactory;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 import java.util.Random;
 import java.util.concurrent.ExecutorService;
@@ -48,6 +50,7 @@ public class Client {
     private final EventDispatcher eventHandler;
     private final String domain;
     private final String userAgent;
+    private final Map<String, String> headers;
     private String serviceId;
     private String connId;
     private Integer reconnectNonce;
@@ -70,6 +73,10 @@ public class Client {
         this.autoReconnect = builder.autoReconnect != null ? builder.autoReconnect : true;
         this.domain = builder.domain != null ? builder.domain : BaseUrlEnum.FeiShu.getUrl();
         this.userAgent = UserAgent.build(builder.source);
+        this.headers = new HashMap<>();
+        if (builder.headers != null) {
+            this.headers.putAll(builder.headers);
+        }
         this.reconnectNonce = 30;
         this.reconnectCount = -1;
         this.reconnectInterval = 120;
@@ -97,11 +104,23 @@ public class Client {
             log.error(e.toString());
             throw e;
         } catch (Throwable t) {
-            markFailed(t);
             log.error(t.toString());
             this.disconnect();
             if (shouldReconnect()) {
-                this.reconnect();
+                try {
+                    this.reconnect();
+                } catch (Throwable reconnectError) {
+                    markFailed(reconnectError);
+                    if (reconnectError instanceof RuntimeException) {
+                        throw (RuntimeException) reconnectError;
+                    }
+                    if (reconnectError instanceof Error) {
+                        throw (Error) reconnectError;
+                    }
+                    throw new RuntimeException(reconnectError);
+                }
+            } else {
+                markFailed(t);
             }
         }
         startPingLoop();
@@ -190,10 +209,13 @@ public class Client {
                 int nonce = rand.nextInt(this.reconnectNonce * 1000);
                 this.sleep(nonce);
             }
+            if (!shouldReconnect()) {
+                return;
+            }
 
             // 重连
             if (this.reconnectCount >= 0) {
-                for (int i = 0; i < this.reconnectCount; i++) {
+                for (int i = 0; i < this.reconnectCount && shouldReconnect(); i++) {
                     if (this.conn != null) {
                         return;
                     }
@@ -202,10 +224,13 @@ public class Client {
                     }
                     this.sleep(this.reconnectInterval * 1000);
                 }
+                if (!shouldReconnect()) {
+                    return;
+                }
                 throw new ServerUnreachableException(String.format("unable to connect to the server after trying %d times", this.reconnectCount));
             } else {
                 int i = 0;
-                while (true) {
+                while (shouldReconnect()) {
                     if (this.conn != null) {
                         return;
                     }
@@ -222,6 +247,9 @@ public class Client {
     }
 
     private boolean tryConnect(int cnt) {
+        if (!shouldReconnect()) {
+            return false;
+        }
         cnt++;
         String time;
         switch (cnt) {
@@ -253,6 +281,12 @@ public class Client {
     }
 
     protected void markConnected() {
+        if (this.userClosed) {
+            return;
+        }
+        if (this.readyFuture.isCompletedExceptionally()) {
+            this.readyFuture = new CompletableFuture<>();
+        }
         if (Boolean.TRUE.equals(this.isReconnecting) && this.hasEverConnected) {
             safeRun(this.onReconnected);
         }
@@ -274,10 +308,12 @@ public class Client {
 
     private String getConnUrl() throws IOException {
         String body = String.format("{\"AppID\": \"%s\", \"AppSecret\": \"%s\"}", this.appId, this.appSecret);
-        Request request = new Request.Builder()
-                .url(this.domain + GEN_ENDPOINT_URI)
-                .addHeader("locale", "zh")
-                .addHeader("User-Agent", this.userAgent)
+        Request.Builder requestBuilder = new Request.Builder()
+                .url(this.domain + GEN_ENDPOINT_URI);
+        applyHeaders(requestBuilder);
+        Request request = requestBuilder
+                .header("locale", "zh")
+                .header("User-Agent", resolvedUserAgent())
                 .post(RequestBody.create(MediaType.parse("application/json; charset=utf-8"), body))
                 .build();
         try (Response response = this.httpClient.newCall(request).execute()) {
@@ -314,7 +350,7 @@ public class Client {
 
         Request request = new Request.Builder()
                 .url(connUrl)
-                .addHeader("User-Agent", this.userAgent)
+                .header("User-Agent", resolvedUserAgent())
                 .build();
         this.httpClient.newWebSocket(request, new Listener(this));
     }
@@ -511,12 +547,32 @@ public class Client {
         }
     }
 
+    private void applyHeaders(Request.Builder requestBuilder) {
+        for (Map.Entry<String, String> header : this.headers.entrySet()) {
+            if (header.getKey() != null && header.getValue() != null) {
+                requestBuilder.addHeader(header.getKey(), header.getValue());
+            }
+        }
+    }
+
+    private String resolvedUserAgent() {
+        for (Map.Entry<String, String> header : this.headers.entrySet()) {
+            if (header.getKey() != null
+                    && header.getValue() != null
+                    && "User-Agent".equalsIgnoreCase(header.getKey())) {
+                return header.getValue();
+            }
+        }
+        return this.userAgent;
+    }
+
     public static class Builder {
         private final String appId;
         private final String appSecret;
         private EventDispatcher eventHandler;
         private Boolean autoReconnect;
         private String domain;
+        private Map<String, String> headers;
         private String source;
         private Runnable onReconnecting;
         private Runnable onReconnected;
@@ -538,6 +594,19 @@ public class Client {
 
         public Builder domain(String domain) {
             this.domain = domain;
+            return this;
+        }
+
+        public Builder headers(Map<String, String> headers) {
+            this.headers = headers;
+            return this;
+        }
+
+        public Builder header(String key, String value) {
+            if (this.headers == null) {
+                this.headers = new HashMap<>();
+            }
+            this.headers.put(key, value);
             return this;
         }
 
