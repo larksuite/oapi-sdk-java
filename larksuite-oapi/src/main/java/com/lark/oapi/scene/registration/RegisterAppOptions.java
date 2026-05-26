@@ -6,6 +6,7 @@ public class RegisterAppOptions {
     private String source;
     private String domain;
     private String larkDomain;
+    private AppPreset appPreset;
     private Consumer<QRCodeInfo> onQRCode;
     private Consumer<StatusChangeInfo> onStatusChange;
 
@@ -22,6 +23,10 @@ public class RegisterAppOptions {
 
     public String getLarkDomain() {
         return larkDomain;
+    }
+
+    public AppPreset getAppPreset() {
+        return appPreset;
     }
 
     public Consumer<QRCodeInfo> getOnQRCode() {
@@ -51,6 +56,11 @@ public class RegisterAppOptions {
 
         public Builder larkDomain(String larkDomain) {
             options.larkDomain = larkDomain;
+            return this;
+        }
+
+        public Builder appPreset(AppPreset appPreset) {
+            options.appPreset = appPreset;
             return this;
         }
 

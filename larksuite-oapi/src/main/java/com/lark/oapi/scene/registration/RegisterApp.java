@@ -10,6 +10,7 @@ import com.lark.oapi.okhttp.Request;
 import com.lark.oapi.okhttp.Response;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Consumer;
 
@@ -31,6 +32,7 @@ public final class RegisterApp {
     private static final String ERROR_NETWORK = "network_error";
     private static final int DEFAULT_INTERVAL_SECONDS = 5;
     private static final int DEFAULT_EXPIRE_SECONDS = 600;
+    private static final int AVATAR_MAX_COUNT = 6;
 
     private static final OkHttpClient HTTP_CLIENT = new OkHttpClient.Builder()
             .connectTimeout(15, TimeUnit.SECONDS)
@@ -62,7 +64,11 @@ public final class RegisterApp {
 
         int intervalSeconds = beginResponse.interval > 0 ? beginResponse.interval : DEFAULT_INTERVAL_SECONDS;
         int expireSeconds = beginResponse.expire_in > 0 ? beginResponse.expire_in : DEFAULT_EXPIRE_SECONDS;
-        String qrCodeUrl = buildQRCodeUrl(beginResponse.verification_uri_complete, opts.getSource());
+        String qrCodeUrl = buildQRCodeUrl(
+                beginResponse.verification_uri_complete,
+                opts.getSource(),
+                opts.getAppPreset()
+        );
 
         opts.getOnQRCode().accept(new QRCodeInfo(qrCodeUrl, expireSeconds));
 
@@ -156,15 +162,51 @@ public final class RegisterApp {
                 .build();
     }
 
-    private static String buildQRCodeUrl(String verificationUriComplete, String source) throws RegisterAppException {
+    private static String buildQRCodeUrl(String verificationUriComplete, String source, AppPreset appPreset)
+            throws RegisterAppException {
         try {
             HttpUrl.Builder builder = HttpUrl.get(verificationUriComplete).newBuilder();
             builder.setQueryParameter("from", "sdk");
             builder.setQueryParameter("source", Strings.isEmpty(source) ? SDK_NAME : SDK_NAME + "/" + source);
             builder.setQueryParameter("tp", "sdk");
+            applyAppPreset(builder, appPreset);
             return builder.build().toString();
         } catch (IllegalArgumentException e) {
             throw new RegisterAppException(ERROR_INVALID_RESPONSE, "invalid verification url");
+        }
+    }
+
+    private static void applyAppPreset(HttpUrl.Builder builder, AppPreset appPreset) throws RegisterAppException {
+        if (appPreset == null) {
+            return;
+        }
+
+        List<String> avatars = appPreset.getAvatar();
+        if (avatars != null) {
+            if (avatars.isEmpty()) {
+                throw new RegisterAppException(ERROR_INVALID_ARGUMENT,
+                        "appPreset.avatar must contain at least 1 URL");
+            }
+            if (avatars.size() > AVATAR_MAX_COUNT) {
+                throw new RegisterAppException(ERROR_INVALID_ARGUMENT,
+                        "appPreset.avatar supports at most " + AVATAR_MAX_COUNT + " URLs, got " + avatars.size());
+            }
+            for (int i = 0; i < avatars.size(); i++) {
+                String avatar = avatars.get(i);
+                if (Strings.isEmpty(avatar)) {
+                    throw new RegisterAppException(ERROR_INVALID_ARGUMENT,
+                            "appPreset.avatar[" + i + "] must be a non-empty string");
+                }
+                builder.addQueryParameter("avatar", avatar);
+            }
+        }
+
+        if (appPreset.getName() != null) {
+            builder.setQueryParameter("name", appPreset.getName());
+        }
+
+        if (appPreset.getDesc() != null) {
+            builder.setQueryParameter("desc", appPreset.getDesc());
         }
     }
 

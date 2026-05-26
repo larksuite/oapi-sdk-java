@@ -37,6 +37,7 @@ The SDK provides `RegisterApp.register(...)` for one-click app creation based on
 It returns a verification URL that users can open in Feishu/Lark to authorize and automatically register an app, then obtain the app credentials without manually creating one in the developer console.
 
 ```java
+import com.lark.oapi.scene.registration.AppPreset;
 import com.lark.oapi.scene.registration.QRCodeInfo;
 import com.lark.oapi.scene.registration.RegisterApp;
 import com.lark.oapi.scene.registration.RegisterAppException;
@@ -50,6 +51,14 @@ public class Sample {
             RegisterAppResult result = RegisterApp.register(
                     RegisterAppOptions.newBuilder()
                             .source("test")
+                            .appPreset(AppPreset.newBuilder()
+                                    .avatars(
+                                            "https://s1-imfile.feishucdn.com/static-resource/v1/v3_00cj_d6bebede-c56b-40a2-b767-8e9da07f3b3g",
+                                            "https://s1-imfile.feishucdn.com/static-resource/v1/v2_bc5d2075-fcbd-41f8-bfe3-5a5ecbf0f7dg"
+                                    )
+                                    .name("{user}'s app")
+                                    .desc("Created by the business platform")
+                                    .build())
                             .onQRCode(info -> {
                                 System.out.println("Please scan the QR code:");
                                 System.out.println(info.getUrl());
@@ -76,6 +85,7 @@ public class Sample {
 
 Real runnable demo:
 - [RegisterAppRealDemo](larksuite-oapi/src/test/java/com/lark/oapi/scene/registration/RegisterAppRealDemo.java)
+- [RegisterAppAppPresetE2E](sample/src/main/java/com/lark/oapi/sample/scene/registration/RegisterAppAppPresetE2E.java)
 
 ### `RegisterAppOptions` parameters
 
@@ -84,6 +94,10 @@ Real runnable demo:
 | `source` | Source identifier, appended to the QR code URL `source` parameter as `java-sdk/{source}` | `String` | No | - |
 | `domain` | Custom Feishu accounts base URL | `String` | No | `https://accounts.feishu.cn` |
 | `larkDomain` | Custom Lark accounts base URL, used when tenant brand is detected as Lark | `String` | No | `https://accounts.larksuite.com` |
+| `appPreset` | Pre-fill values for the app creation page. All fields are optional; users can still edit them on the page. The SDK URL-encodes raw values automatically. | `AppPreset` | No | - |
+| `appPreset.avatar` | App avatar URL candidates. Supports 1-6 URLs; the first one is selected by default. Page/server handles image rendering rules such as png/jpg/jpeg/webp/gif and GIF frame sampling. | `String` / `String[]` / `List<String>` | No | - |
+| `appPreset.name` | App name. Supports the `{user}` placeholder, replaced by the app creation page with the scanning user's name. | `String` | No | - |
+| `appPreset.desc` | App description. Supports the `{user}` placeholder. | `String` | No | - |
 | `onQRCode` | Callback when the verification URL is ready. Receives `QRCodeInfo` with `url` and `expireIn` | `Consumer<QRCodeInfo>` | Yes | - |
 | `onStatusChange` | Callback on polling status changes. Receives `StatusChangeInfo` | `Consumer<StatusChangeInfo>` | No | - |
 
