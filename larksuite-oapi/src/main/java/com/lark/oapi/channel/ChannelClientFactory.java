@@ -25,6 +25,12 @@ final class ChannelClientFactory {
         if (options.getSource() != null) {
             builder.source(options.getSource());
         }
+        if (options.getClientAssertionProvider() != null) {
+            builder.clientAssertionProvider(options.getClientAssertionProvider());
+        }
+        if (options.getOAuthBaseUrl() != null) {
+            builder.oauthBaseUrl(options.getOAuthBaseUrl());
+        }
         return builder.build();
     }
 
@@ -38,6 +44,7 @@ final class ChannelClientFactory {
         return new com.lark.oapi.ws.Client.Builder(options.getAppId(), options.getAppSecret())
                 .eventHandler(eventDispatcher)
                 .domain(options.getDomain() == null ? BaseUrlEnum.FeiShu.getUrl() : options.getDomain())
+                .clientAssertionProvider(options.getClientAssertionProvider())
                 .source(options.getSource())
                 .onReconnecting(new Runnable() {
                     @Override

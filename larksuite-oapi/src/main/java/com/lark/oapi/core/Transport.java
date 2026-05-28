@@ -14,6 +14,7 @@ package com.lark.oapi.core;
 
 import com.lark.oapi.core.exception.AccessTokenNotGivenException;
 import com.lark.oapi.core.exception.ClientTimeoutException;
+import com.lark.oapi.core.exception.ClientAssertionException;
 import com.lark.oapi.core.exception.IllegalAccessTokenTypeException;
 import com.lark.oapi.core.exception.ServerTimeoutException;
 import com.lark.oapi.core.httpclient.IHttpTransport;
@@ -23,6 +24,7 @@ import com.lark.oapi.core.request.ReqTranslator;
 import com.lark.oapi.core.request.RequestOptions;
 import com.lark.oapi.core.response.RawResponse;
 import com.lark.oapi.core.token.AccessTokenType;
+import com.lark.oapi.core.enums.AppType;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.OKHttps;
 import com.lark.oapi.core.utils.Strings;
@@ -39,7 +41,33 @@ public class Transport {
     private static final ReqTranslator REQ_TRANSLATOR = new ReqTranslator();
 
     private static AccessTokenType determineTokenType(Set<AccessTokenType> accessTokenTypeSet,
-                                                      RequestOptions requestOptions, boolean disableTokenCache) {
+                                                      RequestOptions requestOptions, boolean disableTokenCache,
+                                                      Config config) {
+        if (config.getClientAssertionProvider() != null) {
+            validateTokenType(accessTokenTypeSet, requestOptions);
+
+            if (Strings.isNotEmpty(requestOptions.getUserAccessToken())
+                    && accessTokenTypeSet.contains(AccessTokenType.User)) {
+                return AccessTokenType.User;
+            }
+
+            if (accessTokenTypeSet.contains(AccessTokenType.Tenant)) {
+                return AccessTokenType.Tenant;
+            }
+
+            if (accessTokenTypeSet.contains(AccessTokenType.App)) {
+                throw new ClientAssertionException(
+                        Constants.ERR_CODE_CLIENT_ASSERTION_MODE_NOT_SUPPORTED,
+                        "AppAccessToken APIs are not available in ClientAssertion mode");
+            }
+
+            if (accessTokenTypeSet.contains(AccessTokenType.None)) {
+                return AccessTokenType.None;
+            }
+
+            throw new IllegalAccessTokenTypeException();
+        }
+
         if (accessTokenTypeSet.contains(AccessTokenType.None)) {
             return AccessTokenType.None;
         }
@@ -110,7 +138,21 @@ public class Transport {
             throw new IllegalArgumentException("appId is blank");
         }
 
-        if (Strings.isEmpty(config.getAppSecret())) {
+        if (config.getClientAssertionProvider() != null
+                && config.getAppType() == AppType.MARKETPLACE) {
+            throw new ClientAssertionException(
+                    Constants.ERR_CODE_CLIENT_ASSERTION_PROVIDER_NOT_CONFIGURED,
+                    "ClientAssertion mode is not supported for marketplace apps");
+        }
+
+        boolean hasManualAccessToken =
+                (accessTokenType == AccessTokenType.User && Strings.isNotEmpty(requestOptions.getUserAccessToken()))
+                        || (accessTokenType == AccessTokenType.Tenant && Strings.isNotEmpty(requestOptions.getTenantAccessToken()))
+                        || (accessTokenType == AccessTokenType.App && Strings.isNotEmpty(requestOptions.getAppAccessToken()));
+
+        if (config.getClientAssertionProvider() == null
+                && Strings.isEmpty(config.getAppSecret())
+                && !hasManualAccessToken) {
             throw new IllegalArgumentException("appSecret is blank");
         }
 
@@ -176,7 +218,8 @@ public class Transport {
             // 确定token类型
             AccessTokenType accessTokenType = determineTokenType(accessTokenTypeSet
                     , requestOptions
-                    , config.isDisableTokenCache());
+                    , config.isDisableTokenCache()
+                    , config);
 
             // 参数校验
             validate(config, requestOptions, accessTokenType);
@@ -256,6 +299,11 @@ public class Transport {
                 return rawResponse;
             } catch (Exception e) {
                 error = e;
+                if (e instanceof ClientAssertionException
+                        && ((ClientAssertionException) e).getCode() == Constants.ERR_CODE_CLIENT_ASSERTION_RETRIEVE_FAILED
+                        && i == 0) {
+                    continue;
+                }
                 // 获取token失败，重试一次，其他请求不重试
                 if (accessTokenType != AccessTokenType.None) {
                     throw e;

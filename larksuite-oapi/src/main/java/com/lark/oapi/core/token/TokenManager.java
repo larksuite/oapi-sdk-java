@@ -12,12 +12,18 @@
 
 package com.lark.oapi.core.token;
 
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import com.lark.oapi.core.Config;
 import com.lark.oapi.core.Constants;
 import com.lark.oapi.core.Transport;
+import com.lark.oapi.core.auth.ClientAssertionToken;
+import com.lark.oapi.core.auth.ClientAssertionUtils;
+import com.lark.oapi.core.auth.TargetInfo;
 import com.lark.oapi.core.cache.ICache;
 import com.lark.oapi.core.enums.AppType;
 import com.lark.oapi.core.exception.AppTicketIsEmptyException;
+import com.lark.oapi.core.exception.ClientAssertionException;
 import com.lark.oapi.core.exception.ObtainAccessTokenException;
 import com.lark.oapi.core.request.MarketplaceAppAccessTokenReq;
 import com.lark.oapi.core.request.MarketplaceTenantAccessTokenReq;
@@ -28,10 +34,15 @@ import com.lark.oapi.core.response.RawResponse;
 import com.lark.oapi.core.response.TenantAccessTokenResp;
 import com.lark.oapi.core.utils.Sets;
 import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.utils.Lists;
 import com.lark.oapi.core.utils.UnmarshalRespUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 public class TokenManager {
@@ -51,6 +62,12 @@ public class TokenManager {
     }
 
     public String getAppAccessToken(Config config) throws Exception {
+        if (config.getClientAssertionProvider() != null) {
+            throw new ClientAssertionException(
+                    Constants.ERR_CODE_CLIENT_ASSERTION_PROVIDER_NOT_CONFIGURED,
+                    "AppAccessToken is not available in ClientAssertion mode");
+        }
+
         // 缓存里存在则直接返回
         String token = cache.get(getAppAccessTokenKey(config.getAppId()));
         if (Strings.isNotEmpty(token)) {
@@ -133,6 +150,16 @@ public class TokenManager {
     }
 
     public String getTenantAccessToken(Config config, String tenantKey) throws Exception {
+        if (config.getClientAssertionProvider() != null) {
+            if (!config.isDisableTokenCache()) {
+                String token = cache.get(getTenantAccessTokenKey(config.getAppId(), tenantKey));
+                if (Strings.isNotEmpty(token)) {
+                    return token;
+                }
+            }
+            return getTenantTokenByClientAssertion(config, tenantKey);
+        }
+
         // 缓存中存在，则直接返回
         String token = cache.get(getTenantAccessTokenKey(config.getAppId(), tenantKey));
         if (Strings.isNotEmpty(token)) {
@@ -155,6 +182,110 @@ public class TokenManager {
                     timeOut - expiryDeltaOfSecond, TimeUnit.SECONDS);
         }
         return token;
+    }
+
+    private String getTenantTokenByClientAssertion(Config config, String tenantKey) throws Exception {
+        String oauthBaseUrl = ClientAssertionUtils.resolveOAuthBaseUrl(config);
+        String aud = ClientAssertionUtils.resolveOAuthAud(config);
+        ClientAssertionToken assertionToken;
+        try {
+            assertionToken = config.getClientAssertionProvider().retrieveToken(aud);
+        } catch (Exception e) {
+            throw new ClientAssertionException(
+                    Constants.ERR_CODE_CLIENT_ASSERTION_RETRIEVE_FAILED,
+                    e.getMessage(),
+                    e);
+        }
+
+        if (assertionToken == null || Strings.isEmpty(assertionToken.getValue())) {
+            throw new ClientAssertionException(
+                    Constants.ERR_CODE_CLIENT_ASSERTION_TOKEN_EMPTY,
+                    "client assertion token is empty");
+        }
+
+        String reqUrl = oauthBaseUrl + Constants.OAUTH_TOKEN_URL_PATH;
+        RequestOptions requestOptions = new RequestOptions();
+        TargetInfo targetInfo = assertionToken.getTargetInfo();
+        if (targetInfo != null && Strings.isNotEmpty(targetInfo.getTargetService())) {
+            reqUrl = ClientAssertionUtils.buildProxyUrl(
+                    targetInfo.getTargetService(),
+                    targetInfo.getTargetPrefix(),
+                    Constants.OAUTH_TOKEN_URL_PATH);
+            Map<String, List<String>> headers = new HashMap<>();
+            headers.put(Constants.HEADER_X_TARGET_SERVICE, Lists.newArrayList(aud));
+            requestOptions.setHeaders(headers);
+        }
+
+        Map<String, Object> body = new HashMap<>();
+        body.put("grant_type", Constants.GRANT_TYPE_JWT_BEARER);
+        body.put("client_assertion_type", Constants.CLIENT_ASSERTION_TYPE_JWT_BEARER);
+        body.put("client_assertion", assertionToken.getValue());
+        body.put("client_id", config.getAppId());
+
+        RawResponse resp = Transport.send(config
+                , requestOptions, "POST"
+                , reqUrl
+                , Sets.newHashSet(AccessTokenType.None), body);
+
+        JsonObject respBody = parseBody(resp);
+        String token = getString(respBody, "access_token");
+        if (Strings.isEmpty(token)) {
+            throw new ClientAssertionException(getErrorCode(resp, respBody), getErrorMessage(respBody));
+        }
+
+        int expiresIn = getInt(respBody, "expires_in");
+        if (!config.isDisableTokenCache()) {
+            cache.set(getTenantAccessTokenKey(config.getAppId(), tenantKey), token,
+                    Math.max(expiresIn - expiryDeltaOfSecond, 0), TimeUnit.SECONDS);
+        }
+        return token;
+    }
+
+    private JsonObject parseBody(RawResponse resp) {
+        if (resp.getBody() == null || resp.getBody().length == 0) {
+            return new JsonObject();
+        }
+        return JsonParser.parseString(new String(resp.getBody(), StandardCharsets.UTF_8)).getAsJsonObject();
+    }
+
+    private String getString(JsonObject jsonObject, String key) {
+        if (jsonObject == null || !jsonObject.has(key) || jsonObject.get(key).isJsonNull()) {
+            return "";
+        }
+        return jsonObject.get(key).getAsString();
+    }
+
+    private int getInt(JsonObject jsonObject, String key) {
+        if (jsonObject == null || !jsonObject.has(key) || jsonObject.get(key).isJsonNull()) {
+            return 0;
+        }
+        return jsonObject.get(key).getAsInt();
+    }
+
+    private int getErrorCode(RawResponse resp, JsonObject jsonObject) {
+        if (jsonObject != null && jsonObject.has("code") && !jsonObject.get("code").isJsonNull()) {
+            return jsonObject.get("code").getAsInt();
+        }
+        if (resp.getStatusCode() != 0) {
+            return resp.getStatusCode();
+        }
+        return Constants.ERR_CODE_CLIENT_ASSERTION_RETRIEVE_FAILED;
+    }
+
+    private String getErrorMessage(JsonObject jsonObject) {
+        String description = getString(jsonObject, "error_description");
+        if (Strings.isNotEmpty(description)) {
+            return description;
+        }
+        String msg = getString(jsonObject, "msg");
+        if (Strings.isNotEmpty(msg)) {
+            return msg;
+        }
+        String error = getString(jsonObject, "error");
+        if (Strings.isNotEmpty(error)) {
+            return error;
+        }
+        return "obtain tenant access token by client assertion failure";
     }
 
     // get internal tenant access token

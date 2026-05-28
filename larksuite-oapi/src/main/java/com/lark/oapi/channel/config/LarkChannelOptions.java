@@ -1,5 +1,6 @@
 package com.lark.oapi.channel.config;
 
+import com.lark.oapi.core.auth.ClientAssertionProvider;
 import com.lark.oapi.core.cache.ICache;
 import com.lark.oapi.core.httpclient.IHttpTransport;
 import com.lark.oapi.core.request.RequestOptions;
@@ -27,6 +28,8 @@ public class LarkChannelOptions {
     private final RequestOptions httpInstance;
     private final String source;
     private final boolean includeRawInMessage;
+    private final ClientAssertionProvider clientAssertionProvider;
+    private final String oauthBaseUrl;
 
     private LarkChannelOptions(Builder builder) {
         this.appId = builder.appId;
@@ -42,6 +45,8 @@ public class LarkChannelOptions {
         this.httpInstance = builder.httpInstance;
         this.source = builder.source;
         this.includeRawInMessage = builder.includeRawInMessage;
+        this.clientAssertionProvider = builder.clientAssertionProvider;
+        this.oauthBaseUrl = builder.oauthBaseUrl;
     }
 
     public static Builder newBuilder(String appId, String appSecret) {
@@ -60,6 +65,8 @@ public class LarkChannelOptions {
     public IHttpTransport getHttpTransport() { return httpTransport; }
     public RequestOptions getHttpInstance() { return httpInstance; }
     public String getSource() { return source; }
+    public ClientAssertionProvider getClientAssertionProvider() { return clientAssertionProvider; }
+    public String getOAuthBaseUrl() { return oauthBaseUrl; }
     /**
      * Whether normalized events should carry the original Feishu event body.
      *
@@ -90,6 +97,8 @@ public class LarkChannelOptions {
         private RequestOptions httpInstance;
         private String source;
         private boolean includeRawInMessage;
+        private ClientAssertionProvider clientAssertionProvider;
+        private String oauthBaseUrl;
 
         private Builder(String appId, String appSecret) {
             this.appId = appId;
@@ -110,6 +119,8 @@ public class LarkChannelOptions {
         public Builder httpTransport(IHttpTransport httpTransport) { this.httpTransport = httpTransport; return this; }
         public Builder httpInstance(RequestOptions httpInstance) { this.httpInstance = httpInstance; return this; }
         public Builder source(String source) { this.source = source; return this; }
+        public Builder clientAssertionProvider(ClientAssertionProvider clientAssertionProvider) { this.clientAssertionProvider = clientAssertionProvider; return this; }
+        public Builder oauthBaseUrl(String oauthBaseUrl) { this.oauthBaseUrl = oauthBaseUrl; return this; }
 
         /**
          * Attach the raw Feishu event body to normalized events. Useful when a

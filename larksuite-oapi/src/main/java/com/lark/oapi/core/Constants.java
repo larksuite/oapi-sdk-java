@@ -40,6 +40,17 @@ public interface Constants {
     String APP_ACCESS_TOKEN_ISV_URL_PATH = "/open-apis/auth/v3/app_access_token";
     String TENANT_ACCESS_TOKEN_INTERNAL_URL_PATH = "/open-apis/auth/v3/tenant_access_token/internal";
     String TENANT_ACCESS_TOKEN_ISV_URL_PATH = "/open-apis/auth/v3/tenant_access_token";
+    String OAUTH_TOKEN_URL_PATH = "/oauth/v3/token";
+    String GRANT_TYPE_AUTHORIZATION_CODE = "authorization_code";
+    String GRANT_TYPE_REFRESH_TOKEN = "refresh_token";
+    String GRANT_TYPE_JWT_BEARER = "urn:ietf:params:oauth:grant-type:jwt-bearer";
+    String CLIENT_ASSERTION_TYPE_JWT_BEARER = "urn:ietf:params:oauth:client-assertion-type:jwt-bearer";
+    String HEADER_X_TARGET_SERVICE = "X-Target-Service";
+    int ERR_CODE_CLIENT_ASSERTION_PROVIDER_NOT_CONFIGURED = 7100;
+    int ERR_CODE_CLIENT_ASSERTION_TOKEN_EMPTY = 7101;
+    int ERR_CODE_CLIENT_ASSERTION_RETRIEVE_FAILED = 7102;
+    int ERR_CODE_CLIENT_ASSERTION_MODE_NOT_SUPPORTED = 7103;
+    int ERR_CODE_APP_SECRET_AND_CLIENT_ASSERTION_EMPTY = 7104;
     String APPLY_APP_TICKET_PATH = "/open-apis/auth/v3/app_ticket/resend";
     String GET_AUTHEN_ACCESS_TOKEN = "/open-apis/authen/v1/access_token";
     String REFRESH_AUTHEN_ACCESS_TOKEN = "/open-apis/authen/v1/refresh_access_token";
