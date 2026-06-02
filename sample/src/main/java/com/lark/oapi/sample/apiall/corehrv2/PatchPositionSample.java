@@ -38,6 +38,7 @@ public class PatchPositionSample {
                         .isKeyPosition(true)
                         .effectiveTime("2020-05-01")
                         .customFields(new CustomFieldData[]{})
+                        .isPreferManualEncoding(false)
                         .build())
                 .build();
 

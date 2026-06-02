@@ -9,11 +9,6 @@ import java.util.Map;
  * streams start from an initial card JSON object and progressively patch it.
  */
 public class StreamInput {
-    /** Supported streaming modes. */
-    public enum Kind {
-        MARKDOWN, CARD
-    }
-
     private final Kind kind;
     private final MarkdownStreamProducer markdownProducer;
     private final Map<String, Object> initialCard;
@@ -55,5 +50,12 @@ public class StreamInput {
 
     public CardStreamProducer getCardProducer() {
         return cardProducer;
+    }
+
+    /**
+     * Supported streaming modes.
+     */
+    public enum Kind {
+        MARKDOWN, CARD
     }
 }

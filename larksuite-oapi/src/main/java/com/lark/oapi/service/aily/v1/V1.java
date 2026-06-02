@@ -14,7 +14,14 @@
 package com.lark.oapi.service.aily.v1;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.service.aily.v1.resource.*;
+import com.lark.oapi.service.aily.v1.resource.AilySession;
+import com.lark.oapi.service.aily.v1.resource.AilySessionAilyMessage;
+import com.lark.oapi.service.aily.v1.resource.AilySessionRun;
+import com.lark.oapi.service.aily.v1.resource.AppDataAsset;
+import com.lark.oapi.service.aily.v1.resource.AppDataAssetTag;
+import com.lark.oapi.service.aily.v1.resource.AppKnowledge;
+import com.lark.oapi.service.aily.v1.resource.AppSkill;
+import com.lark.oapi.service.aily.v1.resource.TenantAppStat;
 
 public class V1 {
     private final AilySession ailySession; // aily_session
@@ -24,6 +31,7 @@ public class V1 {
     private final AppDataAssetTag appDataAssetTag; // app.data_asset_tag
     private final AppKnowledge appKnowledge; // app.knowledge
     private final AppSkill appSkill; // app.skill
+    private final TenantAppStat tenantAppStat; // tenant.app_stat
 
     public V1(Config config) {
         this.ailySession = new AilySession(config);
@@ -33,6 +41,7 @@ public class V1 {
         this.appDataAssetTag = new AppDataAssetTag(config);
         this.appKnowledge = new AppKnowledge(config);
         this.appSkill = new AppSkill(config);
+        this.tenantAppStat = new TenantAppStat(config);
     }
 
     public AilySession ailySession() {
@@ -61,5 +70,9 @@ public class V1 {
 
     public AppSkill appSkill() {
         return appSkill;
+    }
+
+    public TenantAppStat tenantAppStat() {
+        return tenantAppStat;
     }
 }

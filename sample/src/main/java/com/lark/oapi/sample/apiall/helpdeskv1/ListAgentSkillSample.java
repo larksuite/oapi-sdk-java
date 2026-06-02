@@ -16,7 +16,7 @@ public class ListAgentSkillSample {
         // 创建请求对象
 
         // 发起请求
-        ListAgentSkillResp resp = client.helpdesk().agentSkill().list();
+        ListAgentSkillResp resp = client.helpdesk().v1().agentSkill().list();
 
         // 处理服务端错误
         if (!resp.success()) {

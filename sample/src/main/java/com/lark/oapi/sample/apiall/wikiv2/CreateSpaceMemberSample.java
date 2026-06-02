@@ -21,6 +21,7 @@ public class CreateSpaceMemberSample {
                         .memberType("openid")
                         .memberId("ou_67e5ecb64ce1c0bd94612c17999db411")
                         .memberRole("admin")
+                        .memberPerm("admin")
                         .build())
                 .build();
 

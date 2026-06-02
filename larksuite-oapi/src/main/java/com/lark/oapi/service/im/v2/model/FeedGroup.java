@@ -52,7 +52,7 @@ public class FeedGroup {
      * <p> 示例值：
      */
     @SerializedName("rules")
-    private FeedGroupRules rules;
+    private FeedGroupRulesV2 rules;
 
     // builder 开始
     public FeedGroup() {
@@ -109,11 +109,11 @@ public class FeedGroup {
         this.name = name;
     }
 
-    public FeedGroupRules getRules() {
+    public FeedGroupRulesV2 getRules() {
         return this.rules;
     }
 
-    public void setRules(FeedGroupRules rules) {
+    public void setRules(FeedGroupRulesV2 rules) {
         this.rules = rules;
     }
 
@@ -137,7 +137,7 @@ public class FeedGroup {
          * 标签规则
          * <p> 示例值：
          */
-        private FeedGroupRules rules;
+        private FeedGroupRulesV2 rules;
 
         /**
          * 标签 ID
@@ -168,10 +168,10 @@ public class FeedGroup {
          * 标签类型
          * <p> 示例值：normal
          *
-         * @param type {@link com.lark.oapi.service.im.v2.enums.FeedGroupTypeEnum}
+         * @param type {@link com.lark.oapi.service.im.v2.enums.FeedGroupFeedGroupTypeEnum}
          * @return
          */
-        public Builder type(com.lark.oapi.service.im.v2.enums.FeedGroupTypeEnum type) {
+        public Builder type(com.lark.oapi.service.im.v2.enums.FeedGroupFeedGroupTypeEnum type) {
             this.type = type.getValue();
             return this;
         }
@@ -197,7 +197,7 @@ public class FeedGroup {
          * @param rules
          * @return
          */
-        public Builder rules(FeedGroupRules rules) {
+        public Builder rules(FeedGroupRulesV2 rules) {
             this.rules = rules;
             return this;
         }

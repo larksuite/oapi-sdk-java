@@ -89,6 +89,72 @@ public class ProfileSettingDependent {
      */
     @SerializedName("address")
     private ProfileSettingAddress address;
+    /**
+     * 变更原因
+     * <p> 示例值：new_joiner
+     */
+    @SerializedName("reason")
+    private String reason;
+    /**
+     * 变更日期
+     * <p> 示例值：2020-01-01
+     */
+    @SerializedName("modify_date")
+    private String modifyDate;
+    /**
+     * Visa 列表
+     * <p> 示例值：
+     */
+    @SerializedName("visas")
+    private ProfileSettingVisa[] visas;
+    /**
+     * Passport 列表
+     * <p> 示例值：
+     */
+    @SerializedName("passports")
+    private ProfileSettingPassport[] passports;
+    /**
+     * 居民身份列表
+     * <p> 示例值：
+     */
+    @SerializedName("citizenship_statuses")
+    private ProfileSettingCitizenshipStatus[] citizenshipStatuses;
+    /**
+     * 国家证件列表
+     * <p> 示例值：
+     */
+    @SerializedName("national_ids")
+    private ProfileSettingNational[] nationalIds;
+    /**
+     * 国籍ID
+     * <p> 示例值：6862995757234914826
+     */
+    @SerializedName("nationality_v2")
+    private String nationalityV2;
+    /**
+     * 配偶工作状态
+     * <p> 示例值：working
+     */
+    @SerializedName("spouses_working_status")
+    private String spousesWorkingStatus;
+    /**
+     * 包含家属医疗保险
+     * <p> 示例值：true
+     */
+    @SerializedName("is_this_person_covered_by_health_insurance")
+    private Boolean isThisPersonCoveredByHealthInsurance;
+    /**
+     * 允许家属抵扣税款
+     * <p> 示例值：false
+     */
+    @SerializedName("is_this_person_allowed_for_tax_deduction")
+    private Boolean isThisPersonAllowedForTaxDeduction;
+    /**
+     * 法定姓名
+     * <p> 示例值：
+     */
+    @SerializedName("name")
+    private ProfileSettingName name;
 
     // builder 开始
     public ProfileSettingDependent() {
@@ -145,6 +211,61 @@ public class ProfileSettingDependent {
          * <p> 示例值：
          */
         this.address = builder.address;
+        /**
+         * 变更原因
+         * <p> 示例值：new_joiner
+         */
+        this.reason = builder.reason;
+        /**
+         * 变更日期
+         * <p> 示例值：2020-01-01
+         */
+        this.modifyDate = builder.modifyDate;
+        /**
+         * Visa 列表
+         * <p> 示例值：
+         */
+        this.visas = builder.visas;
+        /**
+         * Passport 列表
+         * <p> 示例值：
+         */
+        this.passports = builder.passports;
+        /**
+         * 居民身份列表
+         * <p> 示例值：
+         */
+        this.citizenshipStatuses = builder.citizenshipStatuses;
+        /**
+         * 国家证件列表
+         * <p> 示例值：
+         */
+        this.nationalIds = builder.nationalIds;
+        /**
+         * 国籍ID
+         * <p> 示例值：6862995757234914826
+         */
+        this.nationalityV2 = builder.nationalityV2;
+        /**
+         * 配偶工作状态
+         * <p> 示例值：working
+         */
+        this.spousesWorkingStatus = builder.spousesWorkingStatus;
+        /**
+         * 包含家属医疗保险
+         * <p> 示例值：true
+         */
+        this.isThisPersonCoveredByHealthInsurance = builder.isThisPersonCoveredByHealthInsurance;
+        /**
+         * 允许家属抵扣税款
+         * <p> 示例值：false
+         */
+        this.isThisPersonAllowedForTaxDeduction = builder.isThisPersonAllowedForTaxDeduction;
+        /**
+         * 法定姓名
+         * <p> 示例值：
+         */
+        this.name = builder.name;
     }
 
     public static Builder newBuilder() {
@@ -231,6 +352,94 @@ public class ProfileSettingDependent {
         this.address = address;
     }
 
+    public String getReason() {
+        return this.reason;
+    }
+
+    public void setReason(String reason) {
+        this.reason = reason;
+    }
+
+    public String getModifyDate() {
+        return this.modifyDate;
+    }
+
+    public void setModifyDate(String modifyDate) {
+        this.modifyDate = modifyDate;
+    }
+
+    public ProfileSettingVisa[] getVisas() {
+        return this.visas;
+    }
+
+    public void setVisas(ProfileSettingVisa[] visas) {
+        this.visas = visas;
+    }
+
+    public ProfileSettingPassport[] getPassports() {
+        return this.passports;
+    }
+
+    public void setPassports(ProfileSettingPassport[] passports) {
+        this.passports = passports;
+    }
+
+    public ProfileSettingCitizenshipStatus[] getCitizenshipStatuses() {
+        return this.citizenshipStatuses;
+    }
+
+    public void setCitizenshipStatuses(ProfileSettingCitizenshipStatus[] citizenshipStatuses) {
+        this.citizenshipStatuses = citizenshipStatuses;
+    }
+
+    public ProfileSettingNational[] getNationalIds() {
+        return this.nationalIds;
+    }
+
+    public void setNationalIds(ProfileSettingNational[] nationalIds) {
+        this.nationalIds = nationalIds;
+    }
+
+    public String getNationalityV2() {
+        return this.nationalityV2;
+    }
+
+    public void setNationalityV2(String nationalityV2) {
+        this.nationalityV2 = nationalityV2;
+    }
+
+    public String getSpousesWorkingStatus() {
+        return this.spousesWorkingStatus;
+    }
+
+    public void setSpousesWorkingStatus(String spousesWorkingStatus) {
+        this.spousesWorkingStatus = spousesWorkingStatus;
+    }
+
+    public Boolean getIsThisPersonCoveredByHealthInsurance() {
+        return this.isThisPersonCoveredByHealthInsurance;
+    }
+
+    public void setIsThisPersonCoveredByHealthInsurance(Boolean isThisPersonCoveredByHealthInsurance) {
+        this.isThisPersonCoveredByHealthInsurance = isThisPersonCoveredByHealthInsurance;
+    }
+
+    public Boolean getIsThisPersonAllowedForTaxDeduction() {
+        return this.isThisPersonAllowedForTaxDeduction;
+    }
+
+    public void setIsThisPersonAllowedForTaxDeduction(Boolean isThisPersonAllowedForTaxDeduction) {
+        this.isThisPersonAllowedForTaxDeduction = isThisPersonAllowedForTaxDeduction;
+    }
+
+    public ProfileSettingName getName() {
+        return this.name;
+    }
+
+    public void setName(ProfileSettingName name) {
+        this.name = name;
+    }
+
     public static class Builder {
         /**
          * 姓名
@@ -282,6 +491,61 @@ public class ProfileSettingDependent {
          * <p> 示例值：
          */
         private ProfileSettingAddress address;
+        /**
+         * 变更原因
+         * <p> 示例值：new_joiner
+         */
+        private String reason;
+        /**
+         * 变更日期
+         * <p> 示例值：2020-01-01
+         */
+        private String modifyDate;
+        /**
+         * Visa 列表
+         * <p> 示例值：
+         */
+        private ProfileSettingVisa[] visas;
+        /**
+         * Passport 列表
+         * <p> 示例值：
+         */
+        private ProfileSettingPassport[] passports;
+        /**
+         * 居民身份列表
+         * <p> 示例值：
+         */
+        private ProfileSettingCitizenshipStatus[] citizenshipStatuses;
+        /**
+         * 国家证件列表
+         * <p> 示例值：
+         */
+        private ProfileSettingNational[] nationalIds;
+        /**
+         * 国籍ID
+         * <p> 示例值：6862995757234914826
+         */
+        private String nationalityV2;
+        /**
+         * 配偶工作状态
+         * <p> 示例值：working
+         */
+        private String spousesWorkingStatus;
+        /**
+         * 包含家属医疗保险
+         * <p> 示例值：true
+         */
+        private Boolean isThisPersonCoveredByHealthInsurance;
+        /**
+         * 允许家属抵扣税款
+         * <p> 示例值：false
+         */
+        private Boolean isThisPersonAllowedForTaxDeduction;
+        /**
+         * 法定姓名
+         * <p> 示例值：
+         */
+        private ProfileSettingName name;
 
         /**
          * 姓名
@@ -409,6 +673,149 @@ public class ProfileSettingDependent {
          */
         public Builder address(ProfileSettingAddress address) {
             this.address = address;
+            return this;
+        }
+
+
+        /**
+         * 变更原因
+         * <p> 示例值：new_joiner
+         *
+         * @param reason
+         * @return
+         */
+        public Builder reason(String reason) {
+            this.reason = reason;
+            return this;
+        }
+
+
+        /**
+         * 变更日期
+         * <p> 示例值：2020-01-01
+         *
+         * @param modifyDate
+         * @return
+         */
+        public Builder modifyDate(String modifyDate) {
+            this.modifyDate = modifyDate;
+            return this;
+        }
+
+
+        /**
+         * Visa 列表
+         * <p> 示例值：
+         *
+         * @param visas
+         * @return
+         */
+        public Builder visas(ProfileSettingVisa[] visas) {
+            this.visas = visas;
+            return this;
+        }
+
+
+        /**
+         * Passport 列表
+         * <p> 示例值：
+         *
+         * @param passports
+         * @return
+         */
+        public Builder passports(ProfileSettingPassport[] passports) {
+            this.passports = passports;
+            return this;
+        }
+
+
+        /**
+         * 居民身份列表
+         * <p> 示例值：
+         *
+         * @param citizenshipStatuses
+         * @return
+         */
+        public Builder citizenshipStatuses(ProfileSettingCitizenshipStatus[] citizenshipStatuses) {
+            this.citizenshipStatuses = citizenshipStatuses;
+            return this;
+        }
+
+
+        /**
+         * 国家证件列表
+         * <p> 示例值：
+         *
+         * @param nationalIds
+         * @return
+         */
+        public Builder nationalIds(ProfileSettingNational[] nationalIds) {
+            this.nationalIds = nationalIds;
+            return this;
+        }
+
+
+        /**
+         * 国籍ID
+         * <p> 示例值：6862995757234914826
+         *
+         * @param nationalityV2
+         * @return
+         */
+        public Builder nationalityV2(String nationalityV2) {
+            this.nationalityV2 = nationalityV2;
+            return this;
+        }
+
+
+        /**
+         * 配偶工作状态
+         * <p> 示例值：working
+         *
+         * @param spousesWorkingStatus
+         * @return
+         */
+        public Builder spousesWorkingStatus(String spousesWorkingStatus) {
+            this.spousesWorkingStatus = spousesWorkingStatus;
+            return this;
+        }
+
+
+        /**
+         * 包含家属医疗保险
+         * <p> 示例值：true
+         *
+         * @param isThisPersonCoveredByHealthInsurance
+         * @return
+         */
+        public Builder isThisPersonCoveredByHealthInsurance(Boolean isThisPersonCoveredByHealthInsurance) {
+            this.isThisPersonCoveredByHealthInsurance = isThisPersonCoveredByHealthInsurance;
+            return this;
+        }
+
+
+        /**
+         * 允许家属抵扣税款
+         * <p> 示例值：false
+         *
+         * @param isThisPersonAllowedForTaxDeduction
+         * @return
+         */
+        public Builder isThisPersonAllowedForTaxDeduction(Boolean isThisPersonAllowedForTaxDeduction) {
+            this.isThisPersonAllowedForTaxDeduction = isThisPersonAllowedForTaxDeduction;
+            return this;
+        }
+
+
+        /**
+         * 法定姓名
+         * <p> 示例值：
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(ProfileSettingName name) {
+            this.name = name;
             return this;
         }
 

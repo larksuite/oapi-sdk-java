@@ -118,7 +118,7 @@ public class KaCardTemplateOld {
          */
         this.name = builder.name;
         /**
-         *  扩展字段
+         * 扩展字段
          * <p> 示例值：{}
          */
         this.bizExt = builder.bizExt;

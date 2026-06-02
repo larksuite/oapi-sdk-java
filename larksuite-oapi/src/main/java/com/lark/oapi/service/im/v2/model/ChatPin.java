@@ -301,10 +301,10 @@ public class ChatPin {
          * 置顶类型
          * <p> 示例值：message_pin
          *
-         * @param chatPinType {@link com.lark.oapi.service.im.v2.enums.ChatPinChatPinTypeEnum}
+         * @param chatPinType {@link com.lark.oapi.service.im.v2.enums.ChatPinChatPinTypeV1Enum}
          * @return
          */
-        public Builder chatPinType(com.lark.oapi.service.im.v2.enums.ChatPinChatPinTypeEnum chatPinType) {
+        public Builder chatPinType(com.lark.oapi.service.im.v2.enums.ChatPinChatPinTypeV1Enum chatPinType) {
             this.chatPinType = chatPinType.getValue();
             return this;
         }

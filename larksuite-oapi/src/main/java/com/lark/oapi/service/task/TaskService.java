@@ -91,4 +91,11 @@ public class TaskService {
             return new P2TaskCommentUpdatedV1();
         }
     }
+
+    public abstract static class P2TaskUpdateUserAccessV2Handler implements IEventHandler<P2TaskUpdateUserAccessV2> {
+        @Override
+        public P2TaskUpdateUserAccessV2 getEvent() {
+            return new P2TaskUpdateUserAccessV2();
+        }
+    }
 }

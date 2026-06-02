@@ -112,10 +112,10 @@ public class BatchOpenSystemStatusReq {
          * 用户id类型 open_id/user_id/union_id
          * <p> 示例值：open_id
          *
-         * @param userIdType {@link com.lark.oapi.service.personal_settings.v1.enums.BatchOpenSystemStatusUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.personal_settings.v1.enums.BatchOpenSystemStatusBatchOpenSystemStatusUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.personal_settings.v1.enums.BatchOpenSystemStatusUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.personal_settings.v1.enums.BatchOpenSystemStatusBatchOpenSystemStatusUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }

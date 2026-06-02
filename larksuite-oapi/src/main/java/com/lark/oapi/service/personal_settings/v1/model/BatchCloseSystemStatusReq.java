@@ -112,10 +112,10 @@ public class BatchCloseSystemStatusReq {
          * 用户id类型 open_id/user_id/union_id
          * <p> 示例值：open_id
          *
-         * @param userIdType {@link com.lark.oapi.service.personal_settings.v1.enums.BatchCloseSystemStatusUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.personal_settings.v1.enums.BatchCloseSystemStatusBatchCloseSystemStatusUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.personal_settings.v1.enums.BatchCloseSystemStatusUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.personal_settings.v1.enums.BatchCloseSystemStatusBatchCloseSystemStatusUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }

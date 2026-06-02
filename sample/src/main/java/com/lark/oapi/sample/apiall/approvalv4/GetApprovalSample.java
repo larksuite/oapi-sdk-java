@@ -21,6 +21,7 @@ public class GetApprovalSample {
                 .userIdType("user_id")
                 .withOption(false)
                 .userId("ou_7a4aaac5650dc0b77e85e96e7476ff1d")
+                .nestedMutableGroup(false)
                 .build();
 
         // 发起请求

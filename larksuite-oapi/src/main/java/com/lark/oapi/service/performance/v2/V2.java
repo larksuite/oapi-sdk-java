@@ -14,7 +14,22 @@
 package com.lark.oapi.service.performance.v2;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.service.performance.v2.resource.*;
+import com.lark.oapi.service.performance.v2.resource.Activity;
+import com.lark.oapi.service.performance.v2.resource.AdditionalInformation;
+import com.lark.oapi.service.performance.v2.resource.AdditionalInformationsBatch;
+import com.lark.oapi.service.performance.v2.resource.Indicator;
+import com.lark.oapi.service.performance.v2.resource.MetricDetail;
+import com.lark.oapi.service.performance.v2.resource.MetricField;
+import com.lark.oapi.service.performance.v2.resource.MetricLib;
+import com.lark.oapi.service.performance.v2.resource.MetricTag;
+import com.lark.oapi.service.performance.v2.resource.MetricTemplate;
+import com.lark.oapi.service.performance.v2.resource.Question;
+import com.lark.oapi.service.performance.v2.resource.ReviewData;
+import com.lark.oapi.service.performance.v2.resource.ReviewTemplate;
+import com.lark.oapi.service.performance.v2.resource.Reviewee;
+import com.lark.oapi.service.performance.v2.resource.StageTask;
+import com.lark.oapi.service.performance.v2.resource.UserGroupUserRel;
+import com.lark.oapi.service.performance.v2.resource.UserInfo;
 
 public class V2 {
     private final Activity activity; // activity

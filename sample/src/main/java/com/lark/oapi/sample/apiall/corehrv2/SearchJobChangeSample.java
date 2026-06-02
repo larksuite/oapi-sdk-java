@@ -33,6 +33,9 @@ public class SearchJobChangeSample {
                         .transferTypeUniqueIdentifier(new String[]{})
                         .transferReasonUniqueIdentifier(new String[]{})
                         .exceptionStatuses(new String[]{})
+                        .originalDepartmentIds(new String[]{})
+                        .employmentDepartmentIds(new String[]{})
+                        .selectFields(new String[]{})
                         .build())
                 .build();
 

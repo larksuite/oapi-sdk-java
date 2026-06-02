@@ -34,7 +34,7 @@ public class BatchCreatePermissionMemberReqBody {
      * <p> 示例值：
      */
     @SerializedName("members")
-    private BaseMember[] members;
+    private Member[] members;
 
     // builder 开始
     public BatchCreatePermissionMemberReqBody() {
@@ -52,11 +52,11 @@ public class BatchCreatePermissionMemberReqBody {
         return new Builder();
     }
 
-    public BaseMember[] getMembers() {
+    public Member[] getMembers() {
         return this.members;
     }
 
-    public void setMembers(BaseMember[] members) {
+    public void setMembers(Member[] members) {
         this.members = members;
     }
 
@@ -65,7 +65,7 @@ public class BatchCreatePermissionMemberReqBody {
          * 协作者列表
          * <p> 示例值：
          */
-        private BaseMember[] members;
+        private Member[] members;
 
         /**
          * 协作者列表
@@ -74,7 +74,7 @@ public class BatchCreatePermissionMemberReqBody {
          * @param members
          * @return
          */
-        public Builder members(BaseMember[] members) {
+        public Builder members(Member[] members) {
             this.members = members;
             return this;
         }

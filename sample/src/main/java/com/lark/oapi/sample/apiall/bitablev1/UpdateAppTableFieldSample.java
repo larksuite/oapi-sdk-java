@@ -18,12 +18,15 @@ public class UpdateAppTableFieldSample {
                 .appToken("appbcbWCzen6D8dezhoCH2RpMAh")
                 .tableId("tblsRc9GRRXKqhvW")
                 .fieldId("fldPTb0U2y")
+                .clientToken("")
                 .appTableField(AppTableField.newBuilder()
                         .fieldName("字段名称")
                         .type(0)
                         .property(AppTableFieldProperty.newBuilder().build())
                         .description(AppTableFieldDescription.newBuilder().build())
+                        .isPrimary(true)
                         .uiType("Progress")
+                        .isHidden(false)
                         .build())
                 .build();
 

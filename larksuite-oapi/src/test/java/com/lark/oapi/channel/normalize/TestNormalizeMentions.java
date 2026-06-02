@@ -7,7 +7,7 @@ import org.junit.Test;
 public class TestNormalizeMentions {
     @Test
     public void testExtractMentionsDetectsBotAndAll() {
-        MentionState state = Mentions.extract(new com.lark.oapi.service.im.v1.model.MentionEvent[] {
+        MentionState state = Mentions.extract(new com.lark.oapi.service.im.v1.model.MentionEvent[]{
                 NormalizeTestSupport.mention("@_user_1", "ou_alice", "Alice"),
                 NormalizeTestSupport.mention("@_bot", "ou_bot", "Bot"),
                 com.lark.oapi.service.im.v1.model.MentionEvent.newBuilder().key("@_all").name("所有人").build()
@@ -31,7 +31,7 @@ public class TestNormalizeMentions {
                                 .build())
                         .build();
 
-        MentionState state = Mentions.extract(new com.lark.oapi.service.im.v1.model.MentionEvent[] {event},
+        MentionState state = Mentions.extract(new com.lark.oapi.service.im.v1.model.MentionEvent[]{event},
                 "{\"text\":\"ou_bot appears as plain text\"}", new BotIdentity("ou_bot", "Bot"));
 
         Assert.assertEquals("u_alice", state.getMentions().get(0).getUserId());
@@ -40,7 +40,7 @@ public class TestNormalizeMentions {
 
     @Test
     public void testResolveMentionsStripsBotByDefault() {
-        MentionState state = Mentions.extract(new com.lark.oapi.service.im.v1.model.MentionEvent[] {
+        MentionState state = Mentions.extract(new com.lark.oapi.service.im.v1.model.MentionEvent[]{
                 NormalizeTestSupport.mention("@_bot", "ou_bot", "Bot")
         }, null, new BotIdentity("ou_bot", "Bot"));
 

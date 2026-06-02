@@ -5,6 +5,7 @@ import com.lark.oapi.channel.LarkChannelFactory;
 import com.lark.oapi.channel.config.LarkChannelOptions;
 import com.lark.oapi.core.response.RawResponse;
 import com.lark.oapi.core.token.AccessTokenType;
+
 import java.nio.charset.StandardCharsets;
 
 public class ChannelRawClientSample {

@@ -5,6 +5,7 @@ import com.lark.oapi.channel.normalize.ChannelMessageConverter;
 import com.lark.oapi.channel.normalize.ConvertContext;
 import com.lark.oapi.channel.normalize.ConvertResult;
 import com.lark.oapi.channel.normalize.NormalizeJsons;
+
 import java.util.Collections;
 
 public class FallbackMessageConverter implements ChannelMessageConverter {

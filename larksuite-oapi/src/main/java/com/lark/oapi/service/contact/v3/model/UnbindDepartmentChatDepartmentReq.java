@@ -91,10 +91,10 @@ public class UnbindDepartmentChatDepartmentReq {
          * 此次调用中使用的部门ID的类型，默认为"open_department_id"
          * <p> 示例值：open_department_id
          *
-         * @param departmentIdType {@link com.lark.oapi.service.contact.v3.enums.UnbindDepartmentChatDepartmentDepartmentIdTypeEnum}
+         * @param departmentIdType {@link com.lark.oapi.service.contact.v3.enums.UnbindDepartmentChatDepartmentNormalizeDepartmentChatV3DepartmentIDTypeEnum}
          * @return
          */
-        public Builder departmentIdType(com.lark.oapi.service.contact.v3.enums.UnbindDepartmentChatDepartmentDepartmentIdTypeEnum departmentIdType) {
+        public Builder departmentIdType(com.lark.oapi.service.contact.v3.enums.UnbindDepartmentChatDepartmentNormalizeDepartmentChatV3DepartmentIDTypeEnum departmentIdType) {
             this.departmentIdType = departmentIdType.getValue();
             return this;
         }

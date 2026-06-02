@@ -20,6 +20,7 @@ public class ListTaskSample {
                 .completed(true)
                 .type("my_tasks")
                 .userIdType("open_id")
+                .agentTaskStatus(1)
                 .build();
 
         // 发起请求

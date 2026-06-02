@@ -155,10 +155,10 @@ public class CreateFileReqBody {
          * 文件类型
          * <p> 示例值：mp4
          *
-         * @param fileType {@link com.lark.oapi.service.im.v1.enums.CreateFileFileTypeEnum}
+         * @param fileType {@link com.lark.oapi.service.im.v1.enums.CreateFileCreateFileFileTypeEnum}
          * @return
          */
-        public Builder fileType(com.lark.oapi.service.im.v1.enums.CreateFileFileTypeEnum fileType) {
+        public Builder fileType(com.lark.oapi.service.im.v1.enums.CreateFileCreateFileFileTypeEnum fileType) {
             this.fileType = fileType.getValue();
             return this;
         }

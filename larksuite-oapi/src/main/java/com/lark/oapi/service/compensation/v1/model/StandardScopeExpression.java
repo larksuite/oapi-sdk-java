@@ -201,6 +201,19 @@ public class StandardScopeExpression {
         }
 
         /**
+         * 操作类型
+         * <p> 示例值：1
+         *
+         * @param operatorType {@link com.lark.oapi.service.compensation.v1.enums.StandardScopeExpressionOperatorTypeEnum}
+         * @return
+         */
+        public Builder operatorType(com.lark.oapi.service.compensation.v1.enums.StandardScopeExpressionOperatorTypeEnum operatorType) {
+            this.operatorType = operatorType.getValue();
+            return this;
+        }
+
+
+        /**
          * 是否包含下级
          * <p> 示例值：true
          *

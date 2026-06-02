@@ -31,13 +31,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class AppRoleMemberId {
     /**
      * 协作者 ID 类型
-     * <p> 示例值：open_id
+     * <p> 示例值：
      */
     @SerializedName("type")
     private String type;
     /**
      * 协作者 ID
-     * <p> 示例值：ou_35990a9d9052051a2fae9b2f1afabcef
+     * <p> 示例值：
      */
     @SerializedName("id")
     private String id;
@@ -49,12 +49,12 @@ public class AppRoleMemberId {
     public AppRoleMemberId(Builder builder) {
         /**
          * 协作者 ID 类型
-         * <p> 示例值：open_id
+         * <p> 示例值：
          */
         this.type = builder.type;
         /**
          * 协作者 ID
-         * <p> 示例值：ou_35990a9d9052051a2fae9b2f1afabcef
+         * <p> 示例值：
          */
         this.id = builder.id;
     }
@@ -82,18 +82,18 @@ public class AppRoleMemberId {
     public static class Builder {
         /**
          * 协作者 ID 类型
-         * <p> 示例值：open_id
+         * <p> 示例值：
          */
         private String type;
         /**
          * 协作者 ID
-         * <p> 示例值：ou_35990a9d9052051a2fae9b2f1afabcef
+         * <p> 示例值：
          */
         private String id;
 
         /**
          * 协作者 ID 类型
-         * <p> 示例值：open_id
+         * <p> 示例值：
          *
          * @param type
          * @return
@@ -105,7 +105,7 @@ public class AppRoleMemberId {
 
         /**
          * 协作者 ID 类型
-         * <p> 示例值：open_id
+         * <p> 示例值：
          *
          * @param type {@link com.lark.oapi.service.bitable.v1.enums.AppRoleMemberIdRoleMemberIdTypeEnum}
          * @return
@@ -118,7 +118,7 @@ public class AppRoleMemberId {
 
         /**
          * 协作者 ID
-         * <p> 示例值：ou_35990a9d9052051a2fae9b2f1afabcef
+         * <p> 示例值：
          *
          * @param id
          * @return

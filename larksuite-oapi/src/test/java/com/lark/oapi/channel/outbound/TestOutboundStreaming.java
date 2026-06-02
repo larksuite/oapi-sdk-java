@@ -10,9 +10,11 @@ import com.lark.oapi.channel.model.SendResult;
 import com.lark.oapi.channel.model.StreamInput;
 import com.lark.oapi.service.im.v1.model.ReplyMessageResp;
 import com.lark.oapi.service.im.v1.model.ReplyMessageRespBody;
+
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
+
 import org.junit.Assert;
 import org.junit.Test;
 

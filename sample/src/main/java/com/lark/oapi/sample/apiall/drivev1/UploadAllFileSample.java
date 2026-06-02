@@ -24,6 +24,7 @@ public class UploadAllFileSample {
                         .size(1024)
                         .checksum("123423882374238912356")
                         .file(file)
+                        .fileToken("")
                         .build())
                 .build();
 

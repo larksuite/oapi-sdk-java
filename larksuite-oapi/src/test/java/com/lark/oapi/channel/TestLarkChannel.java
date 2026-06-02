@@ -41,6 +41,7 @@ import com.lark.oapi.service.im.v1.resource.File;
 import com.lark.oapi.service.im.v1.resource.Image;
 import com.lark.oapi.service.im.v1.resource.Message;
 import com.lark.oapi.service.im.v1.resource.MessageReaction;
+
 import java.io.ByteArrayOutputStream;
 import java.lang.reflect.Field;
 import java.nio.charset.StandardCharsets;
@@ -48,10 +49,65 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
+
 import org.junit.Assert;
 import org.junit.Test;
 
 public class TestLarkChannel {
+    private static Object getField(Object target, String fieldName) throws Exception {
+        Field field = null;
+        Class<?> type = target.getClass();
+        while (type != null) {
+            try {
+                field = type.getDeclaredField(fieldName);
+                break;
+            } catch (NoSuchFieldException ignored) {
+                type = type.getSuperclass();
+            }
+        }
+        if (field == null) {
+            throw new IllegalStateException("field not found: " + fieldName);
+        }
+        field.setAccessible(true);
+        return field.get(target);
+    }
+
+    private static void setField(Object target, String fieldName, Object value) throws Exception {
+        Field field = null;
+        Class<?> type = target.getClass();
+        while (type != null) {
+            try {
+                field = type.getDeclaredField(fieldName);
+                break;
+            } catch (NoSuchFieldException ignored) {
+                type = type.getSuperclass();
+            }
+        }
+        if (field == null) {
+            throw new IllegalStateException("field not found: " + fieldName);
+        }
+        field.setAccessible(true);
+        field.set(target, value);
+    }
+
+    private static void invokeNoArg(Object target, String methodName) throws Exception {
+        java.lang.reflect.Method method = null;
+        Class<?> type = target.getClass();
+        while (type != null) {
+            try {
+                method = type.getDeclaredMethod(methodName);
+                break;
+            } catch (NoSuchMethodException ignored) {
+                type = type.getSuperclass();
+            }
+        }
+        if (method == null) {
+            throw new IllegalStateException("method not found: " + methodName);
+        }
+        method.setAccessible(true);
+        method.invoke(target);
+    }
+
     @Test
     public void testEventBusOverrideBatchUnsubscribeAndErrorIsolation() {
         ChannelEventBus bus = new ChannelEventBus();
@@ -609,60 +665,6 @@ public class TestLarkChannel {
                 stubClient,
                 new com.lark.oapi.channel.model.BotIdentity("ou_bot", "TestBot"));
         return channel;
-    }
-
-    private static Object getField(Object target, String fieldName) throws Exception {
-        Field field = null;
-        Class<?> type = target.getClass();
-        while (type != null) {
-            try {
-                field = type.getDeclaredField(fieldName);
-                break;
-            } catch (NoSuchFieldException ignored) {
-                type = type.getSuperclass();
-            }
-        }
-        if (field == null) {
-            throw new IllegalStateException("field not found: " + fieldName);
-        }
-        field.setAccessible(true);
-        return field.get(target);
-    }
-
-    private static void setField(Object target, String fieldName, Object value) throws Exception {
-        Field field = null;
-        Class<?> type = target.getClass();
-        while (type != null) {
-            try {
-                field = type.getDeclaredField(fieldName);
-                break;
-            } catch (NoSuchFieldException ignored) {
-                type = type.getSuperclass();
-            }
-        }
-        if (field == null) {
-            throw new IllegalStateException("field not found: " + fieldName);
-        }
-        field.setAccessible(true);
-        field.set(target, value);
-    }
-
-    private static void invokeNoArg(Object target, String methodName) throws Exception {
-        java.lang.reflect.Method method = null;
-        Class<?> type = target.getClass();
-        while (type != null) {
-            try {
-                method = type.getDeclaredMethod(methodName);
-                break;
-            } catch (NoSuchMethodException ignored) {
-                type = type.getSuperclass();
-            }
-        }
-        if (method == null) {
-            throw new IllegalStateException("method not found: " + methodName);
-        }
-        method.setAccessible(true);
-        method.invoke(target);
     }
 
     private static class CommentEventHolder {

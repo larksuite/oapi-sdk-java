@@ -193,7 +193,7 @@ public class Application {
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
                 , "/open-apis/hire/v1/applications/:application_id"
-                , Sets.newHashSet(AccessTokenType.Tenant)
+                , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
 
         // 反序列化
@@ -225,7 +225,7 @@ public class Application {
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
                 , "/open-apis/hire/v1/applications/:application_id"
-                , Sets.newHashSet(AccessTokenType.Tenant)
+                , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
 
         // 反序列化

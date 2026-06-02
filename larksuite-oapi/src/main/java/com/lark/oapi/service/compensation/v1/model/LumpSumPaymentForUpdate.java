@@ -66,13 +66,13 @@ public class LumpSumPaymentForUpdate {
     @SerializedName("remark")
     private String remark;
     /**
-     * 所属期开始日期
+     * 一次性支付记录所属期开始日期
      * <p> 示例值：2024-08-01
      */
     @SerializedName("reference_period_start_date")
     private String referencePeriodStartDate;
     /**
-     * 所属期结束日期
+     * 一次性支付记录所属期结束日期
      * <p> 示例值：2024-08-01
      */
     @SerializedName("reference_period_end_date")
@@ -132,12 +132,12 @@ public class LumpSumPaymentForUpdate {
          */
         this.remark = builder.remark;
         /**
-         * 所属期开始日期
+         * 一次性支付记录所属期开始日期
          * <p> 示例值：2024-08-01
          */
         this.referencePeriodStartDate = builder.referencePeriodStartDate;
         /**
-         * 所属期结束日期
+         * 一次性支付记录所属期结束日期
          * <p> 示例值：2024-08-01
          */
         this.referencePeriodEndDate = builder.referencePeriodEndDate;
@@ -282,12 +282,12 @@ public class LumpSumPaymentForUpdate {
          */
         private String remark;
         /**
-         * 所属期开始日期
+         * 一次性支付记录所属期开始日期
          * <p> 示例值：2024-08-01
          */
         private String referencePeriodStartDate;
         /**
-         * 所属期结束日期
+         * 一次性支付记录所属期结束日期
          * <p> 示例值：2024-08-01
          */
         private String referencePeriodEndDate;
@@ -386,7 +386,7 @@ public class LumpSumPaymentForUpdate {
 
 
         /**
-         * 所属期开始日期
+         * 一次性支付记录所属期开始日期
          * <p> 示例值：2024-08-01
          *
          * @param referencePeriodStartDate
@@ -399,7 +399,7 @@ public class LumpSumPaymentForUpdate {
 
 
         /**
-         * 所属期结束日期
+         * 一次性支付记录所属期结束日期
          * <p> 示例值：2024-08-01
          *
          * @param referencePeriodEndDate

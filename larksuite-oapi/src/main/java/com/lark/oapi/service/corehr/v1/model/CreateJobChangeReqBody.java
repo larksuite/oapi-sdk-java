@@ -248,6 +248,19 @@ public class CreateJobChangeReqBody {
         }
 
         /**
+         * 异动方式
+         * <p> 示例值：2
+         *
+         * @param transferMode {@link com.lark.oapi.service.corehr.v1.enums.CreateJobChangeCreateJobChangeTransferModeEnum}
+         * @return
+         */
+        public Builder transferMode(com.lark.oapi.service.corehr.v1.enums.CreateJobChangeCreateJobChangeTransferModeEnum transferMode) {
+            this.transferMode = transferMode.getValue();
+            return this;
+        }
+
+
+        /**
          * 雇员id
          * <p> 示例值：ou_a294793e8fa21529f2a60e3e9de45520
          *

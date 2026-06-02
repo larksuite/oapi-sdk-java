@@ -17,6 +17,7 @@ import com.lark.oapi.channel.normalize.converters.VideoMessageConverter;
 import com.lark.oapi.channel.normalize.converters.VideoChatMessageConverter;
 import com.lark.oapi.channel.normalize.converters.VoteMessageConverter;
 import com.lark.oapi.channel.normalize.converters.interactive.InteractiveMessageConverter;
+
 import java.util.HashMap;
 import java.util.Map;
 

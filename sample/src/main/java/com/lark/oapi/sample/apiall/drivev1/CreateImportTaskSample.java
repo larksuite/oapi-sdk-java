@@ -21,6 +21,7 @@ public class CreateImportTaskSample {
                         .type("docx")
                         .fileName("文件名")
                         .point(ImportTaskMountPoint.newBuilder().build())
+                        .token("doxbcHgfxdfxxxxxxxxxxxfMky")
                         .build())
                 .build();
 

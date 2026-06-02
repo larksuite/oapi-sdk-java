@@ -83,6 +83,12 @@ public class JobLevel {
      */
     @SerializedName("pathway_ids")
     private String[] pathwayIds;
+    /**
+     * 排序
+     * <p> 示例值：9999
+     */
+    @SerializedName("view_order")
+    private Integer viewOrder;
 
     // builder 开始
     public JobLevel() {
@@ -134,6 +140,11 @@ public class JobLevel {
          * <p> 示例值：
          */
         this.pathwayIds = builder.pathwayIds;
+        /**
+         * 排序
+         * <p> 示例值：9999
+         */
+        this.viewOrder = builder.viewOrder;
     }
 
     public static Builder newBuilder() {
@@ -212,6 +223,14 @@ public class JobLevel {
         this.pathwayIds = pathwayIds;
     }
 
+    public Integer getViewOrder() {
+        return this.viewOrder;
+    }
+
+    public void setViewOrder(Integer viewOrder) {
+        this.viewOrder = viewOrder;
+    }
+
     public static class Builder {
         /**
          * 职级 ID
@@ -258,6 +277,11 @@ public class JobLevel {
          * <p> 示例值：
          */
         private String[] pathwayIds;
+        /**
+         * 排序
+         * <p> 示例值：9999
+         */
+        private Integer viewOrder;
 
         /**
          * 职级 ID
@@ -372,6 +396,19 @@ public class JobLevel {
          */
         public Builder pathwayIds(String[] pathwayIds) {
             this.pathwayIds = pathwayIds;
+            return this;
+        }
+
+
+        /**
+         * 排序
+         * <p> 示例值：9999
+         *
+         * @param viewOrder
+         * @return
+         */
+        public Builder viewOrder(Integer viewOrder) {
+            this.viewOrder = viewOrder;
             return this;
         }
 

@@ -100,6 +100,24 @@ public class CreateJobChangeRespBody {
      */
     @SerializedName("details_of_job_status_change")
     private String[] detailsOfJobStatusChange;
+    /**
+     * 人员名称
+     * <p> 示例值：
+     */
+    @SerializedName("employment_name")
+    private EmploymentLookupName employmentName;
+    /**
+     * 异常状态
+     * <p> 示例值："pending"
+     */
+    @SerializedName("exception_status")
+    private String exceptionStatus;
+    /**
+     * 无权限字段
+     * <p> 示例值：
+     */
+    @SerializedName("no_permission_fields")
+    private String[] noPermissionFields;
 
     public String getJobChangeId() {
         return this.jobChangeId;
@@ -195,6 +213,30 @@ public class CreateJobChangeRespBody {
 
     public void setDetailsOfJobStatusChange(String[] detailsOfJobStatusChange) {
         this.detailsOfJobStatusChange = detailsOfJobStatusChange;
+    }
+
+    public EmploymentLookupName getEmploymentName() {
+        return this.employmentName;
+    }
+
+    public void setEmploymentName(EmploymentLookupName employmentName) {
+        this.employmentName = employmentName;
+    }
+
+    public String getExceptionStatus() {
+        return this.exceptionStatus;
+    }
+
+    public void setExceptionStatus(String exceptionStatus) {
+        this.exceptionStatus = exceptionStatus;
+    }
+
+    public String[] getNoPermissionFields() {
+        return this.noPermissionFields;
+    }
+
+    public void setNoPermissionFields(String[] noPermissionFields) {
+        this.noPermissionFields = noPermissionFields;
     }
 
 }

@@ -107,10 +107,10 @@ public class FeedGroupRuleCond {
          * 匹配类型
          * <p> 示例值：match_all
          *
-         * @param matchType {@link com.lark.oapi.service.im.v2.enums.FeedGroupRuleCondMatchTypeEnum}
+         * @param matchType {@link com.lark.oapi.service.im.v2.enums.FeedGroupRuleCondFeedGroupRuleCondMatchTypeEnum}
          * @return
          */
-        public Builder matchType(com.lark.oapi.service.im.v2.enums.FeedGroupRuleCondMatchTypeEnum matchType) {
+        public Builder matchType(com.lark.oapi.service.im.v2.enums.FeedGroupRuleCondFeedGroupRuleCondMatchTypeEnum matchType) {
             this.matchType = matchType.getValue();
             return this;
         }

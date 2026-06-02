@@ -197,7 +197,7 @@ public class Message {
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
                 , "/open-apis/im/v1/messages/:message_id/forward"
-                , Sets.newHashSet(AccessTokenType.Tenant)
+                , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
 
         // 反序列化
@@ -229,7 +229,7 @@ public class Message {
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
                 , "/open-apis/im/v1/messages/:message_id/forward"
-                , Sets.newHashSet(AccessTokenType.Tenant)
+                , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
 
         // 反序列化
@@ -333,7 +333,7 @@ public class Message {
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
                 , "/open-apis/im/v1/messages"
-                , Sets.newHashSet(AccessTokenType.Tenant)
+                , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                 , req);
 
         // 反序列化
@@ -367,7 +367,7 @@ public class Message {
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
                 , "/open-apis/im/v1/messages"
-                , Sets.newHashSet(AccessTokenType.Tenant)
+                , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                 , req);
 
         // 反序列化

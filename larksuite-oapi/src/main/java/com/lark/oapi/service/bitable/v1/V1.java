@@ -14,15 +14,29 @@
 package com.lark.oapi.service.bitable.v1;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.service.bitable.v1.resource.*;
+import com.lark.oapi.service.bitable.v1.resource.App;
+import com.lark.oapi.service.bitable.v1.resource.AppBlockWorkflow;
+import com.lark.oapi.service.bitable.v1.resource.AppDashboard;
+import com.lark.oapi.service.bitable.v1.resource.AppRole;
+import com.lark.oapi.service.bitable.v1.resource.AppRoleMember;
+import com.lark.oapi.service.bitable.v1.resource.AppTable;
+import com.lark.oapi.service.bitable.v1.resource.AppTableField;
+import com.lark.oapi.service.bitable.v1.resource.AppTableFieldGroup;
+import com.lark.oapi.service.bitable.v1.resource.AppTableForm;
+import com.lark.oapi.service.bitable.v1.resource.AppTableFormField;
+import com.lark.oapi.service.bitable.v1.resource.AppTableRecord;
+import com.lark.oapi.service.bitable.v1.resource.AppTableView;
+import com.lark.oapi.service.bitable.v1.resource.AppWorkflow;
 
 public class V1 {
     private final App app; // 多维表格
+    private final AppBlockWorkflow appBlockWorkflow; // app.block_workflow
     private final AppDashboard appDashboard; // 仪表盘
     private final AppRole appRole; // 自定义角色
     private final AppRoleMember appRoleMember; // 协作者
     private final AppTable appTable; // 数据表
     private final AppTableField appTableField; // 字段
+    private final AppTableFieldGroup appTableFieldGroup; // app.table.field_group
     private final AppTableForm appTableForm; // 表单
     private final AppTableFormField appTableFormField; // 表单
     private final AppTableRecord appTableRecord; // 记录
@@ -31,11 +45,13 @@ public class V1 {
 
     public V1(Config config) {
         this.app = new App(config);
+        this.appBlockWorkflow = new AppBlockWorkflow(config);
         this.appDashboard = new AppDashboard(config);
         this.appRole = new AppRole(config);
         this.appRoleMember = new AppRoleMember(config);
         this.appTable = new AppTable(config);
         this.appTableField = new AppTableField(config);
+        this.appTableFieldGroup = new AppTableFieldGroup(config);
         this.appTableForm = new AppTableForm(config);
         this.appTableFormField = new AppTableFormField(config);
         this.appTableRecord = new AppTableRecord(config);
@@ -45,6 +61,10 @@ public class V1 {
 
     public App app() {
         return app;
+    }
+
+    public AppBlockWorkflow appBlockWorkflow() {
+        return appBlockWorkflow;
     }
 
     public AppDashboard appDashboard() {
@@ -65,6 +85,10 @@ public class V1 {
 
     public AppTableField appTableField() {
         return appTableField;
+    }
+
+    public AppTableFieldGroup appTableFieldGroup() {
+        return appTableFieldGroup;
     }
 
     public AppTableForm appTableForm() {

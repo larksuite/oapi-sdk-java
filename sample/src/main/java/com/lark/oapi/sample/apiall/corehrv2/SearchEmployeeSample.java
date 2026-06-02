@@ -62,6 +62,8 @@ public class SearchEmployeeSample {
                         .assignmentPayGroupIdList(new String[]{})
                         .contractTypeList(new String[]{})
                         .archiveCpstPlanIdList(new String[]{})
+                        .isDirectLeader(false)
+                        .isDottedLeader(false)
                         .build())
                 .build();
 

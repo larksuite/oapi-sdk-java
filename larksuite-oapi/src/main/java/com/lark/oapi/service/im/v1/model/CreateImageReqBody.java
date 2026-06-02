@@ -107,10 +107,10 @@ public class CreateImageReqBody {
          * 图片类型
          * <p> 示例值：message
          *
-         * @param imageType {@link com.lark.oapi.service.im.v1.enums.CreateImageImageTypeEnum}
+         * @param imageType {@link com.lark.oapi.service.im.v1.enums.CreateImageCreateImageImageTypeEnum}
          * @return
          */
-        public Builder imageType(com.lark.oapi.service.im.v1.enums.CreateImageImageTypeEnum imageType) {
+        public Builder imageType(com.lark.oapi.service.im.v1.enums.CreateImageCreateImageImageTypeEnum imageType) {
             this.imageType = imageType.getValue();
             return this;
         }

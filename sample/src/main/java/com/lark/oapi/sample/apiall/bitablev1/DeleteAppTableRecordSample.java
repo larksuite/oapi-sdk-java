@@ -18,6 +18,7 @@ public class DeleteAppTableRecordSample {
                 .appToken("appbcbWCzen6D8dezhoCH2RpMAh")
                 .tableId("tblsRc9GRRXKqhvW")
                 .recordId("recpCsf4ME")
+                .ignoreConsistencyCheck(false)
                 .build();
 
         // 发起请求

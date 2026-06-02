@@ -64,6 +64,12 @@ public class P2DeviceApplyRecordDeviceApplyEventV2Data {
      */
     @SerializedName("apply_device_ownership")
     private Integer applyDeviceOwnership;
+    /**
+     * 申报理由
+     * <p> 示例值：reason
+     */
+    @SerializedName("apply_reason")
+    private String applyReason;
 
     public String getDeviceApplyRecordId() {
         return this.deviceApplyRecordId;
@@ -111,6 +117,14 @@ public class P2DeviceApplyRecordDeviceApplyEventV2Data {
 
     public void setApplyDeviceOwnership(Integer applyDeviceOwnership) {
         this.applyDeviceOwnership = applyDeviceOwnership;
+    }
+
+    public String getApplyReason() {
+        return this.applyReason;
+    }
+
+    public void setApplyReason(String applyReason) {
+        this.applyReason = applyReason;
     }
 
 }

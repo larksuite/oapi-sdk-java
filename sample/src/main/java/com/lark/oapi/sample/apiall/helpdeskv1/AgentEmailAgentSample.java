@@ -16,7 +16,7 @@ public class AgentEmailAgentSample {
         // 创建请求对象
 
         // 发起请求
-        AgentEmailAgentResp resp = client.helpdesk().agent().agentEmail();
+        AgentEmailAgentResp resp = client.helpdesk().v1().agent().agentEmail();
 
         // 处理服务端错误
         if (!resp.success()) {

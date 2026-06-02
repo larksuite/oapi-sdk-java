@@ -15,7 +15,7 @@ public class GetAgentSchedulesSample {
 
         // 创建请求对象
         GetAgentSchedulesReq req = GetAgentSchedulesReq.newBuilder()
-                .agentId("	客服 id")
+                .agentId("\t客服 id")
                 .build();
 
         // 发起请求

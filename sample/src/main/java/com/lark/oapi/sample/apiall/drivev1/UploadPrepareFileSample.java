@@ -20,6 +20,7 @@ public class UploadPrepareFileSample {
                         .parentType("explorer")
                         .parentNode("")
                         .size(0)
+                        .fileToken("KOi6RfhPbdm6")
                         .build())
                 .build();
 

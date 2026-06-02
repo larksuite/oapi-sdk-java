@@ -53,6 +53,12 @@ public class FileUploadInfo {
      */
     @SerializedName("size")
     private Integer size;
+    /**
+     * 文件token，如果没传则是上传新文件，传了则是上传该文件的新版本
+     * <p> 示例值：4SQaj7YVvp
+     */
+    @SerializedName("file_token")
+    private String fileToken;
 
     // builder 开始
     public FileUploadInfo() {
@@ -79,6 +85,11 @@ public class FileUploadInfo {
          * <p> 示例值：1024
          */
         this.size = builder.size;
+        /**
+         * 文件token，如果没传则是上传新文件，传了则是上传该文件的新版本
+         * <p> 示例值：4SQaj7YVvp
+         */
+        this.fileToken = builder.fileToken;
     }
 
     public static Builder newBuilder() {
@@ -117,6 +128,14 @@ public class FileUploadInfo {
         this.size = size;
     }
 
+    public String getFileToken() {
+        return this.fileToken;
+    }
+
+    public void setFileToken(String fileToken) {
+        this.fileToken = fileToken;
+    }
+
     public static class Builder {
         /**
          * 文件名
@@ -138,6 +157,11 @@ public class FileUploadInfo {
          * <p> 示例值：1024
          */
         private Integer size;
+        /**
+         * 文件token，如果没传则是上传新文件，传了则是上传该文件的新版本
+         * <p> 示例值：4SQaj7YVvp
+         */
+        private String fileToken;
 
         /**
          * 文件名
@@ -199,6 +223,19 @@ public class FileUploadInfo {
          */
         public Builder size(Integer size) {
             this.size = size;
+            return this;
+        }
+
+
+        /**
+         * 文件token，如果没传则是上传新文件，传了则是上传该文件的新版本
+         * <p> 示例值：4SQaj7YVvp
+         *
+         * @param fileToken
+         * @return
+         */
+        public Builder fileToken(String fileToken) {
+            this.fileToken = fileToken;
             return this;
         }
 

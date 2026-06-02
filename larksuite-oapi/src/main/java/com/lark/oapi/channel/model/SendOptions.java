@@ -21,22 +21,30 @@ public class SendOptions {
     /**
      * Create a builder with default create-message semantics.
      */
-    public static Builder newBuilder() { return new Builder(); }
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 
     /**
      * Message id to reply to, or {@code null} to create a new message.
      */
-    public String getReplyTo() { return replyTo; }
+    public String getReplyTo() {
+        return replyTo;
+    }
 
     /**
      * Whether Feishu should place the reply in the parent message thread.
      */
-    public Boolean getReplyInThread() { return replyInThread; }
+    public Boolean getReplyInThread() {
+        return replyInThread;
+    }
 
     /**
      * Mentions that should be composed into outgoing text/post content.
      */
-    public List<MentionInfo> getMentions() { return mentions; }
+    public List<MentionInfo> getMentions() {
+        return mentions;
+    }
 
     /**
      * Builder for send options.
@@ -51,12 +59,18 @@ public class SendOptions {
          * message disappeared, the outbound sender falls back to creating a new
          * message in the same chat.
          */
-        public Builder replyTo(String replyTo) { this.replyTo = replyTo; return this; }
+        public Builder replyTo(String replyTo) {
+            this.replyTo = replyTo;
+            return this;
+        }
 
         /**
          * Set Feishu's reply_in_thread flag for reply messages.
          */
-        public Builder replyInThread(Boolean replyInThread) { this.replyInThread = replyInThread; return this; }
+        public Builder replyInThread(Boolean replyInThread) {
+            this.replyInThread = replyInThread;
+            return this;
+        }
 
         /**
          * Convenience overload for mentioning open_ids.
@@ -79,11 +93,16 @@ public class SendOptions {
         /**
          * Set fully described mention objects.
          */
-        public Builder mentionInfos(List<MentionInfo> mentions) { this.mentions = mentions; return this; }
+        public Builder mentionInfos(List<MentionInfo> mentions) {
+            this.mentions = mentions;
+            return this;
+        }
 
         /**
          * Build immutable send options.
          */
-        public SendOptions build() { return new SendOptions(this); }
+        public SendOptions build() {
+            return new SendOptions(this);
+        }
     }
 }

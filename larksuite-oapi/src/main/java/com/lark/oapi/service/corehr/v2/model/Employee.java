@@ -497,6 +497,24 @@ public class Employee {
      */
     @SerializedName("individuals_with_headcount_or_not")
     private Enum individualsWithHeadcountOrNot;
+    /**
+     * 是否直属上级
+     * <p> 示例值：true
+     */
+    @SerializedName("is_direct_leader")
+    private Boolean isDirectLeader;
+    /**
+     * 是否虚线上级
+     * <p> 示例值：true
+     */
+    @SerializedName("is_dotted_leader")
+    private Boolean isDottedLeader;
+    /**
+     * 公司人才池
+     * <p> 示例值：
+     */
+    @SerializedName("company_talent_pool_ids")
+    private String[] companyTalentPoolIds;
 
     // builder 开始
     public Employee() {
@@ -893,6 +911,21 @@ public class Employee {
          * <p> 示例值：with_headcount
          */
         this.individualsWithHeadcountOrNot = builder.individualsWithHeadcountOrNot;
+        /**
+         * 是否直属上级
+         * <p> 示例值：true
+         */
+        this.isDirectLeader = builder.isDirectLeader;
+        /**
+         * 是否虚线上级
+         * <p> 示例值：true
+         */
+        this.isDottedLeader = builder.isDottedLeader;
+        /**
+         * 公司人才池
+         * <p> 示例值：
+         */
+        this.companyTalentPoolIds = builder.companyTalentPoolIds;
     }
 
     public static Builder newBuilder() {
@@ -1523,6 +1556,30 @@ public class Employee {
         this.individualsWithHeadcountOrNot = individualsWithHeadcountOrNot;
     }
 
+    public Boolean getIsDirectLeader() {
+        return this.isDirectLeader;
+    }
+
+    public void setIsDirectLeader(Boolean isDirectLeader) {
+        this.isDirectLeader = isDirectLeader;
+    }
+
+    public Boolean getIsDottedLeader() {
+        return this.isDottedLeader;
+    }
+
+    public void setIsDottedLeader(Boolean isDottedLeader) {
+        this.isDottedLeader = isDottedLeader;
+    }
+
+    public String[] getCompanyTalentPoolIds() {
+        return this.companyTalentPoolIds;
+    }
+
+    public void setCompanyTalentPoolIds(String[] companyTalentPoolIds) {
+        this.companyTalentPoolIds = companyTalentPoolIds;
+    }
+
     public static class Builder {
         /**
          * 雇佣 ID;- 类型与 user_id_type 一致;- 请使用 employment_id_v2
@@ -1914,6 +1971,21 @@ public class Employee {
          * <p> 示例值：with_headcount
          */
         private Enum individualsWithHeadcountOrNot;
+        /**
+         * 是否直属上级
+         * <p> 示例值：true
+         */
+        private Boolean isDirectLeader;
+        /**
+         * 是否虚线上级
+         * <p> 示例值：true
+         */
+        private Boolean isDottedLeader;
+        /**
+         * 公司人才池
+         * <p> 示例值：
+         */
+        private String[] companyTalentPoolIds;
 
         /**
          * 雇佣 ID;- 类型与 user_id_type 一致;- 请使用 employment_id_v2
@@ -2925,6 +2997,45 @@ public class Employee {
          */
         public Builder individualsWithHeadcountOrNot(Enum individualsWithHeadcountOrNot) {
             this.individualsWithHeadcountOrNot = individualsWithHeadcountOrNot;
+            return this;
+        }
+
+
+        /**
+         * 是否直属上级
+         * <p> 示例值：true
+         *
+         * @param isDirectLeader
+         * @return
+         */
+        public Builder isDirectLeader(Boolean isDirectLeader) {
+            this.isDirectLeader = isDirectLeader;
+            return this;
+        }
+
+
+        /**
+         * 是否虚线上级
+         * <p> 示例值：true
+         *
+         * @param isDottedLeader
+         * @return
+         */
+        public Builder isDottedLeader(Boolean isDottedLeader) {
+            this.isDottedLeader = isDottedLeader;
+            return this;
+        }
+
+
+        /**
+         * 公司人才池
+         * <p> 示例值：
+         *
+         * @param companyTalentPoolIds
+         * @return
+         */
+        public Builder companyTalentPoolIds(String[] companyTalentPoolIds) {
+            this.companyTalentPoolIds = companyTalentPoolIds;
             return this;
         }
 

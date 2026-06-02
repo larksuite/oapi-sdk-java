@@ -125,6 +125,12 @@ public class Node {
      */
     @SerializedName("node_creator")
     private String nodeCreator;
+    /**
+     * 文档url
+     * <p> 示例值：https://xxx/wiki/wikcnKQ1k3p******8Vabcef
+     */
+    @SerializedName("url")
+    private String url;
 
     // builder 开始
     public Node() {
@@ -211,6 +217,11 @@ public class Node {
          * <p> 示例值：ou_xxxxx
          */
         this.nodeCreator = builder.nodeCreator;
+        /**
+         * 文档url
+         * <p> 示例值：https://xxx/wiki/wikcnKQ1k3p******8Vabcef
+         */
+        this.url = builder.url;
     }
 
     public static Builder newBuilder() {
@@ -345,6 +356,14 @@ public class Node {
         this.nodeCreator = nodeCreator;
     }
 
+    public String getUrl() {
+        return this.url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
     public static class Builder {
         /**
          * 知识空间id;[获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-overview)
@@ -426,6 +445,11 @@ public class Node {
          * <p> 示例值：ou_xxxxx
          */
         private String nodeCreator;
+        /**
+         * 文档url
+         * <p> 示例值：https://xxx/wiki/wikcnKQ1k3p******8Vabcef
+         */
+        private String url;
 
         /**
          * 知识空间id;[获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-overview)
@@ -655,6 +679,19 @@ public class Node {
          */
         public Builder nodeCreator(String nodeCreator) {
             this.nodeCreator = nodeCreator;
+            return this;
+        }
+
+
+        /**
+         * 文档url
+         * <p> 示例值：https://xxx/wiki/wikcnKQ1k3p******8Vabcef
+         *
+         * @param url
+         * @return
+         */
+        public Builder url(String url) {
+            this.url = url;
             return this;
         }
 

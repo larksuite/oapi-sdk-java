@@ -43,6 +43,12 @@ public class UpdateAppTableRecordReq {
     @SerializedName("ignore_consistency_check")
     private Boolean ignoreConsistencyCheck;
     /**
+     * <p> 示例值：
+     */
+    @Query
+    @SerializedName("client_token")
+    private String clientToken;
+    /**
      * 多维表格的唯一标识符 [app_token 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)
      * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
      */
@@ -69,6 +75,7 @@ public class UpdateAppTableRecordReq {
     // builder 开始
     public UpdateAppTableRecordReq() {
     }
+
     public UpdateAppTableRecordReq(Builder builder) {
         /**
          * 此次调用中使用的用户ID的类型
@@ -80,6 +87,11 @@ public class UpdateAppTableRecordReq {
          * <p> 示例值：true
          */
         this.ignoreConsistencyCheck = builder.ignoreConsistencyCheck;
+        /**
+         *
+         * <p> 示例值：
+         */
+        this.clientToken = builder.clientToken;
         /**
          * 多维表格的唯一标识符 [app_token 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)
          * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
@@ -118,6 +130,14 @@ public class UpdateAppTableRecordReq {
         this.ignoreConsistencyCheck = ignoreConsistencyCheck;
     }
 
+    public String getClientToken() {
+        return this.clientToken;
+    }
+
+    public void setClientToken(String clientToken) {
+        this.clientToken = clientToken;
+    }
+
     public String getAppToken() {
         return this.appToken;
     }
@@ -153,6 +173,7 @@ public class UpdateAppTableRecordReq {
     public static class Builder {
         private String userIdType; // 此次调用中使用的用户ID的类型
         private Boolean ignoreConsistencyCheck; // 用于控制一致性读写，默认开启检查
+        private String clientToken; //
         private String appToken; // 多维表格的唯一标识符 [app_token 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)
         private String tableId; // 多维表格数据表的唯一标识符 [table_id 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#735fe883)
         private String recordId; // 一条记录的唯一标识 id [record_id 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#15d8db94)
@@ -191,6 +212,17 @@ public class UpdateAppTableRecordReq {
          */
         public Builder ignoreConsistencyCheck(Boolean ignoreConsistencyCheck) {
             this.ignoreConsistencyCheck = ignoreConsistencyCheck;
+            return this;
+        }
+
+        /**
+         * <p> 示例值：
+         *
+         * @param clientToken
+         * @return
+         */
+        public Builder clientToken(String clientToken) {
+            this.clientToken = clientToken;
             return this;
         }
 

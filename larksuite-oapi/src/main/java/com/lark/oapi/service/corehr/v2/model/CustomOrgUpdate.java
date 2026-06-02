@@ -83,6 +83,12 @@ public class CustomOrgUpdate {
      */
     @SerializedName("custom_fields")
     private CustomFieldData[] customFields;
+    /**
+     * 是否优先使用手动编码。设置为 true 时，即使开启了自动编码功能，系统也会优先采用请求中传入的手动编码值；仅当未传入手动编码时，才回退至自动编码。设置为 false 或未传入时，遵循系统默认的编码策略。
+     * <p> 示例值：
+     */
+    @SerializedName("is_prefer_manual_encoding")
+    private Boolean isPreferManualEncoding;
 
     // builder 开始
     public CustomOrgUpdate() {
@@ -134,6 +140,11 @@ public class CustomOrgUpdate {
          * <p> 示例值：
          */
         this.customFields = builder.customFields;
+        /**
+         * 是否优先使用手动编码。设置为 true 时，即使开启了自动编码功能，系统也会优先采用请求中传入的手动编码值；仅当未传入手动编码时，才回退至自动编码。设置为 false 或未传入时，遵循系统默认的编码策略。
+         * <p> 示例值：
+         */
+        this.isPreferManualEncoding = builder.isPreferManualEncoding;
     }
 
     public static Builder newBuilder() {
@@ -212,6 +223,14 @@ public class CustomOrgUpdate {
         this.customFields = customFields;
     }
 
+    public Boolean getIsPreferManualEncoding() {
+        return this.isPreferManualEncoding;
+    }
+
+    public void setIsPreferManualEncoding(Boolean isPreferManualEncoding) {
+        this.isPreferManualEncoding = isPreferManualEncoding;
+    }
+
     public static class Builder {
         /**
          * 组织类型编码
@@ -258,6 +277,11 @@ public class CustomOrgUpdate {
          * <p> 示例值：
          */
         private CustomFieldData[] customFields;
+        /**
+         * 是否优先使用手动编码。设置为 true 时，即使开启了自动编码功能，系统也会优先采用请求中传入的手动编码值；仅当未传入手动编码时，才回退至自动编码。设置为 false 或未传入时，遵循系统默认的编码策略。
+         * <p> 示例值：
+         */
+        private Boolean isPreferManualEncoding;
 
         /**
          * 组织类型编码
@@ -372,6 +396,19 @@ public class CustomOrgUpdate {
          */
         public Builder customFields(CustomFieldData[] customFields) {
             this.customFields = customFields;
+            return this;
+        }
+
+
+        /**
+         * 是否优先使用手动编码。设置为 true 时，即使开启了自动编码功能，系统也会优先采用请求中传入的手动编码值；仅当未传入手动编码时，才回退至自动编码。设置为 false 或未传入时，遵循系统默认的编码策略。
+         * <p> 示例值：
+         *
+         * @param isPreferManualEncoding
+         * @return
+         */
+        public Builder isPreferManualEncoding(Boolean isPreferManualEncoding) {
+            this.isPreferManualEncoding = isPreferManualEncoding;
             return this;
         }
 

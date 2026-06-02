@@ -14,9 +14,70 @@
 package com.lark.oapi.service.corehr.v2;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.service.corehr.v2.resource.*;
+import com.lark.oapi.service.corehr.v2.resource.ApprovalGroups;
+import com.lark.oapi.service.corehr.v2.resource.Approver;
+import com.lark.oapi.service.corehr.v2.resource.BasicInfoBank;
+import com.lark.oapi.service.corehr.v2.resource.BasicInfoBankBranch;
+import com.lark.oapi.service.corehr.v2.resource.BasicInfoCity;
+import com.lark.oapi.service.corehr.v2.resource.BasicInfoCountryRegion;
+import com.lark.oapi.service.corehr.v2.resource.BasicInfoCountryRegionSubdivision;
+import com.lark.oapi.service.corehr.v2.resource.BasicInfoCurrency;
+import com.lark.oapi.service.corehr.v2.resource.BasicInfoDistrict;
+import com.lark.oapi.service.corehr.v2.resource.BasicInfoLanguage;
+import com.lark.oapi.service.corehr.v2.resource.BasicInfoNationality;
+import com.lark.oapi.service.corehr.v2.resource.BasicInfoTimeZone;
+import com.lark.oapi.service.corehr.v2.resource.Bp;
+import com.lark.oapi.service.corehr.v2.resource.Company;
+import com.lark.oapi.service.corehr.v2.resource.Contract;
+import com.lark.oapi.service.corehr.v2.resource.CostAllocation;
+import com.lark.oapi.service.corehr.v2.resource.CostCenter;
+import com.lark.oapi.service.corehr.v2.resource.CostCenterVersion;
+import com.lark.oapi.service.corehr.v2.resource.CustomOrg;
+import com.lark.oapi.service.corehr.v2.resource.DefaultCostCenter;
+import com.lark.oapi.service.corehr.v2.resource.Department;
+import com.lark.oapi.service.corehr.v2.resource.Draft;
+import com.lark.oapi.service.corehr.v2.resource.Employee;
+import com.lark.oapi.service.corehr.v2.resource.EmployeeCustomOrg;
+import com.lark.oapi.service.corehr.v2.resource.EmployeesAdditionalJob;
+import com.lark.oapi.service.corehr.v2.resource.EmployeesBp;
+import com.lark.oapi.service.corehr.v2.resource.EmployeesInternationalAssignment;
+import com.lark.oapi.service.corehr.v2.resource.EmployeesJobData;
 import com.lark.oapi.service.corehr.v2.resource.Enum;
+import com.lark.oapi.service.corehr.v2.resource.Job;
+import com.lark.oapi.service.corehr.v2.resource.JobChange;
+import com.lark.oapi.service.corehr.v2.resource.JobFamily;
+import com.lark.oapi.service.corehr.v2.resource.JobGrade;
+import com.lark.oapi.service.corehr.v2.resource.JobLevel;
+import com.lark.oapi.service.corehr.v2.resource.Location;
+import com.lark.oapi.service.corehr.v2.resource.LocationAddress;
+import com.lark.oapi.service.corehr.v2.resource.Offboarding;
+import com.lark.oapi.service.corehr.v2.resource.Pathway;
+import com.lark.oapi.service.corehr.v2.resource.Person;
+import com.lark.oapi.service.corehr.v2.resource.Position;
+import com.lark.oapi.service.corehr.v2.resource.PreHire;
+import com.lark.oapi.service.corehr.v2.resource.Probation;
+import com.lark.oapi.service.corehr.v2.resource.ProbationAssessment;
 import com.lark.oapi.service.corehr.v2.resource.Process;
+import com.lark.oapi.service.corehr.v2.resource.ProcessApprover;
+import com.lark.oapi.service.corehr.v2.resource.ProcessCc;
+import com.lark.oapi.service.corehr.v2.resource.ProcessExtra;
+import com.lark.oapi.service.corehr.v2.resource.ProcessFormVariableData;
+import com.lark.oapi.service.corehr.v2.resource.ProcessNode;
+import com.lark.oapi.service.corehr.v2.resource.ProcessQueryFlowDataTemplate;
+import com.lark.oapi.service.corehr.v2.resource.ProcessStatus;
+import com.lark.oapi.service.corehr.v2.resource.ProcessTransfer;
+import com.lark.oapi.service.corehr.v2.resource.ProcessCommentInfo;
+import com.lark.oapi.service.corehr.v2.resource.ProcessRevoke;
+import com.lark.oapi.service.corehr.v2.resource.ProcessStart;
+import com.lark.oapi.service.corehr.v2.resource.ProcessWithdraw;
+import com.lark.oapi.service.corehr.v2.resource.ReportDetailRow;
+import com.lark.oapi.service.corehr.v2.resource.SignatureFile;
+import com.lark.oapi.service.corehr.v2.resource.SignatureNode;
+import com.lark.oapi.service.corehr.v2.resource.SignatureTemplate;
+import com.lark.oapi.service.corehr.v2.resource.SignatureTemplateInfoWithThumbnail;
+import com.lark.oapi.service.corehr.v2.resource.WorkforcePlan;
+import com.lark.oapi.service.corehr.v2.resource.WorkforcePlanDetail;
+import com.lark.oapi.service.corehr.v2.resource.WorkforcePlanDetailRow;
 
 public class V2 {
     private final ApprovalGroups approvalGroups; // approval_groups
@@ -42,6 +103,7 @@ public class V2 {
     private final Department department; // department
     private final Draft draft; // draft
     private final Employee employee; // employee
+    private final EmployeeCustomOrg employeeCustomOrg; // employee.custom_org
     private final EmployeesAdditionalJob employeesAdditionalJob; // employees.additional_job
     private final EmployeesBp employeesBp; // employees.bp
     private final EmployeesInternationalAssignment employeesInternationalAssignment; // employees.international_assignment
@@ -67,10 +129,12 @@ public class V2 {
     private final ProcessExtra processExtra; // process.extra
     private final ProcessFormVariableData processFormVariableData; // process.form_variable_data
     private final ProcessNode processNode; // process.node
+    private final ProcessQueryFlowDataTemplate processQueryFlowDataTemplate; // process.query_flow_data_template
     private final ProcessStatus processStatus; // process.status
     private final ProcessTransfer processTransfer; // process.transfer
     private final ProcessCommentInfo processCommentInfo; // process_comment_info
     private final ProcessRevoke processRevoke; // process_revoke
+    private final ProcessStart processStart; // process_start
     private final ProcessWithdraw processWithdraw; // process_withdraw
     private final ReportDetailRow reportDetailRow; // report_detail_row
     private final SignatureFile signatureFile; // signature_file
@@ -105,6 +169,7 @@ public class V2 {
         this.department = new Department(config);
         this.draft = new Draft(config);
         this.employee = new Employee(config);
+        this.employeeCustomOrg = new EmployeeCustomOrg(config);
         this.employeesAdditionalJob = new EmployeesAdditionalJob(config);
         this.employeesBp = new EmployeesBp(config);
         this.employeesInternationalAssignment = new EmployeesInternationalAssignment(config);
@@ -130,10 +195,12 @@ public class V2 {
         this.processExtra = new ProcessExtra(config);
         this.processFormVariableData = new ProcessFormVariableData(config);
         this.processNode = new ProcessNode(config);
+        this.processQueryFlowDataTemplate = new ProcessQueryFlowDataTemplate(config);
         this.processStatus = new ProcessStatus(config);
         this.processTransfer = new ProcessTransfer(config);
         this.processCommentInfo = new ProcessCommentInfo(config);
         this.processRevoke = new ProcessRevoke(config);
+        this.processStart = new ProcessStart(config);
         this.processWithdraw = new ProcessWithdraw(config);
         this.reportDetailRow = new ReportDetailRow(config);
         this.signatureFile = new SignatureFile(config);
@@ -237,6 +304,10 @@ public class V2 {
         return employee;
     }
 
+    public EmployeeCustomOrg employeeCustomOrg() {
+        return employeeCustomOrg;
+    }
+
     public EmployeesAdditionalJob employeesAdditionalJob() {
         return employeesAdditionalJob;
     }
@@ -337,6 +408,10 @@ public class V2 {
         return processNode;
     }
 
+    public ProcessQueryFlowDataTemplate processQueryFlowDataTemplate() {
+        return processQueryFlowDataTemplate;
+    }
+
     public ProcessStatus processStatus() {
         return processStatus;
     }
@@ -351,6 +426,10 @@ public class V2 {
 
     public ProcessRevoke processRevoke() {
         return processRevoke;
+    }
+
+    public ProcessStart processStart() {
+        return processStart;
     }
 
     public ProcessWithdraw processWithdraw() {

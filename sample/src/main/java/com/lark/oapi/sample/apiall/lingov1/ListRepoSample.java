@@ -16,7 +16,7 @@ public class ListRepoSample {
         // 创建请求对象
 
         // 发起请求
-        ListRepoResp resp = client.lingo().repo().list();
+        ListRepoResp resp = client.lingo().v1().repo().list();
 
         // 处理服务端错误
         if (!resp.success()) {

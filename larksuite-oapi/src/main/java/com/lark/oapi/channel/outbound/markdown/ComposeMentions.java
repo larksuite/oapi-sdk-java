@@ -1,6 +1,7 @@
 package com.lark.oapi.channel.outbound.markdown;
 
 import com.lark.oapi.channel.model.MentionInfo;
+
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;

@@ -101,6 +101,42 @@ public class DepartmentTimeline {
      */
     @SerializedName("expiration_date")
     private String expirationDate;
+    /**
+     * 树形排序，代表同层级的部门排序序号
+     * <p> 示例值：001000
+     */
+    @SerializedName("tree_order")
+    private String treeOrder;
+    /**
+     * 列表排序，代表所有部门的混排序号
+     * <p> 示例值：001000-001000
+     */
+    @SerializedName("list_order")
+    private String listOrder;
+    /**
+     * 是否根部门
+     * <p> 示例值：false
+     */
+    @SerializedName("is_root")
+    private Boolean isRoot;
+    /**
+     * 是否保密
+     * <p> 示例值：false
+     */
+    @SerializedName("is_confidential")
+    private Boolean isConfidential;
+    /**
+     * 是否使用职务
+     * <p> 示例值：
+     */
+    @SerializedName("staffing_model")
+    private Enum staffingModel;
+    /**
+     * 成本中心id
+     * <p> 示例值：7142384817131652652
+     */
+    @SerializedName("cost_center_id")
+    private String costCenterId;
 
     // builder 开始
     public DepartmentTimeline() {
@@ -167,6 +203,36 @@ public class DepartmentTimeline {
          * <p> 示例值：2020-05-02
          */
         this.expirationDate = builder.expirationDate;
+        /**
+         * 树形排序，代表同层级的部门排序序号
+         * <p> 示例值：001000
+         */
+        this.treeOrder = builder.treeOrder;
+        /**
+         * 列表排序，代表所有部门的混排序号
+         * <p> 示例值：001000-001000
+         */
+        this.listOrder = builder.listOrder;
+        /**
+         * 是否根部门
+         * <p> 示例值：false
+         */
+        this.isRoot = builder.isRoot;
+        /**
+         * 是否保密
+         * <p> 示例值：false
+         */
+        this.isConfidential = builder.isConfidential;
+        /**
+         * 是否使用职务
+         * <p> 示例值：
+         */
+        this.staffingModel = builder.staffingModel;
+        /**
+         * 成本中心id
+         * <p> 示例值：7142384817131652652
+         */
+        this.costCenterId = builder.costCenterId;
     }
 
     public static Builder newBuilder() {
@@ -269,6 +335,54 @@ public class DepartmentTimeline {
         this.expirationDate = expirationDate;
     }
 
+    public String getTreeOrder() {
+        return this.treeOrder;
+    }
+
+    public void setTreeOrder(String treeOrder) {
+        this.treeOrder = treeOrder;
+    }
+
+    public String getListOrder() {
+        return this.listOrder;
+    }
+
+    public void setListOrder(String listOrder) {
+        this.listOrder = listOrder;
+    }
+
+    public Boolean getIsRoot() {
+        return this.isRoot;
+    }
+
+    public void setIsRoot(Boolean isRoot) {
+        this.isRoot = isRoot;
+    }
+
+    public Boolean getIsConfidential() {
+        return this.isConfidential;
+    }
+
+    public void setIsConfidential(Boolean isConfidential) {
+        this.isConfidential = isConfidential;
+    }
+
+    public Enum getStaffingModel() {
+        return this.staffingModel;
+    }
+
+    public void setStaffingModel(Enum staffingModel) {
+        this.staffingModel = staffingModel;
+    }
+
+    public String getCostCenterId() {
+        return this.costCenterId;
+    }
+
+    public void setCostCenterId(String costCenterId) {
+        this.costCenterId = costCenterId;
+    }
+
     public static class Builder {
         /**
          * 部门 ID
@@ -330,6 +444,36 @@ public class DepartmentTimeline {
          * <p> 示例值：2020-05-02
          */
         private String expirationDate;
+        /**
+         * 树形排序，代表同层级的部门排序序号
+         * <p> 示例值：001000
+         */
+        private String treeOrder;
+        /**
+         * 列表排序，代表所有部门的混排序号
+         * <p> 示例值：001000-001000
+         */
+        private String listOrder;
+        /**
+         * 是否根部门
+         * <p> 示例值：false
+         */
+        private Boolean isRoot;
+        /**
+         * 是否保密
+         * <p> 示例值：false
+         */
+        private Boolean isConfidential;
+        /**
+         * 是否使用职务
+         * <p> 示例值：
+         */
+        private Enum staffingModel;
+        /**
+         * 成本中心id
+         * <p> 示例值：7142384817131652652
+         */
+        private String costCenterId;
 
         /**
          * 部门 ID
@@ -483,6 +627,84 @@ public class DepartmentTimeline {
          */
         public Builder expirationDate(String expirationDate) {
             this.expirationDate = expirationDate;
+            return this;
+        }
+
+
+        /**
+         * 树形排序，代表同层级的部门排序序号
+         * <p> 示例值：001000
+         *
+         * @param treeOrder
+         * @return
+         */
+        public Builder treeOrder(String treeOrder) {
+            this.treeOrder = treeOrder;
+            return this;
+        }
+
+
+        /**
+         * 列表排序，代表所有部门的混排序号
+         * <p> 示例值：001000-001000
+         *
+         * @param listOrder
+         * @return
+         */
+        public Builder listOrder(String listOrder) {
+            this.listOrder = listOrder;
+            return this;
+        }
+
+
+        /**
+         * 是否根部门
+         * <p> 示例值：false
+         *
+         * @param isRoot
+         * @return
+         */
+        public Builder isRoot(Boolean isRoot) {
+            this.isRoot = isRoot;
+            return this;
+        }
+
+
+        /**
+         * 是否保密
+         * <p> 示例值：false
+         *
+         * @param isConfidential
+         * @return
+         */
+        public Builder isConfidential(Boolean isConfidential) {
+            this.isConfidential = isConfidential;
+            return this;
+        }
+
+
+        /**
+         * 是否使用职务
+         * <p> 示例值：
+         *
+         * @param staffingModel
+         * @return
+         */
+        public Builder staffingModel(Enum staffingModel) {
+            this.staffingModel = staffingModel;
+            return this;
+        }
+
+
+        /**
+         * 成本中心id
+         * <p> 示例值：7142384817131652652
+         *
+         * @param costCenterId
+         * @return
+         */
+        public Builder costCenterId(String costCenterId) {
+            this.costCenterId = costCenterId;
             return this;
         }
 

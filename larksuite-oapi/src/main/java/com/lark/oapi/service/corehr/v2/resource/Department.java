@@ -193,7 +193,7 @@ public class Department {
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
                 , "/open-apis/corehr/v2/departments/parents"
-                , Sets.newHashSet(AccessTokenType.Tenant)
+                , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                 , req);
 
         // 反序列化
@@ -225,7 +225,7 @@ public class Department {
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
                 , "/open-apis/corehr/v2/departments/parents"
-                , Sets.newHashSet(AccessTokenType.Tenant)
+                , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                 , req);
 
         // 反序列化
@@ -589,7 +589,7 @@ public class Department {
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
                 , "/open-apis/corehr/v2/departments/search"
-                , Sets.newHashSet(AccessTokenType.Tenant)
+                , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                 , req);
 
         // 反序列化
@@ -621,7 +621,7 @@ public class Department {
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
                 , "/open-apis/corehr/v2/departments/search"
-                , Sets.newHashSet(AccessTokenType.Tenant)
+                , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                 , req);
 
         // 反序列化
@@ -655,7 +655,7 @@ public class Department {
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
                 , "/open-apis/corehr/v2/departments/tree"
-                , Sets.newHashSet(AccessTokenType.Tenant)
+                , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                 , req);
 
         // 反序列化
@@ -687,7 +687,7 @@ public class Department {
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
                 , "/open-apis/corehr/v2/departments/tree"
-                , Sets.newHashSet(AccessTokenType.Tenant)
+                , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                 , req);
 
         // 反序列化

@@ -14,7 +14,10 @@
 package com.lark.oapi.service.moments.v1;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.service.moments.v1.resource.*;
+import com.lark.oapi.service.moments.v1.resource.Comment;
+import com.lark.oapi.service.moments.v1.resource.Post;
+import com.lark.oapi.service.moments.v1.resource.PostStatistics;
+import com.lark.oapi.service.moments.v1.resource.Reaction;
 
 public class V1 {
     private final Comment comment; // comment

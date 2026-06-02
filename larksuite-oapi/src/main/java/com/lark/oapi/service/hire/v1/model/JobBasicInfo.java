@@ -46,6 +46,48 @@ public class JobBasicInfo {
      */
     @SerializedName("code")
     private String code;
+    /**
+     * 职位描述
+     * <p> 示例值：职位描述文本
+     */
+    @SerializedName("description")
+    private String description;
+    /**
+     * 职位要求
+     * <p> 示例值：职位要求文本
+     */
+    @SerializedName("requirement")
+    private String requirement;
+    /**
+     * 雇佣类型
+     * <p> 示例值：
+     */
+    @SerializedName("recruitment_type")
+    private JobDetailRecruitmentType recruitmentType;
+    /**
+     * 部门
+     * <p> 示例值：
+     */
+    @SerializedName("department")
+    private JobDetailDepartment department;
+    /**
+     * 职位流程类型
+     * <p> 示例值：1
+     */
+    @SerializedName("process_type")
+    private Integer processType;
+    /**
+     * 职位流程 ID
+     * <p> 示例值：1
+     */
+    @SerializedName("process_id")
+    private String processId;
+    /**
+     * 工作地点列表
+     * <p> 示例值：
+     */
+    @SerializedName("city_list")
+    private CodeNameObject cityList;
 
     // builder 开始
     public JobBasicInfo() {
@@ -67,6 +109,41 @@ public class JobBasicInfo {
          * <p> 示例值：A75256
          */
         this.code = builder.code;
+        /**
+         * 职位描述
+         * <p> 示例值：职位描述文本
+         */
+        this.description = builder.description;
+        /**
+         * 职位要求
+         * <p> 示例值：职位要求文本
+         */
+        this.requirement = builder.requirement;
+        /**
+         * 雇佣类型
+         * <p> 示例值：
+         */
+        this.recruitmentType = builder.recruitmentType;
+        /**
+         * 部门
+         * <p> 示例值：
+         */
+        this.department = builder.department;
+        /**
+         * 职位流程类型
+         * <p> 示例值：1
+         */
+        this.processType = builder.processType;
+        /**
+         * 职位流程 ID
+         * <p> 示例值：1
+         */
+        this.processId = builder.processId;
+        /**
+         * 工作地点列表
+         * <p> 示例值：
+         */
+        this.cityList = builder.cityList;
     }
 
     public static Builder newBuilder() {
@@ -97,6 +174,62 @@ public class JobBasicInfo {
         this.code = code;
     }
 
+    public String getDescription() {
+        return this.description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getRequirement() {
+        return this.requirement;
+    }
+
+    public void setRequirement(String requirement) {
+        this.requirement = requirement;
+    }
+
+    public JobDetailRecruitmentType getRecruitmentType() {
+        return this.recruitmentType;
+    }
+
+    public void setRecruitmentType(JobDetailRecruitmentType recruitmentType) {
+        this.recruitmentType = recruitmentType;
+    }
+
+    public JobDetailDepartment getDepartment() {
+        return this.department;
+    }
+
+    public void setDepartment(JobDetailDepartment department) {
+        this.department = department;
+    }
+
+    public Integer getProcessType() {
+        return this.processType;
+    }
+
+    public void setProcessType(Integer processType) {
+        this.processType = processType;
+    }
+
+    public String getProcessId() {
+        return this.processId;
+    }
+
+    public void setProcessId(String processId) {
+        this.processId = processId;
+    }
+
+    public CodeNameObject getCityList() {
+        return this.cityList;
+    }
+
+    public void setCityList(CodeNameObject cityList) {
+        this.cityList = cityList;
+    }
+
     public static class Builder {
         /**
          * 职位 ID
@@ -113,6 +246,41 @@ public class JobBasicInfo {
          * <p> 示例值：A75256
          */
         private String code;
+        /**
+         * 职位描述
+         * <p> 示例值：职位描述文本
+         */
+        private String description;
+        /**
+         * 职位要求
+         * <p> 示例值：职位要求文本
+         */
+        private String requirement;
+        /**
+         * 雇佣类型
+         * <p> 示例值：
+         */
+        private JobDetailRecruitmentType recruitmentType;
+        /**
+         * 部门
+         * <p> 示例值：
+         */
+        private JobDetailDepartment department;
+        /**
+         * 职位流程类型
+         * <p> 示例值：1
+         */
+        private Integer processType;
+        /**
+         * 职位流程 ID
+         * <p> 示例值：1
+         */
+        private String processId;
+        /**
+         * 工作地点列表
+         * <p> 示例值：
+         */
+        private CodeNameObject cityList;
 
         /**
          * 职位 ID
@@ -149,6 +317,97 @@ public class JobBasicInfo {
          */
         public Builder code(String code) {
             this.code = code;
+            return this;
+        }
+
+
+        /**
+         * 职位描述
+         * <p> 示例值：职位描述文本
+         *
+         * @param description
+         * @return
+         */
+        public Builder description(String description) {
+            this.description = description;
+            return this;
+        }
+
+
+        /**
+         * 职位要求
+         * <p> 示例值：职位要求文本
+         *
+         * @param requirement
+         * @return
+         */
+        public Builder requirement(String requirement) {
+            this.requirement = requirement;
+            return this;
+        }
+
+
+        /**
+         * 雇佣类型
+         * <p> 示例值：
+         *
+         * @param recruitmentType
+         * @return
+         */
+        public Builder recruitmentType(JobDetailRecruitmentType recruitmentType) {
+            this.recruitmentType = recruitmentType;
+            return this;
+        }
+
+
+        /**
+         * 部门
+         * <p> 示例值：
+         *
+         * @param department
+         * @return
+         */
+        public Builder department(JobDetailDepartment department) {
+            this.department = department;
+            return this;
+        }
+
+
+        /**
+         * 职位流程类型
+         * <p> 示例值：1
+         *
+         * @param processType
+         * @return
+         */
+        public Builder processType(Integer processType) {
+            this.processType = processType;
+            return this;
+        }
+
+
+        /**
+         * 职位流程 ID
+         * <p> 示例值：1
+         *
+         * @param processId
+         * @return
+         */
+        public Builder processId(String processId) {
+            this.processId = processId;
+            return this;
+        }
+
+
+        /**
+         * 工作地点列表
+         * <p> 示例值：
+         *
+         * @param cityList
+         * @return
+         */
+        public Builder cityList(CodeNameObject cityList) {
+            this.cityList = cityList;
             return this;
         }
 

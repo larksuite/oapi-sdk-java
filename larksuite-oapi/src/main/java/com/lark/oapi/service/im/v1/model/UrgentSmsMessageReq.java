@@ -112,10 +112,10 @@ public class UrgentSmsMessageReq {
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
          *
-         * @param userIdType {@link com.lark.oapi.service.im.v1.enums.UrgentSmsMessageUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.im.v1.enums.UrgentSmsMessageUrgentSmsV1UserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.im.v1.enums.UrgentSmsMessageUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.im.v1.enums.UrgentSmsMessageUrgentSmsV1UserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }

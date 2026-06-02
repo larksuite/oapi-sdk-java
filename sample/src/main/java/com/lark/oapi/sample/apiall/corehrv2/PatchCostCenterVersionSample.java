@@ -22,11 +22,13 @@ public class PatchCostCenterVersionSample {
                 .userIdType("people_corehr_id")
                 .patchCostCenterVersionReqBody(PatchCostCenterVersionReqBody.newBuilder()
                         .name(new I18n[]{})
+                        .code("MDPD00000023")
                         .parentCostCenterId("6862995757234914824")
                         .managers(new String[]{})
                         .description(new I18n[]{})
                         .effectiveTime("2020-01-01")
                         .operationReason("强行操作")
+                        .isPreferManualEncoding(false)
                         .build())
                 .build();
 

@@ -14,7 +14,7 @@
 package com.lark.oapi.service.bitable.v1.enums;
 
 /**
- * 数据表权限，`协作者可编辑自己的记录`和`可编辑指定字段`是`可编辑记录`的特殊情况，可通过指定`rec_rule`或`field_perm`参数实现相同的效果
+ * 数据表权限
  */
 public enum AppRoleTableRoleTablePermEnum {
     NOPERM(0), // 无权限

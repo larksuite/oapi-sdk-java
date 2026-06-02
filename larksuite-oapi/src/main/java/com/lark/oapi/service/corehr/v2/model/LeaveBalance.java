@@ -125,6 +125,12 @@ public class LeaveBalance {
      */
     @SerializedName("leave_quantity_under_approval")
     private String leaveQuantityUnderApproval;
+    /**
+     * 假期子类余额列表
+     * <p> 示例值：
+     */
+    @SerializedName("leave_subtype_balance_list")
+    private LeaveSubtypeBalance[] leaveSubtypeBalanceList;
 
     // builder 开始
     public LeaveBalance() {
@@ -211,6 +217,11 @@ public class LeaveBalance {
          * <p> 示例值：0
          */
         this.leaveQuantityUnderApproval = builder.leaveQuantityUnderApproval;
+        /**
+         * 假期子类余额列表
+         * <p> 示例值：
+         */
+        this.leaveSubtypeBalanceList = builder.leaveSubtypeBalanceList;
     }
 
     public static Builder newBuilder() {
@@ -345,6 +356,14 @@ public class LeaveBalance {
         this.leaveQuantityUnderApproval = leaveQuantityUnderApproval;
     }
 
+    public LeaveSubtypeBalance[] getLeaveSubtypeBalanceList() {
+        return this.leaveSubtypeBalanceList;
+    }
+
+    public void setLeaveSubtypeBalanceList(LeaveSubtypeBalance[] leaveSubtypeBalanceList) {
+        this.leaveSubtypeBalanceList = leaveSubtypeBalanceList;
+    }
+
     public static class Builder {
         /**
          * 假期类型ID
@@ -426,6 +445,11 @@ public class LeaveBalance {
          * <p> 示例值：0
          */
         private String leaveQuantityUnderApproval;
+        /**
+         * 假期子类余额列表
+         * <p> 示例值：
+         */
+        private LeaveSubtypeBalance[] leaveSubtypeBalanceList;
 
         /**
          * 假期类型ID
@@ -631,6 +655,19 @@ public class LeaveBalance {
          */
         public Builder leaveQuantityUnderApproval(String leaveQuantityUnderApproval) {
             this.leaveQuantityUnderApproval = leaveQuantityUnderApproval;
+            return this;
+        }
+
+
+        /**
+         * 假期子类余额列表
+         * <p> 示例值：
+         *
+         * @param leaveSubtypeBalanceList
+         * @return
+         */
+        public Builder leaveSubtypeBalanceList(LeaveSubtypeBalance[] leaveSubtypeBalanceList) {
+            this.leaveSubtypeBalanceList = leaveSubtypeBalanceList;
             return this;
         }
 

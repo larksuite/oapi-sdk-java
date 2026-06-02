@@ -133,10 +133,10 @@ public class CreateUserReq {
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
          *
-         * @param userIdType {@link com.lark.oapi.service.contact.v3.enums.CreateUserUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.contact.v3.enums.CreateUserCreateUserV3UserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.contact.v3.enums.CreateUserUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.contact.v3.enums.CreateUserCreateUserV3UserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }
@@ -157,10 +157,10 @@ public class CreateUserReq {
          * 此次调用中使用的部门ID的类型。;;不同 ID 的说明参见[部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
          * <p> 示例值：open_department_id
          *
-         * @param departmentIdType {@link com.lark.oapi.service.contact.v3.enums.CreateUserDepartmentIdTypeEnum}
+         * @param departmentIdType {@link com.lark.oapi.service.contact.v3.enums.CreateUserCreateUserV3DepartmentIDTypeEnum}
          * @return
          */
-        public Builder departmentIdType(com.lark.oapi.service.contact.v3.enums.CreateUserDepartmentIdTypeEnum departmentIdType) {
+        public Builder departmentIdType(com.lark.oapi.service.contact.v3.enums.CreateUserCreateUserV3DepartmentIDTypeEnum departmentIdType) {
             this.departmentIdType = departmentIdType.getValue();
             return this;
         }

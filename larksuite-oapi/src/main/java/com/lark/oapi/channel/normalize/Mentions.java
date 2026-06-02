@@ -4,6 +4,7 @@ import com.lark.oapi.channel.model.BotIdentity;
 import com.lark.oapi.channel.model.MentionInfo;
 import com.lark.oapi.service.im.v1.model.Mention;
 import com.lark.oapi.service.im.v1.model.MentionEvent;
+
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;

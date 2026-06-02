@@ -19,6 +19,8 @@ public class PatchApplicationSample {
                 .lang("zh_cn")
                 .application(Application.newBuilder()
                         .commonCategories(new String[]{})
+                        .allowRefreshToken(false)
+                        .callbackInfo(CallbackInfo.newBuilder().build())
                         .build())
                 .build();
 

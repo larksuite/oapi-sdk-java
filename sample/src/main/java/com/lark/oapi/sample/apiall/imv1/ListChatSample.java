@@ -19,6 +19,7 @@ public class ListChatSample {
                 .sortType("ByCreateTimeAsc")
                 .pageToken("dmJCRHhpd3JRbGV1VEVNRFFyTitRWDY5ZFkybmYrMEUwMUFYT0VMMWdENEtuYUhsNUxGMDIwemtvdE5ORjBNQQ==")
                 .pageSize(20)
+                .types("group")
                 .build();
 
         // 发起请求

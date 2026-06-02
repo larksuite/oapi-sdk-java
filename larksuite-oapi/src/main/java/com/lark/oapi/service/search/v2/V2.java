@@ -14,7 +14,12 @@
 package com.lark.oapi.service.search.v2;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.service.search.v2.resource.*;
+import com.lark.oapi.service.search.v2.resource.App;
+import com.lark.oapi.service.search.v2.resource.DataSource;
+import com.lark.oapi.service.search.v2.resource.DataSourceItem;
+import com.lark.oapi.service.search.v2.resource.DocWiki;
+import com.lark.oapi.service.search.v2.resource.Message;
+import com.lark.oapi.service.search.v2.resource.Schema;
 
 public class V2 {
     private final App app; // app

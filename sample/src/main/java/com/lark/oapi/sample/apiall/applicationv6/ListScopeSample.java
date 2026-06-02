@@ -16,7 +16,7 @@ public class ListScopeSample {
         // 创建请求对象
 
         // 发起请求
-        ListScopeResp resp = client.application().scope().list();
+        ListScopeResp resp = client.application().v6().scope().list();
 
         // 处理服务端错误
         if (!resp.success()) {

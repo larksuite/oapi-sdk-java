@@ -14,10 +14,18 @@
 package com.lark.oapi.service.approval.v4;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.service.approval.v4.resource.*;
+import com.lark.oapi.service.approval.v4.resource.Approval;
+import com.lark.oapi.service.approval.v4.resource.District;
+import com.lark.oapi.service.approval.v4.resource.ExternalApproval;
+import com.lark.oapi.service.approval.v4.resource.ExternalInstance;
+import com.lark.oapi.service.approval.v4.resource.ExternalTask;
+import com.lark.oapi.service.approval.v4.resource.Instance;
+import com.lark.oapi.service.approval.v4.resource.InstanceComment;
+import com.lark.oapi.service.approval.v4.resource.Task;
 
 public class V4 {
     private final Approval approval; // 原生审批定义
+    private final District district; // district
     private final ExternalApproval externalApproval; // 三方审批定义
     private final ExternalInstance externalInstance; // 三方审批实例
     private final ExternalTask externalTask; // 三方审批任务
@@ -27,6 +35,7 @@ public class V4 {
 
     public V4(Config config) {
         this.approval = new Approval(config);
+        this.district = new District(config);
         this.externalApproval = new ExternalApproval(config);
         this.externalInstance = new ExternalInstance(config);
         this.externalTask = new ExternalTask(config);
@@ -37,6 +46,10 @@ public class V4 {
 
     public Approval approval() {
         return approval;
+    }
+
+    public District district() {
+        return district;
     }
 
     public ExternalApproval externalApproval() {

@@ -14,7 +14,19 @@
 package com.lark.oapi.service.helpdesk.v1;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.service.helpdesk.v1.resource.*;
+import com.lark.oapi.service.helpdesk.v1.resource.Agent;
+import com.lark.oapi.service.helpdesk.v1.resource.AgentSchedules;
+import com.lark.oapi.service.helpdesk.v1.resource.AgentSchedule;
+import com.lark.oapi.service.helpdesk.v1.resource.AgentSkill;
+import com.lark.oapi.service.helpdesk.v1.resource.AgentSkillRule;
+import com.lark.oapi.service.helpdesk.v1.resource.BotMessage;
+import com.lark.oapi.service.helpdesk.v1.resource.Category;
+import com.lark.oapi.service.helpdesk.v1.resource.Event;
+import com.lark.oapi.service.helpdesk.v1.resource.Faq;
+import com.lark.oapi.service.helpdesk.v1.resource.Notification;
+import com.lark.oapi.service.helpdesk.v1.resource.Ticket;
+import com.lark.oapi.service.helpdesk.v1.resource.TicketMessage;
+import com.lark.oapi.service.helpdesk.v1.resource.TicketCustomizedField;
 
 public class V1 {
     private final Agent agent; // 客服

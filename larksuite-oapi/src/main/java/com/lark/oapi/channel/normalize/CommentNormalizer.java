@@ -3,6 +3,7 @@ package com.lark.oapi.channel.normalize;
 import com.google.gson.JsonObject;
 import com.lark.oapi.channel.model.CommentEvent;
 import com.lark.oapi.core.utils.Jsons;
+
 import java.util.Map;
 
 public class CommentNormalizer {
@@ -39,9 +40,9 @@ public class CommentNormalizer {
                 : payload.has("user_id") && payload.get("user_id").isJsonObject() ? payload.getAsJsonObject("user_id") : null;
         String operatorId = operator == null ? null
                 : NormalizeTexts.firstNonBlank(
-                        NormalizeJsons.optString(operator, "open_id"),
-                        NormalizeJsons.optString(operator, "user_id"),
-                        NormalizeJsons.optString(operator, "union_id"));
+                NormalizeJsons.optString(operator, "open_id"),
+                NormalizeJsons.optString(operator, "user_id"),
+                NormalizeJsons.optString(operator, "union_id"));
         boolean mentionedBot = parseBoolean(payload, "is_mentioned") || parseBoolean(payload, "is_mention")
                 || (noticeMeta != null && parseBoolean(noticeMeta, "is_mentioned"));
         String timestampValue = NormalizeJsons.optString(payload, "create_time");

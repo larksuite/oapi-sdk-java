@@ -15,9 +15,11 @@ public class CreateDeviceRecordSample {
 
         // 创建请求对象
         CreateDeviceRecordReq req = CreateDeviceRecordReq.newBuilder()
-                .userIdType("user_id")
-                .deviceRecord(DeviceRecord.newBuilder()
+                .createDeviceRecordReqBody(CreateDeviceRecordReqBody.newBuilder()
                         .deviceSystem(0)
+                        .deviceOwnership(0)
+                        .deviceStatus(0)
+                        .isPublic(false)
                         .serialNumber("C02DTHRMML7H")
                         .diskSerialNumber("CC344362-5990-5A68-8DDD-64A23C99FA0C")
                         .uuid("621CDFF0-13D0-5AB1-9ADC-5F560095F6ED")
@@ -25,13 +27,6 @@ public class CreateDeviceRecordSample {
                         .androidId("02a11ac4a83b918e")
                         .idfv("968F0E5C-C297-4122-ACB6-102494DEFD9A")
                         .aaid("ff3c2237-cd76-4331-9d72-0a4470854567")
-                        .deviceOwnership(0)
-                        .deviceStatus(0)
-                        .latestUserId("ou_b25e90585ef8c1adac4b379c2e257906")
-                        .dids(new String[]{})
-                        .isManaged(false)
-                        .mdmDeviceId("123abc")
-                        .mdmProviderName("Workspace_ONE")
                         .build())
                 .build();
 

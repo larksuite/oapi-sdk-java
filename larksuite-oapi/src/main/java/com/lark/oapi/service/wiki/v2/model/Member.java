@@ -53,6 +53,12 @@ public class Member {
      */
     @SerializedName("type")
     private String type;
+    /**
+     * 知识库协作组权限
+     * <p> 示例值：admin
+     */
+    @SerializedName("member_perm")
+    private String memberPerm;
 
     // builder 开始
     public Member() {
@@ -79,6 +85,11 @@ public class Member {
          * <p> 示例值：user
          */
         this.type = builder.type;
+        /**
+         * 知识库协作组权限
+         * <p> 示例值：admin
+         */
+        this.memberPerm = builder.memberPerm;
     }
 
     public static Builder newBuilder() {
@@ -117,6 +128,14 @@ public class Member {
         this.type = type;
     }
 
+    public String getMemberPerm() {
+        return this.memberPerm;
+    }
+
+    public void setMemberPerm(String memberPerm) {
+        this.memberPerm = memberPerm;
+    }
+
     public static class Builder {
         /**
          * “openchat” - 群id ;;“userid” - 用户id;;“email” - 邮箱;;“opendepartmentid” - 部门id;;“openid” - 应用openid;;“unionid” - [unionid](/:ssltoken/home/user-identity-introduction/union-id;)
@@ -138,6 +157,11 @@ public class Member {
          * <p> 示例值：user
          */
         private String type;
+        /**
+         * 知识库协作组权限
+         * <p> 示例值：admin
+         */
+        private String memberPerm;
 
         /**
          * “openchat” - 群id ;;“userid” - 用户id;;“email” - 邮箱;;“opendepartmentid” - 部门id;;“openid” - 应用openid;;“unionid” - [unionid](/:ssltoken/home/user-identity-introduction/union-id;)
@@ -199,6 +223,19 @@ public class Member {
          */
         public Builder type(com.lark.oapi.service.wiki.v2.enums.MemberTypeEnum type) {
             this.type = type.getValue();
+            return this;
+        }
+
+
+        /**
+         * 知识库协作组权限
+         * <p> 示例值：admin
+         *
+         * @param memberPerm
+         * @return
+         */
+        public Builder memberPerm(String memberPerm) {
+            this.memberPerm = memberPerm;
             return this;
         }
 

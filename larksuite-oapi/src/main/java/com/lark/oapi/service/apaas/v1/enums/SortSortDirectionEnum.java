@@ -18,7 +18,7 @@ package com.lark.oapi.service.apaas.v1.enums;
  */
 public enum SortSortDirectionEnum {
     SORTDIRECTIONASC("ASC"), // 升序
-    SORTDIRECTIONDESC("DESC"), //  降序
+    SORTDIRECTIONDESC("DESC"), // 降序
     ;
     private String value;
 

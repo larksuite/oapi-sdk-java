@@ -184,10 +184,10 @@ public class ChildrenDepartmentReq {
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
          *
-         * @param userIdType {@link com.lark.oapi.service.contact.v3.enums.ChildrenDepartmentUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.contact.v3.enums.ChildrenDepartmentListDepartmentChildrenUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.contact.v3.enums.ChildrenDepartmentUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.contact.v3.enums.ChildrenDepartmentListDepartmentChildrenUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }
@@ -208,10 +208,10 @@ public class ChildrenDepartmentReq {
          * 此次调用中使用的部门ID的类型;;不同 ID 的说明与department_id的获取方式参见 [部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
          * <p> 示例值：open_department_id
          *
-         * @param departmentIdType {@link com.lark.oapi.service.contact.v3.enums.ChildrenDepartmentDepartmentIdTypeEnum}
+         * @param departmentIdType {@link com.lark.oapi.service.contact.v3.enums.ChildrenDepartmentListDepartmentChildrenDepartmentIDTypeEnum}
          * @return
          */
-        public Builder departmentIdType(com.lark.oapi.service.contact.v3.enums.ChildrenDepartmentDepartmentIdTypeEnum departmentIdType) {
+        public Builder departmentIdType(com.lark.oapi.service.contact.v3.enums.ChildrenDepartmentListDepartmentChildrenDepartmentIDTypeEnum departmentIdType) {
             this.departmentIdType = departmentIdType.getValue();
             return this;
         }

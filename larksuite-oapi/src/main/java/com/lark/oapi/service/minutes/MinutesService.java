@@ -27,4 +27,11 @@ public class MinutesService {
     public V1 v1() {
         return v1;
     }
+
+    public abstract static class P2MinuteGeneratedV1Handler implements IEventHandler<P2MinuteGeneratedV1> {
+        @Override
+        public P2MinuteGeneratedV1 getEvent() {
+            return new P2MinuteGeneratedV1();
+        }
+    }
 }

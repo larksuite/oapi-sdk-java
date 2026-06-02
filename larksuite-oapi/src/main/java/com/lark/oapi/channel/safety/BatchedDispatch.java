@@ -1,6 +1,7 @@
 package com.lark.oapi.channel.safety;
 
 import com.lark.oapi.channel.model.NormalizedMessage;
+
 import java.util.List;
 
 class BatchedDispatch {

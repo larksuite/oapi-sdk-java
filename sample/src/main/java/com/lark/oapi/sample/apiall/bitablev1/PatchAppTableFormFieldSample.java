@@ -25,6 +25,7 @@ public class PatchAppTableFormFieldSample {
                         .description("")
                         .required(false)
                         .visible(false)
+                        .richDescription(new AppRichDescriptionSegment[]{})
                         .build())
                 .build();
 

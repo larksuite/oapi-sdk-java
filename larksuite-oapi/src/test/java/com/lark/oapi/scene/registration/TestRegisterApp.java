@@ -53,6 +53,63 @@ import static org.junit.Assert.fail;
 
 public class TestRegisterApp {
 
+    private static HttpUrl captureQRCodeUrl(AppPreset appPreset, String source) throws Exception {
+        RegistrationTestServer server = new RegistrationTestServer();
+        try {
+            server.enqueueBegin(
+                    200,
+                    "{\"device_code\":\"dev_code\",\"verification_uri_complete\":\""
+                            + server.baseUrl()
+                            + "/verify?foo=bar\",\"interval\":1,\"expire_in\":600}"
+            );
+            server.enqueuePoll(
+                    200,
+                    "{\"client_id\":\"cli_123\",\"client_secret\":\"sec_456\","
+                            + "\"user_info\":{\"open_id\":\"ou_abc\",\"tenant_brand\":\"feishu\"}}"
+            );
+
+            List<QRCodeInfo> qrCodes = new ArrayList<>();
+            RegisterApp.register(RegisterAppOptions.newBuilder()
+                    .domain(server.baseUrl())
+                    .source(source)
+                    .appPreset(appPreset)
+                    .onQRCode(qrCodes::add)
+                    .build());
+
+            assertEquals(1, qrCodes.size());
+            return HttpUrl.get(qrCodes.get(0).getUrl());
+        } finally {
+            server.close();
+        }
+    }
+
+    private static void assertInvalidAppPreset(AppPreset appPreset, String expectedDescription) throws Exception {
+        RegistrationTestServer server = new RegistrationTestServer();
+        try {
+            server.enqueueBegin(
+                    200,
+                    "{\"device_code\":\"dev_code\",\"verification_uri_complete\":\""
+                            + server.baseUrl()
+                            + "/verify\",\"interval\":1,\"expire_in\":600}"
+            );
+
+            try {
+                RegisterApp.register(RegisterAppOptions.newBuilder()
+                        .domain(server.baseUrl())
+                        .appPreset(appPreset)
+                        .onQRCode(info -> {
+                        })
+                        .build());
+                fail("Expected RegisterAppException");
+            } catch (RegisterAppException e) {
+                assertEquals("invalid_argument", e.getCode());
+                assertEquals(expectedDescription, e.getDescription());
+            }
+        } finally {
+            server.close();
+        }
+    }
+
     @Test
     public void testRegisterAppOmitsAppPresetWhenNotProvided() throws Exception {
         HttpUrl qrUrl = captureQRCodeUrl(null, null);
@@ -446,63 +503,6 @@ public class TestRegisterApp {
         }
     }
 
-    private static HttpUrl captureQRCodeUrl(AppPreset appPreset, String source) throws Exception {
-        RegistrationTestServer server = new RegistrationTestServer();
-        try {
-            server.enqueueBegin(
-                    200,
-                    "{\"device_code\":\"dev_code\",\"verification_uri_complete\":\""
-                            + server.baseUrl()
-                            + "/verify?foo=bar\",\"interval\":1,\"expire_in\":600}"
-            );
-            server.enqueuePoll(
-                    200,
-                    "{\"client_id\":\"cli_123\",\"client_secret\":\"sec_456\","
-                            + "\"user_info\":{\"open_id\":\"ou_abc\",\"tenant_brand\":\"feishu\"}}"
-            );
-
-            List<QRCodeInfo> qrCodes = new ArrayList<>();
-            RegisterApp.register(RegisterAppOptions.newBuilder()
-                    .domain(server.baseUrl())
-                    .source(source)
-                    .appPreset(appPreset)
-                    .onQRCode(qrCodes::add)
-                    .build());
-
-            assertEquals(1, qrCodes.size());
-            return HttpUrl.get(qrCodes.get(0).getUrl());
-        } finally {
-            server.close();
-        }
-    }
-
-    private static void assertInvalidAppPreset(AppPreset appPreset, String expectedDescription) throws Exception {
-        RegistrationTestServer server = new RegistrationTestServer();
-        try {
-            server.enqueueBegin(
-                    200,
-                    "{\"device_code\":\"dev_code\",\"verification_uri_complete\":\""
-                            + server.baseUrl()
-                            + "/verify\",\"interval\":1,\"expire_in\":600}"
-            );
-
-            try {
-                RegisterApp.register(RegisterAppOptions.newBuilder()
-                        .domain(server.baseUrl())
-                        .appPreset(appPreset)
-                        .onQRCode(info -> {
-                        })
-                        .build());
-                fail("Expected RegisterAppException");
-            } catch (RegisterAppException e) {
-                assertEquals("invalid_argument", e.getCode());
-                assertEquals(expectedDescription, e.getDescription());
-            }
-        } finally {
-            server.close();
-        }
-    }
-
     private static class RegistrationTestServer {
         private final HttpServer server;
         private final Queue<QueuedResponse> beginResponses = new ConcurrentLinkedQueue<>();
@@ -514,6 +514,33 @@ public class TestRegisterApp {
             this.server = HttpServer.create(new InetSocketAddress(0), 0);
             this.server.createContext("/oauth/v1/app/registration", new RegistrationHandler());
             this.server.start();
+        }
+
+        private static String readBody(InputStream inputStream) throws IOException {
+            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+            byte[] buffer = new byte[256];
+            int read;
+            while ((read = inputStream.read(buffer)) != -1) {
+                outputStream.write(buffer, 0, read);
+            }
+            return outputStream.toString(StandardCharsets.UTF_8.name());
+        }
+
+        private static Map<String, String> parseForm(String formBody) throws IOException {
+            Map<String, String> result = new LinkedHashMap<>();
+            if (formBody == null || formBody.isEmpty()) {
+                return result;
+            }
+            String[] pairs = formBody.split("&");
+            for (String pair : pairs) {
+                String[] keyValue = pair.split("=", 2);
+                String key = URLDecoder.decode(keyValue[0], StandardCharsets.UTF_8.name());
+                String value = keyValue.length > 1
+                        ? URLDecoder.decode(keyValue[1], StandardCharsets.UTF_8.name())
+                        : "";
+                result.put(key, value);
+            }
+            return result;
         }
 
         String baseUrl() {
@@ -569,33 +596,6 @@ public class TestRegisterApp {
                     outputStream.write(bytes);
                 }
             }
-        }
-
-        private static String readBody(InputStream inputStream) throws IOException {
-            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-            byte[] buffer = new byte[256];
-            int read;
-            while ((read = inputStream.read(buffer)) != -1) {
-                outputStream.write(buffer, 0, read);
-            }
-            return outputStream.toString(StandardCharsets.UTF_8.name());
-        }
-
-        private static Map<String, String> parseForm(String formBody) throws IOException {
-            Map<String, String> result = new LinkedHashMap<>();
-            if (formBody == null || formBody.isEmpty()) {
-                return result;
-            }
-            String[] pairs = formBody.split("&");
-            for (String pair : pairs) {
-                String[] keyValue = pair.split("=", 2);
-                String key = URLDecoder.decode(keyValue[0], StandardCharsets.UTF_8.name());
-                String value = keyValue.length > 1
-                        ? URLDecoder.decode(keyValue[1], StandardCharsets.UTF_8.name())
-                        : "";
-                result.put(key, value);
-            }
-            return result;
         }
     }
 

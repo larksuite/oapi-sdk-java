@@ -112,10 +112,10 @@ public class DeleteUserReq {
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
          *
-         * @param userIdType {@link com.lark.oapi.service.contact.v3.enums.DeleteUserUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.contact.v3.enums.DeleteUserDeleteUserV3UserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.contact.v3.enums.DeleteUserUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.contact.v3.enums.DeleteUserDeleteUserV3UserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }

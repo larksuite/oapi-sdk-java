@@ -14,7 +14,13 @@
 package com.lark.oapi.service.docx.v1;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.service.docx.v1.resource.*;
+import com.lark.oapi.service.docx.v1.resource.ChatAnnouncement;
+import com.lark.oapi.service.docx.v1.resource.ChatAnnouncementBlock;
+import com.lark.oapi.service.docx.v1.resource.ChatAnnouncementBlockChildren;
+import com.lark.oapi.service.docx.v1.resource.Document;
+import com.lark.oapi.service.docx.v1.resource.DocumentBlock;
+import com.lark.oapi.service.docx.v1.resource.DocumentBlockChildren;
+import com.lark.oapi.service.docx.v1.resource.DocumentBlockDescendant;
 
 public class V1 {
     private final ChatAnnouncement chatAnnouncement; // chat.announcement

@@ -29,19 +29,19 @@ import com.lark.oapi.core.response.BaseResponse;
 
 public class ListAppTableReq {
     /**
-     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
-     * <p> 示例值：tblsRc9GRRXKqhvW
-     */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
-    /**
      * 分页大小
      * <p> 示例值：10
      */
     @Query
     @SerializedName("page_size")
     private Integer pageSize;
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
+     * <p> 示例值：tblsRc9GRRXKqhvW
+     */
+    @Query
+    @SerializedName("page_token")
+    private String pageToken;
     /**
      * bitable app token
      * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
@@ -56,15 +56,15 @@ public class ListAppTableReq {
 
     public ListAppTableReq(Builder builder) {
         /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
-         * <p> 示例值：tblsRc9GRRXKqhvW
-         */
-        this.pageToken = builder.pageToken;
-        /**
          * 分页大小
          * <p> 示例值：10
          */
         this.pageSize = builder.pageSize;
+        /**
+         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
+         * <p> 示例值：tblsRc9GRRXKqhvW
+         */
+        this.pageToken = builder.pageToken;
         /**
          * bitable app token
          * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
@@ -76,20 +76,20 @@ public class ListAppTableReq {
         return new Builder();
     }
 
-    public String getPageToken() {
-        return this.pageToken;
-    }
-
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
-
     public Integer getPageSize() {
         return this.pageSize;
     }
 
     public void setPageSize(Integer pageSize) {
         this.pageSize = pageSize;
+    }
+
+    public String getPageToken() {
+        return this.pageToken;
+    }
+
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
     }
 
     public String getAppToken() {
@@ -101,21 +101,9 @@ public class ListAppTableReq {
     }
 
     public static class Builder {
-        private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
         private Integer pageSize; // 分页大小
+        private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
         private String appToken; // bitable app token
-
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
-         * <p> 示例值：tblsRc9GRRXKqhvW
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
 
         /**
          * 分页大小
@@ -126,6 +114,18 @@ public class ListAppTableReq {
          */
         public Builder pageSize(Integer pageSize) {
             this.pageSize = pageSize;
+            return this;
+        }
+
+        /**
+         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
+         * <p> 示例值：tblsRc9GRRXKqhvW
+         *
+         * @param pageToken
+         * @return
+         */
+        public Builder pageToken(String pageToken) {
+            this.pageToken = pageToken;
             return this;
         }
 

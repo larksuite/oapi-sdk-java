@@ -42,8 +42,8 @@ public class AppRoleTableRoleRecRule {
     @SerializedName("conjunction")
     private String conjunction;
     /**
-     * 其他记录权限，仅在table_perm为2时有意义
-     * <p> 示例值：0
+     * 其他记录权限，仅在table_perm为2时有效
+     * <p> 示例值：1
      */
     @SerializedName("other_perm")
     private Integer otherPerm;
@@ -64,8 +64,8 @@ public class AppRoleTableRoleRecRule {
          */
         this.conjunction = builder.conjunction;
         /**
-         * 其他记录权限，仅在table_perm为2时有意义
-         * <p> 示例值：0
+         * 其他记录权限，仅在table_perm为2时有效
+         * <p> 示例值：1
          */
         this.otherPerm = builder.otherPerm;
     }
@@ -110,8 +110,8 @@ public class AppRoleTableRoleRecRule {
          */
         private String conjunction;
         /**
-         * 其他记录权限，仅在table_perm为2时有意义
-         * <p> 示例值：0
+         * 其他记录权限，仅在table_perm为2时有效
+         * <p> 示例值：1
          */
         private Integer otherPerm;
 
@@ -154,8 +154,8 @@ public class AppRoleTableRoleRecRule {
 
 
         /**
-         * 其他记录权限，仅在table_perm为2时有意义
-         * <p> 示例值：0
+         * 其他记录权限，仅在table_perm为2时有效
+         * <p> 示例值：1
          *
          * @param otherPerm
          * @return
@@ -166,8 +166,8 @@ public class AppRoleTableRoleRecRule {
         }
 
         /**
-         * 其他记录权限，仅在table_perm为2时有意义
-         * <p> 示例值：0
+         * 其他记录权限，仅在table_perm为2时有效
+         * <p> 示例值：1
          *
          * @param otherPerm {@link com.lark.oapi.service.bitable.v1.enums.AppRoleTableRoleRecRuleOtherPermEnum}
          * @return

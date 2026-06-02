@@ -40,7 +40,7 @@ public class SystemStatusUserOpenParam {
      * <p> 示例值：1665990378
      */
     @SerializedName("end_time")
-    private String endTime;
+    private Integer endTime;
 
     // builder 开始
     public SystemStatusUserOpenParam() {
@@ -71,11 +71,11 @@ public class SystemStatusUserOpenParam {
         this.userId = userId;
     }
 
-    public String getEndTime() {
+    public Integer getEndTime() {
         return this.endTime;
     }
 
-    public void setEndTime(String endTime) {
+    public void setEndTime(Integer endTime) {
         this.endTime = endTime;
     }
 
@@ -89,7 +89,7 @@ public class SystemStatusUserOpenParam {
          * 结束时间，传入的应为秒单位的时间戳，距当前的时间跨度不能超过365天。
          * <p> 示例值：1665990378
          */
-        private String endTime;
+        private Integer endTime;
 
         /**
          * 用户ID
@@ -111,7 +111,7 @@ public class SystemStatusUserOpenParam {
          * @param endTime
          * @return
          */
-        public Builder endTime(String endTime) {
+        public Builder endTime(Integer endTime) {
             this.endTime = endTime;
             return this;
         }

@@ -58,7 +58,7 @@ public class TagInfo {
      * <p> 示例值：
      */
     @SerializedName("i18n_names")
-    private TagI18nName[] i18nNames;
+    private TagI18nNameV2[] i18nNames;
     /**
      * 创建人
      * <p> 示例值：716168xxxxx
@@ -161,11 +161,11 @@ public class TagInfo {
         this.name = name;
     }
 
-    public TagI18nName[] getI18nNames() {
+    public TagI18nNameV2[] getI18nNames() {
         return this.i18nNames;
     }
 
-    public void setI18nNames(TagI18nName[] i18nNames) {
+    public void setI18nNames(TagI18nNameV2[] i18nNames) {
         this.i18nNames = i18nNames;
     }
 
@@ -218,7 +218,7 @@ public class TagInfo {
          * i18n name
          * <p> 示例值：
          */
-        private TagI18nName[] i18nNames;
+        private TagI18nNameV2[] i18nNames;
         /**
          * 创建人
          * <p> 示例值：716168xxxxx
@@ -294,7 +294,7 @@ public class TagInfo {
          * @param i18nNames
          * @return
          */
-        public Builder i18nNames(TagI18nName[] i18nNames) {
+        public Builder i18nNames(TagI18nNameV2[] i18nNames) {
             this.i18nNames = i18nNames;
             return this;
         }

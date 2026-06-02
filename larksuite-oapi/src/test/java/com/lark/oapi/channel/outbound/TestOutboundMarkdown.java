@@ -3,9 +3,11 @@ package com.lark.oapi.channel.outbound;
 import com.lark.oapi.channel.outbound.markdown.ComposeMentions;
 import com.lark.oapi.channel.outbound.markdown.MarkdownPostConverter;
 import com.lark.oapi.channel.outbound.markdown.MarkdownSplitter;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+
 import org.junit.Assert;
 import org.junit.Test;
 

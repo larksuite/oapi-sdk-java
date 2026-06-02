@@ -179,10 +179,10 @@ public class FeedGroupRuleCondItem {
          * 条件类型
          * <p> 示例值：keyword
          *
-         * @param type {@link com.lark.oapi.service.im.v2.enums.FeedGroupRuleCondItemTypeEnum}
+         * @param type {@link com.lark.oapi.service.im.v2.enums.FeedGroupRuleCondItemFeedGroupRuleCondItemTypeEnum}
          * @return
          */
-        public Builder type(com.lark.oapi.service.im.v2.enums.FeedGroupRuleCondItemTypeEnum type) {
+        public Builder type(com.lark.oapi.service.im.v2.enums.FeedGroupRuleCondItemFeedGroupRuleCondItemTypeEnum type) {
             this.type = type.getValue();
             return this;
         }
@@ -204,10 +204,10 @@ public class FeedGroupRuleCondItem {
          * 操作符
          * <p> 示例值：contain
          *
-         * @param operator {@link com.lark.oapi.service.im.v2.enums.FeedGroupRuleCondItemOperatorEnum}
+         * @param operator {@link com.lark.oapi.service.im.v2.enums.FeedGroupRuleCondItemFeedGroupRuleCondItemOperatorEnum}
          * @return
          */
-        public Builder operator(com.lark.oapi.service.im.v2.enums.FeedGroupRuleCondItemOperatorEnum operator) {
+        public Builder operator(com.lark.oapi.service.im.v2.enums.FeedGroupRuleCondItemFeedGroupRuleCondItemOperatorEnum operator) {
             this.operator = operator.getValue();
             return this;
         }
@@ -255,10 +255,10 @@ public class FeedGroupRuleCondItem {
          * 会话类型
          * <p> 示例值：p2p
          *
-         * @param chatType {@link com.lark.oapi.service.im.v2.enums.FeedGroupRuleCondItemChatTypeEnum}
+         * @param chatType {@link com.lark.oapi.service.im.v2.enums.FeedGroupRuleCondItemFeedGroupRuleCondItemChatTypeEnum}
          * @return
          */
-        public Builder chatType(com.lark.oapi.service.im.v2.enums.FeedGroupRuleCondItemChatTypeEnum chatType) {
+        public Builder chatType(com.lark.oapi.service.im.v2.enums.FeedGroupRuleCondItemFeedGroupRuleCondItemChatTypeEnum chatType) {
             this.chatType = chatType.getValue();
             return this;
         }

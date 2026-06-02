@@ -36,37 +36,37 @@ public class AppRoleMember {
     @SerializedName("member_id")
     private String memberId;
     /**
-     * 用户的 open_id
+     * 用户的open_id
      * <p> 示例值：ou_xxxxxxxx
      */
     @SerializedName("open_id")
     private String openId;
     /**
-     * 用户的 union_id
+     * 用户的union_id
      * <p> 示例值：on_xxxxxxxx
      */
     @SerializedName("union_id")
     private String unionId;
     /**
-     * 用户的 user_id
+     * 用户的user_id
      * <p> 示例值：xxxxxxxx
      */
     @SerializedName("user_id")
     private String userId;
     /**
-     * 群聊的 chat_id
+     * 群聊的chat_id
      * <p> 示例值：oc_xxxxxxxx
      */
     @SerializedName("chat_id")
     private String chatId;
     /**
-     * 部门的 department_id
+     * 部门的department_id
      * <p> 示例值：xxxxxxxx
      */
     @SerializedName("department_id")
     private String departmentId;
     /**
-     * 部门的 open_department_id
+     * 部门的open_department_id
      * <p> 示例值：od-xxxxxxxx
      */
     @SerializedName("open_department_id")
@@ -101,32 +101,32 @@ public class AppRoleMember {
          */
         this.memberId = builder.memberId;
         /**
-         * 用户的 open_id
+         * 用户的open_id
          * <p> 示例值：ou_xxxxxxxx
          */
         this.openId = builder.openId;
         /**
-         * 用户的 union_id
+         * 用户的union_id
          * <p> 示例值：on_xxxxxxxx
          */
         this.unionId = builder.unionId;
         /**
-         * 用户的 user_id
+         * 用户的user_id
          * <p> 示例值：xxxxxxxx
          */
         this.userId = builder.userId;
         /**
-         * 群聊的 chat_id
+         * 群聊的chat_id
          * <p> 示例值：oc_xxxxxxxx
          */
         this.chatId = builder.chatId;
         /**
-         * 部门的 department_id
+         * 部门的department_id
          * <p> 示例值：xxxxxxxx
          */
         this.departmentId = builder.departmentId;
         /**
-         * 部门的 open_department_id
+         * 部门的open_department_id
          * <p> 示例值：od-xxxxxxxx
          */
         this.openDepartmentId = builder.openDepartmentId;
@@ -238,32 +238,32 @@ public class AppRoleMember {
          */
         private String memberId;
         /**
-         * 用户的 open_id
+         * 用户的open_id
          * <p> 示例值：ou_xxxxxxxx
          */
         private String openId;
         /**
-         * 用户的 union_id
+         * 用户的union_id
          * <p> 示例值：on_xxxxxxxx
          */
         private String unionId;
         /**
-         * 用户的 user_id
+         * 用户的user_id
          * <p> 示例值：xxxxxxxx
          */
         private String userId;
         /**
-         * 群聊的 chat_id
+         * 群聊的chat_id
          * <p> 示例值：oc_xxxxxxxx
          */
         private String chatId;
         /**
-         * 部门的 department_id
+         * 部门的department_id
          * <p> 示例值：xxxxxxxx
          */
         private String departmentId;
         /**
-         * 部门的 open_department_id
+         * 部门的open_department_id
          * <p> 示例值：od-xxxxxxxx
          */
         private String openDepartmentId;
@@ -297,7 +297,7 @@ public class AppRoleMember {
 
 
         /**
-         * 用户的 open_id
+         * 用户的open_id
          * <p> 示例值：ou_xxxxxxxx
          *
          * @param openId
@@ -310,7 +310,7 @@ public class AppRoleMember {
 
 
         /**
-         * 用户的 union_id
+         * 用户的union_id
          * <p> 示例值：on_xxxxxxxx
          *
          * @param unionId
@@ -323,7 +323,7 @@ public class AppRoleMember {
 
 
         /**
-         * 用户的 user_id
+         * 用户的user_id
          * <p> 示例值：xxxxxxxx
          *
          * @param userId
@@ -336,7 +336,7 @@ public class AppRoleMember {
 
 
         /**
-         * 群聊的 chat_id
+         * 群聊的chat_id
          * <p> 示例值：oc_xxxxxxxx
          *
          * @param chatId
@@ -349,7 +349,7 @@ public class AppRoleMember {
 
 
         /**
-         * 部门的 department_id
+         * 部门的department_id
          * <p> 示例值：xxxxxxxx
          *
          * @param departmentId
@@ -362,7 +362,7 @@ public class AppRoleMember {
 
 
         /**
-         * 部门的 open_department_id
+         * 部门的open_department_id
          * <p> 示例值：od-xxxxxxxx
          *
          * @param openDepartmentId

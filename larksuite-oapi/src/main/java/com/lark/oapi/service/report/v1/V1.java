@@ -14,7 +14,9 @@
 package com.lark.oapi.service.report.v1;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.service.report.v1.resource.*;
+import com.lark.oapi.service.report.v1.resource.Rule;
+import com.lark.oapi.service.report.v1.resource.RuleView;
+import com.lark.oapi.service.report.v1.resource.Task;
 
 public class V1 {
     private final Rule rule; // 规则

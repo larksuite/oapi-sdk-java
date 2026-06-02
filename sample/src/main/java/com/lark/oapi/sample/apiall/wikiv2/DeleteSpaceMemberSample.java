@@ -21,6 +21,7 @@ public class DeleteSpaceMemberSample {
                         .memberType("openid")
                         .memberRole("admin")
                         .type("user")
+                        .memberPerm("admin")
                         .build())
                 .build();
 

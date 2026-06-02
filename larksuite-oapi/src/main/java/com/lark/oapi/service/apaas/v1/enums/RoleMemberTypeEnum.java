@@ -18,7 +18,7 @@ package com.lark.oapi.service.apaas.v1.enums;
  */
 public enum RoleMemberTypeEnum {
     ALL("all"), // 全部用户
-    CUSTOM("custom"), //  自定义
+    CUSTOM("custom"), // 自定义
     ;
     private String value;
 

@@ -18,6 +18,7 @@ package com.lark.oapi.service.drive.v1.enums;
  */
 public enum UploadAllFileParentTypeEnum {
     EXPLORER("explorer"), // 云空间
+    WIKI("wiki"), // 知识库
     ;
     private String value;
 

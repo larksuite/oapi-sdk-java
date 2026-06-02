@@ -43,19 +43,19 @@ public class ListAppTableFieldReq {
     @SerializedName("text_field_as_array")
     private Boolean textFieldAsArray;
     /**
-     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
-     * <p> 示例值：fldwJ4YrtB
-     */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
-    /**
      * 分页大小
      * <p> 示例值：10
      */
     @Query
     @SerializedName("page_size")
     private Integer pageSize;
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
+     * <p> 示例值：fldwJ4YrtB
+     */
+    @Query
+    @SerializedName("page_token")
+    private String pageToken;
     /**
      * bitable app token
      * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
@@ -87,15 +87,15 @@ public class ListAppTableFieldReq {
          */
         this.textFieldAsArray = builder.textFieldAsArray;
         /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
-         * <p> 示例值：fldwJ4YrtB
-         */
-        this.pageToken = builder.pageToken;
-        /**
          * 分页大小
          * <p> 示例值：10
          */
         this.pageSize = builder.pageSize;
+        /**
+         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
+         * <p> 示例值：fldwJ4YrtB
+         */
+        this.pageToken = builder.pageToken;
         /**
          * bitable app token
          * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
@@ -128,20 +128,20 @@ public class ListAppTableFieldReq {
         this.textFieldAsArray = textFieldAsArray;
     }
 
-    public String getPageToken() {
-        return this.pageToken;
-    }
-
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
-
     public Integer getPageSize() {
         return this.pageSize;
     }
 
     public void setPageSize(Integer pageSize) {
         this.pageSize = pageSize;
+    }
+
+    public String getPageToken() {
+        return this.pageToken;
+    }
+
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
     }
 
     public String getAppToken() {
@@ -163,8 +163,8 @@ public class ListAppTableFieldReq {
     public static class Builder {
         private String viewId; // 视图 ID
         private Boolean textFieldAsArray; // 控制字段描述（多行文本格式）数据的返回格式, true 表示以数组富文本形式返回
-        private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
         private Integer pageSize; // 分页大小
+        private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
         private String appToken; // bitable app token
         private String tableId; // table id
 
@@ -193,18 +193,6 @@ public class ListAppTableFieldReq {
         }
 
         /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
-         * <p> 示例值：fldwJ4YrtB
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-        /**
          * 分页大小
          * <p> 示例值：10
          *
@@ -213,6 +201,18 @@ public class ListAppTableFieldReq {
          */
         public Builder pageSize(Integer pageSize) {
             this.pageSize = pageSize;
+            return this;
+        }
+
+        /**
+         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
+         * <p> 示例值：fldwJ4YrtB
+         *
+         * @param pageToken
+         * @return
+         */
+        public Builder pageToken(String pageToken) {
+            this.pageToken = pageToken;
             return this;
         }
 

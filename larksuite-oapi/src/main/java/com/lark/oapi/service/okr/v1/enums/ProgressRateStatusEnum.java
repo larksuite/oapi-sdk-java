@@ -17,7 +17,7 @@ package com.lark.oapi.service.okr.v1.enums;
  * 状态
  */
 public enum ProgressRateStatusEnum {
-    NOTYET(-1), // 暂无
+    NOT_YET(-1), // 暂无
     NORMAL(0), // 正常
     RISK(1), // 风险
     POSTPONE(2), // 延期

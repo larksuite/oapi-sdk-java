@@ -2,7 +2,9 @@ package com.lark.oapi.channel;
 
 import com.lark.oapi.channel.config.LarkChannelOptions;
 import com.lark.oapi.channel.model.BotIdentity;
+
 import java.util.concurrent.TimeUnit;
+
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Assume;
@@ -10,6 +12,25 @@ import org.junit.Test;
 
 public class TestLarkChannelIntegration {
     private LarkChannel channel;
+
+    private static void assumeIntegrationEnabled() {
+        Assume.assumeTrue("Set LARK_CHANNEL_IT_ENABLED=true to run real Feishu integration tests.",
+                "true".equalsIgnoreCase(System.getenv("LARK_CHANNEL_IT_ENABLED")));
+        Assume.assumeTrue("Set LARK_CHANNEL_IT_APP_ID and LARK_CHANNEL_IT_APP_SECRET.",
+                hasText(System.getenv("LARK_CHANNEL_IT_APP_ID")) && hasText(System.getenv("LARK_CHANNEL_IT_APP_SECRET")));
+    }
+
+    private static String requiredEnv(String name) {
+        String value = System.getenv(name);
+        if (!hasText(value)) {
+            throw new IllegalStateException("Missing environment variable: " + name);
+        }
+        return value;
+    }
+
+    private static boolean hasText(String value) {
+        return value != null && !value.trim().isEmpty();
+    }
 
     @After
     public void tearDown() throws Exception {
@@ -54,24 +75,5 @@ public class TestLarkChannelIntegration {
         Assert.assertNotNull(identity.getOpenId());
         Assert.assertFalse(identity.getOpenId().isEmpty());
         Assert.assertSame(identity, channel.getBotIdentity());
-    }
-
-    private static void assumeIntegrationEnabled() {
-        Assume.assumeTrue("Set LARK_CHANNEL_IT_ENABLED=true to run real Feishu integration tests.",
-                "true".equalsIgnoreCase(System.getenv("LARK_CHANNEL_IT_ENABLED")));
-        Assume.assumeTrue("Set LARK_CHANNEL_IT_APP_ID and LARK_CHANNEL_IT_APP_SECRET.",
-                hasText(System.getenv("LARK_CHANNEL_IT_APP_ID")) && hasText(System.getenv("LARK_CHANNEL_IT_APP_SECRET")));
-    }
-
-    private static String requiredEnv(String name) {
-        String value = System.getenv(name);
-        if (!hasText(value)) {
-            throw new IllegalStateException("Missing environment variable: " + name);
-        }
-        return value;
-    }
-
-    private static boolean hasText(String value) {
-        return value != null && !value.trim().isEmpty();
     }
 }

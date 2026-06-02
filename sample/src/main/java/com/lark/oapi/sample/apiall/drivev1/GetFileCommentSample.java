@@ -19,6 +19,7 @@ public class GetFileCommentSample {
                 .commentId("6916106822734578184")
                 .fileType("doc")
                 .userIdType("user_id")
+                .needReaction(false)
                 .build();
 
         // 发起请求

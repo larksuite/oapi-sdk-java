@@ -29,6 +29,7 @@ public class CreateDepartmentSample {
                         .customFields(new ObjectFieldData[]{})
                         .costCenterId("7142384817131652652")
                         .staffingModel(Enum.newBuilder().build())
+                        .isPreferManualEncoding(false)
                         .build())
                 .build();
 

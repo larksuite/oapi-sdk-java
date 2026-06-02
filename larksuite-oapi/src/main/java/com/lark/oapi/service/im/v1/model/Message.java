@@ -113,6 +113,24 @@ public class Message {
      */
     @SerializedName("upper_message_id")
     private String upperMessageId;
+    /**
+     * 消息跳转链接
+     * <p> 示例值：https://xxxx/client/thread/open?chatid=xxx&threadid=xxx&thread_position=xxx
+     */
+    @SerializedName("message_app_link")
+    private String messageAppLink;
+    /**
+     * 消息在普通群里面的位置信息，仅普通群可用
+     * <p> 示例值：1
+     */
+    @SerializedName("message_position")
+    private String messagePosition;
+    /**
+     * 话题回复消息在话题回复里面的位置信息，仅话题回复生效
+     * <p> 示例值：1
+     */
+    @SerializedName("thread_message_position")
+    private String threadMessagePosition;
 
     // builder 开始
     public Message() {
@@ -189,6 +207,21 @@ public class Message {
          * <p> 示例值：om_40eb06e7b84dc71c03e009ad3c754195
          */
         this.upperMessageId = builder.upperMessageId;
+        /**
+         * 消息跳转链接
+         * <p> 示例值：https://xxxx/client/thread/open?chatid=xxx&threadid=xxx&thread_position=xxx
+         */
+        this.messageAppLink = builder.messageAppLink;
+        /**
+         * 消息在普通群里面的位置信息，仅普通群可用
+         * <p> 示例值：1
+         */
+        this.messagePosition = builder.messagePosition;
+        /**
+         * 话题回复消息在话题回复里面的位置信息，仅话题回复生效
+         * <p> 示例值：1
+         */
+        this.threadMessagePosition = builder.threadMessagePosition;
     }
 
     public static Builder newBuilder() {
@@ -307,6 +340,30 @@ public class Message {
         this.upperMessageId = upperMessageId;
     }
 
+    public String getMessageAppLink() {
+        return this.messageAppLink;
+    }
+
+    public void setMessageAppLink(String messageAppLink) {
+        this.messageAppLink = messageAppLink;
+    }
+
+    public String getMessagePosition() {
+        return this.messagePosition;
+    }
+
+    public void setMessagePosition(String messagePosition) {
+        this.messagePosition = messagePosition;
+    }
+
+    public String getThreadMessagePosition() {
+        return this.threadMessagePosition;
+    }
+
+    public void setThreadMessagePosition(String threadMessagePosition) {
+        this.threadMessagePosition = threadMessagePosition;
+    }
+
     public static class Builder {
         /**
          * 消息id，说明参见：[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
@@ -378,6 +435,21 @@ public class Message {
          * <p> 示例值：om_40eb06e7b84dc71c03e009ad3c754195
          */
         private String upperMessageId;
+        /**
+         * 消息跳转链接
+         * <p> 示例值：https://xxxx/client/thread/open?chatid=xxx&threadid=xxx&thread_position=xxx
+         */
+        private String messageAppLink;
+        /**
+         * 消息在普通群里面的位置信息，仅普通群可用
+         * <p> 示例值：1
+         */
+        private String messagePosition;
+        /**
+         * 话题回复消息在话题回复里面的位置信息，仅话题回复生效
+         * <p> 示例值：1
+         */
+        private String threadMessagePosition;
 
         /**
          * 消息id，说明参见：[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
@@ -557,6 +629,45 @@ public class Message {
          */
         public Builder upperMessageId(String upperMessageId) {
             this.upperMessageId = upperMessageId;
+            return this;
+        }
+
+
+        /**
+         * 消息跳转链接
+         * <p> 示例值：https://xxxx/client/thread/open?chatid=xxx&threadid=xxx&thread_position=xxx
+         *
+         * @param messageAppLink
+         * @return
+         */
+        public Builder messageAppLink(String messageAppLink) {
+            this.messageAppLink = messageAppLink;
+            return this;
+        }
+
+
+        /**
+         * 消息在普通群里面的位置信息，仅普通群可用
+         * <p> 示例值：1
+         *
+         * @param messagePosition
+         * @return
+         */
+        public Builder messagePosition(String messagePosition) {
+            this.messagePosition = messagePosition;
+            return this;
+        }
+
+
+        /**
+         * 话题回复消息在话题回复里面的位置信息，仅话题回复生效
+         * <p> 示例值：1
+         *
+         * @param threadMessagePosition
+         * @return
+         */
+        public Builder threadMessagePosition(String threadMessagePosition) {
+            this.threadMessagePosition = threadMessagePosition;
             return this;
         }
 

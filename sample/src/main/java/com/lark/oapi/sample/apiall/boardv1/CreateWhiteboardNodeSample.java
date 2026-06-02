@@ -20,6 +20,7 @@ public class CreateWhiteboardNodeSample {
                 .userIdType("user_id")
                 .createWhiteboardNodeReqBody(CreateWhiteboardNodeReqBody.newBuilder()
                         .nodes(new WhiteboardNode[]{})
+                        .overwrite(false)
                         .build())
                 .build();
 

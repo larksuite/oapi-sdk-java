@@ -101,6 +101,18 @@ public class SearchOffboardingReqBody {
      */
     @SerializedName("employee_reasons")
     private String[] employeeReasons;
+    /**
+     * 离职人员部门，多个部门之间为「或」的关系
+     * <p> 示例值：
+     */
+    @SerializedName("department_ids")
+    private String[] departmentIds;
+    /**
+     * 返回数据的字段列表
+     * <p> 示例值：
+     */
+    @SerializedName("select_fields")
+    private String[] selectFields;
 
     // builder 开始
     public SearchOffboardingReqBody() {
@@ -167,6 +179,16 @@ public class SearchOffboardingReqBody {
          * <p> 示例值：
          */
         this.employeeReasons = builder.employeeReasons;
+        /**
+         * 离职人员部门，多个部门之间为「或」的关系
+         * <p> 示例值：
+         */
+        this.departmentIds = builder.departmentIds;
+        /**
+         * 返回数据的字段列表
+         * <p> 示例值：
+         */
+        this.selectFields = builder.selectFields;
     }
 
     public static Builder newBuilder() {
@@ -269,6 +291,22 @@ public class SearchOffboardingReqBody {
         this.employeeReasons = employeeReasons;
     }
 
+    public String[] getDepartmentIds() {
+        return this.departmentIds;
+    }
+
+    public void setDepartmentIds(String[] departmentIds) {
+        this.departmentIds = departmentIds;
+    }
+
+    public String[] getSelectFields() {
+        return this.selectFields;
+    }
+
+    public void setSelectFields(String[] selectFields) {
+        this.selectFields = selectFields;
+    }
+
     public static class Builder {
         /**
          * 雇佣 ID 列表，为空默认查询所有离职人员
@@ -330,6 +368,16 @@ public class SearchOffboardingReqBody {
          * <p> 示例值：
          */
         private String[] employeeReasons;
+        /**
+         * 离职人员部门，多个部门之间为「或」的关系
+         * <p> 示例值：
+         */
+        private String[] departmentIds;
+        /**
+         * 返回数据的字段列表
+         * <p> 示例值：
+         */
+        private String[] selectFields;
 
         /**
          * 雇佣 ID 列表，为空默认查询所有离职人员
@@ -483,6 +531,32 @@ public class SearchOffboardingReqBody {
          */
         public Builder employeeReasons(String[] employeeReasons) {
             this.employeeReasons = employeeReasons;
+            return this;
+        }
+
+
+        /**
+         * 离职人员部门，多个部门之间为「或」的关系
+         * <p> 示例值：
+         *
+         * @param departmentIds
+         * @return
+         */
+        public Builder departmentIds(String[] departmentIds) {
+            this.departmentIds = departmentIds;
+            return this;
+        }
+
+
+        /**
+         * 返回数据的字段列表
+         * <p> 示例值：
+         *
+         * @param selectFields
+         * @return
+         */
+        public Builder selectFields(String[] selectFields) {
+            this.selectFields = selectFields;
             return this;
         }
 

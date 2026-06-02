@@ -14,7 +14,29 @@
 package com.lark.oapi.service.mail.v1;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.service.mail.v1.resource.*;
+import com.lark.oapi.service.mail.v1.resource.Mailgroup;
+import com.lark.oapi.service.mail.v1.resource.MailgroupAlias;
+import com.lark.oapi.service.mail.v1.resource.MailgroupManager;
+import com.lark.oapi.service.mail.v1.resource.MailgroupMember;
+import com.lark.oapi.service.mail.v1.resource.MailgroupPermissionMember;
+import com.lark.oapi.service.mail.v1.resource.PublicMailbox;
+import com.lark.oapi.service.mail.v1.resource.PublicMailboxAlias;
+import com.lark.oapi.service.mail.v1.resource.PublicMailboxMember;
+import com.lark.oapi.service.mail.v1.resource.User;
+import com.lark.oapi.service.mail.v1.resource.UserMailbox;
+import com.lark.oapi.service.mail.v1.resource.UserMailboxAlias;
+import com.lark.oapi.service.mail.v1.resource.UserMailboxDraft;
+import com.lark.oapi.service.mail.v1.resource.UserMailboxEvent;
+import com.lark.oapi.service.mail.v1.resource.UserMailboxFolder;
+import com.lark.oapi.service.mail.v1.resource.UserMailboxLabel;
+import com.lark.oapi.service.mail.v1.resource.UserMailboxMailContact;
+import com.lark.oapi.service.mail.v1.resource.UserMailboxMessage;
+import com.lark.oapi.service.mail.v1.resource.UserMailboxMessageAttachment;
+import com.lark.oapi.service.mail.v1.resource.UserMailboxRule;
+import com.lark.oapi.service.mail.v1.resource.UserMailboxSetting;
+import com.lark.oapi.service.mail.v1.resource.UserMailboxTemplate;
+import com.lark.oapi.service.mail.v1.resource.UserMailboxTemplateAttachment;
+import com.lark.oapi.service.mail.v1.resource.UserMailboxThread;
 
 public class V1 {
     private final Mailgroup mailgroup; // 邮件组
@@ -37,6 +59,8 @@ public class V1 {
     private final UserMailboxMessageAttachment userMailboxMessageAttachment; // user_mailbox.message.attachment
     private final UserMailboxRule userMailboxRule; // user_mailbox.rule
     private final UserMailboxSetting userMailboxSetting; // user_mailbox.setting
+    private final UserMailboxTemplate userMailboxTemplate; // user_mailbox.template
+    private final UserMailboxTemplateAttachment userMailboxTemplateAttachment; // user_mailbox.template.attachment
     private final UserMailboxThread userMailboxThread; // user_mailbox.thread
 
     public V1(Config config) {
@@ -60,6 +84,8 @@ public class V1 {
         this.userMailboxMessageAttachment = new UserMailboxMessageAttachment(config);
         this.userMailboxRule = new UserMailboxRule(config);
         this.userMailboxSetting = new UserMailboxSetting(config);
+        this.userMailboxTemplate = new UserMailboxTemplate(config);
+        this.userMailboxTemplateAttachment = new UserMailboxTemplateAttachment(config);
         this.userMailboxThread = new UserMailboxThread(config);
     }
 
@@ -141,6 +167,14 @@ public class V1 {
 
     public UserMailboxSetting userMailboxSetting() {
         return userMailboxSetting;
+    }
+
+    public UserMailboxTemplate userMailboxTemplate() {
+        return userMailboxTemplate;
+    }
+
+    public UserMailboxTemplateAttachment userMailboxTemplateAttachment() {
+        return userMailboxTemplateAttachment;
     }
 
     public UserMailboxThread userMailboxThread() {

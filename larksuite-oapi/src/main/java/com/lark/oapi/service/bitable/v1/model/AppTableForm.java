@@ -31,37 +31,37 @@ import com.lark.oapi.core.response.BaseResponse;
 public class AppTableForm {
     /**
      * 表单名称
-     * <p> 示例值：表单
+     * <p> 示例值：
      */
     @SerializedName("name")
     private String name;
     /**
      * 表单描述
-     * <p> 示例值：表单描述
+     * <p> 示例值：
      */
     @SerializedName("description")
     private String description;
     /**
      * 是否开启共享
-     * <p> 示例值：true
+     * <p> 示例值：
      */
     @SerializedName("shared")
     private Boolean shared;
     /**
      * 分享 URL
-     * <p> 示例值：https://bytedance.feishu.cn/share/base/shrcnCy1KAlpahNotmhRn1abcde
+     * <p> 示例值：
      */
     @SerializedName("shared_url")
     private String sharedUrl;
     /**
      * 分享范围限制
-     * <p> 示例值：tenant_editable
+     * <p> 示例值：
      */
     @SerializedName("shared_limit")
     private String sharedLimit;
     /**
      * 填写次数限制一次
-     * <p> 示例值：true
+     * <p> 示例值：
      */
     @SerializedName("submit_limit_once")
     private Boolean submitLimitOnce;
@@ -73,32 +73,32 @@ public class AppTableForm {
     public AppTableForm(Builder builder) {
         /**
          * 表单名称
-         * <p> 示例值：表单
+         * <p> 示例值：
          */
         this.name = builder.name;
         /**
          * 表单描述
-         * <p> 示例值：表单描述
+         * <p> 示例值：
          */
         this.description = builder.description;
         /**
          * 是否开启共享
-         * <p> 示例值：true
+         * <p> 示例值：
          */
         this.shared = builder.shared;
         /**
          * 分享 URL
-         * <p> 示例值：https://bytedance.feishu.cn/share/base/shrcnCy1KAlpahNotmhRn1abcde
+         * <p> 示例值：
          */
         this.sharedUrl = builder.sharedUrl;
         /**
          * 分享范围限制
-         * <p> 示例值：tenant_editable
+         * <p> 示例值：
          */
         this.sharedLimit = builder.sharedLimit;
         /**
          * 填写次数限制一次
-         * <p> 示例值：true
+         * <p> 示例值：
          */
         this.submitLimitOnce = builder.submitLimitOnce;
     }
@@ -158,38 +158,38 @@ public class AppTableForm {
     public static class Builder {
         /**
          * 表单名称
-         * <p> 示例值：表单
+         * <p> 示例值：
          */
         private String name;
         /**
          * 表单描述
-         * <p> 示例值：表单描述
+         * <p> 示例值：
          */
         private String description;
         /**
          * 是否开启共享
-         * <p> 示例值：true
+         * <p> 示例值：
          */
         private Boolean shared;
         /**
          * 分享 URL
-         * <p> 示例值：https://bytedance.feishu.cn/share/base/shrcnCy1KAlpahNotmhRn1abcde
+         * <p> 示例值：
          */
         private String sharedUrl;
         /**
          * 分享范围限制
-         * <p> 示例值：tenant_editable
+         * <p> 示例值：
          */
         private String sharedLimit;
         /**
          * 填写次数限制一次
-         * <p> 示例值：true
+         * <p> 示例值：
          */
         private Boolean submitLimitOnce;
 
         /**
          * 表单名称
-         * <p> 示例值：表单
+         * <p> 示例值：
          *
          * @param name
          * @return
@@ -202,7 +202,7 @@ public class AppTableForm {
 
         /**
          * 表单描述
-         * <p> 示例值：表单描述
+         * <p> 示例值：
          *
          * @param description
          * @return
@@ -215,7 +215,7 @@ public class AppTableForm {
 
         /**
          * 是否开启共享
-         * <p> 示例值：true
+         * <p> 示例值：
          *
          * @param shared
          * @return
@@ -228,7 +228,7 @@ public class AppTableForm {
 
         /**
          * 分享 URL
-         * <p> 示例值：https://bytedance.feishu.cn/share/base/shrcnCy1KAlpahNotmhRn1abcde
+         * <p> 示例值：
          *
          * @param sharedUrl
          * @return
@@ -241,7 +241,7 @@ public class AppTableForm {
 
         /**
          * 分享范围限制
-         * <p> 示例值：tenant_editable
+         * <p> 示例值：
          *
          * @param sharedLimit
          * @return
@@ -253,7 +253,7 @@ public class AppTableForm {
 
         /**
          * 分享范围限制
-         * <p> 示例值：tenant_editable
+         * <p> 示例值：
          *
          * @param sharedLimit {@link com.lark.oapi.service.bitable.v1.enums.AppTableFormSharedLimitEnum}
          * @return
@@ -266,7 +266,7 @@ public class AppTableForm {
 
         /**
          * 填写次数限制一次
-         * <p> 示例值：true
+         * <p> 示例值：
          *
          * @param submitLimitOnce
          * @return

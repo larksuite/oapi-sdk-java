@@ -34,6 +34,18 @@ public class BatchGetPathwayRespBody {
      */
     @SerializedName("items")
     private Pathway[] items;
+    /**
+     * 分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token
+     * <p> 示例值：
+     */
+    @SerializedName("page_token")
+    private String pageToken;
+    /**
+     * 是否还有更多项
+     * <p> 示例值：
+     */
+    @SerializedName("has_more")
+    private Boolean hasMore;
 
     public Pathway[] getItems() {
         return this.items;
@@ -41,6 +53,22 @@ public class BatchGetPathwayRespBody {
 
     public void setItems(Pathway[] items) {
         this.items = items;
+    }
+
+    public String getPageToken() {
+        return this.pageToken;
+    }
+
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
+
+    public Boolean getHasMore() {
+        return this.hasMore;
+    }
+
+    public void setHasMore(Boolean hasMore) {
+        this.hasMore = hasMore;
     }
 
 }

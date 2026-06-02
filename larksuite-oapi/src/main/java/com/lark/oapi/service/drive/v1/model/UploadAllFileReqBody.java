@@ -65,6 +65,12 @@ public class UploadAllFileReqBody {
      */
     @SerializedName("file")
     private java.io.File file;
+    /**
+     * 当传入file_token时，代表上传该文件的新版本
+     * <p> 示例值：
+     */
+    @SerializedName("file_token")
+    private String fileToken;
 
     // builder 开始
     public UploadAllFileReqBody() {
@@ -101,6 +107,11 @@ public class UploadAllFileReqBody {
          * <p> 示例值：file binary
          */
         this.file = builder.file;
+        /**
+         * 当传入file_token时，代表上传该文件的新版本
+         * <p> 示例值：
+         */
+        this.fileToken = builder.fileToken;
     }
 
     public static Builder newBuilder() {
@@ -155,6 +166,14 @@ public class UploadAllFileReqBody {
         this.file = file;
     }
 
+    public String getFileToken() {
+        return this.fileToken;
+    }
+
+    public void setFileToken(String fileToken) {
+        this.fileToken = fileToken;
+    }
+
     public static class Builder {
         /**
          * 文件名。
@@ -186,6 +205,11 @@ public class UploadAllFileReqBody {
          * <p> 示例值：file binary
          */
         private java.io.File file;
+        /**
+         * 当传入file_token时，代表上传该文件的新版本
+         * <p> 示例值：
+         */
+        private String fileToken;
 
         /**
          * 文件名。
@@ -273,6 +297,19 @@ public class UploadAllFileReqBody {
          */
         public Builder file(java.io.File file) {
             this.file = file;
+            return this;
+        }
+
+
+        /**
+         * 当传入file_token时，代表上传该文件的新版本
+         * <p> 示例值：
+         *
+         * @param fileToken
+         * @return
+         */
+        public Builder fileToken(String fileToken) {
+            this.fileToken = fileToken;
             return this;
         }
 

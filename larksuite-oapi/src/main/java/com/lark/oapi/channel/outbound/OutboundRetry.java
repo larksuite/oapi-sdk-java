@@ -4,10 +4,6 @@ import com.lark.oapi.channel.config.LarkChannelOptions;
 import com.lark.oapi.channel.exception.LarkChannelException;
 
 public final class OutboundRetry {
-    public interface RetryableOperation<T> {
-        T run(int attempt) throws Exception;
-    }
-
     private OutboundRetry() {
     }
 
@@ -36,5 +32,9 @@ public final class OutboundRetry {
             Thread.currentThread().interrupt();
             throw new RuntimeException(e);
         }
+    }
+
+    public interface RetryableOperation<T> {
+        T run(int attempt) throws Exception;
     }
 }

@@ -6,11 +6,13 @@ import com.lark.oapi.channel.model.NormalizedMessage;
 import com.lark.oapi.channel.model.RejectEvent;
 import com.lark.oapi.channel.model.RejectReason;
 import com.lark.oapi.channel.model.ResourceDescriptor;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
+
 import org.junit.Assert;
 import org.junit.Test;
 

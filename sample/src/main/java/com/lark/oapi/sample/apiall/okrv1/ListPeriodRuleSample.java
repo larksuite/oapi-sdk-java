@@ -16,7 +16,7 @@ public class ListPeriodRuleSample {
         // 创建请求对象
 
         // 发起请求
-        ListPeriodRuleResp resp = client.okr().periodRule().list();
+        ListPeriodRuleResp resp = client.okr().v1().periodRule().list();
 
         // 处理服务端错误
         if (!resp.success()) {

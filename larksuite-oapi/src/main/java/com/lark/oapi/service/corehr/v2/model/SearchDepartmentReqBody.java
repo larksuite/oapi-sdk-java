@@ -83,6 +83,12 @@ public class SearchDepartmentReqBody {
      */
     @SerializedName("fields")
     private String[] fields;
+    /**
+     * 搜索关键词
+     * <p> 示例值：搜索关键词
+     */
+    @SerializedName("keyword")
+    private String keyword;
 
     // builder 开始
     public SearchDepartmentReqBody() {
@@ -134,6 +140,11 @@ public class SearchDepartmentReqBody {
          * <p> 示例值：
          */
         this.fields = builder.fields;
+        /**
+         * 搜索关键词
+         * <p> 示例值：搜索关键词
+         */
+        this.keyword = builder.keyword;
     }
 
     public static Builder newBuilder() {
@@ -212,6 +223,14 @@ public class SearchDepartmentReqBody {
         this.fields = fields;
     }
 
+    public String getKeyword() {
+        return this.keyword;
+    }
+
+    public void setKeyword(String keyword) {
+        this.keyword = keyword;
+    }
+
     public static class Builder {
         /**
          * 是否启用
@@ -258,6 +277,11 @@ public class SearchDepartmentReqBody {
          * <p> 示例值：
          */
         private String[] fields;
+        /**
+         * 搜索关键词
+         * <p> 示例值：搜索关键词
+         */
+        private String keyword;
 
         /**
          * 是否启用
@@ -372,6 +396,19 @@ public class SearchDepartmentReqBody {
          */
         public Builder fields(String[] fields) {
             this.fields = fields;
+            return this;
+        }
+
+
+        /**
+         * 搜索关键词
+         * <p> 示例值：搜索关键词
+         *
+         * @param keyword
+         * @return
+         */
+        public Builder keyword(String keyword) {
+            this.keyword = keyword;
             return this;
         }
 

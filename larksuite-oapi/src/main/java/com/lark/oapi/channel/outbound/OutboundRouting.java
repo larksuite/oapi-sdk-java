@@ -4,24 +4,6 @@ import com.lark.oapi.channel.exception.LarkChannelErrorCode;
 import com.lark.oapi.channel.exception.LarkChannelException;
 
 public final class OutboundRouting {
-    public enum ReceiveIdType {
-        CHAT_ID("chat_id"),
-        OPEN_ID("open_id"),
-        USER_ID("user_id"),
-        UNION_ID("union_id"),
-        EMAIL("email");
-
-        private final String value;
-
-        ReceiveIdType(String value) {
-            this.value = value;
-        }
-
-        public String getValue() {
-            return value;
-        }
-    }
-
     private OutboundRouting() {
     }
 
@@ -42,5 +24,23 @@ public final class OutboundRouting {
             return ReceiveIdType.EMAIL;
         }
         return ReceiveIdType.USER_ID;
+    }
+
+    public enum ReceiveIdType {
+        CHAT_ID("chat_id"),
+        OPEN_ID("open_id"),
+        USER_ID("user_id"),
+        UNION_ID("union_id"),
+        EMAIL("email");
+
+        private final String value;
+
+        ReceiveIdType(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
     }
 }

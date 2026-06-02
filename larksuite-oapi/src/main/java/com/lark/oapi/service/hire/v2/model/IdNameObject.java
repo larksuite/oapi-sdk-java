@@ -52,7 +52,7 @@ public class IdNameObject {
          */
         this.id = builder.id;
         /**
-         *  用户姓名
+         * 用户姓名
          * <p> 示例值：
          */
         this.name = builder.name;

@@ -2,6 +2,7 @@ package com.lark.oapi.channel.normalize.converters.interactive;
 
 import com.google.gson.JsonElement;
 import com.lark.oapi.channel.normalize.NormalizeTexts;
+
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;

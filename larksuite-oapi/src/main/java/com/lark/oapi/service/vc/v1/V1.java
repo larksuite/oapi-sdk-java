@@ -14,7 +14,25 @@
 package com.lark.oapi.service.vc.v1;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.service.vc.v1.resource.*;
+import com.lark.oapi.service.vc.v1.resource.Alert;
+import com.lark.oapi.service.vc.v1.resource.Export;
+import com.lark.oapi.service.vc.v1.resource.Meeting;
+import com.lark.oapi.service.vc.v1.resource.MeetingRecording;
+import com.lark.oapi.service.vc.v1.resource.MeetingList;
+import com.lark.oapi.service.vc.v1.resource.Note;
+import com.lark.oapi.service.vc.v1.resource.ParticipantList;
+import com.lark.oapi.service.vc.v1.resource.ParticipantQualityList;
+import com.lark.oapi.service.vc.v1.resource.Report;
+import com.lark.oapi.service.vc.v1.resource.Reserve;
+import com.lark.oapi.service.vc.v1.resource.ReserveConfig;
+import com.lark.oapi.service.vc.v1.resource.ReserveConfigAdmin;
+import com.lark.oapi.service.vc.v1.resource.ReserveConfigDisableInform;
+import com.lark.oapi.service.vc.v1.resource.ReserveConfigForm;
+import com.lark.oapi.service.vc.v1.resource.ResourceReservationList;
+import com.lark.oapi.service.vc.v1.resource.Room;
+import com.lark.oapi.service.vc.v1.resource.RoomConfig;
+import com.lark.oapi.service.vc.v1.resource.RoomLevel;
+import com.lark.oapi.service.vc.v1.resource.ScopeConfig;
 
 public class V1 {
     private final Alert alert; // 告警中心
@@ -22,6 +40,7 @@ public class V1 {
     private final Meeting meeting; // 会议
     private final MeetingRecording meetingRecording; // 录制
     private final MeetingList meetingList; // meeting_list
+    private final Note note; // note
     private final ParticipantList participantList; // participant_list
     private final ParticipantQualityList participantQualityList; // participant_quality_list
     private final Report report; // 会议报告
@@ -42,6 +61,7 @@ public class V1 {
         this.meeting = new Meeting(config);
         this.meetingRecording = new MeetingRecording(config);
         this.meetingList = new MeetingList(config);
+        this.note = new Note(config);
         this.participantList = new ParticipantList(config);
         this.participantQualityList = new ParticipantQualityList(config);
         this.report = new Report(config);
@@ -75,6 +95,10 @@ public class V1 {
 
     public MeetingList meetingList() {
         return meetingList;
+    }
+
+    public Note note() {
+        return note;
     }
 
     public ParticipantList participantList() {

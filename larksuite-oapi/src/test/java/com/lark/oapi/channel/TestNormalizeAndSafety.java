@@ -20,10 +20,12 @@ import com.lark.oapi.service.im.v1.model.P2MessageReceiveV1;
 import com.lark.oapi.service.im.v1.model.P2MessageReceiveV1Data;
 import com.lark.oapi.service.im.v1.model.Sender;
 import com.lark.oapi.service.im.v1.model.UserId;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -37,7 +39,7 @@ public class TestNormalizeAndSafety {
                 "group",
                 "text",
                 "{\"text\":\"@_user_1 hello @_user_2\"}",
-                new MentionEvent[] {
+                new MentionEvent[]{
                         mention("@_user_1", "ou_alice", "Alice"),
                         mention("@_user_2", "ou_bot", "TestBot")
                 });

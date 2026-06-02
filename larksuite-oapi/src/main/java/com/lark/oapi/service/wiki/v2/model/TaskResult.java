@@ -41,6 +41,16 @@ public class TaskResult {
      */
     @SerializedName("move_result")
     private MoveResult[] moveResult;
+    /**
+     * <p> 示例值：
+     */
+    @SerializedName("delete_space_result")
+    private DeleteSpaceResult deleteSpaceResult;
+    /**
+     * <p> 示例值：
+     */
+    @SerializedName("simple_task_result")
+    private SimpleTaskResult simpleTaskResult;
 
     // builder 开始
     public TaskResult() {
@@ -57,6 +67,16 @@ public class TaskResult {
          * <p> 示例值：
          */
         this.moveResult = builder.moveResult;
+        /**
+         *
+         * <p> 示例值：
+         */
+        this.deleteSpaceResult = builder.deleteSpaceResult;
+        /**
+         *
+         * <p> 示例值：
+         */
+        this.simpleTaskResult = builder.simpleTaskResult;
     }
 
     public static Builder newBuilder() {
@@ -79,6 +99,22 @@ public class TaskResult {
         this.moveResult = moveResult;
     }
 
+    public DeleteSpaceResult getDeleteSpaceResult() {
+        return this.deleteSpaceResult;
+    }
+
+    public void setDeleteSpaceResult(DeleteSpaceResult deleteSpaceResult) {
+        this.deleteSpaceResult = deleteSpaceResult;
+    }
+
+    public SimpleTaskResult getSimpleTaskResult() {
+        return this.simpleTaskResult;
+    }
+
+    public void setSimpleTaskResult(SimpleTaskResult simpleTaskResult) {
+        this.simpleTaskResult = simpleTaskResult;
+    }
+
     public static class Builder {
         /**
          * 任务id
@@ -90,6 +126,14 @@ public class TaskResult {
          * <p> 示例值：
          */
         private MoveResult[] moveResult;
+        /**
+         * <p> 示例值：
+         */
+        private DeleteSpaceResult deleteSpaceResult;
+        /**
+         * <p> 示例值：
+         */
+        private SimpleTaskResult simpleTaskResult;
 
         /**
          * 任务id
@@ -113,6 +157,30 @@ public class TaskResult {
          */
         public Builder moveResult(MoveResult[] moveResult) {
             this.moveResult = moveResult;
+            return this;
+        }
+
+
+        /**
+         * <p> 示例值：
+         *
+         * @param deleteSpaceResult
+         * @return
+         */
+        public Builder deleteSpaceResult(DeleteSpaceResult deleteSpaceResult) {
+            this.deleteSpaceResult = deleteSpaceResult;
+            return this;
+        }
+
+
+        /**
+         * <p> 示例值：
+         *
+         * @param simpleTaskResult
+         * @return
+         */
+        public Builder simpleTaskResult(SimpleTaskResult simpleTaskResult) {
+            this.simpleTaskResult = simpleTaskResult;
             return this;
         }
 

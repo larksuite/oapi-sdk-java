@@ -71,6 +71,13 @@ public class ListFileCommentReq {
     @SerializedName("user_id_type")
     private String userIdType;
     /**
+     * 是否需要获取评论卡片上挂载的Reaction数据
+     * <p> 示例值：
+     */
+    @Query
+    @SerializedName("need_reaction")
+    private Boolean needReaction;
+    /**
      * 文档token
      * <p> 示例值：XIHSdYSI7oMEU1xrsnxc8fabcef
      */
@@ -113,6 +120,11 @@ public class ListFileCommentReq {
          * <p> 示例值：
          */
         this.userIdType = builder.userIdType;
+        /**
+         * 是否需要获取评论卡片上挂载的Reaction数据
+         * <p> 示例值：
+         */
+        this.needReaction = builder.needReaction;
         /**
          * 文档token
          * <p> 示例值：XIHSdYSI7oMEU1xrsnxc8fabcef
@@ -172,6 +184,14 @@ public class ListFileCommentReq {
         this.userIdType = userIdType;
     }
 
+    public Boolean getNeedReaction() {
+        return this.needReaction;
+    }
+
+    public void setNeedReaction(Boolean needReaction) {
+        this.needReaction = needReaction;
+    }
+
     public String getFileToken() {
         return this.fileToken;
     }
@@ -187,6 +207,7 @@ public class ListFileCommentReq {
         private String pageToken; // 评论分页参数
         private Integer pageSize; // 获取满足 commen_id > page_token 的评论数量
         private String userIdType; // 此次调用中使用的用户ID的类型
+        private Boolean needReaction; // 是否需要获取评论卡片上挂载的Reaction数据
         private String fileToken; // 文档token
 
         /**
@@ -282,6 +303,18 @@ public class ListFileCommentReq {
          */
         public Builder userIdType(com.lark.oapi.service.drive.v1.enums.ListFileCommentUserIdTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
+            return this;
+        }
+
+        /**
+         * 是否需要获取评论卡片上挂载的Reaction数据
+         * <p> 示例值：
+         *
+         * @param needReaction
+         * @return
+         */
+        public Builder needReaction(Boolean needReaction) {
+            this.needReaction = needReaction;
             return this;
         }
 

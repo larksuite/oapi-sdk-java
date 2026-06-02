@@ -14,7 +14,16 @@
 package com.lark.oapi.service.task.v2;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.service.task.v2.resource.*;
+import com.lark.oapi.service.task.v2.resource.Attachment;
+import com.lark.oapi.service.task.v2.resource.Comment;
+import com.lark.oapi.service.task.v2.resource.CustomField;
+import com.lark.oapi.service.task.v2.resource.CustomFieldOption;
+import com.lark.oapi.service.task.v2.resource.Section;
+import com.lark.oapi.service.task.v2.resource.Task;
+import com.lark.oapi.service.task.v2.resource.TaskSubtask;
+import com.lark.oapi.service.task.v2.resource.TaskV2;
+import com.lark.oapi.service.task.v2.resource.Tasklist;
+import com.lark.oapi.service.task.v2.resource.TasklistActivitySubscription;
 
 public class V2 {
     private final Attachment attachment; // attachment
@@ -24,6 +33,7 @@ public class V2 {
     private final Section section; // section
     private final Task task; // task
     private final TaskSubtask taskSubtask; // task.subtask
+    private final TaskV2 taskV2; // task_v2
     private final Tasklist tasklist; // tasklist
     private final TasklistActivitySubscription tasklistActivitySubscription; // tasklist.activity_subscription
 
@@ -35,6 +45,7 @@ public class V2 {
         this.section = new Section(config);
         this.task = new Task(config);
         this.taskSubtask = new TaskSubtask(config);
+        this.taskV2 = new TaskV2(config);
         this.tasklist = new Tasklist(config);
         this.tasklistActivitySubscription = new TasklistActivitySubscription(config);
     }
@@ -65,6 +76,10 @@ public class V2 {
 
     public TaskSubtask taskSubtask() {
         return taskSubtask;
+    }
+
+    public TaskV2 taskV2() {
+        return taskV2;
     }
 
     public Tasklist tasklist() {

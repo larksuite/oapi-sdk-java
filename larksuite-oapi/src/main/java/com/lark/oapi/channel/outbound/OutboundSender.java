@@ -16,6 +16,7 @@ import com.lark.oapi.channel.outbound.media.UploadResult;
 import com.lark.oapi.channel.outbound.streaming.CardStreamControllerImpl;
 import com.lark.oapi.channel.outbound.streaming.MarkdownStreamControllerImpl;
 import com.lark.oapi.core.utils.Jsons;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedHashMap;

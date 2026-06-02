@@ -65,6 +65,48 @@ public class WikiFilter {
      */
     @SerializedName("sort_type")
     private String sortType;
+    /**
+     * Wiki创建的时间范围（秒级时间戳，包含start和end字段）
+     * <p> 示例值：
+     */
+    @SerializedName("create_time")
+    private TimeRange createTime;
+    /**
+     * 搜索在会话内的文档
+     * <p> 示例值：
+     */
+    @SerializedName("chat_ids")
+    private String[] chatIds;
+    /**
+     * 文档分享者OpenID
+     * <p> 示例值：
+     */
+    @SerializedName("sharer_ids")
+    private String[] sharerIds;
+    /**
+     * 仅搜文档评论
+     * <p> 示例值：false
+     */
+    @SerializedName("only_comment")
+    private Boolean onlyComment;
+    /**
+     * 【我编辑的文档】的时间范围（秒级时间戳，包含start和end字段）
+     * <p> 示例值：
+     */
+    @SerializedName("my_edit_time")
+    private TimeRange myEditTime;
+    /**
+     * 【我评论的文档】的时间范围（秒级时间戳，包含start和end字段）
+     * <p> 示例值：
+     */
+    @SerializedName("my_comment_time")
+    private TimeRange myCommentTime;
+    /**
+     * 文档创建者者OpenID，注意和creator_ids区分开
+     * <p> 示例值：
+     */
+    @SerializedName("original_creator_ids")
+    private String[] originalCreatorIds;
 
     // builder 开始
     public WikiFilter() {
@@ -101,6 +143,41 @@ public class WikiFilter {
          * <p> 示例值：CREATE_TIME_ASC
          */
         this.sortType = builder.sortType;
+        /**
+         * Wiki创建的时间范围（秒级时间戳，包含start和end字段）
+         * <p> 示例值：
+         */
+        this.createTime = builder.createTime;
+        /**
+         * 搜索在会话内的文档
+         * <p> 示例值：
+         */
+        this.chatIds = builder.chatIds;
+        /**
+         * 文档分享者OpenID
+         * <p> 示例值：
+         */
+        this.sharerIds = builder.sharerIds;
+        /**
+         * 仅搜文档评论
+         * <p> 示例值：false
+         */
+        this.onlyComment = builder.onlyComment;
+        /**
+         * 【我编辑的文档】的时间范围（秒级时间戳，包含start和end字段）
+         * <p> 示例值：
+         */
+        this.myEditTime = builder.myEditTime;
+        /**
+         * 【我评论的文档】的时间范围（秒级时间戳，包含start和end字段）
+         * <p> 示例值：
+         */
+        this.myCommentTime = builder.myCommentTime;
+        /**
+         * 文档创建者者OpenID，注意和creator_ids区分开
+         * <p> 示例值：
+         */
+        this.originalCreatorIds = builder.originalCreatorIds;
     }
 
     public static Builder newBuilder() {
@@ -155,6 +232,62 @@ public class WikiFilter {
         this.sortType = sortType;
     }
 
+    public TimeRange getCreateTime() {
+        return this.createTime;
+    }
+
+    public void setCreateTime(TimeRange createTime) {
+        this.createTime = createTime;
+    }
+
+    public String[] getChatIds() {
+        return this.chatIds;
+    }
+
+    public void setChatIds(String[] chatIds) {
+        this.chatIds = chatIds;
+    }
+
+    public String[] getSharerIds() {
+        return this.sharerIds;
+    }
+
+    public void setSharerIds(String[] sharerIds) {
+        this.sharerIds = sharerIds;
+    }
+
+    public Boolean getOnlyComment() {
+        return this.onlyComment;
+    }
+
+    public void setOnlyComment(Boolean onlyComment) {
+        this.onlyComment = onlyComment;
+    }
+
+    public TimeRange getMyEditTime() {
+        return this.myEditTime;
+    }
+
+    public void setMyEditTime(TimeRange myEditTime) {
+        this.myEditTime = myEditTime;
+    }
+
+    public TimeRange getMyCommentTime() {
+        return this.myCommentTime;
+    }
+
+    public void setMyCommentTime(TimeRange myCommentTime) {
+        this.myCommentTime = myCommentTime;
+    }
+
+    public String[] getOriginalCreatorIds() {
+        return this.originalCreatorIds;
+    }
+
+    public void setOriginalCreatorIds(String[] originalCreatorIds) {
+        this.originalCreatorIds = originalCreatorIds;
+    }
+
     public static class Builder {
         /**
          * Wiki所有者OpenID
@@ -186,6 +319,41 @@ public class WikiFilter {
          * <p> 示例值：CREATE_TIME_ASC
          */
         private String sortType;
+        /**
+         * Wiki创建的时间范围（秒级时间戳，包含start和end字段）
+         * <p> 示例值：
+         */
+        private TimeRange createTime;
+        /**
+         * 搜索在会话内的文档
+         * <p> 示例值：
+         */
+        private String[] chatIds;
+        /**
+         * 文档分享者OpenID
+         * <p> 示例值：
+         */
+        private String[] sharerIds;
+        /**
+         * 仅搜文档评论
+         * <p> 示例值：false
+         */
+        private Boolean onlyComment;
+        /**
+         * 【我编辑的文档】的时间范围（秒级时间戳，包含start和end字段）
+         * <p> 示例值：
+         */
+        private TimeRange myEditTime;
+        /**
+         * 【我评论的文档】的时间范围（秒级时间戳，包含start和end字段）
+         * <p> 示例值：
+         */
+        private TimeRange myCommentTime;
+        /**
+         * 文档创建者者OpenID，注意和creator_ids区分开
+         * <p> 示例值：
+         */
+        private String[] originalCreatorIds;
 
         /**
          * Wiki所有者OpenID
@@ -273,6 +441,97 @@ public class WikiFilter {
          */
         public Builder sortType(com.lark.oapi.service.search.v2.enums.WikiFilterSortTypeEnum sortType) {
             this.sortType = sortType.getValue();
+            return this;
+        }
+
+
+        /**
+         * Wiki创建的时间范围（秒级时间戳，包含start和end字段）
+         * <p> 示例值：
+         *
+         * @param createTime
+         * @return
+         */
+        public Builder createTime(TimeRange createTime) {
+            this.createTime = createTime;
+            return this;
+        }
+
+
+        /**
+         * 搜索在会话内的文档
+         * <p> 示例值：
+         *
+         * @param chatIds
+         * @return
+         */
+        public Builder chatIds(String[] chatIds) {
+            this.chatIds = chatIds;
+            return this;
+        }
+
+
+        /**
+         * 文档分享者OpenID
+         * <p> 示例值：
+         *
+         * @param sharerIds
+         * @return
+         */
+        public Builder sharerIds(String[] sharerIds) {
+            this.sharerIds = sharerIds;
+            return this;
+        }
+
+
+        /**
+         * 仅搜文档评论
+         * <p> 示例值：false
+         *
+         * @param onlyComment
+         * @return
+         */
+        public Builder onlyComment(Boolean onlyComment) {
+            this.onlyComment = onlyComment;
+            return this;
+        }
+
+
+        /**
+         * 【我编辑的文档】的时间范围（秒级时间戳，包含start和end字段）
+         * <p> 示例值：
+         *
+         * @param myEditTime
+         * @return
+         */
+        public Builder myEditTime(TimeRange myEditTime) {
+            this.myEditTime = myEditTime;
+            return this;
+        }
+
+
+        /**
+         * 【我评论的文档】的时间范围（秒级时间戳，包含start和end字段）
+         * <p> 示例值：
+         *
+         * @param myCommentTime
+         * @return
+         */
+        public Builder myCommentTime(TimeRange myCommentTime) {
+            this.myCommentTime = myCommentTime;
+            return this;
+        }
+
+
+        /**
+         * 文档创建者者OpenID，注意和creator_ids区分开
+         * <p> 示例值：
+         *
+         * @param originalCreatorIds
+         * @return
+         */
+        public Builder originalCreatorIds(String[] originalCreatorIds) {
+            this.originalCreatorIds = originalCreatorIds;
             return this;
         }
 

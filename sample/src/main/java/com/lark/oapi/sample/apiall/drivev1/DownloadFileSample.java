@@ -16,6 +16,7 @@ public class DownloadFileSample {
         // 创建请求对象
         DownloadFileReq req = DownloadFileReq.newBuilder()
                 .fileToken("boxcnabCdefg12345")
+                .version("")
                 .build();
 
         // 发起请求

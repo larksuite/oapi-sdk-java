@@ -157,10 +157,10 @@ public class OpenFailedUserAppFeedCardItem {
          * 原因
          * <p> 示例值：
          *
-         * @param reason {@link com.lark.oapi.service.im.v2.enums.OpenFailedUserAppFeedCardItemReasonEnum}
+         * @param reason {@link com.lark.oapi.service.im.v2.enums.OpenFailedUserAppFeedCardItemOpenAppFeedCardFailedReasonEnum}
          * @return
          */
-        public Builder reason(com.lark.oapi.service.im.v2.enums.OpenFailedUserAppFeedCardItemReasonEnum reason) {
+        public Builder reason(com.lark.oapi.service.im.v2.enums.OpenFailedUserAppFeedCardItemOpenAppFeedCardFailedReasonEnum reason) {
             this.reason = reason.getValue();
             return this;
         }

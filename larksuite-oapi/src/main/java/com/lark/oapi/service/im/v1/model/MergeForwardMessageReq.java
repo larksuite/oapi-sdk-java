@@ -112,10 +112,10 @@ public class MergeForwardMessageReq {
          * 消息接收者id类型 open_id/user_id/union_id/email/chat_id
          * <p> 示例值：
          *
-         * @param receiveIdType {@link com.lark.oapi.service.im.v1.enums.MergeForwardMessageReceiveIdTypeEnum}
+         * @param receiveIdType {@link com.lark.oapi.service.im.v1.enums.MergeForwardMessageMergeForwardMessagesV1ReceiveIDTypeEnum}
          * @return
          */
-        public Builder receiveIdType(com.lark.oapi.service.im.v1.enums.MergeForwardMessageReceiveIdTypeEnum receiveIdType) {
+        public Builder receiveIdType(com.lark.oapi.service.im.v1.enums.MergeForwardMessageMergeForwardMessagesV1ReceiveIDTypeEnum receiveIdType) {
             this.receiveIdType = receiveIdType.getValue();
             return this;
         }

@@ -30,13 +30,13 @@ import com.lark.oapi.core.response.BaseResponse;
 
 public class TimeSpan {
     /**
-     * 空闲时间-开始时间
+     * 开始时间
      * <p> 示例值：none
      */
     @SerializedName("start_time")
     private String startTime;
     /**
-     * 空闲时间-结束时间
+     * 结束时间
      * <p> 示例值：none
      */
     @SerializedName("end_time")
@@ -48,12 +48,12 @@ public class TimeSpan {
 
     public TimeSpan(Builder builder) {
         /**
-         * 空闲时间-开始时间
+         * 开始时间
          * <p> 示例值：none
          */
         this.startTime = builder.startTime;
         /**
-         * 空闲时间-结束时间
+         * 结束时间
          * <p> 示例值：none
          */
         this.endTime = builder.endTime;
@@ -81,18 +81,18 @@ public class TimeSpan {
 
     public static class Builder {
         /**
-         * 空闲时间-开始时间
+         * 开始时间
          * <p> 示例值：none
          */
         private String startTime;
         /**
-         * 空闲时间-结束时间
+         * 结束时间
          * <p> 示例值：none
          */
         private String endTime;
 
         /**
-         * 空闲时间-开始时间
+         * 开始时间
          * <p> 示例值：none
          *
          * @param startTime
@@ -105,7 +105,7 @@ public class TimeSpan {
 
 
         /**
-         * 空闲时间-结束时间
+         * 结束时间
          * <p> 示例值：none
          *
          * @param endTime

@@ -51,6 +51,7 @@ public class RecordsPatchWorkspaceTableReq {
     private String tableName;
     @Body
     private RecordsPatchWorkspaceTableReqBody body;
+
     // builder 开始
     public RecordsPatchWorkspaceTableReq() {
     }

@@ -61,7 +61,7 @@ public class TransferType {
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
                 , "/open-apis/corehr/v1/transfer_types/query"
-                , Sets.newHashSet(AccessTokenType.Tenant)
+                , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
 
         // 反序列化
@@ -93,7 +93,7 @@ public class TransferType {
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
                 , "/open-apis/corehr/v1/transfer_types/query"
-                , Sets.newHashSet(AccessTokenType.Tenant)
+                , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
 
         // 反序列化

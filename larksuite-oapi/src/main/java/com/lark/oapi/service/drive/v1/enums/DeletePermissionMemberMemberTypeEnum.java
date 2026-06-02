@@ -25,6 +25,7 @@ public enum DeletePermissionMemberMemberTypeEnum {
     UNIONID("unionid"), // 开放平台UnionID
     GROUPID("groupid"), // 自定义用户组ID
     WIKISPACEID("wikispaceid"), // 知识空间的唯一标识
+    APP_ID("appid"), // 应用 ID
     ;
     private String value;
 

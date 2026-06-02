@@ -61,7 +61,7 @@ public class Thread {
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
                 , "/open-apis/im/v1/threads/:thread_id/forward"
-                , Sets.newHashSet(AccessTokenType.Tenant)
+                , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
 
         // 反序列化
@@ -93,7 +93,7 @@ public class Thread {
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
                 , "/open-apis/im/v1/threads/:thread_id/forward"
-                , Sets.newHashSet(AccessTokenType.Tenant)
+                , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
 
         // 反序列化

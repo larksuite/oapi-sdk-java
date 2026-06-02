@@ -52,6 +52,11 @@ public class CreatePersonSample {
                         .residentTaxes(new ResidentTax[]{})
                         .firstEntryTime("2021-01-02")
                         .leaveTime("2022-01-02")
+                        .legalNameV2s(new PersonName[]{})
+                        .nationalIdV2s(new NationalId[]{})
+                        .visas(new Visa[]{})
+                        .passports(new Passport[]{})
+                        .personForCountries(new PersonForCountry[]{})
                         .build())
                 .build();
 

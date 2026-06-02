@@ -89,6 +89,24 @@ public class ListChat {
      */
     @SerializedName("chat_status")
     private String chatStatus;
+    /**
+     * 群模式;group=普通群/topic=话题群/p2p=单聊
+     * <p> 示例值：p2p
+     */
+    @SerializedName("chat_mode")
+    private String chatMode;
+    /**
+     * 单聊对端类型;仅 chat_mode=p2p 时返回
+     * <p> 示例值：user
+     */
+    @SerializedName("p2p_target_type")
+    private String p2pTargetType;
+    /**
+     * 单聊对端ID;仅 chat_mode=p2p 时返回
+     * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
+     */
+    @SerializedName("p2p_target_id")
+    private String p2pTargetId;
 
     // builder 开始
     public ListChat() {
@@ -145,6 +163,21 @@ public class ListChat {
          * <p> 示例值：normal
          */
         this.chatStatus = builder.chatStatus;
+        /**
+         * 群模式;group=普通群/topic=话题群/p2p=单聊
+         * <p> 示例值：p2p
+         */
+        this.chatMode = builder.chatMode;
+        /**
+         * 单聊对端类型;仅 chat_mode=p2p 时返回
+         * <p> 示例值：user
+         */
+        this.p2pTargetType = builder.p2pTargetType;
+        /**
+         * 单聊对端ID;仅 chat_mode=p2p 时返回
+         * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
+         */
+        this.p2pTargetId = builder.p2pTargetId;
     }
 
     public static Builder newBuilder() {
@@ -231,6 +264,30 @@ public class ListChat {
         this.chatStatus = chatStatus;
     }
 
+    public String getChatMode() {
+        return this.chatMode;
+    }
+
+    public void setChatMode(String chatMode) {
+        this.chatMode = chatMode;
+    }
+
+    public String getP2pTargetType() {
+        return this.p2pTargetType;
+    }
+
+    public void setP2pTargetType(String p2pTargetType) {
+        this.p2pTargetType = p2pTargetType;
+    }
+
+    public String getP2pTargetId() {
+        return this.p2pTargetId;
+    }
+
+    public void setP2pTargetId(String p2pTargetId) {
+        this.p2pTargetId = p2pTargetId;
+    }
+
     public static class Builder {
         /**
          * 群组 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
@@ -282,6 +339,21 @@ public class ListChat {
          * <p> 示例值：normal
          */
         private String chatStatus;
+        /**
+         * 群模式;group=普通群/topic=话题群/p2p=单聊
+         * <p> 示例值：p2p
+         */
+        private String chatMode;
+        /**
+         * 单聊对端类型;仅 chat_mode=p2p 时返回
+         * <p> 示例值：user
+         */
+        private String p2pTargetType;
+        /**
+         * 单聊对端ID;仅 chat_mode=p2p 时返回
+         * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
+         */
+        private String p2pTargetId;
 
         /**
          * 群组 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
@@ -421,6 +493,69 @@ public class ListChat {
          */
         public Builder chatStatus(com.lark.oapi.service.im.v1.enums.ListChatChatStatusTypeEnum chatStatus) {
             this.chatStatus = chatStatus.getValue();
+            return this;
+        }
+
+
+        /**
+         * 群模式;group=普通群/topic=话题群/p2p=单聊
+         * <p> 示例值：p2p
+         *
+         * @param chatMode
+         * @return
+         */
+        public Builder chatMode(String chatMode) {
+            this.chatMode = chatMode;
+            return this;
+        }
+
+        /**
+         * 群模式;group=普通群/topic=话题群/p2p=单聊
+         * <p> 示例值：p2p
+         *
+         * @param chatMode {@link com.lark.oapi.service.im.v1.enums.ListChatChatModeTypeEnum}
+         * @return
+         */
+        public Builder chatMode(com.lark.oapi.service.im.v1.enums.ListChatChatModeTypeEnum chatMode) {
+            this.chatMode = chatMode.getValue();
+            return this;
+        }
+
+
+        /**
+         * 单聊对端类型;仅 chat_mode=p2p 时返回
+         * <p> 示例值：user
+         *
+         * @param p2pTargetType
+         * @return
+         */
+        public Builder p2pTargetType(String p2pTargetType) {
+            this.p2pTargetType = p2pTargetType;
+            return this;
+        }
+
+        /**
+         * 单聊对端类型;仅 chat_mode=p2p 时返回
+         * <p> 示例值：user
+         *
+         * @param p2pTargetType {@link com.lark.oapi.service.im.v1.enums.ListChatP2pTargetTypeEnum}
+         * @return
+         */
+        public Builder p2pTargetType(com.lark.oapi.service.im.v1.enums.ListChatP2pTargetTypeEnum p2pTargetType) {
+            this.p2pTargetType = p2pTargetType.getValue();
+            return this;
+        }
+
+
+        /**
+         * 单聊对端ID;仅 chat_mode=p2p 时返回
+         * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
+         *
+         * @param p2pTargetId
+         * @return
+         */
+        public Builder p2pTargetId(String p2pTargetId) {
+            this.p2pTargetId = p2pTargetId;
             return this;
         }
 

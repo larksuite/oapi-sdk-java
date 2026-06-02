@@ -36,6 +36,13 @@ public class GetMessageReq {
     @SerializedName("user_id_type")
     private String userIdType;
     /**
+     * 卡片消息返回类型
+     * <p> 示例值：user_card_content
+     */
+    @Query
+    @SerializedName("card_msg_content_type")
+    private String cardMsgContentType;
+    /**
      * 待获取消息内容的消息的ID
      * <p> 示例值：om_dc13264520392913993dd051dba21dcf
      */
@@ -53,6 +60,11 @@ public class GetMessageReq {
          * <p> 示例值：open_id
          */
         this.userIdType = builder.userIdType;
+        /**
+         * 卡片消息返回类型
+         * <p> 示例值：user_card_content
+         */
+        this.cardMsgContentType = builder.cardMsgContentType;
         /**
          * 待获取消息内容的消息的ID
          * <p> 示例值：om_dc13264520392913993dd051dba21dcf
@@ -72,6 +84,14 @@ public class GetMessageReq {
         this.userIdType = userIdType;
     }
 
+    public String getCardMsgContentType() {
+        return this.cardMsgContentType;
+    }
+
+    public void setCardMsgContentType(String cardMsgContentType) {
+        this.cardMsgContentType = cardMsgContentType;
+    }
+
     public String getMessageId() {
         return this.messageId;
     }
@@ -82,6 +102,7 @@ public class GetMessageReq {
 
     public static class Builder {
         private String userIdType; // 此次调用中使用的用户ID的类型
+        private String cardMsgContentType; // 卡片消息返回类型
         private String messageId; // 待获取消息内容的消息的ID
 
         /**
@@ -100,11 +121,23 @@ public class GetMessageReq {
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：open_id
          *
-         * @param userIdType {@link com.lark.oapi.service.im.v1.enums.GetMessageUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.im.v1.enums.GetMessageGetMessageContentV1UserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.im.v1.enums.GetMessageUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.im.v1.enums.GetMessageGetMessageContentV1UserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
+            return this;
+        }
+
+        /**
+         * 卡片消息返回类型
+         * <p> 示例值：user_card_content
+         *
+         * @param cardMsgContentType
+         * @return
+         */
+        public Builder cardMsgContentType(String cardMsgContentType) {
+            this.cardMsgContentType = cardMsgContentType;
             return this;
         }
 

@@ -5,8 +5,10 @@ import com.lark.oapi.channel.model.NormalizedMessage;
 import com.lark.oapi.service.im.v1.model.Message;
 import com.lark.oapi.service.im.v1.model.MessageBody;
 import com.lark.oapi.service.im.v1.model.Sender;
+
 import java.util.ArrayList;
 import java.util.List;
+
 import org.junit.Assert;
 import org.junit.Test;
 

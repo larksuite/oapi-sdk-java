@@ -19,8 +19,17 @@ public class SendResult {
         this.chunkIds = chunkIds == null ? Collections.<String>emptyList() : chunkIds;
     }
 
-    /** Feishu message id created or updated by the operation. */
-    public String getMessageId() { return messageId; }
-    /** Streaming chunk ids when the underlying cardkit API returns them. */
-    public List<String> getChunkIds() { return chunkIds; }
+    /**
+     * Feishu message id created or updated by the operation.
+     */
+    public String getMessageId() {
+        return messageId;
+    }
+
+    /**
+     * Streaming chunk ids when the underlying cardkit API returns them.
+     */
+    public List<String> getChunkIds() {
+        return chunkIds;
+    }
 }

@@ -46,6 +46,11 @@ public class ListAppDashboardRespBody {
      */
     @SerializedName("has_more")
     private Boolean hasMore;
+    /**
+     * <p> 示例值：
+     */
+    @SerializedName("total")
+    private Integer total;
 
     public AppDashboard[] getDashboards() {
         return this.dashboards;
@@ -69,6 +74,14 @@ public class ListAppDashboardRespBody {
 
     public void setHasMore(Boolean hasMore) {
         this.hasMore = hasMore;
+    }
+
+    public Integer getTotal() {
+        return this.total;
+    }
+
+    public void setTotal(Integer total) {
+        this.total = total;
     }
 
 }

@@ -56,6 +56,13 @@ public class ListChatReq {
     @Query
     @SerializedName("page_size")
     private Integer pageSize;
+    /**
+     * 群类型过滤;逗号分隔 group/p2p(多值),默认 group; 仅 UAT 支持拉 p2p 单聊;
+     * <p> 示例值：group,p2p
+     */
+    @Query
+    @SerializedName("types")
+    private String types;
 
     // builder 开始
     public ListChatReq() {
@@ -82,6 +89,11 @@ public class ListChatReq {
          * <p> 示例值：10
          */
         this.pageSize = builder.pageSize;
+        /**
+         * 群类型过滤;逗号分隔 group/p2p(多值),默认 group; 仅 UAT 支持拉 p2p 单聊;
+         * <p> 示例值：group,p2p
+         */
+        this.types = builder.types;
     }
 
     public static Builder newBuilder() {
@@ -120,11 +132,20 @@ public class ListChatReq {
         this.pageSize = pageSize;
     }
 
+    public String getTypes() {
+        return this.types;
+    }
+
+    public void setTypes(String types) {
+        this.types = types;
+    }
+
     public static class Builder {
         private String userIdType; // 此次调用中使用的用户ID的类型
         private String sortType; // 群组排序方式
         private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
         private Integer pageSize; // 分页大小
+        private String types; // 群类型过滤;逗号分隔 group/p2p(多值),默认 group; 仅 UAT 支持拉 p2p 单聊;
 
         /**
          * 此次调用中使用的用户ID的类型
@@ -142,10 +163,10 @@ public class ListChatReq {
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
          *
-         * @param userIdType {@link com.lark.oapi.service.im.v1.enums.ListChatUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.im.v1.enums.ListChatListChatUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.im.v1.enums.ListChatUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.im.v1.enums.ListChatListChatUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }
@@ -167,10 +188,10 @@ public class ListChatReq {
          * 群组排序方式
          * <p> 示例值：ByCreateTimeAsc
          *
-         * @param sortType {@link com.lark.oapi.service.im.v1.enums.ListChatSortTypeEnum}
+         * @param sortType {@link com.lark.oapi.service.im.v1.enums.ListChatListChatSortTypeEnum}
          * @return
          */
-        public Builder sortType(com.lark.oapi.service.im.v1.enums.ListChatSortTypeEnum sortType) {
+        public Builder sortType(com.lark.oapi.service.im.v1.enums.ListChatListChatSortTypeEnum sortType) {
             this.sortType = sortType.getValue();
             return this;
         }
@@ -198,6 +219,19 @@ public class ListChatReq {
          */
         public Builder pageSize(Integer pageSize) {
             this.pageSize = pageSize;
+            return this;
+        }
+
+
+        /**
+         * 群类型过滤;逗号分隔 group/p2p(多值),默认 group; 仅 UAT 支持拉 p2p 单聊;
+         * <p> 示例值：group,p2p
+         *
+         * @param types
+         * @return
+         */
+        public Builder types(String types) {
+            this.types = types;
             return this;
         }
 

@@ -14,7 +14,13 @@
 package com.lark.oapi.service.okr.v1;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.service.okr.v1.resource.*;
+import com.lark.oapi.service.okr.v1.resource.Image;
+import com.lark.oapi.service.okr.v1.resource.Okr;
+import com.lark.oapi.service.okr.v1.resource.Period;
+import com.lark.oapi.service.okr.v1.resource.PeriodRule;
+import com.lark.oapi.service.okr.v1.resource.ProgressRecord;
+import com.lark.oapi.service.okr.v1.resource.Review;
+import com.lark.oapi.service.okr.v1.resource.UserOkr;
 
 public class V1 {
     private final Image image; // 图片

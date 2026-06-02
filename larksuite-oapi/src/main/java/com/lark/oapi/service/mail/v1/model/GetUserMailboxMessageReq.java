@@ -53,6 +53,7 @@ public class GetUserMailboxMessageReq {
     // builder 开始
     public GetUserMailboxMessageReq() {
     }
+
     public GetUserMailboxMessageReq(Builder builder) {
         /**
          * 需要获取的邮件内容。支持选择full/plain_text_full/metadata

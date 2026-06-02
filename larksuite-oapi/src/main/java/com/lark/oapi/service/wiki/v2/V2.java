@@ -14,7 +14,11 @@
 package com.lark.oapi.service.wiki.v2;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.service.wiki.v2.resource.*;
+import com.lark.oapi.service.wiki.v2.resource.Space;
+import com.lark.oapi.service.wiki.v2.resource.SpaceMember;
+import com.lark.oapi.service.wiki.v2.resource.SpaceNode;
+import com.lark.oapi.service.wiki.v2.resource.SpaceSetting;
+import com.lark.oapi.service.wiki.v2.resource.Task;
 
 public class V2 {
     private final Space space; // 知识空间

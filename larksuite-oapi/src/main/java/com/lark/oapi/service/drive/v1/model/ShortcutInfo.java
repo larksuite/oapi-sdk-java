@@ -31,13 +31,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class ShortcutInfo {
     /**
      * 快捷方式指向的原文件类型
-     * <p> 示例值：
+     * <p> 示例值：doc
      */
     @SerializedName("target_type")
     private String targetType;
     /**
      * 快捷方式指向的原文件token
-     * <p> 示例值：
+     * <p> 示例值：doccn4dTWHr5K1Ibg2wKCh3arMg
      */
     @SerializedName("target_token")
     private String targetToken;
@@ -49,12 +49,12 @@ public class ShortcutInfo {
     public ShortcutInfo(Builder builder) {
         /**
          * 快捷方式指向的原文件类型
-         * <p> 示例值：
+         * <p> 示例值：doc
          */
         this.targetType = builder.targetType;
         /**
          * 快捷方式指向的原文件token
-         * <p> 示例值：
+         * <p> 示例值：doccn4dTWHr5K1Ibg2wKCh3arMg
          */
         this.targetToken = builder.targetToken;
     }
@@ -82,18 +82,18 @@ public class ShortcutInfo {
     public static class Builder {
         /**
          * 快捷方式指向的原文件类型
-         * <p> 示例值：
+         * <p> 示例值：doc
          */
         private String targetType;
         /**
          * 快捷方式指向的原文件token
-         * <p> 示例值：
+         * <p> 示例值：doccn4dTWHr5K1Ibg2wKCh3arMg
          */
         private String targetToken;
 
         /**
          * 快捷方式指向的原文件类型
-         * <p> 示例值：
+         * <p> 示例值：doc
          *
          * @param targetType
          * @return
@@ -106,7 +106,7 @@ public class ShortcutInfo {
 
         /**
          * 快捷方式指向的原文件token
-         * <p> 示例值：
+         * <p> 示例值：doccn4dTWHr5K1Ibg2wKCh3arMg
          *
          * @param targetToken
          * @return

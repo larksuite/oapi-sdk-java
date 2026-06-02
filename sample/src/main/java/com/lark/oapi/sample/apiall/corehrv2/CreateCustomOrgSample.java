@@ -30,6 +30,7 @@ public class CreateCustomOrgSample {
                         .orgRoles(new OrgRoleUpdate[]{})
                         .matchRuleGroups(new MatchRules[]{})
                         .customFields(new CustomFieldData[]{})
+                        .isPreferManualEncoding(false)
                         .build())
                 .build();
 

@@ -28,26 +28,14 @@ import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateDeviceRecordReq {
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
     @Body
-    private DeviceRecord body;
+    private CreateDeviceRecordReqBody body;
 
     // builder 开始
     public CreateDeviceRecordReq() {
     }
 
     public CreateDeviceRecordReq(Builder builder) {
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
         this.body = builder.body;
     }
 
@@ -55,51 +43,19 @@ public class CreateDeviceRecordReq {
         return new Builder();
     }
 
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public DeviceRecord getDeviceRecord() {
+    public CreateDeviceRecordReqBody getCreateDeviceRecordReqBody() {
         return this.body;
     }
 
-    public void setDeviceRecord(DeviceRecord body) {
+    public void setCreateDeviceRecordReqBody(CreateDeviceRecordReqBody body) {
         this.body = body;
     }
 
     public static class Builder {
-        private String userIdType; // 此次调用中使用的用户ID的类型
-        private DeviceRecord body;
 
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
+        private CreateDeviceRecordReqBody body;
 
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType {@link com.lark.oapi.service.security_and_compliance.v2.enums.CreateDeviceRecordUserIdTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.security_and_compliance.v2.enums.CreateDeviceRecordUserIdTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        public DeviceRecord getDeviceRecord() {
+        public CreateDeviceRecordReqBody getCreateDeviceRecordReqBody() {
             return this.body;
         }
 
@@ -109,7 +65,7 @@ public class CreateDeviceRecordReq {
          * @param body
          * @return
          */
-        public Builder deviceRecord(DeviceRecord body) {
+        public Builder createDeviceRecordReqBody(CreateDeviceRecordReqBody body) {
             this.body = body;
             return this;
         }

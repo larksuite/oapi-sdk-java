@@ -130,6 +130,12 @@ public class CombinedUpdateTalentReqBody {
      */
     @SerializedName("customized_data")
     private TalentCustomizedDataObjectValue[] customizedData;
+    /**
+     * 是否解析附件简历并使用解析内容更新人才简历；此参数指定为true时将忽略其他传入值，仅根据简历解析的结果更新人才
+     * <p> 示例值：
+     */
+    @SerializedName("only_parse_resume_update_talent")
+    private Boolean onlyParseResumeUpdateTalent;
 
     // builder 开始
     public CombinedUpdateTalentReqBody() {
@@ -221,6 +227,11 @@ public class CombinedUpdateTalentReqBody {
          * <p> 示例值：
          */
         this.customizedData = builder.customizedData;
+        /**
+         * 是否解析附件简历并使用解析内容更新人才简历；此参数指定为true时将忽略其他传入值，仅根据简历解析的结果更新人才
+         * <p> 示例值：
+         */
+        this.onlyParseResumeUpdateTalent = builder.onlyParseResumeUpdateTalent;
     }
 
     public static Builder newBuilder() {
@@ -363,6 +374,14 @@ public class CombinedUpdateTalentReqBody {
         this.customizedData = customizedData;
     }
 
+    public Boolean getOnlyParseResumeUpdateTalent() {
+        return this.onlyParseResumeUpdateTalent;
+    }
+
+    public void setOnlyParseResumeUpdateTalent(Boolean onlyParseResumeUpdateTalent) {
+        this.onlyParseResumeUpdateTalent = onlyParseResumeUpdateTalent;
+    }
+
     public static class Builder {
         /**
          * 人才 ID
@@ -449,6 +468,11 @@ public class CombinedUpdateTalentReqBody {
          * <p> 示例值：
          */
         private TalentCustomizedDataObjectValue[] customizedData;
+        /**
+         * 是否解析附件简历并使用解析内容更新人才简历；此参数指定为true时将忽略其他传入值，仅根据简历解析的结果更新人才
+         * <p> 示例值：
+         */
+        private Boolean onlyParseResumeUpdateTalent;
 
         /**
          * 人才 ID
@@ -667,6 +691,19 @@ public class CombinedUpdateTalentReqBody {
          */
         public Builder customizedData(TalentCustomizedDataObjectValue[] customizedData) {
             this.customizedData = customizedData;
+            return this;
+        }
+
+
+        /**
+         * 是否解析附件简历并使用解析内容更新人才简历；此参数指定为true时将忽略其他传入值，仅根据简历解析的结果更新人才
+         * <p> 示例值：
+         *
+         * @param onlyParseResumeUpdateTalent
+         * @return
+         */
+        public Builder onlyParseResumeUpdateTalent(Boolean onlyParseResumeUpdateTalent) {
+            this.onlyParseResumeUpdateTalent = onlyParseResumeUpdateTalent;
             return this;
         }
 

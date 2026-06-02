@@ -13,9 +13,23 @@ public class BotAddedEvent {
         this.raw = raw;
     }
 
-    public String getChatId() { return chatId; }
-    public String getOperatorId() { return operatorId; }
-    public String getBotName() { return botName; }
-    public String getChatName() { return botName; }
-    public Object getRaw() { return raw; }
+    public String getChatId() {
+        return chatId;
+    }
+
+    public String getOperatorId() {
+        return operatorId;
+    }
+
+    public String getBotName() {
+        return botName;
+    }
+
+    public String getChatName() {
+        return botName;
+    }
+
+    public Object getRaw() {
+        return raw;
+    }
 }

@@ -242,10 +242,10 @@ public class EmployeeTypeEnum {
          * 类型
          * <p> 示例值：2
          *
-         * @param enumType {@link com.lark.oapi.service.contact.v3.enums.EmployeeTypeEnumEnumTypeEnum}
+         * @param enumType {@link com.lark.oapi.service.contact.v3.enums.EmployeeTypeEnumEmployeeTypeEnumEnumTypeEnum}
          * @return
          */
-        public Builder enumType(com.lark.oapi.service.contact.v3.enums.EmployeeTypeEnumEnumTypeEnum enumType) {
+        public Builder enumType(com.lark.oapi.service.contact.v3.enums.EmployeeTypeEnumEmployeeTypeEnumEnumTypeEnum enumType) {
             this.enumType = enumType.getValue();
             return this;
         }
@@ -267,10 +267,10 @@ public class EmployeeTypeEnum {
          * 使用状态
          * <p> 示例值：1
          *
-         * @param enumStatus {@link com.lark.oapi.service.contact.v3.enums.EmployeeTypeEnumEnumStatusEnum}
+         * @param enumStatus {@link com.lark.oapi.service.contact.v3.enums.EmployeeTypeEnumEmployeeTypeEnumEnumStatusEnum}
          * @return
          */
-        public Builder enumStatus(com.lark.oapi.service.contact.v3.enums.EmployeeTypeEnumEnumStatusEnum enumStatus) {
+        public Builder enumStatus(com.lark.oapi.service.contact.v3.enums.EmployeeTypeEnumEmployeeTypeEnumEnumStatusEnum enumStatus) {
             this.enumStatus = enumStatus.getValue();
             return this;
         }

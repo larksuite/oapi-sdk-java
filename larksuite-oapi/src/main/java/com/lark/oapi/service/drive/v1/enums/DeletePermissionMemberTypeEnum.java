@@ -24,6 +24,7 @@ public enum DeletePermissionMemberTypeEnum {
     WIKI_SPACE_MEMBER("wiki_space_member"), // 知识库成员
     WIKI_SPACE_VIEWER("wiki_space_viewer"), // 知识库可阅读成员
     WIKI_SPACE_EDITOR("wiki_space_editor"), // 知识库可编辑成员
+    APP_ID("appid"), // 应用 ID
     ;
     private String value;
 

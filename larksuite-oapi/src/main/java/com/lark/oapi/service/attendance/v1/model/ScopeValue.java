@@ -48,7 +48,7 @@ public class ScopeValue {
 
     public ScopeValue(Builder builder) {
         /**
-         *  标识Key
+         * 标识Key
          * <p> 示例值：CH
          */
         this.key = builder.key;

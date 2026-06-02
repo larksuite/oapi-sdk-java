@@ -32,6 +32,14 @@ public enum MediaUploadInfoParentTypeEnum {
     BASE_GLOBAL("base_global"), // base文件
     LARK_AI_MEDIA_ANALYSIS("lark_ai_media_analysis"), // ai素材
     WHITEBOARD("whiteboard"), // 白板文件
+    MINDNOTE_IMAGE("mindnote_image"), // 思维导图图片
+    COMMENT_IMAGE("comment_image"), // 评论图片
+    SLIDE_IMG("slide_img"), // 幻灯片图片
+    SLIDE_FILE("slide_file"), // 幻灯片文件
+    EMAIL("email"), // 邮箱文件
+    BITABLE_TMP_POINT("bitable_tmp_point"), // 表单临时上传提交附件
+    OFFICE_SHEET_FILE("office_sheet_file"), // 豆包表格文件本地打开AI编辑
+    OFFICE_SLIDE_FILE("office_slide_file"), // 豆包pptx文件本地打开AI编辑
     ;
     private String value;
 

@@ -83,6 +83,12 @@ public class Meta {
      */
     @SerializedName("sec_label_name")
     private String secLabelName;
+    /**
+     * 请求的request_doc
+     * <p> 示例值：
+     */
+    @SerializedName("request_doc_info")
+    private RequestDoc requestDocInfo;
 
     // builder 开始
     public Meta() {
@@ -134,6 +140,11 @@ public class Meta {
          * <p> 示例值：L2-内部
          */
         this.secLabelName = builder.secLabelName;
+        /**
+         * 请求的request_doc
+         * <p> 示例值：
+         */
+        this.requestDocInfo = builder.requestDocInfo;
     }
 
     public static Builder newBuilder() {
@@ -212,6 +223,14 @@ public class Meta {
         this.secLabelName = secLabelName;
     }
 
+    public RequestDoc getRequestDocInfo() {
+        return this.requestDocInfo;
+    }
+
+    public void setRequestDocInfo(RequestDoc requestDocInfo) {
+        this.requestDocInfo = requestDocInfo;
+    }
+
     public static class Builder {
         /**
          * 文件token
@@ -258,6 +277,11 @@ public class Meta {
          * <p> 示例值：L2-内部
          */
         private String secLabelName;
+        /**
+         * 请求的request_doc
+         * <p> 示例值：
+         */
+        private RequestDoc requestDocInfo;
 
         /**
          * 文件token
@@ -372,6 +396,19 @@ public class Meta {
          */
         public Builder secLabelName(String secLabelName) {
             this.secLabelName = secLabelName;
+            return this;
+        }
+
+
+        /**
+         * 请求的request_doc
+         * <p> 示例值：
+         *
+         * @param requestDocInfo
+         * @return
+         */
+        public Builder requestDocInfo(RequestDoc requestDocInfo) {
+            this.requestDocInfo = requestDocInfo;
             return this;
         }
 

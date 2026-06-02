@@ -14,7 +14,18 @@
 package com.lark.oapi.service.compensation.v1;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.service.compensation.v1.resource.*;
+import com.lark.oapi.service.compensation.v1.resource.Archive;
+import com.lark.oapi.service.compensation.v1.resource.ChangeReason;
+import com.lark.oapi.service.compensation.v1.resource.Indicator;
+import com.lark.oapi.service.compensation.v1.resource.Item;
+import com.lark.oapi.service.compensation.v1.resource.ItemCategory;
+import com.lark.oapi.service.compensation.v1.resource.LumpSumPayment;
+import com.lark.oapi.service.compensation.v1.resource.Plan;
+import com.lark.oapi.service.compensation.v1.resource.RecurringPayment;
+import com.lark.oapi.service.compensation.v1.resource.SocialArchive;
+import com.lark.oapi.service.compensation.v1.resource.SocialArchiveAdjustRecord;
+import com.lark.oapi.service.compensation.v1.resource.SocialInsurance;
+import com.lark.oapi.service.compensation.v1.resource.SocialPlan;
 
 public class V1 {
     private final Archive archive; // archive

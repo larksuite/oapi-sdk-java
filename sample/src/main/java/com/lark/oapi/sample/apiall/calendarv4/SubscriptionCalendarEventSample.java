@@ -16,6 +16,7 @@ public class SubscriptionCalendarEventSample {
         // 创建请求对象
         SubscriptionCalendarEventReq req = SubscriptionCalendarEventReq.newBuilder()
                 .calendarId("feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn")
+                .userIdType("user_id")
                 .build();
 
         // 发起请求

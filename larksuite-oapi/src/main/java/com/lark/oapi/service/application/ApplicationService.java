@@ -14,6 +14,8 @@ package com.lark.oapi.service.application;
 
 import com.lark.oapi.core.Config;
 import com.lark.oapi.event.IEventHandler;
+import com.lark.oapi.service.application.v5.V5;
+import com.lark.oapi.service.application.v5.model.*;
 import com.lark.oapi.service.application.v6.V6;
 import com.lark.oapi.service.application.v6.model.*;
 import com.lark.oapi.service.application.v6.resource.AppBadge;
@@ -29,8 +31,11 @@ import com.lark.oapi.service.application.v6.resource.ApplicationOwner;
 import com.lark.oapi.service.application.v6.resource.ApplicationVisibility;
 import com.lark.oapi.service.application.v6.resource.Bot;
 import com.lark.oapi.service.application.v6.resource.Scope;
+import com.lark.oapi.service.application.v7.V7;
+import com.lark.oapi.service.application.v7.model.*;
 
 public class ApplicationService {
+    private final V5 v5;
     private final V6 v6;
     private final AppBadge appBadge; // 应用红点
     private final AppRecommendRule appRecommendRule; // 我的常用推荐规则
@@ -45,8 +50,10 @@ public class ApplicationService {
     private final ApplicationVisibility applicationVisibility; // 事件
     private final Bot bot; // 事件
     private final Scope scope; // scope
+    private final V7 v7;
 
     public ApplicationService(Config config) {
+        this.v5 = new V5(config);
         this.v6 = new V6(config);
         this.appBadge = new AppBadge(config);
         this.appRecommendRule = new AppRecommendRule(config);
@@ -61,6 +68,11 @@ public class ApplicationService {
         this.applicationVisibility = new ApplicationVisibility(config);
         this.bot = new Bot(config);
         this.scope = new Scope(config);
+        this.v7 = new V7(config);
+    }
+
+    public V5 v5() {
+        return v5;
     }
 
     public V6 v6() {
@@ -117,6 +129,10 @@ public class ApplicationService {
 
     public Scope scope() {
         return scope;
+    }
+
+    public V7 v7() {
+        return v7;
     }
 
     public abstract static class P2ApplicationCreatedV6Handler implements IEventHandler<P2ApplicationCreatedV6> {

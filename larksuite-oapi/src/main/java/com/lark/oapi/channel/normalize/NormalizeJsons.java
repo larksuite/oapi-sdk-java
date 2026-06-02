@@ -46,7 +46,7 @@ public final class NormalizeJsons {
         if (parsed.has("title") || parsed.has("content")) {
             return parsed;
         }
-        String[] priority = new String[] {"zh_cn", "en_us", "ja_jp"};
+        String[] priority = new String[]{"zh_cn", "en_us", "ja_jp"};
         for (String locale : priority) {
             if (parsed.has(locale) && parsed.get(locale).isJsonObject()) {
                 return parsed.getAsJsonObject(locale);

@@ -33,7 +33,7 @@ public class ListAppTableFormFieldRespBody {
      * <p> 示例值：
      */
     @SerializedName("items")
-    private AppTableFormField[] items;
+    private FormField[] items;
     /**
      * 下一页分页的token
      * <p> 示例值：fld1lAbHh7
@@ -53,11 +53,11 @@ public class ListAppTableFormFieldRespBody {
     @SerializedName("total")
     private Integer total;
 
-    public AppTableFormField[] getItems() {
+    public FormField[] getItems() {
         return this.items;
     }
 
-    public void setItems(AppTableFormField[] items) {
+    public void setItems(FormField[] items) {
         this.items = items;
     }
 

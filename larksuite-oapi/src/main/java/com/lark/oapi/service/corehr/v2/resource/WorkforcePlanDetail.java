@@ -61,7 +61,7 @@ public class WorkforcePlanDetail {
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
                 , "/open-apis/corehr/v2/workforce_plan_details/batch"
-                , Sets.newHashSet(AccessTokenType.Tenant)
+                , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
 
         // 反序列化
@@ -93,7 +93,7 @@ public class WorkforcePlanDetail {
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
                 , "/open-apis/corehr/v2/workforce_plan_details/batch"
-                , Sets.newHashSet(AccessTokenType.Tenant)
+                , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
 
         // 反序列化
@@ -127,7 +127,7 @@ public class WorkforcePlanDetail {
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
                 , "/open-apis/corehr/v2/workforce_plan_details/batch_v2"
-                , Sets.newHashSet(AccessTokenType.Tenant)
+                , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
 
         // 反序列化
@@ -159,7 +159,7 @@ public class WorkforcePlanDetail {
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
                 , "/open-apis/corehr/v2/workforce_plan_details/batch_v2"
-                , Sets.newHashSet(AccessTokenType.Tenant)
+                , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
 
         // 反序列化

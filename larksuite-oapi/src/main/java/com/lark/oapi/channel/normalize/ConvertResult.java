@@ -1,6 +1,7 @@
 package com.lark.oapi.channel.normalize;
 
 import com.lark.oapi.channel.model.ResourceDescriptor;
+
 import java.util.Collections;
 import java.util.List;
 

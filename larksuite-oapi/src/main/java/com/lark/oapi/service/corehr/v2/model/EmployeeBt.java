@@ -449,6 +449,36 @@ public class EmployeeBt {
      */
     @SerializedName("hrbp_info")
     private HrbpInfo[] hrbpInfo;
+    /**
+     * 是否直属上级
+     * <p> 示例值：true
+     */
+    @SerializedName("is_direct_leader")
+    private Boolean isDirectLeader;
+    /**
+     * 是否虚线上级
+     * <p> 示例值：true
+     */
+    @SerializedName("is_dotted_leader")
+    private Boolean isDottedLeader;
+    /**
+     * 公司人才池
+     * <p> 示例值：
+     */
+    @SerializedName("company_talent_pool_ids")
+    private String[] companyTalentPoolIds;
+    /**
+     * 新人Landing计划
+     * <p> 示例值：
+     */
+    @SerializedName("landing_plan")
+    private LandingPlan landingPlan;
+    /**
+     * 全部任职岗位
+     * <p> 示例值：
+     */
+    @SerializedName("all_position_ids")
+    private String[] allPositionIds;
 
     // builder 开始
     public EmployeeBt() {
@@ -805,6 +835,31 @@ public class EmployeeBt {
          * <p> 示例值：
          */
         this.hrbpInfo = builder.hrbpInfo;
+        /**
+         * 是否直属上级
+         * <p> 示例值：true
+         */
+        this.isDirectLeader = builder.isDirectLeader;
+        /**
+         * 是否虚线上级
+         * <p> 示例值：true
+         */
+        this.isDottedLeader = builder.isDottedLeader;
+        /**
+         * 公司人才池
+         * <p> 示例值：
+         */
+        this.companyTalentPoolIds = builder.companyTalentPoolIds;
+        /**
+         * 新人Landing计划
+         * <p> 示例值：
+         */
+        this.landingPlan = builder.landingPlan;
+        /**
+         * 全部任职岗位
+         * <p> 示例值：
+         */
+        this.allPositionIds = builder.allPositionIds;
     }
 
     public static Builder newBuilder() {
@@ -1371,6 +1426,46 @@ public class EmployeeBt {
         this.hrbpInfo = hrbpInfo;
     }
 
+    public Boolean getIsDirectLeader() {
+        return this.isDirectLeader;
+    }
+
+    public void setIsDirectLeader(Boolean isDirectLeader) {
+        this.isDirectLeader = isDirectLeader;
+    }
+
+    public Boolean getIsDottedLeader() {
+        return this.isDottedLeader;
+    }
+
+    public void setIsDottedLeader(Boolean isDottedLeader) {
+        this.isDottedLeader = isDottedLeader;
+    }
+
+    public String[] getCompanyTalentPoolIds() {
+        return this.companyTalentPoolIds;
+    }
+
+    public void setCompanyTalentPoolIds(String[] companyTalentPoolIds) {
+        this.companyTalentPoolIds = companyTalentPoolIds;
+    }
+
+    public LandingPlan getLandingPlan() {
+        return this.landingPlan;
+    }
+
+    public void setLandingPlan(LandingPlan landingPlan) {
+        this.landingPlan = landingPlan;
+    }
+
+    public String[] getAllPositionIds() {
+        return this.allPositionIds;
+    }
+
+    public void setAllPositionIds(String[] allPositionIds) {
+        this.allPositionIds = allPositionIds;
+    }
+
     public static class Builder {
         /**
          * 雇佣 ID;- 类型与 user_id_type 一致
@@ -1722,6 +1817,31 @@ public class EmployeeBt {
          * <p> 示例值：
          */
         private HrbpInfo[] hrbpInfo;
+        /**
+         * 是否直属上级
+         * <p> 示例值：true
+         */
+        private Boolean isDirectLeader;
+        /**
+         * 是否虚线上级
+         * <p> 示例值：true
+         */
+        private Boolean isDottedLeader;
+        /**
+         * 公司人才池
+         * <p> 示例值：
+         */
+        private String[] companyTalentPoolIds;
+        /**
+         * 新人Landing计划
+         * <p> 示例值：
+         */
+        private LandingPlan landingPlan;
+        /**
+         * 全部任职岗位
+         * <p> 示例值：
+         */
+        private String[] allPositionIds;
 
         /**
          * 雇佣 ID;- 类型与 user_id_type 一致
@@ -2629,6 +2749,71 @@ public class EmployeeBt {
          */
         public Builder hrbpInfo(HrbpInfo[] hrbpInfo) {
             this.hrbpInfo = hrbpInfo;
+            return this;
+        }
+
+
+        /**
+         * 是否直属上级
+         * <p> 示例值：true
+         *
+         * @param isDirectLeader
+         * @return
+         */
+        public Builder isDirectLeader(Boolean isDirectLeader) {
+            this.isDirectLeader = isDirectLeader;
+            return this;
+        }
+
+
+        /**
+         * 是否虚线上级
+         * <p> 示例值：true
+         *
+         * @param isDottedLeader
+         * @return
+         */
+        public Builder isDottedLeader(Boolean isDottedLeader) {
+            this.isDottedLeader = isDottedLeader;
+            return this;
+        }
+
+
+        /**
+         * 公司人才池
+         * <p> 示例值：
+         *
+         * @param companyTalentPoolIds
+         * @return
+         */
+        public Builder companyTalentPoolIds(String[] companyTalentPoolIds) {
+            this.companyTalentPoolIds = companyTalentPoolIds;
+            return this;
+        }
+
+
+        /**
+         * 新人Landing计划
+         * <p> 示例值：
+         *
+         * @param landingPlan
+         * @return
+         */
+        public Builder landingPlan(LandingPlan landingPlan) {
+            this.landingPlan = landingPlan;
+            return this;
+        }
+
+
+        /**
+         * 全部任职岗位
+         * <p> 示例值：
+         *
+         * @param allPositionIds
+         * @return
+         */
+        public Builder allPositionIds(String[] allPositionIds) {
+            this.allPositionIds = allPositionIds;
             return this;
         }
 

@@ -19,6 +19,7 @@ public class GetInstanceSample {
                 .locale("zh-CN")
                 .userId("f7cb567e")
                 .userIdType("user_id")
+                .nestedMutableGroup(false)
                 .build();
 
         // 发起请求

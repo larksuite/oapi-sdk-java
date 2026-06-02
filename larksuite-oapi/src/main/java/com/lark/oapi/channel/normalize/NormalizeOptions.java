@@ -2,24 +2,10 @@ package com.lark.oapi.channel.normalize;
 
 import com.lark.oapi.channel.model.BotIdentity;
 import com.lark.oapi.service.im.v1.model.Message;
+
 import java.util.List;
 
 public class NormalizeOptions {
-    public interface SubMessageFetcher {
-        List<Message> fetch(String messageId);
-    }
-
-    public interface UserNameResolver {
-        String resolve(String senderId);
-    }
-
-    public interface SenderNameResolver extends UserNameResolver {
-    }
-
-    public interface BatchResolveNames {
-        void resolve(List<String> openIds);
-    }
-
     private final BotIdentity botIdentity;
     private final boolean includeRawInMessage;
     private final boolean stripBotMentions;
@@ -88,5 +74,20 @@ public class NormalizeOptions {
 
     public BatchResolveNames getBatchResolveNames() {
         return batchResolveNames;
+    }
+
+    public interface SubMessageFetcher {
+        List<Message> fetch(String messageId);
+    }
+
+    public interface UserNameResolver {
+        String resolve(String senderId);
+    }
+
+    public interface SenderNameResolver extends UserNameResolver {
+    }
+
+    public interface BatchResolveNames {
+        void resolve(List<String> openIds);
     }
 }

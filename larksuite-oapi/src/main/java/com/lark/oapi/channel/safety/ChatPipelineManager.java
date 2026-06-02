@@ -2,6 +2,7 @@ package com.lark.oapi.channel.safety;
 
 import com.lark.oapi.channel.config.LarkChannelOptions;
 import com.lark.oapi.channel.model.NormalizedMessage;
+
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 

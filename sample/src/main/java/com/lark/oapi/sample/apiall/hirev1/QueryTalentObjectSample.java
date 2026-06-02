@@ -16,7 +16,7 @@ public class QueryTalentObjectSample {
         // 创建请求对象
 
         // 发起请求
-        QueryTalentObjectResp resp = client.hire().talentObject().query();
+        QueryTalentObjectResp resp = client.hire().v1().talentObject().query();
 
         // 处理服务端错误
         if (!resp.success()) {

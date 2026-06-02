@@ -18,6 +18,7 @@ public class ListAppDashboardSample {
                 .appToken("bascng7vrxcxpig7geggXiCtadY")
                 .pageSize(10)
                 .pageToken("blknkqrP3RqUkcAW")
+                .withShareConfig(false)
                 .build();
 
         // 发起请求

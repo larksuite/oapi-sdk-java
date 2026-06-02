@@ -17,6 +17,7 @@ import com.lark.oapi.event.IEventHandler;
 import com.lark.oapi.service.approval.v4.V4;
 import com.lark.oapi.service.approval.v4.model.*;
 import com.lark.oapi.service.approval.v4.resource.Approval;
+import com.lark.oapi.service.approval.v4.resource.District;
 import com.lark.oapi.service.approval.v4.resource.ExternalApproval;
 import com.lark.oapi.service.approval.v4.resource.ExternalInstance;
 import com.lark.oapi.service.approval.v4.resource.ExternalTask;
@@ -27,6 +28,7 @@ import com.lark.oapi.service.approval.v4.resource.Task;
 public class ApprovalService {
     private final V4 v4;
     private final Approval approval; // 原生审批定义
+    private final District district; // district
     private final ExternalApproval externalApproval; // 三方审批定义
     private final ExternalInstance externalInstance; // 三方审批实例
     private final ExternalTask externalTask; // 三方审批任务
@@ -37,6 +39,7 @@ public class ApprovalService {
     public ApprovalService(Config config) {
         this.v4 = new V4(config);
         this.approval = new Approval(config);
+        this.district = new District(config);
         this.externalApproval = new ExternalApproval(config);
         this.externalInstance = new ExternalInstance(config);
         this.externalTask = new ExternalTask(config);
@@ -51,6 +54,10 @@ public class ApprovalService {
 
     public Approval approval() {
         return approval;
+    }
+
+    public District district() {
+        return district;
     }
 
     public ExternalApproval externalApproval() {

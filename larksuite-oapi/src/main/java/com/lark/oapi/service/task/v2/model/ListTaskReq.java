@@ -63,6 +63,13 @@ public class ListTaskReq {
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
+    /**
+     * 智能体任务状态，优先使用completed字段，如果要查细分状态，再使用agent_task_status
+     * <p> 示例值：1
+     */
+    @Query
+    @SerializedName("agent_task_status")
+    private Integer agentTaskStatus;
 
     // builder 开始
     public ListTaskReq() {
@@ -94,6 +101,11 @@ public class ListTaskReq {
          * <p> 示例值：open_id
          */
         this.userIdType = builder.userIdType;
+        /**
+         * 智能体任务状态，优先使用completed字段，如果要查细分状态，再使用agent_task_status
+         * <p> 示例值：1
+         */
+        this.agentTaskStatus = builder.agentTaskStatus;
     }
 
     public static Builder newBuilder() {
@@ -140,12 +152,21 @@ public class ListTaskReq {
         this.userIdType = userIdType;
     }
 
+    public Integer getAgentTaskStatus() {
+        return this.agentTaskStatus;
+    }
+
+    public void setAgentTaskStatus(Integer agentTaskStatus) {
+        this.agentTaskStatus = agentTaskStatus;
+    }
+
     public static class Builder {
         private Integer pageSize; // 每页的任务数量
         private String pageToken; // 分页标记。第一次请求不填该参数，表示从头开始查询；查询结果若还有更多数据时会同时返回新的 page_token。使用page_token重新调用本接口可以获取下一页数据。
         private Boolean completed; // 是否按任务完成进行过滤。不填写表示不过滤。
         private String type; // 查询任务的范围
         private String userIdType; // 表示user的ID的类型，支持open_id, user_id, union_id
+        private Integer agentTaskStatus; // 智能体任务状态，优先使用completed字段，如果要查细分状态，再使用agent_task_status
 
         /**
          * 每页的任务数量
@@ -208,6 +229,19 @@ public class ListTaskReq {
          */
         public Builder userIdType(String userIdType) {
             this.userIdType = userIdType;
+            return this;
+        }
+
+
+        /**
+         * 智能体任务状态，优先使用completed字段，如果要查细分状态，再使用agent_task_status
+         * <p> 示例值：1
+         *
+         * @param agentTaskStatus
+         * @return
+         */
+        public Builder agentTaskStatus(Integer agentTaskStatus) {
+            this.agentTaskStatus = agentTaskStatus;
             return this;
         }
 

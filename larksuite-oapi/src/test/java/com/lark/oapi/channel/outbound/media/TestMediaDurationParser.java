@@ -4,26 +4,6 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class TestMediaDurationParser {
-    @Test
-    public void testParseOpusDurationFromLastOggPage() {
-        byte[] data = opusPage(48000L);
-
-        Assert.assertEquals(Integer.valueOf(1000), MediaDurationParser.parseOpusDurationMs(data));
-    }
-
-    @Test
-    public void testParseMp4VersionZeroDuration() {
-        byte[] data = mp4(1000, 2500);
-
-        Assert.assertEquals(Integer.valueOf(2500), MediaDurationParser.parseMp4DurationMs(data));
-    }
-
-    @Test
-    public void testInvalidFilesReturnNull() {
-        Assert.assertNull(MediaDurationParser.parseOpusDurationMs("not ogg".getBytes()));
-        Assert.assertNull(MediaDurationParser.parseMp4DurationMs("not mp4".getBytes()));
-    }
-
     static byte[] opusPage(long granule) {
         byte[] data = new byte[32];
         data[0] = 0x4f;
@@ -59,5 +39,25 @@ public class TestMediaDurationParser {
         data[offset + 1] = (byte) ((value >> 16) & 0xff);
         data[offset + 2] = (byte) ((value >> 8) & 0xff);
         data[offset + 3] = (byte) (value & 0xff);
+    }
+
+    @Test
+    public void testParseOpusDurationFromLastOggPage() {
+        byte[] data = opusPage(48000L);
+
+        Assert.assertEquals(Integer.valueOf(1000), MediaDurationParser.parseOpusDurationMs(data));
+    }
+
+    @Test
+    public void testParseMp4VersionZeroDuration() {
+        byte[] data = mp4(1000, 2500);
+
+        Assert.assertEquals(Integer.valueOf(2500), MediaDurationParser.parseMp4DurationMs(data));
+    }
+
+    @Test
+    public void testInvalidFilesReturnNull() {
+        Assert.assertNull(MediaDurationParser.parseOpusDurationMs("not ogg".getBytes()));
+        Assert.assertNull(MediaDurationParser.parseMp4DurationMs("not mp4".getBytes()));
     }
 }

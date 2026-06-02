@@ -1,10 +1,6 @@
 package com.lark.oapi.channel.outbound.streaming;
 
 public class Throttle {
-    public interface FireAction {
-        void fire() throws Exception;
-    }
-
     private final int ms;
     private final int chars;
     private final FireAction action;
@@ -33,5 +29,9 @@ public class Throttle {
 
     public void dispose() {
         pendingChars = 0;
+    }
+
+    public interface FireAction {
+        void fire() throws Exception;
     }
 }

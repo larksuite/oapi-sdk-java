@@ -112,10 +112,10 @@ public class DeleteChatMembersReq {
          * 出群成员ID类型;;**注意**：移除机器人请使用 ==app_id==
          * <p> 示例值：open_id
          *
-         * @param memberIdType {@link com.lark.oapi.service.im.v1.enums.DeleteChatMembersMemberIdTypeEnum}
+         * @param memberIdType {@link com.lark.oapi.service.im.v1.enums.DeleteChatMembersKickMemberMemberIDTypeEnum}
          * @return
          */
-        public Builder memberIdType(com.lark.oapi.service.im.v1.enums.DeleteChatMembersMemberIdTypeEnum memberIdType) {
+        public Builder memberIdType(com.lark.oapi.service.im.v1.enums.DeleteChatMembersKickMemberMemberIDTypeEnum memberIdType) {
             this.memberIdType = memberIdType.getValue();
             return this;
         }

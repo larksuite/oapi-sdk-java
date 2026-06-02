@@ -21,6 +21,8 @@ public enum GetFileCommentFileTypeEnum {
     SHEET("sheet"), // 表格
     FILE("file"), // 文件
     DOCX("docx"), // 新版文档
+    SLIDES("slides"), // 幻灯片
+    BITABLE("bitable"), // 多维表格
     ;
     private String value;
 

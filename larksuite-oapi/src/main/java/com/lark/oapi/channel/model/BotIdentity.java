@@ -9,6 +9,11 @@ public class BotIdentity {
         this.name = name;
     }
 
-    public String getOpenId() { return openId; }
-    public String getName() { return name; }
+    public String getOpenId() {
+        return openId;
+    }
+
+    public String getName() {
+        return name;
+    }
 }

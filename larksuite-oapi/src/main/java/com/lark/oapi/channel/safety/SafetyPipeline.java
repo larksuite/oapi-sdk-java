@@ -5,6 +5,7 @@ import com.lark.oapi.channel.model.BotIdentity;
 import com.lark.oapi.channel.model.NormalizedMessage;
 import com.lark.oapi.channel.model.RejectEvent;
 import com.lark.oapi.channel.model.RejectReason;
+
 import java.util.List;
 
 /**

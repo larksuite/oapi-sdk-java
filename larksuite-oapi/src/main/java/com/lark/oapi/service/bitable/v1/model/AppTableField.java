@@ -30,19 +30,19 @@ import com.lark.oapi.core.response.BaseResponse;
 
 public class AppTableField {
     /**
-     * 多维表格字段名
-     * <p> 示例值：多行文本
+     * 字段名
+     * <p> 示例值：字段名称
      */
     @SerializedName("field_name")
     private String fieldName;
     /**
-     * 多维表格字段类型
-     * <p> 示例值：1
+     * 字段类型
+     * <p> 示例值：1（type值相同的时候，加上ui_type区分）
      */
     @SerializedName("type")
     private Integer type;
     /**
-     * 字段属性，具体参考：[字段编辑指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/guide)
+     * 字段属性
      * <p> 示例值：
      */
     @SerializedName("property")
@@ -60,7 +60,7 @@ public class AppTableField {
     @SerializedName("is_primary")
     private Boolean isPrimary;
     /**
-     * 多维表格字段 id
+     * 字段Id
      * <p> 示例值：fldWJyCkFQ
      */
     @SerializedName("field_id")
@@ -84,17 +84,17 @@ public class AppTableField {
 
     public AppTableField(Builder builder) {
         /**
-         * 多维表格字段名
-         * <p> 示例值：多行文本
+         * 字段名
+         * <p> 示例值：字段名称
          */
         this.fieldName = builder.fieldName;
         /**
-         * 多维表格字段类型
-         * <p> 示例值：1
+         * 字段类型
+         * <p> 示例值：1（type值相同的时候，加上ui_type区分）
          */
         this.type = builder.type;
         /**
-         * 字段属性，具体参考：[字段编辑指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/guide)
+         * 字段属性
          * <p> 示例值：
          */
         this.property = builder.property;
@@ -109,7 +109,7 @@ public class AppTableField {
          */
         this.isPrimary = builder.isPrimary;
         /**
-         * 多维表格字段 id
+         * 字段Id
          * <p> 示例值：fldWJyCkFQ
          */
         this.fieldId = builder.fieldId;
@@ -195,17 +195,17 @@ public class AppTableField {
 
     public static class Builder {
         /**
-         * 多维表格字段名
-         * <p> 示例值：多行文本
+         * 字段名
+         * <p> 示例值：字段名称
          */
         private String fieldName;
         /**
-         * 多维表格字段类型
-         * <p> 示例值：1
+         * 字段类型
+         * <p> 示例值：1（type值相同的时候，加上ui_type区分）
          */
         private Integer type;
         /**
-         * 字段属性，具体参考：[字段编辑指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/guide)
+         * 字段属性
          * <p> 示例值：
          */
         private AppTableFieldProperty property;
@@ -220,7 +220,7 @@ public class AppTableField {
          */
         private Boolean isPrimary;
         /**
-         * 多维表格字段 id
+         * 字段Id
          * <p> 示例值：fldWJyCkFQ
          */
         private String fieldId;
@@ -236,8 +236,8 @@ public class AppTableField {
         private Boolean isHidden;
 
         /**
-         * 多维表格字段名
-         * <p> 示例值：多行文本
+         * 字段名
+         * <p> 示例值：字段名称
          *
          * @param fieldName
          * @return
@@ -249,8 +249,8 @@ public class AppTableField {
 
 
         /**
-         * 多维表格字段类型
-         * <p> 示例值：1
+         * 字段类型
+         * <p> 示例值：1（type值相同的时候，加上ui_type区分）
          *
          * @param type
          * @return
@@ -261,8 +261,8 @@ public class AppTableField {
         }
 
         /**
-         * 多维表格字段类型
-         * <p> 示例值：1
+         * 字段类型
+         * <p> 示例值：1（type值相同的时候，加上ui_type区分）
          *
          * @param type {@link com.lark.oapi.service.bitable.v1.enums.AppTableFieldTypeEnum}
          * @return
@@ -274,7 +274,7 @@ public class AppTableField {
 
 
         /**
-         * 字段属性，具体参考：[字段编辑指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/guide)
+         * 字段属性
          * <p> 示例值：
          *
          * @param property
@@ -313,7 +313,7 @@ public class AppTableField {
 
 
         /**
-         * 多维表格字段 id
+         * 字段Id
          * <p> 示例值：fldWJyCkFQ
          *
          * @param fieldId

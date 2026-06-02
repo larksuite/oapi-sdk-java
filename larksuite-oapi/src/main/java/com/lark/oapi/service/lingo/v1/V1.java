@@ -14,7 +14,11 @@
 package com.lark.oapi.service.lingo.v1;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.service.lingo.v1.resource.*;
+import com.lark.oapi.service.lingo.v1.resource.Classification;
+import com.lark.oapi.service.lingo.v1.resource.Draft;
+import com.lark.oapi.service.lingo.v1.resource.Entity;
+import com.lark.oapi.service.lingo.v1.resource.File;
+import com.lark.oapi.service.lingo.v1.resource.Repo;
 
 public class V1 {
     private final Classification classification; // classification

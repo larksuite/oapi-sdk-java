@@ -4,6 +4,7 @@ import com.lark.oapi.channel.config.LarkChannelOptions;
 import com.lark.oapi.channel.model.MentionInfo;
 import com.lark.oapi.channel.model.NormalizedMessage;
 import com.lark.oapi.channel.model.ResourceDescriptor;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -34,79 +35,6 @@ class ChatPipeline {
     ChatPipeline(LarkChannelOptions.BatchTextConfig config, boolean serialOnly) {
         this.config = config == null ? new LarkChannelOptions.BatchTextConfig() : config;
         this.serialOnly = serialOnly;
-    }
-
-    void push(NormalizedMessage message, FlushHandler handler) {
-        synchronized (lock) {
-            buffer.add(message);
-            bufferChars += message.getContent() == null ? 0 : message.getContent().length();
-            if (pendingHandler == null) {
-                pendingHandler = handler;
-            }
-
-            if (buffer.size() >= config.getMaxMessages() || bufferChars >= config.getMaxChars()) {
-                clearTimerLocked();
-                enqueueFlushLocked();
-                return;
-            }
-
-            if (config.getDelayMs() <= 0L || serialOnly) {
-                clearTimerLocked();
-                enqueueFlushLocked();
-                return;
-            }
-
-            clearTimerLocked();
-            long delay = bufferChars >= config.getLongThresholdChars()
-                    ? config.getLongDelayMs()
-                    : config.getDelayMs();
-            timer = scheduler.schedule(this::flushNow, Math.max(0L, delay), TimeUnit.MILLISECONDS);
-        }
-    }
-
-    void run(Runnable task) {
-        synchronized (lock) {
-            if (!buffer.isEmpty()) {
-                clearTimerLocked();
-                enqueueFlushLocked();
-            }
-            task.run();
-        }
-    }
-
-    void flushNow() {
-        synchronized (lock) {
-            clearTimerLocked();
-            enqueueFlushLocked();
-        }
-    }
-
-    void dispose() {
-        synchronized (lock) {
-            clearTimerLocked();
-            buffer.clear();
-            pendingHandler = null;
-        }
-        scheduler.shutdownNow();
-    }
-
-    private void clearTimerLocked() {
-        if (timer != null) {
-            timer.cancel(false);
-            timer = null;
-        }
-    }
-
-    private void enqueueFlushLocked() {
-        if (buffer.isEmpty() || pendingHandler == null) {
-            return;
-        }
-        List<NormalizedMessage> batch = new ArrayList<>(buffer);
-        FlushHandler handler = pendingHandler;
-        buffer.clear();
-        bufferChars = 0;
-        pendingHandler = null;
-        handler.flush(new BatchedDispatch(mergeBatch(batch), sourceIds(batch)));
     }
 
     /**
@@ -192,5 +120,78 @@ class ChatPipeline {
             }
         }
         return merged;
+    }
+
+    void push(NormalizedMessage message, FlushHandler handler) {
+        synchronized (lock) {
+            buffer.add(message);
+            bufferChars += message.getContent() == null ? 0 : message.getContent().length();
+            if (pendingHandler == null) {
+                pendingHandler = handler;
+            }
+
+            if (buffer.size() >= config.getMaxMessages() || bufferChars >= config.getMaxChars()) {
+                clearTimerLocked();
+                enqueueFlushLocked();
+                return;
+            }
+
+            if (config.getDelayMs() <= 0L || serialOnly) {
+                clearTimerLocked();
+                enqueueFlushLocked();
+                return;
+            }
+
+            clearTimerLocked();
+            long delay = bufferChars >= config.getLongThresholdChars()
+                    ? config.getLongDelayMs()
+                    : config.getDelayMs();
+            timer = scheduler.schedule(this::flushNow, Math.max(0L, delay), TimeUnit.MILLISECONDS);
+        }
+    }
+
+    void run(Runnable task) {
+        synchronized (lock) {
+            if (!buffer.isEmpty()) {
+                clearTimerLocked();
+                enqueueFlushLocked();
+            }
+            task.run();
+        }
+    }
+
+    void flushNow() {
+        synchronized (lock) {
+            clearTimerLocked();
+            enqueueFlushLocked();
+        }
+    }
+
+    void dispose() {
+        synchronized (lock) {
+            clearTimerLocked();
+            buffer.clear();
+            pendingHandler = null;
+        }
+        scheduler.shutdownNow();
+    }
+
+    private void clearTimerLocked() {
+        if (timer != null) {
+            timer.cancel(false);
+            timer = null;
+        }
+    }
+
+    private void enqueueFlushLocked() {
+        if (buffer.isEmpty() || pendingHandler == null) {
+            return;
+        }
+        List<NormalizedMessage> batch = new ArrayList<>(buffer);
+        FlushHandler handler = pendingHandler;
+        buffer.clear();
+        bufferChars = 0;
+        pendingHandler = null;
+        handler.flush(new BatchedDispatch(mergeBatch(batch), sourceIds(batch)));
     }
 }

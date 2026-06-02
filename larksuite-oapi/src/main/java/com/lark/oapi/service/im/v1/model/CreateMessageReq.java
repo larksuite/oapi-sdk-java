@@ -91,10 +91,10 @@ public class CreateMessageReq {
          * 消息接收者id类型 open_id/user_id/union_id/email/chat_id
          * <p> 示例值：open_id
          *
-         * @param receiveIdType {@link com.lark.oapi.service.im.v1.enums.CreateMessageReceiveIdTypeEnum}
+         * @param receiveIdType {@link com.lark.oapi.service.im.v1.enums.CreateMessageCreateMessageV1ReceiveIDTypeEnum}
          * @return
          */
-        public Builder receiveIdType(com.lark.oapi.service.im.v1.enums.CreateMessageReceiveIdTypeEnum receiveIdType) {
+        public Builder receiveIdType(com.lark.oapi.service.im.v1.enums.CreateMessageCreateMessageV1ReceiveIDTypeEnum receiveIdType) {
             this.receiveIdType = receiveIdType.getValue();
             return this;
         }

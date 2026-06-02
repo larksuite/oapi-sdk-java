@@ -30,19 +30,19 @@ import com.lark.oapi.core.response.BaseResponse;
 
 public class AppRole {
     /**
-     * 自定义角色的名字
-     * <p> 示例值：自定义角色1
+     * 自定义权限的名字
+     * <p> 示例值：自定义权限1
      */
     @SerializedName("role_name")
     private String roleName;
     /**
-     * 自定义角色的id
+     * 自定义权限的id
      * <p> 示例值：roljRpwIUt
      */
     @SerializedName("role_id")
     private String roleId;
     /**
-     * 数据表角色
+     * 数据表权限
      * <p> 示例值：
      */
     @SerializedName("table_roles")
@@ -60,17 +60,17 @@ public class AppRole {
 
     public AppRole(Builder builder) {
         /**
-         * 自定义角色的名字
-         * <p> 示例值：自定义角色1
+         * 自定义权限的名字
+         * <p> 示例值：自定义权限1
          */
         this.roleName = builder.roleName;
         /**
-         * 自定义角色的id
+         * 自定义权限的id
          * <p> 示例值：roljRpwIUt
          */
         this.roleId = builder.roleId;
         /**
-         * 数据表角色
+         * 数据表权限
          * <p> 示例值：
          */
         this.tableRoles = builder.tableRoles;
@@ -119,17 +119,17 @@ public class AppRole {
 
     public static class Builder {
         /**
-         * 自定义角色的名字
-         * <p> 示例值：自定义角色1
+         * 自定义权限的名字
+         * <p> 示例值：自定义权限1
          */
         private String roleName;
         /**
-         * 自定义角色的id
+         * 自定义权限的id
          * <p> 示例值：roljRpwIUt
          */
         private String roleId;
         /**
-         * 数据表角色
+         * 数据表权限
          * <p> 示例值：
          */
         private AppRoleTableRole[] tableRoles;
@@ -140,8 +140,8 @@ public class AppRole {
         private AppRoleBlockRole[] blockRoles;
 
         /**
-         * 自定义角色的名字
-         * <p> 示例值：自定义角色1
+         * 自定义权限的名字
+         * <p> 示例值：自定义权限1
          *
          * @param roleName
          * @return
@@ -153,7 +153,7 @@ public class AppRole {
 
 
         /**
-         * 自定义角色的id
+         * 自定义权限的id
          * <p> 示例值：roljRpwIUt
          *
          * @param roleId
@@ -166,7 +166,7 @@ public class AppRole {
 
 
         /**
-         * 数据表角色
+         * 数据表权限
          * <p> 示例值：
          *
          * @param tableRoles

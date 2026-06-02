@@ -112,10 +112,10 @@ public class DeleteManagersChatManagersReq {
          * 群成员 id 类型 open_id/user_id/union_id/app_id;;**注意**：删除机器人类型的管理员请使用 ==app_id==
          * <p> 示例值：open_id
          *
-         * @param memberIdType {@link com.lark.oapi.service.im.v1.enums.DeleteManagersChatManagersMemberIdTypeEnum}
+         * @param memberIdType {@link com.lark.oapi.service.im.v1.enums.DeleteManagersChatManagersDeleteManagersChatManagersMemberIDTypeEnum}
          * @return
          */
-        public Builder memberIdType(com.lark.oapi.service.im.v1.enums.DeleteManagersChatManagersMemberIdTypeEnum memberIdType) {
+        public Builder memberIdType(com.lark.oapi.service.im.v1.enums.DeleteManagersChatManagersDeleteManagersChatManagersMemberIDTypeEnum memberIdType) {
             this.memberIdType = memberIdType.getValue();
             return this;
         }

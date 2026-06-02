@@ -120,10 +120,10 @@ public class OpenFeedStatusLabel {
          * 标签类型
          * <p> 示例值：primary
          *
-         * @param type {@link com.lark.oapi.service.im.v2.enums.OpenFeedStatusLabelTypeEnum}
+         * @param type {@link com.lark.oapi.service.im.v2.enums.OpenFeedStatusLabelOpenFeedStatusLabelTypeEnum}
          * @return
          */
-        public Builder type(com.lark.oapi.service.im.v2.enums.OpenFeedStatusLabelTypeEnum type) {
+        public Builder type(com.lark.oapi.service.im.v2.enums.OpenFeedStatusLabelOpenFeedStatusLabelTypeEnum type) {
             this.type = type.getValue();
             return this;
         }

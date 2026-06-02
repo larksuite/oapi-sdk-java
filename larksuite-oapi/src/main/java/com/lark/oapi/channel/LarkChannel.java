@@ -16,6 +16,7 @@ import com.lark.oapi.channel.outbound.OutboundSender;
 import com.lark.oapi.channel.safety.SafetyPipeline;
 import com.lark.oapi.channel.safety.SafetyPipelineOptions;
 import com.lark.oapi.event.EventDispatcher;
+
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
@@ -31,7 +32,6 @@ import java.util.concurrent.CompletableFuture;
 public class LarkChannel {
     private final Client rawClient;
     private final com.lark.oapi.ws.Client rawWsClient;
-    private volatile BotIdentity botIdentity;
     private final LarkChannelOptions options;
     private final SafetyPipeline safetyPipeline;
     private final OutboundSender outboundSender;
@@ -39,6 +39,7 @@ public class LarkChannel {
     private final ChannelInboundProcessor inboundProcessor;
     private final EventDispatcher dispatcher;
     private final ChannelLowLevelApi lowLevelApi;
+    private volatile BotIdentity botIdentity;
     private volatile CompletableFuture<BotIdentity> connectPromise;
     private volatile boolean connected;
 

@@ -35,6 +35,12 @@ public class CreateWhiteboardNodeReqBody {
      */
     @SerializedName("nodes")
     private WhiteboardNode[] nodes;
+    /**
+     * 是否覆盖画板中已存在的节点
+     * <p> 示例值：
+     */
+    @SerializedName("overwrite")
+    private Boolean overwrite;
 
     // builder 开始
     public CreateWhiteboardNodeReqBody() {
@@ -46,6 +52,11 @@ public class CreateWhiteboardNodeReqBody {
          * <p> 示例值：
          */
         this.nodes = builder.nodes;
+        /**
+         * 是否覆盖画板中已存在的节点
+         * <p> 示例值：
+         */
+        this.overwrite = builder.overwrite;
     }
 
     public static Builder newBuilder() {
@@ -60,12 +71,25 @@ public class CreateWhiteboardNodeReqBody {
         this.nodes = nodes;
     }
 
+    public Boolean getOverwrite() {
+        return this.overwrite;
+    }
+
+    public void setOverwrite(Boolean overwrite) {
+        this.overwrite = overwrite;
+    }
+
     public static class Builder {
         /**
          * 子节点数据
          * <p> 示例值：
          */
         private WhiteboardNode[] nodes;
+        /**
+         * 是否覆盖画板中已存在的节点
+         * <p> 示例值：
+         */
+        private Boolean overwrite;
 
         /**
          * 子节点数据
@@ -76,6 +100,19 @@ public class CreateWhiteboardNodeReqBody {
          */
         public Builder nodes(WhiteboardNode[] nodes) {
             this.nodes = nodes;
+            return this;
+        }
+
+
+        /**
+         * 是否覆盖画板中已存在的节点
+         * <p> 示例值：
+         *
+         * @param overwrite
+         * @return
+         */
+        public Builder overwrite(Boolean overwrite) {
+            this.overwrite = overwrite;
             return this;
         }
 

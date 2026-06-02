@@ -23,6 +23,7 @@ import com.lark.oapi.service.im.v1.model.P2MessageReactionCreatedV1;
 import com.lark.oapi.service.im.v1.model.P2MessageReactionDeletedV1;
 import com.lark.oapi.service.im.v1.model.P2MessageReceiveV1;
 import com.lark.oapi.event.cardcallback.model.P2CardActionTrigger;
+
 import java.nio.charset.StandardCharsets;
 import java.util.Collections;
 import java.util.List;

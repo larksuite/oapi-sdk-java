@@ -50,6 +50,13 @@ public class GetInstanceReq {
     @SerializedName("user_id_type")
     private String userIdType;
     /**
+     * 返回完整的多维表格控件
+     * <p> 示例值：
+     */
+    @Query
+    @SerializedName("nested_mutable_group")
+    private Boolean nestedMutableGroup;
+    /**
      * 审批实例 Code, 若在创建的时候传了uuid, 也可以通过传uuid获取
      * <p> 示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
      */
@@ -77,6 +84,11 @@ public class GetInstanceReq {
          * <p> 示例值：user_id
          */
         this.userIdType = builder.userIdType;
+        /**
+         * 返回完整的多维表格控件
+         * <p> 示例值：
+         */
+        this.nestedMutableGroup = builder.nestedMutableGroup;
         /**
          * 审批实例 Code, 若在创建的时候传了uuid, 也可以通过传uuid获取
          * <p> 示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
@@ -112,6 +124,14 @@ public class GetInstanceReq {
         this.userIdType = userIdType;
     }
 
+    public Boolean getNestedMutableGroup() {
+        return this.nestedMutableGroup;
+    }
+
+    public void setNestedMutableGroup(Boolean nestedMutableGroup) {
+        this.nestedMutableGroup = nestedMutableGroup;
+    }
+
     public String getInstanceId() {
         return this.instanceId;
     }
@@ -124,6 +144,7 @@ public class GetInstanceReq {
         private String locale; // 语言
         private String userId; // 发起审批用户id，仅自建应用可返回
         private String userIdType; // 此次调用中使用的用户ID的类型
+        private Boolean nestedMutableGroup; // 返回完整的多维表格控件
         private String instanceId; // 审批实例 Code, 若在创建的时候传了uuid, 也可以通过传uuid获取
 
         /**
@@ -183,6 +204,18 @@ public class GetInstanceReq {
          */
         public Builder userIdType(com.lark.oapi.service.approval.v4.enums.GetInstanceGetInstanceV4UserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
+            return this;
+        }
+
+        /**
+         * 返回完整的多维表格控件
+         * <p> 示例值：
+         *
+         * @param nestedMutableGroup
+         * @return
+         */
+        public Builder nestedMutableGroup(Boolean nestedMutableGroup) {
+            this.nestedMutableGroup = nestedMutableGroup;
             return this;
         }
 

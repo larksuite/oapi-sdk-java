@@ -16,7 +16,7 @@ public class ListDeviceSample {
         // 创建请求对象
 
         // 发起请求
-        ListDeviceResp resp = client.acs().device().list();
+        ListDeviceResp resp = client.acs().v1().device().list();
 
         // 处理服务端错误
         if (!resp.success()) {

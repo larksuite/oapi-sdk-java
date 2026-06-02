@@ -112,10 +112,10 @@ public class UpdateChatModerationReq {
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
          *
-         * @param userIdType {@link com.lark.oapi.service.im.v1.enums.UpdateChatModerationUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.im.v1.enums.UpdateChatModerationUpdateModerationUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.im.v1.enums.UpdateChatModerationUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.im.v1.enums.UpdateChatModerationUpdateModerationUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }

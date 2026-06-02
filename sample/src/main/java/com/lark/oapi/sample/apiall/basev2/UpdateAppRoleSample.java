@@ -21,7 +21,7 @@ public class UpdateAppRoleSample {
                         .roleName("自定义权限1")
                         .tableRoles(new TableRole[]{})
                         .blockRoles(new BlockRole[]{})
-                        .baseRule(new HashMap<>())
+                        .baseRule(new HashMap<String, Integer>())
                         .build())
                 .build();
 

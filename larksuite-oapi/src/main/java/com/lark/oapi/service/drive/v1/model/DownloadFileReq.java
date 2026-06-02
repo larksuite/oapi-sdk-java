@@ -29,6 +29,13 @@ import com.lark.oapi.core.response.BaseResponse;
 
 public class DownloadFileReq {
     /**
+     * 文件版本，传了则下载对应的文件版本，不传默认下载最新版本
+     * <p> 示例值：
+     */
+    @Query
+    @SerializedName("version")
+    private String version;
+    /**
      * 文件的 token，获取方式见 [概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)
      * <p> 示例值：boxcnabCdefg12345
      */
@@ -42,6 +49,11 @@ public class DownloadFileReq {
 
     public DownloadFileReq(Builder builder) {
         /**
+         * 文件版本，传了则下载对应的文件版本，不传默认下载最新版本
+         * <p> 示例值：
+         */
+        this.version = builder.version;
+        /**
          * 文件的 token，获取方式见 [概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)
          * <p> 示例值：boxcnabCdefg12345
          */
@@ -50,6 +62,14 @@ public class DownloadFileReq {
 
     public static Builder newBuilder() {
         return new Builder();
+    }
+
+    public String getVersion() {
+        return this.version;
+    }
+
+    public void setVersion(String version) {
+        this.version = version;
     }
 
     public String getFileToken() {
@@ -61,8 +81,20 @@ public class DownloadFileReq {
     }
 
     public static class Builder {
-
+        private String version; // 文件版本，传了则下载对应的文件版本，不传默认下载最新版本
         private String fileToken; // 文件的 token，获取方式见 [概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)
+
+        /**
+         * 文件版本，传了则下载对应的文件版本，不传默认下载最新版本
+         * <p> 示例值：
+         *
+         * @param version
+         * @return
+         */
+        public Builder version(String version) {
+            this.version = version;
+            return this;
+        }
 
         /**
          * 文件的 token，获取方式见 [概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)

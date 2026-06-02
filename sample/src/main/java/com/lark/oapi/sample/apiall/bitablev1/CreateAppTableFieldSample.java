@@ -23,7 +23,10 @@ public class CreateAppTableFieldSample {
                         .type(0)
                         .property(AppTableFieldProperty.newBuilder().build())
                         .description(AppTableFieldDescription.newBuilder().build())
+                        .isPrimary(true)
+                        .fieldId("fldWJyCkFQ")
                         .uiType("Progress")
+                        .isHidden(false)
                         .build())
                 .build();
 

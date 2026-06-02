@@ -14,11 +14,11 @@
 package com.lark.oapi.service.compensation.v1.enums;
 
 /**
- * 增减员类型, increase: 增员; attrtion: 减员
+ * 增减员类型, increase: 增员; attrition: 减员
  */
 public enum SocialArchiveAdjustRecordEventRecordTypeEnum {
     INCREASE("increase"), // 增员
-    ATTRTION("attrtion"), // 减员
+    ATTRITION("attrition"), // 减员
     ;
     private String value;
 

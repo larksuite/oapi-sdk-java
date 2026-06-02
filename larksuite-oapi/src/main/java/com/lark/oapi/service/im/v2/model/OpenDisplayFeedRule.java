@@ -107,10 +107,10 @@ public class OpenDisplayFeedRule {
          * 主规则
          * <p> 示例值：always_display
          *
-         * @param mainRule {@link com.lark.oapi.service.im.v2.enums.OpenDisplayFeedRuleMainRuleEnum}
+         * @param mainRule {@link com.lark.oapi.service.im.v2.enums.OpenDisplayFeedRuleOpenDisplayFeedMainRuleEnum}
          * @return
          */
-        public Builder mainRule(com.lark.oapi.service.im.v2.enums.OpenDisplayFeedRuleMainRuleEnum mainRule) {
+        public Builder mainRule(com.lark.oapi.service.im.v2.enums.OpenDisplayFeedRuleOpenDisplayFeedMainRuleEnum mainRule) {
             this.mainRule = mainRule.getValue();
             return this;
         }

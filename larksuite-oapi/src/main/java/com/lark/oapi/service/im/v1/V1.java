@@ -14,7 +14,25 @@
 package com.lark.oapi.service.im.v1;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.service.im.v1.resource.*;
+import com.lark.oapi.service.im.v1.resource.BatchMessage;
+import com.lark.oapi.service.im.v1.resource.Chat;
+import com.lark.oapi.service.im.v1.resource.ChatAccessEvent;
+import com.lark.oapi.service.im.v1.resource.ChatAnnouncement;
+import com.lark.oapi.service.im.v1.resource.ChatManagers;
+import com.lark.oapi.service.im.v1.resource.ChatMemberBot;
+import com.lark.oapi.service.im.v1.resource.ChatMemberUser;
+import com.lark.oapi.service.im.v1.resource.ChatMembers;
+import com.lark.oapi.service.im.v1.resource.ChatMenuItem;
+import com.lark.oapi.service.im.v1.resource.ChatMenuTree;
+import com.lark.oapi.service.im.v1.resource.ChatModeration;
+import com.lark.oapi.service.im.v1.resource.ChatTab;
+import com.lark.oapi.service.im.v1.resource.ChatTopNotice;
+import com.lark.oapi.service.im.v1.resource.File;
+import com.lark.oapi.service.im.v1.resource.Image;
+import com.lark.oapi.service.im.v1.resource.Message;
+import com.lark.oapi.service.im.v1.resource.MessageReaction;
+import com.lark.oapi.service.im.v1.resource.MessageResource;
+import com.lark.oapi.service.im.v1.resource.Pin;
 import com.lark.oapi.service.im.v1.resource.Thread;
 
 public class V1 {
@@ -33,7 +51,7 @@ public class V1 {
     private final ChatTopNotice chatTopNotice; // chat.top_notice
     private final File file; // 消息 - 文件信息
     private final Image image; // 消息 - 图片信息
-    private final Message message; // 消息加急
+    private final Message message; // 消息 - 消息卡片
     private final MessageReaction messageReaction; // 消息 - 表情回复
     private final MessageResource messageResource; // message.resource
     private final Pin pin; // 消息 - Pin

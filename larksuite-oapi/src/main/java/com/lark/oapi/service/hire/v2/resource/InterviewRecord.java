@@ -61,7 +61,7 @@ public class InterviewRecord {
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
                 , "/open-apis/hire/v2/interview_records/:interview_record_id"
-                , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
 
         // 反序列化
@@ -93,7 +93,7 @@ public class InterviewRecord {
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
                 , "/open-apis/hire/v2/interview_records/:interview_record_id"
-                , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
 
         // 反序列化
@@ -127,7 +127,7 @@ public class InterviewRecord {
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
                 , "/open-apis/hire/v2/interview_records"
-                , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
 
         // 反序列化
@@ -159,7 +159,7 @@ public class InterviewRecord {
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
                 , "/open-apis/hire/v2/interview_records"
-                , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
 
         // 反序列化

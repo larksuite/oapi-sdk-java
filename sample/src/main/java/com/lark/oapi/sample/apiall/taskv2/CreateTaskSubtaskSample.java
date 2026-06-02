@@ -35,6 +35,9 @@ public class CreateTaskSubtaskSample {
                         .isMilestone(false)
                         .customFields(new InputCustomFieldValue[]{})
                         .docxSource(DocxSource.newBuilder().build())
+                        .agentTaskStatus(1)
+                        .agentTaskProgress("1/4")
+                        .textDeliveries(new String[]{})
                         .build())
                 .build();
 

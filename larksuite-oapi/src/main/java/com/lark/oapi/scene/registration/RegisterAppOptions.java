@@ -13,6 +13,10 @@ public class RegisterAppOptions {
     private RegisterAppOptions() {
     }
 
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getSource() {
         return source;
     }
@@ -35,10 +39,6 @@ public class RegisterAppOptions {
 
     public Consumer<StatusChangeInfo> getOnStatusChange() {
         return onStatusChange;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
     }
 
     public static class Builder {

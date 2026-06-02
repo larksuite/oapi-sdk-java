@@ -33,7 +33,7 @@ import com.lark.oapi.core.response.BaseResponse;
 
 public class AppRoleTableRole {
     /**
-     * 数据表权限，`协作者可编辑自己的记录`和`可编辑指定字段`是`可编辑记录`的特殊情况，可通过指定`rec_rule`或`field_perm`参数实现相同的效果
+     * 数据表权限
      * <p> 示例值：0
      */
     @SerializedName("table_perm")
@@ -57,13 +57,13 @@ public class AppRoleTableRole {
     @SerializedName("rec_rule")
     private AppRoleTableRoleRecRule recRule;
     /**
-     * 字段权限，仅在table_perm为2时有意义，设置字段可编辑或可阅读。类型为 map，key 是字段名，value 是字段权限;;**value 枚举值有：**;- `1`：可阅读;- `2`：可编辑
+     * 字段权限，仅在table_perm为2时有意义，设置字段可编辑或可阅读
      * <p> 示例值：{"姓名": 1, "年龄": 2}
      */
     @SerializedName("field_perm")
     private Map<String, Integer> fieldPerm;
     /**
-     * 新增记录权限，仅在table_perm为2时有意义，用于设置记录是否可以新增。
+     * 新增记录权限，仅在table_perm为2时有意义，用于设置记录是否可以新增
      * <p> 示例值：true
      */
     @SerializedName("allow_add_record")
@@ -81,7 +81,7 @@ public class AppRoleTableRole {
 
     public AppRoleTableRole(Builder builder) {
         /**
-         * 数据表权限，`协作者可编辑自己的记录`和`可编辑指定字段`是`可编辑记录`的特殊情况，可通过指定`rec_rule`或`field_perm`参数实现相同的效果
+         * 数据表权限
          * <p> 示例值：0
          */
         this.tablePerm = builder.tablePerm;
@@ -101,12 +101,12 @@ public class AppRoleTableRole {
          */
         this.recRule = builder.recRule;
         /**
-         * 字段权限，仅在table_perm为2时有意义，设置字段可编辑或可阅读。类型为 map，key 是字段名，value 是字段权限;;**value 枚举值有：**;- `1`：可阅读;- `2`：可编辑
+         * 字段权限，仅在table_perm为2时有意义，设置字段可编辑或可阅读
          * <p> 示例值：{"姓名": 1, "年龄": 2}
          */
         this.fieldPerm = builder.fieldPerm;
         /**
-         * 新增记录权限，仅在table_perm为2时有意义，用于设置记录是否可以新增。
+         * 新增记录权限，仅在table_perm为2时有意义，用于设置记录是否可以新增
          * <p> 示例值：true
          */
         this.allowAddRecord = builder.allowAddRecord;
@@ -179,7 +179,7 @@ public class AppRoleTableRole {
 
     public static class Builder {
         /**
-         * 数据表权限，`协作者可编辑自己的记录`和`可编辑指定字段`是`可编辑记录`的特殊情况，可通过指定`rec_rule`或`field_perm`参数实现相同的效果
+         * 数据表权限
          * <p> 示例值：0
          */
         private Integer tablePerm;
@@ -199,12 +199,12 @@ public class AppRoleTableRole {
          */
         private AppRoleTableRoleRecRule recRule;
         /**
-         * 字段权限，仅在table_perm为2时有意义，设置字段可编辑或可阅读。类型为 map，key 是字段名，value 是字段权限;;**value 枚举值有：**;- `1`：可阅读;- `2`：可编辑
+         * 字段权限，仅在table_perm为2时有意义，设置字段可编辑或可阅读
          * <p> 示例值：{"姓名": 1, "年龄": 2}
          */
         private Map<String, Integer> fieldPerm;
         /**
-         * 新增记录权限，仅在table_perm为2时有意义，用于设置记录是否可以新增。
+         * 新增记录权限，仅在table_perm为2时有意义，用于设置记录是否可以新增
          * <p> 示例值：true
          */
         private Boolean allowAddRecord;
@@ -215,7 +215,7 @@ public class AppRoleTableRole {
         private Boolean allowDeleteRecord;
 
         /**
-         * 数据表权限，`协作者可编辑自己的记录`和`可编辑指定字段`是`可编辑记录`的特殊情况，可通过指定`rec_rule`或`field_perm`参数实现相同的效果
+         * 数据表权限
          * <p> 示例值：0
          *
          * @param tablePerm
@@ -227,7 +227,7 @@ public class AppRoleTableRole {
         }
 
         /**
-         * 数据表权限，`协作者可编辑自己的记录`和`可编辑指定字段`是`可编辑记录`的特殊情况，可通过指定`rec_rule`或`field_perm`参数实现相同的效果
+         * 数据表权限
          * <p> 示例值：0
          *
          * @param tablePerm {@link com.lark.oapi.service.bitable.v1.enums.AppRoleTableRoleTablePermEnum}
@@ -279,7 +279,7 @@ public class AppRoleTableRole {
 
 
         /**
-         * 字段权限，仅在table_perm为2时有意义，设置字段可编辑或可阅读。类型为 map，key 是字段名，value 是字段权限;;**value 枚举值有：**;- `1`：可阅读;- `2`：可编辑
+         * 字段权限，仅在table_perm为2时有意义，设置字段可编辑或可阅读
          * <p> 示例值：{"姓名": 1, "年龄": 2}
          *
          * @param fieldPerm
@@ -292,7 +292,7 @@ public class AppRoleTableRole {
 
 
         /**
-         * 新增记录权限，仅在table_perm为2时有意义，用于设置记录是否可以新增。
+         * 新增记录权限，仅在table_perm为2时有意义，用于设置记录是否可以新增
          * <p> 示例值：true
          *
          * @param allowAddRecord

@@ -18,7 +18,7 @@ public class CreateAttachmentSample {
         File file = new File("filepath");
 
         // 发起请求
-        CreateAttachmentResp resp = client.hire().attachment().create();
+        CreateAttachmentResp resp = client.hire().v1().attachment().create();
 
         // 处理服务端错误
         if (!resp.success()) {

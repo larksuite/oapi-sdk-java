@@ -16,6 +16,7 @@ package com.lark.oapi.service.drive.v1.model;
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
@@ -28,19 +29,56 @@ import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
 
 public class PermissionPublicPassword {
+    /**
+     * 密码
+     * <p> 示例值：A8e6
+     */
+    @SerializedName("password")
+    private String password;
 
     // builder 开始
     public PermissionPublicPassword() {
     }
 
     public PermissionPublicPassword(Builder builder) {
+        /**
+         * 密码
+         * <p> 示例值：A8e6
+         */
+        this.password = builder.password;
     }
 
     public static Builder newBuilder() {
         return new Builder();
     }
 
+    public String getPassword() {
+        return this.password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public static class Builder {
+        /**
+         * 密码
+         * <p> 示例值：A8e6
+         */
+        private String password;
+
+        /**
+         * 密码
+         * <p> 示例值：A8e6
+         *
+         * @param password
+         * @return
+         */
+        public Builder password(String password) {
+            this.password = password;
+            return this;
+        }
+
 
         public PermissionPublicPassword build() {
             return new PermissionPublicPassword(this);

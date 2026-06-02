@@ -53,6 +53,12 @@ public class ApplicationInfo {
      */
     @SerializedName("process_id")
     private String processId;
+    /**
+     * 离职审批发起人的雇佣信息
+     * <p> 示例值：
+     */
+    @SerializedName("apply_initiator")
+    private ViewEmploymentInfo applyInitiator;
 
     // builder 开始
     public ApplicationInfo() {
@@ -79,6 +85,11 @@ public class ApplicationInfo {
          * <p> 示例值：6838119494196871234
          */
         this.processId = builder.processId;
+        /**
+         * 离职审批发起人的雇佣信息
+         * <p> 示例值：
+         */
+        this.applyInitiator = builder.applyInitiator;
     }
 
     public static Builder newBuilder() {
@@ -117,6 +128,14 @@ public class ApplicationInfo {
         this.processId = processId;
     }
 
+    public ViewEmploymentInfo getApplyInitiator() {
+        return this.applyInitiator;
+    }
+
+    public void setApplyInitiator(ViewEmploymentInfo applyInitiator) {
+        this.applyInitiator = applyInitiator;
+    }
+
     public static class Builder {
         /**
          * 离职审批发起人的雇佣 ID
@@ -138,6 +157,11 @@ public class ApplicationInfo {
          * <p> 示例值：6838119494196871234
          */
         private String processId;
+        /**
+         * 离职审批发起人的雇佣信息
+         * <p> 示例值：
+         */
+        private ViewEmploymentInfo applyInitiator;
 
         /**
          * 离职审批发起人的雇佣 ID
@@ -187,6 +211,19 @@ public class ApplicationInfo {
          */
         public Builder processId(String processId) {
             this.processId = processId;
+            return this;
+        }
+
+
+        /**
+         * 离职审批发起人的雇佣信息
+         * <p> 示例值：
+         *
+         * @param applyInitiator
+         * @return
+         */
+        public Builder applyInitiator(ViewEmploymentInfo applyInitiator) {
+            this.applyInitiator = applyInitiator;
             return this;
         }
 

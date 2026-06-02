@@ -21,6 +21,7 @@ import com.lark.oapi.service.vc.v1.resource.Export;
 import com.lark.oapi.service.vc.v1.resource.Meeting;
 import com.lark.oapi.service.vc.v1.resource.MeetingRecording;
 import com.lark.oapi.service.vc.v1.resource.MeetingList;
+import com.lark.oapi.service.vc.v1.resource.Note;
 import com.lark.oapi.service.vc.v1.resource.ParticipantList;
 import com.lark.oapi.service.vc.v1.resource.ParticipantQualityList;
 import com.lark.oapi.service.vc.v1.resource.Report;
@@ -42,6 +43,7 @@ public class VcService {
     private final Meeting meeting; // 会议
     private final MeetingRecording meetingRecording; // 录制
     private final MeetingList meetingList; // meeting_list
+    private final Note note; // note
     private final ParticipantList participantList; // participant_list
     private final ParticipantQualityList participantQualityList; // participant_quality_list
     private final Report report; // 会议报告
@@ -63,6 +65,7 @@ public class VcService {
         this.meeting = new Meeting(config);
         this.meetingRecording = new MeetingRecording(config);
         this.meetingList = new MeetingList(config);
+        this.note = new Note(config);
         this.participantList = new ParticipantList(config);
         this.participantQualityList = new ParticipantQualityList(config);
         this.report = new Report(config);
@@ -100,6 +103,10 @@ public class VcService {
 
     public MeetingList meetingList() {
         return meetingList;
+    }
+
+    public Note note() {
+        return note;
     }
 
     public ParticipantList participantList() {
@@ -193,6 +200,13 @@ public class VcService {
         @Override
         public P2MeetingStartedV1 getEvent() {
             return new P2MeetingStartedV1();
+        }
+    }
+
+    public abstract static class P2MeetingParticipantMeetingEndedV1Handler implements IEventHandler<P2MeetingParticipantMeetingEndedV1> {
+        @Override
+        public P2MeetingParticipantMeetingEndedV1 getEvent() {
+            return new P2MeetingParticipantMeetingEndedV1();
         }
     }
 

@@ -14,7 +14,7 @@
 package com.lark.oapi.service.optical_char_recognition.v1;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.service.optical_char_recognition.v1.resource.*;
+import com.lark.oapi.service.optical_char_recognition.v1.resource.Image;
 
 public class V1 {
     private final Image image; // 图片识别

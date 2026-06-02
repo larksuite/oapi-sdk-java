@@ -30,7 +30,6 @@ import com.lark.oapi.core.response.BaseResponse;
 
 public class AppRoleBlockRole {
     /**
-     * Block 的 ID，例如列出仪表盘接口中的仪表盘 block  id
      * <p> 示例值：blknkqrP3RqUkcAW
      */
     @SerializedName("block_id")
@@ -54,7 +53,7 @@ public class AppRoleBlockRole {
 
     public AppRoleBlockRole(Builder builder) {
         /**
-         * Block 的 ID，例如列出仪表盘接口中的仪表盘 block  id
+         *
          * <p> 示例值：blknkqrP3RqUkcAW
          */
         this.blockId = builder.blockId;
@@ -100,7 +99,6 @@ public class AppRoleBlockRole {
 
     public static class Builder {
         /**
-         * Block 的 ID，例如列出仪表盘接口中的仪表盘 block  id
          * <p> 示例值：blknkqrP3RqUkcAW
          */
         private String blockId;
@@ -116,7 +114,6 @@ public class AppRoleBlockRole {
         private Integer blockPerm;
 
         /**
-         * Block 的 ID，例如列出仪表盘接口中的仪表盘 block  id
          * <p> 示例值：blknkqrP3RqUkcAW
          *
          * @param blockId

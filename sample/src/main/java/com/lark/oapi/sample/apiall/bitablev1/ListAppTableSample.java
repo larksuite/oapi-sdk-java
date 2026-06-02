@@ -16,8 +16,8 @@ public class ListAppTableSample {
         // 创建请求对象
         ListAppTableReq req = ListAppTableReq.newBuilder()
                 .appToken("appbcbWCzen6D8dezhoCH2RpMAh")
-                .pageToken("tblsRc9GRRXKqhvW")
                 .pageSize(20)
+                .pageToken("tblsRc9GRRXKqhvW")
                 .build();
 
         // 发起请求

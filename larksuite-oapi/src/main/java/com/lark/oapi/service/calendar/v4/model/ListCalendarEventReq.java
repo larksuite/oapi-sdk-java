@@ -78,6 +78,13 @@ public class ListCalendarEventReq {
     @SerializedName("user_id_type")
     private String userIdType;
     /**
+     * 应用身份下指定操作用户的日历日程数据
+     * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
+     */
+    @Query
+    @SerializedName("op_user_id")
+    private String opUserId;
+    /**
      * 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
      * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
      */
@@ -125,6 +132,11 @@ public class ListCalendarEventReq {
          * <p> 示例值：
          */
         this.userIdType = builder.userIdType;
+        /**
+         * 应用身份下指定操作用户的日历日程数据
+         * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
+         */
+        this.opUserId = builder.opUserId;
         /**
          * 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
          * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
@@ -192,6 +204,14 @@ public class ListCalendarEventReq {
         this.userIdType = userIdType;
     }
 
+    public String getOpUserId() {
+        return this.opUserId;
+    }
+
+    public void setOpUserId(String opUserId) {
+        this.opUserId = opUserId;
+    }
+
     public String getCalendarId() {
         return this.calendarId;
     }
@@ -208,6 +228,7 @@ public class ListCalendarEventReq {
         private String startTime; // 日程开始Unix时间戳，单位为秒
         private String endTime; // 日程结束Unix时间戳，单位为秒
         private String userIdType; // 此次调用中使用的用户ID的类型
+        private String opUserId; // 应用身份下指定操作用户的日历日程数据
         private String calendarId; // 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
 
         /**
@@ -303,6 +324,18 @@ public class ListCalendarEventReq {
          */
         public Builder userIdType(com.lark.oapi.service.calendar.v4.enums.ListCalendarEventUserIdTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
+            return this;
+        }
+
+        /**
+         * 应用身份下指定操作用户的日历日程数据
+         * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
+         *
+         * @param opUserId
+         * @return
+         */
+        public Builder opUserId(String opUserId) {
+            this.opUserId = opUserId;
             return this;
         }
 

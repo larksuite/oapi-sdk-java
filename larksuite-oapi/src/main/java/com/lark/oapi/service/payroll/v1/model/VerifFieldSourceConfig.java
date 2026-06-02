@@ -72,7 +72,7 @@ public class VerifFieldSourceConfig {
 
     public VerifFieldSourceConfig(Builder builder) {
         /**
-         *  公式id
+         * 公式id
          * <p> 示例值：1
          */
         this.formulaId = builder.formulaId;
@@ -97,7 +97,7 @@ public class VerifFieldSourceConfig {
          */
         this.sourceAggregationType = builder.sourceAggregationType;
         /**
-         *  引用类型
+         * 引用类型
          * <p> 示例值：1
          */
         this.refType = builder.refType;

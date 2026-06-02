@@ -14,7 +14,9 @@
 package com.lark.oapi.service.auth.v3;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.service.auth.v3.resource.*;
+import com.lark.oapi.service.auth.v3.resource.AppAccessToken;
+import com.lark.oapi.service.auth.v3.resource.AppTicket;
+import com.lark.oapi.service.auth.v3.resource.TenantAccessToken;
 
 public class V3 {
     private final AppAccessToken appAccessToken; // app_access_token

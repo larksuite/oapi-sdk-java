@@ -63,6 +63,12 @@ public class CreatePlantumlWhiteboardNodeReqBody {
      */
     @SerializedName("parse_mode")
     private Integer parseMode;
+    /**
+     * 外观类型
+     * <p> 示例值：
+     */
+    @SerializedName("look_type")
+    private Integer lookType;
 
     // builder 开始
     public CreatePlantumlWhiteboardNodeReqBody() {
@@ -99,6 +105,11 @@ public class CreatePlantumlWhiteboardNodeReqBody {
          * <p> 示例值：0
          */
         this.parseMode = builder.parseMode;
+        /**
+         * 外观类型
+         * <p> 示例值：
+         */
+        this.lookType = builder.lookType;
     }
 
     public static Builder newBuilder() {
@@ -153,6 +164,14 @@ public class CreatePlantumlWhiteboardNodeReqBody {
         this.parseMode = parseMode;
     }
 
+    public Integer getLookType() {
+        return this.lookType;
+    }
+
+    public void setLookType(Integer lookType) {
+        this.lookType = lookType;
+    }
+
     public static class Builder {
         /**
          * plant uml 代码
@@ -182,6 +201,11 @@ public class CreatePlantumlWhiteboardNodeReqBody {
          * <p> 示例值：0
          */
         private Integer parseMode;
+        /**
+         * 外观类型
+         * <p> 示例值：
+         */
+        private Integer lookType;
 
         /**
          * plant uml 代码
@@ -301,6 +325,31 @@ public class CreatePlantumlWhiteboardNodeReqBody {
          */
         public Builder parseMode(com.lark.oapi.service.board.v1.enums.CreatePlantumlWhiteboardNodeParseModeEnum parseMode) {
             this.parseMode = parseMode.getValue();
+            return this;
+        }
+
+
+        /**
+         * 外观类型
+         * <p> 示例值：
+         *
+         * @param lookType
+         * @return
+         */
+        public Builder lookType(Integer lookType) {
+            this.lookType = lookType;
+            return this;
+        }
+
+        /**
+         * 外观类型
+         * <p> 示例值：
+         *
+         * @param lookType {@link com.lark.oapi.service.board.v1.enums.CreatePlantumlWhiteboardNodeLookTypeEnum}
+         * @return
+         */
+        public Builder lookType(com.lark.oapi.service.board.v1.enums.CreatePlantumlWhiteboardNodeLookTypeEnum lookType) {
+            this.lookType = lookType.getValue();
             return this;
         }
 

@@ -14,7 +14,10 @@
 package com.lark.oapi.service.minutes.v1;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.service.minutes.v1.resource.*;
+import com.lark.oapi.service.minutes.v1.resource.Minute;
+import com.lark.oapi.service.minutes.v1.resource.MinuteMedia;
+import com.lark.oapi.service.minutes.v1.resource.MinuteStatistics;
+import com.lark.oapi.service.minutes.v1.resource.MinuteTranscript;
 
 public class V1 {
     private final Minute minute; // minute

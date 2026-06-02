@@ -100,10 +100,10 @@ public class DeleteDepartmentReq {
          * 此次调用中使用的部门ID的类型
          * <p> 示例值：open_department_id
          *
-         * @param departmentIdType {@link com.lark.oapi.service.contact.v3.enums.DeleteDepartmentDepartmentIdTypeEnum}
+         * @param departmentIdType {@link com.lark.oapi.service.contact.v3.enums.DeleteDepartmentDeleteDepartmentV3DepartmentIDTypeEnum}
          * @return
          */
-        public Builder departmentIdType(com.lark.oapi.service.contact.v3.enums.DeleteDepartmentDepartmentIdTypeEnum departmentIdType) {
+        public Builder departmentIdType(com.lark.oapi.service.contact.v3.enums.DeleteDepartmentDeleteDepartmentV3DepartmentIDTypeEnum departmentIdType) {
             this.departmentIdType = departmentIdType.getValue();
             return this;
         }

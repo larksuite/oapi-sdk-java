@@ -199,10 +199,10 @@ public class ListMessageReactionReq {
          * 当操作人为用户时返回用户ID的类型
          * <p> 示例值：
          *
-         * @param userIdType {@link com.lark.oapi.service.im.v1.enums.ListMessageReactionUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.im.v1.enums.ListMessageReactionListMessageReactionUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.im.v1.enums.ListMessageReactionUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.im.v1.enums.ListMessageReactionListMessageReactionUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }

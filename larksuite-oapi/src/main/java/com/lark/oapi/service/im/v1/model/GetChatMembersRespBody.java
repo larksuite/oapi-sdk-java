@@ -52,6 +52,18 @@ public class GetChatMembersRespBody {
      */
     @SerializedName("member_total")
     private Integer memberTotal;
+    /**
+     * 是否触发了安全配置
+     * <p> 示例值：
+     */
+    @SerializedName("trigger_security_conf_limit")
+    private Boolean triggerSecurityConfLimit;
+    /**
+     * 安全配置支持的最大查询群成员数量
+     * <p> 示例值：100
+     */
+    @SerializedName("security_conf_limit")
+    private Integer securityConfLimit;
 
     public ListMember[] getItems() {
         return this.items;
@@ -83,6 +95,22 @@ public class GetChatMembersRespBody {
 
     public void setMemberTotal(Integer memberTotal) {
         this.memberTotal = memberTotal;
+    }
+
+    public Boolean getTriggerSecurityConfLimit() {
+        return this.triggerSecurityConfLimit;
+    }
+
+    public void setTriggerSecurityConfLimit(Boolean triggerSecurityConfLimit) {
+        this.triggerSecurityConfLimit = triggerSecurityConfLimit;
+    }
+
+    public Integer getSecurityConfLimit() {
+        return this.securityConfLimit;
+    }
+
+    public void setSecurityConfLimit(Integer securityConfLimit) {
+        this.securityConfLimit = securityConfLimit;
     }
 
 }

@@ -53,6 +53,7 @@ public class RecordsDeleteWorkspaceTableReq {
     // builder 开始
     public RecordsDeleteWorkspaceTableReq() {
     }
+
     public RecordsDeleteWorkspaceTableReq(Builder builder) {
         /**
          * 筛选条件，尊许 PostgREST 语法，详情可查看 https://docs.postgrest.org/en/v13/references/api/tables_views.html#horizontal-filtering;此处用法和查询数据记录一致

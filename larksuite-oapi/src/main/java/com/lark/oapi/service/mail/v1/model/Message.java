@@ -161,6 +161,12 @@ public class Message {
      */
     @SerializedName("references")
     private String references;
+    /**
+     * 日历邀请内容(base64url)。当邮件包含标准RFC 5545格式的日历邀请时返回，解码后为ICS文本。
+     * <p> 示例值：QkVHSU46VkNBTEVOREFSDQpWRVJTSU9OOjIuMA0KLi4uDQpFTkQ6VkNBTEVOREFS
+     */
+    @SerializedName("body_calendar")
+    private String bodyCalendar;
 
     // builder 开始
     public Message() {
@@ -277,6 +283,11 @@ public class Message {
          * <p> 示例值：<5678.abcd@test.com>\r\n\t<1234.abcd@message-id>
          */
         this.references = builder.references;
+        /**
+         * 日历邀请内容(base64url)。当邮件包含标准RFC 5545格式的日历邀请时返回，解码后为ICS文本。
+         * <p> 示例值：QkVHSU46VkNBTEVOREFSDQpWRVJTSU9OOjIuMA0KLi4uDQpFTkQ6VkNBTEVOREFS
+         */
+        this.bodyCalendar = builder.bodyCalendar;
     }
 
     public static Builder newBuilder() {
@@ -459,6 +470,14 @@ public class Message {
         this.references = references;
     }
 
+    public String getBodyCalendar() {
+        return this.bodyCalendar;
+    }
+
+    public void setBodyCalendar(String bodyCalendar) {
+        this.bodyCalendar = bodyCalendar;
+    }
+
     public static class Builder {
         /**
          * MIME邮件数据，基于base64url编码
@@ -570,6 +589,11 @@ public class Message {
          * <p> 示例值：<5678.abcd@test.com>\r\n\t<1234.abcd@message-id>
          */
         private String references;
+        /**
+         * 日历邀请内容(base64url)。当邮件包含标准RFC 5545格式的日历邀请时返回，解码后为ICS文本。
+         * <p> 示例值：QkVHSU46VkNBTEVOREFSDQpWRVJTSU9OOjIuMA0KLi4uDQpFTkQ6VkNBTEVOREFS
+         */
+        private String bodyCalendar;
 
         /**
          * MIME邮件数据，基于base64url编码
@@ -865,6 +889,19 @@ public class Message {
          */
         public Builder references(String references) {
             this.references = references;
+            return this;
+        }
+
+
+        /**
+         * 日历邀请内容(base64url)。当邮件包含标准RFC 5545格式的日历邀请时返回，解码后为ICS文本。
+         * <p> 示例值：QkVHSU46VkNBTEVOREFSDQpWRVJTSU9OOjIuMA0KLi4uDQpFTkQ6VkNBTEVOREFS
+         *
+         * @param bodyCalendar
+         * @return
+         */
+        public Builder bodyCalendar(String bodyCalendar) {
+            this.bodyCalendar = bodyCalendar;
             return this;
         }
 

@@ -112,10 +112,10 @@ public class AddManagersChatManagersReq {
          * 群成员 ID 类型 open_id/user_id/union_id/app_id;;**注意**： 指定机器人类型的管理员请使用 ==app_id==
          * <p> 示例值：open_id
          *
-         * @param memberIdType {@link com.lark.oapi.service.im.v1.enums.AddManagersChatManagersMemberIdTypeEnum}
+         * @param memberIdType {@link com.lark.oapi.service.im.v1.enums.AddManagersChatManagersAddManagersChatManagersMemberIDTypeEnum}
          * @return
          */
-        public Builder memberIdType(com.lark.oapi.service.im.v1.enums.AddManagersChatManagersMemberIdTypeEnum memberIdType) {
+        public Builder memberIdType(com.lark.oapi.service.im.v1.enums.AddManagersChatManagersAddManagersChatManagersMemberIDTypeEnum memberIdType) {
             this.memberIdType = memberIdType.getValue();
             return this;
         }

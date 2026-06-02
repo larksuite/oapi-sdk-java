@@ -30,7 +30,7 @@ import com.lark.oapi.core.response.BaseResponse;
 
 public class AppRoleTableRoleRecRuleCondition {
     /**
-     * 字段名，记录筛选条件是`创建人包含访问者本人`时，此参数值为""
+     * 字段名
      * <p> 示例值：单选
      */
     @SerializedName("field_name")
@@ -60,7 +60,7 @@ public class AppRoleTableRoleRecRuleCondition {
 
     public AppRoleTableRoleRecRuleCondition(Builder builder) {
         /**
-         * 字段名，记录筛选条件是`创建人包含访问者本人`时，此参数值为""
+         * 字段名
          * <p> 示例值：单选
          */
         this.fieldName = builder.fieldName;
@@ -119,7 +119,7 @@ public class AppRoleTableRoleRecRuleCondition {
 
     public static class Builder {
         /**
-         * 字段名，记录筛选条件是`创建人包含访问者本人`时，此参数值为""
+         * 字段名
          * <p> 示例值：单选
          */
         private String fieldName;
@@ -140,7 +140,7 @@ public class AppRoleTableRoleRecRuleCondition {
         private Integer fieldType;
 
         /**
-         * 字段名，记录筛选条件是`创建人包含访问者本人`时，此参数值为""
+         * 字段名
          * <p> 示例值：单选
          *
          * @param fieldName

@@ -18,7 +18,7 @@ package com.lark.oapi.service.aily.v1.enums;
  */
 public enum TableTableTypeEnum {
     DATASET("dataset"), // 分析表
-    DATATABLE("datatable"), //  数据表
+    DATATABLE("datatable"), // 数据表
     ;
     private String value;
 

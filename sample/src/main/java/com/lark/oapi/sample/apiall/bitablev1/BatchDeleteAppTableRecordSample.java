@@ -17,6 +17,7 @@ public class BatchDeleteAppTableRecordSample {
         BatchDeleteAppTableRecordReq req = BatchDeleteAppTableRecordReq.newBuilder()
                 .appToken("appbcbWCzen6D8dezhoCH2RpMAh")
                 .tableId("tblsRc9GRRXKqhvW")
+                .ignoreConsistencyCheck(false)
                 .batchDeleteAppTableRecordReqBody(BatchDeleteAppTableRecordReqBody.newBuilder()
                         .records(new String[]{})
                         .build())

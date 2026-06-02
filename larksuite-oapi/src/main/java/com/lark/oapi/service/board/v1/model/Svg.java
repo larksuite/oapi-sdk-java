@@ -35,6 +35,18 @@ public class Svg {
      */
     @SerializedName("svg_code")
     private String svgCode;
+    /**
+     * 资源外部标识
+     * <p> 示例值：emoji_ok_v2.png
+     */
+    @SerializedName("key")
+    private String key;
+    /**
+     * 资源类型
+     * <p> 示例值：125
+     */
+    @SerializedName("type")
+    private Integer type;
 
     // builder 开始
     public Svg() {
@@ -46,6 +58,16 @@ public class Svg {
          * <p> 示例值：code
          */
         this.svgCode = builder.svgCode;
+        /**
+         * 资源外部标识
+         * <p> 示例值：emoji_ok_v2.png
+         */
+        this.key = builder.key;
+        /**
+         * 资源类型
+         * <p> 示例值：125
+         */
+        this.type = builder.type;
     }
 
     public static Builder newBuilder() {
@@ -60,12 +82,38 @@ public class Svg {
         this.svgCode = svgCode;
     }
 
+    public String getKey() {
+        return this.key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
+    }
+
+    public Integer getType() {
+        return this.type;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
+    }
+
     public static class Builder {
         /**
          * svg code
          * <p> 示例值：code
          */
         private String svgCode;
+        /**
+         * 资源外部标识
+         * <p> 示例值：emoji_ok_v2.png
+         */
+        private String key;
+        /**
+         * 资源类型
+         * <p> 示例值：125
+         */
+        private Integer type;
 
         /**
          * svg code
@@ -76,6 +124,32 @@ public class Svg {
          */
         public Builder svgCode(String svgCode) {
             this.svgCode = svgCode;
+            return this;
+        }
+
+
+        /**
+         * 资源外部标识
+         * <p> 示例值：emoji_ok_v2.png
+         *
+         * @param key
+         * @return
+         */
+        public Builder key(String key) {
+            this.key = key;
+            return this;
+        }
+
+
+        /**
+         * 资源类型
+         * <p> 示例值：125
+         *
+         * @param type
+         * @return
+         */
+        public Builder type(Integer type) {
+            this.type = type;
             return this;
         }
 

@@ -14,7 +14,8 @@
 package com.lark.oapi.service.security_and_compliance.v2;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.service.security_and_compliance.v2.resource.*;
+import com.lark.oapi.service.security_and_compliance.v2.resource.DeviceApplyRecord;
+import com.lark.oapi.service.security_and_compliance.v2.resource.DeviceRecord;
 
 public class V2 {
     private final DeviceApplyRecord deviceApplyRecord; // device_apply_record

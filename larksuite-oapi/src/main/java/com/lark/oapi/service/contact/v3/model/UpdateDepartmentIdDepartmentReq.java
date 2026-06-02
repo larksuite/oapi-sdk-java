@@ -112,10 +112,10 @@ public class UpdateDepartmentIdDepartmentReq {
          * 此次调用中使用的部门ID的类型
          * <p> 示例值：
          *
-         * @param departmentIdType {@link com.lark.oapi.service.contact.v3.enums.UpdateDepartmentIdDepartmentDepartmentIdTypeEnum}
+         * @param departmentIdType {@link com.lark.oapi.service.contact.v3.enums.UpdateDepartmentIdDepartmentUpdateDepartmentIDV3DepartmentIDTypeEnum}
          * @return
          */
-        public Builder departmentIdType(com.lark.oapi.service.contact.v3.enums.UpdateDepartmentIdDepartmentDepartmentIdTypeEnum departmentIdType) {
+        public Builder departmentIdType(com.lark.oapi.service.contact.v3.enums.UpdateDepartmentIdDepartmentUpdateDepartmentIDV3DepartmentIDTypeEnum departmentIdType) {
             this.departmentIdType = departmentIdType.getValue();
             return this;
         }

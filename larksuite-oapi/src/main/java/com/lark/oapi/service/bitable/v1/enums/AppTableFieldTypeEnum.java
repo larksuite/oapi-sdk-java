@@ -14,7 +14,7 @@
 package com.lark.oapi.service.bitable.v1.enums;
 
 /**
- * 多维表格字段类型
+ * 字段类型
  */
 public enum AppTableFieldTypeEnum {
     TEXT(1), // 多行文本（默认值）、条码

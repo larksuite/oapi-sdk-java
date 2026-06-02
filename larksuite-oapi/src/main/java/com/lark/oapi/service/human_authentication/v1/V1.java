@@ -14,7 +14,7 @@
 package com.lark.oapi.service.human_authentication.v1;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.service.human_authentication.v1.resource.*;
+import com.lark.oapi.service.human_authentication.v1.resource.Identity;
 
 public class V1 {
     private final Identity identity; // 实名认证

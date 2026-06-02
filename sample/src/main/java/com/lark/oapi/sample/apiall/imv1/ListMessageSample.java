@@ -22,6 +22,8 @@ public class ListMessageSample {
                 .sortType("ByCreateTimeAsc")
                 .pageSize(20)
                 .pageToken("GxmvlNRvP0NdQZpa7yIqf_Lv_QuBwTQ8tXkX7w-irAghVD_TvuYd1aoJ1LQph86O-XImC4X9j9FhUPhXQDvtrQ==")
+                .cardMsgContentType("user_card_content")
+                .onlyThreadRootMessages(false)
                 .build();
 
         // 发起请求

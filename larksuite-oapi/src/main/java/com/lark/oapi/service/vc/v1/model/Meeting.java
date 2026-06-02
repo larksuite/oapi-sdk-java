@@ -119,6 +119,12 @@ public class Meeting {
      */
     @SerializedName("ability")
     private MeetingAbility ability;
+    /**
+     * 纪要ID
+     * <p> 示例值：6943848821689040898
+     */
+    @SerializedName("note_id")
+    private String noteId;
 
     // builder 开始
     public Meeting() {
@@ -200,6 +206,11 @@ public class Meeting {
          * <p> 示例值：
          */
         this.ability = builder.ability;
+        /**
+         * 纪要ID
+         * <p> 示例值：6943848821689040898
+         */
+        this.noteId = builder.noteId;
     }
 
     public static Builder newBuilder() {
@@ -326,6 +337,14 @@ public class Meeting {
         this.ability = ability;
     }
 
+    public String getNoteId() {
+        return this.noteId;
+    }
+
+    public void setNoteId(String noteId) {
+        this.noteId = noteId;
+    }
+
     public static class Builder {
         /**
          * 会议ID（视频会议的唯一标识，视频会议开始后才会产生）
@@ -402,6 +421,11 @@ public class Meeting {
          * <p> 示例值：
          */
         private MeetingAbility ability;
+        /**
+         * 纪要ID
+         * <p> 示例值：6943848821689040898
+         */
+        private String noteId;
 
         /**
          * 会议ID（视频会议的唯一标识，视频会议开始后才会产生）
@@ -606,6 +630,19 @@ public class Meeting {
          */
         public Builder ability(MeetingAbility ability) {
             this.ability = ability;
+            return this;
+        }
+
+
+        /**
+         * 纪要ID
+         * <p> 示例值：6943848821689040898
+         *
+         * @param noteId
+         * @return
+         */
+        public Builder noteId(String noteId) {
+            this.noteId = noteId;
             return this;
         }
 

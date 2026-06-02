@@ -59,6 +59,12 @@ public class WorkforcePlan {
      */
     @SerializedName("active")
     private Boolean active;
+    /**
+     * 维度列表
+     * <p> 示例值：
+     */
+    @SerializedName("dimension_lists")
+    private WorkforcePlanDimension[] dimensionLists;
 
     // builder 开始
     public WorkforcePlan() {
@@ -90,6 +96,11 @@ public class WorkforcePlan {
          * <p> 示例值：true
          */
         this.active = builder.active;
+        /**
+         * 维度列表
+         * <p> 示例值：
+         */
+        this.dimensionLists = builder.dimensionLists;
     }
 
     public static Builder newBuilder() {
@@ -136,6 +147,14 @@ public class WorkforcePlan {
         this.active = active;
     }
 
+    public WorkforcePlanDimension[] getDimensionLists() {
+        return this.dimensionLists;
+    }
+
+    public void setDimensionLists(WorkforcePlanDimension[] dimensionLists) {
+        this.dimensionLists = dimensionLists;
+    }
+
     public static class Builder {
         /**
          * 编制规划方案 ID
@@ -162,6 +181,11 @@ public class WorkforcePlan {
          * <p> 示例值：true
          */
         private Boolean active;
+        /**
+         * 维度列表
+         * <p> 示例值：
+         */
+        private WorkforcePlanDimension[] dimensionLists;
 
         /**
          * 编制规划方案 ID
@@ -224,6 +248,19 @@ public class WorkforcePlan {
          */
         public Builder active(Boolean active) {
             this.active = active;
+            return this;
+        }
+
+
+        /**
+         * 维度列表
+         * <p> 示例值：
+         *
+         * @param dimensionLists
+         * @return
+         */
+        public Builder dimensionLists(WorkforcePlanDimension[] dimensionLists) {
+            this.dimensionLists = dimensionLists;
             return this;
         }
 

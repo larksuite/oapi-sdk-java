@@ -45,6 +45,10 @@ public class AppPreset {
     private AppPreset() {
     }
 
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     /**
      * App avatar URL candidates. Pass one to six publicly reachable image URLs.
      * The first URL is selected by default on the app creation page.
@@ -74,10 +78,6 @@ public class AppPreset {
      */
     public String getDesc() {
         return desc;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
     }
 
     public static class Builder {

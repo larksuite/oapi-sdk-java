@@ -36,6 +36,12 @@ public class PatchCostCenterVersionReqBody {
     @SerializedName("name")
     private I18n[] name;
     /**
+     * 成本中心编码
+     * <p> 示例值：MDPD00000023
+     */
+    @SerializedName("code")
+    private String code;
+    /**
      * 上级成本中心ID
      * <p> 示例值：6862995757234914824
      */
@@ -65,6 +71,12 @@ public class PatchCostCenterVersionReqBody {
      */
     @SerializedName("operation_reason")
     private String operationReason;
+    /**
+     * 是否优先使用手动编码。设置为 true 时，即使开启了自动编码功能，系统也会优先采用请求中传入的手动编码值；仅当未传入手动编码时，才回退至自动编码。设置为 false 或未传入时，遵循系统默认的编码策略。
+     * <p> 示例值：
+     */
+    @SerializedName("is_prefer_manual_encoding")
+    private Boolean isPreferManualEncoding;
 
     // builder 开始
     public PatchCostCenterVersionReqBody() {
@@ -76,6 +88,11 @@ public class PatchCostCenterVersionReqBody {
          * <p> 示例值：
          */
         this.name = builder.name;
+        /**
+         * 成本中心编码
+         * <p> 示例值：MDPD00000023
+         */
+        this.code = builder.code;
         /**
          * 上级成本中心ID
          * <p> 示例值：6862995757234914824
@@ -101,6 +118,11 @@ public class PatchCostCenterVersionReqBody {
          * <p> 示例值：强行操作
          */
         this.operationReason = builder.operationReason;
+        /**
+         * 是否优先使用手动编码。设置为 true 时，即使开启了自动编码功能，系统也会优先采用请求中传入的手动编码值；仅当未传入手动编码时，才回退至自动编码。设置为 false 或未传入时，遵循系统默认的编码策略。
+         * <p> 示例值：
+         */
+        this.isPreferManualEncoding = builder.isPreferManualEncoding;
     }
 
     public static Builder newBuilder() {
@@ -113,6 +135,14 @@ public class PatchCostCenterVersionReqBody {
 
     public void setName(I18n[] name) {
         this.name = name;
+    }
+
+    public String getCode() {
+        return this.code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 
     public String getParentCostCenterId() {
@@ -155,12 +185,25 @@ public class PatchCostCenterVersionReqBody {
         this.operationReason = operationReason;
     }
 
+    public Boolean getIsPreferManualEncoding() {
+        return this.isPreferManualEncoding;
+    }
+
+    public void setIsPreferManualEncoding(Boolean isPreferManualEncoding) {
+        this.isPreferManualEncoding = isPreferManualEncoding;
+    }
+
     public static class Builder {
         /**
          * 成本中心名称
          * <p> 示例值：
          */
         private I18n[] name;
+        /**
+         * 成本中心编码
+         * <p> 示例值：MDPD00000023
+         */
+        private String code;
         /**
          * 上级成本中心ID
          * <p> 示例值：6862995757234914824
@@ -186,6 +229,11 @@ public class PatchCostCenterVersionReqBody {
          * <p> 示例值：强行操作
          */
         private String operationReason;
+        /**
+         * 是否优先使用手动编码。设置为 true 时，即使开启了自动编码功能，系统也会优先采用请求中传入的手动编码值；仅当未传入手动编码时，才回退至自动编码。设置为 false 或未传入时，遵循系统默认的编码策略。
+         * <p> 示例值：
+         */
+        private Boolean isPreferManualEncoding;
 
         /**
          * 成本中心名称
@@ -196,6 +244,19 @@ public class PatchCostCenterVersionReqBody {
          */
         public Builder name(I18n[] name) {
             this.name = name;
+            return this;
+        }
+
+
+        /**
+         * 成本中心编码
+         * <p> 示例值：MDPD00000023
+         *
+         * @param code
+         * @return
+         */
+        public Builder code(String code) {
+            this.code = code;
             return this;
         }
 
@@ -261,6 +322,19 @@ public class PatchCostCenterVersionReqBody {
          */
         public Builder operationReason(String operationReason) {
             this.operationReason = operationReason;
+            return this;
+        }
+
+
+        /**
+         * 是否优先使用手动编码。设置为 true 时，即使开启了自动编码功能，系统也会优先采用请求中传入的手动编码值；仅当未传入手动编码时，才回退至自动编码。设置为 false 或未传入时，遵循系统默认的编码策略。
+         * <p> 示例值：
+         *
+         * @param isPreferManualEncoding
+         * @return
+         */
+        public Builder isPreferManualEncoding(Boolean isPreferManualEncoding) {
+            this.isPreferManualEncoding = isPreferManualEncoding;
             return this;
         }
 

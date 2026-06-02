@@ -65,6 +65,12 @@ public class EducationInfo {
      */
     @SerializedName("custom_fields")
     private ObjectFieldData[] customFields;
+    /**
+     * 学位
+     * <p> 示例值：
+     */
+    @SerializedName("degree")
+    private String degree;
 
     // builder 开始
     public EducationInfo() {
@@ -101,6 +107,11 @@ public class EducationInfo {
          * <p> 示例值：
          */
         this.customFields = builder.customFields;
+        /**
+         * 学位
+         * <p> 示例值：
+         */
+        this.degree = builder.degree;
     }
 
     public static Builder newBuilder() {
@@ -155,6 +166,14 @@ public class EducationInfo {
         this.customFields = customFields;
     }
 
+    public String getDegree() {
+        return this.degree;
+    }
+
+    public void setDegree(String degree) {
+        this.degree = degree;
+    }
+
     public static class Builder {
         /**
          * 学校名称
@@ -186,6 +205,11 @@ public class EducationInfo {
          * <p> 示例值：
          */
         private ObjectFieldData[] customFields;
+        /**
+         * 学位
+         * <p> 示例值：
+         */
+        private String degree;
 
         /**
          * 学校名称
@@ -261,6 +285,19 @@ public class EducationInfo {
          */
         public Builder customFields(ObjectFieldData[] customFields) {
             this.customFields = customFields;
+            return this;
+        }
+
+
+        /**
+         * 学位
+         * <p> 示例值：
+         *
+         * @param degree
+         * @return
+         */
+        public Builder degree(String degree) {
+            this.degree = degree;
             return this;
         }
 

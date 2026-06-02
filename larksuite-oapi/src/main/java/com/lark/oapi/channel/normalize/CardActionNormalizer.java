@@ -7,6 +7,7 @@ import com.lark.oapi.core.request.EventReq;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.channel.model.CardActionEvent;
 import com.lark.oapi.event.cardcallback.model.P2CardActionTrigger;
+
 import java.nio.charset.StandardCharsets;
 import java.util.Collections;
 import java.util.Map;

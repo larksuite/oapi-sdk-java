@@ -9,13 +9,6 @@ import java.util.Map;
  * can convert it to the correct Feishu message type.
  */
 public class SendInput {
-    /**
-     * Supported outbound message kinds.
-     */
-    public enum Kind {
-        MARKDOWN, TEXT, POST, IMAGE, FILE, AUDIO, VIDEO, CARD, SHARE_CHAT, SHARE_USER, STICKER
-    }
-
     private final Kind kind;
     private final String text;
     private final Map<String, Object> object;
@@ -30,27 +23,37 @@ public class SendInput {
      * Send Markdown. The channel converts it to Feishu post content and falls
      * back to plain text if Feishu rejects the post format.
      */
-    public static SendInput markdown(String markdown) { return new SendInput(Kind.MARKDOWN, markdown, null); }
+    public static SendInput markdown(String markdown) {
+        return new SendInput(Kind.MARKDOWN, markdown, null);
+    }
 
     /**
      * Send plain text.
      */
-    public static SendInput text(String text) { return new SendInput(Kind.TEXT, text, null); }
+    public static SendInput text(String text) {
+        return new SendInput(Kind.TEXT, text, null);
+    }
 
     /**
      * Send a raw Feishu post object.
      */
-    public static SendInput post(Map<String, Object> post) { return new SendInput(Kind.POST, null, post); }
+    public static SendInput post(Map<String, Object> post) {
+        return new SendInput(Kind.POST, null, post);
+    }
 
     /**
      * Send an image from a public URL or local path.
      */
-    public static SendInput image(String source) { return image((Object) source); }
+    public static SendInput image(String source) {
+        return image((Object) source);
+    }
 
     /**
      * Send an image from in-memory bytes.
      */
-    public static SendInput image(byte[] source) { return image((Object) source); }
+    public static SendInput image(byte[] source) {
+        return image((Object) source);
+    }
 
     /**
      * Send an image from a supported source: URL, local path, byte array or
@@ -63,12 +66,16 @@ public class SendInput {
     /**
      * Send a file from a public URL or local path.
      */
-    public static SendInput file(String source, String fileName) { return file((Object) source, fileName); }
+    public static SendInput file(String source, String fileName) {
+        return file((Object) source, fileName);
+    }
 
     /**
      * Send a file from in-memory bytes.
      */
-    public static SendInput file(byte[] source, String fileName) { return file((Object) source, fileName); }
+    public static SendInput file(byte[] source, String fileName) {
+        return file((Object) source, fileName);
+    }
 
     /**
      * Send a file from a supported source. The supplied file name is used for
@@ -81,12 +88,16 @@ public class SendInput {
     /**
      * Send an opus audio message from a URL or local path.
      */
-    public static SendInput audio(String source, Integer duration) { return audio((Object) source, duration); }
+    public static SendInput audio(String source, Integer duration) {
+        return audio((Object) source, duration);
+    }
 
     /**
      * Send an opus audio message from bytes.
      */
-    public static SendInput audio(byte[] source, Integer duration) { return audio((Object) source, duration); }
+    public static SendInput audio(byte[] source, Integer duration) {
+        return audio((Object) source, duration);
+    }
 
     /**
      * Send an opus audio message. Duration is passed through to Feishu in
@@ -99,12 +110,16 @@ public class SendInput {
     /**
      * Send a video/media message from a URL or local path.
      */
-    public static SendInput video(String source, Integer duration, String coverImageKey) { return video((Object) source, duration, coverImageKey); }
+    public static SendInput video(String source, Integer duration, String coverImageKey) {
+        return video((Object) source, duration, coverImageKey);
+    }
 
     /**
      * Send a video/media message from bytes.
      */
-    public static SendInput video(byte[] source, Integer duration, String coverImageKey) { return video((Object) source, duration, coverImageKey); }
+    public static SendInput video(byte[] source, Integer duration, String coverImageKey) {
+        return video((Object) source, duration, coverImageKey);
+    }
 
     /**
      * Send a video/media message. Feishu expects uploaded videos as media files
@@ -117,26 +132,30 @@ public class SendInput {
     /**
      * Send an interactive card JSON object.
      */
-    public static SendInput card(Map<String, Object> card) { return new SendInput(Kind.CARD, null, card); }
+    public static SendInput card(Map<String, Object> card) {
+        return new SendInput(Kind.CARD, null, card);
+    }
 
     /**
      * Send a group chat share card.
      */
-    public static SendInput shareChat(String chatId) { return new SendInput(Kind.SHARE_CHAT, null, java.util.Collections.<String, Object>singletonMap("chat_id", chatId)); }
+    public static SendInput shareChat(String chatId) {
+        return new SendInput(Kind.SHARE_CHAT, null, java.util.Collections.<String, Object>singletonMap("chat_id", chatId));
+    }
 
     /**
      * Send a user share card.
      */
-    public static SendInput shareUser(String userId) { return new SendInput(Kind.SHARE_USER, null, java.util.Collections.<String, Object>singletonMap("user_id", userId)); }
+    public static SendInput shareUser(String userId) {
+        return new SendInput(Kind.SHARE_USER, null, java.util.Collections.<String, Object>singletonMap("user_id", userId));
+    }
 
     /**
      * Send a sticker by file key.
      */
-    public static SendInput sticker(String fileKey) { return new SendInput(Kind.STICKER, null, java.util.Collections.<String, Object>singletonMap("file_key", fileKey)); }
-
-    public Kind getKind() { return kind; }
-    public String getText() { return text; }
-    public Map<String, Object> getObject() { return object; }
+    public static SendInput sticker(String fileKey) {
+        return new SendInput(Kind.STICKER, null, java.util.Collections.<String, Object>singletonMap("file_key", fileKey));
+    }
 
     private static Map<String, Object> mapOf(Object... pairs) {
         java.util.LinkedHashMap<String, Object> values = new java.util.LinkedHashMap<String, Object>();
@@ -146,5 +165,24 @@ public class SendInput {
             }
         }
         return values;
+    }
+
+    public Kind getKind() {
+        return kind;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public Map<String, Object> getObject() {
+        return object;
+    }
+
+    /**
+     * Supported outbound message kinds.
+     */
+    public enum Kind {
+        MARKDOWN, TEXT, POST, IMAGE, FILE, AUDIO, VIDEO, CARD, SHARE_CHAT, SHARE_USER, STICKER
     }
 }

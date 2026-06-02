@@ -23,6 +23,7 @@ public class QuerySignatureFileSample {
                 .updateTimeStart("2022-01-01 00:00:00")
                 .updateTimeEnd("2022-01-01 00:00:00")
                 .userIdType("people_corehr_id")
+                .selectSignUrl(false)
                 .querySignatureFileReqBody(QuerySignatureFileReqBody.newBuilder()
                         .states(new String[]{})
                         .templateIds(new String[]{})

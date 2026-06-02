@@ -42,6 +42,12 @@ public class MentionEvent {
     @SerializedName("id")
     private UserId id;
     /**
+     * 被at者身份
+     * <p> 示例值：
+     */
+    @SerializedName("mentioned_type")
+    private String mentionedType;
+    /**
      * 用户姓名
      * <p> 示例值：Tom
      */
@@ -69,6 +75,11 @@ public class MentionEvent {
          * <p> 示例值：
          */
         this.id = builder.id;
+        /**
+         * 被at者身份
+         * <p> 示例值：
+         */
+        this.mentionedType = builder.mentionedType;
         /**
          * 用户姓名
          * <p> 示例值：Tom
@@ -101,6 +112,14 @@ public class MentionEvent {
         this.id = id;
     }
 
+    public String getMentionedType() {
+        return this.mentionedType;
+    }
+
+    public void setMentionedType(String mentionedType) {
+        this.mentionedType = mentionedType;
+    }
+
     public String getName() {
         return this.name;
     }
@@ -128,6 +147,11 @@ public class MentionEvent {
          * <p> 示例值：
          */
         private UserId id;
+        /**
+         * 被at者身份
+         * <p> 示例值：
+         */
+        private String mentionedType;
         /**
          * 用户姓名
          * <p> 示例值：Tom
@@ -161,6 +185,19 @@ public class MentionEvent {
          */
         public Builder id(UserId id) {
             this.id = id;
+            return this;
+        }
+
+
+        /**
+         * 被at者身份
+         * <p> 示例值：
+         *
+         * @param mentionedType
+         * @return
+         */
+        public Builder mentionedType(String mentionedType) {
+            this.mentionedType = mentionedType;
             return this;
         }
 

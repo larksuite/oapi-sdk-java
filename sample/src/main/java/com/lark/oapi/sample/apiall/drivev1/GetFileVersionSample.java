@@ -19,6 +19,8 @@ public class GetFileVersionSample {
                 .versionId("file_version")
                 .objType("doc/sheet/bitable/docx")
                 .userIdType("open_id")
+                .pageToken("1665739388")
+                .pageSize(10)
                 .build();
 
         // 发起请求

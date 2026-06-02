@@ -27,16 +27,18 @@ import com.lark.oapi.service.drive.v1.resource.FileViewRecord;
 import com.lark.oapi.service.drive.v1.resource.ImportTask;
 import com.lark.oapi.service.drive.v1.resource.Media;
 import com.lark.oapi.service.drive.v1.resource.Meta;
+import com.lark.oapi.service.drive.v1.resource.Notice;
 import com.lark.oapi.service.drive.v1.resource.PermissionMember;
 import com.lark.oapi.service.drive.v1.resource.PermissionPublic;
 import com.lark.oapi.service.drive.v1.resource.PermissionPublicPassword;
+import com.lark.oapi.service.drive.v1.resource.User;
 import com.lark.oapi.service.drive.v2.V2;
 import com.lark.oapi.service.drive.v2.model.*;
 
 public class DriveService {
     private final V1 v1;
     private final ExportTask exportTask; // 导出
-    private final File file; // 文件夹
+    private final File file; // 事件
     private final FileComment fileComment; // 评论
     private final FileCommentReply fileCommentReply; // 评论
     private final FileStatistics fileStatistics; // file.statistics
@@ -46,9 +48,11 @@ public class DriveService {
     private final ImportTask importTask; // 导入
     private final Media media; // 分片上传
     private final Meta meta; // meta
+    private final Notice notice; // notice
     private final PermissionMember permissionMember; // 成员
     private final PermissionPublic permissionPublic; // 设置
     private final PermissionPublicPassword permissionPublicPassword; // permission.public.password
+    private final User user; // user
     private final V2 v2;
 
     public DriveService(Config config) {
@@ -64,9 +68,11 @@ public class DriveService {
         this.importTask = new ImportTask(config);
         this.media = new Media(config);
         this.meta = new Meta(config);
+        this.notice = new Notice(config);
         this.permissionMember = new PermissionMember(config);
         this.permissionPublic = new PermissionPublic(config);
         this.permissionPublicPassword = new PermissionPublicPassword(config);
+        this.user = new User(config);
         this.v2 = new V2(config);
     }
 
@@ -118,6 +124,10 @@ public class DriveService {
         return meta;
     }
 
+    public Notice notice() {
+        return notice;
+    }
+
     public PermissionMember permissionMember() {
         return permissionMember;
     }
@@ -128,6 +138,10 @@ public class DriveService {
 
     public PermissionPublicPassword permissionPublicPassword() {
         return permissionPublicPassword;
+    }
+
+    public User user() {
+        return user;
     }
 
     public V2 v2() {
@@ -208,6 +222,13 @@ public class DriveService {
         @Override
         public P2FileTrashedV1 getEvent() {
             return new P2FileTrashedV1();
+        }
+    }
+
+    public abstract static class P2NoticeCommentAddV1Handler implements IEventHandler<P2NoticeCommentAddV1> {
+        @Override
+        public P2NoticeCommentAddV1 getEvent() {
+            return new P2NoticeCommentAddV1();
         }
     }
 }

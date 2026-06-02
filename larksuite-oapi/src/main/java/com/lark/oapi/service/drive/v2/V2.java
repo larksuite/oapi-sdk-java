@@ -14,15 +14,23 @@
 package com.lark.oapi.service.drive.v2;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.service.drive.v2.resource.*;
+import com.lark.oapi.service.drive.v2.resource.CommentReaction;
+import com.lark.oapi.service.drive.v2.resource.FileLike;
+import com.lark.oapi.service.drive.v2.resource.PermissionPublic;
 
 public class V2 {
+    private final CommentReaction commentReaction; // comment_reaction
     private final FileLike fileLike; // file.like
     private final PermissionPublic permissionPublic; // permission.public
 
     public V2(Config config) {
+        this.commentReaction = new CommentReaction(config);
         this.fileLike = new FileLike(config);
         this.permissionPublic = new PermissionPublic(config);
+    }
+
+    public CommentReaction commentReaction() {
+        return commentReaction;
     }
 
     public FileLike fileLike() {

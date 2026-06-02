@@ -14,11 +14,26 @@
 package com.lark.oapi.service.drive.v1;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.service.drive.v1.resource.*;
+import com.lark.oapi.service.drive.v1.resource.ExportTask;
+import com.lark.oapi.service.drive.v1.resource.File;
+import com.lark.oapi.service.drive.v1.resource.FileComment;
+import com.lark.oapi.service.drive.v1.resource.FileCommentReply;
+import com.lark.oapi.service.drive.v1.resource.FileStatistics;
+import com.lark.oapi.service.drive.v1.resource.FileSubscription;
+import com.lark.oapi.service.drive.v1.resource.FileVersion;
+import com.lark.oapi.service.drive.v1.resource.FileViewRecord;
+import com.lark.oapi.service.drive.v1.resource.ImportTask;
+import com.lark.oapi.service.drive.v1.resource.Media;
+import com.lark.oapi.service.drive.v1.resource.Meta;
+import com.lark.oapi.service.drive.v1.resource.Notice;
+import com.lark.oapi.service.drive.v1.resource.PermissionMember;
+import com.lark.oapi.service.drive.v1.resource.PermissionPublic;
+import com.lark.oapi.service.drive.v1.resource.PermissionPublicPassword;
+import com.lark.oapi.service.drive.v1.resource.User;
 
 public class V1 {
     private final ExportTask exportTask; // 导出
-    private final File file; // 文件夹
+    private final File file; // 事件
     private final FileComment fileComment; // 评论
     private final FileCommentReply fileCommentReply; // 评论
     private final FileStatistics fileStatistics; // file.statistics
@@ -28,9 +43,11 @@ public class V1 {
     private final ImportTask importTask; // 导入
     private final Media media; // 分片上传
     private final Meta meta; // meta
+    private final Notice notice; // notice
     private final PermissionMember permissionMember; // 成员
     private final PermissionPublic permissionPublic; // 设置
     private final PermissionPublicPassword permissionPublicPassword; // permission.public.password
+    private final User user; // user
 
     public V1(Config config) {
         this.exportTask = new ExportTask(config);
@@ -44,9 +61,11 @@ public class V1 {
         this.importTask = new ImportTask(config);
         this.media = new Media(config);
         this.meta = new Meta(config);
+        this.notice = new Notice(config);
         this.permissionMember = new PermissionMember(config);
         this.permissionPublic = new PermissionPublic(config);
         this.permissionPublicPassword = new PermissionPublicPassword(config);
+        this.user = new User(config);
     }
 
     public ExportTask exportTask() {
@@ -93,6 +112,10 @@ public class V1 {
         return meta;
     }
 
+    public Notice notice() {
+        return notice;
+    }
+
     public PermissionMember permissionMember() {
         return permissionMember;
     }
@@ -103,5 +126,9 @@ public class V1 {
 
     public PermissionPublicPassword permissionPublicPassword() {
         return permissionPublicPassword;
+    }
+
+    public User user() {
+        return user;
     }
 }

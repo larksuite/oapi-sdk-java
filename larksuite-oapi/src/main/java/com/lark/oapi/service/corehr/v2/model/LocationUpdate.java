@@ -95,6 +95,12 @@ public class LocationUpdate {
      */
     @SerializedName("display_language_id")
     private String displayLanguageId;
+    /**
+     * 是否优先使用手动编码。设置为 true 时，即使开启了自动编码功能，系统也会优先采用请求中传入的手动编码值；仅当未传入手动编码时，才回退至自动编码。设置为 false 或未传入时，遵循系统默认的编码策略。
+     * <p> 示例值：
+     */
+    @SerializedName("is_prefer_manual_encoding")
+    private Boolean isPreferManualEncoding;
 
     // builder 开始
     public LocationUpdate() {
@@ -156,6 +162,11 @@ public class LocationUpdate {
          * <p> 示例值：123456789
          */
         this.displayLanguageId = builder.displayLanguageId;
+        /**
+         * 是否优先使用手动编码。设置为 true 时，即使开启了自动编码功能，系统也会优先采用请求中传入的手动编码值；仅当未传入手动编码时，才回退至自动编码。设置为 false 或未传入时，遵循系统默认的编码策略。
+         * <p> 示例值：
+         */
+        this.isPreferManualEncoding = builder.isPreferManualEncoding;
     }
 
     public static Builder newBuilder() {
@@ -250,6 +261,14 @@ public class LocationUpdate {
         this.displayLanguageId = displayLanguageId;
     }
 
+    public Boolean getIsPreferManualEncoding() {
+        return this.isPreferManualEncoding;
+    }
+
+    public void setIsPreferManualEncoding(Boolean isPreferManualEncoding) {
+        this.isPreferManualEncoding = isPreferManualEncoding;
+    }
+
     public static class Builder {
         /**
          * 上级地点 ID
@@ -306,6 +325,11 @@ public class LocationUpdate {
          * <p> 示例值：123456789
          */
         private String displayLanguageId;
+        /**
+         * 是否优先使用手动编码。设置为 true 时，即使开启了自动编码功能，系统也会优先采用请求中传入的手动编码值；仅当未传入手动编码时，才回退至自动编码。设置为 false 或未传入时，遵循系统默认的编码策略。
+         * <p> 示例值：
+         */
+        private Boolean isPreferManualEncoding;
 
         /**
          * 上级地点 ID
@@ -446,6 +470,19 @@ public class LocationUpdate {
          */
         public Builder displayLanguageId(String displayLanguageId) {
             this.displayLanguageId = displayLanguageId;
+            return this;
+        }
+
+
+        /**
+         * 是否优先使用手动编码。设置为 true 时，即使开启了自动编码功能，系统也会优先采用请求中传入的手动编码值；仅当未传入手动编码时，才回退至自动编码。设置为 false 或未传入时，遵循系统默认的编码策略。
+         * <p> 示例值：
+         *
+         * @param isPreferManualEncoding
+         * @return
+         */
+        public Builder isPreferManualEncoding(Boolean isPreferManualEncoding) {
+            this.isPreferManualEncoding = isPreferManualEncoding;
             return this;
         }
 

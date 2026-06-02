@@ -19,7 +19,7 @@ public class BatchCreatePermissionMemberSample {
                 .type("doc")
                 .needNotification(false)
                 .batchCreatePermissionMemberReqBody(BatchCreatePermissionMemberReqBody.newBuilder()
-                        .members(new BaseMember[]{})
+                        .members(new Member[]{})
                         .build())
                 .build();
 

@@ -14,7 +14,21 @@
 package com.lark.oapi.service.contact.v3;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.service.contact.v3.resource.*;
+import com.lark.oapi.service.contact.v3.resource.CustomAttr;
+import com.lark.oapi.service.contact.v3.resource.CustomAttrEvent;
+import com.lark.oapi.service.contact.v3.resource.Department;
+import com.lark.oapi.service.contact.v3.resource.EmployeeTypeEnum;
+import com.lark.oapi.service.contact.v3.resource.FunctionalRole;
+import com.lark.oapi.service.contact.v3.resource.FunctionalRoleMember;
+import com.lark.oapi.service.contact.v3.resource.Group;
+import com.lark.oapi.service.contact.v3.resource.GroupMember;
+import com.lark.oapi.service.contact.v3.resource.JobFamily;
+import com.lark.oapi.service.contact.v3.resource.JobLevel;
+import com.lark.oapi.service.contact.v3.resource.JobTitle;
+import com.lark.oapi.service.contact.v3.resource.Scope;
+import com.lark.oapi.service.contact.v3.resource.Unit;
+import com.lark.oapi.service.contact.v3.resource.User;
+import com.lark.oapi.service.contact.v3.resource.WorkCity;
 
 public class V3 {
     private final CustomAttr customAttr; // 自定义用户字段

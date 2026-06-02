@@ -2,6 +2,7 @@ package com.lark.oapi.channel.outbound.media;
 
 import com.lark.oapi.channel.exception.LarkChannelErrorCode;
 import com.lark.oapi.channel.exception.LarkChannelException;
+
 import java.math.BigInteger;
 import java.net.InetAddress;
 import java.net.URL;
@@ -105,10 +106,10 @@ final class SsrfGuard {
         if (bytes.length != 16) {
             return null;
         }
-        if (matchesPrefix(bytes, new int[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0xff, 0xff}, 12)
-                || matchesPrefix(bytes, new int[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, 12)
-                || matchesPrefix(bytes, new int[] {0x00, 0x64, 0xff, 0x9b, 0, 0, 0, 0, 0, 0, 0, 0}, 12)) {
-            return new byte[] {bytes[12], bytes[13], bytes[14], bytes[15]};
+        if (matchesPrefix(bytes, new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0xff, 0xff}, 12)
+                || matchesPrefix(bytes, new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, 12)
+                || matchesPrefix(bytes, new int[]{0x00, 0x64, 0xff, 0x9b, 0, 0, 0, 0, 0, 0, 0, 0}, 12)) {
+            return new byte[]{bytes[12], bytes[13], bytes[14], bytes[15]};
         }
         return null;
     }
@@ -120,6 +121,14 @@ final class SsrfGuard {
             }
         }
         return true;
+    }
+
+    private static Cidr cidr(String address, int prefixLength) {
+        try {
+            return new Cidr(InetAddress.getByName(address), prefixLength);
+        } catch (UnknownHostException e) {
+            throw new IllegalStateException(e);
+        }
     }
 
     static final class Validation {
@@ -140,14 +149,6 @@ final class SsrfGuard {
         }
     }
 
-    private static Cidr cidr(String address, int prefixLength) {
-        try {
-            return new Cidr(InetAddress.getByName(address), prefixLength);
-        } catch (UnknownHostException e) {
-            throw new IllegalStateException(e);
-        }
-    }
-
     private static final class Cidr {
         private final BigInteger network;
         private final BigInteger mask;
@@ -161,17 +162,17 @@ final class SsrfGuard {
             this.network = new BigInteger(1, bytes).and(mask);
         }
 
-        private boolean contains(InetAddress address) {
-            byte[] bytes = normalize(address);
-            return bytes.length * 8 == length && new BigInteger(1, bytes).and(mask).equals(network);
-        }
-
         private static byte[] normalize(InetAddress address) {
             byte[] bytes = address.getAddress();
             if (bytes.length == 4) {
                 return bytes;
             }
             return bytes;
+        }
+
+        private boolean contains(InetAddress address) {
+            byte[] bytes = normalize(address);
+            return bytes.length * 8 == length && new BigInteger(1, bytes).and(mask).equals(network);
         }
     }
 }

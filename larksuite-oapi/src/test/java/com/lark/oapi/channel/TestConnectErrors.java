@@ -8,11 +8,24 @@ import com.lark.oapi.channel.model.BotIdentity;
 import com.lark.oapi.core.request.RequestOptions;
 import com.lark.oapi.core.response.RawResponse;
 import com.lark.oapi.core.token.AccessTokenType;
+
 import java.nio.charset.StandardCharsets;
+
 import org.junit.Assert;
 import org.junit.Test;
 
 public class TestConnectErrors {
+    private static LarkChannelOptions options() {
+        return LarkChannelOptions.newBuilder("cli_test", "secret").transport("webhook").build();
+    }
+
+    private static RawResponse response(int statusCode, String body) {
+        RawResponse response = new RawResponse();
+        response.setStatusCode(statusCode);
+        response.setBody(body.getBytes(StandardCharsets.UTF_8));
+        return response;
+    }
+
     @Test
     public void testHttp401MapsToPermissionDenied() {
         assertConnectError(response(401, "{\"code\":99991401,\"msg\":\"invalid token\"}"),
@@ -69,17 +82,6 @@ public class TestConnectErrors {
         } catch (LarkChannelException e) {
             Assert.assertEquals(expected.getValue(), e.getCode());
         }
-    }
-
-    private static LarkChannelOptions options() {
-        return LarkChannelOptions.newBuilder("cli_test", "secret").transport("webhook").build();
-    }
-
-    private static RawResponse response(int statusCode, String body) {
-        RawResponse response = new RawResponse();
-        response.setStatusCode(statusCode);
-        response.setBody(body.getBytes(StandardCharsets.UTF_8));
-        return response;
     }
 
     private static final class StubBotInfoClient extends Client {

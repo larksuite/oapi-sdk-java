@@ -243,10 +243,10 @@ public class UserGroup {
          * 用户组状态
          * <p> 示例值：1
          *
-         * @param status {@link com.lark.oapi.service.contact.v3.enums.UserGroupStatusEnum}
+         * @param status {@link com.lark.oapi.service.contact.v3.enums.UserGroupUserGroupStatusEnum}
          * @return
          */
-        public Builder status(com.lark.oapi.service.contact.v3.enums.UserGroupStatusEnum status) {
+        public Builder status(com.lark.oapi.service.contact.v3.enums.UserGroupUserGroupStatusEnum status) {
             this.status = status.getValue();
             return this;
         }

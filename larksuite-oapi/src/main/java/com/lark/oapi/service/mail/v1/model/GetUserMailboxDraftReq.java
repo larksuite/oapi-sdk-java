@@ -53,6 +53,7 @@ public class GetUserMailboxDraftReq {
     // builder 开始
     public GetUserMailboxDraftReq() {
     }
+
     public GetUserMailboxDraftReq(Builder builder) {
         /**
          * 需要获取的草稿内容样式，取值：metadata / full（默认）/ raw

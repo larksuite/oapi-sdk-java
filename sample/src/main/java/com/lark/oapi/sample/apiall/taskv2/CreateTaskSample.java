@@ -35,6 +35,9 @@ public class CreateTaskSample {
                         .customFields(new InputCustomFieldValue[]{})
                         .docxSource(DocxSource.newBuilder().build())
                         .positiveReminders(new Reminder[]{})
+                        .agentTaskStatus(1)
+                        .agentTaskProgress("1/4")
+                        .textDeliveries(new String[]{})
                         .build())
                 .build();
 

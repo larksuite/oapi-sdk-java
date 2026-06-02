@@ -18,6 +18,8 @@ package com.lark.oapi.service.wiki.v2.enums;
  */
 public enum GetTaskTaskTypeEnum {
     MOVE("move"), // MoveDocsToWiki任务
+    DELETESPACE("delete_space"), // 删除知识空间任务
+    DELETENODE("delete_node"), // 删除知识库节点
     ;
     private String value;
 

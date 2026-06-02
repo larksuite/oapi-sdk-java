@@ -20,6 +20,7 @@ public enum TransferOwnerPermissionMemberMemberTypeEnum {
     EMAIL("email"), // 飞书邮箱
     OPEN_ID("openid"), // 开放平台ID
     USER_ID("userid"), // 用户自定义ID
+    APP_ID("appid"), // 应用ID
     ;
     private String value;
 

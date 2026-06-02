@@ -50,6 +50,13 @@ public class ListFileCommentReplyReq {
     @SerializedName("file_type")
     private String fileType;
     /**
+     * 是否需要获取评论卡片上挂载的Reaction数据
+     * <p> 示例值：
+     */
+    @Query
+    @SerializedName("need_reaction")
+    private Boolean needReaction;
+    /**
      * 此次调用中使用的用户ID的类型
      * <p> 示例值：
      */
@@ -91,6 +98,11 @@ public class ListFileCommentReplyReq {
          * <p> 示例值：docx
          */
         this.fileType = builder.fileType;
+        /**
+         * 是否需要获取评论卡片上挂载的Reaction数据
+         * <p> 示例值：
+         */
+        this.needReaction = builder.needReaction;
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
@@ -136,6 +148,14 @@ public class ListFileCommentReplyReq {
         this.fileType = fileType;
     }
 
+    public Boolean getNeedReaction() {
+        return this.needReaction;
+    }
+
+    public void setNeedReaction(Boolean needReaction) {
+        this.needReaction = needReaction;
+    }
+
     public String getUserIdType() {
         return this.userIdType;
     }
@@ -164,6 +184,7 @@ public class ListFileCommentReplyReq {
         private Integer pageSize; // 分页大小
         private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
         private String fileType; // 文档类型
+        private Boolean needReaction; // 是否需要获取评论卡片上挂载的Reaction数据
         private String userIdType; // 此次调用中使用的用户ID的类型
         private String fileToken; // 文档Token
         private String commentId; // 评论ID
@@ -213,6 +234,18 @@ public class ListFileCommentReplyReq {
          */
         public Builder fileType(com.lark.oapi.service.drive.v1.enums.ListFileCommentReplyFileTypeEnum fileType) {
             this.fileType = fileType.getValue();
+            return this;
+        }
+
+        /**
+         * 是否需要获取评论卡片上挂载的Reaction数据
+         * <p> 示例值：
+         *
+         * @param needReaction
+         * @return
+         */
+        public Builder needReaction(Boolean needReaction) {
+            this.needReaction = needReaction;
             return this;
         }
 

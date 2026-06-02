@@ -9,9 +9,16 @@ public enum RejectReason {
 
     private final String value;
 
-    RejectReason(String value) { this.value = value; }
-    public String getValue() { return value; }
+    RejectReason(String value) {
+        this.value = value;
+    }
+
+    public String getValue() {
+        return value;
+    }
 
     @Override
-    public String toString() { return value; }
+    public String toString() {
+        return value;
+    }
 }
