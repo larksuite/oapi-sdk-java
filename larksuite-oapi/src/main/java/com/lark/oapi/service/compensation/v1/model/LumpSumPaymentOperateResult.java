@@ -178,6 +178,19 @@ public class LumpSumPaymentOperateResult {
         }
 
         /**
+         * 操作结果状态码
+         * <p> 示例值：21270202
+         *
+         * @param code {@link com.lark.oapi.service.compensation.v1.enums.LumpSumPaymentOperateResultCodeEnum}
+         * @return
+         */
+        public Builder code(com.lark.oapi.service.compensation.v1.enums.LumpSumPaymentOperateResultCodeEnum code) {
+            this.code = code.getValue();
+            return this;
+        }
+
+
+        /**
          * 操作结果描述
          * <p> 示例值：uqniue id conflict
          *

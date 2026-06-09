@@ -65,6 +65,12 @@ public class DeviceApplyRecord {
      */
     @SerializedName("apply_device_ownership")
     private Integer applyDeviceOwnership;
+    /**
+     * 申报理由
+     * <p> 示例值：reason
+     */
+    @SerializedName("apply_reason")
+    private String applyReason;
 
     // builder 开始
     public DeviceApplyRecord() {
@@ -101,6 +107,11 @@ public class DeviceApplyRecord {
          * <p> 示例值：0
          */
         this.applyDeviceOwnership = builder.applyDeviceOwnership;
+        /**
+         * 申报理由
+         * <p> 示例值：reason
+         */
+        this.applyReason = builder.applyReason;
     }
 
     public static Builder newBuilder() {
@@ -155,6 +166,14 @@ public class DeviceApplyRecord {
         this.applyDeviceOwnership = applyDeviceOwnership;
     }
 
+    public String getApplyReason() {
+        return this.applyReason;
+    }
+
+    public void setApplyReason(String applyReason) {
+        this.applyReason = applyReason;
+    }
+
     public static class Builder {
         /**
          * 设备申报记录ID
@@ -186,6 +205,11 @@ public class DeviceApplyRecord {
          * <p> 示例值：0
          */
         private Integer applyDeviceOwnership;
+        /**
+         * 申报理由
+         * <p> 示例值：reason
+         */
+        private String applyReason;
 
         /**
          * 设备申报记录ID
@@ -285,6 +309,19 @@ public class DeviceApplyRecord {
          */
         public Builder applyDeviceOwnership(com.lark.oapi.service.security_and_compliance.v2.enums.DeviceApplyRecordDeviceOwnershipEnum applyDeviceOwnership) {
             this.applyDeviceOwnership = applyDeviceOwnership.getValue();
+            return this;
+        }
+
+
+        /**
+         * 申报理由
+         * <p> 示例值：reason
+         *
+         * @param applyReason
+         * @return
+         */
+        public Builder applyReason(String applyReason) {
+            this.applyReason = applyReason;
             return this;
         }
 

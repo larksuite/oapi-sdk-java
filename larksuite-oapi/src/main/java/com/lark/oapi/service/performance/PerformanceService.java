@@ -14,14 +14,22 @@ package com.lark.oapi.service.performance;
 
 import com.lark.oapi.core.Config;
 import com.lark.oapi.event.IEventHandler;
+import com.lark.oapi.service.performance.v1.V1;
+import com.lark.oapi.service.performance.v1.model.*;
 import com.lark.oapi.service.performance.v2.V2;
 import com.lark.oapi.service.performance.v2.model.*;
 
 public class PerformanceService {
+    private final V1 v1;
     private final V2 v2;
 
     public PerformanceService(Config config) {
+        this.v1 = new V1(config);
         this.v2 = new V2(config);
+    }
+
+    public V1 v1() {
+        return v1;
     }
 
     public V2 v2() {

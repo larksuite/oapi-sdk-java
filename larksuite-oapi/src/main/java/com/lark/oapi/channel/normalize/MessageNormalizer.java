@@ -9,13 +9,13 @@ import com.lark.oapi.service.im.v1.model.UserId;
 
 /**
  * Normalize a raw Feishu message event into a NormalizedMessage.
- *
+ * <p>
  * Pipeline:
- *   1. Extract mentions -> build key/openId maps + bot detection
- *   2. Build ConvertContext with injected capabilities
- *   3. Dispatch to the matching converter, with uniform error containment
- *   4. Run resolveMentions second pass, replacing placeholders with @name
- *   5. Assemble and return NormalizedMessage
+ * 1. Extract mentions -> build key/openId maps + bot detection
+ * 2. Build ConvertContext with injected capabilities
+ * 3. Dispatch to the matching converter, with uniform error containment
+ * 4. Run resolveMentions second pass, replacing placeholders with @name
+ * 5. Assemble and return NormalizedMessage
  */
 class MessageNormalizer {
     NormalizedMessage normalize(P2MessageReceiveV1 event, NormalizeOptions opts) {

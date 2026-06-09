@@ -64,6 +64,13 @@ public class GetApprovalReq {
     @SerializedName("user_id")
     private String userId;
     /**
+     * 是否返回完整的多维表格控件
+     * <p> 示例值：
+     */
+    @Query
+    @SerializedName("nested_mutable_group")
+    private Boolean nestedMutableGroup;
+    /**
      * 审批定义 Code
      * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
      */
@@ -101,6 +108,11 @@ public class GetApprovalReq {
          * <p> 示例值：ou_7a4aaac5650dc0b77e85e96e7476ff1d
          */
         this.userId = builder.userId;
+        /**
+         * 是否返回完整的多维表格控件
+         * <p> 示例值：
+         */
+        this.nestedMutableGroup = builder.nestedMutableGroup;
         /**
          * 审批定义 Code
          * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
@@ -152,6 +164,14 @@ public class GetApprovalReq {
         this.userId = userId;
     }
 
+    public Boolean getNestedMutableGroup() {
+        return this.nestedMutableGroup;
+    }
+
+    public void setNestedMutableGroup(Boolean nestedMutableGroup) {
+        this.nestedMutableGroup = nestedMutableGroup;
+    }
+
     public String getApprovalCode() {
         return this.approvalCode;
     }
@@ -166,6 +186,7 @@ public class GetApprovalReq {
         private String userIdType; // 此次调用中使用的用户ID的类型
         private Boolean withOption; // 可选是否返回外部数据源和假勤控件选项
         private String userId; // 用户id
+        private Boolean nestedMutableGroup; // 是否返回完整的多维表格控件
         private String approvalCode; // 审批定义 Code
 
         /**
@@ -249,6 +270,18 @@ public class GetApprovalReq {
          */
         public Builder userId(String userId) {
             this.userId = userId;
+            return this;
+        }
+
+        /**
+         * 是否返回完整的多维表格控件
+         * <p> 示例值：
+         *
+         * @param nestedMutableGroup
+         * @return
+         */
+        public Builder nestedMutableGroup(Boolean nestedMutableGroup) {
+            this.nestedMutableGroup = nestedMutableGroup;
             return this;
         }
 

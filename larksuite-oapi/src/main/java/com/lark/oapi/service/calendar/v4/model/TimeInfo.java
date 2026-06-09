@@ -36,6 +36,12 @@ public class TimeInfo {
     @SerializedName("date")
     private String date;
     /**
+     * 时间日期字符串，非全天日程使用
+     * <p> 示例值：2018-09-01T14:00:00+08:00
+     */
+    @SerializedName("date_time")
+    private String dateTime;
+    /**
      * 秒级时间戳，如1602504000(表示2020/10/12 20:0:00 +8时区)
      * <p> 示例值：1602504000
      */
@@ -59,6 +65,11 @@ public class TimeInfo {
          */
         this.date = builder.date;
         /**
+         * 时间日期字符串，非全天日程使用
+         * <p> 示例值：2018-09-01T14:00:00+08:00
+         */
+        this.dateTime = builder.dateTime;
+        /**
          * 秒级时间戳，如1602504000(表示2020/10/12 20:0:00 +8时区)
          * <p> 示例值：1602504000
          */
@@ -80,6 +91,14 @@ public class TimeInfo {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public String getDateTime() {
+        return this.dateTime;
+    }
+
+    public void setDateTime(String dateTime) {
+        this.dateTime = dateTime;
     }
 
     public String getTimestamp() {
@@ -105,6 +124,11 @@ public class TimeInfo {
          */
         private String date;
         /**
+         * 时间日期字符串，非全天日程使用
+         * <p> 示例值：2018-09-01T14:00:00+08:00
+         */
+        private String dateTime;
+        /**
          * 秒级时间戳，如1602504000(表示2020/10/12 20:0:00 +8时区)
          * <p> 示例值：1602504000
          */
@@ -124,6 +148,19 @@ public class TimeInfo {
          */
         public Builder date(String date) {
             this.date = date;
+            return this;
+        }
+
+
+        /**
+         * 时间日期字符串，非全天日程使用
+         * <p> 示例值：2018-09-01T14:00:00+08:00
+         *
+         * @param dateTime
+         * @return
+         */
+        public Builder dateTime(String dateTime) {
+            this.dateTime = dateTime;
             return this;
         }
 

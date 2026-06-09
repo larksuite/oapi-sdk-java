@@ -23,18 +23,52 @@ public class ReactionEvent {
         this.raw = raw;
     }
 
-    /** Message id whose reaction changed. */
-    public String getMessageId() { return messageId; }
-    /** Operator id, usually open_id. */
-    public String getOperatorId() { return operatorId; }
-    /** Operator type from Feishu event payload. */
-    public String getOperatorType() { return operatorType; }
-    /** Emoji type such as {@code OK} or {@code THUMBSUP}. */
-    public String getEmojiType() { return emojiType; }
-    /** {@code created} or {@code deleted}. */
-    public String getAction() { return action; }
-    /** Feishu action time in milliseconds when present. */
-    public long getActionTime() { return actionTime; }
-    /** Raw event body when raw events are enabled. */
-    public Object getRaw() { return raw; }
+    /**
+     * Message id whose reaction changed.
+     */
+    public String getMessageId() {
+        return messageId;
+    }
+
+    /**
+     * Operator id, usually open_id.
+     */
+    public String getOperatorId() {
+        return operatorId;
+    }
+
+    /**
+     * Operator type from Feishu event payload.
+     */
+    public String getOperatorType() {
+        return operatorType;
+    }
+
+    /**
+     * Emoji type such as {@code OK} or {@code THUMBSUP}.
+     */
+    public String getEmojiType() {
+        return emojiType;
+    }
+
+    /**
+     * {@code created} or {@code deleted}.
+     */
+    public String getAction() {
+        return action;
+    }
+
+    /**
+     * Feishu action time in milliseconds when present.
+     */
+    public long getActionTime() {
+        return actionTime;
+    }
+
+    /**
+     * Raw event body when raw events are enabled.
+     */
+    public Object getRaw() {
+        return raw;
+    }
 }

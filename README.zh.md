@@ -104,6 +104,7 @@ SDK 提供 `RegisterApp.register(...)` 能力，基于 OAuth 2.0 Device Authoriz
 该方法会返回一个验证链接，用户在飞书/Lark 中打开该链接完成授权后，即可自动注册应用并获取凭据，无需手动到开发者后台创建。
 
 ```java
+import com.lark.oapi.scene.registration.AppPreset;
 import com.lark.oapi.scene.registration.RegisterApp;
 import com.lark.oapi.scene.registration.RegisterAppException;
 import com.lark.oapi.scene.registration.RegisterAppOptions;
@@ -116,6 +117,14 @@ public class Sample {
             RegisterAppResult result = RegisterApp.register(
                     RegisterAppOptions.newBuilder()
                             .source("test")
+                            .appPreset(AppPreset.newBuilder()
+                                    .avatars(
+                                            "https://s1-imfile.feishucdn.com/static-resource/v1/v3_00cj_d6bebede-c56b-40a2-b767-8e9da07f3b3g",
+                                            "https://s1-imfile.feishucdn.com/static-resource/v1/v2_bc5d2075-fcbd-41f8-bfe3-5a5ecbf0f7dg"
+                                    )
+                                    .name("{user}的应用")
+                                    .desc("由业务平台自动生成")
+                                    .build())
                             .onQRCode(info -> {
                                 System.out.println("Please scan the QR code:");
                                 System.out.println(info.getUrl());
@@ -142,6 +151,7 @@ public class Sample {
 
 真实可运行示例：
 - [RegisterAppRealDemo](larksuite-oapi/src/test/java/com/lark/oapi/scene/registration/RegisterAppRealDemo.java)
+- [RegisterAppAppPresetE2E](sample/src/main/java/com/lark/oapi/sample/scene/registration/RegisterAppAppPresetE2E.java)
 
 #### `RegisterAppOptions` 参数
 
@@ -150,6 +160,10 @@ public class Sample {
 | `source` | 来源标识，拼入二维码 URL 的 `source` 参数，格式为 `java-sdk/{source}` | `String` | 否 | - |
 | `domain` | 自定义飞书认证基地址 | `String` | 否 | `https://accounts.feishu.cn` |
 | `larkDomain` | 自定义 Lark 认证基地址，检测到 Lark 租户时自动切换 | `String` | 否 | `https://accounts.larksuite.com` |
+| `appPreset` | 预设应用信息，用于初始化应用创建页。所有字段都是可选的，用户扫码后仍可在页面手动修改。SDK 会自动对原始值做 URL Encode。 | `AppPreset` | 否 | - |
+| `appPreset.avatar` | 应用头像候选 URL，支持 1-6 个；传多个时默认选中第一个。图片格式、GIF 截帧、裁切和展示由页面/服务端处理。 | `String` / `String[]` / `List<String>` | 否 | - |
+| `appPreset.name` | 应用名称，支持 `{user}` 占位符，由应用创建页替换为扫码用户名称。 | `String` | 否 | - |
+| `appPreset.desc` | 应用描述，支持 `{user}` 占位符。 | `String` | 否 | - |
 | `onQRCode` | 验证链接就绪时的回调，参数为 `QRCodeInfo`，包含 `url` 和 `expireIn` | `Consumer<QRCodeInfo>` | 是 | - |
 | `onStatusChange` | 轮询状态变化时的回调，参数为 `StatusChangeInfo` | `Consumer<StatusChangeInfo>` | 否 | - |
 

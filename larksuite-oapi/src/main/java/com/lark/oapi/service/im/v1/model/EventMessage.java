@@ -101,6 +101,12 @@ public class EventMessage {
      */
     @SerializedName("user_agent")
     private String userAgent;
+    /**
+     * 智能体上下文信息
+     * <p> 示例值：
+     */
+    @SerializedName("lark_agent_context")
+    private LarkAgentContext larkAgentContext;
 
     // builder 开始
     public EventMessage() {
@@ -167,6 +173,11 @@ public class EventMessage {
          * <p> 示例值：Mozilla/5.0 (Macintosh; Intel Mac OS X 13_2_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.53 Safari/537.36 Lark/6.7.5 LarkLocale/en_US ttnet SDK-Version/6.7.8
          */
         this.userAgent = builder.userAgent;
+        /**
+         * 智能体上下文信息
+         * <p> 示例值：
+         */
+        this.larkAgentContext = builder.larkAgentContext;
     }
 
     public static Builder newBuilder() {
@@ -269,6 +280,14 @@ public class EventMessage {
         this.userAgent = userAgent;
     }
 
+    public LarkAgentContext getLarkAgentContext() {
+        return this.larkAgentContext;
+    }
+
+    public void setLarkAgentContext(LarkAgentContext larkAgentContext) {
+        this.larkAgentContext = larkAgentContext;
+    }
+
     public static class Builder {
         /**
          * 消息的open_message_id，说明参见：[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
@@ -330,6 +349,11 @@ public class EventMessage {
          * <p> 示例值：Mozilla/5.0 (Macintosh; Intel Mac OS X 13_2_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.53 Safari/537.36 Lark/6.7.5 LarkLocale/en_US ttnet SDK-Version/6.7.8
          */
         private String userAgent;
+        /**
+         * 智能体上下文信息
+         * <p> 示例值：
+         */
+        private LarkAgentContext larkAgentContext;
 
         /**
          * 消息的open_message_id，说明参见：[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
@@ -483,6 +507,19 @@ public class EventMessage {
          */
         public Builder userAgent(String userAgent) {
             this.userAgent = userAgent;
+            return this;
+        }
+
+
+        /**
+         * 智能体上下文信息
+         * <p> 示例值：
+         *
+         * @param larkAgentContext
+         * @return
+         */
+        public Builder larkAgentContext(LarkAgentContext larkAgentContext) {
+            this.larkAgentContext = larkAgentContext;
             return this;
         }
 

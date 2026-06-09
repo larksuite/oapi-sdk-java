@@ -173,6 +173,18 @@ public class OffboardingInfo {
      */
     @SerializedName("is_transfer_with_workforce")
     private Boolean isTransferWithWorkforce;
+    /**
+     * 离职员工的雇佣信息
+     * <p> 示例值：
+     */
+    @SerializedName("employment")
+    private ViewEmploymentInfo employment;
+    /**
+     * 无权限的字段列表
+     * <p> 示例值：
+     */
+    @SerializedName("no_permission_fields")
+    private String[] noPermissionFields;
 
     // builder 开始
     public OffboardingInfo() {
@@ -299,6 +311,16 @@ public class OffboardingInfo {
          * <p> 示例值：false
          */
         this.isTransferWithWorkforce = builder.isTransferWithWorkforce;
+        /**
+         * 离职员工的雇佣信息
+         * <p> 示例值：
+         */
+        this.employment = builder.employment;
+        /**
+         * 无权限的字段列表
+         * <p> 示例值：
+         */
+        this.noPermissionFields = builder.noPermissionFields;
     }
 
     public static Builder newBuilder() {
@@ -497,6 +519,22 @@ public class OffboardingInfo {
         this.isTransferWithWorkforce = isTransferWithWorkforce;
     }
 
+    public ViewEmploymentInfo getEmployment() {
+        return this.employment;
+    }
+
+    public void setEmployment(ViewEmploymentInfo employment) {
+        this.employment = employment;
+    }
+
+    public String[] getNoPermissionFields() {
+        return this.noPermissionFields;
+    }
+
+    public void setNoPermissionFields(String[] noPermissionFields) {
+        this.noPermissionFields = noPermissionFields;
+    }
+
     public static class Builder {
         /**
          * 离职员工的雇佣 ID
@@ -618,6 +656,16 @@ public class OffboardingInfo {
          * <p> 示例值：false
          */
         private Boolean isTransferWithWorkforce;
+        /**
+         * 离职员工的雇佣信息
+         * <p> 示例值：
+         */
+        private ViewEmploymentInfo employment;
+        /**
+         * 无权限的字段列表
+         * <p> 示例值：
+         */
+        private String[] noPermissionFields;
 
         /**
          * 离职员工的雇佣 ID
@@ -927,6 +975,32 @@ public class OffboardingInfo {
          */
         public Builder isTransferWithWorkforce(Boolean isTransferWithWorkforce) {
             this.isTransferWithWorkforce = isTransferWithWorkforce;
+            return this;
+        }
+
+
+        /**
+         * 离职员工的雇佣信息
+         * <p> 示例值：
+         *
+         * @param employment
+         * @return
+         */
+        public Builder employment(ViewEmploymentInfo employment) {
+            this.employment = employment;
+            return this;
+        }
+
+
+        /**
+         * 无权限的字段列表
+         * <p> 示例值：
+         *
+         * @param noPermissionFields
+         * @return
+         */
+        public Builder noPermissionFields(String[] noPermissionFields) {
+            this.noPermissionFields = noPermissionFields;
             return this;
         }
 

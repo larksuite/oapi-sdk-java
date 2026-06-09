@@ -23,6 +23,9 @@ public class ListJobSample {
                 .departmentIdType("open_department_id")
                 .jobLevelIdType("people_admin_job_level_id")
                 .jobFamilyIdType("people_admin_job_category_id")
+                .recruiterIdList(new String[]{})
+                .hiringManagerIdList(new String[]{})
+                .assistantIdList(new String[]{})
                 .build();
 
         // 发起请求

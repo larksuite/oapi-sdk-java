@@ -20,6 +20,7 @@ public class SearchOffboardingSample {
                 .pageSize(100)
                 .pageToken("6891251722631890445")
                 .userIdType("open_id")
+                .departmentIdType("open_department_id")
                 .searchOffboardingReqBody(SearchOffboardingReqBody.newBuilder()
                         .employmentIds(new String[]{})
                         .applyInitiatingTimeStart("2022-01-01 11:22:33")
@@ -33,6 +34,8 @@ public class SearchOffboardingSample {
                         .statuses(new String[]{})
                         .reasons(new String[]{})
                         .employeeReasons(new String[]{})
+                        .departmentIds(new String[]{})
+                        .selectFields(new String[]{})
                         .build())
                 .build();
 

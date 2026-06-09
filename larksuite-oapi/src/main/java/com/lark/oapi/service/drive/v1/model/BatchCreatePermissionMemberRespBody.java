@@ -33,13 +33,13 @@ public class BatchCreatePermissionMemberRespBody {
      * <p> 示例值：
      */
     @SerializedName("members")
-    private BaseMember[] members;
+    private Member[] members;
 
-    public BaseMember[] getMembers() {
+    public Member[] getMembers() {
         return this.members;
     }
 
-    public void setMembers(BaseMember[] members) {
+    public void setMembers(Member[] members) {
         this.members = members;
     }
 

@@ -137,6 +137,36 @@ public class Dependent {
      */
     @SerializedName("birth_certificate_of_child")
     private File[] birthCertificateOfChild;
+    /**
+     * 变更原因
+     * <p> 示例值：
+     */
+    @SerializedName("reason")
+    private Enum reason;
+    /**
+     * 变更日期
+     * <p> 示例值：2020-01-01
+     */
+    @SerializedName("modify_date")
+    private String modifyDate;
+    /**
+     * Visa 列表
+     * <p> 示例值：
+     */
+    @SerializedName("visas")
+    private Visa[] visas;
+    /**
+     * Passport 列表
+     * <p> 示例值：
+     */
+    @SerializedName("passports")
+    private Passport[] passports;
+    /**
+     * 居民身份列表
+     * <p> 示例值：
+     */
+    @SerializedName("citizenship_statuses")
+    private CitizenshipStatus[] citizenshipStatuses;
 
     // builder 开始
     public Dependent() {
@@ -233,6 +263,31 @@ public class Dependent {
          * <p> 示例值：
          */
         this.birthCertificateOfChild = builder.birthCertificateOfChild;
+        /**
+         * 变更原因
+         * <p> 示例值：
+         */
+        this.reason = builder.reason;
+        /**
+         * 变更日期
+         * <p> 示例值：2020-01-01
+         */
+        this.modifyDate = builder.modifyDate;
+        /**
+         * Visa 列表
+         * <p> 示例值：
+         */
+        this.visas = builder.visas;
+        /**
+         * Passport 列表
+         * <p> 示例值：
+         */
+        this.passports = builder.passports;
+        /**
+         * 居民身份列表
+         * <p> 示例值：
+         */
+        this.citizenshipStatuses = builder.citizenshipStatuses;
     }
 
     public static Builder newBuilder() {
@@ -383,6 +438,46 @@ public class Dependent {
         this.birthCertificateOfChild = birthCertificateOfChild;
     }
 
+    public Enum getReason() {
+        return this.reason;
+    }
+
+    public void setReason(Enum reason) {
+        this.reason = reason;
+    }
+
+    public String getModifyDate() {
+        return this.modifyDate;
+    }
+
+    public void setModifyDate(String modifyDate) {
+        this.modifyDate = modifyDate;
+    }
+
+    public Visa[] getVisas() {
+        return this.visas;
+    }
+
+    public void setVisas(Visa[] visas) {
+        this.visas = visas;
+    }
+
+    public Passport[] getPassports() {
+        return this.passports;
+    }
+
+    public void setPassports(Passport[] passports) {
+        this.passports = passports;
+    }
+
+    public CitizenshipStatus[] getCitizenshipStatuses() {
+        return this.citizenshipStatuses;
+    }
+
+    public void setCitizenshipStatuses(CitizenshipStatus[] citizenshipStatuses) {
+        this.citizenshipStatuses = citizenshipStatuses;
+    }
+
     public static class Builder {
         /**
          * ID
@@ -474,6 +569,31 @@ public class Dependent {
          * <p> 示例值：
          */
         private File[] birthCertificateOfChild;
+        /**
+         * 变更原因
+         * <p> 示例值：
+         */
+        private Enum reason;
+        /**
+         * 变更日期
+         * <p> 示例值：2020-01-01
+         */
+        private String modifyDate;
+        /**
+         * Visa 列表
+         * <p> 示例值：
+         */
+        private Visa[] visas;
+        /**
+         * Passport 列表
+         * <p> 示例值：
+         */
+        private Passport[] passports;
+        /**
+         * 居民身份列表
+         * <p> 示例值：
+         */
+        private CitizenshipStatus[] citizenshipStatuses;
 
         /**
          * ID
@@ -705,6 +825,71 @@ public class Dependent {
          */
         public Builder birthCertificateOfChild(File[] birthCertificateOfChild) {
             this.birthCertificateOfChild = birthCertificateOfChild;
+            return this;
+        }
+
+
+        /**
+         * 变更原因
+         * <p> 示例值：
+         *
+         * @param reason
+         * @return
+         */
+        public Builder reason(Enum reason) {
+            this.reason = reason;
+            return this;
+        }
+
+
+        /**
+         * 变更日期
+         * <p> 示例值：2020-01-01
+         *
+         * @param modifyDate
+         * @return
+         */
+        public Builder modifyDate(String modifyDate) {
+            this.modifyDate = modifyDate;
+            return this;
+        }
+
+
+        /**
+         * Visa 列表
+         * <p> 示例值：
+         *
+         * @param visas
+         * @return
+         */
+        public Builder visas(Visa[] visas) {
+            this.visas = visas;
+            return this;
+        }
+
+
+        /**
+         * Passport 列表
+         * <p> 示例值：
+         *
+         * @param passports
+         * @return
+         */
+        public Builder passports(Passport[] passports) {
+            this.passports = passports;
+            return this;
+        }
+
+
+        /**
+         * 居民身份列表
+         * <p> 示例值：
+         *
+         * @param citizenshipStatuses
+         * @return
+         */
+        public Builder citizenshipStatuses(CitizenshipStatus[] citizenshipStatuses) {
+            this.citizenshipStatuses = citizenshipStatuses;
             return this;
         }
 

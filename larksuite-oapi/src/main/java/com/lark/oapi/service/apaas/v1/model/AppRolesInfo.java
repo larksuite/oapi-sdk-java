@@ -60,12 +60,12 @@ public class AppRolesInfo {
 
     public AppRolesInfo(Builder builder) {
         /**
-         *   aPaaS 产品应用管理员的 ID
+         * aPaaS 产品应用管理员的 ID
          * <p> 示例值：
          */
         this.admins = builder.admins;
         /**
-         *   aPaaS 产品应用开发者的 ID
+         * aPaaS 产品应用开发者的 ID
          * <p> 示例值：
          */
         this.developers = builder.developers;

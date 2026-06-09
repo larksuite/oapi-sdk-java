@@ -29,6 +29,12 @@ import com.lark.oapi.core.response.BaseResponse;
 
 public class PatchAppTableViewReq {
     /**
+     * <p> 示例值：
+     */
+    @Query
+    @SerializedName("user_id_type")
+    private String userIdType;
+    /**
      * bitable app token
      * <p> 示例值：bascng7vrxcxpig7geggXiCtadY
      */
@@ -58,6 +64,11 @@ public class PatchAppTableViewReq {
 
     public PatchAppTableViewReq(Builder builder) {
         /**
+         *
+         * <p> 示例值：
+         */
+        this.userIdType = builder.userIdType;
+        /**
          * bitable app token
          * <p> 示例值：bascng7vrxcxpig7geggXiCtadY
          */
@@ -77,6 +88,14 @@ public class PatchAppTableViewReq {
 
     public static Builder newBuilder() {
         return new Builder();
+    }
+
+    public String getUserIdType() {
+        return this.userIdType;
+    }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
     }
 
     public String getAppToken() {
@@ -112,11 +131,22 @@ public class PatchAppTableViewReq {
     }
 
     public static class Builder {
-
+        private String userIdType; //
         private String appToken; // bitable app token
         private String tableId; // table id
         private String viewId; // 视图 ID
         private PatchAppTableViewReqBody body;
+
+        /**
+         * <p> 示例值：
+         *
+         * @param userIdType
+         * @return
+         */
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
 
         /**
          * bitable app token

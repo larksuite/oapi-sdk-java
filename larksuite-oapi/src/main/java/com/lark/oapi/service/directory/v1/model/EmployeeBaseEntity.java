@@ -307,7 +307,7 @@ public class EmployeeBaseEntity {
      * <p> 示例值：
      */
     @SerializedName("subscription_ids")
-    private String[] subscriptionIds;
+    private Long[] subscriptionIds;
     /**
      * 虚拟组织信息
      * <p> 示例值：
@@ -932,11 +932,11 @@ public class EmployeeBaseEntity {
         this.geoName = geoName;
     }
 
-    public String[] getSubscriptionIds() {
+    public Long[] getSubscriptionIds() {
         return this.subscriptionIds;
     }
 
-    public void setSubscriptionIds(String[] subscriptionIds) {
+    public void setSubscriptionIds(Long[] subscriptionIds) {
         this.subscriptionIds = subscriptionIds;
     }
 
@@ -1186,7 +1186,7 @@ public class EmployeeBaseEntity {
          * 员工license
          * <p> 示例值：
          */
-        private String[] subscriptionIds;
+        private Long[] subscriptionIds;
         /**
          * 虚拟组织信息
          * <p> 示例值：
@@ -1826,7 +1826,7 @@ public class EmployeeBaseEntity {
          * @param subscriptionIds
          * @return
          */
-        public Builder subscriptionIds(String[] subscriptionIds) {
+        public Builder subscriptionIds(Long[] subscriptionIds) {
             this.subscriptionIds = subscriptionIds;
             return this;
         }

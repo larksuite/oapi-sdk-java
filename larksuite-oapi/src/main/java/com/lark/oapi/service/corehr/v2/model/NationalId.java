@@ -71,6 +71,24 @@ public class NationalId {
      */
     @SerializedName("custom_fields")
     private CustomFieldData[] customFields;
+    /**
+     * ID
+     * <p> 示例值：7475686493613920050
+     */
+    @SerializedName("wk_id")
+    private String wkId;
+    /**
+     * 序列号
+     * <p> 示例值：A123456
+     */
+    @SerializedName("series")
+    private String series;
+    /**
+     * 是否长期有效
+     * <p> 示例值：
+     */
+    @SerializedName("effective_for_a_long_time")
+    private Boolean effectiveForALongTime;
 
     // builder 开始
     public NationalId() {
@@ -112,6 +130,21 @@ public class NationalId {
          * <p> 示例值：
          */
         this.customFields = builder.customFields;
+        /**
+         * ID
+         * <p> 示例值：7475686493613920050
+         */
+        this.wkId = builder.wkId;
+        /**
+         * 序列号
+         * <p> 示例值：A123456
+         */
+        this.series = builder.series;
+        /**
+         * 是否长期有效
+         * <p> 示例值：
+         */
+        this.effectiveForALongTime = builder.effectiveForALongTime;
     }
 
     public static Builder newBuilder() {
@@ -174,6 +207,30 @@ public class NationalId {
         this.customFields = customFields;
     }
 
+    public String getWkId() {
+        return this.wkId;
+    }
+
+    public void setWkId(String wkId) {
+        this.wkId = wkId;
+    }
+
+    public String getSeries() {
+        return this.series;
+    }
+
+    public void setSeries(String series) {
+        this.series = series;
+    }
+
+    public Boolean getEffectiveForALongTime() {
+        return this.effectiveForALongTime;
+    }
+
+    public void setEffectiveForALongTime(Boolean effectiveForALongTime) {
+        this.effectiveForALongTime = effectiveForALongTime;
+    }
+
     public static class Builder {
         /**
          * 国家证件类型
@@ -210,6 +267,21 @@ public class NationalId {
          * <p> 示例值：
          */
         private CustomFieldData[] customFields;
+        /**
+         * ID
+         * <p> 示例值：7475686493613920050
+         */
+        private String wkId;
+        /**
+         * 序列号
+         * <p> 示例值：A123456
+         */
+        private String series;
+        /**
+         * 是否长期有效
+         * <p> 示例值：
+         */
+        private Boolean effectiveForALongTime;
 
         /**
          * 国家证件类型
@@ -298,6 +370,45 @@ public class NationalId {
          */
         public Builder customFields(CustomFieldData[] customFields) {
             this.customFields = customFields;
+            return this;
+        }
+
+
+        /**
+         * ID
+         * <p> 示例值：7475686493613920050
+         *
+         * @param wkId
+         * @return
+         */
+        public Builder wkId(String wkId) {
+            this.wkId = wkId;
+            return this;
+        }
+
+
+        /**
+         * 序列号
+         * <p> 示例值：A123456
+         *
+         * @param series
+         * @return
+         */
+        public Builder series(String series) {
+            this.series = series;
+            return this;
+        }
+
+
+        /**
+         * 是否长期有效
+         * <p> 示例值：
+         *
+         * @param effectiveForALongTime
+         * @return
+         */
+        public Builder effectiveForALongTime(Boolean effectiveForALongTime) {
+            this.effectiveForALongTime = effectiveForALongTime;
             return this;
         }
 

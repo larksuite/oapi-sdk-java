@@ -10,6 +10,7 @@ import com.lark.oapi.service.im.v1.model.CreateFileResp;
 import com.lark.oapi.service.im.v1.model.CreateImageReq;
 import com.lark.oapi.service.im.v1.model.CreateImageReqBody;
 import com.lark.oapi.service.im.v1.model.CreateImageResp;
+
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;

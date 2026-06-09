@@ -20,6 +20,7 @@ public class ListFileCommentReplySample {
                 .pageSize(10)
                 .pageToken("1654857036541812356")
                 .fileType("docx")
+                .needReaction(false)
                 .userIdType("user_id")
                 .build();
 

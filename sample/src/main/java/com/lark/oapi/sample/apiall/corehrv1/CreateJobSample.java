@@ -30,6 +30,7 @@ public class CreateJobSample {
                         .workingHoursTypeId("6890452208593372679")
                         .effectiveTime("2020-01-01 00:00:00")
                         .customFields(new ObjectFieldData[]{})
+                        .isPreferManualEncoding(false)
                         .build())
                 .build();
 

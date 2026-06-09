@@ -16,7 +16,6 @@ public class BatchCreateAppTableSample {
         // 创建请求对象
         BatchCreateAppTableReq req = BatchCreateAppTableReq.newBuilder()
                 .appToken("appbcbWCzen6D8dezhoCH2RpMAh")
-                .userIdType("user_id")
                 .batchCreateAppTableReqBody(BatchCreateAppTableReqBody.newBuilder()
                         .tables(new ReqTable[]{})
                         .build())

@@ -34,6 +34,7 @@ public class CombinedUpdateTalentSample {
                         .preferredCityCodeList(new String[]{})
                         .selfEvaluation(TalentSelfEvaluation.newBuilder().build())
                         .customizedData(new TalentCustomizedDataObjectValue[]{})
+                        .onlyParseResumeUpdateTalent(false)
                         .build())
                 .build();
 

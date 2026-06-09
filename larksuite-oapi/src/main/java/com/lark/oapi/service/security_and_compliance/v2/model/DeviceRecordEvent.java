@@ -131,6 +131,42 @@ public class DeviceRecordEvent {
      */
     @SerializedName("device_terminal_type")
     private Integer deviceTerminalType;
+    /**
+     * 是否为受管控设备
+     * <p> 示例值：
+     */
+    @SerializedName("is_managed")
+    private Boolean isManaged;
+    /**
+     * MDM设备ID
+     * <p> 示例值：123abc
+     */
+    @SerializedName("mdm_device_id")
+    private String mdmDeviceId;
+    /**
+     * MDM厂商名称
+     * <p> 示例值：Workspace_ONE
+     */
+    @SerializedName("mdm_provider_name")
+    private String mdmProviderName;
+    /**
+     * 设备环境检测状态
+     * <p> 示例值：0
+     */
+    @SerializedName("device_env_detect_status")
+    private Integer deviceEnvDetectStatus;
+    /**
+     * 是否为公共设备
+     * <p> 示例值：false
+     */
+    @SerializedName("is_public")
+    private Boolean isPublic;
+    /**
+     * 注册方式
+     * <p> 示例值：
+     */
+    @SerializedName("source")
+    private Integer source;
 
     // builder 开始
     public DeviceRecordEvent() {
@@ -222,6 +258,36 @@ public class DeviceRecordEvent {
          * <p> 示例值：0
          */
         this.deviceTerminalType = builder.deviceTerminalType;
+        /**
+         * 是否为受管控设备
+         * <p> 示例值：
+         */
+        this.isManaged = builder.isManaged;
+        /**
+         * MDM设备ID
+         * <p> 示例值：123abc
+         */
+        this.mdmDeviceId = builder.mdmDeviceId;
+        /**
+         * MDM厂商名称
+         * <p> 示例值：Workspace_ONE
+         */
+        this.mdmProviderName = builder.mdmProviderName;
+        /**
+         * 设备环境检测状态
+         * <p> 示例值：0
+         */
+        this.deviceEnvDetectStatus = builder.deviceEnvDetectStatus;
+        /**
+         * 是否为公共设备
+         * <p> 示例值：false
+         */
+        this.isPublic = builder.isPublic;
+        /**
+         * 注册方式
+         * <p> 示例值：
+         */
+        this.source = builder.source;
     }
 
     public static Builder newBuilder() {
@@ -364,6 +430,54 @@ public class DeviceRecordEvent {
         this.deviceTerminalType = deviceTerminalType;
     }
 
+    public Boolean getIsManaged() {
+        return this.isManaged;
+    }
+
+    public void setIsManaged(Boolean isManaged) {
+        this.isManaged = isManaged;
+    }
+
+    public String getMdmDeviceId() {
+        return this.mdmDeviceId;
+    }
+
+    public void setMdmDeviceId(String mdmDeviceId) {
+        this.mdmDeviceId = mdmDeviceId;
+    }
+
+    public String getMdmProviderName() {
+        return this.mdmProviderName;
+    }
+
+    public void setMdmProviderName(String mdmProviderName) {
+        this.mdmProviderName = mdmProviderName;
+    }
+
+    public Integer getDeviceEnvDetectStatus() {
+        return this.deviceEnvDetectStatus;
+    }
+
+    public void setDeviceEnvDetectStatus(Integer deviceEnvDetectStatus) {
+        this.deviceEnvDetectStatus = deviceEnvDetectStatus;
+    }
+
+    public Boolean getIsPublic() {
+        return this.isPublic;
+    }
+
+    public void setIsPublic(Boolean isPublic) {
+        this.isPublic = isPublic;
+    }
+
+    public Integer getSource() {
+        return this.source;
+    }
+
+    public void setSource(Integer source) {
+        this.source = source;
+    }
+
     public static class Builder {
         /**
          * 设备认证编码
@@ -450,6 +564,36 @@ public class DeviceRecordEvent {
          * <p> 示例值：0
          */
         private Integer deviceTerminalType;
+        /**
+         * 是否为受管控设备
+         * <p> 示例值：
+         */
+        private Boolean isManaged;
+        /**
+         * MDM设备ID
+         * <p> 示例值：123abc
+         */
+        private String mdmDeviceId;
+        /**
+         * MDM厂商名称
+         * <p> 示例值：Workspace_ONE
+         */
+        private String mdmProviderName;
+        /**
+         * 设备环境检测状态
+         * <p> 示例值：0
+         */
+        private Integer deviceEnvDetectStatus;
+        /**
+         * 是否为公共设备
+         * <p> 示例值：false
+         */
+        private Boolean isPublic;
+        /**
+         * 注册方式
+         * <p> 示例值：
+         */
+        private Integer source;
 
         /**
          * 设备认证编码
@@ -728,6 +872,108 @@ public class DeviceRecordEvent {
          */
         public Builder deviceTerminalType(com.lark.oapi.service.security_and_compliance.v2.enums.DeviceRecordEventDeviceTerminalTypeEnum deviceTerminalType) {
             this.deviceTerminalType = deviceTerminalType.getValue();
+            return this;
+        }
+
+
+        /**
+         * 是否为受管控设备
+         * <p> 示例值：
+         *
+         * @param isManaged
+         * @return
+         */
+        public Builder isManaged(Boolean isManaged) {
+            this.isManaged = isManaged;
+            return this;
+        }
+
+
+        /**
+         * MDM设备ID
+         * <p> 示例值：123abc
+         *
+         * @param mdmDeviceId
+         * @return
+         */
+        public Builder mdmDeviceId(String mdmDeviceId) {
+            this.mdmDeviceId = mdmDeviceId;
+            return this;
+        }
+
+
+        /**
+         * MDM厂商名称
+         * <p> 示例值：Workspace_ONE
+         *
+         * @param mdmProviderName
+         * @return
+         */
+        public Builder mdmProviderName(String mdmProviderName) {
+            this.mdmProviderName = mdmProviderName;
+            return this;
+        }
+
+
+        /**
+         * 设备环境检测状态
+         * <p> 示例值：0
+         *
+         * @param deviceEnvDetectStatus
+         * @return
+         */
+        public Builder deviceEnvDetectStatus(Integer deviceEnvDetectStatus) {
+            this.deviceEnvDetectStatus = deviceEnvDetectStatus;
+            return this;
+        }
+
+        /**
+         * 设备环境检测状态
+         * <p> 示例值：0
+         *
+         * @param deviceEnvDetectStatus {@link com.lark.oapi.service.security_and_compliance.v2.enums.DeviceRecordEventDeviceEnvDetectStatusEnum}
+         * @return
+         */
+        public Builder deviceEnvDetectStatus(com.lark.oapi.service.security_and_compliance.v2.enums.DeviceRecordEventDeviceEnvDetectStatusEnum deviceEnvDetectStatus) {
+            this.deviceEnvDetectStatus = deviceEnvDetectStatus.getValue();
+            return this;
+        }
+
+
+        /**
+         * 是否为公共设备
+         * <p> 示例值：false
+         *
+         * @param isPublic
+         * @return
+         */
+        public Builder isPublic(Boolean isPublic) {
+            this.isPublic = isPublic;
+            return this;
+        }
+
+
+        /**
+         * 注册方式
+         * <p> 示例值：
+         *
+         * @param source
+         * @return
+         */
+        public Builder source(Integer source) {
+            this.source = source;
+            return this;
+        }
+
+        /**
+         * 注册方式
+         * <p> 示例值：
+         *
+         * @param source {@link com.lark.oapi.service.security_and_compliance.v2.enums.DeviceRecordEventDeviceSourceEnum}
+         * @return
+         */
+        public Builder source(com.lark.oapi.service.security_and_compliance.v2.enums.DeviceRecordEventDeviceSourceEnum source) {
+            this.source = source.getValue();
             return this;
         }
 

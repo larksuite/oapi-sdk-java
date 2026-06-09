@@ -36,13 +36,6 @@ public class UpdateDeviceRecordReq {
     @SerializedName("version")
     private String version;
     /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
-    /**
      * 设备认证编码
      * <p> 示例值：7089353870308032531
      */
@@ -50,7 +43,7 @@ public class UpdateDeviceRecordReq {
     @SerializedName("device_record_id")
     private String deviceRecordId;
     @Body
-    private DeviceRecord body;
+    private UpdateDeviceRecordReqBody body;
 
     // builder 开始
     public UpdateDeviceRecordReq() {
@@ -62,11 +55,6 @@ public class UpdateDeviceRecordReq {
          * <p> 示例值：0
          */
         this.version = builder.version;
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
         /**
          * 设备认证编码
          * <p> 示例值：7089353870308032531
@@ -87,14 +75,6 @@ public class UpdateDeviceRecordReq {
         this.version = version;
     }
 
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
     public String getDeviceRecordId() {
         return this.deviceRecordId;
     }
@@ -103,19 +83,18 @@ public class UpdateDeviceRecordReq {
         this.deviceRecordId = deviceRecordId;
     }
 
-    public DeviceRecord getDeviceRecord() {
+    public UpdateDeviceRecordReqBody getUpdateDeviceRecordReqBody() {
         return this.body;
     }
 
-    public void setDeviceRecord(DeviceRecord body) {
+    public void setUpdateDeviceRecordReqBody(UpdateDeviceRecordReqBody body) {
         this.body = body;
     }
 
     public static class Builder {
         private String version; // 版本号
-        private String userIdType; // 此次调用中使用的用户ID的类型
         private String deviceRecordId; // 设备认证编码
-        private DeviceRecord body;
+        private UpdateDeviceRecordReqBody body;
 
         /**
          * 版本号
@@ -126,30 +105,6 @@ public class UpdateDeviceRecordReq {
          */
         public Builder version(String version) {
             this.version = version;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType {@link com.lark.oapi.service.security_and_compliance.v2.enums.UpdateDeviceRecordUserIdTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.security_and_compliance.v2.enums.UpdateDeviceRecordUserIdTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
             return this;
         }
 
@@ -165,7 +120,7 @@ public class UpdateDeviceRecordReq {
             return this;
         }
 
-        public DeviceRecord getDeviceRecord() {
+        public UpdateDeviceRecordReqBody getUpdateDeviceRecordReqBody() {
             return this.body;
         }
 
@@ -175,7 +130,7 @@ public class UpdateDeviceRecordReq {
          * @param body
          * @return
          */
-        public Builder deviceRecord(DeviceRecord body) {
+        public Builder updateDeviceRecordReqBody(UpdateDeviceRecordReqBody body) {
             this.body = body;
             return this;
         }

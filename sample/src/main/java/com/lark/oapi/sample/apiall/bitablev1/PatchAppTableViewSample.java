@@ -18,6 +18,7 @@ public class PatchAppTableViewSample {
                 .appToken("bascng7vrxcxpig7geggXiCtadY")
                 .tableId("tblsRc9GRRXKqhvW")
                 .viewId("vewTpR1urY")
+                .userIdType("")
                 .patchAppTableViewReqBody(PatchAppTableViewReqBody.newBuilder()
                         .viewName("grid")
                         .property(AppTableViewProperty.newBuilder().build())

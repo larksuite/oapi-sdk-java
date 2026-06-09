@@ -16,7 +16,7 @@ public class ListAgentSkillRuleSample {
         // 创建请求对象
 
         // 发起请求
-        ListAgentSkillRuleResp resp = client.helpdesk().agentSkillRule().list();
+        ListAgentSkillRuleResp resp = client.helpdesk().v1().agentSkillRule().list();
 
         // 处理服务端错误
         if (!resp.success()) {

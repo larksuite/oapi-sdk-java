@@ -14,16 +14,30 @@
 package com.lark.oapi.service.security_and_compliance.v1;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.service.security_and_compliance.v1.resource.*;
+import com.lark.oapi.service.security_and_compliance.v1.resource.MultiGeoEntityTenant;
+import com.lark.oapi.service.security_and_compliance.v1.resource.OpenapiLog;
+import com.lark.oapi.service.security_and_compliance.v1.resource.UserMigration;
 
 public class V1 {
+    private final MultiGeoEntityTenant multiGeoEntityTenant; // multi_geo_entity.tenant
     private final OpenapiLog openapiLog; // openapi_log
+    private final UserMigration userMigration; // 用户迁移
 
     public V1(Config config) {
+        this.multiGeoEntityTenant = new MultiGeoEntityTenant(config);
         this.openapiLog = new OpenapiLog(config);
+        this.userMigration = new UserMigration(config);
+    }
+
+    public MultiGeoEntityTenant multiGeoEntityTenant() {
+        return multiGeoEntityTenant;
     }
 
     public OpenapiLog openapiLog() {
         return openapiLog;
+    }
+
+    public UserMigration userMigration() {
+        return userMigration;
     }
 }

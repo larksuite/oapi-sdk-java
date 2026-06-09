@@ -43,7 +43,7 @@ public class CreateFileVersionReq {
     @SerializedName("file_token")
     private String fileToken;
     @Body
-    private Version body;
+    private CreateFileVersionReqBody body;
 
     // builder 开始
     public CreateFileVersionReq() {
@@ -83,18 +83,18 @@ public class CreateFileVersionReq {
         this.fileToken = fileToken;
     }
 
-    public Version getVersion() {
+    public CreateFileVersionReqBody getCreateFileVersionReqBody() {
         return this.body;
     }
 
-    public void setVersion(Version body) {
+    public void setCreateFileVersionReqBody(CreateFileVersionReqBody body) {
         this.body = body;
     }
 
     public static class Builder {
         private String userIdType; // 此次调用中使用的用户ID的类型
         private String fileToken; // 源文档token
-        private Version body;
+        private CreateFileVersionReqBody body;
 
         /**
          * 此次调用中使用的用户ID的类型
@@ -132,7 +132,7 @@ public class CreateFileVersionReq {
             return this;
         }
 
-        public Version getVersion() {
+        public CreateFileVersionReqBody getCreateFileVersionReqBody() {
             return this.body;
         }
 
@@ -142,7 +142,7 @@ public class CreateFileVersionReq {
          * @param body
          * @return
          */
-        public Builder version(Version body) {
+        public Builder createFileVersionReqBody(CreateFileVersionReqBody body) {
             this.body = body;
             return this;
         }

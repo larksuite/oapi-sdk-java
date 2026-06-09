@@ -16,6 +16,7 @@ public class UnsubscriptionCalendarEventSample {
         // 创建请求对象
         UnsubscriptionCalendarEventReq req = UnsubscriptionCalendarEventReq.newBuilder()
                 .calendarId("feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn")
+                .userIdType("user_id")
                 .build();
 
         // 发起请求

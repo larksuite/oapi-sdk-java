@@ -177,6 +177,18 @@ public class RecurringPaymentOperateResult {
             return this;
         }
 
+        /**
+         * 操作结果状态码
+         * <p> 示例值：21270202
+         *
+         * @param code {@link com.lark.oapi.service.compensation.v1.enums.RecurringPaymentOperateResultCodeEnum}
+         * @return
+         */
+        public Builder code(com.lark.oapi.service.compensation.v1.enums.RecurringPaymentOperateResultCodeEnum code) {
+            this.code = code.getValue();
+            return this;
+        }
+
 
         /**
          * 操作结果描述

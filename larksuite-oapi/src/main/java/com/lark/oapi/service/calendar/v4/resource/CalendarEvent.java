@@ -668,7 +668,7 @@ public class CalendarEvent {
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
                 , "/open-apis/calendar/v4/calendars/:calendar_id/events/subscription"
-                , Sets.newHashSet(AccessTokenType.User)
+                , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
 
         // 反序列化
@@ -701,7 +701,7 @@ public class CalendarEvent {
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
                 , "/open-apis/calendar/v4/calendars/:calendar_id/events/subscription"
-                , Sets.newHashSet(AccessTokenType.User)
+                , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
 
         // 反序列化
@@ -736,7 +736,7 @@ public class CalendarEvent {
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
                 , "/open-apis/calendar/v4/calendars/:calendar_id/events/unsubscription"
-                , Sets.newHashSet(AccessTokenType.User)
+                , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
 
         // 反序列化
@@ -769,7 +769,7 @@ public class CalendarEvent {
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
                 , "/open-apis/calendar/v4/calendars/:calendar_id/events/unsubscription"
-                , Sets.newHashSet(AccessTokenType.User)
+                , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
 
         // 反序列化

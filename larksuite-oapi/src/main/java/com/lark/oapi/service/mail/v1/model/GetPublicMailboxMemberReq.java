@@ -53,6 +53,7 @@ public class GetPublicMailboxMemberReq {
     // builder 开始
     public GetPublicMailboxMemberReq() {
     }
+
     public GetPublicMailboxMemberReq(Builder builder) {
         /**
          * 此次调用中使用的用户ID的类型

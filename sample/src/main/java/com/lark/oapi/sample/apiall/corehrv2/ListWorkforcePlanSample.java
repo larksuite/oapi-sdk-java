@@ -19,6 +19,8 @@ public class ListWorkforcePlanSample {
         ListWorkforcePlanReq req = ListWorkforcePlanReq.newBuilder()
                 .getAllPlan(false)
                 .active(false)
+                .startDate("2026-01-01")
+                .endDate("2026-12-31")
                 .build();
 
         // 发起请求

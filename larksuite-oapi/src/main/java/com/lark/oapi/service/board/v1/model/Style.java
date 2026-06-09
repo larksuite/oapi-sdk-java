@@ -101,6 +101,36 @@ public class Style {
      */
     @SerializedName("border_color_type")
     private Integer borderColorType;
+    /**
+     * 定义虚线边框样式，参数为数字数组，依次表示实线段长度与空白间隔，循环构成虚线。
+     * <p> 示例值：
+     */
+    @SerializedName("border_dasharrays")
+    private Integer[] borderDasharrays;
+    /**
+     * 边框圆角半径，控制边角弧度。
+     * <p> 示例值：
+     */
+    @SerializedName("border_radius")
+    private BorderRadius borderRadius;
+    /**
+     * 阴影参数
+     * <p> 示例值：
+     */
+    @SerializedName("shadow")
+    private Shadow shadow;
+    /**
+     * 阴影参数
+     * <p> 示例值：
+     */
+    @SerializedName("inner_shadow")
+    private Shadow innerShadow;
+    /**
+     * 渐变
+     * <p> 示例值：
+     */
+    @SerializedName("fill_gradient")
+    private FillGradient fillGradient;
 
     // builder 开始
     public Style() {
@@ -167,6 +197,31 @@ public class Style {
          * <p> 示例值：
          */
         this.borderColorType = builder.borderColorType;
+        /**
+         * 定义虚线边框样式，参数为数字数组，依次表示实线段长度与空白间隔，循环构成虚线。
+         * <p> 示例值：
+         */
+        this.borderDasharrays = builder.borderDasharrays;
+        /**
+         * 边框圆角半径，控制边角弧度。
+         * <p> 示例值：
+         */
+        this.borderRadius = builder.borderRadius;
+        /**
+         * 阴影参数
+         * <p> 示例值：
+         */
+        this.shadow = builder.shadow;
+        /**
+         * 阴影参数
+         * <p> 示例值：
+         */
+        this.innerShadow = builder.innerShadow;
+        /**
+         * 渐变
+         * <p> 示例值：
+         */
+        this.fillGradient = builder.fillGradient;
     }
 
     public static Builder newBuilder() {
@@ -269,6 +324,46 @@ public class Style {
         this.borderColorType = borderColorType;
     }
 
+    public Integer[] getBorderDasharrays() {
+        return this.borderDasharrays;
+    }
+
+    public void setBorderDasharrays(Integer[] borderDasharrays) {
+        this.borderDasharrays = borderDasharrays;
+    }
+
+    public BorderRadius getBorderRadius() {
+        return this.borderRadius;
+    }
+
+    public void setBorderRadius(BorderRadius borderRadius) {
+        this.borderRadius = borderRadius;
+    }
+
+    public Shadow getShadow() {
+        return this.shadow;
+    }
+
+    public void setShadow(Shadow shadow) {
+        this.shadow = shadow;
+    }
+
+    public Shadow getInnerShadow() {
+        return this.innerShadow;
+    }
+
+    public void setInnerShadow(Shadow innerShadow) {
+        this.innerShadow = innerShadow;
+    }
+
+    public FillGradient getFillGradient() {
+        return this.fillGradient;
+    }
+
+    public void setFillGradient(FillGradient fillGradient) {
+        this.fillGradient = fillGradient;
+    }
+
     public static class Builder {
         /**
          * 填充颜色，16 进制 rbg 值
@@ -330,6 +425,31 @@ public class Style {
          * <p> 示例值：
          */
         private Integer borderColorType;
+        /**
+         * 定义虚线边框样式，参数为数字数组，依次表示实线段长度与空白间隔，循环构成虚线。
+         * <p> 示例值：
+         */
+        private Integer[] borderDasharrays;
+        /**
+         * 边框圆角半径，控制边角弧度。
+         * <p> 示例值：
+         */
+        private BorderRadius borderRadius;
+        /**
+         * 阴影参数
+         * <p> 示例值：
+         */
+        private Shadow shadow;
+        /**
+         * 阴影参数
+         * <p> 示例值：
+         */
+        private Shadow innerShadow;
+        /**
+         * 渐变
+         * <p> 示例值：
+         */
+        private FillGradient fillGradient;
 
         /**
          * 填充颜色，16 进制 rbg 值
@@ -531,6 +651,71 @@ public class Style {
          */
         public Builder borderColorType(com.lark.oapi.service.board.v1.enums.StyleColorTypeEnum borderColorType) {
             this.borderColorType = borderColorType.getValue();
+            return this;
+        }
+
+
+        /**
+         * 定义虚线边框样式，参数为数字数组，依次表示实线段长度与空白间隔，循环构成虚线。
+         * <p> 示例值：
+         *
+         * @param borderDasharrays
+         * @return
+         */
+        public Builder borderDasharrays(Integer[] borderDasharrays) {
+            this.borderDasharrays = borderDasharrays;
+            return this;
+        }
+
+
+        /**
+         * 边框圆角半径，控制边角弧度。
+         * <p> 示例值：
+         *
+         * @param borderRadius
+         * @return
+         */
+        public Builder borderRadius(BorderRadius borderRadius) {
+            this.borderRadius = borderRadius;
+            return this;
+        }
+
+
+        /**
+         * 阴影参数
+         * <p> 示例值：
+         *
+         * @param shadow
+         * @return
+         */
+        public Builder shadow(Shadow shadow) {
+            this.shadow = shadow;
+            return this;
+        }
+
+
+        /**
+         * 阴影参数
+         * <p> 示例值：
+         *
+         * @param innerShadow
+         * @return
+         */
+        public Builder innerShadow(Shadow innerShadow) {
+            this.innerShadow = innerShadow;
+            return this;
+        }
+
+
+        /**
+         * 渐变
+         * <p> 示例值：
+         *
+         * @param fillGradient
+         * @return
+         */
+        public Builder fillGradient(FillGradient fillGradient) {
+            this.fillGradient = fillGradient;
             return this;
         }
 

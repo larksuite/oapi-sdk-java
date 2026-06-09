@@ -161,6 +161,60 @@ public class DeviceRecord {
      */
     @SerializedName("mdm_provider_name")
     private String mdmProviderName;
+    /**
+     * 终端管控客户端（包含 lsaclientid、在线状态、绑定时间、最近在线时间、版本号）
+     * <p> 示例值：7522053803906960914,离线,2025/07/09 13:42:42 UTC,2025/07/18 05:09:21 UTC,v1.2.1
+     */
+    @SerializedName("lsa_info")
+    private String lsaInfo;
+    /**
+     * 设备环境检测（状态，应用名称、应用状态、上报时间）
+     * <p> 示例值：安全;飞连,已安装,正在运行,2025/12/11 12:00:00;lsa,已安装,未运行,2025/12/11 12:00:00
+     */
+    @SerializedName("device_env_info")
+    private String deviceEnvInfo;
+    /**
+     * 注册时间
+     * <p> 示例值：1767172154
+     */
+    @SerializedName("created_at")
+    private Integer createdAt;
+    /**
+     * 更新时间
+     * <p> 示例值：1767172154
+     */
+    @SerializedName("updated_at")
+    private Integer updatedAt;
+    /**
+     * 是否为公共设备
+     * <p> 示例值：false
+     */
+    @SerializedName("is_public")
+    private Boolean isPublic;
+    /**
+     * 注册方式
+     * <p> 示例值：0
+     */
+    @SerializedName("source")
+    private Integer source;
+    /**
+     * 证书认证时间
+     * <p> 示例值：1772344920000
+     */
+    @SerializedName("cert_verified_at_unix")
+    private String certVerifiedAtUnix;
+    /**
+     * 证书序列号
+     * <p> 示例值：140112030923876027756448774661898183576236633676
+     */
+    @SerializedName("cert_serial_number")
+    private String certSerialNumber;
+    /**
+     * 证书颁发者
+     * <p> 示例值：Root-CA
+     */
+    @SerializedName("cert_issuer")
+    private String certIssuer;
 
     // builder 开始
     public DeviceRecord() {
@@ -277,6 +331,51 @@ public class DeviceRecord {
          * <p> 示例值：Workspace_ONE
          */
         this.mdmProviderName = builder.mdmProviderName;
+        /**
+         * 终端管控客户端（包含 lsaclientid、在线状态、绑定时间、最近在线时间、版本号）
+         * <p> 示例值：7522053803906960914,离线,2025/07/09 13:42:42 UTC,2025/07/18 05:09:21 UTC,v1.2.1
+         */
+        this.lsaInfo = builder.lsaInfo;
+        /**
+         * 设备环境检测（状态，应用名称、应用状态、上报时间）
+         * <p> 示例值：安全;飞连,已安装,正在运行,2025/12/11 12:00:00;lsa,已安装,未运行,2025/12/11 12:00:00
+         */
+        this.deviceEnvInfo = builder.deviceEnvInfo;
+        /**
+         * 注册时间
+         * <p> 示例值：1767172154
+         */
+        this.createdAt = builder.createdAt;
+        /**
+         * 更新时间
+         * <p> 示例值：1767172154
+         */
+        this.updatedAt = builder.updatedAt;
+        /**
+         * 是否为公共设备
+         * <p> 示例值：false
+         */
+        this.isPublic = builder.isPublic;
+        /**
+         * 注册方式
+         * <p> 示例值：0
+         */
+        this.source = builder.source;
+        /**
+         * 证书认证时间
+         * <p> 示例值：1772344920000
+         */
+        this.certVerifiedAtUnix = builder.certVerifiedAtUnix;
+        /**
+         * 证书序列号
+         * <p> 示例值：140112030923876027756448774661898183576236633676
+         */
+        this.certSerialNumber = builder.certSerialNumber;
+        /**
+         * 证书颁发者
+         * <p> 示例值：Root-CA
+         */
+        this.certIssuer = builder.certIssuer;
     }
 
     public static Builder newBuilder() {
@@ -459,6 +558,78 @@ public class DeviceRecord {
         this.mdmProviderName = mdmProviderName;
     }
 
+    public String getLsaInfo() {
+        return this.lsaInfo;
+    }
+
+    public void setLsaInfo(String lsaInfo) {
+        this.lsaInfo = lsaInfo;
+    }
+
+    public String getDeviceEnvInfo() {
+        return this.deviceEnvInfo;
+    }
+
+    public void setDeviceEnvInfo(String deviceEnvInfo) {
+        this.deviceEnvInfo = deviceEnvInfo;
+    }
+
+    public Integer getCreatedAt() {
+        return this.createdAt;
+    }
+
+    public void setCreatedAt(Integer createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public Integer getUpdatedAt() {
+        return this.updatedAt;
+    }
+
+    public void setUpdatedAt(Integer updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public Boolean getIsPublic() {
+        return this.isPublic;
+    }
+
+    public void setIsPublic(Boolean isPublic) {
+        this.isPublic = isPublic;
+    }
+
+    public Integer getSource() {
+        return this.source;
+    }
+
+    public void setSource(Integer source) {
+        this.source = source;
+    }
+
+    public String getCertVerifiedAtUnix() {
+        return this.certVerifiedAtUnix;
+    }
+
+    public void setCertVerifiedAtUnix(String certVerifiedAtUnix) {
+        this.certVerifiedAtUnix = certVerifiedAtUnix;
+    }
+
+    public String getCertSerialNumber() {
+        return this.certSerialNumber;
+    }
+
+    public void setCertSerialNumber(String certSerialNumber) {
+        this.certSerialNumber = certSerialNumber;
+    }
+
+    public String getCertIssuer() {
+        return this.certIssuer;
+    }
+
+    public void setCertIssuer(String certIssuer) {
+        this.certIssuer = certIssuer;
+    }
+
     public static class Builder {
         /**
          * 设备认证编码
@@ -570,6 +741,51 @@ public class DeviceRecord {
          * <p> 示例值：Workspace_ONE
          */
         private String mdmProviderName;
+        /**
+         * 终端管控客户端（包含 lsaclientid、在线状态、绑定时间、最近在线时间、版本号）
+         * <p> 示例值：7522053803906960914,离线,2025/07/09 13:42:42 UTC,2025/07/18 05:09:21 UTC,v1.2.1
+         */
+        private String lsaInfo;
+        /**
+         * 设备环境检测（状态，应用名称、应用状态、上报时间）
+         * <p> 示例值：安全;飞连,已安装,正在运行,2025/12/11 12:00:00;lsa,已安装,未运行,2025/12/11 12:00:00
+         */
+        private String deviceEnvInfo;
+        /**
+         * 注册时间
+         * <p> 示例值：1767172154
+         */
+        private Integer createdAt;
+        /**
+         * 更新时间
+         * <p> 示例值：1767172154
+         */
+        private Integer updatedAt;
+        /**
+         * 是否为公共设备
+         * <p> 示例值：false
+         */
+        private Boolean isPublic;
+        /**
+         * 注册方式
+         * <p> 示例值：0
+         */
+        private Integer source;
+        /**
+         * 证书认证时间
+         * <p> 示例值：1772344920000
+         */
+        private String certVerifiedAtUnix;
+        /**
+         * 证书序列号
+         * <p> 示例值：140112030923876027756448774661898183576236633676
+         */
+        private String certSerialNumber;
+        /**
+         * 证书颁发者
+         * <p> 示例值：Root-CA
+         */
+        private String certIssuer;
 
         /**
          * 设备认证编码
@@ -913,6 +1129,135 @@ public class DeviceRecord {
          */
         public Builder mdmProviderName(String mdmProviderName) {
             this.mdmProviderName = mdmProviderName;
+            return this;
+        }
+
+
+        /**
+         * 终端管控客户端（包含 lsaclientid、在线状态、绑定时间、最近在线时间、版本号）
+         * <p> 示例值：7522053803906960914,离线,2025/07/09 13:42:42 UTC,2025/07/18 05:09:21 UTC,v1.2.1
+         *
+         * @param lsaInfo
+         * @return
+         */
+        public Builder lsaInfo(String lsaInfo) {
+            this.lsaInfo = lsaInfo;
+            return this;
+        }
+
+
+        /**
+         * 设备环境检测（状态，应用名称、应用状态、上报时间）
+         * <p> 示例值：安全;飞连,已安装,正在运行,2025/12/11 12:00:00;lsa,已安装,未运行,2025/12/11 12:00:00
+         *
+         * @param deviceEnvInfo
+         * @return
+         */
+        public Builder deviceEnvInfo(String deviceEnvInfo) {
+            this.deviceEnvInfo = deviceEnvInfo;
+            return this;
+        }
+
+
+        /**
+         * 注册时间
+         * <p> 示例值：1767172154
+         *
+         * @param createdAt
+         * @return
+         */
+        public Builder createdAt(Integer createdAt) {
+            this.createdAt = createdAt;
+            return this;
+        }
+
+
+        /**
+         * 更新时间
+         * <p> 示例值：1767172154
+         *
+         * @param updatedAt
+         * @return
+         */
+        public Builder updatedAt(Integer updatedAt) {
+            this.updatedAt = updatedAt;
+            return this;
+        }
+
+
+        /**
+         * 是否为公共设备
+         * <p> 示例值：false
+         *
+         * @param isPublic
+         * @return
+         */
+        public Builder isPublic(Boolean isPublic) {
+            this.isPublic = isPublic;
+            return this;
+        }
+
+
+        /**
+         * 注册方式
+         * <p> 示例值：0
+         *
+         * @param source
+         * @return
+         */
+        public Builder source(Integer source) {
+            this.source = source;
+            return this;
+        }
+
+        /**
+         * 注册方式
+         * <p> 示例值：0
+         *
+         * @param source {@link com.lark.oapi.service.security_and_compliance.v2.enums.DeviceRecordDeviceSourceEnum}
+         * @return
+         */
+        public Builder source(com.lark.oapi.service.security_and_compliance.v2.enums.DeviceRecordDeviceSourceEnum source) {
+            this.source = source.getValue();
+            return this;
+        }
+
+
+        /**
+         * 证书认证时间
+         * <p> 示例值：1772344920000
+         *
+         * @param certVerifiedAtUnix
+         * @return
+         */
+        public Builder certVerifiedAtUnix(String certVerifiedAtUnix) {
+            this.certVerifiedAtUnix = certVerifiedAtUnix;
+            return this;
+        }
+
+
+        /**
+         * 证书序列号
+         * <p> 示例值：140112030923876027756448774661898183576236633676
+         *
+         * @param certSerialNumber
+         * @return
+         */
+        public Builder certSerialNumber(String certSerialNumber) {
+            this.certSerialNumber = certSerialNumber;
+            return this;
+        }
+
+
+        /**
+         * 证书颁发者
+         * <p> 示例值：Root-CA
+         *
+         * @param certIssuer
+         * @return
+         */
+        public Builder certIssuer(String certIssuer) {
+            this.certIssuer = certIssuer;
             return this;
         }
 

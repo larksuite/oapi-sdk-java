@@ -14,7 +14,16 @@
 package com.lark.oapi.service.payroll.v1;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.service.payroll.v1.resource.*;
+import com.lark.oapi.service.payroll.v1.resource.AcctItem;
+import com.lark.oapi.service.payroll.v1.resource.CostAllocationDetail;
+import com.lark.oapi.service.payroll.v1.resource.CostAllocationPlan;
+import com.lark.oapi.service.payroll.v1.resource.CostAllocationReport;
+import com.lark.oapi.service.payroll.v1.resource.Datasource;
+import com.lark.oapi.service.payroll.v1.resource.DatasourceRecord;
+import com.lark.oapi.service.payroll.v1.resource.Paygroup;
+import com.lark.oapi.service.payroll.v1.resource.PaymentActivity;
+import com.lark.oapi.service.payroll.v1.resource.PaymentActivityDetail;
+import com.lark.oapi.service.payroll.v1.resource.PaymentDetail;
 
 public class V1 {
     private final AcctItem acctItem; // acct_item

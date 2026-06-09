@@ -20,6 +20,7 @@ public class BatchQueryFileCommentSample {
                 .userIdType("user_id")
                 .batchQueryFileCommentReqBody(BatchQueryFileCommentReqBody.newBuilder()
                         .commentIds(new String[]{})
+                        .needReaction(false)
                         .build())
                 .build();
 

@@ -36,7 +36,7 @@ public class AppFieldPropertyAutoSerialOptions {
     @SerializedName("type")
     private String type;
     /**
-     * 与自动编号的可选规则项类型相对应的取值
+     * 与类型相对应的取值
      * <p> 示例值：yyyyMMdd
      */
     @SerializedName("value")
@@ -53,7 +53,7 @@ public class AppFieldPropertyAutoSerialOptions {
          */
         this.type = builder.type;
         /**
-         * 与自动编号的可选规则项类型相对应的取值
+         * 与类型相对应的取值
          * <p> 示例值：yyyyMMdd
          */
         this.value = builder.value;
@@ -86,7 +86,7 @@ public class AppFieldPropertyAutoSerialOptions {
          */
         private String type;
         /**
-         * 与自动编号的可选规则项类型相对应的取值
+         * 与类型相对应的取值
          * <p> 示例值：yyyyMMdd
          */
         private String value;
@@ -117,7 +117,7 @@ public class AppFieldPropertyAutoSerialOptions {
 
 
         /**
-         * 与自动编号的可选规则项类型相对应的取值
+         * 与类型相对应的取值
          * <p> 示例值：yyyyMMdd
          *
          * @param value

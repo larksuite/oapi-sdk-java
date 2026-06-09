@@ -16,7 +16,7 @@ public class QueryTenantProductAssignInfoSample {
         // 创建请求对象
 
         // 发起请求
-        QueryTenantProductAssignInfoResp resp = client.tenant().tenantProductAssignInfo().query();
+        QueryTenantProductAssignInfoResp resp = client.tenant().v2().tenantProductAssignInfo().query();
 
         // 处理服务端错误
         if (!resp.success()) {

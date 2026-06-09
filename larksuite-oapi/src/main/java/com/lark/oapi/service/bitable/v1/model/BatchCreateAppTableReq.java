@@ -29,13 +29,6 @@ import com.lark.oapi.core.response.BaseResponse;
 
 public class BatchCreateAppTableReq {
     /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
-    /**
      * bitable app token
      * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
      */
@@ -51,11 +44,6 @@ public class BatchCreateAppTableReq {
 
     public BatchCreateAppTableReq(Builder builder) {
         /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        /**
          * bitable app token
          * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
          */
@@ -65,14 +53,6 @@ public class BatchCreateAppTableReq {
 
     public static Builder newBuilder() {
         return new Builder();
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
     }
 
     public String getAppToken() {
@@ -92,33 +72,9 @@ public class BatchCreateAppTableReq {
     }
 
     public static class Builder {
-        private String userIdType; // 此次调用中使用的用户ID的类型
+
         private String appToken; // bitable app token
         private BatchCreateAppTableReqBody body;
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType {@link com.lark.oapi.service.bitable.v1.enums.BatchCreateAppTableUserIdTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.bitable.v1.enums.BatchCreateAppTableUserIdTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
 
         /**
          * bitable app token

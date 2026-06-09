@@ -14,7 +14,13 @@
 package com.lark.oapi.service.acs.v1;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.service.acs.v1.resource.*;
+import com.lark.oapi.service.acs.v1.resource.AccessRecord;
+import com.lark.oapi.service.acs.v1.resource.AccessRecordAccessPhoto;
+import com.lark.oapi.service.acs.v1.resource.Device;
+import com.lark.oapi.service.acs.v1.resource.RuleExternal;
+import com.lark.oapi.service.acs.v1.resource.User;
+import com.lark.oapi.service.acs.v1.resource.UserFace;
+import com.lark.oapi.service.acs.v1.resource.Visitor;
 
 public class V1 {
     private final AccessRecord accessRecord; // 门禁记录

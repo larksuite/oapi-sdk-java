@@ -71,6 +71,12 @@ public class Minute {
      */
     @SerializedName("url")
     private String url;
+    /**
+     * 纪要ID
+     * <p> 示例值：7616590025794260496
+     */
+    @SerializedName("note_id")
+    private String noteId;
 
     // builder 开始
     public Minute() {
@@ -112,6 +118,11 @@ public class Minute {
          * <p> 示例值：https://bytedance.feishu-pre.cn/minutes/obcnq3b9jl72l83w4f149w9c
          */
         this.url = builder.url;
+        /**
+         * 纪要ID
+         * <p> 示例值：7616590025794260496
+         */
+        this.noteId = builder.noteId;
     }
 
     public static Builder newBuilder() {
@@ -174,6 +185,14 @@ public class Minute {
         this.url = url;
     }
 
+    public String getNoteId() {
+        return this.noteId;
+    }
+
+    public void setNoteId(String noteId) {
+        this.noteId = noteId;
+    }
+
     public static class Builder {
         /**
          * 妙记token
@@ -210,6 +229,11 @@ public class Minute {
          * <p> 示例值：https://bytedance.feishu-pre.cn/minutes/obcnq3b9jl72l83w4f149w9c
          */
         private String url;
+        /**
+         * 纪要ID
+         * <p> 示例值：7616590025794260496
+         */
+        private String noteId;
 
         /**
          * 妙记token
@@ -298,6 +322,19 @@ public class Minute {
          */
         public Builder url(String url) {
             this.url = url;
+            return this;
+        }
+
+
+        /**
+         * 纪要ID
+         * <p> 示例值：7616590025794260496
+         *
+         * @param noteId
+         * @return
+         */
+        public Builder noteId(String noteId) {
+            this.noteId = noteId;
             return this;
         }
 

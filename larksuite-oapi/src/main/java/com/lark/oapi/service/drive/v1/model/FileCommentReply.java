@@ -65,6 +65,12 @@ public class FileCommentReply {
      */
     @SerializedName("extra")
     private ReplyExtra extra;
+    /**
+     * 评论回复卡片上对应的表情回复信息
+     * <p> 示例值：
+     */
+    @SerializedName("reactions")
+    private FileCommentV2BatchQueryReactionData[] reactions;
 
     // builder 开始
     public FileCommentReply() {
@@ -101,6 +107,11 @@ public class FileCommentReply {
          * <p> 示例值：
          */
         this.extra = builder.extra;
+        /**
+         * 评论回复卡片上对应的表情回复信息
+         * <p> 示例值：
+         */
+        this.reactions = builder.reactions;
     }
 
     public static Builder newBuilder() {
@@ -155,6 +166,14 @@ public class FileCommentReply {
         this.extra = extra;
     }
 
+    public FileCommentV2BatchQueryReactionData[] getReactions() {
+        return this.reactions;
+    }
+
+    public void setReactions(FileCommentV2BatchQueryReactionData[] reactions) {
+        this.reactions = reactions;
+    }
+
     public static class Builder {
         /**
          * 回复内容
@@ -186,6 +205,11 @@ public class FileCommentReply {
          * <p> 示例值：
          */
         private ReplyExtra extra;
+        /**
+         * 评论回复卡片上对应的表情回复信息
+         * <p> 示例值：
+         */
+        private FileCommentV2BatchQueryReactionData[] reactions;
 
         /**
          * 回复内容
@@ -261,6 +285,19 @@ public class FileCommentReply {
          */
         public Builder extra(ReplyExtra extra) {
             this.extra = extra;
+            return this;
+        }
+
+
+        /**
+         * 评论回复卡片上对应的表情回复信息
+         * <p> 示例值：
+         *
+         * @param reactions
+         * @return
+         */
+        public Builder reactions(FileCommentV2BatchQueryReactionData[] reactions) {
+            this.reactions = reactions;
             return this;
         }
 

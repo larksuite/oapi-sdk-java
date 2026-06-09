@@ -39,6 +39,7 @@ import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -51,6 +52,319 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 public class TestRegisterApp {
+
+    private static HttpUrl captureQRCodeUrl(AppPreset appPreset, String source) throws Exception {
+        RegistrationTestServer server = new RegistrationTestServer();
+        try {
+            server.enqueueBegin(
+                    200,
+                    "{\"device_code\":\"dev_code\",\"verification_uri_complete\":\""
+                            + server.baseUrl()
+                            + "/verify?foo=bar\",\"interval\":1,\"expire_in\":600}"
+            );
+            server.enqueuePoll(
+                    200,
+                    "{\"client_id\":\"cli_123\",\"client_secret\":\"sec_456\","
+                            + "\"user_info\":{\"open_id\":\"ou_abc\",\"tenant_brand\":\"feishu\"}}"
+            );
+
+            List<QRCodeInfo> qrCodes = new ArrayList<>();
+            RegisterApp.register(RegisterAppOptions.newBuilder()
+                    .domain(server.baseUrl())
+                    .source(source)
+                    .appPreset(appPreset)
+                    .onQRCode(qrCodes::add)
+                    .build());
+
+            assertEquals(1, qrCodes.size());
+            return HttpUrl.get(qrCodes.get(0).getUrl());
+        } finally {
+            server.close();
+        }
+    }
+
+    private static void assertInvalidAppPreset(AppPreset appPreset, String expectedDescription) throws Exception {
+        RegistrationTestServer server = new RegistrationTestServer();
+        try {
+            server.enqueueBegin(
+                    200,
+                    "{\"device_code\":\"dev_code\",\"verification_uri_complete\":\""
+                            + server.baseUrl()
+                            + "/verify\",\"interval\":1,\"expire_in\":600}"
+            );
+
+            try {
+                RegisterApp.register(RegisterAppOptions.newBuilder()
+                        .domain(server.baseUrl())
+                        .appPreset(appPreset)
+                        .onQRCode(info -> {
+                        })
+                        .build());
+                fail("Expected RegisterAppException");
+            } catch (RegisterAppException e) {
+                assertEquals("invalid_argument", e.getCode());
+                assertEquals(expectedDescription, e.getDescription());
+            }
+        } finally {
+            server.close();
+        }
+    }
+
+    @Test
+    public void testRegisterAppOmitsAppPresetWhenNotProvided() throws Exception {
+        HttpUrl qrUrl = captureQRCodeUrl(null, null);
+
+        assertEquals("bar", qrUrl.queryParameter("foo"));
+        assertEquals("sdk", qrUrl.queryParameter("from"));
+        assertEquals("java-sdk", qrUrl.queryParameter("source"));
+        assertEquals("sdk", qrUrl.queryParameter("tp"));
+        assertTrue(qrUrl.queryParameterValues("avatar").isEmpty());
+        assertEquals(null, qrUrl.queryParameter("name"));
+        assertEquals(null, qrUrl.queryParameter("desc"));
+    }
+
+    @Test
+    public void testRegisterAppAcceptsSingleAvatar() throws Exception {
+        HttpUrl qrUrl = captureQRCodeUrl(AppPreset.newBuilder()
+                .avatar("https://example.com/a.png")
+                .build(), null);
+
+        assertEquals(Arrays.asList("https://example.com/a.png"), qrUrl.queryParameterValues("avatar"));
+    }
+
+    @Test
+    public void testRegisterAppAcceptsMultipleAvatarsAndPreservesOrder() throws Exception {
+        HttpUrl qrUrl = captureQRCodeUrl(AppPreset.newBuilder()
+                .avatars(
+                        "https://example.com/a.png",
+                        "https://example.com/b.webp",
+                        "https://example.com/c.gif"
+                )
+                .build(), null);
+
+        assertEquals(Arrays.asList(
+                "https://example.com/a.png",
+                "https://example.com/b.webp",
+                "https://example.com/c.gif"
+        ), qrUrl.queryParameterValues("avatar"));
+    }
+
+    @Test
+    public void testRegisterAppAcceptsExactlySixAvatars() throws Exception {
+        HttpUrl qrUrl = captureQRCodeUrl(AppPreset.newBuilder()
+                .avatars(
+                        "https://example.com/0.png",
+                        "https://example.com/1.png",
+                        "https://example.com/2.png",
+                        "https://example.com/3.png",
+                        "https://example.com/4.png",
+                        "https://example.com/5.png"
+                )
+                .build(), null);
+
+        assertEquals(6, qrUrl.queryParameterValues("avatar").size());
+        assertEquals("https://example.com/0.png", qrUrl.queryParameterValues("avatar").get(0));
+        assertEquals("https://example.com/5.png", qrUrl.queryParameterValues("avatar").get(5));
+    }
+
+    @Test
+    public void testRegisterAppUrlEncodesNameWithUserPlaceholder() throws Exception {
+        HttpUrl qrUrl = captureQRCodeUrl(AppPreset.newBuilder()
+                .name("{user}的应用")
+                .build(), null);
+
+        assertEquals("{user}的应用", qrUrl.queryParameter("name"));
+        assertTrue(qrUrl.toString().contains("name=%7Buser%7D%E7%9A%84%E5%BA%94%E7%94%A8"));
+    }
+
+    @Test
+    public void testRegisterAppUrlEncodesDesc() throws Exception {
+        HttpUrl qrUrl = captureQRCodeUrl(AppPreset.newBuilder()
+                .desc("由业务平台自动生成")
+                .build(), null);
+
+        assertEquals("由业务平台自动生成", qrUrl.queryParameter("desc"));
+        assertTrue(qrUrl.toString().contains(
+                "desc=%E7%94%B1%E4%B8%9A%E5%8A%A1%E5%B9%B3%E5%8F%B0%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90"
+        ));
+    }
+
+    @Test
+    public void testRegisterAppEmitsAllPresetFieldsTogether() throws Exception {
+        HttpUrl qrUrl = captureQRCodeUrl(AppPreset.newBuilder()
+                .avatars("https://example.com/a.png", "https://example.com/b.png")
+                .name("MyApp")
+                .desc("demo")
+                .build(), null);
+
+        assertEquals(Arrays.asList(
+                "https://example.com/a.png",
+                "https://example.com/b.png"
+        ), qrUrl.queryParameterValues("avatar"));
+        assertEquals("MyApp", qrUrl.queryParameter("name"));
+        assertEquals("demo", qrUrl.queryParameter("desc"));
+    }
+
+    @Test
+    public void testRegisterAppAppPresetDoesNotInterfereWithSource() throws Exception {
+        HttpUrl qrUrl = captureQRCodeUrl(AppPreset.newBuilder()
+                .name("X")
+                .build(), "lark-cli");
+
+        assertEquals("java-sdk/lark-cli", qrUrl.queryParameter("source"));
+        assertEquals("X", qrUrl.queryParameter("name"));
+        assertEquals("sdk", qrUrl.queryParameter("from"));
+        assertEquals("sdk", qrUrl.queryParameter("tp"));
+    }
+
+    @Test
+    public void testRegisterAppRejectsEmptyAvatarList() throws Exception {
+        assertInvalidAppPreset(AppPreset.newBuilder()
+                        .avatars(Collections.<String>emptyList())
+                        .build(),
+                "appPreset.avatar must contain at least 1 URL");
+    }
+
+    @Test
+    public void testRegisterAppRejectsMoreThanSixAvatars() throws Exception {
+        assertInvalidAppPreset(AppPreset.newBuilder()
+                        .avatars(
+                                "https://example.com/0.png",
+                                "https://example.com/1.png",
+                                "https://example.com/2.png",
+                                "https://example.com/3.png",
+                                "https://example.com/4.png",
+                                "https://example.com/5.png",
+                                "https://example.com/6.png"
+                        )
+                        .build(),
+                "appPreset.avatar supports at most 6 URLs, got 7");
+    }
+
+    @Test
+    public void testRegisterAppRejectsEmptyAvatarString() throws Exception {
+        assertInvalidAppPreset(AppPreset.newBuilder()
+                        .avatar("")
+                        .build(),
+                "appPreset.avatar[0] must be a non-empty string");
+    }
+
+    @Test
+    public void testRegisterAppRejectsEmptyAvatarEntryWithIndex() throws Exception {
+        assertInvalidAppPreset(AppPreset.newBuilder()
+                        .avatars("https://example.com/a.png", "")
+                        .build(),
+                "appPreset.avatar[1] must be a non-empty string");
+    }
+
+    @Test
+    public void testRegisterAppRejectsNullAvatarEntryWithIndex() throws Exception {
+        assertInvalidAppPreset(AppPreset.newBuilder()
+                        .avatars(Arrays.asList("https://example.com/a.png", null))
+                        .build(),
+                "appPreset.avatar[1] must be a non-empty string");
+    }
+
+    @Test
+    public void testRegisterAppEndToEndWithAppPreset() throws Exception {
+        RegistrationTestServer server = new RegistrationTestServer();
+        try {
+            server.enqueueBegin(
+                    200,
+                    "{\"device_code\":\"dev_code\",\"verification_uri_complete\":\""
+                            + server.baseUrl()
+                            + "/verify?foo=bar\",\"interval\":1,\"expire_in\":600}"
+            );
+            server.enqueuePoll(
+                    200,
+                    "{\"client_id\":\"cli_123\",\"client_secret\":\"sec_456\","
+                            + "\"user_info\":{\"open_id\":\"ou_abc\",\"tenant_brand\":\"feishu\"}}"
+            );
+
+            List<QRCodeInfo> qrCodes = new ArrayList<>();
+            RegisterAppResult result = RegisterApp.register(RegisterAppOptions.newBuilder()
+                    .domain(server.baseUrl())
+                    .appPreset(AppPreset.newBuilder()
+                            .avatars("https://example.com/a.png", "https://example.com/b.webp")
+                            .name("{user}的应用")
+                            .desc("由业务平台自动生成")
+                            .build())
+                    .onQRCode(qrCodes::add)
+                    .build());
+
+            assertEquals("cli_123", result.getClientId());
+            assertEquals("sec_456", result.getClientSecret());
+            assertNotNull(result.getUserInfo());
+            assertEquals("ou_abc", result.getUserInfo().getOpenId());
+            assertEquals("feishu", result.getUserInfo().getTenantBrand());
+            assertEquals(1, qrCodes.size());
+
+            HttpUrl qrUrl = HttpUrl.get(qrCodes.get(0).getUrl());
+            assertEquals("bar", qrUrl.queryParameter("foo"));
+            assertEquals("sdk", qrUrl.queryParameter("from"));
+            assertEquals("java-sdk", qrUrl.queryParameter("source"));
+            assertEquals("sdk", qrUrl.queryParameter("tp"));
+            assertEquals(Arrays.asList(
+                    "https://example.com/a.png",
+                    "https://example.com/b.webp"
+            ), qrUrl.queryParameterValues("avatar"));
+            assertEquals("{user}的应用", qrUrl.queryParameter("name"));
+            assertEquals("由业务平台自动生成", qrUrl.queryParameter("desc"));
+        } finally {
+            server.close();
+        }
+    }
+
+    @Test
+    public void testRegisterAppEndToEndWithAppPresetAndLarkSwitch() throws Exception {
+        RegistrationTestServer feishuServer = new RegistrationTestServer();
+        RegistrationTestServer larkServer = new RegistrationTestServer();
+        try {
+            feishuServer.enqueueBegin(
+                    200,
+                    "{\"device_code\":\"dev_code\",\"verification_uri_complete\":\""
+                            + feishuServer.baseUrl()
+                            + "/verify?foo=bar\",\"interval\":1,\"expire_in\":600}"
+            );
+            feishuServer.enqueuePoll(
+                    400,
+                    "{\"user_info\":{\"tenant_brand\":\"lark\"},\"error\":\"authorization_pending\"}"
+            );
+            larkServer.enqueuePoll(
+                    200,
+                    "{\"client_id\":\"cli_123\",\"client_secret\":\"sec_456\","
+                            + "\"user_info\":{\"open_id\":\"ou_abc\",\"tenant_brand\":\"lark\"}}"
+            );
+
+            List<QRCodeInfo> qrCodes = new ArrayList<>();
+            List<String> statuses = new ArrayList<>();
+
+            RegisterAppResult result = RegisterApp.register(RegisterAppOptions.newBuilder()
+                    .domain(feishuServer.baseUrl())
+                    .larkDomain(larkServer.baseUrl())
+                    .source("cli-tool")
+                    .appPreset(AppPreset.newBuilder()
+                            .avatar("https://example.com/a.png")
+                            .name("MyApp")
+                            .build())
+                    .onQRCode(qrCodes::add)
+                    .onStatusChange(info -> statuses.add(info.getStatus()))
+                    .build());
+
+            assertEquals("cli_123", result.getClientId());
+            assertEquals("sec_456", result.getClientSecret());
+            assertEquals(Arrays.asList(StatusChangeInfo.DOMAIN_SWITCHED), statuses);
+            assertEquals(1, qrCodes.size());
+
+            HttpUrl qrUrl = HttpUrl.get(qrCodes.get(0).getUrl());
+            assertEquals("java-sdk/cli-tool", qrUrl.queryParameter("source"));
+            assertEquals(Arrays.asList("https://example.com/a.png"), qrUrl.queryParameterValues("avatar"));
+            assertEquals("MyApp", qrUrl.queryParameter("name"));
+        } finally {
+            feishuServer.close();
+            larkServer.close();
+        }
+    }
 
     @Test
     public void testRegisterAppSuccessWithLarkSwitch() throws Exception {
@@ -202,6 +516,33 @@ public class TestRegisterApp {
             this.server.start();
         }
 
+        private static String readBody(InputStream inputStream) throws IOException {
+            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+            byte[] buffer = new byte[256];
+            int read;
+            while ((read = inputStream.read(buffer)) != -1) {
+                outputStream.write(buffer, 0, read);
+            }
+            return outputStream.toString(StandardCharsets.UTF_8.name());
+        }
+
+        private static Map<String, String> parseForm(String formBody) throws IOException {
+            Map<String, String> result = new LinkedHashMap<>();
+            if (formBody == null || formBody.isEmpty()) {
+                return result;
+            }
+            String[] pairs = formBody.split("&");
+            for (String pair : pairs) {
+                String[] keyValue = pair.split("=", 2);
+                String key = URLDecoder.decode(keyValue[0], StandardCharsets.UTF_8.name());
+                String value = keyValue.length > 1
+                        ? URLDecoder.decode(keyValue[1], StandardCharsets.UTF_8.name())
+                        : "";
+                result.put(key, value);
+            }
+            return result;
+        }
+
         String baseUrl() {
             return "http://127.0.0.1:" + server.getAddress().getPort();
         }
@@ -255,33 +596,6 @@ public class TestRegisterApp {
                     outputStream.write(bytes);
                 }
             }
-        }
-
-        private static String readBody(InputStream inputStream) throws IOException {
-            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-            byte[] buffer = new byte[256];
-            int read;
-            while ((read = inputStream.read(buffer)) != -1) {
-                outputStream.write(buffer, 0, read);
-            }
-            return outputStream.toString(StandardCharsets.UTF_8.name());
-        }
-
-        private static Map<String, String> parseForm(String formBody) throws IOException {
-            Map<String, String> result = new LinkedHashMap<>();
-            if (formBody == null || formBody.isEmpty()) {
-                return result;
-            }
-            String[] pairs = formBody.split("&");
-            for (String pair : pairs) {
-                String[] keyValue = pair.split("=", 2);
-                String key = URLDecoder.decode(keyValue[0], StandardCharsets.UTF_8.name());
-                String value = keyValue.length > 1
-                        ? URLDecoder.decode(keyValue[1], StandardCharsets.UTF_8.name())
-                        : "";
-                result.put(key, value);
-            }
-            return result;
         }
     }
 

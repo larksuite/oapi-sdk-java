@@ -25,6 +25,7 @@ public class CreateCostCenterSample {
                         .managers(new String[]{})
                         .description(new I18n[]{})
                         .effectiveTime("2020-01-01")
+                        .isPreferManualEncoding(false)
                         .build())
                 .build();
 

@@ -14,7 +14,40 @@
 package com.lark.oapi.service.corehr.v1;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.service.corehr.v1.resource.*;
+import com.lark.oapi.service.corehr.v1.resource.AssignedUser;
+import com.lark.oapi.service.corehr.v1.resource.Authorization;
+import com.lark.oapi.service.corehr.v1.resource.CommonDataId;
+import com.lark.oapi.service.corehr.v1.resource.CommonDataMetaData;
+import com.lark.oapi.service.corehr.v1.resource.Company;
+import com.lark.oapi.service.corehr.v1.resource.CompensationStandard;
+import com.lark.oapi.service.corehr.v1.resource.Contract;
+import com.lark.oapi.service.corehr.v1.resource.CountryRegion;
+import com.lark.oapi.service.corehr.v1.resource.Currency;
+import com.lark.oapi.service.corehr.v1.resource.CustomField;
+import com.lark.oapi.service.corehr.v1.resource.Department;
+import com.lark.oapi.service.corehr.v1.resource.EmployeeType;
+import com.lark.oapi.service.corehr.v1.resource.Employment;
+import com.lark.oapi.service.corehr.v1.resource.File;
+import com.lark.oapi.service.corehr.v1.resource.Job;
+import com.lark.oapi.service.corehr.v1.resource.JobChange;
+import com.lark.oapi.service.corehr.v1.resource.JobData;
+import com.lark.oapi.service.corehr.v1.resource.JobFamily;
+import com.lark.oapi.service.corehr.v1.resource.JobLevel;
+import com.lark.oapi.service.corehr.v1.resource.Leave;
+import com.lark.oapi.service.corehr.v1.resource.LeaveGrantingRecord;
+import com.lark.oapi.service.corehr.v1.resource.Location;
+import com.lark.oapi.service.corehr.v1.resource.NationalIdType;
+import com.lark.oapi.service.corehr.v1.resource.Offboarding;
+import com.lark.oapi.service.corehr.v1.resource.OrgRoleAuthorization;
+import com.lark.oapi.service.corehr.v1.resource.Person;
+import com.lark.oapi.service.corehr.v1.resource.PreHire;
+import com.lark.oapi.service.corehr.v1.resource.ProcessFormVariableData;
+import com.lark.oapi.service.corehr.v1.resource.SecurityGroup;
+import com.lark.oapi.service.corehr.v1.resource.Subdivision;
+import com.lark.oapi.service.corehr.v1.resource.Subregion;
+import com.lark.oapi.service.corehr.v1.resource.TransferReason;
+import com.lark.oapi.service.corehr.v1.resource.TransferType;
+import com.lark.oapi.service.corehr.v1.resource.WorkingHoursType;
 
 public class V1 {
     private final AssignedUser assignedUser; // assigned_user

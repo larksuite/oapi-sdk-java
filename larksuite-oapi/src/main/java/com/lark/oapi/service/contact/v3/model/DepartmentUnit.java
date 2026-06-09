@@ -144,10 +144,10 @@ public class DepartmentUnit {
          * 部门单元类型
          * <p> 示例值：
          *
-         * @param unitType {@link com.lark.oapi.service.contact.v3.enums.DepartmentUnitUnitTypeEnum}
+         * @param unitType {@link com.lark.oapi.service.contact.v3.enums.DepartmentUnitDepartmentUnitUnitTypeEnum}
          * @return
          */
-        public Builder unitType(com.lark.oapi.service.contact.v3.enums.DepartmentUnitUnitTypeEnum unitType) {
+        public Builder unitType(com.lark.oapi.service.contact.v3.enums.DepartmentUnitDepartmentUnitUnitTypeEnum unitType) {
             this.unitType = unitType.getValue();
             return this;
         }

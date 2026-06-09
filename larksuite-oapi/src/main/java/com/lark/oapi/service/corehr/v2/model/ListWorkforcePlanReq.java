@@ -70,6 +70,20 @@ public class ListWorkforcePlanReq {
     @Query
     @SerializedName("page_size")
     private Integer pageSize;
+    /**
+     * 开始日期
+     * <p> 示例值：2026-01-01
+     */
+    @Query
+    @SerializedName("start_date")
+    private String startDate;
+    /**
+     * 结束日期
+     * <p> 示例值：2026-12-31
+     */
+    @Query
+    @SerializedName("end_date")
+    private String endDate;
 
     // builder 开始
     public ListWorkforcePlanReq() {
@@ -106,6 +120,16 @@ public class ListWorkforcePlanReq {
          * <p> 示例值：100
          */
         this.pageSize = builder.pageSize;
+        /**
+         * 开始日期
+         * <p> 示例值：2026-01-01
+         */
+        this.startDate = builder.startDate;
+        /**
+         * 结束日期
+         * <p> 示例值：2026-12-31
+         */
+        this.endDate = builder.endDate;
     }
 
     public static Builder newBuilder() {
@@ -160,6 +184,22 @@ public class ListWorkforcePlanReq {
         this.pageSize = pageSize;
     }
 
+    public String getStartDate() {
+        return this.startDate;
+    }
+
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
+    }
+
+    public String getEndDate() {
+        return this.endDate;
+    }
+
+    public void setEndDate(String endDate) {
+        this.endDate = endDate;
+    }
+
     public static class Builder {
         private Integer limit; // 查询数量
         private Integer offset; // 跳过数量
@@ -167,6 +207,8 @@ public class ListWorkforcePlanReq {
         private Boolean active; // 是否只获取已启用的方案，true 获取已启用编制规划方案，false 获取所有编制规划方案，默认为 true示例值：true
         private String pageToken; // 分页标识
         private Integer pageSize; // 每页数量
+        private String startDate; // 开始日期
+        private String endDate; // 结束日期
 
         /**
          * 查询数量
@@ -242,6 +284,32 @@ public class ListWorkforcePlanReq {
          */
         public Builder pageSize(Integer pageSize) {
             this.pageSize = pageSize;
+            return this;
+        }
+
+
+        /**
+         * 开始日期
+         * <p> 示例值：2026-01-01
+         *
+         * @param startDate
+         * @return
+         */
+        public Builder startDate(String startDate) {
+            this.startDate = startDate;
+            return this;
+        }
+
+
+        /**
+         * 结束日期
+         * <p> 示例值：2026-12-31
+         *
+         * @param endDate
+         * @return
+         */
+        public Builder endDate(String endDate) {
+            this.endDate = endDate;
             return this;
         }
 

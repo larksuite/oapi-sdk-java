@@ -29,20 +29,59 @@ public class CardActionEvent {
         this.raw = raw;
     }
 
-    /** Message id of the card message. */
-    public String getMessageId() { return messageId; }
-    /** Chat id that can be used for replies. */
-    public String getChatId() { return chatId; }
-    /** User open_id of the operator when available. */
-    public String getOperatorId() { return operatorId; }
-    /** Component tag, for example {@code button} or {@code select_static}. */
-    public String getActionTag() { return actionTag; }
-    /** Component name configured in card JSON. */
-    public String getActionName() { return actionName; }
-    /** Selected option value for selection components. */
-    public String getActionOption() { return actionOption; }
-    /** Callback value map from the card component. */
-    public Map<String, Object> getActionValue() { return actionValue; }
-    /** Raw callback body when raw events are enabled. */
-    public Object getRaw() { return raw; }
+    /**
+     * Message id of the card message.
+     */
+    public String getMessageId() {
+        return messageId;
+    }
+
+    /**
+     * Chat id that can be used for replies.
+     */
+    public String getChatId() {
+        return chatId;
+    }
+
+    /**
+     * User open_id of the operator when available.
+     */
+    public String getOperatorId() {
+        return operatorId;
+    }
+
+    /**
+     * Component tag, for example {@code button} or {@code select_static}.
+     */
+    public String getActionTag() {
+        return actionTag;
+    }
+
+    /**
+     * Component name configured in card JSON.
+     */
+    public String getActionName() {
+        return actionName;
+    }
+
+    /**
+     * Selected option value for selection components.
+     */
+    public String getActionOption() {
+        return actionOption;
+    }
+
+    /**
+     * Callback value map from the card component.
+     */
+    public Map<String, Object> getActionValue() {
+        return actionValue;
+    }
+
+    /**
+     * Raw callback body when raw events are enabled.
+     */
+    public Object getRaw() {
+        return raw;
+    }
 }

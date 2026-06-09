@@ -10,6 +10,7 @@ import com.lark.oapi.channel.normalize.ConvertContext;
 import com.lark.oapi.channel.normalize.ConvertResult;
 import com.lark.oapi.channel.normalize.NormalizeJsons;
 import com.lark.oapi.channel.normalize.NormalizeTexts;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;

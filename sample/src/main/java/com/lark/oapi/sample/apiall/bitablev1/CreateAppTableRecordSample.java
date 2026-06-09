@@ -22,6 +22,7 @@ public class CreateAppTableRecordSample {
                 .ignoreConsistencyCheck(true)
                 .appTableRecord(AppTableRecord.newBuilder()
                         .fields(new HashMap<String, Object>())
+                        .recordId("recgcfdzKq")
                         .build())
                 .build();
 

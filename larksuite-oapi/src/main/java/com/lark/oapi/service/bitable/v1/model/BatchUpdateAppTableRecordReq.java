@@ -43,6 +43,12 @@ public class BatchUpdateAppTableRecordReq {
     @SerializedName("ignore_consistency_check")
     private Boolean ignoreConsistencyCheck;
     /**
+     * <p> 示例值：
+     */
+    @Query
+    @SerializedName("client_token")
+    private String clientToken;
+    /**
      * bitable app token
      * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
      */
@@ -74,6 +80,11 @@ public class BatchUpdateAppTableRecordReq {
          * <p> 示例值：true
          */
         this.ignoreConsistencyCheck = builder.ignoreConsistencyCheck;
+        /**
+         *
+         * <p> 示例值：
+         */
+        this.clientToken = builder.clientToken;
         /**
          * bitable app token
          * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
@@ -107,6 +118,14 @@ public class BatchUpdateAppTableRecordReq {
         this.ignoreConsistencyCheck = ignoreConsistencyCheck;
     }
 
+    public String getClientToken() {
+        return this.clientToken;
+    }
+
+    public void setClientToken(String clientToken) {
+        this.clientToken = clientToken;
+    }
+
     public String getAppToken() {
         return this.appToken;
     }
@@ -134,6 +153,7 @@ public class BatchUpdateAppTableRecordReq {
     public static class Builder {
         private String userIdType; // 此次调用中使用的用户ID的类型
         private Boolean ignoreConsistencyCheck; // 用于控制一致性读写，默认开启检查
+        private String clientToken; //
         private String appToken; // bitable app token
         private String tableId; // table id
         private BatchUpdateAppTableRecordReqBody body;
@@ -171,6 +191,17 @@ public class BatchUpdateAppTableRecordReq {
          */
         public Builder ignoreConsistencyCheck(Boolean ignoreConsistencyCheck) {
             this.ignoreConsistencyCheck = ignoreConsistencyCheck;
+            return this;
+        }
+
+        /**
+         * <p> 示例值：
+         *
+         * @param clientToken
+         * @return
+         */
+        public Builder clientToken(String clientToken) {
+            this.clientToken = clientToken;
             return this;
         }
 

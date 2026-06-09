@@ -14,7 +14,19 @@
 package com.lark.oapi.service.application.v6;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.service.application.v6.resource.*;
+import com.lark.oapi.service.application.v6.resource.AppBadge;
+import com.lark.oapi.service.application.v6.resource.AppRecommendRule;
+import com.lark.oapi.service.application.v6.resource.Application;
+import com.lark.oapi.service.application.v6.resource.ApplicationAppUsage;
+import com.lark.oapi.service.application.v6.resource.ApplicationAppVersion;
+import com.lark.oapi.service.application.v6.resource.ApplicationCollaborators;
+import com.lark.oapi.service.application.v6.resource.ApplicationContactsRange;
+import com.lark.oapi.service.application.v6.resource.ApplicationFeedback;
+import com.lark.oapi.service.application.v6.resource.ApplicationManagement;
+import com.lark.oapi.service.application.v6.resource.ApplicationOwner;
+import com.lark.oapi.service.application.v6.resource.ApplicationVisibility;
+import com.lark.oapi.service.application.v6.resource.Bot;
+import com.lark.oapi.service.application.v6.resource.Scope;
 
 public class V6 {
     private final AppBadge appBadge; // 应用红点

@@ -54,7 +54,7 @@ public class SocialArchiveAdjustRecordEvent {
     @SerializedName("source_type")
     private String sourceType;
     /**
-     * 增减员类型, increase: 增员; attrtion: 减员
+     * 增减员类型, increase: 增员; attrition: 减员
      * <p> 示例值：increase
      */
     @SerializedName("record_type")
@@ -98,7 +98,7 @@ public class SocialArchiveAdjustRecordEvent {
          */
         this.sourceType = builder.sourceType;
         /**
-         * 增减员类型, increase: 增员; attrtion: 减员
+         * 增减员类型, increase: 增员; attrition: 减员
          * <p> 示例值：increase
          */
         this.recordType = builder.recordType;
@@ -196,7 +196,7 @@ public class SocialArchiveAdjustRecordEvent {
          */
         private String sourceType;
         /**
-         * 增减员类型, increase: 增员; attrtion: 减员
+         * 增减员类型, increase: 增员; attrition: 减员
          * <p> 示例值：increase
          */
         private String recordType;
@@ -300,7 +300,7 @@ public class SocialArchiveAdjustRecordEvent {
 
 
         /**
-         * 增减员类型, increase: 增员; attrtion: 减员
+         * 增减员类型, increase: 增员; attrition: 减员
          * <p> 示例值：increase
          *
          * @param recordType
@@ -312,7 +312,7 @@ public class SocialArchiveAdjustRecordEvent {
         }
 
         /**
-         * 增减员类型, increase: 增员; attrtion: 减员
+         * 增减员类型, increase: 增员; attrition: 减员
          * <p> 示例值：increase
          *
          * @param recordType {@link com.lark.oapi.service.compensation.v1.enums.SocialArchiveAdjustRecordEventRecordTypeEnum}

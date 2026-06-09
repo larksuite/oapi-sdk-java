@@ -22,12 +22,35 @@ public class CommentEvent {
         this.raw = raw;
     }
 
-    public String getFileToken() { return fileToken; }
-    public String getFileType() { return fileType; }
-    public String getCommentId() { return commentId; }
-    public String getReplyId() { return replyId; }
-    public String getOperatorId() { return operatorId; }
-    public boolean isMentionedBot() { return mentionedBot; }
-    public long getTimestamp() { return timestamp; }
-    public Object getRaw() { return raw; }
+    public String getFileToken() {
+        return fileToken;
+    }
+
+    public String getFileType() {
+        return fileType;
+    }
+
+    public String getCommentId() {
+        return commentId;
+    }
+
+    public String getReplyId() {
+        return replyId;
+    }
+
+    public String getOperatorId() {
+        return operatorId;
+    }
+
+    public boolean isMentionedBot() {
+        return mentionedBot;
+    }
+
+    public long getTimestamp() {
+        return timestamp;
+    }
+
+    public Object getRaw() {
+        return raw;
+    }
 }

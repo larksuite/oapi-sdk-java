@@ -14,7 +14,7 @@
 package com.lark.oapi.service.bitable.v1.enums;
 
 /**
- * 其他记录权限，仅在table_perm为2时有意义
+ * 其他记录权限，仅在table_perm为2时有效
  */
 public enum AppRoleTableRoleRecRuleOtherPermEnum {
     NOPERM(0), // 禁止查看

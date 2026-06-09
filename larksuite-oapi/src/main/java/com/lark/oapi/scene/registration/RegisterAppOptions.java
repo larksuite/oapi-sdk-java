@@ -6,10 +6,15 @@ public class RegisterAppOptions {
     private String source;
     private String domain;
     private String larkDomain;
+    private AppPreset appPreset;
     private Consumer<QRCodeInfo> onQRCode;
     private Consumer<StatusChangeInfo> onStatusChange;
 
     private RegisterAppOptions() {
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
     public String getSource() {
@@ -24,16 +29,16 @@ public class RegisterAppOptions {
         return larkDomain;
     }
 
+    public AppPreset getAppPreset() {
+        return appPreset;
+    }
+
     public Consumer<QRCodeInfo> getOnQRCode() {
         return onQRCode;
     }
 
     public Consumer<StatusChangeInfo> getOnStatusChange() {
         return onStatusChange;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
     }
 
     public static class Builder {
@@ -51,6 +56,11 @@ public class RegisterAppOptions {
 
         public Builder larkDomain(String larkDomain) {
             options.larkDomain = larkDomain;
+            return this;
+        }
+
+        public Builder appPreset(AppPreset appPreset) {
+            options.appPreset = appPreset;
             return this;
         }
 

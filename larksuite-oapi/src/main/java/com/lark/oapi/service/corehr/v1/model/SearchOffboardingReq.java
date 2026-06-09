@@ -49,6 +49,13 @@ public class SearchOffboardingReq {
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
+    /**
+     * 此次调用中使用的部门 ID 类型
+     * <p> 示例值：open_department_id
+     */
+    @Query
+    @SerializedName("department_id_type")
+    private String departmentIdType;
     @Body
     private SearchOffboardingReqBody body;
 
@@ -72,6 +79,11 @@ public class SearchOffboardingReq {
          * <p> 示例值：open_id
          */
         this.userIdType = builder.userIdType;
+        /**
+         * 此次调用中使用的部门 ID 类型
+         * <p> 示例值：open_department_id
+         */
+        this.departmentIdType = builder.departmentIdType;
         this.body = builder.body;
     }
 
@@ -103,6 +115,14 @@ public class SearchOffboardingReq {
         this.userIdType = userIdType;
     }
 
+    public String getDepartmentIdType() {
+        return this.departmentIdType;
+    }
+
+    public void setDepartmentIdType(String departmentIdType) {
+        this.departmentIdType = departmentIdType;
+    }
+
     public SearchOffboardingReqBody getSearchOffboardingReqBody() {
         return this.body;
     }
@@ -115,6 +135,7 @@ public class SearchOffboardingReq {
         private Integer pageSize; // 分页大小，最大 100
         private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
         private String userIdType; // 用户 ID 类型
+        private String departmentIdType; // 此次调用中使用的部门 ID 类型
         private SearchOffboardingReqBody body;
 
         /**
@@ -162,6 +183,30 @@ public class SearchOffboardingReq {
          */
         public Builder userIdType(com.lark.oapi.service.corehr.v1.enums.SearchOffboardingSearchOffboardingUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
+            return this;
+        }
+
+        /**
+         * 此次调用中使用的部门 ID 类型
+         * <p> 示例值：open_department_id
+         *
+         * @param departmentIdType
+         * @return
+         */
+        public Builder departmentIdType(String departmentIdType) {
+            this.departmentIdType = departmentIdType;
+            return this;
+        }
+
+        /**
+         * 此次调用中使用的部门 ID 类型
+         * <p> 示例值：open_department_id
+         *
+         * @param departmentIdType {@link com.lark.oapi.service.corehr.v1.enums.SearchOffboardingSearchOffboardingDepartmentIDTypeEnum}
+         * @return
+         */
+        public Builder departmentIdType(com.lark.oapi.service.corehr.v1.enums.SearchOffboardingSearchOffboardingDepartmentIDTypeEnum departmentIdType) {
+            this.departmentIdType = departmentIdType.getValue();
             return this;
         }
 

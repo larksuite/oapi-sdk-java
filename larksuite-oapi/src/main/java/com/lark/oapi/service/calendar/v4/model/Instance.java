@@ -137,6 +137,12 @@ public class Instance {
      */
     @SerializedName("attendees")
     private CalendarEventAttendee[] attendees;
+    /**
+     * 当前日历的RSVP状态
+     * <p> 示例值：
+     */
+    @SerializedName("self_rsvp_status")
+    private String selfRsvpStatus;
 
     // builder 开始
     public Instance() {
@@ -233,6 +239,11 @@ public class Instance {
          * <p> 示例值：
          */
         this.attendees = builder.attendees;
+        /**
+         * 当前日历的RSVP状态
+         * <p> 示例值：
+         */
+        this.selfRsvpStatus = builder.selfRsvpStatus;
     }
 
     public static Builder newBuilder() {
@@ -383,6 +394,14 @@ public class Instance {
         this.attendees = attendees;
     }
 
+    public String getSelfRsvpStatus() {
+        return this.selfRsvpStatus;
+    }
+
+    public void setSelfRsvpStatus(String selfRsvpStatus) {
+        this.selfRsvpStatus = selfRsvpStatus;
+    }
+
     public static class Builder {
         /**
          * 日程实例ID
@@ -474,6 +493,11 @@ public class Instance {
          * <p> 示例值：
          */
         private CalendarEventAttendee[] attendees;
+        /**
+         * 当前日历的RSVP状态
+         * <p> 示例值：
+         */
+        private String selfRsvpStatus;
 
         /**
          * 日程实例ID
@@ -753,6 +777,31 @@ public class Instance {
          */
         public Builder attendees(CalendarEventAttendee[] attendees) {
             this.attendees = attendees;
+            return this;
+        }
+
+
+        /**
+         * 当前日历的RSVP状态
+         * <p> 示例值：
+         *
+         * @param selfRsvpStatus
+         * @return
+         */
+        public Builder selfRsvpStatus(String selfRsvpStatus) {
+            this.selfRsvpStatus = selfRsvpStatus;
+            return this;
+        }
+
+        /**
+         * 当前日历的RSVP状态
+         * <p> 示例值：
+         *
+         * @param selfRsvpStatus {@link com.lark.oapi.service.calendar.v4.enums.InstanceRsvpStatusEnum}
+         * @return
+         */
+        public Builder selfRsvpStatus(com.lark.oapi.service.calendar.v4.enums.InstanceRsvpStatusEnum selfRsvpStatus) {
+            this.selfRsvpStatus = selfRsvpStatus.getValue();
             return this;
         }
 

@@ -82,6 +82,12 @@ public class JobDetail {
      */
     @SerializedName("tag_list")
     private JobDetailTag[] tagList;
+    /**
+     * 招聘进展阶段统计数据
+     * <p> 示例值：
+     */
+    @SerializedName("stage_count_list")
+    private StageCountInfo[] stageCountList;
 
     // builder 开始
     public JobDetail() {
@@ -133,6 +139,11 @@ public class JobDetail {
          * <p> 示例值：
          */
         this.tagList = builder.tagList;
+        /**
+         * 招聘进展阶段统计数据
+         * <p> 示例值：
+         */
+        this.stageCountList = builder.stageCountList;
     }
 
     public static Builder newBuilder() {
@@ -211,6 +222,14 @@ public class JobDetail {
         this.tagList = tagList;
     }
 
+    public StageCountInfo[] getStageCountList() {
+        return this.stageCountList;
+    }
+
+    public void setStageCountList(StageCountInfo[] stageCountList) {
+        this.stageCountList = stageCountList;
+    }
+
     public static class Builder {
         /**
          * 职位基本信息
@@ -257,6 +276,11 @@ public class JobDetail {
          * <p> 示例值：
          */
         private JobDetailTag[] tagList;
+        /**
+         * 招聘进展阶段统计数据
+         * <p> 示例值：
+         */
+        private StageCountInfo[] stageCountList;
 
         /**
          * 职位基本信息
@@ -371,6 +395,19 @@ public class JobDetail {
          */
         public Builder tagList(JobDetailTag[] tagList) {
             this.tagList = tagList;
+            return this;
+        }
+
+
+        /**
+         * 招聘进展阶段统计数据
+         * <p> 示例值：
+         *
+         * @param stageCountList
+         * @return
+         */
+        public Builder stageCountList(StageCountInfo[] stageCountList) {
+            this.stageCountList = stageCountList;
             return this;
         }
 

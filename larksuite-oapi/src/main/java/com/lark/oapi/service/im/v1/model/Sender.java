@@ -53,6 +53,12 @@ public class Sender {
      */
     @SerializedName("tenant_key")
     private String tenantKey;
+    /**
+     * 该字段标识发送者的名称
+     * <p> 示例值：
+     */
+    @SerializedName("sender_name")
+    private String senderName;
 
     // builder 开始
     public Sender() {
@@ -79,6 +85,11 @@ public class Sender {
          * <p> 示例值：736588c9260f175e
          */
         this.tenantKey = builder.tenantKey;
+        /**
+         * 该字段标识发送者的名称
+         * <p> 示例值：
+         */
+        this.senderName = builder.senderName;
     }
 
     public static Builder newBuilder() {
@@ -117,6 +128,14 @@ public class Sender {
         this.tenantKey = tenantKey;
     }
 
+    public String getSenderName() {
+        return this.senderName;
+    }
+
+    public void setSenderName(String senderName) {
+        this.senderName = senderName;
+    }
+
     public static class Builder {
         /**
          * 该字段标识发送者的id
@@ -138,6 +157,11 @@ public class Sender {
          * <p> 示例值：736588c9260f175e
          */
         private String tenantKey;
+        /**
+         * 该字段标识发送者的名称
+         * <p> 示例值：
+         */
+        private String senderName;
 
         /**
          * 该字段标识发送者的id
@@ -187,6 +211,19 @@ public class Sender {
          */
         public Builder tenantKey(String tenantKey) {
             this.tenantKey = tenantKey;
+            return this;
+        }
+
+
+        /**
+         * 该字段标识发送者的名称
+         * <p> 示例值：
+         *
+         * @param senderName
+         * @return
+         */
+        public Builder senderName(String senderName) {
+            this.senderName = senderName;
             return this;
         }
 

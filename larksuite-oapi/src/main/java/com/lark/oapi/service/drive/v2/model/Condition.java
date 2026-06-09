@@ -152,6 +152,18 @@ public class Condition {
             return this;
         }
 
+        /**
+         * 操作符
+         * <p> 示例值：resign
+         *
+         * @param operator {@link com.lark.oapi.service.drive.v2.enums.ConditionOperatorEnum}
+         * @return
+         */
+        public Builder operator(com.lark.oapi.service.drive.v2.enums.ConditionOperatorEnum operator) {
+            this.operator = operator.getValue();
+            return this;
+        }
+
 
         /**
          * 参数，具体取值与range有关，见range描述

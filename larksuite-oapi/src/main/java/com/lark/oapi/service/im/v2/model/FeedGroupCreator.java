@@ -131,10 +131,10 @@ public class FeedGroupCreator {
          * 标签类型
          * <p> 示例值：rule
          *
-         * @param type {@link com.lark.oapi.service.im.v2.enums.FeedGroupCreatorTypeEnum}
+         * @param type {@link com.lark.oapi.service.im.v2.enums.FeedGroupCreatorFeedGroupTypeEnum}
          * @return
          */
-        public Builder type(com.lark.oapi.service.im.v2.enums.FeedGroupCreatorTypeEnum type) {
+        public Builder type(com.lark.oapi.service.im.v2.enums.FeedGroupCreatorFeedGroupTypeEnum type) {
             this.type = type.getValue();
             return this;
         }

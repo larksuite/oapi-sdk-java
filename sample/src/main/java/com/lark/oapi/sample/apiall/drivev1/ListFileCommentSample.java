@@ -22,6 +22,7 @@ public class ListFileCommentSample {
                 .pageToken("7153511712153412356")
                 .pageSize(10)
                 .userIdType("user_id")
+                .needReaction(false)
                 .build();
 
         // 发起请求

@@ -187,7 +187,7 @@ public class BasicInfoUpdate {
     private String genderId;
     /**
      * 生日
-     * <p> 示例值：2011-99-99
+     * <p> 示例值：2019-06-07T00:00:00.000Z
      */
     @SerializedName("date_of_birth")
     private String dateOfBirth;
@@ -221,6 +221,12 @@ public class BasicInfoUpdate {
      */
     @SerializedName("education_info")
     private EducationInfoForUpdate[] educationInfo;
+    /**
+     * 政治面貌
+     * <p> 示例值：
+     */
+    @SerializedName("political_affiliation")
+    private String politicalAffiliation;
 
     // builder 开始
     public BasicInfoUpdate() {
@@ -359,7 +365,7 @@ public class BasicInfoUpdate {
         this.genderId = builder.genderId;
         /**
          * 生日
-         * <p> 示例值：2011-99-99
+         * <p> 示例值：2019-06-07T00:00:00.000Z
          */
         this.dateOfBirth = builder.dateOfBirth;
         /**
@@ -387,6 +393,11 @@ public class BasicInfoUpdate {
          * <p> 示例值：
          */
         this.educationInfo = builder.educationInfo;
+        /**
+         * 政治面貌
+         * <p> 示例值：
+         */
+        this.politicalAffiliation = builder.politicalAffiliation;
     }
 
     public static Builder newBuilder() {
@@ -649,6 +660,14 @@ public class BasicInfoUpdate {
         this.educationInfo = educationInfo;
     }
 
+    public String getPoliticalAffiliation() {
+        return this.politicalAffiliation;
+    }
+
+    public void setPoliticalAffiliation(String politicalAffiliation) {
+        this.politicalAffiliation = politicalAffiliation;
+    }
+
     public static class Builder {
         /**
          * 姓名,该值是一个list，会全量更新
@@ -782,7 +801,7 @@ public class BasicInfoUpdate {
         private String genderId;
         /**
          * 生日
-         * <p> 示例值：2011-99-99
+         * <p> 示例值：2019-06-07T00:00:00.000Z
          */
         private String dateOfBirth;
         /**
@@ -810,6 +829,11 @@ public class BasicInfoUpdate {
          * <p> 示例值：
          */
         private EducationInfoForUpdate[] educationInfo;
+        /**
+         * 政治面貌
+         * <p> 示例值：
+         */
+        private String politicalAffiliation;
 
         /**
          * 姓名,该值是一个list，会全量更新
@@ -1151,7 +1175,7 @@ public class BasicInfoUpdate {
 
         /**
          * 生日
-         * <p> 示例值：2011-99-99
+         * <p> 示例值：2019-06-07T00:00:00.000Z
          *
          * @param dateOfBirth
          * @return
@@ -1223,6 +1247,19 @@ public class BasicInfoUpdate {
          */
         public Builder educationInfo(EducationInfoForUpdate[] educationInfo) {
             this.educationInfo = educationInfo;
+            return this;
+        }
+
+
+        /**
+         * 政治面貌
+         * <p> 示例值：
+         *
+         * @param politicalAffiliation
+         * @return
+         */
+        public Builder politicalAffiliation(String politicalAffiliation) {
+            this.politicalAffiliation = politicalAffiliation;
             return this;
         }
 

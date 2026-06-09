@@ -70,6 +70,13 @@ public class QuerySignatureFileReq {
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
+    /**
+     * 获取文件签署链接
+     * <p> 示例值：
+     */
+    @Query
+    @SerializedName("select_sign_url")
+    private Boolean selectSignUrl;
     @Body
     private QuerySignatureFileReqBody body;
 
@@ -108,6 +115,11 @@ public class QuerySignatureFileReq {
          * <p> 示例值：people_corehr_id
          */
         this.userIdType = builder.userIdType;
+        /**
+         * 获取文件签署链接
+         * <p> 示例值：
+         */
+        this.selectSignUrl = builder.selectSignUrl;
         this.body = builder.body;
     }
 
@@ -163,6 +175,14 @@ public class QuerySignatureFileReq {
         this.userIdType = userIdType;
     }
 
+    public Boolean getSelectSignUrl() {
+        return this.selectSignUrl;
+    }
+
+    public void setSelectSignUrl(Boolean selectSignUrl) {
+        this.selectSignUrl = selectSignUrl;
+    }
+
     public QuerySignatureFileReqBody getQuerySignatureFileReqBody() {
         return this.body;
     }
@@ -178,6 +198,7 @@ public class QuerySignatureFileReq {
         private String updateTimeStart; // 更新时间早于等于某个时间点，按照东八区时区
         private String updateTimeEnd; // 更新时间晚于等于某个时间点，按照东八区时区
         private String userIdType; // 用户 ID 类型
+        private Boolean selectSignUrl; // 获取文件签署链接
         private QuerySignatureFileReqBody body;
 
         /**
@@ -261,6 +282,18 @@ public class QuerySignatureFileReq {
          */
         public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.QuerySignatureFileQuerySignatureFileUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
+            return this;
+        }
+
+        /**
+         * 获取文件签署链接
+         * <p> 示例值：
+         *
+         * @param selectSignUrl
+         * @return
+         */
+        public Builder selectSignUrl(Boolean selectSignUrl) {
+            this.selectSignUrl = selectSignUrl;
             return this;
         }
 

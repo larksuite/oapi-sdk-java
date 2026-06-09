@@ -173,6 +173,12 @@ public class PersonName {
      */
     @SerializedName("display_name_western_script")
     private String displayNameWesternScript;
+    /**
+     * ID
+     * <p> 示例值：7631172813931613916
+     */
+    @SerializedName("wk_id")
+    private String wkId;
 
     // builder 开始
     public PersonName() {
@@ -299,6 +305,11 @@ public class PersonName {
          * <p> 示例值：王大帅
          */
         this.displayNameWesternScript = builder.displayNameWesternScript;
+        /**
+         * ID
+         * <p> 示例值：7631172813931613916
+         */
+        this.wkId = builder.wkId;
     }
 
     public static Builder newBuilder() {
@@ -497,6 +508,14 @@ public class PersonName {
         this.displayNameWesternScript = displayNameWesternScript;
     }
 
+    public String getWkId() {
+        return this.wkId;
+    }
+
+    public void setWkId(String wkId) {
+        this.wkId = wkId;
+    }
+
     public static class Builder {
         /**
          * 姓 - 本地文字
@@ -618,6 +637,11 @@ public class PersonName {
          * <p> 示例值：王大帅
          */
         private String displayNameWesternScript;
+        /**
+         * ID
+         * <p> 示例值：7631172813931613916
+         */
+        private String wkId;
 
         /**
          * 姓 - 本地文字
@@ -927,6 +951,19 @@ public class PersonName {
          */
         public Builder displayNameWesternScript(String displayNameWesternScript) {
             this.displayNameWesternScript = displayNameWesternScript;
+            return this;
+        }
+
+
+        /**
+         * ID
+         * <p> 示例值：7631172813931613916
+         *
+         * @param wkId
+         * @return
+         */
+        public Builder wkId(String wkId) {
+            this.wkId = wkId;
             return this;
         }
 

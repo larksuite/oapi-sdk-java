@@ -22,27 +22,37 @@ public class ResourceDescriptor {
         this.coverImageKey = coverImageKey;
     }
 
-    /** Resource type such as {@code image}, {@code file}, {@code audio} or {@code video}. */
+    /**
+     * Resource type such as {@code image}, {@code file}, {@code audio} or {@code video}.
+     */
     public String getType() {
         return type;
     }
 
-    /** Feishu file key used by download APIs. */
+    /**
+     * Feishu file key used by download APIs.
+     */
     public String getFileKey() {
         return fileKey;
     }
 
-    /** Original file name when Feishu provides it. */
+    /**
+     * Original file name when Feishu provides it.
+     */
     public String getFileName() {
         return fileName;
     }
 
-    /** Audio/video duration in milliseconds when present. */
+    /**
+     * Audio/video duration in milliseconds when present.
+     */
     public Long getDurationMs() {
         return durationMs;
     }
 
-    /** Video cover image key when present. */
+    /**
+     * Video cover image key when present.
+     */
     public String getCoverImageKey() {
         return coverImageKey;
     }

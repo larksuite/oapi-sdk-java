@@ -9,6 +9,7 @@ import com.lark.oapi.channel.normalize.Mentions;
 import com.lark.oapi.channel.normalize.MessageConverters;
 import com.lark.oapi.channel.normalize.NormalizeTexts;
 import com.lark.oapi.service.im.v1.model.Message;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;

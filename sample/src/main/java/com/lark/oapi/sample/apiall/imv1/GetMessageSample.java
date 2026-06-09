@@ -17,6 +17,7 @@ public class GetMessageSample {
         GetMessageReq req = GetMessageReq.newBuilder()
                 .messageId("om_dc13264520392913993dd051dba21dcf")
                 .userIdType("open_id")
+                .cardMsgContentType("user_card_content")
                 .build();
 
         // 发起请求

@@ -37,6 +37,14 @@ public class RegisterAppRealDemo {
                     RegisterAppOptions.newBuilder()
                             .source(source)
                             .larkDomain(domain)
+                            .appPreset(AppPreset.newBuilder()
+                                    .avatars(
+                                            "https://s1-imfile.feishucdn.com/static-resource/v1/v3_00cj_d6bebede-c56b-40a2-b767-8e9da07f3b3g",
+                                            "https://s1-imfile.feishucdn.com/static-resource/v1/v2_bc5d2075-fcbd-41f8-bfe3-5a5ecbf0f7dg"
+                                    )
+                                    .name("{user}的应用")
+                                    .desc("由业务平台自动生成")
+                                    .build())
                             .onQRCode(info -> {
                                 System.out.println("Please scan the QR code:");
                                 System.out.println(info.getUrl());

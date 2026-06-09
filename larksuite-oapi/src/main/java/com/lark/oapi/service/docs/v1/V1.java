@@ -14,7 +14,7 @@
 package com.lark.oapi.service.docs.v1;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.service.docs.v1.resource.*;
+import com.lark.oapi.service.docs.v1.resource.Content;
 
 public class V1 {
     private final Content content; // content

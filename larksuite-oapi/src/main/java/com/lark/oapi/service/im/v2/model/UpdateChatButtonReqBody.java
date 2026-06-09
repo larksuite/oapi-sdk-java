@@ -30,6 +30,12 @@ import com.lark.oapi.core.response.BaseResponse;
 
 public class UpdateChatButtonReqBody {
     /**
+     * Bot id
+     * <p> 示例值：6691086414609645828
+     */
+    @SerializedName("bot_id")
+    private String botId;
+    /**
      * 用户 ID 列表
      * <p> 示例值：
      */
@@ -47,18 +53,17 @@ public class UpdateChatButtonReqBody {
      */
     @SerializedName("buttons")
     private OpenAppFeedCardButtons buttons;
-    /**
-     * Bot id
-     * <p> 示例值：6691086414609645828
-     */
-    @SerializedName("bot_id")
-    private String botId;
 
     // builder 开始
     public UpdateChatButtonReqBody() {
     }
 
     public UpdateChatButtonReqBody(Builder builder) {
+        /**
+         * Bot id
+         * <p> 示例值：6691086414609645828
+         */
+        this.botId = builder.botId;
         /**
          * 用户 ID 列表
          * <p> 示例值：
@@ -74,15 +79,18 @@ public class UpdateChatButtonReqBody {
          * <p> 示例值：
          */
         this.buttons = builder.buttons;
-        /**
-         * Bot id
-         * <p> 示例值：6691086414609645828
-         */
-        this.botId = builder.botId;
     }
 
     public static Builder newBuilder() {
         return new Builder();
+    }
+
+    public String getBotId() {
+        return this.botId;
+    }
+
+    public void setBotId(String botId) {
+        this.botId = botId;
     }
 
     public String[] getUserIds() {
@@ -109,15 +117,12 @@ public class UpdateChatButtonReqBody {
         this.buttons = buttons;
     }
 
-    public String getBotId() {
-        return this.botId;
-    }
-
-    public void setBotId(String botId) {
-        this.botId = botId;
-    }
-
     public static class Builder {
+        /**
+         * Bot id
+         * <p> 示例值：6691086414609645828
+         */
+        private String botId;
         /**
          * 用户 ID 列表
          * <p> 示例值：
@@ -133,11 +138,19 @@ public class UpdateChatButtonReqBody {
          * <p> 示例值：
          */
         private OpenAppFeedCardButtons buttons;
+
         /**
          * Bot id
          * <p> 示例值：6691086414609645828
+         *
+         * @param botId
+         * @return
          */
-        private String botId;
+        public Builder botId(String botId) {
+            this.botId = botId;
+            return this;
+        }
+
 
         /**
          * 用户 ID 列表
@@ -174,19 +187,6 @@ public class UpdateChatButtonReqBody {
          */
         public Builder buttons(OpenAppFeedCardButtons buttons) {
             this.buttons = buttons;
-            return this;
-        }
-
-
-        /**
-         * Bot id
-         * <p> 示例值：6691086414609645828
-         *
-         * @param botId
-         * @return
-         */
-        public Builder botId(String botId) {
-            this.botId = botId;
             return this;
         }
 

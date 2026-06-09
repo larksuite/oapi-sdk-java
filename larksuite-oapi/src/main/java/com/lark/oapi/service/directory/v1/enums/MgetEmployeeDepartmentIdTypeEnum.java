@@ -18,7 +18,7 @@ package com.lark.oapi.service.directory.v1.enums;
  */
 public enum MgetEmployeeDepartmentIdTypeEnum {
     DEPARTMENT_ID("department_id"), // 用来标识租户内一个唯一的部门
-    OPEN_DEPARTMENT_ID("open_department_id"), //  open_department_id：用来在具体某个应用中标识一个部门，同一个部门 在不同应用中的 open_department_id 不相同。
+    OPEN_DEPARTMENT_ID("open_department_id"), // open_department_id：用来在具体某个应用中标识一个部门，同一个部门 在不同应用中的 open_department_id 不相同。
     ;
     private String value;
 

@@ -298,7 +298,7 @@ public class TicketV2 {
          */
         this.botServiceDuration = builder.botServiceDuration;
         /**
-         *  客服解决时长，关单时间距离客服进入时间的间隔，单位秒
+         * 客服解决时长，关单时间距离客服进入时间的间隔，单位秒
          * <p> 示例值：1741145995
          */
         this.agentResolutionTime = builder.agentResolutionTime;

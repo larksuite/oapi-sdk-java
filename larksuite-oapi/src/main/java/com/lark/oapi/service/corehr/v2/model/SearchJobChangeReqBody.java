@@ -95,6 +95,24 @@ public class SearchJobChangeReqBody {
      */
     @SerializedName("exception_statuses")
     private String[] exceptionStatuses;
+    /**
+     * 原部门名称
+     * <p> 示例值：
+     */
+    @SerializedName("original_department_ids")
+    private String[] originalDepartmentIds;
+    /**
+     * 员工部门
+     * <p> 示例值：
+     */
+    @SerializedName("employment_department_ids")
+    private String[] employmentDepartmentIds;
+    /**
+     * 指定筛选字段
+     * <p> 示例值：
+     */
+    @SerializedName("select_fields")
+    private String[] selectFields;
 
     // builder 开始
     public SearchJobChangeReqBody() {
@@ -156,6 +174,21 @@ public class SearchJobChangeReqBody {
          * <p> 示例值：pending
          */
         this.exceptionStatuses = builder.exceptionStatuses;
+        /**
+         * 原部门名称
+         * <p> 示例值：
+         */
+        this.originalDepartmentIds = builder.originalDepartmentIds;
+        /**
+         * 员工部门
+         * <p> 示例值：
+         */
+        this.employmentDepartmentIds = builder.employmentDepartmentIds;
+        /**
+         * 指定筛选字段
+         * <p> 示例值：
+         */
+        this.selectFields = builder.selectFields;
     }
 
     public static Builder newBuilder() {
@@ -250,6 +283,30 @@ public class SearchJobChangeReqBody {
         this.exceptionStatuses = exceptionStatuses;
     }
 
+    public String[] getOriginalDepartmentIds() {
+        return this.originalDepartmentIds;
+    }
+
+    public void setOriginalDepartmentIds(String[] originalDepartmentIds) {
+        this.originalDepartmentIds = originalDepartmentIds;
+    }
+
+    public String[] getEmploymentDepartmentIds() {
+        return this.employmentDepartmentIds;
+    }
+
+    public void setEmploymentDepartmentIds(String[] employmentDepartmentIds) {
+        this.employmentDepartmentIds = employmentDepartmentIds;
+    }
+
+    public String[] getSelectFields() {
+        return this.selectFields;
+    }
+
+    public void setSelectFields(String[] selectFields) {
+        this.selectFields = selectFields;
+    }
+
     public static class Builder {
         /**
          * 雇员 ID 列表
@@ -306,6 +363,21 @@ public class SearchJobChangeReqBody {
          * <p> 示例值：pending
          */
         private String[] exceptionStatuses;
+        /**
+         * 原部门名称
+         * <p> 示例值：
+         */
+        private String[] originalDepartmentIds;
+        /**
+         * 员工部门
+         * <p> 示例值：
+         */
+        private String[] employmentDepartmentIds;
+        /**
+         * 指定筛选字段
+         * <p> 示例值：
+         */
+        private String[] selectFields;
 
         /**
          * 雇员 ID 列表
@@ -446,6 +518,45 @@ public class SearchJobChangeReqBody {
          */
         public Builder exceptionStatuses(String[] exceptionStatuses) {
             this.exceptionStatuses = exceptionStatuses;
+            return this;
+        }
+
+
+        /**
+         * 原部门名称
+         * <p> 示例值：
+         *
+         * @param originalDepartmentIds
+         * @return
+         */
+        public Builder originalDepartmentIds(String[] originalDepartmentIds) {
+            this.originalDepartmentIds = originalDepartmentIds;
+            return this;
+        }
+
+
+        /**
+         * 员工部门
+         * <p> 示例值：
+         *
+         * @param employmentDepartmentIds
+         * @return
+         */
+        public Builder employmentDepartmentIds(String[] employmentDepartmentIds) {
+            this.employmentDepartmentIds = employmentDepartmentIds;
+            return this;
+        }
+
+
+        /**
+         * 指定筛选字段
+         * <p> 示例值：
+         *
+         * @param selectFields
+         * @return
+         */
+        public Builder selectFields(String[] selectFields) {
+            this.selectFields = selectFields;
             return this;
         }
 

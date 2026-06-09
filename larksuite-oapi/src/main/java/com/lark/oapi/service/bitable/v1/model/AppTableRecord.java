@@ -33,37 +33,37 @@ import com.lark.oapi.core.response.BaseResponse;
 
 public class AppTableRecord {
     /**
-     * 数据表的字段，即数据表的列;;当前接口支持的字段类型请参考[接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#31f78a3c);;不同类型字段的数据结构请参考[数据结构概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/development-guide/bitable-structure)
+     * 记录字段
      * <p> 示例值：
      */
     @SerializedName("fields")
     private Map<String, Object> fields;
     /**
-     * 一条记录的唯一标识 id [record_id 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#15d8db94)
-     * <p> 示例值：recqwIwhc6
+     * 记录Id
+     * <p> 示例值：recgcfdzKq
      */
     @SerializedName("record_id")
     private String recordId;
     /**
-     * 该记录的创建人
+     * 创建人
      * <p> 示例值：
      */
     @SerializedName("created_by")
     private Person createdBy;
     /**
-     * 该记录的创建时间
+     * 创建时间
      * <p> 示例值：1675244156000
      */
     @SerializedName("created_time")
     private Long createdTime;
     /**
-     * 该记录最新一次更新的修改人
+     * 修改人
      * <p> 示例值：
      */
     @SerializedName("last_modified_by")
     private Person lastModifiedBy;
     /**
-     * 该记录最近一次的更新时间
+     * 最近更新时间
      * <p> 示例值：1677556020000
      */
     @SerializedName("last_modified_time")
@@ -87,32 +87,32 @@ public class AppTableRecord {
 
     public AppTableRecord(Builder builder) {
         /**
-         * 数据表的字段，即数据表的列;;当前接口支持的字段类型请参考[接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#31f78a3c);;不同类型字段的数据结构请参考[数据结构概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/development-guide/bitable-structure)
+         * 记录字段
          * <p> 示例值：
          */
         this.fields = builder.fields;
         /**
-         * 一条记录的唯一标识 id [record_id 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#15d8db94)
-         * <p> 示例值：recqwIwhc6
+         * 记录Id
+         * <p> 示例值：recgcfdzKq
          */
         this.recordId = builder.recordId;
         /**
-         * 该记录的创建人
+         * 创建人
          * <p> 示例值：
          */
         this.createdBy = builder.createdBy;
         /**
-         * 该记录的创建时间
+         * 创建时间
          * <p> 示例值：1675244156000
          */
         this.createdTime = builder.createdTime;
         /**
-         * 该记录最新一次更新的修改人
+         * 修改人
          * <p> 示例值：
          */
         this.lastModifiedBy = builder.lastModifiedBy;
         /**
-         * 该记录最近一次的更新时间
+         * 最近更新时间
          * <p> 示例值：1677556020000
          */
         this.lastModifiedTime = builder.lastModifiedTime;
@@ -198,32 +198,32 @@ public class AppTableRecord {
 
     public static class Builder {
         /**
-         * 数据表的字段，即数据表的列;;当前接口支持的字段类型请参考[接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#31f78a3c);;不同类型字段的数据结构请参考[数据结构概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/development-guide/bitable-structure)
+         * 记录字段
          * <p> 示例值：
          */
         private Map<String, Object> fields;
         /**
-         * 一条记录的唯一标识 id [record_id 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#15d8db94)
-         * <p> 示例值：recqwIwhc6
+         * 记录Id
+         * <p> 示例值：recgcfdzKq
          */
         private String recordId;
         /**
-         * 该记录的创建人
+         * 创建人
          * <p> 示例值：
          */
         private Person createdBy;
         /**
-         * 该记录的创建时间
+         * 创建时间
          * <p> 示例值：1675244156000
          */
         private Long createdTime;
         /**
-         * 该记录最新一次更新的修改人
+         * 修改人
          * <p> 示例值：
          */
         private Person lastModifiedBy;
         /**
-         * 该记录最近一次的更新时间
+         * 最近更新时间
          * <p> 示例值：1677556020000
          */
         private Long lastModifiedTime;
@@ -239,7 +239,7 @@ public class AppTableRecord {
         private String recordUrl;
 
         /**
-         * 数据表的字段，即数据表的列;;当前接口支持的字段类型请参考[接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#31f78a3c);;不同类型字段的数据结构请参考[数据结构概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/development-guide/bitable-structure)
+         * 记录字段
          * <p> 示例值：
          *
          * @param fields
@@ -252,8 +252,8 @@ public class AppTableRecord {
 
 
         /**
-         * 一条记录的唯一标识 id [record_id 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#15d8db94)
-         * <p> 示例值：recqwIwhc6
+         * 记录Id
+         * <p> 示例值：recgcfdzKq
          *
          * @param recordId
          * @return
@@ -265,7 +265,7 @@ public class AppTableRecord {
 
 
         /**
-         * 该记录的创建人
+         * 创建人
          * <p> 示例值：
          *
          * @param createdBy
@@ -278,7 +278,7 @@ public class AppTableRecord {
 
 
         /**
-         * 该记录的创建时间
+         * 创建时间
          * <p> 示例值：1675244156000
          *
          * @param createdTime
@@ -291,7 +291,7 @@ public class AppTableRecord {
 
 
         /**
-         * 该记录最新一次更新的修改人
+         * 修改人
          * <p> 示例值：
          *
          * @param lastModifiedBy
@@ -304,7 +304,7 @@ public class AppTableRecord {
 
 
         /**
-         * 该记录最近一次的更新时间
+         * 最近更新时间
          * <p> 示例值：1677556020000
          *
          * @param lastModifiedTime

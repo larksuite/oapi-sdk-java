@@ -29,6 +29,12 @@ import com.lark.oapi.core.response.BaseResponse;
 
 public class UpdateAppTableFieldReq {
     /**
+     * <p> 示例值：
+     */
+    @Query
+    @SerializedName("client_token")
+    private String clientToken;
+    /**
      * bitable app token
      * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
      */
@@ -58,6 +64,11 @@ public class UpdateAppTableFieldReq {
 
     public UpdateAppTableFieldReq(Builder builder) {
         /**
+         *
+         * <p> 示例值：
+         */
+        this.clientToken = builder.clientToken;
+        /**
          * bitable app token
          * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
          */
@@ -77,6 +88,14 @@ public class UpdateAppTableFieldReq {
 
     public static Builder newBuilder() {
         return new Builder();
+    }
+
+    public String getClientToken() {
+        return this.clientToken;
+    }
+
+    public void setClientToken(String clientToken) {
+        this.clientToken = clientToken;
     }
 
     public String getAppToken() {
@@ -112,11 +131,22 @@ public class UpdateAppTableFieldReq {
     }
 
     public static class Builder {
-
+        private String clientToken; //
         private String appToken; // bitable app token
         private String tableId; // table id
         private String fieldId; // field id
         private AppTableField body;
+
+        /**
+         * <p> 示例值：
+         *
+         * @param clientToken
+         * @return
+         */
+        public Builder clientToken(String clientToken) {
+            this.clientToken = clientToken;
+            return this;
+        }
 
         /**
          * bitable app token

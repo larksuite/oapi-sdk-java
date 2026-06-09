@@ -167,6 +167,12 @@ public class ProfileSettingPersonalBasicInfo {
      */
     @SerializedName("additional_nationalities")
     private String[] additionalNationalities;
+    /**
+     * 全部法定姓名
+     * <p> 示例值：
+     */
+    @SerializedName("legal_name_v2s")
+    private ProfileSettingName[] legalNameV2s;
 
     // builder 开始
     public ProfileSettingPersonalBasicInfo() {
@@ -288,6 +294,11 @@ public class ProfileSettingPersonalBasicInfo {
          * <p> 示例值：6862995757234914827
          */
         this.additionalNationalities = builder.additionalNationalities;
+        /**
+         * 全部法定姓名
+         * <p> 示例值：
+         */
+        this.legalNameV2s = builder.legalNameV2s;
     }
 
     public static Builder newBuilder() {
@@ -478,6 +489,14 @@ public class ProfileSettingPersonalBasicInfo {
         this.additionalNationalities = additionalNationalities;
     }
 
+    public ProfileSettingName[] getLegalNameV2s() {
+        return this.legalNameV2s;
+    }
+
+    public void setLegalNameV2s(ProfileSettingName[] legalNameV2s) {
+        this.legalNameV2s = legalNameV2s;
+    }
+
     public static class Builder {
         /**
          * 法定姓名
@@ -594,6 +613,11 @@ public class ProfileSettingPersonalBasicInfo {
          * <p> 示例值：6862995757234914827
          */
         private String[] additionalNationalities;
+        /**
+         * 全部法定姓名
+         * <p> 示例值：
+         */
+        private ProfileSettingName[] legalNameV2s;
 
         /**
          * 法定姓名
@@ -890,6 +914,19 @@ public class ProfileSettingPersonalBasicInfo {
          */
         public Builder additionalNationalities(String[] additionalNationalities) {
             this.additionalNationalities = additionalNationalities;
+            return this;
+        }
+
+
+        /**
+         * 全部法定姓名
+         * <p> 示例值：
+         *
+         * @param legalNameV2s
+         * @return
+         */
+        public Builder legalNameV2s(ProfileSettingName[] legalNameV2s) {
+            this.legalNameV2s = legalNameV2s;
             return this;
         }
 

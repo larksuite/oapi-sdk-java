@@ -35,6 +35,12 @@ public class BatchQueryFileCommentReqBody {
      */
     @SerializedName("comment_ids")
     private String[] commentIds;
+    /**
+     * 是否需要获取评论卡片上挂载的Reaction数据
+     * <p> 示例值：
+     */
+    @SerializedName("need_reaction")
+    private Boolean needReaction;
 
     // builder 开始
     public BatchQueryFileCommentReqBody() {
@@ -46,6 +52,11 @@ public class BatchQueryFileCommentReqBody {
          * <p> 示例值：1654857036541812356
          */
         this.commentIds = builder.commentIds;
+        /**
+         * 是否需要获取评论卡片上挂载的Reaction数据
+         * <p> 示例值：
+         */
+        this.needReaction = builder.needReaction;
     }
 
     public static Builder newBuilder() {
@@ -60,12 +71,25 @@ public class BatchQueryFileCommentReqBody {
         this.commentIds = commentIds;
     }
 
+    public Boolean getNeedReaction() {
+        return this.needReaction;
+    }
+
+    public void setNeedReaction(Boolean needReaction) {
+        this.needReaction = needReaction;
+    }
+
     public static class Builder {
         /**
          * 需要获取数据的评论id
          * <p> 示例值：1654857036541812356
          */
         private String[] commentIds;
+        /**
+         * 是否需要获取评论卡片上挂载的Reaction数据
+         * <p> 示例值：
+         */
+        private Boolean needReaction;
 
         /**
          * 需要获取数据的评论id
@@ -76,6 +100,19 @@ public class BatchQueryFileCommentReqBody {
          */
         public Builder commentIds(String[] commentIds) {
             this.commentIds = commentIds;
+            return this;
+        }
+
+
+        /**
+         * 是否需要获取评论卡片上挂载的Reaction数据
+         * <p> 示例值：
+         *
+         * @param needReaction
+         * @return
+         */
+        public Builder needReaction(Boolean needReaction) {
+            this.needReaction = needReaction;
             return this;
         }
 

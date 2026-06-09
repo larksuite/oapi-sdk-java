@@ -37,6 +37,12 @@ public class ListDeviceRecordSample {
                 .isManaged(false)
                 .mdmDeviceId("123abc")
                 .mdmProviderName("Workspace_ONE")
+                .lsaClientStatus(1)
+                .deviceEnvDetectStatus(0)
+                .isPublic(false)
+                .source(0)
+                .certSerialNumber("140112030923876027756448774661898183576236633676")
+                .certIssuer("Root-CA")
                 .build();
 
         // 发起请求

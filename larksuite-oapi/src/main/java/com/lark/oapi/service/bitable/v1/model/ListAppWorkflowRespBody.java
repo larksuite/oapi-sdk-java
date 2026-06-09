@@ -33,13 +33,13 @@ public class ListAppWorkflowRespBody {
      * <p> 示例值：
      */
     @SerializedName("workflows")
-    private AppWorkflow[] workflows;
+    private DisplayWorkflow[] workflows;
 
-    public AppWorkflow[] getWorkflows() {
+    public DisplayWorkflow[] getWorkflows() {
         return this.workflows;
     }
 
-    public void setWorkflows(AppWorkflow[] workflows) {
+    public void setWorkflows(DisplayWorkflow[] workflows) {
         this.workflows = workflows;
     }
 

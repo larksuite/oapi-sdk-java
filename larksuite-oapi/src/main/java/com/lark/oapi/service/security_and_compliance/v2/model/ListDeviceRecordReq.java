@@ -182,6 +182,48 @@ public class ListDeviceRecordReq {
     @Query
     @SerializedName("mdm_provider_name")
     private String mdmProviderName;
+    /**
+     * 终端管控客户端状态
+     * <p> 示例值：1
+     */
+    @Query
+    @SerializedName("lsa_client_status")
+    private Integer lsaClientStatus;
+    /**
+     * 设备环境检测状态
+     * <p> 示例值：0
+     */
+    @Query
+    @SerializedName("device_env_detect_status")
+    private Integer deviceEnvDetectStatus;
+    /**
+     * 是否为公共设备
+     * <p> 示例值：
+     */
+    @Query
+    @SerializedName("is_public")
+    private Boolean isPublic;
+    /**
+     * 注册方式
+     * <p> 示例值：
+     */
+    @Query
+    @SerializedName("source")
+    private Integer source;
+    /**
+     * 证书序列号
+     * <p> 示例值：140112030923876027756448774661898183576236633676
+     */
+    @Query
+    @SerializedName("cert_serial_number")
+    private String certSerialNumber;
+    /**
+     * 证书颁发人
+     * <p> 示例值：Root-CA
+     */
+    @Query
+    @SerializedName("cert_issuer")
+    private String certIssuer;
 
     // builder 开始
     public ListDeviceRecordReq() {
@@ -298,6 +340,36 @@ public class ListDeviceRecordReq {
          * <p> 示例值：Workspace_ONE
          */
         this.mdmProviderName = builder.mdmProviderName;
+        /**
+         * 终端管控客户端状态
+         * <p> 示例值：1
+         */
+        this.lsaClientStatus = builder.lsaClientStatus;
+        /**
+         * 设备环境检测状态
+         * <p> 示例值：0
+         */
+        this.deviceEnvDetectStatus = builder.deviceEnvDetectStatus;
+        /**
+         * 是否为公共设备
+         * <p> 示例值：
+         */
+        this.isPublic = builder.isPublic;
+        /**
+         * 注册方式
+         * <p> 示例值：
+         */
+        this.source = builder.source;
+        /**
+         * 证书序列号
+         * <p> 示例值：140112030923876027756448774661898183576236633676
+         */
+        this.certSerialNumber = builder.certSerialNumber;
+        /**
+         * 证书颁发人
+         * <p> 示例值：Root-CA
+         */
+        this.certIssuer = builder.certIssuer;
     }
 
     public static Builder newBuilder() {
@@ -480,6 +552,54 @@ public class ListDeviceRecordReq {
         this.mdmProviderName = mdmProviderName;
     }
 
+    public Integer getLsaClientStatus() {
+        return this.lsaClientStatus;
+    }
+
+    public void setLsaClientStatus(Integer lsaClientStatus) {
+        this.lsaClientStatus = lsaClientStatus;
+    }
+
+    public Integer getDeviceEnvDetectStatus() {
+        return this.deviceEnvDetectStatus;
+    }
+
+    public void setDeviceEnvDetectStatus(Integer deviceEnvDetectStatus) {
+        this.deviceEnvDetectStatus = deviceEnvDetectStatus;
+    }
+
+    public Boolean getIsPublic() {
+        return this.isPublic;
+    }
+
+    public void setIsPublic(Boolean isPublic) {
+        this.isPublic = isPublic;
+    }
+
+    public Integer getSource() {
+        return this.source;
+    }
+
+    public void setSource(Integer source) {
+        this.source = source;
+    }
+
+    public String getCertSerialNumber() {
+        return this.certSerialNumber;
+    }
+
+    public void setCertSerialNumber(String certSerialNumber) {
+        this.certSerialNumber = certSerialNumber;
+    }
+
+    public String getCertIssuer() {
+        return this.certIssuer;
+    }
+
+    public void setCertIssuer(String certIssuer) {
+        this.certIssuer = certIssuer;
+    }
+
     public static class Builder {
         private Integer pageSize; // 分页大小
         private String pageToken; // 分页游标
@@ -503,6 +623,12 @@ public class ListDeviceRecordReq {
         private Boolean isManaged; // 是否为受管控设备
         private String mdmDeviceId; // MDM设备ID
         private String mdmProviderName; // MDM厂商名称
+        private Integer lsaClientStatus; // 终端管控客户端状态
+        private Integer deviceEnvDetectStatus; // 设备环境检测状态
+        private Boolean isPublic; // 是否为公共设备
+        private Integer source; // 注册方式
+        private String certSerialNumber; // 证书序列号
+        private String certIssuer; // 证书颁发人
 
         /**
          * 分页大小
@@ -846,6 +972,120 @@ public class ListDeviceRecordReq {
          */
         public Builder mdmProviderName(String mdmProviderName) {
             this.mdmProviderName = mdmProviderName;
+            return this;
+        }
+
+
+        /**
+         * 终端管控客户端状态
+         * <p> 示例值：1
+         *
+         * @param lsaClientStatus
+         * @return
+         */
+        public Builder lsaClientStatus(Integer lsaClientStatus) {
+            this.lsaClientStatus = lsaClientStatus;
+            return this;
+        }
+
+        /**
+         * 终端管控客户端状态
+         * <p> 示例值：1
+         *
+         * @param lsaClientStatus {@link com.lark.oapi.service.security_and_compliance.v2.enums.ListDeviceRecordLSAClientStatusEnum}
+         * @return
+         */
+        public Builder lsaClientStatus(com.lark.oapi.service.security_and_compliance.v2.enums.ListDeviceRecordLSAClientStatusEnum lsaClientStatus) {
+            this.lsaClientStatus = lsaClientStatus.getValue();
+            return this;
+        }
+
+
+        /**
+         * 设备环境检测状态
+         * <p> 示例值：0
+         *
+         * @param deviceEnvDetectStatus
+         * @return
+         */
+        public Builder deviceEnvDetectStatus(Integer deviceEnvDetectStatus) {
+            this.deviceEnvDetectStatus = deviceEnvDetectStatus;
+            return this;
+        }
+
+        /**
+         * 设备环境检测状态
+         * <p> 示例值：0
+         *
+         * @param deviceEnvDetectStatus {@link com.lark.oapi.service.security_and_compliance.v2.enums.ListDeviceRecordDeviceEnvDetectStatusEnum}
+         * @return
+         */
+        public Builder deviceEnvDetectStatus(com.lark.oapi.service.security_and_compliance.v2.enums.ListDeviceRecordDeviceEnvDetectStatusEnum deviceEnvDetectStatus) {
+            this.deviceEnvDetectStatus = deviceEnvDetectStatus.getValue();
+            return this;
+        }
+
+
+        /**
+         * 是否为公共设备
+         * <p> 示例值：
+         *
+         * @param isPublic
+         * @return
+         */
+        public Builder isPublic(Boolean isPublic) {
+            this.isPublic = isPublic;
+            return this;
+        }
+
+
+        /**
+         * 注册方式
+         * <p> 示例值：
+         *
+         * @param source
+         * @return
+         */
+        public Builder source(Integer source) {
+            this.source = source;
+            return this;
+        }
+
+        /**
+         * 注册方式
+         * <p> 示例值：
+         *
+         * @param source {@link com.lark.oapi.service.security_and_compliance.v2.enums.ListDeviceRecordDeviceSourceEnum}
+         * @return
+         */
+        public Builder source(com.lark.oapi.service.security_and_compliance.v2.enums.ListDeviceRecordDeviceSourceEnum source) {
+            this.source = source.getValue();
+            return this;
+        }
+
+
+        /**
+         * 证书序列号
+         * <p> 示例值：140112030923876027756448774661898183576236633676
+         *
+         * @param certSerialNumber
+         * @return
+         */
+        public Builder certSerialNumber(String certSerialNumber) {
+            this.certSerialNumber = certSerialNumber;
+            return this;
+        }
+
+
+        /**
+         * 证书颁发人
+         * <p> 示例值：Root-CA
+         *
+         * @param certIssuer
+         * @return
+         */
+        public Builder certIssuer(String certIssuer) {
+            this.certIssuer = certIssuer;
             return this;
         }
 

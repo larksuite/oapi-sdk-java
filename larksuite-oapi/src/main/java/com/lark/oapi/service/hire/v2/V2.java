@@ -14,7 +14,8 @@
 package com.lark.oapi.service.hire.v2;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.service.hire.v2.resource.*;
+import com.lark.oapi.service.hire.v2.resource.InterviewRecord;
+import com.lark.oapi.service.hire.v2.resource.Talent;
 
 public class V2 {
     private final InterviewRecord interviewRecord; // interview_record

@@ -262,6 +262,18 @@ public class InvitedReviewRecordInfo {
             return this;
         }
 
+        /**
+         * 360° 评估人的评估尺度标签
+         * <p> 示例值：1
+         *
+         * @param distributeType {@link com.lark.oapi.service.performance.v2.enums.InvitedReviewRecordInfoDistributeTypeEnum}
+         * @return
+         */
+        public Builder distributeType(com.lark.oapi.service.performance.v2.enums.InvitedReviewRecordInfoDistributeTypeEnum distributeType) {
+            this.distributeType = distributeType.getValue();
+            return this;
+        }
+
 
         /**
          * 360° 评估人的评估尺度数值

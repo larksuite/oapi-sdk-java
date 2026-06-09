@@ -275,6 +275,18 @@ public class SearchEmployeeReqBody {
      */
     @SerializedName("archive_cpst_plan_id_list")
     private String[] archiveCpstPlanIdList;
+    /**
+     * 是否直属上级
+     * <p> 示例值：
+     */
+    @SerializedName("is_direct_leader")
+    private Boolean isDirectLeader;
+    /**
+     * 是否虚线上级
+     * <p> 示例值：
+     */
+    @SerializedName("is_dotted_leader")
+    private Boolean isDottedLeader;
 
     // builder 开始
     public SearchEmployeeReqBody() {
@@ -486,6 +498,16 @@ public class SearchEmployeeReqBody {
          * <p> 示例值：
          */
         this.archiveCpstPlanIdList = builder.archiveCpstPlanIdList;
+        /**
+         * 是否直属上级
+         * <p> 示例值：
+         */
+        this.isDirectLeader = builder.isDirectLeader;
+        /**
+         * 是否虚线上级
+         * <p> 示例值：
+         */
+        this.isDottedLeader = builder.isDottedLeader;
     }
 
     public static Builder newBuilder() {
@@ -820,6 +842,22 @@ public class SearchEmployeeReqBody {
         this.archiveCpstPlanIdList = archiveCpstPlanIdList;
     }
 
+    public Boolean getIsDirectLeader() {
+        return this.isDirectLeader;
+    }
+
+    public void setIsDirectLeader(Boolean isDirectLeader) {
+        this.isDirectLeader = isDirectLeader;
+    }
+
+    public Boolean getIsDottedLeader() {
+        return this.isDottedLeader;
+    }
+
+    public void setIsDottedLeader(Boolean isDottedLeader) {
+        this.isDottedLeader = isDottedLeader;
+    }
+
     public static class Builder {
         /**
          * 返回数据的字段列表，填写方式：为空时默认仅返回 ID
@@ -1026,6 +1064,16 @@ public class SearchEmployeeReqBody {
          * <p> 示例值：
          */
         private String[] archiveCpstPlanIdList;
+        /**
+         * 是否直属上级
+         * <p> 示例值：
+         */
+        private Boolean isDirectLeader;
+        /**
+         * 是否虚线上级
+         * <p> 示例值：
+         */
+        private Boolean isDottedLeader;
 
         /**
          * 返回数据的字段列表，填写方式：为空时默认仅返回 ID
@@ -1568,6 +1616,32 @@ public class SearchEmployeeReqBody {
          */
         public Builder archiveCpstPlanIdList(String[] archiveCpstPlanIdList) {
             this.archiveCpstPlanIdList = archiveCpstPlanIdList;
+            return this;
+        }
+
+
+        /**
+         * 是否直属上级
+         * <p> 示例值：
+         *
+         * @param isDirectLeader
+         * @return
+         */
+        public Builder isDirectLeader(Boolean isDirectLeader) {
+            this.isDirectLeader = isDirectLeader;
+            return this;
+        }
+
+
+        /**
+         * 是否虚线上级
+         * <p> 示例值：
+         *
+         * @param isDottedLeader
+         * @return
+         */
+        public Builder isDottedLeader(Boolean isDottedLeader) {
+            this.isDottedLeader = isDottedLeader;
             return this;
         }
 

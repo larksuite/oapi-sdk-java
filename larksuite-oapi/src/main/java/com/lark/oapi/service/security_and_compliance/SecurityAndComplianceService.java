@@ -16,18 +16,24 @@ import com.lark.oapi.core.Config;
 import com.lark.oapi.event.IEventHandler;
 import com.lark.oapi.service.security_and_compliance.v1.V1;
 import com.lark.oapi.service.security_and_compliance.v1.model.*;
+import com.lark.oapi.service.security_and_compliance.v1.resource.MultiGeoEntityTenant;
 import com.lark.oapi.service.security_and_compliance.v1.resource.OpenapiLog;
+import com.lark.oapi.service.security_and_compliance.v1.resource.UserMigration;
 import com.lark.oapi.service.security_and_compliance.v2.V2;
 import com.lark.oapi.service.security_and_compliance.v2.model.*;
 
 public class SecurityAndComplianceService {
     private final V1 v1;
+    private final MultiGeoEntityTenant multiGeoEntityTenant; // multi_geo_entity.tenant
     private final OpenapiLog openapiLog; // openapi_log
+    private final UserMigration userMigration; // 用户迁移
     private final V2 v2;
 
     public SecurityAndComplianceService(Config config) {
         this.v1 = new V1(config);
+        this.multiGeoEntityTenant = new MultiGeoEntityTenant(config);
         this.openapiLog = new OpenapiLog(config);
+        this.userMigration = new UserMigration(config);
         this.v2 = new V2(config);
     }
 
@@ -35,8 +41,16 @@ public class SecurityAndComplianceService {
         return v1;
     }
 
+    public MultiGeoEntityTenant multiGeoEntityTenant() {
+        return multiGeoEntityTenant;
+    }
+
     public OpenapiLog openapiLog() {
         return openapiLog;
+    }
+
+    public UserMigration userMigration() {
+        return userMigration;
     }
 
     public V2 v2() {

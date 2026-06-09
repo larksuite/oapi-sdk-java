@@ -124,7 +124,7 @@ public class DatasetField {
          */
         this.datasetApiId = builder.datasetApiId;
         /**
-         *  数据集 API 名称
+         * 数据集 API 名称
          * <p> 示例值：myDataset
          */
         this.datasetApiName = builder.datasetApiName;

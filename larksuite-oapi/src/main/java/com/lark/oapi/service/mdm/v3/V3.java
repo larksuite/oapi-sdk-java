@@ -14,7 +14,8 @@
 package com.lark.oapi.service.mdm.v3;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.service.mdm.v3.resource.*;
+import com.lark.oapi.service.mdm.v3.resource.BatchCountryRegion;
+import com.lark.oapi.service.mdm.v3.resource.CountryRegion;
 
 public class V3 {
     private final BatchCountryRegion batchCountryRegion; // batch_country_region

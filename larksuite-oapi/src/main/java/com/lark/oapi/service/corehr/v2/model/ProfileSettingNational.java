@@ -71,6 +71,18 @@ public class ProfileSettingNational {
      */
     @SerializedName("custom_fields")
     private ProfileSettingCustomField[] customFields;
+    /**
+     * 序列号
+     * <p> 示例值：A123456
+     */
+    @SerializedName("series")
+    private String series;
+    /**
+     * 是否长期有效
+     * <p> 示例值：
+     */
+    @SerializedName("effective_for_a_long_time")
+    private Boolean effectiveForALongTime;
 
     // builder 开始
     public ProfileSettingNational() {
@@ -112,6 +124,16 @@ public class ProfileSettingNational {
          * <p> 示例值：
          */
         this.customFields = builder.customFields;
+        /**
+         * 序列号
+         * <p> 示例值：A123456
+         */
+        this.series = builder.series;
+        /**
+         * 是否长期有效
+         * <p> 示例值：
+         */
+        this.effectiveForALongTime = builder.effectiveForALongTime;
     }
 
     public static Builder newBuilder() {
@@ -174,6 +196,22 @@ public class ProfileSettingNational {
         this.customFields = customFields;
     }
 
+    public String getSeries() {
+        return this.series;
+    }
+
+    public void setSeries(String series) {
+        this.series = series;
+    }
+
+    public Boolean getEffectiveForALongTime() {
+        return this.effectiveForALongTime;
+    }
+
+    public void setEffectiveForALongTime(Boolean effectiveForALongTime) {
+        this.effectiveForALongTime = effectiveForALongTime;
+    }
+
     public static class Builder {
         /**
          * 国家/地区ID
@@ -210,6 +248,16 @@ public class ProfileSettingNational {
          * <p> 示例值：
          */
         private ProfileSettingCustomField[] customFields;
+        /**
+         * 序列号
+         * <p> 示例值：A123456
+         */
+        private String series;
+        /**
+         * 是否长期有效
+         * <p> 示例值：
+         */
+        private Boolean effectiveForALongTime;
 
         /**
          * 国家/地区ID
@@ -298,6 +346,32 @@ public class ProfileSettingNational {
          */
         public Builder customFields(ProfileSettingCustomField[] customFields) {
             this.customFields = customFields;
+            return this;
+        }
+
+
+        /**
+         * 序列号
+         * <p> 示例值：A123456
+         *
+         * @param series
+         * @return
+         */
+        public Builder series(String series) {
+            this.series = series;
+            return this;
+        }
+
+
+        /**
+         * 是否长期有效
+         * <p> 示例值：
+         *
+         * @param effectiveForALongTime
+         * @return
+         */
+        public Builder effectiveForALongTime(Boolean effectiveForALongTime) {
+            this.effectiveForALongTime = effectiveForALongTime;
             return this;
         }
 

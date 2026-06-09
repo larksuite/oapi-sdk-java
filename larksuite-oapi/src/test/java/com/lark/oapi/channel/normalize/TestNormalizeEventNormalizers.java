@@ -7,9 +7,11 @@ import com.lark.oapi.channel.model.CardActionEvent;
 import com.lark.oapi.channel.model.CommentEvent;
 import com.lark.oapi.channel.model.ReactionEvent;
 import com.lark.oapi.event.cardcallback.model.CallBackAction;
+
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+
 import org.junit.Assert;
 import org.junit.Test;
 

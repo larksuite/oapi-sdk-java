@@ -77,6 +77,18 @@ public class LumpSumPaymentDetailForUpdate {
      */
     @SerializedName("issuance_pay_group_id")
     private String issuancePayGroupId;
+    /**
+     * 一次性支付明细所属期开始日期
+     * <p> 示例值：2024-08-01
+     */
+    @SerializedName("detail_reference_period_start_date")
+    private String detailReferencePeriodStartDate;
+    /**
+     * 一次性支付明细所属期结束日期
+     * <p> 示例值：2024-08-01
+     */
+    @SerializedName("detail_reference_period_end_date")
+    private String detailReferencePeriodEndDate;
 
     // builder 开始
     public LumpSumPaymentDetailForUpdate() {
@@ -123,6 +135,16 @@ public class LumpSumPaymentDetailForUpdate {
          * <p> 示例值：6862995757234914824
          */
         this.issuancePayGroupId = builder.issuancePayGroupId;
+        /**
+         * 一次性支付明细所属期开始日期
+         * <p> 示例值：2024-08-01
+         */
+        this.detailReferencePeriodStartDate = builder.detailReferencePeriodStartDate;
+        /**
+         * 一次性支付明细所属期结束日期
+         * <p> 示例值：2024-08-01
+         */
+        this.detailReferencePeriodEndDate = builder.detailReferencePeriodEndDate;
     }
 
     public static Builder newBuilder() {
@@ -193,6 +215,22 @@ public class LumpSumPaymentDetailForUpdate {
         this.issuancePayGroupId = issuancePayGroupId;
     }
 
+    public String getDetailReferencePeriodStartDate() {
+        return this.detailReferencePeriodStartDate;
+    }
+
+    public void setDetailReferencePeriodStartDate(String detailReferencePeriodStartDate) {
+        this.detailReferencePeriodStartDate = detailReferencePeriodStartDate;
+    }
+
+    public String getDetailReferencePeriodEndDate() {
+        return this.detailReferencePeriodEndDate;
+    }
+
+    public void setDetailReferencePeriodEndDate(String detailReferencePeriodEndDate) {
+        this.detailReferencePeriodEndDate = detailReferencePeriodEndDate;
+    }
+
     public static class Builder {
         /**
          * 一次性支付记录明细id。传入已有的id代表直接在原明细上进行更新，不传则代表创建新的明细
@@ -234,6 +272,16 @@ public class LumpSumPaymentDetailForUpdate {
          * <p> 示例值：6862995757234914824
          */
         private String issuancePayGroupId;
+        /**
+         * 一次性支付明细所属期开始日期
+         * <p> 示例值：2024-08-01
+         */
+        private String detailReferencePeriodStartDate;
+        /**
+         * 一次性支付明细所属期结束日期
+         * <p> 示例值：2024-08-01
+         */
+        private String detailReferencePeriodEndDate;
 
         /**
          * 一次性支付记录明细id。传入已有的id代表直接在原明细上进行更新，不传则代表创建新的明细
@@ -359,6 +407,32 @@ public class LumpSumPaymentDetailForUpdate {
          */
         public Builder issuancePayGroupId(String issuancePayGroupId) {
             this.issuancePayGroupId = issuancePayGroupId;
+            return this;
+        }
+
+
+        /**
+         * 一次性支付明细所属期开始日期
+         * <p> 示例值：2024-08-01
+         *
+         * @param detailReferencePeriodStartDate
+         * @return
+         */
+        public Builder detailReferencePeriodStartDate(String detailReferencePeriodStartDate) {
+            this.detailReferencePeriodStartDate = detailReferencePeriodStartDate;
+            return this;
+        }
+
+
+        /**
+         * 一次性支付明细所属期结束日期
+         * <p> 示例值：2024-08-01
+         *
+         * @param detailReferencePeriodEndDate
+         * @return
+         */
+        public Builder detailReferencePeriodEndDate(String detailReferencePeriodEndDate) {
+            this.detailReferencePeriodEndDate = detailReferencePeriodEndDate;
             return this;
         }
 

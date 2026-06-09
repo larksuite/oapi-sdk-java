@@ -8,9 +8,11 @@ import com.lark.oapi.channel.model.SendInput;
 import com.lark.oapi.channel.model.SendOptions;
 import com.lark.oapi.service.im.v1.model.ReplyMessageResp;
 import com.lark.oapi.service.im.v1.model.ReplyMessageRespBody;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.ByteArrayInputStream;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -157,7 +159,7 @@ public class TestOutboundUploader {
 
     @Test
     public void testImageUploadSupportsCommonLocalFormats() throws Exception {
-        String[] suffixes = new String[] {".png", ".jpg", ".gif"};
+        String[] suffixes = new String[]{".png", ".jpg", ".gif"};
         for (String suffix : suffixes) {
             File temp = writeTemp("channel-image-format", suffix, "image-bytes");
             OutboundTestSupport.StubMessage message = new OutboundTestSupport.StubMessage();

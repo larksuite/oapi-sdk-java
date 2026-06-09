@@ -14,7 +14,7 @@
 package com.lark.oapi.service.wiki.v1;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.service.wiki.v1.resource.*;
+import com.lark.oapi.service.wiki.v1.resource.Node;
 
 public class V1 {
     private final Node node; // 知识库

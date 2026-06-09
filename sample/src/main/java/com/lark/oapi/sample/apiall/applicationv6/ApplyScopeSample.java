@@ -16,7 +16,7 @@ public class ApplyScopeSample {
         // 创建请求对象
 
         // 发起请求
-        ApplyScopeResp resp = client.application().scope().apply();
+        ApplyScopeResp resp = client.application().v6().scope().apply();
 
         // 处理服务端错误
         if (!resp.success()) {

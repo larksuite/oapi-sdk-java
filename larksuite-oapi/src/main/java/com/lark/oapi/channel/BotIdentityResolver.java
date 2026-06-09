@@ -10,6 +10,7 @@ import com.lark.oapi.channel.model.BotIdentity;
 import com.lark.oapi.channel.outbound.OutboundErrors;
 import com.lark.oapi.core.response.RawResponse;
 import com.lark.oapi.core.token.AccessTokenType;
+
 import java.nio.charset.StandardCharsets;
 
 final class BotIdentityResolver {

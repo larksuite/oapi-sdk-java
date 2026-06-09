@@ -19,8 +19,8 @@ public class ListAppTableFieldSample {
                 .tableId("tblsRc9GRRXKqhvW")
                 .viewId("vewOVMEXPF")
                 .textFieldAsArray(true)
-                .pageToken("fldwJ4YrtB")
                 .pageSize(20)
+                .pageToken("fldwJ4YrtB")
                 .build();
 
         // 发起请求

@@ -14,7 +14,17 @@
 package com.lark.oapi.service.calendar.v4;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.service.calendar.v4.resource.*;
+import com.lark.oapi.service.calendar.v4.resource.Calendar;
+import com.lark.oapi.service.calendar.v4.resource.CalendarAcl;
+import com.lark.oapi.service.calendar.v4.resource.CalendarEvent;
+import com.lark.oapi.service.calendar.v4.resource.CalendarEventAttendee;
+import com.lark.oapi.service.calendar.v4.resource.CalendarEventAttendeeChatMember;
+import com.lark.oapi.service.calendar.v4.resource.CalendarEventMeetingChat;
+import com.lark.oapi.service.calendar.v4.resource.CalendarEventMeetingMinute;
+import com.lark.oapi.service.calendar.v4.resource.ExchangeBinding;
+import com.lark.oapi.service.calendar.v4.resource.Freebusy;
+import com.lark.oapi.service.calendar.v4.resource.Setting;
+import com.lark.oapi.service.calendar.v4.resource.TimeoffEvent;
 
 public class V4 {
     private final Calendar calendar; // 日历管理

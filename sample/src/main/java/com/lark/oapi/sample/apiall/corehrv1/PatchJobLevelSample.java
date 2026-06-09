@@ -28,6 +28,7 @@ public class PatchJobLevelSample {
                         .customFields(new ObjectFieldData[]{})
                         .jobGrade(new String[]{})
                         .pathwayIds(new String[]{})
+                        .viewOrder(123)
                         .build())
                 .build();
 

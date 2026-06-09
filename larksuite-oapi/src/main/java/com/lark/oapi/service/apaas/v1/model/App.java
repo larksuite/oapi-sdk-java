@@ -138,7 +138,7 @@ public class App {
 
     public App(Builder builder) {
         /**
-         *   aPaaS 产品应用的名称
+         * aPaaS 产品应用的名称
          * <p> 示例值：
          */
         this.name = builder.name;

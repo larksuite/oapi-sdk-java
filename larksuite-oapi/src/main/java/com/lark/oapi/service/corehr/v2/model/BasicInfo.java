@@ -263,6 +263,12 @@ public class BasicInfo {
      */
     @SerializedName("expected_graduate_date")
     private String expectedGraduateDate;
+    /**
+     * 政治面貌
+     * <p> 示例值：
+     */
+    @SerializedName("political_affiliation")
+    private String politicalAffiliation;
 
     // builder 开始
     public BasicInfo() {
@@ -464,6 +470,11 @@ public class BasicInfo {
          * <p> 示例值：2023-01-10
          */
         this.expectedGraduateDate = builder.expectedGraduateDate;
+        /**
+         * 政治面貌
+         * <p> 示例值：
+         */
+        this.politicalAffiliation = builder.politicalAffiliation;
     }
 
     public static Builder newBuilder() {
@@ -782,6 +793,14 @@ public class BasicInfo {
         this.expectedGraduateDate = expectedGraduateDate;
     }
 
+    public String getPoliticalAffiliation() {
+        return this.politicalAffiliation;
+    }
+
+    public void setPoliticalAffiliation(String politicalAffiliation) {
+        this.politicalAffiliation = politicalAffiliation;
+    }
+
     public static class Builder {
         /**
          * 描述
@@ -978,6 +997,11 @@ public class BasicInfo {
          * <p> 示例值：2023-01-10
          */
         private String expectedGraduateDate;
+        /**
+         * 政治面貌
+         * <p> 示例值：
+         */
+        private String politicalAffiliation;
 
         /**
          * 描述
@@ -1482,6 +1506,19 @@ public class BasicInfo {
          */
         public Builder expectedGraduateDate(String expectedGraduateDate) {
             this.expectedGraduateDate = expectedGraduateDate;
+            return this;
+        }
+
+
+        /**
+         * 政治面貌
+         * <p> 示例值：
+         *
+         * @param politicalAffiliation
+         * @return
+         */
+        public Builder politicalAffiliation(String politicalAffiliation) {
+            this.politicalAffiliation = politicalAffiliation;
             return this;
         }
 

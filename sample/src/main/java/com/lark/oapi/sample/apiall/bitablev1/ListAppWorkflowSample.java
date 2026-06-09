@@ -16,8 +16,6 @@ public class ListAppWorkflowSample {
         // 创建请求对象
         ListAppWorkflowReq req = ListAppWorkflowReq.newBuilder()
                 .appToken("appbcbWCzen6D8dezhoCH2RpMAh")
-                .pageToken("")
-                .pageSize(20)
                 .build();
 
         // 发起请求

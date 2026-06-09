@@ -50,6 +50,13 @@ public class ListCalendarEventAttendeeChatMemberReq {
     @SerializedName("user_id_type")
     private String userIdType;
     /**
+     * 应用身份下指定操作用户的日历日程数据
+     * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
+     */
+    @Query
+    @SerializedName("op_user_id")
+    private String opUserId;
+    /**
      * 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
      * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
      */
@@ -91,6 +98,11 @@ public class ListCalendarEventAttendeeChatMemberReq {
          * <p> 示例值：
          */
         this.userIdType = builder.userIdType;
+        /**
+         * 应用身份下指定操作用户的日历日程数据
+         * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
+         */
+        this.opUserId = builder.opUserId;
         /**
          * 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
          * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
@@ -136,6 +148,14 @@ public class ListCalendarEventAttendeeChatMemberReq {
         this.userIdType = userIdType;
     }
 
+    public String getOpUserId() {
+        return this.opUserId;
+    }
+
+    public void setOpUserId(String opUserId) {
+        this.opUserId = opUserId;
+    }
+
     public String getCalendarId() {
         return this.calendarId;
     }
@@ -164,6 +184,7 @@ public class ListCalendarEventAttendeeChatMemberReq {
         private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
         private Integer pageSize; // 分页大小
         private String userIdType; // 此次调用中使用的用户ID的类型
+        private String opUserId; // 应用身份下指定操作用户的日历日程数据
         private String calendarId; // 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
         private String eventId; // 日程ID。参见[日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)
         private String attendeeId; // 群参与人 ID。参见[参与人ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/introduction#4998889c)
@@ -213,6 +234,18 @@ public class ListCalendarEventAttendeeChatMemberReq {
          */
         public Builder userIdType(com.lark.oapi.service.calendar.v4.enums.ListCalendarEventAttendeeChatMemberUserIdTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
+            return this;
+        }
+
+        /**
+         * 应用身份下指定操作用户的日历日程数据
+         * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
+         *
+         * @param opUserId
+         * @return
+         */
+        public Builder opUserId(String opUserId) {
+            this.opUserId = opUserId;
             return this;
         }
 

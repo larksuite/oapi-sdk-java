@@ -34,7 +34,7 @@ public class TagInfoWithBindVersion {
      * <p> 示例值：
      */
     @SerializedName("tag_info")
-    private TagInfo tagInfo;
+    private TagInfoV2 tagInfo;
     /**
      * 绑定时间
      * <p> 示例值：1710401562336
@@ -63,11 +63,11 @@ public class TagInfoWithBindVersion {
         return new Builder();
     }
 
-    public TagInfo getTagInfo() {
+    public TagInfoV2 getTagInfo() {
         return this.tagInfo;
     }
 
-    public void setTagInfo(TagInfo tagInfo) {
+    public void setTagInfo(TagInfoV2 tagInfo) {
         this.tagInfo = tagInfo;
     }
 
@@ -84,7 +84,7 @@ public class TagInfoWithBindVersion {
          * 标签内容
          * <p> 示例值：
          */
-        private TagInfo tagInfo;
+        private TagInfoV2 tagInfo;
         /**
          * 绑定时间
          * <p> 示例值：1710401562336
@@ -98,7 +98,7 @@ public class TagInfoWithBindVersion {
          * @param tagInfo
          * @return
          */
-        public Builder tagInfo(TagInfo tagInfo) {
+        public Builder tagInfo(TagInfoV2 tagInfo) {
             this.tagInfo = tagInfo;
             return this;
         }

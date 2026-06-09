@@ -14,7 +14,11 @@
 package com.lark.oapi.service.directory.v1;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.service.directory.v1.resource.*;
+import com.lark.oapi.service.directory.v1.resource.CollaborationRule;
+import com.lark.oapi.service.directory.v1.resource.CollaborationTenant;
+import com.lark.oapi.service.directory.v1.resource.CollborationShareEntity;
+import com.lark.oapi.service.directory.v1.resource.Department;
+import com.lark.oapi.service.directory.v1.resource.Employee;
 
 public class V1 {
     private final CollaborationRule collaborationRule; // collaboration_rule

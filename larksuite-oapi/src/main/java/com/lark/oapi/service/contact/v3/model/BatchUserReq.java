@@ -134,10 +134,10 @@ public class BatchUserReq {
          * 指定请求中用户ID类型
          * <p> 示例值：open_id
          *
-         * @param userIdType {@link com.lark.oapi.service.contact.v3.enums.BatchUserUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.contact.v3.enums.BatchUserBatchGetUserV3UserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.contact.v3.enums.BatchUserUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.contact.v3.enums.BatchUserBatchGetUserV3UserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }
@@ -159,10 +159,10 @@ public class BatchUserReq {
          * 指定查询结果中用户关联的部门ID类型
          * <p> 示例值：open_department_id
          *
-         * @param departmentIdType {@link com.lark.oapi.service.contact.v3.enums.BatchUserDepartmentIdTypeEnum}
+         * @param departmentIdType {@link com.lark.oapi.service.contact.v3.enums.BatchUserBatchGetUserV3DepartmentIDTypeEnum}
          * @return
          */
-        public Builder departmentIdType(com.lark.oapi.service.contact.v3.enums.BatchUserDepartmentIdTypeEnum departmentIdType) {
+        public Builder departmentIdType(com.lark.oapi.service.contact.v3.enums.BatchUserBatchGetUserV3DepartmentIDTypeEnum departmentIdType) {
             this.departmentIdType = departmentIdType.getValue();
             return this;
         }

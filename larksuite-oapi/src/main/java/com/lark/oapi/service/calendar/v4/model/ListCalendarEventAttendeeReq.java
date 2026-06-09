@@ -57,6 +57,13 @@ public class ListCalendarEventAttendeeReq {
     @SerializedName("page_size")
     private Integer pageSize;
     /**
+     * 应用身份下指定操作用户的日历日程数据
+     * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
+     */
+    @Query
+    @SerializedName("op_user_id")
+    private String opUserId;
+    /**
      * 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
      * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
      */
@@ -96,6 +103,11 @@ public class ListCalendarEventAttendeeReq {
          * <p> 示例值：10
          */
         this.pageSize = builder.pageSize;
+        /**
+         * 应用身份下指定操作用户的日历日程数据
+         * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
+         */
+        this.opUserId = builder.opUserId;
         /**
          * 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
          * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
@@ -144,6 +156,14 @@ public class ListCalendarEventAttendeeReq {
         this.pageSize = pageSize;
     }
 
+    public String getOpUserId() {
+        return this.opUserId;
+    }
+
+    public void setOpUserId(String opUserId) {
+        this.opUserId = opUserId;
+    }
+
     public String getCalendarId() {
         return this.calendarId;
     }
@@ -165,6 +185,7 @@ public class ListCalendarEventAttendeeReq {
         private Boolean needResourceCustomization; // 是否需要会议室表单信息
         private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
         private Integer pageSize; // 分页大小
+        private String opUserId; // 应用身份下指定操作用户的日历日程数据
         private String calendarId; // 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
         private String eventId; // 日程ID。参见[日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)
 
@@ -225,6 +246,18 @@ public class ListCalendarEventAttendeeReq {
          */
         public Builder pageSize(Integer pageSize) {
             this.pageSize = pageSize;
+            return this;
+        }
+
+        /**
+         * 应用身份下指定操作用户的日历日程数据
+         * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
+         *
+         * @param opUserId
+         * @return
+         */
+        public Builder opUserId(String opUserId) {
+            this.opUserId = opUserId;
             return this;
         }
 

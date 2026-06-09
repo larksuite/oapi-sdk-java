@@ -54,9 +54,9 @@ public class EmployeeTraceInfo {
     @SerializedName("invite_option")
     private InviteOption inviteOption;
     /**
-     * 用户客户端的IP *
-      * <p>示例值：1.1.1.1
-            */
+     * 用户客户端的IP * /
+     * <p> 示例值：1.1.1.1
+     */
     @SerializedName("client_ip")
     private String clientIp;
 
@@ -86,10 +86,10 @@ public class EmployeeTraceInfo {
          */
         this.inviteOption = builder.inviteOption;
         /**
-         * 用户客户端的IP *
-          * <p > 示例值：1.1 .1 .1
-                */
-                this.clientIp = builder.clientIp;
+         * 用户客户端的IP * /
+         * <p> 示例值：1.1.1.1
+         */
+        this.clientIp = builder.clientIp;
     }
 
     public static Builder newBuilder() {
@@ -158,9 +158,9 @@ public class EmployeeTraceInfo {
          */
         private InviteOption inviteOption;
         /**
-         * 用户客户端的IP *
-      * <p>示例值：1.1.1.1
-                */
+         * 用户客户端的IP * /
+         * <p> 示例值：1.1.1.1
+         */
         private String clientIp;
 
         /**
@@ -216,14 +216,12 @@ public class EmployeeTraceInfo {
 
 
         /**
-         * 用户客户端的IP *
-         * <p>示例值：1.1.1.1
-                *
-        @param
-        clientIp
-         *@return
-                 */
-
+         * 用户客户端的IP * /
+         * <p> 示例值：1.1.1.1
+         *
+         * @param clientIp
+         * @return
+         */
         public Builder clientIp(String clientIp) {
             this.clientIp = clientIp;
             return this;

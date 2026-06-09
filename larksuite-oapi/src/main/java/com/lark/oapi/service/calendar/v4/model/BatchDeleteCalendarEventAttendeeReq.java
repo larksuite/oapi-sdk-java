@@ -51,6 +51,7 @@ public class BatchDeleteCalendarEventAttendeeReq {
     private String eventId;
     @Body
     private BatchDeleteCalendarEventAttendeeReqBody body;
+
     // builder 开始
     public BatchDeleteCalendarEventAttendeeReq() {
     }

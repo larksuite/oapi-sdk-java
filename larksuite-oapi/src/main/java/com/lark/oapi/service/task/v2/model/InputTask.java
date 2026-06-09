@@ -137,6 +137,24 @@ public class InputTask {
      */
     @SerializedName("positive_reminders")
     private Reminder[] positiveReminders;
+    /**
+     * 智能体任务状态
+     * <p> 示例值：1
+     */
+    @SerializedName("agent_task_status")
+    private Integer agentTaskStatus;
+    /**
+     * 智能体任务进度
+     * <p> 示例值：1/4
+     */
+    @SerializedName("agent_task_progress")
+    private String agentTaskProgress;
+    /**
+     * 智能体文本类交付物
+     * <p> 示例值：
+     */
+    @SerializedName("text_deliveries")
+    private String[] textDeliveries;
 
     // builder 开始
     public InputTask() {
@@ -233,6 +251,21 @@ public class InputTask {
          * <p> 示例值：
          */
         this.positiveReminders = builder.positiveReminders;
+        /**
+         * 智能体任务状态
+         * <p> 示例值：1
+         */
+        this.agentTaskStatus = builder.agentTaskStatus;
+        /**
+         * 智能体任务进度
+         * <p> 示例值：1/4
+         */
+        this.agentTaskProgress = builder.agentTaskProgress;
+        /**
+         * 智能体文本类交付物
+         * <p> 示例值：
+         */
+        this.textDeliveries = builder.textDeliveries;
     }
 
     public static Builder newBuilder() {
@@ -383,6 +416,30 @@ public class InputTask {
         this.positiveReminders = positiveReminders;
     }
 
+    public Integer getAgentTaskStatus() {
+        return this.agentTaskStatus;
+    }
+
+    public void setAgentTaskStatus(Integer agentTaskStatus) {
+        this.agentTaskStatus = agentTaskStatus;
+    }
+
+    public String getAgentTaskProgress() {
+        return this.agentTaskProgress;
+    }
+
+    public void setAgentTaskProgress(String agentTaskProgress) {
+        this.agentTaskProgress = agentTaskProgress;
+    }
+
+    public String[] getTextDeliveries() {
+        return this.textDeliveries;
+    }
+
+    public void setTextDeliveries(String[] textDeliveries) {
+        this.textDeliveries = textDeliveries;
+    }
+
     public static class Builder {
         /**
          * 任务标题
@@ -474,6 +531,21 @@ public class InputTask {
          * <p> 示例值：
          */
         private Reminder[] positiveReminders;
+        /**
+         * 智能体任务状态
+         * <p> 示例值：1
+         */
+        private Integer agentTaskStatus;
+        /**
+         * 智能体任务进度
+         * <p> 示例值：1/4
+         */
+        private String agentTaskProgress;
+        /**
+         * 智能体文本类交付物
+         * <p> 示例值：
+         */
+        private String[] textDeliveries;
 
         /**
          * 任务标题
@@ -705,6 +777,45 @@ public class InputTask {
          */
         public Builder positiveReminders(Reminder[] positiveReminders) {
             this.positiveReminders = positiveReminders;
+            return this;
+        }
+
+
+        /**
+         * 智能体任务状态
+         * <p> 示例值：1
+         *
+         * @param agentTaskStatus
+         * @return
+         */
+        public Builder agentTaskStatus(Integer agentTaskStatus) {
+            this.agentTaskStatus = agentTaskStatus;
+            return this;
+        }
+
+
+        /**
+         * 智能体任务进度
+         * <p> 示例值：1/4
+         *
+         * @param agentTaskProgress
+         * @return
+         */
+        public Builder agentTaskProgress(String agentTaskProgress) {
+            this.agentTaskProgress = agentTaskProgress;
+            return this;
+        }
+
+
+        /**
+         * 智能体文本类交付物
+         * <p> 示例值：
+         *
+         * @param textDeliveries
+         * @return
+         */
+        public Builder textDeliveries(String[] textDeliveries) {
+            this.textDeliveries = textDeliveries;
             return this;
         }
 

@@ -133,10 +133,10 @@ public class ForwardThreadReq {
          * 消息接收者id类型 open_id/user_id/union_id/email/chat_id/thread_id
          * <p> 示例值：
          *
-         * @param receiveIdType {@link com.lark.oapi.service.im.v1.enums.ForwardThreadReceiveIdTypeEnum}
+         * @param receiveIdType {@link com.lark.oapi.service.im.v1.enums.ForwardThreadForwardThreadV1ReceiveIDTypeEnum}
          * @return
          */
-        public Builder receiveIdType(com.lark.oapi.service.im.v1.enums.ForwardThreadReceiveIdTypeEnum receiveIdType) {
+        public Builder receiveIdType(com.lark.oapi.service.im.v1.enums.ForwardThreadForwardThreadV1ReceiveIDTypeEnum receiveIdType) {
             this.receiveIdType = receiveIdType.getValue();
             return this;
         }

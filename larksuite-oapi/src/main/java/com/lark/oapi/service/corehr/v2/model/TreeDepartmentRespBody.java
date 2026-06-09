@@ -46,6 +46,12 @@ public class TreeDepartmentRespBody {
      */
     @SerializedName("has_more")
     private Boolean hasMore;
+    /**
+     * 是否拒绝导出(user_access_token场景使用)
+     * <p> 示例值：true
+     */
+    @SerializedName("reject_export")
+    private Boolean rejectExport;
 
     public DepartmentTree[] getItems() {
         return this.items;
@@ -69,6 +75,14 @@ public class TreeDepartmentRespBody {
 
     public void setHasMore(Boolean hasMore) {
         this.hasMore = hasMore;
+    }
+
+    public Boolean getRejectExport() {
+        return this.rejectExport;
+    }
+
+    public void setRejectExport(Boolean rejectExport) {
+        this.rejectExport = rejectExport;
     }
 
 }

@@ -29,6 +29,12 @@ import com.lark.oapi.core.response.BaseResponse;
 
 public class DeleteAppTableRecordReq {
     /**
+     * <p> 示例值：
+     */
+    @Query
+    @SerializedName("ignore_consistency_check")
+    private Boolean ignoreConsistencyCheck;
+    /**
      * bitable app token
      * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
      */
@@ -56,6 +62,11 @@ public class DeleteAppTableRecordReq {
 
     public DeleteAppTableRecordReq(Builder builder) {
         /**
+         *
+         * <p> 示例值：
+         */
+        this.ignoreConsistencyCheck = builder.ignoreConsistencyCheck;
+        /**
          * bitable app token
          * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
          */
@@ -74,6 +85,14 @@ public class DeleteAppTableRecordReq {
 
     public static Builder newBuilder() {
         return new Builder();
+    }
+
+    public Boolean getIgnoreConsistencyCheck() {
+        return this.ignoreConsistencyCheck;
+    }
+
+    public void setIgnoreConsistencyCheck(Boolean ignoreConsistencyCheck) {
+        this.ignoreConsistencyCheck = ignoreConsistencyCheck;
     }
 
     public String getAppToken() {
@@ -101,10 +120,21 @@ public class DeleteAppTableRecordReq {
     }
 
     public static class Builder {
-
+        private Boolean ignoreConsistencyCheck; //
         private String appToken; // bitable app token
         private String tableId; // table id
         private String recordId; // 单条记录的Id
+
+        /**
+         * <p> 示例值：
+         *
+         * @param ignoreConsistencyCheck
+         * @return
+         */
+        public Builder ignoreConsistencyCheck(Boolean ignoreConsistencyCheck) {
+            this.ignoreConsistencyCheck = ignoreConsistencyCheck;
+            return this;
+        }
 
         /**
          * bitable app token

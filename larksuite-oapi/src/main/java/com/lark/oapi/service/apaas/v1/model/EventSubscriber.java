@@ -114,7 +114,7 @@ public class EventSubscriber {
          */
         this.tokenClientSecret = builder.tokenClientSecret;
         /**
-         *  webook URL，当有事件发生时，会向此URL发送事件信息
+         * webook URL，当有事件发生时，会向此URL发送事件信息
          * <p> 示例值：http://your_domain/your_webhook_url
          */
         this.webhookUrl = builder.webhookUrl;

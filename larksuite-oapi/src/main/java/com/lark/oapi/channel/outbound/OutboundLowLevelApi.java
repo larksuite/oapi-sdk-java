@@ -22,6 +22,7 @@ import com.lark.oapi.service.im.v1.model.PatchMessageReq;
 import com.lark.oapi.service.im.v1.model.PatchMessageReqBody;
 import com.lark.oapi.service.im.v1.model.UpdateMessageReq;
 import com.lark.oapi.service.im.v1.model.UpdateMessageReqBody;
+
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;

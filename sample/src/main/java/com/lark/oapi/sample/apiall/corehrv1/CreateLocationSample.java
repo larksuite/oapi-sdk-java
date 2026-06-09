@@ -27,6 +27,7 @@ public class CreateLocationSample {
                         .locale(Enum.newBuilder().build())
                         .timeZoneId("123456789")
                         .displayLanguageId("123456789")
+                        .isPreferManualEncoding(false)
                         .build())
                 .build();
 

@@ -95,6 +95,18 @@ public class DocMeta {
      */
     @SerializedName("token")
     private String token;
+    /**
+     * 文件类型
+     * <p> 示例值：pdf
+     */
+    @SerializedName("file_type")
+    private String fileType;
+    /**
+     * 文档icon
+     * <p> 示例值：{"type":0,"key":"","obj_type":22,"file_type":null,"token":"FM78ddvYPo11I1xN7gjcSo1Ynuh","version":10191}
+     */
+    @SerializedName("icon_info")
+    private String iconInfo;
 
     // builder 开始
     public DocMeta() {
@@ -156,6 +168,16 @@ public class DocMeta {
          * <p> 示例值：dox_9876543210fedcba
          */
         this.token = builder.token;
+        /**
+         * 文件类型
+         * <p> 示例值：pdf
+         */
+        this.fileType = builder.fileType;
+        /**
+         * 文档icon
+         * <p> 示例值：{"type":0,"key":"","obj_type":22,"file_type":null,"token":"FM78ddvYPo11I1xN7gjcSo1Ynuh","version":10191}
+         */
+        this.iconInfo = builder.iconInfo;
     }
 
     public static Builder newBuilder() {
@@ -250,6 +272,22 @@ public class DocMeta {
         this.token = token;
     }
 
+    public String getFileType() {
+        return this.fileType;
+    }
+
+    public void setFileType(String fileType) {
+        this.fileType = fileType;
+    }
+
+    public String getIconInfo() {
+        return this.iconInfo;
+    }
+
+    public void setIconInfo(String iconInfo) {
+        this.iconInfo = iconInfo;
+    }
+
     public static class Builder {
         /**
          * 文档类型
@@ -306,6 +344,16 @@ public class DocMeta {
          * <p> 示例值：dox_9876543210fedcba
          */
         private String token;
+        /**
+         * 文件类型
+         * <p> 示例值：pdf
+         */
+        private String fileType;
+        /**
+         * 文档icon
+         * <p> 示例值：{"type":0,"key":"","obj_type":22,"file_type":null,"token":"FM78ddvYPo11I1xN7gjcSo1Ynuh","version":10191}
+         */
+        private String iconInfo;
 
         /**
          * 文档类型
@@ -458,6 +506,32 @@ public class DocMeta {
          */
         public Builder token(String token) {
             this.token = token;
+            return this;
+        }
+
+
+        /**
+         * 文件类型
+         * <p> 示例值：pdf
+         *
+         * @param fileType
+         * @return
+         */
+        public Builder fileType(String fileType) {
+            this.fileType = fileType;
+            return this;
+        }
+
+
+        /**
+         * 文档icon
+         * <p> 示例值：{"type":0,"key":"","obj_type":22,"file_type":null,"token":"FM78ddvYPo11I1xN7gjcSo1Ynuh","version":10191}
+         *
+         * @param iconInfo
+         * @return
+         */
+        public Builder iconInfo(String iconInfo) {
+            this.iconInfo = iconInfo;
             return this;
         }
 

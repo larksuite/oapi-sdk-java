@@ -34,7 +34,7 @@ public class GroupItemFailedReason {
      * <p> 示例值：
      */
     @SerializedName("item")
-    private FeedGroupItem item;
+    private FeedGroupItemV2 item;
     /**
      * 错误码
      * <p> 示例值：0
@@ -74,11 +74,11 @@ public class GroupItemFailedReason {
         return new Builder();
     }
 
-    public FeedGroupItem getItem() {
+    public FeedGroupItemV2 getItem() {
         return this.item;
     }
 
-    public void setItem(FeedGroupItem item) {
+    public void setItem(FeedGroupItemV2 item) {
         this.item = item;
     }
 
@@ -103,7 +103,7 @@ public class GroupItemFailedReason {
          * 标签项
          * <p> 示例值：
          */
-        private FeedGroupItem item;
+        private FeedGroupItemV2 item;
         /**
          * 错误码
          * <p> 示例值：0
@@ -122,7 +122,7 @@ public class GroupItemFailedReason {
          * @param item
          * @return
          */
-        public Builder item(FeedGroupItem item) {
+        public Builder item(FeedGroupItemV2 item) {
             this.item = item;
             return this;
         }

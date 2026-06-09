@@ -18,6 +18,7 @@ import com.lark.oapi.service.im.v1.model.P2MessageReactionDeletedV1Data;
 import com.lark.oapi.service.im.v1.model.P2MessageReceiveV1;
 import com.lark.oapi.service.im.v1.model.P2MessageReceiveV1Data;
 import com.lark.oapi.service.im.v1.model.UserId;
+
 import java.util.Map;
 
 final class NormalizeTestSupport {

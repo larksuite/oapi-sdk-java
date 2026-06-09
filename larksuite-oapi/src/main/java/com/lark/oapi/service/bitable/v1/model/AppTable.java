@@ -30,19 +30,19 @@ import com.lark.oapi.core.response.BaseResponse;
 
 public class AppTable {
     /**
-     * 数据表 id
+     * 表格Id
      * <p> 示例值：
      */
     @SerializedName("table_id")
     private String tableId;
     /**
-     * 数据表的版本号
+     * 数据表 版本号
      * <p> 示例值：
      */
     @SerializedName("revision")
     private Integer revision;
     /**
-     * 数据表名字
+     * 数据表 名字
      * <p> 示例值：
      */
     @SerializedName("name")
@@ -54,17 +54,17 @@ public class AppTable {
 
     public AppTable(Builder builder) {
         /**
-         * 数据表 id
+         * 表格Id
          * <p> 示例值：
          */
         this.tableId = builder.tableId;
         /**
-         * 数据表的版本号
+         * 数据表 版本号
          * <p> 示例值：
          */
         this.revision = builder.revision;
         /**
-         * 数据表名字
+         * 数据表 名字
          * <p> 示例值：
          */
         this.name = builder.name;
@@ -100,23 +100,23 @@ public class AppTable {
 
     public static class Builder {
         /**
-         * 数据表 id
+         * 表格Id
          * <p> 示例值：
          */
         private String tableId;
         /**
-         * 数据表的版本号
+         * 数据表 版本号
          * <p> 示例值：
          */
         private Integer revision;
         /**
-         * 数据表名字
+         * 数据表 名字
          * <p> 示例值：
          */
         private String name;
 
         /**
-         * 数据表 id
+         * 表格Id
          * <p> 示例值：
          *
          * @param tableId
@@ -129,7 +129,7 @@ public class AppTable {
 
 
         /**
-         * 数据表的版本号
+         * 数据表 版本号
          * <p> 示例值：
          *
          * @param revision
@@ -142,7 +142,7 @@ public class AppTable {
 
 
         /**
-         * 数据表名字
+         * 数据表 名字
          * <p> 示例值：
          *
          * @param name

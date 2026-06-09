@@ -18,8 +18,11 @@ import com.lark.oapi.service.admin.AdminService;
 import com.lark.oapi.service.aily.AilyService;
 import com.lark.oapi.service.apaas.ApaasService;
 import com.lark.oapi.service.application.ApplicationService;
+import com.lark.oapi.service.application.ApplicationService;
+import com.lark.oapi.service.application.ApplicationService;
 import com.lark.oapi.service.approval.ApprovalService;
 import com.lark.oapi.service.attendance.AttendanceService;
+import com.lark.oapi.service.auth.AuthService;
 import com.lark.oapi.service.auth.AuthService;
 import com.lark.oapi.service.authen.AuthenService;
 import com.lark.oapi.service.baike.BaikeService;
@@ -40,6 +43,7 @@ import com.lark.oapi.service.docx.DocxService;
 import com.lark.oapi.service.drive.DriveService;
 import com.lark.oapi.service.drive.DriveService;
 import com.lark.oapi.service.ehr.EhrService;
+import com.lark.oapi.service.elearning.ElearningService;
 import com.lark.oapi.service.event.EventService;
 import com.lark.oapi.service.helpdesk.HelpdeskService;
 import com.lark.oapi.service.hire.HireService;
@@ -59,17 +63,20 @@ import com.lark.oapi.service.optical_char_recognition.OpticalCharRecognitionServ
 import com.lark.oapi.service.passport.PassportService;
 import com.lark.oapi.service.payroll.PayrollService;
 import com.lark.oapi.service.performance.PerformanceService;
+import com.lark.oapi.service.performance.PerformanceService;
 import com.lark.oapi.service.personal_settings.PersonalSettingsService;
 import com.lark.oapi.service.report.ReportService;
 import com.lark.oapi.service.search.SearchService;
 import com.lark.oapi.service.security_and_compliance.SecurityAndComplianceService;
 import com.lark.oapi.service.security_and_compliance.SecurityAndComplianceService;
 import com.lark.oapi.service.sheets.SheetsService;
+import com.lark.oapi.service.spark.SparkService;
 import com.lark.oapi.service.speech_to_text.SpeechToTextService;
 import com.lark.oapi.service.task.TaskService;
 import com.lark.oapi.service.task.TaskService;
 import com.lark.oapi.service.tenant.TenantService;
 import com.lark.oapi.service.translation.TranslationService;
+import com.lark.oapi.service.trust_party.TrustPartyService;
 import com.lark.oapi.service.vc.VcService;
 import com.lark.oapi.service.verification.VerificationService;
 import com.lark.oapi.service.wiki.WikiService;
@@ -432,6 +439,7 @@ public class EventDispatcher implements IHandler {
             return this;
         }
 
+
         /**
          * <p> 应用创建,当企业内有新的应用被创建时推送此事件
          * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application/events/created">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application/events/created</a>
@@ -552,6 +560,7 @@ public class EventDispatcher implements IHandler {
             return this;
         }
 
+
         /**
          * <p> ,
          * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uIDO24iM4YjLygjN/event/custom-approval-event">https://open.feishu.cn/document/ukTMukTMukTM/uIDO24iM4YjLygjN/event/custom-approval-event</a>
@@ -564,6 +573,22 @@ public class EventDispatcher implements IHandler {
                 throw new EventTypeAlreadyHasHandlerException("approval.approval.updated_v4");
             }
             eventType2EventHandler.put("approval.approval.updated_v4", handler);
+            return this;
+        }
+
+
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2UserAccessTokenRevokedV4(AuthService.P2UserAccessTokenRevokedV4Handler handler) {
+            if (eventType2EventHandler.containsKey("auth.user_access_token.revoked_v4")) {
+                throw new EventTypeAlreadyHasHandlerException("auth.user_access_token.revoked_v4");
+            }
+            eventType2EventHandler.put("auth.user_access_token.revoked_v4", handler);
             return this;
         }
 
@@ -2111,6 +2136,67 @@ public class EventDispatcher implements IHandler {
             return this;
         }
 
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2NoticeCommentAddV1(DriveService.P2NoticeCommentAddV1Handler handler) {
+            if (eventType2EventHandler.containsKey("drive.notice.comment_add_v1")) {
+                throw new EventTypeAlreadyHasHandlerException("drive.notice.comment_add_v1");
+            }
+            eventType2EventHandler.put("drive.notice.comment_add_v1", handler);
+            return this;
+        }
+
+
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2CourseRegistrationCreatedV2(ElearningService.P2CourseRegistrationCreatedV2Handler handler) {
+            if (eventType2EventHandler.containsKey("elearning.course_registration.created_v2")) {
+                throw new EventTypeAlreadyHasHandlerException("elearning.course_registration.created_v2");
+            }
+            eventType2EventHandler.put("elearning.course_registration.created_v2", handler);
+            return this;
+        }
+
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2CourseRegistrationDeletedV2(ElearningService.P2CourseRegistrationDeletedV2Handler handler) {
+            if (eventType2EventHandler.containsKey("elearning.course_registration.deleted_v2")) {
+                throw new EventTypeAlreadyHasHandlerException("elearning.course_registration.deleted_v2");
+            }
+            eventType2EventHandler.put("elearning.course_registration.deleted_v2", handler);
+            return this;
+        }
+
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2CourseRegistrationUpdatedV2(ElearningService.P2CourseRegistrationUpdatedV2Handler handler) {
+            if (eventType2EventHandler.containsKey("elearning.course_registration.updated_v2")) {
+                throw new EventTypeAlreadyHasHandlerException("elearning.course_registration.updated_v2");
+            }
+            eventType2EventHandler.put("elearning.course_registration.updated_v2", handler);
+            return this;
+        }
+
 
         /**
          * <p> 审核事件,Push审核状态通知事件
@@ -2637,6 +2723,20 @@ public class EventDispatcher implements IHandler {
             return this;
         }
 
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2MinuteGeneratedV1(MinutesService.P2MinuteGeneratedV1Handler handler) {
+            if (eventType2EventHandler.containsKey("minutes.minute.generated_v1")) {
+                throw new EventTypeAlreadyHasHandlerException("minutes.minute.generated_v1");
+            }
+            eventType2EventHandler.put("minutes.minute.generated_v1", handler);
+            return this;
+        }
 
         /**
          * <p> ,
@@ -2774,6 +2874,7 @@ public class EventDispatcher implements IHandler {
             return this;
         }
 
+
         /**
          * <p> ,
          * <p> 事件描述文档链接:<a href=""></a>
@@ -2881,6 +2982,21 @@ public class EventDispatcher implements IHandler {
             return this;
         }
 
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2TaskUpdateUserAccessV2(TaskService.P2TaskUpdateUserAccessV2Handler handler) {
+            if (eventType2EventHandler.containsKey("task.task.update_user_access_v2")) {
+                throw new EventTypeAlreadyHasHandlerException("task.task.update_user_access_v2");
+            }
+            eventType2EventHandler.put("task.task.update_user_access_v2", handler);
+            return this;
+        }
+
 
         /**
          * <p> ,
@@ -2969,6 +3085,21 @@ public class EventDispatcher implements IHandler {
                 throw new EventTypeAlreadyHasHandlerException("vc.meeting.meeting_started_v1");
             }
             eventType2EventHandler.put("vc.meeting.meeting_started_v1", handler);
+            return this;
+        }
+
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2MeetingParticipantMeetingEndedV1(VcService.P2MeetingParticipantMeetingEndedV1Handler handler) {
+            if (eventType2EventHandler.containsKey("vc.meeting.participant_meeting_ended_v1")) {
+                throw new EventTypeAlreadyHasHandlerException("vc.meeting.participant_meeting_ended_v1");
+            }
+            eventType2EventHandler.put("vc.meeting.participant_meeting_ended_v1", handler);
             return this;
         }
 
@@ -3423,3 +3554,4 @@ public class EventDispatcher implements IHandler {
     }
 
 }
+

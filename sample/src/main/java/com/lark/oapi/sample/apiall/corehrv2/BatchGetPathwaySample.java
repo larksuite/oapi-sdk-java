@@ -17,8 +17,12 @@ public class BatchGetPathwaySample {
 
         // 创建请求对象
         BatchGetPathwayReq req = BatchGetPathwayReq.newBuilder()
+                .pageSize(100)
+                .pageToken("6891251722631890445")
                 .batchGetPathwayReqBody(BatchGetPathwayReqBody.newBuilder()
                         .pathwayIds(new String[]{})
+                        .pathwayCodes(new String[]{})
+                        .active(true)
                         .build())
                 .build();
 

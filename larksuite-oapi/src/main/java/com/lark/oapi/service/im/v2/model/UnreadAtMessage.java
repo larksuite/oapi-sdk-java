@@ -70,7 +70,7 @@ public class UnreadAtMessage {
      * <p> 示例值：
      */
     @SerializedName("type")
-    private Integer type;
+    private String type;
     /**
      * 是否为atall
      * <p> 示例值：false
@@ -177,11 +177,11 @@ public class UnreadAtMessage {
         this.updateTimeMs = updateTimeMs;
     }
 
-    public Integer getType() {
+    public String getType() {
         return this.type;
     }
 
-    public void setType(Integer type) {
+    public void setType(String type) {
         this.type = type;
     }
 
@@ -228,7 +228,7 @@ public class UnreadAtMessage {
          * 消息类型
          * <p> 示例值：
          */
-        private Integer type;
+        private String type;
         /**
          * 是否为atall
          * <p> 示例值：false
@@ -320,7 +320,7 @@ public class UnreadAtMessage {
          * @param type
          * @return
          */
-        public Builder type(Integer type) {
+        public Builder type(String type) {
             this.type = type;
             return this;
         }
@@ -329,10 +329,10 @@ public class UnreadAtMessage {
          * 消息类型
          * <p> 示例值：
          *
-         * @param type {@link com.lark.oapi.service.im.v2.enums.UnreadAtMessageTypeEnum}
+         * @param type {@link com.lark.oapi.service.im.v2.enums.UnreadAtMessageLarkImMessageMessageTypeEnum}
          * @return
          */
-        public Builder type(com.lark.oapi.service.im.v2.enums.UnreadAtMessageTypeEnum type) {
+        public Builder type(com.lark.oapi.service.im.v2.enums.UnreadAtMessageLarkImMessageMessageTypeEnum type) {
             this.type = type.getValue();
             return this;
         }

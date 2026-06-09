@@ -107,6 +107,24 @@ public class JobChange {
      */
     @SerializedName("details_of_job_status_change")
     private String[] detailsOfJobStatusChange;
+    /**
+     * 人员名称
+     * <p> 示例值：
+     */
+    @SerializedName("employment_name")
+    private EmploymentLookupName employmentName;
+    /**
+     * 异常状态
+     * <p> 示例值："pending"
+     */
+    @SerializedName("exception_status")
+    private String exceptionStatus;
+    /**
+     * 无权限字段
+     * <p> 示例值：
+     */
+    @SerializedName("no_permission_fields")
+    private String[] noPermissionFields;
 
     // builder 开始
     public JobChange() {
@@ -178,6 +196,21 @@ public class JobChange {
          * <p> 示例值：
          */
         this.detailsOfJobStatusChange = builder.detailsOfJobStatusChange;
+        /**
+         * 人员名称
+         * <p> 示例值：
+         */
+        this.employmentName = builder.employmentName;
+        /**
+         * 异常状态
+         * <p> 示例值："pending"
+         */
+        this.exceptionStatus = builder.exceptionStatus;
+        /**
+         * 无权限字段
+         * <p> 示例值：
+         */
+        this.noPermissionFields = builder.noPermissionFields;
     }
 
     public static Builder newBuilder() {
@@ -288,6 +321,30 @@ public class JobChange {
         this.detailsOfJobStatusChange = detailsOfJobStatusChange;
     }
 
+    public EmploymentLookupName getEmploymentName() {
+        return this.employmentName;
+    }
+
+    public void setEmploymentName(EmploymentLookupName employmentName) {
+        this.employmentName = employmentName;
+    }
+
+    public String getExceptionStatus() {
+        return this.exceptionStatus;
+    }
+
+    public void setExceptionStatus(String exceptionStatus) {
+        this.exceptionStatus = exceptionStatus;
+    }
+
+    public String[] getNoPermissionFields() {
+        return this.noPermissionFields;
+    }
+
+    public void setNoPermissionFields(String[] noPermissionFields) {
+        this.noPermissionFields = noPermissionFields;
+    }
+
     public static class Builder {
         /**
          * 异动记录 id
@@ -354,6 +411,21 @@ public class JobChange {
          * <p> 示例值：
          */
         private String[] detailsOfJobStatusChange;
+        /**
+         * 人员名称
+         * <p> 示例值：
+         */
+        private EmploymentLookupName employmentName;
+        /**
+         * 异常状态
+         * <p> 示例值："pending"
+         */
+        private String exceptionStatus;
+        /**
+         * 无权限字段
+         * <p> 示例值：
+         */
+        private String[] noPermissionFields;
 
         /**
          * 异动记录 id
@@ -532,6 +604,45 @@ public class JobChange {
          */
         public Builder detailsOfJobStatusChange(String[] detailsOfJobStatusChange) {
             this.detailsOfJobStatusChange = detailsOfJobStatusChange;
+            return this;
+        }
+
+
+        /**
+         * 人员名称
+         * <p> 示例值：
+         *
+         * @param employmentName
+         * @return
+         */
+        public Builder employmentName(EmploymentLookupName employmentName) {
+            this.employmentName = employmentName;
+            return this;
+        }
+
+
+        /**
+         * 异常状态
+         * <p> 示例值："pending"
+         *
+         * @param exceptionStatus
+         * @return
+         */
+        public Builder exceptionStatus(String exceptionStatus) {
+            this.exceptionStatus = exceptionStatus;
+            return this;
+        }
+
+
+        /**
+         * 无权限字段
+         * <p> 示例值：
+         *
+         * @param noPermissionFields
+         * @return
+         */
+        public Builder noPermissionFields(String[] noPermissionFields) {
+            this.noPermissionFields = noPermissionFields;
             return this;
         }
 

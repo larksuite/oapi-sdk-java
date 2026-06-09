@@ -479,6 +479,90 @@ public class TransferInfo {
      */
     @SerializedName("is_transfer_with_workforce")
     private Boolean isTransferWithWorkforce;
+    /**
+     * 原部门名称
+     * <p> 示例值：
+     */
+    @SerializedName("original_department_name")
+    private DepartmentLookupName originalDepartmentName;
+    /**
+     * 新部门名称
+     * <p> 示例值：
+     */
+    @SerializedName("target_department_name")
+    private DepartmentLookupName targetDepartmentName;
+    /**
+     * 原工作地点名称
+     * <p> 示例值：
+     */
+    @SerializedName("original_worklocation_name")
+    private LookupName originalWorklocationName;
+    /**
+     * 新工作地点名称
+     * <p> 示例值：
+     */
+    @SerializedName("target_worklocation_name")
+    private LookupName targetWorklocationName;
+    /**
+     * 原直属上级名称
+     * <p> 示例值：
+     */
+    @SerializedName("original_direct_manager_name")
+    private EmploymentLookupName originalDirectManagerName;
+    /**
+     * 新直属上级名称
+     * <p> 示例值：
+     */
+    @SerializedName("target_direct_manager_name")
+    private EmploymentLookupName targetDirectManagerName;
+    /**
+     * 原职务名称
+     * <p> 示例值：
+     */
+    @SerializedName("original_job_name")
+    private LookupName originalJobName;
+    /**
+     * 新职务名称
+     * <p> 示例值：
+     */
+    @SerializedName("target_job_name")
+    private LookupName targetJobName;
+    /**
+     * 原序列名称
+     * <p> 示例值：
+     */
+    @SerializedName("original_job_family_name")
+    private LookupName originalJobFamilyName;
+    /**
+     * 新序列名称
+     * <p> 示例值：
+     */
+    @SerializedName("target_job_family_name")
+    private LookupName targetJobFamilyName;
+    /**
+     * 原职级名称
+     * <p> 示例值：
+     */
+    @SerializedName("original_job_level_name")
+    private LookupName originalJobLevelName;
+    /**
+     * 新职级名称
+     * <p> 示例值：
+     */
+    @SerializedName("target_job_level_name")
+    private LookupName targetJobLevelName;
+    /**
+     * 原人员类型名称
+     * <p> 示例值：
+     */
+    @SerializedName("original_workforce_type_name")
+    private LookupName originalWorkforceTypeName;
+    /**
+     * 新人员类型名称
+     * <p> 示例值：
+     */
+    @SerializedName("target_workforce_type_name")
+    private LookupName targetWorkforceTypeName;
 
     // builder 开始
     public TransferInfo() {
@@ -860,6 +944,76 @@ public class TransferInfo {
          * <p> 示例值：false
          */
         this.isTransferWithWorkforce = builder.isTransferWithWorkforce;
+        /**
+         * 原部门名称
+         * <p> 示例值：
+         */
+        this.originalDepartmentName = builder.originalDepartmentName;
+        /**
+         * 新部门名称
+         * <p> 示例值：
+         */
+        this.targetDepartmentName = builder.targetDepartmentName;
+        /**
+         * 原工作地点名称
+         * <p> 示例值：
+         */
+        this.originalWorklocationName = builder.originalWorklocationName;
+        /**
+         * 新工作地点名称
+         * <p> 示例值：
+         */
+        this.targetWorklocationName = builder.targetWorklocationName;
+        /**
+         * 原直属上级名称
+         * <p> 示例值：
+         */
+        this.originalDirectManagerName = builder.originalDirectManagerName;
+        /**
+         * 新直属上级名称
+         * <p> 示例值：
+         */
+        this.targetDirectManagerName = builder.targetDirectManagerName;
+        /**
+         * 原职务名称
+         * <p> 示例值：
+         */
+        this.originalJobName = builder.originalJobName;
+        /**
+         * 新职务名称
+         * <p> 示例值：
+         */
+        this.targetJobName = builder.targetJobName;
+        /**
+         * 原序列名称
+         * <p> 示例值：
+         */
+        this.originalJobFamilyName = builder.originalJobFamilyName;
+        /**
+         * 新序列名称
+         * <p> 示例值：
+         */
+        this.targetJobFamilyName = builder.targetJobFamilyName;
+        /**
+         * 原职级名称
+         * <p> 示例值：
+         */
+        this.originalJobLevelName = builder.originalJobLevelName;
+        /**
+         * 新职级名称
+         * <p> 示例值：
+         */
+        this.targetJobLevelName = builder.targetJobLevelName;
+        /**
+         * 原人员类型名称
+         * <p> 示例值：
+         */
+        this.originalWorkforceTypeName = builder.originalWorkforceTypeName;
+        /**
+         * 新人员类型名称
+         * <p> 示例值：
+         */
+        this.targetWorkforceTypeName = builder.targetWorkforceTypeName;
     }
 
     public static Builder newBuilder() {
@@ -1466,6 +1620,118 @@ public class TransferInfo {
         this.isTransferWithWorkforce = isTransferWithWorkforce;
     }
 
+    public DepartmentLookupName getOriginalDepartmentName() {
+        return this.originalDepartmentName;
+    }
+
+    public void setOriginalDepartmentName(DepartmentLookupName originalDepartmentName) {
+        this.originalDepartmentName = originalDepartmentName;
+    }
+
+    public DepartmentLookupName getTargetDepartmentName() {
+        return this.targetDepartmentName;
+    }
+
+    public void setTargetDepartmentName(DepartmentLookupName targetDepartmentName) {
+        this.targetDepartmentName = targetDepartmentName;
+    }
+
+    public LookupName getOriginalWorklocationName() {
+        return this.originalWorklocationName;
+    }
+
+    public void setOriginalWorklocationName(LookupName originalWorklocationName) {
+        this.originalWorklocationName = originalWorklocationName;
+    }
+
+    public LookupName getTargetWorklocationName() {
+        return this.targetWorklocationName;
+    }
+
+    public void setTargetWorklocationName(LookupName targetWorklocationName) {
+        this.targetWorklocationName = targetWorklocationName;
+    }
+
+    public EmploymentLookupName getOriginalDirectManagerName() {
+        return this.originalDirectManagerName;
+    }
+
+    public void setOriginalDirectManagerName(EmploymentLookupName originalDirectManagerName) {
+        this.originalDirectManagerName = originalDirectManagerName;
+    }
+
+    public EmploymentLookupName getTargetDirectManagerName() {
+        return this.targetDirectManagerName;
+    }
+
+    public void setTargetDirectManagerName(EmploymentLookupName targetDirectManagerName) {
+        this.targetDirectManagerName = targetDirectManagerName;
+    }
+
+    public LookupName getOriginalJobName() {
+        return this.originalJobName;
+    }
+
+    public void setOriginalJobName(LookupName originalJobName) {
+        this.originalJobName = originalJobName;
+    }
+
+    public LookupName getTargetJobName() {
+        return this.targetJobName;
+    }
+
+    public void setTargetJobName(LookupName targetJobName) {
+        this.targetJobName = targetJobName;
+    }
+
+    public LookupName getOriginalJobFamilyName() {
+        return this.originalJobFamilyName;
+    }
+
+    public void setOriginalJobFamilyName(LookupName originalJobFamilyName) {
+        this.originalJobFamilyName = originalJobFamilyName;
+    }
+
+    public LookupName getTargetJobFamilyName() {
+        return this.targetJobFamilyName;
+    }
+
+    public void setTargetJobFamilyName(LookupName targetJobFamilyName) {
+        this.targetJobFamilyName = targetJobFamilyName;
+    }
+
+    public LookupName getOriginalJobLevelName() {
+        return this.originalJobLevelName;
+    }
+
+    public void setOriginalJobLevelName(LookupName originalJobLevelName) {
+        this.originalJobLevelName = originalJobLevelName;
+    }
+
+    public LookupName getTargetJobLevelName() {
+        return this.targetJobLevelName;
+    }
+
+    public void setTargetJobLevelName(LookupName targetJobLevelName) {
+        this.targetJobLevelName = targetJobLevelName;
+    }
+
+    public LookupName getOriginalWorkforceTypeName() {
+        return this.originalWorkforceTypeName;
+    }
+
+    public void setOriginalWorkforceTypeName(LookupName originalWorkforceTypeName) {
+        this.originalWorkforceTypeName = originalWorkforceTypeName;
+    }
+
+    public LookupName getTargetWorkforceTypeName() {
+        return this.targetWorkforceTypeName;
+    }
+
+    public void setTargetWorkforceTypeName(LookupName targetWorkforceTypeName) {
+        this.targetWorkforceTypeName = targetWorkforceTypeName;
+    }
+
     public static class Builder {
         /**
          * 备注
@@ -1842,6 +2108,76 @@ public class TransferInfo {
          * <p> 示例值：false
          */
         private Boolean isTransferWithWorkforce;
+        /**
+         * 原部门名称
+         * <p> 示例值：
+         */
+        private DepartmentLookupName originalDepartmentName;
+        /**
+         * 新部门名称
+         * <p> 示例值：
+         */
+        private DepartmentLookupName targetDepartmentName;
+        /**
+         * 原工作地点名称
+         * <p> 示例值：
+         */
+        private LookupName originalWorklocationName;
+        /**
+         * 新工作地点名称
+         * <p> 示例值：
+         */
+        private LookupName targetWorklocationName;
+        /**
+         * 原直属上级名称
+         * <p> 示例值：
+         */
+        private EmploymentLookupName originalDirectManagerName;
+        /**
+         * 新直属上级名称
+         * <p> 示例值：
+         */
+        private EmploymentLookupName targetDirectManagerName;
+        /**
+         * 原职务名称
+         * <p> 示例值：
+         */
+        private LookupName originalJobName;
+        /**
+         * 新职务名称
+         * <p> 示例值：
+         */
+        private LookupName targetJobName;
+        /**
+         * 原序列名称
+         * <p> 示例值：
+         */
+        private LookupName originalJobFamilyName;
+        /**
+         * 新序列名称
+         * <p> 示例值：
+         */
+        private LookupName targetJobFamilyName;
+        /**
+         * 原职级名称
+         * <p> 示例值：
+         */
+        private LookupName originalJobLevelName;
+        /**
+         * 新职级名称
+         * <p> 示例值：
+         */
+        private LookupName targetJobLevelName;
+        /**
+         * 原人员类型名称
+         * <p> 示例值：
+         */
+        private LookupName originalWorkforceTypeName;
+        /**
+         * 新人员类型名称
+         * <p> 示例值：
+         */
+        private LookupName targetWorkforceTypeName;
 
         /**
          * 备注
@@ -2814,6 +3150,188 @@ public class TransferInfo {
          */
         public Builder isTransferWithWorkforce(Boolean isTransferWithWorkforce) {
             this.isTransferWithWorkforce = isTransferWithWorkforce;
+            return this;
+        }
+
+
+        /**
+         * 原部门名称
+         * <p> 示例值：
+         *
+         * @param originalDepartmentName
+         * @return
+         */
+        public Builder originalDepartmentName(DepartmentLookupName originalDepartmentName) {
+            this.originalDepartmentName = originalDepartmentName;
+            return this;
+        }
+
+
+        /**
+         * 新部门名称
+         * <p> 示例值：
+         *
+         * @param targetDepartmentName
+         * @return
+         */
+        public Builder targetDepartmentName(DepartmentLookupName targetDepartmentName) {
+            this.targetDepartmentName = targetDepartmentName;
+            return this;
+        }
+
+
+        /**
+         * 原工作地点名称
+         * <p> 示例值：
+         *
+         * @param originalWorklocationName
+         * @return
+         */
+        public Builder originalWorklocationName(LookupName originalWorklocationName) {
+            this.originalWorklocationName = originalWorklocationName;
+            return this;
+        }
+
+
+        /**
+         * 新工作地点名称
+         * <p> 示例值：
+         *
+         * @param targetWorklocationName
+         * @return
+         */
+        public Builder targetWorklocationName(LookupName targetWorklocationName) {
+            this.targetWorklocationName = targetWorklocationName;
+            return this;
+        }
+
+
+        /**
+         * 原直属上级名称
+         * <p> 示例值：
+         *
+         * @param originalDirectManagerName
+         * @return
+         */
+        public Builder originalDirectManagerName(EmploymentLookupName originalDirectManagerName) {
+            this.originalDirectManagerName = originalDirectManagerName;
+            return this;
+        }
+
+
+        /**
+         * 新直属上级名称
+         * <p> 示例值：
+         *
+         * @param targetDirectManagerName
+         * @return
+         */
+        public Builder targetDirectManagerName(EmploymentLookupName targetDirectManagerName) {
+            this.targetDirectManagerName = targetDirectManagerName;
+            return this;
+        }
+
+
+        /**
+         * 原职务名称
+         * <p> 示例值：
+         *
+         * @param originalJobName
+         * @return
+         */
+        public Builder originalJobName(LookupName originalJobName) {
+            this.originalJobName = originalJobName;
+            return this;
+        }
+
+
+        /**
+         * 新职务名称
+         * <p> 示例值：
+         *
+         * @param targetJobName
+         * @return
+         */
+        public Builder targetJobName(LookupName targetJobName) {
+            this.targetJobName = targetJobName;
+            return this;
+        }
+
+
+        /**
+         * 原序列名称
+         * <p> 示例值：
+         *
+         * @param originalJobFamilyName
+         * @return
+         */
+        public Builder originalJobFamilyName(LookupName originalJobFamilyName) {
+            this.originalJobFamilyName = originalJobFamilyName;
+            return this;
+        }
+
+
+        /**
+         * 新序列名称
+         * <p> 示例值：
+         *
+         * @param targetJobFamilyName
+         * @return
+         */
+        public Builder targetJobFamilyName(LookupName targetJobFamilyName) {
+            this.targetJobFamilyName = targetJobFamilyName;
+            return this;
+        }
+
+
+        /**
+         * 原职级名称
+         * <p> 示例值：
+         *
+         * @param originalJobLevelName
+         * @return
+         */
+        public Builder originalJobLevelName(LookupName originalJobLevelName) {
+            this.originalJobLevelName = originalJobLevelName;
+            return this;
+        }
+
+
+        /**
+         * 新职级名称
+         * <p> 示例值：
+         *
+         * @param targetJobLevelName
+         * @return
+         */
+        public Builder targetJobLevelName(LookupName targetJobLevelName) {
+            this.targetJobLevelName = targetJobLevelName;
+            return this;
+        }
+
+
+        /**
+         * 原人员类型名称
+         * <p> 示例值：
+         *
+         * @param originalWorkforceTypeName
+         * @return
+         */
+        public Builder originalWorkforceTypeName(LookupName originalWorkforceTypeName) {
+            this.originalWorkforceTypeName = originalWorkforceTypeName;
+            return this;
+        }
+
+
+        /**
+         * 新人员类型名称
+         * <p> 示例值：
+         *
+         * @param targetWorkforceTypeName
+         * @return
+         */
+        public Builder targetWorkforceTypeName(LookupName targetWorkforceTypeName) {
+            this.targetWorkforceTypeName = targetWorkforceTypeName;
             return this;
         }
 

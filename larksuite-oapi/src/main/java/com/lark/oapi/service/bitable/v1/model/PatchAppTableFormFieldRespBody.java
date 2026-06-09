@@ -29,18 +29,18 @@ import com.lark.oapi.core.response.BaseResponse;
 
 public class PatchAppTableFormFieldRespBody {
     /**
-     * 更新后的表单问题项
+     * 更新后的field值
      * <p> 示例值：
      */
-    @SerializedName("field")
-    private AppTableFormPatchedField field;
+    @SerializedName("fields")
+    private AppTableFormPatchedField fields;
 
-    public AppTableFormPatchedField getField() {
-        return this.field;
+    public AppTableFormPatchedField getFields() {
+        return this.fields;
     }
 
-    public void setField(AppTableFormPatchedField field) {
-        this.field = field;
+    public void setFields(AppTableFormPatchedField fields) {
+        this.fields = fields;
     }
 
 }

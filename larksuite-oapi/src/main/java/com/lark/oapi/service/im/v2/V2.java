@@ -14,7 +14,13 @@
 package com.lark.oapi.service.im.v2;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.service.im.v2.resource.*;
+import com.lark.oapi.service.im.v2.resource.AppFeedCard;
+import com.lark.oapi.service.im.v2.resource.AppFeedCardBatch;
+import com.lark.oapi.service.im.v2.resource.BizEntityTagRelation;
+import com.lark.oapi.service.im.v2.resource.ChatButton;
+import com.lark.oapi.service.im.v2.resource.FeedCard;
+import com.lark.oapi.service.im.v2.resource.Tag;
+import com.lark.oapi.service.im.v2.resource.UrlPreview;
 
 public class V2 {
     private final AppFeedCard appFeedCard; // app_feed_card

@@ -112,10 +112,10 @@ public class UpdateUserIdUserReq {
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
          *
-         * @param userIdType {@link com.lark.oapi.service.contact.v3.enums.UpdateUserIdUserUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.contact.v3.enums.UpdateUserIdUserUpdateUserIDV3UserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.contact.v3.enums.UpdateUserIdUserUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.contact.v3.enums.UpdateUserIdUserUpdateUserIDV3UserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }

@@ -41,6 +41,12 @@ public class AppDashboard {
      */
     @SerializedName("name")
     private String name;
+    /**
+     * DashboardShareConfig 仪表盘分享基本配置信息(不含有可阅读的成员)
+     * <p> 示例值：
+     */
+    @SerializedName("share_config")
+    private DashboardShareConfig shareConfig;
 
     // builder 开始
     public AppDashboard() {
@@ -57,6 +63,11 @@ public class AppDashboard {
          * <p> 示例值：仪表盘1
          */
         this.name = builder.name;
+        /**
+         * DashboardShareConfig 仪表盘分享基本配置信息(不含有可阅读的成员)
+         * <p> 示例值：
+         */
+        this.shareConfig = builder.shareConfig;
     }
 
     public static Builder newBuilder() {
@@ -79,6 +90,14 @@ public class AppDashboard {
         this.name = name;
     }
 
+    public DashboardShareConfig getShareConfig() {
+        return this.shareConfig;
+    }
+
+    public void setShareConfig(DashboardShareConfig shareConfig) {
+        this.shareConfig = shareConfig;
+    }
+
     public static class Builder {
         /**
          * 仪表盘 ID
@@ -90,6 +109,11 @@ public class AppDashboard {
          * <p> 示例值：仪表盘1
          */
         private String name;
+        /**
+         * DashboardShareConfig 仪表盘分享基本配置信息(不含有可阅读的成员)
+         * <p> 示例值：
+         */
+        private DashboardShareConfig shareConfig;
 
         /**
          * 仪表盘 ID
@@ -113,6 +137,19 @@ public class AppDashboard {
          */
         public Builder name(String name) {
             this.name = name;
+            return this;
+        }
+
+
+        /**
+         * DashboardShareConfig 仪表盘分享基本配置信息(不含有可阅读的成员)
+         * <p> 示例值：
+         *
+         * @param shareConfig
+         * @return
+         */
+        public Builder shareConfig(DashboardShareConfig shareConfig) {
+            this.shareConfig = shareConfig;
             return this;
         }
 

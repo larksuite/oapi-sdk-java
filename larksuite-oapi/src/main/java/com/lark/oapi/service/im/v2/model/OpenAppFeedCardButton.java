@@ -195,10 +195,10 @@ public class OpenAppFeedCardButton {
          * 交互类型
          * <p> 示例值：url_page
          *
-         * @param actionType {@link com.lark.oapi.service.im.v2.enums.OpenAppFeedCardButtonActionTypeEnum}
+         * @param actionType {@link com.lark.oapi.service.im.v2.enums.OpenAppFeedCardButtonOpenAppFeedCardButtonActionEnum}
          * @return
          */
-        public Builder actionType(com.lark.oapi.service.im.v2.enums.OpenAppFeedCardButtonActionTypeEnum actionType) {
+        public Builder actionType(com.lark.oapi.service.im.v2.enums.OpenAppFeedCardButtonOpenAppFeedCardButtonActionEnum actionType) {
             this.actionType = actionType.getValue();
             return this;
         }
@@ -233,10 +233,10 @@ public class OpenAppFeedCardButton {
          * 按钮类型
          * <p> 示例值：default
          *
-         * @param buttonType {@link com.lark.oapi.service.im.v2.enums.OpenAppFeedCardButtonButtonTypeEnum}
+         * @param buttonType {@link com.lark.oapi.service.im.v2.enums.OpenAppFeedCardButtonOpenAppFeedCardButtonTypeEnum}
          * @return
          */
-        public Builder buttonType(com.lark.oapi.service.im.v2.enums.OpenAppFeedCardButtonButtonTypeEnum buttonType) {
+        public Builder buttonType(com.lark.oapi.service.im.v2.enums.OpenAppFeedCardButtonOpenAppFeedCardButtonTypeEnum buttonType) {
             this.buttonType = buttonType.getValue();
             return this;
         }

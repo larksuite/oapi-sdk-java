@@ -30,6 +30,7 @@ public class PatchCustomOrgSample {
                         .effectiveTime("2020-01-01")
                         .orgRoles(new OrgRoleUpdate[]{})
                         .customFields(new CustomFieldData[]{})
+                        .isPreferManualEncoding(false)
                         .build())
                 .build();
 

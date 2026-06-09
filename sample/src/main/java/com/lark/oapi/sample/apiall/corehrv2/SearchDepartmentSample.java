@@ -30,6 +30,7 @@ public class SearchDepartmentSample {
                         .parentDepartmentId("7094136522860922222")
                         .codeList(new String[]{})
                         .fields(new String[]{})
+                        .keyword("搜索关键词")
                         .build())
                 .build();
 

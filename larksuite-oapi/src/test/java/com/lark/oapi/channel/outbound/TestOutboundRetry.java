@@ -3,10 +3,12 @@ package com.lark.oapi.channel.outbound;
 import com.lark.oapi.channel.config.LarkChannelOptions;
 import com.lark.oapi.channel.exception.LarkChannelErrorCode;
 import com.lark.oapi.channel.exception.LarkChannelException;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
+
 import org.junit.Assert;
 import org.junit.Test;
 

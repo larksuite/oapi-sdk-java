@@ -3,6 +3,7 @@ package com.lark.oapi.sample.channel;
 import com.lark.oapi.channel.LarkChannel;
 import com.lark.oapi.channel.LarkChannelFactory;
 import com.lark.oapi.channel.config.LarkChannelOptions;
+
 import java.util.Arrays;
 
 public class ChannelPolicyHotUpdateSample {

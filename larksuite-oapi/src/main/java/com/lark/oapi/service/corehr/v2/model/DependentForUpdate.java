@@ -113,6 +113,54 @@ public class DependentForUpdate {
      */
     @SerializedName("custom_fields")
     private ObjectFieldData[] customFields;
+    /**
+     * 变更原因
+     * <p> 示例值：other
+     */
+    @SerializedName("reason")
+    private String reason;
+    /**
+     * 变更日期
+     * <p> 示例值：2020-01-01
+     */
+    @SerializedName("modify_date")
+    private String modifyDate;
+    /**
+     * Visa 列表
+     * <p> 示例值：
+     */
+    @SerializedName("visas")
+    private VisaForUpdate[] visas;
+    /**
+     * Passport 列表
+     * <p> 示例值：
+     */
+    @SerializedName("passports")
+    private PassportForUpdate[] passports;
+    /**
+     * 居民身份列表
+     * <p> 示例值：
+     */
+    @SerializedName("citizenship_statuses")
+    private ProfileSettingCitizenshipStatus[] citizenshipStatuses;
+    /**
+     * ID
+     * <p> 示例值：7582932711154337324
+     */
+    @SerializedName("id")
+    private String id;
+    /**
+     * 国籍ID
+     * <p> 示例值：6862995757234914826
+     */
+    @SerializedName("nationality_v2")
+    private String nationalityV2;
+    /**
+     * 法定姓名
+     * <p> 示例值：
+     */
+    @SerializedName("name")
+    private NameForUpdate name;
 
     // builder 开始
     public DependentForUpdate() {
@@ -189,6 +237,46 @@ public class DependentForUpdate {
          * <p> 示例值：
          */
         this.customFields = builder.customFields;
+        /**
+         * 变更原因
+         * <p> 示例值：other
+         */
+        this.reason = builder.reason;
+        /**
+         * 变更日期
+         * <p> 示例值：2020-01-01
+         */
+        this.modifyDate = builder.modifyDate;
+        /**
+         * Visa 列表
+         * <p> 示例值：
+         */
+        this.visas = builder.visas;
+        /**
+         * Passport 列表
+         * <p> 示例值：
+         */
+        this.passports = builder.passports;
+        /**
+         * 居民身份列表
+         * <p> 示例值：
+         */
+        this.citizenshipStatuses = builder.citizenshipStatuses;
+        /**
+         * ID
+         * <p> 示例值：7582932711154337324
+         */
+        this.id = builder.id;
+        /**
+         * 国籍ID
+         * <p> 示例值：6862995757234914826
+         */
+        this.nationalityV2 = builder.nationalityV2;
+        /**
+         * 法定姓名
+         * <p> 示例值：
+         */
+        this.name = builder.name;
     }
 
     public static Builder newBuilder() {
@@ -307,6 +395,70 @@ public class DependentForUpdate {
         this.customFields = customFields;
     }
 
+    public String getReason() {
+        return this.reason;
+    }
+
+    public void setReason(String reason) {
+        this.reason = reason;
+    }
+
+    public String getModifyDate() {
+        return this.modifyDate;
+    }
+
+    public void setModifyDate(String modifyDate) {
+        this.modifyDate = modifyDate;
+    }
+
+    public VisaForUpdate[] getVisas() {
+        return this.visas;
+    }
+
+    public void setVisas(VisaForUpdate[] visas) {
+        this.visas = visas;
+    }
+
+    public PassportForUpdate[] getPassports() {
+        return this.passports;
+    }
+
+    public void setPassports(PassportForUpdate[] passports) {
+        this.passports = passports;
+    }
+
+    public ProfileSettingCitizenshipStatus[] getCitizenshipStatuses() {
+        return this.citizenshipStatuses;
+    }
+
+    public void setCitizenshipStatuses(ProfileSettingCitizenshipStatus[] citizenshipStatuses) {
+        this.citizenshipStatuses = citizenshipStatuses;
+    }
+
+    public String getId() {
+        return this.id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getNationalityV2() {
+        return this.nationalityV2;
+    }
+
+    public void setNationalityV2(String nationalityV2) {
+        this.nationalityV2 = nationalityV2;
+    }
+
+    public NameForUpdate getName() {
+        return this.name;
+    }
+
+    public void setName(NameForUpdate name) {
+        this.name = name;
+    }
+
     public static class Builder {
         /**
          * 关系
@@ -378,6 +530,46 @@ public class DependentForUpdate {
          * <p> 示例值：
          */
         private ObjectFieldData[] customFields;
+        /**
+         * 变更原因
+         * <p> 示例值：other
+         */
+        private String reason;
+        /**
+         * 变更日期
+         * <p> 示例值：2020-01-01
+         */
+        private String modifyDate;
+        /**
+         * Visa 列表
+         * <p> 示例值：
+         */
+        private VisaForUpdate[] visas;
+        /**
+         * Passport 列表
+         * <p> 示例值：
+         */
+        private PassportForUpdate[] passports;
+        /**
+         * 居民身份列表
+         * <p> 示例值：
+         */
+        private ProfileSettingCitizenshipStatus[] citizenshipStatuses;
+        /**
+         * ID
+         * <p> 示例值：7582932711154337324
+         */
+        private String id;
+        /**
+         * 国籍ID
+         * <p> 示例值：6862995757234914826
+         */
+        private String nationalityV2;
+        /**
+         * 法定姓名
+         * <p> 示例值：
+         */
+        private NameForUpdate name;
 
         /**
          * 关系
@@ -557,6 +749,110 @@ public class DependentForUpdate {
          */
         public Builder customFields(ObjectFieldData[] customFields) {
             this.customFields = customFields;
+            return this;
+        }
+
+
+        /**
+         * 变更原因
+         * <p> 示例值：other
+         *
+         * @param reason
+         * @return
+         */
+        public Builder reason(String reason) {
+            this.reason = reason;
+            return this;
+        }
+
+
+        /**
+         * 变更日期
+         * <p> 示例值：2020-01-01
+         *
+         * @param modifyDate
+         * @return
+         */
+        public Builder modifyDate(String modifyDate) {
+            this.modifyDate = modifyDate;
+            return this;
+        }
+
+
+        /**
+         * Visa 列表
+         * <p> 示例值：
+         *
+         * @param visas
+         * @return
+         */
+        public Builder visas(VisaForUpdate[] visas) {
+            this.visas = visas;
+            return this;
+        }
+
+
+        /**
+         * Passport 列表
+         * <p> 示例值：
+         *
+         * @param passports
+         * @return
+         */
+        public Builder passports(PassportForUpdate[] passports) {
+            this.passports = passports;
+            return this;
+        }
+
+
+        /**
+         * 居民身份列表
+         * <p> 示例值：
+         *
+         * @param citizenshipStatuses
+         * @return
+         */
+        public Builder citizenshipStatuses(ProfileSettingCitizenshipStatus[] citizenshipStatuses) {
+            this.citizenshipStatuses = citizenshipStatuses;
+            return this;
+        }
+
+
+        /**
+         * ID
+         * <p> 示例值：7582932711154337324
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        /**
+         * 国籍ID
+         * <p> 示例值：6862995757234914826
+         *
+         * @param nationalityV2
+         * @return
+         */
+        public Builder nationalityV2(String nationalityV2) {
+            this.nationalityV2 = nationalityV2;
+            return this;
+        }
+
+
+        /**
+         * 法定姓名
+         * <p> 示例值：
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(NameForUpdate name) {
+            this.name = name;
             return this;
         }
 

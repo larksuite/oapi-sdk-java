@@ -102,7 +102,7 @@ public class ListAttachmentReq {
          */
         this.userIdType = builder.userIdType;
         /**
-         *    附件的最早上传时间
+         * 附件的最早上传时间
          * <p> 示例值：123
          */
         this.updatedMesc = builder.updatedMesc;
@@ -166,7 +166,7 @@ public class ListAttachmentReq {
         private String resourceType; // 附件归属的资源类型
         private String resourceId; // 附件归属资源的id，配合resource_type使用。例如希望获取任务的附件，需要设置 resource_type为task， resource_id为任务的全局唯一ID
         private String userIdType; // 表示user的ID的类型，支持open_id, user_id, union_id
-        private String updatedMesc; //    附件的最早上传时间
+        private String updatedMesc; // 附件的最早上传时间
 
         /**
          * 分页大小

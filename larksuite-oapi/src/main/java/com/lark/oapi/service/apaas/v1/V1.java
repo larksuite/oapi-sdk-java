@@ -14,7 +14,24 @@
 package com.lark.oapi.service.apaas.v1;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.service.apaas.v1.resource.*;
+import com.lark.oapi.service.apaas.v1.resource.App;
+import com.lark.oapi.service.apaas.v1.resource.ApplicationAuditLog;
+import com.lark.oapi.service.apaas.v1.resource.ApplicationEnvironmentVariable;
+import com.lark.oapi.service.apaas.v1.resource.ApplicationFlow;
+import com.lark.oapi.service.apaas.v1.resource.ApplicationFunction;
+import com.lark.oapi.service.apaas.v1.resource.ApplicationObject;
+import com.lark.oapi.service.apaas.v1.resource.ApplicationObjectRecord;
+import com.lark.oapi.service.apaas.v1.resource.ApplicationRecordPermissionMember;
+import com.lark.oapi.service.apaas.v1.resource.ApplicationRoleMember;
+import com.lark.oapi.service.apaas.v1.resource.ApprovalInstance;
+import com.lark.oapi.service.apaas.v1.resource.ApprovalTask;
+import com.lark.oapi.service.apaas.v1.resource.SeatActivity;
+import com.lark.oapi.service.apaas.v1.resource.SeatAssignment;
+import com.lark.oapi.service.apaas.v1.resource.UserTask;
+import com.lark.oapi.service.apaas.v1.resource.Workspace;
+import com.lark.oapi.service.apaas.v1.resource.WorkspaceEnum;
+import com.lark.oapi.service.apaas.v1.resource.WorkspaceTable;
+import com.lark.oapi.service.apaas.v1.resource.WorkspaceView;
 
 public class V1 {
     private final App app; // app

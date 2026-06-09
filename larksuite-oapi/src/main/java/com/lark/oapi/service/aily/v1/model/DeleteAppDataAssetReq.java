@@ -53,6 +53,7 @@ public class DeleteAppDataAssetReq {
     // builder 开始
     public DeleteAppDataAssetReq() {
     }
+
     public DeleteAppDataAssetReq(Builder builder) {
         /**
          * 应用环境，默认为线上环境，dev代表开发环境，只支持dev

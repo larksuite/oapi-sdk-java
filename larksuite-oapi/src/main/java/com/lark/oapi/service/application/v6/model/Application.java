@@ -179,6 +179,18 @@ public class Application {
      */
     @SerializedName("security")
     private AppConfigSecurityItem security;
+    /**
+     * 是否允许刷新user_access_token
+     * <p> 示例值：
+     */
+    @SerializedName("allow_refresh_token")
+    private Boolean allowRefreshToken;
+    /**
+     * 应用回调配置
+     * <p> 示例值：
+     */
+    @SerializedName("callback_info")
+    private CallbackInfo callbackInfo;
 
     // builder 开始
     public Application() {
@@ -310,6 +322,16 @@ public class Application {
          * <p> 示例值：
          */
         this.security = builder.security;
+        /**
+         * 是否允许刷新user_access_token
+         * <p> 示例值：
+         */
+        this.allowRefreshToken = builder.allowRefreshToken;
+        /**
+         * 应用回调配置
+         * <p> 示例值：
+         */
+        this.callbackInfo = builder.callbackInfo;
     }
 
     public static Builder newBuilder() {
@@ -516,6 +538,22 @@ public class Application {
         this.security = security;
     }
 
+    public Boolean getAllowRefreshToken() {
+        return this.allowRefreshToken;
+    }
+
+    public void setAllowRefreshToken(Boolean allowRefreshToken) {
+        this.allowRefreshToken = allowRefreshToken;
+    }
+
+    public CallbackInfo getCallbackInfo() {
+        return this.callbackInfo;
+    }
+
+    public void setCallbackInfo(CallbackInfo callbackInfo) {
+        this.callbackInfo = callbackInfo;
+    }
+
     public static class Builder {
         /**
          * 应用的 app_id
@@ -642,6 +680,16 @@ public class Application {
          * <p> 示例值：
          */
         private AppConfigSecurityItem security;
+        /**
+         * 是否允许刷新user_access_token
+         * <p> 示例值：
+         */
+        private Boolean allowRefreshToken;
+        /**
+         * 应用回调配置
+         * <p> 示例值：
+         */
+        private CallbackInfo callbackInfo;
 
         /**
          * 应用的 app_id
@@ -1048,6 +1096,32 @@ public class Application {
          */
         public Builder security(AppConfigSecurityItem security) {
             this.security = security;
+            return this;
+        }
+
+
+        /**
+         * 是否允许刷新user_access_token
+         * <p> 示例值：
+         *
+         * @param allowRefreshToken
+         * @return
+         */
+        public Builder allowRefreshToken(Boolean allowRefreshToken) {
+            this.allowRefreshToken = allowRefreshToken;
+            return this;
+        }
+
+
+        /**
+         * 应用回调配置
+         * <p> 示例值：
+         *
+         * @param callbackInfo
+         * @return
+         */
+        public Builder callbackInfo(CallbackInfo callbackInfo) {
+            this.callbackInfo = callbackInfo;
             return this;
         }
 

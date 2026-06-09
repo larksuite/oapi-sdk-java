@@ -31,13 +31,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class AppTableFieldPropertyOption {
     /**
      * 选项名
-     * <p> 示例值：红色
+     * <p> 示例值：
      */
     @SerializedName("name")
     private String name;
     /**
-     * 选项 ID，创建时不允许指定 ID
-     * <p> 示例值：optKl35lnG
+     * 选项id
+     * <p> 示例值：
      */
     @SerializedName("id")
     private String id;
@@ -55,12 +55,12 @@ public class AppTableFieldPropertyOption {
     public AppTableFieldPropertyOption(Builder builder) {
         /**
          * 选项名
-         * <p> 示例值：红色
+         * <p> 示例值：
          */
         this.name = builder.name;
         /**
-         * 选项 ID，创建时不允许指定 ID
-         * <p> 示例值：optKl35lnG
+         * 选项id
+         * <p> 示例值：
          */
         this.id = builder.id;
         /**
@@ -101,12 +101,12 @@ public class AppTableFieldPropertyOption {
     public static class Builder {
         /**
          * 选项名
-         * <p> 示例值：红色
+         * <p> 示例值：
          */
         private String name;
         /**
-         * 选项 ID，创建时不允许指定 ID
-         * <p> 示例值：optKl35lnG
+         * 选项id
+         * <p> 示例值：
          */
         private String id;
         /**
@@ -117,7 +117,7 @@ public class AppTableFieldPropertyOption {
 
         /**
          * 选项名
-         * <p> 示例值：红色
+         * <p> 示例值：
          *
          * @param name
          * @return
@@ -129,8 +129,8 @@ public class AppTableFieldPropertyOption {
 
 
         /**
-         * 选项 ID，创建时不允许指定 ID
-         * <p> 示例值：optKl35lnG
+         * 选项id
+         * <p> 示例值：
          *
          * @param id
          * @return

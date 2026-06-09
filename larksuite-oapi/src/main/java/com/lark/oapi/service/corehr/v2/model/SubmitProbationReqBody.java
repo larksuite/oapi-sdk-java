@@ -260,6 +260,17 @@ public class SubmitProbationReqBody {
             return this;
         }
 
+        /**
+         * 转正方式
+         * <p> 示例值：1
+         *
+         * @param conversionMode {@link com.lark.oapi.service.corehr.v2.enums.SubmitProbationSubmitProbationConversionModeEnum}
+         * @return
+         */
+        public Builder conversionMode(com.lark.oapi.service.corehr.v2.enums.SubmitProbationSubmitProbationConversionModeEnum conversionMode) {
+            this.conversionMode = conversionMode.getValue();
+            return this;
+        }
 
 
         /**

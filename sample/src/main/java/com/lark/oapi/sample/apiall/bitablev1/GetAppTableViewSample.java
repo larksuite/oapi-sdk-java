@@ -18,6 +18,7 @@ public class GetAppTableViewSample {
                 .appToken("bascnCMII2ORej2RItqpZZUNMIe")
                 .tableId("tblsRc9GRRXKqhvW")
                 .viewId("vewTpR1urY")
+                .userIdType("")
                 .build();
 
         // 发起请求

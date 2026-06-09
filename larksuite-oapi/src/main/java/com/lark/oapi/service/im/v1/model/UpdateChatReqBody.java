@@ -771,10 +771,10 @@ public class UpdateChatReqBody {
          * 群消息模式
          * <p> 示例值：chat
          *
-         * @param groupMessageType {@link com.lark.oapi.service.im.v1.enums.UpdateChatGroupMessageTypeEnum}
+         * @param groupMessageType {@link com.lark.oapi.service.im.v1.enums.UpdateChatUpdateChatGroupMessageTypeEnum}
          * @return
          */
-        public Builder groupMessageType(com.lark.oapi.service.im.v1.enums.UpdateChatGroupMessageTypeEnum groupMessageType) {
+        public Builder groupMessageType(com.lark.oapi.service.im.v1.enums.UpdateChatUpdateChatGroupMessageTypeEnum groupMessageType) {
             this.groupMessageType = groupMessageType.getValue();
             return this;
         }

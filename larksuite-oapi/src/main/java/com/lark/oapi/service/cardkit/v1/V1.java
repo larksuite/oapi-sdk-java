@@ -14,7 +14,8 @@
 package com.lark.oapi.service.cardkit.v1;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.service.cardkit.v1.resource.*;
+import com.lark.oapi.service.cardkit.v1.resource.Card;
+import com.lark.oapi.service.cardkit.v1.resource.CardElement;
 
 public class V1 {
     private final Card card; // card

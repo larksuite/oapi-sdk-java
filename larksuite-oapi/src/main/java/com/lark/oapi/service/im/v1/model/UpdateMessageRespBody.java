@@ -112,6 +112,24 @@ public class UpdateMessageRespBody {
      */
     @SerializedName("upper_message_id")
     private String upperMessageId;
+    /**
+     * 消息跳转链接
+     * <p> 示例值：https://xxxx/client/thread/open?chatid=xxx&threadid=xxx&thread_position=xxx
+     */
+    @SerializedName("message_app_link")
+    private String messageAppLink;
+    /**
+     * 消息在普通群里面的位置信息，仅普通群可用
+     * <p> 示例值：1
+     */
+    @SerializedName("message_position")
+    private String messagePosition;
+    /**
+     * 话题回复消息在话题回复里面的位置信息，仅话题回复生效
+     * <p> 示例值：1
+     */
+    @SerializedName("thread_message_position")
+    private String threadMessagePosition;
 
     public String getMessageId() {
         return this.messageId;
@@ -223,6 +241,30 @@ public class UpdateMessageRespBody {
 
     public void setUpperMessageId(String upperMessageId) {
         this.upperMessageId = upperMessageId;
+    }
+
+    public String getMessageAppLink() {
+        return this.messageAppLink;
+    }
+
+    public void setMessageAppLink(String messageAppLink) {
+        this.messageAppLink = messageAppLink;
+    }
+
+    public String getMessagePosition() {
+        return this.messagePosition;
+    }
+
+    public void setMessagePosition(String messagePosition) {
+        this.messagePosition = messagePosition;
+    }
+
+    public String getThreadMessagePosition() {
+        return this.threadMessagePosition;
+    }
+
+    public void setThreadMessagePosition(String threadMessagePosition) {
+        this.threadMessagePosition = threadMessagePosition;
     }
 
 }

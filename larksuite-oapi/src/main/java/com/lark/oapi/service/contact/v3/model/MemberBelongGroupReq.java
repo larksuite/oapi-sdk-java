@@ -176,10 +176,10 @@ public class MemberBelongGroupReq {
          * 成员ID类型
          * <p> 示例值：open_id
          *
-         * @param memberIdType {@link com.lark.oapi.service.contact.v3.enums.MemberBelongGroupMemberIdTypeEnum}
+         * @param memberIdType {@link com.lark.oapi.service.contact.v3.enums.MemberBelongGroupListMemberGroupsMemberIDTypeEnum}
          * @return
          */
-        public Builder memberIdType(com.lark.oapi.service.contact.v3.enums.MemberBelongGroupMemberIdTypeEnum memberIdType) {
+        public Builder memberIdType(com.lark.oapi.service.contact.v3.enums.MemberBelongGroupListMemberGroupsMemberIDTypeEnum memberIdType) {
             this.memberIdType = memberIdType.getValue();
             return this;
         }
@@ -201,10 +201,10 @@ public class MemberBelongGroupReq {
          * 欲获取的用户组类型
          * <p> 示例值：1
          *
-         * @param groupType {@link com.lark.oapi.service.contact.v3.enums.MemberBelongGroupGroupTypeEnum}
+         * @param groupType {@link com.lark.oapi.service.contact.v3.enums.MemberBelongGroupListMemberGroupsGroupTypeEnum}
          * @return
          */
-        public Builder groupType(com.lark.oapi.service.contact.v3.enums.MemberBelongGroupGroupTypeEnum groupType) {
+        public Builder groupType(com.lark.oapi.service.contact.v3.enums.MemberBelongGroupListMemberGroupsGroupTypeEnum groupType) {
             this.groupType = groupType.getValue();
             return this;
         }

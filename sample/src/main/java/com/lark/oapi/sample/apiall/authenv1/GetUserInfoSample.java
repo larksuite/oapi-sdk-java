@@ -16,7 +16,7 @@ public class GetUserInfoSample {
         // 创建请求对象
 
         // 发起请求
-        GetUserInfoResp resp = client.authen().userInfo().get();
+        GetUserInfoResp resp = client.authen().v1().userInfo().get();
 
         // 处理服务端错误
         if (!resp.success()) {

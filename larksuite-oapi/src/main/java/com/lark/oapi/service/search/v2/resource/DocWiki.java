@@ -61,7 +61,7 @@ public class DocWiki {
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
                 , "/open-apis/search/v2/doc_wiki/search"
-                , Sets.newHashSet(AccessTokenType.User)
+                , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
 
         // 反序列化
@@ -93,7 +93,7 @@ public class DocWiki {
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
                 , "/open-apis/search/v2/doc_wiki/search"
-                , Sets.newHashSet(AccessTokenType.User)
+                , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
 
         // 反序列化

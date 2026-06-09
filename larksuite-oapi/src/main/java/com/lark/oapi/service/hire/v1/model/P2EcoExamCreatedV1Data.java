@@ -52,6 +52,18 @@ public class P2EcoExamCreatedV1Data {
      */
     @SerializedName("candidate_info")
     private EcoExamCreateEventCandidateInfo candidateInfo;
+    /**
+     * 人才ID
+     * <p> 示例值：7579072355659172140
+     */
+    @SerializedName("talent_id")
+    private String talentId;
+    /**
+     * 投递ID
+     * <p> 示例值：7576566753091537196
+     */
+    @SerializedName("application_id")
+    private String applicationId;
 
     public String getExamId() {
         return this.examId;
@@ -83,6 +95,22 @@ public class P2EcoExamCreatedV1Data {
 
     public void setCandidateInfo(EcoExamCreateEventCandidateInfo candidateInfo) {
         this.candidateInfo = candidateInfo;
+    }
+
+    public String getTalentId() {
+        return this.talentId;
+    }
+
+    public void setTalentId(String talentId) {
+        this.talentId = talentId;
+    }
+
+    public String getApplicationId() {
+        return this.applicationId;
+    }
+
+    public void setApplicationId(String applicationId) {
+        this.applicationId = applicationId;
     }
 
 }

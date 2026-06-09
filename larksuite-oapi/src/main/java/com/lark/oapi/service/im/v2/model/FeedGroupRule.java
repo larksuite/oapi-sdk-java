@@ -120,10 +120,10 @@ public class FeedGroupRule {
          * 动作
          * <p> 示例值：add
          *
-         * @param action {@link com.lark.oapi.service.im.v2.enums.FeedGroupRuleActionEnum}
+         * @param action {@link com.lark.oapi.service.im.v2.enums.FeedGroupRuleFeedGroupRuleActionEnum}
          * @return
          */
-        public Builder action(com.lark.oapi.service.im.v2.enums.FeedGroupRuleActionEnum action) {
+        public Builder action(com.lark.oapi.service.im.v2.enums.FeedGroupRuleFeedGroupRuleActionEnum action) {
             this.action = action.getValue();
             return this;
         }

@@ -30,11 +30,23 @@ import com.lark.oapi.core.response.BaseResponse;
 
 public class BatchGetPathwayReqBody {
     /**
-     * 通道 ID 列表
+     * 通道 ID 列表，不填则不做筛选
      * <p> 示例值：
      */
     @SerializedName("pathway_ids")
     private String[] pathwayIds;
+    /**
+     * 通道 code 列表，不填则不做筛选
+     * <p> 示例值：
+     */
+    @SerializedName("pathway_codes")
+    private String[] pathwayCodes;
+    /**
+     * 是否启用，不填则不做筛选
+     * <p> 示例值：true
+     */
+    @SerializedName("active")
+    private Boolean active;
 
     // builder 开始
     public BatchGetPathwayReqBody() {
@@ -42,10 +54,20 @@ public class BatchGetPathwayReqBody {
 
     public BatchGetPathwayReqBody(Builder builder) {
         /**
-         * 通道 ID 列表
+         * 通道 ID 列表，不填则不做筛选
          * <p> 示例值：
          */
         this.pathwayIds = builder.pathwayIds;
+        /**
+         * 通道 code 列表，不填则不做筛选
+         * <p> 示例值：
+         */
+        this.pathwayCodes = builder.pathwayCodes;
+        /**
+         * 是否启用，不填则不做筛选
+         * <p> 示例值：true
+         */
+        this.active = builder.active;
     }
 
     public static Builder newBuilder() {
@@ -60,15 +82,41 @@ public class BatchGetPathwayReqBody {
         this.pathwayIds = pathwayIds;
     }
 
+    public String[] getPathwayCodes() {
+        return this.pathwayCodes;
+    }
+
+    public void setPathwayCodes(String[] pathwayCodes) {
+        this.pathwayCodes = pathwayCodes;
+    }
+
+    public Boolean getActive() {
+        return this.active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
+    }
+
     public static class Builder {
         /**
-         * 通道 ID 列表
+         * 通道 ID 列表，不填则不做筛选
          * <p> 示例值：
          */
         private String[] pathwayIds;
+        /**
+         * 通道 code 列表，不填则不做筛选
+         * <p> 示例值：
+         */
+        private String[] pathwayCodes;
+        /**
+         * 是否启用，不填则不做筛选
+         * <p> 示例值：true
+         */
+        private Boolean active;
 
         /**
-         * 通道 ID 列表
+         * 通道 ID 列表，不填则不做筛选
          * <p> 示例值：
          *
          * @param pathwayIds
@@ -76,6 +124,32 @@ public class BatchGetPathwayReqBody {
          */
         public Builder pathwayIds(String[] pathwayIds) {
             this.pathwayIds = pathwayIds;
+            return this;
+        }
+
+
+        /**
+         * 通道 code 列表，不填则不做筛选
+         * <p> 示例值：
+         *
+         * @param pathwayCodes
+         * @return
+         */
+        public Builder pathwayCodes(String[] pathwayCodes) {
+            this.pathwayCodes = pathwayCodes;
+            return this;
+        }
+
+
+        /**
+         * 是否启用，不填则不做筛选
+         * <p> 示例值：true
+         *
+         * @param active
+         * @return
+         */
+        public Builder active(Boolean active) {
+            this.active = active;
             return this;
         }
 

@@ -43,6 +43,12 @@ public class ListAppDashboardReq {
     @SerializedName("page_token")
     private String pageToken;
     /**
+     * <p> 示例值：
+     */
+    @Query
+    @SerializedName("with_share_config")
+    private Boolean withShareConfig;
+    /**
      * 多维表格文档 Token
      * <p> 示例值：bascng7vrxcxpig7geggXiCtadY
      */
@@ -65,6 +71,11 @@ public class ListAppDashboardReq {
          * <p> 示例值：blknkqrP3RqUkcAW
          */
         this.pageToken = builder.pageToken;
+        /**
+         *
+         * <p> 示例值：
+         */
+        this.withShareConfig = builder.withShareConfig;
         /**
          * 多维表格文档 Token
          * <p> 示例值：bascng7vrxcxpig7geggXiCtadY
@@ -92,6 +103,14 @@ public class ListAppDashboardReq {
         this.pageToken = pageToken;
     }
 
+    public Boolean getWithShareConfig() {
+        return this.withShareConfig;
+    }
+
+    public void setWithShareConfig(Boolean withShareConfig) {
+        this.withShareConfig = withShareConfig;
+    }
+
     public String getAppToken() {
         return this.appToken;
     }
@@ -103,6 +122,7 @@ public class ListAppDashboardReq {
     public static class Builder {
         private Integer pageSize; // 分页大小
         private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+        private Boolean withShareConfig; //
         private String appToken; // 多维表格文档 Token
 
         /**
@@ -126,6 +146,17 @@ public class ListAppDashboardReq {
          */
         public Builder pageToken(String pageToken) {
             this.pageToken = pageToken;
+            return this;
+        }
+
+        /**
+         * <p> 示例值：
+         *
+         * @param withShareConfig
+         * @return
+         */
+        public Builder withShareConfig(Boolean withShareConfig) {
+            this.withShareConfig = withShareConfig;
             return this;
         }
 

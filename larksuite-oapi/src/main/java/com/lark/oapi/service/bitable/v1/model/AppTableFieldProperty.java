@@ -43,37 +43,37 @@ public class AppTableFieldProperty {
     private String formatter;
     /**
      * 日期、创建时间、最后更新时间字段的显示格式
-     * <p> 示例值：日期格式
+     * <p> 示例值：yyyy/MM/dd
      */
     @SerializedName("date_formatter")
     private String dateFormatter;
     /**
      * 日期字段中新纪录自动填写创建时间
-     * <p> 示例值：false
+     * <p> 示例值：true
      */
     @SerializedName("auto_fill")
     private Boolean autoFill;
     /**
-     * 人员字段中允许添加多个成员，单向关联、双向关联中允许添加多个记录
-     * <p> 示例值：false
+     * 人员、群组字段中允许添加多个成员，单向关联、双向关联中允许添加多个记录
+     * <p> 示例值：true
      */
     @SerializedName("multiple")
     private Boolean multiple;
     /**
      * 单向关联、双向关联字段中关联的数据表的id
-     * <p> 示例值：tblsRc9GRRXKqhvW
+     * <p> 示例值：tbl116kI1ZXWRAPR
      */
     @SerializedName("table_id")
     private String tableId;
     /**
      * 单向关联、双向关联字段中关联的数据表的名字
-     * <p> 示例值："table2"
+     * <p> 示例值：被关联数据表
      */
     @SerializedName("table_name")
     private String tableName;
     /**
      * 双向关联字段中关联的数据表中对应的双向关联字段的名字
-     * <p> 示例值："table1-双向关联"
+     * <p> 示例值：被关联字段
      */
     @SerializedName("back_field_name")
     private String backFieldName;
@@ -91,7 +91,7 @@ public class AppTableFieldProperty {
     private AppFieldPropertyLocation location;
     /**
      * 公式字段的表达式
-     * <p> 示例值：bitable::$table[tblNj92WQBAasdEf].$field[fldMV60rYs]*2
+     * <p> 示例值：CONTAINTEXT([多行文本],\"被包含的文本\")
      */
     @SerializedName("formula_expression")
     private String formulaExpression;
@@ -161,32 +161,32 @@ public class AppTableFieldProperty {
         this.formatter = builder.formatter;
         /**
          * 日期、创建时间、最后更新时间字段的显示格式
-         * <p> 示例值：日期格式
+         * <p> 示例值：yyyy/MM/dd
          */
         this.dateFormatter = builder.dateFormatter;
         /**
          * 日期字段中新纪录自动填写创建时间
-         * <p> 示例值：false
+         * <p> 示例值：true
          */
         this.autoFill = builder.autoFill;
         /**
-         * 人员字段中允许添加多个成员，单向关联、双向关联中允许添加多个记录
-         * <p> 示例值：false
+         * 人员、群组字段中允许添加多个成员，单向关联、双向关联中允许添加多个记录
+         * <p> 示例值：true
          */
         this.multiple = builder.multiple;
         /**
          * 单向关联、双向关联字段中关联的数据表的id
-         * <p> 示例值：tblsRc9GRRXKqhvW
+         * <p> 示例值：tbl116kI1ZXWRAPR
          */
         this.tableId = builder.tableId;
         /**
          * 单向关联、双向关联字段中关联的数据表的名字
-         * <p> 示例值："table2"
+         * <p> 示例值：被关联数据表
          */
         this.tableName = builder.tableName;
         /**
          * 双向关联字段中关联的数据表中对应的双向关联字段的名字
-         * <p> 示例值："table1-双向关联"
+         * <p> 示例值：被关联字段
          */
         this.backFieldName = builder.backFieldName;
         /**
@@ -201,7 +201,7 @@ public class AppTableFieldProperty {
         this.location = builder.location;
         /**
          * 公式字段的表达式
-         * <p> 示例值：bitable::$table[tblNj92WQBAasdEf].$field[fldMV60rYs]*2
+         * <p> 示例值：CONTAINTEXT([多行文本],\"被包含的文本\")
          */
         this.formulaExpression = builder.formulaExpression;
         /**
@@ -415,32 +415,32 @@ public class AppTableFieldProperty {
         private String formatter;
         /**
          * 日期、创建时间、最后更新时间字段的显示格式
-         * <p> 示例值：日期格式
+         * <p> 示例值：yyyy/MM/dd
          */
         private String dateFormatter;
         /**
          * 日期字段中新纪录自动填写创建时间
-         * <p> 示例值：false
+         * <p> 示例值：true
          */
         private Boolean autoFill;
         /**
-         * 人员字段中允许添加多个成员，单向关联、双向关联中允许添加多个记录
-         * <p> 示例值：false
+         * 人员、群组字段中允许添加多个成员，单向关联、双向关联中允许添加多个记录
+         * <p> 示例值：true
          */
         private Boolean multiple;
         /**
          * 单向关联、双向关联字段中关联的数据表的id
-         * <p> 示例值：tblsRc9GRRXKqhvW
+         * <p> 示例值：tbl116kI1ZXWRAPR
          */
         private String tableId;
         /**
          * 单向关联、双向关联字段中关联的数据表的名字
-         * <p> 示例值："table2"
+         * <p> 示例值：被关联数据表
          */
         private String tableName;
         /**
          * 双向关联字段中关联的数据表中对应的双向关联字段的名字
-         * <p> 示例值："table1-双向关联"
+         * <p> 示例值：被关联字段
          */
         private String backFieldName;
         /**
@@ -455,7 +455,7 @@ public class AppTableFieldProperty {
         private AppFieldPropertyLocation location;
         /**
          * 公式字段的表达式
-         * <p> 示例值：bitable::$table[tblNj92WQBAasdEf].$field[fldMV60rYs]*2
+         * <p> 示例值：CONTAINTEXT([多行文本],\"被包含的文本\")
          */
         private String formulaExpression;
         /**
@@ -527,7 +527,7 @@ public class AppTableFieldProperty {
 
         /**
          * 日期、创建时间、最后更新时间字段的显示格式
-         * <p> 示例值：日期格式
+         * <p> 示例值：yyyy/MM/dd
          *
          * @param dateFormatter
          * @return
@@ -540,7 +540,7 @@ public class AppTableFieldProperty {
 
         /**
          * 日期字段中新纪录自动填写创建时间
-         * <p> 示例值：false
+         * <p> 示例值：true
          *
          * @param autoFill
          * @return
@@ -552,8 +552,8 @@ public class AppTableFieldProperty {
 
 
         /**
-         * 人员字段中允许添加多个成员，单向关联、双向关联中允许添加多个记录
-         * <p> 示例值：false
+         * 人员、群组字段中允许添加多个成员，单向关联、双向关联中允许添加多个记录
+         * <p> 示例值：true
          *
          * @param multiple
          * @return
@@ -566,7 +566,7 @@ public class AppTableFieldProperty {
 
         /**
          * 单向关联、双向关联字段中关联的数据表的id
-         * <p> 示例值：tblsRc9GRRXKqhvW
+         * <p> 示例值：tbl116kI1ZXWRAPR
          *
          * @param tableId
          * @return
@@ -579,7 +579,7 @@ public class AppTableFieldProperty {
 
         /**
          * 单向关联、双向关联字段中关联的数据表的名字
-         * <p> 示例值："table2"
+         * <p> 示例值：被关联数据表
          *
          * @param tableName
          * @return
@@ -592,7 +592,7 @@ public class AppTableFieldProperty {
 
         /**
          * 双向关联字段中关联的数据表中对应的双向关联字段的名字
-         * <p> 示例值："table1-双向关联"
+         * <p> 示例值：被关联字段
          *
          * @param backFieldName
          * @return
@@ -631,7 +631,7 @@ public class AppTableFieldProperty {
 
         /**
          * 公式字段的表达式
-         * <p> 示例值：bitable::$table[tblNj92WQBAasdEf].$field[fldMV60rYs]*2
+         * <p> 示例值：CONTAINTEXT([多行文本],\"被包含的文本\")
          *
          * @param formulaExpression
          * @return

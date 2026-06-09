@@ -179,6 +179,12 @@ public class WhiteboardNode {
      */
     @SerializedName("mind_map")
     private MindMap mindMap;
+    /**
+     * PlantUml/Mermaid的语法信息
+     * <p> 示例值：
+     */
+    @SerializedName("syntax")
+    private Syntax syntax;
 
     // builder 开始
     public WhiteboardNode() {
@@ -310,6 +316,11 @@ public class WhiteboardNode {
          * <p> 示例值：
          */
         this.mindMap = builder.mindMap;
+        /**
+         * PlantUml/Mermaid的语法信息
+         * <p> 示例值：
+         */
+        this.syntax = builder.syntax;
     }
 
     public static Builder newBuilder() {
@@ -516,6 +527,14 @@ public class WhiteboardNode {
         this.mindMap = mindMap;
     }
 
+    public Syntax getSyntax() {
+        return this.syntax;
+    }
+
+    public void setSyntax(Syntax syntax) {
+        this.syntax = syntax;
+    }
+
     public static class Builder {
         /**
          * 节点 id
@@ -642,6 +661,11 @@ public class WhiteboardNode {
          * <p> 示例值：
          */
         private MindMap mindMap;
+        /**
+         * PlantUml/Mermaid的语法信息
+         * <p> 示例值：
+         */
+        private Syntax syntax;
 
         /**
          * 节点 id
@@ -976,6 +1000,19 @@ public class WhiteboardNode {
          */
         public Builder mindMap(MindMap mindMap) {
             this.mindMap = mindMap;
+            return this;
+        }
+
+
+        /**
+         * PlantUml/Mermaid的语法信息
+         * <p> 示例值：
+         *
+         * @param syntax
+         * @return
+         */
+        public Builder syntax(Syntax syntax) {
+            this.syntax = syntax;
             return this;
         }
 

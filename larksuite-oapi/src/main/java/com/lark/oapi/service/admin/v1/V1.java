@@ -14,7 +14,13 @@
 package com.lark.oapi.service.admin.v1;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.service.admin.v1.resource.*;
+import com.lark.oapi.service.admin.v1.resource.AdminDeptStat;
+import com.lark.oapi.service.admin.v1.resource.AdminUserStat;
+import com.lark.oapi.service.admin.v1.resource.AuditInfo;
+import com.lark.oapi.service.admin.v1.resource.Badge;
+import com.lark.oapi.service.admin.v1.resource.BadgeGrant;
+import com.lark.oapi.service.admin.v1.resource.BadgeImage;
+import com.lark.oapi.service.admin.v1.resource.Password;
 
 public class V1 {
     private final AdminDeptStat adminDeptStat; // 部门维度的数据报表

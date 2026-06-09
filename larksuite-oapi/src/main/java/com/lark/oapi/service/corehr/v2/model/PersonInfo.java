@@ -389,6 +389,36 @@ public class PersonInfo {
      */
     @SerializedName("former_employer")
     private I18n[] formerEmployer;
+    /**
+     * 全部法定姓名
+     * <p> 示例值：
+     */
+    @SerializedName("legal_name_v2s")
+    private PersonName[] legalNameV2s;
+    /**
+     * 国家证件列表
+     * <p> 示例值：
+     */
+    @SerializedName("national_id_v2s")
+    private NationalId[] nationalIdV2s;
+    /**
+     * Visa 列表
+     * <p> 示例值：
+     */
+    @SerializedName("visas")
+    private Visa[] visas;
+    /**
+     * Passport 列表
+     * <p> 示例值：
+     */
+    @SerializedName("passports")
+    private Passport[] passports;
+    /**
+     * 多国个人信息列表
+     * <p> 示例值：
+     */
+    @SerializedName("person_for_countries")
+    private PersonForCountry[] personForCountries;
 
     // builder 开始
     public PersonInfo() {
@@ -695,6 +725,31 @@ public class PersonInfo {
          * <p> 示例值：
          */
         this.formerEmployer = builder.formerEmployer;
+        /**
+         * 全部法定姓名
+         * <p> 示例值：
+         */
+        this.legalNameV2s = builder.legalNameV2s;
+        /**
+         * 国家证件列表
+         * <p> 示例值：
+         */
+        this.nationalIdV2s = builder.nationalIdV2s;
+        /**
+         * Visa 列表
+         * <p> 示例值：
+         */
+        this.visas = builder.visas;
+        /**
+         * Passport 列表
+         * <p> 示例值：
+         */
+        this.passports = builder.passports;
+        /**
+         * 多国个人信息列表
+         * <p> 示例值：
+         */
+        this.personForCountries = builder.personForCountries;
     }
 
     public static Builder newBuilder() {
@@ -1181,6 +1236,46 @@ public class PersonInfo {
         this.formerEmployer = formerEmployer;
     }
 
+    public PersonName[] getLegalNameV2s() {
+        return this.legalNameV2s;
+    }
+
+    public void setLegalNameV2s(PersonName[] legalNameV2s) {
+        this.legalNameV2s = legalNameV2s;
+    }
+
+    public NationalId[] getNationalIdV2s() {
+        return this.nationalIdV2s;
+    }
+
+    public void setNationalIdV2s(NationalId[] nationalIdV2s) {
+        this.nationalIdV2s = nationalIdV2s;
+    }
+
+    public Visa[] getVisas() {
+        return this.visas;
+    }
+
+    public void setVisas(Visa[] visas) {
+        this.visas = visas;
+    }
+
+    public Passport[] getPassports() {
+        return this.passports;
+    }
+
+    public void setPassports(Passport[] passports) {
+        this.passports = passports;
+    }
+
+    public PersonForCountry[] getPersonForCountries() {
+        return this.personForCountries;
+    }
+
+    public void setPersonForCountries(PersonForCountry[] personForCountries) {
+        this.personForCountries = personForCountries;
+    }
+
     public static class Builder {
         /**
          * 个人信息 ID
@@ -1482,6 +1577,31 @@ public class PersonInfo {
          * <p> 示例值：
          */
         private I18n[] formerEmployer;
+        /**
+         * 全部法定姓名
+         * <p> 示例值：
+         */
+        private PersonName[] legalNameV2s;
+        /**
+         * 国家证件列表
+         * <p> 示例值：
+         */
+        private NationalId[] nationalIdV2s;
+        /**
+         * Visa 列表
+         * <p> 示例值：
+         */
+        private Visa[] visas;
+        /**
+         * Passport 列表
+         * <p> 示例值：
+         */
+        private Passport[] passports;
+        /**
+         * 多国个人信息列表
+         * <p> 示例值：
+         */
+        private PersonForCountry[] personForCountries;
 
         /**
          * 个人信息 ID
@@ -2259,6 +2379,71 @@ public class PersonInfo {
          */
         public Builder formerEmployer(I18n[] formerEmployer) {
             this.formerEmployer = formerEmployer;
+            return this;
+        }
+
+
+        /**
+         * 全部法定姓名
+         * <p> 示例值：
+         *
+         * @param legalNameV2s
+         * @return
+         */
+        public Builder legalNameV2s(PersonName[] legalNameV2s) {
+            this.legalNameV2s = legalNameV2s;
+            return this;
+        }
+
+
+        /**
+         * 国家证件列表
+         * <p> 示例值：
+         *
+         * @param nationalIdV2s
+         * @return
+         */
+        public Builder nationalIdV2s(NationalId[] nationalIdV2s) {
+            this.nationalIdV2s = nationalIdV2s;
+            return this;
+        }
+
+
+        /**
+         * Visa 列表
+         * <p> 示例值：
+         *
+         * @param visas
+         * @return
+         */
+        public Builder visas(Visa[] visas) {
+            this.visas = visas;
+            return this;
+        }
+
+
+        /**
+         * Passport 列表
+         * <p> 示例值：
+         *
+         * @param passports
+         * @return
+         */
+        public Builder passports(Passport[] passports) {
+            this.passports = passports;
+            return this;
+        }
+
+
+        /**
+         * 多国个人信息列表
+         * <p> 示例值：
+         *
+         * @param personForCountries
+         * @return
+         */
+        public Builder personForCountries(PersonForCountry[] personForCountries) {
+            this.personForCountries = personForCountries;
             return this;
         }
 

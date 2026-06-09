@@ -136,6 +136,12 @@ public class Application {
      */
     @SerializedName("creator_id")
     private String creatorId;
+    /**
+     * 投递职位信息
+     * <p> 示例值：
+     */
+    @SerializedName("job_info")
+    private JobBasicInfo jobInfo;
 
     // builder 开始
     public Application() {
@@ -232,6 +238,11 @@ public class Application {
          * <p> 示例值：ou_ce613028fe74745421f5dc320bb9c709
          */
         this.creatorId = builder.creatorId;
+        /**
+         * 投递职位信息
+         * <p> 示例值：
+         */
+        this.jobInfo = builder.jobInfo;
     }
 
     public static Builder newBuilder() {
@@ -382,6 +393,14 @@ public class Application {
         this.creatorId = creatorId;
     }
 
+    public JobBasicInfo getJobInfo() {
+        return this.jobInfo;
+    }
+
+    public void setJobInfo(JobBasicInfo jobInfo) {
+        this.jobInfo = jobInfo;
+    }
+
     public static class Builder {
         /**
          * 投递id
@@ -473,6 +492,11 @@ public class Application {
          * <p> 示例值：ou_ce613028fe74745421f5dc320bb9c709
          */
         private String creatorId;
+        /**
+         * 投递职位信息
+         * <p> 示例值：
+         */
+        private JobBasicInfo jobInfo;
 
         /**
          * 投递id
@@ -704,6 +728,19 @@ public class Application {
          */
         public Builder creatorId(String creatorId) {
             this.creatorId = creatorId;
+            return this;
+        }
+
+
+        /**
+         * 投递职位信息
+         * <p> 示例值：
+         *
+         * @param jobInfo
+         * @return
+         */
+        public Builder jobInfo(JobBasicInfo jobInfo) {
+            this.jobInfo = jobInfo;
             return this;
         }
 

@@ -17,15 +17,10 @@ public class UpdateDeviceRecordSample {
         UpdateDeviceRecordReq req = UpdateDeviceRecordReq.newBuilder()
                 .deviceRecordId("7089353870308032531")
                 .version("0")
-                .userIdType("user_id")
-                .deviceRecord(DeviceRecord.newBuilder()
+                .updateDeviceRecordReqBody(UpdateDeviceRecordReqBody.newBuilder()
                         .deviceOwnership(0)
                         .deviceStatus(0)
-                        .latestUserId("ou_b25e90585ef8c1adac4b379c2e257906")
-                        .dids(new String[]{})
-                        .isManaged(false)
-                        .mdmDeviceId("123abc")
-                        .mdmProviderName("Workspace_ONE")
+                        .isPublic(false)
                         .build())
                 .build();
 

@@ -34,6 +34,16 @@ public class UploadAllFileRespBody {
      */
     @SerializedName("file_token")
     private String fileToken;
+    /**
+     * <p> 示例值：
+     */
+    @SerializedName("url")
+    private String url;
+    /**
+     * <p> 示例值：
+     */
+    @SerializedName("version")
+    private String version;
 
     public String getFileToken() {
         return this.fileToken;
@@ -41,6 +51,22 @@ public class UploadAllFileRespBody {
 
     public void setFileToken(String fileToken) {
         this.fileToken = fileToken;
+    }
+
+    public String getUrl() {
+        return this.url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getVersion() {
+        return this.version;
+    }
+
+    public void setVersion(String version) {
+        this.version = version;
     }
 
 }

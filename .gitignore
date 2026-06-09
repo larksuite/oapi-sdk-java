@@ -55,3 +55,4 @@ larksuite-oapi/src/test/**
 !larksuite-oapi/src/test/java/com/lark/oapi/core/token/TestClientAssertionTokenManager.java
 !larksuite-oapi/src/test/java/com/lark/oapi/e2e/TestClientAssertionLocalE2E.java
 !larksuite-oapi/src/test/java/com/lark/oapi/ws/TestClientAssertionWsClient.java
+docs/superpowers/plans

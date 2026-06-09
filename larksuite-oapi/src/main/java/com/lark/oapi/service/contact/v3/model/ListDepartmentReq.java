@@ -184,10 +184,10 @@ public class ListDepartmentReq {
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
          *
-         * @param userIdType {@link com.lark.oapi.service.contact.v3.enums.ListDepartmentUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.contact.v3.enums.ListDepartmentListDepartmentV3UserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.contact.v3.enums.ListDepartmentUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.contact.v3.enums.ListDepartmentListDepartmentV3UserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }
@@ -209,10 +209,10 @@ public class ListDepartmentReq {
          * 此次调用中使用的部门ID的类型
          * <p> 示例值：
          *
-         * @param departmentIdType {@link com.lark.oapi.service.contact.v3.enums.ListDepartmentDepartmentIdTypeEnum}
+         * @param departmentIdType {@link com.lark.oapi.service.contact.v3.enums.ListDepartmentListDepartmentV3DepartmentIDTypeEnum}
          * @return
          */
-        public Builder departmentIdType(com.lark.oapi.service.contact.v3.enums.ListDepartmentDepartmentIdTypeEnum departmentIdType) {
+        public Builder departmentIdType(com.lark.oapi.service.contact.v3.enums.ListDepartmentListDepartmentV3DepartmentIDTypeEnum departmentIdType) {
             this.departmentIdType = departmentIdType.getValue();
             return this;
         }

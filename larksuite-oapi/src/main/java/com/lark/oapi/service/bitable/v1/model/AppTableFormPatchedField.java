@@ -30,35 +30,41 @@ import com.lark.oapi.core.response.BaseResponse;
 
 public class AppTableFormPatchedField {
     /**
-     * 上一个表单问题 ID，用于支持调整表单问题的顺序，通过前一个表单问题的 field_id 来确定位置；如果 pre_field_id 为空字符串，则说明要排到首个表单问题
-     * <p> 示例值：fldjX7dUj5
+     * 上一个表单问题 ID
+     * <p> 示例值：
      */
     @SerializedName("pre_field_id")
     private String preFieldId;
     /**
      * 表单问题
-     * <p> 示例值：多行文本
+     * <p> 示例值：
      */
     @SerializedName("title")
     private String title;
     /**
      * 问题描述
-     * <p> 示例值：多行文本描述
+     * <p> 示例值：
      */
     @SerializedName("description")
     private String description;
     /**
      * 是否必填
-     * <p> 示例值：true
+     * <p> 示例值：
      */
     @SerializedName("required")
     private Boolean required;
     /**
-     * 是否可见，当值为 false 时，不允许更新其他字段。
-     * <p> 示例值：true
+     * 是否可见
+     * <p> 示例值：
      */
     @SerializedName("visible")
     private Boolean visible;
+    /**
+     * 富文本描述
+     * <p> 示例值：
+     */
+    @SerializedName("rich_description")
+    private AppRichDescriptionSegment[] richDescription;
 
     // builder 开始
     public AppTableFormPatchedField() {
@@ -66,30 +72,35 @@ public class AppTableFormPatchedField {
 
     public AppTableFormPatchedField(Builder builder) {
         /**
-         * 上一个表单问题 ID，用于支持调整表单问题的顺序，通过前一个表单问题的 field_id 来确定位置；如果 pre_field_id 为空字符串，则说明要排到首个表单问题
-         * <p> 示例值：fldjX7dUj5
+         * 上一个表单问题 ID
+         * <p> 示例值：
          */
         this.preFieldId = builder.preFieldId;
         /**
          * 表单问题
-         * <p> 示例值：多行文本
+         * <p> 示例值：
          */
         this.title = builder.title;
         /**
          * 问题描述
-         * <p> 示例值：多行文本描述
+         * <p> 示例值：
          */
         this.description = builder.description;
         /**
          * 是否必填
-         * <p> 示例值：true
+         * <p> 示例值：
          */
         this.required = builder.required;
         /**
-         * 是否可见，当值为 false 时，不允许更新其他字段。
-         * <p> 示例值：true
+         * 是否可见
+         * <p> 示例值：
          */
         this.visible = builder.visible;
+        /**
+         * 富文本描述
+         * <p> 示例值：
+         */
+        this.richDescription = builder.richDescription;
     }
 
     public static Builder newBuilder() {
@@ -136,36 +147,49 @@ public class AppTableFormPatchedField {
         this.visible = visible;
     }
 
+    public AppRichDescriptionSegment[] getRichDescription() {
+        return this.richDescription;
+    }
+
+    public void setRichDescription(AppRichDescriptionSegment[] richDescription) {
+        this.richDescription = richDescription;
+    }
+
     public static class Builder {
         /**
-         * 上一个表单问题 ID，用于支持调整表单问题的顺序，通过前一个表单问题的 field_id 来确定位置；如果 pre_field_id 为空字符串，则说明要排到首个表单问题
-         * <p> 示例值：fldjX7dUj5
+         * 上一个表单问题 ID
+         * <p> 示例值：
          */
         private String preFieldId;
         /**
          * 表单问题
-         * <p> 示例值：多行文本
+         * <p> 示例值：
          */
         private String title;
         /**
          * 问题描述
-         * <p> 示例值：多行文本描述
+         * <p> 示例值：
          */
         private String description;
         /**
          * 是否必填
-         * <p> 示例值：true
+         * <p> 示例值：
          */
         private Boolean required;
         /**
-         * 是否可见，当值为 false 时，不允许更新其他字段。
-         * <p> 示例值：true
+         * 是否可见
+         * <p> 示例值：
          */
         private Boolean visible;
+        /**
+         * 富文本描述
+         * <p> 示例值：
+         */
+        private AppRichDescriptionSegment[] richDescription;
 
         /**
-         * 上一个表单问题 ID，用于支持调整表单问题的顺序，通过前一个表单问题的 field_id 来确定位置；如果 pre_field_id 为空字符串，则说明要排到首个表单问题
-         * <p> 示例值：fldjX7dUj5
+         * 上一个表单问题 ID
+         * <p> 示例值：
          *
          * @param preFieldId
          * @return
@@ -178,7 +202,7 @@ public class AppTableFormPatchedField {
 
         /**
          * 表单问题
-         * <p> 示例值：多行文本
+         * <p> 示例值：
          *
          * @param title
          * @return
@@ -191,7 +215,7 @@ public class AppTableFormPatchedField {
 
         /**
          * 问题描述
-         * <p> 示例值：多行文本描述
+         * <p> 示例值：
          *
          * @param description
          * @return
@@ -204,7 +228,7 @@ public class AppTableFormPatchedField {
 
         /**
          * 是否必填
-         * <p> 示例值：true
+         * <p> 示例值：
          *
          * @param required
          * @return
@@ -216,14 +240,27 @@ public class AppTableFormPatchedField {
 
 
         /**
-         * 是否可见，当值为 false 时，不允许更新其他字段。
-         * <p> 示例值：true
+         * 是否可见
+         * <p> 示例值：
          *
          * @param visible
          * @return
          */
         public Builder visible(Boolean visible) {
             this.visible = visible;
+            return this;
+        }
+
+
+        /**
+         * 富文本描述
+         * <p> 示例值：
+         *
+         * @param richDescription
+         * @return
+         */
+        public Builder richDescription(AppRichDescriptionSegment[] richDescription) {
+            this.richDescription = richDescription;
             return this;
         }
 

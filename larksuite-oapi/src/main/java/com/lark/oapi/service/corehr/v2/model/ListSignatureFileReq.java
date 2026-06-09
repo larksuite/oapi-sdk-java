@@ -84,6 +84,13 @@ public class ListSignatureFileReq {
     @Query
     @SerializedName("template_ids")
     private String templateIds;
+    /**
+     * 获取文件签署链接
+     * <p> 示例值：
+     */
+    @Query
+    @SerializedName("select_sign_url")
+    private Boolean selectSignUrl;
 
     // builder 开始
     public ListSignatureFileReq() {
@@ -130,6 +137,11 @@ public class ListSignatureFileReq {
          * <p> 示例值：7282756156156560940,6282751234556561278
          */
         this.templateIds = builder.templateIds;
+        /**
+         * 获取文件签署链接
+         * <p> 示例值：
+         */
+        this.selectSignUrl = builder.selectSignUrl;
     }
 
     public static Builder newBuilder() {
@@ -200,6 +212,14 @@ public class ListSignatureFileReq {
         this.templateIds = templateIds;
     }
 
+    public Boolean getSelectSignUrl() {
+        return this.selectSignUrl;
+    }
+
+    public void setSelectSignUrl(Boolean selectSignUrl) {
+        this.selectSignUrl = selectSignUrl;
+    }
+
     public static class Builder {
         private String signatureFileId; // 电子签文件id
         private Integer pageSize; // 分页大小
@@ -209,6 +229,7 @@ public class ListSignatureFileReq {
         private String updateTimeEnd; // 更新时间晚于等于某个时间点，按照东八区时区
         private String userIdType; // 用户 ID 类型
         private String templateIds; // 根据电子签模板id列表筛选电子签文件,返回的电子签文件使用的模板id在该list中
+        private Boolean selectSignUrl; // 获取文件签署链接
 
         /**
          * 电子签文件id
@@ -322,6 +343,19 @@ public class ListSignatureFileReq {
          */
         public Builder templateIds(String templateIds) {
             this.templateIds = templateIds;
+            return this;
+        }
+
+
+        /**
+         * 获取文件签署链接
+         * <p> 示例值：
+         *
+         * @param selectSignUrl
+         * @return
+         */
+        public Builder selectSignUrl(Boolean selectSignUrl) {
+            this.selectSignUrl = selectSignUrl;
             return this;
         }
 

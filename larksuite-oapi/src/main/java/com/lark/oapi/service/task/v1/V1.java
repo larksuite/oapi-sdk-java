@@ -14,7 +14,11 @@
 package com.lark.oapi.service.task.v1;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.service.task.v1.resource.*;
+import com.lark.oapi.service.task.v1.resource.Task;
+import com.lark.oapi.service.task.v1.resource.TaskCollaborator;
+import com.lark.oapi.service.task.v1.resource.TaskComment;
+import com.lark.oapi.service.task.v1.resource.TaskFollower;
+import com.lark.oapi.service.task.v1.resource.TaskReminder;
 
 public class V1 {
     private final Task task; // 任务

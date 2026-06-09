@@ -149,6 +149,18 @@ public class DeviceChangeEvent {
      */
     @SerializedName("mdm_provider_name")
     private String mdmProviderName;
+    /**
+     * 设备环境检测状态
+     * <p> 示例值：0
+     */
+    @SerializedName("device_env_detect_status")
+    private Integer deviceEnvDetectStatus;
+    /**
+     * 是否为公共设备
+     * <p> 示例值：false
+     */
+    @SerializedName("is_public")
+    private Boolean isPublic;
 
     // builder 开始
     public DeviceChangeEvent() {
@@ -255,6 +267,16 @@ public class DeviceChangeEvent {
          * <p> 示例值：Workspace_ONE
          */
         this.mdmProviderName = builder.mdmProviderName;
+        /**
+         * 设备环境检测状态
+         * <p> 示例值：0
+         */
+        this.deviceEnvDetectStatus = builder.deviceEnvDetectStatus;
+        /**
+         * 是否为公共设备
+         * <p> 示例值：false
+         */
+        this.isPublic = builder.isPublic;
     }
 
     public static Builder newBuilder() {
@@ -421,6 +443,22 @@ public class DeviceChangeEvent {
         this.mdmProviderName = mdmProviderName;
     }
 
+    public Integer getDeviceEnvDetectStatus() {
+        return this.deviceEnvDetectStatus;
+    }
+
+    public void setDeviceEnvDetectStatus(Integer deviceEnvDetectStatus) {
+        this.deviceEnvDetectStatus = deviceEnvDetectStatus;
+    }
+
+    public Boolean getIsPublic() {
+        return this.isPublic;
+    }
+
+    public void setIsPublic(Boolean isPublic) {
+        this.isPublic = isPublic;
+    }
+
     public static class Builder {
         /**
          * 设备认证编码
@@ -522,6 +560,16 @@ public class DeviceChangeEvent {
          * <p> 示例值：Workspace_ONE
          */
         private String mdmProviderName;
+        /**
+         * 设备环境检测状态
+         * <p> 示例值：0
+         */
+        private Integer deviceEnvDetectStatus;
+        /**
+         * 是否为公共设备
+         * <p> 示例值：false
+         */
+        private Boolean isPublic;
 
         /**
          * 设备认证编码
@@ -839,6 +887,44 @@ public class DeviceChangeEvent {
          */
         public Builder mdmProviderName(String mdmProviderName) {
             this.mdmProviderName = mdmProviderName;
+            return this;
+        }
+
+
+        /**
+         * 设备环境检测状态
+         * <p> 示例值：0
+         *
+         * @param deviceEnvDetectStatus
+         * @return
+         */
+        public Builder deviceEnvDetectStatus(Integer deviceEnvDetectStatus) {
+            this.deviceEnvDetectStatus = deviceEnvDetectStatus;
+            return this;
+        }
+
+        /**
+         * 设备环境检测状态
+         * <p> 示例值：0
+         *
+         * @param deviceEnvDetectStatus {@link com.lark.oapi.service.security_and_compliance.v2.enums.DeviceChangeEventDeviceEnvDetectStatusEnum}
+         * @return
+         */
+        public Builder deviceEnvDetectStatus(com.lark.oapi.service.security_and_compliance.v2.enums.DeviceChangeEventDeviceEnvDetectStatusEnum deviceEnvDetectStatus) {
+            this.deviceEnvDetectStatus = deviceEnvDetectStatus.getValue();
+            return this;
+        }
+
+
+        /**
+         * 是否为公共设备
+         * <p> 示例值：false
+         *
+         * @param isPublic
+         * @return
+         */
+        public Builder isPublic(Boolean isPublic) {
+            this.isPublic = isPublic;
             return this;
         }
 

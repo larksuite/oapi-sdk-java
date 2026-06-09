@@ -437,6 +437,12 @@ public class PreHireEmploymentInfo {
      */
     @SerializedName("reused_feishu_account_id")
     private String reusedFeishuAccountId;
+    /**
+     * 工作国家/地区id ，详细信息可通过【国家/地区】接口获得
+     * <p> 示例值：6977976687350924123
+     */
+    @SerializedName("work_country_id")
+    private String workCountryId;
 
     // builder 开始
     public PreHireEmploymentInfo() {
@@ -783,6 +789,11 @@ public class PreHireEmploymentInfo {
          * <p> 示例值：6738317738688661772
          */
         this.reusedFeishuAccountId = builder.reusedFeishuAccountId;
+        /**
+         * 工作国家/地区id ，详细信息可通过【国家/地区】接口获得
+         * <p> 示例值：6977976687350924123
+         */
+        this.workCountryId = builder.workCountryId;
     }
 
     public static Builder newBuilder() {
@@ -1333,6 +1344,14 @@ public class PreHireEmploymentInfo {
         this.reusedFeishuAccountId = reusedFeishuAccountId;
     }
 
+    public String getWorkCountryId() {
+        return this.workCountryId;
+    }
+
+    public void setWorkCountryId(String workCountryId) {
+        this.workCountryId = workCountryId;
+    }
+
     public static class Builder {
         /**
          * 部门 ID ，可以通过【搜索部门信息】接口获取
@@ -1674,6 +1693,11 @@ public class PreHireEmploymentInfo {
          * <p> 示例值：6738317738688661772
          */
         private String reusedFeishuAccountId;
+        /**
+         * 工作国家/地区id ，详细信息可通过【国家/地区】接口获得
+         * <p> 示例值：6977976687350924123
+         */
+        private String workCountryId;
 
         /**
          * 部门 ID ，可以通过【搜索部门信息】接口获取
@@ -2567,6 +2591,19 @@ public class PreHireEmploymentInfo {
          */
         public Builder reusedFeishuAccountId(String reusedFeishuAccountId) {
             this.reusedFeishuAccountId = reusedFeishuAccountId;
+            return this;
+        }
+
+
+        /**
+         * 工作国家/地区id ，详细信息可通过【国家/地区】接口获得
+         * <p> 示例值：6977976687350924123
+         *
+         * @param workCountryId
+         * @return
+         */
+        public Builder workCountryId(String workCountryId) {
+            this.workCountryId = workCountryId;
             return this;
         }
 

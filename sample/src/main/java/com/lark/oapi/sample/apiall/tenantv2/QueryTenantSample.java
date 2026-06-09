@@ -16,7 +16,7 @@ public class QueryTenantSample {
         // 创建请求对象
 
         // 发起请求
-        QueryTenantResp resp = client.tenant().tenant().query();
+        QueryTenantResp resp = client.tenant().v2().tenant().query();
 
         // 处理服务端错误
         if (!resp.success()) {

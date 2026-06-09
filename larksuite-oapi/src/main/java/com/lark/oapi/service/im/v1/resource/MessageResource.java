@@ -63,7 +63,7 @@ public class MessageResource {
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
                 , "/open-apis/im/v1/messages/:message_id/resources/:file_key"
-                , Sets.newHashSet(AccessTokenType.Tenant)
+                , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                 , req);
 
         if (httpResponse.getStatusCode() == 200) {
@@ -106,7 +106,7 @@ public class MessageResource {
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
                 , "/open-apis/im/v1/messages/:message_id/resources/:file_key"
-                , Sets.newHashSet(AccessTokenType.Tenant)
+                , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                 , req);
 
         // 下载请求，返回流

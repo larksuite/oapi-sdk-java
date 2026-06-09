@@ -14,7 +14,7 @@
 package com.lark.oapi.service.base.v2;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.service.base.v2.resource.*;
+import com.lark.oapi.service.base.v2.resource.AppRole;
 
 public class V2 {
     private final AppRole appRole; // app.role

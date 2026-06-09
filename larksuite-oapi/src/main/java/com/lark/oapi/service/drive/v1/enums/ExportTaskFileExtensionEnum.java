@@ -21,6 +21,8 @@ public enum ExportTaskFileExtensionEnum {
     PDF("pdf"), // pdf 格式
     XLSX("xlsx"), // excel xlsx 格式
     CSV("csv"), // csv 格式
+    BASE("base"), // base 文档自定义格式
+    PPTX("pptx"), // pptx格式
     ;
     private String value;
 

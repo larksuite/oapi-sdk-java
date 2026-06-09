@@ -50,6 +50,13 @@ public class GetChatMembersReq {
     @SerializedName("page_token")
     private String pageToken;
     /**
+     * 是否检查安全配置
+     * <p> 示例值：
+     */
+    @Query
+    @SerializedName("check_security_conf")
+    private Boolean checkSecurityConf;
+    /**
      * 群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
      * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
      */
@@ -77,6 +84,11 @@ public class GetChatMembersReq {
          * <p> 示例值：dmJCRHhpd3JRbGV1VEVNRFFyTitRWDY5ZFkybmYrMEUwMUFYT0VMMWdENEtuYUhsNUxGMDIwemtvdE5ORjBNQQ==
          */
         this.pageToken = builder.pageToken;
+        /**
+         * 是否检查安全配置
+         * <p> 示例值：
+         */
+        this.checkSecurityConf = builder.checkSecurityConf;
         /**
          * 群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
          * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
@@ -112,6 +124,14 @@ public class GetChatMembersReq {
         this.pageToken = pageToken;
     }
 
+    public Boolean getCheckSecurityConf() {
+        return this.checkSecurityConf;
+    }
+
+    public void setCheckSecurityConf(Boolean checkSecurityConf) {
+        this.checkSecurityConf = checkSecurityConf;
+    }
+
     public String getChatId() {
         return this.chatId;
     }
@@ -124,6 +144,7 @@ public class GetChatMembersReq {
         private String memberIdType; // 群成员 用户 ID 类型，详情参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
         private Integer pageSize; // 分页大小
         private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+        private Boolean checkSecurityConf; // 是否检查安全配置
         private String chatId; // 群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
 
         /**
@@ -142,10 +163,10 @@ public class GetChatMembersReq {
          * 群成员 用户 ID 类型，详情参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
          * <p> 示例值：open_id
          *
-         * @param memberIdType {@link com.lark.oapi.service.im.v1.enums.GetChatMembersMemberIdTypeEnum}
+         * @param memberIdType {@link com.lark.oapi.service.im.v1.enums.GetChatMembersListMemberMemberIDTypeEnum}
          * @return
          */
-        public Builder memberIdType(com.lark.oapi.service.im.v1.enums.GetChatMembersMemberIdTypeEnum memberIdType) {
+        public Builder memberIdType(com.lark.oapi.service.im.v1.enums.GetChatMembersListMemberMemberIDTypeEnum memberIdType) {
             this.memberIdType = memberIdType.getValue();
             return this;
         }
@@ -171,6 +192,18 @@ public class GetChatMembersReq {
          */
         public Builder pageToken(String pageToken) {
             this.pageToken = pageToken;
+            return this;
+        }
+
+        /**
+         * 是否检查安全配置
+         * <p> 示例值：
+         *
+         * @param checkSecurityConf
+         * @return
+         */
+        public Builder checkSecurityConf(Boolean checkSecurityConf) {
+            this.checkSecurityConf = checkSecurityConf;
             return this;
         }
 

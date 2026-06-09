@@ -133,10 +133,10 @@ public class CreateChatMembersReq {
          * 进群成员 ID 类型 open_id/user_id/union_id/app_id;;**注意**：拉机器人入群请使用 ==app_id==
          * <p> 示例值：open_id
          *
-         * @param memberIdType {@link com.lark.oapi.service.im.v1.enums.CreateChatMembersMemberIdTypeEnum}
+         * @param memberIdType {@link com.lark.oapi.service.im.v1.enums.CreateChatMembersInviteMemberMemberIDTypeEnum}
          * @return
          */
-        public Builder memberIdType(com.lark.oapi.service.im.v1.enums.CreateChatMembersMemberIdTypeEnum memberIdType) {
+        public Builder memberIdType(com.lark.oapi.service.im.v1.enums.CreateChatMembersInviteMemberMemberIDTypeEnum memberIdType) {
             this.memberIdType = memberIdType.getValue();
             return this;
         }
@@ -157,10 +157,10 @@ public class CreateChatMembersReq {
          * 出现不可用ID后的处理方式 0/1/2
          * <p> 示例值：0
          *
-         * @param succeedType {@link com.lark.oapi.service.im.v1.enums.CreateChatMembersSucceedTypeEnum}
+         * @param succeedType {@link com.lark.oapi.service.im.v1.enums.CreateChatMembersInviteMemberSucceedTypeEnum}
          * @return
          */
-        public Builder succeedType(com.lark.oapi.service.im.v1.enums.CreateChatMembersSucceedTypeEnum succeedType) {
+        public Builder succeedType(com.lark.oapi.service.im.v1.enums.CreateChatMembersInviteMemberSucceedTypeEnum succeedType) {
             this.succeedType = succeedType.getValue();
             return this;
         }

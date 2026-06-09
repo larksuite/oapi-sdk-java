@@ -523,6 +523,17 @@ public class Grade {
             return this;
         }
 
+        /**
+         * 标准明细类型
+         * <p> 示例值：1
+         *
+         * @param standardKind {@link com.lark.oapi.service.compensation.v1.enums.GradeStandardKindEnum}
+         * @return
+         */
+        public Builder standardKind(com.lark.oapi.service.compensation.v1.enums.GradeStandardKindEnum standardKind) {
+            this.standardKind = standardKind.getValue();
+            return this;
+        }
 
 
         public Grade build() {

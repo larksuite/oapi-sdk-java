@@ -702,10 +702,10 @@ public class CreateChatReqBody {
          * 群消息模式
          * <p> 示例值：chat
          *
-         * @param groupMessageType {@link com.lark.oapi.service.im.v1.enums.CreateChatGroupMessageTypeEnum}
+         * @param groupMessageType {@link com.lark.oapi.service.im.v1.enums.CreateChatCreateChatGroupMessageTypeEnum}
          * @return
          */
-        public Builder groupMessageType(com.lark.oapi.service.im.v1.enums.CreateChatGroupMessageTypeEnum groupMessageType) {
+        public Builder groupMessageType(com.lark.oapi.service.im.v1.enums.CreateChatCreateChatGroupMessageTypeEnum groupMessageType) {
             this.groupMessageType = groupMessageType.getValue();
             return this;
         }

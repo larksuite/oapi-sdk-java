@@ -69,7 +69,7 @@ public class TestNormalizeConverters {
 
     @Test
     public void testPostConverterResolvesMentionsAndInlineAssets() {
-        MentionEvent[] mentions = new MentionEvent[] {
+        MentionEvent[] mentions = new MentionEvent[]{
                 NormalizeTestSupport.mention("@_user_1", "ou_alice", "Alice")
         };
         ConvertResult post = convert("post",

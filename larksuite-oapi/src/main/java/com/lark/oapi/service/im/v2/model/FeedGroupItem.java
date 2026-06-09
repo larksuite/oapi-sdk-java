@@ -120,10 +120,10 @@ public class FeedGroupItem {
          * 消息卡片类型
          * <p> 示例值：3
          *
-         * @param feedType {@link com.lark.oapi.service.im.v2.enums.FeedGroupItemFeedTypeEnum}
+         * @param feedType {@link com.lark.oapi.service.im.v2.enums.FeedGroupItemLarkImDatasyncOpenFeedCardTypeEnum}
          * @return
          */
-        public Builder feedType(com.lark.oapi.service.im.v2.enums.FeedGroupItemFeedTypeEnum feedType) {
+        public Builder feedType(com.lark.oapi.service.im.v2.enums.FeedGroupItemLarkImDatasyncOpenFeedCardTypeEnum feedType) {
             this.feedType = feedType.getValue();
             return this;
         }

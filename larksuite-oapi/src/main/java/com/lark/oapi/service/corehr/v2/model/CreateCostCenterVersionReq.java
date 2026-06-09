@@ -43,7 +43,7 @@ public class CreateCostCenterVersionReq {
     @SerializedName("cost_center_id")
     private String costCenterId;
     @Body
-    private CostCenterVersion body;
+    private CreateCostCenterVersionReqBody body;
 
     // builder 开始
     public CreateCostCenterVersionReq() {
@@ -83,18 +83,18 @@ public class CreateCostCenterVersionReq {
         this.costCenterId = costCenterId;
     }
 
-    public CostCenterVersion getCostCenterVersion() {
+    public CreateCostCenterVersionReqBody getCreateCostCenterVersionReqBody() {
         return this.body;
     }
 
-    public void setCostCenterVersion(CostCenterVersion body) {
+    public void setCreateCostCenterVersionReqBody(CreateCostCenterVersionReqBody body) {
         this.body = body;
     }
 
     public static class Builder {
         private String userIdType; // 用户 ID 类型
         private String costCenterId; // 成本中心ID
-        private CostCenterVersion body;
+        private CreateCostCenterVersionReqBody body;
 
         /**
          * 用户 ID 类型
@@ -132,7 +132,7 @@ public class CreateCostCenterVersionReq {
             return this;
         }
 
-        public CostCenterVersion getCostCenterVersion() {
+        public CreateCostCenterVersionReqBody getCreateCostCenterVersionReqBody() {
             return this.body;
         }
 
@@ -142,7 +142,7 @@ public class CreateCostCenterVersionReq {
          * @param body
          * @return
          */
-        public Builder costCenterVersion(CostCenterVersion body) {
+        public Builder createCostCenterVersionReqBody(CreateCostCenterVersionReqBody body) {
             this.body = body;
             return this;
         }

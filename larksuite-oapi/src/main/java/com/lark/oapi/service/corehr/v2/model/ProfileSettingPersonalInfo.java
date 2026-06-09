@@ -89,6 +89,30 @@ public class ProfileSettingPersonalInfo {
      */
     @SerializedName("citizenship_statuses")
     private ProfileSettingCitizenshipStatus[] citizenshipStatuses;
+    /**
+     * 多国个人信息列表
+     * <p> 示例值：
+     */
+    @SerializedName("person_for_countries")
+    private ProfileSettingPersonForCountry[] personForCountries;
+    /**
+     * Visa 列表
+     * <p> 示例值：
+     */
+    @SerializedName("visas")
+    private ProfileSettingVisa[] visas;
+    /**
+     * Passport 列表
+     * <p> 示例值：
+     */
+    @SerializedName("passports")
+    private ProfileSettingPassport[] passports;
+    /**
+     * 证件
+     * <p> 示例值：
+     */
+    @SerializedName("national_v2s")
+    private ProfileSettingNational[] nationalV2s;
 
     // builder 开始
     public ProfileSettingPersonalInfo() {
@@ -145,6 +169,26 @@ public class ProfileSettingPersonalInfo {
          * <p> 示例值：
          */
         this.citizenshipStatuses = builder.citizenshipStatuses;
+        /**
+         * 多国个人信息列表
+         * <p> 示例值：
+         */
+        this.personForCountries = builder.personForCountries;
+        /**
+         * Visa 列表
+         * <p> 示例值：
+         */
+        this.visas = builder.visas;
+        /**
+         * Passport 列表
+         * <p> 示例值：
+         */
+        this.passports = builder.passports;
+        /**
+         * 证件
+         * <p> 示例值：
+         */
+        this.nationalV2s = builder.nationalV2s;
     }
 
     public static Builder newBuilder() {
@@ -231,6 +275,38 @@ public class ProfileSettingPersonalInfo {
         this.citizenshipStatuses = citizenshipStatuses;
     }
 
+    public ProfileSettingPersonForCountry[] getPersonForCountries() {
+        return this.personForCountries;
+    }
+
+    public void setPersonForCountries(ProfileSettingPersonForCountry[] personForCountries) {
+        this.personForCountries = personForCountries;
+    }
+
+    public ProfileSettingVisa[] getVisas() {
+        return this.visas;
+    }
+
+    public void setVisas(ProfileSettingVisa[] visas) {
+        this.visas = visas;
+    }
+
+    public ProfileSettingPassport[] getPassports() {
+        return this.passports;
+    }
+
+    public void setPassports(ProfileSettingPassport[] passports) {
+        this.passports = passports;
+    }
+
+    public ProfileSettingNational[] getNationalV2s() {
+        return this.nationalV2s;
+    }
+
+    public void setNationalV2s(ProfileSettingNational[] nationalV2s) {
+        this.nationalV2s = nationalV2s;
+    }
+
     public static class Builder {
         /**
          * 基本信息
@@ -282,6 +358,26 @@ public class ProfileSettingPersonalInfo {
          * <p> 示例值：
          */
         private ProfileSettingCitizenshipStatus[] citizenshipStatuses;
+        /**
+         * 多国个人信息列表
+         * <p> 示例值：
+         */
+        private ProfileSettingPersonForCountry[] personForCountries;
+        /**
+         * Visa 列表
+         * <p> 示例值：
+         */
+        private ProfileSettingVisa[] visas;
+        /**
+         * Passport 列表
+         * <p> 示例值：
+         */
+        private ProfileSettingPassport[] passports;
+        /**
+         * 证件
+         * <p> 示例值：
+         */
+        private ProfileSettingNational[] nationalV2s;
 
         /**
          * 基本信息
@@ -409,6 +505,58 @@ public class ProfileSettingPersonalInfo {
          */
         public Builder citizenshipStatuses(ProfileSettingCitizenshipStatus[] citizenshipStatuses) {
             this.citizenshipStatuses = citizenshipStatuses;
+            return this;
+        }
+
+
+        /**
+         * 多国个人信息列表
+         * <p> 示例值：
+         *
+         * @param personForCountries
+         * @return
+         */
+        public Builder personForCountries(ProfileSettingPersonForCountry[] personForCountries) {
+            this.personForCountries = personForCountries;
+            return this;
+        }
+
+
+        /**
+         * Visa 列表
+         * <p> 示例值：
+         *
+         * @param visas
+         * @return
+         */
+        public Builder visas(ProfileSettingVisa[] visas) {
+            this.visas = visas;
+            return this;
+        }
+
+
+        /**
+         * Passport 列表
+         * <p> 示例值：
+         *
+         * @param passports
+         * @return
+         */
+        public Builder passports(ProfileSettingPassport[] passports) {
+            this.passports = passports;
+            return this;
+        }
+
+
+        /**
+         * 证件
+         * <p> 示例值：
+         *
+         * @param nationalV2s
+         * @return
+         */
+        public Builder nationalV2s(ProfileSettingNational[] nationalV2s) {
+            this.nationalV2s = nationalV2s;
             return this;
         }
 

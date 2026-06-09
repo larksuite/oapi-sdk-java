@@ -77,6 +77,20 @@ public class ListMessageReq {
     @Query
     @SerializedName("page_token")
     private String pageToken;
+    /**
+     * 卡片消息返回内容类型，值为raw_card_content则返回原始jsoncard内容
+     * <p> 示例值：user_card_content
+     */
+    @Query
+    @SerializedName("card_msg_content_type")
+    private String cardMsgContentType;
+    /**
+     * 话题群是否仅返回话题根消息
+     * <p> 示例值：
+     */
+    @Query
+    @SerializedName("only_thread_root_messages")
+    private Boolean onlyThreadRootMessages;
 
     // builder 开始
     public ListMessageReq() {
@@ -118,6 +132,16 @@ public class ListMessageReq {
          * <p> 示例值：GxmvlNRvP0NdQZpa7yIqf_Lv_QuBwTQ8tXkX7w-irAghVD_TvuYd1aoJ1LQph86O-XImC4X9j9FhUPhXQDvtrQ==
          */
         this.pageToken = builder.pageToken;
+        /**
+         * 卡片消息返回内容类型，值为raw_card_content则返回原始jsoncard内容
+         * <p> 示例值：user_card_content
+         */
+        this.cardMsgContentType = builder.cardMsgContentType;
+        /**
+         * 话题群是否仅返回话题根消息
+         * <p> 示例值：
+         */
+        this.onlyThreadRootMessages = builder.onlyThreadRootMessages;
     }
 
     public static Builder newBuilder() {
@@ -180,6 +204,22 @@ public class ListMessageReq {
         this.pageToken = pageToken;
     }
 
+    public String getCardMsgContentType() {
+        return this.cardMsgContentType;
+    }
+
+    public void setCardMsgContentType(String cardMsgContentType) {
+        this.cardMsgContentType = cardMsgContentType;
+    }
+
+    public Boolean getOnlyThreadRootMessages() {
+        return this.onlyThreadRootMessages;
+    }
+
+    public void setOnlyThreadRootMessages(Boolean onlyThreadRootMessages) {
+        this.onlyThreadRootMessages = onlyThreadRootMessages;
+    }
+
     public static class Builder {
         private String containerIdType; // 容器类型 ，目前可选值仅有"chat"，包含单聊（p2p）和群聊（group）
         private String containerId; // 容器的id，即chat的id，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
@@ -188,6 +228,8 @@ public class ListMessageReq {
         private String sortType; // 消息排序方式
         private Integer pageSize; // 分页大小
         private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
+        private String cardMsgContentType; // 卡片消息返回内容类型，值为raw_card_content则返回原始jsoncard内容
+        private Boolean onlyThreadRootMessages; // 话题群是否仅返回话题根消息
 
         /**
          * 容器类型 ，目前可选值仅有"chat"，包含单聊（p2p）和群聊（group）
@@ -257,10 +299,10 @@ public class ListMessageReq {
          * 消息排序方式
          * <p> 示例值：ByCreateTimeAsc
          *
-         * @param sortType {@link com.lark.oapi.service.im.v1.enums.ListMessageSortTypeEnum}
+         * @param sortType {@link com.lark.oapi.service.im.v1.enums.ListMessageReadHistoryMessageV1SortTypeEnum}
          * @return
          */
-        public Builder sortType(com.lark.oapi.service.im.v1.enums.ListMessageSortTypeEnum sortType) {
+        public Builder sortType(com.lark.oapi.service.im.v1.enums.ListMessageReadHistoryMessageV1SortTypeEnum sortType) {
             this.sortType = sortType.getValue();
             return this;
         }
@@ -288,6 +330,32 @@ public class ListMessageReq {
          */
         public Builder pageToken(String pageToken) {
             this.pageToken = pageToken;
+            return this;
+        }
+
+
+        /**
+         * 卡片消息返回内容类型，值为raw_card_content则返回原始jsoncard内容
+         * <p> 示例值：user_card_content
+         *
+         * @param cardMsgContentType
+         * @return
+         */
+        public Builder cardMsgContentType(String cardMsgContentType) {
+            this.cardMsgContentType = cardMsgContentType;
+            return this;
+        }
+
+
+        /**
+         * 话题群是否仅返回话题根消息
+         * <p> 示例值：
+         *
+         * @param onlyThreadRootMessages
+         * @return
+         */
+        public Builder onlyThreadRootMessages(Boolean onlyThreadRootMessages) {
+            this.onlyThreadRootMessages = onlyThreadRootMessages;
             return this;
         }
 

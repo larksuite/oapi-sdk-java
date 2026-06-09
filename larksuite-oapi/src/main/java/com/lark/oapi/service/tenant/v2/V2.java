@@ -14,7 +14,8 @@
 package com.lark.oapi.service.tenant.v2;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.service.tenant.v2.resource.*;
+import com.lark.oapi.service.tenant.v2.resource.Tenant;
+import com.lark.oapi.service.tenant.v2.resource.TenantProductAssignInfo;
 
 public class V2 {
     private final Tenant tenant; // 企业信息

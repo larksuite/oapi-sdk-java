@@ -112,10 +112,10 @@ public class UpdateChatReq {
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
          *
-         * @param userIdType {@link com.lark.oapi.service.im.v1.enums.UpdateChatUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.im.v1.enums.UpdateChatUpdateChatUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.im.v1.enums.UpdateChatUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.im.v1.enums.UpdateChatUpdateChatUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }

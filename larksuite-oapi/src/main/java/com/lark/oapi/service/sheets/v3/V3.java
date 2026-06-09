@@ -14,7 +14,12 @@
 package com.lark.oapi.service.sheets.v3;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.service.sheets.v3.resource.*;
+import com.lark.oapi.service.sheets.v3.resource.Spreadsheet;
+import com.lark.oapi.service.sheets.v3.resource.SpreadsheetSheet;
+import com.lark.oapi.service.sheets.v3.resource.SpreadsheetSheetFilter;
+import com.lark.oapi.service.sheets.v3.resource.SpreadsheetSheetFilterView;
+import com.lark.oapi.service.sheets.v3.resource.SpreadsheetSheetFilterViewCondition;
+import com.lark.oapi.service.sheets.v3.resource.SpreadsheetSheetFloatImage;
 
 public class V3 {
     private final Spreadsheet spreadsheet; // 表格

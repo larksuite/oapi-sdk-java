@@ -25,6 +25,7 @@ public enum BaseMemberMemberTypeEnum {
     USER_ID("userid"), // 用户自定义ID
     GROUP_ID("groupid"), // 自定义用户组ID
     WIKI_SPACE_ID("wikispaceid"), // 知识空间的唯一标识
+    APP_ID("appid"), // 应用 ID
     ;
     private String value;
 

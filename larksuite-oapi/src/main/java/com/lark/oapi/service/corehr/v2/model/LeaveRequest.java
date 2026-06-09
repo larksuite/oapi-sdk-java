@@ -209,6 +209,12 @@ public class LeaveRequest {
      */
     @SerializedName("workday_extend_infos")
     private LeaveExtendItem[] workdayExtendInfos;
+    /**
+     * 请假标签配置
+     * <p> 示例值：{"tag_list":[{"key":"leave_type","values":["Annual Leave"]},{"key":"leave_term","values":["Short Leave"]}]}
+     */
+    @SerializedName("leave_tag_conf")
+    private LeaveTagConf leaveTagConf;
 
     // builder 开始
     public LeaveRequest() {
@@ -365,6 +371,11 @@ public class LeaveRequest {
          * <p> 示例值：
          */
         this.workdayExtendInfos = builder.workdayExtendInfos;
+        /**
+         * 请假标签配置
+         * <p> 示例值：{"tag_list":[{"key":"leave_type","values":["Annual Leave"]},{"key":"leave_term","values":["Short Leave"]}]}
+         */
+        this.leaveTagConf = builder.leaveTagConf;
     }
 
     public static Builder newBuilder() {
@@ -611,6 +622,14 @@ public class LeaveRequest {
         this.workdayExtendInfos = workdayExtendInfos;
     }
 
+    public LeaveTagConf getLeaveTagConf() {
+        return this.leaveTagConf;
+    }
+
+    public void setLeaveTagConf(LeaveTagConf leaveTagConf) {
+        this.leaveTagConf = leaveTagConf;
+    }
+
     public static class Builder {
         /**
          * 请假记录ID
@@ -762,6 +781,11 @@ public class LeaveRequest {
          * <p> 示例值：
          */
         private LeaveExtendItem[] workdayExtendInfos;
+        /**
+         * 请假标签配置
+         * <p> 示例值：{"tag_list":[{"key":"leave_type","values":["Annual Leave"]},{"key":"leave_term","values":["Short Leave"]}]}
+         */
+        private LeaveTagConf leaveTagConf;
 
         /**
          * 请假记录ID
@@ -1149,6 +1173,19 @@ public class LeaveRequest {
          */
         public Builder workdayExtendInfos(LeaveExtendItem[] workdayExtendInfos) {
             this.workdayExtendInfos = workdayExtendInfos;
+            return this;
+        }
+
+
+        /**
+         * 请假标签配置
+         * <p> 示例值：{"tag_list":[{"key":"leave_type","values":["Annual Leave"]},{"key":"leave_term","values":["Short Leave"]}]}
+         *
+         * @param leaveTagConf
+         * @return
+         */
+        public Builder leaveTagConf(LeaveTagConf leaveTagConf) {
+            this.leaveTagConf = leaveTagConf;
             return this;
         }
 

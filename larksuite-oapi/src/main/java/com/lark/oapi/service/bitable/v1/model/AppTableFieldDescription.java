@@ -30,14 +30,14 @@ import com.lark.oapi.core.response.BaseResponse;
 
 public class AppTableFieldDescription {
     /**
-     * 是否禁止同步，如果为true，表示禁止同步该描述内容到表单的问题描述（只在新增、修改字段时生效）
-     * <p> 示例值：ture
+     * 是否禁止同步，如果为true，表示禁止同步该描述内容到表单的问题描述
+     * <p> 示例值：true
      */
     @SerializedName("disable_sync")
     private Boolean disableSync;
     /**
-     * 字段描述内容
-     * <p> 示例值：这是一个字段描述
+     * 字段描述内容，支持换行\n
+     * <p> 示例值：请按 name_id 格式填写\n例如：“Alice_20202020”
      */
     @SerializedName("text")
     private String text;
@@ -48,13 +48,13 @@ public class AppTableFieldDescription {
 
     public AppTableFieldDescription(Builder builder) {
         /**
-         * 是否禁止同步，如果为true，表示禁止同步该描述内容到表单的问题描述（只在新增、修改字段时生效）
-         * <p> 示例值：ture
+         * 是否禁止同步，如果为true，表示禁止同步该描述内容到表单的问题描述
+         * <p> 示例值：true
          */
         this.disableSync = builder.disableSync;
         /**
-         * 字段描述内容
-         * <p> 示例值：这是一个字段描述
+         * 字段描述内容，支持换行\n
+         * <p> 示例值：请按 name_id 格式填写\n例如：“Alice_20202020”
          */
         this.text = builder.text;
     }
@@ -81,19 +81,19 @@ public class AppTableFieldDescription {
 
     public static class Builder {
         /**
-         * 是否禁止同步，如果为true，表示禁止同步该描述内容到表单的问题描述（只在新增、修改字段时生效）
-         * <p> 示例值：ture
+         * 是否禁止同步，如果为true，表示禁止同步该描述内容到表单的问题描述
+         * <p> 示例值：true
          */
         private Boolean disableSync;
         /**
-         * 字段描述内容
-         * <p> 示例值：这是一个字段描述
+         * 字段描述内容，支持换行\n
+         * <p> 示例值：请按 name_id 格式填写\n例如：“Alice_20202020”
          */
         private String text;
 
         /**
-         * 是否禁止同步，如果为true，表示禁止同步该描述内容到表单的问题描述（只在新增、修改字段时生效）
-         * <p> 示例值：ture
+         * 是否禁止同步，如果为true，表示禁止同步该描述内容到表单的问题描述
+         * <p> 示例值：true
          *
          * @param disableSync
          * @return
@@ -105,8 +105,8 @@ public class AppTableFieldDescription {
 
 
         /**
-         * 字段描述内容
-         * <p> 示例值：这是一个字段描述
+         * 字段描述内容，支持换行\n
+         * <p> 示例值：请按 name_id 格式填写\n例如：“Alice_20202020”
          *
          * @param text
          * @return

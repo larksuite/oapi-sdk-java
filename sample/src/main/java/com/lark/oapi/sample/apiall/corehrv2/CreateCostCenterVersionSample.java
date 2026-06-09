@@ -19,13 +19,15 @@ public class CreateCostCenterVersionSample {
         CreateCostCenterVersionReq req = CreateCostCenterVersionReq.newBuilder()
                 .costCenterId("6862995757234914824")
                 .userIdType("people_corehr_id")
-                .costCenterVersion(CostCenterVersion.newBuilder()
+                .createCostCenterVersionReqBody(CreateCostCenterVersionReqBody.newBuilder()
                         .name(new I18n[]{})
+                        .code("MDPD00000023")
                         .parentCostCenterId("6862995757234914824")
                         .managers(new String[]{})
                         .description(new I18n[]{})
                         .effectiveTime("2020-01-01")
                         .operationReason("过期作废")
+                        .isPreferManualEncoding(false)
                         .build())
                 .build();
 

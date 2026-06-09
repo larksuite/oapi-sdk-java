@@ -15,17 +15,23 @@ public class ChannelErrorEvent {
         this.event = event;
     }
 
-    /** Event name being processed when the error happened. */
+    /**
+     * Event name being processed when the error happened.
+     */
     public String getEventName() {
         return eventName;
     }
 
-    /** Original exception. */
+    /**
+     * Original exception.
+     */
     public Throwable getError() {
         return error;
     }
 
-    /** Event payload associated with the failure. */
+    /**
+     * Event payload associated with the failure.
+     */
     public Object getEvent() {
         return event;
     }

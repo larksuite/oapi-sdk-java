@@ -14,7 +14,11 @@
 package com.lark.oapi.service.authen.v1;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.service.authen.v1.resource.*;
+import com.lark.oapi.service.authen.v1.resource.AccessToken;
+import com.lark.oapi.service.authen.v1.resource.OidcAccessToken;
+import com.lark.oapi.service.authen.v1.resource.OidcRefreshAccessToken;
+import com.lark.oapi.service.authen.v1.resource.RefreshAccessToken;
+import com.lark.oapi.service.authen.v1.resource.UserInfo;
 
 public class V1 {
     private final AccessToken accessToken; // access_token

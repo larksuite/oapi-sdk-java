@@ -83,6 +83,27 @@ public class ListJobReq {
     @Query
     @SerializedName("job_family_id_type")
     private String jobFamilyIdType;
+    /**
+     * 招聘负责人 ID，与入参user_id_type类型一致
+     * <p> 示例值：
+     */
+    @Query
+    @SerializedName("recruiter_id_list")
+    private String[] recruiterIdList;
+    /**
+     * 用人经理 ID 列表，与入参user_id_type类型一致
+     * <p> 示例值：
+     */
+    @Query
+    @SerializedName("hiring_manager_id_list")
+    private String[] hiringManagerIdList;
+    /**
+     * 招聘协助人 ID 列表，与入参user_id_type类型一致
+     * <p> 示例值：
+     */
+    @Query
+    @SerializedName("assistant_id_list")
+    private String[] assistantIdList;
 
     // builder 开始
     public ListJobReq() {
@@ -129,6 +150,21 @@ public class ListJobReq {
          * <p> 示例值：
          */
         this.jobFamilyIdType = builder.jobFamilyIdType;
+        /**
+         * 招聘负责人 ID，与入参user_id_type类型一致
+         * <p> 示例值：
+         */
+        this.recruiterIdList = builder.recruiterIdList;
+        /**
+         * 用人经理 ID 列表，与入参user_id_type类型一致
+         * <p> 示例值：
+         */
+        this.hiringManagerIdList = builder.hiringManagerIdList;
+        /**
+         * 招聘协助人 ID 列表，与入参user_id_type类型一致
+         * <p> 示例值：
+         */
+        this.assistantIdList = builder.assistantIdList;
     }
 
     public static Builder newBuilder() {
@@ -199,6 +235,30 @@ public class ListJobReq {
         this.jobFamilyIdType = jobFamilyIdType;
     }
 
+    public String[] getRecruiterIdList() {
+        return this.recruiterIdList;
+    }
+
+    public void setRecruiterIdList(String[] recruiterIdList) {
+        this.recruiterIdList = recruiterIdList;
+    }
+
+    public String[] getHiringManagerIdList() {
+        return this.hiringManagerIdList;
+    }
+
+    public void setHiringManagerIdList(String[] hiringManagerIdList) {
+        this.hiringManagerIdList = hiringManagerIdList;
+    }
+
+    public String[] getAssistantIdList() {
+        return this.assistantIdList;
+    }
+
+    public void setAssistantIdList(String[] assistantIdList) {
+        this.assistantIdList = assistantIdList;
+    }
+
     public static class Builder {
         private String updateStartTime; // 最早更新时间，毫秒级时间戳
         private String updateEndTime; // 最晚更新时间，毫秒级时间戳
@@ -208,6 +268,9 @@ public class ListJobReq {
         private String departmentIdType; // 此次调用中使用的部门 ID 的类型
         private String jobLevelIdType; // 此次调用中使用的「职级 ID」的类型
         private String jobFamilyIdType; // 此次调用中使用的「序列 ID」的类型
+        private String[] recruiterIdList; // 招聘负责人 ID，与入参user_id_type类型一致
+        private String[] hiringManagerIdList; // 用人经理 ID 列表，与入参user_id_type类型一致
+        private String[] assistantIdList; // 招聘协助人 ID 列表，与入参user_id_type类型一致
 
         /**
          * 最早更新时间，毫秒级时间戳
@@ -309,6 +372,45 @@ public class ListJobReq {
          */
         public Builder jobFamilyIdType(String jobFamilyIdType) {
             this.jobFamilyIdType = jobFamilyIdType;
+            return this;
+        }
+
+
+        /**
+         * 招聘负责人 ID，与入参user_id_type类型一致
+         * <p> 示例值：
+         *
+         * @param recruiterIdList
+         * @return
+         */
+        public Builder recruiterIdList(String[] recruiterIdList) {
+            this.recruiterIdList = recruiterIdList;
+            return this;
+        }
+
+
+        /**
+         * 用人经理 ID 列表，与入参user_id_type类型一致
+         * <p> 示例值：
+         *
+         * @param hiringManagerIdList
+         * @return
+         */
+        public Builder hiringManagerIdList(String[] hiringManagerIdList) {
+            this.hiringManagerIdList = hiringManagerIdList;
+            return this;
+        }
+
+
+        /**
+         * 招聘协助人 ID 列表，与入参user_id_type类型一致
+         * <p> 示例值：
+         *
+         * @param assistantIdList
+         * @return
+         */
+        public Builder assistantIdList(String[] assistantIdList) {
+            this.assistantIdList = assistantIdList;
             return this;
         }
 

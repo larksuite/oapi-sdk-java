@@ -131,10 +131,10 @@ public class CreateTag {
          * 标签类型
          * <p> 示例值：tenant
          *
-         * @param tagType {@link com.lark.oapi.service.im.v2.enums.CreateTagTagTypeEnum}
+         * @param tagType {@link com.lark.oapi.service.im.v2.enums.CreateTagLarkImDatasyncEntityTagTypeEnum}
          * @return
          */
-        public Builder tagType(com.lark.oapi.service.im.v2.enums.CreateTagTagTypeEnum tagType) {
+        public Builder tagType(com.lark.oapi.service.im.v2.enums.CreateTagLarkImDatasyncEntityTagTypeEnum tagType) {
             this.tagType = tagType.getValue();
             return this;
         }
