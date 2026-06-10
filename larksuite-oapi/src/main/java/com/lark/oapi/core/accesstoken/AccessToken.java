@@ -130,8 +130,26 @@ public class AccessToken {
                     rawResponse);
         }
 
+        int code = getInt(jsonObject, "code");
+        if (code != 0) {
+            throw new AccessTokenError(rawResponse.getStatusCode(),
+                    code,
+                    getString(jsonObject, "error"),
+                    getString(jsonObject, "error_description"),
+                    rawResponse);
+        }
+
+        String accessToken = getString(jsonObject, "access_token");
+        if (Strings.isEmpty(accessToken)) {
+            throw new AccessTokenError(rawResponse.getStatusCode(),
+                    code,
+                    getString(jsonObject, "error"),
+                    "access_token is empty",
+                    rawResponse);
+        }
+
         AccessTokenRespData data = new AccessTokenRespData();
-        data.setAccessToken(getString(jsonObject, "access_token"));
+        data.setAccessToken(accessToken);
         data.setTokenType(getString(jsonObject, "token_type"));
         data.setExpiresIn(getInt(jsonObject, "expires_in"));
         data.setRefreshToken(getString(jsonObject, "refresh_token"));

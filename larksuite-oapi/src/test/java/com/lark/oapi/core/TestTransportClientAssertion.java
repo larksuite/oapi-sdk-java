@@ -1,5 +1,8 @@
 package com.lark.oapi.core;
 
+import ch.qos.logback.classic.Level;
+import ch.qos.logback.classic.spi.ILoggingEvent;
+import ch.qos.logback.core.read.ListAppender;
 import com.lark.oapi.core.auth.ClientAssertionToken;
 import com.lark.oapi.core.cache.ICache;
 import com.lark.oapi.core.enums.AppType;
@@ -11,15 +14,22 @@ import com.lark.oapi.core.response.RawResponse;
 import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.token.GlobalTokenManager;
 import com.lark.oapi.core.token.TokenManager;
+import com.lark.oapi.core.utils.Lists;
 import com.lark.oapi.core.utils.Sets;
 import org.junit.Test;
+import org.slf4j.LoggerFactory;
 
 import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.Collectors;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
 public class TestTransportClientAssertion {
 
@@ -99,7 +109,7 @@ public class TestTransportClientAssertion {
     }
 
     @Test
-    public void providerRetrieveFailureRetriesOnce() throws Exception {
+    public void providerRetrieveFailureDoesNotRetryInsideTransport() throws Exception {
         TokenManager previous = GlobalTokenManager.getTokenManager();
         try {
             CapturingTransport transport = new CapturingTransport();
@@ -108,12 +118,56 @@ public class TestTransportClientAssertion {
             FlakyTokenManager tokenManager = new FlakyTokenManager();
             GlobalTokenManager.setTokenManager(tokenManager);
 
-            Transport.send(config, null, "GET", "/resource", Sets.newHashSet(AccessTokenType.Tenant), null);
-
-            assertEquals(2, tokenManager.calls.get());
-            assertEquals("Bearer tenant-token", transport.lastRequest.getHeaders().get("Authorization").get(0));
+            try {
+                Transport.send(config, null, "GET", "/resource", Sets.newHashSet(AccessTokenType.Tenant), null);
+            } catch (ClientAssertionException e) {
+                assertEquals(Constants.ERR_CODE_CLIENT_ASSERTION_RETRIEVE_FAILED, e.getCode());
+                assertEquals(1, tokenManager.calls.get());
+                assertNull(transport.lastRequest);
+                return;
+            }
+            throw new AssertionError("expected ClientAssertionException");
         } finally {
             GlobalTokenManager.setTokenManager(previous);
+        }
+    }
+
+    @Test
+    public void debugRequestLogOmitsSensitiveHeadersAndBody() throws Exception {
+        ch.qos.logback.classic.Logger logger =
+                (ch.qos.logback.classic.Logger) LoggerFactory.getLogger(Transport.class);
+        Level previousLevel = logger.getLevel();
+        ListAppender<ILoggingEvent> appender = new ListAppender<>();
+        appender.start();
+        logger.addAppender(appender);
+        logger.setLevel(Level.DEBUG);
+        try {
+            Config config = config();
+            config.setLogReqAtDebug(true);
+            config.setHttpTransport(new CapturingTransport());
+            Map<String, java.util.List<String>> headers = new HashMap<>();
+            headers.put("Authorization", Lists.newArrayList("Bearer raw-access-token"));
+            RequestOptions options = RequestOptions.newBuilder()
+                    .headers(headers)
+                    .build();
+            Map<String, Object> body = new HashMap<>();
+            body.put("client_assertion", "raw-client-assertion");
+            body.put("client_secret", "raw-client-secret");
+            body.put("refresh_token", "raw-refresh-token");
+
+            Transport.send(config, options, "POST", "/oauth/v3/token", Sets.newHashSet(AccessTokenType.None), body);
+
+            String logs = appender.list.stream()
+                    .map(ILoggingEvent::getFormattedMessage)
+                    .collect(Collectors.joining("\n"));
+            assertFalse(logs.contains("raw-client-assertion"));
+            assertFalse(logs.contains("raw-client-secret"));
+            assertFalse(logs.contains("raw-refresh-token"));
+            assertFalse(logs.contains("raw-access-token"));
+            assertTrue(logs.contains("body:<omitted>"));
+        } finally {
+            logger.detachAppender(appender);
+            logger.setLevel(previousLevel);
         }
     }
 

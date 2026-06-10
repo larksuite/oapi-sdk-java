@@ -50,7 +50,7 @@ public class TokenManager {
     private static final Logger log = LoggerFactory.getLogger(TokenManager.class);
     private static final int expiryDeltaOfSecond = 3 * 60;
     private static final String appAccessTokenKeyPrefix = "app_access_token";
-    private static final String tenantAccessTokenKeyPrefix = "tenant_access_token";
+    private static final String tenantAccessTokenKeyPrefix = "tenant_token";
     private ICache cache;
 
     public TokenManager(ICache cache) {
@@ -146,17 +146,11 @@ public class TokenManager {
     }
 
     private String getTenantAccessTokenKey(String appID, String tenantKey) {
-        return tenantAccessTokenKeyPrefix + "-" + appID + "-" + tenantKey;
+        return tenantAccessTokenKeyPrefix + ":app_secret:" + appID + ":" + normalizeTenantKey(tenantKey);
     }
 
     public String getTenantAccessToken(Config config, String tenantKey) throws Exception {
         if (config.getClientAssertionProvider() != null) {
-            if (!config.isDisableTokenCache()) {
-                String token = cache.get(getTenantAccessTokenKey(config.getAppId(), tenantKey));
-                if (Strings.isNotEmpty(token)) {
-                    return token;
-                }
-            }
             return getTenantTokenByClientAssertion(config, tenantKey);
         }
 
@@ -187,6 +181,14 @@ public class TokenManager {
     private String getTenantTokenByClientAssertion(Config config, String tenantKey) throws Exception {
         String oauthBaseUrl = ClientAssertionUtils.resolveOAuthBaseUrl(config);
         String aud = ClientAssertionUtils.resolveOAuthAud(config);
+        String tokenKey = getClientAssertionTenantAccessTokenKey(config.getAppId(), tenantKey, aud);
+        if (!config.isDisableTokenCache()) {
+            String cachedToken = cache.get(tokenKey);
+            if (Strings.isNotEmpty(cachedToken)) {
+                return cachedToken;
+            }
+        }
+
         ClientAssertionToken assertionToken;
         try {
             assertionToken = config.getClientAssertionProvider().retrieveToken(aud);
@@ -235,10 +237,21 @@ public class TokenManager {
 
         int expiresIn = getInt(respBody, "expires_in");
         if (!config.isDisableTokenCache()) {
-            cache.set(getTenantAccessTokenKey(config.getAppId(), tenantKey), token,
+            cache.set(tokenKey, token,
                     Math.max(expiresIn - expiryDeltaOfSecond, 0), TimeUnit.SECONDS);
         }
         return token;
+    }
+
+    private String getClientAssertionTenantAccessTokenKey(String appID,
+                                                          String tenantKey,
+                                                          String aud) {
+        return tenantAccessTokenKeyPrefix + ":client_assertion:" + appID + ":"
+                + normalizeTenantKey(tenantKey) + ":" + aud;
+    }
+
+    private String normalizeTenantKey(String tenantKey) {
+        return tenantKey == null ? "" : tenantKey;
     }
 
     private JsonObject parseBody(RawResponse resp) {

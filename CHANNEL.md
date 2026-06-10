@@ -93,7 +93,7 @@ public class AgentBot {
 <dependency>
     <groupId>com.larksuite.oapi</groupId>
     <artifactId>oapi-sdk</artifactId>
-    <version>2.7.1</version>
+    <version>2.7.3</version>
 </dependency>
 ```
 

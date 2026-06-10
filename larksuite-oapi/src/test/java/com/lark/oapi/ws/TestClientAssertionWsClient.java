@@ -107,6 +107,25 @@ public class TestClientAssertionWsClient {
     }
 
     @Test
+    public void providerRetrieveFailureIsWrappedWith7102() throws Exception {
+        Client client = new Client.Builder("cli_a", "")
+                .domain("https://open.feishu.cn")
+                .clientAssertionProvider(aud -> {
+                    throw new IllegalStateException("kms down");
+                })
+                .build();
+
+        try {
+            invokeGetConnUrl(client);
+        } catch (ClientException e) {
+            assertTrue(e.toString().contains("7102"));
+            assertTrue(e.getMessage().contains("kms down"));
+            return;
+        }
+        throw new AssertionError("expected ClientException");
+    }
+
+    @Test
     public void missingCredentialsFailsWith7104() throws Exception {
         Client client = new Client.Builder("cli_a", "")
                 .domain("https://open.feishu.cn")

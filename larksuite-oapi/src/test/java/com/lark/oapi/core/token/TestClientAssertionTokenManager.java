@@ -15,6 +15,8 @@ import com.lark.oapi.core.utils.Jsons;
 import org.junit.Test;
 
 import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
@@ -46,7 +48,7 @@ public class TestClientAssertionTokenManager {
         assertEquals(Constants.CLIENT_ASSERTION_TYPE_JWT_BEARER, body.get("client_assertion_type").getAsString());
         assertEquals("client-assertion", body.get("client_assertion").getAsString());
         assertEquals("cli_a", body.get("client_id").getAsString());
-        assertEquals("tenant_access_token-cli_a-", cache.key);
+        assertEquals("tenant_token:client_assertion:cli_a::accounts.feishu.cn", cache.key);
         assertEquals("tenant-token", cache.value);
         assertEquals(7020, cache.expire);
     }
@@ -66,9 +68,25 @@ public class TestClientAssertionTokenManager {
     }
 
     @Test
-    public void cacheHitAvoidsProviderAndTransport() throws Exception {
+    public void appSecretTenantTokenUsesModeSpecificCacheKey() throws Exception {
         CapturingCache cache = new CapturingCache();
-        cache.cached = "tenant-token";
+        CapturingTransport transport = new CapturingTransport(
+                "{\"code\":0,\"tenant_access_token\":\"app-secret-token\",\"expire\":7200}");
+        Config config = config(transport);
+        config.setAppSecret("app-secret");
+
+        String token = new TokenManager(cache).getTenantAccessToken(config, "tenant-key");
+
+        assertEquals("app-secret-token", token);
+        assertEquals("tenant_token:app_secret:cli_a:tenant-key", cache.getKey);
+        assertEquals("tenant_token:app_secret:cli_a:tenant-key", cache.key);
+        assertEquals(7020, cache.expire);
+    }
+
+    @Test
+    public void clientAssertionCacheHitUsesModeSpecificKeyBeforeProviderAndAvoidsTransport() throws Exception {
+        CapturingCache cache = new CapturingCache();
+        cache.values.put("tenant_token:client_assertion:cli_a:tenant-key:accounts.feishu.cn", "tenant-token");
         CapturingTransport transport = new CapturingTransport("{}");
         AtomicInteger calls = new AtomicInteger();
         Config config = config(transport);
@@ -80,7 +98,49 @@ public class TestClientAssertionTokenManager {
         String token = new TokenManager(cache).getTenantAccessToken(config, "tenant-key");
 
         assertEquals("tenant-token", token);
-        assertEquals("tenant_access_token-cli_a-tenant-key", cache.getKey);
+        assertEquals("tenant_token:client_assertion:cli_a:tenant-key:accounts.feishu.cn", cache.getKey);
+        assertEquals(0, calls.get());
+        assertNull(transport.request);
+    }
+
+    @Test
+    public void legacyAppSecretCacheDoesNotBypassClientAssertionProvider() throws Exception {
+        CapturingCache cache = new CapturingCache();
+        cache.values.put("tenant_token:app_secret:cli_a:tenant-key", "legacy-appsecret-token");
+        CapturingTransport transport = new CapturingTransport("{\"access_token\":\"client-assertion-token\",\"expires_in\":7200}");
+        AtomicInteger calls = new AtomicInteger();
+        Config config = config(transport);
+        config.setClientAssertionProvider(aud -> {
+            calls.incrementAndGet();
+            return new ClientAssertionToken("client-assertion");
+        });
+
+        String token = new TokenManager(cache).getTenantAccessToken(config, "tenant-key");
+
+        assertEquals("client-assertion-token", token);
+        assertEquals(1, calls.get());
+        assertEquals("tenant_token:client_assertion:cli_a:tenant-key:accounts.feishu.cn", cache.getKey);
+        assertEquals("tenant_token:client_assertion:cli_a:tenant-key:accounts.feishu.cn", cache.key);
+    }
+
+    @Test
+    public void targetInfoDoesNotChangeClientAssertionCacheKey() throws Exception {
+        CapturingCache cache = new CapturingCache();
+        cache.values.put("tenant_token:client_assertion:cli_a::accounts.feishu.cn", "cached-token");
+        CapturingTransport transport = new CapturingTransport("{\"access_token\":\"proxy-token\",\"expires_in\":7200}");
+        AtomicInteger calls = new AtomicInteger();
+        Config config = config(transport);
+        config.setClientAssertionProvider(aud -> {
+            calls.incrementAndGet();
+            return new ClientAssertionToken(
+                    "client-assertion",
+                    new TargetInfo("proxy.example.com", "/proxy"));
+        });
+
+        String token = new TokenManager(cache).getTenantAccessToken(config, "");
+
+        assertEquals("cached-token", token);
+        assertEquals("tenant_token:client_assertion:cli_a::accounts.feishu.cn", cache.getKey);
         assertEquals(0, calls.get());
         assertNull(transport.request);
     }
@@ -190,7 +250,7 @@ public class TestClientAssertionTokenManager {
     }
 
     private static class CapturingCache implements ICache {
-        private String cached = "";
+        private final Map<String, String> values = new HashMap<>();
         private String getKey;
         private String key;
         private String value;
@@ -202,7 +262,8 @@ public class TestClientAssertionTokenManager {
         public String get(String key) {
             this.getKey = key;
             this.getCount++;
-            return cached;
+            String value = values.get(key);
+            return value == null ? "" : value;
         }
 
         @Override

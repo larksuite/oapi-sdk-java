@@ -371,7 +371,12 @@ public class Client {
         }
 
         String aud = ClientAssertionUtils.extractAudFromUrl(this.domain);
-        ClientAssertionToken token = this.clientAssertionProvider.retrieveToken(aud);
+        ClientAssertionToken token;
+        try {
+            token = this.clientAssertionProvider.retrieveToken(aud);
+        } catch (Exception e) {
+            throw new ClientException(Constants.ERR_CODE_CLIENT_ASSERTION_RETRIEVE_FAILED, e.getMessage(), e);
+        }
         if (token == null || Strings.isEmpty(token.getValue())) {
             throw new ClientException(Constants.ERR_CODE_CLIENT_ASSERTION_TOKEN_EMPTY,
                     "client assertion token is empty");

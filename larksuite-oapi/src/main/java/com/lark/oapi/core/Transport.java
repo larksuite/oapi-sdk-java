@@ -33,12 +33,17 @@ import org.slf4j.LoggerFactory;
 
 import java.io.InterruptedIOException;
 import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
 import java.util.Set;
 
 public class Transport {
 
     private static final Logger log = LoggerFactory.getLogger(Transport.class);
     private static final ReqTranslator REQ_TRANSLATOR = new ReqTranslator();
+    private static final String OMITTED = "<omitted>";
 
     private static AccessTokenType determineTokenType(Set<AccessTokenType> accessTokenTypeSet,
                                                       RequestOptions requestOptions, boolean disableTokenCache,
@@ -246,14 +251,58 @@ public class Transport {
 
             if (!isUpload) {
                 log.debug("req,path:{},header:{},body:{}", httpPath
-                        , Jsons.DEFAULT.toJson(req.getHeaders())
-                        , req.getBody() == null ? "" : Jsons.DEFAULT.toJson(req.getBody()));
+                        , Jsons.DEFAULT.toJson(safeHeaders(req.getHeaders()))
+                        , safeBody(req.getBody()));
             } else {
-                log.debug("req,path:{},header:{}", httpPath, req.getHeaders());
+                log.debug("req,path:{},header:{}", httpPath, safeHeaders(req.getHeaders()));
             }
         } catch (Throwable e) {
             log.error("logReq error:{}", e);
         }
+    }
+
+    private static Map<String, List<String>> safeHeaders(Map<String, List<String>> headers) {
+        Map<String, List<String>> safeHeaders = new HashMap<>();
+        if (headers == null) {
+            return safeHeaders;
+        }
+        headers.entrySet().stream().forEach(entry -> {
+            if (!isSensitiveKey(entry.getKey())) {
+                safeHeaders.put(entry.getKey(), entry.getValue());
+            }
+        });
+        return safeHeaders;
+    }
+
+    private static String safeBody(Object body) {
+        if (body == null) {
+            return "";
+        }
+        String json = Jsons.DEFAULT.toJson(body);
+        return containsSensitiveField(json) ? OMITTED : json;
+    }
+
+    private static boolean containsSensitiveField(String json) {
+        if (Strings.isEmpty(json)) {
+            return false;
+        }
+        String normalized = json.toLowerCase(Locale.ROOT);
+        return normalized.contains("\"client_secret\"")
+                || normalized.contains("\"clientassertion\"")
+                || normalized.contains("\"client_assertion\"")
+                || normalized.contains("\"refresh_token\"")
+                || normalized.contains("\"access_token\"")
+                || normalized.contains("\"tenant_access_token\"")
+                || normalized.contains("\"app_access_token\"");
+    }
+
+    private static boolean isSensitiveKey(String key) {
+        if (Strings.isEmpty(key)) {
+            return false;
+        }
+        String normalized = key.toLowerCase(Locale.ROOT);
+        return "authorization".equals(normalized)
+                || Constants.X_HELPDESK_AUTHORIZATION.toLowerCase(Locale.ROOT).equals(normalized);
     }
 
     private static RawResponse doSend(Config config, String httpMethod, String httpPath,
@@ -299,11 +348,6 @@ public class Transport {
                 return rawResponse;
             } catch (Exception e) {
                 error = e;
-                if (e instanceof ClientAssertionException
-                        && ((ClientAssertionException) e).getCode() == Constants.ERR_CODE_CLIENT_ASSERTION_RETRIEVE_FAILED
-                        && i == 0) {
-                    continue;
-                }
                 // 获取token失败，重试一次，其他请求不重试
                 if (accessTokenType != AccessTokenType.None) {
                     throw e;

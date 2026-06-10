@@ -161,6 +161,43 @@ public class TestAccessToken {
     }
 
     @Test
+    public void v3BusinessErrorWithHttp200ThrowsAccessTokenError() throws Exception {
+        CapturingTransport transport = new CapturingTransport(
+                "{\"code\":20050,\"error\":\"server_error\",\"error_description\":\"retry later\"}",
+                200);
+        Config config = providerConfig(transport);
+        config.setClientAssertionProvider(aud -> new ClientAssertionToken("client-assertion"));
+
+        try {
+            new AccessToken(config).refresh(RefreshTokenRequest.newBuilder().refreshToken("refresh-token").build());
+        } catch (AccessTokenError e) {
+            assertEquals(200, e.getStatusCode());
+            assertEquals(20050, e.getCode());
+            assertEquals("server_error", e.getErrorType());
+            assertEquals("retry later", e.getErrorDescription());
+            return;
+        }
+        throw new AssertionError("expected AccessTokenError");
+    }
+
+    @Test
+    public void v3SuccessCodeWithoutAccessTokenThrowsAccessTokenError() throws Exception {
+        CapturingTransport transport = new CapturingTransport("{\"code\":0,\"expires_in\":7200}", 200);
+        Config config = providerConfig(transport);
+        config.setClientAssertionProvider(aud -> new ClientAssertionToken("client-assertion"));
+
+        try {
+            new AccessToken(config).refresh(RefreshTokenRequest.newBuilder().refreshToken("refresh-token").build());
+        } catch (AccessTokenError e) {
+            assertEquals(200, e.getStatusCode());
+            assertEquals(0, e.getCode());
+            assertTrue(e.getMessage().contains("access_token"));
+            return;
+        }
+        throw new AssertionError("expected AccessTokenError");
+    }
+
+    @Test
     public void successResponseMapsAllTokenFields() throws Exception {
         CapturingTransport transport = new CapturingTransport(successBody(), 200);
         Config config = providerConfig(transport);
@@ -194,7 +231,7 @@ public class TestAccessToken {
     }
 
     private String successBody() {
-        return "{\"access_token\":\"oauth-access-token\",\"token_type\":\"Bearer\",\"expires_in\":7200,\"refresh_token\":\"new-refresh-token\",\"refresh_token_expires_in\":604800,\"scope\":\"contact:user.base:readonly\"}";
+        return "{\"code\":0,\"access_token\":\"oauth-access-token\",\"token_type\":\"Bearer\",\"expires_in\":7200,\"refresh_token\":\"new-refresh-token\",\"refresh_token_expires_in\":604800,\"scope\":\"contact:user.base:readonly\"}";
     }
 
     private static class CapturingTransport implements IHttpTransport {
