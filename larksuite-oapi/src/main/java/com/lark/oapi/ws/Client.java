@@ -90,7 +90,7 @@ public class Client {
         this.reconnectCount = -1;
         this.reconnectInterval = 120;
         this.pingInterval = 120;
-        this.httpClient = new OkHttpClient();
+        this.httpClient = builder.httpClient != null ? builder.httpClient : new OkHttpClient();
         this.isReconnecting = false;
         this.userClosed = false;
         this.cache = CacheBuilder.newBuilder().expireAfterWrite(5, TimeUnit.MINUTES).build();
@@ -640,6 +640,7 @@ public class Client {
         private Runnable onReconnecting;
         private Runnable onReconnected;
         private ClientAssertionProvider clientAssertionProvider;
+        private OkHttpClient httpClient;
 
         public Builder(String appId, String appSecret) {
             this.appId = appId;
@@ -676,6 +677,11 @@ public class Client {
 
         public Builder clientAssertionProvider(ClientAssertionProvider provider) {
             this.clientAssertionProvider = provider;
+            return this;
+        }
+
+        public Builder httpClient(OkHttpClient httpClient) {
+            this.httpClient = httpClient;
             return this;
         }
 

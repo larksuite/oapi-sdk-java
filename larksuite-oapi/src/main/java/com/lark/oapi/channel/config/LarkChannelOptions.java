@@ -102,6 +102,14 @@ public class LarkChannelOptions {
         return source;
     }
 
+    public ClientAssertionProvider getClientAssertionProvider() {
+        return clientAssertionProvider;
+    }
+
+    public String getOAuthBaseUrl() {
+        return oauthBaseUrl;
+    }
+
     /**
      * Whether normalized events should carry the original Feishu event body.
      *
@@ -195,6 +203,16 @@ public class LarkChannelOptions {
 
         public Builder source(String source) {
             this.source = source;
+            return this;
+        }
+
+        public Builder clientAssertionProvider(ClientAssertionProvider clientAssertionProvider) {
+            this.clientAssertionProvider = clientAssertionProvider;
+            return this;
+        }
+
+        public Builder oauthBaseUrl(String oauthBaseUrl) {
+            this.oauthBaseUrl = oauthBaseUrl;
             return this;
         }
 

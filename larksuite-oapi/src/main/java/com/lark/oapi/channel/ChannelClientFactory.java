@@ -44,8 +44,8 @@ final class ChannelClientFactory {
         return new com.lark.oapi.ws.Client.Builder(options.getAppId(), options.getAppSecret())
                 .eventHandler(eventDispatcher)
                 .domain(options.getDomain() == null ? BaseUrlEnum.FeiShu.getUrl() : options.getDomain())
-                .clientAssertionProvider(options.getClientAssertionProvider())
                 .source(options.getSource())
+                .clientAssertionProvider(options.getClientAssertionProvider())
                 .onReconnecting(new Runnable() {
                     @Override
                     public void run() {
