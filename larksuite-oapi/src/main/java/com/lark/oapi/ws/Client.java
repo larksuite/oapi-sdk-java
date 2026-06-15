@@ -3,9 +3,15 @@ package com.lark.oapi.ws;
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
 import com.lark.oapi.google.protobuf.ByteString;
+import com.lark.oapi.core.Constants;
 import com.lark.oapi.core.UserAgent;
+import com.lark.oapi.core.auth.ClientAssertionProvider;
+import com.lark.oapi.core.auth.ClientAssertionToken;
+import com.lark.oapi.core.auth.ClientAssertionUtils;
+import com.lark.oapi.core.auth.TargetInfo;
 import com.lark.oapi.core.enums.BaseUrlEnum;
 import com.lark.oapi.core.utils.Jsons;
+import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.event.EventDispatcher;
 import com.lark.oapi.event.exception.HandlerNotFoundException;
 import com.lark.oapi.okhttp.*;
@@ -15,6 +21,7 @@ import com.lark.oapi.ws.exception.ClientException;
 import com.lark.oapi.ws.exception.HeaderNotFoundException;
 import com.lark.oapi.ws.exception.ServerException;
 import com.lark.oapi.ws.exception.ServerUnreachableException;
+import com.lark.oapi.ws.model.BootstrapRequest;
 import com.lark.oapi.ws.model.ClientConfig;
 import com.lark.oapi.ws.model.Endpoint;
 import com.lark.oapi.ws.model.EndpointResp;
@@ -46,6 +53,7 @@ public class Client {
     private final String domain;
     private final String userAgent;
     private final Map<String, String> headers;
+    private final ClientAssertionProvider clientAssertionProvider;
     private final OkHttpClient httpClient;
     private final Cache<String, byte[][]> cache;
     private final Runnable onReconnecting;
@@ -73,6 +81,7 @@ public class Client {
         this.autoReconnect = builder.autoReconnect != null ? builder.autoReconnect : true;
         this.domain = builder.domain != null ? builder.domain : BaseUrlEnum.FeiShu.getUrl();
         this.userAgent = UserAgent.build(builder.source);
+        this.clientAssertionProvider = builder.clientAssertionProvider;
         this.headers = new HashMap<>();
         if (builder.headers != null) {
             this.headers.putAll(builder.headers);
@@ -81,7 +90,7 @@ public class Client {
         this.reconnectCount = -1;
         this.reconnectInterval = 120;
         this.pingInterval = 120;
-        this.httpClient = new OkHttpClient();
+        this.httpClient = builder.httpClient != null ? builder.httpClient : new OkHttpClient();
         this.isReconnecting = false;
         this.userClosed = false;
         this.cache = CacheBuilder.newBuilder().expireAfterWrite(5, TimeUnit.MINUTES).build();
@@ -306,22 +315,27 @@ public class Client {
         return this.autoReconnect && !this.userClosed;
     }
 
-    private String getConnUrl() throws IOException {
-        String body = String.format("{\"AppID\": \"%s\", \"AppSecret\": \"%s\"}", this.appId, this.appSecret);
+    private String getConnUrl() throws Exception {
+        BootstrapPreparedRequest preparedRequest = prepareBootstrapRequest();
+        String body = Jsons.DEFAULT.toJson(preparedRequest.body);
         Request.Builder requestBuilder = new Request.Builder()
-                .url(this.domain + GEN_ENDPOINT_URI);
+                .url(preparedRequest.reqUrl);
         applyHeaders(requestBuilder);
+        if (Strings.isNotEmpty(preparedRequest.targetServiceHeader)) {
+            requestBuilder.header(Constants.HEADER_X_TARGET_SERVICE, preparedRequest.targetServiceHeader);
+        }
         Request request = requestBuilder
                 .header("locale", "zh")
                 .header("User-Agent", resolvedUserAgent())
                 .post(RequestBody.create(MediaType.parse("application/json; charset=utf-8"), body))
                 .build();
         try (Response response = this.httpClient.newCall(request).execute()) {
+            String responseBody = response.body() == null ? "" : response.body().string();
             if (response.code() != 200 || response.body() == null) {
-                throw new ServerException(response.code(), "system busy");
+                throw new ServerException(response.code(), bestEndpointMessage(responseBody, "system busy"));
             }
 
-            EndpointResp resp = Jsons.DEFAULT.fromJson(response.body().string(), EndpointResp.class);
+            EndpointResp resp = Jsons.DEFAULT.fromJson(responseBody, EndpointResp.class);
             if (resp.getCode() == SYSTEM_BUSY) {
                 throw new ServerException(resp.getCode(), "system busy");
             } else if (resp.getCode() == INTERNAL_ERROR) {
@@ -339,7 +353,61 @@ public class Client {
         }
     }
 
-    private synchronized void connect() throws IOException {
+    private BootstrapPreparedRequest prepareBootstrapRequest() throws Exception {
+        BootstrapRequest body = new BootstrapRequest();
+        body.setAppId(this.appId);
+        body.setAppSecret("");
+        body.setClientAssertion("");
+        String reqUrl = this.domain + GEN_ENDPOINT_URI;
+        String targetServiceHeader = "";
+
+        if (this.clientAssertionProvider == null) {
+            if (Strings.isEmpty(this.appSecret)) {
+                throw new ClientException(Constants.ERR_CODE_APP_SECRET_AND_CLIENT_ASSERTION_EMPTY,
+                        "appSecret and clientAssertionProvider cannot both be empty");
+            }
+            body.setAppSecret(this.appSecret);
+            return new BootstrapPreparedRequest(body, reqUrl, targetServiceHeader);
+        }
+
+        String aud = ClientAssertionUtils.extractAudFromUrl(this.domain);
+        ClientAssertionToken token;
+        try {
+            token = this.clientAssertionProvider.retrieveToken(aud);
+        } catch (Exception e) {
+            throw new ClientException(Constants.ERR_CODE_CLIENT_ASSERTION_RETRIEVE_FAILED, e.getMessage(), e);
+        }
+        if (token == null || Strings.isEmpty(token.getValue())) {
+            throw new ClientException(Constants.ERR_CODE_CLIENT_ASSERTION_TOKEN_EMPTY,
+                    "client assertion token is empty");
+        }
+        body.setClientAssertion(token.getValue());
+        TargetInfo targetInfo = token.getTargetInfo();
+        if (targetInfo != null && Strings.isNotEmpty(targetInfo.getTargetService())) {
+            reqUrl = ClientAssertionUtils.buildProxyUrl(
+                    targetInfo.getTargetService(),
+                    targetInfo.getTargetPrefix(),
+                    GEN_ENDPOINT_URI);
+            targetServiceHeader = aud;
+        }
+        return new BootstrapPreparedRequest(body, reqUrl, targetServiceHeader);
+    }
+
+    private String bestEndpointMessage(String responseBody, String fallback) {
+        if (Strings.isEmpty(responseBody)) {
+            return fallback;
+        }
+        try {
+            EndpointResp resp = Jsons.DEFAULT.fromJson(responseBody, EndpointResp.class);
+            if (resp != null && Strings.isNotEmpty(resp.getMsg())) {
+                return resp.getMsg();
+            }
+        } catch (Throwable ignored) {
+        }
+        return fallback;
+    }
+
+    private synchronized void connect() throws Exception {
         if (this.conn != null) {
             return;
         }
@@ -576,6 +644,8 @@ public class Client {
         private String source;
         private Runnable onReconnecting;
         private Runnable onReconnected;
+        private ClientAssertionProvider clientAssertionProvider;
+        private OkHttpClient httpClient;
 
         public Builder(String appId, String appSecret) {
             this.appId = appId;
@@ -610,6 +680,16 @@ public class Client {
             return this;
         }
 
+        public Builder clientAssertionProvider(ClientAssertionProvider provider) {
+            this.clientAssertionProvider = provider;
+            return this;
+        }
+
+        public Builder httpClient(OkHttpClient httpClient) {
+            this.httpClient = httpClient;
+            return this;
+        }
+
         public Builder source(String source) {
             this.source = source;
             return this;
@@ -627,6 +707,18 @@ public class Client {
 
         public Client build() {
             return new Client(this);
+        }
+    }
+
+    private static class BootstrapPreparedRequest {
+        private final BootstrapRequest body;
+        private final String reqUrl;
+        private final String targetServiceHeader;
+
+        private BootstrapPreparedRequest(BootstrapRequest body, String reqUrl, String targetServiceHeader) {
+            this.body = body;
+            this.reqUrl = reqUrl;
+            this.targetServiceHeader = targetServiceHeader;
         }
     }
 }

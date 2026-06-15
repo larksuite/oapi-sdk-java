@@ -72,6 +72,7 @@ import com.lark.oapi.service.directory.DirectoryService;
 import com.lark.oapi.service.cardkit.CardkitService;
 
 import com.lark.oapi.service.ext.ExtService;
+import com.lark.oapi.core.auth.ClientAssertionProvider;
 import com.lark.oapi.core.httpclient.IHttpTransport;
 import com.lark.oapi.core.httpclient.OkHttpTransport;
 import com.lark.oapi.core.Transport;
@@ -169,6 +170,7 @@ public class Client {
     private CardkitService cardkit;
 
     private ExtService extService;
+    private com.lark.oapi.core.accesstoken.AccessToken accessToken;
 
     public static Builder newBuilder(String appId, String appSecret) {
         return new Builder(appId, appSecret);
@@ -176,6 +178,10 @@ public class Client {
 
     public ExtService ext() {
         return extService;
+    }
+
+    public com.lark.oapi.core.accesstoken.AccessToken accessToken() {
+        return accessToken;
     }
 
     public void setConfig(Config config) {
@@ -538,6 +544,16 @@ public class Client {
             return this;
         }
 
+        public Builder oauthBaseUrl(String oauthBaseUrl) {
+            config.setOAuthBaseUrl(oauthBaseUrl);
+            return this;
+        }
+
+        public Builder clientAssertionProvider(ClientAssertionProvider provider) {
+            config.setClientAssertionProvider(provider);
+            return this;
+        }
+
         public Builder tokenCache(ICache cache) {
             config.setCache(cache);
             return this;
@@ -585,6 +601,7 @@ public class Client {
             client.setConfig(config);
             initCache(config);
             initHttpTransport(config);
+            client.accessToken = new com.lark.oapi.core.accesstoken.AccessToken(config);
             client.extService = new ExtService(config);
             client.wiki = new WikiService(config);
             client.workplace = new WorkplaceService(config);

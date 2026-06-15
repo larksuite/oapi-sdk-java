@@ -14,6 +14,7 @@ package com.lark.oapi.core;
 
 
 import com.lark.oapi.core.cache.ICache;
+import com.lark.oapi.core.auth.ClientAssertionProvider;
 import com.lark.oapi.core.enums.AppType;
 import com.lark.oapi.core.enums.BaseUrlEnum;
 import com.lark.oapi.core.httpclient.IHttpTransport;
@@ -37,6 +38,8 @@ public class Config {
     private IHttpTransport httpTransport;
     private boolean logReqAtDebug;
     private String source;
+    private String oauthBaseUrl;
+    private ClientAssertionProvider clientAssertionProvider;
 
     public Config() {
         this.baseUrl = BaseUrlEnum.FeiShu.getUrl();
@@ -165,6 +168,22 @@ public class Config {
 
     public void setSource(String source) {
         this.source = source;
+    }
+
+    public String getOAuthBaseUrl() {
+        return oauthBaseUrl;
+    }
+
+    public void setOAuthBaseUrl(String oauthBaseUrl) {
+        this.oauthBaseUrl = oauthBaseUrl;
+    }
+
+    public ClientAssertionProvider getClientAssertionProvider() {
+        return clientAssertionProvider;
+    }
+
+    public void setClientAssertionProvider(ClientAssertionProvider clientAssertionProvider) {
+        this.clientAssertionProvider = clientAssertionProvider;
     }
 
 }

@@ -14,6 +14,7 @@ package com.lark.oapi.core;
 
 import com.lark.oapi.core.exception.AccessTokenNotGivenException;
 import com.lark.oapi.core.exception.ClientTimeoutException;
+import com.lark.oapi.core.exception.ClientAssertionException;
 import com.lark.oapi.core.exception.IllegalAccessTokenTypeException;
 import com.lark.oapi.core.exception.ServerTimeoutException;
 import com.lark.oapi.core.httpclient.IHttpTransport;
@@ -23,6 +24,7 @@ import com.lark.oapi.core.request.ReqTranslator;
 import com.lark.oapi.core.request.RequestOptions;
 import com.lark.oapi.core.response.RawResponse;
 import com.lark.oapi.core.token.AccessTokenType;
+import com.lark.oapi.core.enums.AppType;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.OKHttps;
 import com.lark.oapi.core.utils.Strings;
@@ -31,15 +33,46 @@ import org.slf4j.LoggerFactory;
 
 import java.io.InterruptedIOException;
 import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
 import java.util.Set;
 
 public class Transport {
 
     private static final Logger log = LoggerFactory.getLogger(Transport.class);
     private static final ReqTranslator REQ_TRANSLATOR = new ReqTranslator();
+    private static final String OMITTED = "<omitted>";
 
     private static AccessTokenType determineTokenType(Set<AccessTokenType> accessTokenTypeSet,
-                                                      RequestOptions requestOptions, boolean disableTokenCache) {
+                                                      RequestOptions requestOptions, boolean disableTokenCache,
+                                                      Config config) {
+        if (config.getClientAssertionProvider() != null) {
+            validateTokenType(accessTokenTypeSet, requestOptions);
+
+            if (Strings.isNotEmpty(requestOptions.getUserAccessToken())
+                    && accessTokenTypeSet.contains(AccessTokenType.User)) {
+                return AccessTokenType.User;
+            }
+
+            if (accessTokenTypeSet.contains(AccessTokenType.Tenant)) {
+                return AccessTokenType.Tenant;
+            }
+
+            if (accessTokenTypeSet.contains(AccessTokenType.App)) {
+                throw new ClientAssertionException(
+                        Constants.ERR_CODE_CLIENT_ASSERTION_MODE_NOT_SUPPORTED,
+                        "AppAccessToken APIs are not available in ClientAssertion mode");
+            }
+
+            if (accessTokenTypeSet.contains(AccessTokenType.None)) {
+                return AccessTokenType.None;
+            }
+
+            throw new IllegalAccessTokenTypeException();
+        }
+
         if (accessTokenTypeSet.contains(AccessTokenType.None)) {
             return AccessTokenType.None;
         }
@@ -110,7 +143,21 @@ public class Transport {
             throw new IllegalArgumentException("appId is blank");
         }
 
-        if (Strings.isEmpty(config.getAppSecret())) {
+        if (config.getClientAssertionProvider() != null
+                && config.getAppType() == AppType.MARKETPLACE) {
+            throw new ClientAssertionException(
+                    Constants.ERR_CODE_CLIENT_ASSERTION_PROVIDER_NOT_CONFIGURED,
+                    "ClientAssertion mode is not supported for marketplace apps");
+        }
+
+        boolean hasManualAccessToken =
+                (accessTokenType == AccessTokenType.User && Strings.isNotEmpty(requestOptions.getUserAccessToken()))
+                        || (accessTokenType == AccessTokenType.Tenant && Strings.isNotEmpty(requestOptions.getTenantAccessToken()))
+                        || (accessTokenType == AccessTokenType.App && Strings.isNotEmpty(requestOptions.getAppAccessToken()));
+
+        if (config.getClientAssertionProvider() == null
+                && Strings.isEmpty(config.getAppSecret())
+                && !hasManualAccessToken) {
             throw new IllegalArgumentException("appSecret is blank");
         }
 
@@ -176,7 +223,8 @@ public class Transport {
             // 确定token类型
             AccessTokenType accessTokenType = determineTokenType(accessTokenTypeSet
                     , requestOptions
-                    , config.isDisableTokenCache());
+                    , config.isDisableTokenCache()
+                    , config);
 
             // 参数校验
             validate(config, requestOptions, accessTokenType);
@@ -203,14 +251,58 @@ public class Transport {
 
             if (!isUpload) {
                 log.debug("req,path:{},header:{},body:{}", httpPath
-                        , Jsons.DEFAULT.toJson(req.getHeaders())
-                        , req.getBody() == null ? "" : Jsons.DEFAULT.toJson(req.getBody()));
+                        , Jsons.DEFAULT.toJson(safeHeaders(req.getHeaders()))
+                        , safeBody(req.getBody()));
             } else {
-                log.debug("req,path:{},header:{}", httpPath, req.getHeaders());
+                log.debug("req,path:{},header:{}", httpPath, safeHeaders(req.getHeaders()));
             }
         } catch (Throwable e) {
             log.error("logReq error:{}", e);
         }
+    }
+
+    private static Map<String, List<String>> safeHeaders(Map<String, List<String>> headers) {
+        Map<String, List<String>> safeHeaders = new HashMap<>();
+        if (headers == null) {
+            return safeHeaders;
+        }
+        headers.entrySet().stream().forEach(entry -> {
+            if (!isSensitiveKey(entry.getKey())) {
+                safeHeaders.put(entry.getKey(), entry.getValue());
+            }
+        });
+        return safeHeaders;
+    }
+
+    private static String safeBody(Object body) {
+        if (body == null) {
+            return "";
+        }
+        String json = Jsons.DEFAULT.toJson(body);
+        return containsSensitiveField(json) ? OMITTED : json;
+    }
+
+    private static boolean containsSensitiveField(String json) {
+        if (Strings.isEmpty(json)) {
+            return false;
+        }
+        String normalized = json.toLowerCase(Locale.ROOT);
+        return normalized.contains("\"client_secret\"")
+                || normalized.contains("\"clientassertion\"")
+                || normalized.contains("\"client_assertion\"")
+                || normalized.contains("\"refresh_token\"")
+                || normalized.contains("\"access_token\"")
+                || normalized.contains("\"tenant_access_token\"")
+                || normalized.contains("\"app_access_token\"");
+    }
+
+    private static boolean isSensitiveKey(String key) {
+        if (Strings.isEmpty(key)) {
+            return false;
+        }
+        String normalized = key.toLowerCase(Locale.ROOT);
+        return "authorization".equals(normalized)
+                || Constants.X_HELPDESK_AUTHORIZATION.toLowerCase(Locale.ROOT).equals(normalized);
     }
 
     private static RawResponse doSend(Config config, String httpMethod, String httpPath,

@@ -43,5 +43,6 @@ skills
 plan
 skills-lock.json
 channel-diff-tasks
-test
+/test
 docs/superpowers/plans
+doc

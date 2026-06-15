@@ -25,6 +25,12 @@ final class ChannelClientFactory {
         if (options.getSource() != null) {
             builder.source(options.getSource());
         }
+        if (options.getClientAssertionProvider() != null) {
+            builder.clientAssertionProvider(options.getClientAssertionProvider());
+        }
+        if (options.getOAuthBaseUrl() != null) {
+            builder.oauthBaseUrl(options.getOAuthBaseUrl());
+        }
         return builder.build();
     }
 
@@ -39,6 +45,7 @@ final class ChannelClientFactory {
                 .eventHandler(eventDispatcher)
                 .domain(options.getDomain() == null ? BaseUrlEnum.FeiShu.getUrl() : options.getDomain())
                 .source(options.getSource())
+                .clientAssertionProvider(options.getClientAssertionProvider())
                 .onReconnecting(new Runnable() {
                     @Override
                     public void run() {
