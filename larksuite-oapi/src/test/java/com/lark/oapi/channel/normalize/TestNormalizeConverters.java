@@ -83,6 +83,22 @@ public class TestNormalizeConverters {
         assertResource(post.getResources().get(0), "image", "img_x", null, null, null);
     }
 
+    @Test
+    public void testPostConverterPrefersContentV2AndProcessesMdElements() {
+        ConvertResult post = convert("post",
+                "{\"zh_cn\":{\"title\":\"Title\","
+                        + "\"content\":[[{\"tag\":\"text\",\"text\":\"legacy content\"}]],"
+                        + "\"content_v2\":[[{\"tag\":\"md\",\"text\":\"hello <at user_id=\\\"all\\\">All</at> ![pic](img_md)\\n```java\\n<at user_id=\\\"ou_hidden\\\">Hidden</at> ![hidden](img_hidden)\\n```\"}]]}}",
+                null);
+
+        Assert.assertTrue(post.getContent().contains("**Title**"));
+        Assert.assertTrue(post.getContent().contains("hello @all ![pic](img_md)"));
+        Assert.assertTrue(post.getContent().contains("<at user_id=\"ou_hidden\">Hidden</at> ![hidden](img_hidden)"));
+        Assert.assertFalse(post.getContent().contains("legacy content"));
+        Assert.assertEquals(1, post.getResources().size());
+        assertResource(post.getResources().get(0), "image", "img_md", null, null, null);
+    }
+
     private ConvertResult convert(String messageType, String rawContent, MentionEvent[] mentions) {
         MentionState state = Mentions.extract(mentions, rawContent, botIdentity);
         return MessageConverters.convert(messageType, rawContent, state, options, "om_test");

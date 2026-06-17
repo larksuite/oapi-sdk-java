@@ -23,33 +23,33 @@ public class TestOutboundMarkdown {
 
     @Test
     public void testMarkdownToPostAndBackToPlainText() {
-        Map<String, Object> post = MarkdownPostConverter.markdownToPost("# Title\nsee [here](https://x.com)\n`code`",
-                Arrays.asList("ou_xxx"));
+        String markdown = "# Title\nsee [here](https://x.com)\n`code`";
+        Map<String, Object> post = MarkdownPostConverter.markdownToPost(markdown, Arrays.asList("ou_xxx"));
         String plain = MarkdownPostConverter.postToPlainText(post);
 
         Map<?, ?> zh = (Map<?, ?>) post.get("zh_cn");
-        List<?> firstParagraph = (List<?>) ((List<?>) zh.get("content")).get(0);
+        List<?> content = (List<?>) zh.get("content");
+        List<?> firstParagraph = (List<?>) content.get(0);
+        Map<?, ?> md = (Map<?, ?>) ((List<?>) content.get(1)).get(0);
         Assert.assertEquals("at", ((Map<?, ?>) firstParagraph.get(0)).get("tag"));
-        Assert.assertTrue(plain.contains("Title"));
-        Assert.assertTrue(plain.contains("here"));
-        Assert.assertTrue(plain.contains("code"));
+        Assert.assertEquals("md", md.get("tag"));
+        Assert.assertEquals(markdown, md.get("text"));
+        Assert.assertTrue(plain.contains("@ou_xxx"));
+        Assert.assertTrue(plain.contains(markdown));
     }
 
     @Test
-    public void testMarkdownCodeFenceToCodeBlock() {
+    public void testMarkdownCodeFenceIsPreservedAsRawMd() {
         String markdown = "before\n```java\npublic class Demo {\n    int value = 1;\n}\n```\nafter";
         Map<String, Object> post = MarkdownPostConverter.markdownToPost(markdown, null);
         String plain = MarkdownPostConverter.postToPlainText(post);
 
         Map<?, ?> zh = (Map<?, ?>) post.get("zh_cn");
         List<?> content = (List<?>) zh.get("content");
-        Map<?, ?> codeBlock = (Map<?, ?>) ((List<?>) content.get(1)).get(0);
-        Assert.assertEquals("code_block", codeBlock.get("tag"));
-        Assert.assertEquals("java", codeBlock.get("language"));
-        Assert.assertEquals("public class Demo {\n    int value = 1;\n}", codeBlock.get("text"));
-        Assert.assertTrue(plain.contains("```java"));
-        Assert.assertTrue(plain.contains("int value = 1;"));
-        Assert.assertTrue(plain.contains("```"));
+        Map<?, ?> md = (Map<?, ?>) ((List<?>) content.get(0)).get(0);
+        Assert.assertEquals("md", md.get("tag"));
+        Assert.assertEquals(markdown, md.get("text"));
+        Assert.assertEquals(markdown, plain);
     }
 
     @Test
