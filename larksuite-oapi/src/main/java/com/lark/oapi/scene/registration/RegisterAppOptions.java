@@ -7,6 +7,9 @@ public class RegisterAppOptions {
     private String domain;
     private String larkDomain;
     private AppPreset appPreset;
+    private AppAddons addons;
+    private String appId;
+    private boolean createOnly;
     private Consumer<QRCodeInfo> onQRCode;
     private Consumer<StatusChangeInfo> onStatusChange;
 
@@ -31,6 +34,18 @@ public class RegisterAppOptions {
 
     public AppPreset getAppPreset() {
         return appPreset;
+    }
+
+    public AppAddons getAddons() {
+        return addons;
+    }
+
+    public String getAppId() {
+        return appId;
+    }
+
+    public boolean isCreateOnly() {
+        return createOnly;
     }
 
     public Consumer<QRCodeInfo> getOnQRCode() {
@@ -61,6 +76,21 @@ public class RegisterAppOptions {
 
         public Builder appPreset(AppPreset appPreset) {
             options.appPreset = appPreset;
+            return this;
+        }
+
+        public Builder addons(AppAddons addons) {
+            options.addons = addons;
+            return this;
+        }
+
+        public Builder appId(String appId) {
+            options.appId = appId;
+            return this;
+        }
+
+        public Builder createOnly(boolean createOnly) {
+            options.createOnly = createOnly;
             return this;
         }
 

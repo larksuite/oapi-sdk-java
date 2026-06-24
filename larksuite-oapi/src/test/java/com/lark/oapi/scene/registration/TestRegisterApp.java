@@ -24,12 +24,15 @@
 
 package com.lark.oapi.scene.registration;
 
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
 import com.lark.oapi.okhttp.HttpUrl;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
 import org.junit.Test;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -39,12 +42,14 @@ import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Base64;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.zip.GZIPInputStream;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -54,6 +59,12 @@ import static org.junit.Assert.fail;
 public class TestRegisterApp {
 
     private static HttpUrl captureQRCodeUrl(AppPreset appPreset, String source) throws Exception {
+        return captureQRCodeUrl(RegisterAppOptions.newBuilder()
+                .source(source)
+                .appPreset(appPreset));
+    }
+
+    private static HttpUrl captureQRCodeUrl(RegisterAppOptions.Builder optionsBuilder) throws Exception {
         RegistrationTestServer server = new RegistrationTestServer();
         try {
             server.enqueueBegin(
@@ -69,10 +80,8 @@ public class TestRegisterApp {
             );
 
             List<QRCodeInfo> qrCodes = new ArrayList<>();
-            RegisterApp.register(RegisterAppOptions.newBuilder()
+            RegisterApp.register(optionsBuilder
                     .domain(server.baseUrl())
-                    .source(source)
-                    .appPreset(appPreset)
                     .onQRCode(qrCodes::add)
                     .build());
 
@@ -110,6 +119,69 @@ public class TestRegisterApp {
         }
     }
 
+    private static void assertInvalidOptions(RegisterAppOptions.Builder optionsBuilder, String expectedDescription)
+            throws Exception {
+        RegistrationTestServer server = new RegistrationTestServer();
+        try {
+            server.enqueueBegin(
+                    200,
+                    "{\"device_code\":\"dev_code\",\"verification_uri_complete\":\""
+                            + server.baseUrl()
+                            + "/verify\",\"interval\":1,\"expire_in\":600}"
+            );
+
+            try {
+                RegisterApp.register(optionsBuilder
+                        .domain(server.baseUrl())
+                        .onQRCode(info -> {
+                        })
+                        .build());
+                fail("Expected RegisterAppException");
+            } catch (RegisterAppException e) {
+                assertEquals("invalid_argument", e.getCode());
+                assertEquals(expectedDescription, e.getDescription());
+            }
+        } finally {
+            server.close();
+        }
+    }
+
+    private static void assertInvalidOptionsWithoutRequest(RegisterAppOptions.Builder optionsBuilder,
+                                                           String expectedDescription) throws Exception {
+        try {
+            RegisterApp.register(optionsBuilder
+                    .onQRCode(info -> {
+                    })
+                    .build());
+            fail("Expected RegisterAppException");
+        } catch (RegisterAppException e) {
+            assertEquals("invalid_argument", e.getCode());
+            assertEquals(expectedDescription, e.getDescription());
+        }
+    }
+
+    private static JsonElement decodeAddonsParam(HttpUrl url) throws IOException {
+        String encoded = url.queryParameter("addons");
+        assertNotNull(encoded);
+        int paddingLength = (4 - encoded.length() % 4) % 4;
+        String padded = encoded + "====".substring(0, paddingLength);
+        byte[] compressed = Base64.getUrlDecoder().decode(padded);
+
+        try (GZIPInputStream gzipInputStream = new GZIPInputStream(new ByteArrayInputStream(compressed));
+             ByteArrayOutputStream outputStream = new ByteArrayOutputStream()) {
+            byte[] buffer = new byte[256];
+            int read;
+            while ((read = gzipInputStream.read(buffer)) != -1) {
+                outputStream.write(buffer, 0, read);
+            }
+            return JsonParser.parseString(outputStream.toString(StandardCharsets.UTF_8.name()));
+        }
+    }
+
+    private static JsonElement json(String value) {
+        return JsonParser.parseString(value);
+    }
+
     @Test
     public void testRegisterAppOmitsAppPresetWhenNotProvided() throws Exception {
         HttpUrl qrUrl = captureQRCodeUrl(null, null);
@@ -121,6 +193,9 @@ public class TestRegisterApp {
         assertTrue(qrUrl.queryParameterValues("avatar").isEmpty());
         assertEquals(null, qrUrl.queryParameter("name"));
         assertEquals(null, qrUrl.queryParameter("desc"));
+        assertEquals(null, qrUrl.queryParameter("addons"));
+        assertEquals(null, qrUrl.queryParameter("createOnly"));
+        assertEquals(null, qrUrl.queryParameter("clientID"));
     }
 
     @Test
@@ -263,6 +338,111 @@ public class TestRegisterApp {
                         .avatars(Arrays.asList("https://example.com/a.png", null))
                         .build(),
                 "appPreset.avatar[1] must be a non-empty string");
+    }
+
+    @Test
+    public void testRegisterAppEncodesAddonsIntoUrlSafeParam() throws Exception {
+        AppAddons addons = AppAddons.newBuilder()
+                .tenantScopes("im:message:send_as_bot")
+                .userScopes("calendar:calendar:read")
+                .tenantEvents("im.message.receive_v1")
+                .userEvents("calendar.calendar.event.changed_v4")
+                .callbacks("card.action.trigger")
+                .build();
+
+        HttpUrl qrUrl = captureQRCodeUrl(RegisterAppOptions.newBuilder()
+                .addons(addons));
+
+        assertTrue(qrUrl.queryParameter("addons").matches("^[A-Za-z0-9_-]+$"));
+        assertEquals(json("{"
+                        + "\"scopes\":{"
+                        + "\"tenant\":[\"im:message:send_as_bot\"],"
+                        + "\"user\":[\"calendar:calendar:read\"]"
+                        + "},"
+                        + "\"events\":{\"items\":{"
+                        + "\"tenant\":[\"im.message.receive_v1\"],"
+                        + "\"user\":[\"calendar.calendar.event.changed_v4\"]"
+                        + "}},"
+                        + "\"callbacks\":{\"items\":[\"card.action.trigger\"]}"
+                        + "}"),
+                decodeAddonsParam(qrUrl));
+    }
+
+    @Test
+    public void testRegisterAppAddonsCoexistsWithPresetAndCreateOnly() throws Exception {
+        HttpUrl qrUrl = captureQRCodeUrl(RegisterAppOptions.newBuilder()
+                .addons(AppAddons.newBuilder()
+                        .tenantScopes("im:message:send_as_bot")
+                        .build())
+                .appPreset(AppPreset.newBuilder()
+                        .name("MyApp")
+                        .build())
+                .createOnly(true));
+
+        assertEquals(json("{\"scopes\":{\"tenant\":[\"im:message:send_as_bot\"]}}"),
+                decodeAddonsParam(qrUrl));
+        assertEquals("MyApp", qrUrl.queryParameter("name"));
+        assertEquals("true", qrUrl.queryParameter("createOnly"));
+    }
+
+    @Test
+    public void testRegisterAppRejectsEmptyAddons() throws Exception {
+        assertInvalidOptions(RegisterAppOptions.newBuilder()
+                        .addons(AppAddons.newBuilder().build()),
+                "addons must contain at least one scope, event or callback");
+    }
+
+    @Test
+    public void testRegisterAppRejectsEmptyAddonsItemWithIndex() throws Exception {
+        assertInvalidOptions(RegisterAppOptions.newBuilder()
+                        .addons(AppAddons.newBuilder()
+                                .callbacks("card.action.trigger", "")
+                                .build()),
+                "addons.callbacks.items[1] must be a non-empty string");
+    }
+
+    @Test
+    public void testRegisterAppSetsClientIdFromAppId() throws Exception {
+        HttpUrl qrUrl = captureQRCodeUrl(RegisterAppOptions.newBuilder()
+                .appId("cli_a1b2c3"));
+
+        assertEquals("cli_a1b2c3", qrUrl.queryParameter("clientID"));
+    }
+
+    @Test
+    public void testRegisterAppCombinesAppIdWithAddons() throws Exception {
+        HttpUrl qrUrl = captureQRCodeUrl(RegisterAppOptions.newBuilder()
+                .appId("cli_a1b2c3")
+                .addons(AppAddons.newBuilder()
+                        .tenantScopes("drive:drive.metadata:readonly")
+                        .build()));
+
+        assertEquals("cli_a1b2c3", qrUrl.queryParameter("clientID"));
+        assertEquals(json("{\"scopes\":{\"tenant\":[\"drive:drive.metadata:readonly\"]}}"),
+                decodeAddonsParam(qrUrl));
+    }
+
+    @Test
+    public void testRegisterAppRejectsEmptyAppId() throws Exception {
+        assertInvalidOptionsWithoutRequest(RegisterAppOptions.newBuilder()
+                        .appId(""),
+                "appId must be a non-empty string");
+    }
+
+    @Test
+    public void testRegisterAppSetsCreateOnlyWhenEnabled() throws Exception {
+        HttpUrl qrUrl = captureQRCodeUrl(RegisterAppOptions.newBuilder()
+                .createOnly(true));
+
+        assertEquals("true", qrUrl.queryParameter("createOnly"));
+    }
+
+    @Test
+    public void testRegisterAppOmitsCreateOnlyWhenDisabled() throws Exception {
+        HttpUrl qrUrl = captureQRCodeUrl(RegisterAppOptions.newBuilder()
+                .createOnly(false));
+
+        assertEquals(null, qrUrl.queryParameter("createOnly"));
     }
 
     @Test

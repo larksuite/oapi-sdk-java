@@ -51,6 +51,9 @@ public final class RegisterApp {
         if (opts.getOnQRCode() == null) {
             throw new RegisterAppException(ERROR_INVALID_ARGUMENT, "onQRCode is required");
         }
+        if (opts.getAppId() != null && Strings.isEmpty(opts.getAppId())) {
+            throw new RegisterAppException(ERROR_INVALID_ARGUMENT, "appId must be a non-empty string");
+        }
 
         String domain = Strings.isEmpty(opts.getDomain()) ? DEFAULT_FEISHU_DOMAIN : opts.getDomain();
         String larkDomain = Strings.isEmpty(opts.getLarkDomain()) ? DEFAULT_LARK_DOMAIN : opts.getLarkDomain();
@@ -67,7 +70,10 @@ public final class RegisterApp {
         String qrCodeUrl = buildQRCodeUrl(
                 beginResponse.verification_uri_complete,
                 opts.getSource(),
-                opts.getAppPreset()
+                opts.getAppPreset(),
+                opts.getAddons(),
+                opts.isCreateOnly(),
+                opts.getAppId()
         );
 
         opts.getOnQRCode().accept(new QRCodeInfo(qrCodeUrl, expireSeconds));
@@ -162,7 +168,12 @@ public final class RegisterApp {
                 .build();
     }
 
-    private static String buildQRCodeUrl(String verificationUriComplete, String source, AppPreset appPreset)
+    private static String buildQRCodeUrl(String verificationUriComplete,
+                                         String source,
+                                         AppPreset appPreset,
+                                         AppAddons addons,
+                                         boolean createOnly,
+                                         String appId)
             throws RegisterAppException {
         try {
             HttpUrl.Builder builder = HttpUrl.get(verificationUriComplete).newBuilder();
@@ -170,6 +181,13 @@ public final class RegisterApp {
             builder.setQueryParameter("source", Strings.isEmpty(source) ? SDK_NAME : SDK_NAME + "/" + source);
             builder.setQueryParameter("tp", "sdk");
             applyAppPreset(builder, appPreset);
+            applyAddons(builder, addons);
+            if (createOnly) {
+                builder.setQueryParameter("createOnly", "true");
+            }
+            if (Strings.isNotEmpty(appId)) {
+                builder.setQueryParameter("clientID", appId);
+            }
             return builder.build().toString();
         } catch (IllegalArgumentException e) {
             throw new RegisterAppException(ERROR_INVALID_RESPONSE, "invalid verification url");
@@ -208,6 +226,13 @@ public final class RegisterApp {
         if (appPreset.getDesc() != null) {
             builder.setQueryParameter("desc", appPreset.getDesc());
         }
+    }
+
+    private static void applyAddons(HttpUrl.Builder builder, AppAddons addons) throws RegisterAppException {
+        if (addons == null) {
+            return;
+        }
+        builder.setQueryParameter("addons", AppAddonsEncoder.encode(addons));
     }
 
     private static void notifyStatus(Consumer<StatusChangeInfo> callback, StatusChangeInfo info) {
