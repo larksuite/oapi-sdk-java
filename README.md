@@ -87,6 +87,41 @@ Real runnable demo:
 - [RegisterAppRealDemo](larksuite-oapi/src/test/java/com/lark/oapi/scene/registration/RegisterAppRealDemo.java)
 - [RegisterAppAppPresetE2E](sample/src/main/java/com/lark/oapi/sample/scene/registration/RegisterAppAppPresetE2E.java)
 
+### Custom scopes/events/callbacks and updating an existing app
+
+When creating an app, use `addons` to incrementally request scopes, event subscriptions and callbacks on top of the platform base template. They are pre-filled into the confirm page shown after the user opens the verification URL, and take effect after the user confirms:
+
+```java
+import com.lark.oapi.scene.registration.AppAddons;
+
+// Create: incrementally request scopes/events/callbacks, and only allow creating a new app.
+RegisterApp.register(RegisterAppOptions.newBuilder()
+        .addons(AppAddons.newBuilder()
+                .tenantScopes("im:message:send_as_bot")
+                .userScopes("calendar:calendar:read")
+                .tenantEvents("im.message.receive_v1")
+                .callbacks("card.action.trigger")
+                .build())
+        .createOnly(true)
+        .onQRCode(info -> System.out.println(info.getUrl()))
+        .build());
+
+// Update: pass the appId of an existing app to let the user confirm incremental config changes.
+RegisterApp.register(RegisterAppOptions.newBuilder()
+        .appId("cli_xxx")
+        .addons(AppAddons.newBuilder()
+                .tenantScopes("drive:drive.metadata:readonly")
+                .build())
+        .onQRCode(info -> System.out.println(info.getUrl()))
+        .build());
+```
+
+Notes:
+
+- `addons` is additive only. Items are merged on top of the base template; base permissions cannot be removed.
+- Only the 5 public config types are supported: tenant/user scopes, tenant/user events, and callbacks. Sensitive config such as event request URLs, `security.*`, and encrypt keys cannot travel through `addons`; use the [update application config OpenAPI](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v7/application-v7/application-config/patch) instead.
+- The SDK validates the shape and non-empty values, not whether scope/event/callback names exist in the platform catalog.
+
 ### `RegisterAppOptions` parameters
 
 | Parameter | Description | Type | Required | Default |
@@ -98,6 +133,14 @@ Real runnable demo:
 | `appPreset.avatar` | App avatar URL candidates. Supports 1-6 URLs; the first one is selected by default. Page/server handles image rendering rules such as png/jpg/jpeg/webp/gif and GIF frame sampling. | `String` / `String[]` / `List<String>` | No | - |
 | `appPreset.name` | App name. Supports the `{user}` placeholder, replaced by the app creation page with the scanning user's name. | `String` | No | - |
 | `appPreset.desc` | App description. Supports the `{user}` placeholder. | `String` | No | - |
+| `addons` | Incremental scopes/events/callbacks pre-filled into the confirm page. | `AppAddons` | No | - |
+| `addons.scopes.tenant` | App-identity scopes, for example `im:message:send_as_bot`. | `String[]` / `List<String>` | No | - |
+| `addons.scopes.user` | User-identity scopes, for example `calendar:calendar:read`. | `String[]` / `List<String>` | No | - |
+| `addons.events.items.tenant` | App-identity events, for example `im.message.receive_v1`. | `String[]` / `List<String>` | No | - |
+| `addons.events.items.user` | User-identity events, for example `calendar.calendar.event.changed_v4`. | `String[]` / `List<String>` | No | - |
+| `addons.callbacks.items` | Callbacks, for example `card.action.trigger`. | `String[]` / `List<String>` | No | - |
+| `createOnly` | When `true`, the landing page only allows creating a new app and hides the select-existing-app entry. | `boolean` | No | `false` |
+| `appId` | App ID (`cli_` prefix) of an existing app. When set, the flow updates that app's config by asking the user to confirm the diff brought by `addons`. The page ignores it when `createOnly` is `true`. | `String` | No | - |
 | `onQRCode` | Callback when the verification URL is ready. Receives `QRCodeInfo` with `url` and `expireIn` | `Consumer<QRCodeInfo>` | Yes | - |
 | `onStatusChange` | Callback on polling status changes. Receives `StatusChangeInfo` | `Consumer<StatusChangeInfo>` | No | - |
 

@@ -153,6 +153,41 @@ public class Sample {
 - [RegisterAppRealDemo](larksuite-oapi/src/test/java/com/lark/oapi/scene/registration/RegisterAppRealDemo.java)
 - [RegisterAppAppPresetE2E](sample/src/main/java/com/lark/oapi/sample/scene/registration/RegisterAppAppPresetE2E.java)
 
+#### 自定义权限/事件/回调与更新已有应用
+
+创建应用时，可以通过 `addons` 在平台基础模板上增量申请权限、事件订阅和回调。这些配置会预填到用户打开验证链接后的确认页中，用户确认后生效：
+
+```java
+import com.lark.oapi.scene.registration.AppAddons;
+
+// 创建：增量申请权限/事件/回调，且只允许创建新应用。
+RegisterApp.register(RegisterAppOptions.newBuilder()
+        .addons(AppAddons.newBuilder()
+                .tenantScopes("im:message:send_as_bot")
+                .userScopes("calendar:calendar:read")
+                .tenantEvents("im.message.receive_v1")
+                .callbacks("card.action.trigger")
+                .build())
+        .createOnly(true)
+        .onQRCode(info -> System.out.println(info.getUrl()))
+        .build());
+
+// 更新：传入已有应用的 appId，让用户确认增量配置变更。
+RegisterApp.register(RegisterAppOptions.newBuilder()
+        .appId("cli_xxx")
+        .addons(AppAddons.newBuilder()
+                .tenantScopes("drive:drive.metadata:readonly")
+                .build())
+        .onQRCode(info -> System.out.println(info.getUrl()))
+        .build());
+```
+
+注意：
+
+- `addons` 仅支持增量叠加，不能删减基础模板里的权限。
+- 仅支持 5 类公开配置：应用/用户身份权限、应用/用户身份事件、回调。事件请求 URL、`security.*`、加密 key 等敏感配置不能通过 `addons` 传入，需要使用[更新应用开发配置 OpenAPI](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v7/application-v7/application-config/patch)。
+- SDK 校验数据形状和非空值，不校验权限点/事件/回调名称是否存在于平台目录。
+
 #### `RegisterAppOptions` 参数
 
 | 参数 | 描述 | 类型 | 必须 | 默认 |
@@ -164,6 +199,14 @@ public class Sample {
 | `appPreset.avatar` | 应用头像候选 URL，支持 1-6 个；传多个时默认选中第一个。图片格式、GIF 截帧、裁切和展示由页面/服务端处理。 | `String` / `String[]` / `List<String>` | 否 | - |
 | `appPreset.name` | 应用名称，支持 `{user}` 占位符，由应用创建页替换为扫码用户名称。 | `String` | 否 | - |
 | `appPreset.desc` | 应用描述，支持 `{user}` 占位符。 | `String` | 否 | - |
+| `addons` | 增量权限/事件/回调配置，预填到确认页。 | `AppAddons` | 否 | - |
+| `addons.scopes.tenant` | 应用身份权限列表，例如 `im:message:send_as_bot`。 | `String[]` / `List<String>` | 否 | - |
+| `addons.scopes.user` | 用户身份权限列表，例如 `calendar:calendar:read`。 | `String[]` / `List<String>` | 否 | - |
+| `addons.events.items.tenant` | 应用身份事件列表，例如 `im.message.receive_v1`。 | `String[]` / `List<String>` | 否 | - |
+| `addons.events.items.user` | 用户身份事件列表，例如 `calendar.calendar.event.changed_v4`。 | `String[]` / `List<String>` | 否 | - |
+| `addons.callbacks.items` | 回调列表，例如 `card.action.trigger`。 | `String[]` / `List<String>` | 否 | - |
+| `createOnly` | 为 `true` 时落地页仅允许创建新应用，并隐藏选择已有应用入口。 | `boolean` | 否 | `false` |
+| `appId` | 已有应用的 App ID（`cli_` 前缀）。传入后流程会让用户确认 `addons` 带来的配置 diff。`createOnly` 为 `true` 时页面会忽略该参数。 | `String` | 否 | - |
 | `onQRCode` | 验证链接就绪时的回调，参数为 `QRCodeInfo`，包含 `url` 和 `expireIn` | `Consumer<QRCodeInfo>` | 是 | - |
 | `onStatusChange` | 轮询状态变化时的回调，参数为 `StatusChangeInfo` | `Consumer<StatusChangeInfo>` | 否 | - |
 
