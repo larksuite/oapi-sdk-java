@@ -1,0 +1,21 @@
+larksuite-oapi/src/main/java/com/lark/oapi/channel/LarkChannel.java
+  s_47903f2387f034::t_5af74a814be398 90-96,98-104,107-132
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.5",
+  "base_commit_sha": "0abd95018a65e74b9e268278d783a48fad8ff3ba",
+  "prompts": {},
+  "sessions": {
+    "s_47903f2387f034": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "2b3e2b77-1f7f-4119-972a-3c78e44e417c",
+        "model": "unknown"
+      },
+      "human_author": "mazhe.nerd <mazhe.nerd@bytedance.com>"
+    }
+  },
+  "attestation_metadata": {},
+  "remote_transcripts": {}
+}
