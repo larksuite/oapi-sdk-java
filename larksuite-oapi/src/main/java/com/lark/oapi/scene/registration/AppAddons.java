@@ -36,8 +36,14 @@ import java.util.List;
  * platform page: tenant and user scopes, tenant and user events, and callbacks.
  * Sensitive manifest config such as event request URLs, security settings, and
  * encrypt keys must be updated through the application config OpenAPI instead.</p>
+ *
+ * <p>The top-level {@code preset} flag selects the base template: unset or
+ * {@code true} keeps the platform default template, while {@code false}
+ * switches to the minimal base template so the page only shows the config
+ * declared in the addons.</p>
  */
 public class AppAddons {
+    private Boolean preset;
     private Scopes scopes;
     private Events events;
     private Callbacks callbacks;
@@ -47,6 +53,10 @@ public class AppAddons {
 
     public static Builder newBuilder() {
         return new Builder();
+    }
+
+    public Boolean getPreset() {
+        return preset;
     }
 
     public Scopes getScopes() {
@@ -117,6 +127,11 @@ public class AppAddons {
 
     public static class Builder {
         private final AppAddons addons = new AppAddons();
+
+        public Builder preset(boolean preset) {
+            addons.preset = preset;
+            return this;
+        }
 
         public Builder tenantScopes(String... scopes) {
             return tenantScopes(toList(scopes));

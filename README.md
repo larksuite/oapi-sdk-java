@@ -114,11 +114,22 @@ RegisterApp.register(RegisterAppOptions.newBuilder()
                 .build())
         .onQRCode(info -> System.out.println(info.getUrl()))
         .build());
+
+// Minimal base: preset(false) switches the base to the minimal template, so the
+// confirm page only shows the config declared here. Incremental items may be empty.
+RegisterApp.register(RegisterAppOptions.newBuilder()
+        .addons(AppAddons.newBuilder()
+                .preset(false)
+                .tenantScopes("im:message:send_as_bot")
+                .build())
+        .onQRCode(info -> System.out.println(info.getUrl()))
+        .build());
 ```
 
 Notes:
 
 - `addons` is additive only. Items are merged on top of the base template; base permissions cannot be removed.
+- `addons.preset` selects the base template: unset or `true` keeps the platform default template (with its default scopes/events/callbacks); `false` switches to the minimal base template (bot capability only, no business scopes), so the final config is fully declared by `addons`. With `preset(false)`, `addons` may contain no incremental items at all.
 - Only the 5 public config types are supported: tenant/user scopes, tenant/user events, and callbacks. Sensitive config such as event request URLs, `security.*`, and encrypt keys cannot travel through `addons`; use the [update application config OpenAPI](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v7/application-v7/application-config/patch) instead.
 - The SDK validates the shape and non-empty values, not whether scope/event/callback names exist in the platform catalog.
 
@@ -134,6 +145,7 @@ Notes:
 | `appPreset.name` | App name. Supports the `{user}` placeholder, replaced by the app creation page with the scanning user's name. | `String` | No | - |
 | `appPreset.desc` | App description. Supports the `{user}` placeholder. | `String` | No | - |
 | `addons` | Incremental scopes/events/callbacks pre-filled into the confirm page. | `AppAddons` | No | - |
+| `addons.preset` | Base template switch. Unset or `true` keeps the platform default template; `false` switches to the minimal base template so only the config declared in `addons` is shown. | `boolean` | No | Platform default template |
 | `addons.scopes.tenant` | App-identity scopes, for example `im:message:send_as_bot`. | `String[]` / `List<String>` | No | - |
 | `addons.scopes.user` | User-identity scopes, for example `calendar:calendar:read`. | `String[]` / `List<String>` | No | - |
 | `addons.events.items.tenant` | App-identity events, for example `im.message.receive_v1`. | `String[]` / `List<String>` | No | - |

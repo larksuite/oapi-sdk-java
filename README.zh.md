@@ -180,11 +180,22 @@ RegisterApp.register(RegisterAppOptions.newBuilder()
                 .build())
         .onQRCode(info -> System.out.println(info.getUrl()))
         .build());
+
+// 最小底座：preset(false) 把底座切换为最小基础模板，确认页只展示 addons 中显式声明的配置。
+// 此时增量项可以为空。
+RegisterApp.register(RegisterAppOptions.newBuilder()
+        .addons(AppAddons.newBuilder()
+                .preset(false)
+                .tenantScopes("im:message:send_as_bot")
+                .build())
+        .onQRCode(info -> System.out.println(info.getUrl()))
+        .build());
 ```
 
 注意：
 
 - `addons` 仅支持增量叠加，不能删减基础模板里的权限。
+- `addons.preset` 控制底座模板：缺省或 `true` 保留平台默认模板（含默认权限/事件/回调）；`false` 切换为最小基础模板（仅机器人能力，无业务权限），最终配置完全由 `addons` 声明。`preset(false)` 时增量项可以全部为空。
 - 仅支持 5 类公开配置：应用/用户身份权限、应用/用户身份事件、回调。事件请求 URL、`security.*`、加密 key 等敏感配置不能通过 `addons` 传入，需要使用[更新应用开发配置 OpenAPI](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v7/application-v7/application-config/patch)。
 - SDK 校验数据形状和非空值，不校验权限点/事件/回调名称是否存在于平台目录。
 
@@ -200,6 +211,7 @@ RegisterApp.register(RegisterAppOptions.newBuilder()
 | `appPreset.name` | 应用名称，支持 `{user}` 占位符，由应用创建页替换为扫码用户名称。 | `String` | 否 | - |
 | `appPreset.desc` | 应用描述，支持 `{user}` 占位符。 | `String` | 否 | - |
 | `addons` | 增量权限/事件/回调配置，预填到确认页。 | `AppAddons` | 否 | - |
+| `addons.preset` | 底座模板开关。缺省或 `true` 保留平台默认模板；`false` 切换为最小基础模板，确认页只展示 `addons` 中显式声明的配置。 | `boolean` | 否 | 平台默认模板 |
 | `addons.scopes.tenant` | 应用身份权限列表，例如 `im:message:send_as_bot`。 | `String[]` / `List<String>` | 否 | - |
 | `addons.scopes.user` | 用户身份权限列表，例如 `calendar:calendar:read`。 | `String[]` / `List<String>` | 否 | - |
 | `addons.events.items.tenant` | 应用身份事件列表，例如 `im.message.receive_v1`。 | `String[]` / `List<String>` | 否 | - |
