@@ -87,28 +87,49 @@ public class LarkChannel {
         if (connectPromise != null) {
             return connectPromise;
         }
-        connectPromise = CompletableFuture.supplyAsync(() -> {
+        // Publish the promise before the async work starts: a connect attempt
+        // that fails synchronously fast would otherwise clear the field on the
+        // worker thread first, only to be overwritten by this method's own
+        // assignment — leaving a stale failed future that poisons every retry.
+        CompletableFuture<BotIdentity> promise = new CompletableFuture<>();
+        connectPromise = promise;
+        CompletableFuture.runAsync(() -> {
             try {
-                // Feishu message normalization needs the bot open_id to strip
-                // self-mentions and evaluate "must mention bot" policies.
-                BotIdentity identity = fetchBotIdentity();
-                botIdentity = identity;
-                safetyPipeline.setBotIdentity(identity);
-                if (rawWsClient != null) {
-                    rawWsClient.start();
-                    // Connect only resolves after the first WebSocket
-                    // handshake is actually ready, not merely after the client
-                    // has been constructed.
-                    awaitWebSocketReady(rawWsClient, 15000L);
-                }
-                connected = true;
-                return identity;
-            } catch (RuntimeException e) {
-                connectPromise = null;
-                throw e;
+                promise.complete(establishConnection());
+            } catch (Throwable e) {
+                // Clear before completing so that by the time a caller
+                // observes the failure, calling connect() again starts a
+                // fresh attempt instead of joining this dead future.
+                clearConnectPromise(promise);
+                promise.completeExceptionally(e);
             }
         });
-        return connectPromise;
+        return promise;
+    }
+
+    private BotIdentity establishConnection() {
+        // Feishu message normalization needs the bot open_id to strip
+        // self-mentions and evaluate "must mention bot" policies.
+        BotIdentity identity = fetchBotIdentity();
+        botIdentity = identity;
+        safetyPipeline.setBotIdentity(identity);
+        if (rawWsClient != null) {
+            rawWsClient.start();
+            // Connect only resolves after the first WebSocket
+            // handshake is actually ready, not merely after the client
+            // has been constructed.
+            awaitWebSocketReady(rawWsClient, 15000L);
+        }
+        connected = true;
+        return identity;
+    }
+
+    private synchronized void clearConnectPromise(CompletableFuture<BotIdentity> promise) {
+        // Identity check: never clobber state owned by disconnect() or a
+        // newer connect attempt.
+        if (connectPromise == promise) {
+            connectPromise = null;
+        }
     }
 
     /**

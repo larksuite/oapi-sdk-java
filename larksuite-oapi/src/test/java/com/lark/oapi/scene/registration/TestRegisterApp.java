@@ -52,7 +52,9 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.zip.GZIPInputStream;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
@@ -389,7 +391,7 @@ public class TestRegisterApp {
     public void testRegisterAppRejectsEmptyAddons() throws Exception {
         assertInvalidOptions(RegisterAppOptions.newBuilder()
                         .addons(AppAddons.newBuilder().build()),
-                "addons must contain at least one scope, event or callback");
+                "addons must contain at least one scope, event or callback, or set preset to false");
     }
 
     @Test
@@ -399,6 +401,84 @@ public class TestRegisterApp {
                                 .callbacks("card.action.trigger", "")
                                 .build()),
                 "addons.callbacks.items[1] must be a non-empty string");
+    }
+
+    @Test
+    public void testRegisterAppEncodesPresetFalseAddonsWithoutIncrementalItems() throws Exception {
+        HttpUrl qrUrl = captureQRCodeUrl(RegisterAppOptions.newBuilder()
+                .addons(AppAddons.newBuilder()
+                        .preset(false)
+                        .build()));
+
+        assertEquals(json("{\"preset\":false}"), decodeAddonsParam(qrUrl));
+    }
+
+    @Test
+    public void testRegisterAppEncodesPresetFalseAlongsideIncrementalItems() throws Exception {
+        HttpUrl qrUrl = captureQRCodeUrl(RegisterAppOptions.newBuilder()
+                .addons(AppAddons.newBuilder()
+                        .preset(false)
+                        .tenantScopes("im:message:send_as_bot")
+                        .build()));
+
+        assertEquals(json("{"
+                        + "\"preset\":false,"
+                        + "\"scopes\":{\"tenant\":[\"im:message:send_as_bot\"]}"
+                        + "}"),
+                decodeAddonsParam(qrUrl));
+    }
+
+    @Test
+    public void testRegisterAppEncodesPresetTrueVerbatim() throws Exception {
+        HttpUrl qrUrl = captureQRCodeUrl(RegisterAppOptions.newBuilder()
+                .addons(AppAddons.newBuilder()
+                        .preset(true)
+                        .tenantScopes("im:message:send_as_bot")
+                        .build()));
+
+        assertEquals(json("{"
+                        + "\"preset\":true,"
+                        + "\"scopes\":{\"tenant\":[\"im:message:send_as_bot\"]}"
+                        + "}"),
+                decodeAddonsParam(qrUrl));
+    }
+
+    @Test
+    public void testRegisterAppOmitsPresetKeyWhenNotConfigured() throws Exception {
+        HttpUrl qrUrl = captureQRCodeUrl(RegisterAppOptions.newBuilder()
+                .addons(AppAddons.newBuilder()
+                        .tenantScopes("im:message:send_as_bot")
+                        .build()));
+
+        JsonElement decoded = decodeAddonsParam(qrUrl);
+        assertFalse(decoded.getAsJsonObject().has("preset"));
+        assertEquals(json("{\"scopes\":{\"tenant\":[\"im:message:send_as_bot\"]}}"), decoded);
+    }
+
+    @Test
+    public void testRegisterAppRejectsPresetTrueWithoutIncrementalItems() throws Exception {
+        assertInvalidOptions(RegisterAppOptions.newBuilder()
+                        .addons(AppAddons.newBuilder()
+                                .preset(true)
+                                .build()),
+                "addons must contain at least one scope, event or callback, or set preset to false");
+    }
+
+    @Test
+    public void testRegisterAppRejectsEmptyScopeStringEvenWithPresetFalse() throws Exception {
+        assertInvalidOptions(RegisterAppOptions.newBuilder()
+                        .addons(AppAddons.newBuilder()
+                                .preset(false)
+                                .tenantScopes("")
+                                .build()),
+                "addons.scopes.tenant[0] must be a non-empty string");
+    }
+
+    @Test
+    public void testAppAddonsPresetGetterMirrorsBuilderState() {
+        assertNull(AppAddons.newBuilder().build().getPreset());
+        assertEquals(Boolean.FALSE, AppAddons.newBuilder().preset(false).build().getPreset());
+        assertEquals(Boolean.TRUE, AppAddons.newBuilder().preset(true).build().getPreset());
     }
 
     @Test

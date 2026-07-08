@@ -42,13 +42,19 @@ final class AppAddonsEncoder {
 
     static String encode(AppAddons addons) throws RegisterAppException {
         int itemCount = validate(addons);
-        if (itemCount == 0) {
-            throw invalid("addons must contain at least one scope, event or callback");
+        if (itemCount == 0 && !isMinimalBase(addons)) {
+            throw invalid("addons must contain at least one scope, event or callback, or set preset to false");
         }
 
         String json = Jsons.DEFAULT.toJson(addons);
         byte[] data = gzip(json.getBytes(StandardCharsets.UTF_8));
         return Base64.getUrlEncoder().withoutPadding().encodeToString(data);
+    }
+
+    // preset=false selects the minimal base template, which is meaningful on
+    // its own; only then may the incremental config lists all be empty.
+    private static boolean isMinimalBase(AppAddons addons) {
+        return addons != null && Boolean.FALSE.equals(addons.getPreset());
     }
 
     private static int validate(AppAddons addons) throws RegisterAppException {
