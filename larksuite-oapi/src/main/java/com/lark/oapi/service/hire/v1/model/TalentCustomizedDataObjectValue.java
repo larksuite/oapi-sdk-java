@@ -45,7 +45,7 @@ public class TalentCustomizedDataObjectValue {
      * <p> 示例值：
      */
     @SerializedName("children")
-    private TalentCustomizedDataObjectValueChild[] children;
+    private TalentCustomizedDataObjectValueChild[][] children;
 
     // builder 开始
     public TalentCustomizedDataObjectValue() {
@@ -89,11 +89,11 @@ public class TalentCustomizedDataObjectValue {
         this.value = value;
     }
 
-    public TalentCustomizedDataObjectValueChild[] getChildren() {
+    public TalentCustomizedDataObjectValueChild[][] getChildren() {
         return this.children;
     }
 
-    public void setChildren(TalentCustomizedDataObjectValueChild[] children) {
+    public void setChildren(TalentCustomizedDataObjectValueChild[][] children) {
         this.children = children;
     }
 
@@ -112,7 +112,7 @@ public class TalentCustomizedDataObjectValue {
          * 子字段列表
          * <p> 示例值：
          */
-        private TalentCustomizedDataObjectValueChild[] children;
+        private TalentCustomizedDataObjectValueChild[][] children;
 
         /**
          * 自定义字段 ID
@@ -147,7 +147,7 @@ public class TalentCustomizedDataObjectValue {
          * @param children
          * @return
          */
-        public Builder children(TalentCustomizedDataObjectValueChild[] children) {
+        public Builder children(TalentCustomizedDataObjectValueChild[][] children) {
             this.children = children;
             return this;
         }
